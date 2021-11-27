@@ -3,6 +3,12 @@ from ...base.const import ConstIntBase
 
 
 class Command(ConstIntBase):
+    """
+    these values specify the different command types available.
+
+    See Also:
+        `API Command <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt_1_1Command.html>`_
+    """
     CONTEXTMENU = 1
     """specifies a requests for a context menu."""
     STARTDRAG = 2

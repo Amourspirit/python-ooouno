@@ -10,7 +10,7 @@ class CharSet(ConstIntBase):
         `API CharSet <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt_1_1CharSet.html>`_
     """
     DONTKNOW = 0
-    """pecifies an unknown character set"""
+    """specifies an unknown character set"""
     ANSI = 1
     """specifies the ANSI character set."""
     MAC = 2

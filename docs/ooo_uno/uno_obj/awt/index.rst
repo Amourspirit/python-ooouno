@@ -1,0 +1,9 @@
+===
+awt
+===
+
+.. toctree::
+    :titlesonly:
+    :glob:
+
+    *

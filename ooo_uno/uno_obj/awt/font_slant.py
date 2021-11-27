@@ -1,58 +1,12 @@
 # coding: utf-8
-from abc import ABC, abstractproperty
 from enum import Enum
 from typing import TYPE_CHECKING
 from ...env import UNO_ENVIRONMENT
 if (not TYPE_CHECKING) and UNO_ENVIRONMENT:
     # PushButtonType is string enum
     from com.sun.star.awt.FontSlant import NONE, OBLIQUE, ITALIC, DONTKNOW, REVERSE_OBLIQUE, REVERSE_ITALIC
-# https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a362a86d3ebca4a201d13bc3e7b94340e
 
-class FontSlant(ABC):
-    """
-    used to specify the slant of a font.
-
-    See Also:
-        `API FontSlant <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a362a86d3ebca4a201d13bc3e7b94340e>`_
-    """
-    @abstractproperty
-    def NONE(self) -> int:
-        """
-        specifies a font without slant.
-        """
-
-    @abstractproperty
-    def OBLIQUE(self) -> int:
-        """
-        specifies an oblique font (slant not designed into the font).
-        """
-
-    @abstractproperty
-    def ITALIC(self) -> int:
-        """
-        specifies an italic font (slant designed into the font).
-        """
-
-    @abstractproperty
-    def DONTKNOW(self) -> int:
-        """
-        specifies a font with an unknown slant.
-    
-        specifies that the menu item type is unknown.
-        """
-    @abstractproperty
-    def REVERSE_OBLIQUE(self) -> int:
-        """
-        specifies a reverse oblique font (slant not designed into the font).
-        """
-    @abstractproperty
-    def REVERSE_ITALIC(self) -> int:
-        """
-        specifies a reverse italic font (slant designed into the font).
-        """
-
-
-class _FontSlant(str, Enum):
+class FontSlant(str, Enum):
     """
     used to specify the slant of a font.
 

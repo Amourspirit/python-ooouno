@@ -67,7 +67,7 @@ setup(
     description="Interfaces and classes for LibraOffice (uno)",
     long_description_content_type="text/x-rst",
     long_description=README,
-    url="https://github.com/Amourspirit/python-ooo_uno",
+    url="https://github.com/Amourspirit/python-ooouno",
     author=":Barry-Thomas-Paul: Moss",
     author_email='bigbytetech@gmail.com',
     license="MIT",

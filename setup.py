@@ -6,7 +6,7 @@ from ooo_uno import __version__
 PKG_NAME = 'ooouno'
 VERSION = __version__
 PKG_MAIN = 'ooo_uno'
-SUB_PKG = ['base', 'args', 'env', 'interface',
+SUB_PKG = ['base', 'args', 'ctl', 'env', 'interface',
                'uno_obj', 'uno_obj.awt', 'uno_obj.beans', 'uno_obj.container',
                'uno_obj.frame', 'uno_obj.lang', 'uno_obj.script', 'uno_obj.script.provider',
                'uno_obj.style', 'uno_obj.text', 'uno_obj.uno',
@@ -73,7 +73,7 @@ setup(
     license="MIT",
     packages=PACKAGES,
     py_modules=MODULES,
-    keywords=['python', 'uno', 'libreoffice', 'openoffice', 'pyuno'],
+    keywords=['uno', 'libreoffice', 'openoffice', 'pyuno'],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",

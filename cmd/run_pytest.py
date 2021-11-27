@@ -1,6 +1,6 @@
 # coding: utf-8
 from subprocess import run
-TEST_MODULES = ['loqlt']
+TEST_MODULES = ['ooo_uno']
 # kwhelp.method
 
 

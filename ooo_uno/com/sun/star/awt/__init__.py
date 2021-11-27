@@ -10,8 +10,8 @@ from .....uno_obj.awt.font_slant import FontSlant
 from .....uno_obj.awt.font_strikeout import FontStrikeout
 from .....uno_obj.awt.font_type import FontType
 from .....uno_obj.awt.font_underline import FontUnderline
-from .....uno_obj.awt.img_align import ImageAlign
-from .....uno_obj.awt.img_position import ImagePosition
+from .....uno_obj.awt.image_align import ImageAlign
+from .....uno_obj.awt.image_position import ImagePosition
 from .....uno_obj.awt.push_button_type import PushButtonType
 from .....uno_obj.awt.x_action_listener import XActionListener
 from .....uno_obj.awt.x_item_listener import XItemListener

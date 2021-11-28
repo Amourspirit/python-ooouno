@@ -1,8 +1,10 @@
 # coding: utf-8
 from abc import abstractmethod
-# from com.sun.star.lang import XEventListener
+from typing import TYPE_CHECKING
 from ...uno.x_interface import XInterface
-from ...uno.x_component_context import XComponentContext
+if TYPE_CHECKING:
+    from ...uno.x_component_context import XComponentContext
+    from ...frame.x_desktop import XDesktop
 
 
 class XScriptContext(XInterface):
@@ -11,7 +13,7 @@ class XScriptContext(XInterface):
     the various interfaces which they might need to perform some action on a document.
     """
     @abstractmethod
-    def getComponentContext() -> XComponentContext:
+    def getComponentContext() -> 'XComponentContext':
         """
         Obtain the component context which the script can use to create other uno components.
 
@@ -20,12 +22,9 @@ class XScriptContext(XInterface):
         """
 
     @abstractmethod
-    def getDesktop():
+    def getDesktop() -> 'XDesktop':
         """
         Obtain the desktop reference on which the script can operate.
-
-        Todo:
-            Update return types to be XDesktop
 
         Returns:
             XDesktop: desktop

@@ -9,4 +9,5 @@ uno_ojb
     container/index
     frame/index
     lang/index
+    script/index
     uno/index

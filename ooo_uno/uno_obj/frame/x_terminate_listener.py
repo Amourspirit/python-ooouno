@@ -1,14 +1,15 @@
 # coding: utf-8
 from abc import abstractmethod
+from typing import TYPE_CHECKING
 from ..lang.x_event_listener import XEventListener
-from ..lang.event_object import IEventObject
-
+if TYPE_CHECKING:
+    from ..lang.event_object import IEventObject
 
 class XTerminateListener(XEventListener):
     """has to be provided if an object wants to receive an event when the master environment (e.g., desktop) is terminated."""
 
     @abstractmethod
-    def notifyTermination(self, Event: IEventObject):
+    def notifyTermination(self, Event: 'IEventObject'):
         """
         is called when the master environment is finally terminated.
 
@@ -19,7 +20,7 @@ class XTerminateListener(XEventListener):
         """
 
     @abstractmethod
-    def queryTermination(self, Event: IEventObject):
+    def queryTermination(self, Event: 'IEventObject'):
         """
         is called when the master environment (e.g., desktop) is about to terminate.
 

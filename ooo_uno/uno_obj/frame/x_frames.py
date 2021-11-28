@@ -1,10 +1,10 @@
 # coding: utf-8
 from abc import abstractmethod
-from typing import Iterable
-
-from ..frame.x_frame import XFrame
+from typing import Iterable, TYPE_CHECKING
 from ..container.x_index_access import XIndexAccess
-from .frame_search import IFrameSearch
+if TYPE_CHECKING:
+    from ..frame.x_frame import XFrame
+    from .frame_search_flag import IFrameSearchFlag
 
 
 class XFrames(XIndexAccess):
@@ -16,16 +16,16 @@ class XFrames(XIndexAccess):
     """
 
     @abstractmethod
-    def append(self, xFrame: XFrame):
+    def append(self, xFrame: 'XFrame'):
         """
         appends the specified Frame to the list of sub-frames.
 
         Args:
-            xFrame (XFame): new frame for inserting into this container
+            xFrame (XFrame): new frame for inserting into this container
         """
 
     @abstractmethod
-    def queryFrames(self, nSearchFlags: IFrameSearch) -> Iterable[XFrame]:
+    def queryFrames(self, nSearchFlags: 'IFrameSearchFlag') -> Iterable['XFrame']:
         """
         provides access to the list of all currently existing frames inside this container and her sub frames
 
@@ -38,7 +38,7 @@ class XFrames(XIndexAccess):
         """
 
     @abstractmethod
-    def remove(self, xFrame: XFrame):
+    def remove(self, xFrame: 'XFrame'):
         """
         removes the frame from its container.
 

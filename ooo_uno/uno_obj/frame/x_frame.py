@@ -1,11 +1,12 @@
 # coding: utf-8
 from abc import abstractmethod
-from typing import Optional, Union
+from typing import Optional, Union, TYPE_CHECKING
 from ..lang.x_component import XComponent
-from .x_controller import XController
-from .x_frame_action_listener import XFrameActionListener
-from .x_frames_supplier import XFramesSupplier
-from .frame_action import IFrameAction
+if TYPE_CHECKING:
+    from .x_controller import XController
+    from .x_frame_action_listener import XFrameActionListener
+    from .x_frames_supplier import XFramesSupplier
+    from .frame_action import FrameAction
 
 
 class XFrame(XComponent):
@@ -36,7 +37,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def addFrameActionListener(self, xListener: XFrameActionListener):
+    def addFrameActionListener(self, xListener: 'XFrameActionListener'):
         """
         registers an event listener, which will be called when certain things happen to
         the components within this frame or within sub-frames of this frame.
@@ -70,7 +71,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def findFrame(self, aTargetFrameName: str, nSearchFlags: Optional[IFrameAction]) -> 'XFrame':
+    def findFrame(self, aTargetFrameName: str, nSearchFlags: Optional['FrameAction']) -> 'XFrame':
         """
         searches for a frame with the specified name.
 
@@ -139,7 +140,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def getController(self) -> XController:
+    def getController(self) -> 'XController':
         """
         provides access to the controller
 
@@ -148,15 +149,12 @@ class XFrame(XComponent):
             Use ``XController.getFrame()`` to dispose the frame after you the controller
             agreed with a ``XController.suspend()`` call.
 
-        Todo:
-            Update return value to be of type XController
-
         Returns:
             XController: the current controller within this frame or ``None`` if no one currently exist
         """
 
     @abstractmethod
-    def getCreator(self) -> XFramesSupplier:
+    def getCreator(self) -> 'XFramesSupplier':
         """
         provides access to the creator (parent) of this frame
 
@@ -215,7 +213,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def removeFrameActionListener(self, xListener: XFrameActionListener):
+    def removeFrameActionListener(self, xListener: 'XFrameActionListener'):
         """
         unregisters an event listener
 
@@ -224,7 +222,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def setComponent(self, xComponentWindow: object, xController: object) -> bool:
+    def setComponent(self, xComponentWindow: object, xController: 'XController') -> bool:
         """
         sets a new component into the frame or release an existing one from a frame.
 
@@ -236,9 +234,7 @@ class XFrame(XComponent):
                 In this case no controller must be given here.
 
         Todo:
-
-            * update arg xComponentWindow to be of type com.sun.star.awt.XWindow
-            * update arg xController to be of type XController
+            update arg xComponentWindow to be of type com.sun.star.awt.XWindow
 
         Returns:
             bool: ``True`` if setting of new component or release of an existing one was successfully;
@@ -247,7 +243,7 @@ class XFrame(XComponent):
         """
 
     @abstractmethod
-    def setCreator(self, Creator: object):
+    def setCreator(self, Creator: 'XFramesSupplier'):
         """
         sets the frame container that created this frame.
 
@@ -255,9 +251,6 @@ class XFrame(XComponent):
         which creates this instance ... it means the parent frame of the frame hierarchy.
         Because; normally a frame should be created by using the API and is necessary for searches
         inside the tree (e.g. XFrame.findFrame())
-
-        Todo:
-            Update arg Creator to be of type XFramesSupplier
 
         Args:
             Creator (XFramesSupplier): the creator (parent) of this frame

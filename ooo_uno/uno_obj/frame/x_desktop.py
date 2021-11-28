@@ -1,9 +1,12 @@
 # coding: utf-8
 from abc import abstractmethod
+from typing import TYPE_CHECKING
 from ..uno.x_interface import XInterface
-from .x_terminate_listener import XTerminateListener
-from ..container.x_enumeration_access import XEnumerationAccess
-from ..lang.x_component import XComponent
+if TYPE_CHECKING:
+    from .x_terminate_listener import XTerminateListener
+    from ..container.x_enumeration_access import XEnumerationAccess
+    from ..lang.x_component import XComponent
+    from .x_frame import XFrame
 
 
 class XDesktop(XInterface):
@@ -18,7 +21,7 @@ class XDesktop(XInterface):
     """
 
     @abstractmethod
-    def addTerminateListener(self, Listener: XTerminateListener):
+    def addTerminateListener(self, Listener: 'XTerminateListener'):
         """
         registers an event listener to the desktop, which is called when the desktop is
         queried to terminate, and when it really terminates.
@@ -29,7 +32,7 @@ class XDesktop(XInterface):
         """
 
     @abstractmethod
-    def getComponents(self) -> XEnumerationAccess:
+    def getComponents(self) -> 'XEnumerationAccess':
         """
         provides read access to collection of all currently loaded components inside the frame tree
 
@@ -43,7 +46,7 @@ class XDesktop(XInterface):
         """
 
     @abstractmethod
-    def getCurrentComponent(self) -> XComponent:
+    def getCurrentComponent(self) -> 'XComponent':
         """
         provides read access to the component inside the tree which has the UI focus
 
@@ -55,19 +58,16 @@ class XDesktop(XInterface):
         """
 
     @abstractmethod
-    def getCurrentFrame(self) -> object:
+    def getCurrentFrame(self) -> 'XFrame':
         """
         provides read access to the frame which contains the current component
-
-        Todo:
-            update return value to be of type ``com.sun.star.frame.XFrame``
 
         Returns:
             XFrame: the frame of the component which has the UI focus within this desktop environment
         """
 
     @abstractmethod
-    def removeTerminateListener(self, Listener: XTerminateListener):
+    def removeTerminateListener(self, Listener: 'XTerminateListener'):
         """
         unregisters an event listener for termination events.
 

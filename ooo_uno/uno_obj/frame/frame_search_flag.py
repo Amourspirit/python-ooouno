@@ -2,13 +2,16 @@
 from ...base.const import ConstIntFlagsBase
 
 
-class IFrameSearch(ConstIntFlagsBase):
+class IFrameSearchFlag(ConstIntFlagsBase):
     """
     these types describe the algorithm to be used to search a frame
 
     Such flags will be used on methods ``XFrame.findFrame()``, ``XDispatchProvider.queryDispatch()``
     or ``XComponentLoader.loadComponentFromURL()`` if no special target frame name
     (e.g. "_blank", "_self") is used.
+    
+    See Also:
+        `API FrameSearchFlag <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1frame_1_1FrameSearchFlag.html>`_
     """
     AUTO = 0
     """no longer supported"""

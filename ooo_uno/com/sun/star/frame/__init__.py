@@ -6,10 +6,9 @@ from .....uno_obj.frame.x_terminate_listener import XTerminateListener
 from .....uno_obj.frame.x_frame_action_listener import XFrameActionListener
 from .....uno_obj.frame.x_frame import XFrame
 from .....uno_obj.frame.x_frames import XFrames
-from .....uno_obj.frame.frame_action import IFrameAction
+from .....uno_obj.frame.frame_action import FrameAction
 from .....uno_obj.frame.frame_action_event import IFrameActionEvent
 from .....uno_obj.frame.x_frames_supplier import XFramesSupplier
-from .....uno_obj.frame.frame_search import IFrameSearch
-FrameAction: TypeAlias = IFrameAction
+from .....uno_obj.frame.frame_search_flag import IFrameSearchFlag
 FrameActionEvent: TypeAlias = IFrameActionEvent
-FrameSearchFlag: TypeAlias = IFrameSearch
+FrameSearchFlag: TypeAlias = IFrameSearchFlag

@@ -1,7 +1,9 @@
 # coding: utf-8
 from abc import abstractmethod
+from typing import TYPE_CHECKING
 from ..lang.x_event_listener import XEventListener
-
+if TYPE_CHECKING:
+    from .frame_action_event import IFrameActionEvent
 
 class XFrameActionListener(XEventListener):
     """
@@ -13,13 +15,11 @@ class XFrameActionListener(XEventListener):
     """
 
     @abstractmethod
-    def frameAction(self, Action: object):
+    def frameAction(self, Action: 'IFrameActionEvent'):
         """
         is called whenever any action occurs to a component within a frame.
 
-        Todo:
-            Update Action argument to be of type ``FrameActionEvent``.
 
         Args:
-            Action (FrameActionEvent): describes the detected frame action for which the listener can react
+            Action (IFrameActionEvent): describes the detected frame action for which the listener can react
         """

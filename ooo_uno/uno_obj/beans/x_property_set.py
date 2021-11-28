@@ -1,7 +1,6 @@
 # coding: utf-8
 from typing import Union
 from ..uno.x_interface import XInterface
-from ..uno import XInterface
 from ..beans.x_vetoable_change_listener import XVetoableChangeListener
 from ..beans.x_property_change_listener import XPropertyChangeListener
 from ..beans.x_property_set_info import XPropertySetInfo

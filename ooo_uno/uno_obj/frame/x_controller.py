@@ -1,7 +1,9 @@
 # coding: utf-8
 from abc import abstractmethod
+from typing import TYPE_CHECKING
 from ..lang.x_component import XComponent
-from .x_frame import XFrame
+if TYPE_CHECKING:
+    from .x_frame import XFrame
 
 
 class XController(XComponent):
@@ -14,7 +16,7 @@ class XController(XComponent):
     """
 
     @abstractmethod
-    def attachFrame(self, Frame: XFrame):
+    def attachFrame(self, Frame: 'XFrame'):
         """
         is called to attach the controller with its managing frame.
 
@@ -38,7 +40,7 @@ class XController(XComponent):
         """
 
     @abstractmethod
-    def getFrame(self) -> XFrame:
+    def getFrame(self) -> 'XFrame':
         """
         provides access to owner frame of this controller
 

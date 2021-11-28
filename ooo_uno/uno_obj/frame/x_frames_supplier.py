@@ -1,11 +1,18 @@
 # coding: utf-8
 from abc import abstractmethod
+from typing import TYPE_CHECKING
 from .x_frame import XFrame
-from .x_frames import XFrames
+if TYPE_CHECKING:
+    from .x_frames import XFrames
 
 
 class XFramesSupplier(XFrame):
-    """provides access to sub frames of current one"""
+    """
+    provides access to sub frames of current one
+
+    See Also:
+        `API XFramesSupplier <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XFramesSupplier.html>`_
+    """
 
     @abstractmethod
     def getActiveFrame(self) -> XFrame:
@@ -22,7 +29,7 @@ class XFramesSupplier(XFrame):
         """
 
     @abstractmethod
-    def getFrames(self) -> XFrames:
+    def getFrames(self) -> 'XFrames':
         """
         provides access to this container and to all other ``XFramesSupplier`` which are available
         from this node of frame tree

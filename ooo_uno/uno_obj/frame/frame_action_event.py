@@ -1,8 +1,10 @@
 # coding: utf-8
+from typing import TYPE_CHECKING
 from abc import abstractproperty
 from ..lang.event_object import IEventObject
-from .x_frame import XFrame
-from .frame_action import IFrameAction
+if TYPE_CHECKING:
+    from .x_frame import XFrame
+    from .frame_action import FrameAction
 
 
 class IFrameActionEvent(IEventObject):
@@ -14,7 +16,7 @@ class IFrameActionEvent(IEventObject):
     """
 
     @abstractproperty
-    def Action(self) -> IFrameAction:
+    def Action(self) -> 'FrameAction':
         """
         specifies the concrete event
 
@@ -23,7 +25,7 @@ class IFrameActionEvent(IEventObject):
         """
 
     @abstractproperty
-    def Frame(self) -> XFrame:
+    def Frame(self) -> 'XFrame':
         """
         contains the frame in which the event occurred
 

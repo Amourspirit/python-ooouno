@@ -2,12 +2,12 @@
 from abc import abstractmethod
 # from com.sun.star.lang import XEventListener
 from ..uno.x_interface import XInterface
-# https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1lang_1_1XEventListener.html
+
 
 class XEventListener(XInterface):
     """
     base interface for all event listeners interfaces.
-    
+
     See Also:
         `API XEventListener <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1lang_1_1XEventListener.html>`_
     """
@@ -23,7 +23,7 @@ class XEventListener(XInterface):
 
         This method is called for every listener registration of derived listener interfaced,
         not only for registrations at XComponent.
-        
+
 
         Args:
             Source (object): event object

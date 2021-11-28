@@ -1,8 +1,9 @@
 # coding: utf-8
 from abc import abstractmethod
-# from com.sun.star.lang import XEventListener
+from typing import TYPE_CHECKING
 from ..uno.x_interface import XInterface
-from .x_event_listener import XEventListener
+if TYPE_CHECKING:
+    from .x_event_listener import XEventListener
 
 
 class XComponent(XInterface):
@@ -17,10 +18,13 @@ class XComponent(XInterface):
     by definition the owner of that object or your reference is very temporary or you
     have registered an EventListener at that object and release the reference when
     "disposing" is called.
+
+    See Also:
+        `API XComponent <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1lang_1_1XComponent.html>`_
     """
 
     @abstractmethod
-    def addEventListener(self, xListener: XEventListener):
+    def addEventListener(self, xListener: 'XEventListener'):
         """
         adds an event listener to the object.
 
@@ -65,7 +69,7 @@ class XComponent(XInterface):
         """
 
     @abstractmethod
-    def removeEventListener(self, aListener: XEventListener):
+    def removeEventListener(self, aListener: 'XEventListener'):
         """
         removes an event listener from the listener list.
 

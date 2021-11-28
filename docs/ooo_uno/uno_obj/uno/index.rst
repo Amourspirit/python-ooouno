@@ -1,0 +1,9 @@
+===
+uno
+===
+
+.. toctree::
+    :titlesonly:
+    :glob:
+
+    *

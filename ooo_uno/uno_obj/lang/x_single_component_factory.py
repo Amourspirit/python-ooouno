@@ -1,8 +1,9 @@
 # coding: utf-8
 from abc import abstractmethod
-from typing import Any, Iterable
+from typing import Any, Iterable, TYPE_CHECKING
 from ..uno.x_interface import XInterface
-from ..uno.x_component_context import XComponentContext
+if TYPE_CHECKING:
+    from ..uno.x_component_context import XComponentContext
 
 
 class XSingleComponentFactory(XInterface):
@@ -14,7 +15,7 @@ class XSingleComponentFactory(XInterface):
     """
 
     @abstractmethod
-    def createInstanceWithArgumentsAndContext(self, Arguments: Iterable[Any], Context: XComponentContext) -> XInterface:
+    def createInstanceWithArgumentsAndContext(self, Arguments: Iterable[Any], Context: 'XComponentContext') -> XInterface:
         """
         Creates an instance of a component and initializes the new instance with the given arguments and context.
 
@@ -27,7 +28,7 @@ class XSingleComponentFactory(XInterface):
         """
 
     @abstractmethod
-    def createInstanceWithContext(self, Context: XComponentContext) -> XInterface:
+    def createInstanceWithContext(self, Context: 'XComponentContext') -> XInterface:
         """
         Creates an instance of a service implementation.
 

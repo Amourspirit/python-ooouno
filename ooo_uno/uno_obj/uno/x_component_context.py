@@ -13,7 +13,12 @@ from .x_interface import XInterface
 
 
 class XComponentContext(XInterface):
-    """Component context to be passed to a component via com.sun.star.lang.XSingleComponentFactory."""
+    """
+    Component context to be passed to a component via com.sun.star.lang.XSingleComponentFactory.
+    
+    See Also:
+        `API XComponentContext <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1uno_1_1XComponentContext.html>`_
+    """
 
     @abstractmethod
     def getServiceManager() -> 'XMultiComponentFactory':

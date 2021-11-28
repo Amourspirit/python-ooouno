@@ -1,7 +1,5 @@
 # coding: utf-8
 from abc import ABC, abstractmethod
-# from com.sun.star.uno import XInterface
-# https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1uno_1_1XInterface.html#a23b477d0e2d399f75d585d154c346591
 
 
 class XInterface(ABC):
@@ -22,9 +20,9 @@ class XInterface(ABC):
     The UNO object does not export the state of the reference count (acquire() and release()
     do not have return values). In general, also the UNO object itself should not make any assumption
     on the concrete value of the reference count (except on the transition from one to zero ).
-    
+
     See Also:
-        `API XInterface <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1uno_1_1XInterface.html#a23b477d0e2d399f75d585d154c346591>`_
+        `API XInterface <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1uno_1_1XInterface.html>`_
     """
     @abstractmethod
     def release(self):

@@ -8,3 +8,5 @@ uno_ojb
     beans/index
     container/index
     frame/index
+    lang/index
+    uno/index

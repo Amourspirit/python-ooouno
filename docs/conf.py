@@ -15,7 +15,11 @@ import sys
 # sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
-
+# environment runtime flag.
+# if ooouno_ignore_runtime flag == 'True' then
+# some modules such as Style.tab_stop.TabStop will ignore runtime
+# and return the default type. In this case a class instead of a namedtupple
+os.environ['ooouno_ignore_runtime'] = 'True'
 # -- Project information -----------------------------------------------------
 
 project = 'ooouno'

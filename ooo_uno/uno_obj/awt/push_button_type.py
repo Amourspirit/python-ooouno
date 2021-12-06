@@ -1,5 +1,4 @@
 # coding: utf-8
-from abc import ABC, abstractproperty
 from typing import TYPE_CHECKING
 from enum import Enum
 from ...env import UNO_ENVIRONMENT

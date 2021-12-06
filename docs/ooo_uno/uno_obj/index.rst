@@ -10,4 +10,5 @@ uno_ojb
     frame/index
     lang/index
     script/index
+    style/index
     uno/index

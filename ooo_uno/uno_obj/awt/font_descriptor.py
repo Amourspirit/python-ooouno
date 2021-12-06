@@ -2,7 +2,7 @@
 from typing import Any, TYPE_CHECKING
 from abc import ABC, abstractproperty
 if TYPE_CHECKING:
-    from .fontslant import FontSlant
+    from .font_slant import FontSlant
 
 # https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1awt_1_1FontDescriptor.html#a7ee9065718e6628dc7791b756fa6c0f9
 

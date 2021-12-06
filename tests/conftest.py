@@ -18,7 +18,6 @@ def uno_env() -> bool:
         return False
     return ('uno' in sys.modules and hasattr(sys.modules['uno'], 'getComponentContext')) and callable(sys.modules['uno'].getComponentContext)
 
-
 @pytest.fixture(scope='session')
 def clear_lru_cache_cache():
     def _clear():

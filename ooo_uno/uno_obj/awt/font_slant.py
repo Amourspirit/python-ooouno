@@ -1,7 +1,7 @@
 # coding: utf-8
 from enum import Enum
 from typing import TYPE_CHECKING
-from ...env import UNO_ENVIRONMENT
+from ...oenv import UNO_ENVIRONMENT
 if (not TYPE_CHECKING) and UNO_ENVIRONMENT:
     # PushButtonType is string enum
     from com.sun.star.awt.FontSlant import NONE, OBLIQUE, ITALIC, DONTKNOW, REVERSE_OBLIQUE, REVERSE_ITALIC

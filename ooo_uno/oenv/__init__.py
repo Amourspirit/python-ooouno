@@ -1,4 +1,8 @@
 # coding: utf-8
+try:
+    import uno
+except ImportError:
+    pass
 import sys
 from typing import TYPE_CHECKING
 UNO_ENVIRONMENT = False

@@ -1,6 +1,6 @@
+# coding: utf-8
 import uno
 
-# coding: utf-8
 
 def uno_enum_class_new(cls, value):
     """

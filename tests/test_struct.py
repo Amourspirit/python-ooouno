@@ -4,6 +4,7 @@ if __name__ == "__main__":
     import sys
     import os
     sys.path.append(os.path.realpath('.'))
+    pytest.main([__file__])
 import uno
 from ooo_uno.uno_obj.style.tab_stop import TabStop
 from ooo_uno.uno_obj.style.tab_align import TabAlign
@@ -85,5 +86,3 @@ def test_NumberFormatCode():
     assert nfc.Type == 7
     assert nfc.Usage == 5
 
-if __name__ == "__main__":
-    pytest.main([__file__])

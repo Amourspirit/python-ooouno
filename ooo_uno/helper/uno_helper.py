@@ -139,7 +139,7 @@ def get_core_reflection() -> 'CoreReflection':
     return go_core_reflection
 
 
-def create_uno_struct(cTypeName: str):
+def create_uno_struct(cTypeName: str) -> object:
     """Create a UNO struct and return it. 
     Similar to the function of the same name in OOo Basic. 
     

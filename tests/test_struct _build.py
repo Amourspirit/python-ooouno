@@ -21,6 +21,27 @@ def test_TabStop():
     assert tab.FillChar == 'f'
     assert tab.Position == 1
 
+    tab = TabStop(
+        Alignment=TabAlign.CENTER,
+        DecimalChar='d',
+        FillChar='f',
+        Position=1
+    )
+    assert tab.Alignment == TabAlign.CENTER
+    assert tab.DecimalChar == 'd'
+    assert tab.FillChar == 'f'
+    assert tab.Position == 1
+
+    tab = TabStop(
+        TabAlign.DECIMAL, 'd',
+        FillChar='f',
+        Position=1
+    )
+    assert tab.Alignment == TabAlign.DECIMAL
+    assert tab.DecimalChar == 'd'
+    assert tab.FillChar == 'f'
+    assert tab.Position == 1
+
 
 if __name__ == "__main__":
     pytest.main([__file__])

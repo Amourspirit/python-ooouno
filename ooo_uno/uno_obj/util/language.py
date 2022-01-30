@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.util
 import typing
 
-Language: typing.TypeAlias = int
+Language = int
 """
 This type is used for a language identifier number.
 

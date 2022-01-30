@@ -21,7 +21,7 @@
 import typing
 from .chart_data_value import ChartDataValue
 
-ChartDataPoint: typing.TypeAlias = typing.List[ChartDataValue]
+ChartDataPoint = typing.List[ChartDataValue]
 """
 
 See Also:

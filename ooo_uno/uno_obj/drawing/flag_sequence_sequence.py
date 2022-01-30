@@ -21,7 +21,7 @@
 import typing
 from .flag_sequence import FlagSequence
 
-FlagSequenceSequence: typing.TypeAlias = typing.List[FlagSequence]
+FlagSequenceSequence = typing.List[FlagSequence]
 """
 
 See Also:

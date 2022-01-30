@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.drawing
 import typing
 
-DoubleSequence: typing.TypeAlias = typing.List[float]
+DoubleSequence = typing.List[float]
 """
 
 See Also:

@@ -21,7 +21,7 @@
 import typing
 from .point_sequence import PointSequence
 
-PointSequenceSequence: typing.TypeAlias = typing.List[PointSequence]
+PointSequenceSequence = typing.List[PointSequence]
 """
 
 See Also:

@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.drawing
 import typing
 
-CoordinateSequence: typing.TypeAlias = typing.List[int]
+CoordinateSequence = typing.List[int]
 """
 
 See Also:

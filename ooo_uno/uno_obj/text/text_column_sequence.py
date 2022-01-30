@@ -21,7 +21,7 @@
 import typing
 from .text_column import TextColumn
 
-TextColumnSequence: typing.TypeAlias = typing.List[TextColumn]
+TextColumnSequence = typing.List[TextColumn]
 """
 
 See Also:

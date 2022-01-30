@@ -21,7 +21,7 @@
 import typing
 from .coordinate_sequence import CoordinateSequence
 
-CoordinateSequenceSequence: typing.TypeAlias = typing.List[CoordinateSequence]
+CoordinateSequenceSequence = typing.List[CoordinateSequence]
 """
 
 See Also:

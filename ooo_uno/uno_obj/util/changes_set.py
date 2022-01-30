@@ -21,7 +21,7 @@
 import typing
 from .element_change import ElementChange
 
-ChangesSet: typing.TypeAlias = typing.List[ElementChange]
+ChangesSet = typing.List[ElementChange]
 """
 describes a set of changes occurring as a batch transaction.
 

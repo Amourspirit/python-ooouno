@@ -21,7 +21,7 @@
 import typing
 from .property_value import PropertyValue
 
-PropertyValues: typing.TypeAlias = typing.List[PropertyValue]
+PropertyValues = typing.List[PropertyValue]
 """
 specifies a sequence of PropertyValue instances.
 

@@ -21,7 +21,7 @@
 import typing
 from .double_sequence import DoubleSequence
 
-DoubleSequenceSequence: typing.TypeAlias = typing.List[DoubleSequence]
+DoubleSequenceSequence = typing.List[DoubleSequence]
 """
 
 See Also:

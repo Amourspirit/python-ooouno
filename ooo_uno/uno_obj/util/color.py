@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.util
 import typing
 
-Color: typing.TypeAlias = int
+Color = int
 """
 describes an RGB color value with an optional alpha channel.
 

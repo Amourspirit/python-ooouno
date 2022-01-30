@@ -21,7 +21,7 @@
 import typing
 from .polygon_flags import PolygonFlags
 
-FlagSequence: typing.TypeAlias = typing.List[PolygonFlags]
+FlagSequence = typing.List[PolygonFlags]
 """
 
 See Also:

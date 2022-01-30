@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.chart2.data
 import typing
 
-DataSequenceRole: typing.TypeAlias = str
+DataSequenceRole = str
 """
 a string that states in what way a DataSequence should be used.
 

@@ -21,7 +21,7 @@
 import typing
 from .color_component import ColorComponent
 
-Color: typing.TypeAlias = typing.List[ColorComponent]
+Color = typing.List[ColorComponent]
 """
 Shorthand for the device-dependent color components, and easier to read.
 

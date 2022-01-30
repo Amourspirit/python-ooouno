@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.rendering
 import typing
 
-ColorComponent: typing.TypeAlias = float
+ColorComponent = float
 """
 Shorthand for the device-dependent color components, and easier to read.
 

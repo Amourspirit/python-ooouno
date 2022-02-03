@@ -22,6 +22,8 @@ import typing
 
 CoordinateSystemTypeID = str
 """
+TypeDef type alias
+
 
 See Also:
     `API CoordinateSystemTypeID <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a761292ad88e29c1a3091f5670cbade7c>`_

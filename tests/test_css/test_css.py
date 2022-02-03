@@ -23,4 +23,4 @@ def test_property_values():
     lst: PropertyValues = []
     lst.append(pv1)
     lst.append(pv2)
-    assert isinstance(lst, PropertyValues)
+    assert isinstance(lst, list)

@@ -20,98 +20,72 @@
 # Libre Office Version: 7.2
 from ..lang.event_object import EventObject as EventObject_a3d70b03
 import typing
-from ooo_uno.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
-_DYNAMIC = False
-if (not typing.TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-    from ooo_uno.helper import uno_helper
 
-if typing.TYPE_CHECKING or _DYNAMIC is False:
+class AccessibleEventObject(EventObject_a3d70b03):
+    """
+    Struct Class
+
+    this struct describes an accessible event, that is broadcasted from the XAccessibleEventBroadcaster and notified to XAccessibleEventListener.
+    
+    It is usually implemented by AccessibleContext.
+    
+    **since**
+    
+        OOo 1.1.2
+
+    See Also:
+        `API AccessibleEventObject <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1accessibility_1_1AccessibleEventObject.html>`_
 
 
-    class AccessibleEventObject(EventObject_a3d70b03):
+    Note:
+        | At runtime AccessibleEventObject will be an actual uno struct however can seamlessly be treated as a regualr class.
+        | At design time a class is presumed. This allows for better typings.
+        | AccessibleEventObject is a callable and can be treatead as a class and create instances.
+    """
+
+    def __init__(self, EventId: typing.Optional[int] = None, NewValue: typing.Optional[object] = None, OldValue: typing.Optional[object] = None):
+        self._event_id = EventId
+        self._new_value = NewValue
+        self._old_value = OldValue
+
+    @property
+    def EventId(self) -> int:
         """
-        Struct Class
-
-        this struct describes an accessible event, that is broadcasted from the XAccessibleEventBroadcaster and notified to XAccessibleEventListener.
+        specifies the type of this event.
         
-        It is usually implemented by AccessibleContext.
-        
-        **since**
-        
-            OOo 1.1.2
-
-        See Also:
-            `API AccessibleEventObject <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1accessibility_1_1AccessibleEventObject.html>`_
-
-
-        Note:
-            | At runtime AccessibleEventObject will be an actual uno struct however can seamlessly be treated as a regualr class.
-            | At design time a class is presumed. This allows for better typings.
-            | AccessibleEventObject is a callable and can be treatead as a class and create instances.
+        For a list of possible events see AccessibleEventId.
         """
+        return self._event_id
+    
+    @EventId.setter
+    def EventId(self, value: int) -> None:
+        self._event_id = value
 
-        def __init__(self, EventId: typing.Optional[int] = None, NewValue: typing.Optional[object] = None, OldValue: typing.Optional[object] = None):
-            self._event_id = EventId
-            self._new_value = NewValue
-            self._old_value = OldValue
-
-        @property
-        def EventId(self) -> int:
-            """
-            specifies the type of this event.
-            
-            For a list of possible events see AccessibleEventId.
-            """
-            return self._event_id
+    @property
+    def NewValue(self) -> object:
+        """
+        for events that specifies a value change, this is the new value.
         
-        @EventId.setter
-        def EventId(self, value: int) -> None:
-            self._event_id = value
+        Depending on the EventId, this can be void.
+        """
+        return self._new_value
+    
+    @NewValue.setter
+    def NewValue(self, value: object) -> None:
+        self._new_value = value
 
-        @property
-        def NewValue(self) -> object:
-            """
-            for events that specifies a value change, this is the new value.
-            
-            Depending on the EventId, this can be void.
-            """
-            return self._new_value
+    @property
+    def OldValue(self) -> object:
+        """
+        for events that specifies a value change, this is the old value.
         
-        @NewValue.setter
-        def NewValue(self, value: object) -> None:
-            self._new_value = value
+        Depending on the EventId, this can be void.
+        """
+        return self._old_value
+    
+    @OldValue.setter
+    def OldValue(self, value: object) -> None:
+        self._old_value = value
 
-        @property
-        def OldValue(self) -> object:
-            """
-            for events that specifies a value change, this is the old value.
-            
-            Depending on the EventId, this can be void.
-            """
-            return self._old_value
-        
-        @OldValue.setter
-        def OldValue(self, value: object) -> None:
-            self._old_value = value
-
-if not typing.TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
-        # Dynamically create uno struct using uno
-        global AccessibleEventObject
-        order = ('EventId', 'NewValue', 'OldValue')
-
-        def _struct_init(*args, **kwargs):
-            struct = uno_helper.create_uno_struct('com.sun.star.accessibility.AccessibleEventObject')
-            for i, arg in enumerate(args):
-                if arg is None:
-                    continue
-                setattr(struct, order[i], arg)
-            for k, v in kwargs.items():
-                setattr(struct, k, v)
-            return struct
-        AccessibleEventObject = _struct_init
-
-    _dynamic_struct()
 
 __all__ = ['AccessibleEventObject']

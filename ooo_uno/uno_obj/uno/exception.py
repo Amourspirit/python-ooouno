@@ -19,11 +19,11 @@
 # Namespace: com.sun.star.uno
 # Libre Office Version: 7.2
 import typing
-from abc import abstractproperty
 if typing.TYPE_CHECKING:
     from .x_interface import XInterface as XInterface_8f010a43
 
-class Exception(object):
+
+class Exception(Exception):
     """
     the base of all UNO exceptions
     
@@ -33,18 +33,16 @@ class Exception(object):
         `API Exception <https://api.libreoffice.org/docs/idl/ref/exceptioncom_1_1sun_1_1star_1_1uno_1_1Exception.html>`_
     """
 
-    @abstractproperty
-    def Context(self) -> 'XInterface_8f010a43':
-        """
+    Context: 'XInterface_8f010a43' = None
+    """
         should contain a reference to the original, which raised the exception.
         
         May be NULL.
-        """
-    @abstractproperty
-    def Message(self) -> str:
-        """
+    """
+
+    Message: str = None
+    """
         gives a detailed description of the reason, why the exception was thrown.
         
         The description should be as detailed as possible.
-        """
-
+    """

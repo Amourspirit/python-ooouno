@@ -32,8 +32,7 @@ class MalformedDataException(Exception_85530a09):
     See Also:
         `API MalformedDataException <https://api.libreoffice.org/docs/idl/ref/exceptioncom_1_1sun_1_1star_1_1configuration_1_1backend_1_1MalformedDataException.html>`_
     """
-
-    @abstractproperty
+    @property
     def ErrorDetails(self) -> object:
         """
         data that provides more detailed information about the reason and location of the error.
@@ -44,4 +43,8 @@ class MalformedDataException(Exception_85530a09):
         
         If no more detail information is available, this may be left VOID.
         """
+        return self._error_details
 
+    @ErrorDetails.setter
+    def ErrorDetails(self, value: object) -> None:
+        self._error_details = value

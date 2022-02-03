@@ -23,6 +23,8 @@ from .color_component import ColorComponent
 
 Color = typing.List[ColorComponent]
 """
+TypeDef type alias
+
 Shorthand for the device-dependent color components, and easier to read.
 
 See Also:

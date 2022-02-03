@@ -1,10 +1,12 @@
 # coding: utf-8
 import uno
+import pyuno
 import typing
 if typing.TYPE_CHECKING:
     from ..uno_obj.beans.property_value import PropertyValue
     from ..uno_obj.beans.property_state import PropertyState
-    from ..uno_obj.frame.desktop import Desktop
+    # from ..uno_obj.frame.desktop import Desktop
+    from ..uno_obj.frame.the_desktop import theDesktop
     from ..uno_obj.lang.service_manager import ServiceManager
     from ..uno_obj.reflection.core_reflection import CoreReflection
     from ..uno_obj.uno.x_component_context import XComponentContext
@@ -24,7 +26,7 @@ if typing.TYPE_CHECKING:
 # region Cached Values
 # The StarDesktop object.  (global like in OOo Basic)
 # It is cached in a global variable.
-StarDesktop: 'Desktop' = None
+StarDesktop: 'theDesktop' = None
 # The ServiceManager of the running OOo.
 # It is cached in a global variable.
 # go_service_manager: Optional[XMultiComponentFactory] = None
@@ -71,7 +73,15 @@ def create_uno_service(cClass: str, ctx: 'typing.Optional[XComponentContext]' = 
     
     Returns:
         object: component instance
+
+    Notes:
+        A service signals that it expects parameters during instantiation by supporting the com.sun.star.lang.XInitialization interface.
+        There maybe services which can only be instantiated with parameters
     """
+    # https://wiki.openoffice.org/wiki/Documentation/DevGuide/ProUNO/Service_Manager
+    # In case the service manager does not provide an implementation for a request,
+    # a null reference is returned, so it is mandatory to check.
+    # Every UNO exception may be thrown during instantiation.
     smgr = get_service_manager()
     if ctx and args:
         oObj = smgr.createInstanceWithArgumentsAndContext(cClass, args, ctx)
@@ -84,7 +94,7 @@ def create_uno_service(cClass: str, ctx: 'typing.Optional[XComponentContext]' = 
     return oObj
 
 
-def get_desktop() -> 'Desktop':
+def get_desktop() -> 'theDesktop':
     """An easy way to obtain the Desktop object from a running OOo.
     
     Returns:
@@ -104,7 +114,10 @@ def get_desktop() -> 'Desktop':
     """
     global StarDesktop
     if StarDesktop == None:
-        StarDesktop = create_uno_service("com.sun.star.frame.Desktop")
+        ctx: 'XComponentContext' = uno.getComponentContext()
+        StarDesktop = ctx.getValueByName(
+            '/singletons/com.sun.star.frame.theDesktop/service')
+        # StarDesktop = create_uno_service("com.sun.star.frame.Desktop")
     return StarDesktop
 
 
@@ -191,7 +204,18 @@ def make_property_value(cName: typing.Optional[str] = None, uValue: object = Non
     return oPropertyValue
 
 
+def unotype(name: str) -> uno.Type:
+    """
+    >>> unotype('com.sun.star.uno.XInterface') # doctest: +NORMALIZE_WHITESPACE
+    <Type instance com.sun.star.uno.XInterface
+        (<uno.Enum com.sun.star.uno.TypeClass ('INTERFACE')>)>
+    """
+    return pyuno.getTypeByName(name)
 
 
-
-
+def unoclass(name: str) -> type:
+    """
+    >>> unoclass('com.sun.star.text.XText')
+    <class 'uno.com.sun.star.text.XText'>
+    """
+    return pyuno.getClass(name)

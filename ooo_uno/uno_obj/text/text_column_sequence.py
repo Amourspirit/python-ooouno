@@ -23,6 +23,8 @@ from .text_column import TextColumn
 
 TextColumnSequence = typing.List[TextColumn]
 """
+TypeDef type alias
+
 
 See Also:
     `API TextColumnSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#ab10b0063383767463fa9bd0554a352a3>`_

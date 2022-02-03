@@ -22,6 +22,8 @@ import typing
 
 DataSequenceRole = str
 """
+TypeDef type alias
+
 a string that states in what way a DataSequence should be used.
 
 If this property is an empty string, no proposition about usage is made.

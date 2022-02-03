@@ -23,6 +23,8 @@ from .chart_data_value import ChartDataValue
 
 ChartDataPoint = typing.List[ChartDataValue]
 """
+TypeDef type alias
+
 
 See Also:
     `API ChartDataPoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a9335f12de589754bf3632ff79ad2e520>`_

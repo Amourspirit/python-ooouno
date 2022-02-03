@@ -23,6 +23,8 @@ from .property_value import PropertyValue
 
 PropertyValues = typing.List[PropertyValue]
 """
+TypeDef type alias
+
 specifies a sequence of PropertyValue instances.
 
 Such sequences are especially useful for remote interfaces.

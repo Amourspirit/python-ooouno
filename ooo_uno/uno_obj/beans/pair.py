@@ -20,10 +20,14 @@
 # Libre Office Version: 7.2
 import typing
 from ooo_uno.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
 if (not typing.TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
     from ooo_uno.helper import uno_helper
 
-if not ((not typing.TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT):
+if typing.TYPE_CHECKING or _DYNAMIC is False:
+
+
     class Pair(object):
         """
         Struct Class
@@ -72,7 +76,7 @@ if not ((not typing.TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT):
         def Second(self, value: object) -> None:
             self._second = value
 
-else:
+if not typing.TYPE_CHECKING and _DYNAMIC:
     def _dynamic_struct() -> None:
         # Dynamically create uno struct using uno
         global Pair

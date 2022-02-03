@@ -22,6 +22,8 @@ import typing
 
 ColorComponent = float
 """
+TypeDef type alias
+
 Shorthand for the device-dependent color components, and easier to read.
 
 See Also:

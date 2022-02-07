@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "/home/paul/miniconda3/envs/uno/bin/python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/env/bin/python",
   "python.testing.pytestArgs": [
     "tests"
   ],
@@ -12,8 +12,15 @@
 
   "python.linting.pylintArgs": [
         "--init-hook",
-        "import sys; sys.path.append(\"/home/paul/miniconda3/envs/uno/bin/python3.7/site-packages\");",
+        "import sys; sys.path.append(\"${workspaceFolder}/env/lib/python3.7/site-packages\");",
     ],
     "restructuredtext.confPath": "${workspaceFolder}/docs",
-    "autoDocstring.docstringFormat": "google"
+    "autoDocstring.docstringFormat": "google",
+  "workbench.colorCustomizations": {
+  "[Monokai]": {
+    "titleBar.activeBackground": "#4e0155"
+  }
+},
+"workbench.colorTheme": "Monokai",
+"python.formatting.provider": "black"
 }

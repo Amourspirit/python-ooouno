@@ -2,9 +2,9 @@
 import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
-from ooo_uno.css.beans import PropertyValues
-from ooo_uno.css.beans import PropertyValue
-from ooo_uno.css.beans import PropertyState
+from ooo.css.beans import PropertyValues
+from ooo.css.beans import PropertyValue
+from ooo.css.beans import PropertyState
 
 
 def test_property_values():

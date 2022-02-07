@@ -2,7 +2,7 @@
 import pathlib
 import os
 from setuptools import setup
-from ooo_uno import __version__
+from ooo import __version__
 PKG_NAME = 'ooouno'
 VERSION = __version__
 PKG_MAIN = 'ooo_uno'

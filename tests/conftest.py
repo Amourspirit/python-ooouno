@@ -1,10 +1,7 @@
 # coding: utf-8
-import logging
-import os
 import sys
 from pathlib import Path
-import shutil
-import tempfile
+
 import pytest
 import gc
 import functools
@@ -29,3 +26,7 @@ def clear_lru_cache_cache():
             wrapper.cache_clear()
     return _clear
 
+
+@pytest.fixture(scope='session')
+def project_root() -> str:
+    return str(Path(__file__).parent.parent)

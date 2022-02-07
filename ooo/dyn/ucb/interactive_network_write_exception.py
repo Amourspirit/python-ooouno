@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global InteractiveNetworkWriteException
-        InteractiveNetworkWriteException = unoclass('com.sun.star.ucb.InteractiveNetworkWriteException')
-        setattr(InteractiveNetworkWriteException, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(InteractiveNetworkWriteException, ' __ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkWriteException')
-        setattr(InteractiveNetworkWriteException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.ucb import InteractiveNetworkWriteException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkWriteException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_network_write_exception import InteractiveNetworkWriteException as InteractiveNetworkWriteException
     

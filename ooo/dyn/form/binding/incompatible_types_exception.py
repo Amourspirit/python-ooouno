@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global IncompatibleTypesException
-        IncompatibleTypesException = unoclass('com.sun.star.form.binding.IncompatibleTypesException')
-        setattr(IncompatibleTypesException, ' __ooo_ns__', 'com.sun.star.form.binding')
-        setattr(IncompatibleTypesException, ' __ooo_full_ns__', 'com.sun.star.form.binding.IncompatibleTypesException')
-        setattr(IncompatibleTypesException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.form.binding import IncompatibleTypesException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.form.binding')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.form.binding.IncompatibleTypesException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ....lo.form.binding.incompatible_types_exception import IncompatibleTypesException as IncompatibleTypesException
     

@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global NotInitializedException
-        NotInitializedException = unoclass('com.sun.star.lang.NotInitializedException')
-        setattr(NotInitializedException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(NotInitializedException, ' __ooo_full_ns__', 'com.sun.star.lang.NotInitializedException')
-        setattr(NotInitializedException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import NotInitializedException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NotInitializedException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.not_initialized_exception import NotInitializedException as NotInitializedException
     

@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global SQLContext
-        SQLContext = unoclass('com.sun.star.sdb.SQLContext')
-        setattr(SQLContext, ' __ooo_ns__', 'com.sun.star.sdb')
-        setattr(SQLContext, ' __ooo_full_ns__', 'com.sun.star.sdb.SQLContext')
-        setattr(SQLContext, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.sdb import SQLContext
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.sdb')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.sdb.SQLContext')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.sdb.sql_context import SQLContext as SQLContext
     

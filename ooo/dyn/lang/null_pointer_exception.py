@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global NullPointerException
-        NullPointerException = unoclass('com.sun.star.lang.NullPointerException')
-        setattr(NullPointerException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(NullPointerException, ' __ooo_full_ns__', 'com.sun.star.lang.NullPointerException')
-        setattr(NullPointerException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import NullPointerException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NullPointerException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.null_pointer_exception import NullPointerException as NullPointerException
     

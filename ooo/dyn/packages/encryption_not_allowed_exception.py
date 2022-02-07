@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global EncryptionNotAllowedException
-        EncryptionNotAllowedException = unoclass('com.sun.star.packages.EncryptionNotAllowedException')
-        setattr(EncryptionNotAllowedException, ' __ooo_ns__', 'com.sun.star.packages')
-        setattr(EncryptionNotAllowedException, ' __ooo_full_ns__', 'com.sun.star.packages.EncryptionNotAllowedException')
-        setattr(EncryptionNotAllowedException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.packages import EncryptionNotAllowedException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.packages')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.packages.EncryptionNotAllowedException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
     

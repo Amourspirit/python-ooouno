@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global SignatureException
-        SignatureException = unoclass('com.sun.star.security.SignatureException')
-        setattr(SignatureException, ' __ooo_ns__', 'com.sun.star.security')
-        setattr(SignatureException, ' __ooo_full_ns__', 'com.sun.star.security.SignatureException')
-        setattr(SignatureException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.security import SignatureException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.security')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.security.SignatureException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.security.signature_exception import SignatureException as SignatureException
     

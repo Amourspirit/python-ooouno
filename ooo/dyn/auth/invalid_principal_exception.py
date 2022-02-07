@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global InvalidPrincipalException
-        InvalidPrincipalException = unoclass('com.sun.star.auth.InvalidPrincipalException')
-        setattr(InvalidPrincipalException, ' __ooo_ns__', 'com.sun.star.auth')
-        setattr(InvalidPrincipalException, ' __ooo_full_ns__', 'com.sun.star.auth.InvalidPrincipalException')
-        setattr(InvalidPrincipalException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.auth import InvalidPrincipalException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.auth')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.auth.InvalidPrincipalException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.auth.invalid_principal_exception import InvalidPrincipalException as InvalidPrincipalException
     

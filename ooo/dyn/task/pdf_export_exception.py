@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global PDFExportException
-        PDFExportException = unoclass('com.sun.star.task.PDFExportException')
-        setattr(PDFExportException, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(PDFExportException, ' __ooo_full_ns__', 'com.sun.star.task.PDFExportException')
-        setattr(PDFExportException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.task import PDFExportException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.PDFExportException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.pdf_export_exception import PDFExportException as PDFExportException
     

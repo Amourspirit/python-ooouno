@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global NoMasterException
-        NoMasterException = unoclass('com.sun.star.task.NoMasterException')
-        setattr(NoMasterException, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(NoMasterException, ' __ooo_full_ns__', 'com.sun.star.task.NoMasterException')
-        setattr(NoMasterException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.task import NoMasterException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.NoMasterException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.no_master_exception import NoMasterException as NoMasterException
     

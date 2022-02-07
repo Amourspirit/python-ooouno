@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global StorageWrappedTargetException
-        StorageWrappedTargetException = unoclass('com.sun.star.embed.StorageWrappedTargetException')
-        setattr(StorageWrappedTargetException, ' __ooo_ns__', 'com.sun.star.embed')
-        setattr(StorageWrappedTargetException, ' __ooo_full_ns__', 'com.sun.star.embed.StorageWrappedTargetException')
-        setattr(StorageWrappedTargetException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.embed import StorageWrappedTargetException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.embed.StorageWrappedTargetException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.embed.storage_wrapped_target_exception import StorageWrappedTargetException as StorageWrappedTargetException
     

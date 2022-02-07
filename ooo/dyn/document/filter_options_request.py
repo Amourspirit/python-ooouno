@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global FilterOptionsRequest
-        FilterOptionsRequest = unoclass('com.sun.star.document.FilterOptionsRequest')
-        setattr(FilterOptionsRequest, ' __ooo_ns__', 'com.sun.star.document')
-        setattr(FilterOptionsRequest, ' __ooo_full_ns__', 'com.sun.star.document.FilterOptionsRequest')
-        setattr(FilterOptionsRequest, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.document import FilterOptionsRequest
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.FilterOptionsRequest')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.filter_options_request import FilterOptionsRequest as FilterOptionsRequest
     

@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global DocumentPasswordRequest2
-        DocumentPasswordRequest2 = unoclass('com.sun.star.task.DocumentPasswordRequest2')
-        setattr(DocumentPasswordRequest2, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(DocumentPasswordRequest2, ' __ooo_full_ns__', 'com.sun.star.task.DocumentPasswordRequest2')
-        setattr(DocumentPasswordRequest2, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.task import DocumentPasswordRequest2
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.DocumentPasswordRequest2')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.document_password_request2 import DocumentPasswordRequest2 as DocumentPasswordRequest2
     

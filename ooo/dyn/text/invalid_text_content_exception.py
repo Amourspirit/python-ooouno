@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global InvalidTextContentException
-        InvalidTextContentException = unoclass('com.sun.star.text.InvalidTextContentException')
-        setattr(InvalidTextContentException, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(InvalidTextContentException, ' __ooo_full_ns__', 'com.sun.star.text.InvalidTextContentException')
-        setattr(InvalidTextContentException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.text import InvalidTextContentException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.text')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.text.InvalidTextContentException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.text.invalid_text_content_exception import InvalidTextContentException as InvalidTextContentException
     

@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global CannotConnectException
-        CannotConnectException = unoclass('com.sun.star.configuration.backend.CannotConnectException')
-        setattr(CannotConnectException, ' __ooo_ns__', 'com.sun.star.configuration.backend')
-        setattr(CannotConnectException, ' __ooo_full_ns__', 'com.sun.star.configuration.backend.CannotConnectException')
-        setattr(CannotConnectException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.configuration.backend import CannotConnectException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.backend.CannotConnectException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ....lo.configuration.backend.cannot_connect_exception import CannotConnectException as CannotConnectException
     

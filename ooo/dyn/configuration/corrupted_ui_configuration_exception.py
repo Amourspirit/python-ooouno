@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global CorruptedUIConfigurationException
-        CorruptedUIConfigurationException = unoclass('com.sun.star.configuration.CorruptedUIConfigurationException')
-        setattr(CorruptedUIConfigurationException, ' __ooo_ns__', 'com.sun.star.configuration')
-        setattr(CorruptedUIConfigurationException, ' __ooo_full_ns__', 'com.sun.star.configuration.CorruptedUIConfigurationException')
-        setattr(CorruptedUIConfigurationException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.configuration import CorruptedUIConfigurationException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.CorruptedUIConfigurationException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.configuration.corrupted_ui_configuration_exception import CorruptedUIConfigurationException as CorruptedUIConfigurationException
     

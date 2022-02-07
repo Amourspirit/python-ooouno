@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global PlatformException
-        PlatformException = unoclass('com.sun.star.deployment.PlatformException')
-        setattr(PlatformException, ' __ooo_ns__', 'com.sun.star.deployment')
-        setattr(PlatformException, ' __ooo_full_ns__', 'com.sun.star.deployment.PlatformException')
-        setattr(PlatformException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.deployment import PlatformException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.deployment.PlatformException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.deployment.platform_exception import PlatformException as PlatformException
     

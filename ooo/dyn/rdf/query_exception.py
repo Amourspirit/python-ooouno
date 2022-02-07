@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global QueryException
-        QueryException = unoclass('com.sun.star.rdf.QueryException')
-        setattr(QueryException, ' __ooo_ns__', 'com.sun.star.rdf')
-        setattr(QueryException, ' __ooo_full_ns__', 'com.sun.star.rdf.QueryException')
-        setattr(QueryException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.rdf import QueryException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.rdf')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.rdf.QueryException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.rdf.query_exception import QueryException as QueryException
     

@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global PrinterException
-        PrinterException = unoclass('com.sun.star.awt.PrinterException')
-        setattr(PrinterException, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(PrinterException, ' __ooo_full_ns__', 'com.sun.star.awt.PrinterException')
-        setattr(PrinterException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.awt import PrinterException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.awt.PrinterException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.awt.printer_exception import PrinterException as PrinterException
     

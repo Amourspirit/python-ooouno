@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global DoubleInitializationException
-        DoubleInitializationException = unoclass('com.sun.star.frame.DoubleInitializationException')
-        setattr(DoubleInitializationException, ' __ooo_ns__', 'com.sun.star.frame')
-        setattr(DoubleInitializationException, ' __ooo_full_ns__', 'com.sun.star.frame.DoubleInitializationException')
-        setattr(DoubleInitializationException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.frame import DoubleInitializationException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.frame')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.frame.DoubleInitializationException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.frame.double_initialization_exception import DoubleInitializationException as DoubleInitializationException
     

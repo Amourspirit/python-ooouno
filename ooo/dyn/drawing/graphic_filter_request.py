@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global GraphicFilterRequest
-        GraphicFilterRequest = unoclass('com.sun.star.drawing.GraphicFilterRequest')
-        setattr(GraphicFilterRequest, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(GraphicFilterRequest, ' __ooo_full_ns__', 'com.sun.star.drawing.GraphicFilterRequest')
-        setattr(GraphicFilterRequest, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.drawing import GraphicFilterRequest
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.drawing')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.drawing.GraphicFilterRequest')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.drawing.graphic_filter_request import GraphicFilterRequest as GraphicFilterRequest
     

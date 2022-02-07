@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global ScriptFrameworkErrorException
-        ScriptFrameworkErrorException = unoclass('com.sun.star.script.provider.ScriptFrameworkErrorException')
-        setattr(ScriptFrameworkErrorException, ' __ooo_ns__', 'com.sun.star.script.provider')
-        setattr(ScriptFrameworkErrorException, ' __ooo_full_ns__', 'com.sun.star.script.provider.ScriptFrameworkErrorException')
-        setattr(ScriptFrameworkErrorException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.script.provider import ScriptFrameworkErrorException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.script.provider')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.script.provider.ScriptFrameworkErrorException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ....lo.script.provider.script_framework_error_exception import ScriptFrameworkErrorException as ScriptFrameworkErrorException
     

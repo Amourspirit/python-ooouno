@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global MissingResourceException
-        MissingResourceException = unoclass('com.sun.star.resource.MissingResourceException')
-        setattr(MissingResourceException, ' __ooo_ns__', 'com.sun.star.resource')
-        setattr(MissingResourceException, ' __ooo_full_ns__', 'com.sun.star.resource.MissingResourceException')
-        setattr(MissingResourceException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.resource import MissingResourceException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.resource')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.resource.MissingResourceException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.resource.missing_resource_exception import MissingResourceException as MissingResourceException
     

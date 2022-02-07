@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global InvalidRegistryException
-        InvalidRegistryException = unoclass('com.sun.star.registry.InvalidRegistryException')
-        setattr(InvalidRegistryException, ' __ooo_ns__', 'com.sun.star.registry')
-        setattr(InvalidRegistryException, ' __ooo_full_ns__', 'com.sun.star.registry.InvalidRegistryException')
-        setattr(InvalidRegistryException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.registry import InvalidRegistryException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.registry')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.registry.InvalidRegistryException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.registry.invalid_registry_exception import InvalidRegistryException as InvalidRegistryException
     

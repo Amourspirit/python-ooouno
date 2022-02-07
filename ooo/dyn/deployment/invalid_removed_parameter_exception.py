@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global InvalidRemovedParameterException
-        InvalidRemovedParameterException = unoclass('com.sun.star.deployment.InvalidRemovedParameterException')
-        setattr(InvalidRemovedParameterException, ' __ooo_ns__', 'com.sun.star.deployment')
-        setattr(InvalidRemovedParameterException, ' __ooo_full_ns__', 'com.sun.star.deployment.InvalidRemovedParameterException')
-        setattr(InvalidRemovedParameterException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.deployment import InvalidRemovedParameterException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.deployment.InvalidRemovedParameterException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.deployment.invalid_removed_parameter_exception import InvalidRemovedParameterException as InvalidRemovedParameterException
     

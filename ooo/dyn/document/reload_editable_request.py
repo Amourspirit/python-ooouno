@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global ReloadEditableRequest
-        ReloadEditableRequest = unoclass('com.sun.star.document.ReloadEditableRequest')
-        setattr(ReloadEditableRequest, ' __ooo_ns__', 'com.sun.star.document')
-        setattr(ReloadEditableRequest, ' __ooo_full_ns__', 'com.sun.star.document.ReloadEditableRequest')
-        setattr(ReloadEditableRequest, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.document import ReloadEditableRequest
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.ReloadEditableRequest')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.reload_editable_request import ReloadEditableRequest as ReloadEditableRequest
     

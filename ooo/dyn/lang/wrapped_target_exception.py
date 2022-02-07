@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global WrappedTargetException
-        WrappedTargetException = unoclass('com.sun.star.lang.WrappedTargetException')
-        setattr(WrappedTargetException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(WrappedTargetException, ' __ooo_full_ns__', 'com.sun.star.lang.WrappedTargetException')
-        setattr(WrappedTargetException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import WrappedTargetException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.WrappedTargetException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.wrapped_target_exception import WrappedTargetException as WrappedTargetException
     

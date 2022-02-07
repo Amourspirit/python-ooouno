@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global ClassNotFoundException
-        ClassNotFoundException = unoclass('com.sun.star.lang.ClassNotFoundException')
-        setattr(ClassNotFoundException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(ClassNotFoundException, ' __ooo_full_ns__', 'com.sun.star.lang.ClassNotFoundException')
-        setattr(ClassNotFoundException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import ClassNotFoundException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.ClassNotFoundException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.class_not_found_exception import ClassNotFoundException as ClassNotFoundException
     

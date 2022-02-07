@@ -47,12 +47,19 @@ def test_interface():
 
 def test_exception():
     from ooo.dyn.uno.exception import Exception
+    assert Exception.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
+    assert Exception.__ooo_ns__ == 'com.sun.star.uno'
+    assert Exception.__ooo_type_name__ == 'exception'
     ex = Exception()
+    assert id(ex) != id(Exception)
     ex.Message = "Hello World"
     assert ex.Message == 'Hello World'
     assert Exception.typeName == 'com.sun.star.uno.Exception'
     assert ex.__pyunointerface__ == Exception.typeName
     assert ex.__pyunostruct__ == Exception.typeName
+    assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
+    assert ex.__ooo_ns__ == 'com.sun.star.uno'
+    assert ex.__ooo_type_name__ == 'exception'
     
 
 

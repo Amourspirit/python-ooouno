@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global NoSupportException
-        NoSupportException = unoclass('com.sun.star.lang.NoSupportException')
-        setattr(NoSupportException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(NoSupportException, ' __ooo_full_ns__', 'com.sun.star.lang.NoSupportException')
-        setattr(NoSupportException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import NoSupportException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NoSupportException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.no_support_exception import NoSupportException as NoSupportException
     

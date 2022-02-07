@@ -25,16 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_exception() -> None:
-        # Dynamically create uno exception using uno
-        global IllegalArgumentException
-        IllegalArgumentException = unoclass('com.sun.star.lang.IllegalArgumentException')
-        setattr(IllegalArgumentException, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(IllegalArgumentException, ' __ooo_full_ns__', 'com.sun.star.lang.IllegalArgumentException')
-        setattr(IllegalArgumentException, ' __ooo_type_name__', 'exception')
-
-    _dynamic_exception()
+    from com.sun.star.lang import IllegalArgumentException
+    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.IllegalArgumentException')
+    setattr(Exception, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.illegal_argument_exception import IllegalArgumentException as IllegalArgumentException
     

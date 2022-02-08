@@ -60,8 +60,8 @@ def test_exception():
     assert Exception.typeName == 'com.sun.star.uno.Exception'
     assert ex.__pyunointerface__ == Exception.typeName
     assert ex.__pyunostruct__ == Exception.typeName
-    assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_ns__ == 'com.sun.star.uno'
+    assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_type_name__ == 'exception'
     
 
@@ -70,6 +70,9 @@ def test_exception_oth():
     from ooo.dyn.accessibility.illegal_accessible_component_state_exception import IllegalAccessibleComponentStateException
     ex = IllegalAccessibleComponentStateException()
     assert IllegalAccessibleComponentStateException.__pyunointerface__ == 'com.sun.star.accessibility.IllegalAccessibleComponentStateException'
+    assert ex.__ooo_ns__ == 'com.sun.star.accessibility'
+    assert ex.__ooo_full_ns__ == 'com.sun.star.accessibility.IllegalAccessibleComponentStateException'
+    assert ex.__ooo_type_name__ == 'exception'
 
 
 def test_exception_prop():
@@ -116,7 +119,3 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
-
-    # assert DeviceCapability.__ooo_full_ns__ == 'com.sun.star.awt.DeviceCapability'
-    # assert DeviceCapability.__ooo_ns__ == 'com.sun.star.awt'
-    # assert DeviceCapability.__ooo_type_name__ == 'const'

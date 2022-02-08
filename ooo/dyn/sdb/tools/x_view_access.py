@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XViewAccess
-        XViewAccess = unoclass(
-            'com.sun.star.sdb.tools.XViewAccess')
-        setattr(XViewAccess, ' __ooo_ns__', 'com.sun.star.sdb.tools')
-        setattr(XViewAccess, ' __ooo_full_ns__', 'com.sun.star.sdb.tools.XViewAccess')
-        setattr(XViewAccess, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb.tools import XViewAccess
+    setattr(XViewAccess, '__ooo_ns__', 'com.sun.star.sdb.tools')
+    setattr(XViewAccess, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XViewAccess')
+    setattr(XViewAccess, '__ooo_type_name__', 'interface')
 else:
     from ....lo.sdb.tools.x_view_access import XViewAccess as XViewAccess
 

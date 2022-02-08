@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MailServiceType, k, v)
-        setattr(MailServiceType, ' __ooo_ns__', 'com.sun.star.mail')
-        setattr(MailServiceType, ' __ooo_full_ns__', 'com.sun.star.mail.MailServiceType')
-        setattr(MailServiceType, ' __ooo_type_name__', 'enum')
+        setattr(MailServiceType, '__ooo_ns__', 'com.sun.star.mail')
+        setattr(MailServiceType, '__ooo_full_ns__', 'com.sun.star.mail.MailServiceType')
+        setattr(MailServiceType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.mail.mail_service_type import MailServiceType as MailServiceType

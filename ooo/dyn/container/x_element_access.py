@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XElementAccess
-        XElementAccess = unoclass(
-            'com.sun.star.container.XElementAccess')
-        setattr(XElementAccess, ' __ooo_ns__', 'com.sun.star.container')
-        setattr(XElementAccess, ' __ooo_full_ns__', 'com.sun.star.container.XElementAccess')
-        setattr(XElementAccess, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.container import XElementAccess
+    setattr(XElementAccess, '__ooo_ns__', 'com.sun.star.container')
+    setattr(XElementAccess, '__ooo_full_ns__', 'com.sun.star.container.XElementAccess')
+    setattr(XElementAccess, '__ooo_type_name__', 'interface')
 else:
     from ...lo.container.x_element_access import XElementAccess as XElementAccess
 

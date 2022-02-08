@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XScriptContext
-        XScriptContext = unoclass(
-            'com.sun.star.script.provider.XScriptContext')
-        setattr(XScriptContext, ' __ooo_ns__', 'com.sun.star.script.provider')
-        setattr(XScriptContext, ' __ooo_full_ns__', 'com.sun.star.script.provider.XScriptContext')
-        setattr(XScriptContext, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.script.provider import XScriptContext
+    setattr(XScriptContext, '__ooo_ns__', 'com.sun.star.script.provider')
+    setattr(XScriptContext, '__ooo_full_ns__', 'com.sun.star.script.provider.XScriptContext')
+    setattr(XScriptContext, '__ooo_type_name__', 'interface')
 else:
     from ....lo.script.provider.x_script_context import XScriptContext as XScriptContext
 

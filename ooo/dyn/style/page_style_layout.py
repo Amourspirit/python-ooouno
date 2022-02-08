@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PageStyleLayout, k, v)
-        setattr(PageStyleLayout, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(PageStyleLayout, ' __ooo_full_ns__', 'com.sun.star.style.PageStyleLayout')
-        setattr(PageStyleLayout, ' __ooo_type_name__', 'enum')
+        setattr(PageStyleLayout, '__ooo_ns__', 'com.sun.star.style')
+        setattr(PageStyleLayout, '__ooo_full_ns__', 'com.sun.star.style.PageStyleLayout')
+        setattr(PageStyleLayout, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.style.page_style_layout import PageStyleLayout as PageStyleLayout

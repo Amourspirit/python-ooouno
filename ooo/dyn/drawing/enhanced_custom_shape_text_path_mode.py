@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(EnhancedCustomShapeTextPathMode, k, v)
-        setattr(EnhancedCustomShapeTextPathMode, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(EnhancedCustomShapeTextPathMode, ' __ooo_full_ns__', 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode')
-        setattr(EnhancedCustomShapeTextPathMode, ' __ooo_type_name__', 'enum')
+        setattr(EnhancedCustomShapeTextPathMode, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(EnhancedCustomShapeTextPathMode, '__ooo_full_ns__', 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode')
+        setattr(EnhancedCustomShapeTextPathMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.enhanced_custom_shape_text_path_mode import EnhancedCustomShapeTextPathMode as EnhancedCustomShapeTextPathMode

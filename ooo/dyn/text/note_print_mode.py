@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(NotePrintMode, k, v)
-        setattr(NotePrintMode, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(NotePrintMode, ' __ooo_full_ns__', 'com.sun.star.text.NotePrintMode')
-        setattr(NotePrintMode, ' __ooo_type_name__', 'enum')
+        setattr(NotePrintMode, '__ooo_ns__', 'com.sun.star.text')
+        setattr(NotePrintMode, '__ooo_full_ns__', 'com.sun.star.text.NotePrintMode')
+        setattr(NotePrintMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.text.note_print_mode import NotePrintMode as NotePrintMode

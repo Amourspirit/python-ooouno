@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ZoomLevel, k, v)
-        setattr(ZoomLevel, ' __ooo_ns__', 'com.sun.star.media')
-        setattr(ZoomLevel, ' __ooo_full_ns__', 'com.sun.star.media.ZoomLevel')
-        setattr(ZoomLevel, ' __ooo_type_name__', 'enum')
+        setattr(ZoomLevel, '__ooo_ns__', 'com.sun.star.media')
+        setattr(ZoomLevel, '__ooo_full_ns__', 'com.sun.star.media.ZoomLevel')
+        setattr(ZoomLevel, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.media.zoom_level import ZoomLevel as ZoomLevel

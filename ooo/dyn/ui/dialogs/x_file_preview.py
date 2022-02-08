@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFilePreview
-        XFilePreview = unoclass(
-            'com.sun.star.ui.dialogs.XFilePreview')
-        setattr(XFilePreview, ' __ooo_ns__', 'com.sun.star.ui.dialogs')
-        setattr(XFilePreview, ' __ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilePreview')
-        setattr(XFilePreview, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ui.dialogs import XFilePreview
+    setattr(XFilePreview, '__ooo_ns__', 'com.sun.star.ui.dialogs')
+    setattr(XFilePreview, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilePreview')
+    setattr(XFilePreview, '__ooo_type_name__', 'interface')
 else:
     from ....lo.ui.dialogs.x_file_preview import XFilePreview as XFilePreview
 

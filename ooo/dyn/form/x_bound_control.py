@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBoundControl
-        XBoundControl = unoclass(
-            'com.sun.star.form.XBoundControl')
-        setattr(XBoundControl, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(XBoundControl, ' __ooo_full_ns__', 'com.sun.star.form.XBoundControl')
-        setattr(XBoundControl, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form import XBoundControl
+    setattr(XBoundControl, '__ooo_ns__', 'com.sun.star.form')
+    setattr(XBoundControl, '__ooo_full_ns__', 'com.sun.star.form.XBoundControl')
+    setattr(XBoundControl, '__ooo_type_name__', 'interface')
 else:
     from ...lo.form.x_bound_control import XBoundControl as XBoundControl
 

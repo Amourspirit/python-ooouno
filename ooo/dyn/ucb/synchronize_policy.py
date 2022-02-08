@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SynchronizePolicy, k, v)
-        setattr(SynchronizePolicy, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(SynchronizePolicy, ' __ooo_full_ns__', 'com.sun.star.ucb.SynchronizePolicy')
-        setattr(SynchronizePolicy, ' __ooo_type_name__', 'enum')
+        setattr(SynchronizePolicy, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(SynchronizePolicy, '__ooo_full_ns__', 'com.sun.star.ucb.SynchronizePolicy')
+        setattr(SynchronizePolicy, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.synchronize_policy import SynchronizePolicy as SynchronizePolicy

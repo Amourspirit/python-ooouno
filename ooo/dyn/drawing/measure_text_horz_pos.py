@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MeasureTextHorzPos, k, v)
-        setattr(MeasureTextHorzPos, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureTextHorzPos, ' __ooo_full_ns__', 'com.sun.star.drawing.MeasureTextHorzPos')
-        setattr(MeasureTextHorzPos, ' __ooo_type_name__', 'enum')
+        setattr(MeasureTextHorzPos, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(MeasureTextHorzPos, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureTextHorzPos')
+        setattr(MeasureTextHorzPos, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_text_horz_pos import MeasureTextHorzPos as MeasureTextHorzPos

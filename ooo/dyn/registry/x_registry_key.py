@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XRegistryKey
-        XRegistryKey = unoclass(
-            'com.sun.star.registry.XRegistryKey')
-        setattr(XRegistryKey, ' __ooo_ns__', 'com.sun.star.registry')
-        setattr(XRegistryKey, ' __ooo_full_ns__', 'com.sun.star.registry.XRegistryKey')
-        setattr(XRegistryKey, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.registry import XRegistryKey
+    setattr(XRegistryKey, '__ooo_ns__', 'com.sun.star.registry')
+    setattr(XRegistryKey, '__ooo_full_ns__', 'com.sun.star.registry.XRegistryKey')
+    setattr(XRegistryKey, '__ooo_type_name__', 'interface')
 else:
     from ...lo.registry.x_registry_key import XRegistryKey as XRegistryKey
 

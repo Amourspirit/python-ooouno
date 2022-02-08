@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCompressedDocumentHandler
-        XCompressedDocumentHandler = unoclass(
-            'com.sun.star.xml.csax.XCompressedDocumentHandler')
-        setattr(XCompressedDocumentHandler, ' __ooo_ns__', 'com.sun.star.xml.csax')
-        setattr(XCompressedDocumentHandler, ' __ooo_full_ns__', 'com.sun.star.xml.csax.XCompressedDocumentHandler')
-        setattr(XCompressedDocumentHandler, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.csax import XCompressedDocumentHandler
+    setattr(XCompressedDocumentHandler, '__ooo_ns__', 'com.sun.star.xml.csax')
+    setattr(XCompressedDocumentHandler, '__ooo_full_ns__', 'com.sun.star.xml.csax.XCompressedDocumentHandler')
+    setattr(XCompressedDocumentHandler, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.csax.x_compressed_document_handler import XCompressedDocumentHandler as XCompressedDocumentHandler
 

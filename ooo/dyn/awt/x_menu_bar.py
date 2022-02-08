@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XMenuBar
-        XMenuBar = unoclass(
-            'com.sun.star.awt.XMenuBar')
-        setattr(XMenuBar, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XMenuBar, ' __ooo_full_ns__', 'com.sun.star.awt.XMenuBar')
-        setattr(XMenuBar, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XMenuBar
+    setattr(XMenuBar, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XMenuBar, '__ooo_full_ns__', 'com.sun.star.awt.XMenuBar')
+    setattr(XMenuBar, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_menu_bar import XMenuBar as XMenuBar
 

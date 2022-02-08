@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FillDirection, k, v)
-        setattr(FillDirection, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(FillDirection, ' __ooo_full_ns__', 'com.sun.star.sheet.FillDirection')
-        setattr(FillDirection, ' __ooo_type_name__', 'enum')
+        setattr(FillDirection, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(FillDirection, '__ooo_full_ns__', 'com.sun.star.sheet.FillDirection')
+        setattr(FillDirection, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.fill_direction import FillDirection as FillDirection

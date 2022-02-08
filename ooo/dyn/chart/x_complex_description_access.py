@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XComplexDescriptionAccess
-        XComplexDescriptionAccess = unoclass(
-            'com.sun.star.chart.XComplexDescriptionAccess')
-        setattr(XComplexDescriptionAccess, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(XComplexDescriptionAccess, ' __ooo_full_ns__', 'com.sun.star.chart.XComplexDescriptionAccess')
-        setattr(XComplexDescriptionAccess, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.chart import XComplexDescriptionAccess
+    setattr(XComplexDescriptionAccess, '__ooo_ns__', 'com.sun.star.chart')
+    setattr(XComplexDescriptionAccess, '__ooo_full_ns__', 'com.sun.star.chart.XComplexDescriptionAccess')
+    setattr(XComplexDescriptionAccess, '__ooo_type_name__', 'interface')
 else:
     from ...lo.chart.x_complex_description_access import XComplexDescriptionAccess as XComplexDescriptionAccess
 

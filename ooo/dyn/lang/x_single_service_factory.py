@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSingleServiceFactory
-        XSingleServiceFactory = unoclass(
-            'com.sun.star.lang.XSingleServiceFactory')
-        setattr(XSingleServiceFactory, ' __ooo_ns__', 'com.sun.star.lang')
-        setattr(XSingleServiceFactory, ' __ooo_full_ns__', 'com.sun.star.lang.XSingleServiceFactory')
-        setattr(XSingleServiceFactory, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.lang import XSingleServiceFactory
+    setattr(XSingleServiceFactory, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(XSingleServiceFactory, '__ooo_full_ns__', 'com.sun.star.lang.XSingleServiceFactory')
+    setattr(XSingleServiceFactory, '__ooo_type_name__', 'interface')
 else:
     from ...lo.lang.x_single_service_factory import XSingleServiceFactory as XSingleServiceFactory
 

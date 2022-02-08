@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XExternalDocLink
-        XExternalDocLink = unoclass(
-            'com.sun.star.sheet.XExternalDocLink')
-        setattr(XExternalDocLink, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XExternalDocLink, ' __ooo_full_ns__', 'com.sun.star.sheet.XExternalDocLink')
-        setattr(XExternalDocLink, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XExternalDocLink
+    setattr(XExternalDocLink, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XExternalDocLink, '__ooo_full_ns__', 'com.sun.star.sheet.XExternalDocLink')
+    setattr(XExternalDocLink, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.x_external_doc_link import XExternalDocLink as XExternalDocLink
 

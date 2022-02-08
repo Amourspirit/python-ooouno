@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBrowseNode
-        XBrowseNode = unoclass(
-            'com.sun.star.script.browse.XBrowseNode')
-        setattr(XBrowseNode, ' __ooo_ns__', 'com.sun.star.script.browse')
-        setattr(XBrowseNode, ' __ooo_full_ns__', 'com.sun.star.script.browse.XBrowseNode')
-        setattr(XBrowseNode, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.script.browse import XBrowseNode
+    setattr(XBrowseNode, '__ooo_ns__', 'com.sun.star.script.browse')
+    setattr(XBrowseNode, '__ooo_full_ns__', 'com.sun.star.script.browse.XBrowseNode')
+    setattr(XBrowseNode, '__ooo_type_name__', 'interface')
 else:
     from ....lo.script.browse.x_browse_node import XBrowseNode as XBrowseNode
 

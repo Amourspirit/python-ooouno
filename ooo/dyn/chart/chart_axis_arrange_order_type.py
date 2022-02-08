@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartAxisArrangeOrderType, k, v)
-        setattr(ChartAxisArrangeOrderType, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartAxisArrangeOrderType, ' __ooo_full_ns__', 'com.sun.star.chart.ChartAxisArrangeOrderType')
-        setattr(ChartAxisArrangeOrderType, ' __ooo_type_name__', 'enum')
+        setattr(ChartAxisArrangeOrderType, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartAxisArrangeOrderType, '__ooo_full_ns__', 'com.sun.star.chart.ChartAxisArrangeOrderType')
+        setattr(ChartAxisArrangeOrderType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_axis_arrange_order_type import ChartAxisArrangeOrderType as ChartAxisArrangeOrderType

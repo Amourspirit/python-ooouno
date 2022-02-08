@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCanvasFont
-        XCanvasFont = unoclass(
-            'com.sun.star.rendering.XCanvasFont')
-        setattr(XCanvasFont, ' __ooo_ns__', 'com.sun.star.rendering')
-        setattr(XCanvasFont, ' __ooo_full_ns__', 'com.sun.star.rendering.XCanvasFont')
-        setattr(XCanvasFont, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.rendering import XCanvasFont
+    setattr(XCanvasFont, '__ooo_ns__', 'com.sun.star.rendering')
+    setattr(XCanvasFont, '__ooo_full_ns__', 'com.sun.star.rendering.XCanvasFont')
+    setattr(XCanvasFont, '__ooo_type_name__', 'interface')
 else:
     from ...lo.rendering.x_canvas_font import XCanvasFont as XCanvasFont
 

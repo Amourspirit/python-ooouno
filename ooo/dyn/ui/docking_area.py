@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DockingArea, k, v)
-        setattr(DockingArea, ' __ooo_ns__', 'com.sun.star.ui')
-        setattr(DockingArea, ' __ooo_full_ns__', 'com.sun.star.ui.DockingArea')
-        setattr(DockingArea, ' __ooo_type_name__', 'enum')
+        setattr(DockingArea, '__ooo_ns__', 'com.sun.star.ui')
+        setattr(DockingArea, '__ooo_full_ns__', 'com.sun.star.ui.DockingArea')
+        setattr(DockingArea, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ui.docking_area import DockingArea as DockingArea

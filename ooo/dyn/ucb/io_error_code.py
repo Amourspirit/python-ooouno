@@ -77,9 +77,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(IOErrorCode, k, v)
-        setattr(IOErrorCode, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(IOErrorCode, ' __ooo_full_ns__', 'com.sun.star.ucb.IOErrorCode')
-        setattr(IOErrorCode, ' __ooo_type_name__', 'enum')
+        setattr(IOErrorCode, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(IOErrorCode, '__ooo_full_ns__', 'com.sun.star.ucb.IOErrorCode')
+        setattr(IOErrorCode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.io_error_code import IOErrorCode as IOErrorCode

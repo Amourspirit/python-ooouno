@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SmartTagRecognizerMode, k, v)
-        setattr(SmartTagRecognizerMode, ' __ooo_ns__', 'com.sun.star.smarttags')
-        setattr(SmartTagRecognizerMode, ' __ooo_full_ns__', 'com.sun.star.smarttags.SmartTagRecognizerMode')
-        setattr(SmartTagRecognizerMode, ' __ooo_type_name__', 'enum')
+        setattr(SmartTagRecognizerMode, '__ooo_ns__', 'com.sun.star.smarttags')
+        setattr(SmartTagRecognizerMode, '__ooo_full_ns__', 'com.sun.star.smarttags.SmartTagRecognizerMode')
+        setattr(SmartTagRecognizerMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.smarttags.smart_tag_recognizer_mode import SmartTagRecognizerMode as SmartTagRecognizerMode

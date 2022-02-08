@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartAxisLabelPosition, k, v)
-        setattr(ChartAxisLabelPosition, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartAxisLabelPosition, ' __ooo_full_ns__', 'com.sun.star.chart.ChartAxisLabelPosition')
-        setattr(ChartAxisLabelPosition, ' __ooo_type_name__', 'enum')
+        setattr(ChartAxisLabelPosition, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartAxisLabelPosition, '__ooo_full_ns__', 'com.sun.star.chart.ChartAxisLabelPosition')
+        setattr(ChartAxisLabelPosition, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_axis_label_position import ChartAxisLabelPosition as ChartAxisLabelPosition

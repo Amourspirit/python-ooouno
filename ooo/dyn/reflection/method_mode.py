@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MethodMode, k, v)
-        setattr(MethodMode, ' __ooo_ns__', 'com.sun.star.reflection')
-        setattr(MethodMode, ' __ooo_full_ns__', 'com.sun.star.reflection.MethodMode')
-        setattr(MethodMode, ' __ooo_type_name__', 'enum')
+        setattr(MethodMode, '__ooo_ns__', 'com.sun.star.reflection')
+        setattr(MethodMode, '__ooo_full_ns__', 'com.sun.star.reflection.MethodMode')
+        setattr(MethodMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.reflection.method_mode import MethodMode as MethodMode

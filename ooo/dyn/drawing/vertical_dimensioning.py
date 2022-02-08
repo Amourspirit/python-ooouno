@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(VerticalDimensioning, k, v)
-        setattr(VerticalDimensioning, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(VerticalDimensioning, ' __ooo_full_ns__', 'com.sun.star.drawing.VerticalDimensioning')
-        setattr(VerticalDimensioning, ' __ooo_type_name__', 'enum')
+        setattr(VerticalDimensioning, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(VerticalDimensioning, '__ooo_full_ns__', 'com.sun.star.drawing.VerticalDimensioning')
+        setattr(VerticalDimensioning, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.vertical_dimensioning import VerticalDimensioning as VerticalDimensioning

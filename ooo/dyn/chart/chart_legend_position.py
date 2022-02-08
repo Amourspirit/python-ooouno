@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartLegendPosition, k, v)
-        setattr(ChartLegendPosition, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartLegendPosition, ' __ooo_full_ns__', 'com.sun.star.chart.ChartLegendPosition')
-        setattr(ChartLegendPosition, ' __ooo_type_name__', 'enum')
+        setattr(ChartLegendPosition, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartLegendPosition, '__ooo_full_ns__', 'com.sun.star.chart.ChartLegendPosition')
+        setattr(ChartLegendPosition, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_legend_position import ChartLegendPosition as ChartLegendPosition

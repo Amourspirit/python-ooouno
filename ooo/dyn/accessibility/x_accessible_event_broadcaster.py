@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAccessibleEventBroadcaster
-        XAccessibleEventBroadcaster = unoclass(
-            'com.sun.star.accessibility.XAccessibleEventBroadcaster')
-        setattr(XAccessibleEventBroadcaster, ' __ooo_ns__', 'com.sun.star.accessibility')
-        setattr(XAccessibleEventBroadcaster, ' __ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleEventBroadcaster')
-        setattr(XAccessibleEventBroadcaster, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.accessibility import XAccessibleEventBroadcaster
+    setattr(XAccessibleEventBroadcaster, '__ooo_ns__', 'com.sun.star.accessibility')
+    setattr(XAccessibleEventBroadcaster, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleEventBroadcaster')
+    setattr(XAccessibleEventBroadcaster, '__ooo_type_name__', 'interface')
 else:
     from ...lo.accessibility.x_accessible_event_broadcaster import XAccessibleEventBroadcaster as XAccessibleEventBroadcaster
 

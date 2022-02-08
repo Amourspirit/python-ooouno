@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TableOrientation, k, v)
-        setattr(TableOrientation, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(TableOrientation, ' __ooo_full_ns__', 'com.sun.star.table.TableOrientation')
-        setattr(TableOrientation, ' __ooo_type_name__', 'enum')
+        setattr(TableOrientation, '__ooo_ns__', 'com.sun.star.table')
+        setattr(TableOrientation, '__ooo_full_ns__', 'com.sun.star.table.TableOrientation')
+        setattr(TableOrientation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.table_orientation import TableOrientation as TableOrientation

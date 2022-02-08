@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPrintableListener
-        XPrintableListener = unoclass(
-            'com.sun.star.view.XPrintableListener')
-        setattr(XPrintableListener, ' __ooo_ns__', 'com.sun.star.view')
-        setattr(XPrintableListener, ' __ooo_full_ns__', 'com.sun.star.view.XPrintableListener')
-        setattr(XPrintableListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.view import XPrintableListener
+    setattr(XPrintableListener, '__ooo_ns__', 'com.sun.star.view')
+    setattr(XPrintableListener, '__ooo_full_ns__', 'com.sun.star.view.XPrintableListener')
+    setattr(XPrintableListener, '__ooo_type_name__', 'interface')
 else:
     from ...lo.view.x_printable_listener import XPrintableListener as XPrintableListener
 

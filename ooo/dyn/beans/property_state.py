@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PropertyState, k, v)
-        setattr(PropertyState, ' __ooo_ns__', 'com.sun.star.beans')
-        setattr(PropertyState, ' __ooo_full_ns__', 'com.sun.star.beans.PropertyState')
-        setattr(PropertyState, ' __ooo_type_name__', 'enum')
+        setattr(PropertyState, '__ooo_ns__', 'com.sun.star.beans')
+        setattr(PropertyState, '__ooo_full_ns__', 'com.sun.star.beans.PropertyState')
+        setattr(PropertyState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.beans.property_state import PropertyState as PropertyState

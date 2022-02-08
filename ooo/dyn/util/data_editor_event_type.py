@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DataEditorEventType, k, v)
-        setattr(DataEditorEventType, ' __ooo_ns__', 'com.sun.star.util')
-        setattr(DataEditorEventType, ' __ooo_full_ns__', 'com.sun.star.util.DataEditorEventType')
-        setattr(DataEditorEventType, ' __ooo_type_name__', 'enum')
+        setattr(DataEditorEventType, '__ooo_ns__', 'com.sun.star.util')
+        setattr(DataEditorEventType, '__ooo_full_ns__', 'com.sun.star.util.DataEditorEventType')
+        setattr(DataEditorEventType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.util.data_editor_event_type import DataEditorEventType as DataEditorEventType

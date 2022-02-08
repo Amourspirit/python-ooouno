@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ParagraphAdjust, k, v)
-        setattr(ParagraphAdjust, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(ParagraphAdjust, ' __ooo_full_ns__', 'com.sun.star.style.ParagraphAdjust')
-        setattr(ParagraphAdjust, ' __ooo_type_name__', 'enum')
+        setattr(ParagraphAdjust, '__ooo_ns__', 'com.sun.star.style')
+        setattr(ParagraphAdjust, '__ooo_full_ns__', 'com.sun.star.style.ParagraphAdjust')
+        setattr(ParagraphAdjust, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.style.paragraph_adjust import ParagraphAdjust as ParagraphAdjust

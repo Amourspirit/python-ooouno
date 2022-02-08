@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RelativeUriExcessParentSegments, k, v)
-        setattr(RelativeUriExcessParentSegments, ' __ooo_ns__', 'com.sun.star.uri')
-        setattr(RelativeUriExcessParentSegments, ' __ooo_full_ns__', 'com.sun.star.uri.RelativeUriExcessParentSegments')
-        setattr(RelativeUriExcessParentSegments, ' __ooo_type_name__', 'enum')
+        setattr(RelativeUriExcessParentSegments, '__ooo_ns__', 'com.sun.star.uri')
+        setattr(RelativeUriExcessParentSegments, '__ooo_full_ns__', 'com.sun.star.uri.RelativeUriExcessParentSegments')
+        setattr(RelativeUriExcessParentSegments, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.uri.relative_uri_excess_parent_segments import RelativeUriExcessParentSegments as RelativeUriExcessParentSegments

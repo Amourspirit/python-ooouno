@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPivotTableDataProvider
-        XPivotTableDataProvider = unoclass(
-            'com.sun.star.chart2.data.XPivotTableDataProvider')
-        setattr(XPivotTableDataProvider, ' __ooo_ns__', 'com.sun.star.chart2.data')
-        setattr(XPivotTableDataProvider, ' __ooo_full_ns__', 'com.sun.star.chart2.data.XPivotTableDataProvider')
-        setattr(XPivotTableDataProvider, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.chart2.data import XPivotTableDataProvider
+    setattr(XPivotTableDataProvider, '__ooo_ns__', 'com.sun.star.chart2.data')
+    setattr(XPivotTableDataProvider, '__ooo_full_ns__', 'com.sun.star.chart2.data.XPivotTableDataProvider')
+    setattr(XPivotTableDataProvider, '__ooo_type_name__', 'interface')
 else:
     from ....lo.chart2.data.x_pivot_table_data_provider import XPivotTableDataProvider as XPivotTableDataProvider
 

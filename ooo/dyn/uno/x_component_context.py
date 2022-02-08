@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XComponentContext
-        XComponentContext = unoclass(
-            'com.sun.star.uno.XComponentContext')
-        setattr(XComponentContext, ' __ooo_ns__', 'com.sun.star.uno')
-        setattr(XComponentContext, ' __ooo_full_ns__', 'com.sun.star.uno.XComponentContext')
-        setattr(XComponentContext, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uno import XComponentContext
+    setattr(XComponentContext, '__ooo_ns__', 'com.sun.star.uno')
+    setattr(XComponentContext, '__ooo_full_ns__', 'com.sun.star.uno.XComponentContext')
+    setattr(XComponentContext, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uno.x_component_context import XComponentContext as XComponentContext
 

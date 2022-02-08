@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSidebarPanel
-        XSidebarPanel = unoclass(
-            'com.sun.star.ui.XSidebarPanel')
-        setattr(XSidebarPanel, ' __ooo_ns__', 'com.sun.star.ui')
-        setattr(XSidebarPanel, ' __ooo_full_ns__', 'com.sun.star.ui.XSidebarPanel')
-        setattr(XSidebarPanel, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ui import XSidebarPanel
+    setattr(XSidebarPanel, '__ooo_ns__', 'com.sun.star.ui')
+    setattr(XSidebarPanel, '__ooo_full_ns__', 'com.sun.star.ui.XSidebarPanel')
+    setattr(XSidebarPanel, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ui.x_sidebar_panel import XSidebarPanel as XSidebarPanel
 

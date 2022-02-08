@@ -56,9 +56,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DOMExceptionType, k, v)
-        setattr(DOMExceptionType, ' __ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(DOMExceptionType, ' __ooo_full_ns__', 'com.sun.star.xml.dom.DOMExceptionType')
-        setattr(DOMExceptionType, ' __ooo_type_name__', 'enum')
+        setattr(DOMExceptionType, '__ooo_ns__', 'com.sun.star.xml.dom')
+        setattr(DOMExceptionType, '__ooo_full_ns__', 'com.sun.star.xml.dom.DOMExceptionType')
+        setattr(DOMExceptionType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.xml.dom.dom_exception_type import DOMExceptionType as DOMExceptionType

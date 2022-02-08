@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBlob
-        XBlob = unoclass(
-            'com.sun.star.sdbc.XBlob')
-        setattr(XBlob, ' __ooo_ns__', 'com.sun.star.sdbc')
-        setattr(XBlob, ' __ooo_full_ns__', 'com.sun.star.sdbc.XBlob')
-        setattr(XBlob, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbc import XBlob
+    setattr(XBlob, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(XBlob, '__ooo_full_ns__', 'com.sun.star.sdbc.XBlob')
+    setattr(XBlob, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbc.x_blob import XBlob as XBlob
 

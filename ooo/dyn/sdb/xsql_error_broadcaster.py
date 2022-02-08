@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSQLErrorBroadcaster
-        XSQLErrorBroadcaster = unoclass(
-            'com.sun.star.sdb.XSQLErrorBroadcaster')
-        setattr(XSQLErrorBroadcaster, ' __ooo_ns__', 'com.sun.star.sdb')
-        setattr(XSQLErrorBroadcaster, ' __ooo_full_ns__', 'com.sun.star.sdb.XSQLErrorBroadcaster')
-        setattr(XSQLErrorBroadcaster, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb import XSQLErrorBroadcaster
+    setattr(XSQLErrorBroadcaster, '__ooo_ns__', 'com.sun.star.sdb')
+    setattr(XSQLErrorBroadcaster, '__ooo_full_ns__', 'com.sun.star.sdb.XSQLErrorBroadcaster')
+    setattr(XSQLErrorBroadcaster, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdb.xsql_error_broadcaster import XSQLErrorBroadcaster as XSQLErrorBroadcaster
 

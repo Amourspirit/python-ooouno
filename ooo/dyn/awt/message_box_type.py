@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MessageBoxType, k, v)
-        setattr(MessageBoxType, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(MessageBoxType, ' __ooo_full_ns__', 'com.sun.star.awt.MessageBoxType')
-        setattr(MessageBoxType, ' __ooo_type_name__', 'enum')
+        setattr(MessageBoxType, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(MessageBoxType, '__ooo_full_ns__', 'com.sun.star.awt.MessageBoxType')
+        setattr(MessageBoxType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.message_box_type import MessageBoxType as MessageBoxType

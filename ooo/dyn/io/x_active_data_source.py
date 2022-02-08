@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XActiveDataSource
-        XActiveDataSource = unoclass(
-            'com.sun.star.io.XActiveDataSource')
-        setattr(XActiveDataSource, ' __ooo_ns__', 'com.sun.star.io')
-        setattr(XActiveDataSource, ' __ooo_full_ns__', 'com.sun.star.io.XActiveDataSource')
-        setattr(XActiveDataSource, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.io import XActiveDataSource
+    setattr(XActiveDataSource, '__ooo_ns__', 'com.sun.star.io')
+    setattr(XActiveDataSource, '__ooo_full_ns__', 'com.sun.star.io.XActiveDataSource')
+    setattr(XActiveDataSource, '__ooo_type_name__', 'interface')
 else:
     from ...lo.io.x_active_data_source import XActiveDataSource as XActiveDataSource
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDialogClosedListener
-        XDialogClosedListener = unoclass(
-            'com.sun.star.ui.dialogs.XDialogClosedListener')
-        setattr(XDialogClosedListener, ' __ooo_ns__', 'com.sun.star.ui.dialogs')
-        setattr(XDialogClosedListener, ' __ooo_full_ns__', 'com.sun.star.ui.dialogs.XDialogClosedListener')
-        setattr(XDialogClosedListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ui.dialogs import XDialogClosedListener
+    setattr(XDialogClosedListener, '__ooo_ns__', 'com.sun.star.ui.dialogs')
+    setattr(XDialogClosedListener, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XDialogClosedListener')
+    setattr(XDialogClosedListener, '__ooo_type_name__', 'interface')
 else:
     from ....lo.ui.dialogs.x_dialog_closed_listener import XDialogClosedListener as XDialogClosedListener
 

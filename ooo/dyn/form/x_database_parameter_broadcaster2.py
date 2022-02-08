@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDatabaseParameterBroadcaster2
-        XDatabaseParameterBroadcaster2 = unoclass(
-            'com.sun.star.form.XDatabaseParameterBroadcaster2')
-        setattr(XDatabaseParameterBroadcaster2, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(XDatabaseParameterBroadcaster2, ' __ooo_full_ns__', 'com.sun.star.form.XDatabaseParameterBroadcaster2')
-        setattr(XDatabaseParameterBroadcaster2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form import XDatabaseParameterBroadcaster2
+    setattr(XDatabaseParameterBroadcaster2, '__ooo_ns__', 'com.sun.star.form')
+    setattr(XDatabaseParameterBroadcaster2, '__ooo_full_ns__', 'com.sun.star.form.XDatabaseParameterBroadcaster2')
+    setattr(XDatabaseParameterBroadcaster2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.form.x_database_parameter_broadcaster2 import XDatabaseParameterBroadcaster2 as XDatabaseParameterBroadcaster2
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XModuleUIConfigurationManagerSupplier
-        XModuleUIConfigurationManagerSupplier = unoclass(
-            'com.sun.star.ui.XModuleUIConfigurationManagerSupplier')
-        setattr(XModuleUIConfigurationManagerSupplier, ' __ooo_ns__', 'com.sun.star.ui')
-        setattr(XModuleUIConfigurationManagerSupplier, ' __ooo_full_ns__', 'com.sun.star.ui.XModuleUIConfigurationManagerSupplier')
-        setattr(XModuleUIConfigurationManagerSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ui import XModuleUIConfigurationManagerSupplier
+    setattr(XModuleUIConfigurationManagerSupplier, '__ooo_ns__', 'com.sun.star.ui')
+    setattr(XModuleUIConfigurationManagerSupplier, '__ooo_full_ns__', 'com.sun.star.ui.XModuleUIConfigurationManagerSupplier')
+    setattr(XModuleUIConfigurationManagerSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ui.x_module_ui_configuration_manager_supplier import XModuleUIConfigurationManagerSupplier as XModuleUIConfigurationManagerSupplier
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XURLTransformer
-        XURLTransformer = unoclass(
-            'com.sun.star.util.XURLTransformer')
-        setattr(XURLTransformer, ' __ooo_ns__', 'com.sun.star.util')
-        setattr(XURLTransformer, ' __ooo_full_ns__', 'com.sun.star.util.XURLTransformer')
-        setattr(XURLTransformer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.util import XURLTransformer
+    setattr(XURLTransformer, '__ooo_ns__', 'com.sun.star.util')
+    setattr(XURLTransformer, '__ooo_full_ns__', 'com.sun.star.util.XURLTransformer')
+    setattr(XURLTransformer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.util.xurl_transformer import XURLTransformer as XURLTransformer
 

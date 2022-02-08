@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(InteractionClassification, k, v)
-        setattr(InteractionClassification, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(InteractionClassification, ' __ooo_full_ns__', 'com.sun.star.task.InteractionClassification')
-        setattr(InteractionClassification, ' __ooo_type_name__', 'enum')
+        setattr(InteractionClassification, '__ooo_ns__', 'com.sun.star.task')
+        setattr(InteractionClassification, '__ooo_full_ns__', 'com.sun.star.task.InteractionClassification')
+        setattr(InteractionClassification, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.task.interaction_classification import InteractionClassification as InteractionClassification

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSheetFilterDescriptor
-        XSheetFilterDescriptor = unoclass(
-            'com.sun.star.sheet.XSheetFilterDescriptor')
-        setattr(XSheetFilterDescriptor, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XSheetFilterDescriptor, ' __ooo_full_ns__', 'com.sun.star.sheet.XSheetFilterDescriptor')
-        setattr(XSheetFilterDescriptor, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XSheetFilterDescriptor
+    setattr(XSheetFilterDescriptor, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XSheetFilterDescriptor, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetFilterDescriptor')
+    setattr(XSheetFilterDescriptor, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.x_sheet_filter_descriptor import XSheetFilterDescriptor as XSheetFilterDescriptor
 

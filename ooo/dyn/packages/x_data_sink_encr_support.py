@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDataSinkEncrSupport
-        XDataSinkEncrSupport = unoclass(
-            'com.sun.star.packages.XDataSinkEncrSupport')
-        setattr(XDataSinkEncrSupport, ' __ooo_ns__', 'com.sun.star.packages')
-        setattr(XDataSinkEncrSupport, ' __ooo_full_ns__', 'com.sun.star.packages.XDataSinkEncrSupport')
-        setattr(XDataSinkEncrSupport, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.packages import XDataSinkEncrSupport
+    setattr(XDataSinkEncrSupport, '__ooo_ns__', 'com.sun.star.packages')
+    setattr(XDataSinkEncrSupport, '__ooo_full_ns__', 'com.sun.star.packages.XDataSinkEncrSupport')
+    setattr(XDataSinkEncrSupport, '__ooo_type_name__', 'interface')
 else:
     from ...lo.packages.x_data_sink_encr_support import XDataSinkEncrSupport as XDataSinkEncrSupport
 

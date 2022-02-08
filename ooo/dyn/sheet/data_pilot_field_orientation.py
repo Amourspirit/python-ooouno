@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DataPilotFieldOrientation, k, v)
-        setattr(DataPilotFieldOrientation, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(DataPilotFieldOrientation, ' __ooo_full_ns__', 'com.sun.star.sheet.DataPilotFieldOrientation')
-        setattr(DataPilotFieldOrientation, ' __ooo_type_name__', 'enum')
+        setattr(DataPilotFieldOrientation, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(DataPilotFieldOrientation, '__ooo_full_ns__', 'com.sun.star.sheet.DataPilotFieldOrientation')
+        setattr(DataPilotFieldOrientation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation

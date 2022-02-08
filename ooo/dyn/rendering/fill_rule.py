@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FillRule, k, v)
-        setattr(FillRule, ' __ooo_ns__', 'com.sun.star.rendering')
-        setattr(FillRule, ' __ooo_full_ns__', 'com.sun.star.rendering.FillRule')
-        setattr(FillRule, ' __ooo_type_name__', 'enum')
+        setattr(FillRule, '__ooo_ns__', 'com.sun.star.rendering')
+        setattr(FillRule, '__ooo_full_ns__', 'com.sun.star.rendering.FillRule')
+        setattr(FillRule, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.rendering.fill_rule import FillRule as FillRule

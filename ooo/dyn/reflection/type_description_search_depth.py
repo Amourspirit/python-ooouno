@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TypeDescriptionSearchDepth, k, v)
-        setattr(TypeDescriptionSearchDepth, ' __ooo_ns__', 'com.sun.star.reflection')
-        setattr(TypeDescriptionSearchDepth, ' __ooo_full_ns__', 'com.sun.star.reflection.TypeDescriptionSearchDepth')
-        setattr(TypeDescriptionSearchDepth, ' __ooo_type_name__', 'enum')
+        setattr(TypeDescriptionSearchDepth, '__ooo_ns__', 'com.sun.star.reflection')
+        setattr(TypeDescriptionSearchDepth, '__ooo_full_ns__', 'com.sun.star.reflection.TypeDescriptionSearchDepth')
+        setattr(TypeDescriptionSearchDepth, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.reflection.type_description_search_depth import TypeDescriptionSearchDepth as TypeDescriptionSearchDepth

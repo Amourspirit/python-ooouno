@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DrawViewMode, k, v)
-        setattr(DrawViewMode, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(DrawViewMode, ' __ooo_full_ns__', 'com.sun.star.drawing.DrawViewMode')
-        setattr(DrawViewMode, ' __ooo_type_name__', 'enum')
+        setattr(DrawViewMode, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(DrawViewMode, '__ooo_full_ns__', 'com.sun.star.drawing.DrawViewMode')
+        setattr(DrawViewMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.draw_view_mode import DrawViewMode as DrawViewMode

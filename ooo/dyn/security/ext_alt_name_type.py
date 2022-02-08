@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ExtAltNameType, k, v)
-        setattr(ExtAltNameType, ' __ooo_ns__', 'com.sun.star.security')
-        setattr(ExtAltNameType, ' __ooo_full_ns__', 'com.sun.star.security.ExtAltNameType')
-        setattr(ExtAltNameType, ' __ooo_type_name__', 'enum')
+        setattr(ExtAltNameType, '__ooo_ns__', 'com.sun.star.security')
+        setattr(ExtAltNameType, '__ooo_full_ns__', 'com.sun.star.security.ExtAltNameType')
+        setattr(ExtAltNameType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.security.ext_alt_name_type import ExtAltNameType as ExtAltNameType

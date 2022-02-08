@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XExtendedToolkit
-        XExtendedToolkit = unoclass(
-            'com.sun.star.awt.XExtendedToolkit')
-        setattr(XExtendedToolkit, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XExtendedToolkit, ' __ooo_full_ns__', 'com.sun.star.awt.XExtendedToolkit')
-        setattr(XExtendedToolkit, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XExtendedToolkit
+    setattr(XExtendedToolkit, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XExtendedToolkit, '__ooo_full_ns__', 'com.sun.star.awt.XExtendedToolkit')
+    setattr(XExtendedToolkit, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_extended_toolkit import XExtendedToolkit as XExtendedToolkit
 

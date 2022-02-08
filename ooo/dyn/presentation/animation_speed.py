@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AnimationSpeed, k, v)
-        setattr(AnimationSpeed, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(AnimationSpeed, ' __ooo_full_ns__', 'com.sun.star.presentation.AnimationSpeed')
-        setattr(AnimationSpeed, ' __ooo_type_name__', 'enum')
+        setattr(AnimationSpeed, '__ooo_ns__', 'com.sun.star.presentation')
+        setattr(AnimationSpeed, '__ooo_full_ns__', 'com.sun.star.presentation.AnimationSpeed')
+        setattr(AnimationSpeed, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.presentation.animation_speed import AnimationSpeed as AnimationSpeed

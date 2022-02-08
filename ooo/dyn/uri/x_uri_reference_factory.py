@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XUriReferenceFactory
-        XUriReferenceFactory = unoclass(
-            'com.sun.star.uri.XUriReferenceFactory')
-        setattr(XUriReferenceFactory, ' __ooo_ns__', 'com.sun.star.uri')
-        setattr(XUriReferenceFactory, ' __ooo_full_ns__', 'com.sun.star.uri.XUriReferenceFactory')
-        setattr(XUriReferenceFactory, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uri import XUriReferenceFactory
+    setattr(XUriReferenceFactory, '__ooo_ns__', 'com.sun.star.uri')
+    setattr(XUriReferenceFactory, '__ooo_full_ns__', 'com.sun.star.uri.XUriReferenceFactory')
+    setattr(XUriReferenceFactory, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uri.x_uri_reference_factory import XUriReferenceFactory as XUriReferenceFactory
 

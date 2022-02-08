@@ -49,9 +49,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(InterruptReason, k, v)
-        setattr(InterruptReason, ' __ooo_ns__', 'com.sun.star.script')
-        setattr(InterruptReason, ' __ooo_full_ns__', 'com.sun.star.script.InterruptReason')
-        setattr(InterruptReason, ' __ooo_type_name__', 'enum')
+        setattr(InterruptReason, '__ooo_ns__', 'com.sun.star.script')
+        setattr(InterruptReason, '__ooo_full_ns__', 'com.sun.star.script.InterruptReason')
+        setattr(InterruptReason, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.script.interrupt_reason import InterruptReason as InterruptReason

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XLabelRange
-        XLabelRange = unoclass(
-            'com.sun.star.sheet.XLabelRange')
-        setattr(XLabelRange, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XLabelRange, ' __ooo_full_ns__', 'com.sun.star.sheet.XLabelRange')
-        setattr(XLabelRange, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XLabelRange
+    setattr(XLabelRange, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XLabelRange, '__ooo_full_ns__', 'com.sun.star.sheet.XLabelRange')
+    setattr(XLabelRange, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.x_label_range import XLabelRange as XLabelRange
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XInteractionFilterOptions
-        XInteractionFilterOptions = unoclass(
-            'com.sun.star.document.XInteractionFilterOptions')
-        setattr(XInteractionFilterOptions, ' __ooo_ns__', 'com.sun.star.document')
-        setattr(XInteractionFilterOptions, ' __ooo_full_ns__', 'com.sun.star.document.XInteractionFilterOptions')
-        setattr(XInteractionFilterOptions, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.document import XInteractionFilterOptions
+    setattr(XInteractionFilterOptions, '__ooo_ns__', 'com.sun.star.document')
+    setattr(XInteractionFilterOptions, '__ooo_full_ns__', 'com.sun.star.document.XInteractionFilterOptions')
+    setattr(XInteractionFilterOptions, '__ooo_type_name__', 'interface')
 else:
     from ...lo.document.x_interaction_filter_options import XInteractionFilterOptions as XInteractionFilterOptions
 

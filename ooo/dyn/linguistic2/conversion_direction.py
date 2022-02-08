@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ConversionDirection, k, v)
-        setattr(ConversionDirection, ' __ooo_ns__', 'com.sun.star.linguistic2')
-        setattr(ConversionDirection, ' __ooo_full_ns__', 'com.sun.star.linguistic2.ConversionDirection')
-        setattr(ConversionDirection, ' __ooo_type_name__', 'enum')
+        setattr(ConversionDirection, '__ooo_ns__', 'com.sun.star.linguistic2')
+        setattr(ConversionDirection, '__ooo_full_ns__', 'com.sun.star.linguistic2.ConversionDirection')
+        setattr(ConversionDirection, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.linguistic2.conversion_direction import ConversionDirection as ConversionDirection

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XGraphicObjectResolver
-        XGraphicObjectResolver = unoclass(
-            'com.sun.star.document.XGraphicObjectResolver')
-        setattr(XGraphicObjectResolver, ' __ooo_ns__', 'com.sun.star.document')
-        setattr(XGraphicObjectResolver, ' __ooo_full_ns__', 'com.sun.star.document.XGraphicObjectResolver')
-        setattr(XGraphicObjectResolver, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.document import XGraphicObjectResolver
+    setattr(XGraphicObjectResolver, '__ooo_ns__', 'com.sun.star.document')
+    setattr(XGraphicObjectResolver, '__ooo_full_ns__', 'com.sun.star.document.XGraphicObjectResolver')
+    setattr(XGraphicObjectResolver, '__ooo_type_name__', 'interface')
 else:
     from ...lo.document.x_graphic_object_resolver import XGraphicObjectResolver as XGraphicObjectResolver
 

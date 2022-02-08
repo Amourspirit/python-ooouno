@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSimpleMailMessage2
-        XSimpleMailMessage2 = unoclass(
-            'com.sun.star.system.XSimpleMailMessage2')
-        setattr(XSimpleMailMessage2, ' __ooo_ns__', 'com.sun.star.system')
-        setattr(XSimpleMailMessage2, ' __ooo_full_ns__', 'com.sun.star.system.XSimpleMailMessage2')
-        setattr(XSimpleMailMessage2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.system import XSimpleMailMessage2
+    setattr(XSimpleMailMessage2, '__ooo_ns__', 'com.sun.star.system')
+    setattr(XSimpleMailMessage2, '__ooo_full_ns__', 'com.sun.star.system.XSimpleMailMessage2')
+    setattr(XSimpleMailMessage2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.system.x_simple_mail_message2 import XSimpleMailMessage2 as XSimpleMailMessage2
 

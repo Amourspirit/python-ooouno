@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSlideShowView
-        XSlideShowView = unoclass(
-            'com.sun.star.presentation.XSlideShowView')
-        setattr(XSlideShowView, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(XSlideShowView, ' __ooo_full_ns__', 'com.sun.star.presentation.XSlideShowView')
-        setattr(XSlideShowView, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.presentation import XSlideShowView
+    setattr(XSlideShowView, '__ooo_ns__', 'com.sun.star.presentation')
+    setattr(XSlideShowView, '__ooo_full_ns__', 'com.sun.star.presentation.XSlideShowView')
+    setattr(XSlideShowView, '__ooo_type_name__', 'interface')
 else:
     from ...lo.presentation.x_slide_show_view import XSlideShowView as XSlideShowView
 

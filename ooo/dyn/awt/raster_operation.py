@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RasterOperation, k, v)
-        setattr(RasterOperation, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(RasterOperation, ' __ooo_full_ns__', 'com.sun.star.awt.RasterOperation')
-        setattr(RasterOperation, ' __ooo_type_name__', 'enum')
+        setattr(RasterOperation, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(RasterOperation, '__ooo_full_ns__', 'com.sun.star.awt.RasterOperation')
+        setattr(RasterOperation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.raster_operation import RasterOperation as RasterOperation

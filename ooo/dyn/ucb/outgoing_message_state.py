@@ -49,9 +49,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(OutgoingMessageState, k, v)
-        setattr(OutgoingMessageState, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(OutgoingMessageState, ' __ooo_full_ns__', 'com.sun.star.ucb.OutgoingMessageState')
-        setattr(OutgoingMessageState, ' __ooo_type_name__', 'enum')
+        setattr(OutgoingMessageState, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(OutgoingMessageState, '__ooo_full_ns__', 'com.sun.star.ucb.OutgoingMessageState')
+        setattr(OutgoingMessageState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.outgoing_message_state import OutgoingMessageState as OutgoingMessageState

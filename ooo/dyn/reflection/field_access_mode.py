@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FieldAccessMode, k, v)
-        setattr(FieldAccessMode, ' __ooo_ns__', 'com.sun.star.reflection')
-        setattr(FieldAccessMode, ' __ooo_full_ns__', 'com.sun.star.reflection.FieldAccessMode')
-        setattr(FieldAccessMode, ' __ooo_type_name__', 'enum')
+        setattr(FieldAccessMode, '__ooo_ns__', 'com.sun.star.reflection')
+        setattr(FieldAccessMode, '__ooo_full_ns__', 'com.sun.star.reflection.FieldAccessMode')
+        setattr(FieldAccessMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode

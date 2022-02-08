@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RemoteContentProviderChangeAction, k, v)
-        setattr(RemoteContentProviderChangeAction, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(RemoteContentProviderChangeAction, ' __ooo_full_ns__', 'com.sun.star.ucb.RemoteContentProviderChangeAction')
-        setattr(RemoteContentProviderChangeAction, ' __ooo_type_name__', 'enum')
+        setattr(RemoteContentProviderChangeAction, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(RemoteContentProviderChangeAction, '__ooo_full_ns__', 'com.sun.star.ucb.RemoteContentProviderChangeAction')
+        setattr(RemoteContentProviderChangeAction, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.remote_content_provider_change_action import RemoteContentProviderChangeAction as RemoteContentProviderChangeAction

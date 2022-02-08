@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AxisOrientation, k, v)
-        setattr(AxisOrientation, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(AxisOrientation, ' __ooo_full_ns__', 'com.sun.star.chart2.AxisOrientation')
-        setattr(AxisOrientation, ' __ooo_type_name__', 'enum')
+        setattr(AxisOrientation, '__ooo_ns__', 'com.sun.star.chart2')
+        setattr(AxisOrientation, '__ooo_full_ns__', 'com.sun.star.chart2.AxisOrientation')
+        setattr(AxisOrientation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart2.axis_orientation import AxisOrientation as AxisOrientation

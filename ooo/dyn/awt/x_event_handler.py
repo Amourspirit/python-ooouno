@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XEventHandler
-        XEventHandler = unoclass(
-            'com.sun.star.awt.XEventHandler')
-        setattr(XEventHandler, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XEventHandler, ' __ooo_full_ns__', 'com.sun.star.awt.XEventHandler')
-        setattr(XEventHandler, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XEventHandler
+    setattr(XEventHandler, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XEventHandler, '__ooo_full_ns__', 'com.sun.star.awt.XEventHandler')
+    setattr(XEventHandler, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_event_handler import XEventHandler as XEventHandler
 

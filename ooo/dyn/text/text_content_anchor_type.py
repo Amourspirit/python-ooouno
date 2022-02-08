@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextContentAnchorType, k, v)
-        setattr(TextContentAnchorType, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(TextContentAnchorType, ' __ooo_full_ns__', 'com.sun.star.text.TextContentAnchorType')
-        setattr(TextContentAnchorType, ' __ooo_type_name__', 'enum')
+        setattr(TextContentAnchorType, '__ooo_ns__', 'com.sun.star.text')
+        setattr(TextContentAnchorType, '__ooo_full_ns__', 'com.sun.star.text.TextContentAnchorType')
+        setattr(TextContentAnchorType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.text.text_content_anchor_type import TextContentAnchorType as TextContentAnchorType

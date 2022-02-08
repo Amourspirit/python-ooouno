@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XLayerContentDescriber
-        XLayerContentDescriber = unoclass(
-            'com.sun.star.configuration.backend.XLayerContentDescriber')
-        setattr(XLayerContentDescriber, ' __ooo_ns__', 'com.sun.star.configuration.backend')
-        setattr(XLayerContentDescriber, ' __ooo_full_ns__', 'com.sun.star.configuration.backend.XLayerContentDescriber')
-        setattr(XLayerContentDescriber, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.configuration.backend import XLayerContentDescriber
+    setattr(XLayerContentDescriber, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(XLayerContentDescriber, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XLayerContentDescriber')
+    setattr(XLayerContentDescriber, '__ooo_type_name__', 'interface')
 else:
     from ....lo.configuration.backend.x_layer_content_describer import XLayerContentDescriber as XLayerContentDescriber
 

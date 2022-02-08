@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSSOAcceptorContext
-        XSSOAcceptorContext = unoclass(
-            'com.sun.star.auth.XSSOAcceptorContext')
-        setattr(XSSOAcceptorContext, ' __ooo_ns__', 'com.sun.star.auth')
-        setattr(XSSOAcceptorContext, ' __ooo_full_ns__', 'com.sun.star.auth.XSSOAcceptorContext')
-        setattr(XSSOAcceptorContext, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.auth import XSSOAcceptorContext
+    setattr(XSSOAcceptorContext, '__ooo_ns__', 'com.sun.star.auth')
+    setattr(XSSOAcceptorContext, '__ooo_full_ns__', 'com.sun.star.auth.XSSOAcceptorContext')
+    setattr(XSSOAcceptorContext, '__ooo_type_name__', 'interface')
 else:
     from ...lo.auth.xsso_acceptor_context import XSSOAcceptorContext as XSSOAcceptorContext
 

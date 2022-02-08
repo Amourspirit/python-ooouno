@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSAXDocumentBuilder
-        XSAXDocumentBuilder = unoclass(
-            'com.sun.star.xml.dom.XSAXDocumentBuilder')
-        setattr(XSAXDocumentBuilder, ' __ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(XSAXDocumentBuilder, ' __ooo_full_ns__', 'com.sun.star.xml.dom.XSAXDocumentBuilder')
-        setattr(XSAXDocumentBuilder, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.dom import XSAXDocumentBuilder
+    setattr(XSAXDocumentBuilder, '__ooo_ns__', 'com.sun.star.xml.dom')
+    setattr(XSAXDocumentBuilder, '__ooo_full_ns__', 'com.sun.star.xml.dom.XSAXDocumentBuilder')
+    setattr(XSAXDocumentBuilder, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.dom.xsax_document_builder import XSAXDocumentBuilder as XSAXDocumentBuilder
 

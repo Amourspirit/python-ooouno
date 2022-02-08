@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAccessibleImage
-        XAccessibleImage = unoclass(
-            'com.sun.star.accessibility.XAccessibleImage')
-        setattr(XAccessibleImage, ' __ooo_ns__', 'com.sun.star.accessibility')
-        setattr(XAccessibleImage, ' __ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleImage')
-        setattr(XAccessibleImage, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.accessibility import XAccessibleImage
+    setattr(XAccessibleImage, '__ooo_ns__', 'com.sun.star.accessibility')
+    setattr(XAccessibleImage, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleImage')
+    setattr(XAccessibleImage, '__ooo_type_name__', 'interface')
 else:
     from ...lo.accessibility.x_accessible_image import XAccessibleImage as XAccessibleImage
 

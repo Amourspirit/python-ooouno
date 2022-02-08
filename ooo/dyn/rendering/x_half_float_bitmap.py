@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XHalfFloatBitmap
-        XHalfFloatBitmap = unoclass(
-            'com.sun.star.rendering.XHalfFloatBitmap')
-        setattr(XHalfFloatBitmap, ' __ooo_ns__', 'com.sun.star.rendering')
-        setattr(XHalfFloatBitmap, ' __ooo_full_ns__', 'com.sun.star.rendering.XHalfFloatBitmap')
-        setattr(XHalfFloatBitmap, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.rendering import XHalfFloatBitmap
+    setattr(XHalfFloatBitmap, '__ooo_ns__', 'com.sun.star.rendering')
+    setattr(XHalfFloatBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XHalfFloatBitmap')
+    setattr(XHalfFloatBitmap, '__ooo_type_name__', 'interface')
 else:
     from ...lo.rendering.x_half_float_bitmap import XHalfFloatBitmap as XHalfFloatBitmap
 

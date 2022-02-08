@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XMailServiceProvider
-        XMailServiceProvider = unoclass(
-            'com.sun.star.mail.XMailServiceProvider')
-        setattr(XMailServiceProvider, ' __ooo_ns__', 'com.sun.star.mail')
-        setattr(XMailServiceProvider, ' __ooo_full_ns__', 'com.sun.star.mail.XMailServiceProvider')
-        setattr(XMailServiceProvider, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.mail import XMailServiceProvider
+    setattr(XMailServiceProvider, '__ooo_ns__', 'com.sun.star.mail')
+    setattr(XMailServiceProvider, '__ooo_full_ns__', 'com.sun.star.mail.XMailServiceProvider')
+    setattr(XMailServiceProvider, '__ooo_type_name__', 'interface')
 else:
     from ...lo.mail.x_mail_service_provider import XMailServiceProvider as XMailServiceProvider
 

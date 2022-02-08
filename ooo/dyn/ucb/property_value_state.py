@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PropertyValueState, k, v)
-        setattr(PropertyValueState, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(PropertyValueState, ' __ooo_full_ns__', 'com.sun.star.ucb.PropertyValueState')
-        setattr(PropertyValueState, ' __ooo_type_name__', 'enum')
+        setattr(PropertyValueState, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(PropertyValueState, '__ooo_full_ns__', 'com.sun.star.ucb.PropertyValueState')
+        setattr(PropertyValueState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.property_value_state import PropertyValueState as PropertyValueState

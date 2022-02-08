@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XReplaceDescriptor
-        XReplaceDescriptor = unoclass(
-            'com.sun.star.util.XReplaceDescriptor')
-        setattr(XReplaceDescriptor, ' __ooo_ns__', 'com.sun.star.util')
-        setattr(XReplaceDescriptor, ' __ooo_full_ns__', 'com.sun.star.util.XReplaceDescriptor')
-        setattr(XReplaceDescriptor, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.util import XReplaceDescriptor
+    setattr(XReplaceDescriptor, '__ooo_ns__', 'com.sun.star.util')
+    setattr(XReplaceDescriptor, '__ooo_full_ns__', 'com.sun.star.util.XReplaceDescriptor')
+    setattr(XReplaceDescriptor, '__ooo_type_name__', 'interface')
 else:
     from ...lo.util.x_replace_descriptor import XReplaceDescriptor as XReplaceDescriptor
 

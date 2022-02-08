@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(CellHoriJustify, k, v)
-        setattr(CellHoriJustify, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(CellHoriJustify, ' __ooo_full_ns__', 'com.sun.star.table.CellHoriJustify')
-        setattr(CellHoriJustify, ' __ooo_type_name__', 'enum')
+        setattr(CellHoriJustify, '__ooo_ns__', 'com.sun.star.table')
+        setattr(CellHoriJustify, '__ooo_full_ns__', 'com.sun.star.table.CellHoriJustify')
+        setattr(CellHoriJustify, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.cell_hori_justify import CellHoriJustify as CellHoriJustify

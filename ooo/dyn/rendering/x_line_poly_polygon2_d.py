@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XLinePolyPolygon2D
-        XLinePolyPolygon2D = unoclass(
-            'com.sun.star.rendering.XLinePolyPolygon2D')
-        setattr(XLinePolyPolygon2D, ' __ooo_ns__', 'com.sun.star.rendering')
-        setattr(XLinePolyPolygon2D, ' __ooo_full_ns__', 'com.sun.star.rendering.XLinePolyPolygon2D')
-        setattr(XLinePolyPolygon2D, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.rendering import XLinePolyPolygon2D
+    setattr(XLinePolyPolygon2D, '__ooo_ns__', 'com.sun.star.rendering')
+    setattr(XLinePolyPolygon2D, '__ooo_full_ns__', 'com.sun.star.rendering.XLinePolyPolygon2D')
+    setattr(XLinePolyPolygon2D, '__ooo_type_name__', 'interface')
 else:
     from ...lo.rendering.x_line_poly_polygon2_d import XLinePolyPolygon2D as XLinePolyPolygon2D
 

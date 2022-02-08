@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RectanglePoint, k, v)
-        setattr(RectanglePoint, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(RectanglePoint, ' __ooo_full_ns__', 'com.sun.star.drawing.RectanglePoint')
-        setattr(RectanglePoint, ' __ooo_type_name__', 'enum')
+        setattr(RectanglePoint, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(RectanglePoint, '__ooo_full_ns__', 'com.sun.star.drawing.RectanglePoint')
+        setattr(RectanglePoint, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.rectangle_point import RectanglePoint as RectanglePoint

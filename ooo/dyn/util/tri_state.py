@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TriState, k, v)
-        setattr(TriState, ' __ooo_ns__', 'com.sun.star.util')
-        setattr(TriState, ' __ooo_full_ns__', 'com.sun.star.util.TriState')
-        setattr(TriState, ' __ooo_type_name__', 'enum')
+        setattr(TriState, '__ooo_ns__', 'com.sun.star.util')
+        setattr(TriState, '__ooo_full_ns__', 'com.sun.star.util.TriState')
+        setattr(TriState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.util.tri_state import TriState as TriState

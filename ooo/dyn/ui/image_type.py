@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.ui
 from enum import IntFlag
-from ...lo.ui.image_type import ImageType as ImageType
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.ui import ImageType
+else:
+    from ...lo.ui.image_type import ImageType as ImageType
 
 
 class ImageTypeEnum(IntFlag):

@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextAnimationKind, k, v)
-        setattr(TextAnimationKind, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextAnimationKind, ' __ooo_full_ns__', 'com.sun.star.drawing.TextAnimationKind')
-        setattr(TextAnimationKind, ' __ooo_type_name__', 'enum')
+        setattr(TextAnimationKind, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextAnimationKind, '__ooo_full_ns__', 'com.sun.star.drawing.TextAnimationKind')
+        setattr(TextAnimationKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.text_animation_kind import TextAnimationKind as TextAnimationKind

@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AdjustmentType, k, v)
-        setattr(AdjustmentType, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(AdjustmentType, ' __ooo_full_ns__', 'com.sun.star.awt.AdjustmentType')
-        setattr(AdjustmentType, ' __ooo_type_name__', 'enum')
+        setattr(AdjustmentType, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(AdjustmentType, '__ooo_full_ns__', 'com.sun.star.awt.AdjustmentType')
+        setattr(AdjustmentType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.adjustment_type import AdjustmentType as AdjustmentType

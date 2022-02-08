@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XRedline
-        XRedline = unoclass(
-            'com.sun.star.text.XRedline')
-        setattr(XRedline, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(XRedline, ' __ooo_full_ns__', 'com.sun.star.text.XRedline')
-        setattr(XRedline, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.text import XRedline
+    setattr(XRedline, '__ooo_ns__', 'com.sun.star.text')
+    setattr(XRedline, '__ooo_full_ns__', 'com.sun.star.text.XRedline')
+    setattr(XRedline, '__ooo_type_name__', 'interface')
 else:
     from ...lo.text.x_redline import XRedline as XRedline
 

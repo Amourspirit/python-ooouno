@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DocumentStoreMode, k, v)
-        setattr(DocumentStoreMode, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(DocumentStoreMode, ' __ooo_full_ns__', 'com.sun.star.ucb.DocumentStoreMode')
-        setattr(DocumentStoreMode, ' __ooo_type_name__', 'enum')
+        setattr(DocumentStoreMode, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(DocumentStoreMode, '__ooo_full_ns__', 'com.sun.star.ucb.DocumentStoreMode')
+        setattr(DocumentStoreMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.document_store_mode import DocumentStoreMode as DocumentStoreMode

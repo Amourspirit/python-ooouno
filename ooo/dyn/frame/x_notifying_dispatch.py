@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XNotifyingDispatch
-        XNotifyingDispatch = unoclass(
-            'com.sun.star.frame.XNotifyingDispatch')
-        setattr(XNotifyingDispatch, ' __ooo_ns__', 'com.sun.star.frame')
-        setattr(XNotifyingDispatch, ' __ooo_full_ns__', 'com.sun.star.frame.XNotifyingDispatch')
-        setattr(XNotifyingDispatch, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.frame import XNotifyingDispatch
+    setattr(XNotifyingDispatch, '__ooo_ns__', 'com.sun.star.frame')
+    setattr(XNotifyingDispatch, '__ooo_full_ns__', 'com.sun.star.frame.XNotifyingDispatch')
+    setattr(XNotifyingDispatch, '__ooo_type_name__', 'interface')
 else:
     from ...lo.frame.x_notifying_dispatch import XNotifyingDispatch as XNotifyingDispatch
 

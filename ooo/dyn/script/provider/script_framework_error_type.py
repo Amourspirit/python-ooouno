@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.script.provider
 from enum import IntEnum
-from ....lo.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.script.provider import ScriptFrameworkErrorType
+else:
+    from ....lo.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
 
 
 class ScriptFrameworkErrorTypeEnum(IntEnum):

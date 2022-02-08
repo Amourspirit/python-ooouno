@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PasswordRequestMode, k, v)
-        setattr(PasswordRequestMode, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(PasswordRequestMode, ' __ooo_full_ns__', 'com.sun.star.task.PasswordRequestMode')
-        setattr(PasswordRequestMode, ' __ooo_type_name__', 'enum')
+        setattr(PasswordRequestMode, '__ooo_ns__', 'com.sun.star.task')
+        setattr(PasswordRequestMode, '__ooo_full_ns__', 'com.sun.star.task.PasswordRequestMode')
+        setattr(PasswordRequestMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.task.password_request_mode import PasswordRequestMode as PasswordRequestMode

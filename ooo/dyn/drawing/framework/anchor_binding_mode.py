@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AnchorBindingMode, k, v)
-        setattr(AnchorBindingMode, ' __ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(AnchorBindingMode, ' __ooo_full_ns__', 'com.sun.star.drawing.framework.AnchorBindingMode')
-        setattr(AnchorBindingMode, ' __ooo_type_name__', 'enum')
+        setattr(AnchorBindingMode, '__ooo_ns__', 'com.sun.star.drawing.framework')
+        setattr(AnchorBindingMode, '__ooo_full_ns__', 'com.sun.star.drawing.framework.AnchorBindingMode')
+        setattr(AnchorBindingMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode

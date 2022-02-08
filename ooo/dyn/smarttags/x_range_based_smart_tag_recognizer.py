@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XRangeBasedSmartTagRecognizer
-        XRangeBasedSmartTagRecognizer = unoclass(
-            'com.sun.star.smarttags.XRangeBasedSmartTagRecognizer')
-        setattr(XRangeBasedSmartTagRecognizer, ' __ooo_ns__', 'com.sun.star.smarttags')
-        setattr(XRangeBasedSmartTagRecognizer, ' __ooo_full_ns__', 'com.sun.star.smarttags.XRangeBasedSmartTagRecognizer')
-        setattr(XRangeBasedSmartTagRecognizer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.smarttags import XRangeBasedSmartTagRecognizer
+    setattr(XRangeBasedSmartTagRecognizer, '__ooo_ns__', 'com.sun.star.smarttags')
+    setattr(XRangeBasedSmartTagRecognizer, '__ooo_full_ns__', 'com.sun.star.smarttags.XRangeBasedSmartTagRecognizer')
+    setattr(XRangeBasedSmartTagRecognizer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.smarttags.x_range_based_smart_tag_recognizer import XRangeBasedSmartTagRecognizer as XRangeBasedSmartTagRecognizer
 

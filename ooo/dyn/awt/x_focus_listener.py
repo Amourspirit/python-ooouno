@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFocusListener
-        XFocusListener = unoclass(
-            'com.sun.star.awt.XFocusListener')
-        setattr(XFocusListener, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XFocusListener, ' __ooo_full_ns__', 'com.sun.star.awt.XFocusListener')
-        setattr(XFocusListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XFocusListener
+    setattr(XFocusListener, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XFocusListener, '__ooo_full_ns__', 'com.sun.star.awt.XFocusListener')
+    setattr(XFocusListener, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_focus_listener import XFocusListener as XFocusListener
 

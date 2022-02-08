@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ShadowLocation, k, v)
-        setattr(ShadowLocation, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(ShadowLocation, ' __ooo_full_ns__', 'com.sun.star.table.ShadowLocation')
-        setattr(ShadowLocation, ' __ooo_type_name__', 'enum')
+        setattr(ShadowLocation, '__ooo_ns__', 'com.sun.star.table')
+        setattr(ShadowLocation, '__ooo_full_ns__', 'com.sun.star.table.ShadowLocation')
+        setattr(ShadowLocation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.shadow_location import ShadowLocation as ShadowLocation

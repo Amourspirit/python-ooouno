@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XMultiHierarchicalPropertySet
-        XMultiHierarchicalPropertySet = unoclass(
-            'com.sun.star.beans.XMultiHierarchicalPropertySet')
-        setattr(XMultiHierarchicalPropertySet, ' __ooo_ns__', 'com.sun.star.beans')
-        setattr(XMultiHierarchicalPropertySet, ' __ooo_full_ns__', 'com.sun.star.beans.XMultiHierarchicalPropertySet')
-        setattr(XMultiHierarchicalPropertySet, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.beans import XMultiHierarchicalPropertySet
+    setattr(XMultiHierarchicalPropertySet, '__ooo_ns__', 'com.sun.star.beans')
+    setattr(XMultiHierarchicalPropertySet, '__ooo_full_ns__', 'com.sun.star.beans.XMultiHierarchicalPropertySet')
+    setattr(XMultiHierarchicalPropertySet, '__ooo_type_name__', 'interface')
 else:
     from ...lo.beans.x_multi_hierarchical_property_set import XMultiHierarchicalPropertySet as XMultiHierarchicalPropertySet
 

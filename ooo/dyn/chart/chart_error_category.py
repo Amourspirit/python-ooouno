@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartErrorCategory, k, v)
-        setattr(ChartErrorCategory, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartErrorCategory, ' __ooo_full_ns__', 'com.sun.star.chart.ChartErrorCategory')
-        setattr(ChartErrorCategory, ' __ooo_type_name__', 'enum')
+        setattr(ChartErrorCategory, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartErrorCategory, '__ooo_full_ns__', 'com.sun.star.chart.ChartErrorCategory')
+        setattr(ChartErrorCategory, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_error_category import ChartErrorCategory as ChartErrorCategory

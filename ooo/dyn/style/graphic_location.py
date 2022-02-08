@@ -53,9 +53,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(GraphicLocation, k, v)
-        setattr(GraphicLocation, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(GraphicLocation, ' __ooo_full_ns__', 'com.sun.star.style.GraphicLocation')
-        setattr(GraphicLocation, ' __ooo_type_name__', 'enum')
+        setattr(GraphicLocation, '__ooo_ns__', 'com.sun.star.style')
+        setattr(GraphicLocation, '__ooo_full_ns__', 'com.sun.star.style.GraphicLocation')
+        setattr(GraphicLocation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.style.graphic_location import GraphicLocation as GraphicLocation

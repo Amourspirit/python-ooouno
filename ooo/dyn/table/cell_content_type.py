@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(CellContentType, k, v)
-        setattr(CellContentType, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(CellContentType, ' __ooo_full_ns__', 'com.sun.star.table.CellContentType')
-        setattr(CellContentType, ' __ooo_type_name__', 'enum')
+        setattr(CellContentType, '__ooo_ns__', 'com.sun.star.table')
+        setattr(CellContentType, '__ooo_full_ns__', 'com.sun.star.table.CellContentType')
+        setattr(CellContentType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.cell_content_type import CellContentType as CellContentType

@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SearchRecursion, k, v)
-        setattr(SearchRecursion, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(SearchRecursion, ' __ooo_full_ns__', 'com.sun.star.ucb.SearchRecursion')
-        setattr(SearchRecursion, ' __ooo_type_name__', 'enum')
+        setattr(SearchRecursion, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(SearchRecursion, '__ooo_full_ns__', 'com.sun.star.ucb.SearchRecursion')
+        setattr(SearchRecursion, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.search_recursion import SearchRecursion as SearchRecursion

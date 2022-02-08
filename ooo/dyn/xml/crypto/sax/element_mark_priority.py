@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ElementMarkPriority, k, v)
-        setattr(ElementMarkPriority, ' __ooo_ns__', 'com.sun.star.xml.crypto.sax')
-        setattr(ElementMarkPriority, ' __ooo_full_ns__', 'com.sun.star.xml.crypto.sax.ElementMarkPriority')
-        setattr(ElementMarkPriority, ' __ooo_type_name__', 'enum')
+        setattr(ElementMarkPriority, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
+        setattr(ElementMarkPriority, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.ElementMarkPriority')
+        setattr(ElementMarkPriority, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from .....lo.xml.crypto.sax.element_mark_priority import ElementMarkPriority as ElementMarkPriority

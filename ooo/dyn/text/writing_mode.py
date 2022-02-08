@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(WritingMode, k, v)
-        setattr(WritingMode, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(WritingMode, ' __ooo_full_ns__', 'com.sun.star.text.WritingMode')
-        setattr(WritingMode, ' __ooo_type_name__', 'enum')
+        setattr(WritingMode, '__ooo_ns__', 'com.sun.star.text')
+        setattr(WritingMode, '__ooo_full_ns__', 'com.sun.star.text.WritingMode')
+        setattr(WritingMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.text.writing_mode import WritingMode as WritingMode

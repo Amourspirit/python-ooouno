@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XResourceFactoryManager
-        XResourceFactoryManager = unoclass(
-            'com.sun.star.drawing.framework.XResourceFactoryManager')
-        setattr(XResourceFactoryManager, ' __ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(XResourceFactoryManager, ' __ooo_full_ns__', 'com.sun.star.drawing.framework.XResourceFactoryManager')
-        setattr(XResourceFactoryManager, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.drawing.framework import XResourceFactoryManager
+    setattr(XResourceFactoryManager, '__ooo_ns__', 'com.sun.star.drawing.framework')
+    setattr(XResourceFactoryManager, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XResourceFactoryManager')
+    setattr(XResourceFactoryManager, '__ooo_type_name__', 'interface')
 else:
     from ....lo.drawing.framework.x_resource_factory_manager import XResourceFactoryManager as XResourceFactoryManager
 

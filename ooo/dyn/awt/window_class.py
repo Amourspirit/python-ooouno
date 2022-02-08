@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(WindowClass, k, v)
-        setattr(WindowClass, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(WindowClass, ' __ooo_full_ns__', 'com.sun.star.awt.WindowClass')
-        setattr(WindowClass, ' __ooo_type_name__', 'enum')
+        setattr(WindowClass, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(WindowClass, '__ooo_full_ns__', 'com.sun.star.awt.WindowClass')
+        setattr(WindowClass, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.window_class import WindowClass as WindowClass

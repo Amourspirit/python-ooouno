@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.linguistic2
 from enum import IntFlag
-from ...lo.linguistic2.dictionary_event_flags import DictionaryEventFlags as DictionaryEventFlags
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.linguistic2 import DictionaryEventFlags
+else:
+    from ...lo.linguistic2.dictionary_event_flags import DictionaryEventFlags as DictionaryEventFlags
 
 
 class DictionaryEventFlagsEnum(IntFlag):

@@ -51,9 +51,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(XPathObjectType, k, v)
-        setattr(XPathObjectType, ' __ooo_ns__', 'com.sun.star.xml.xpath')
-        setattr(XPathObjectType, ' __ooo_full_ns__', 'com.sun.star.xml.xpath.XPathObjectType')
-        setattr(XPathObjectType, ' __ooo_type_name__', 'enum')
+        setattr(XPathObjectType, '__ooo_ns__', 'com.sun.star.xml.xpath')
+        setattr(XPathObjectType, '__ooo_full_ns__', 'com.sun.star.xml.xpath.XPathObjectType')
+        setattr(XPathObjectType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType

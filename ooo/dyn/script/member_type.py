@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MemberType, k, v)
-        setattr(MemberType, ' __ooo_ns__', 'com.sun.star.script')
-        setattr(MemberType, ' __ooo_full_ns__', 'com.sun.star.script.MemberType')
-        setattr(MemberType, ' __ooo_type_name__', 'enum')
+        setattr(MemberType, '__ooo_ns__', 'com.sun.star.script')
+        setattr(MemberType, '__ooo_full_ns__', 'com.sun.star.script.MemberType')
+        setattr(MemberType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.script.member_type import MemberType as MemberType

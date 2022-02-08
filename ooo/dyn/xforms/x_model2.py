@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XModel2
-        XModel2 = unoclass(
-            'com.sun.star.xforms.XModel2')
-        setattr(XModel2, ' __ooo_ns__', 'com.sun.star.xforms')
-        setattr(XModel2, ' __ooo_full_ns__', 'com.sun.star.xforms.XModel2')
-        setattr(XModel2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xforms import XModel2
+    setattr(XModel2, '__ooo_ns__', 'com.sun.star.xforms')
+    setattr(XModel2, '__ooo_full_ns__', 'com.sun.star.xforms.XModel2')
+    setattr(XModel2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.xforms.x_model2 import XModel2 as XModel2
 

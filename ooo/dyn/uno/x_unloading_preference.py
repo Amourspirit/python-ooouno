@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XUnloadingPreference
-        XUnloadingPreference = unoclass(
-            'com.sun.star.uno.XUnloadingPreference')
-        setattr(XUnloadingPreference, ' __ooo_ns__', 'com.sun.star.uno')
-        setattr(XUnloadingPreference, ' __ooo_full_ns__', 'com.sun.star.uno.XUnloadingPreference')
-        setattr(XUnloadingPreference, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uno import XUnloadingPreference
+    setattr(XUnloadingPreference, '__ooo_ns__', 'com.sun.star.uno')
+    setattr(XUnloadingPreference, '__ooo_full_ns__', 'com.sun.star.uno.XUnloadingPreference')
+    setattr(XUnloadingPreference, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uno.x_unloading_preference import XUnloadingPreference as XUnloadingPreference
 

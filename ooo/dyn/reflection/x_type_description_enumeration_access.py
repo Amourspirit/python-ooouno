@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTypeDescriptionEnumerationAccess
-        XTypeDescriptionEnumerationAccess = unoclass(
-            'com.sun.star.reflection.XTypeDescriptionEnumerationAccess')
-        setattr(XTypeDescriptionEnumerationAccess, ' __ooo_ns__', 'com.sun.star.reflection')
-        setattr(XTypeDescriptionEnumerationAccess, ' __ooo_full_ns__', 'com.sun.star.reflection.XTypeDescriptionEnumerationAccess')
-        setattr(XTypeDescriptionEnumerationAccess, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.reflection import XTypeDescriptionEnumerationAccess
+    setattr(XTypeDescriptionEnumerationAccess, '__ooo_ns__', 'com.sun.star.reflection')
+    setattr(XTypeDescriptionEnumerationAccess, '__ooo_full_ns__', 'com.sun.star.reflection.XTypeDescriptionEnumerationAccess')
+    setattr(XTypeDescriptionEnumerationAccess, '__ooo_type_name__', 'interface')
 else:
     from ...lo.reflection.x_type_description_enumeration_access import XTypeDescriptionEnumerationAccess as XTypeDescriptionEnumerationAccess
 

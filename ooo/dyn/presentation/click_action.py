@@ -55,9 +55,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ClickAction, k, v)
-        setattr(ClickAction, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(ClickAction, ' __ooo_full_ns__', 'com.sun.star.presentation.ClickAction')
-        setattr(ClickAction, ' __ooo_type_name__', 'enum')
+        setattr(ClickAction, '__ooo_ns__', 'com.sun.star.presentation')
+        setattr(ClickAction, '__ooo_full_ns__', 'com.sun.star.presentation.ClickAction')
+        setattr(ClickAction, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.presentation.click_action import ClickAction as ClickAction

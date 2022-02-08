@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XGraphicProvider2
-        XGraphicProvider2 = unoclass(
-            'com.sun.star.graphic.XGraphicProvider2')
-        setattr(XGraphicProvider2, ' __ooo_ns__', 'com.sun.star.graphic')
-        setattr(XGraphicProvider2, ' __ooo_full_ns__', 'com.sun.star.graphic.XGraphicProvider2')
-        setattr(XGraphicProvider2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.graphic import XGraphicProvider2
+    setattr(XGraphicProvider2, '__ooo_ns__', 'com.sun.star.graphic')
+    setattr(XGraphicProvider2, '__ooo_full_ns__', 'com.sun.star.graphic.XGraphicProvider2')
+    setattr(XGraphicProvider2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.graphic.x_graphic_provider2 import XGraphicProvider2 as XGraphicProvider2
 

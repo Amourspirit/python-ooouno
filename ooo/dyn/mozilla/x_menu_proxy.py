@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XMenuProxy
-        XMenuProxy = unoclass(
-            'com.sun.star.mozilla.XMenuProxy')
-        setattr(XMenuProxy, ' __ooo_ns__', 'com.sun.star.mozilla')
-        setattr(XMenuProxy, ' __ooo_full_ns__', 'com.sun.star.mozilla.XMenuProxy')
-        setattr(XMenuProxy, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.mozilla import XMenuProxy
+    setattr(XMenuProxy, '__ooo_ns__', 'com.sun.star.mozilla')
+    setattr(XMenuProxy, '__ooo_full_ns__', 'com.sun.star.mozilla.XMenuProxy')
+    setattr(XMenuProxy, '__ooo_type_name__', 'interface')
 else:
     from ...lo.mozilla.x_menu_proxy import XMenuProxy as XMenuProxy
 

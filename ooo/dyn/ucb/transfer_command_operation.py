@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TransferCommandOperation, k, v)
-        setattr(TransferCommandOperation, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(TransferCommandOperation, ' __ooo_full_ns__', 'com.sun.star.ucb.TransferCommandOperation')
-        setattr(TransferCommandOperation, ' __ooo_type_name__', 'enum')
+        setattr(TransferCommandOperation, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(TransferCommandOperation, '__ooo_full_ns__', 'com.sun.star.ucb.TransferCommandOperation')
+        setattr(TransferCommandOperation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.transfer_command_operation import TransferCommandOperation as TransferCommandOperation

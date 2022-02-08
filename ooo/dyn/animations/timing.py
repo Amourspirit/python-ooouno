@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(Timing, k, v)
-        setattr(Timing, ' __ooo_ns__', 'com.sun.star.animations')
-        setattr(Timing, ' __ooo_full_ns__', 'com.sun.star.animations.Timing')
-        setattr(Timing, ' __ooo_type_name__', 'enum')
+        setattr(Timing, '__ooo_ns__', 'com.sun.star.animations')
+        setattr(Timing, '__ooo_full_ns__', 'com.sun.star.animations.Timing')
+        setattr(Timing, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.animations.timing import Timing as Timing

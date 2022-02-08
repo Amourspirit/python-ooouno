@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ElementMarkType, k, v)
-        setattr(ElementMarkType, ' __ooo_ns__', 'com.sun.star.xml.crypto.sax')
-        setattr(ElementMarkType, ' __ooo_full_ns__', 'com.sun.star.xml.crypto.sax.ElementMarkType')
-        setattr(ElementMarkType, ' __ooo_type_name__', 'enum')
+        setattr(ElementMarkType, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
+        setattr(ElementMarkType, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.ElementMarkType')
+        setattr(ElementMarkType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from .....lo.xml.crypto.sax.element_mark_type import ElementMarkType as ElementMarkType

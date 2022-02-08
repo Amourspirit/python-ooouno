@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(NavigationBarMode, k, v)
-        setattr(NavigationBarMode, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(NavigationBarMode, ' __ooo_full_ns__', 'com.sun.star.form.NavigationBarMode')
-        setattr(NavigationBarMode, ' __ooo_type_name__', 'enum')
+        setattr(NavigationBarMode, '__ooo_ns__', 'com.sun.star.form')
+        setattr(NavigationBarMode, '__ooo_full_ns__', 'com.sun.star.form.NavigationBarMode')
+        setattr(NavigationBarMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.navigation_bar_mode import NavigationBarMode as NavigationBarMode

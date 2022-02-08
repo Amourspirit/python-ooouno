@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDDELink
-        XDDELink = unoclass(
-            'com.sun.star.sheet.XDDELink')
-        setattr(XDDELink, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XDDELink, ' __ooo_full_ns__', 'com.sun.star.sheet.XDDELink')
-        setattr(XDDELink, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XDDELink
+    setattr(XDDELink, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XDDELink, '__ooo_full_ns__', 'com.sun.star.sheet.XDDELink')
+    setattr(XDDELink, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.xdde_link import XDDELink as XDDELink
 

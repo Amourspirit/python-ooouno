@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DataImportMode, k, v)
-        setattr(DataImportMode, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(DataImportMode, ' __ooo_full_ns__', 'com.sun.star.sheet.DataImportMode')
-        setattr(DataImportMode, ' __ooo_type_name__', 'enum')
+        setattr(DataImportMode, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(DataImportMode, '__ooo_full_ns__', 'com.sun.star.sheet.DataImportMode')
+        setattr(DataImportMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.data_import_mode import DataImportMode as DataImportMode

@@ -91,9 +91,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SecurityOperationStatus, k, v)
-        setattr(SecurityOperationStatus, ' __ooo_ns__', 'com.sun.star.xml.crypto')
-        setattr(SecurityOperationStatus, ' __ooo_full_ns__', 'com.sun.star.xml.crypto.SecurityOperationStatus')
-        setattr(SecurityOperationStatus, ' __ooo_type_name__', 'enum')
+        setattr(SecurityOperationStatus, '__ooo_ns__', 'com.sun.star.xml.crypto')
+        setattr(SecurityOperationStatus, '__ooo_full_ns__', 'com.sun.star.xml.crypto.SecurityOperationStatus')
+        setattr(SecurityOperationStatus, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.xml.crypto.security_operation_status import SecurityOperationStatus as SecurityOperationStatus

@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(Arrangement, k, v)
-        setattr(Arrangement, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(Arrangement, ' __ooo_full_ns__', 'com.sun.star.drawing.Arrangement')
-        setattr(Arrangement, ' __ooo_type_name__', 'enum')
+        setattr(Arrangement, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(Arrangement, '__ooo_full_ns__', 'com.sun.star.drawing.Arrangement')
+        setattr(Arrangement, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.arrangement import Arrangement as Arrangement

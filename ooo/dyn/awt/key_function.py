@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt
 from enum import IntEnum
-from ...lo.awt.key_function import KeyFunction as KeyFunction
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.awt import KeyFunction
+else:
+    from ...lo.awt.key_function import KeyFunction as KeyFunction
 
 
 class KeyFunctionEnum(IntEnum):

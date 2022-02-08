@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTablesSupplier
-        XTablesSupplier = unoclass(
-            'com.sun.star.sdbcx.XTablesSupplier')
-        setattr(XTablesSupplier, ' __ooo_ns__', 'com.sun.star.sdbcx')
-        setattr(XTablesSupplier, ' __ooo_full_ns__', 'com.sun.star.sdbcx.XTablesSupplier')
-        setattr(XTablesSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbcx import XTablesSupplier
+    setattr(XTablesSupplier, '__ooo_ns__', 'com.sun.star.sdbcx')
+    setattr(XTablesSupplier, '__ooo_full_ns__', 'com.sun.star.sdbcx.XTablesSupplier')
+    setattr(XTablesSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbcx.x_tables_supplier import XTablesSupplier as XTablesSupplier
 

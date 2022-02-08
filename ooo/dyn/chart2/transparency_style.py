@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TransparencyStyle, k, v)
-        setattr(TransparencyStyle, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(TransparencyStyle, ' __ooo_full_ns__', 'com.sun.star.chart2.TransparencyStyle')
-        setattr(TransparencyStyle, ' __ooo_type_name__', 'enum')
+        setattr(TransparencyStyle, '__ooo_ns__', 'com.sun.star.chart2')
+        setattr(TransparencyStyle, '__ooo_full_ns__', 'com.sun.star.chart2.TransparencyStyle')
+        setattr(TransparencyStyle, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart2.transparency_style import TransparencyStyle as TransparencyStyle

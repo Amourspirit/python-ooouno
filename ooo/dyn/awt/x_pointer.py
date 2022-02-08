@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPointer
-        XPointer = unoclass(
-            'com.sun.star.awt.XPointer')
-        setattr(XPointer, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XPointer, ' __ooo_full_ns__', 'com.sun.star.awt.XPointer')
-        setattr(XPointer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XPointer
+    setattr(XPointer, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XPointer, '__ooo_full_ns__', 'com.sun.star.awt.XPointer')
+    setattr(XPointer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_pointer import XPointer as XPointer
 

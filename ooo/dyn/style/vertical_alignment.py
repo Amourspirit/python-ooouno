@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(VerticalAlignment, k, v)
-        setattr(VerticalAlignment, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(VerticalAlignment, ' __ooo_full_ns__', 'com.sun.star.style.VerticalAlignment')
-        setattr(VerticalAlignment, ' __ooo_type_name__', 'enum')
+        setattr(VerticalAlignment, '__ooo_ns__', 'com.sun.star.style')
+        setattr(VerticalAlignment, '__ooo_full_ns__', 'com.sun.star.style.VerticalAlignment')
+        setattr(VerticalAlignment, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.style.vertical_alignment import VerticalAlignment as VerticalAlignment

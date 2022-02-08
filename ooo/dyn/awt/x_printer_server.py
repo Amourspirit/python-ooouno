@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPrinterServer
-        XPrinterServer = unoclass(
-            'com.sun.star.awt.XPrinterServer')
-        setattr(XPrinterServer, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XPrinterServer, ' __ooo_full_ns__', 'com.sun.star.awt.XPrinterServer')
-        setattr(XPrinterServer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XPrinterServer
+    setattr(XPrinterServer, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XPrinterServer, '__ooo_full_ns__', 'com.sun.star.awt.XPrinterServer')
+    setattr(XPrinterServer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_printer_server import XPrinterServer as XPrinterServer
 

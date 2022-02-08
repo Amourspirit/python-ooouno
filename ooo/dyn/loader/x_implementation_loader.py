@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XImplementationLoader
-        XImplementationLoader = unoclass(
-            'com.sun.star.loader.XImplementationLoader')
-        setattr(XImplementationLoader, ' __ooo_ns__', 'com.sun.star.loader')
-        setattr(XImplementationLoader, ' __ooo_full_ns__', 'com.sun.star.loader.XImplementationLoader')
-        setattr(XImplementationLoader, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.loader import XImplementationLoader
+    setattr(XImplementationLoader, '__ooo_ns__', 'com.sun.star.loader')
+    setattr(XImplementationLoader, '__ooo_full_ns__', 'com.sun.star.loader.XImplementationLoader')
+    setattr(XImplementationLoader, '__ooo_type_name__', 'interface')
 else:
     from ...lo.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader
 

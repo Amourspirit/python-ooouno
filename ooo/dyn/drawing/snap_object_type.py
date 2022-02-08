@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SnapObjectType, k, v)
-        setattr(SnapObjectType, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(SnapObjectType, ' __ooo_full_ns__', 'com.sun.star.drawing.SnapObjectType')
-        setattr(SnapObjectType, ' __ooo_type_name__', 'enum')
+        setattr(SnapObjectType, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(SnapObjectType, '__ooo_full_ns__', 'com.sun.star.drawing.SnapObjectType')
+        setattr(SnapObjectType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.snap_object_type import SnapObjectType as SnapObjectType

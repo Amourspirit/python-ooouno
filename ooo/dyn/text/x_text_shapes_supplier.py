@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTextShapesSupplier
-        XTextShapesSupplier = unoclass(
-            'com.sun.star.text.XTextShapesSupplier')
-        setattr(XTextShapesSupplier, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(XTextShapesSupplier, ' __ooo_full_ns__', 'com.sun.star.text.XTextShapesSupplier')
-        setattr(XTextShapesSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.text import XTextShapesSupplier
+    setattr(XTextShapesSupplier, '__ooo_ns__', 'com.sun.star.text')
+    setattr(XTextShapesSupplier, '__ooo_full_ns__', 'com.sun.star.text.XTextShapesSupplier')
+    setattr(XTextShapesSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.text.x_text_shapes_supplier import XTextShapesSupplier as XTextShapesSupplier
 

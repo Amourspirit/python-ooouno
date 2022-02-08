@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PresentationRange, k, v)
-        setattr(PresentationRange, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(PresentationRange, ' __ooo_full_ns__', 'com.sun.star.presentation.PresentationRange')
-        setattr(PresentationRange, ' __ooo_type_name__', 'enum')
+        setattr(PresentationRange, '__ooo_ns__', 'com.sun.star.presentation')
+        setattr(PresentationRange, '__ooo_full_ns__', 'com.sun.star.presentation.PresentationRange')
+        setattr(PresentationRange, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.presentation.presentation_range import PresentationRange as PresentationRange

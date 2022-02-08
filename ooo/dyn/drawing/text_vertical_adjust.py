@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextVerticalAdjust, k, v)
-        setattr(TextVerticalAdjust, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextVerticalAdjust, ' __ooo_full_ns__', 'com.sun.star.drawing.TextVerticalAdjust')
-        setattr(TextVerticalAdjust, ' __ooo_type_name__', 'enum')
+        setattr(TextVerticalAdjust, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextVerticalAdjust, '__ooo_full_ns__', 'com.sun.star.drawing.TextVerticalAdjust')
+        setattr(TextVerticalAdjust, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.text_vertical_adjust import TextVerticalAdjust as TextVerticalAdjust

@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sheet
 from enum import IntFlag
-from ...lo.sheet.data_pilot_field_group_by import DataPilotFieldGroupBy as DataPilotFieldGroupBy
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.sheet import DataPilotFieldGroupBy
+else:
+    from ...lo.sheet.data_pilot_field_group_by import DataPilotFieldGroupBy as DataPilotFieldGroupBy
 
 
 class DataPilotFieldGroupByEnum(IntFlag):

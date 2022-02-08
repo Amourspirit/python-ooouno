@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PasteOperation, k, v)
-        setattr(PasteOperation, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(PasteOperation, ' __ooo_full_ns__', 'com.sun.star.sheet.PasteOperation')
-        setattr(PasteOperation, ' __ooo_type_name__', 'enum')
+        setattr(PasteOperation, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(PasteOperation, '__ooo_full_ns__', 'com.sun.star.sheet.PasteOperation')
+        setattr(PasteOperation, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.paste_operation import PasteOperation as PasteOperation

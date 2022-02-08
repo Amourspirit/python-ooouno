@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XGlobalEventBroadcaster
-        XGlobalEventBroadcaster = unoclass(
-            'com.sun.star.frame.XGlobalEventBroadcaster')
-        setattr(XGlobalEventBroadcaster, ' __ooo_ns__', 'com.sun.star.frame')
-        setattr(XGlobalEventBroadcaster, ' __ooo_full_ns__', 'com.sun.star.frame.XGlobalEventBroadcaster')
-        setattr(XGlobalEventBroadcaster, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.frame import XGlobalEventBroadcaster
+    setattr(XGlobalEventBroadcaster, '__ooo_ns__', 'com.sun.star.frame')
+    setattr(XGlobalEventBroadcaster, '__ooo_full_ns__', 'com.sun.star.frame.XGlobalEventBroadcaster')
+    setattr(XGlobalEventBroadcaster, '__ooo_type_name__', 'interface')
 else:
     from ...lo.frame.x_global_event_broadcaster import XGlobalEventBroadcaster as XGlobalEventBroadcaster
 

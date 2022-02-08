@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XIndexEntrySupplier
-        XIndexEntrySupplier = unoclass(
-            'com.sun.star.i18n.XIndexEntrySupplier')
-        setattr(XIndexEntrySupplier, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(XIndexEntrySupplier, ' __ooo_full_ns__', 'com.sun.star.i18n.XIndexEntrySupplier')
-        setattr(XIndexEntrySupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.i18n import XIndexEntrySupplier
+    setattr(XIndexEntrySupplier, '__ooo_ns__', 'com.sun.star.i18n')
+    setattr(XIndexEntrySupplier, '__ooo_full_ns__', 'com.sun.star.i18n.XIndexEntrySupplier')
+    setattr(XIndexEntrySupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.i18n.x_index_entry_supplier import XIndexEntrySupplier as XIndexEntrySupplier
 

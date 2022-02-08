@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XIntegerBitmapColorSpace
-        XIntegerBitmapColorSpace = unoclass(
-            'com.sun.star.rendering.XIntegerBitmapColorSpace')
-        setattr(XIntegerBitmapColorSpace, ' __ooo_ns__', 'com.sun.star.rendering')
-        setattr(XIntegerBitmapColorSpace, ' __ooo_full_ns__', 'com.sun.star.rendering.XIntegerBitmapColorSpace')
-        setattr(XIntegerBitmapColorSpace, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.rendering import XIntegerBitmapColorSpace
+    setattr(XIntegerBitmapColorSpace, '__ooo_ns__', 'com.sun.star.rendering')
+    setattr(XIntegerBitmapColorSpace, '__ooo_full_ns__', 'com.sun.star.rendering.XIntegerBitmapColorSpace')
+    setattr(XIntegerBitmapColorSpace, '__ooo_type_name__', 'interface')
 else:
     from ...lo.rendering.x_integer_bitmap_color_space import XIntegerBitmapColorSpace as XIntegerBitmapColorSpace
 

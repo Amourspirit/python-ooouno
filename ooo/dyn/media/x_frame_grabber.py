@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFrameGrabber
-        XFrameGrabber = unoclass(
-            'com.sun.star.media.XFrameGrabber')
-        setattr(XFrameGrabber, ' __ooo_ns__', 'com.sun.star.media')
-        setattr(XFrameGrabber, ' __ooo_full_ns__', 'com.sun.star.media.XFrameGrabber')
-        setattr(XFrameGrabber, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.media import XFrameGrabber
+    setattr(XFrameGrabber, '__ooo_ns__', 'com.sun.star.media')
+    setattr(XFrameGrabber, '__ooo_full_ns__', 'com.sun.star.media.XFrameGrabber')
+    setattr(XFrameGrabber, '__ooo_type_name__', 'interface')
 else:
     from ...lo.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
 

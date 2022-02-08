@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XEnhancedCustomShapeDefaulter
-        XEnhancedCustomShapeDefaulter = unoclass(
-            'com.sun.star.drawing.XEnhancedCustomShapeDefaulter')
-        setattr(XEnhancedCustomShapeDefaulter, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(XEnhancedCustomShapeDefaulter, ' __ooo_full_ns__', 'com.sun.star.drawing.XEnhancedCustomShapeDefaulter')
-        setattr(XEnhancedCustomShapeDefaulter, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.drawing import XEnhancedCustomShapeDefaulter
+    setattr(XEnhancedCustomShapeDefaulter, '__ooo_ns__', 'com.sun.star.drawing')
+    setattr(XEnhancedCustomShapeDefaulter, '__ooo_full_ns__', 'com.sun.star.drawing.XEnhancedCustomShapeDefaulter')
+    setattr(XEnhancedCustomShapeDefaulter, '__ooo_type_name__', 'interface')
 else:
     from ...lo.drawing.x_enhanced_custom_shape_defaulter import XEnhancedCustomShapeDefaulter as XEnhancedCustomShapeDefaulter
 

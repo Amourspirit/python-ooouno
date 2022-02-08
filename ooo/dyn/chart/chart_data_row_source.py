@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartDataRowSource, k, v)
-        setattr(ChartDataRowSource, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartDataRowSource, ' __ooo_full_ns__', 'com.sun.star.chart.ChartDataRowSource')
-        setattr(ChartDataRowSource, ' __ooo_type_name__', 'enum')
+        setattr(ChartDataRowSource, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartDataRowSource, '__ooo_full_ns__', 'com.sun.star.chart.ChartDataRowSource')
+        setattr(ChartDataRowSource, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_data_row_source import ChartDataRowSource as ChartDataRowSource

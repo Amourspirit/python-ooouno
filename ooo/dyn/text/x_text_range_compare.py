@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTextRangeCompare
-        XTextRangeCompare = unoclass(
-            'com.sun.star.text.XTextRangeCompare')
-        setattr(XTextRangeCompare, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(XTextRangeCompare, ' __ooo_full_ns__', 'com.sun.star.text.XTextRangeCompare')
-        setattr(XTextRangeCompare, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.text import XTextRangeCompare
+    setattr(XTextRangeCompare, '__ooo_ns__', 'com.sun.star.text')
+    setattr(XTextRangeCompare, '__ooo_full_ns__', 'com.sun.star.text.XTextRangeCompare')
+    setattr(XTextRangeCompare, '__ooo_type_name__', 'interface')
 else:
     from ...lo.text.x_text_range_compare import XTextRangeCompare as XTextRangeCompare
 

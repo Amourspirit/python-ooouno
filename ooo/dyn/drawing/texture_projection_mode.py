@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextureProjectionMode, k, v)
-        setattr(TextureProjectionMode, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextureProjectionMode, ' __ooo_full_ns__', 'com.sun.star.drawing.TextureProjectionMode')
-        setattr(TextureProjectionMode, ' __ooo_type_name__', 'enum')
+        setattr(TextureProjectionMode, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextureProjectionMode, '__ooo_full_ns__', 'com.sun.star.drawing.TextureProjectionMode')
+        setattr(TextureProjectionMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.texture_projection_mode import TextureProjectionMode as TextureProjectionMode

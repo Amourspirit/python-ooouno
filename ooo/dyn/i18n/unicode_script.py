@@ -129,9 +129,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(UnicodeScript, k, v)
-        setattr(UnicodeScript, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(UnicodeScript, ' __ooo_full_ns__', 'com.sun.star.i18n.UnicodeScript')
-        setattr(UnicodeScript, ' __ooo_type_name__', 'enum')
+        setattr(UnicodeScript, '__ooo_ns__', 'com.sun.star.i18n')
+        setattr(UnicodeScript, '__ooo_full_ns__', 'com.sun.star.i18n.UnicodeScript')
+        setattr(UnicodeScript, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.i18n.unicode_script import UnicodeScript as UnicodeScript

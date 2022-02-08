@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RegistryKeyType, k, v)
-        setattr(RegistryKeyType, ' __ooo_ns__', 'com.sun.star.registry')
-        setattr(RegistryKeyType, ' __ooo_full_ns__', 'com.sun.star.registry.RegistryKeyType')
-        setattr(RegistryKeyType, ' __ooo_type_name__', 'enum')
+        setattr(RegistryKeyType, '__ooo_ns__', 'com.sun.star.registry')
+        setattr(RegistryKeyType, '__ooo_full_ns__', 'com.sun.star.registry.RegistryKeyType')
+        setattr(RegistryKeyType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.registry.registry_key_type import RegistryKeyType as RegistryKeyType

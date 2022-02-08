@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sdbcx
 from enum import IntEnum
-from ...lo.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.sdbcx import PrivilegeObject
+else:
+    from ...lo.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
 
 
 class PrivilegeObjectEnum(IntEnum):

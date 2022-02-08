@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PushButtonType, k, v)
-        setattr(PushButtonType, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(PushButtonType, ' __ooo_full_ns__', 'com.sun.star.awt.PushButtonType')
-        setattr(PushButtonType, ' __ooo_type_name__', 'enum')
+        setattr(PushButtonType, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(PushButtonType, '__ooo_full_ns__', 'com.sun.star.awt.PushButtonType')
+        setattr(PushButtonType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.push_button_type import PushButtonType as PushButtonType

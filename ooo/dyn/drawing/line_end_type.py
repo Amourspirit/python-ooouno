@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LineEndType, k, v)
-        setattr(LineEndType, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(LineEndType, ' __ooo_full_ns__', 'com.sun.star.drawing.LineEndType')
-        setattr(LineEndType, ' __ooo_type_name__', 'enum')
+        setattr(LineEndType, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(LineEndType, '__ooo_full_ns__', 'com.sun.star.drawing.LineEndType')
+        setattr(LineEndType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.line_end_type import LineEndType as LineEndType

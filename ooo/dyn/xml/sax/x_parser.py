@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XParser
-        XParser = unoclass(
-            'com.sun.star.xml.sax.XParser')
-        setattr(XParser, ' __ooo_ns__', 'com.sun.star.xml.sax')
-        setattr(XParser, ' __ooo_full_ns__', 'com.sun.star.xml.sax.XParser')
-        setattr(XParser, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.sax import XParser
+    setattr(XParser, '__ooo_ns__', 'com.sun.star.xml.sax')
+    setattr(XParser, '__ooo_full_ns__', 'com.sun.star.xml.sax.XParser')
+    setattr(XParser, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.sax.x_parser import XParser as XParser
 

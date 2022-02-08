@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XWeak
-        XWeak = unoclass(
-            'com.sun.star.uno.XWeak')
-        setattr(XWeak, ' __ooo_ns__', 'com.sun.star.uno')
-        setattr(XWeak, ' __ooo_full_ns__', 'com.sun.star.uno.XWeak')
-        setattr(XWeak, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uno import XWeak
+    setattr(XWeak, '__ooo_ns__', 'com.sun.star.uno')
+    setattr(XWeak, '__ooo_full_ns__', 'com.sun.star.uno.XWeak')
+    setattr(XWeak, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uno.x_weak import XWeak as XWeak
 

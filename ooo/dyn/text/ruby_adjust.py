@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(RubyAdjust, k, v)
-        setattr(RubyAdjust, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(RubyAdjust, ' __ooo_full_ns__', 'com.sun.star.text.RubyAdjust')
-        setattr(RubyAdjust, ' __ooo_type_name__', 'enum')
+        setattr(RubyAdjust, '__ooo_ns__', 'com.sun.star.text')
+        setattr(RubyAdjust, '__ooo_full_ns__', 'com.sun.star.text.RubyAdjust')
+        setattr(RubyAdjust, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.text.ruby_adjust import RubyAdjust as RubyAdjust

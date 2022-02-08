@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PhaseType, k, v)
-        setattr(PhaseType, ' __ooo_ns__', 'com.sun.star.xml.dom.events')
-        setattr(PhaseType, ' __ooo_full_ns__', 'com.sun.star.xml.dom.events.PhaseType')
-        setattr(PhaseType, ' __ooo_type_name__', 'enum')
+        setattr(PhaseType, '__ooo_ns__', 'com.sun.star.xml.dom.events')
+        setattr(PhaseType, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.PhaseType')
+        setattr(PhaseType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from .....lo.xml.dom.events.phase_type import PhaseType as PhaseType

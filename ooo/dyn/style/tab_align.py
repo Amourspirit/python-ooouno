@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TabAlign, k, v)
-        setattr(TabAlign, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(TabAlign, ' __ooo_full_ns__', 'com.sun.star.style.TabAlign')
-        setattr(TabAlign, ' __ooo_type_name__', 'enum')
+        setattr(TabAlign, '__ooo_ns__', 'com.sun.star.style')
+        setattr(TabAlign, '__ooo_full_ns__', 'com.sun.star.style.TabAlign')
+        setattr(TabAlign, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.style.tab_align import TabAlign as TabAlign

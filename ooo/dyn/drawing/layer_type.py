@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LayerType, k, v)
-        setattr(LayerType, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(LayerType, ' __ooo_full_ns__', 'com.sun.star.drawing.LayerType')
-        setattr(LayerType, ' __ooo_type_name__', 'enum')
+        setattr(LayerType, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(LayerType, '__ooo_full_ns__', 'com.sun.star.drawing.LayerType')
+        setattr(LayerType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.layer_type import LayerType as LayerType

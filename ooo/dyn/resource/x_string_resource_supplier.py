@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XStringResourceSupplier
-        XStringResourceSupplier = unoclass(
-            'com.sun.star.resource.XStringResourceSupplier')
-        setattr(XStringResourceSupplier, ' __ooo_ns__', 'com.sun.star.resource')
-        setattr(XStringResourceSupplier, ' __ooo_full_ns__', 'com.sun.star.resource.XStringResourceSupplier')
-        setattr(XStringResourceSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.resource import XStringResourceSupplier
+    setattr(XStringResourceSupplier, '__ooo_ns__', 'com.sun.star.resource')
+    setattr(XStringResourceSupplier, '__ooo_full_ns__', 'com.sun.star.resource.XStringResourceSupplier')
+    setattr(XStringResourceSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.resource.x_string_resource_supplier import XStringResourceSupplier as XStringResourceSupplier
 

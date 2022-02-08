@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XChangeBroadcaster
-        XChangeBroadcaster = unoclass(
-            'com.sun.star.form.XChangeBroadcaster')
-        setattr(XChangeBroadcaster, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(XChangeBroadcaster, ' __ooo_full_ns__', 'com.sun.star.form.XChangeBroadcaster')
-        setattr(XChangeBroadcaster, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form import XChangeBroadcaster
+    setattr(XChangeBroadcaster, '__ooo_ns__', 'com.sun.star.form')
+    setattr(XChangeBroadcaster, '__ooo_full_ns__', 'com.sun.star.form.XChangeBroadcaster')
+    setattr(XChangeBroadcaster, '__ooo_type_name__', 'interface')
 else:
     from ...lo.form.x_change_broadcaster import XChangeBroadcaster as XChangeBroadcaster
 

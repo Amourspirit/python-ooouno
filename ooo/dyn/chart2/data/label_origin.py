@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LabelOrigin, k, v)
-        setattr(LabelOrigin, ' __ooo_ns__', 'com.sun.star.chart2.data')
-        setattr(LabelOrigin, ' __ooo_full_ns__', 'com.sun.star.chart2.data.LabelOrigin')
-        setattr(LabelOrigin, ' __ooo_type_name__', 'enum')
+        setattr(LabelOrigin, '__ooo_ns__', 'com.sun.star.chart2.data')
+        setattr(LabelOrigin, '__ooo_full_ns__', 'com.sun.star.chart2.data.LabelOrigin')
+        setattr(LabelOrigin, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.chart2.data.label_origin import LabelOrigin as LabelOrigin

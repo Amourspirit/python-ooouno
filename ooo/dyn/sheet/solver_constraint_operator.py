@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SolverConstraintOperator, k, v)
-        setattr(SolverConstraintOperator, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(SolverConstraintOperator, ' __ooo_full_ns__', 'com.sun.star.sheet.SolverConstraintOperator')
-        setattr(SolverConstraintOperator, ' __ooo_type_name__', 'enum')
+        setattr(SolverConstraintOperator, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(SolverConstraintOperator, '__ooo_full_ns__', 'com.sun.star.sheet.SolverConstraintOperator')
+        setattr(SolverConstraintOperator, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.solver_constraint_operator import SolverConstraintOperator as SolverConstraintOperator

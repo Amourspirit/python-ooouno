@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FormSubmitEncoding, k, v)
-        setattr(FormSubmitEncoding, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(FormSubmitEncoding, ' __ooo_full_ns__', 'com.sun.star.form.FormSubmitEncoding')
-        setattr(FormSubmitEncoding, ' __ooo_type_name__', 'enum')
+        setattr(FormSubmitEncoding, '__ooo_ns__', 'com.sun.star.form')
+        setattr(FormSubmitEncoding, '__ooo_full_ns__', 'com.sun.star.form.FormSubmitEncoding')
+        setattr(FormSubmitEncoding, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.form_submit_encoding import FormSubmitEncoding as FormSubmitEncoding

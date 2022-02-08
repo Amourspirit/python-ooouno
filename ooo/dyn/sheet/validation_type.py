@@ -49,9 +49,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ValidationType, k, v)
-        setattr(ValidationType, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(ValidationType, ' __ooo_full_ns__', 'com.sun.star.sheet.ValidationType')
-        setattr(ValidationType, ' __ooo_type_name__', 'enum')
+        setattr(ValidationType, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(ValidationType, '__ooo_full_ns__', 'com.sun.star.sheet.ValidationType')
+        setattr(ValidationType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.validation_type import ValidationType as ValidationType

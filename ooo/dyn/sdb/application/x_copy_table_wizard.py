@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCopyTableWizard
-        XCopyTableWizard = unoclass(
-            'com.sun.star.sdb.application.XCopyTableWizard')
-        setattr(XCopyTableWizard, ' __ooo_ns__', 'com.sun.star.sdb.application')
-        setattr(XCopyTableWizard, ' __ooo_full_ns__', 'com.sun.star.sdb.application.XCopyTableWizard')
-        setattr(XCopyTableWizard, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb.application import XCopyTableWizard
+    setattr(XCopyTableWizard, '__ooo_ns__', 'com.sun.star.sdb.application')
+    setattr(XCopyTableWizard, '__ooo_full_ns__', 'com.sun.star.sdb.application.XCopyTableWizard')
+    setattr(XCopyTableWizard, '__ooo_type_name__', 'interface')
 else:
     from ....lo.sdb.application.x_copy_table_wizard import XCopyTableWizard as XCopyTableWizard
 

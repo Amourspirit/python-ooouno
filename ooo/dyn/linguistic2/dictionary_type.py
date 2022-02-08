@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DictionaryType, k, v)
-        setattr(DictionaryType, ' __ooo_ns__', 'com.sun.star.linguistic2')
-        setattr(DictionaryType, ' __ooo_full_ns__', 'com.sun.star.linguistic2.DictionaryType')
-        setattr(DictionaryType, ' __ooo_type_name__', 'enum')
+        setattr(DictionaryType, '__ooo_ns__', 'com.sun.star.linguistic2')
+        setattr(DictionaryType, '__ooo_full_ns__', 'com.sun.star.linguistic2.DictionaryType')
+        setattr(DictionaryType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.linguistic2.dictionary_type import DictionaryType as DictionaryType

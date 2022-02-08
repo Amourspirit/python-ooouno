@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(CellDeleteMode, k, v)
-        setattr(CellDeleteMode, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(CellDeleteMode, ' __ooo_full_ns__', 'com.sun.star.sheet.CellDeleteMode')
-        setattr(CellDeleteMode, ' __ooo_type_name__', 'enum')
+        setattr(CellDeleteMode, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(CellDeleteMode, '__ooo_full_ns__', 'com.sun.star.sheet.CellDeleteMode')
+        setattr(CellDeleteMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.cell_delete_mode import CellDeleteMode as CellDeleteMode

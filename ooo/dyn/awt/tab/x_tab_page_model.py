@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTabPageModel
-        XTabPageModel = unoclass(
-            'com.sun.star.awt.tab.XTabPageModel')
-        setattr(XTabPageModel, ' __ooo_ns__', 'com.sun.star.awt.tab')
-        setattr(XTabPageModel, ' __ooo_full_ns__', 'com.sun.star.awt.tab.XTabPageModel')
-        setattr(XTabPageModel, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt.tab import XTabPageModel
+    setattr(XTabPageModel, '__ooo_ns__', 'com.sun.star.awt.tab')
+    setattr(XTabPageModel, '__ooo_full_ns__', 'com.sun.star.awt.tab.XTabPageModel')
+    setattr(XTabPageModel, '__ooo_type_name__', 'interface')
 else:
     from ....lo.awt.tab.x_tab_page_model import XTabPageModel as XTabPageModel
 

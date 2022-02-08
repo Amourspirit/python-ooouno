@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSingleLayerStratum
-        XSingleLayerStratum = unoclass(
-            'com.sun.star.configuration.backend.XSingleLayerStratum')
-        setattr(XSingleLayerStratum, ' __ooo_ns__', 'com.sun.star.configuration.backend')
-        setattr(XSingleLayerStratum, ' __ooo_full_ns__', 'com.sun.star.configuration.backend.XSingleLayerStratum')
-        setattr(XSingleLayerStratum, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.configuration.backend import XSingleLayerStratum
+    setattr(XSingleLayerStratum, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(XSingleLayerStratum, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XSingleLayerStratum')
+    setattr(XSingleLayerStratum, '__ooo_type_name__', 'interface')
 else:
     from ....lo.configuration.backend.x_single_layer_stratum import XSingleLayerStratum as XSingleLayerStratum
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XNamingService
-        XNamingService = unoclass(
-            'com.sun.star.uno.XNamingService')
-        setattr(XNamingService, ' __ooo_ns__', 'com.sun.star.uno')
-        setattr(XNamingService, ' __ooo_full_ns__', 'com.sun.star.uno.XNamingService')
-        setattr(XNamingService, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uno import XNamingService
+    setattr(XNamingService, '__ooo_ns__', 'com.sun.star.uno')
+    setattr(XNamingService, '__ooo_full_ns__', 'com.sun.star.uno.XNamingService')
+    setattr(XNamingService, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uno.x_naming_service import XNamingService as XNamingService
 

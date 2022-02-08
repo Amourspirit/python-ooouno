@@ -73,9 +73,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TypeClass, k, v)
-        setattr(TypeClass, ' __ooo_ns__', 'com.sun.star.uno')
-        setattr(TypeClass, ' __ooo_full_ns__', 'com.sun.star.uno.TypeClass')
-        setattr(TypeClass, ' __ooo_type_name__', 'enum')
+        setattr(TypeClass, '__ooo_ns__', 'com.sun.star.uno')
+        setattr(TypeClass, '__ooo_full_ns__', 'com.sun.star.uno.TypeClass')
+        setattr(TypeClass, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.uno.type_class import TypeClass as TypeClass

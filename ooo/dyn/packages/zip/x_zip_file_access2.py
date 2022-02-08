@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XZipFileAccess2
-        XZipFileAccess2 = unoclass(
-            'com.sun.star.packages.zip.XZipFileAccess2')
-        setattr(XZipFileAccess2, ' __ooo_ns__', 'com.sun.star.packages.zip')
-        setattr(XZipFileAccess2, ' __ooo_full_ns__', 'com.sun.star.packages.zip.XZipFileAccess2')
-        setattr(XZipFileAccess2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.packages.zip import XZipFileAccess2
+    setattr(XZipFileAccess2, '__ooo_ns__', 'com.sun.star.packages.zip')
+    setattr(XZipFileAccess2, '__ooo_full_ns__', 'com.sun.star.packages.zip.XZipFileAccess2')
+    setattr(XZipFileAccess2, '__ooo_type_name__', 'interface')
 else:
     from ....lo.packages.zip.x_zip_file_access2 import XZipFileAccess2 as XZipFileAccess2
 

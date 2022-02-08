@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XObjectInputStream
-        XObjectInputStream = unoclass(
-            'com.sun.star.io.XObjectInputStream')
-        setattr(XObjectInputStream, ' __ooo_ns__', 'com.sun.star.io')
-        setattr(XObjectInputStream, ' __ooo_full_ns__', 'com.sun.star.io.XObjectInputStream')
-        setattr(XObjectInputStream, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.io import XObjectInputStream
+    setattr(XObjectInputStream, '__ooo_ns__', 'com.sun.star.io')
+    setattr(XObjectInputStream, '__ooo_full_ns__', 'com.sun.star.io.XObjectInputStream')
+    setattr(XObjectInputStream, '__ooo_type_name__', 'interface')
 else:
     from ...lo.io.x_object_input_stream import XObjectInputStream as XObjectInputStream
 

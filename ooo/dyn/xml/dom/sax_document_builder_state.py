@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SAXDocumentBuilderState, k, v)
-        setattr(SAXDocumentBuilderState, ' __ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(SAXDocumentBuilderState, ' __ooo_full_ns__', 'com.sun.star.xml.dom.SAXDocumentBuilderState')
-        setattr(SAXDocumentBuilderState, ' __ooo_type_name__', 'enum')
+        setattr(SAXDocumentBuilderState, '__ooo_ns__', 'com.sun.star.xml.dom')
+        setattr(SAXDocumentBuilderState, '__ooo_full_ns__', 'com.sun.star.xml.dom.SAXDocumentBuilderState')
+        setattr(SAXDocumentBuilderState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState

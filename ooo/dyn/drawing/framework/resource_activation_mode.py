@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ResourceActivationMode, k, v)
-        setattr(ResourceActivationMode, ' __ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(ResourceActivationMode, ' __ooo_full_ns__', 'com.sun.star.drawing.framework.ResourceActivationMode')
-        setattr(ResourceActivationMode, ' __ooo_type_name__', 'enum')
+        setattr(ResourceActivationMode, '__ooo_ns__', 'com.sun.star.drawing.framework')
+        setattr(ResourceActivationMode, '__ooo_full_ns__', 'com.sun.star.drawing.framework.ResourceActivationMode')
+        setattr(ResourceActivationMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode

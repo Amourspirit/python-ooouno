@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ConnectorType, k, v)
-        setattr(ConnectorType, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(ConnectorType, ' __ooo_full_ns__', 'com.sun.star.drawing.ConnectorType')
-        setattr(ConnectorType, ' __ooo_type_name__', 'enum')
+        setattr(ConnectorType, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(ConnectorType, '__ooo_full_ns__', 'com.sun.star.drawing.ConnectorType')
+        setattr(ConnectorType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.connector_type import ConnectorType as ConnectorType

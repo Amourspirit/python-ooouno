@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ScanError, k, v)
-        setattr(ScanError, ' __ooo_ns__', 'com.sun.star.scanner')
-        setattr(ScanError, ' __ooo_full_ns__', 'com.sun.star.scanner.ScanError')
-        setattr(ScanError, ' __ooo_type_name__', 'enum')
+        setattr(ScanError, '__ooo_ns__', 'com.sun.star.scanner')
+        setattr(ScanError, '__ooo_full_ns__', 'com.sun.star.scanner.ScanError')
+        setattr(ScanError, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.scanner.scan_error import ScanError as ScanError

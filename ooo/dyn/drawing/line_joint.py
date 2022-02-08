@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LineJoint, k, v)
-        setattr(LineJoint, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(LineJoint, ' __ooo_full_ns__', 'com.sun.star.drawing.LineJoint')
-        setattr(LineJoint, ' __ooo_type_name__', 'enum')
+        setattr(LineJoint, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(LineJoint, '__ooo_full_ns__', 'com.sun.star.drawing.LineJoint')
+        setattr(LineJoint, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.line_joint import LineJoint as LineJoint

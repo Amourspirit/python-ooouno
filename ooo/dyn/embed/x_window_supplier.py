@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XWindowSupplier
-        XWindowSupplier = unoclass(
-            'com.sun.star.embed.XWindowSupplier')
-        setattr(XWindowSupplier, ' __ooo_ns__', 'com.sun.star.embed')
-        setattr(XWindowSupplier, ' __ooo_full_ns__', 'com.sun.star.embed.XWindowSupplier')
-        setattr(XWindowSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.embed import XWindowSupplier
+    setattr(XWindowSupplier, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(XWindowSupplier, '__ooo_full_ns__', 'com.sun.star.embed.XWindowSupplier')
+    setattr(XWindowSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.embed.x_window_supplier import XWindowSupplier as XWindowSupplier
 

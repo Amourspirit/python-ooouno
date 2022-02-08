@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPackageManager
-        XPackageManager = unoclass(
-            'com.sun.star.deployment.XPackageManager')
-        setattr(XPackageManager, ' __ooo_ns__', 'com.sun.star.deployment')
-        setattr(XPackageManager, ' __ooo_full_ns__', 'com.sun.star.deployment.XPackageManager')
-        setattr(XPackageManager, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.deployment import XPackageManager
+    setattr(XPackageManager, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(XPackageManager, '__ooo_full_ns__', 'com.sun.star.deployment.XPackageManager')
+    setattr(XPackageManager, '__ooo_type_name__', 'interface')
 else:
     from ...lo.deployment.x_package_manager import XPackageManager as XPackageManager
 

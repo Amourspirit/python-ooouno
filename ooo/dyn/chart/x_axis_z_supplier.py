@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAxisZSupplier
-        XAxisZSupplier = unoclass(
-            'com.sun.star.chart.XAxisZSupplier')
-        setattr(XAxisZSupplier, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(XAxisZSupplier, ' __ooo_full_ns__', 'com.sun.star.chart.XAxisZSupplier')
-        setattr(XAxisZSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.chart import XAxisZSupplier
+    setattr(XAxisZSupplier, '__ooo_ns__', 'com.sun.star.chart')
+    setattr(XAxisZSupplier, '__ooo_full_ns__', 'com.sun.star.chart.XAxisZSupplier')
+    setattr(XAxisZSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.chart.x_axis_z_supplier import XAxisZSupplier as XAxisZSupplier
 

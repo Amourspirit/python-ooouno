@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MozillaProductType, k, v)
-        setattr(MozillaProductType, ' __ooo_ns__', 'com.sun.star.mozilla')
-        setattr(MozillaProductType, ' __ooo_full_ns__', 'com.sun.star.mozilla.MozillaProductType')
-        setattr(MozillaProductType, ' __ooo_type_name__', 'enum')
+        setattr(MozillaProductType, '__ooo_ns__', 'com.sun.star.mozilla')
+        setattr(MozillaProductType, '__ooo_full_ns__', 'com.sun.star.mozilla.MozillaProductType')
+        setattr(MozillaProductType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.mozilla.mozilla_product_type import MozillaProductType as MozillaProductType

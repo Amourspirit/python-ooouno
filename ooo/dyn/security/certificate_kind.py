@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(CertificateKind, k, v)
-        setattr(CertificateKind, ' __ooo_ns__', 'com.sun.star.security')
-        setattr(CertificateKind, ' __ooo_full_ns__', 'com.sun.star.security.CertificateKind')
-        setattr(CertificateKind, ' __ooo_type_name__', 'enum')
+        setattr(CertificateKind, '__ooo_ns__', 'com.sun.star.security')
+        setattr(CertificateKind, '__ooo_full_ns__', 'com.sun.star.security.CertificateKind')
+        setattr(CertificateKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.security.certificate_kind import CertificateKind as CertificateKind

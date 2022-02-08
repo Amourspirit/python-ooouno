@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XShapeEventListener
-        XShapeEventListener = unoclass(
-            'com.sun.star.document.XShapeEventListener')
-        setattr(XShapeEventListener, ' __ooo_ns__', 'com.sun.star.document')
-        setattr(XShapeEventListener, ' __ooo_full_ns__', 'com.sun.star.document.XShapeEventListener')
-        setattr(XShapeEventListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.document import XShapeEventListener
+    setattr(XShapeEventListener, '__ooo_ns__', 'com.sun.star.document')
+    setattr(XShapeEventListener, '__ooo_full_ns__', 'com.sun.star.document.XShapeEventListener')
+    setattr(XShapeEventListener, '__ooo_type_name__', 'interface')
 else:
     from ...lo.document.x_shape_event_listener import XShapeEventListener as XShapeEventListener
 

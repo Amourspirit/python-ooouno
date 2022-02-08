@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSpellChecker1
-        XSpellChecker1 = unoclass(
-            'com.sun.star.linguistic2.XSpellChecker1')
-        setattr(XSpellChecker1, ' __ooo_ns__', 'com.sun.star.linguistic2')
-        setattr(XSpellChecker1, ' __ooo_full_ns__', 'com.sun.star.linguistic2.XSpellChecker1')
-        setattr(XSpellChecker1, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.linguistic2 import XSpellChecker1
+    setattr(XSpellChecker1, '__ooo_ns__', 'com.sun.star.linguistic2')
+    setattr(XSpellChecker1, '__ooo_full_ns__', 'com.sun.star.linguistic2.XSpellChecker1')
+    setattr(XSpellChecker1, '__ooo_type_name__', 'interface')
 else:
     from ...lo.linguistic2.x_spell_checker1 import XSpellChecker1 as XSpellChecker1
 

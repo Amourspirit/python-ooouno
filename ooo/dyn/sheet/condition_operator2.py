@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sheet
 from enum import IntEnum
-from ...lo.sheet.condition_operator2 import ConditionOperator2 as ConditionOperator2
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.sheet import ConditionOperator2
+else:
+    from ...lo.sheet.condition_operator2 import ConditionOperator2 as ConditionOperator2
 
 
 class ConditionOperator2Enum(IntEnum):

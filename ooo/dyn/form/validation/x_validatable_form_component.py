@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XValidatableFormComponent
-        XValidatableFormComponent = unoclass(
-            'com.sun.star.form.validation.XValidatableFormComponent')
-        setattr(XValidatableFormComponent, ' __ooo_ns__', 'com.sun.star.form.validation')
-        setattr(XValidatableFormComponent, ' __ooo_full_ns__', 'com.sun.star.form.validation.XValidatableFormComponent')
-        setattr(XValidatableFormComponent, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form.validation import XValidatableFormComponent
+    setattr(XValidatableFormComponent, '__ooo_ns__', 'com.sun.star.form.validation')
+    setattr(XValidatableFormComponent, '__ooo_full_ns__', 'com.sun.star.form.validation.XValidatableFormComponent')
+    setattr(XValidatableFormComponent, '__ooo_type_name__', 'interface')
 else:
     from ....lo.form.validation.x_validatable_form_component import XValidatableFormComponent as XValidatableFormComponent
 

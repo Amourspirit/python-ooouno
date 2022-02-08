@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XGridFieldDataSupplier
-        XGridFieldDataSupplier = unoclass(
-            'com.sun.star.form.XGridFieldDataSupplier')
-        setattr(XGridFieldDataSupplier, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(XGridFieldDataSupplier, ' __ooo_full_ns__', 'com.sun.star.form.XGridFieldDataSupplier')
-        setattr(XGridFieldDataSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form import XGridFieldDataSupplier
+    setattr(XGridFieldDataSupplier, '__ooo_ns__', 'com.sun.star.form')
+    setattr(XGridFieldDataSupplier, '__ooo_full_ns__', 'com.sun.star.form.XGridFieldDataSupplier')
+    setattr(XGridFieldDataSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.form.x_grid_field_data_supplier import XGridFieldDataSupplier as XGridFieldDataSupplier
 

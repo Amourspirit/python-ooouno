@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PaperFormat, k, v)
-        setattr(PaperFormat, ' __ooo_ns__', 'com.sun.star.view')
-        setattr(PaperFormat, ' __ooo_full_ns__', 'com.sun.star.view.PaperFormat')
-        setattr(PaperFormat, ' __ooo_type_name__', 'enum')
+        setattr(PaperFormat, '__ooo_ns__', 'com.sun.star.view')
+        setattr(PaperFormat, '__ooo_full_ns__', 'com.sun.star.view.PaperFormat')
+        setattr(PaperFormat, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.view.paper_format import PaperFormat as PaperFormat

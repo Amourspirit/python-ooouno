@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ChartRegressionCurveType, k, v)
-        setattr(ChartRegressionCurveType, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartRegressionCurveType, ' __ooo_full_ns__', 'com.sun.star.chart.ChartRegressionCurveType')
-        setattr(ChartRegressionCurveType, ' __ooo_type_name__', 'enum')
+        setattr(ChartRegressionCurveType, '__ooo_ns__', 'com.sun.star.chart')
+        setattr(ChartRegressionCurveType, '__ooo_full_ns__', 'com.sun.star.chart.ChartRegressionCurveType')
+        setattr(ChartRegressionCurveType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart.chart_regression_curve_type import ChartRegressionCurveType as ChartRegressionCurveType

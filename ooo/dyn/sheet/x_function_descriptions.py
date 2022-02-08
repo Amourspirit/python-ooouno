@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFunctionDescriptions
-        XFunctionDescriptions = unoclass(
-            'com.sun.star.sheet.XFunctionDescriptions')
-        setattr(XFunctionDescriptions, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XFunctionDescriptions, ' __ooo_full_ns__', 'com.sun.star.sheet.XFunctionDescriptions')
-        setattr(XFunctionDescriptions, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XFunctionDescriptions
+    setattr(XFunctionDescriptions, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XFunctionDescriptions, '__ooo_full_ns__', 'com.sun.star.sheet.XFunctionDescriptions')
+    setattr(XFunctionDescriptions, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.x_function_descriptions import XFunctionDescriptions as XFunctionDescriptions
 

@@ -53,9 +53,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(NodeType, k, v)
-        setattr(NodeType, ' __ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(NodeType, ' __ooo_full_ns__', 'com.sun.star.xml.dom.NodeType')
-        setattr(NodeType, ' __ooo_type_name__', 'enum')
+        setattr(NodeType, '__ooo_ns__', 'com.sun.star.xml.dom')
+        setattr(NodeType, '__ooo_full_ns__', 'com.sun.star.xml.dom.NodeType')
+        setattr(NodeType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.xml.dom.node_type import NodeType as NodeType

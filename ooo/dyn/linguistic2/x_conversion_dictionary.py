@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XConversionDictionary
-        XConversionDictionary = unoclass(
-            'com.sun.star.linguistic2.XConversionDictionary')
-        setattr(XConversionDictionary, ' __ooo_ns__', 'com.sun.star.linguistic2')
-        setattr(XConversionDictionary, ' __ooo_full_ns__', 'com.sun.star.linguistic2.XConversionDictionary')
-        setattr(XConversionDictionary, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.linguistic2 import XConversionDictionary
+    setattr(XConversionDictionary, '__ooo_ns__', 'com.sun.star.linguistic2')
+    setattr(XConversionDictionary, '__ooo_full_ns__', 'com.sun.star.linguistic2.XConversionDictionary')
+    setattr(XConversionDictionary, '__ooo_type_name__', 'interface')
 else:
     from ...lo.linguistic2.x_conversion_dictionary import XConversionDictionary as XConversionDictionary
 

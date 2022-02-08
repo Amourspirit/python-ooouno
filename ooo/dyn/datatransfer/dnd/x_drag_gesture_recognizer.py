@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDragGestureRecognizer
-        XDragGestureRecognizer = unoclass(
-            'com.sun.star.datatransfer.dnd.XDragGestureRecognizer')
-        setattr(XDragGestureRecognizer, ' __ooo_ns__', 'com.sun.star.datatransfer.dnd')
-        setattr(XDragGestureRecognizer, ' __ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDragGestureRecognizer')
-        setattr(XDragGestureRecognizer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.datatransfer.dnd import XDragGestureRecognizer
+    setattr(XDragGestureRecognizer, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
+    setattr(XDragGestureRecognizer, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDragGestureRecognizer')
+    setattr(XDragGestureRecognizer, '__ooo_type_name__', 'interface')
 else:
     from ....lo.datatransfer.dnd.x_drag_gesture_recognizer import XDragGestureRecognizer as XDragGestureRecognizer
 

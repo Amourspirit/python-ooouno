@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(VerificationMode, k, v)
-        setattr(VerificationMode, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(VerificationMode, ' __ooo_full_ns__', 'com.sun.star.ucb.VerificationMode')
-        setattr(VerificationMode, ' __ooo_type_name__', 'enum')
+        setattr(VerificationMode, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(VerificationMode, '__ooo_full_ns__', 'com.sun.star.ucb.VerificationMode')
+        setattr(VerificationMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.verification_mode import VerificationMode as VerificationMode

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XRelativeTextContentRemove
-        XRelativeTextContentRemove = unoclass(
-            'com.sun.star.text.XRelativeTextContentRemove')
-        setattr(XRelativeTextContentRemove, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(XRelativeTextContentRemove, ' __ooo_full_ns__', 'com.sun.star.text.XRelativeTextContentRemove')
-        setattr(XRelativeTextContentRemove, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.text import XRelativeTextContentRemove
+    setattr(XRelativeTextContentRemove, '__ooo_ns__', 'com.sun.star.text')
+    setattr(XRelativeTextContentRemove, '__ooo_full_ns__', 'com.sun.star.text.XRelativeTextContentRemove')
+    setattr(XRelativeTextContentRemove, '__ooo_type_name__', 'interface')
 else:
     from ...lo.text.x_relative_text_content_remove import XRelativeTextContentRemove as XRelativeTextContentRemove
 

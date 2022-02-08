@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FormButtonType, k, v)
-        setattr(FormButtonType, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(FormButtonType, ' __ooo_full_ns__', 'com.sun.star.form.FormButtonType')
-        setattr(FormButtonType, ' __ooo_type_name__', 'enum')
+        setattr(FormButtonType, '__ooo_ns__', 'com.sun.star.form')
+        setattr(FormButtonType, '__ooo_full_ns__', 'com.sun.star.form.FormButtonType')
+        setattr(FormButtonType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.form_button_type import FormButtonType as FormButtonType

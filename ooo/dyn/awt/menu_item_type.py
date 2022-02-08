@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MenuItemType, k, v)
-        setattr(MenuItemType, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(MenuItemType, ' __ooo_full_ns__', 'com.sun.star.awt.MenuItemType')
-        setattr(MenuItemType, ' __ooo_type_name__', 'enum')
+        setattr(MenuItemType, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(MenuItemType, '__ooo_full_ns__', 'com.sun.star.awt.MenuItemType')
+        setattr(MenuItemType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.menu_item_type import MenuItemType as MenuItemType

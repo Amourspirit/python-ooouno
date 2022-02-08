@@ -54,9 +54,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(GeneralFunction, k, v)
-        setattr(GeneralFunction, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(GeneralFunction, ' __ooo_full_ns__', 'com.sun.star.sheet.GeneralFunction')
-        setattr(GeneralFunction, ' __ooo_type_name__', 'enum')
+        setattr(GeneralFunction, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(GeneralFunction, '__ooo_full_ns__', 'com.sun.star.sheet.GeneralFunction')
+        setattr(GeneralFunction, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.general_function import GeneralFunction as GeneralFunction

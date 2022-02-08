@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FillDateMode, k, v)
-        setattr(FillDateMode, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(FillDateMode, ' __ooo_full_ns__', 'com.sun.star.sheet.FillDateMode')
-        setattr(FillDateMode, ' __ooo_type_name__', 'enum')
+        setattr(FillDateMode, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(FillDateMode, '__ooo_full_ns__', 'com.sun.star.sheet.FillDateMode')
+        setattr(FillDateMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.fill_date_mode import FillDateMode as FillDateMode

@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PrintableState, k, v)
-        setattr(PrintableState, ' __ooo_ns__', 'com.sun.star.view')
-        setattr(PrintableState, ' __ooo_full_ns__', 'com.sun.star.view.PrintableState')
-        setattr(PrintableState, ' __ooo_type_name__', 'enum')
+        setattr(PrintableState, '__ooo_ns__', 'com.sun.star.view')
+        setattr(PrintableState, '__ooo_full_ns__', 'com.sun.star.view.PrintableState')
+        setattr(PrintableState, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.view.printable_state import PrintableState as PrintableState

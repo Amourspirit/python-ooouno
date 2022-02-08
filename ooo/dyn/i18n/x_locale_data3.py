@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XLocaleData3
-        XLocaleData3 = unoclass(
-            'com.sun.star.i18n.XLocaleData3')
-        setattr(XLocaleData3, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(XLocaleData3, ' __ooo_full_ns__', 'com.sun.star.i18n.XLocaleData3')
-        setattr(XLocaleData3, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.i18n import XLocaleData3
+    setattr(XLocaleData3, '__ooo_ns__', 'com.sun.star.i18n')
+    setattr(XLocaleData3, '__ooo_full_ns__', 'com.sun.star.i18n.XLocaleData3')
+    setattr(XLocaleData3, '__ooo_type_name__', 'interface')
 else:
     from ...lo.i18n.x_locale_data3 import XLocaleData3 as XLocaleData3
 

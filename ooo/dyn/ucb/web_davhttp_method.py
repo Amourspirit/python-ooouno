@@ -57,9 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(WebDAVHTTPMethod, k, v)
-        setattr(WebDAVHTTPMethod, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(WebDAVHTTPMethod, ' __ooo_full_ns__', 'com.sun.star.ucb.WebDAVHTTPMethod')
-        setattr(WebDAVHTTPMethod, ' __ooo_type_name__', 'enum')
+        setattr(WebDAVHTTPMethod, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(WebDAVHTTPMethod, '__ooo_full_ns__', 'com.sun.star.ucb.WebDAVHTTPMethod')
+        setattr(WebDAVHTTPMethod, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.web_davhttp_method import WebDAVHTTPMethod as WebDAVHTTPMethod

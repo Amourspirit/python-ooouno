@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TabulatorCycle, k, v)
-        setattr(TabulatorCycle, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(TabulatorCycle, ' __ooo_full_ns__', 'com.sun.star.form.TabulatorCycle')
-        setattr(TabulatorCycle, ' __ooo_type_name__', 'enum')
+        setattr(TabulatorCycle, '__ooo_ns__', 'com.sun.star.form')
+        setattr(TabulatorCycle, '__ooo_full_ns__', 'com.sun.star.form.TabulatorCycle')
+        setattr(TabulatorCycle, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.tabulator_cycle import TabulatorCycle as TabulatorCycle

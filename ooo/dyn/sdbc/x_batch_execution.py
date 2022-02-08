@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBatchExecution
-        XBatchExecution = unoclass(
-            'com.sun.star.sdbc.XBatchExecution')
-        setattr(XBatchExecution, ' __ooo_ns__', 'com.sun.star.sdbc')
-        setattr(XBatchExecution, ' __ooo_full_ns__', 'com.sun.star.sdbc.XBatchExecution')
-        setattr(XBatchExecution, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbc import XBatchExecution
+    setattr(XBatchExecution, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(XBatchExecution, '__ooo_full_ns__', 'com.sun.star.sdbc.XBatchExecution')
+    setattr(XBatchExecution, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbc.x_batch_execution import XBatchExecution as XBatchExecution
 

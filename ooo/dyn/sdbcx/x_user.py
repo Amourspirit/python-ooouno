@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XUser
-        XUser = unoclass(
-            'com.sun.star.sdbcx.XUser')
-        setattr(XUser, ' __ooo_ns__', 'com.sun.star.sdbcx')
-        setattr(XUser, ' __ooo_full_ns__', 'com.sun.star.sdbcx.XUser')
-        setattr(XUser, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbcx import XUser
+    setattr(XUser, '__ooo_ns__', 'com.sun.star.sdbcx')
+    setattr(XUser, '__ooo_full_ns__', 'com.sun.star.sdbcx.XUser')
+    setattr(XUser, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbcx.x_user import XUser as XUser
 

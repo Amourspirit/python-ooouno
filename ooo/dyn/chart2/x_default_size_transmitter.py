@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDefaultSizeTransmitter
-        XDefaultSizeTransmitter = unoclass(
-            'com.sun.star.chart2.XDefaultSizeTransmitter')
-        setattr(XDefaultSizeTransmitter, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(XDefaultSizeTransmitter, ' __ooo_full_ns__', 'com.sun.star.chart2.XDefaultSizeTransmitter')
-        setattr(XDefaultSizeTransmitter, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.chart2 import XDefaultSizeTransmitter
+    setattr(XDefaultSizeTransmitter, '__ooo_ns__', 'com.sun.star.chart2')
+    setattr(XDefaultSizeTransmitter, '__ooo_full_ns__', 'com.sun.star.chart2.XDefaultSizeTransmitter')
+    setattr(XDefaultSizeTransmitter, '__ooo_type_name__', 'interface')
 else:
     from ...lo.chart2.x_default_size_transmitter import XDefaultSizeTransmitter as XDefaultSizeTransmitter
 

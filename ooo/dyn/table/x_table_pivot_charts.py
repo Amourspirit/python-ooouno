@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTablePivotCharts
-        XTablePivotCharts = unoclass(
-            'com.sun.star.table.XTablePivotCharts')
-        setattr(XTablePivotCharts, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(XTablePivotCharts, ' __ooo_full_ns__', 'com.sun.star.table.XTablePivotCharts')
-        setattr(XTablePivotCharts, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.table import XTablePivotCharts
+    setattr(XTablePivotCharts, '__ooo_ns__', 'com.sun.star.table')
+    setattr(XTablePivotCharts, '__ooo_full_ns__', 'com.sun.star.table.XTablePivotCharts')
+    setattr(XTablePivotCharts, '__ooo_type_name__', 'interface')
 else:
     from ...lo.table.x_table_pivot_charts import XTablePivotCharts as XTablePivotCharts
 

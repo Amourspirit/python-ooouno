@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XConfigurationControllerBroadcaster
-        XConfigurationControllerBroadcaster = unoclass(
-            'com.sun.star.drawing.framework.XConfigurationControllerBroadcaster')
-        setattr(XConfigurationControllerBroadcaster, ' __ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(XConfigurationControllerBroadcaster, ' __ooo_full_ns__', 'com.sun.star.drawing.framework.XConfigurationControllerBroadcaster')
-        setattr(XConfigurationControllerBroadcaster, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.drawing.framework import XConfigurationControllerBroadcaster
+    setattr(XConfigurationControllerBroadcaster, '__ooo_ns__', 'com.sun.star.drawing.framework')
+    setattr(XConfigurationControllerBroadcaster, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XConfigurationControllerBroadcaster')
+    setattr(XConfigurationControllerBroadcaster, '__ooo_type_name__', 'interface')
 else:
     from ....lo.drawing.framework.x_configuration_controller_broadcaster import XConfigurationControllerBroadcaster as XConfigurationControllerBroadcaster
 

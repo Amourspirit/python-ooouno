@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XResetListener
-        XResetListener = unoclass(
-            'com.sun.star.form.XResetListener')
-        setattr(XResetListener, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(XResetListener, ' __ooo_full_ns__', 'com.sun.star.form.XResetListener')
-        setattr(XResetListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.form import XResetListener
+    setattr(XResetListener, '__ooo_ns__', 'com.sun.star.form')
+    setattr(XResetListener, '__ooo_full_ns__', 'com.sun.star.form.XResetListener')
+    setattr(XResetListener, '__ooo_type_name__', 'interface')
 else:
     from ...lo.form.x_reset_listener import XResetListener as XResetListener
 

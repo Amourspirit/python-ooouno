@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDocumentView
-        XDocumentView = unoclass(
-            'com.sun.star.xml.dom.views.XDocumentView')
-        setattr(XDocumentView, ' __ooo_ns__', 'com.sun.star.xml.dom.views')
-        setattr(XDocumentView, ' __ooo_full_ns__', 'com.sun.star.xml.dom.views.XDocumentView')
-        setattr(XDocumentView, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.dom.views import XDocumentView
+    setattr(XDocumentView, '__ooo_ns__', 'com.sun.star.xml.dom.views')
+    setattr(XDocumentView, '__ooo_full_ns__', 'com.sun.star.xml.dom.views.XDocumentView')
+    setattr(XDocumentView, '__ooo_type_name__', 'interface')
 else:
     from .....lo.xml.dom.views.x_document_view import XDocumentView as XDocumentView
 

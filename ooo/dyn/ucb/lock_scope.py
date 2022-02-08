@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LockScope, k, v)
-        setattr(LockScope, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(LockScope, ' __ooo_full_ns__', 'com.sun.star.ucb.LockScope')
-        setattr(LockScope, ' __ooo_type_name__', 'enum')
+        setattr(LockScope, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(LockScope, '__ooo_full_ns__', 'com.sun.star.ucb.LockScope')
+        setattr(LockScope, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.lock_scope import LockScope as LockScope

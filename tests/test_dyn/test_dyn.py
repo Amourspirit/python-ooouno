@@ -43,6 +43,9 @@ def test_uno_obj_enum():
 def test_interface():
     from ooo.dyn.accessibility.x_accessible_action import XAccessibleAction
     assert XAccessibleAction.__pyunointerface__ == 'com.sun.star.accessibility.XAccessibleAction'
+    assert XAccessibleAction.__ooo_ns__ == 'com.sun.star.accessibility'
+    assert XAccessibleAction.__ooo_full_ns__ == 'com.sun.star.accessibility.XAccessibleAction'
+    assert XAccessibleAction.__ooo_type_name__ == 'interface'
 
 
 def test_exception():
@@ -107,3 +110,11 @@ def test_uno_obj_rectangle():
     rect3 = Rectangle(rect2)
     assert rect3.X == 100
 
+def test_const():
+    from ooo.dyn.awt.device_capability import DeviceCapability, DeviceCapabilityEnum
+    assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS
+    assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
+
+    # assert DeviceCapability.__ooo_full_ns__ == 'com.sun.star.awt.DeviceCapability'
+    # assert DeviceCapability.__ooo_ns__ == 'com.sun.star.awt'
+    # assert DeviceCapability.__ooo_type_name__ == 'const'

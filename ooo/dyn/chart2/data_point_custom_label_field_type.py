@@ -49,9 +49,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DataPointCustomLabelFieldType, k, v)
-        setattr(DataPointCustomLabelFieldType, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(DataPointCustomLabelFieldType, ' __ooo_full_ns__', 'com.sun.star.chart2.DataPointCustomLabelFieldType')
-        setattr(DataPointCustomLabelFieldType, ' __ooo_type_name__', 'enum')
+        setattr(DataPointCustomLabelFieldType, '__ooo_ns__', 'com.sun.star.chart2')
+        setattr(DataPointCustomLabelFieldType, '__ooo_full_ns__', 'com.sun.star.chart2.DataPointCustomLabelFieldType')
+        setattr(DataPointCustomLabelFieldType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart2.data_point_custom_label_field_type import DataPointCustomLabelFieldType as DataPointCustomLabelFieldType

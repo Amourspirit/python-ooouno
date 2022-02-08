@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FilterConnection, k, v)
-        setattr(FilterConnection, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(FilterConnection, ' __ooo_full_ns__', 'com.sun.star.sheet.FilterConnection')
-        setattr(FilterConnection, ' __ooo_type_name__', 'enum')
+        setattr(FilterConnection, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(FilterConnection, '__ooo_full_ns__', 'com.sun.star.sheet.FilterConnection')
+        setattr(FilterConnection, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.filter_connection import FilterConnection as FilterConnection

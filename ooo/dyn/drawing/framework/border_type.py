@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(BorderType, k, v)
-        setattr(BorderType, ' __ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(BorderType, ' __ooo_full_ns__', 'com.sun.star.drawing.framework.BorderType')
-        setattr(BorderType, ' __ooo_type_name__', 'enum')
+        setattr(BorderType, '__ooo_ns__', 'com.sun.star.drawing.framework')
+        setattr(BorderType, '__ooo_full_ns__', 'com.sun.star.drawing.framework.BorderType')
+        setattr(BorderType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ....lo.drawing.framework.border_type import BorderType as BorderType

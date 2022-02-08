@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPasswordContainer2
-        XPasswordContainer2 = unoclass(
-            'com.sun.star.task.XPasswordContainer2')
-        setattr(XPasswordContainer2, ' __ooo_ns__', 'com.sun.star.task')
-        setattr(XPasswordContainer2, ' __ooo_full_ns__', 'com.sun.star.task.XPasswordContainer2')
-        setattr(XPasswordContainer2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.task import XPasswordContainer2
+    setattr(XPasswordContainer2, '__ooo_ns__', 'com.sun.star.task')
+    setattr(XPasswordContainer2, '__ooo_full_ns__', 'com.sun.star.task.XPasswordContainer2')
+    setattr(XPasswordContainer2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.task.x_password_container2 import XPasswordContainer2 as XPasswordContainer2
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFormLayerAccess
-        XFormLayerAccess = unoclass(
-            'com.sun.star.view.XFormLayerAccess')
-        setattr(XFormLayerAccess, ' __ooo_ns__', 'com.sun.star.view')
-        setattr(XFormLayerAccess, ' __ooo_full_ns__', 'com.sun.star.view.XFormLayerAccess')
-        setattr(XFormLayerAccess, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.view import XFormLayerAccess
+    setattr(XFormLayerAccess, '__ooo_ns__', 'com.sun.star.view')
+    setattr(XFormLayerAccess, '__ooo_full_ns__', 'com.sun.star.view.XFormLayerAccess')
+    setattr(XFormLayerAccess, '__ooo_type_name__', 'interface')
 else:
     from ...lo.view.x_form_layer_access import XFormLayerAccess as XFormLayerAccess
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XEmbedPersist
-        XEmbedPersist = unoclass(
-            'com.sun.star.embed.XEmbedPersist')
-        setattr(XEmbedPersist, ' __ooo_ns__', 'com.sun.star.embed')
-        setattr(XEmbedPersist, ' __ooo_full_ns__', 'com.sun.star.embed.XEmbedPersist')
-        setattr(XEmbedPersist, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.embed import XEmbedPersist
+    setattr(XEmbedPersist, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(XEmbedPersist, '__ooo_full_ns__', 'com.sun.star.embed.XEmbedPersist')
+    setattr(XEmbedPersist, '__ooo_type_name__', 'interface')
 else:
     from ...lo.embed.x_embed_persist import XEmbedPersist as XEmbedPersist
 

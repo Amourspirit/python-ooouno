@@ -78,9 +78,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TransliterationModules, k, v)
-        setattr(TransliterationModules, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(TransliterationModules, ' __ooo_full_ns__', 'com.sun.star.i18n.TransliterationModules')
-        setattr(TransliterationModules, ' __ooo_type_name__', 'enum')
+        setattr(TransliterationModules, '__ooo_ns__', 'com.sun.star.i18n')
+        setattr(TransliterationModules, '__ooo_full_ns__', 'com.sun.star.i18n.TransliterationModules')
+        setattr(TransliterationModules, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.i18n.transliteration_modules import TransliterationModules as TransliterationModules

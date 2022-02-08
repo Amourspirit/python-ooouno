@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FormSubmitMethod, k, v)
-        setattr(FormSubmitMethod, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(FormSubmitMethod, ' __ooo_full_ns__', 'com.sun.star.form.FormSubmitMethod')
-        setattr(FormSubmitMethod, ' __ooo_type_name__', 'enum')
+        setattr(FormSubmitMethod, '__ooo_ns__', 'com.sun.star.form')
+        setattr(FormSubmitMethod, '__ooo_full_ns__', 'com.sun.star.form.FormSubmitMethod')
+        setattr(FormSubmitMethod, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.form_submit_method import FormSubmitMethod as FormSubmitMethod

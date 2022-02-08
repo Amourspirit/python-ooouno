@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTextConversion
-        XTextConversion = unoclass(
-            'com.sun.star.i18n.XTextConversion')
-        setattr(XTextConversion, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(XTextConversion, ' __ooo_full_ns__', 'com.sun.star.i18n.XTextConversion')
-        setattr(XTextConversion, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.i18n import XTextConversion
+    setattr(XTextConversion, '__ooo_ns__', 'com.sun.star.i18n')
+    setattr(XTextConversion, '__ooo_full_ns__', 'com.sun.star.i18n.XTextConversion')
+    setattr(XTextConversion, '__ooo_type_name__', 'interface')
 else:
     from ...lo.i18n.x_text_conversion import XTextConversion as XTextConversion
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global X3DDefaultSetter
-        X3DDefaultSetter = unoclass(
-            'com.sun.star.chart.X3DDefaultSetter')
-        setattr(X3DDefaultSetter, ' __ooo_ns__', 'com.sun.star.chart')
-        setattr(X3DDefaultSetter, ' __ooo_full_ns__', 'com.sun.star.chart.X3DDefaultSetter')
-        setattr(X3DDefaultSetter, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.chart import X3DDefaultSetter
+    setattr(X3DDefaultSetter, '__ooo_ns__', 'com.sun.star.chart')
+    setattr(X3DDefaultSetter, '__ooo_full_ns__', 'com.sun.star.chart.X3DDefaultSetter')
+    setattr(X3DDefaultSetter, '__ooo_type_name__', 'interface')
 else:
     from ...lo.chart.x3_d_default_setter import X3DDefaultSetter as X3DDefaultSetter
 

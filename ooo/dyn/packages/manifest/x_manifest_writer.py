@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XManifestWriter
-        XManifestWriter = unoclass(
-            'com.sun.star.packages.manifest.XManifestWriter')
-        setattr(XManifestWriter, ' __ooo_ns__', 'com.sun.star.packages.manifest')
-        setattr(XManifestWriter, ' __ooo_full_ns__', 'com.sun.star.packages.manifest.XManifestWriter')
-        setattr(XManifestWriter, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.packages.manifest import XManifestWriter
+    setattr(XManifestWriter, '__ooo_ns__', 'com.sun.star.packages.manifest')
+    setattr(XManifestWriter, '__ooo_full_ns__', 'com.sun.star.packages.manifest.XManifestWriter')
+    setattr(XManifestWriter, '__ooo_type_name__', 'interface')
 else:
     from ....lo.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter
 

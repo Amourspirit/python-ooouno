@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAnnotationEnumeration
-        XAnnotationEnumeration = unoclass(
-            'com.sun.star.office.XAnnotationEnumeration')
-        setattr(XAnnotationEnumeration, ' __ooo_ns__', 'com.sun.star.office')
-        setattr(XAnnotationEnumeration, ' __ooo_full_ns__', 'com.sun.star.office.XAnnotationEnumeration')
-        setattr(XAnnotationEnumeration, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.office import XAnnotationEnumeration
+    setattr(XAnnotationEnumeration, '__ooo_ns__', 'com.sun.star.office')
+    setattr(XAnnotationEnumeration, '__ooo_full_ns__', 'com.sun.star.office.XAnnotationEnumeration')
+    setattr(XAnnotationEnumeration, '__ooo_type_name__', 'interface')
 else:
     from ...lo.office.x_annotation_enumeration import XAnnotationEnumeration as XAnnotationEnumeration
 

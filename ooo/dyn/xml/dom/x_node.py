@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XNode
-        XNode = unoclass(
-            'com.sun.star.xml.dom.XNode')
-        setattr(XNode, ' __ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(XNode, ' __ooo_full_ns__', 'com.sun.star.xml.dom.XNode')
-        setattr(XNode, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.dom import XNode
+    setattr(XNode, '__ooo_ns__', 'com.sun.star.xml.dom')
+    setattr(XNode, '__ooo_full_ns__', 'com.sun.star.xml.dom.XNode')
+    setattr(XNode, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.dom.x_node import XNode as XNode
 

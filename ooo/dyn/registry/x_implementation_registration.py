@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XImplementationRegistration
-        XImplementationRegistration = unoclass(
-            'com.sun.star.registry.XImplementationRegistration')
-        setattr(XImplementationRegistration, ' __ooo_ns__', 'com.sun.star.registry')
-        setattr(XImplementationRegistration, ' __ooo_full_ns__', 'com.sun.star.registry.XImplementationRegistration')
-        setattr(XImplementationRegistration, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.registry import XImplementationRegistration
+    setattr(XImplementationRegistration, '__ooo_ns__', 'com.sun.star.registry')
+    setattr(XImplementationRegistration, '__ooo_full_ns__', 'com.sun.star.registry.XImplementationRegistration')
+    setattr(XImplementationRegistration, '__ooo_type_name__', 'interface')
 else:
     from ...lo.registry.x_implementation_registration import XImplementationRegistration as XImplementationRegistration
 

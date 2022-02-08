@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPropertySetRegistryFactory
-        XPropertySetRegistryFactory = unoclass(
-            'com.sun.star.ucb.XPropertySetRegistryFactory')
-        setattr(XPropertySetRegistryFactory, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XPropertySetRegistryFactory, ' __ooo_full_ns__', 'com.sun.star.ucb.XPropertySetRegistryFactory')
-        setattr(XPropertySetRegistryFactory, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XPropertySetRegistryFactory
+    setattr(XPropertySetRegistryFactory, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XPropertySetRegistryFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XPropertySetRegistryFactory')
+    setattr(XPropertySetRegistryFactory, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_property_set_registry_factory import XPropertySetRegistryFactory as XPropertySetRegistryFactory
 

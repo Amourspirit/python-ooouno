@@ -57,9 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(EventType, k, v)
-        setattr(EventType, ' __ooo_ns__', 'com.sun.star.xml.dom.events')
-        setattr(EventType, ' __ooo_full_ns__', 'com.sun.star.xml.dom.events.EventType')
-        setattr(EventType, ' __ooo_type_name__', 'enum')
+        setattr(EventType, '__ooo_ns__', 'com.sun.star.xml.dom.events')
+        setattr(EventType, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.EventType')
+        setattr(EventType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from .....lo.xml.dom.events.event_type import EventType as EventType

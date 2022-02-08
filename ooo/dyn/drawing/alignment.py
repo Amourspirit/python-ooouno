@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(Alignment, k, v)
-        setattr(Alignment, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(Alignment, ' __ooo_full_ns__', 'com.sun.star.drawing.Alignment')
-        setattr(Alignment, ' __ooo_type_name__', 'enum')
+        setattr(Alignment, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(Alignment, '__ooo_full_ns__', 'com.sun.star.drawing.Alignment')
+        setattr(Alignment, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.alignment import Alignment as Alignment

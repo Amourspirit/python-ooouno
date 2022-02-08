@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MeasureKind, k, v)
-        setattr(MeasureKind, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureKind, ' __ooo_full_ns__', 'com.sun.star.drawing.MeasureKind')
-        setattr(MeasureKind, ' __ooo_type_name__', 'enum')
+        setattr(MeasureKind, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(MeasureKind, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureKind')
+        setattr(MeasureKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_kind import MeasureKind as MeasureKind

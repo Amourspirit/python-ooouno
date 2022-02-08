@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAnimatePhysics
-        XAnimatePhysics = unoclass(
-            'com.sun.star.animations.XAnimatePhysics')
-        setattr(XAnimatePhysics, ' __ooo_ns__', 'com.sun.star.animations')
-        setattr(XAnimatePhysics, ' __ooo_full_ns__', 'com.sun.star.animations.XAnimatePhysics')
-        setattr(XAnimatePhysics, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.animations import XAnimatePhysics
+    setattr(XAnimatePhysics, '__ooo_ns__', 'com.sun.star.animations')
+    setattr(XAnimatePhysics, '__ooo_full_ns__', 'com.sun.star.animations.XAnimatePhysics')
+    setattr(XAnimatePhysics, '__ooo_type_name__', 'interface')
 else:
     from ...lo.animations.x_animate_physics import XAnimatePhysics as XAnimatePhysics
 

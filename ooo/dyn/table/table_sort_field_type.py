@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TableSortFieldType, k, v)
-        setattr(TableSortFieldType, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(TableSortFieldType, ' __ooo_full_ns__', 'com.sun.star.table.TableSortFieldType')
-        setattr(TableSortFieldType, ' __ooo_type_name__', 'enum')
+        setattr(TableSortFieldType, '__ooo_ns__', 'com.sun.star.table')
+        setattr(TableSortFieldType, '__ooo_full_ns__', 'com.sun.star.table.TableSortFieldType')
+        setattr(TableSortFieldType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.table_sort_field_type import TableSortFieldType as TableSortFieldType

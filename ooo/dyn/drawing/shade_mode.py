@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ShadeMode, k, v)
-        setattr(ShadeMode, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(ShadeMode, ' __ooo_full_ns__', 'com.sun.star.drawing.ShadeMode')
-        setattr(ShadeMode, ' __ooo_type_name__', 'enum')
+        setattr(ShadeMode, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(ShadeMode, '__ooo_full_ns__', 'com.sun.star.drawing.ShadeMode')
+        setattr(ShadeMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.shade_mode import ShadeMode as ShadeMode

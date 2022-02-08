@@ -98,9 +98,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FadeEffect, k, v)
-        setattr(FadeEffect, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(FadeEffect, ' __ooo_full_ns__', 'com.sun.star.presentation.FadeEffect')
-        setattr(FadeEffect, ' __ooo_type_name__', 'enum')
+        setattr(FadeEffect, '__ooo_ns__', 'com.sun.star.presentation')
+        setattr(FadeEffect, '__ooo_full_ns__', 'com.sun.star.presentation.FadeEffect')
+        setattr(FadeEffect, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.presentation.fade_effect import FadeEffect as FadeEffect

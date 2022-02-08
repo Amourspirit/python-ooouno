@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextFitToSizeType, k, v)
-        setattr(TextFitToSizeType, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextFitToSizeType, ' __ooo_full_ns__', 'com.sun.star.drawing.TextFitToSizeType')
-        setattr(TextFitToSizeType, ' __ooo_type_name__', 'enum')
+        setattr(TextFitToSizeType, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextFitToSizeType, '__ooo_full_ns__', 'com.sun.star.drawing.TextFitToSizeType')
+        setattr(TextFitToSizeType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.text_fit_to_size_type import TextFitToSizeType as TextFitToSizeType

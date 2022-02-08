@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XContentProviderManager
-        XContentProviderManager = unoclass(
-            'com.sun.star.ucb.XContentProviderManager')
-        setattr(XContentProviderManager, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XContentProviderManager, ' __ooo_full_ns__', 'com.sun.star.ucb.XContentProviderManager')
-        setattr(XContentProviderManager, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XContentProviderManager
+    setattr(XContentProviderManager, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XContentProviderManager, '__ooo_full_ns__', 'com.sun.star.ucb.XContentProviderManager')
+    setattr(XContentProviderManager, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_content_provider_manager import XContentProviderManager as XContentProviderManager
 

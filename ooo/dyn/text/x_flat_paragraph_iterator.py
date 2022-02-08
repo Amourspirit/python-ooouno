@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFlatParagraphIterator
-        XFlatParagraphIterator = unoclass(
-            'com.sun.star.text.XFlatParagraphIterator')
-        setattr(XFlatParagraphIterator, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(XFlatParagraphIterator, ' __ooo_full_ns__', 'com.sun.star.text.XFlatParagraphIterator')
-        setattr(XFlatParagraphIterator, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.text import XFlatParagraphIterator
+    setattr(XFlatParagraphIterator, '__ooo_ns__', 'com.sun.star.text')
+    setattr(XFlatParagraphIterator, '__ooo_full_ns__', 'com.sun.star.text.XFlatParagraphIterator')
+    setattr(XFlatParagraphIterator, '__ooo_type_name__', 'interface')
 else:
     from ...lo.text.x_flat_paragraph_iterator import XFlatParagraphIterator as XFlatParagraphIterator
 

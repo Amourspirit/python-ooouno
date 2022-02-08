@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XFetchProvider
-        XFetchProvider = unoclass(
-            'com.sun.star.ucb.XFetchProvider')
-        setattr(XFetchProvider, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XFetchProvider, ' __ooo_full_ns__', 'com.sun.star.ucb.XFetchProvider')
-        setattr(XFetchProvider, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XFetchProvider
+    setattr(XFetchProvider, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XFetchProvider, '__ooo_full_ns__', 'com.sun.star.ucb.XFetchProvider')
+    setattr(XFetchProvider, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_fetch_provider import XFetchProvider as XFetchProvider
 

@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FontSlant, k, v)
-        setattr(FontSlant, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(FontSlant, ' __ooo_full_ns__', 'com.sun.star.awt.FontSlant')
-        setattr(FontSlant, ' __ooo_type_name__', 'enum')
+        setattr(FontSlant, '__ooo_ns__', 'com.sun.star.awt')
+        setattr(FontSlant, '__ooo_full_ns__', 'com.sun.star.awt.FontSlant')
+        setattr(FontSlant, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.awt.font_slant import FontSlant as FontSlant

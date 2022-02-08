@@ -49,9 +49,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FrameAction, k, v)
-        setattr(FrameAction, ' __ooo_ns__', 'com.sun.star.frame')
-        setattr(FrameAction, ' __ooo_full_ns__', 'com.sun.star.frame.FrameAction')
-        setattr(FrameAction, ' __ooo_type_name__', 'enum')
+        setattr(FrameAction, '__ooo_ns__', 'com.sun.star.frame')
+        setattr(FrameAction, '__ooo_full_ns__', 'com.sun.star.frame.FrameAction')
+        setattr(FrameAction, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.frame.frame_action import FrameAction as FrameAction

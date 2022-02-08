@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LockDepth, k, v)
-        setattr(LockDepth, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(LockDepth, ' __ooo_full_ns__', 'com.sun.star.ucb.LockDepth')
-        setattr(LockDepth, ' __ooo_type_name__', 'enum')
+        setattr(LockDepth, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(LockDepth, '__ooo_full_ns__', 'com.sun.star.ucb.LockDepth')
+        setattr(LockDepth, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.lock_depth import LockDepth as LockDepth

@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SymbolStyle, k, v)
-        setattr(SymbolStyle, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(SymbolStyle, ' __ooo_full_ns__', 'com.sun.star.chart2.SymbolStyle')
-        setattr(SymbolStyle, ' __ooo_type_name__', 'enum')
+        setattr(SymbolStyle, '__ooo_ns__', 'com.sun.star.chart2')
+        setattr(SymbolStyle, '__ooo_full_ns__', 'com.sun.star.chart2.SymbolStyle')
+        setattr(SymbolStyle, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart2.symbol_style import SymbolStyle as SymbolStyle

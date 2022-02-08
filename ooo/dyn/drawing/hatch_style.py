@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(HatchStyle, k, v)
-        setattr(HatchStyle, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(HatchStyle, ' __ooo_full_ns__', 'com.sun.star.drawing.HatchStyle')
-        setattr(HatchStyle, ' __ooo_type_name__', 'enum')
+        setattr(HatchStyle, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(HatchStyle, '__ooo_full_ns__', 'com.sun.star.drawing.HatchStyle')
+        setattr(HatchStyle, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.hatch_style import HatchStyle as HatchStyle

@@ -19,7 +19,16 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.animations
 from enum import IntEnum
-from ...lo.animations.animation_value_type import AnimationValueType as AnimationValueType
+from typing import TYPE_CHECKING
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
+
+if not TYPE_CHECKING and _DYNAMIC:
+    from com.sun.star.animations import AnimationValueType
+else:
+    from ...lo.animations.animation_value_type import AnimationValueType as AnimationValueType
 
 
 class AnimationValueTypeEnum(IntEnum):

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCipherContextSupplier
-        XCipherContextSupplier = unoclass(
-            'com.sun.star.xml.crypto.XCipherContextSupplier')
-        setattr(XCipherContextSupplier, ' __ooo_ns__', 'com.sun.star.xml.crypto')
-        setattr(XCipherContextSupplier, ' __ooo_full_ns__', 'com.sun.star.xml.crypto.XCipherContextSupplier')
-        setattr(XCipherContextSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.crypto import XCipherContextSupplier
+    setattr(XCipherContextSupplier, '__ooo_ns__', 'com.sun.star.xml.crypto')
+    setattr(XCipherContextSupplier, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XCipherContextSupplier')
+    setattr(XCipherContextSupplier, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.crypto.x_cipher_context_supplier import XCipherContextSupplier as XCipherContextSupplier
 

@@ -48,9 +48,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(WrapTextMode, k, v)
-        setattr(WrapTextMode, ' __ooo_ns__', 'com.sun.star.text')
-        setattr(WrapTextMode, ' __ooo_full_ns__', 'com.sun.star.text.WrapTextMode')
-        setattr(WrapTextMode, ' __ooo_type_name__', 'enum')
+        setattr(WrapTextMode, '__ooo_ns__', 'com.sun.star.text')
+        setattr(WrapTextMode, '__ooo_full_ns__', 'com.sun.star.text.WrapTextMode')
+        setattr(WrapTextMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.text.wrap_text_mode import WrapTextMode as WrapTextMode

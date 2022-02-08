@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XVndSunStarScriptUrl
-        XVndSunStarScriptUrl = unoclass(
-            'com.sun.star.uri.XVndSunStarScriptUrl')
-        setattr(XVndSunStarScriptUrl, ' __ooo_ns__', 'com.sun.star.uri')
-        setattr(XVndSunStarScriptUrl, ' __ooo_full_ns__', 'com.sun.star.uri.XVndSunStarScriptUrl')
-        setattr(XVndSunStarScriptUrl, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.uri import XVndSunStarScriptUrl
+    setattr(XVndSunStarScriptUrl, '__ooo_ns__', 'com.sun.star.uri')
+    setattr(XVndSunStarScriptUrl, '__ooo_full_ns__', 'com.sun.star.uri.XVndSunStarScriptUrl')
+    setattr(XVndSunStarScriptUrl, '__ooo_type_name__', 'interface')
 else:
     from ...lo.uri.x_vnd_sun_star_script_url import XVndSunStarScriptUrl as XVndSunStarScriptUrl
 

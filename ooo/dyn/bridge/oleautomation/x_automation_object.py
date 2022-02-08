@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAutomationObject
-        XAutomationObject = unoclass(
-            'com.sun.star.bridge.oleautomation.XAutomationObject')
-        setattr(XAutomationObject, ' __ooo_ns__', 'com.sun.star.bridge.oleautomation')
-        setattr(XAutomationObject, ' __ooo_full_ns__', 'com.sun.star.bridge.oleautomation.XAutomationObject')
-        setattr(XAutomationObject, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.bridge.oleautomation import XAutomationObject
+    setattr(XAutomationObject, '__ooo_ns__', 'com.sun.star.bridge.oleautomation')
+    setattr(XAutomationObject, '__ooo_full_ns__', 'com.sun.star.bridge.oleautomation.XAutomationObject')
+    setattr(XAutomationObject, '__ooo_type_name__', 'interface')
 else:
     from ....lo.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject
 

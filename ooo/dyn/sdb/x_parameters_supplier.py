@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XParametersSupplier
-        XParametersSupplier = unoclass(
-            'com.sun.star.sdb.XParametersSupplier')
-        setattr(XParametersSupplier, ' __ooo_ns__', 'com.sun.star.sdb')
-        setattr(XParametersSupplier, ' __ooo_full_ns__', 'com.sun.star.sdb.XParametersSupplier')
-        setattr(XParametersSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb import XParametersSupplier
+    setattr(XParametersSupplier, '__ooo_ns__', 'com.sun.star.sdb')
+    setattr(XParametersSupplier, '__ooo_full_ns__', 'com.sun.star.sdb.XParametersSupplier')
+    setattr(XParametersSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdb.x_parameters_supplier import XParametersSupplier as XParametersSupplier
 

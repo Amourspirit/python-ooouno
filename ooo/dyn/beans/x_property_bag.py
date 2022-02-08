@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XPropertyBag
-        XPropertyBag = unoclass(
-            'com.sun.star.beans.XPropertyBag')
-        setattr(XPropertyBag, ' __ooo_ns__', 'com.sun.star.beans')
-        setattr(XPropertyBag, ' __ooo_full_ns__', 'com.sun.star.beans.XPropertyBag')
-        setattr(XPropertyBag, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.beans import XPropertyBag
+    setattr(XPropertyBag, '__ooo_ns__', 'com.sun.star.beans')
+    setattr(XPropertyBag, '__ooo_full_ns__', 'com.sun.star.beans.XPropertyBag')
+    setattr(XPropertyBag, '__ooo_type_name__', 'interface')
 else:
     from ...lo.beans.x_property_bag import XPropertyBag as XPropertyBag
 

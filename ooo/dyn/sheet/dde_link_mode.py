@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DDELinkMode, k, v)
-        setattr(DDELinkMode, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(DDELinkMode, ' __ooo_full_ns__', 'com.sun.star.sheet.DDELinkMode')
-        setattr(DDELinkMode, ' __ooo_type_name__', 'enum')
+        setattr(DDELinkMode, '__ooo_ns__', 'com.sun.star.sheet')
+        setattr(DDELinkMode, '__ooo_full_ns__', 'com.sun.star.sheet.DDELinkMode')
+        setattr(DDELinkMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.sheet.dde_link_mode import DDELinkMode as DDELinkMode

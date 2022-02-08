@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XRemoteContentProviderChangeListener
-        XRemoteContentProviderChangeListener = unoclass(
-            'com.sun.star.ucb.XRemoteContentProviderChangeListener')
-        setattr(XRemoteContentProviderChangeListener, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XRemoteContentProviderChangeListener, ' __ooo_full_ns__', 'com.sun.star.ucb.XRemoteContentProviderChangeListener')
-        setattr(XRemoteContentProviderChangeListener, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XRemoteContentProviderChangeListener
+    setattr(XRemoteContentProviderChangeListener, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XRemoteContentProviderChangeListener, '__ooo_full_ns__', 'com.sun.star.ucb.XRemoteContentProviderChangeListener')
+    setattr(XRemoteContentProviderChangeListener, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_remote_content_provider_change_listener import XRemoteContentProviderChangeListener as XRemoteContentProviderChangeListener
 

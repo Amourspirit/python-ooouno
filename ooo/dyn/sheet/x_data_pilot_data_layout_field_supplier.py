@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDataPilotDataLayoutFieldSupplier
-        XDataPilotDataLayoutFieldSupplier = unoclass(
-            'com.sun.star.sheet.XDataPilotDataLayoutFieldSupplier')
-        setattr(XDataPilotDataLayoutFieldSupplier, ' __ooo_ns__', 'com.sun.star.sheet')
-        setattr(XDataPilotDataLayoutFieldSupplier, ' __ooo_full_ns__', 'com.sun.star.sheet.XDataPilotDataLayoutFieldSupplier')
-        setattr(XDataPilotDataLayoutFieldSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sheet import XDataPilotDataLayoutFieldSupplier
+    setattr(XDataPilotDataLayoutFieldSupplier, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(XDataPilotDataLayoutFieldSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XDataPilotDataLayoutFieldSupplier')
+    setattr(XDataPilotDataLayoutFieldSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sheet.x_data_pilot_data_layout_field_supplier import XDataPilotDataLayoutFieldSupplier as XDataPilotDataLayoutFieldSupplier
 

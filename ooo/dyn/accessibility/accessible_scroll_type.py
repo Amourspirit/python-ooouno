@@ -48,9 +48,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AccessibleScrollType, k, v)
-        setattr(AccessibleScrollType, ' __ooo_ns__', 'com.sun.star.accessibility')
-        setattr(AccessibleScrollType, ' __ooo_full_ns__', 'com.sun.star.accessibility.AccessibleScrollType')
-        setattr(AccessibleScrollType, ' __ooo_type_name__', 'enum')
+        setattr(AccessibleScrollType, '__ooo_ns__', 'com.sun.star.accessibility')
+        setattr(AccessibleScrollType, '__ooo_full_ns__', 'com.sun.star.accessibility.AccessibleScrollType')
+        setattr(AccessibleScrollType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.accessibility.accessible_scroll_type import AccessibleScrollType as AccessibleScrollType

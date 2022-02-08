@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCellCursor
-        XCellCursor = unoclass(
-            'com.sun.star.table.XCellCursor')
-        setattr(XCellCursor, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(XCellCursor, ' __ooo_full_ns__', 'com.sun.star.table.XCellCursor')
-        setattr(XCellCursor, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.table import XCellCursor
+    setattr(XCellCursor, '__ooo_ns__', 'com.sun.star.table')
+    setattr(XCellCursor, '__ooo_full_ns__', 'com.sun.star.table.XCellCursor')
+    setattr(XCellCursor, '__ooo_type_name__', 'interface')
 else:
     from ...lo.table.x_cell_cursor import XCellCursor as XCellCursor
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAnimateTransform
-        XAnimateTransform = unoclass(
-            'com.sun.star.animations.XAnimateTransform')
-        setattr(XAnimateTransform, ' __ooo_ns__', 'com.sun.star.animations')
-        setattr(XAnimateTransform, ' __ooo_full_ns__', 'com.sun.star.animations.XAnimateTransform')
-        setattr(XAnimateTransform, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.animations import XAnimateTransform
+    setattr(XAnimateTransform, '__ooo_ns__', 'com.sun.star.animations')
+    setattr(XAnimateTransform, '__ooo_full_ns__', 'com.sun.star.animations.XAnimateTransform')
+    setattr(XAnimateTransform, '__ooo_type_name__', 'interface')
 else:
     from ...lo.animations.x_animate_transform import XAnimateTransform as XAnimateTransform
 

@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(CellVertJustify, k, v)
-        setattr(CellVertJustify, ' __ooo_ns__', 'com.sun.star.table')
-        setattr(CellVertJustify, ' __ooo_full_ns__', 'com.sun.star.table.CellVertJustify')
-        setattr(CellVertJustify, ' __ooo_type_name__', 'enum')
+        setattr(CellVertJustify, '__ooo_ns__', 'com.sun.star.table')
+        setattr(CellVertJustify, '__ooo_full_ns__', 'com.sun.star.table.CellVertJustify')
+        setattr(CellVertJustify, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.table.cell_vert_justify import CellVertJustify as CellVertJustify

@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextureKind, k, v)
-        setattr(TextureKind, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextureKind, ' __ooo_full_ns__', 'com.sun.star.drawing.TextureKind')
-        setattr(TextureKind, ' __ooo_type_name__', 'enum')
+        setattr(TextureKind, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextureKind, '__ooo_full_ns__', 'com.sun.star.drawing.TextureKind')
+        setattr(TextureKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.texture_kind import TextureKind as TextureKind

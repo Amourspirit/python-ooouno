@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XSecuritySAXEventKeeper
-        XSecuritySAXEventKeeper = unoclass(
-            'com.sun.star.xml.crypto.sax.XSecuritySAXEventKeeper')
-        setattr(XSecuritySAXEventKeeper, ' __ooo_ns__', 'com.sun.star.xml.crypto.sax')
-        setattr(XSecuritySAXEventKeeper, ' __ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XSecuritySAXEventKeeper')
-        setattr(XSecuritySAXEventKeeper, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.crypto.sax import XSecuritySAXEventKeeper
+    setattr(XSecuritySAXEventKeeper, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
+    setattr(XSecuritySAXEventKeeper, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XSecuritySAXEventKeeper')
+    setattr(XSecuritySAXEventKeeper, '__ooo_type_name__', 'interface')
 else:
     from .....lo.xml.crypto.sax.x_security_sax_event_keeper import XSecuritySAXEventKeeper as XSecuritySAXEventKeeper
 

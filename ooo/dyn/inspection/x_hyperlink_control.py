@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XHyperlinkControl
-        XHyperlinkControl = unoclass(
-            'com.sun.star.inspection.XHyperlinkControl')
-        setattr(XHyperlinkControl, ' __ooo_ns__', 'com.sun.star.inspection')
-        setattr(XHyperlinkControl, ' __ooo_full_ns__', 'com.sun.star.inspection.XHyperlinkControl')
-        setattr(XHyperlinkControl, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.inspection import XHyperlinkControl
+    setattr(XHyperlinkControl, '__ooo_ns__', 'com.sun.star.inspection')
+    setattr(XHyperlinkControl, '__ooo_full_ns__', 'com.sun.star.inspection.XHyperlinkControl')
+    setattr(XHyperlinkControl, '__ooo_type_name__', 'interface')
 else:
     from ...lo.inspection.x_hyperlink_control import XHyperlinkControl as XHyperlinkControl
 

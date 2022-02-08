@@ -39,9 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 raise KeyError("Key '%s' not found in Component Context Element Names", key)
             singleton = ctx.getValueByName(key)
             if not hasattr(singleton, '__ooo_ns__'):
-                setattr(singleton, ' __ooo_ns__', 'com.sun.star.frame')
-                setattr(singleton, ' __ooo_full_ns__', 'com.sun.star.frame.theUICommandDescription')
-                setattr(singleton, ' __ooo_type_name__', 'singleton')
+                setattr(singleton, '__ooo_ns__', 'com.sun.star.frame')
+                setattr(singleton, '__ooo_full_ns__', 'com.sun.star.frame.theUICommandDescription')
+                setattr(singleton, '__ooo_type_name__', 'singleton')
             return singleton
         theUICommandDescription = _singleton_init
     _dynamic_singleton()

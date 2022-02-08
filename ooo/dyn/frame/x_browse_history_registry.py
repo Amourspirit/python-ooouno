@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBrowseHistoryRegistry
-        XBrowseHistoryRegistry = unoclass(
-            'com.sun.star.frame.XBrowseHistoryRegistry')
-        setattr(XBrowseHistoryRegistry, ' __ooo_ns__', 'com.sun.star.frame')
-        setattr(XBrowseHistoryRegistry, ' __ooo_full_ns__', 'com.sun.star.frame.XBrowseHistoryRegistry')
-        setattr(XBrowseHistoryRegistry, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.frame import XBrowseHistoryRegistry
+    setattr(XBrowseHistoryRegistry, '__ooo_ns__', 'com.sun.star.frame')
+    setattr(XBrowseHistoryRegistry, '__ooo_full_ns__', 'com.sun.star.frame.XBrowseHistoryRegistry')
+    setattr(XBrowseHistoryRegistry, '__ooo_type_name__', 'interface')
 else:
     from ...lo.frame.x_browse_history_registry import XBrowseHistoryRegistry as XBrowseHistoryRegistry
 

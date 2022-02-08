@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ContextMenuInterceptorAction, k, v)
-        setattr(ContextMenuInterceptorAction, ' __ooo_ns__', 'com.sun.star.ui')
-        setattr(ContextMenuInterceptorAction, ' __ooo_full_ns__', 'com.sun.star.ui.ContextMenuInterceptorAction')
-        setattr(ContextMenuInterceptorAction, ' __ooo_type_name__', 'enum')
+        setattr(ContextMenuInterceptorAction, '__ooo_ns__', 'com.sun.star.ui')
+        setattr(ContextMenuInterceptorAction, '__ooo_full_ns__', 'com.sun.star.ui.ContextMenuInterceptorAction')
+        setattr(ContextMenuInterceptorAction, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ui.context_menu_interceptor_action import ContextMenuInterceptorAction as ContextMenuInterceptorAction

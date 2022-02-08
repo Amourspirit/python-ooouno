@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XCachedDynamicResultSetFactory
-        XCachedDynamicResultSetFactory = unoclass(
-            'com.sun.star.ucb.XCachedDynamicResultSetFactory')
-        setattr(XCachedDynamicResultSetFactory, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XCachedDynamicResultSetFactory, ' __ooo_full_ns__', 'com.sun.star.ucb.XCachedDynamicResultSetFactory')
-        setattr(XCachedDynamicResultSetFactory, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XCachedDynamicResultSetFactory
+    setattr(XCachedDynamicResultSetFactory, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XCachedDynamicResultSetFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XCachedDynamicResultSetFactory')
+    setattr(XCachedDynamicResultSetFactory, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_cached_dynamic_result_set_factory import XCachedDynamicResultSetFactory as XCachedDynamicResultSetFactory
 

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XDatabaseMetaData
-        XDatabaseMetaData = unoclass(
-            'com.sun.star.sdbc.XDatabaseMetaData')
-        setattr(XDatabaseMetaData, ' __ooo_ns__', 'com.sun.star.sdbc')
-        setattr(XDatabaseMetaData, ' __ooo_full_ns__', 'com.sun.star.sdbc.XDatabaseMetaData')
-        setattr(XDatabaseMetaData, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbc import XDatabaseMetaData
+    setattr(XDatabaseMetaData, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(XDatabaseMetaData, '__ooo_full_ns__', 'com.sun.star.sdbc.XDatabaseMetaData')
+    setattr(XDatabaseMetaData, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbc.x_database_meta_data import XDatabaseMetaData as XDatabaseMetaData
 

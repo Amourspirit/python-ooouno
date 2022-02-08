@@ -42,9 +42,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(LockType, k, v)
-        setattr(LockType, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(LockType, ' __ooo_full_ns__', 'com.sun.star.ucb.LockType')
-        setattr(LockType, ' __ooo_type_name__', 'enum')
+        setattr(LockType, '__ooo_ns__', 'com.sun.star.ucb')
+        setattr(LockType, '__ooo_full_ns__', 'com.sun.star.ucb.LockType')
+        setattr(LockType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.ucb.lock_type import LockType as LockType

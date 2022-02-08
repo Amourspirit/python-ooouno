@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XConnection2
-        XConnection2 = unoclass(
-            'com.sun.star.connection.XConnection2')
-        setattr(XConnection2, ' __ooo_ns__', 'com.sun.star.connection')
-        setattr(XConnection2, ' __ooo_full_ns__', 'com.sun.star.connection.XConnection2')
-        setattr(XConnection2, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.connection import XConnection2
+    setattr(XConnection2, '__ooo_ns__', 'com.sun.star.connection')
+    setattr(XConnection2, '__ooo_full_ns__', 'com.sun.star.connection.XConnection2')
+    setattr(XConnection2, '__ooo_type_name__', 'interface')
 else:
     from ...lo.connection.x_connection2 import XConnection2 as XConnection2
 

@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PieChartOffsetMode, k, v)
-        setattr(PieChartOffsetMode, ' __ooo_ns__', 'com.sun.star.chart2')
-        setattr(PieChartOffsetMode, ' __ooo_full_ns__', 'com.sun.star.chart2.PieChartOffsetMode')
-        setattr(PieChartOffsetMode, ' __ooo_type_name__', 'enum')
+        setattr(PieChartOffsetMode, '__ooo_ns__', 'com.sun.star.chart2')
+        setattr(PieChartOffsetMode, '__ooo_full_ns__', 'com.sun.star.chart2.PieChartOffsetMode')
+        setattr(PieChartOffsetMode, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.chart2.pie_chart_offset_mode import PieChartOffsetMode as PieChartOffsetMode

@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(InteractiveSelectionResult, k, v)
-        setattr(InteractiveSelectionResult, ' __ooo_ns__', 'com.sun.star.inspection')
-        setattr(InteractiveSelectionResult, ' __ooo_full_ns__', 'com.sun.star.inspection.InteractiveSelectionResult')
-        setattr(InteractiveSelectionResult, ' __ooo_type_name__', 'enum')
+        setattr(InteractiveSelectionResult, '__ooo_ns__', 'com.sun.star.inspection')
+        setattr(InteractiveSelectionResult, '__ooo_full_ns__', 'com.sun.star.inspection.InteractiveSelectionResult')
+        setattr(InteractiveSelectionResult, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult

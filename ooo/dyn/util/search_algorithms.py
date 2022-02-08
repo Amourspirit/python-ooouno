@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SearchAlgorithms, k, v)
-        setattr(SearchAlgorithms, ' __ooo_ns__', 'com.sun.star.util')
-        setattr(SearchAlgorithms, ' __ooo_full_ns__', 'com.sun.star.util.SearchAlgorithms')
-        setattr(SearchAlgorithms, ' __ooo_type_name__', 'enum')
+        setattr(SearchAlgorithms, '__ooo_ns__', 'com.sun.star.util')
+        setattr(SearchAlgorithms, '__ooo_full_ns__', 'com.sun.star.util.SearchAlgorithms')
+        setattr(SearchAlgorithms, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.util.search_algorithms import SearchAlgorithms as SearchAlgorithms

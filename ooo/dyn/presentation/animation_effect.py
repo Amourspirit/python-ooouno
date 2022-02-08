@@ -153,9 +153,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(AnimationEffect, k, v)
-        setattr(AnimationEffect, ' __ooo_ns__', 'com.sun.star.presentation')
-        setattr(AnimationEffect, ' __ooo_full_ns__', 'com.sun.star.presentation.AnimationEffect')
-        setattr(AnimationEffect, ' __ooo_type_name__', 'enum')
+        setattr(AnimationEffect, '__ooo_ns__', 'com.sun.star.presentation')
+        setattr(AnimationEffect, '__ooo_full_ns__', 'com.sun.star.presentation.AnimationEffect')
+        setattr(AnimationEffect, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.presentation.animation_effect import AnimationEffect as AnimationEffect

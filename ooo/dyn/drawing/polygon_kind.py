@@ -50,9 +50,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(PolygonKind, k, v)
-        setattr(PolygonKind, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(PolygonKind, ' __ooo_full_ns__', 'com.sun.star.drawing.PolygonKind')
-        setattr(PolygonKind, ' __ooo_type_name__', 'enum')
+        setattr(PolygonKind, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(PolygonKind, '__ooo_full_ns__', 'com.sun.star.drawing.PolygonKind')
+        setattr(PolygonKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.polygon_kind import PolygonKind as PolygonKind

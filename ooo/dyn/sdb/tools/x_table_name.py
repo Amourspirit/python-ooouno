@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTableName
-        XTableName = unoclass(
-            'com.sun.star.sdb.tools.XTableName')
-        setattr(XTableName, ' __ooo_ns__', 'com.sun.star.sdb.tools')
-        setattr(XTableName, ' __ooo_full_ns__', 'com.sun.star.sdb.tools.XTableName')
-        setattr(XTableName, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb.tools import XTableName
+    setattr(XTableName, '__ooo_ns__', 'com.sun.star.sdb.tools')
+    setattr(XTableName, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XTableName')
+    setattr(XTableName, '__ooo_type_name__', 'interface')
 else:
     from ....lo.sdb.tools.x_table_name import XTableName as XTableName
 

@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DashStyle, k, v)
-        setattr(DashStyle, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(DashStyle, ' __ooo_full_ns__', 'com.sun.star.drawing.DashStyle')
-        setattr(DashStyle, ' __ooo_type_name__', 'enum')
+        setattr(DashStyle, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(DashStyle, '__ooo_full_ns__', 'com.sun.star.drawing.DashStyle')
+        setattr(DashStyle, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.dash_style import DashStyle as DashStyle

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XAccessibleContext3
-        XAccessibleContext3 = unoclass(
-            'com.sun.star.accessibility.XAccessibleContext3')
-        setattr(XAccessibleContext3, ' __ooo_ns__', 'com.sun.star.accessibility')
-        setattr(XAccessibleContext3, ' __ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleContext3')
-        setattr(XAccessibleContext3, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.accessibility import XAccessibleContext3
+    setattr(XAccessibleContext3, '__ooo_ns__', 'com.sun.star.accessibility')
+    setattr(XAccessibleContext3, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleContext3')
+    setattr(XAccessibleContext3, '__ooo_type_name__', 'interface')
 else:
     from ...lo.accessibility.x_accessible_context3 import XAccessibleContext3 as XAccessibleContext3
 

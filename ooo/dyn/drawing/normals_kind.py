@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(NormalsKind, k, v)
-        setattr(NormalsKind, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(NormalsKind, ' __ooo_full_ns__', 'com.sun.star.drawing.NormalsKind')
-        setattr(NormalsKind, ' __ooo_type_name__', 'enum')
+        setattr(NormalsKind, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(NormalsKind, '__ooo_full_ns__', 'com.sun.star.drawing.NormalsKind')
+        setattr(NormalsKind, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.normals_kind import NormalsKind as NormalsKind

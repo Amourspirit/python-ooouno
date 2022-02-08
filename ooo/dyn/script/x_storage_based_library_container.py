@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XStorageBasedLibraryContainer
-        XStorageBasedLibraryContainer = unoclass(
-            'com.sun.star.script.XStorageBasedLibraryContainer')
-        setattr(XStorageBasedLibraryContainer, ' __ooo_ns__', 'com.sun.star.script')
-        setattr(XStorageBasedLibraryContainer, ' __ooo_full_ns__', 'com.sun.star.script.XStorageBasedLibraryContainer')
-        setattr(XStorageBasedLibraryContainer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.script import XStorageBasedLibraryContainer
+    setattr(XStorageBasedLibraryContainer, '__ooo_ns__', 'com.sun.star.script')
+    setattr(XStorageBasedLibraryContainer, '__ooo_full_ns__', 'com.sun.star.script.XStorageBasedLibraryContainer')
+    setattr(XStorageBasedLibraryContainer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.script.x_storage_based_library_container import XStorageBasedLibraryContainer as XStorageBasedLibraryContainer
 

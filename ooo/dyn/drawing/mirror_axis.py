@@ -43,9 +43,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MirrorAxis, k, v)
-        setattr(MirrorAxis, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(MirrorAxis, ' __ooo_full_ns__', 'com.sun.star.drawing.MirrorAxis')
-        setattr(MirrorAxis, ' __ooo_type_name__', 'enum')
+        setattr(MirrorAxis, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(MirrorAxis, '__ooo_full_ns__', 'com.sun.star.drawing.MirrorAxis')
+        setattr(MirrorAxis, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.mirror_axis import MirrorAxis as MirrorAxis

@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XBackendEntities
-        XBackendEntities = unoclass(
-            'com.sun.star.configuration.backend.XBackendEntities')
-        setattr(XBackendEntities, ' __ooo_ns__', 'com.sun.star.configuration.backend')
-        setattr(XBackendEntities, ' __ooo_full_ns__', 'com.sun.star.configuration.backend.XBackendEntities')
-        setattr(XBackendEntities, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.configuration.backend import XBackendEntities
+    setattr(XBackendEntities, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(XBackendEntities, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XBackendEntities')
+    setattr(XBackendEntities, '__ooo_type_name__', 'interface')
 else:
     from ....lo.configuration.backend.x_backend_entities import XBackendEntities as XBackendEntities
 

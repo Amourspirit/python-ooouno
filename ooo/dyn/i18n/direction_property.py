@@ -60,9 +60,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(DirectionProperty, k, v)
-        setattr(DirectionProperty, ' __ooo_ns__', 'com.sun.star.i18n')
-        setattr(DirectionProperty, ' __ooo_full_ns__', 'com.sun.star.i18n.DirectionProperty')
-        setattr(DirectionProperty, ' __ooo_type_name__', 'enum')
+        setattr(DirectionProperty, '__ooo_ns__', 'com.sun.star.i18n')
+        setattr(DirectionProperty, '__ooo_full_ns__', 'com.sun.star.i18n.DirectionProperty')
+        setattr(DirectionProperty, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.i18n.direction_property import DirectionProperty as DirectionProperty

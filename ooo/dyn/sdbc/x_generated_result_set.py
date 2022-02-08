@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XGeneratedResultSet
-        XGeneratedResultSet = unoclass(
-            'com.sun.star.sdbc.XGeneratedResultSet')
-        setattr(XGeneratedResultSet, ' __ooo_ns__', 'com.sun.star.sdbc')
-        setattr(XGeneratedResultSet, ' __ooo_full_ns__', 'com.sun.star.sdbc.XGeneratedResultSet')
-        setattr(XGeneratedResultSet, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdbc import XGeneratedResultSet
+    setattr(XGeneratedResultSet, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(XGeneratedResultSet, '__ooo_full_ns__', 'com.sun.star.sdbc.XGeneratedResultSet')
+    setattr(XGeneratedResultSet, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdbc.x_generated_result_set import XGeneratedResultSet as XGeneratedResultSet
 

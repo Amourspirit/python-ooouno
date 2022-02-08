@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XStyleFamiliesSupplier
-        XStyleFamiliesSupplier = unoclass(
-            'com.sun.star.style.XStyleFamiliesSupplier')
-        setattr(XStyleFamiliesSupplier, ' __ooo_ns__', 'com.sun.star.style')
-        setattr(XStyleFamiliesSupplier, ' __ooo_full_ns__', 'com.sun.star.style.XStyleFamiliesSupplier')
-        setattr(XStyleFamiliesSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.style import XStyleFamiliesSupplier
+    setattr(XStyleFamiliesSupplier, '__ooo_ns__', 'com.sun.star.style')
+    setattr(XStyleFamiliesSupplier, '__ooo_full_ns__', 'com.sun.star.style.XStyleFamiliesSupplier')
+    setattr(XStyleFamiliesSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.style.x_style_families_supplier import XStyleFamiliesSupplier as XStyleFamiliesSupplier
 

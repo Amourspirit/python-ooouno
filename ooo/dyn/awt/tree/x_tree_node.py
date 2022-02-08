@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XTreeNode
-        XTreeNode = unoclass(
-            'com.sun.star.awt.tree.XTreeNode')
-        setattr(XTreeNode, ' __ooo_ns__', 'com.sun.star.awt.tree')
-        setattr(XTreeNode, ' __ooo_full_ns__', 'com.sun.star.awt.tree.XTreeNode')
-        setattr(XTreeNode, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt.tree import XTreeNode
+    setattr(XTreeNode, '__ooo_ns__', 'com.sun.star.awt.tree')
+    setattr(XTreeNode, '__ooo_full_ns__', 'com.sun.star.awt.tree.XTreeNode')
+    setattr(XTreeNode, '__ooo_type_name__', 'interface')
 else:
     from ....lo.awt.tree.x_tree_node import XTreeNode as XTreeNode
 

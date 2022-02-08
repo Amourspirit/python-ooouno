@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XUnoControlContainer
-        XUnoControlContainer = unoclass(
-            'com.sun.star.awt.XUnoControlContainer')
-        setattr(XUnoControlContainer, ' __ooo_ns__', 'com.sun.star.awt')
-        setattr(XUnoControlContainer, ' __ooo_full_ns__', 'com.sun.star.awt.XUnoControlContainer')
-        setattr(XUnoControlContainer, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.awt import XUnoControlContainer
+    setattr(XUnoControlContainer, '__ooo_ns__', 'com.sun.star.awt')
+    setattr(XUnoControlContainer, '__ooo_full_ns__', 'com.sun.star.awt.XUnoControlContainer')
+    setattr(XUnoControlContainer, '__ooo_type_name__', 'interface')
 else:
     from ...lo.awt.x_uno_control_container import XUnoControlContainer as XUnoControlContainer
 

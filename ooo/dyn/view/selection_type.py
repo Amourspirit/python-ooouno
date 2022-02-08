@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(SelectionType, k, v)
-        setattr(SelectionType, ' __ooo_ns__', 'com.sun.star.view')
-        setattr(SelectionType, ' __ooo_full_ns__', 'com.sun.star.view.SelectionType')
-        setattr(SelectionType, ' __ooo_type_name__', 'enum')
+        setattr(SelectionType, '__ooo_ns__', 'com.sun.star.view')
+        setattr(SelectionType, '__ooo_full_ns__', 'com.sun.star.view.SelectionType')
+        setattr(SelectionType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.view.selection_type import SelectionType as SelectionType

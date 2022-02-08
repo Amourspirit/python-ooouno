@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XQueryDefinitionsSupplier
-        XQueryDefinitionsSupplier = unoclass(
-            'com.sun.star.sdb.XQueryDefinitionsSupplier')
-        setattr(XQueryDefinitionsSupplier, ' __ooo_ns__', 'com.sun.star.sdb')
-        setattr(XQueryDefinitionsSupplier, ' __ooo_full_ns__', 'com.sun.star.sdb.XQueryDefinitionsSupplier')
-        setattr(XQueryDefinitionsSupplier, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.sdb import XQueryDefinitionsSupplier
+    setattr(XQueryDefinitionsSupplier, '__ooo_ns__', 'com.sun.star.sdb')
+    setattr(XQueryDefinitionsSupplier, '__ooo_full_ns__', 'com.sun.star.sdb.XQueryDefinitionsSupplier')
+    setattr(XQueryDefinitionsSupplier, '__ooo_type_name__', 'interface')
 else:
     from ...lo.sdb.x_query_definitions_supplier import XQueryDefinitionsSupplier as XQueryDefinitionsSupplier
 

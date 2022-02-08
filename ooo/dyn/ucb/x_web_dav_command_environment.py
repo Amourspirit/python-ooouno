@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XWebDAVCommandEnvironment
-        XWebDAVCommandEnvironment = unoclass(
-            'com.sun.star.ucb.XWebDAVCommandEnvironment')
-        setattr(XWebDAVCommandEnvironment, ' __ooo_ns__', 'com.sun.star.ucb')
-        setattr(XWebDAVCommandEnvironment, ' __ooo_full_ns__', 'com.sun.star.ucb.XWebDAVCommandEnvironment')
-        setattr(XWebDAVCommandEnvironment, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.ucb import XWebDAVCommandEnvironment
+    setattr(XWebDAVCommandEnvironment, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(XWebDAVCommandEnvironment, '__ooo_full_ns__', 'com.sun.star.ucb.XWebDAVCommandEnvironment')
+    setattr(XWebDAVCommandEnvironment, '__ooo_type_name__', 'interface')
 else:
     from ...lo.ucb.x_web_dav_command_environment import XWebDAVCommandEnvironment as XWebDAVCommandEnvironment
 

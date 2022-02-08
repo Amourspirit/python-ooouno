@@ -45,9 +45,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(TextHorizontalAdjust, k, v)
-        setattr(TextHorizontalAdjust, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextHorizontalAdjust, ' __ooo_full_ns__', 'com.sun.star.drawing.TextHorizontalAdjust')
-        setattr(TextHorizontalAdjust, ' __ooo_type_name__', 'enum')
+        setattr(TextHorizontalAdjust, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(TextHorizontalAdjust, '__ooo_full_ns__', 'com.sun.star.drawing.TextHorizontalAdjust')
+        setattr(TextHorizontalAdjust, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.text_horizontal_adjust import TextHorizontalAdjust as TextHorizontalAdjust

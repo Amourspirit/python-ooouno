@@ -25,17 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.uno_helper import unoclass
-    def _dynamic_interface() -> None:
-        # Dynamically create uno interface using uno
-        global XXMLElementWrapper
-        XXMLElementWrapper = unoclass(
-            'com.sun.star.xml.wrapper.XXMLElementWrapper')
-        setattr(XXMLElementWrapper, ' __ooo_ns__', 'com.sun.star.xml.wrapper')
-        setattr(XXMLElementWrapper, ' __ooo_full_ns__', 'com.sun.star.xml.wrapper.XXMLElementWrapper')
-        setattr(XXMLElementWrapper, ' __ooo_type_name__', 'interface')
-
-    _dynamic_interface()
+    from com.sun.star.xml.wrapper import XXMLElementWrapper
+    setattr(XXMLElementWrapper, '__ooo_ns__', 'com.sun.star.xml.wrapper')
+    setattr(XXMLElementWrapper, '__ooo_full_ns__', 'com.sun.star.xml.wrapper.XXMLElementWrapper')
+    setattr(XXMLElementWrapper, '__ooo_type_name__', 'interface')
 else:
     from ....lo.xml.wrapper.xxml_element_wrapper import XXMLElementWrapper as XXMLElementWrapper
 

@@ -44,9 +44,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(FinishReason, k, v)
-        setattr(FinishReason, ' __ooo_ns__', 'com.sun.star.script')
-        setattr(FinishReason, ' __ooo_full_ns__', 'com.sun.star.script.FinishReason')
-        setattr(FinishReason, ' __ooo_type_name__', 'enum')
+        setattr(FinishReason, '__ooo_ns__', 'com.sun.star.script')
+        setattr(FinishReason, '__ooo_full_ns__', 'com.sun.star.script.FinishReason')
+        setattr(FinishReason, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.script.finish_reason import FinishReason as FinishReason

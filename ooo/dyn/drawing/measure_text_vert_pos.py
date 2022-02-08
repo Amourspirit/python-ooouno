@@ -46,9 +46,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(MeasureTextVertPos, k, v)
-        setattr(MeasureTextVertPos, ' __ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureTextVertPos, ' __ooo_full_ns__', 'com.sun.star.drawing.MeasureTextVertPos')
-        setattr(MeasureTextVertPos, ' __ooo_type_name__', 'enum')
+        setattr(MeasureTextVertPos, '__ooo_ns__', 'com.sun.star.drawing')
+        setattr(MeasureTextVertPos, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureTextVertPos')
+        setattr(MeasureTextVertPos, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_text_vert_pos import MeasureTextVertPos as MeasureTextVertPos

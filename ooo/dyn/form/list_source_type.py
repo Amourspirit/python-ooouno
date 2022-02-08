@@ -47,9 +47,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         })
         for k, v in _dict.items():
             setattr(ListSourceType, k, v)
-        setattr(ListSourceType, ' __ooo_ns__', 'com.sun.star.form')
-        setattr(ListSourceType, ' __ooo_full_ns__', 'com.sun.star.form.ListSourceType')
-        setattr(ListSourceType, ' __ooo_type_name__', 'enum')
+        setattr(ListSourceType, '__ooo_ns__', 'com.sun.star.form')
+        setattr(ListSourceType, '__ooo_full_ns__', 'com.sun.star.form.ListSourceType')
+        setattr(ListSourceType, '__ooo_type_name__', 'enum')
     _dynamic_enum()
 else:
     from ...lo.form.list_source_type import ListSourceType as ListSourceType

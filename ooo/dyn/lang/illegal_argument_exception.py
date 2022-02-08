@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import IllegalArgumentException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.IllegalArgumentException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IllegalArgumentException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(IllegalArgumentException, '__ooo_full_ns__', 'com.sun.star.lang.IllegalArgumentException')
+    setattr(IllegalArgumentException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.illegal_argument_exception import IllegalArgumentException as IllegalArgumentException
     

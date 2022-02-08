@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import TerminationVetoException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.frame')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.frame.TerminationVetoException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(TerminationVetoException, '__ooo_ns__', 'com.sun.star.frame')
+    setattr(TerminationVetoException, '__ooo_full_ns__', 'com.sun.star.frame.TerminationVetoException')
+    setattr(TerminationVetoException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.frame.termination_veto_exception import TerminationVetoException as TerminationVetoException
     

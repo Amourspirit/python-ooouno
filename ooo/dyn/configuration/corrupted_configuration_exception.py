@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration import CorruptedConfigurationException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.CorruptedConfigurationException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(CorruptedConfigurationException, '__ooo_ns__', 'com.sun.star.configuration')
+    setattr(CorruptedConfigurationException, '__ooo_full_ns__', 'com.sun.star.configuration.CorruptedConfigurationException')
+    setattr(CorruptedConfigurationException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.configuration.corrupted_configuration_exception import CorruptedConfigurationException as CorruptedConfigurationException
     

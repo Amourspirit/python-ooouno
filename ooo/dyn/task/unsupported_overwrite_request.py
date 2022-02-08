@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import UnsupportedOverwriteRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.UnsupportedOverwriteRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UnsupportedOverwriteRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(UnsupportedOverwriteRequest, '__ooo_full_ns__', 'com.sun.star.task.UnsupportedOverwriteRequest')
+    setattr(UnsupportedOverwriteRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.unsupported_overwrite_request import UnsupportedOverwriteRequest as UnsupportedOverwriteRequest
     

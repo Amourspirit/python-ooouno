@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import InteractiveNetworkReadException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkReadException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InteractiveNetworkReadException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(InteractiveNetworkReadException, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkReadException')
+    setattr(InteractiveNetworkReadException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_network_read_exception import InteractiveNetworkReadException as InteractiveNetworkReadException
     

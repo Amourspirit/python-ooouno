@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import IllegalIdentifierException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.IllegalIdentifierException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IllegalIdentifierException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(IllegalIdentifierException, '__ooo_full_ns__', 'com.sun.star.ucb.IllegalIdentifierException')
+    setattr(IllegalIdentifierException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.illegal_identifier_exception import IllegalIdentifierException as IllegalIdentifierException
     

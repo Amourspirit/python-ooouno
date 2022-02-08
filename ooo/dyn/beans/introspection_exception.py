@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import IntrospectionException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.beans')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.beans.IntrospectionException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IntrospectionException, '__ooo_ns__', 'com.sun.star.beans')
+    setattr(IntrospectionException, '__ooo_full_ns__', 'com.sun.star.beans.IntrospectionException')
+    setattr(IntrospectionException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.beans.introspection_exception import IntrospectionException as IntrospectionException
     

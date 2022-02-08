@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import AlreadyInitializedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.AlreadyInitializedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(AlreadyInitializedException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(AlreadyInitializedException, '__ooo_full_ns__', 'com.sun.star.ucb.AlreadyInitializedException')
+    setattr(AlreadyInitializedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.already_initialized_exception import AlreadyInitializedException as AlreadyInitializedException
     

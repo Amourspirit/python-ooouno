@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import UseBackupException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.embed')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.embed.UseBackupException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UseBackupException, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(UseBackupException, '__ooo_full_ns__', 'com.sun.star.embed.UseBackupException')
+    setattr(UseBackupException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.embed.use_backup_exception import UseBackupException as UseBackupException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rdf import QueryException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.rdf')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.rdf.QueryException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(QueryException, '__ooo_ns__', 'com.sun.star.rdf')
+    setattr(QueryException, '__ooo_full_ns__', 'com.sun.star.rdf.QueryException')
+    setattr(QueryException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.rdf.query_exception import QueryException as QueryException
     

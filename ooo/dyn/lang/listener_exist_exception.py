@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import ListenerExistException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.ListenerExistException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ListenerExistException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(ListenerExistException, '__ooo_full_ns__', 'com.sun.star.lang.ListenerExistException')
+    setattr(ListenerExistException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.listener_exist_exception import ListenerExistException as ListenerExistException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import NotNumericException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.util')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.util.NotNumericException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NotNumericException, '__ooo_ns__', 'com.sun.star.util')
+    setattr(NotNumericException, '__ooo_full_ns__', 'com.sun.star.util.NotNumericException')
+    setattr(NotNumericException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.util.not_numeric_exception import NotNumericException as NotNumericException
     

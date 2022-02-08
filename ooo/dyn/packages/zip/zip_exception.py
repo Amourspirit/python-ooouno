@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.packages.zip import ZipException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.packages.zip')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.packages.zip.ZipException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ZipException, '__ooo_ns__', 'com.sun.star.packages.zip')
+    setattr(ZipException, '__ooo_full_ns__', 'com.sun.star.packages.zip.ZipException')
+    setattr(ZipException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.packages.zip.zip_exception import ZipException as ZipException
     

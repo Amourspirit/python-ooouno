@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import BatchUpdateException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.sdbc')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.sdbc.BatchUpdateException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(BatchUpdateException, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(BatchUpdateException, '__ooo_full_ns__', 'com.sun.star.sdbc.BatchUpdateException')
+    setattr(BatchUpdateException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.sdbc.batch_update_exception import BatchUpdateException as BatchUpdateException
     

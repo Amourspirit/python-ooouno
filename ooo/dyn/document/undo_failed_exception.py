@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import UndoFailedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.UndoFailedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UndoFailedException, '__ooo_ns__', 'com.sun.star.document')
+    setattr(UndoFailedException, '__ooo_full_ns__', 'com.sun.star.document.UndoFailedException')
+    setattr(UndoFailedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.undo_failed_exception import UndoFailedException as UndoFailedException
     

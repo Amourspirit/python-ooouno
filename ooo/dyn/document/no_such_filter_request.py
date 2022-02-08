@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import NoSuchFilterRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.NoSuchFilterRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoSuchFilterRequest, '__ooo_ns__', 'com.sun.star.document')
+    setattr(NoSuchFilterRequest, '__ooo_full_ns__', 'com.sun.star.document.NoSuchFilterRequest')
+    setattr(NoSuchFilterRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.no_such_filter_request import NoSuchFilterRequest as NoSuchFilterRequest
     

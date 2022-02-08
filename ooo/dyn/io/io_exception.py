@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.io import IOException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.io')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.io.IOException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IOException, '__ooo_ns__', 'com.sun.star.io')
+    setattr(IOException, '__ooo_full_ns__', 'com.sun.star.io.IOException')
+    setattr(IOException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.io.io_exception import IOException as IOException
     

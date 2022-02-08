@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration import InvalidBootstrapFileException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.InvalidBootstrapFileException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidBootstrapFileException, '__ooo_ns__', 'com.sun.star.configuration')
+    setattr(InvalidBootstrapFileException, '__ooo_full_ns__', 'com.sun.star.configuration.InvalidBootstrapFileException')
+    setattr(InvalidBootstrapFileException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.configuration.invalid_bootstrap_file_exception import InvalidBootstrapFileException as InvalidBootstrapFileException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.reflection import InvalidTypeNameException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.reflection')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.reflection.InvalidTypeNameException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidTypeNameException, '__ooo_ns__', 'com.sun.star.reflection')
+    setattr(InvalidTypeNameException, '__ooo_full_ns__', 'com.sun.star.reflection.InvalidTypeNameException')
+    setattr(InvalidTypeNameException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.reflection.invalid_type_name_exception import InvalidTypeNameException as InvalidTypeNameException
     

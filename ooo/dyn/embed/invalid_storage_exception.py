@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import InvalidStorageException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.embed')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.embed.InvalidStorageException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidStorageException, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(InvalidStorageException, '__ooo_full_ns__', 'com.sun.star.embed.InvalidStorageException')
+    setattr(InvalidStorageException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.embed.invalid_storage_exception import InvalidStorageException as InvalidStorageException
     

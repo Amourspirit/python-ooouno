@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.mail import NoMailServiceProviderException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.mail')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.mail.NoMailServiceProviderException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoMailServiceProviderException, '__ooo_ns__', 'com.sun.star.mail')
+    setattr(NoMailServiceProviderException, '__ooo_full_ns__', 'com.sun.star.mail.NoMailServiceProviderException')
+    setattr(NoMailServiceProviderException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.mail.no_mail_service_provider_exception import NoMailServiceProviderException as NoMailServiceProviderException
     

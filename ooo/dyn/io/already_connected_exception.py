@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.io import AlreadyConnectedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.io')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.io.AlreadyConnectedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(AlreadyConnectedException, '__ooo_ns__', 'com.sun.star.io')
+    setattr(AlreadyConnectedException, '__ooo_full_ns__', 'com.sun.star.io.AlreadyConnectedException')
+    setattr(AlreadyConnectedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.io.already_connected_exception import AlreadyConnectedException as AlreadyConnectedException
     

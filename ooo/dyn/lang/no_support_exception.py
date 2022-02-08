@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import NoSupportException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NoSupportException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoSupportException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(NoSupportException, '__ooo_full_ns__', 'com.sun.star.lang.NoSupportException')
+    setattr(NoSupportException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.no_support_exception import NoSupportException as NoSupportException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import InvalidListenerException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.InvalidListenerException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidListenerException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(InvalidListenerException, '__ooo_full_ns__', 'com.sun.star.lang.InvalidListenerException')
+    setattr(InvalidListenerException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.invalid_listener_exception import InvalidListenerException as InvalidListenerException
     

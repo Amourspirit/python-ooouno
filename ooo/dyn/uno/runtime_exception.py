@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.uno import RuntimeException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.uno')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.uno.RuntimeException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(RuntimeException, '__ooo_ns__', 'com.sun.star.uno')
+    setattr(RuntimeException, '__ooo_full_ns__', 'com.sun.star.uno.RuntimeException')
+    setattr(RuntimeException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.uno.runtime_exception import RuntimeException as RuntimeException
     

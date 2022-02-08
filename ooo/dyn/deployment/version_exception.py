@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.deployment import VersionException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.deployment')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.deployment.VersionException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(VersionException, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(VersionException, '__ooo_full_ns__', 'com.sun.star.deployment.VersionException')
+    setattr(VersionException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.deployment.version_exception import VersionException as VersionException
     

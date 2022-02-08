@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import LockedDocumentRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.LockedDocumentRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(LockedDocumentRequest, '__ooo_ns__', 'com.sun.star.document')
+    setattr(LockedDocumentRequest, '__ooo_full_ns__', 'com.sun.star.document.LockedDocumentRequest')
+    setattr(LockedDocumentRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.locked_document_request import LockedDocumentRequest as LockedDocumentRequest
     

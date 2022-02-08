@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.auth import UnsupportedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.auth')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.auth.UnsupportedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UnsupportedException, '__ooo_ns__', 'com.sun.star.auth')
+    setattr(UnsupportedException, '__ooo_full_ns__', 'com.sun.star.auth.UnsupportedException')
+    setattr(UnsupportedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.auth.unsupported_exception import UnsupportedException as UnsupportedException
     

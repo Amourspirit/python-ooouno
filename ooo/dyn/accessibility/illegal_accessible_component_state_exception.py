@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.accessibility import IllegalAccessibleComponentStateException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.accessibility')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.accessibility.IllegalAccessibleComponentStateException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IllegalAccessibleComponentStateException, '__ooo_ns__', 'com.sun.star.accessibility')
+    setattr(IllegalAccessibleComponentStateException, '__ooo_full_ns__', 'com.sun.star.accessibility.IllegalAccessibleComponentStateException')
+    setattr(IllegalAccessibleComponentStateException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.accessibility.illegal_accessible_component_state_exception import IllegalAccessibleComponentStateException as IllegalAccessibleComponentStateException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import ExecutableDialogException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ui.dialogs')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.ExecutableDialogException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ExecutableDialogException, '__ooo_ns__', 'com.sun.star.ui.dialogs')
+    setattr(ExecutableDialogException, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.ExecutableDialogException')
+    setattr(ExecutableDialogException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.ui.dialogs.executable_dialog_exception import ExecutableDialogException as ExecutableDialogException
     

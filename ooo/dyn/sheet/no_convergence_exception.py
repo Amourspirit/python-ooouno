@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import NoConvergenceException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.sheet')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.sheet.NoConvergenceException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoConvergenceException, '__ooo_ns__', 'com.sun.star.sheet')
+    setattr(NoConvergenceException, '__ooo_full_ns__', 'com.sun.star.sheet.NoConvergenceException')
+    setattr(NoConvergenceException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.sheet.no_convergence_exception import NoConvergenceException as NoConvergenceException
     

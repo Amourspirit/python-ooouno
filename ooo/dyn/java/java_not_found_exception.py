@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.java import JavaNotFoundException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.java')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.java.JavaNotFoundException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(JavaNotFoundException, '__ooo_ns__', 'com.sun.star.java')
+    setattr(JavaNotFoundException, '__ooo_full_ns__', 'com.sun.star.java.JavaNotFoundException')
+    setattr(JavaNotFoundException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.java.java_not_found_exception import JavaNotFoundException as JavaNotFoundException
     

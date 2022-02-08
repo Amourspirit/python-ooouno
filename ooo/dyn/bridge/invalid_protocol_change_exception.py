@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.bridge import InvalidProtocolChangeException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.bridge')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.bridge.InvalidProtocolChangeException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidProtocolChangeException, '__ooo_ns__', 'com.sun.star.bridge')
+    setattr(InvalidProtocolChangeException, '__ooo_full_ns__', 'com.sun.star.bridge.InvalidProtocolChangeException')
+    setattr(InvalidProtocolChangeException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.bridge.invalid_protocol_change_exception import InvalidProtocolChangeException as InvalidProtocolChangeException
     

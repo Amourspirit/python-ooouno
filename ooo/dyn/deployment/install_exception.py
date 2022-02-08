@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.deployment import InstallException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.deployment')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.deployment.InstallException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InstallException, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(InstallException, '__ooo_full_ns__', 'com.sun.star.deployment.InstallException')
+    setattr(InstallException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.deployment.install_exception import InstallException as InstallException
     

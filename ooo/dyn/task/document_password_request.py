@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import DocumentPasswordRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.DocumentPasswordRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(DocumentPasswordRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(DocumentPasswordRequest, '__ooo_full_ns__', 'com.sun.star.task.DocumentPasswordRequest')
+    setattr(DocumentPasswordRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.document_password_request import DocumentPasswordRequest as DocumentPasswordRequest
     

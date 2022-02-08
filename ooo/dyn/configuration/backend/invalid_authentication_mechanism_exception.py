@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration.backend import InvalidAuthenticationMechanismException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration.backend')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.backend.InvalidAuthenticationMechanismException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidAuthenticationMechanismException, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(InvalidAuthenticationMechanismException, '__ooo_full_ns__', 'com.sun.star.configuration.backend.InvalidAuthenticationMechanismException')
+    setattr(InvalidAuthenticationMechanismException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.configuration.backend.invalid_authentication_mechanism_exception import InvalidAuthenticationMechanismException as InvalidAuthenticationMechanismException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import IllegalTypeException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.beans')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.beans.IllegalTypeException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IllegalTypeException, '__ooo_ns__', 'com.sun.star.beans')
+    setattr(IllegalTypeException, '__ooo_full_ns__', 'com.sun.star.beans.IllegalTypeException')
+    setattr(IllegalTypeException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.beans.illegal_type_exception import IllegalTypeException as IllegalTypeException
     

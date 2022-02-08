@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import URLAuthenticationRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.URLAuthenticationRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(URLAuthenticationRequest, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(URLAuthenticationRequest, '__ooo_full_ns__', 'com.sun.star.ucb.URLAuthenticationRequest')
+    setattr(URLAuthenticationRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.url_authentication_request import URLAuthenticationRequest as URLAuthenticationRequest
     

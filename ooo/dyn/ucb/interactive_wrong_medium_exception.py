@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import InteractiveWrongMediumException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveWrongMediumException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InteractiveWrongMediumException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(InteractiveWrongMediumException, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveWrongMediumException')
+    setattr(InteractiveWrongMediumException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_wrong_medium_exception import InteractiveWrongMediumException as InteractiveWrongMediumException
     

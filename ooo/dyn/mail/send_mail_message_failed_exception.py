@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.mail import SendMailMessageFailedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.mail')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.mail.SendMailMessageFailedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(SendMailMessageFailedException, '__ooo_ns__', 'com.sun.star.mail')
+    setattr(SendMailMessageFailedException, '__ooo_full_ns__', 'com.sun.star.mail.SendMailMessageFailedException')
+    setattr(SendMailMessageFailedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.mail.send_mail_message_failed_exception import SendMailMessageFailedException as SendMailMessageFailedException
     

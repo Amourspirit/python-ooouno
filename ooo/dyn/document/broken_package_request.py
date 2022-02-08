@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import BrokenPackageRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.BrokenPackageRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(BrokenPackageRequest, '__ooo_ns__', 'com.sun.star.document')
+    setattr(BrokenPackageRequest, '__ooo_full_ns__', 'com.sun.star.document.BrokenPackageRequest')
+    setattr(BrokenPackageRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.broken_package_request import BrokenPackageRequest as BrokenPackageRequest
     

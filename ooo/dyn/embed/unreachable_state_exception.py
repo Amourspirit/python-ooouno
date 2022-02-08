@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import UnreachableStateException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.embed')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.embed.UnreachableStateException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UnreachableStateException, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(UnreachableStateException, '__ooo_full_ns__', 'com.sun.star.embed.UnreachableStateException')
+    setattr(UnreachableStateException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.embed.unreachable_state_exception import UnreachableStateException as UnreachableStateException
     

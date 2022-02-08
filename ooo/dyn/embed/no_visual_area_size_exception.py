@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import NoVisualAreaSizeException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.embed')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.embed.NoVisualAreaSizeException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoVisualAreaSizeException, '__ooo_ns__', 'com.sun.star.embed')
+    setattr(NoVisualAreaSizeException, '__ooo_full_ns__', 'com.sun.star.embed.NoVisualAreaSizeException')
+    setattr(NoVisualAreaSizeException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.embed.no_visual_area_size_exception import NoVisualAreaSizeException as NoVisualAreaSizeException
     

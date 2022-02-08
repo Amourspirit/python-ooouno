@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.datatransfer.dnd import InvalidDNDOperationException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.InvalidDNDOperationException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidDNDOperationException, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
+    setattr(InvalidDNDOperationException, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.InvalidDNDOperationException')
+    setattr(InvalidDNDOperationException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.datatransfer.dnd.invalid_dnd_operation_exception import InvalidDNDOperationException as InvalidDNDOperationException
     

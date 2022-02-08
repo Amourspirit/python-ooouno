@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import ListenerAlreadySetException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.ListenerAlreadySetException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ListenerAlreadySetException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(ListenerAlreadySetException, '__ooo_full_ns__', 'com.sun.star.ucb.ListenerAlreadySetException')
+    setattr(ListenerAlreadySetException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.listener_already_set_exception import ListenerAlreadySetException as ListenerAlreadySetException
     

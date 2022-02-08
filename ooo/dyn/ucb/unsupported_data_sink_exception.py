@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import UnsupportedDataSinkException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.UnsupportedDataSinkException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UnsupportedDataSinkException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(UnsupportedDataSinkException, '__ooo_full_ns__', 'com.sun.star.ucb.UnsupportedDataSinkException')
+    setattr(UnsupportedDataSinkException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.unsupported_data_sink_exception import UnsupportedDataSinkException as UnsupportedDataSinkException
     

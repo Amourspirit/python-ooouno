@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.mail import MailException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.mail')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.mail.MailException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MailException, '__ooo_ns__', 'com.sun.star.mail')
+    setattr(MailException, '__ooo_full_ns__', 'com.sun.star.mail.MailException')
+    setattr(MailException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.mail.mail_exception import MailException as MailException
     

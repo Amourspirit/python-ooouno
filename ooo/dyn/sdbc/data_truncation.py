@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import DataTruncation
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.sdbc')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.sdbc.DataTruncation')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(DataTruncation, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(DataTruncation, '__ooo_full_ns__', 'com.sun.star.sdbc.DataTruncation')
+    setattr(DataTruncation, '__ooo_type_name__', 'exception')
 else:
     from ...lo.sdbc.data_truncation import DataTruncation as DataTruncation
     

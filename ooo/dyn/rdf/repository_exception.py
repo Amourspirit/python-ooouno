@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rdf import RepositoryException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.rdf')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.rdf.RepositoryException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(RepositoryException, '__ooo_ns__', 'com.sun.star.rdf')
+    setattr(RepositoryException, '__ooo_full_ns__', 'com.sun.star.rdf.RepositoryException')
+    setattr(RepositoryException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.rdf.repository_exception import RepositoryException as RepositoryException
     

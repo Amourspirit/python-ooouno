@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.auth import InvalidArgumentException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.auth')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.auth.InvalidArgumentException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidArgumentException, '__ooo_ns__', 'com.sun.star.auth')
+    setattr(InvalidArgumentException, '__ooo_full_ns__', 'com.sun.star.auth.InvalidArgumentException')
+    setattr(InvalidArgumentException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.auth.invalid_argument_exception import InvalidArgumentException as InvalidArgumentException
     

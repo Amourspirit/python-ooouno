@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.form.binding import InvalidBindingStateException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.form.binding')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.form.binding.InvalidBindingStateException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvalidBindingStateException, '__ooo_ns__', 'com.sun.star.form.binding')
+    setattr(InvalidBindingStateException, '__ooo_full_ns__', 'com.sun.star.form.binding.InvalidBindingStateException')
+    setattr(InvalidBindingStateException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.form.binding.invalid_binding_state_exception import InvalidBindingStateException as InvalidBindingStateException
     

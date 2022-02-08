@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.auth import PersistenceFailureException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.auth')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.auth.PersistenceFailureException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(PersistenceFailureException, '__ooo_ns__', 'com.sun.star.auth')
+    setattr(PersistenceFailureException, '__ooo_full_ns__', 'com.sun.star.auth.PersistenceFailureException')
+    setattr(PersistenceFailureException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.auth.persistence_failure_exception import PersistenceFailureException as PersistenceFailureException
     

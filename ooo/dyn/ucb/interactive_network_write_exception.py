@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import InteractiveNetworkWriteException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkWriteException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InteractiveNetworkWriteException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(InteractiveNetworkWriteException, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveNetworkWriteException')
+    setattr(InteractiveNetworkWriteException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_network_write_exception import InteractiveNetworkWriteException as InteractiveNetworkWriteException
     

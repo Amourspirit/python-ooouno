@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import NoSuchMethodException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NoSuchMethodException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoSuchMethodException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(NoSuchMethodException, '__ooo_full_ns__', 'com.sun.star.lang.NoSuchMethodException')
+    setattr(NoSuchMethodException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.no_such_method_exception import NoSuchMethodException as NoSuchMethodException
     

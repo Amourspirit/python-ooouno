@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import NoSuchFieldException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NoSuchFieldException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoSuchFieldException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(NoSuchFieldException, '__ooo_full_ns__', 'com.sun.star.lang.NoSuchFieldException')
+    setattr(NoSuchFieldException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.no_such_field_exception import NoSuchFieldException as NoSuchFieldException
     

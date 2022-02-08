@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.reflection import InvocationTargetException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.reflection')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.reflection.InvocationTargetException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InvocationTargetException, '__ooo_ns__', 'com.sun.star.reflection')
+    setattr(InvocationTargetException, '__ooo_full_ns__', 'com.sun.star.reflection.InvocationTargetException')
+    setattr(InvocationTargetException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.reflection.invocation_target_exception import InvocationTargetException as InvocationTargetException
     

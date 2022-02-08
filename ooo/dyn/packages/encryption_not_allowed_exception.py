@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.packages import EncryptionNotAllowedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.packages')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.packages.EncryptionNotAllowedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(EncryptionNotAllowedException, '__ooo_ns__', 'com.sun.star.packages')
+    setattr(EncryptionNotAllowedException, '__ooo_full_ns__', 'com.sun.star.packages.EncryptionNotAllowedException')
+    setattr(EncryptionNotAllowedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
     

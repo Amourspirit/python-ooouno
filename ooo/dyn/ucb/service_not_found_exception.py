@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import ServiceNotFoundException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.ServiceNotFoundException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ServiceNotFoundException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(ServiceNotFoundException, '__ooo_full_ns__', 'com.sun.star.ucb.ServiceNotFoundException')
+    setattr(ServiceNotFoundException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.service_not_found_exception import ServiceNotFoundException as ServiceNotFoundException
     

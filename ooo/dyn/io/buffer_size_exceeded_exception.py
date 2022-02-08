@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.io import BufferSizeExceededException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.io')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.io.BufferSizeExceededException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(BufferSizeExceededException, '__ooo_ns__', 'com.sun.star.io')
+    setattr(BufferSizeExceededException, '__ooo_full_ns__', 'com.sun.star.io.BufferSizeExceededException')
+    setattr(BufferSizeExceededException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.io.buffer_size_exceeded_exception import BufferSizeExceededException as BufferSizeExceededException
     

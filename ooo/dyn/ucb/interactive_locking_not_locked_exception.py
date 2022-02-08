@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import InteractiveLockingNotLockedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveLockingNotLockedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InteractiveLockingNotLockedException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(InteractiveLockingNotLockedException, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveLockingNotLockedException')
+    setattr(InteractiveLockingNotLockedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_locking_not_locked_exception import InteractiveLockingNotLockedException as InteractiveLockingNotLockedException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import ResultSetException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.ResultSetException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ResultSetException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(ResultSetException, '__ooo_full_ns__', 'com.sun.star.ucb.ResultSetException')
+    setattr(ResultSetException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.result_set_exception import ResultSetException as ResultSetException
     

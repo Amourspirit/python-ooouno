@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import PasswordRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.PasswordRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(PasswordRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(PasswordRequest, '__ooo_full_ns__', 'com.sun.star.task.PasswordRequest')
+    setattr(PasswordRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.password_request import PasswordRequest as PasswordRequest
     

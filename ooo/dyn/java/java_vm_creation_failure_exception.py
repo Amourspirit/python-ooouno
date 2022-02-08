@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.java import JavaVMCreationFailureException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.java')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.java.JavaVMCreationFailureException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(JavaVMCreationFailureException, '__ooo_ns__', 'com.sun.star.java')
+    setattr(JavaVMCreationFailureException, '__ooo_full_ns__', 'com.sun.star.java.JavaVMCreationFailureException')
+    setattr(JavaVMCreationFailureException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.java.java_vm_creation_failure_exception import JavaVMCreationFailureException as JavaVMCreationFailureException
     

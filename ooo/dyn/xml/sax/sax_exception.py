@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.xml.sax import SAXException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.xml.sax')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.xml.sax.SAXException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(SAXException, '__ooo_ns__', 'com.sun.star.xml.sax')
+    setattr(SAXException, '__ooo_full_ns__', 'com.sun.star.xml.sax.SAXException')
+    setattr(SAXException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.xml.sax.sax_exception import SAXException as SAXException
     

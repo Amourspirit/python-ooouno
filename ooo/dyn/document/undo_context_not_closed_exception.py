@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import UndoContextNotClosedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.UndoContextNotClosedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UndoContextNotClosedException, '__ooo_ns__', 'com.sun.star.document')
+    setattr(UndoContextNotClosedException, '__ooo_full_ns__', 'com.sun.star.document.UndoContextNotClosedException')
+    setattr(UndoContextNotClosedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.undo_context_not_closed_exception import UndoContextNotClosedException as UndoContextNotClosedException
     

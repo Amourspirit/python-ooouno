@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import GraphicFilterRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.drawing')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.drawing.GraphicFilterRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(GraphicFilterRequest, '__ooo_ns__', 'com.sun.star.drawing')
+    setattr(GraphicFilterRequest, '__ooo_full_ns__', 'com.sun.star.drawing.GraphicFilterRequest')
+    setattr(GraphicFilterRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.drawing.graphic_filter_request import GraphicFilterRequest as GraphicFilterRequest
     

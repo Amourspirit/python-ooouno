@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import NotLockedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.util')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.util.NotLockedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NotLockedException, '__ooo_ns__', 'com.sun.star.util')
+    setattr(NotLockedException, '__ooo_full_ns__', 'com.sun.star.util.NotLockedException')
+    setattr(NotLockedException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.util.not_locked_exception import NotLockedException as NotLockedException
     

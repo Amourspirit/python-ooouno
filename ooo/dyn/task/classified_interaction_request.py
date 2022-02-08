@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import ClassifiedInteractionRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.ClassifiedInteractionRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ClassifiedInteractionRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(ClassifiedInteractionRequest, '__ooo_full_ns__', 'com.sun.star.task.ClassifiedInteractionRequest')
+    setattr(ClassifiedInteractionRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest
     

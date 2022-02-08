@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.deployment import LicenseException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.deployment')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.deployment.LicenseException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(LicenseException, '__ooo_ns__', 'com.sun.star.deployment')
+    setattr(LicenseException, '__ooo_full_ns__', 'com.sun.star.deployment.LicenseException')
+    setattr(LicenseException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.deployment.license_exception import LicenseException as LicenseException
     

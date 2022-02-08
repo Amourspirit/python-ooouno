@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script.provider import ScriptExceptionRaisedException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.script.provider')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.script.provider.ScriptExceptionRaisedException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ScriptExceptionRaisedException, '__ooo_ns__', 'com.sun.star.script.provider')
+    setattr(ScriptExceptionRaisedException, '__ooo_full_ns__', 'com.sun.star.script.provider.ScriptExceptionRaisedException')
+    setattr(ScriptExceptionRaisedException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.script.provider.script_exception_raised_exception import ScriptExceptionRaisedException as ScriptExceptionRaisedException
     

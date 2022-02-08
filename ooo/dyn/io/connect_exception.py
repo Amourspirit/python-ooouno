@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.io import ConnectException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.io')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.io.ConnectException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ConnectException, '__ooo_ns__', 'com.sun.star.io')
+    setattr(ConnectException, '__ooo_full_ns__', 'com.sun.star.io.ConnectException')
+    setattr(ConnectException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.io.connect_exception import ConnectException as ConnectException
     

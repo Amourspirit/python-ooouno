@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.loader import CannotActivateFactoryException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.loader')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.loader.CannotActivateFactoryException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(CannotActivateFactoryException, '__ooo_ns__', 'com.sun.star.loader')
+    setattr(CannotActivateFactoryException, '__ooo_full_ns__', 'com.sun.star.loader.CannotActivateFactoryException')
+    setattr(CannotActivateFactoryException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
     

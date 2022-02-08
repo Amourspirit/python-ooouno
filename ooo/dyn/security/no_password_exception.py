@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import NoPasswordException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.security')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.security.NoPasswordException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoPasswordException, '__ooo_ns__', 'com.sun.star.security')
+    setattr(NoPasswordException, '__ooo_full_ns__', 'com.sun.star.security.NoPasswordException')
+    setattr(NoPasswordException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.security.no_password_exception import NoPasswordException as NoPasswordException
     

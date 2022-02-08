@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import ClassNotFoundException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.ClassNotFoundException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ClassNotFoundException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(ClassNotFoundException, '__ooo_full_ns__', 'com.sun.star.lang.ClassNotFoundException')
+    setattr(ClassNotFoundException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.class_not_found_exception import ClassNotFoundException as ClassNotFoundException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.registry import MergeConflictException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.registry')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.registry.MergeConflictException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MergeConflictException, '__ooo_ns__', 'com.sun.star.registry')
+    setattr(MergeConflictException, '__ooo_full_ns__', 'com.sun.star.registry.MergeConflictException')
+    setattr(MergeConflictException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.registry.merge_conflict_exception import MergeConflictException as MergeConflictException
     

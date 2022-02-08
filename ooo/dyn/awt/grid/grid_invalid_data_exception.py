@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt.grid import GridInvalidDataException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.awt.grid')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.awt.grid.GridInvalidDataException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(GridInvalidDataException, '__ooo_ns__', 'com.sun.star.awt.grid')
+    setattr(GridInvalidDataException, '__ooo_full_ns__', 'com.sun.star.awt.grid.GridInvalidDataException')
+    setattr(GridInvalidDataException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.awt.grid.grid_invalid_data_exception import GridInvalidDataException as GridInvalidDataException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import EncryptionException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.security')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.security.EncryptionException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(EncryptionException, '__ooo_ns__', 'com.sun.star.security')
+    setattr(EncryptionException, '__ooo_full_ns__', 'com.sun.star.security.EncryptionException')
+    setattr(EncryptionException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.security.encryption_exception import EncryptionException as EncryptionException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import SQLException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.sdbc')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.sdbc.SQLException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(SQLException, '__ooo_ns__', 'com.sun.star.sdbc')
+    setattr(SQLException, '__ooo_full_ns__', 'com.sun.star.sdbc.SQLException')
+    setattr(SQLException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.sdbc.sql_exception import SQLException as SQLException
     

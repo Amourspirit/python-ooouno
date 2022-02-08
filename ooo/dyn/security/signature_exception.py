@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import SignatureException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.security')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.security.SignatureException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(SignatureException, '__ooo_ns__', 'com.sun.star.security')
+    setattr(SignatureException, '__ooo_full_ns__', 'com.sun.star.security.SignatureException')
+    setattr(SignatureException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.security.signature_exception import SignatureException as SignatureException
     

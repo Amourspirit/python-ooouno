@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import ArrayIndexOutOfBoundsException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.ArrayIndexOutOfBoundsException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ArrayIndexOutOfBoundsException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(ArrayIndexOutOfBoundsException, '__ooo_full_ns__', 'com.sun.star.lang.ArrayIndexOutOfBoundsException')
+    setattr(ArrayIndexOutOfBoundsException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.array_index_out_of_bounds_exception import ArrayIndexOutOfBoundsException as ArrayIndexOutOfBoundsException
     

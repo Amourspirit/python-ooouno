@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import NameClashResolveRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.NameClashResolveRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NameClashResolveRequest, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(NameClashResolveRequest, '__ooo_full_ns__', 'com.sun.star.ucb.NameClashResolveRequest')
+    setattr(NameClashResolveRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.name_clash_resolve_request import NameClashResolveRequest as NameClashResolveRequest
     

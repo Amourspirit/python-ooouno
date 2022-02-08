@@ -114,6 +114,8 @@ def test_const():
     from ooo.dyn.awt.device_capability import DeviceCapability, DeviceCapabilityEnum
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
+    assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
+    assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
 
     # assert DeviceCapability.__ooo_full_ns__ == 'com.sun.star.awt.DeviceCapability'
     # assert DeviceCapability.__ooo_ns__ == 'com.sun.star.awt'

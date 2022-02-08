@@ -38,10 +38,6 @@ if not TYPE_CHECKING and _DYNAMIC:
             if not key in en:
                 raise KeyError("Key '%s' not found in Component Context Element Names", key)
             singleton = ctx.getValueByName(key)
-            if not hasattr(singleton, '__ooo_ns__'):
-                setattr(singleton, '__ooo_ns__', 'com.sun.star.ui')
-                setattr(singleton, '__ooo_full_ns__', 'com.sun.star.ui.theWindowContentFactoryManager')
-                setattr(singleton, '__ooo_type_name__', 'singleton')
             return singleton
         theWindowContentFactoryManager = _singleton_init
     _dynamic_singleton()

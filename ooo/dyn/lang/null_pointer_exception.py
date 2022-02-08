@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import NullPointerException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.NullPointerException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NullPointerException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(NullPointerException, '__ooo_full_ns__', 'com.sun.star.lang.NullPointerException')
+    setattr(NullPointerException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.null_pointer_exception import NullPointerException as NullPointerException
     

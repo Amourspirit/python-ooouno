@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import ReadOnlyOpenRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.ReadOnlyOpenRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ReadOnlyOpenRequest, '__ooo_ns__', 'com.sun.star.document')
+    setattr(ReadOnlyOpenRequest, '__ooo_full_ns__', 'com.sun.star.document.ReadOnlyOpenRequest')
+    setattr(ReadOnlyOpenRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.read_only_open_request import ReadOnlyOpenRequest as ReadOnlyOpenRequest
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import ErrorCodeIOException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.ErrorCodeIOException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ErrorCodeIOException, '__ooo_ns__', 'com.sun.star.task')
+    setattr(ErrorCodeIOException, '__ooo_full_ns__', 'com.sun.star.task.ErrorCodeIOException')
+    setattr(ErrorCodeIOException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.error_code_io_exception import ErrorCodeIOException as ErrorCodeIOException
     

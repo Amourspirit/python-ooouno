@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import CorruptedFilterConfigurationException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.CorruptedFilterConfigurationException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(CorruptedFilterConfigurationException, '__ooo_ns__', 'com.sun.star.document')
+    setattr(CorruptedFilterConfigurationException, '__ooo_full_ns__', 'com.sun.star.document.CorruptedFilterConfigurationException')
+    setattr(CorruptedFilterConfigurationException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.corrupted_filter_configuration_exception import CorruptedFilterConfigurationException as CorruptedFilterConfigurationException
     

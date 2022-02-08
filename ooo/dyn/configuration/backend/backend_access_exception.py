@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration.backend import BackendAccessException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration.backend')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.backend.BackendAccessException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(BackendAccessException, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(BackendAccessException, '__ooo_full_ns__', 'com.sun.star.configuration.backend.BackendAccessException')
+    setattr(BackendAccessException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.configuration.backend.backend_access_exception import BackendAccessException as BackendAccessException
     

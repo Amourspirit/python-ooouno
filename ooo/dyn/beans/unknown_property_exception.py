@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import UnknownPropertyException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.beans')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.beans.UnknownPropertyException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(UnknownPropertyException, '__ooo_ns__', 'com.sun.star.beans')
+    setattr(UnknownPropertyException, '__ooo_full_ns__', 'com.sun.star.beans.UnknownPropertyException')
+    setattr(UnknownPropertyException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.beans.unknown_property_exception import UnknownPropertyException as UnknownPropertyException
     

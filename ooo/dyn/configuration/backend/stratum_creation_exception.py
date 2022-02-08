@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration.backend import StratumCreationException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration.backend')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.backend.StratumCreationException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(StratumCreationException, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(StratumCreationException, '__ooo_full_ns__', 'com.sun.star.configuration.backend.StratumCreationException')
+    setattr(StratumCreationException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.configuration.backend.stratum_creation_exception import StratumCreationException as StratumCreationException
     

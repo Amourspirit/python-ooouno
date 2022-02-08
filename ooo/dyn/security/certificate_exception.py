@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import CertificateException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.security')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.security.CertificateException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(CertificateException, '__ooo_ns__', 'com.sun.star.security')
+    setattr(CertificateException, '__ooo_full_ns__', 'com.sun.star.security.CertificateException')
+    setattr(CertificateException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.security.certificate_exception import CertificateException as CertificateException
     

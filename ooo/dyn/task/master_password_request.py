@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import MasterPasswordRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.MasterPasswordRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MasterPasswordRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(MasterPasswordRequest, '__ooo_full_ns__', 'com.sun.star.task.MasterPasswordRequest')
+    setattr(MasterPasswordRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.master_password_request import MasterPasswordRequest as MasterPasswordRequest
     

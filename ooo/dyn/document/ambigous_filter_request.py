@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import AmbigousFilterRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.document')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.document.AmbigousFilterRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(AmbigousFilterRequest, '__ooo_ns__', 'com.sun.star.document')
+    setattr(AmbigousFilterRequest, '__ooo_full_ns__', 'com.sun.star.document.AmbigousFilterRequest')
+    setattr(AmbigousFilterRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.document.ambigous_filter_request import AmbigousFilterRequest as AmbigousFilterRequest
     

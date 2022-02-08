@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import MissingInputStreamException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.MissingInputStreamException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MissingInputStreamException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(MissingInputStreamException, '__ooo_full_ns__', 'com.sun.star.ucb.MissingInputStreamException')
+    setattr(MissingInputStreamException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.missing_input_stream_exception import MissingInputStreamException as MissingInputStreamException
     

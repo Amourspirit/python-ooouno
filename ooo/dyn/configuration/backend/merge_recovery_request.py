@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration.backend import MergeRecoveryRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.configuration.backend')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.configuration.backend.MergeRecoveryRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MergeRecoveryRequest, '__ooo_ns__', 'com.sun.star.configuration.backend')
+    setattr(MergeRecoveryRequest, '__ooo_full_ns__', 'com.sun.star.configuration.backend.MergeRecoveryRequest')
+    setattr(MergeRecoveryRequest, '__ooo_type_name__', 'exception')
 else:
     from ....lo.configuration.backend.merge_recovery_request import MergeRecoveryRequest as MergeRecoveryRequest
     

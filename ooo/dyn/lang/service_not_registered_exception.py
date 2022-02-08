@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import ServiceNotRegisteredException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.lang')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.lang.ServiceNotRegisteredException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ServiceNotRegisteredException, '__ooo_ns__', 'com.sun.star.lang')
+    setattr(ServiceNotRegisteredException, '__ooo_full_ns__', 'com.sun.star.lang.ServiceNotRegisteredException')
+    setattr(ServiceNotRegisteredException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.lang.service_not_registered_exception import ServiceNotRegisteredException as ServiceNotRegisteredException
     

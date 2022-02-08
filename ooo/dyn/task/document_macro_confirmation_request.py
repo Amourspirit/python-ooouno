@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import DocumentMacroConfirmationRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.DocumentMacroConfirmationRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(DocumentMacroConfirmationRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(DocumentMacroConfirmationRequest, '__ooo_full_ns__', 'com.sun.star.task.DocumentMacroConfirmationRequest')
+    setattr(DocumentMacroConfirmationRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.document_macro_confirmation_request import DocumentMacroConfirmationRequest as DocumentMacroConfirmationRequest
     

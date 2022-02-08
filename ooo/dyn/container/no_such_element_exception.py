@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.container import NoSuchElementException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.container')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.container.NoSuchElementException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(NoSuchElementException, '__ooo_ns__', 'com.sun.star.container')
+    setattr(NoSuchElementException, '__ooo_full_ns__', 'com.sun.star.container.NoSuchElementException')
+    setattr(NoSuchElementException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.container.no_such_element_exception import NoSuchElementException as NoSuchElementException
     

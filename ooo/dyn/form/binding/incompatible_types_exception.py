@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.form.binding import IncompatibleTypesException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.form.binding')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.form.binding.IncompatibleTypesException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(IncompatibleTypesException, '__ooo_ns__', 'com.sun.star.form.binding')
+    setattr(IncompatibleTypesException, '__ooo_full_ns__', 'com.sun.star.form.binding.IncompatibleTypesException')
+    setattr(IncompatibleTypesException, '__ooo_type_name__', 'exception')
 else:
     from ....lo.form.binding.incompatible_types_exception import IncompatibleTypesException as IncompatibleTypesException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import MalformedNumberFormatException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.util')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.util.MalformedNumberFormatException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MalformedNumberFormatException, '__ooo_ns__', 'com.sun.star.util')
+    setattr(MalformedNumberFormatException, '__ooo_full_ns__', 'com.sun.star.util.MalformedNumberFormatException')
+    setattr(MalformedNumberFormatException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.util.malformed_number_format_exception import MalformedNumberFormatException as MalformedNumberFormatException
     

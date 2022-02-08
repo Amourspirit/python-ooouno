@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import InteractiveAppException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveAppException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(InteractiveAppException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(InteractiveAppException, '__ooo_full_ns__', 'com.sun.star.ucb.InteractiveAppException')
+    setattr(InteractiveAppException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.interactive_app_exception import InteractiveAppException as InteractiveAppException
     

@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import MissingPropertiesException
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.ucb')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.ucb.MissingPropertiesException')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(MissingPropertiesException, '__ooo_ns__', 'com.sun.star.ucb')
+    setattr(MissingPropertiesException, '__ooo_full_ns__', 'com.sun.star.ucb.MissingPropertiesException')
+    setattr(MissingPropertiesException, '__ooo_type_name__', 'exception')
 else:
     from ...lo.ucb.missing_properties_exception import MissingPropertiesException as MissingPropertiesException
     

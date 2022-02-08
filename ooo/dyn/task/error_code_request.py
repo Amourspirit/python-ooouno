@@ -26,9 +26,9 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.task import ErrorCodeRequest
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.task')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.task.ErrorCodeRequest')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    setattr(ErrorCodeRequest, '__ooo_ns__', 'com.sun.star.task')
+    setattr(ErrorCodeRequest, '__ooo_full_ns__', 'com.sun.star.task.ErrorCodeRequest')
+    setattr(ErrorCodeRequest, '__ooo_type_name__', 'exception')
 else:
     from ...lo.task.error_code_request import ErrorCodeRequest as ErrorCodeRequest
     

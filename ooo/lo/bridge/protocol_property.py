@@ -35,6 +35,7 @@ class ProtocolProperty(object):
     typeName: str = 'com.sun.star.bridge.ProtocolProperty'
     """Literal Constant ``com.sun.star.bridge.ProtocolProperty``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,9 +70,10 @@ class ProtocolProperty(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Name(self) -> str:
+        """
+        """
         return self._name
     
     @Name.setter
@@ -80,6 +82,8 @@ class ProtocolProperty(object):
 
     @property
     def Value(self) -> object:
+        """
+        """
         return self._value
     
     @Value.setter

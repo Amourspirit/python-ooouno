@@ -53,5 +53,6 @@ class XReferenceResolvedBroadcaster(XInterface_8f010a43):
         When a listener is removed, it will not receive notification when collection completes.
         """
 
+
 __all__ = ['XReferenceResolvedBroadcaster']
 

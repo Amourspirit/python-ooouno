@@ -64,5 +64,6 @@ class XResourceFactoryManager(ABC):
         When the factory has been registered for other URLs as well then it remains registered for them. Use the removeResourceFactoryForReference() to remove a factory completely.
         """
 
+
 __all__ = ['XResourceFactoryManager']
 

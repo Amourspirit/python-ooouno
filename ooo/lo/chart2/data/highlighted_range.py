@@ -34,6 +34,7 @@ class HighlightedRange(object):
     typeName: str = 'com.sun.star.chart2.data.HighlightedRange'
     """Literal Constant ``com.sun.star.chart2.data.HighlightedRange``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class HighlightedRange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def RangeRepresentation(self) -> str:

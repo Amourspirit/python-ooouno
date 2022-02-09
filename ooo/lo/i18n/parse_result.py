@@ -35,6 +35,7 @@ class ParseResult(object):
     typeName: str = 'com.sun.star.i18n.ParseResult'
     """Literal Constant ``com.sun.star.i18n.ParseResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class ParseResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def LeadingWhiteSpace(self) -> int:

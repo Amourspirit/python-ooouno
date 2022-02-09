@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XCustomShapeEngine
+    from com.sun.star.drawing import XCustomShapeEngine as XCustomShapeEngine
     setattr(XCustomShapeEngine, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XCustomShapeEngine, '__ooo_full_ns__', 'com.sun.star.drawing.XCustomShapeEngine')
     setattr(XCustomShapeEngine, '__ooo_type_name__', 'interface')

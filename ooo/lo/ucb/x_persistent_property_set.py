@@ -47,5 +47,6 @@ class XPersistentPropertySet(XPropertySet_bc180bfa):
         returns the registry used to store the property set.
         """
 
+
 __all__ = ['XPersistentPropertySet']
 

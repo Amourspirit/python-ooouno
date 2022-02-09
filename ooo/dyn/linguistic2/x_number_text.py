@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import XNumberText
+    from com.sun.star.linguistic2 import XNumberText as XNumberText
     setattr(XNumberText, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XNumberText, '__ooo_full_ns__', 'com.sun.star.linguistic2.XNumberText')
     setattr(XNumberText, '__ooo_type_name__', 'interface')

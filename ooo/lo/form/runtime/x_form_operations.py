@@ -158,5 +158,6 @@ class XFormOperations(XComponent_98dc0ab5):
         provides access to the update cursor of the form the instance is operating on.
         """
 
+
 __all__ = ['XFormOperations']
 

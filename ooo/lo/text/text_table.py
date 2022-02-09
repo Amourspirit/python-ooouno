@@ -20,23 +20,23 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..chart.x_chart_data_array import XChartDataArray as XChartDataArray_df4c0cdd
 from ..container.x_named import XNamed as XNamed_a6520b08
 from ..sheet.x_cell_range_data import XCellRangeData as XCellRangeData_d2e70c60
 from ..table.x_auto_formattable import XAutoFormattable as XAutoFormattable_ee660d72
 from ..table.x_cell_range import XCellRange as XCellRange_a2f70ad5
+from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
 from .text_content import TextContent as TextContent_a6810b4d
 from .x_text_table import XTextTable as XTextTable_9a810ab2
 from ..util.x_sortable import XSortable as XSortable_8ff20a5a
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..style.break_type import BreakType as BreakType_9b050ac0
     from ..style.graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from ..table.table_border import TableBorder as TableBorder_aedf0b56
-    from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
 
 class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XChartDataArray_df4c0cdd, XNamed_a6520b08, XCellRangeData_d2e70c60, XAutoFormattable_ee660d72, XCellRange_a2f70ad5, XTextTable_9a810ab2, XSortable_8ff20a5a):
@@ -61,6 +61,22 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.TextTable'
     __ooo_type_name__: str = 'service'
+
+    TableColumnSeparators: typing.TypeAlias = typing.Tuple[TableColumnSeparator_1b630ed4, ...]
+    """
+    contains the column description of the table.
+    """
+
+    TableInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of table properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.3
+    """
 
     @abstractproperty
     def BackColor(self) -> 'Color_68e908c5':
@@ -213,22 +229,6 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
         contains the absolute table width.
         
         As this is only a describing property the value of the actual table may vary depending on the environment the table is located in and the settings of LeftMargin, RightMargin and HoriOrient.
-        """
-    @abstractproperty
-    def TableColumnSeparators(self) -> 'typing.Tuple[TableColumnSeparator_1b630ed4, ...]':
-        """
-        contains the column description of the table.
-        """
-    @abstractproperty
-    def TableInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of table properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.3
         """
 
 __all__ = ['TextTable']

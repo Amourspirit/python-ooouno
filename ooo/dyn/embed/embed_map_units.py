@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import EmbedMapUnits
+    from com.sun.star.embed import EmbedMapUnits as EmbedMapUnits
 else:
     from ...lo.embed.embed_map_units import EmbedMapUnits as EmbedMapUnits
 

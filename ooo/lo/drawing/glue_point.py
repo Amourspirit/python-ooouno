@@ -44,6 +44,7 @@ class GluePoint(object):
     typeName: str = 'com.sun.star.drawing.GluePoint'
     """Literal Constant ``com.sun.star.drawing.GluePoint``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -81,7 +82,6 @@ class GluePoint(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Position(self) -> 'Point_5fb2085e':

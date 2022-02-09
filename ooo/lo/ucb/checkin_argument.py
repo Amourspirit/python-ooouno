@@ -37,6 +37,7 @@ class CheckinArgument(object):
     typeName: str = 'com.sun.star.ucb.CheckinArgument'
     """Literal Constant ``com.sun.star.ucb.CheckinArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class CheckinArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MajorVersion(self) -> bool:

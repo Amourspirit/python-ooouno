@@ -48,5 +48,6 @@ class XPositioningListener(XEventListener_c7230c4a):
         is invoked when the database form has been positioned on a data record.
         """
 
+
 __all__ = ['XPositioningListener']
 

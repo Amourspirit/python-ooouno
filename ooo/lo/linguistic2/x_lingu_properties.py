@@ -121,5 +121,6 @@ class XLinguProperties(XPropertySet_bc180bfa):
         defines whether spell checking should be done in reverse direction or not.
         """
 
+
 __all__ = ['XLinguProperties']
 

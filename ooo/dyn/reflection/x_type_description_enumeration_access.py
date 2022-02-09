@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.reflection import XTypeDescriptionEnumerationAccess
+    from com.sun.star.reflection import XTypeDescriptionEnumerationAccess as XTypeDescriptionEnumerationAccess
     setattr(XTypeDescriptionEnumerationAccess, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XTypeDescriptionEnumerationAccess, '__ooo_full_ns__', 'com.sun.star.reflection.XTypeDescriptionEnumerationAccess')
     setattr(XTypeDescriptionEnumerationAccess, '__ooo_type_name__', 'interface')

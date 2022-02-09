@@ -33,5 +33,6 @@ class XLayer(XPropertySet_bc180bfa):
     __pyunointerface__: str = 'com.sun.star.drawing.XLayer'
 
 
+
 __all__ = ['XLayer']
 

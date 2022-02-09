@@ -64,5 +64,6 @@ class XMethodParameter(XInterface_8f010a43):
         Returns true, if the parameter is declared as [out] or [inout] in IDL.
         """
 
+
 __all__ = ['XMethodParameter']
 

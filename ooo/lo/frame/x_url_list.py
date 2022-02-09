@@ -37,10 +37,11 @@ class XUrlList(XInterface_8f010a43):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.frame.XUrlList'
 
-    @abstractproperty
-    def List(self) -> 'typing.Tuple[str, ...]':
-        """
-        """
+    List: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    """
+
+
 
 __all__ = ['XUrlList']
 

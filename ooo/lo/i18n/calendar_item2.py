@@ -42,6 +42,7 @@ class CalendarItem2(CalendarItem_a86c0af1):
     typeName: str = 'com.sun.star.i18n.CalendarItem2'
     """Literal Constant ``com.sun.star.i18n.CalendarItem2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class CalendarItem2(CalendarItem_a86c0af1):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def NarrowName(self) -> str:

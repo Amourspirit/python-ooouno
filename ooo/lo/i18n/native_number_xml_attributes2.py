@@ -42,6 +42,7 @@ class NativeNumberXmlAttributes2(NativeNumberXmlAttributes_5e4f1070):
     typeName: str = 'com.sun.star.i18n.NativeNumberXmlAttributes2'
     """Literal Constant ``com.sun.star.i18n.NativeNumberXmlAttributes2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class NativeNumberXmlAttributes2(NativeNumberXmlAttributes_5e4f1070):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Spellout(self) -> str:

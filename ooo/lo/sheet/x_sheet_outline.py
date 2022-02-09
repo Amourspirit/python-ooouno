@@ -75,5 +75,6 @@ class XSheetOutline(XInterface_8f010a43):
         In the specified range, all outline groups on the innermost level are removed.
         """
 
+
 __all__ = ['XSheetOutline']
 

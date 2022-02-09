@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
+from .search_criterium import SearchCriterium as SearchCriterium_c6d30c4c
 if typing.TYPE_CHECKING:
-    from .search_criterium import SearchCriterium as SearchCriterium_c6d30c4c
     from .search_recursion import SearchRecursion as SearchRecursion_c7080c52
 
 
@@ -39,6 +39,11 @@ class SearchInfo(object):
     typeName: str = 'com.sun.star.ucb.SearchInfo'
     """Literal Constant ``com.sun.star.ucb.SearchInfo``"""
 
+    Criteria: typing.TypeAlias = typing.Tuple[SearchCriterium_c6d30c4c, ...]
+    """
+    the search criteria.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -55,16 +60,14 @@ class SearchInfo(object):
             RespectFolderViewRestrictions (bool, optional): RespectFolderViewRestrictions value
             RespectDocViewRestrictions (bool, optional): RespectDocViewRestrictions value
             FollowIndirections (bool, optional): FollowIndirections value
-            Criteria (Tuple[SearchCriterium, ...], optional): Criteria value
         """
         self._recursion = None
         self._include_base = None
         self._respect_folder_view_restrictions = None
         self._respect_doc_view_restrictions = None
         self._follow_indirections = None
-        self._criteria = None
 
-        key_order = ('Recursion', 'IncludeBase', 'RespectFolderViewRestrictions', 'RespectDocViewRestrictions', 'FollowIndirections', 'Criteria')
+        key_order = ('Recursion', 'IncludeBase', 'RespectFolderViewRestrictions', 'RespectDocViewRestrictions', 'FollowIndirections')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SearchInfo):
@@ -80,7 +83,6 @@ class SearchInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Recursion(self) -> 'SearchRecursion_c7080c52':
@@ -136,17 +138,6 @@ class SearchInfo(object):
     @FollowIndirections.setter
     def FollowIndirections(self, value: bool) -> None:
         self._follow_indirections = value
-
-    @property
-    def Criteria(self) -> 'typing.Tuple[SearchCriterium_c6d30c4c, ...]':
-        """
-        the search criteria.
-        """
-        return self._criteria
-    
-    @Criteria.setter
-    def Criteria(self, value: 'typing.Tuple[SearchCriterium_c6d30c4c, ...]') -> None:
-        self._criteria = value
 
 
 __all__ = ['SearchInfo']

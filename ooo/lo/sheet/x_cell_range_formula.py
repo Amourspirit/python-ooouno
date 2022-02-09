@@ -41,19 +41,20 @@ class XCellRangeFormula(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.sheet.XCellRangeFormula'
 
     @abstractmethod
-    def getFormulaArray(self) -> 'typing.Tuple[typing.Tuple[str, ...]]':
+    def getFormulaArray(self) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         gets an array from the contents of the cell range.
         
         Each element of the result contains the same string that would be returned by com.sun.star.table.XCell.getFormula() for the corresponding cell.
         """
     @abstractmethod
-    def setFormulaArray(self, aArray: 'typing.Tuple[typing.Tuple[str, ...]]') -> None:
+    def setFormulaArray(self, aArray: 'typing.Tuple[typing.Tuple[str, ...], ...]') -> None:
         """
         fills the cell range with values from an array.
         
         The size of the array must be the same as the size of the cell range. Each element of the array is interpreted the same way as the argument to a com.sun.star.table.XCell.setFormula() call for the corresponding cell.
         """
+
 
 __all__ = ['XCellRangeFormula']
 

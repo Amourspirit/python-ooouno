@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import WizardButton
+    from com.sun.star.ui.dialogs import WizardButton as WizardButton
 else:
     from ....lo.ui.dialogs.wizard_button import WizardButton as WizardButton
 

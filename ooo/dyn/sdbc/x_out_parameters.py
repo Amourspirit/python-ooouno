@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import XOutParameters
+    from com.sun.star.sdbc import XOutParameters as XOutParameters
     setattr(XOutParameters, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XOutParameters, '__ooo_full_ns__', 'com.sun.star.sdbc.XOutParameters')
     setattr(XOutParameters, '__ooo_type_name__', 'interface')

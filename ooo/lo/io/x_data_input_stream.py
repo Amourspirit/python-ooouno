@@ -108,5 +108,6 @@ class XDataInputStream(XInputStream_98d40ab4):
             com.sun.star.io.IOException: ``IOException``
         """
 
+
 __all__ = ['XDataInputStream']
 

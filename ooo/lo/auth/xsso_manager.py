@@ -69,5 +69,6 @@ class XSSOManager(XInterface_8f010a43):
         retrieves the mechanism name of all security contexts created using this manager.
         """
 
+
 __all__ = ['XSSOManager']
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.system import SystemShellExecuteFlags
+    from com.sun.star.system import SystemShellExecuteFlags as SystemShellExecuteFlags
 else:
     from ...lo.system.system_shell_execute_flags import SystemShellExecuteFlags as SystemShellExecuteFlags
 

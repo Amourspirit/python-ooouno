@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import KNumberFormatUsage
+    from com.sun.star.i18n import KNumberFormatUsage as KNumberFormatUsage
 else:
     from ...lo.i18n.k_number_format_usage import KNumberFormatUsage as KNumberFormatUsage
 

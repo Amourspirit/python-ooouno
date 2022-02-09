@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XSelectionFunction
+    from com.sun.star.drawing import XSelectionFunction as XSelectionFunction
     setattr(XSelectionFunction, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XSelectionFunction, '__ooo_full_ns__', 'com.sun.star.drawing.XSelectionFunction')
     setattr(XSelectionFunction, '__ooo_type_name__', 'interface')

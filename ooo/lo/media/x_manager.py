@@ -41,5 +41,6 @@ class XManager(ABC):
         creates a new media player
         """
 
+
 __all__ = ['XManager']
 

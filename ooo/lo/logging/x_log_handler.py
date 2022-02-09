@@ -73,5 +73,6 @@ class XLogHandler(XComponent_98dc0ab5):
         Different handlers can have different log levels, which again might be different from the log level of the XLogger for which the handlers are used.
         """
 
+
 __all__ = ['XLogHandler']
 

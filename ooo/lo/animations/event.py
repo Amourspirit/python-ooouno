@@ -35,6 +35,7 @@ class Event(object):
     typeName: str = 'com.sun.star.animations.Event'
     """Literal Constant ``com.sun.star.animations.Event``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class Event(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Source(self) -> object:

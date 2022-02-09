@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.inspection import XPropertyControl
+    from com.sun.star.inspection import XPropertyControl as XPropertyControl
     setattr(XPropertyControl, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XPropertyControl, '__ooo_full_ns__', 'com.sun.star.inspection.XPropertyControl')
     setattr(XPropertyControl, '__ooo_type_name__', 'interface')

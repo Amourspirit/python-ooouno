@@ -49,5 +49,6 @@ class XStringRepresentation(ABC):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XStringRepresentation']
 

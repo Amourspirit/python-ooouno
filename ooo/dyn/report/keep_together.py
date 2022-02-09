@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import KeepTogether
+    from com.sun.star.report import KeepTogether as KeepTogether
 else:
     from ...lo.report.keep_together import KeepTogether as KeepTogether
 

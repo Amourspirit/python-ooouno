@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PathJoinType
+    from com.sun.star.rendering import PathJoinType as PathJoinType
 else:
     from ...lo.rendering.path_join_type import PathJoinType as PathJoinType
 

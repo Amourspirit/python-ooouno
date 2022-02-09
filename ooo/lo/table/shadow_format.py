@@ -39,6 +39,7 @@ class ShadowFormat(object):
     typeName: str = 'com.sun.star.table.ShadowFormat'
     """Literal Constant ``com.sun.star.table.ShadowFormat``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class ShadowFormat(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Location(self) -> 'ShadowLocation_d4530caf':

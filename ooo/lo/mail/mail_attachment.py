@@ -42,6 +42,7 @@ class MailAttachment(object):
     typeName: str = 'com.sun.star.mail.MailAttachment'
     """Literal Constant ``com.sun.star.mail.MailAttachment``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class MailAttachment(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Data(self) -> 'XTransferable_2d800f38':

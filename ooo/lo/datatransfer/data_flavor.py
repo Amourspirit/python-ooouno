@@ -35,6 +35,7 @@ class DataFlavor(object):
     typeName: str = 'com.sun.star.datatransfer.DataFlavor'
     """Literal Constant ``com.sun.star.datatransfer.DataFlavor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class DataFlavor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MimeType(self) -> str:

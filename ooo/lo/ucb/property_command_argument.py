@@ -42,6 +42,7 @@ class PropertyCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.PropertyCommandArgument'
     """Literal Constant ``com.sun.star.ucb.PropertyCommandArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class PropertyCommandArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Property(self) -> 'Property_8f4e0a76':

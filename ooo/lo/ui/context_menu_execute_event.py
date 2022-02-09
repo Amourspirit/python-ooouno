@@ -41,6 +41,7 @@ class ContextMenuExecuteEvent(object):
     typeName: str = 'com.sun.star.ui.ContextMenuExecuteEvent'
     """Literal Constant ``com.sun.star.ui.ContextMenuExecuteEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class ContextMenuExecuteEvent(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def SourceWindow(self) -> 'XWindow_713b0924':

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.graphic import XGraphicRasterizer
+    from com.sun.star.graphic import XGraphicRasterizer as XGraphicRasterizer
     setattr(XGraphicRasterizer, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XGraphicRasterizer, '__ooo_full_ns__', 'com.sun.star.graphic.XGraphicRasterizer')
     setattr(XGraphicRasterizer, '__ooo_type_name__', 'interface')

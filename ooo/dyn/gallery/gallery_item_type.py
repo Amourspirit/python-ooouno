@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.gallery import GalleryItemType
+    from com.sun.star.gallery import GalleryItemType as GalleryItemType
 else:
     from ...lo.gallery.gallery_item_type import GalleryItemType as GalleryItemType
 

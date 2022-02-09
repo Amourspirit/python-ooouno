@@ -35,6 +35,7 @@ class MenuSingleChange(object):
     typeName: str = 'com.sun.star.mozilla.MenuSingleChange'
     """Literal Constant ``com.sun.star.mozilla.MenuSingleChange``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class MenuSingleChange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ID(self) -> int:

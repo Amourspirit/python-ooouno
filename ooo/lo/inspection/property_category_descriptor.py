@@ -39,6 +39,7 @@ class PropertyCategoryDescriptor(object):
     typeName: str = 'com.sun.star.inspection.PropertyCategoryDescriptor'
     """Literal Constant ``com.sun.star.inspection.PropertyCategoryDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class PropertyCategoryDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ProgrammaticName(self) -> str:

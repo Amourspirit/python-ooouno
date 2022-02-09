@@ -40,6 +40,7 @@ class InputSource(object):
     typeName: str = 'com.sun.star.xml.sax.InputSource'
     """Literal Constant ``com.sun.star.xml.sax.InputSource``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class InputSource(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aInputStream(self) -> 'XInputStream_98d40ab4':

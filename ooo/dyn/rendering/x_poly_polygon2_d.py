@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XPolyPolygon2D
+    from com.sun.star.rendering import XPolyPolygon2D as XPolyPolygon2D
     setattr(XPolyPolygon2D, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XPolyPolygon2D, '__ooo_full_ns__', 'com.sun.star.rendering.XPolyPolygon2D')
     setattr(XPolyPolygon2D, '__ooo_type_name__', 'interface')

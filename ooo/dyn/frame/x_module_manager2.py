@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XModuleManager2
+    from com.sun.star.frame import XModuleManager2 as XModuleManager2
     setattr(XModuleManager2, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XModuleManager2, '__ooo_full_ns__', 'com.sun.star.frame.XModuleManager2')
     setattr(XModuleManager2, '__ooo_type_name__', 'interface')

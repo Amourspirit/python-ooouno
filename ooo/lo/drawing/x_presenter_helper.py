@@ -90,5 +90,6 @@ class XPresenterHelper(ABC):
         As a result the window will be painted over all its overlapping siblings.
         """
 
+
 __all__ = ['XPresenterHelper']
 

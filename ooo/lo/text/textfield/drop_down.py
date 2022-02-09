@@ -35,6 +35,11 @@ class DropDown(TextField_90260a56):
     __ooo_full_ns__: str = 'com.sun.star.text.textfield.DropDown'
     __ooo_type_name__: str = 'service'
 
+    Items: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    The items of the dropdown field.
+    """
+
     @abstractproperty
     def Name(self) -> str:
         """
@@ -46,11 +51,6 @@ class DropDown(TextField_90260a56):
         The selected item.
         
         If no item is selected this property contains an empty string. If this property is set to a value not present in the items of the dropdown field it is invalidated, i.e. it is set to an empty string.
-        """
-    @abstractproperty
-    def Items(self) -> 'typing.Tuple[str, ...]':
-        """
-        The items of the dropdown field.
         """
 
 __all__ = ['DropDown']

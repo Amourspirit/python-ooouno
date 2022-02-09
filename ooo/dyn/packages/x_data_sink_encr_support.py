@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.packages import XDataSinkEncrSupport
+    from com.sun.star.packages import XDataSinkEncrSupport as XDataSinkEncrSupport
     setattr(XDataSinkEncrSupport, '__ooo_ns__', 'com.sun.star.packages')
     setattr(XDataSinkEncrSupport, '__ooo_full_ns__', 'com.sun.star.packages.XDataSinkEncrSupport')
     setattr(XDataSinkEncrSupport, '__ooo_type_name__', 'interface')

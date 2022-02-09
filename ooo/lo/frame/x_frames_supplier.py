@@ -60,5 +60,6 @@ class XFramesSupplier(XFrame_7a570956):
         Note: Given parameter Frame must already exist inside the container (e.g., inserted by using XFrames.append())
         """
 
+
 __all__ = ['XFramesSupplier']
 

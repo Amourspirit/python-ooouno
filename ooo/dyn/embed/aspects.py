@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import Aspects
+    from com.sun.star.embed import Aspects as Aspects
 else:
     from ...lo.embed.aspects import Aspects as Aspects
 

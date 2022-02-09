@@ -35,6 +35,7 @@ class FunctionArgument(object):
     typeName: str = 'com.sun.star.sheet.FunctionArgument'
     """Literal Constant ``com.sun.star.sheet.FunctionArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class FunctionArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

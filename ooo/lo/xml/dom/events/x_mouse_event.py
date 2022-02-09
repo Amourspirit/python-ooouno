@@ -81,5 +81,6 @@ class XMouseEvent(XUIEvent_fa900d82):
         """
         """
 
+
 __all__ = ['XMouseEvent']
 

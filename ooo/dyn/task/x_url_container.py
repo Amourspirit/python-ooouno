@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import XUrlContainer
+    from com.sun.star.task import XUrlContainer as XUrlContainer
     setattr(XUrlContainer, '__ooo_ns__', 'com.sun.star.task')
     setattr(XUrlContainer, '__ooo_full_ns__', 'com.sun.star.task.XUrlContainer')
     setattr(XUrlContainer, '__ooo_type_name__', 'interface')

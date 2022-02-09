@@ -106,5 +106,6 @@ class XStatusbarItem(ABC):
         the width of the status bar item
         """
 
+
 __all__ = ['XStatusbarItem']
 

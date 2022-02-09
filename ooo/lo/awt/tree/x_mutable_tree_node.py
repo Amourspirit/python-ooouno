@@ -97,5 +97,6 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         You can use this attribute to store data for this node that is independent of the display value
         """
 
+
 __all__ = ['XMutableTreeNode']
 

@@ -44,5 +44,6 @@ class XSystemDependentMenuPeer(XInterface_8f010a43):
         WIN16: Returns an HMENU if possible, otherwise 0.
         """
 
+
 __all__ = ['XSystemDependentMenuPeer']
 

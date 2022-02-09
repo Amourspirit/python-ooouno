@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import FilePreviewImageFormats
+    from com.sun.star.ui.dialogs import FilePreviewImageFormats as FilePreviewImageFormats
 else:
     from ....lo.ui.dialogs.file_preview_image_formats import FilePreviewImageFormats as FilePreviewImageFormats
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import LinguServiceEventFlags
+    from com.sun.star.linguistic2 import LinguServiceEventFlags as LinguServiceEventFlags
 else:
     from ...lo.linguistic2.lingu_service_event_flags import LinguServiceEventFlags as LinguServiceEventFlags
 

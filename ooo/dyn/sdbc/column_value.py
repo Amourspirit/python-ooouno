@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ColumnValue
+    from com.sun.star.sdbc import ColumnValue as ColumnValue
 else:
     from ...lo.sdbc.column_value import ColumnValue as ColumnValue
 

@@ -39,6 +39,7 @@ class TableFilterField(object):
     typeName: str = 'com.sun.star.sheet.TableFilterField'
     """Literal Constant ``com.sun.star.sheet.TableFilterField``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class TableFilterField(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Connection(self) -> 'FilterConnection_f01f0d97':

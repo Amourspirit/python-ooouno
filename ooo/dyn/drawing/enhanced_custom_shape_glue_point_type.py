@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import EnhancedCustomShapeGluePointType
+    from com.sun.star.drawing import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 else:
     from ...lo.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 

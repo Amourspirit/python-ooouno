@@ -71,5 +71,6 @@ class XToolbarController(XInterface_8f010a43):
         This function is usually called by a toolbar implementation when a user clicked on a toolbar button or pressed enter on the keyboard when the item has the input focus.
         """
 
+
 __all__ = ['XToolbarController']
 

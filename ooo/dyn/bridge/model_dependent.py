@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.bridge import ModelDependent
+    from com.sun.star.bridge import ModelDependent as ModelDependent
 else:
     from ...lo.bridge.model_dependent import ModelDependent as ModelDependent
 

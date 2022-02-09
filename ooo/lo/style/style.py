@@ -20,14 +20,13 @@
 # Namespace: com.sun.star.style
 import typing
 from abc import abstractproperty
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_multi_property_set import XMultiPropertySet as XMultiPropertySet_fd880e05
 from ..beans.x_multi_property_states import XMultiPropertyStates as XMultiPropertyStates_2a3e0f4d
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_style import XStyle as XStyle_7c7f09a2
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
-if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, XMultiPropertyStates_2a3e0f4d, XPropertySet_bc180bfa, XStyle_7c7f09a2):
     """
@@ -45,6 +44,34 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
     __ooo_ns__: str = 'com.sun.star.style'
     __ooo_full_ns__: str = 'com.sun.star.style.Style'
     __ooo_type_name__: str = 'service'
+
+    ParaStyleConditions: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    defines the context and styles for conditional paragraphs.
+    
+    This property is only available if the style is a conditional paragraph style.
+    
+    The sequence consists of pairs where the name part of the pair defines the context where it should be applied and the value part is a string naming the style to be used in that context.
+    
+    Assigning an empty string to the style name will disable the conditional style for that context.
+    
+    The allowed strings (contexts) for the name part of an entry of the sequence are:
+    
+    **since**
+    
+        OOo 2.0.1
+    """
+
+    StyleInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of style properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.2
+    """
 
     @abstractproperty
     def DisplayName(self) -> str:
@@ -82,34 +109,6 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         determines if a style is physically created.
         
         Built in styles may not be created until they are needed. To prevent standard style properties from being exported, it may be useful to check if the style is created first.
-        """
-    @abstractproperty
-    def ParaStyleConditions(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        defines the context and styles for conditional paragraphs.
-        
-        This property is only available if the style is a conditional paragraph style.
-        
-        The sequence consists of pairs where the name part of the pair defines the context where it should be applied and the value part is a string naming the style to be used in that context.
-        
-        Assigning an empty string to the style name will disable the conditional style for that context.
-        
-        The allowed strings (contexts) for the name part of an entry of the sequence are:
-        
-        **since**
-        
-            OOo 2.0.1
-        """
-    @abstractproperty
-    def StyleInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of style properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.2
         """
 
 __all__ = ['Style']

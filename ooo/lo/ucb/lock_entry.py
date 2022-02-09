@@ -39,6 +39,7 @@ class LockEntry(object):
     typeName: str = 'com.sun.star.ucb.LockEntry'
     """Literal Constant ``com.sun.star.ucb.LockEntry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class LockEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Scope(self) -> 'LockScope_839109c5':

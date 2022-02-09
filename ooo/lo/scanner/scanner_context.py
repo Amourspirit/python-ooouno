@@ -35,6 +35,7 @@ class ScannerContext(object):
     typeName: str = 'com.sun.star.scanner.ScannerContext'
     """Literal Constant ``com.sun.star.scanner.ScannerContext``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class ScannerContext(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ScannerName(self) -> str:

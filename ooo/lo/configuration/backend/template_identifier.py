@@ -39,6 +39,7 @@ class TemplateIdentifier(object):
     typeName: str = 'com.sun.star.configuration.backend.TemplateIdentifier'
     """Literal Constant ``com.sun.star.configuration.backend.TemplateIdentifier``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class TemplateIdentifier(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

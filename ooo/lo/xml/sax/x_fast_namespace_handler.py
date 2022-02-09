@@ -48,5 +48,6 @@ class XFastNamespaceHandler(XInterface_8f010a43):
         receives notification of namespace declarations from a XFastParser.
         """
 
+
 __all__ = ['XFastNamespaceHandler']
 

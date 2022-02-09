@@ -51,5 +51,6 @@ class XEmbeddedClient(XComponentSupplier_adb0e64):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
 
+
 __all__ = ['XEmbeddedClient']
 

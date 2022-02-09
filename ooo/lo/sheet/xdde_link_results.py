@@ -39,15 +39,16 @@ class XDDELinkResults(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.sheet.XDDELinkResults'
 
     @abstractmethod
-    def getResults(self) -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getResults(self) -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         returns the DDE link results.
         """
     @abstractmethod
-    def setResults(self, aResults: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def setResults(self, aResults: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         sets the DDE link results.
         """
+
 
 __all__ = ['XDDELinkResults']
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import TextAnimationType
+    from com.sun.star.presentation import TextAnimationType as TextAnimationType
 else:
     from ...lo.presentation.text_animation_type import TextAnimationType as TextAnimationType
 

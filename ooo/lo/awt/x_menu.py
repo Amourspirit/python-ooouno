@@ -171,5 +171,6 @@ class XMenu(XInterface_8f010a43):
         sets the tip help text for the menu item.
         """
 
+
 __all__ = ['XMenu']
 

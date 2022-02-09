@@ -35,6 +35,7 @@ class DeviceInfo(object):
     typeName: str = 'com.sun.star.awt.DeviceInfo'
     """Literal Constant ``com.sun.star.awt.DeviceInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class DeviceInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Width(self) -> int:

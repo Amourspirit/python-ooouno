@@ -53,5 +53,6 @@ class XHierarchicalNameContainer(XHierarchicalNameReplace_b0ca121f):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
+
 __all__ = ['XHierarchicalNameContainer']
 

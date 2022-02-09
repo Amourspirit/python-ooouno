@@ -40,6 +40,7 @@ class LocaleDataItem2(LocaleDataItem_beff0ba1):
     typeName: str = 'com.sun.star.i18n.LocaleDataItem2'
     """Literal Constant ``com.sun.star.i18n.LocaleDataItem2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class LocaleDataItem2(LocaleDataItem_beff0ba1):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def decimalSeparatorAlternative(self) -> str:

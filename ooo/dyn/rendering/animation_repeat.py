@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import AnimationRepeat
+    from com.sun.star.rendering import AnimationRepeat as AnimationRepeat
 else:
     from ...lo.rendering.animation_repeat import AnimationRepeat as AnimationRepeat
 

@@ -42,6 +42,7 @@ class TextMarkupDescriptor(object):
     typeName: str = 'com.sun.star.text.TextMarkupDescriptor'
     """Literal Constant ``com.sun.star.text.TextMarkupDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -81,7 +82,6 @@ class TextMarkupDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def nType(self) -> int:

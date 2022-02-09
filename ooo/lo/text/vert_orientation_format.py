@@ -37,6 +37,7 @@ class VertOrientationFormat(object):
     typeName: str = 'com.sun.star.text.VertOrientationFormat'
     """Literal Constant ``com.sun.star.text.VertOrientationFormat``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class VertOrientationFormat(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def YPos(self) -> int:

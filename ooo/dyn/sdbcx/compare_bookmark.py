@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import CompareBookmark
+    from com.sun.star.sdbcx import CompareBookmark as CompareBookmark
 else:
     from ...lo.sdbcx.compare_bookmark import CompareBookmark as CompareBookmark
 

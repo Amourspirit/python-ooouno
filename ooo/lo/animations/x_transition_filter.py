@@ -71,5 +71,6 @@ class XTransitionFilter(XAnimate_ca680c52):
         This attribute is required and must be one of the transition families listed in TransitionType.
         """
 
+
 __all__ = ['XTransitionFilter']
 

@@ -56,5 +56,6 @@ class XConfigurationControllerBroadcaster(ABC):
         Remove a listener for configuration changes.
         """
 
+
 __all__ = ['XConfigurationControllerBroadcaster']
 

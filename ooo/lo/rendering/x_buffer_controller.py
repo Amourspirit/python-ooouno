@@ -73,5 +73,6 @@ class XBufferController(XInterface_8f010a43):
         Use this method if you favor maximal render speed, but don't necessarily require your screen display to be in sync with other things, e.g. sound playback.
         """
 
+
 __all__ = ['XBufferController']
 

@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.script
 # Libre Office Version: 7.2
 import typing
+from ..reflection.param_mode import ParamMode as ParamMode_d7260ca9
 if typing.TYPE_CHECKING:
-    from ..reflection.param_mode import ParamMode as ParamMode_d7260ca9
     from .member_type import MemberType as MemberType_b1e00b97
 
 
@@ -39,6 +39,15 @@ class InvocationInfo(object):
     typeName: str = 'com.sun.star.script.InvocationInfo'
     """Literal Constant ``com.sun.star.script.InvocationInfo``"""
 
+    aParamTypes: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    Types method parameters, for properties this sequence is empty.
+    """
+    aParamModes: typing.TypeAlias = typing.Tuple[ParamMode_d7260ca9, ...]
+    """
+    Mode of method parameters (IN, OUT, INOUT), for properties this sequence is empty.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -54,17 +63,13 @@ class InvocationInfo(object):
             eMemberType (MemberType, optional): eMemberType value
             PropertyAttribute (int, optional): PropertyAttribute value
             aType (object, optional): aType value
-            aParamTypes (Tuple[object, ...], optional): aParamTypes value
-            aParamModes (Tuple[ParamMode, ...], optional): aParamModes value
         """
         self._a_name = None
         self._e_member_type = None
         self._property_attribute = None
         self._a_type = None
-        self._a_param_types = None
-        self._a_param_modes = None
 
-        key_order = ('aName', 'eMemberType', 'PropertyAttribute', 'aType', 'aParamTypes', 'aParamModes')
+        key_order = ('aName', 'eMemberType', 'PropertyAttribute', 'aType')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], InvocationInfo):
@@ -80,7 +85,6 @@ class InvocationInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aName(self) -> str:
@@ -129,28 +133,6 @@ class InvocationInfo(object):
     @aType.setter
     def aType(self, value: object) -> None:
         self._a_type = value
-
-    @property
-    def aParamTypes(self) -> 'typing.Tuple[object, ...]':
-        """
-        Types method parameters, for properties this sequence is empty.
-        """
-        return self._a_param_types
-    
-    @aParamTypes.setter
-    def aParamTypes(self, value: 'typing.Tuple[object, ...]') -> None:
-        self._a_param_types = value
-
-    @property
-    def aParamModes(self) -> 'typing.Tuple[ParamMode_d7260ca9, ...]':
-        """
-        Mode of method parameters (IN, OUT, INOUT), for properties this sequence is empty.
-        """
-        return self._a_param_modes
-    
-    @aParamModes.setter
-    def aParamModes(self, value: 'typing.Tuple[ParamMode_d7260ca9, ...]') -> None:
-        self._a_param_modes = value
 
 
 __all__ = ['InvocationInfo']

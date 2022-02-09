@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.uri import XVndSunStarExpandUrlReference
+    from com.sun.star.uri import XVndSunStarExpandUrlReference as XVndSunStarExpandUrlReference
     setattr(XVndSunStarExpandUrlReference, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XVndSunStarExpandUrlReference, '__ooo_full_ns__', 'com.sun.star.uri.XVndSunStarExpandUrlReference')
     setattr(XVndSunStarExpandUrlReference, '__ooo_type_name__', 'interface')

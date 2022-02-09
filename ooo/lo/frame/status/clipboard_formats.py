@@ -40,6 +40,15 @@ class ClipboardFormats(object):
     typeName: str = 'com.sun.star.frame.status.ClipboardFormats'
     """Literal Constant ``com.sun.star.frame.status.ClipboardFormats``"""
 
+    Identifiers: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    specifies a sequence of format IDs which are contained in the system clipboard.
+    """
+    Names: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    specifies a sequence of format names which are contained in the system clipboard.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,13 +60,9 @@ class ClipboardFormats(object):
                 values. Following the order of ``Keyword Arguments``.
 
         Keyword Arguments:
-            Identifiers (Tuple[int, ...], optional): Identifiers value
-            Names (Tuple[str, ...], optional): Names value
         """
-        self._identifiers = None
-        self._names = None
 
-        key_order = ('Identifiers', 'Names')
+        key_order = ()
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ClipboardFormats):
@@ -73,29 +78,6 @@ class ClipboardFormats(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
-
-    @property
-    def Identifiers(self) -> 'typing.Tuple[int, ...]':
-        """
-        specifies a sequence of format IDs which are contained in the system clipboard.
-        """
-        return self._identifiers
-    
-    @Identifiers.setter
-    def Identifiers(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._identifiers = value
-
-    @property
-    def Names(self) -> 'typing.Tuple[str, ...]':
-        """
-        specifies a sequence of format names which are contained in the system clipboard.
-        """
-        return self._names
-    
-    @Names.setter
-    def Names(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._names = value
 
 
 __all__ = ['ClipboardFormats']

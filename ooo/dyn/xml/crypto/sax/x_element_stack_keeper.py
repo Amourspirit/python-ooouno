@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto.sax import XElementStackKeeper
+    from com.sun.star.xml.crypto.sax import XElementStackKeeper as XElementStackKeeper
     setattr(XElementStackKeeper, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XElementStackKeeper, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XElementStackKeeper')
     setattr(XElementStackKeeper, '__ooo_type_name__', 'interface')

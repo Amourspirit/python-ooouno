@@ -100,5 +100,6 @@ class XDeck(ABC):
         Set the deck title string.
         """
 
+
 __all__ = ['XDeck']
 

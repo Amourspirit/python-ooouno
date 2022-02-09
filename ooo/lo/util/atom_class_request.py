@@ -36,6 +36,11 @@ class AtomClassRequest(object):
     typeName: str = 'com.sun.star.util.AtomClassRequest'
     """Literal Constant ``com.sun.star.util.AtomClassRequest``"""
 
+    atoms: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    the atoms requested from class AtomClassRequest.atomClass().
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -48,12 +53,10 @@ class AtomClassRequest(object):
 
         Keyword Arguments:
             atomClass (int, optional): atomClass value
-            atoms (Tuple[int, ...], optional): atoms value
         """
         self._atom_class = None
-        self._atoms = None
 
-        key_order = ('atomClass', 'atoms')
+        key_order = ('atomClass',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], AtomClassRequest):
@@ -70,7 +73,6 @@ class AtomClassRequest(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def atomClass(self) -> int:
         """
@@ -81,17 +83,6 @@ class AtomClassRequest(object):
     @atomClass.setter
     def atomClass(self, value: int) -> None:
         self._atom_class = value
-
-    @property
-    def atoms(self) -> 'typing.Tuple[int, ...]':
-        """
-        the atoms requested from class AtomClassRequest.atomClass().
-        """
-        return self._atoms
-    
-    @atoms.setter
-    def atoms(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._atoms = value
 
 
 __all__ = ['AtomClassRequest']

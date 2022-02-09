@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..beans.property import Property as Property_8f4e0a76
+from ..beans.property import Property as Property_8f4e0a76
 
 
 class ContentInfo(object):
@@ -38,6 +37,17 @@ class ContentInfo(object):
     typeName: str = 'com.sun.star.ucb.ContentInfo'
     """Literal Constant ``com.sun.star.ucb.ContentInfo``"""
 
+    Properties: typing.TypeAlias = typing.Tuple[Property_8f4e0a76, ...]
+    """
+    This field contains a list with the properties which must be set at a content that was just created using XContentCreator.createNewContent() before it can be committed (by executing the command \"insert\" at the new content).
+    
+    If one of the properties is missing, the insert command will fail.
+    
+    In example, a new file system folder content will need a title. The Properties member of the ContentInfo provided for this kind of content must include the property \"Title\".
+    
+    Important: The required properties must have one of the following basic data types (in order to make it possible to implement client applications with a small set of generic input methods for the values):
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,13 +61,11 @@ class ContentInfo(object):
         Keyword Arguments:
             Type (str, optional): Type value
             Attributes (int, optional): Attributes value
-            Properties (Tuple[Property, ...], optional): Properties value
         """
         self._type = None
         self._attributes = None
-        self._properties = None
 
-        key_order = ('Type', 'Attributes', 'Properties')
+        key_order = ('Type', 'Attributes')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ContentInfo):
@@ -73,7 +81,6 @@ class ContentInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> str:
@@ -104,23 +111,6 @@ class ContentInfo(object):
     @Attributes.setter
     def Attributes(self, value: int) -> None:
         self._attributes = value
-
-    @property
-    def Properties(self) -> 'typing.Tuple[Property_8f4e0a76, ...]':
-        """
-        This field contains a list with the properties which must be set at a content that was just created using XContentCreator.createNewContent() before it can be committed (by executing the command \"insert\" at the new content).
-        
-        If one of the properties is missing, the insert command will fail.
-        
-        In example, a new file system folder content will need a title. The Properties member of the ContentInfo provided for this kind of content must include the property \"Title\".
-        
-        Important: The required properties must have one of the following basic data types (in order to make it possible to implement client applications with a small set of generic input methods for the values):
-        """
-        return self._properties
-    
-    @Properties.setter
-    def Properties(self, value: 'typing.Tuple[Property_8f4e0a76, ...]') -> None:
-        self._properties = value
 
 
 __all__ = ['ContentInfo']

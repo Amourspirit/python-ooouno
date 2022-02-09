@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import XViewCursor
+    from com.sun.star.view import XViewCursor as XViewCursor
     setattr(XViewCursor, '__ooo_ns__', 'com.sun.star.view')
     setattr(XViewCursor, '__ooo_full_ns__', 'com.sun.star.view.XViewCursor')
     setattr(XViewCursor, '__ooo_type_name__', 'interface')

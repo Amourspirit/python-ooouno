@@ -51,5 +51,6 @@ class XTablePivotCharts(XNameAccess_e2ab0cf6):
         removes a pivot chart from the collection.
         """
 
+
 __all__ = ['XTablePivotCharts']
 

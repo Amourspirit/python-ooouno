@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleEventId
+    from com.sun.star.accessibility import AccessibleEventId as AccessibleEventId
 else:
     from ...lo.accessibility.accessible_event_id import AccessibleEventId as AccessibleEventId
 

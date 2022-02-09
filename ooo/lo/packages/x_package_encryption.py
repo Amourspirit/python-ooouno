@@ -90,5 +90,6 @@ class XPackageEncryption(XInterface_8f010a43):
         Use this method to setup requisite encryption meta data. Depending on the underlying crypto, this can be a salt, init vector, or other algorithm-specific information that needs to be stored alongside an encrypted document
         """
 
+
 __all__ = ['XPackageEncryption']
 

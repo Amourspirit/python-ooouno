@@ -35,6 +35,7 @@ class DataPilotFieldLayoutInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldLayoutInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldLayoutInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class DataPilotFieldLayoutInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def LayoutMode(self) -> int:

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontEmphasisMark
+    from com.sun.star.awt import FontEmphasisMark as FontEmphasisMark
 else:
     from ...lo.awt.font_emphasis_mark import FontEmphasisMark as FontEmphasisMark
 

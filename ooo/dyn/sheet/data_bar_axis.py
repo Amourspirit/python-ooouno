@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataBarAxis
+    from com.sun.star.sheet import DataBarAxis as DataBarAxis
 else:
     from ...lo.sheet.data_bar_axis import DataBarAxis as DataBarAxis
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import XUriBinding
+    from com.sun.star.xml.crypto import XUriBinding as XUriBinding
     setattr(XUriBinding, '__ooo_ns__', 'com.sun.star.xml.crypto')
     setattr(XUriBinding, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XUriBinding')
     setattr(XUriBinding, '__ooo_type_name__', 'interface')

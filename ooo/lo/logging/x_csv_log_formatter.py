@@ -38,6 +38,13 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.logging.XCsvLogFormatter'
 
+    Columnnames: typing.TypeAlias = 'typing.Tuple[str, ...]'
+    """
+    Defines the names of the additional columns this defaults to only one row titled \"message\".
+    
+    if this is set to more than one column, the messages need to be preformatted using formatMultiColumn
+    """
+
     @abstractmethod
     def formatMultiColumn(self, columnData: 'typing.Tuple[str, ...]') -> str:
         """
@@ -67,13 +74,7 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
         """
         Defines if the Timestamp should be logged.
         """
-    @abstractproperty
-    def Columnnames(self) -> 'typing.Tuple[str, ...]':
-        """
-        Defines the names of the additional columns this defaults to only one row titled \"message\".
-        
-        if this is set to more than one column, the messages need to be preformatted using formatMultiColumn
-        """
+
 
 __all__ = ['XCsvLogFormatter']
 

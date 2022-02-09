@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.io import XDataTransferEventListener
+    from com.sun.star.io import XDataTransferEventListener as XDataTransferEventListener
     setattr(XDataTransferEventListener, '__ooo_ns__', 'com.sun.star.io')
     setattr(XDataTransferEventListener, '__ooo_full_ns__', 'com.sun.star.io.XDataTransferEventListener')
     setattr(XDataTransferEventListener, '__ooo_type_name__', 'interface')

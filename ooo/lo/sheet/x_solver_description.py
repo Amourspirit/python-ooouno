@@ -49,5 +49,6 @@ class XSolverDescription(XInterface_8f010a43):
         After calling solve, a message describing the status (explaining why no solution was found).
         """
 
+
 __all__ = ['XSolverDescription']
 

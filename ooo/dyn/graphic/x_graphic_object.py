@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.graphic import XGraphicObject
+    from com.sun.star.graphic import XGraphicObject as XGraphicObject
     setattr(XGraphicObject, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XGraphicObject, '__ooo_full_ns__', 'com.sun.star.graphic.XGraphicObject')
     setattr(XGraphicObject, '__ooo_type_name__', 'interface')

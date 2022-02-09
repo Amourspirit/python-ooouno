@@ -42,5 +42,6 @@ class XSimpleMailMessage2(XSimpleMailMessage_1d420eb7):
         """
         """
 
+
 __all__ = ['XSimpleMailMessage2']
 

@@ -52,5 +52,6 @@ class XHeaderFooterContent(XInterface_8f010a43):
         returns the text which is printed in the right part of the header or footer.
         """
 
+
 __all__ = ['XHeaderFooterContent']
 

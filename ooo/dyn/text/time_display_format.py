@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import TimeDisplayFormat
+    from com.sun.star.text import TimeDisplayFormat as TimeDisplayFormat
 else:
     from ...lo.text.time_display_format import TimeDisplayFormat as TimeDisplayFormat
 

@@ -56,5 +56,6 @@ class XUIConfigurationListener(XEventListener_c7230c4a):
         is invoked when a configuration has replaced an user interface element.
         """
 
+
 __all__ = ['XUIConfigurationListener']
 

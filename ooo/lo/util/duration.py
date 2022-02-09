@@ -43,6 +43,7 @@ class Duration(object):
     typeName: str = 'com.sun.star.util.Duration'
     """Literal Constant ``com.sun.star.util.Duration``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -88,7 +89,6 @@ class Duration(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Negative(self) -> bool:

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer import XTransferable2
+    from com.sun.star.datatransfer import XTransferable2 as XTransferable2
     setattr(XTransferable2, '__ooo_ns__', 'com.sun.star.datatransfer')
     setattr(XTransferable2, '__ooo_full_ns__', 'com.sun.star.datatransfer.XTransferable2')
     setattr(XTransferable2, '__ooo_type_name__', 'interface')

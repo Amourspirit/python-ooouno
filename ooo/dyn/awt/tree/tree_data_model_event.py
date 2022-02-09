@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('ParentNode', 'Nodes')
+            key_order = ('ParentNode',)
             struct = uno.createUnoStruct('com.sun.star.awt.tree.TreeDataModelEvent')
             if arg_len > len(key_order):
                 raise ValueError("TreeDataModelEvent.__init__() To many parameters")

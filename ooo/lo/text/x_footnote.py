@@ -43,5 +43,6 @@ class XFootnote(XTextContent_b16e0ba5):
         sets the label of the footnote.
         """
 
+
 __all__ = ['XFootnote']
 

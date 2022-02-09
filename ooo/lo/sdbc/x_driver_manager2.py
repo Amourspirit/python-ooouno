@@ -43,5 +43,6 @@ class XDriverManager2(XEnumerationAccess_4bac0ffc, XDriverAccess_b9ec0bba, XDriv
     __pyunointerface__: str = 'com.sun.star.sdbc.XDriverManager2'
 
 
+
 __all__ = ['XDriverManager2']
 

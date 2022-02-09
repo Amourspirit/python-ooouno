@@ -207,5 +207,6 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
             com.sun.star.document.UndoFailedException: ``UndoFailedException``
         """
 
+
 __all__ = ['XUndoManager']
 

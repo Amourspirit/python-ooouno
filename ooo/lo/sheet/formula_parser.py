@@ -21,10 +21,9 @@
 import typing
 from abc import abstractproperty
 from ..beans.property_set import PropertySet as PropertySet_b0e70ba2
+from .external_link_info import ExternalLinkInfo as ExternalLinkInfo_f09b0d7e
+from .formula_op_code_map_entry import FormulaOpCodeMapEntry as FormulaOpCodeMapEntry_37da0f61
 from .x_formula_parser import XFormulaParser as XFormulaParser_d54d0cbc
-if typing.TYPE_CHECKING:
-    from .external_link_info import ExternalLinkInfo as ExternalLinkInfo_f09b0d7e
-    from .formula_op_code_map_entry import FormulaOpCodeMapEntry as FormulaOpCodeMapEntry_37da0f61
 
 class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
     """
@@ -41,6 +40,24 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
     __ooo_ns__: str = 'com.sun.star.sheet'
     __ooo_full_ns__: str = 'com.sun.star.sheet.FormulaParser'
     __ooo_type_name__: str = 'service'
+
+    ExternalLinks: typing.TypeAlias = typing.Tuple[ExternalLinkInfo_f09b0d7e, ...]
+    """
+    contains a list of external links referenced in formulas.
+    
+    Use of this property depends on the FormulaConvention in use. It is relevant only for AddressConvention.XL_OOX to map indices to external documents. The sequence must be in the order of indices used. Note that indices are 1-based, the sequence must start with an empty element.
+    
+    **since**
+    
+        OOo 3.1
+    """
+
+    OpCodeMap: typing.TypeAlias = typing.Tuple[FormulaOpCodeMapEntry_37da0f61, ...]
+    """
+    contains the complete mapping of names to op-codes.
+    
+    Names and symbols not defined here lead to a parser/print error.
+    """
 
     @abstractproperty
     def CompileEnglish(self) -> bool:
@@ -61,24 +78,6 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
     @abstractproperty
     def ParameterSeparator(self) -> str:
         """
-        """
-    @abstractproperty
-    def ExternalLinks(self) -> 'typing.Tuple[ExternalLinkInfo_f09b0d7e, ...]':
-        """
-        contains a list of external links referenced in formulas.
-        
-        Use of this property depends on the FormulaConvention in use. It is relevant only for AddressConvention.XL_OOX to map indices to external documents. The sequence must be in the order of indices used. Note that indices are 1-based, the sequence must start with an empty element.
-        
-        **since**
-        
-            OOo 3.1
-        """
-    @abstractproperty
-    def OpCodeMap(self) -> 'typing.Tuple[FormulaOpCodeMapEntry_37da0f61, ...]':
-        """
-        contains the complete mapping of names to op-codes.
-        
-        Names and symbols not defined here lead to a parser/print error.
         """
 
 __all__ = ['FormulaParser']

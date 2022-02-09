@@ -38,5 +38,6 @@ class XSelectionFunction(XKeyHandler_98520a93, XMouseClickHandler_edcb0d59, XMou
     __pyunointerface__: str = 'com.sun.star.drawing.XSelectionFunction'
 
 
+
 __all__ = ['XSelectionFunction']
 

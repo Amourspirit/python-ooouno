@@ -63,5 +63,6 @@ class XIeeeDoubleBitmap(XIeeeDoubleReadOnlyBitmap_bfd0126c):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
+
 __all__ = ['XIeeeDoubleBitmap']
 

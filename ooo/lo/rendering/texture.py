@@ -49,6 +49,7 @@ class Texture(object):
     typeName: str = 'com.sun.star.rendering.Texture'
     """Literal Constant ``com.sun.star.rendering.Texture``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -96,7 +97,6 @@ class Texture(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def AffineTransform(self) -> 'AffineMatrix2D_ff040da8':

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.application import CopyTableOperation
+    from com.sun.star.sdb.application import CopyTableOperation as CopyTableOperation
 else:
     from ....lo.sdb.application.copy_table_operation import CopyTableOperation as CopyTableOperation
 

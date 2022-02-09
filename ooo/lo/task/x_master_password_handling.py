@@ -77,5 +77,6 @@ class XMasterPasswordHandling(XInterface_8f010a43):
         let the master password and all the related stored passwords be removed.
         """
 
+
 __all__ = ['XMasterPasswordHandling']
 

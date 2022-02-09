@@ -146,5 +146,6 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
 
+
 __all__ = ['XStringResourceManager']
 

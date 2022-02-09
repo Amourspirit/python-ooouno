@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import XJobListener
+    from com.sun.star.task import XJobListener as XJobListener
     setattr(XJobListener, '__ooo_ns__', 'com.sun.star.task')
     setattr(XJobListener, '__ooo_full_ns__', 'com.sun.star.task.XJobListener')
     setattr(XJobListener, '__ooo_type_name__', 'interface')

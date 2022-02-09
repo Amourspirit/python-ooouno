@@ -52,5 +52,6 @@ class XGridControl(XGrid_6836089a, XGridFieldDataSupplier_34aa0f4c):
         revokes a previously registered grid control listener
         """
 
+
 __all__ = ['XGridControl']
 

@@ -69,5 +69,6 @@ class XItemListListener(XEventListener_c7230c4a):
         is called when an item is removed from the list
         """
 
+
 __all__ = ['XItemListListener']
 

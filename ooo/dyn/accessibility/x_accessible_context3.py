@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import XAccessibleContext3
+    from com.sun.star.accessibility import XAccessibleContext3 as XAccessibleContext3
     setattr(XAccessibleContext3, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleContext3, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleContext3')
     setattr(XAccessibleContext3, '__ooo_type_name__', 'interface')

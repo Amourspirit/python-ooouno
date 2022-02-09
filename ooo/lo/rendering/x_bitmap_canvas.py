@@ -56,5 +56,6 @@ class XBitmapCanvas(XCanvas_b19b0b7a):
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
 
+
 __all__ = ['XBitmapCanvas']
 

@@ -68,5 +68,6 @@ class XModeChangeBroadcaster(XInterface_8f010a43):
         removes the given listener from the list of components to be notified when the mode changes.
         """
 
+
 __all__ = ['XModeChangeBroadcaster']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XEmbeddedObjectResolver
+    from com.sun.star.document import XEmbeddedObjectResolver as XEmbeddedObjectResolver
     setattr(XEmbeddedObjectResolver, '__ooo_ns__', 'com.sun.star.document')
     setattr(XEmbeddedObjectResolver, '__ooo_full_ns__', 'com.sun.star.document.XEmbeddedObjectResolver')
     setattr(XEmbeddedObjectResolver, '__ooo_type_name__', 'interface')

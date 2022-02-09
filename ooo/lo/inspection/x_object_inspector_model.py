@@ -39,6 +39,17 @@ class XObjectInspectorModel(ABC):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.inspection.XObjectInspectorModel'
 
+    HandlerFactories: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    describes a set of factories for creating XPropertyHandlers
+    
+    Every element of the sequence must contain information to create a XPropertyHandler instance. Two ways are currently supported:
+    
+    This attribute is usually only evaluated by the ObjectInspector instance which the model is currently bound to.
+    
+    The order of factories is important: If two property handlers declare themselves responsible for the same property, the one whose factory is listed last wins. Also, if a handler B wants to supersede a property of another handler A, A's factory must precede the factory of B.
+    """
+
     @abstractmethod
     def describeCategories(self) -> 'typing.Tuple[PropertyCategoryDescriptor_f4691406, ...]':
         """
@@ -106,17 +117,7 @@ class XObjectInspectorModel(ABC):
         
             OOo 2.2
         """
-    @abstractproperty
-    def HandlerFactories(self) -> 'typing.Tuple[object, ...]':
-        """
-        describes a set of factories for creating XPropertyHandlers
-        
-        Every element of the sequence must contain information to create a XPropertyHandler instance. Two ways are currently supported:
-        
-        This attribute is usually only evaluated by the ObjectInspector instance which the model is currently bound to.
-        
-        The order of factories is important: If two property handlers declare themselves responsible for the same property, the one whose factory is listed last wins. Also, if a handler B wants to supersede a property of another handler A, A's factory must precede the factory of B.
-        """
+
 
 __all__ = ['XObjectInspectorModel']
 

@@ -40,7 +40,7 @@ class XWriter(XActiveDataSource_d1900c7f, XExtendedDocumentHandler_89231159):
     __pyunointerface__: str = 'com.sun.star.xml.sax.XWriter'
 
     @abstractmethod
-    def setCustomEntityNames(self, replacements: 'typing.Tuple[typing.Tuple[str, str]]') -> None:
+    def setCustomEntityNames(self, replacements: 'typing.Tuple[typing.Tuple[str, str], ...]') -> None:
         """
         Adds support for custom entity names list.
         
@@ -48,6 +48,7 @@ class XWriter(XActiveDataSource_d1900c7f, XExtendedDocumentHandler_89231159):
         
             LibreOffice 7.2
         """
+
 
 __all__ = ['XWriter']
 

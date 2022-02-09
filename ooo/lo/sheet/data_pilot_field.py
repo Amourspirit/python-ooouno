@@ -22,6 +22,7 @@ import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..container.x_named import XNamed as XNamed_a6520b08
+from .general_function import GeneralFunction as GeneralFunction_e2280d25
 from .x_data_pilot_field import XDataPilotField as XDataPilotField_e0350cdf
 from .x_data_pilot_field_grouping import XDataPilotFieldGrouping as XDataPilotFieldGrouping_55b3102a
 if typing.TYPE_CHECKING:
@@ -31,7 +32,6 @@ if typing.TYPE_CHECKING:
     from .data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation_78701113
     from .data_pilot_field_reference import DataPilotFieldReference as DataPilotFieldReference_562f1016
     from .data_pilot_field_sort_info import DataPilotFieldSortInfo as DataPilotFieldSortInfo_466d0fbb
-    from .general_function import GeneralFunction as GeneralFunction_e2280d25
 
 class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e0350cdf, XDataPilotFieldGrouping_55b3102a):
     """
@@ -51,6 +51,32 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
     __ooo_ns__: str = 'com.sun.star.sheet'
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotField'
     __ooo_type_name__: str = 'service'
+
+    Subtotals: typing.TypeAlias = typing.Tuple[GeneralFunction_e2280d25, ...]
+    """
+    specifies the functions used to calculate subtotals for this field.
+    
+    This property is supported by column and row fields only.
+    
+    An empty sequence means no subtotals. The same effect can be achieved by setting the property Function to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction.NONE or GeneralFunction.AUTO.
+    
+    The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
+    """
+
+    Subtotals2: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    specifies the functions used to calculate subtotals for this field.
+    
+    This property is supported by column and row fields only.
+    
+    An empty sequence means no subtotals. The same effect can be achieved by setting the property Function2 to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction2.NONE or GeneralFunction2.AUTO.
+    
+    The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
+    
+    **since**
+    
+        LibreOffice 5.3
+    """
 
     @abstractproperty
     def AutoShowInfo(self) -> 'DataPilotFieldAutoShowInfo_88d7114d':
@@ -148,32 +174,6 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
     def UsedHierarchy(self) -> str:
         """
         specifies which hierarchy of the dimension is used.
-        """
-    @abstractproperty
-    def Subtotals(self) -> 'typing.Tuple[GeneralFunction_e2280d25, ...]':
-        """
-        specifies the functions used to calculate subtotals for this field.
-        
-        This property is supported by column and row fields only.
-        
-        An empty sequence means no subtotals. The same effect can be achieved by setting the property Function to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction.NONE or GeneralFunction.AUTO.
-        
-        The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
-        """
-    @abstractproperty
-    def Subtotals2(self) -> 'typing.Tuple[int, ...]':
-        """
-        specifies the functions used to calculate subtotals for this field.
-        
-        This property is supported by column and row fields only.
-        
-        An empty sequence means no subtotals. The same effect can be achieved by setting the property Function2 to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction2.NONE or GeneralFunction2.AUTO.
-        
-        The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
-        
-        **since**
-        
-            LibreOffice 5.3
         """
 
 __all__ = ['DataPilotField']

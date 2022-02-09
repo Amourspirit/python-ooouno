@@ -43,10 +43,11 @@ class XDrillDownDataSupplier(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.sheet.XDrillDownDataSupplier'
 
     @abstractmethod
-    def getDrillDownData(self, aFilters: 'typing.Tuple[DataPilotFieldFilter_271e0eed, ...]') -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getDrillDownData(self, aFilters: 'typing.Tuple[DataPilotFieldFilter_271e0eed, ...]') -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         This method returns filtered subset of the original source data based on a given set of filtering criteria.
         """
+
 
 __all__ = ['XDrillDownDataSupplier']
 

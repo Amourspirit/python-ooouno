@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import XPasswordContainer
+    from com.sun.star.task import XPasswordContainer as XPasswordContainer
     setattr(XPasswordContainer, '__ooo_ns__', 'com.sun.star.task')
     setattr(XPasswordContainer, '__ooo_full_ns__', 'com.sun.star.task.XPasswordContainer')
     setattr(XPasswordContainer, '__ooo_type_name__', 'interface')

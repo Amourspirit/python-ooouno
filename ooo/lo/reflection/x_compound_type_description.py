@@ -58,5 +58,6 @@ class XCompoundTypeDescription(XTypeDescription_3c210fb1):
         For a polymorphic struct type template, a member of parameterized type is represented by an instance of com.sun.star.reflection.XTypeDescription whose type class is UNKNOWN and whose name is the name of the type parameter.
         """
 
+
 __all__ = ['XCompoundTypeDescription']
 

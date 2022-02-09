@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import ControlActions
+    from com.sun.star.ui.dialogs import ControlActions as ControlActions
 else:
     from ....lo.ui.dialogs.control_actions import ControlActions as ControlActions
 

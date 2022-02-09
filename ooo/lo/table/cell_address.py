@@ -35,6 +35,7 @@ class CellAddress(object):
     typeName: str = 'com.sun.star.table.CellAddress'
     """Literal Constant ``com.sun.star.table.CellAddress``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class CellAddress(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Sheet(self) -> int:

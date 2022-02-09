@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import CheckOption
+    from com.sun.star.sdbcx import CheckOption as CheckOption
 else:
     from ...lo.sdbcx.check_option import CheckOption as CheckOption
 

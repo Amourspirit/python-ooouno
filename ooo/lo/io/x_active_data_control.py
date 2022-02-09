@@ -69,5 +69,6 @@ class XActiveDataControl(XInterface_8f010a43):
         It closes all connected resources and calls XInputStream.close() or XOutputStream.close() and fires the XStreamListener.terminated()-event.
         """
 
+
 __all__ = ['XActiveDataControl']
 

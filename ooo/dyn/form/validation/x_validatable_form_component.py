@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form.validation import XValidatableFormComponent
+    from com.sun.star.form.validation import XValidatableFormComponent as XValidatableFormComponent
     setattr(XValidatableFormComponent, '__ooo_ns__', 'com.sun.star.form.validation')
     setattr(XValidatableFormComponent, '__ooo_full_ns__', 'com.sun.star.form.validation.XValidatableFormComponent')
     setattr(XValidatableFormComponent, '__ooo_type_name__', 'interface')

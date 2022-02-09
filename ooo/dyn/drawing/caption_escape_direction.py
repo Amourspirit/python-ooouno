@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import CaptionEscapeDirection
+    from com.sun.star.drawing import CaptionEscapeDirection as CaptionEscapeDirection
 else:
     from ...lo.drawing.caption_escape_direction import CaptionEscapeDirection as CaptionEscapeDirection
 

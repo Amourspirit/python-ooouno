@@ -20,12 +20,12 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
+from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..style.graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
-    from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
 
 class TextTableRow(XPropertySet_bc180bfa):
@@ -44,6 +44,22 @@ class TextTableRow(XPropertySet_bc180bfa):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.TextTableRow'
     __ooo_type_name__: str = 'service'
+
+    RowInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of row properties, used as a string-any map for interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.4
+    """
+
+    TableColumnSeparators: typing.TypeAlias = typing.Tuple[TableColumnSeparator_1b630ed4, ...]
+    """
+    contains the description of the columns in the table row.
+    """
 
     @abstractproperty
     def BackColor(self) -> 'Color_68e908c5':
@@ -104,22 +120,6 @@ class TextTableRow(XPropertySet_bc180bfa):
     def IsSplitAllowed(self) -> bool:
         """
         If TRUE, the row is allowed to be split at page or column breaks.
-        """
-    @abstractproperty
-    def RowInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of row properties, used as a string-any map for interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.4
-        """
-    @abstractproperty
-    def TableColumnSeparators(self) -> 'typing.Tuple[TableColumnSeparator_1b630ed4, ...]':
-        """
-        contains the description of the columns in the table row.
         """
 
 __all__ = ['TextTableRow']

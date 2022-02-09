@@ -35,6 +35,7 @@ class DataResult(object):
     typeName: str = 'com.sun.star.sheet.DataResult'
     """Literal Constant ``com.sun.star.sheet.DataResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class DataResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Flags(self) -> int:

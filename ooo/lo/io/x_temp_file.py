@@ -50,5 +50,6 @@ class XTempFile(XSeekable_79540954, XStream_678908a4):
         This attribute specifies the URL of the temp file.
         """
 
+
 __all__ = ['XTempFile']
 

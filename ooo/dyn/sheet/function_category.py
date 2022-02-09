@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import FunctionCategory
+    from com.sun.star.sheet import FunctionCategory as FunctionCategory
 else:
     from ...lo.sheet.function_category import FunctionCategory as FunctionCategory
 

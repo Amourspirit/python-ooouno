@@ -37,6 +37,7 @@ class DataPilotFieldAutoShowInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldAutoShowInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldAutoShowInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class DataPilotFieldAutoShowInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def IsEnabled(self) -> bool:

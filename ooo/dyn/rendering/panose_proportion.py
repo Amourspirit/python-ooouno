@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PanoseProportion
+    from com.sun.star.rendering import PanoseProportion as PanoseProportion
 else:
     from ...lo.rendering.panose_proportion import PanoseProportion as PanoseProportion
 

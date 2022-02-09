@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import DataPointGeometry3D
+    from com.sun.star.chart2 import DataPointGeometry3D as DataPointGeometry3D
 else:
     from ...lo.chart2.data_point_geometry3_d import DataPointGeometry3D as DataPointGeometry3D
 

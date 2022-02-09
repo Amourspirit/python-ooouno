@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.deployment import XPackageManagerFactory
+    from com.sun.star.deployment import XPackageManagerFactory as XPackageManagerFactory
     setattr(XPackageManagerFactory, '__ooo_ns__', 'com.sun.star.deployment')
     setattr(XPackageManagerFactory, '__ooo_full_ns__', 'com.sun.star.deployment.XPackageManagerFactory')
     setattr(XPackageManagerFactory, '__ooo_type_name__', 'interface')

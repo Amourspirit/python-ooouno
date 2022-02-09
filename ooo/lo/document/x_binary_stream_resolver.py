@@ -59,5 +59,6 @@ class XBinaryStreamResolver(XInterface_8f010a43):
         converts the output stream, data has been written to, to a URL in source URL namespace.
         """
 
+
 __all__ = ['XBinaryStreamResolver']
 

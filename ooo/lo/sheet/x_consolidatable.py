@@ -53,5 +53,6 @@ class XConsolidatable(XInterface_8f010a43):
         creates a consolidation descriptor.
         """
 
+
 __all__ = ['XConsolidatable']
 

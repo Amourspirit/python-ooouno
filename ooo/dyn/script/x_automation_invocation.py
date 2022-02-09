@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XAutomationInvocation
+    from com.sun.star.script import XAutomationInvocation as XAutomationInvocation
     setattr(XAutomationInvocation, '__ooo_ns__', 'com.sun.star.script')
     setattr(XAutomationInvocation, '__ooo_full_ns__', 'com.sun.star.script.XAutomationInvocation')
     setattr(XAutomationInvocation, '__ooo_type_name__', 'interface')

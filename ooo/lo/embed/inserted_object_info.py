@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.embed
 # Libre Office Version: 7.2
 import typing
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
     from .x_embedded_object import XEmbeddedObject as XEmbeddedObject_ddee0cbe
 
 
@@ -39,6 +39,13 @@ class InsertedObjectInfo(object):
     typeName: str = 'com.sun.star.embed.InsertedObjectInfo'
     """Literal Constant ``com.sun.star.embed.InsertedObjectInfo``"""
 
+    Options: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    Container related options selected by user.
+    
+    A dialog related to embedded object creation usually allows user to make some choices that can be container related. This information can be provided by this member.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,12 +58,10 @@ class InsertedObjectInfo(object):
 
         Keyword Arguments:
             Object (XEmbeddedObject, optional): Object value
-            Options (Tuple[NamedValue, ...], optional): Options value
         """
         self._object = None
-        self._options = None
 
-        key_order = ('Object', 'Options')
+        key_order = ('Object',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], InsertedObjectInfo):
@@ -73,7 +78,6 @@ class InsertedObjectInfo(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Object(self) -> 'XEmbeddedObject_ddee0cbe':
         """
@@ -84,19 +88,6 @@ class InsertedObjectInfo(object):
     @Object.setter
     def Object(self, value: 'XEmbeddedObject_ddee0cbe') -> None:
         self._object = value
-
-    @property
-    def Options(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        Container related options selected by user.
-        
-        A dialog related to embedded object creation usually allows user to make some choices that can be container related. This information can be provided by this member.
-        """
-        return self._options
-    
-    @Options.setter
-    def Options(self, value: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
-        self._options = value
 
 
 __all__ = ['InsertedObjectInfo']

@@ -41,6 +41,7 @@ class Verb(object):
     typeName: str = 'com.sun.star.frame.status.Verb'
     """Literal Constant ``com.sun.star.frame.status.Verb``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class Verb(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def VerbId(self) -> int:

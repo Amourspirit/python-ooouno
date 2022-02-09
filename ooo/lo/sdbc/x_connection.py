@@ -237,5 +237,6 @@ class XConnection(XCloseable_98290a86):
             SQLException: ``SQLException``
         """
 
+
 __all__ = ['XConnection']
 

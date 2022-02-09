@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XModeChangeBroadcaster
+    from com.sun.star.util import XModeChangeBroadcaster as XModeChangeBroadcaster
     setattr(XModeChangeBroadcaster, '__ooo_ns__', 'com.sun.star.util')
     setattr(XModeChangeBroadcaster, '__ooo_full_ns__', 'com.sun.star.util.XModeChangeBroadcaster')
     setattr(XModeChangeBroadcaster, '__ooo_type_name__', 'interface')

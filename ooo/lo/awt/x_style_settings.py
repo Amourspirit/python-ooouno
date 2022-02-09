@@ -309,5 +309,6 @@ class XStyleSettings(ABC):
         specifies the background color to use for document workspaces
         """
 
+
 __all__ = ['XStyleSettings']
 

@@ -67,5 +67,6 @@ class XSheetCellRangeContainer(XSheetCellRanges_edef0d52):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
+
 __all__ = ['XSheetCellRangeContainer']
 

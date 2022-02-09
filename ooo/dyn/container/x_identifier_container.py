@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.container import XIdentifierContainer
+    from com.sun.star.container import XIdentifierContainer as XIdentifierContainer
     setattr(XIdentifierContainer, '__ooo_ns__', 'com.sun.star.container')
     setattr(XIdentifierContainer, '__ooo_full_ns__', 'com.sun.star.container.XIdentifierContainer')
     setattr(XIdentifierContainer, '__ooo_type_name__', 'interface')

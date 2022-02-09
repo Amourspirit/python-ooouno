@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XSlidePreviewCache
+    from com.sun.star.drawing import XSlidePreviewCache as XSlidePreviewCache
     setattr(XSlidePreviewCache, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XSlidePreviewCache, '__ooo_full_ns__', 'com.sun.star.drawing.XSlidePreviewCache')
     setattr(XSlidePreviewCache, '__ooo_type_name__', 'interface')

@@ -55,5 +55,6 @@ class XDeleteListener(XEventListener_c7230c4a):
         is invoked when a database form has finished the delete processing and the data has been successfully deleted from the datasource.
         """
 
+
 __all__ = ['XDeleteListener']
 

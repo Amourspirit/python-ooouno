@@ -78,5 +78,6 @@ class XAnnotation(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         gives access to the annotations text.
         """
 
+
 __all__ = ['XAnnotation']
 

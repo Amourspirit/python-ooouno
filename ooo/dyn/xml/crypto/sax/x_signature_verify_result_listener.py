@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto.sax import XSignatureVerifyResultListener
+    from com.sun.star.xml.crypto.sax import XSignatureVerifyResultListener as XSignatureVerifyResultListener
     setattr(XSignatureVerifyResultListener, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XSignatureVerifyResultListener, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XSignatureVerifyResultListener')
     setattr(XSignatureVerifyResultListener, '__ooo_type_name__', 'interface')

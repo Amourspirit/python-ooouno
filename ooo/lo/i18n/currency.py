@@ -35,6 +35,7 @@ class Currency(object):
     typeName: str = 'com.sun.star.i18n.Currency'
     """Literal Constant ``com.sun.star.i18n.Currency``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class Currency(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ID(self) -> str:

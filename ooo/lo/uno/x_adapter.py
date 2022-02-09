@@ -56,5 +56,6 @@ class XAdapter(XInterface_8f010a43):
         removes a reference from the adapter.
         """
 
+
 __all__ = ['XAdapter']
 

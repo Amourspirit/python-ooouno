@@ -40,6 +40,7 @@ class BorderLine2(BorderLine_a3f80af6):
     typeName: str = 'com.sun.star.table.BorderLine2'
     """Literal Constant ``com.sun.star.table.BorderLine2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class BorderLine2(BorderLine_a3f80af6):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def LineStyle(self) -> int:

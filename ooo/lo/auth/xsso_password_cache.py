@@ -71,5 +71,6 @@ class XSSOPasswordCache(XInterface_8f010a43):
             PersistenceFailureException: ``PersistenceFailureException``
         """
 
+
 __all__ = ['XSSOPasswordCache']
 

@@ -53,5 +53,6 @@ class XSingletonTypeDescription2(XSingletonTypeDescription_db781364):
         Returns whether this object reflects an interface-based singleton.
         """
 
+
 __all__ = ['XSingletonTypeDescription2']
 

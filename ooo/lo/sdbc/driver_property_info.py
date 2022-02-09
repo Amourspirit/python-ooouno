@@ -38,6 +38,11 @@ class DriverPropertyInfo(object):
     typeName: str = 'com.sun.star.sdbc.DriverPropertyInfo'
     """Literal Constant ``com.sun.star.sdbc.DriverPropertyInfo``"""
 
+    Choices: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains a sequence of possible values if the value for the field DriverPropertyInfo.value may be selected from a particular set of values; otherwise empty.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -53,15 +58,13 @@ class DriverPropertyInfo(object):
             Description (str, optional): Description value
             IsRequired (bool, optional): IsRequired value
             Value (str, optional): Value value
-            Choices (Tuple[str, ...], optional): Choices value
         """
         self._name = None
         self._description = None
         self._is_required = None
         self._value = None
-        self._choices = None
 
-        key_order = ('Name', 'Description', 'IsRequired', 'Value', 'Choices')
+        key_order = ('Name', 'Description', 'IsRequired', 'Value')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], DriverPropertyInfo):
@@ -77,7 +80,6 @@ class DriverPropertyInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:
@@ -124,17 +126,6 @@ class DriverPropertyInfo(object):
     @Value.setter
     def Value(self, value: str) -> None:
         self._value = value
-
-    @property
-    def Choices(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains a sequence of possible values if the value for the field DriverPropertyInfo.value may be selected from a particular set of values; otherwise empty.
-        """
-        return self._choices
-    
-    @Choices.setter
-    def Choices(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._choices = value
 
 
 __all__ = ['DriverPropertyInfo']

@@ -37,6 +37,7 @@ class RuleTerm(object):
     typeName: str = 'com.sun.star.ucb.RuleTerm'
     """Literal Constant ``com.sun.star.ucb.RuleTerm``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class RuleTerm(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Property(self) -> str:

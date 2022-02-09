@@ -55,5 +55,6 @@ class XEmbeddedObjectSupplier2(XEmbeddedObjectSupplier_8b631174):
         allows to get the replacement image of the object.
         """
 
+
 __all__ = ['XEmbeddedObjectSupplier2']
 

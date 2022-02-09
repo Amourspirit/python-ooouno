@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('nErrorStart', 'nErrorLength', 'nErrorType', 'aRuleIdentifier', 'aShortComment', 'aFullComment', 'aSuggestions', 'aProperties')
+            key_order = ('nErrorStart', 'nErrorLength', 'nErrorType', 'aRuleIdentifier', 'aShortComment', 'aFullComment')
             struct = uno.createUnoStruct('com.sun.star.linguistic2.SingleProofreadingError')
             if arg_len > len(key_order):
                 raise ValueError("SingleProofreadingError.__init__() To many parameters")

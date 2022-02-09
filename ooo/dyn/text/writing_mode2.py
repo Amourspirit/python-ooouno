@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import WritingMode2
+    from com.sun.star.text import WritingMode2 as WritingMode2
 else:
     from ...lo.text.writing_mode2 import WritingMode2 as WritingMode2
 

@@ -64,5 +64,6 @@ class XOfficeInstallationDirectories(XInterface_8f010a43):
         If the given URL contains an absolute reference to the current office installation directory or office user data directory, this method will replace the absolute reference by an opaque placeholder string. makeRelocatableURL must be used in order to re-replace the placeholder by an absolute reference.
         """
 
+
 __all__ = ['XOfficeInstallationDirectories']
 

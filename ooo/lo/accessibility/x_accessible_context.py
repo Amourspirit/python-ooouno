@@ -124,5 +124,6 @@ class XAccessibleContext(XInterface_8f010a43):
             IllegalAccessibleComponentStateException: ``IllegalAccessibleComponentStateException``
         """
 
+
 __all__ = ['XAccessibleContext']
 

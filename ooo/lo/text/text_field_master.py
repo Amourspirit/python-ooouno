@@ -21,8 +21,7 @@
 import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
-if typing.TYPE_CHECKING:
-    from .x_dependent_text_field import XDependentTextField as XDependentTextField_c3d0e45
+from .x_dependent_text_field import XDependentTextField as XDependentTextField_c3d0e45
 
 class TextFieldMaster(XPropertySet_bc180bfa):
     """
@@ -37,6 +36,11 @@ class TextFieldMaster(XPropertySet_bc180bfa):
     __ooo_full_ns__: str = 'com.sun.star.text.TextFieldMaster'
     __ooo_type_name__: str = 'service'
 
+    DependentTextFields: typing.TypeAlias = typing.Tuple[XDependentTextField_c3d0e45, ...]
+    """
+    contains a sequence of all fields that depend on this master.
+    """
+
     @abstractproperty
     def InstanceName(self) -> str:
         """
@@ -48,11 +52,6 @@ class TextFieldMaster(XPropertySet_bc180bfa):
         determines the name of the field master.
         
         The name is void as long as the instance is not member of the document structure. When the value is being set the instance is inserted into the document and the name cannot be changed afterwards. That does not apply to the Database text field master.
-        """
-    @abstractproperty
-    def DependentTextFields(self) -> 'typing.Tuple[XDependentTextField_c3d0e45, ...]':
-        """
-        contains a sequence of all fields that depend on this master.
         """
 
 __all__ = ['TextFieldMaster']

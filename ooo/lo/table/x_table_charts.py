@@ -48,5 +48,6 @@ class XTableCharts(XNameAccess_e2ab0cf6):
         removes a chart from the collection.
         """
 
+
 __all__ = ['XTableCharts']
 

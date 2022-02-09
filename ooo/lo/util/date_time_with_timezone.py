@@ -42,6 +42,7 @@ class DateTimeWithTimezone(object):
     typeName: str = 'com.sun.star.util.DateTimeWithTimezone'
     """Literal Constant ``com.sun.star.util.DateTimeWithTimezone``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class DateTimeWithTimezone(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def DateTimeInTZ(self) -> 'DateTime_84de09d3':

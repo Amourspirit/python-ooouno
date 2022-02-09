@@ -41,6 +41,7 @@ class Locale(object):
     typeName: str = 'com.sun.star.lang.Locale'
     """Literal Constant ``com.sun.star.lang.Locale``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class Locale(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Language(self) -> str:

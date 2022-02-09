@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XLinkageSupport
+    from com.sun.star.embed import XLinkageSupport as XLinkageSupport
     setattr(XLinkageSupport, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XLinkageSupport, '__ooo_full_ns__', 'com.sun.star.embed.XLinkageSupport')
     setattr(XLinkageSupport, '__ooo_type_name__', 'interface')

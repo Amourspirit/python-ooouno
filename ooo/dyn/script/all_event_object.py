@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Helper', 'ListenerType', 'MethodName', 'Arguments')
+            key_order = ('Helper', 'ListenerType', 'MethodName')
             struct = uno.createUnoStruct('com.sun.star.script.AllEventObject')
             if arg_len > len(key_order):
                 raise ValueError("AllEventObject.__init__() To many parameters")

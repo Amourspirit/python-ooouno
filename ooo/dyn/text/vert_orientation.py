@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import VertOrientation
+    from com.sun.star.text import VertOrientation as VertOrientation
 else:
     from ...lo.text.vert_orientation import VertOrientation as VertOrientation
 

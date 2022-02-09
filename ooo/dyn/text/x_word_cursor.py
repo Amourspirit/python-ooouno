@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XWordCursor
+    from com.sun.star.text import XWordCursor as XWordCursor
     setattr(XWordCursor, '__ooo_ns__', 'com.sun.star.text')
     setattr(XWordCursor, '__ooo_full_ns__', 'com.sun.star.text.XWordCursor')
     setattr(XWordCursor, '__ooo_type_name__', 'interface')

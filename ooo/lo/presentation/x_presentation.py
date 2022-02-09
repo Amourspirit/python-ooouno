@@ -49,5 +49,6 @@ class XPresentation(XInterface_8f010a43):
         The presentation is shown in full-screen and started from the beginning.
         """
 
+
 __all__ = ['XPresentation']
 

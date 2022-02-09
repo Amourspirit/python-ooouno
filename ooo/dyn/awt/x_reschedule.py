@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XReschedule
+    from com.sun.star.awt import XReschedule as XReschedule
     setattr(XReschedule, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XReschedule, '__ooo_full_ns__', 'com.sun.star.awt.XReschedule')
     setattr(XReschedule, '__ooo_type_name__', 'interface')

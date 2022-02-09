@@ -42,5 +42,6 @@ class XUsersSupplier(XInterface_8f010a43):
         returns the container of users.
         """
 
+
 __all__ = ['XUsersSupplier']
 

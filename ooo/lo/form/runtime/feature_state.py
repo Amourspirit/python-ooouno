@@ -39,6 +39,7 @@ class FeatureState(object):
     typeName: str = 'com.sun.star.form.runtime.FeatureState'
     """Literal Constant ``com.sun.star.form.runtime.FeatureState``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class FeatureState(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Enabled(self) -> bool:

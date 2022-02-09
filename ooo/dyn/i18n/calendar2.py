@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name', 'Days', 'Months', 'GenitiveMonths', 'PartitiveMonths', 'Eras')
+            key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name')
             struct = uno.createUnoStruct('com.sun.star.i18n.Calendar2')
             if arg_len > len(key_order):
                 raise ValueError("Calendar2.__init__() To many parameters")

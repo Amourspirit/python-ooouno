@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Connection', 'Field', 'Operator', 'Values')
+            key_order = ('Connection', 'Field', 'Operator')
             struct = uno.createUnoStruct('com.sun.star.sheet.TableFilterField3')
             if arg_len > len(key_order):
                 raise ValueError("TableFilterField3.__init__() To many parameters")

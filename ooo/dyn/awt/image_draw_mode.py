@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import ImageDrawMode
+    from com.sun.star.awt import ImageDrawMode as ImageDrawMode
 else:
     from ...lo.awt.image_draw_mode import ImageDrawMode as ImageDrawMode
 

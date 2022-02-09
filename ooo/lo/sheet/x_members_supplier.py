@@ -42,5 +42,6 @@ class XMembersSupplier(XInterface_8f010a43):
         returns the collection of members.
         """
 
+
 __all__ = ['XMembersSupplier']
 

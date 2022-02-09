@@ -50,5 +50,6 @@ class XDateCategories(ABC):
         sets dates as categories
         """
 
+
 __all__ = ['XDateCategories']
 

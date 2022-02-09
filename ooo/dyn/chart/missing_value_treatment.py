@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import MissingValueTreatment
+    from com.sun.star.chart import MissingValueTreatment as MissingValueTreatment
 else:
     from ...lo.chart.missing_value_treatment import MissingValueTreatment as MissingValueTreatment
 

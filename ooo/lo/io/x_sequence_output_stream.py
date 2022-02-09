@@ -44,5 +44,6 @@ class XSequenceOutputStream(XOutputStream_a4e00b35):
             com.sun.star.io.IOException: ``IOException``
         """
 
+
 __all__ = ['XSequenceOutputStream']
 

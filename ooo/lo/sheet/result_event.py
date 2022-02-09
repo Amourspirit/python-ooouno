@@ -36,6 +36,7 @@ class ResultEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sheet.ResultEvent'
     """Literal Constant ``com.sun.star.sheet.ResultEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -67,7 +68,6 @@ class ResultEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Value(self) -> object:

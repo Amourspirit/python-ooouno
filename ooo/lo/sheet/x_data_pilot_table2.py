@@ -45,7 +45,7 @@ class XDataPilotTable2(XDataPilotTable_e0530ce3):
     __pyunointerface__: str = 'com.sun.star.sheet.XDataPilotTable2'
 
     @abstractmethod
-    def getDrillDownData(self, aAddr: 'CellAddress_ae5f0b56') -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getDrillDownData(self, aAddr: 'CellAddress_ae5f0b56') -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         When the address of a cell within the result area is given, XDataPilotTable2.getDrillDownData() returns its drill-down output table that includes only those rows that contribute to the value of that cell.
         """
@@ -71,6 +71,7 @@ class XDataPilotTable2(XDataPilotTable_e0530ce3):
         
         The new sheet is always inserted to the immediate left of the current sheet where the DataPilot table is. Note that when the drill-down data is empty, no new sheet is inserted.
         """
+
 
 __all__ = ['XDataPilotTable2']
 

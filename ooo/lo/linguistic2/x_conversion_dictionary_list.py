@@ -88,5 +88,6 @@ class XConversionDictionaryList(XInterface_8f010a43):
         The parameter eDirection specifies if only the left text or the right text from entries should be considered.
         """
 
+
 __all__ = ['XConversionDictionaryList']
 

@@ -41,6 +41,7 @@ class FillBitmap(object):
     typeName: str = 'com.sun.star.chart2.FillBitmap'
     """Literal Constant ``com.sun.star.chart2.FillBitmap``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class FillBitmap(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aURL(self) -> str:

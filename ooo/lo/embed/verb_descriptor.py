@@ -35,6 +35,7 @@ class VerbDescriptor(object):
     typeName: str = 'com.sun.star.embed.VerbDescriptor'
     """Literal Constant ``com.sun.star.embed.VerbDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class VerbDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def VerbID(self) -> int:

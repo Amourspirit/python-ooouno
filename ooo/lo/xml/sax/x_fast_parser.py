@@ -101,7 +101,7 @@ class XFastParser(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def setCustomEntityNames(self, replacements: 'typing.Tuple[typing.Tuple[str, str]]') -> None:
+    def setCustomEntityNames(self, replacements: 'typing.Tuple[typing.Tuple[str, str], ...]') -> None:
         """
         Simulate a DTD file.
         
@@ -144,6 +144,7 @@ class XFastParser(XInterface_8f010a43):
         """
         must be registered to translate known XML names to integer tokens.
         """
+
 
 __all__ = ['XFastParser']
 

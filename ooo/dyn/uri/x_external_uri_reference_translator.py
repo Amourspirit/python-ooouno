@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.uri import XExternalUriReferenceTranslator
+    from com.sun.star.uri import XExternalUriReferenceTranslator as XExternalUriReferenceTranslator
     setattr(XExternalUriReferenceTranslator, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XExternalUriReferenceTranslator, '__ooo_full_ns__', 'com.sun.star.uri.XExternalUriReferenceTranslator')
     setattr(XExternalUriReferenceTranslator, '__ooo_type_name__', 'interface')

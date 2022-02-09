@@ -44,5 +44,6 @@ class XTableColumns(XIndexAccess_f0910d6d):
         deletes columns.
         """
 
+
 __all__ = ['XTableColumns']
 

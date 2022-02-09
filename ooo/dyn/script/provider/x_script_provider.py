@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.provider import XScriptProvider
+    from com.sun.star.script.provider import XScriptProvider as XScriptProvider
     setattr(XScriptProvider, '__ooo_ns__', 'com.sun.star.script.provider')
     setattr(XScriptProvider, '__ooo_full_ns__', 'com.sun.star.script.provider.XScriptProvider')
     setattr(XScriptProvider, '__ooo_type_name__', 'interface')

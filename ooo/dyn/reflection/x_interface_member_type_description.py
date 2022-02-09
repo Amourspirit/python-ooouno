@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.reflection import XInterfaceMemberTypeDescription
+    from com.sun.star.reflection import XInterfaceMemberTypeDescription as XInterfaceMemberTypeDescription
     setattr(XInterfaceMemberTypeDescription, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XInterfaceMemberTypeDescription, '__ooo_full_ns__', 'com.sun.star.reflection.XInterfaceMemberTypeDescription')
     setattr(XInterfaceMemberTypeDescription, '__ooo_type_name__', 'interface')

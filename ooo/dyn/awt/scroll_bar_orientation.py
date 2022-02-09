@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import ScrollBarOrientation
+    from com.sun.star.awt import ScrollBarOrientation as ScrollBarOrientation
 else:
     from ...lo.awt.scroll_bar_orientation import ScrollBarOrientation as ScrollBarOrientation
 

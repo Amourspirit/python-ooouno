@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('ProtocolType', 'Value')
+            key_order = ('ProtocolType',)
             struct = uno.createUnoStruct('com.sun.star.ucb.SendMediaTypes')
             if arg_len > len(key_order):
                 raise ValueError("SendMediaTypes.__init__() To many parameters")

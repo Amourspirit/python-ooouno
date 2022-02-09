@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xsd import WhiteSpaceTreatment
+    from com.sun.star.xsd import WhiteSpaceTreatment as WhiteSpaceTreatment
 else:
     from ...lo.xsd.white_space_treatment import WhiteSpaceTreatment as WhiteSpaceTreatment
 

@@ -84,5 +84,6 @@ class XTextTableCursor(XInterface_8f010a43):
         splits the range of cells.
         """
 
+
 __all__ = ['XTextTableCursor']
 

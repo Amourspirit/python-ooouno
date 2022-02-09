@@ -35,5 +35,6 @@ class XSubmission(XPropertySet_bc180bfa, XNamed_a6520b08, XSubmission_3cfd0fba):
     __pyunointerface__: str = 'com.sun.star.xforms.XSubmission'
 
 
+
 __all__ = ['XSubmission']
 

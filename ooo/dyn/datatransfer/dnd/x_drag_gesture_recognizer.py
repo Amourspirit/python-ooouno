@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import XDragGestureRecognizer
+    from com.sun.star.datatransfer.dnd import XDragGestureRecognizer as XDragGestureRecognizer
     setattr(XDragGestureRecognizer, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
     setattr(XDragGestureRecognizer, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDragGestureRecognizer')
     setattr(XDragGestureRecognizer, '__ooo_type_name__', 'interface')

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import FormComponentType
+    from com.sun.star.form import FormComponentType as FormComponentType
 else:
     from ...lo.form.form_component_type import FormComponentType as FormComponentType
 

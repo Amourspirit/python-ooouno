@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XTopWindow
+    from com.sun.star.awt import XTopWindow as XTopWindow
     setattr(XTopWindow, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XTopWindow, '__ooo_full_ns__', 'com.sun.star.awt.XTopWindow')
     setattr(XTopWindow, '__ooo_type_name__', 'interface')

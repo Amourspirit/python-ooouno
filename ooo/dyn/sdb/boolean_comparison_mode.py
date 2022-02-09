@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import BooleanComparisonMode
+    from com.sun.star.sdb import BooleanComparisonMode as BooleanComparisonMode
 else:
     from ...lo.sdb.boolean_comparison_mode import BooleanComparisonMode as BooleanComparisonMode
 

@@ -21,6 +21,7 @@
 import typing
 from abc import abstractproperty
 from ..beans.property_set import PropertySet as PropertySet_b0e70ba2
+from .x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField_94771167
 from ..drawing.fill_properties import FillProperties as FillProperties_f1200da8
 if typing.TYPE_CHECKING:
     from ..awt.gradient import Gradient as Gradient_7a8a0982
@@ -29,7 +30,6 @@ if typing.TYPE_CHECKING:
     from .data_point_label import DataPointLabel as DataPointLabel_dd530cb0
     from .relative_position import RelativePosition as RelativePosition_fae10ddd
     from .symbol import Symbol as Symbol_83c109c2
-    from .x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField_94771167
     from ..drawing.bitmap_mode import BitmapMode as BitmapMode_bced0bd6
     from ..drawing.fill_style import FillStyle as FillStyle_b1460b8c
     from ..drawing.hatch import Hatch as Hatch_859b09dc
@@ -52,6 +52,15 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
     __ooo_ns__: str = 'com.sun.star.chart2'
     __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointProperties'
     __ooo_type_name__: str = 'service'
+
+    CustomLabelFields: typing.TypeAlias = typing.Tuple[XDataPointCustomLabelField_94771167, ...]
+    """
+    specifies a text with possible fields that is used as a data point label, if set then Label property is ignored
+    
+    **since**
+    
+        LibreOffice 6.1
+    """
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -316,15 +325,6 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
     @abstractproperty
     def TransparencyGradientName(self) -> str:
         """
-        """
-    @abstractproperty
-    def CustomLabelFields(self) -> 'typing.Tuple[XDataPointCustomLabelField_94771167, ...]':
-        """
-        specifies a text with possible fields that is used as a data point label, if set then Label property is ignored
-        
-        **since**
-        
-            LibreOffice 6.1
         """
 
 __all__ = ['DataPointProperties']

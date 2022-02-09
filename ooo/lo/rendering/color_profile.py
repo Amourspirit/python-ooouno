@@ -35,6 +35,7 @@ class ColorProfile(object):
     typeName: str = 'com.sun.star.rendering.ColorProfile'
     """Literal Constant ``com.sun.star.rendering.ColorProfile``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -67,9 +68,10 @@ class ColorProfile(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def dummy(self) -> int:
+        """
+        """
         return self._dummy
     
     @dummy.setter

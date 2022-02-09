@@ -60,5 +60,6 @@ class XContent(XInterface_8f010a43):
         removes a listener for content events.
         """
 
+
 __all__ = ['XContent']
 

@@ -37,6 +37,7 @@ class EventListener(object):
     typeName: str = 'com.sun.star.script.EventListener'
     """Literal Constant ``com.sun.star.script.EventListener``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,9 +78,10 @@ class EventListener(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def AllListener(self) -> 'XAllListener_c91b0c54':
+        """
+        """
         return self._all_listener
     
     @AllListener.setter
@@ -88,6 +90,8 @@ class EventListener(object):
 
     @property
     def Helper(self) -> object:
+        """
+        """
         return self._helper
     
     @Helper.setter
@@ -96,6 +100,8 @@ class EventListener(object):
 
     @property
     def ListenerType(self) -> str:
+        """
+        """
         return self._listener_type
     
     @ListenerType.setter
@@ -104,6 +110,8 @@ class EventListener(object):
 
     @property
     def AddListenerParam(self) -> str:
+        """
+        """
         return self._add_listener_param
     
     @AddListenerParam.setter
@@ -112,6 +120,8 @@ class EventListener(object):
 
     @property
     def EventMethod(self) -> str:
+        """
+        """
         return self._event_method
     
     @EventMethod.setter

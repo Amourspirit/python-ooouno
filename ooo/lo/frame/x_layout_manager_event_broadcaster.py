@@ -51,5 +51,6 @@ class XLayoutManagerEventBroadcaster(XInterface_8f010a43):
         removes a layout manager event listener from the object's listener list.
         """
 
+
 __all__ = ['XLayoutManagerEventBroadcaster']
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import TextConversionOption
+    from com.sun.star.i18n import TextConversionOption as TextConversionOption
 else:
     from ...lo.i18n.text_conversion_option import TextConversionOption as TextConversionOption
 

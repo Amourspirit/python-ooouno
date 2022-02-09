@@ -61,5 +61,6 @@ class XCachedDynamicResultSetStubFactory(XInterface_8f010a43):
         creates a remote optimizes XDynamicResultSet.
         """
 
+
 __all__ = ['XCachedDynamicResultSetStubFactory']
 

@@ -61,5 +61,6 @@ class XConnectionPointContainer(XInterface_8f010a43):
         terminates a notification previously set up with advise at the container or at the suitable connection point.
         """
 
+
 __all__ = ['XConnectionPointContainer']
 

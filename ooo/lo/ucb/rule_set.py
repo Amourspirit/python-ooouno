@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .rule import Rule as Rule_571307da
+from .rule import Rule as Rule_571307da
 
 
 class RuleSet(object):
@@ -40,6 +39,11 @@ class RuleSet(object):
     typeName: str = 'com.sun.star.ucb.RuleSet'
     """Literal Constant ``com.sun.star.ucb.RuleSet``"""
 
+    Rules: typing.TypeAlias = typing.Tuple[Rule_571307da, ...]
+    """
+    contains a number of rules.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -52,12 +56,10 @@ class RuleSet(object):
 
         Keyword Arguments:
             HandleFolder (bool, optional): HandleFolder value
-            Rules (Tuple[Rule, ...], optional): Rules value
         """
         self._handle_folder = None
-        self._rules = None
 
-        key_order = ('HandleFolder', 'Rules')
+        key_order = ('HandleFolder',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], RuleSet):
@@ -74,7 +76,6 @@ class RuleSet(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def HandleFolder(self) -> bool:
         """
@@ -85,17 +86,6 @@ class RuleSet(object):
     @HandleFolder.setter
     def HandleFolder(self, value: bool) -> None:
         self._handle_folder = value
-
-    @property
-    def Rules(self) -> 'typing.Tuple[Rule_571307da, ...]':
-        """
-        contains a number of rules.
-        """
-        return self._rules
-    
-    @Rules.setter
-    def Rules(self, value: 'typing.Tuple[Rule_571307da, ...]') -> None:
-        self._rules = value
 
 
 __all__ = ['RuleSet']

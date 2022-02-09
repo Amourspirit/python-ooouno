@@ -56,5 +56,6 @@ class XConnectable(XInterface_8f010a43):
         sets the sink of the data flow for this object.
         """
 
+
 __all__ = ['XConnectable']
 

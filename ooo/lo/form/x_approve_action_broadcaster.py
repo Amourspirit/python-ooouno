@@ -49,5 +49,6 @@ class XApproveActionBroadcaster(XInterface_8f010a43):
         removes the specified listener
         """
 
+
 __all__ = ['XApproveActionBroadcaster']
 

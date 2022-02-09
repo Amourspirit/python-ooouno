@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import EmphasisMark
+    from com.sun.star.rendering import EmphasisMark as EmphasisMark
 else:
     from ...lo.rendering.emphasis_mark import EmphasisMark as EmphasisMark
 

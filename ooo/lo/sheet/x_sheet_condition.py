@@ -78,5 +78,6 @@ class XSheetCondition(XInterface_8f010a43):
         sets the position in the document which is used as a base for relative references in the formulas.
         """
 
+
 __all__ = ['XSheetCondition']
 

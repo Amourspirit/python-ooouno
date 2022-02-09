@@ -52,5 +52,6 @@ class XAnimation(ABC):
         stops the animation
         """
 
+
 __all__ = ['XAnimation']
 

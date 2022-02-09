@@ -38,6 +38,11 @@ class ZipEntry(object):
     typeName: str = 'com.sun.star.packages.zip.ZipEntry'
     """Literal Constant ``com.sun.star.packages.zip.ZipEntry``"""
 
+    extra: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    optional extra field data for entry
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -60,7 +65,6 @@ class ZipEntry(object):
             nDiskNumber (int, optional): nDiskNumber value
             sName (str, optional): sName value
             sComment (str, optional): sComment value
-            extra (Tuple[int, ...], optional): extra value
         """
         self._n_version = None
         self._n_flag = None
@@ -73,9 +77,8 @@ class ZipEntry(object):
         self._n_disk_number = None
         self._s_name = None
         self._s_comment = None
-        self._extra = None
 
-        key_order = ('nVersion', 'nFlag', 'nMethod', 'nTime', 'nCrc', 'nCompressedSize', 'nSize', 'nOffset', 'nDiskNumber', 'sName', 'sComment', 'extra')
+        key_order = ('nVersion', 'nFlag', 'nMethod', 'nTime', 'nCrc', 'nCompressedSize', 'nSize', 'nOffset', 'nDiskNumber', 'sName', 'sComment')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ZipEntry):
@@ -91,7 +94,6 @@ class ZipEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def nVersion(self) -> int:
@@ -213,17 +215,6 @@ class ZipEntry(object):
     @sComment.setter
     def sComment(self, value: str) -> None:
         self._s_comment = value
-
-    @property
-    def extra(self) -> 'typing.Tuple[int, ...]':
-        """
-        optional extra field data for entry
-        """
-        return self._extra
-    
-    @extra.setter
-    def extra(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._extra = value
 
 
 __all__ = ['ZipEntry']

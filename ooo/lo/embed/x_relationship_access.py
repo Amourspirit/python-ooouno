@@ -47,7 +47,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
         """
     @abstractmethod
-    def getAllRelationships(self) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...]]':
+    def getAllRelationships(self) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]':
         """
         retrieves the sequence containing all the entries controlled by the object.
 
@@ -64,7 +64,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
         """
     @abstractmethod
-    def getRelationshipsByType(self, sType: str) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...]]':
+    def getRelationshipsByType(self, sType: str) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]':
         """
         retrieves the sequence containing all the entries which \"Type\" tag takes the specified value.
 
@@ -111,7 +111,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
         """
     @abstractmethod
-    def insertRelationships(self, aEntries: 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...]]', bReplace: bool) -> None:
+    def insertRelationships(self, aEntries: 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]', bReplace: bool) -> None:
         """
         allows to insert a set of entries
 
@@ -128,6 +128,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.io.IOException: ``IOException``
         """
+
 
 __all__ = ['XRelationshipAccess']
 

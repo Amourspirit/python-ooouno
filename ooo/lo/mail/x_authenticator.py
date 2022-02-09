@@ -50,5 +50,6 @@ class XAuthenticator(XInterface_8f010a43):
         Will be called when the user name is needed.
         """
 
+
 __all__ = ['XAuthenticator']
 

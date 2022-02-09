@@ -68,5 +68,6 @@ class XReportControlModel(XContainer_d6fb0cc6, XIndexContainer_1c040ebe, XReport
         The default value is TRUE.
         """
 
+
 __all__ = ['XReportControlModel']
 

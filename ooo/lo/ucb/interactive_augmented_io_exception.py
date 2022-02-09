@@ -38,7 +38,7 @@ class InteractiveAugmentedIOException(InteractiveIOException_27a60f07):
     typeName: str = 'com.sun.star.ucb.InteractiveAugmentedIOException'
     """Literal Constant ``com.sun.star.ucb.InteractiveAugmentedIOException``"""
 
-    Arguments: 'typing.Tuple[object, ...]' = None
+    Arguments: typing.TypeAlias = typing.Tuple[object, ...]
     """
     Additional arguments.
     

@@ -59,5 +59,6 @@ class XMetadatable(XURI_5682078c):
         Note that this metadata reference must be unique for the ODF document. This implies that the XML ID part must be unique for every stream. A pair of two empty strings signifies \"no metadata reference\". For example: Pair(\"content.xml\", \"foo-element-1\")
         """
 
+
 __all__ = ['XMetadatable']
 

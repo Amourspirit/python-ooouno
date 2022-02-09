@@ -35,6 +35,7 @@ class FolderListEntry(object):
     typeName: str = 'com.sun.star.ucb.FolderListEntry'
     """Literal Constant ``com.sun.star.ucb.FolderListEntry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class FolderListEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Title(self) -> str:

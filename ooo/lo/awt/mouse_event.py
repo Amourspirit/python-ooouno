@@ -38,6 +38,7 @@ class MouseEvent(InputEvent_8f520a66):
     typeName: str = 'com.sun.star.awt.MouseEvent'
     """Literal Constant ``com.sun.star.awt.MouseEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class MouseEvent(InputEvent_8f520a66):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Buttons(self) -> int:

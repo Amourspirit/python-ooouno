@@ -40,5 +40,6 @@ class XModuleController(ABC):
         When the specified resource is requested for the first time then create a new instance of the associated factory service.
         """
 
+
 __all__ = ['XModuleController']
 

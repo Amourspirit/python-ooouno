@@ -38,6 +38,7 @@ class URL(object):
     typeName: str = 'com.sun.star.util.URL'
     """Literal Constant ``com.sun.star.util.URL``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -89,7 +90,6 @@ class URL(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Complete(self) -> str:

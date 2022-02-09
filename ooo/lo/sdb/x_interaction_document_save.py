@@ -48,5 +48,6 @@ class XInteractionDocumentSave(XInteractionContinuation_5af0108e):
         set the document name chosen by the interaction handler
         """
 
+
 __all__ = ['XInteractionDocumentSave']
 

@@ -41,6 +41,7 @@ class NSSProfile(object):
     typeName: str = 'com.sun.star.xml.crypto.NSSProfile'
     """Literal Constant ``com.sun.star.xml.crypto.NSSProfile``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class NSSProfile(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

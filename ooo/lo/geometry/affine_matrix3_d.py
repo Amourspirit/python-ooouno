@@ -49,6 +49,7 @@ class AffineMatrix3D(object):
     typeName: str = 'com.sun.star.geometry.AffineMatrix3D'
     """Literal Constant ``com.sun.star.geometry.AffineMatrix3D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -102,7 +103,6 @@ class AffineMatrix3D(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def m00(self) -> float:

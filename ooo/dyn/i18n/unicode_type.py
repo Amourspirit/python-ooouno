@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import UnicodeType
+    from com.sun.star.i18n import UnicodeType as UnicodeType
 else:
     from ...lo.i18n.unicode_type import UnicodeType as UnicodeType
 

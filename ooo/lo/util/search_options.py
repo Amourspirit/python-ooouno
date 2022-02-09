@@ -38,6 +38,7 @@ class SearchOptions(object):
     typeName: str = 'com.sun.star.util.SearchOptions'
     """Literal Constant ``com.sun.star.util.SearchOptions``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -85,7 +86,6 @@ class SearchOptions(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def algorithmType(self) -> 'SearchAlgorithms_e2c00d36':

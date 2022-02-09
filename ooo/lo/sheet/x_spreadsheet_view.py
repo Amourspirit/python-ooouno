@@ -49,5 +49,6 @@ class XSpreadsheetView(XInterface_8f010a43):
         sets the sheet that is shown in the view.
         """
 
+
 __all__ = ['XSpreadsheetView']
 

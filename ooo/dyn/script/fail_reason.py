@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import FailReason
+    from com.sun.star.script import FailReason as FailReason
 else:
     from ...lo.script.fail_reason import FailReason as FailReason
 

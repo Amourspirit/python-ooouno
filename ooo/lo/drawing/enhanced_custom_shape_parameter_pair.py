@@ -38,6 +38,7 @@ class EnhancedCustomShapeParameterPair(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeParameterPair'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeParameterPair``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,9 +73,10 @@ class EnhancedCustomShapeParameterPair(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def First(self) -> 'EnhancedCustomShapeParameter_d6171317':
+        """
+        """
         return self._first
     
     @First.setter
@@ -83,6 +85,8 @@ class EnhancedCustomShapeParameterPair(object):
 
     @property
     def Second(self) -> 'EnhancedCustomShapeParameter_d6171317':
+        """
+        """
         return self._second
     
     @Second.setter

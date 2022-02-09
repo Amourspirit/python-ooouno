@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XDataDefinitionSupplier
+    from com.sun.star.sdbcx import XDataDefinitionSupplier as XDataDefinitionSupplier
     setattr(XDataDefinitionSupplier, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XDataDefinitionSupplier, '__ooo_full_ns__', 'com.sun.star.sdbcx.XDataDefinitionSupplier')
     setattr(XDataDefinitionSupplier, '__ooo_type_name__', 'interface')

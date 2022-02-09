@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XTextTableCursor
+    from com.sun.star.text import XTextTableCursor as XTextTableCursor
     setattr(XTextTableCursor, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextTableCursor, '__ooo_full_ns__', 'com.sun.star.text.XTextTableCursor')
     setattr(XTextTableCursor, '__ooo_type_name__', 'interface')

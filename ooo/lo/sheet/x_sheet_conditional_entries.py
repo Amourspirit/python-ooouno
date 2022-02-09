@@ -54,5 +54,6 @@ class XSheetConditionalEntries(XIndexAccess_f0910d6d):
         removes a conditional entry from the format.
         """
 
+
 __all__ = ['XSheetConditionalEntries']
 

@@ -62,5 +62,6 @@ class XPane2(ABC):
         If there is more than one window used to implement the pane then it is left to the implementation if one, some, or all windows are hidden or shown as long as the pane becomes hidden or visible.
         """
 
+
 __all__ = ['XPane2']
 

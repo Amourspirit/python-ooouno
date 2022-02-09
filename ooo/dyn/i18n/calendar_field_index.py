@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import CalendarFieldIndex
+    from com.sun.star.i18n import CalendarFieldIndex as CalendarFieldIndex
 else:
     from ...lo.i18n.calendar_field_index import CalendarFieldIndex as CalendarFieldIndex
 

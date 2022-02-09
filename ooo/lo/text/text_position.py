@@ -34,6 +34,7 @@ class TextPosition(object):
     typeName: str = 'com.sun.star.text.TextPosition'
     """Literal Constant ``com.sun.star.text.TextPosition``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,9 +69,10 @@ class TextPosition(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Paragraph(self) -> int:
+        """
+        """
         return self._paragraph
     
     @Paragraph.setter
@@ -79,6 +81,8 @@ class TextPosition(object):
 
     @property
     def PositionInParagraph(self) -> int:
+        """
+        """
         return self._position_in_paragraph
     
     @PositionInParagraph.setter

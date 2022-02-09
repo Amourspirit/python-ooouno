@@ -35,6 +35,7 @@ class DataPilotFieldReference(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldReference'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldReference``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class DataPilotFieldReference(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ReferenceType(self) -> int:

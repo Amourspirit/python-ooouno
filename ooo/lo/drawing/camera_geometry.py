@@ -39,6 +39,7 @@ class CameraGeometry(object):
     typeName: str = 'com.sun.star.drawing.CameraGeometry'
     """Literal Constant ``com.sun.star.drawing.CameraGeometry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class CameraGeometry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def vrp(self) -> 'Position3D_bddc0bc0':

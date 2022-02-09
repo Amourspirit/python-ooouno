@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ParagraphVertAlign
+    from com.sun.star.text import ParagraphVertAlign as ParagraphVertAlign
 else:
     from ...lo.text.paragraph_vert_align import ParagraphVertAlign as ParagraphVertAlign
 

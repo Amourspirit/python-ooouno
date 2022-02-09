@@ -50,5 +50,6 @@ class XShapeGrouper(XInterface_8f010a43):
         ungroups a given GroupShape.
         """
 
+
 __all__ = ['XShapeGrouper']
 

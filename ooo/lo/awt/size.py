@@ -35,6 +35,7 @@ class Size(object):
     typeName: str = 'com.sun.star.awt.Size'
     """Literal Constant ``com.sun.star.awt.Size``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class Size(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Width(self) -> int:

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XCachedContentResultSetFactory
+    from com.sun.star.ucb import XCachedContentResultSetFactory as XCachedContentResultSetFactory
     setattr(XCachedContentResultSetFactory, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XCachedContentResultSetFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XCachedContentResultSetFactory')
     setattr(XCachedContentResultSetFactory, '__ooo_type_name__', 'interface')

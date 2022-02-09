@@ -21,9 +21,9 @@
 import typing
 from abc import abstractmethod, abstractproperty
 from ...beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
+from ...sheet.function_argument import FunctionArgument as FunctionArgument_f1080daa
 if typing.TYPE_CHECKING:
     from .x_function_category import XFunctionCategory as XFunctionCategory_59e21055
-    from ...sheet.function_argument import FunctionArgument as FunctionArgument_f1080daa
 
 class XFunctionDescription(XPropertySet_bc180bfa):
     """
@@ -36,6 +36,11 @@ class XFunctionDescription(XPropertySet_bc180bfa):
     __ooo_full_ns__: str = 'com.sun.star.report.meta.XFunctionDescription'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.report.meta.XFunctionDescription'
+
+    Arguments: typing.TypeAlias = typing.Tuple[FunctionArgument_f1080daa, ...]
+    """
+    returns a sequence of localized descriptions of the function's arguments (in the order specified by the function).
+    """
 
     @abstractmethod
     def createFormula(self, arguments: 'typing.Tuple[str, ...]') -> str:
@@ -66,11 +71,7 @@ class XFunctionDescription(XPropertySet_bc180bfa):
         """
         returns the signature of the function.
         """
-    @abstractproperty
-    def Arguments(self) -> 'typing.Tuple[FunctionArgument_f1080daa, ...]':
-        """
-        returns a sequence of localized descriptions of the function's arguments (in the order specified by the function).
-        """
+
 
 __all__ = ['XFunctionDescription']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XErrorQuery
+    from com.sun.star.script import XErrorQuery as XErrorQuery
     setattr(XErrorQuery, '__ooo_ns__', 'com.sun.star.script')
     setattr(XErrorQuery, '__ooo_full_ns__', 'com.sun.star.script.XErrorQuery')
     setattr(XErrorQuery, '__ooo_type_name__', 'interface')

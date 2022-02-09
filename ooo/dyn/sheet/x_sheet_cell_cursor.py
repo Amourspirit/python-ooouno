@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XSheetCellCursor
+    from com.sun.star.sheet import XSheetCellCursor as XSheetCellCursor
     setattr(XSheetCellCursor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetCellCursor, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetCellCursor')
     setattr(XSheetCellCursor, '__ooo_type_name__', 'interface')

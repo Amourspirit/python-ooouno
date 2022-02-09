@@ -99,5 +99,6 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         This is the minimum time, the actual value might be longer due to system load. The default value will be 100 ms.
         """
 
+
 __all__ = ['XAnimatedImages']
 

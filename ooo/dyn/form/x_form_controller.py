@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import XFormController
+    from com.sun.star.form import XFormController as XFormController
     setattr(XFormController, '__ooo_ns__', 'com.sun.star.form')
     setattr(XFormController, '__ooo_full_ns__', 'com.sun.star.form.XFormController')
     setattr(XFormController, '__ooo_type_name__', 'interface')

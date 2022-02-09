@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import RowChangeAction
+    from com.sun.star.sdb import RowChangeAction as RowChangeAction
 else:
     from ...lo.sdb.row_change_action import RowChangeAction as RowChangeAction
 

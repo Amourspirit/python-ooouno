@@ -38,6 +38,7 @@ class DialogClosedEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.dialogs.DialogClosedEvent'
     """Literal Constant ``com.sun.star.ui.dialogs.DialogClosedEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,9 +71,10 @@ class DialogClosedEvent(EventObject_a3d70b03):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def DialogResult(self) -> int:
+        """
+        """
         return self._dialog_result
     
     @DialogResult.setter

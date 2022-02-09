@@ -59,7 +59,7 @@ class XAtomServer(XInterface_8f010a43):
         returns a whole atom class
         """
     @abstractmethod
-    def getClasses(self, atomClasses: 'typing.Tuple[int, ...]') -> 'typing.Tuple[typing.Tuple[AtomDescription_d6080cdb, ...]]':
+    def getClasses(self, atomClasses: 'typing.Tuple[int, ...]') -> 'typing.Tuple[typing.Tuple[AtomDescription_d6080cdb, ...], ...]':
         """
         returns multiple atom classes
         """
@@ -70,6 +70,7 @@ class XAtomServer(XInterface_8f010a43):
         
         Hint to implementor: using ascending atoms is the easiest way to decide, which atoms are recent.
         """
+
 
 __all__ = ['XAtomServer']
 

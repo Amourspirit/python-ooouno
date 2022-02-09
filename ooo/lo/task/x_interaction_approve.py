@@ -33,5 +33,6 @@ class XInteractionApprove(XInteractionContinuation_5af0108e):
     __pyunointerface__: str = 'com.sun.star.task.XInteractionApprove'
 
 
+
 __all__ = ['XInteractionApprove']
 

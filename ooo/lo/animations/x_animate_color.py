@@ -50,5 +50,6 @@ class XAnimateColor(XAnimate_ca680c52):
         This attribute will be ignored for color spaces where this does not make any sense.
         """
 
+
 __all__ = ['XAnimateColor']
 

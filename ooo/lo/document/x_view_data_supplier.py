@@ -49,5 +49,6 @@ class XViewDataSupplier(XInterface_8f010a43):
         restore all views which will be represented by given data argument
         """
 
+
 __all__ = ['XViewDataSupplier']
 

@@ -83,5 +83,6 @@ class XFont(XInterface_8f010a43):
         * ``aDXArray`` is an out direction argument.
         """
 
+
 __all__ = ['XFont']
 

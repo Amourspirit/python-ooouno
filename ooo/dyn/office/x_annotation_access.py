@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.office import XAnnotationAccess
+    from com.sun.star.office import XAnnotationAccess as XAnnotationAccess
     setattr(XAnnotationAccess, '__ooo_ns__', 'com.sun.star.office')
     setattr(XAnnotationAccess, '__ooo_full_ns__', 'com.sun.star.office.XAnnotationAccess')
     setattr(XAnnotationAccess, '__ooo_type_name__', 'interface')

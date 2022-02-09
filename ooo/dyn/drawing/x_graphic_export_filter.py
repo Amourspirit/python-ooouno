@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XGraphicExportFilter
+    from com.sun.star.drawing import XGraphicExportFilter as XGraphicExportFilter
     setattr(XGraphicExportFilter, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XGraphicExportFilter, '__ooo_full_ns__', 'com.sun.star.drawing.XGraphicExportFilter')
     setattr(XGraphicExportFilter, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import XWarningsSupplier
+    from com.sun.star.sdbc import XWarningsSupplier as XWarningsSupplier
     setattr(XWarningsSupplier, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XWarningsSupplier, '__ooo_full_ns__', 'com.sun.star.sdbc.XWarningsSupplier')
     setattr(XWarningsSupplier, '__ooo_type_name__', 'interface')

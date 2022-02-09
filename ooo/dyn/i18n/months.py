@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import Months
+    from com.sun.star.i18n import Months as Months
 else:
     from ...lo.i18n.months import Months as Months
 

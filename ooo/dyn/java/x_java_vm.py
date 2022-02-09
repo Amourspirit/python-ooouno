@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.java import XJavaVM
+    from com.sun.star.java import XJavaVM as XJavaVM
     setattr(XJavaVM, '__ooo_ns__', 'com.sun.star.java')
     setattr(XJavaVM, '__ooo_full_ns__', 'com.sun.star.java.XJavaVM')
     setattr(XJavaVM, '__ooo_type_name__', 'interface')

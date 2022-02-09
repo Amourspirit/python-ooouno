@@ -42,6 +42,7 @@ class TableBorder(object):
     typeName: str = 'com.sun.star.table.TableBorder'
     """Literal Constant ``com.sun.star.table.TableBorder``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -99,7 +100,6 @@ class TableBorder(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def TopLine(self) -> 'BorderLine_a3f80af6':

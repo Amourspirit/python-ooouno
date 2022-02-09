@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.sheet.opencl
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .open_cl_device import OpenCLDevice as OpenCLDevice_180d0e41
+from .open_cl_device import OpenCLDevice as OpenCLDevice_180d0e41
 
 
 class OpenCLPlatform(object):
@@ -37,6 +36,10 @@ class OpenCLPlatform(object):
     typeName: str = 'com.sun.star.sheet.opencl.OpenCLPlatform'
     """Literal Constant ``com.sun.star.sheet.opencl.OpenCLPlatform``"""
 
+    Devices: typing.TypeAlias = typing.Tuple[OpenCLDevice_180d0e41, ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -50,13 +53,11 @@ class OpenCLPlatform(object):
         Keyword Arguments:
             Name (str, optional): Name value
             Vendor (str, optional): Vendor value
-            Devices (Tuple[OpenCLDevice, ...], optional): Devices value
         """
         self._name = None
         self._vendor = None
-        self._devices = None
 
-        key_order = ('Name', 'Vendor', 'Devices')
+        key_order = ('Name', 'Vendor')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], OpenCLPlatform):
@@ -73,7 +74,6 @@ class OpenCLPlatform(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Name(self) -> str:
         """
@@ -87,19 +87,13 @@ class OpenCLPlatform(object):
 
     @property
     def Vendor(self) -> str:
+        """
+        """
         return self._vendor
     
     @Vendor.setter
     def Vendor(self, value: str) -> None:
         self._vendor = value
-
-    @property
-    def Devices(self) -> 'typing.Tuple[OpenCLDevice_180d0e41, ...]':
-        return self._devices
-    
-    @Devices.setter
-    def Devices(self, value: 'typing.Tuple[OpenCLDevice_180d0e41, ...]') -> None:
-        self._devices = value
 
 
 __all__ = ['OpenCLPlatform']

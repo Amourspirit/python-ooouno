@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xforms import XFormsUIHelper1
+    from com.sun.star.xforms import XFormsUIHelper1 as XFormsUIHelper1
     setattr(XFormsUIHelper1, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XFormsUIHelper1, '__ooo_full_ns__', 'com.sun.star.xforms.XFormsUIHelper1')
     setattr(XFormsUIHelper1, '__ooo_type_name__', 'interface')

@@ -41,6 +41,7 @@ class ExternalReference(object):
     typeName: str = 'com.sun.star.sheet.ExternalReference'
     """Literal Constant ``com.sun.star.sheet.ExternalReference``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class ExternalReference(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Index(self) -> int:

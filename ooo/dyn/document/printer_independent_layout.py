@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import PrinterIndependentLayout
+    from com.sun.star.document import PrinterIndependentLayout as PrinterIndependentLayout
 else:
     from ...lo.document.printer_independent_layout import PrinterIndependentLayout as PrinterIndependentLayout
 

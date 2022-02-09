@@ -55,5 +55,6 @@ class XGridPeer(XInterface_8f010a43):
         sets the column definition for the peer.
         """
 
+
 __all__ = ['XGridPeer']
 

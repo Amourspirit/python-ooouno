@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import XInputSequenceChecker
+    from com.sun.star.i18n import XInputSequenceChecker as XInputSequenceChecker
     setattr(XInputSequenceChecker, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XInputSequenceChecker, '__ooo_full_ns__', 'com.sun.star.i18n.XInputSequenceChecker')
     setattr(XInputSequenceChecker, '__ooo_type_name__', 'interface')

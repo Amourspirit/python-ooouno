@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import AnimationNodeType
+    from com.sun.star.animations import AnimationNodeType as AnimationNodeType
 else:
     from ...lo.animations.animation_node_type import AnimationNodeType as AnimationNodeType
 

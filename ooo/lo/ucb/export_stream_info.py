@@ -38,6 +38,7 @@ class ExportStreamInfo(object):
     typeName: str = 'com.sun.star.ucb.ExportStreamInfo'
     """Literal Constant ``com.sun.star.ucb.ExportStreamInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ExportStreamInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Target(self) -> 'XOutputStream_a4e00b35':

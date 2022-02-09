@@ -62,5 +62,6 @@ class XNamingService(XInterface_8f010a43):
             Exception: ``Exception``
         """
 
+
 __all__ = ['XNamingService']
 

@@ -38,6 +38,7 @@ class FormulaOpCodeMapEntry(object):
     typeName: str = 'com.sun.star.sheet.FormulaOpCodeMapEntry'
     """Literal Constant ``com.sun.star.sheet.FormulaOpCodeMapEntry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class FormulaOpCodeMapEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

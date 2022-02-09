@@ -42,5 +42,6 @@ class XTruncate(XInterface_8f010a43):
             IOException: ``IOException``
         """
 
+
 __all__ = ['XTruncate']
 

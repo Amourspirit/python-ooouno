@@ -122,5 +122,6 @@ class XStringResourcePersistence(XStringResourceManager_80421142):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XStringResourcePersistence']
 

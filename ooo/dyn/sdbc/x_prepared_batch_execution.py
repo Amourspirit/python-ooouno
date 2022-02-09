@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import XPreparedBatchExecution
+    from com.sun.star.sdbc import XPreparedBatchExecution as XPreparedBatchExecution
     setattr(XPreparedBatchExecution, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XPreparedBatchExecution, '__ooo_full_ns__', 'com.sun.star.sdbc.XPreparedBatchExecution')
     setattr(XPreparedBatchExecution, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XTextLayout
+    from com.sun.star.rendering import XTextLayout as XTextLayout
     setattr(XTextLayout, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XTextLayout, '__ooo_full_ns__', 'com.sun.star.rendering.XTextLayout')
     setattr(XTextLayout, '__ooo_type_name__', 'interface')

@@ -35,6 +35,7 @@ class HomogenMatrixLine3(object):
     typeName: str = 'com.sun.star.drawing.HomogenMatrixLine3'
     """Literal Constant ``com.sun.star.drawing.HomogenMatrixLine3``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,9 +72,10 @@ class HomogenMatrixLine3(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Column1(self) -> float:
+        """
+        """
         return self._column1
     
     @Column1.setter
@@ -82,6 +84,8 @@ class HomogenMatrixLine3(object):
 
     @property
     def Column2(self) -> float:
+        """
+        """
         return self._column2
     
     @Column2.setter
@@ -90,6 +94,8 @@ class HomogenMatrixLine3(object):
 
     @property
     def Column3(self) -> float:
+        """
+        """
         return self._column3
     
     @Column3.setter

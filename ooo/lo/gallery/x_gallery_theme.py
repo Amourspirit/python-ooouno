@@ -86,5 +86,6 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         This method iterates over each item of the Gallery theme and updates it accordingly. Main purpose is to automatically regenerate the thumbnails and to remove invalid items, that is items who have got a URL that has become invalid. This method also optimizes underlying data structures.
         """
 
+
 __all__ = ['XGalleryTheme']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import XPresentation2
+    from com.sun.star.presentation import XPresentation2 as XPresentation2
     setattr(XPresentation2, '__ooo_ns__', 'com.sun.star.presentation')
     setattr(XPresentation2, '__ooo_full_ns__', 'com.sun.star.presentation.XPresentation2')
     setattr(XPresentation2, '__ooo_type_name__', 'interface')

@@ -38,6 +38,7 @@ class VisualRepresentation(object):
     typeName: str = 'com.sun.star.embed.VisualRepresentation'
     """Literal Constant ``com.sun.star.embed.VisualRepresentation``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class VisualRepresentation(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Flavor(self) -> 'DataFlavor_ffd30deb':

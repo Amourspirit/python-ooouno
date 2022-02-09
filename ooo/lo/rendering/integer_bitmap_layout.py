@@ -45,6 +45,7 @@ class IntegerBitmapLayout(object):
     typeName: str = 'com.sun.star.rendering.IntegerBitmapLayout'
     """Literal Constant ``com.sun.star.rendering.IntegerBitmapLayout``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -88,7 +89,6 @@ class IntegerBitmapLayout(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ScanLines(self) -> int:

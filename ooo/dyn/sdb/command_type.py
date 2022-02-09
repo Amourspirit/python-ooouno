@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import CommandType
+    from com.sun.star.sdb import CommandType as CommandType
 else:
     from ...lo.sdb.command_type import CommandType as CommandType
 

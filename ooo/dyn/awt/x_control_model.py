@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XControlModel
+    from com.sun.star.awt import XControlModel as XControlModel
     setattr(XControlModel, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XControlModel, '__ooo_full_ns__', 'com.sun.star.awt.XControlModel')
     setattr(XControlModel, '__ooo_type_name__', 'interface')

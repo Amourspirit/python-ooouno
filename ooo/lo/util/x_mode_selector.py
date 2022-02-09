@@ -56,5 +56,6 @@ class XModeSelector(XInterface_8f010a43):
         asks whether a mode is supported or not.
         """
 
+
 __all__ = ['XModeSelector']
 

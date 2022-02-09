@@ -50,5 +50,6 @@ class XResetListener(XEventListener_c7230c4a):
         is invoked when a component has been reset.
         """
 
+
 __all__ = ['XResetListener']
 

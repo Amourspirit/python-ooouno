@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldLayoutMode
+    from com.sun.star.sheet import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
 else:
     from ...lo.sheet.data_pilot_field_layout_mode import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
 

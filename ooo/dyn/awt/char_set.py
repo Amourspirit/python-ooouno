@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import CharSet
+    from com.sun.star.awt import CharSet as CharSet
 else:
     from ...lo.awt.char_set import CharSet as CharSet
 

@@ -35,6 +35,7 @@ class Link(object):
     typeName: str = 'com.sun.star.ucb.Link'
     """Literal Constant ``com.sun.star.ucb.Link``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class Link(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Source(self) -> str:

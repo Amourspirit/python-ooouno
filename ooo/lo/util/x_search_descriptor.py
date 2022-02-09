@@ -43,5 +43,6 @@ class XSearchDescriptor(XPropertySet_bc180bfa):
         sets the string of characters to look for.
         """
 
+
 __all__ = ['XSearchDescriptor']
 

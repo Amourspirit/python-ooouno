@@ -50,5 +50,6 @@ class XRowsChangeBroadcaster(ABC):
         removes a previously added listener.
         """
 
+
 __all__ = ['XRowsChangeBroadcaster']
 

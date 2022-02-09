@@ -101,5 +101,6 @@ class XCopyTableWizard(XExecutableDialog_450f0fa1):
         This attribute is ignored when the source defines the column names which isn't the case when only a part of a table should be copied e.g. in the RTF format or in the HTML format.
         """
 
+
 __all__ = ['XCopyTableWizard']
 

@@ -55,5 +55,6 @@ class XSpellChecker1(XSupportedLanguages_7dbd112a):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XSpellChecker1']
 

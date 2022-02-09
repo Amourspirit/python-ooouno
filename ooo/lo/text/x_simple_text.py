@@ -65,5 +65,6 @@ class XSimpleText(XTextRange_9a910ab7):
         If the parameter bAbsorb() was TRUE the text range will contain the new inserted string, otherwise the range (and it's text) will remain unchanged.
         """
 
+
 __all__ = ['XSimpleText']
 

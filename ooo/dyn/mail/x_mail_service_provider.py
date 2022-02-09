@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.mail import XMailServiceProvider
+    from com.sun.star.mail import XMailServiceProvider as XMailServiceProvider
     setattr(XMailServiceProvider, '__ooo_ns__', 'com.sun.star.mail')
     setattr(XMailServiceProvider, '__ooo_full_ns__', 'com.sun.star.mail.XMailServiceProvider')
     setattr(XMailServiceProvider, '__ooo_type_name__', 'interface')

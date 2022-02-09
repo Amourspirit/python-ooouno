@@ -49,6 +49,11 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
     __ooo_full_ns__: str = 'com.sun.star.form.component.DatabaseListBox'
     __ooo_type_name__: str = 'service'
 
+    SelectedValues: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    The selected values.
+    """
+
     @abstractproperty
     def BoundColumn(self) -> int:
         """
@@ -69,11 +74,6 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
     def SelectedValue(self) -> object:
         """
         The selected value, if there is at most one.
-        """
-    @abstractproperty
-    def SelectedValues(self) -> 'typing.Tuple[object, ...]':
-        """
-        The selected values.
         """
 
 __all__ = ['DatabaseListBox']

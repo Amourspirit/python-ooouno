@@ -69,5 +69,6 @@ class XRangeSelection(XInterface_8f010a43):
         starts the range selection.
         """
 
+
 __all__ = ['XRangeSelection']
 

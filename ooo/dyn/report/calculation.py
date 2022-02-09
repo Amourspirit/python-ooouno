@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import Calculation
+    from com.sun.star.report import Calculation as Calculation
 else:
     from ...lo.report.calculation import Calculation as Calculation
 

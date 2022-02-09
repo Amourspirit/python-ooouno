@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import ActionTriggerSeparatorType
+    from com.sun.star.ui import ActionTriggerSeparatorType as ActionTriggerSeparatorType
 else:
     from ...lo.ui.action_trigger_separator_type import ActionTriggerSeparatorType as ActionTriggerSeparatorType
 

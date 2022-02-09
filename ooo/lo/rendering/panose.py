@@ -34,6 +34,7 @@ class Panose(object):
     typeName: str = 'com.sun.star.rendering.Panose'
     """Literal Constant ``com.sun.star.rendering.Panose``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -83,7 +84,6 @@ class Panose(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FamilyType(self) -> int:

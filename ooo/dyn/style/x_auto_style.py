@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import XAutoStyle
+    from com.sun.star.style import XAutoStyle as XAutoStyle
     setattr(XAutoStyle, '__ooo_ns__', 'com.sun.star.style')
     setattr(XAutoStyle, '__ooo_full_ns__', 'com.sun.star.style.XAutoStyle')
     setattr(XAutoStyle, '__ooo_type_name__', 'interface')

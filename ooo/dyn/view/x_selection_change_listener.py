@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import XSelectionChangeListener
+    from com.sun.star.view import XSelectionChangeListener as XSelectionChangeListener
     setattr(XSelectionChangeListener, '__ooo_ns__', 'com.sun.star.view')
     setattr(XSelectionChangeListener, '__ooo_full_ns__', 'com.sun.star.view.XSelectionChangeListener')
     setattr(XSelectionChangeListener, '__ooo_type_name__', 'interface')

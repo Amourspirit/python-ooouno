@@ -43,25 +43,26 @@ class XAnyDescriptionAccess(XComplexDescriptionAccess_7a521120):
     __pyunointerface__: str = 'com.sun.star.chart2.XAnyDescriptionAccess'
 
     @abstractmethod
-    def getAnyColumnDescriptions(self) -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getAnyColumnDescriptions(self) -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         retrieves the descriptions for all columns.
         """
     @abstractmethod
-    def getAnyRowDescriptions(self) -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getAnyRowDescriptions(self) -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         retrieves the descriptions for all rows.
         """
     @abstractmethod
-    def setAnyColumnDescriptions(self, rColumnDescriptions: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def setAnyColumnDescriptions(self, rColumnDescriptions: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         sets the descriptions for all columns.
         """
     @abstractmethod
-    def setAnyRowDescriptions(self, rRowDescriptions: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def setAnyRowDescriptions(self, rRowDescriptions: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         sets the descriptions for all rows.
         """
+
 
 __all__ = ['XAnyDescriptionAccess']
 

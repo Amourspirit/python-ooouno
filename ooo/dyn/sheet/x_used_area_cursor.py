@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XUsedAreaCursor
+    from com.sun.star.sheet import XUsedAreaCursor as XUsedAreaCursor
     setattr(XUsedAreaCursor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XUsedAreaCursor, '__ooo_full_ns__', 'com.sun.star.sheet.XUsedAreaCursor')
     setattr(XUsedAreaCursor, '__ooo_type_name__', 'interface')

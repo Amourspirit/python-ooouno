@@ -40,6 +40,7 @@ class ModeChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.util.ModeChangeEvent'
     """Literal Constant ``com.sun.star.util.ModeChangeEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ModeChangeEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def NewMode(self) -> str:

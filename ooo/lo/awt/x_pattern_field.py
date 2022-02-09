@@ -67,5 +67,6 @@ class XPatternField(XInterface_8f010a43):
         sets the string value of the pattern field.
         """
 
+
 __all__ = ['XPatternField']
 

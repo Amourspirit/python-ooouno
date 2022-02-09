@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .user_record import UserRecord as UserRecord_9a2e0ab9
+from .user_record import UserRecord as UserRecord_9a2e0ab9
 
 
 class UrlRecord(object):
@@ -37,6 +36,10 @@ class UrlRecord(object):
     typeName: str = 'com.sun.star.task.UrlRecord'
     """Literal Constant ``com.sun.star.task.UrlRecord``"""
 
+    UserList: typing.TypeAlias = typing.Tuple[UserRecord_9a2e0ab9, ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -49,12 +52,10 @@ class UrlRecord(object):
 
         Keyword Arguments:
             Url (str, optional): Url value
-            UserList (Tuple[UserRecord, ...], optional): UserList value
         """
         self._url = None
-        self._user_list = None
 
-        key_order = ('Url', 'UserList')
+        key_order = ('Url',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], UrlRecord):
@@ -71,7 +72,6 @@ class UrlRecord(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Url(self) -> str:
         """
@@ -82,14 +82,6 @@ class UrlRecord(object):
     @Url.setter
     def Url(self, value: str) -> None:
         self._url = value
-
-    @property
-    def UserList(self) -> 'typing.Tuple[UserRecord_9a2e0ab9, ...]':
-        return self._user_list
-    
-    @UserList.setter
-    def UserList(self, value: 'typing.Tuple[UserRecord_9a2e0ab9, ...]') -> None:
-        self._user_list = value
 
 
 __all__ = ['UrlRecord']

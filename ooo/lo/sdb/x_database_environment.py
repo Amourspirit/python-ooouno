@@ -55,5 +55,6 @@ class XDatabaseEnvironment(XDriverManager_c6470c23):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
 
+
 __all__ = ['XDatabaseEnvironment']
 

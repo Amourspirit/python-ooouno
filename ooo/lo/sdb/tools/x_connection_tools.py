@@ -85,5 +85,6 @@ class XConnectionTools(ABC):
         The returned object is guaranteed to not be NULL.
         """
 
+
 __all__ = ['XConnectionTools']
 

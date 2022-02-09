@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import ConditionFormatOperator
+    from com.sun.star.sheet import ConditionFormatOperator as ConditionFormatOperator
 else:
     from ...lo.sheet.condition_format_operator import ConditionFormatOperator as ConditionFormatOperator
 

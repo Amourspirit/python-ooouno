@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import FilterFieldType
+    from com.sun.star.sheet import FilterFieldType as FilterFieldType
 else:
     from ...lo.sheet.filter_field_type import FilterFieldType as FilterFieldType
 

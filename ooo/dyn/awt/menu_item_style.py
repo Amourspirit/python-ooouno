@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import MenuItemStyle
+    from com.sun.star.awt import MenuItemStyle as MenuItemStyle
 else:
     from ...lo.awt.menu_item_style import MenuItemStyle as MenuItemStyle
 

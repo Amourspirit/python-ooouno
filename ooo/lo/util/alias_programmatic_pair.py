@@ -35,6 +35,7 @@ class AliasProgrammaticPair(object):
     typeName: str = 'com.sun.star.util.AliasProgrammaticPair'
     """Literal Constant ``com.sun.star.util.AliasProgrammaticPair``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class AliasProgrammaticPair(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Alias(self) -> str:

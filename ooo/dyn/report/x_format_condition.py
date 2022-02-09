@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import XFormatCondition
+    from com.sun.star.report import XFormatCondition as XFormatCondition
     setattr(XFormatCondition, '__ooo_ns__', 'com.sun.star.report')
     setattr(XFormatCondition, '__ooo_full_ns__', 'com.sun.star.report.XFormatCondition')
     setattr(XFormatCondition, '__ooo_type_name__', 'interface')

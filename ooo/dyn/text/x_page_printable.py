@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XPagePrintable
+    from com.sun.star.text import XPagePrintable as XPagePrintable
     setattr(XPagePrintable, '__ooo_ns__', 'com.sun.star.text')
     setattr(XPagePrintable, '__ooo_full_ns__', 'com.sun.star.text.XPagePrintable')
     setattr(XPagePrintable, '__ooo_type_name__', 'interface')

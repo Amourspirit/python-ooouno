@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import InvalidateStyle
+    from com.sun.star.awt import InvalidateStyle as InvalidateStyle
 else:
     from ...lo.awt.invalidate_style import InvalidateStyle as InvalidateStyle
 

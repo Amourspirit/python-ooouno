@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 import typing
+from .x_data_series import XDataSeries as XDataSeries_b8150b89
 if typing.TYPE_CHECKING:
-    from .x_data_series import XDataSeries as XDataSeries_b8150b89
     from .data.x_labeled_data_sequence import XLabeledDataSequence as XLabeledDataSequence_7e1a10c8
 
 
@@ -39,6 +39,10 @@ class InterpretedData(object):
     typeName: str = 'com.sun.star.chart2.InterpretedData'
     """Literal Constant ``com.sun.star.chart2.InterpretedData``"""
 
+    Series: typing.TypeAlias = typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...], ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,12 +55,10 @@ class InterpretedData(object):
 
         Keyword Arguments:
             Categories (XLabeledDataSequence, optional): Categories value
-            Series (Tuple[typing.Tuple[XDataSeries, ...]], optional): Series value
         """
         self._categories = None
-        self._series = None
 
-        key_order = ('Categories', 'Series')
+        key_order = ('Categories',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], InterpretedData):
@@ -73,22 +75,15 @@ class InterpretedData(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Categories(self) -> 'XLabeledDataSequence_7e1a10c8':
+        """
+        """
         return self._categories
     
     @Categories.setter
     def Categories(self, value: 'XLabeledDataSequence_7e1a10c8') -> None:
         self._categories = value
-
-    @property
-    def Series(self) -> 'typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...]]':
-        return self._series
-    
-    @Series.setter
-    def Series(self, value: 'typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...]]') -> None:
-        self._series = value
 
 
 __all__ = ['InterpretedData']

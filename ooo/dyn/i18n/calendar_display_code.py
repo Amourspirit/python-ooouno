@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import CalendarDisplayCode
+    from com.sun.star.i18n import CalendarDisplayCode as CalendarDisplayCode
 else:
     from ...lo.i18n.calendar_display_code import CalendarDisplayCode as CalendarDisplayCode
 

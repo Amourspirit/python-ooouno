@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import XFilterManager
+    from com.sun.star.ui.dialogs import XFilterManager as XFilterManager
     setattr(XFilterManager, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XFilterManager, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilterManager')
     setattr(XFilterManager, '__ooo_type_name__', 'interface')

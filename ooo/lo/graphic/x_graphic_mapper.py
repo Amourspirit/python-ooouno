@@ -50,5 +50,6 @@ class XGraphicMapper(ABC):
         Insert a new entry to map an id/key to the XGraphic.
         """
 
+
 __all__ = ['XGraphicMapper']
 

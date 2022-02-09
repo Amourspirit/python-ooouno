@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import XDocumentDigitalSignatures
+    from com.sun.star.security import XDocumentDigitalSignatures as XDocumentDigitalSignatures
     setattr(XDocumentDigitalSignatures, '__ooo_ns__', 'com.sun.star.security')
     setattr(XDocumentDigitalSignatures, '__ooo_full_ns__', 'com.sun.star.security.XDocumentDigitalSignatures')
     setattr(XDocumentDigitalSignatures, '__ooo_type_name__', 'interface')

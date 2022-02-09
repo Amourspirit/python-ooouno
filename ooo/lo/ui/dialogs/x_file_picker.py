@@ -83,5 +83,6 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         A value of FALSE disables the multi-selection mode, this is the default.
         """
 
+
 __all__ = ['XFilePicker']
 

@@ -47,5 +47,6 @@ class XRemoteContentProviderChangeNotifier(XInterface_8f010a43):
         Remove a listener.
         """
 
+
 __all__ = ['XRemoteContentProviderChangeNotifier']
 

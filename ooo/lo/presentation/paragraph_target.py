@@ -38,6 +38,7 @@ class ParagraphTarget(object):
     typeName: str = 'com.sun.star.presentation.ParagraphTarget'
     """Literal Constant ``com.sun.star.presentation.ParagraphTarget``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,9 +73,10 @@ class ParagraphTarget(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Shape(self) -> 'XShape_8fd00a3d':
+        """
+        """
         return self._shape
     
     @Shape.setter
@@ -83,6 +85,8 @@ class ParagraphTarget(object):
 
     @property
     def Paragraph(self) -> int:
+        """
+        """
         return self._paragraph
     
     @Paragraph.setter

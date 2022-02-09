@@ -38,6 +38,13 @@ class ChartSeriesAddress(object):
     typeName: str = 'com.sun.star.chart.ChartSeriesAddress'
     """Literal Constant ``com.sun.star.chart.ChartSeriesAddress``"""
 
+    DomainRangeAddresses: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains cell addresses for each domain of this series.
+    
+    For XY (scatter) diagrams at least one series has a domain. Most of the other chart types use an empty sequence here.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,13 +58,11 @@ class ChartSeriesAddress(object):
         Keyword Arguments:
             DataRangeAddress (str, optional): DataRangeAddress value
             LabelAddress (str, optional): LabelAddress value
-            DomainRangeAddresses (Tuple[str, ...], optional): DomainRangeAddresses value
         """
         self._data_range_address = None
         self._label_address = None
-        self._domain_range_addresses = None
 
-        key_order = ('DataRangeAddress', 'LabelAddress', 'DomainRangeAddresses')
+        key_order = ('DataRangeAddress', 'LabelAddress')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ChartSeriesAddress):
@@ -73,7 +78,6 @@ class ChartSeriesAddress(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def DataRangeAddress(self) -> str:
@@ -98,19 +102,6 @@ class ChartSeriesAddress(object):
     @LabelAddress.setter
     def LabelAddress(self, value: str) -> None:
         self._label_address = value
-
-    @property
-    def DomainRangeAddresses(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains cell addresses for each domain of this series.
-        
-        For XY (scatter) diagrams at least one series has a domain. Most of the other chart types use an empty sequence here.
-        """
-        return self._domain_range_addresses
-    
-    @DomainRangeAddresses.setter
-    def DomainRangeAddresses(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._domain_range_addresses = value
 
 
 __all__ = ['ChartSeriesAddress']

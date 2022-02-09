@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleRelationType
+    from com.sun.star.accessibility import AccessibleRelationType as AccessibleRelationType
 else:
     from ...lo.accessibility.accessible_relation_type import AccessibleRelationType as AccessibleRelationType
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleStateType
+    from com.sun.star.accessibility import AccessibleStateType as AccessibleStateType
 else:
     from ...lo.accessibility.accessible_state_type import AccessibleStateType as AccessibleStateType
 

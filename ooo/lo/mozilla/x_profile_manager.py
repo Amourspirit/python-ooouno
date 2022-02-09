@@ -67,5 +67,6 @@ class XProfileManager(XInterface_8f010a43):
         attempts to shutdown the current profile.
         """
 
+
 __all__ = ['XProfileManager']
 

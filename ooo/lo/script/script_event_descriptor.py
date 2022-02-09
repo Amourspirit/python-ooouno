@@ -35,6 +35,7 @@ class ScriptEventDescriptor(object):
     typeName: str = 'com.sun.star.script.ScriptEventDescriptor'
     """Literal Constant ``com.sun.star.script.ScriptEventDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class ScriptEventDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ListenerType(self) -> str:

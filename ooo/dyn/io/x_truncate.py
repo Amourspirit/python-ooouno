@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.io import XTruncate
+    from com.sun.star.io import XTruncate as XTruncate
     setattr(XTruncate, '__ooo_ns__', 'com.sun.star.io')
     setattr(XTruncate, '__ooo_full_ns__', 'com.sun.star.io.XTruncate')
     setattr(XTruncate, '__ooo_type_name__', 'interface')

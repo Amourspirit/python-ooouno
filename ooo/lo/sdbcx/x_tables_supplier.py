@@ -42,5 +42,6 @@ class XTablesSupplier(XInterface_8f010a43):
         returns the container of tables.
         """
 
+
 __all__ = ['XTablesSupplier']
 

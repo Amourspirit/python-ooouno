@@ -41,6 +41,7 @@ class FilterFieldValue(object):
     typeName: str = 'com.sun.star.sheet.FilterFieldValue'
     """Literal Constant ``com.sun.star.sheet.FilterFieldValue``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class FilterFieldValue(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def IsNumeric(self) -> bool:

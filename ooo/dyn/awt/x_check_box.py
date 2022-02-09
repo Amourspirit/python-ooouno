@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XCheckBox
+    from com.sun.star.awt import XCheckBox as XCheckBox
     setattr(XCheckBox, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XCheckBox, '__ooo_full_ns__', 'com.sun.star.awt.XCheckBox')
     setattr(XCheckBox, '__ooo_type_name__', 'interface')

@@ -48,5 +48,6 @@ class XMessageBox(ABC):
         the message text.
         """
 
+
 __all__ = ['XMessageBox']
 

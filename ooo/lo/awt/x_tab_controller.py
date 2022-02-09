@@ -84,5 +84,6 @@ class XTabController(XInterface_8f010a43):
         sets the tab controller model.
         """
 
+
 __all__ = ['XTabController']
 

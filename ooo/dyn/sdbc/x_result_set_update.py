@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import XResultSetUpdate
+    from com.sun.star.sdbc import XResultSetUpdate as XResultSetUpdate
     setattr(XResultSetUpdate, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XResultSetUpdate, '__ooo_full_ns__', 'com.sun.star.sdbc.XResultSetUpdate')
     setattr(XResultSetUpdate, '__ooo_type_name__', 'interface')

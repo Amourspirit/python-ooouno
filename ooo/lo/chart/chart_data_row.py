@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .chart_data_value import ChartDataValue as ChartDataValue_d3310c83
+from .chart_data_value import ChartDataValue as ChartDataValue_d3310c83
 
 
 class ChartDataRow(object):
@@ -44,6 +43,11 @@ class ChartDataRow(object):
     typeName: str = 'com.sun.star.chart.ChartDataRow'
     """Literal Constant ``com.sun.star.chart.ChartDataRow``"""
 
+    Points: typing.TypeAlias = typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...]
+    """
+    The points contained in this data row.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -56,12 +60,10 @@ class ChartDataRow(object):
 
         Keyword Arguments:
             Name (str, optional): Name value
-            Points (Tuple[typing.Tuple[ChartDataValue, ...]], optional): Points value
         """
         self._name = None
-        self._points = None
 
-        key_order = ('Name', 'Points')
+        key_order = ('Name',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ChartDataRow):
@@ -78,7 +80,6 @@ class ChartDataRow(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Name(self) -> str:
         """
@@ -89,17 +90,6 @@ class ChartDataRow(object):
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
-
-    @property
-    def Points(self) -> 'typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...]]':
-        """
-        The points contained in this data row.
-        """
-        return self._points
-    
-    @Points.setter
-    def Points(self, value: 'typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...]]') -> None:
-        self._points = value
 
 
 __all__ = ['ChartDataRow']

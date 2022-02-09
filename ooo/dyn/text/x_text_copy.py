@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XTextCopy
+    from com.sun.star.text import XTextCopy as XTextCopy
     setattr(XTextCopy, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextCopy, '__ooo_full_ns__', 'com.sun.star.text.XTextCopy')
     setattr(XTextCopy, '__ooo_type_name__', 'interface')

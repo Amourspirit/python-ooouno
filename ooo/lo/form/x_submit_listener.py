@@ -48,5 +48,6 @@ class XSubmitListener(XEventListener_c7230c4a):
         is invoked when a component is about to submit it's data.
         """
 
+
 __all__ = ['XSubmitListener']
 

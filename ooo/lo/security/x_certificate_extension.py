@@ -36,21 +36,22 @@ class XCertificateExtension(XInterface_8f010a43):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.security.XCertificateExtension'
 
+    ExtensionId: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    Get the extension object identifier in string.
+    """
+
+    ExtensionValue: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    Get the extension value.
+    """
+
     @abstractmethod
     def isCritical(self) -> bool:
         """
         Check whether it is a critical extension.
         """
-    @abstractproperty
-    def ExtensionId(self) -> 'typing.Tuple[int, ...]':
-        """
-        Get the extension object identifier in string.
-        """
-    @abstractproperty
-    def ExtensionValue(self) -> 'typing.Tuple[int, ...]':
-        """
-        Get the extension value.
-        """
+
 
 __all__ = ['XCertificateExtension']
 

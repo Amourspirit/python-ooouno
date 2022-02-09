@@ -35,6 +35,7 @@ class StringPair(object):
     typeName: str = 'com.sun.star.beans.StringPair'
     """Literal Constant ``com.sun.star.beans.StringPair``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class StringPair(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def First(self) -> str:

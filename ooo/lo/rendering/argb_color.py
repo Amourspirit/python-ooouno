@@ -38,6 +38,7 @@ class ARGBColor(object):
     typeName: str = 'com.sun.star.rendering.ARGBColor'
     """Literal Constant ``com.sun.star.rendering.ARGBColor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class ARGBColor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Alpha(self) -> 'ColorComponent_e4c0e78':

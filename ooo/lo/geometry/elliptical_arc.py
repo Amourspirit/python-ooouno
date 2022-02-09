@@ -46,6 +46,7 @@ class EllipticalArc(object):
     typeName: str = 'com.sun.star.geometry.EllipticalArc'
     """Literal Constant ``com.sun.star.geometry.EllipticalArc``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -89,7 +90,6 @@ class EllipticalArc(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StartPosition(self) -> 'RealPoint2D_d6e70c78':

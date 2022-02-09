@@ -47,5 +47,6 @@ class XDocumentPropertiesSupplier(ABC):
         provides the document properties object.
         """
 
+
 __all__ = ['XDocumentPropertiesSupplier']
 

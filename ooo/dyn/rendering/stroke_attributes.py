@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType', 'DashArray', 'LineArray')
+            key_order = ('StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType')
             struct = uno.createUnoStruct('com.sun.star.rendering.StrokeAttributes')
             if arg_len > len(key_order):
                 raise ValueError("StrokeAttributes.__init__() To many parameters")

@@ -37,6 +37,7 @@ class Boundary(object):
     typeName: str = 'com.sun.star.i18n.Boundary'
     """Literal Constant ``com.sun.star.i18n.Boundary``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class Boundary(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def startPos(self) -> int:

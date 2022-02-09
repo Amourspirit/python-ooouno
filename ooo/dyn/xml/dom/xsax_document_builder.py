@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XSAXDocumentBuilder
+    from com.sun.star.xml.dom import XSAXDocumentBuilder as XSAXDocumentBuilder
     setattr(XSAXDocumentBuilder, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XSAXDocumentBuilder, '__ooo_full_ns__', 'com.sun.star.xml.dom.XSAXDocumentBuilder')
     setattr(XSAXDocumentBuilder, '__ooo_type_name__', 'interface')

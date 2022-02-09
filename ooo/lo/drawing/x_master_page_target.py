@@ -46,5 +46,6 @@ class XMasterPageTarget(XInterface_8f010a43):
         links a MasterPage to this object.
         """
 
+
 __all__ = ['XMasterPageTarget']
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleTableModelChangeType
+    from com.sun.star.accessibility import AccessibleTableModelChangeType as AccessibleTableModelChangeType
 else:
     from ...lo.accessibility.accessible_table_model_change_type import AccessibleTableModelChangeType as AccessibleTableModelChangeType
 

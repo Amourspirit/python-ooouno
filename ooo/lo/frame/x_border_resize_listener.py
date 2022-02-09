@@ -43,5 +43,6 @@ class XBorderResizeListener(XEventListener_c7230c4a):
         notifies the listener that the controller's border widths have been changed.
         """
 
+
 __all__ = ['XBorderResizeListener']
 

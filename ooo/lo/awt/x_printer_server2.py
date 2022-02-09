@@ -43,5 +43,6 @@ class XPrinterServer2(XPrinterServer_bc810c07):
         returns the current default printer name
         """
 
+
 __all__ = ['XPrinterServer2']
 

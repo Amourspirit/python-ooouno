@@ -42,5 +42,6 @@ class XViewSettingsSupplier(XInterface_8f010a43):
         Subclasses might be returned instead, offering more settings.
         """
 
+
 __all__ = ['XViewSettingsSupplier']
 

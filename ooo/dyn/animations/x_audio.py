@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import XAudio
+    from com.sun.star.animations import XAudio as XAudio
     setattr(XAudio, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XAudio, '__ooo_full_ns__', 'com.sun.star.animations.XAudio')
     setattr(XAudio, '__ooo_type_name__', 'interface')

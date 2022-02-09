@@ -38,6 +38,7 @@ class RGBColor(object):
     typeName: str = 'com.sun.star.rendering.RGBColor'
     """Literal Constant ``com.sun.star.rendering.RGBColor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class RGBColor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Red(self) -> 'ColorComponent_e4c0e78':

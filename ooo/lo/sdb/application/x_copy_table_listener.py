@@ -56,5 +56,6 @@ class XCopyTableListener(XEventListener_c7230c4a):
         This method is called immediately before a row is copied. It might be used, for instance, to update a progress indicator.
         """
 
+
 __all__ = ['XCopyTableListener']
 

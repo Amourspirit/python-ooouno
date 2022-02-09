@@ -37,6 +37,7 @@ class LayoutSize(object):
     typeName: str = 'com.sun.star.ui.LayoutSize'
     """Literal Constant ``com.sun.star.ui.LayoutSize``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,9 +74,10 @@ class LayoutSize(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Minimum(self) -> int:
+        """
+        """
         return self._minimum
     
     @Minimum.setter
@@ -84,6 +86,8 @@ class LayoutSize(object):
 
     @property
     def Maximum(self) -> int:
+        """
+        """
         return self._maximum
     
     @Maximum.setter
@@ -92,6 +96,8 @@ class LayoutSize(object):
 
     @property
     def Preferred(self) -> int:
+        """
+        """
         return self._preferred
     
     @Preferred.setter

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import DNDConstants
+    from com.sun.star.datatransfer.dnd import DNDConstants as DNDConstants
 else:
     from ....lo.datatransfer.dnd.dnd_constants import DNDConstants as DNDConstants
 

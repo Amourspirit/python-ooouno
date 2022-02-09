@@ -55,5 +55,6 @@ class XMapping2D(XInterface_8f010a43):
         The following invariant must hold: map(mapInverse(p))=p. This effectively rules out non-bijective mappings.
         """
 
+
 __all__ = ['XMapping2D']
 

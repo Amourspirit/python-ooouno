@@ -47,5 +47,6 @@ class XVetoableChangeListener(XEventListener_c7230c4a):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
 
+
 __all__ = ['XVetoableChangeListener']
 

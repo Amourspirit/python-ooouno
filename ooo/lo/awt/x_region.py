@@ -97,5 +97,6 @@ class XRegion(XInterface_8f010a43):
         applies an exclusive-or operation with the specified region to this region.
         """
 
+
 __all__ = ['XRegion']
 

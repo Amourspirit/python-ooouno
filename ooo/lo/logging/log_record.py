@@ -42,6 +42,7 @@ class LogRecord(object):
     typeName: str = 'com.sun.star.logging.LogRecord'
     """Literal Constant ``com.sun.star.logging.LogRecord``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -87,7 +88,6 @@ class LogRecord(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def LoggerName(self) -> str:

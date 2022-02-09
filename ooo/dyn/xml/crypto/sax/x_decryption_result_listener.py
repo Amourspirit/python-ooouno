@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto.sax import XDecryptionResultListener
+    from com.sun.star.xml.crypto.sax import XDecryptionResultListener as XDecryptionResultListener
     setattr(XDecryptionResultListener, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XDecryptionResultListener, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XDecryptionResultListener')
     setattr(XDecryptionResultListener, '__ooo_type_name__', 'interface')

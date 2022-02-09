@@ -56,5 +56,6 @@ class XDragGestureRecognizer(XInterface_8f010a43):
         If it is currently recognizing a gesture, ignore it.
         """
 
+
 __all__ = ['XDragGestureRecognizer']
 

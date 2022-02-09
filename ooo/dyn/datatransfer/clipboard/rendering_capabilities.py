@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.clipboard import RenderingCapabilities
+    from com.sun.star.datatransfer.clipboard import RenderingCapabilities as RenderingCapabilities
 else:
     from ....lo.datatransfer.clipboard.rendering_capabilities import RenderingCapabilities as RenderingCapabilities
 

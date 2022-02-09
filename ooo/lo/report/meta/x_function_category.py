@@ -57,5 +57,6 @@ class XFunctionCategory(XPropertySet_bc180bfa, XIndexAccess_f0910d6d):
         specifies the category number.
         """
 
+
 __all__ = ['XFunctionCategory']
 

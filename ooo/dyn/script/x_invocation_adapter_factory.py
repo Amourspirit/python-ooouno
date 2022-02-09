@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XInvocationAdapterFactory
+    from com.sun.star.script import XInvocationAdapterFactory as XInvocationAdapterFactory
     setattr(XInvocationAdapterFactory, '__ooo_ns__', 'com.sun.star.script')
     setattr(XInvocationAdapterFactory, '__ooo_full_ns__', 'com.sun.star.script.XInvocationAdapterFactory')
     setattr(XInvocationAdapterFactory, '__ooo_type_name__', 'interface')

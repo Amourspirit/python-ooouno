@@ -41,6 +41,7 @@ class AccessibleTableModelChange(object):
     typeName: str = 'com.sun.star.accessibility.AccessibleTableModelChange'
     """Literal Constant ``com.sun.star.accessibility.AccessibleTableModelChange``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class AccessibleTableModelChange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> int:

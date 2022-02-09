@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XRedlinesSupplier
+    from com.sun.star.document import XRedlinesSupplier as XRedlinesSupplier
     setattr(XRedlinesSupplier, '__ooo_ns__', 'com.sun.star.document')
     setattr(XRedlinesSupplier, '__ooo_full_ns__', 'com.sun.star.document.XRedlinesSupplier')
     setattr(XRedlinesSupplier, '__ooo_type_name__', 'interface')

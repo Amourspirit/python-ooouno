@@ -76,5 +76,6 @@ class XXMLSecurityTemplate(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XXMLSecurityTemplate']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XCommandInfoChangeListener
+    from com.sun.star.ucb import XCommandInfoChangeListener as XCommandInfoChangeListener
     setattr(XCommandInfoChangeListener, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XCommandInfoChangeListener, '__ooo_full_ns__', 'com.sun.star.ucb.XCommandInfoChangeListener')
     setattr(XCommandInfoChangeListener, '__ooo_type_name__', 'interface')

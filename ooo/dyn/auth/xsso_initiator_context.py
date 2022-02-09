@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.auth import XSSOInitiatorContext
+    from com.sun.star.auth import XSSOInitiatorContext as XSSOInitiatorContext
     setattr(XSSOInitiatorContext, '__ooo_ns__', 'com.sun.star.auth')
     setattr(XSSOInitiatorContext, '__ooo_full_ns__', 'com.sun.star.auth.XSSOInitiatorContext')
     setattr(XSSOInitiatorContext, '__ooo_type_name__', 'interface')

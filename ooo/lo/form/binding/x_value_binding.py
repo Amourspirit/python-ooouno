@@ -65,5 +65,6 @@ class XValueBinding(XInterface_8f010a43):
         Calling this method is equal to calling getSupportedValueTypes(), and looking up the given type in the resulting type sequence.
         """
 
+
 __all__ = ['XValueBinding']
 

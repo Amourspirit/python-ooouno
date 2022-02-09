@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XLineNumberingProperties
+    from com.sun.star.text import XLineNumberingProperties as XLineNumberingProperties
     setattr(XLineNumberingProperties, '__ooo_ns__', 'com.sun.star.text')
     setattr(XLineNumberingProperties, '__ooo_full_ns__', 'com.sun.star.text.XLineNumberingProperties')
     setattr(XLineNumberingProperties, '__ooo_type_name__', 'interface')

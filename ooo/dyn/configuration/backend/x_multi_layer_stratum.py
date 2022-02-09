@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import XMultiLayerStratum
+    from com.sun.star.configuration.backend import XMultiLayerStratum as XMultiLayerStratum
     setattr(XMultiLayerStratum, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XMultiLayerStratum, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XMultiLayerStratum')
     setattr(XMultiLayerStratum, '__ooo_type_name__', 'interface')

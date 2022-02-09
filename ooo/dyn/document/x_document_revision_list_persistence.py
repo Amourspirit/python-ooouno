@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XDocumentRevisionListPersistence
+    from com.sun.star.document import XDocumentRevisionListPersistence as XDocumentRevisionListPersistence
     setattr(XDocumentRevisionListPersistence, '__ooo_ns__', 'com.sun.star.document')
     setattr(XDocumentRevisionListPersistence, '__ooo_full_ns__', 'com.sun.star.document.XDocumentRevisionListPersistence')
     setattr(XDocumentRevisionListPersistence, '__ooo_type_name__', 'interface')

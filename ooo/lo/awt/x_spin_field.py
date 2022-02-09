@@ -72,5 +72,6 @@ class XSpinField(XInterface_8f010a43):
         increases the value by one step.
         """
 
+
 __all__ = ['XSpinField']
 

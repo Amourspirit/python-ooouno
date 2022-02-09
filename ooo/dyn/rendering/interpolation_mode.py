@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import InterpolationMode
+    from com.sun.star.rendering import InterpolationMode as InterpolationMode
 else:
     from ...lo.rendering.interpolation_mode import InterpolationMode as InterpolationMode
 

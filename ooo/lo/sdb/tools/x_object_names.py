@@ -103,5 +103,6 @@ class XObjectNames(ABC):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
 
+
 __all__ = ['XObjectNames']
 

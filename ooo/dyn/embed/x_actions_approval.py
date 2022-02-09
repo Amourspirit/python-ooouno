@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XActionsApproval
+    from com.sun.star.embed import XActionsApproval as XActionsApproval
     setattr(XActionsApproval, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XActionsApproval, '__ooo_full_ns__', 'com.sun.star.embed.XActionsApproval')
     setattr(XActionsApproval, '__ooo_type_name__', 'interface')

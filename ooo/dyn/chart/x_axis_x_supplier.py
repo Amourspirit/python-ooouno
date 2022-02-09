@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import XAxisXSupplier
+    from com.sun.star.chart import XAxisXSupplier as XAxisXSupplier
     setattr(XAxisXSupplier, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XAxisXSupplier, '__ooo_full_ns__', 'com.sun.star.chart.XAxisXSupplier')
     setattr(XAxisXSupplier, '__ooo_type_name__', 'interface')

@@ -39,6 +39,7 @@ class AllPermission(object):
     typeName: str = 'com.sun.star.security.AllPermission'
     """Literal Constant ``com.sun.star.security.AllPermission``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,9 +72,10 @@ class AllPermission(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def dummy(self) -> int:
+        """
+        """
         return self._dummy
     
     @dummy.setter

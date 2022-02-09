@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer import XDataFormatTranslator
+    from com.sun.star.datatransfer import XDataFormatTranslator as XDataFormatTranslator
     setattr(XDataFormatTranslator, '__ooo_ns__', 'com.sun.star.datatransfer')
     setattr(XDataFormatTranslator, '__ooo_full_ns__', 'com.sun.star.datatransfer.XDataFormatTranslator')
     setattr(XDataFormatTranslator, '__ooo_type_name__', 'interface')

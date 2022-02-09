@@ -39,6 +39,7 @@ class IntegerRectangle2D(object):
     typeName: str = 'com.sun.star.geometry.IntegerRectangle2D'
     """Literal Constant ``com.sun.star.geometry.IntegerRectangle2D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class IntegerRectangle2D(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def X1(self) -> int:

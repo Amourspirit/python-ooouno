@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import PrivilegeObject
+    from com.sun.star.sdbcx import PrivilegeObject as PrivilegeObject
 else:
     from ...lo.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
 

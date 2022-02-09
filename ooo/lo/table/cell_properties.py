@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.table
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from .border_line import BorderLine as BorderLine_a3f80af6
     from .border_line2 import BorderLine2 as BorderLine2_af200b28
@@ -50,6 +50,17 @@ class CellProperties(XPropertySet_bc180bfa):
     __ooo_ns__: str = 'com.sun.star.table'
     __ooo_full_ns__: str = 'com.sun.star.table.CellProperties'
     __ooo_type_name__: str = 'service'
+
+    CellInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of cell properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.3
+    """
 
     @abstractproperty
     def AsianVerticalMode(self) -> bool:
@@ -262,17 +273,6 @@ class CellProperties(XPropertySet_bc180bfa):
         contains the vertical alignment of the cell contents.
         
         changed from com.sun.star.table.CellVertJustify to long in LibO 3.5
-        """
-    @abstractproperty
-    def CellInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of cell properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.3
         """
 
 __all__ = ['CellProperties']

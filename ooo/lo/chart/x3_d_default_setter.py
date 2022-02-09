@@ -53,5 +53,6 @@ class X3DDefaultSetter(XInterface_8f010a43):
         The result may depend on the current chart type.
         """
 
+
 __all__ = ['X3DDefaultSetter']
 

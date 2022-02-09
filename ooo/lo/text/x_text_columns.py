@@ -67,5 +67,6 @@ class XTextColumns(XInterface_8f010a43):
         The number of members in the sequence must be the same as the number of columns of the object.
         """
 
+
 __all__ = ['XTextColumns']
 

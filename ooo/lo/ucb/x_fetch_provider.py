@@ -42,5 +42,6 @@ class XFetchProvider(XInterface_8f010a43):
         returns the contents of the columns of the indicated rows
         """
 
+
 __all__ = ['XFetchProvider']
 

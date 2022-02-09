@@ -105,5 +105,6 @@ class XSpinValue(XInterface_8f010a43):
         sets the value and value range of the control
         """
 
+
 __all__ = ['XSpinValue']
 

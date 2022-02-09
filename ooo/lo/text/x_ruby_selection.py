@@ -51,5 +51,6 @@ class XRubySelection(XInterface_8f010a43):
         The number of elements must be equal to the number of elements that are returned by getRubyList. Automatic must be set equally, too.
         """
 
+
 __all__ = ['XRubySelection']
 

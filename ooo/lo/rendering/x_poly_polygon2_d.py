@@ -93,5 +93,6 @@ class XPolyPolygon2D(XInterface_8f010a43):
         Set the rule used to determine inside and outside of the poly-polygon.
         """
 
+
 __all__ = ['XPolyPolygon2D']
 

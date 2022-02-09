@@ -40,10 +40,11 @@ class XManifestWriter(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.packages.manifest.XManifestWriter'
 
     @abstractmethod
-    def writeManifestSequence(self, rStream: 'XOutputStream_a4e00b35', rSequence: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]') -> None:
+    def writeManifestSequence(self, rStream: 'XOutputStream_a4e00b35', rSequence: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]') -> None:
         """
         Writes the supplied sequence of manifest entries to the supplied XOutputStream.
         """
+
 
 __all__ = ['XManifestWriter']
 

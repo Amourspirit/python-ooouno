@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.text.fieldmaster
 import typing
 from abc import abstractproperty
+from ...beans.property_values import PropertyValues as PropertyValues_d6470ce6
 from ..text_field_master import TextFieldMaster as TextFieldMaster_d6410cc2
 if typing.TYPE_CHECKING:
-    from ...beans.property_values import PropertyValues as PropertyValues_d6470ce6
     from ...lang.locale import Locale as Locale_70d308fa
 
 class Bibliography(TextFieldMaster_d6410cc2):
@@ -37,6 +37,13 @@ class Bibliography(TextFieldMaster_d6410cc2):
     __ooo_ns__: str = 'com.sun.star.text.fieldmaster'
     __ooo_full_ns__: str = 'com.sun.star.text.fieldmaster.Bibliography'
     __ooo_type_name__: str = 'service'
+
+    SortKeys: typing.TypeAlias = typing.Tuple[PropertyValues_d6470ce6, ...]
+    """
+    determines the sorting of the bibliography entries in a bibliography index.
+    
+    This property is used if the property IsSortByPosition is not set. Each contained element of the sequence is a sequence of the following two properties:
+    """
 
     @abstractproperty
     def BracketAfter(self) -> str:
@@ -71,13 +78,6 @@ class Bibliography(TextFieldMaster_d6410cc2):
     def SortAlgorithm(self) -> str:
         """
         contains the name of the sort algorithm that is used to sort the text fields.
-        """
-    @abstractproperty
-    def SortKeys(self) -> 'typing.Tuple[PropertyValues_d6470ce6, ...]':
-        """
-        determines the sorting of the bibliography entries in a bibliography index.
-        
-        This property is used if the property IsSortByPosition is not set. Each contained element of the sequence is a sequence of the following two properties:
         """
 
 __all__ = ['Bibliography']

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.inspection import XObjectInspectorModel
+    from com.sun.star.inspection import XObjectInspectorModel as XObjectInspectorModel
     setattr(XObjectInspectorModel, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XObjectInspectorModel, '__ooo_full_ns__', 'com.sun.star.inspection.XObjectInspectorModel')
     setattr(XObjectInspectorModel, '__ooo_type_name__', 'interface')

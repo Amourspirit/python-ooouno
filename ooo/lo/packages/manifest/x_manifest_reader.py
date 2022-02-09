@@ -40,10 +40,11 @@ class XManifestReader(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.packages.manifest.XManifestReader'
 
     @abstractmethod
-    def readManifestSequence(self, rStream: 'XInputStream_98d40ab4') -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]':
+    def readManifestSequence(self, rStream: 'XInputStream_98d40ab4') -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
         Supplies the XManifestReader with an XInputStream to read from, reads the data and returns it to the caller.
         """
+
 
 __all__ = ['XManifestReader']
 

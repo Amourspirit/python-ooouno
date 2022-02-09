@@ -53,5 +53,6 @@ class XFrameLoader(XInterface_8f010a43):
         starts the loading of the specified resource into the specified Frame.
         """
 
+
 __all__ = ['XFrameLoader']
 

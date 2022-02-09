@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.tiledrendering import XTiledRenderable
+    from com.sun.star.tiledrendering import XTiledRenderable as XTiledRenderable
     setattr(XTiledRenderable, '__ooo_ns__', 'com.sun.star.tiledrendering')
     setattr(XTiledRenderable, '__ooo_full_ns__', 'com.sun.star.tiledrendering.XTiledRenderable')
     setattr(XTiledRenderable, '__ooo_type_name__', 'interface')

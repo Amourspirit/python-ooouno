@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XOOXMLDocumentPropertiesImporter
+    from com.sun.star.document import XOOXMLDocumentPropertiesImporter as XOOXMLDocumentPropertiesImporter
     setattr(XOOXMLDocumentPropertiesImporter, '__ooo_ns__', 'com.sun.star.document')
     setattr(XOOXMLDocumentPropertiesImporter, '__ooo_full_ns__', 'com.sun.star.document.XOOXMLDocumentPropertiesImporter')
     setattr(XOOXMLDocumentPropertiesImporter, '__ooo_type_name__', 'interface')

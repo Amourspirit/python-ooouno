@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XFrameLoader
+    from com.sun.star.frame import XFrameLoader as XFrameLoader
     setattr(XFrameLoader, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XFrameLoader, '__ooo_full_ns__', 'com.sun.star.frame.XFrameLoader')
     setattr(XFrameLoader, '__ooo_type_name__', 'interface')

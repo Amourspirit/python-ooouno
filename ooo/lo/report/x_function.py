@@ -61,5 +61,6 @@ class XFunction(XPropertySet_bc180bfa, XChild_a6390b07, XComponent_98dc0ab5):
         specifies if the function should be evaluated before the report element will be executed.
         """
 
+
 __all__ = ['XFunction']
 

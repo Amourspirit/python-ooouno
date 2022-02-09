@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DateType
+    from com.sun.star.sheet import DateType as DateType
 else:
     from ...lo.sheet.date_type import DateType as DateType
 

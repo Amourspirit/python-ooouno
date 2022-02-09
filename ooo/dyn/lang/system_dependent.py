@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.lang import SystemDependent
+    from com.sun.star.lang import SystemDependent as SystemDependent
 else:
     from ...lo.lang.system_dependent import SystemDependent as SystemDependent
 

@@ -104,5 +104,6 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
         """
 
+
 __all__ = ['XStringResourceResolver']
 

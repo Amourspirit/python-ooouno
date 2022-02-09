@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2.data import XRangeXMLConversion
+    from com.sun.star.chart2.data import XRangeXMLConversion as XRangeXMLConversion
     setattr(XRangeXMLConversion, '__ooo_ns__', 'com.sun.star.chart2.data')
     setattr(XRangeXMLConversion, '__ooo_full_ns__', 'com.sun.star.chart2.data.XRangeXMLConversion')
     setattr(XRangeXMLConversion, '__ooo_type_name__', 'interface')

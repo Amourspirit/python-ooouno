@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.uri import XUriReferenceFactory
+    from com.sun.star.uri import XUriReferenceFactory as XUriReferenceFactory
     setattr(XUriReferenceFactory, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XUriReferenceFactory, '__ooo_full_ns__', 'com.sun.star.uri.XUriReferenceFactory')
     setattr(XUriReferenceFactory, '__ooo_type_name__', 'interface')

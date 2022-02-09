@@ -39,6 +39,7 @@ class Decimal(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.Decimal'
     """Literal Constant ``com.sun.star.bridge.oleautomation.Decimal``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class Decimal(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Scale(self) -> int:

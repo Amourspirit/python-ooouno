@@ -76,5 +76,6 @@ class XPackageRegistry(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XPackageRegistry']
 

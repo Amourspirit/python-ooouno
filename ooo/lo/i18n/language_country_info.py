@@ -35,6 +35,7 @@ class LanguageCountryInfo(object):
     typeName: str = 'com.sun.star.i18n.LanguageCountryInfo'
     """Literal Constant ``com.sun.star.i18n.LanguageCountryInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class LanguageCountryInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Language(self) -> str:

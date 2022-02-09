@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XDocumentIndex
+    from com.sun.star.text import XDocumentIndex as XDocumentIndex
     setattr(XDocumentIndex, '__ooo_ns__', 'com.sun.star.text')
     setattr(XDocumentIndex, '__ooo_full_ns__', 'com.sun.star.text.XDocumentIndex')
     setattr(XDocumentIndex, '__ooo_type_name__', 'interface')

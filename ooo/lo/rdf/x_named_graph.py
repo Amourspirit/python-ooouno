@@ -101,5 +101,6 @@ class XNamedGraph(XURI_5682078c):
             RepositoryException: ``RepositoryException``
         """
 
+
 __all__ = ['XNamedGraph']
 

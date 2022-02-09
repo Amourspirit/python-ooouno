@@ -74,5 +74,6 @@ class XPaneBorderPainter(ABC):
         This method can be used to convert an outer bounding box into the center box or the inner bounding box.
         """
 
+
 __all__ = ['XPaneBorderPainter']
 

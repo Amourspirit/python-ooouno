@@ -59,5 +59,6 @@ class XLabeledDataSequence(XInterface_8f010a43):
         sets a new XDataSequence containing the actual data.
         """
 
+
 __all__ = ['XLabeledDataSequence']
 

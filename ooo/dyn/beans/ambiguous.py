@@ -30,6 +30,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno struct using uno
         global Ambiguous
 
+        def _set_attr(struct):
+            struct.__dict__['__ooo_ns__'] = 'com.sun.star.beans'
+            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.beans.Ambiguous'
+            struct.__dict__['__ooo_type_name__'] = 'struct'
+
         def _struct_init(*args, **kwargs):
             arg_len = len(args)
             if arg_len == 1:
@@ -37,7 +42,8 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if isinstance(args[0], UAmbiguous):
                     struct = uno.createUnoStruct(
                         'com.sun.star.beans.Ambiguous', args[0])
-                return struct
+                    _set_attr(struct)
+                    return struct
 
             key_order = ('Value', 'IsAmbiguous')
             struct = uno.createUnoStruct('com.sun.star.beans.Ambiguous')
@@ -48,6 +54,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             for k, v in kwargs.items():
                 if k in key_order:
                     setattr(struct, k, v)
+            _set_attr(struct)
             return struct
         Ambiguous = _struct_init
 

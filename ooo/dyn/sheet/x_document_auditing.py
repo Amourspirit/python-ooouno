@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XDocumentAuditing
+    from com.sun.star.sheet import XDocumentAuditing as XDocumentAuditing
     setattr(XDocumentAuditing, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDocumentAuditing, '__ooo_full_ns__', 'com.sun.star.sheet.XDocumentAuditing')
     setattr(XDocumentAuditing, '__ooo_type_name__', 'interface')

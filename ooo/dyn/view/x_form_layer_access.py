@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import XFormLayerAccess
+    from com.sun.star.view import XFormLayerAccess as XFormLayerAccess
     setattr(XFormLayerAccess, '__ooo_ns__', 'com.sun.star.view')
     setattr(XFormLayerAccess, '__ooo_full_ns__', 'com.sun.star.view.XFormLayerAccess')
     setattr(XFormLayerAccess, '__ooo_type_name__', 'interface')

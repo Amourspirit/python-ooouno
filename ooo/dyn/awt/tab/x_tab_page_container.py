@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt.tab import XTabPageContainer
+    from com.sun.star.awt.tab import XTabPageContainer as XTabPageContainer
     setattr(XTabPageContainer, '__ooo_ns__', 'com.sun.star.awt.tab')
     setattr(XTabPageContainer, '__ooo_full_ns__', 'com.sun.star.awt.tab.XTabPageContainer')
     setattr(XTabPageContainer, '__ooo_type_name__', 'interface')

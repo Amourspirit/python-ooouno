@@ -38,6 +38,7 @@ class PolyPolygonShape3D(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonShape3D'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonShape3D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,9 +75,10 @@ class PolyPolygonShape3D(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def SequenceX(self) -> 'DoubleSequenceSequence_6b8010c1':
+        """
+        """
         return self._sequence_x
     
     @SequenceX.setter
@@ -85,6 +87,8 @@ class PolyPolygonShape3D(object):
 
     @property
     def SequenceY(self) -> 'DoubleSequenceSequence_6b8010c1':
+        """
+        """
         return self._sequence_y
     
     @SequenceY.setter
@@ -93,6 +97,8 @@ class PolyPolygonShape3D(object):
 
     @property
     def SequenceZ(self) -> 'DoubleSequenceSequence_6b8010c1':
+        """
+        """
         return self._sequence_z
     
     @SequenceZ.setter

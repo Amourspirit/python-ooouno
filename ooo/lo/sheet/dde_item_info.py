@@ -42,6 +42,13 @@ class DDEItemInfo(object):
     typeName: str = 'com.sun.star.sheet.DDEItemInfo'
     """Literal Constant ``com.sun.star.sheet.DDEItemInfo``"""
 
+    Results: typing.TypeAlias = typing.Tuple[typing.Tuple[object, ...], ...]
+    """
+    The results of the item cached from the last update of the DDE link if available.
+    
+    This sequence may be empty.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -54,12 +61,10 @@ class DDEItemInfo(object):
 
         Keyword Arguments:
             Item (str, optional): Item value
-            Results (Tuple[typing.Tuple[object, ...]], optional): Results value
         """
         self._item = None
-        self._results = None
 
-        key_order = ('Item', 'Results')
+        key_order = ('Item',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], DDEItemInfo):
@@ -76,7 +81,6 @@ class DDEItemInfo(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Item(self) -> str:
         """
@@ -87,19 +91,6 @@ class DDEItemInfo(object):
     @Item.setter
     def Item(self, value: str) -> None:
         self._item = value
-
-    @property
-    def Results(self) -> 'typing.Tuple[typing.Tuple[object, ...]]':
-        """
-        The results of the item cached from the last update of the DDE link if available.
-        
-        This sequence may be empty.
-        """
-        return self._results
-    
-    @Results.setter
-    def Results(self, value: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
-        self._results = value
 
 
 __all__ = ['DDEItemInfo']

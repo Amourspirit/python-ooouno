@@ -45,5 +45,6 @@ class XDataPilotDataLayoutFieldSupplier(ABC):
         If the field does not exist yet, it will be created. It is possible to insert this field into the rows or columns dimension by changing its DataPilotField.Orientation property.
         """
 
+
 __all__ = ['XDataPilotDataLayoutFieldSupplier']
 

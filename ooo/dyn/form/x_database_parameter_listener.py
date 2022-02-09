@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import XDatabaseParameterListener
+    from com.sun.star.form import XDatabaseParameterListener as XDatabaseParameterListener
     setattr(XDatabaseParameterListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XDatabaseParameterListener, '__ooo_full_ns__', 'com.sun.star.form.XDatabaseParameterListener')
     setattr(XDatabaseParameterListener, '__ooo_type_name__', 'interface')

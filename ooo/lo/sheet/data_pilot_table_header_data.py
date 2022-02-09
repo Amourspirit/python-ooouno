@@ -41,6 +41,7 @@ class DataPilotTableHeaderData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTableHeaderData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTableHeaderData``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class DataPilotTableHeaderData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Dimension(self) -> int:

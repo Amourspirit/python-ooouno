@@ -45,5 +45,6 @@ class XNamed(XInterface_8f010a43):
         sets the programmatic name of the object.
         """
 
+
 __all__ = ['XNamed']
 

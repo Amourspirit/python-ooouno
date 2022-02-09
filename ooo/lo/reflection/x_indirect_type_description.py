@@ -41,5 +41,6 @@ class XIndirectTypeDescription(XTypeDescription_3c210fb1):
         Returns the typedefed type, if the type is a typedef, or the element type, if the type is a sequence.
         """
 
+
 __all__ = ['XIndirectTypeDescription']
 

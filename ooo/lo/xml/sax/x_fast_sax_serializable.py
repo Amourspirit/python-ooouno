@@ -42,7 +42,7 @@ class XFastSAXSerializable(ABC):
     __pyunointerface__: str = 'com.sun.star.xml.sax.XFastSAXSerializable'
 
     @abstractmethod
-    def fastSerialize(self, handler: 'XFastDocumentHandler_454c0fb6', tokenHandler: 'XFastTokenHandler_17510e78', namespaces: 'typing.Tuple[StringPair_a4bc0b14, ...]', registerNamespaces: 'typing.Tuple[typing.Tuple[str, int]]') -> None:
+    def fastSerialize(self, handler: 'XFastDocumentHandler_454c0fb6', tokenHandler: 'XFastTokenHandler_17510e78', namespaces: 'typing.Tuple[StringPair_a4bc0b14, ...]', registerNamespaces: 'typing.Tuple[typing.Tuple[str, int], ...]') -> None:
         """
         serializes an object (e.g.
         
@@ -53,6 +53,7 @@ class XFastSAXSerializable(ABC):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+
 
 __all__ = ['XFastSAXSerializable']
 

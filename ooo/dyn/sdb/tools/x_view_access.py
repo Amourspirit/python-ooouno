@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import XViewAccess
+    from com.sun.star.sdb.tools import XViewAccess as XViewAccess
     setattr(XViewAccess, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XViewAccess, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XViewAccess')
     setattr(XViewAccess, '__ooo_type_name__', 'interface')

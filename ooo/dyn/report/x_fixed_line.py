@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import XFixedLine
+    from com.sun.star.report import XFixedLine as XFixedLine
     setattr(XFixedLine, '__ooo_ns__', 'com.sun.star.report')
     setattr(XFixedLine, '__ooo_full_ns__', 'com.sun.star.report.XFixedLine')
     setattr(XFixedLine, '__ooo_type_name__', 'interface')

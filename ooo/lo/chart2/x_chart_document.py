@@ -93,5 +93,6 @@ class XChartDocument(XModel_7a6e095c):
         Notes: this is preliminary, we need an API that supports more than one diagram. The method name setDiagram exists in the css.chart API, so there is would be no way to chose either this or the other method from Basic (it would chose one or the other by random).
         """
 
+
 __all__ = ['XChartDocument']
 

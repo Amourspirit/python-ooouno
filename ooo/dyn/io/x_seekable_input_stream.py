@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.io import XSeekableInputStream
+    from com.sun.star.io import XSeekableInputStream as XSeekableInputStream
     setattr(XSeekableInputStream, '__ooo_ns__', 'com.sun.star.io')
     setattr(XSeekableInputStream, '__ooo_full_ns__', 'com.sun.star.io.XSeekableInputStream')
     setattr(XSeekableInputStream, '__ooo_type_name__', 'interface')

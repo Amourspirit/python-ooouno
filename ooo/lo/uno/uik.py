@@ -41,6 +41,7 @@ class Uik(object):
     typeName: str = 'com.sun.star.uno.Uik'
     """Literal Constant ``com.sun.star.uno.Uik``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class Uik(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Data1(self) -> int:

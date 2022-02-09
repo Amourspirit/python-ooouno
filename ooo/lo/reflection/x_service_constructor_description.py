@@ -61,5 +61,6 @@ class XServiceConstructorDescription(ABC):
         Returns whether the constructor is a default constructor.
         """
 
+
 __all__ = ['XServiceConstructorDescription']
 

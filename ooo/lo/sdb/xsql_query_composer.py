@@ -80,7 +80,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         returns the query used for composing.
         """
     @abstractmethod
-    def getStructuredFilter(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]':
+    def getStructuredFilter(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
         returns the currently used filter.
         
@@ -110,6 +110,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+
 
 __all__ = ['XSQLQueryComposer']
 

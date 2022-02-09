@@ -79,5 +79,6 @@ class XNumberFormats(XInterface_8f010a43):
         removes a number format from the list.
         """
 
+
 __all__ = ['XNumberFormats']
 

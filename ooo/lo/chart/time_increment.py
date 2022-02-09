@@ -39,6 +39,7 @@ class TimeIncrement(object):
     typeName: str = 'com.sun.star.chart.TimeIncrement'
     """Literal Constant ``com.sun.star.chart.TimeIncrement``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class TimeIncrement(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MajorTimeInterval(self) -> object:

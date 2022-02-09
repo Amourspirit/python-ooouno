@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import XControlInformation
+    from com.sun.star.ui.dialogs import XControlInformation as XControlInformation
     setattr(XControlInformation, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XControlInformation, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XControlInformation')
     setattr(XControlInformation, '__ooo_type_name__', 'interface')

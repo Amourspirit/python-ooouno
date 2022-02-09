@@ -51,5 +51,6 @@ class XBridge(XInterface_8f010a43):
         name that the bridge got when it was created.
         """
 
+
 __all__ = ['XBridge']
 

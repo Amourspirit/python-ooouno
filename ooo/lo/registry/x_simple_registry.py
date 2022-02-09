@@ -103,5 +103,6 @@ class XSimpleRegistry(XInterface_8f010a43):
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
 
+
 __all__ = ['XSimpleRegistry']
 

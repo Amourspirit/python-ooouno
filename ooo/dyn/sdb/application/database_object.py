@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.application import DatabaseObject
+    from com.sun.star.sdb.application import DatabaseObject as DatabaseObject
 else:
     from ....lo.sdb.application.database_object import DatabaseObject as DatabaseObject
 

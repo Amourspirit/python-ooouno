@@ -37,6 +37,7 @@ class FormatElement(object):
     typeName: str = 'com.sun.star.i18n.FormatElement'
     """Literal Constant ``com.sun.star.i18n.FormatElement``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class FormatElement(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def formatCode(self) -> str:

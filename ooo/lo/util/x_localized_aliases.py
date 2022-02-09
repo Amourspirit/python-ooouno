@@ -103,5 +103,6 @@ class XLocalizedAliases(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
+
 __all__ = ['XLocalizedAliases']
 

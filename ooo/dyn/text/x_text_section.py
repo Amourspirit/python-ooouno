@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XTextSection
+    from com.sun.star.text import XTextSection as XTextSection
     setattr(XTextSection, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextSection, '__ooo_full_ns__', 'com.sun.star.text.XTextSection')
     setattr(XTextSection, '__ooo_type_name__', 'interface')

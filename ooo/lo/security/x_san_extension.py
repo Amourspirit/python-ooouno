@@ -20,9 +20,8 @@
 # Namespace: com.sun.star.security
 import typing
 from abc import abstractproperty
+from .cert_alt_name_entry import CertAltNameEntry as CertAltNameEntry_1ce50ec2
 from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
-if typing.TYPE_CHECKING:
-    from .cert_alt_name_entry import CertAltNameEntry as CertAltNameEntry_1ce50ec2
 
 class XSanExtension(XCertificateExtension_6ead10f8):
     """
@@ -38,11 +37,12 @@ class XSanExtension(XCertificateExtension_6ead10f8):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.security.XSanExtension'
 
-    @abstractproperty
-    def AlternativeNames(self) -> 'typing.Tuple[CertAltNameEntry_1ce50ec2, ...]':
-        """
-        Contains the alternative names of a certificate.
-        """
+    AlternativeNames: typing.TypeAlias = typing.Tuple[CertAltNameEntry_1ce50ec2, ...]
+    """
+    Contains the alternative names of a certificate.
+    """
+
+
 
 __all__ = ['XSanExtension']
 

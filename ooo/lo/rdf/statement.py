@@ -44,6 +44,7 @@ class Statement(object):
     typeName: str = 'com.sun.star.rdf.Statement'
     """Literal Constant ``com.sun.star.rdf.Statement``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -81,7 +82,6 @@ class Statement(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Subject(self) -> 'XResource_842709e4':

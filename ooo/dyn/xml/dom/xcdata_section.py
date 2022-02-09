@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XCDATASection
+    from com.sun.star.xml.dom import XCDATASection as XCDATASection
     setattr(XCDATASection, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XCDATASection, '__ooo_full_ns__', 'com.sun.star.xml.dom.XCDATASection')
     setattr(XCDATASection, '__ooo_type_name__', 'interface')

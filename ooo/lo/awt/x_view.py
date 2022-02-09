@@ -71,5 +71,6 @@ class XView(XInterface_8f010a43):
         The zoom factor only affects the content of the view, not the size.
         """
 
+
 __all__ = ['XView']
 

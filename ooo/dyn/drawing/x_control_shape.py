@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XControlShape
+    from com.sun.star.drawing import XControlShape as XControlShape
     setattr(XControlShape, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XControlShape, '__ooo_full_ns__', 'com.sun.star.drawing.XControlShape')
     setattr(XControlShape, '__ooo_type_name__', 'interface')

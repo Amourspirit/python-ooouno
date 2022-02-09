@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 import typing
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
     from ..util.url import URL as URL_57ad07b9
 
 
@@ -43,6 +43,13 @@ class ControlEvent(object):
     typeName: str = 'com.sun.star.frame.ControlEvent'
     """Literal Constant ``com.sun.star.frame.ControlEvent``"""
 
+    aInformation: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    specifies a sequence of named values which are used as additional values for the event.
+    
+    The number and types of named values depend on the event.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -56,13 +63,11 @@ class ControlEvent(object):
         Keyword Arguments:
             aURL (URL, optional): aURL value
             Event (str, optional): Event value
-            aInformation (Tuple[NamedValue, ...], optional): aInformation value
         """
         self._a_url = None
         self._event = None
-        self._a_information = None
 
-        key_order = ('aURL', 'Event', 'aInformation')
+        key_order = ('aURL', 'Event')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ControlEvent):
@@ -78,7 +83,6 @@ class ControlEvent(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aURL(self) -> 'URL_57ad07b9':
@@ -101,19 +105,6 @@ class ControlEvent(object):
     @Event.setter
     def Event(self, value: str) -> None:
         self._event = value
-
-    @property
-    def aInformation(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        specifies a sequence of named values which are used as additional values for the event.
-        
-        The number and types of named values depend on the event.
-        """
-        return self._a_information
-    
-    @aInformation.setter
-    def aInformation(self, value: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
-        self._a_information = value
 
 
 __all__ = ['ControlEvent']

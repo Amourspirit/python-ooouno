@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XNode
+    from com.sun.star.xml.dom import XNode as XNode
     setattr(XNode, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XNode, '__ooo_full_ns__', 'com.sun.star.xml.dom.XNode')
     setattr(XNode, '__ooo_type_name__', 'interface')

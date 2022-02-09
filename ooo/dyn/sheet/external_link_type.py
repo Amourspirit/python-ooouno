@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import ExternalLinkType
+    from com.sun.star.sheet import ExternalLinkType as ExternalLinkType
 else:
     from ...lo.sheet.external_link_type import ExternalLinkType as ExternalLinkType
 

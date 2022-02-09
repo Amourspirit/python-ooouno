@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import KeyRule
+    from com.sun.star.sdbc import KeyRule as KeyRule
 else:
     from ...lo.sdbc.key_rule import KeyRule as KeyRule
 

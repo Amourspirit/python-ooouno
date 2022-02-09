@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import KeyModifier
+    from com.sun.star.awt import KeyModifier as KeyModifier
 else:
     from ...lo.awt.key_modifier import KeyModifier as KeyModifier
 

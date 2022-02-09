@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import IconSetType
+    from com.sun.star.sheet import IconSetType as IconSetType
 else:
     from ...lo.sheet.icon_set_type import IconSetType as IconSetType
 

@@ -85,5 +85,6 @@ class XLinguServiceManager(XInterface_8f010a43):
         sets the list of service implementations to be used for a given service and language.
         """
 
+
 __all__ = ['XLinguServiceManager']
 

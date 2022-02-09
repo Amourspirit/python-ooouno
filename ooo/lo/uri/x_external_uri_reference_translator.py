@@ -51,5 +51,6 @@ class XExternalUriReferenceTranslator(ABC):
         returns the internal counterpart of an external URI reference.
         """
 
+
 __all__ = ['XExternalUriReferenceTranslator']
 

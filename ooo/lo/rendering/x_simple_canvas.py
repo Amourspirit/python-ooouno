@@ -166,5 +166,6 @@ class XSimpleCanvas(XInterface_8f010a43):
         Set the current transform matrix.
         """
 
+
 __all__ = ['XSimpleCanvas']
 

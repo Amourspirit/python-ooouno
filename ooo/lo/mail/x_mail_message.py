@@ -121,5 +121,6 @@ class XMailMessage(XInterface_8f010a43):
         The subject of a mail message.
         """
 
+
 __all__ = ['XMailMessage']
 

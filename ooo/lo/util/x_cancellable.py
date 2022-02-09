@@ -41,5 +41,6 @@ class XCancellable(XInterface_8f010a43):
         cancels the current job of the object.
         """
 
+
 __all__ = ['XCancellable']
 

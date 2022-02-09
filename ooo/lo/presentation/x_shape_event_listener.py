@@ -49,5 +49,6 @@ class XShapeEventListener(XEventListener_c7230c4a):
         This method notifies the listener that a shape was clicked.
         """
 
+
 __all__ = ['XShapeEventListener']
 

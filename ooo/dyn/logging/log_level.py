@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.logging import LogLevel
+    from com.sun.star.logging import LogLevel as LogLevel
 else:
     from ...lo.logging.log_level import LogLevel as LogLevel
 

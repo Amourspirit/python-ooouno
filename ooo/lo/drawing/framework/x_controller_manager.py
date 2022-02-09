@@ -49,5 +49,6 @@ class XControllerManager(ABC):
         Return the XModuleController object.
         """
 
+
 __all__ = ['XControllerManager']
 

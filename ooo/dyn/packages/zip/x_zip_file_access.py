@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.packages.zip import XZipFileAccess
+    from com.sun.star.packages.zip import XZipFileAccess as XZipFileAccess
     setattr(XZipFileAccess, '__ooo_ns__', 'com.sun.star.packages.zip')
     setattr(XZipFileAccess, '__ooo_full_ns__', 'com.sun.star.packages.zip.XZipFileAccess')
     setattr(XZipFileAccess, '__ooo_type_name__', 'interface')

@@ -20,8 +20,7 @@
 # Libre Office Version: 7.2
 import typing
 from ..uno.exception import Exception as Exception_85530a09
-if typing.TYPE_CHECKING:
-    from ..xml.dom.x_element import XElement as XElement_a33d0ae9
+from ..xml.dom.x_element import XElement as XElement_a33d0ae9
 
 class DependencyException(Exception_85530a09):
     """
@@ -46,7 +45,7 @@ class DependencyException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.DependencyException'
     """Literal Constant ``com.sun.star.deployment.DependencyException``"""
 
-    UnsatisfiedDependencies: 'typing.Tuple[XElement_a33d0ae9, ...]' = None
+    UnsatisfiedDependencies: typing.TypeAlias = typing.Tuple[XElement_a33d0ae9, ...]
     """
     a sequence of dependencies represented by XML elements.
     

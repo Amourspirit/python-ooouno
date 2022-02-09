@@ -58,5 +58,6 @@ class XUndoAction(ABC):
         is the human-readable, localized description of the action.
         """
 
+
 __all__ = ['XUndoAction']
 

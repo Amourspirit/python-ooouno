@@ -77,5 +77,6 @@ class XFormulaOpCodeMapper(ABC):
         Used to identify which of the function names queried with getMappings() are unknown to the implementation.
         """
 
+
 __all__ = ['XFormulaOpCodeMapper']
 

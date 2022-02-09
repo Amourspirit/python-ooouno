@@ -38,7 +38,7 @@ class XPackageInformationProvider(ABC):
     __pyunointerface__: str = 'com.sun.star.deployment.XPackageInformationProvider'
 
     @abstractmethod
-    def getExtensionList(self) -> 'typing.Tuple[typing.Tuple[str, ...]]':
+    def getExtensionList(self) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         returns a list of all installed extension with their version.
         """
@@ -48,10 +48,11 @@ class XPackageInformationProvider(ABC):
         get Package information for a specific extension.
         """
     @abstractmethod
-    def isUpdateAvailable(self, extensionId: str) -> 'typing.Tuple[typing.Tuple[str, ...]]':
+    def isUpdateAvailable(self, extensionId: str) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         check if there are updates available for an extension.
         """
+
 
 __all__ = ['XPackageInformationProvider']
 

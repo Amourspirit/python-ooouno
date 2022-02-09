@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ChangeAction
+    from com.sun.star.sdbc import ChangeAction as ChangeAction
 else:
     from ...lo.sdbc.change_action import ChangeAction as ChangeAction
 

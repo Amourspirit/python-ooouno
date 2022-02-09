@@ -40,6 +40,7 @@ class EventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.document.EventObject'
     """Literal Constant ``com.sun.star.document.EventObject``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class EventObject(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def EventName(self) -> str:

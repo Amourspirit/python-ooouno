@@ -63,5 +63,6 @@ class XPrintJob(XInterface_8f010a43):
         returns the Printer used for the print job
         """
 
+
 __all__ = ['XPrintJob']
 

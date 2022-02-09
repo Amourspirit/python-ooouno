@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XHierarchicalStorageAccess
+    from com.sun.star.embed import XHierarchicalStorageAccess as XHierarchicalStorageAccess
     setattr(XHierarchicalStorageAccess, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XHierarchicalStorageAccess, '__ooo_full_ns__', 'com.sun.star.embed.XHierarchicalStorageAccess')
     setattr(XHierarchicalStorageAccess, '__ooo_type_name__', 'interface')

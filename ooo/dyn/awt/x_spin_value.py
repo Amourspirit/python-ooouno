@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XSpinValue
+    from com.sun.star.awt import XSpinValue as XSpinValue
     setattr(XSpinValue, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XSpinValue, '__ooo_full_ns__', 'com.sun.star.awt.XSpinValue')
     setattr(XSpinValue, '__ooo_type_name__', 'interface')

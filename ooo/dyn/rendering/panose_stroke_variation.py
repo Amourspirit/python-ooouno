@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PanoseStrokeVariation
+    from com.sun.star.rendering import PanoseStrokeVariation as PanoseStrokeVariation
 else:
     from ...lo.rendering.panose_stroke_variation import PanoseStrokeVariation as PanoseStrokeVariation
 

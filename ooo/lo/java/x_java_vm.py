@@ -66,5 +66,6 @@ class XJavaVM(XInterface_8f010a43):
         returns TRUE if the VM is started successfully, otherwise FALSE.
         """
 
+
 __all__ = ['XJavaVM']
 

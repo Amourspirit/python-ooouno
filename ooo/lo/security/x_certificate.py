@@ -20,10 +20,10 @@
 # Namespace: com.sun.star.security
 import typing
 from abc import abstractmethod, abstractproperty
+from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .certificate_kind import CertificateKind as CertificateKind_ffd0e69
-    from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
     from ..util.date_time import DateTime as DateTime_84de09d3
 
 class XCertificate(XInterface_8f010a43):
@@ -43,6 +43,46 @@ class XCertificate(XInterface_8f010a43):
     __ooo_full_ns__: str = 'com.sun.star.security.XCertificate'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.security.XCertificate'
+
+    Encoded: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the DER encoded form of the certificate
+    """
+
+    Extensions: typing.TypeAlias = typing.Tuple[XCertificateExtension_6ead10f8, ...]
+    """
+    all extensions of a certificate.
+    """
+
+    IssuerUniqueID: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the issuer unique ID attribute of the certificate.
+    """
+
+    MD5Thumbprint: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the MD5 thumbprint
+    """
+
+    SHA1Thumbprint: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the SHA-1 thumbprint
+    """
+
+    SerialNumber: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the serial number attribute of the certificate.
+    """
+
+    SubjectPublicKeyValue: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the value of the subject public key
+    """
+
+    SubjectUniqueID: typing.TypeAlias = 'typing.Tuple[int, ...]'
+    """
+    the subject unique ID attribute of the certificate.
+    """
 
     @abstractmethod
     def findCertificateExtension(self, oid: 'typing.Tuple[int, ...]') -> 'XCertificateExtension_6ead10f8':
@@ -100,46 +140,7 @@ class XCertificate(XInterface_8f010a43):
         """
         the version number attribute of the certificate.
         """
-    @abstractproperty
-    def Encoded(self) -> 'typing.Tuple[int, ...]':
-        """
-        the DER encoded form of the certificate
-        """
-    @abstractproperty
-    def Extensions(self) -> 'typing.Tuple[XCertificateExtension_6ead10f8, ...]':
-        """
-        all extensions of a certificate.
-        """
-    @abstractproperty
-    def IssuerUniqueID(self) -> 'typing.Tuple[int, ...]':
-        """
-        the issuer unique ID attribute of the certificate.
-        """
-    @abstractproperty
-    def MD5Thumbprint(self) -> 'typing.Tuple[int, ...]':
-        """
-        the MD5 thumbprint
-        """
-    @abstractproperty
-    def SHA1Thumbprint(self) -> 'typing.Tuple[int, ...]':
-        """
-        the SHA-1 thumbprint
-        """
-    @abstractproperty
-    def SerialNumber(self) -> 'typing.Tuple[int, ...]':
-        """
-        the serial number attribute of the certificate.
-        """
-    @abstractproperty
-    def SubjectPublicKeyValue(self) -> 'typing.Tuple[int, ...]':
-        """
-        the value of the subject public key
-        """
-    @abstractproperty
-    def SubjectUniqueID(self) -> 'typing.Tuple[int, ...]':
-        """
-        the subject unique ID attribute of the certificate.
-        """
+
 
 __all__ = ['XCertificate']
 

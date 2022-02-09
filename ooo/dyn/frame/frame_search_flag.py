@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import FrameSearchFlag
+    from com.sun.star.frame import FrameSearchFlag as FrameSearchFlag
 else:
     from ...lo.frame.frame_search_flag import FrameSearchFlag as FrameSearchFlag
 

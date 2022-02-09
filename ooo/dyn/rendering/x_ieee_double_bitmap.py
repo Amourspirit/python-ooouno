@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XIeeeDoubleBitmap
+    from com.sun.star.rendering import XIeeeDoubleBitmap as XIeeeDoubleBitmap
     setattr(XIeeeDoubleBitmap, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XIeeeDoubleBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XIeeeDoubleBitmap')
     setattr(XIeeeDoubleBitmap, '__ooo_type_name__', 'interface')

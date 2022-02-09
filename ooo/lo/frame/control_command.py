@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 
 
 class ControlCommand(object):
@@ -42,6 +41,13 @@ class ControlCommand(object):
     typeName: str = 'com.sun.star.frame.ControlCommand'
     """Literal Constant ``com.sun.star.frame.ControlCommand``"""
 
+    Arguments: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    specifies a sequence of named values which are used as argument for the command.
+    
+    The number and type of arguments depend on the command and control.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -54,12 +60,10 @@ class ControlCommand(object):
 
         Keyword Arguments:
             Command (str, optional): Command value
-            Arguments (Tuple[NamedValue, ...], optional): Arguments value
         """
         self._command = None
-        self._arguments = None
 
-        key_order = ('Command', 'Arguments')
+        key_order = ('Command',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ControlCommand):
@@ -76,7 +80,6 @@ class ControlCommand(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Command(self) -> str:
         """
@@ -87,19 +90,6 @@ class ControlCommand(object):
     @Command.setter
     def Command(self, value: str) -> None:
         self._command = value
-
-    @property
-    def Arguments(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        specifies a sequence of named values which are used as argument for the command.
-        
-        The number and type of arguments depend on the command and control.
-        """
-        return self._arguments
-    
-    @Arguments.setter
-    def Arguments(self, value: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
-        self._arguments = value
 
 
 __all__ = ['ControlCommand']

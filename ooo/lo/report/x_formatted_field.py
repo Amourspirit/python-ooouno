@@ -49,5 +49,6 @@ class XFormattedField(XReportControlModel_2d800f4a):
         supplies the formats the field should work with.
         """
 
+
 __all__ = ['XFormattedField']
 

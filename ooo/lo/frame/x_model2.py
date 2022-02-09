@@ -97,5 +97,6 @@ class XModel2(XModel_7a6e095c):
             com.sun.star.util.InvalidStateException: ``InvalidStateException``
         """
 
+
 __all__ = ['XModel2']
 

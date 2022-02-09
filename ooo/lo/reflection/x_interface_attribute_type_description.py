@@ -51,5 +51,6 @@ class XInterfaceAttributeTypeDescription(XInterfaceMemberTypeDescription_52ea159
         Returns true, if this attribute is read-only.
         """
 
+
 __all__ = ['XInterfaceAttributeTypeDescription']
 

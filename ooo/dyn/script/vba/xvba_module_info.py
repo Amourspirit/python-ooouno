@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.vba import XVBAModuleInfo
+    from com.sun.star.script.vba import XVBAModuleInfo as XVBAModuleInfo
     setattr(XVBAModuleInfo, '__ooo_ns__', 'com.sun.star.script.vba')
     setattr(XVBAModuleInfo, '__ooo_full_ns__', 'com.sun.star.script.vba.XVBAModuleInfo')
     setattr(XVBAModuleInfo, '__ooo_type_name__', 'interface')

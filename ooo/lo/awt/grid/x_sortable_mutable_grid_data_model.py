@@ -34,5 +34,6 @@ class XSortableMutableGridDataModel(XMutableGridDataModel_6387103b, XSortableGri
     __pyunointerface__: str = 'com.sun.star.awt.grid.XSortableMutableGridDataModel'
 
 
+
 __all__ = ['XSortableMutableGridDataModel']
 

@@ -35,6 +35,7 @@ class BorderWidths(object):
     typeName: str = 'com.sun.star.frame.BorderWidths'
     """Literal Constant ``com.sun.star.frame.BorderWidths``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class BorderWidths(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Left(self) -> int:

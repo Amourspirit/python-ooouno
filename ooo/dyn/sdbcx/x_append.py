@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XAppend
+    from com.sun.star.sdbcx import XAppend as XAppend
     setattr(XAppend, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XAppend, '__ooo_full_ns__', 'com.sun.star.sdbcx.XAppend')
     setattr(XAppend, '__ooo_type_name__', 'interface')

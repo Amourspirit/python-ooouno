@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('DataRangeAddress', 'LabelAddress', 'DomainRangeAddresses')
+            key_order = ('DataRangeAddress', 'LabelAddress')
             struct = uno.createUnoStruct('com.sun.star.chart.ChartSeriesAddress')
             if arg_len > len(key_order):
                 raise ValueError("ChartSeriesAddress.__init__() To many parameters")

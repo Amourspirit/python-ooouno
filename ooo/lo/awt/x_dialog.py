@@ -54,5 +54,6 @@ class XDialog(XInterface_8f010a43):
         sets the title of the dialog.
         """
 
+
 __all__ = ['XDialog']
 

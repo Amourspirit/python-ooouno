@@ -47,5 +47,6 @@ class XRowSetSupplier(XInterface_8f010a43):
         sets the data source.
         """
 
+
 __all__ = ['XRowSetSupplier']
 

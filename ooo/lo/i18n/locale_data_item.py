@@ -35,6 +35,7 @@ class LocaleDataItem(object):
     typeName: str = 'com.sun.star.i18n.LocaleDataItem'
     """Literal Constant ``com.sun.star.i18n.LocaleDataItem``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -100,7 +101,6 @@ class LocaleDataItem(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def unoID(self) -> str:

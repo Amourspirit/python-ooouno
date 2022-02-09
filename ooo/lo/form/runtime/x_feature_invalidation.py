@@ -52,5 +52,6 @@ class XFeatureInvalidation(ABC):
         Invalidation means that any user interface representation (such as toolbox buttons), or any dispatches associated with the features in question are potentially out-of-date, and need to be updated.
         """
 
+
 __all__ = ['XFeatureInvalidation']
 

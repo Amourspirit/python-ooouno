@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import XLocaleData4
+    from com.sun.star.i18n import XLocaleData4 as XLocaleData4
     setattr(XLocaleData4, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XLocaleData4, '__ooo_full_ns__', 'com.sun.star.i18n.XLocaleData4')
     setattr(XLocaleData4, '__ooo_type_name__', 'interface')

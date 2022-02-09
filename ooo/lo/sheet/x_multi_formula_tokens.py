@@ -59,5 +59,6 @@ class XMultiFormulaTokens(ABC):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
+
 __all__ = ['XMultiFormulaTokens']
 

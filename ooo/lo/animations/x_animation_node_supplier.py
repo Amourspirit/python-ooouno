@@ -39,5 +39,6 @@ class XAnimationNodeSupplier(ABC):
         """
         """
 
+
 __all__ = ['XAnimationNodeSupplier']
 

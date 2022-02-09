@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import BlendMode
+    from com.sun.star.rendering import BlendMode as BlendMode
 else:
     from ...lo.rendering.blend_mode import BlendMode as BlendMode
 

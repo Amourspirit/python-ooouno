@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XCellRangeAddressable
+    from com.sun.star.sheet import XCellRangeAddressable as XCellRangeAddressable
     setattr(XCellRangeAddressable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCellRangeAddressable, '__ooo_full_ns__', 'com.sun.star.sheet.XCellRangeAddressable')
     setattr(XCellRangeAddressable, '__ooo_type_name__', 'interface')

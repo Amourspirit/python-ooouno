@@ -35,6 +35,7 @@ class CmisVersion(object):
     typeName: str = 'com.sun.star.document.CmisVersion'
     """Literal Constant ``com.sun.star.document.CmisVersion``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class CmisVersion(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Id(self) -> str:

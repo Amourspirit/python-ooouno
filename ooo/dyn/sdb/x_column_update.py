@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import XColumnUpdate
+    from com.sun.star.sdb import XColumnUpdate as XColumnUpdate
     setattr(XColumnUpdate, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XColumnUpdate, '__ooo_full_ns__', 'com.sun.star.sdb.XColumnUpdate')
     setattr(XColumnUpdate, '__ooo_type_name__', 'interface')

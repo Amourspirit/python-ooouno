@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.sax import XSAXSerializable
+    from com.sun.star.xml.sax import XSAXSerializable as XSAXSerializable
     setattr(XSAXSerializable, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XSAXSerializable, '__ooo_full_ns__', 'com.sun.star.xml.sax.XSAXSerializable')
     setattr(XSAXSerializable, '__ooo_type_name__', 'interface')

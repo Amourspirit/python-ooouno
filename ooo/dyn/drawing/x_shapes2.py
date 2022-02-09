@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XShapes2
+    from com.sun.star.drawing import XShapes2 as XShapes2
     setattr(XShapes2, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XShapes2, '__ooo_full_ns__', 'com.sun.star.drawing.XShapes2')
     setattr(XShapes2, '__ooo_type_name__', 'interface')

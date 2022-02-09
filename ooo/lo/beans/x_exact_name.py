@@ -43,5 +43,6 @@ class XExactName(XInterface_8f010a43):
         For example \"getExactName\" could be returned for \"GETEXACTNAME\" when \"GETEXACTNAME\" was used by a case insensitive scripting language.
         """
 
+
 __all__ = ['XExactName']
 

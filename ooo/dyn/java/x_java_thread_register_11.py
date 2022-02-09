@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.java import XJavaThreadRegister_11
+    from com.sun.star.java import XJavaThreadRegister_11 as XJavaThreadRegister_11
     setattr(XJavaThreadRegister_11, '__ooo_ns__', 'com.sun.star.java')
     setattr(XJavaThreadRegister_11, '__ooo_full_ns__', 'com.sun.star.java.XJavaThreadRegister_11')
     setattr(XJavaThreadRegister_11, '__ooo_type_name__', 'interface')

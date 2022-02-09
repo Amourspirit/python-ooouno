@@ -42,6 +42,7 @@ class ErrorEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.ErrorEvent'
     """Literal Constant ``com.sun.star.form.ErrorEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,9 +75,10 @@ class ErrorEvent(EventObject_a3d70b03):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Reason(self) -> object:
+        """
+        """
         return self._reason
     
     @Reason.setter

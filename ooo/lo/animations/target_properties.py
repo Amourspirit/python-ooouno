@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.animations
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 
 
 class TargetProperties(object):
@@ -40,6 +39,11 @@ class TargetProperties(object):
     typeName: str = 'com.sun.star.animations.TargetProperties'
     """Literal Constant ``com.sun.star.animations.TargetProperties``"""
 
+    Properties: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    Global target properties.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -52,12 +56,10 @@ class TargetProperties(object):
 
         Keyword Arguments:
             Target (object, optional): Target value
-            Properties (Tuple[NamedValue, ...], optional): Properties value
         """
         self._target = None
-        self._properties = None
 
-        key_order = ('Target', 'Properties')
+        key_order = ('Target',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], TargetProperties):
@@ -74,7 +76,6 @@ class TargetProperties(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Target(self) -> object:
         """
@@ -85,17 +86,6 @@ class TargetProperties(object):
     @Target.setter
     def Target(self, value: object) -> None:
         self._target = value
-
-    @property
-    def Properties(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        Global target properties.
-        """
-        return self._properties
-    
-    @Properties.setter
-    def Properties(self, value: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
-        self._properties = value
 
 
 __all__ = ['TargetProperties']

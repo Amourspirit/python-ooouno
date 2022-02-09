@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ChapterFormat
+    from com.sun.star.text import ChapterFormat as ChapterFormat
 else:
     from ...lo.text.chapter_format import ChapterFormat as ChapterFormat
 

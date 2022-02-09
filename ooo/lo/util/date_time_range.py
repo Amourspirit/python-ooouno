@@ -39,6 +39,7 @@ class DateTimeRange(object):
     typeName: str = 'com.sun.star.util.DateTimeRange'
     """Literal Constant ``com.sun.star.util.DateTimeRange``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -98,7 +99,6 @@ class DateTimeRange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StartNanoSeconds(self) -> int:

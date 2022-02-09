@@ -38,6 +38,19 @@ class StrokeAttributes(object):
     typeName: str = 'com.sun.star.rendering.StrokeAttributes'
     """Literal Constant ``com.sun.star.rendering.StrokeAttributes``"""
 
+    DashArray: typing.TypeAlias = typing.Tuple[float, ...]
+    """
+    Array of ink on and off lengths, measured in user coordinate space.
+    
+    The first element specifies the length of the first \"on\" segment of the dashing, the second element the length of the first \"off\" segment, and so forth. Give zero elements here for solid strokes. This array always have an even number of elements, with zero, as usual, counting as even here. Furthermore, each entry in this array must have a value that is positive (or 0.0)
+    """
+    LineArray: typing.TypeAlias = typing.Tuple[float, ...]
+    """
+    Array of line widths and spacings for multiple-line strokes.
+    
+    The entries here are relative to the StrokeAttributes.StrokeWidth attribute above, i.e. the total width of all lines and spacings will always equal StrokeAttributes.StrokeWidth. The first element specifies the width of the rightmost line, when traveling from the start point of the path to the end point. The second element specifies the space between the first line and the second line, and so forth. If the array ends with a spacing, this spacing is included in the total width of the multiple-line stroke. That is, the stroke becomes asymmetric.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -54,18 +67,14 @@ class StrokeAttributes(object):
             StartCapType (int, optional): StartCapType value
             EndCapType (int, optional): EndCapType value
             JoinType (int, optional): JoinType value
-            DashArray (Tuple[float, ...], optional): DashArray value
-            LineArray (Tuple[float, ...], optional): LineArray value
         """
         self._stroke_width = None
         self._miter_limit = None
         self._start_cap_type = None
         self._end_cap_type = None
         self._join_type = None
-        self._dash_array = None
-        self._line_array = None
 
-        key_order = ('StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType', 'DashArray', 'LineArray')
+        key_order = ('StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], StrokeAttributes):
@@ -81,7 +90,6 @@ class StrokeAttributes(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StrokeWidth(self) -> float:
@@ -149,32 +157,6 @@ class StrokeAttributes(object):
     @JoinType.setter
     def JoinType(self, value: int) -> None:
         self._join_type = value
-
-    @property
-    def DashArray(self) -> 'typing.Tuple[float, ...]':
-        """
-        Array of ink on and off lengths, measured in user coordinate space.
-        
-        The first element specifies the length of the first \"on\" segment of the dashing, the second element the length of the first \"off\" segment, and so forth. Give zero elements here for solid strokes. This array always have an even number of elements, with zero, as usual, counting as even here. Furthermore, each entry in this array must have a value that is positive (or 0.0)
-        """
-        return self._dash_array
-    
-    @DashArray.setter
-    def DashArray(self, value: 'typing.Tuple[float, ...]') -> None:
-        self._dash_array = value
-
-    @property
-    def LineArray(self) -> 'typing.Tuple[float, ...]':
-        """
-        Array of line widths and spacings for multiple-line strokes.
-        
-        The entries here are relative to the StrokeAttributes.StrokeWidth attribute above, i.e. the total width of all lines and spacings will always equal StrokeAttributes.StrokeWidth. The first element specifies the width of the rightmost line, when traveling from the start point of the path to the end point. The second element specifies the space between the first line and the second line, and so forth. If the array ends with a spacing, this spacing is included in the total width of the multiple-line stroke. That is, the stroke becomes asymmetric.
-        """
-        return self._line_array
-    
-    @LineArray.setter
-    def LineArray(self, value: 'typing.Tuple[float, ...]') -> None:
-        self._line_array = value
 
 
 __all__ = ['StrokeAttributes']

@@ -105,5 +105,6 @@ class XGroup(XPropertySet_bc180bfa, XChild_a6390b07, XComponent_98dc0ab5, XFunct
         Specifies that the group header should always be printed on a new column.
         """
 
+
 __all__ = ['XGroup']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XDOMImplementation
+    from com.sun.star.xml.dom import XDOMImplementation as XDOMImplementation
     setattr(XDOMImplementation, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XDOMImplementation, '__ooo_full_ns__', 'com.sun.star.xml.dom.XDOMImplementation')
     setattr(XDOMImplementation, '__ooo_type_name__', 'interface')

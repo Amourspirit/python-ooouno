@@ -76,5 +76,6 @@ class XStarBasicAccess(XInterface_8f010a43):
         returns the library container giving access to the libraries stored in a document or basic library file.
         """
 
+
 __all__ = ['XStarBasicAccess']
 

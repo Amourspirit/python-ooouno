@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import RepaintResult
+    from com.sun.star.rendering import RepaintResult as RepaintResult
 else:
     from ...lo.rendering.repaint_result import RepaintResult as RepaintResult
 

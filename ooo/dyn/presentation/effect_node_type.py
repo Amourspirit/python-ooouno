@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import EffectNodeType
+    from com.sun.star.presentation import EffectNodeType as EffectNodeType
 else:
     from ...lo.presentation.effect_node_type import EffectNodeType as EffectNodeType
 

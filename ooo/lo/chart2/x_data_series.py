@@ -54,5 +54,6 @@ class XDataSeries(XInterface_8f010a43):
         the formatting of the specified data point is cleared
         """
 
+
 __all__ = ['XDataSeries']
 

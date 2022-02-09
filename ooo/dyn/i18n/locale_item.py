@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import LocaleItem
+    from com.sun.star.i18n import LocaleItem as LocaleItem
 else:
     from ...lo.i18n.locale_item import LocaleItem as LocaleItem
 

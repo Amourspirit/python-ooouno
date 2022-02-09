@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XMouseClickHandler
+    from com.sun.star.awt import XMouseClickHandler as XMouseClickHandler
     setattr(XMouseClickHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XMouseClickHandler, '__ooo_full_ns__', 'com.sun.star.awt.XMouseClickHandler')
     setattr(XMouseClickHandler, '__ooo_type_name__', 'interface')

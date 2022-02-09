@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XSessionManagerListener2
+    from com.sun.star.frame import XSessionManagerListener2 as XSessionManagerListener2
     setattr(XSessionManagerListener2, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XSessionManagerListener2, '__ooo_full_ns__', 'com.sun.star.frame.XSessionManagerListener2')
     setattr(XSessionManagerListener2, '__ooo_type_name__', 'interface')

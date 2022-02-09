@@ -41,6 +41,7 @@ class Caret(object):
     typeName: str = 'com.sun.star.rendering.Caret'
     """Literal Constant ``com.sun.star.rendering.Caret``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class Caret(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MainCaretIndex(self) -> int:

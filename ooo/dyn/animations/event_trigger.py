@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import EventTrigger
+    from com.sun.star.animations import EventTrigger as EventTrigger
 else:
     from ...lo.animations.event_trigger import EventTrigger as EventTrigger
 

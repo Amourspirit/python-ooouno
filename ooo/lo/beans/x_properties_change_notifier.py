@@ -47,5 +47,6 @@ class XPropertiesChangeNotifier(XInterface_8f010a43):
         removes an XPropertiesChangeListener from the listener list.
         """
 
+
 __all__ = ['XPropertiesChangeNotifier']
 

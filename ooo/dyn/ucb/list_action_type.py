@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import ListActionType
+    from com.sun.star.ucb import ListActionType as ListActionType
 else:
     from ...lo.ucb.list_action_type import ListActionType as ListActionType
 

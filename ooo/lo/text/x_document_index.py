@@ -50,5 +50,6 @@ class XDocumentIndex(XTextContent_b16e0ba5):
         initiates an update to the document index.
         """
 
+
 __all__ = ['XDocumentIndex']
 

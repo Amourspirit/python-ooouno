@@ -42,5 +42,6 @@ class XPropertySetInfoChangeListener(XEventListener_c7230c4a):
         is called whenever changes of a XPropertySetInfo shall be propagated.
         """
 
+
 __all__ = ['XPropertySetInfoChangeListener']
 

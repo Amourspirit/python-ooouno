@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto.sax import XEncryptionResultBroadcaster
+    from com.sun.star.xml.crypto.sax import XEncryptionResultBroadcaster as XEncryptionResultBroadcaster
     setattr(XEncryptionResultBroadcaster, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XEncryptionResultBroadcaster, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XEncryptionResultBroadcaster')
     setattr(XEncryptionResultBroadcaster, '__ooo_type_name__', 'interface')

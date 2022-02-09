@@ -91,5 +91,6 @@ class XDynamicResultSet(XComponent_98dc0ab5):
             com.sun.star.ucb.ListenerAlreadySetException: ``ListenerAlreadySetException``
         """
 
+
 __all__ = ['XDynamicResultSet']
 

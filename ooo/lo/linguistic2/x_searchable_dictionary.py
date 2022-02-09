@@ -50,5 +50,6 @@ class XSearchableDictionary(XDictionary_fea70de3):
             OOo 3.0.1
         """
 
+
 __all__ = ['XSearchableDictionary']
 

@@ -49,5 +49,6 @@ class XConsoleHandler(XLogHandler_c7f80c27):
         The default value for this attribute is LogLevel.SEVERE.
         """
 
+
 __all__ = ['XConsoleHandler']
 

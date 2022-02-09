@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('nCondensedEvent', 'aDictionaryEvents')
+            key_order = ('nCondensedEvent',)
             struct = uno.createUnoStruct('com.sun.star.linguistic2.DictionaryListEvent')
             if arg_len > len(key_order):
                 raise ValueError("DictionaryListEvent.__init__() To many parameters")

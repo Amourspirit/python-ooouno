@@ -60,5 +60,6 @@ class XTransferable(XInterface_8f010a43):
         Note: This method is only for analogy with the JAVA Clipboard interface. To avoid many calls, the caller should instead use com.sun.star.datatransfer.XTransferable.getTransferDataFlavors().
         """
 
+
 __all__ = ['XTransferable']
 

@@ -86,5 +86,6 @@ class XPropertyControl(ABC):
         denotes the value type of the control.
         """
 
+
 __all__ = ['XPropertyControl']
 

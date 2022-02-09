@@ -35,6 +35,7 @@ class NumberFormatCode(object):
     typeName: str = 'com.sun.star.i18n.NumberFormatCode'
     """Literal Constant ``com.sun.star.i18n.NumberFormatCode``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class NumberFormatCode(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> int:

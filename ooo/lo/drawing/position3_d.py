@@ -35,6 +35,7 @@ class Position3D(object):
     typeName: str = 'com.sun.star.drawing.Position3D'
     """Literal Constant ``com.sun.star.drawing.Position3D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class Position3D(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def PositionX(self) -> float:

@@ -51,5 +51,6 @@ class XDesktopTask(XComponent_98dc0ab5):
         use com.sun.star.lang.XInitialization instead.
         """
 
+
 __all__ = ['XDesktopTask']
 

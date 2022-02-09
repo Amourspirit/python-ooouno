@@ -41,6 +41,7 @@ class NamedArgument(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.NamedArgument'
     """Literal Constant ``com.sun.star.bridge.oleautomation.NamedArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class NamedArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

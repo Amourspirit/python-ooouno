@@ -36,6 +36,7 @@ class FilePickerEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.dialogs.FilePickerEvent'
     """Literal Constant ``com.sun.star.ui.dialogs.FilePickerEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,9 +69,10 @@ class FilePickerEvent(EventObject_a3d70b03):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def ElementId(self) -> int:
+        """
+        """
         return self._element_id
     
     @ElementId.setter

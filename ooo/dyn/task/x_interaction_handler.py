@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import XInteractionHandler
+    from com.sun.star.task import XInteractionHandler as XInteractionHandler
     setattr(XInteractionHandler, '__ooo_ns__', 'com.sun.star.task')
     setattr(XInteractionHandler, '__ooo_full_ns__', 'com.sun.star.task.XInteractionHandler')
     setattr(XInteractionHandler, '__ooo_type_name__', 'interface')

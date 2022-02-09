@@ -97,5 +97,6 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         The number of smart tag types supported by this recognizer component.
         """
 
+
 __all__ = ['XSmartTagRecognizer']
 

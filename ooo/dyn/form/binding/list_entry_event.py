@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Position', 'Count', 'Entries')
+            key_order = ('Position', 'Count')
             struct = uno.createUnoStruct('com.sun.star.form.binding.ListEntryEvent')
             if arg_len > len(key_order):
                 raise ValueError("ListEntryEvent.__init__() To many parameters")

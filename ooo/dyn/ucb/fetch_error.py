@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import FetchError
+    from com.sun.star.ucb import FetchError as FetchError
 else:
     from ...lo.ucb.fetch_error import FetchError as FetchError
 

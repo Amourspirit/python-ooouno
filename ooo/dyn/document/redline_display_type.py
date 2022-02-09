@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import RedlineDisplayType
+    from com.sun.star.document import RedlineDisplayType as RedlineDisplayType
 else:
     from ...lo.document.redline_display_type import RedlineDisplayType as RedlineDisplayType
 

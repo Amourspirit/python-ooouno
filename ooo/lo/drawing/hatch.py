@@ -41,6 +41,7 @@ class Hatch(object):
     typeName: str = 'com.sun.star.drawing.Hatch'
     """Literal Constant ``com.sun.star.drawing.Hatch``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class Hatch(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Style(self) -> 'HatchStyle_bcfe0bed':

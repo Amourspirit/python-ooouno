@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('nVersion', 'nFlag', 'nMethod', 'nTime', 'nCrc', 'nCompressedSize', 'nSize', 'nOffset', 'nDiskNumber', 'sName', 'sComment', 'extra')
+            key_order = ('nVersion', 'nFlag', 'nMethod', 'nTime', 'nCrc', 'nCompressedSize', 'nSize', 'nOffset', 'nDiskNumber', 'sName', 'sComment')
             struct = uno.createUnoStruct('com.sun.star.packages.zip.ZipEntry')
             if arg_len > len(key_order):
                 raise ValueError("ZipEntry.__init__() To many parameters")

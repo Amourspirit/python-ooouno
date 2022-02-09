@@ -43,6 +43,7 @@ class TableSortField(object):
     typeName: str = 'com.sun.star.table.TableSortField'
     """Literal Constant ``com.sun.star.table.TableSortField``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class TableSortField(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Field(self) -> int:

@@ -43,6 +43,27 @@ class UnoControlListBoxModel(UnoControlModel_c8ce0c58, XItemList_83fb09d7):
     __ooo_full_ns__: str = 'com.sun.star.awt.UnoControlListBoxModel'
     __ooo_type_name__: str = 'service'
 
+    SelectedItems: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    specifies the sequence of selected items, identified by the position.
+    """
+
+    StringItemList: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    specifies the list of items.
+    """
+
+    TypedItemList: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    specifies the list of raw typed (not stringized) items.
+    
+    This list corresponds with the StringItemList and if given has to be of the same length, the elements' positions matching those of their string representation in StringItemList.
+    
+    **since**
+    
+        LibreOffice 5.4
+    """
+
     @abstractproperty
     def Align(self) -> int:
         """
@@ -167,27 +188,6 @@ class UnoControlListBoxModel(UnoControlModel_c8ce0c58, XItemList_83fb09d7):
         **since**
         
             OOo 3.1
-        """
-    @abstractproperty
-    def SelectedItems(self) -> 'typing.Tuple[int, ...]':
-        """
-        specifies the sequence of selected items, identified by the position.
-        """
-    @abstractproperty
-    def StringItemList(self) -> 'typing.Tuple[str, ...]':
-        """
-        specifies the list of items.
-        """
-    @abstractproperty
-    def TypedItemList(self) -> 'typing.Tuple[object, ...]':
-        """
-        specifies the list of raw typed (not stringized) items.
-        
-        This list corresponds with the StringItemList and if given has to be of the same length, the elements' positions matching those of their string representation in StringItemList.
-        
-        **since**
-        
-            LibreOffice 5.4
         """
 
 __all__ = ['UnoControlListBoxModel']

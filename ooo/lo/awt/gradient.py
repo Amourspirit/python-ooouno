@@ -41,6 +41,7 @@ class Gradient(object):
     typeName: str = 'com.sun.star.awt.Gradient'
     """Literal Constant ``com.sun.star.awt.Gradient``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -90,7 +91,6 @@ class Gradient(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Style(self) -> 'GradientStyle_b02b0b93':

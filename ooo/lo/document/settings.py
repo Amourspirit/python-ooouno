@@ -43,6 +43,13 @@ class Settings(XPropertySet_bc180bfa):
     __ooo_full_ns__: str = 'com.sun.star.document.Settings'
     __ooo_type_name__: str = 'service'
 
+    PrinterSetup: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    platform and driver dependent printer setup data.
+    
+    This property serves to capture the current printer setup settings, such as paper tray, printer options, etc. The data can typically be interpreted only by the system that generated it. The PrinterSetup property may be used to save and restore the user's printer settings.
+    """
+
     @abstractproperty
     def AddExternalLeading(self) -> bool:
         """
@@ -243,13 +250,6 @@ class Settings(XPropertySet_bc180bfa):
         specifies if the document should be updated when the template it was created from changes.
         
         Applies only for documents that were created from a template.
-        """
-    @abstractproperty
-    def PrinterSetup(self) -> 'typing.Tuple[int, ...]':
-        """
-        platform and driver dependent printer setup data.
-        
-        This property serves to capture the current printer setup settings, such as paper tray, printer options, etc. The data can typically be interpreted only by the system that generated it. The PrinterSetup property may be used to save and restore the user's printer settings.
         """
 
 __all__ = ['Settings']

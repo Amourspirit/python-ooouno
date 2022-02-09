@@ -59,5 +59,6 @@ class XLabelRange(XInterface_8f010a43):
         sets the cell range address that contains the labels.
         """
 
+
 __all__ = ['XLabelRange']
 

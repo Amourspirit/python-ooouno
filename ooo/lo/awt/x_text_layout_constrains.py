@@ -50,5 +50,6 @@ class XTextLayoutConstrains(XInterface_8f010a43):
         returns the minimum size for a given number of columns and lines.
         """
 
+
 __all__ = ['XTextLayoutConstrains']
 

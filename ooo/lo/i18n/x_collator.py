@@ -72,5 +72,6 @@ class XCollator(XInterface_8f010a43):
         Load the collator with default algorithm defined in locale data.
         """
 
+
 __all__ = ['XCollator']
 

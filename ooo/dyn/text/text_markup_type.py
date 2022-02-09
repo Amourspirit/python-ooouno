@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import TextMarkupType
+    from com.sun.star.text import TextMarkupType as TextMarkupType
 else:
     from ...lo.text.text_markup_type import TextMarkupType as TextMarkupType
 

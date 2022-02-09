@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XSheetAnnotation
+    from com.sun.star.sheet import XSheetAnnotation as XSheetAnnotation
     setattr(XSheetAnnotation, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetAnnotation, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetAnnotation')
     setattr(XSheetAnnotation, '__ooo_type_name__', 'interface')

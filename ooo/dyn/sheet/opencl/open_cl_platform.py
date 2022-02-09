@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Name', 'Vendor', 'Devices')
+            key_order = ('Name', 'Vendor')
             struct = uno.createUnoStruct('com.sun.star.sheet.opencl.OpenCLPlatform')
             if arg_len > len(key_order):
                 raise ValueError("OpenCLPlatform.__init__() To many parameters")

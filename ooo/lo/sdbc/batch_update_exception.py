@@ -40,7 +40,7 @@ class BatchUpdateException(SQLException_acc90b43):
     typeName: str = 'com.sun.star.sdbc.BatchUpdateException'
     """Literal Constant ``com.sun.star.sdbc.BatchUpdateException``"""
 
-    UpdateCounts: 'typing.Tuple[int, ...]' = None
+    UpdateCounts: typing.TypeAlias = typing.Tuple[int, ...]
     """
     is an array of long , with each element indicating the update count for a SQL command that executed successfully before the exception was thrown.
     """

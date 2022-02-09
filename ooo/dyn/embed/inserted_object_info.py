@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Object', 'Options')
+            key_order = ('Object',)
             struct = uno.createUnoStruct('com.sun.star.embed.InsertedObjectInfo')
             if arg_len > len(key_order):
                 raise ValueError("InsertedObjectInfo.__init__() To many parameters")

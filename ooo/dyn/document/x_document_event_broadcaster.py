@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XDocumentEventBroadcaster
+    from com.sun.star.document import XDocumentEventBroadcaster as XDocumentEventBroadcaster
     setattr(XDocumentEventBroadcaster, '__ooo_ns__', 'com.sun.star.document')
     setattr(XDocumentEventBroadcaster, '__ooo_full_ns__', 'com.sun.star.document.XDocumentEventBroadcaster')
     setattr(XDocumentEventBroadcaster, '__ooo_type_name__', 'interface')

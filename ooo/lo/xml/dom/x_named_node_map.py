@@ -96,5 +96,6 @@ class XNamedNodeMap(XInterface_8f010a43):
             DOMException: ``DOMException``
         """
 
+
 __all__ = ['XNamedNodeMap']
 

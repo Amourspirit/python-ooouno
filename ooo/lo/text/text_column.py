@@ -35,6 +35,7 @@ class TextColumn(object):
     typeName: str = 'com.sun.star.text.TextColumn'
     """Literal Constant ``com.sun.star.text.TextColumn``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class TextColumn(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Width(self) -> int:

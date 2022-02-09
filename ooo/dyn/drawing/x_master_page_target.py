@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XMasterPageTarget
+    from com.sun.star.drawing import XMasterPageTarget as XMasterPageTarget
     setattr(XMasterPageTarget, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XMasterPageTarget, '__ooo_full_ns__', 'com.sun.star.drawing.XMasterPageTarget')
     setattr(XMasterPageTarget, '__ooo_type_name__', 'interface')

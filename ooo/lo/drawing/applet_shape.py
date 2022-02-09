@@ -20,9 +20,8 @@
 # Namespace: com.sun.star.drawing
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .shape import Shape as Shape_85cc09e5
-if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 class AppletShape(Shape_85cc09e5):
     """
@@ -38,6 +37,11 @@ class AppletShape(Shape_85cc09e5):
     __ooo_ns__: str = 'com.sun.star.drawing'
     __ooo_full_ns__: str = 'com.sun.star.drawing.AppletShape'
     __ooo_type_name__: str = 'service'
+
+    AppletCommands: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    This sequence contains parameters that are passed to the applet when it is initialized.
+    """
 
     @abstractproperty
     def AppletCode(self) -> str:
@@ -63,11 +67,6 @@ class AppletShape(Shape_85cc09e5):
     def AppletName(self) -> str:
         """
         this is an optional name for the applet.
-        """
-    @abstractproperty
-    def AppletCommands(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        This sequence contains parameters that are passed to the applet when it is initialized.
         """
 
 __all__ = ['AppletShape']

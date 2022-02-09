@@ -36,6 +36,7 @@ class InsertCommandArgument2(InsertCommandArgument_19550eb9):
     typeName: str = 'com.sun.star.ucb.InsertCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.InsertCommandArgument2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class InsertCommandArgument2(InsertCommandArgument_19550eb9):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MimeType(self) -> str:

@@ -38,5 +38,6 @@ class XVndSunStarExpandUrlReference(XUriReference_afc30b6f, XVndSunStarExpandUrl
     __pyunointerface__: str = 'com.sun.star.uri.XVndSunStarExpandUrlReference'
 
 
+
 __all__ = ['XVndSunStarExpandUrlReference']
 

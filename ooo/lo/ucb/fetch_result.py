@@ -38,6 +38,13 @@ class FetchResult(object):
     typeName: str = 'com.sun.star.ucb.FetchResult'
     """Literal Constant ``com.sun.star.ucb.FetchResult``"""
 
+    Rows: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    contains the demanded data.
+    
+    One any contains the data of one whole row. Those methods which use this struct have to specify, what the any has to contain.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -52,14 +59,12 @@ class FetchResult(object):
             StartIndex (int, optional): StartIndex value
             Orientation (bool, optional): Orientation value
             FetchError (int, optional): FetchError value
-            Rows (Tuple[object, ...], optional): Rows value
         """
         self._start_index = None
         self._orientation = None
         self._fetch_error = None
-        self._rows = None
 
-        key_order = ('StartIndex', 'Orientation', 'FetchError', 'Rows')
+        key_order = ('StartIndex', 'Orientation', 'FetchError')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], FetchResult):
@@ -75,7 +80,6 @@ class FetchResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StartIndex(self) -> int:
@@ -117,19 +121,6 @@ class FetchResult(object):
     @FetchError.setter
     def FetchError(self, value: int) -> None:
         self._fetch_error = value
-
-    @property
-    def Rows(self) -> 'typing.Tuple[object, ...]':
-        """
-        contains the demanded data.
-        
-        One any contains the data of one whole row. Those methods which use this struct have to specify, what the any has to contain.
-        """
-        return self._rows
-    
-    @Rows.setter
-    def Rows(self, value: 'typing.Tuple[object, ...]') -> None:
-        self._rows = value
 
 
 __all__ = ['FetchResult']

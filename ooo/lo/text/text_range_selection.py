@@ -37,6 +37,7 @@ class TextRangeSelection(object):
     typeName: str = 'com.sun.star.text.TextRangeSelection'
     """Literal Constant ``com.sun.star.text.TextRangeSelection``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,9 +72,10 @@ class TextRangeSelection(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Start(self) -> 'TextPosition_b2ae0bc7':
+        """
+        """
         return self._start
     
     @Start.setter
@@ -82,6 +84,8 @@ class TextRangeSelection(object):
 
     @property
     def End(self) -> 'TextPosition_b2ae0bc7':
+        """
+        """
         return self._end
     
     @End.setter

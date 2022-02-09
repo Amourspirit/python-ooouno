@@ -40,6 +40,7 @@ class RecipientInfo(object):
     typeName: str = 'com.sun.star.ucb.RecipientInfo'
     """Literal Constant ``com.sun.star.ucb.RecipientInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -95,7 +96,6 @@ class RecipientInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ProtocolType(self) -> str:

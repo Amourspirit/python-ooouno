@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XLibraryContainer2
+    from com.sun.star.script import XLibraryContainer2 as XLibraryContainer2
     setattr(XLibraryContainer2, '__ooo_ns__', 'com.sun.star.script')
     setattr(XLibraryContainer2, '__ooo_full_ns__', 'com.sun.star.script.XLibraryContainer2')
     setattr(XLibraryContainer2, '__ooo_type_name__', 'interface')

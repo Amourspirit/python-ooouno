@@ -40,5 +40,6 @@ class XStyleSettingsSupplier(ABC):
         """
         """
 
+
 __all__ = ['XStyleSettingsSupplier']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.io import XSequenceOutputStream
+    from com.sun.star.io import XSequenceOutputStream as XSequenceOutputStream
     setattr(XSequenceOutputStream, '__ooo_ns__', 'com.sun.star.io')
     setattr(XSequenceOutputStream, '__ooo_full_ns__', 'com.sun.star.io.XSequenceOutputStream')
     setattr(XSequenceOutputStream, '__ooo_type_name__', 'interface')

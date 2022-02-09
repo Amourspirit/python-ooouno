@@ -58,5 +58,6 @@ class XStreamListener(XEventListener_c7230c4a):
         gets called when XActiveDataControl.terminate() is called.
         """
 
+
 __all__ = ['XStreamListener']
 

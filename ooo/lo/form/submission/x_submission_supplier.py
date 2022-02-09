@@ -42,5 +42,6 @@ class XSubmissionSupplier(XInterface_8f010a43):
         specifies the XSubmission instance to which the submission request should be delegated.
         """
 
+
 __all__ = ['XSubmissionSupplier']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XShapeMirror
+    from com.sun.star.drawing import XShapeMirror as XShapeMirror
     setattr(XShapeMirror, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XShapeMirror, '__ooo_full_ns__', 'com.sun.star.drawing.XShapeMirror')
     setattr(XShapeMirror, '__ooo_type_name__', 'interface')

@@ -35,6 +35,7 @@ class LineSpacing(object):
     typeName: str = 'com.sun.star.style.LineSpacing'
     """Literal Constant ``com.sun.star.style.LineSpacing``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class LineSpacing(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Mode(self) -> int:

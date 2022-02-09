@@ -20,9 +20,8 @@
 # Namespace: com.sun.star.drawing
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .shape import Shape as Shape_85cc09e5
-if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 class PluginShape(Shape_85cc09e5):
     """
@@ -39,6 +38,11 @@ class PluginShape(Shape_85cc09e5):
     __ooo_full_ns__: str = 'com.sun.star.drawing.PluginShape'
     __ooo_type_name__: str = 'service'
 
+    PluginCommands: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    This sequence contains parameters that are passed to the application that renders the plugin when it is initialized.
+    """
+
     @abstractproperty
     def PluginMimeType(self) -> str:
         """
@@ -48,11 +52,6 @@ class PluginShape(Shape_85cc09e5):
     def PluginURL(self) -> str:
         """
         This property specifies the url to the binary object.
-        """
-    @abstractproperty
-    def PluginCommands(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        This sequence contains parameters that are passed to the application that renders the plugin when it is initialized.
         """
 
 __all__ = ['PluginShape']

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XOfficeInstallationDirectories
+    from com.sun.star.util import XOfficeInstallationDirectories as XOfficeInstallationDirectories
     setattr(XOfficeInstallationDirectories, '__ooo_ns__', 'com.sun.star.util')
     setattr(XOfficeInstallationDirectories, '__ooo_full_ns__', 'com.sun.star.util.XOfficeInstallationDirectories')
     setattr(XOfficeInstallationDirectories, '__ooo_type_name__', 'interface')

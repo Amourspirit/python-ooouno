@@ -38,6 +38,7 @@ class DataPointLabel(object):
     typeName: str = 'com.sun.star.chart2.DataPointLabel'
     """Literal Constant ``com.sun.star.chart2.DataPointLabel``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -79,7 +80,6 @@ class DataPointLabel(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ShowNumber(self) -> bool:

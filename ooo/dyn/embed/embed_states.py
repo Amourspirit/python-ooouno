@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import EmbedStates
+    from com.sun.star.embed import EmbedStates as EmbedStates
 else:
     from ...lo.embed.embed_states import EmbedStates as EmbedStates
 

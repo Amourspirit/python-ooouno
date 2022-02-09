@@ -381,5 +381,6 @@ class XReportControlFormat(ABC):
         contains the character style name for visited hyperlinks.
         """
 
+
 __all__ = ['XReportControlFormat']
 

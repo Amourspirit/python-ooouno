@@ -105,5 +105,6 @@ class XPanel(ABC):
         Set the panel title string.
         """
 
+
 __all__ = ['XPanel']
 

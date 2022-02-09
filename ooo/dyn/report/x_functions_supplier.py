@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import XFunctionsSupplier
+    from com.sun.star.report import XFunctionsSupplier as XFunctionsSupplier
     setattr(XFunctionsSupplier, '__ooo_ns__', 'com.sun.star.report')
     setattr(XFunctionsSupplier, '__ooo_full_ns__', 'com.sun.star.report.XFunctionsSupplier')
     setattr(XFunctionsSupplier, '__ooo_type_name__', 'interface')

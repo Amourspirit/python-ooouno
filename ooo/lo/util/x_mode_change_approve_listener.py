@@ -51,5 +51,6 @@ class XModeChangeApproveListener(XEventListener_c7230c4a):
             VetoException: ``VetoException``
         """
 
+
 __all__ = ['XModeChangeApproveListener']
 

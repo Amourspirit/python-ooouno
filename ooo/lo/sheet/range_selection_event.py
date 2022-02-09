@@ -36,6 +36,7 @@ class RangeSelectionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sheet.RangeSelectionEvent'
     """Literal Constant ``com.sun.star.sheet.RangeSelectionEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -67,7 +68,6 @@ class RangeSelectionEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def RangeDescriptor(self) -> str:

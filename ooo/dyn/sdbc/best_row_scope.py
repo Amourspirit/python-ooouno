@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import BestRowScope
+    from com.sun.star.sdbc import BestRowScope as BestRowScope
 else:
     from ...lo.sdbc.best_row_scope import BestRowScope as BestRowScope
 

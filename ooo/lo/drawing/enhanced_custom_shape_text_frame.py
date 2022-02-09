@@ -38,6 +38,7 @@ class EnhancedCustomShapeTextFrame(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeTextFrame'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeTextFrame``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,9 +73,10 @@ class EnhancedCustomShapeTextFrame(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def TopLeft(self) -> 'EnhancedCustomShapeParameterPair_262914a3':
+        """
+        """
         return self._top_left
     
     @TopLeft.setter
@@ -83,6 +85,8 @@ class EnhancedCustomShapeTextFrame(object):
 
     @property
     def BottomRight(self) -> 'EnhancedCustomShapeParameterPair_262914a3':
+        """
+        """
         return self._bottom_right
     
     @BottomRight.setter

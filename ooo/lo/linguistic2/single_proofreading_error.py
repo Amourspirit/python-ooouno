@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.linguistic2
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 
 class SingleProofreadingError(object):
@@ -42,6 +41,13 @@ class SingleProofreadingError(object):
     typeName: str = 'com.sun.star.linguistic2.SingleProofreadingError'
     """Literal Constant ``com.sun.star.linguistic2.SingleProofreadingError``"""
 
+    aSuggestions: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    """
+    aProperties: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -59,8 +65,6 @@ class SingleProofreadingError(object):
             aRuleIdentifier (str, optional): aRuleIdentifier value
             aShortComment (str, optional): aShortComment value
             aFullComment (str, optional): aFullComment value
-            aSuggestions (Tuple[str, ...], optional): aSuggestions value
-            aProperties (Tuple[PropertyValue, ...], optional): aProperties value
         """
         self._n_error_start = None
         self._n_error_length = None
@@ -68,10 +72,8 @@ class SingleProofreadingError(object):
         self._a_rule_identifier = None
         self._a_short_comment = None
         self._a_full_comment = None
-        self._a_suggestions = None
-        self._a_properties = None
 
-        key_order = ('nErrorStart', 'nErrorLength', 'nErrorType', 'aRuleIdentifier', 'aShortComment', 'aFullComment', 'aSuggestions', 'aProperties')
+        key_order = ('nErrorStart', 'nErrorLength', 'nErrorType', 'aRuleIdentifier', 'aShortComment', 'aFullComment')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SingleProofreadingError):
@@ -88,9 +90,10 @@ class SingleProofreadingError(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def nErrorStart(self) -> int:
+        """
+        """
         return self._n_error_start
     
     @nErrorStart.setter
@@ -99,6 +102,8 @@ class SingleProofreadingError(object):
 
     @property
     def nErrorLength(self) -> int:
+        """
+        """
         return self._n_error_length
     
     @nErrorLength.setter
@@ -107,6 +112,8 @@ class SingleProofreadingError(object):
 
     @property
     def nErrorType(self) -> int:
+        """
+        """
         return self._n_error_type
     
     @nErrorType.setter
@@ -115,6 +122,8 @@ class SingleProofreadingError(object):
 
     @property
     def aRuleIdentifier(self) -> str:
+        """
+        """
         return self._a_rule_identifier
     
     @aRuleIdentifier.setter
@@ -123,6 +132,8 @@ class SingleProofreadingError(object):
 
     @property
     def aShortComment(self) -> str:
+        """
+        """
         return self._a_short_comment
     
     @aShortComment.setter
@@ -131,27 +142,13 @@ class SingleProofreadingError(object):
 
     @property
     def aFullComment(self) -> str:
+        """
+        """
         return self._a_full_comment
     
     @aFullComment.setter
     def aFullComment(self, value: str) -> None:
         self._a_full_comment = value
-
-    @property
-    def aSuggestions(self) -> 'typing.Tuple[str, ...]':
-        return self._a_suggestions
-    
-    @aSuggestions.setter
-    def aSuggestions(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._a_suggestions = value
-
-    @property
-    def aProperties(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        return self._a_properties
-    
-    @aProperties.setter
-    def aProperties(self, value: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
-        self._a_properties = value
 
 
 __all__ = ['SingleProofreadingError']

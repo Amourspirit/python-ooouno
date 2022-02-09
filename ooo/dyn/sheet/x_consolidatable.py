@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XConsolidatable
+    from com.sun.star.sheet import XConsolidatable as XConsolidatable
     setattr(XConsolidatable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XConsolidatable, '__ooo_full_ns__', 'com.sun.star.sheet.XConsolidatable')
     setattr(XConsolidatable, '__ooo_type_name__', 'interface')

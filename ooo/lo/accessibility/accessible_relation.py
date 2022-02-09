@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.accessibility
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..uno.x_interface import XInterface as XInterface_8f010a43
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 
 
 class AccessibleRelation(object):
@@ -44,6 +43,13 @@ class AccessibleRelation(object):
     typeName: str = 'com.sun.star.accessibility.AccessibleRelation'
     """Literal Constant ``com.sun.star.accessibility.AccessibleRelation``"""
 
+    TargetSet: typing.TypeAlias = typing.Tuple[XInterface_8f010a43, ...]
+    """
+    Set of objects that are the relation's targets.
+    
+    The content of this set is undefined if the relation's type is INVALID. The set must not contain references to one object more than once.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -56,12 +62,10 @@ class AccessibleRelation(object):
 
         Keyword Arguments:
             RelationType (int, optional): RelationType value
-            TargetSet (Tuple[XInterface, ...], optional): TargetSet value
         """
         self._relation_type = None
-        self._target_set = None
 
-        key_order = ('RelationType', 'TargetSet')
+        key_order = ('RelationType',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], AccessibleRelation):
@@ -78,7 +82,6 @@ class AccessibleRelation(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def RelationType(self) -> int:
         """
@@ -91,19 +94,6 @@ class AccessibleRelation(object):
     @RelationType.setter
     def RelationType(self, value: int) -> None:
         self._relation_type = value
-
-    @property
-    def TargetSet(self) -> 'typing.Tuple[XInterface_8f010a43, ...]':
-        """
-        Set of objects that are the relation's targets.
-        
-        The content of this set is undefined if the relation's type is INVALID. The set must not contain references to one object more than once.
-        """
-        return self._target_set
-    
-    @TargetSet.setter
-    def TargetSet(self, value: 'typing.Tuple[XInterface_8f010a43, ...]') -> None:
-        self._target_set = value
 
 
 __all__ = ['AccessibleRelation']

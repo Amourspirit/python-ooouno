@@ -44,5 +44,6 @@ class XPaintListener(XEventListener_c7230c4a):
         when another window has been moved away.
         """
 
+
 __all__ = ['XPaintListener']
 

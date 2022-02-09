@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XEntityReference
+    from com.sun.star.xml.dom import XEntityReference as XEntityReference
     setattr(XEntityReference, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XEntityReference, '__ooo_full_ns__', 'com.sun.star.xml.dom.XEntityReference')
     setattr(XEntityReference, '__ooo_type_name__', 'interface')

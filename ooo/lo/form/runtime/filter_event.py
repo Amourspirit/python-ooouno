@@ -40,6 +40,7 @@ class FilterEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.runtime.FilterEvent'
     """Literal Constant ``com.sun.star.form.runtime.FilterEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class FilterEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def DisjunctiveTerm(self) -> int:

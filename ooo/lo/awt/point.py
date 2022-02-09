@@ -35,6 +35,7 @@ class Point(object):
     typeName: str = 'com.sun.star.awt.Point'
     """Literal Constant ``com.sun.star.awt.Point``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class Point(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def X(self) -> int:

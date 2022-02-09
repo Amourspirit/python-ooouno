@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.deployment import XExtensionManager
+    from com.sun.star.deployment import XExtensionManager as XExtensionManager
     setattr(XExtensionManager, '__ooo_ns__', 'com.sun.star.deployment')
     setattr(XExtensionManager, '__ooo_full_ns__', 'com.sun.star.deployment.XExtensionManager')
     setattr(XExtensionManager, '__ooo_type_name__', 'interface')

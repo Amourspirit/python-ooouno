@@ -44,5 +44,6 @@ class XInteractionSupplyParameters(XInteractionContinuation_5af0108e):
         set the parameters chosen by the interaction handler
         """
 
+
 __all__ = ['XInteractionSupplyParameters']
 

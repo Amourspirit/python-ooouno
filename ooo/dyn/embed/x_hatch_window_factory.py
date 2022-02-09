@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XHatchWindowFactory
+    from com.sun.star.embed import XHatchWindowFactory as XHatchWindowFactory
     setattr(XHatchWindowFactory, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XHatchWindowFactory, '__ooo_full_ns__', 'com.sun.star.embed.XHatchWindowFactory')
     setattr(XHatchWindowFactory, '__ooo_type_name__', 'interface')

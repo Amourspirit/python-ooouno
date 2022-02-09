@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import CompositionType
+    from com.sun.star.sdb.tools import CompositionType as CompositionType
 else:
     from ....lo.sdb.tools.composition_type import CompositionType as CompositionType
 

@@ -21,9 +21,9 @@
 import typing
 from abc import abstractproperty
 from .base_index import BaseIndex as BaseIndex_8f0d0a40
+from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 if typing.TYPE_CHECKING:
     from ..lang.locale import Locale as Locale_70d308fa
-    from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 
 class DocumentIndex(BaseIndex_8f0d0a40):
     """
@@ -37,6 +37,11 @@ class DocumentIndex(BaseIndex_8f0d0a40):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.DocumentIndex'
     __ooo_type_name__: str = 'service'
+
+    DocumentIndexMarks: typing.TypeAlias = typing.Tuple[XDocumentIndexMark_fe490de7, ...]
+    """
+    contains all index marks that are related to this index.
+    """
 
     @abstractproperty
     def IsCaseSensitive(self) -> bool:
@@ -87,11 +92,6 @@ class DocumentIndex(BaseIndex_8f0d0a40):
     def UseUpperCase(self) -> bool:
         """
         determines if all entries start with a capital letter.
-        """
-    @abstractproperty
-    def DocumentIndexMarks(self) -> 'typing.Tuple[XDocumentIndexMark_fe490de7, ...]':
-        """
-        contains all index marks that are related to this index.
         """
 
 __all__ = ['DocumentIndex']

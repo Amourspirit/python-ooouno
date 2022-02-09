@@ -41,5 +41,6 @@ class XInteractionSupplyName(XInteractionContinuation_5af0108e):
         sets the name to supply.
         """
 
+
 __all__ = ['XInteractionSupplyName']
 

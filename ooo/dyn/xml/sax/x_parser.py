@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.sax import XParser
+    from com.sun.star.xml.sax import XParser as XParser
     setattr(XParser, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XParser, '__ooo_full_ns__', 'com.sun.star.xml.sax.XParser')
     setattr(XParser, '__ooo_type_name__', 'interface')

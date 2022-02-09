@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import MailMergeType
+    from com.sun.star.text import MailMergeType as MailMergeType
 else:
     from ...lo.text.mail_merge_type import MailMergeType as MailMergeType
 

@@ -42,5 +42,6 @@ class XBookmarksSupplier(XInterface_8f010a43):
         A bookmark is simply a string specifying the location of the bookmarked document.
         """
 
+
 __all__ = ['XBookmarksSupplier']
 

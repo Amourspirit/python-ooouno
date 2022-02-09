@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import PopupMenuDirection
+    from com.sun.star.awt import PopupMenuDirection as PopupMenuDirection
 else:
     from ...lo.awt.popup_menu_direction import PopupMenuDirection as PopupMenuDirection
 

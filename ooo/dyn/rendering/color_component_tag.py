@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import ColorComponentTag
+    from com.sun.star.rendering import ColorComponentTag as ColorComponentTag
 else:
     from ...lo.rendering.color_component_tag import ColorComponentTag as ColorComponentTag
 

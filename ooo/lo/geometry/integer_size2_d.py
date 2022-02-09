@@ -41,6 +41,7 @@ class IntegerSize2D(object):
     typeName: str = 'com.sun.star.geometry.IntegerSize2D'
     """Literal Constant ``com.sun.star.geometry.IntegerSize2D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class IntegerSize2D(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Width(self) -> int:

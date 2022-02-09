@@ -42,5 +42,6 @@ class XDataEditorListener(XInterface_8f010a43):
         is called when the state of a connected XDataEditor changes.
         """
 
+
 __all__ = ['XDataEditorListener']
 

@@ -42,5 +42,6 @@ class XAdjustmentListener(XEventListener_c7230c4a):
         is invoked when the adjustment has changed.
         """
 
+
 __all__ = ['XAdjustmentListener']
 

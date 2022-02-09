@@ -40,7 +40,7 @@ class MissingPropertiesException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.MissingPropertiesException'
     """Literal Constant ``com.sun.star.ucb.MissingPropertiesException``"""
 
-    Properties: 'typing.Tuple[str, ...]' = None
+    Properties: typing.TypeAlias = typing.Tuple[str, ...]
     """
     contains the names of the missing properties.
     """

@@ -172,5 +172,6 @@ class XModel(ABC):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
+
 __all__ = ['XModel']
 

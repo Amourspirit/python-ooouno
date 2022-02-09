@@ -20,8 +20,8 @@
 # Namespace: com.sun.star.document
 import typing
 from abc import abstractproperty, ABC
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
     from ..frame.x_frame import XFrame as XFrame_7a570956
     from ..io.x_input_stream import XInputStream as XInputStream_98d40ab4
     from ..io.x_output_stream import XOutputStream as XOutputStream_a4e00b35
@@ -49,6 +49,22 @@ class MediaDescriptor(ABC):
     __ooo_ns__: str = 'com.sun.star.document'
     __ooo_full_ns__: str = 'com.sun.star.document.MediaDescriptor'
     __ooo_type_name__: str = 'service'
+
+    EncryptionData: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    encryption information for encryption/decryption of documents
+    
+    It contains the necessary information for encryption/decryption of a component (if necessary). If neither password nor encryption data is specified, loading of a password protected document will fail, storing will be done without encryption. If both are provided, the encryption data is used ( if the filter supports it ).
+    
+    The encryption data is generated based on the password.
+    """
+
+    PostData: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    contains the data for HTTP post method as a sequence of bytes.
+    
+    Data to send to a location described by the media descriptor to get a result in return that will be loaded as a component (usually in webforms). Default is: no PostData.
+    """
 
     @abstractproperty
     def Aborted(self) -> bool:
@@ -448,22 +464,6 @@ class MediaDescriptor(ABC):
         id of the initial view
         
         For components supporting different views: a number to define the view that should be constructed after loading. Default is: zero, and this should be treated by the component as the default view.
-        """
-    @abstractproperty
-    def EncryptionData(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        encryption information for encryption/decryption of documents
-        
-        It contains the necessary information for encryption/decryption of a component (if necessary). If neither password nor encryption data is specified, loading of a password protected document will fail, storing will be done without encryption. If both are provided, the encryption data is used ( if the filter supports it ).
-        
-        The encryption data is generated based on the password.
-        """
-    @abstractproperty
-    def PostData(self) -> 'typing.Tuple[int, ...]':
-        """
-        contains the data for HTTP post method as a sequence of bytes.
-        
-        Data to send to a location described by the media descriptor to get a result in return that will be loaded as a component (usually in webforms). Default is: no PostData.
         """
 
 __all__ = ['MediaDescriptor']

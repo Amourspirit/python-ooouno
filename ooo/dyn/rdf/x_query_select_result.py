@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rdf import XQuerySelectResult
+    from com.sun.star.rdf import XQuerySelectResult as XQuerySelectResult
     setattr(XQuerySelectResult, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XQuerySelectResult, '__ooo_full_ns__', 'com.sun.star.rdf.XQuerySelectResult')
     setattr(XQuerySelectResult, '__ooo_type_name__', 'interface')

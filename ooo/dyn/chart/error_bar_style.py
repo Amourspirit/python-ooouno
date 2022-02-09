@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ErrorBarStyle
+    from com.sun.star.chart import ErrorBarStyle as ErrorBarStyle
 else:
     from ...lo.chart.error_bar_style import ErrorBarStyle as ErrorBarStyle
 

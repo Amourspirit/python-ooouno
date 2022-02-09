@@ -41,6 +41,7 @@ class SystemDependentXWindow(object):
     typeName: str = 'com.sun.star.awt.SystemDependentXWindow'
     """Literal Constant ``com.sun.star.awt.SystemDependentXWindow``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class SystemDependentXWindow(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def WindowHandle(self) -> int:

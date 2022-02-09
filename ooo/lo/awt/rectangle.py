@@ -35,6 +35,7 @@ class Rectangle(object):
     typeName: str = 'com.sun.star.awt.Rectangle'
     """Literal Constant ``com.sun.star.awt.Rectangle``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class Rectangle(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def X(self) -> int:

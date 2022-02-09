@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XSystemDependentWindowPeer
+    from com.sun.star.awt import XSystemDependentWindowPeer as XSystemDependentWindowPeer
     setattr(XSystemDependentWindowPeer, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XSystemDependentWindowPeer, '__ooo_full_ns__', 'com.sun.star.awt.XSystemDependentWindowPeer')
     setattr(XSystemDependentWindowPeer, '__ooo_type_name__', 'interface')

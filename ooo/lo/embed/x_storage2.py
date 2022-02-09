@@ -74,5 +74,6 @@ class XStorage2(XStorage_8e460a32):
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
 
+
 __all__ = ['XStorage2']
 

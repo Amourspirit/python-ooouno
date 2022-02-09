@@ -19,9 +19,9 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 import typing
+from .color_component import ColorComponent as ColorComponent_e4c0e78
 if typing.TYPE_CHECKING:
     from ..geometry.affine_matrix2_d import AffineMatrix2D as AffineMatrix2D_ff040da8
-    from .color_component import ColorComponent as ColorComponent_e4c0e78
     from .x_poly_polygon2_d import XPolyPolygon2D as XPolyPolygon2D_e1b0e20
 
 
@@ -46,6 +46,13 @@ class RenderState(object):
     typeName: str = 'com.sun.star.rendering.RenderState'
     """Literal Constant ``com.sun.star.rendering.RenderState``"""
 
+    DeviceColor: typing.TypeAlias = typing.Tuple[ColorComponent_e4c0e78, ...]
+    """
+    The device color associated with this render operation.
+    
+    Note that this need not be RGB here, but depends on the active device color space.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -60,14 +67,12 @@ class RenderState(object):
             AffineTransform (AffineMatrix2D, optional): AffineTransform value
             Clip (XPolyPolygon2D, optional): Clip value
             CompositeOperation (int, optional): CompositeOperation value
-            DeviceColor (Tuple[ColorComponent, ...], optional): DeviceColor value
         """
         self._affine_transform = None
         self._clip = None
         self._composite_operation = None
-        self._device_color = None
 
-        key_order = ('AffineTransform', 'Clip', 'CompositeOperation', 'DeviceColor')
+        key_order = ('AffineTransform', 'Clip', 'CompositeOperation')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], RenderState):
@@ -83,7 +88,6 @@ class RenderState(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def AffineTransform(self) -> 'AffineMatrix2D_ff040da8':
@@ -125,19 +129,6 @@ class RenderState(object):
     @CompositeOperation.setter
     def CompositeOperation(self, value: int) -> None:
         self._composite_operation = value
-
-    @property
-    def DeviceColor(self) -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
-        """
-        The device color associated with this render operation.
-        
-        Note that this need not be RGB here, but depends on the active device color space.
-        """
-        return self._device_color
-    
-    @DeviceColor.setter
-    def DeviceColor(self, value: 'typing.Tuple[ColorComponent_e4c0e78, ...]') -> None:
-        self._device_color = value
 
 
 __all__ = ['RenderState']

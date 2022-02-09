@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XLevelsSupplier
+    from com.sun.star.sheet import XLevelsSupplier as XLevelsSupplier
     setattr(XLevelsSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XLevelsSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XLevelsSupplier')
     setattr(XLevelsSupplier, '__ooo_type_name__', 'interface')

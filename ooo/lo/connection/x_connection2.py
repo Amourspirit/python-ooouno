@@ -53,5 +53,6 @@ class XConnection2(XConnection_f2320da0):
             com.sun.star.io.IOException: ``IOException``
         """
 
+
 __all__ = ['XConnection2']
 

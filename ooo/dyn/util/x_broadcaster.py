@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XBroadcaster
+    from com.sun.star.util import XBroadcaster as XBroadcaster
     setattr(XBroadcaster, '__ooo_ns__', 'com.sun.star.util')
     setattr(XBroadcaster, '__ooo_full_ns__', 'com.sun.star.util.XBroadcaster')
     setattr(XBroadcaster, '__ooo_type_name__', 'interface')

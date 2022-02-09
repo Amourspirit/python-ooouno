@@ -57,5 +57,6 @@ class XButton(XInterface_8f010a43):
         sets the label of the button.
         """
 
+
 __all__ = ['XButton']
 

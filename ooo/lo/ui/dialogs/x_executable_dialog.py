@@ -44,5 +44,6 @@ class XExecutableDialog(XInterface_8f010a43):
         Sets the title of the dialog.
         """
 
+
 __all__ = ['XExecutableDialog']
 

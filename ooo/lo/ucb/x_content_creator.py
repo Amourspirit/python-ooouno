@@ -56,5 +56,6 @@ class XContentCreator(XInterface_8f010a43):
         returns a list with information about the creatable contents.
         """
 
+
 __all__ = ['XContentCreator']
 

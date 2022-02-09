@@ -39,6 +39,7 @@ class Visibility(object):
     typeName: str = 'com.sun.star.frame.status.Visibility'
     """Literal Constant ``com.sun.star.frame.status.Visibility``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class Visibility(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def bVisible(self) -> bool:

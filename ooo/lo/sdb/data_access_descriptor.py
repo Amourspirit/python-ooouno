@@ -20,8 +20,8 @@
 # Namespace: com.sun.star.sdb
 import typing
 from abc import abstractproperty, ABC
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
     from ..sdbc.x_connection import XConnection as XConnection_a36a0b0c
     from ..sdbc.x_result_set import XResultSet as XResultSet_98e30aa7
@@ -48,6 +48,27 @@ class DataAccessDescriptor(ABC):
     __ooo_ns__: str = 'com.sun.star.sdb'
     __ooo_full_ns__: str = 'com.sun.star.sdb.DataAccessDescriptor'
     __ooo_type_name__: str = 'service'
+
+    ConnectionInfo: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    specifies additional info to use when creating a connection from a ConnectionResource
+    
+    This member is evaluated only when ConnectionResource is used: In this case, com.sun.star.sdbc.XDriverManager.getConnectionWithInfo() is used to create a connection for the given connection resource, instead of com.sun.star.sdbc.XDriverManager.getConnection().
+    
+    If the sequence is empty, it is ignored.
+    """
+
+    Selection: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    specifies a selection to confine the records in a result set.
+    
+    When you specify a result set either implicitly (DataSourceName, Command, CommandType) or explicitly (ResultSet), the set of results can be additionally refined with this property.
+    
+    The single elements of the Selection are either record numbers (see com.sun.star.sdbc.XResultSet.getRow()), or bookmarks (see com.sun.star.sdbcx.XRowLocate.getBookmark()).
+    It is up to the component which provides or requires a DataAccessDescriptor to specify which of the two alternatives it expects. If it does not specify this, then the property BookmarkSelection becomes mandatory.
+    
+    If the elements specify bookmarks, and a ResultSet has been specified, then this result set is required to support the com.sun.star.sdbcx.XRowLocate interface.
+    """
 
     @abstractproperty
     def ActiveConnection(self) -> 'XConnection_a36a0b0c':
@@ -172,27 +193,6 @@ class DataAccessDescriptor(ABC):
         The object will at least support the com.sun.star.sdbc.ResultSet service.
         
         Note that any superservices of com.sun.star.sdbc.ResultSet are also allowed. Especially, this member can denote an instance of the com.sun.star.sdb.RowSet, or an instance obtained by calling com.sun.star.sdb.XResultSetAccess.createResultSet() on such a com.sun.star.sdb.RowSet. This becomes important in conjunction with the Selection property.
-        """
-    @abstractproperty
-    def ConnectionInfo(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        specifies additional info to use when creating a connection from a ConnectionResource
-        
-        This member is evaluated only when ConnectionResource is used: In this case, com.sun.star.sdbc.XDriverManager.getConnectionWithInfo() is used to create a connection for the given connection resource, instead of com.sun.star.sdbc.XDriverManager.getConnection().
-        
-        If the sequence is empty, it is ignored.
-        """
-    @abstractproperty
-    def Selection(self) -> 'typing.Tuple[object, ...]':
-        """
-        specifies a selection to confine the records in a result set.
-        
-        When you specify a result set either implicitly (DataSourceName, Command, CommandType) or explicitly (ResultSet), the set of results can be additionally refined with this property.
-        
-        The single elements of the Selection are either record numbers (see com.sun.star.sdbc.XResultSet.getRow()), or bookmarks (see com.sun.star.sdbcx.XRowLocate.getBookmark()).
-        It is up to the component which provides or requires a DataAccessDescriptor to specify which of the two alternatives it expects. If it does not specify this, then the property BookmarkSelection becomes mandatory.
-        
-        If the elements specify bookmarks, and a ResultSet has been specified, then this result set is required to support the com.sun.star.sdbcx.XRowLocate interface.
         """
 
 __all__ = ['DataAccessDescriptor']

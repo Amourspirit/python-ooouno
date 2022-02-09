@@ -52,5 +52,6 @@ class XContainerWindowEventHandler(XInterface_8f010a43):
         returns a sequence of supported method names
         """
 
+
 __all__ = ['XContainerWindowEventHandler']
 

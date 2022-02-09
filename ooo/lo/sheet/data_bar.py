@@ -21,8 +21,8 @@
 import typing
 from abc import abstractproperty
 from .x_condition_entry import XConditionEntry as XConditionEntry_e2340d32
+from .x_data_bar_entry import XDataBarEntry as XDataBarEntry_c61d0c1a
 if typing.TYPE_CHECKING:
-    from .x_data_bar_entry import XDataBarEntry as XDataBarEntry_c61d0c1a
     from ..util.color import Color as Color_68e908c5
 
 class DataBar(XConditionEntry_e2340d32):
@@ -36,6 +36,10 @@ class DataBar(XConditionEntry_e2340d32):
     __ooo_ns__: str = 'com.sun.star.sheet'
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataBar'
     __ooo_type_name__: str = 'service'
+
+    DataBarEntries: typing.TypeAlias = typing.Tuple[XDataBarEntry_c61d0c1a, ...]
+    """
+    """
 
     @abstractproperty
     def AxisColor(self) -> 'Color_68e908c5':
@@ -78,10 +82,6 @@ class DataBar(XConditionEntry_e2340d32):
         """
     @abstractproperty
     def UseNegativeColor(self) -> bool:
-        """
-        """
-    @abstractproperty
-    def DataBarEntries(self) -> 'typing.Tuple[XDataBarEntry_c61d0c1a, ...]':
         """
         """
 

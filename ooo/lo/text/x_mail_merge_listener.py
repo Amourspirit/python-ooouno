@@ -48,5 +48,6 @@ class XMailMergeListener(XInterface_8f010a43):
         Notifies the listener about mail merge events.
         """
 
+
 __all__ = ['XMailMergeListener']
 

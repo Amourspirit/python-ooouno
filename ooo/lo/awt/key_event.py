@@ -36,6 +36,7 @@ class KeyEvent(InputEvent_8f520a66):
     typeName: str = 'com.sun.star.awt.KeyEvent'
     """Literal Constant ``com.sun.star.awt.KeyEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class KeyEvent(InputEvent_8f520a66):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def KeyCode(self) -> int:

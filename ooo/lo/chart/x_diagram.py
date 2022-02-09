@@ -55,5 +55,6 @@ class XDiagram(XShape_8fd00a3d):
         """
         """
 
+
 __all__ = ['XDiagram']
 

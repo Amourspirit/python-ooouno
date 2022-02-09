@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import MouseWheelBehavior
+    from com.sun.star.awt import MouseWheelBehavior as MouseWheelBehavior
 else:
     from ...lo.awt.mouse_wheel_behavior import MouseWheelBehavior as MouseWheelBehavior
 

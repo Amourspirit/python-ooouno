@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import SpreadsheetViewObjectsMode
+    from com.sun.star.sheet import SpreadsheetViewObjectsMode as SpreadsheetViewObjectsMode
 else:
     from ...lo.sheet.spreadsheet_view_objects_mode import SpreadsheetViewObjectsMode as SpreadsheetViewObjectsMode
 

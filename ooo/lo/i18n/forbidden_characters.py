@@ -37,6 +37,7 @@ class ForbiddenCharacters(object):
     typeName: str = 'com.sun.star.i18n.ForbiddenCharacters'
     """Literal Constant ``com.sun.star.i18n.ForbiddenCharacters``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class ForbiddenCharacters(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def beginLine(self) -> str:

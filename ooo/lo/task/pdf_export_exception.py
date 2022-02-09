@@ -38,7 +38,7 @@ class PDFExportException(Exception_85530a09):
     typeName: str = 'com.sun.star.task.PDFExportException'
     """Literal Constant ``com.sun.star.task.PDFExportException``"""
 
-    ErrorCodes: 'typing.Tuple[int, ...]' = None
+    ErrorCodes: typing.TypeAlias = typing.Tuple[int, ...]
     """
     contains a number of errors that occurred during PDFExport
     """

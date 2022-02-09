@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Parameter', 'Action', 'Terms')
+            key_order = ('Parameter', 'Action')
             struct = uno.createUnoStruct('com.sun.star.ucb.Rule')
             if arg_len > len(key_order):
                 raise ValueError("Rule.__init__() To many parameters")

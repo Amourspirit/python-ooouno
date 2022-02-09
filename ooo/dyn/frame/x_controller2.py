@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XController2
+    from com.sun.star.frame import XController2 as XController2
     setattr(XController2, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XController2, '__ooo_full_ns__', 'com.sun.star.frame.XController2')
     setattr(XController2, '__ooo_type_name__', 'interface')

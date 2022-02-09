@@ -39,5 +39,6 @@ class XEmbeddedObjectCreator(XEmbedObjectCreator_14880e61, XEmbedObjectFactory_1
     __pyunointerface__: str = 'com.sun.star.embed.XEmbeddedObjectCreator'
 
 
+
 __all__ = ['XEmbeddedObjectCreator']
 

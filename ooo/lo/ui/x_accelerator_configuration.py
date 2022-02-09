@@ -127,5 +127,6 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
+
 __all__ = ['XAcceleratorConfiguration']
 

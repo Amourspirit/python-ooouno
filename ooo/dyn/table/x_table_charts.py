@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import XTableCharts
+    from com.sun.star.table import XTableCharts as XTableCharts
     setattr(XTableCharts, '__ooo_ns__', 'com.sun.star.table')
     setattr(XTableCharts, '__ooo_full_ns__', 'com.sun.star.table.XTableCharts')
     setattr(XTableCharts, '__ooo_type_name__', 'interface')

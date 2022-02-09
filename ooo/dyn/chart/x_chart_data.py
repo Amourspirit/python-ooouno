@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import XChartData
+    from com.sun.star.chart import XChartData as XChartData
     setattr(XChartData, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XChartData, '__ooo_full_ns__', 'com.sun.star.chart.XChartData')
     setattr(XChartData, '__ooo_type_name__', 'interface')

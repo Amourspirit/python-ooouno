@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import XMergeableCellRange
+    from com.sun.star.table import XMergeableCellRange as XMergeableCellRange
     setattr(XMergeableCellRange, '__ooo_ns__', 'com.sun.star.table')
     setattr(XMergeableCellRange, '__ooo_full_ns__', 'com.sun.star.table.XMergeableCellRange')
     setattr(XMergeableCellRange, '__ooo_type_name__', 'interface')

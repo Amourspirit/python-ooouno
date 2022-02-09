@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Depth', 'Owner', 'Timeout', 'LockTokens')
+            key_order = ('Depth', 'Owner', 'Timeout')
             struct = uno.createUnoStruct('com.sun.star.ucb.Lock')
             if arg_len > len(key_order):
                 raise ValueError("Lock.__init__() To many parameters")

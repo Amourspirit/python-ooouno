@@ -20,11 +20,11 @@
 # Namespace: com.sun.star.sdb
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_completed_connection import XCompletedConnection as XCompletedConnection_98a0e46
 from .x_database_access import XDatabaseAccess as XDatabaseAccess_c47a0c00
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..util.x_number_formats_supplier import XNumberFormatsSupplier as XNumberFormatsSupplier_3afb0fb7
 
 class DatabaseAccess(XPropertySet_bc180bfa, XCompletedConnection_98a0e46, XDatabaseAccess_c47a0c00):
@@ -43,6 +43,25 @@ class DatabaseAccess(XPropertySet_bc180bfa, XCompletedConnection_98a0e46, XDatab
     __ooo_ns__: str = 'com.sun.star.sdb'
     __ooo_full_ns__: str = 'com.sun.star.sdb.DatabaseAccess'
     __ooo_type_name__: str = 'service'
+
+    ConnectInfo: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    is a list of arbitrary string tag/value pairs as connection arguments; normally at least a \"user\" and \"password\" property should be included.
+    """
+
+    TableFilter: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    defines a list of tables, on which the bean should have it's focus.
+    
+    If empty, all tables are rejected.
+    """
+
+    TableTypeFilter: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    defines a list of table types, on which the bean should have it's focus.
+    
+    If empty, all tables types are rejected.
+    """
 
     @abstractproperty
     def ConnectURL(self) -> str:
@@ -74,25 +93,6 @@ class DatabaseAccess(XPropertySet_bc180bfa, XCompletedConnection_98a0e46, XDatab
     def URL(self) -> str:
         """
         is the URL of the bean.
-        """
-    @abstractproperty
-    def ConnectInfo(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        is a list of arbitrary string tag/value pairs as connection arguments; normally at least a \"user\" and \"password\" property should be included.
-        """
-    @abstractproperty
-    def TableFilter(self) -> 'typing.Tuple[str, ...]':
-        """
-        defines a list of tables, on which the bean should have it's focus.
-        
-        If empty, all tables are rejected.
-        """
-    @abstractproperty
-    def TableTypeFilter(self) -> 'typing.Tuple[str, ...]':
-        """
-        defines a list of table types, on which the bean should have it's focus.
-        
-        If empty, all tables types are rejected.
         """
 
 __all__ = ['DatabaseAccess']

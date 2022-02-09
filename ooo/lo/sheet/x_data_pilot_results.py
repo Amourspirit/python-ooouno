@@ -44,12 +44,13 @@ class XDataPilotResults(XInterface_8f010a43):
         """
         """
     @abstractmethod
-    def getResults(self) -> 'typing.Tuple[typing.Tuple[DataResult_a47d0b1a, ...]]':
+    def getResults(self) -> 'typing.Tuple[typing.Tuple[DataResult_a47d0b1a, ...], ...]':
         """
         returns the result array.
         
         The outer sequence contains the value rows. The inner sequences contain the values for one row.
         """
+
 
 __all__ = ['XDataPilotResults']
 

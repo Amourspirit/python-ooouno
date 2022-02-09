@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration import XReadWriteAccess
+    from com.sun.star.configuration import XReadWriteAccess as XReadWriteAccess
     setattr(XReadWriteAccess, '__ooo_ns__', 'com.sun.star.configuration')
     setattr(XReadWriteAccess, '__ooo_full_ns__', 'com.sun.star.configuration.XReadWriteAccess')
     setattr(XReadWriteAccess, '__ooo_type_name__', 'interface')

@@ -38,6 +38,7 @@ class EventObject(object):
     typeName: str = 'com.sun.star.lang.EventObject'
     """Literal Constant ``com.sun.star.lang.EventObject``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class EventObject(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Source(self) -> 'XInterface_8f010a43':

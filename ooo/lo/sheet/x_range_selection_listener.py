@@ -47,5 +47,6 @@ class XRangeSelectionListener(XEventListener_c7230c4a):
         is called when range selection is completed.
         """
 
+
 __all__ = ['XRangeSelectionListener']
 

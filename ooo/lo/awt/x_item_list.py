@@ -41,7 +41,7 @@ class XItemList(ABC):
         registers a listener which is notified about changes in the item list.
         """
     @abstractmethod
-    def getAllItems(self) -> 'typing.Tuple[typing.Tuple[str, str]]':
+    def getAllItems(self) -> 'typing.Tuple[typing.Tuple[str, str], ...]':
         """
         retrieves the texts and images of all items in the list
         """
@@ -158,6 +158,7 @@ class XItemList(ABC):
         """
         is the number of items in the list
         """
+
 
 __all__ = ['XItemList']
 

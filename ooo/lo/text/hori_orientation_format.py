@@ -39,6 +39,7 @@ class HoriOrientationFormat(object):
     typeName: str = 'com.sun.star.text.HoriOrientationFormat'
     """Literal Constant ``com.sun.star.text.HoriOrientationFormat``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class HoriOrientationFormat(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def XPos(self) -> int:

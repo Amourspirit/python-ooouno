@@ -44,17 +44,17 @@ class SendMailMessageFailedException(MailException_ba9e0bdd):
     typeName: str = 'com.sun.star.mail.SendMailMessageFailedException'
     """Literal Constant ``com.sun.star.mail.SendMailMessageFailedException``"""
 
-    InvalidAddresses: 'typing.Tuple[str, ...]' = None
+    InvalidAddresses: typing.TypeAlias = typing.Tuple[str, ...]
     """
     The addresses which are invalid because they do not conform to RFC 822.
     """
 
-    ValidSentAddresses: 'typing.Tuple[str, ...]' = None
+    ValidSentAddresses: typing.TypeAlias = typing.Tuple[str, ...]
     """
     The addresses to which the mail message was sent successfully.
     """
 
-    ValidUnsentAddresses: 'typing.Tuple[str, ...]' = None
+    ValidUnsentAddresses: typing.TypeAlias = typing.Tuple[str, ...]
     """
     The addresses which are valid but to which the message was not sent.
     """

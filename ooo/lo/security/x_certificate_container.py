@@ -50,5 +50,6 @@ class XCertificateContainer(ABC):
         Check if a certificate was stored earlier before.
         """
 
+
 __all__ = ['XCertificateContainer']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XMtfRenderer
+    from com.sun.star.rendering import XMtfRenderer as XMtfRenderer
     setattr(XMtfRenderer, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XMtfRenderer, '__ooo_full_ns__', 'com.sun.star.rendering.XMtfRenderer')
     setattr(XMtfRenderer, '__ooo_type_name__', 'interface')

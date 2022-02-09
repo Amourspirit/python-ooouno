@@ -39,5 +39,6 @@ class XInteractionHandlerSupplier(XInterface_8f010a43):
         Returns whether an com.sun.star.task.XInteractionHandler can be supplied.
         """
 
+
 __all__ = ['XInteractionHandlerSupplier']
 

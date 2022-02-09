@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('DataFieldIndex', 'Result', 'FieldFilters')
+            key_order = ('DataFieldIndex', 'Result')
             struct = uno.createUnoStruct('com.sun.star.sheet.DataPilotTableResultData')
             if arg_len > len(key_order):
                 raise ValueError("DataPilotTableResultData.__init__() To many parameters")

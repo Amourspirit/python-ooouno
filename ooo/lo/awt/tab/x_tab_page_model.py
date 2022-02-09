@@ -62,5 +62,6 @@ class XTabPageModel(ABC):
         specifies a tooltip text that should be displayed in the tab bar.
         """
 
+
 __all__ = ['XTabPageModel']
 

@@ -64,5 +64,6 @@ class XPrimitive2D(XInterface_8f010a43):
         This method calculates the actual bound rect of the area in world coordinates. Note that for view-dependent primitives, the necessary pixel adjustments are taken into account. For that reason the ViewParameters need to be given.
         """
 
+
 __all__ = ['XPrimitive2D']
 

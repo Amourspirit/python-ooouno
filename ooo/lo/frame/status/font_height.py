@@ -41,6 +41,7 @@ class FontHeight(object):
     typeName: str = 'com.sun.star.frame.status.FontHeight'
     """Literal Constant ``com.sun.star.frame.status.FontHeight``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class FontHeight(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Height(self) -> float:

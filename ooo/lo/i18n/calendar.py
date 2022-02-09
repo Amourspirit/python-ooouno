@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .calendar_item import CalendarItem as CalendarItem_a86c0af1
+from .calendar_item import CalendarItem as CalendarItem_a86c0af1
 
 
 class Calendar(object):
@@ -38,6 +37,19 @@ class Calendar(object):
     typeName: str = 'com.sun.star.i18n.Calendar'
     """Literal Constant ``com.sun.star.i18n.Calendar``"""
 
+    Days: typing.TypeAlias = typing.Tuple[CalendarItem_a86c0af1, ...]
+    """
+    the days of the week, see also CalendarItem.
+    """
+    Months: typing.TypeAlias = typing.Tuple[CalendarItem_a86c0af1, ...]
+    """
+    the months of the year, see also CalendarItem.
+    """
+    Eras: typing.TypeAlias = typing.Tuple[CalendarItem_a86c0af1, ...]
+    """
+    the possible eras, see also CalendarItem.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -53,19 +65,13 @@ class Calendar(object):
             MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value
             Default (bool, optional): Default value
             Name (str, optional): Name value
-            Days (Tuple[CalendarItem, ...], optional): Days value
-            Months (Tuple[CalendarItem, ...], optional): Months value
-            Eras (Tuple[CalendarItem, ...], optional): Eras value
         """
         self._start_of_week = None
         self._minimum_number_of_days_for_first_week = None
         self._default = None
         self._name = None
-        self._days = None
-        self._months = None
-        self._eras = None
 
-        key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name', 'Days', 'Months', 'Eras')
+        key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], Calendar):
@@ -81,7 +87,6 @@ class Calendar(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StartOfWeek(self) -> str:
@@ -126,39 +131,6 @@ class Calendar(object):
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
-
-    @property
-    def Days(self) -> 'typing.Tuple[CalendarItem_a86c0af1, ...]':
-        """
-        the days of the week, see also CalendarItem.
-        """
-        return self._days
-    
-    @Days.setter
-    def Days(self, value: 'typing.Tuple[CalendarItem_a86c0af1, ...]') -> None:
-        self._days = value
-
-    @property
-    def Months(self) -> 'typing.Tuple[CalendarItem_a86c0af1, ...]':
-        """
-        the months of the year, see also CalendarItem.
-        """
-        return self._months
-    
-    @Months.setter
-    def Months(self, value: 'typing.Tuple[CalendarItem_a86c0af1, ...]') -> None:
-        self._months = value
-
-    @property
-    def Eras(self) -> 'typing.Tuple[CalendarItem_a86c0af1, ...]':
-        """
-        the possible eras, see also CalendarItem.
-        """
-        return self._eras
-    
-    @Eras.setter
-    def Eras(self, value: 'typing.Tuple[CalendarItem_a86c0af1, ...]') -> None:
-        self._eras = value
 
 
 __all__ = ['Calendar']

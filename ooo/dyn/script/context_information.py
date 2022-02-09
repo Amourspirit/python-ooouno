@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn', 'LocalVariableNames')
+            key_order = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn')
             struct = uno.createUnoStruct('com.sun.star.script.ContextInformation')
             if arg_len > len(key_order):
                 raise ValueError("ContextInformation.__init__() To many parameters")

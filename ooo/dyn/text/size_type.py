@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import SizeType
+    from com.sun.star.text import SizeType as SizeType
 else:
     from ...lo.text.size_type import SizeType as SizeType
 

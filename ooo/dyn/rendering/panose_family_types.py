@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PanoseFamilyTypes
+    from com.sun.star.rendering import PanoseFamilyTypes as PanoseFamilyTypes
 else:
     from ...lo.rendering.panose_family_types import PanoseFamilyTypes as PanoseFamilyTypes
 

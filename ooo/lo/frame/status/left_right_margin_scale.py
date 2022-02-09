@@ -39,6 +39,7 @@ class LeftRightMarginScale(object):
     typeName: str = 'com.sun.star.frame.status.LeftRightMarginScale'
     """Literal Constant ``com.sun.star.frame.status.LeftRightMarginScale``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class LeftRightMarginScale(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def TextLeft(self) -> int:

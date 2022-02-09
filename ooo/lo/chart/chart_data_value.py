@@ -41,6 +41,7 @@ class ChartDataValue(object):
     typeName: str = 'com.sun.star.chart.ChartDataValue'
     """Literal Constant ``com.sun.star.chart.ChartDataValue``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class ChartDataValue(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Value(self) -> float:

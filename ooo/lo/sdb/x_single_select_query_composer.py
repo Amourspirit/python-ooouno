@@ -112,7 +112,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
     @abstractmethod
-    def setStructuredFilter(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]') -> None:
+    def setStructuredFilter(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]') -> None:
         """
         appends a new set of filter criteria which is split into levels.
 
@@ -121,7 +121,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def setStructuredHavingClause(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]') -> None:
+    def setStructuredHavingClause(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]') -> None:
         """
         appends a new set of HAVING filter criteria which is split into levels.
 
@@ -147,6 +147,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         
         If you'd be interested in the composed filter, you would set the QueryDefinition.Command as ElementaryQuery, add your filter, and propagate the resulting query (XSingleSelectQueryAnalyzer.getQuery()) to an SingleSelectQueryAnalyzer instance via XSingleSelectQueryAnalyzer.setQuery().
         """
+
 
 __all__ = ['XSingleSelectQueryComposer']
 

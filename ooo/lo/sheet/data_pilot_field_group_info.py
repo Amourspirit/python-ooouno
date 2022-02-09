@@ -39,6 +39,7 @@ class DataPilotFieldGroupInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldGroupInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -86,7 +87,6 @@ class DataPilotFieldGroupInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def HasAutoStart(self) -> bool:

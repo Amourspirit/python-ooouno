@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XEmbeddedScripts
+    from com.sun.star.document import XEmbeddedScripts as XEmbeddedScripts
     setattr(XEmbeddedScripts, '__ooo_ns__', 'com.sun.star.document')
     setattr(XEmbeddedScripts, '__ooo_full_ns__', 'com.sun.star.document.XEmbeddedScripts')
     setattr(XEmbeddedScripts, '__ooo_type_name__', 'interface')

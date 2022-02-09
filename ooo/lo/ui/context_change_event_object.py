@@ -35,6 +35,7 @@ class ContextChangeEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.ContextChangeEventObject'
     """Literal Constant ``com.sun.star.ui.ContextChangeEventObject``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class ContextChangeEventObject(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ApplicationName(self) -> str:

@@ -47,5 +47,6 @@ class XDataPilotTable(XInterface_8f010a43):
         recreates the data pilot table with current data from the source cell range.
         """
 
+
 __all__ = ['XDataPilotTable']
 

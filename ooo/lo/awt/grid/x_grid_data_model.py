@@ -94,5 +94,6 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         denotes the number of rows for which the model can provide data
         """
 
+
 __all__ = ['XGridDataModel']
 

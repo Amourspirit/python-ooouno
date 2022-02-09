@@ -92,5 +92,6 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
         If double buffering is enabled via XBufferController, no explicit call of updateScreen() is necessary, since the XBufferController methods will automatically notify all associated XSpriteCanvas instances.
         """
 
+
 __all__ = ['XSpriteCanvas']
 

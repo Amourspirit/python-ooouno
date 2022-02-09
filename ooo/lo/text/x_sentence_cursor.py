@@ -64,5 +64,6 @@ class XSentenceCursor(XTextCursor_a60c0b48):
         determines if the cursor is positioned at the start of a sentence.
         """
 
+
 __all__ = ['XSentenceCursor']
 

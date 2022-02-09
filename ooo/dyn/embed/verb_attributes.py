@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import VerbAttributes
+    from com.sun.star.embed import VerbAttributes as VerbAttributes
 else:
     from ...lo.embed.verb_attributes import VerbAttributes as VerbAttributes
 

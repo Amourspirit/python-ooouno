@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XRangeSelection
+    from com.sun.star.sheet import XRangeSelection as XRangeSelection
     setattr(XRangeSelection, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XRangeSelection, '__ooo_full_ns__', 'com.sun.star.sheet.XRangeSelection')
     setattr(XRangeSelection, '__ooo_type_name__', 'interface')

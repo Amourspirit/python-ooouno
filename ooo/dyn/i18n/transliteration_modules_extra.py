@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import TransliterationModulesExtra
+    from com.sun.star.i18n import TransliterationModulesExtra as TransliterationModulesExtra
 else:
     from ...lo.i18n.transliteration_modules_extra import TransliterationModulesExtra as TransliterationModulesExtra
 

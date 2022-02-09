@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import DispatchResultState
+    from com.sun.star.frame import DispatchResultState as DispatchResultState
 else:
     from ...lo.frame.dispatch_result_state import DispatchResultState as DispatchResultState
 

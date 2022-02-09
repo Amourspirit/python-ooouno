@@ -54,5 +54,6 @@ class XPane(XResource_3bcd0f90):
         Return the com.sun.star.awt.XWindow of the pane that is used to display a view.
         """
 
+
 __all__ = ['XPane']
 

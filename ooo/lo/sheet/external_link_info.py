@@ -39,6 +39,7 @@ class ExternalLinkInfo(object):
     typeName: str = 'com.sun.star.sheet.ExternalLinkInfo'
     """Literal Constant ``com.sun.star.sheet.ExternalLinkInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class ExternalLinkInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> int:

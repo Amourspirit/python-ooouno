@@ -37,6 +37,7 @@ class ModuleInfo(object):
     typeName: str = 'com.sun.star.script.ModuleInfo'
     """Literal Constant ``com.sun.star.script.ModuleInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,9 +72,10 @@ class ModuleInfo(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def ModuleObject(self) -> 'XInterface_8f010a43':
+        """
+        """
         return self._module_object
     
     @ModuleObject.setter
@@ -82,6 +84,8 @@ class ModuleInfo(object):
 
     @property
     def ModuleType(self) -> int:
+        """
+        """
         return self._module_type
     
     @ModuleType.setter

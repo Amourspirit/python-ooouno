@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import XNamedNodeMap
+    from com.sun.star.xml.dom import XNamedNodeMap as XNamedNodeMap
     setattr(XNamedNodeMap, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XNamedNodeMap, '__ooo_full_ns__', 'com.sun.star.xml.dom.XNamedNodeMap')
     setattr(XNamedNodeMap, '__ooo_type_name__', 'interface')

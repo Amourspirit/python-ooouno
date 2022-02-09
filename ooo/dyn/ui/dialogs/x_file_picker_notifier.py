@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import XFilePickerNotifier
+    from com.sun.star.ui.dialogs import XFilePickerNotifier as XFilePickerNotifier
     setattr(XFilePickerNotifier, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XFilePickerNotifier, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilePickerNotifier')
     setattr(XFilePickerNotifier, '__ooo_type_name__', 'interface')

@@ -68,5 +68,6 @@ class XHyphenatedWord(XInterface_8f010a43):
         A hyphenation result is an alternative spelling if the hyphenated word is different from the word that was hyphenated.
         """
 
+
 __all__ = ['XHyphenatedWord']
 

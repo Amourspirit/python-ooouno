@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.bridge.oleautomation import XAutomationObject
+    from com.sun.star.bridge.oleautomation import XAutomationObject as XAutomationObject
     setattr(XAutomationObject, '__ooo_ns__', 'com.sun.star.bridge.oleautomation')
     setattr(XAutomationObject, '__ooo_full_ns__', 'com.sun.star.bridge.oleautomation.XAutomationObject')
     setattr(XAutomationObject, '__ooo_type_name__', 'interface')

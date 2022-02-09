@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt.tree import XTreeControl
+    from com.sun.star.awt.tree import XTreeControl as XTreeControl
     setattr(XTreeControl, '__ooo_ns__', 'com.sun.star.awt.tree')
     setattr(XTreeControl, '__ooo_full_ns__', 'com.sun.star.awt.tree.XTreeControl')
     setattr(XTreeControl, '__ooo_type_name__', 'interface')

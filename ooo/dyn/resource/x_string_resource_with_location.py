@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.resource import XStringResourceWithLocation
+    from com.sun.star.resource import XStringResourceWithLocation as XStringResourceWithLocation
     setattr(XStringResourceWithLocation, '__ooo_ns__', 'com.sun.star.resource')
     setattr(XStringResourceWithLocation, '__ooo_full_ns__', 'com.sun.star.resource.XStringResourceWithLocation')
     setattr(XStringResourceWithLocation, '__ooo_type_name__', 'interface')

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import ConditionOperator2
+    from com.sun.star.sheet import ConditionOperator2 as ConditionOperator2
 else:
     from ...lo.sheet.condition_operator2 import ConditionOperator2 as ConditionOperator2
 

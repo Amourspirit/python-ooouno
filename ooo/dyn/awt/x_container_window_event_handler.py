@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XContainerWindowEventHandler
+    from com.sun.star.awt import XContainerWindowEventHandler as XContainerWindowEventHandler
     setattr(XContainerWindowEventHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XContainerWindowEventHandler, '__ooo_full_ns__', 'com.sun.star.awt.XContainerWindowEventHandler')
     setattr(XContainerWindowEventHandler, '__ooo_type_name__', 'interface')

@@ -22,10 +22,9 @@ import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..container.x_named import XNamed as XNamed_a6520b08
+from .general_function import GeneralFunction as GeneralFunction_e2280d25
 from .x_data_pilot_member_results import XDataPilotMemberResults as XDataPilotMemberResults_56421045
 from .x_members_supplier import XMembersSupplier as XMembersSupplier_efd10d98
-if typing.TYPE_CHECKING:
-    from .general_function import GeneralFunction as GeneralFunction_e2280d25
 
 class DataPilotSourceLevel(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotMemberResults_56421045, XMembersSupplier_efd10d98):
     """
@@ -44,28 +43,28 @@ class DataPilotSourceLevel(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotMem
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotSourceLevel'
     __ooo_type_name__: str = 'service'
 
+    SubTotals: typing.TypeAlias = typing.Tuple[GeneralFunction_e2280d25, ...]
+    """
+    specifies the subtotals that are inserted for the level.
+    
+    The subtotals are calculated with the members of this level.
+    """
+
+    SubTotals2: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    specifies the subtotals that are inserted for the level.
+    
+    The subtotals are calculated with the members of this level.
+    
+    **since**
+    
+        LibreOffice 5.3
+    """
+
     @abstractproperty
     def ShowEmpty(self) -> bool:
         """
         specifies whether empty members are shown.
-        """
-    @abstractproperty
-    def SubTotals(self) -> 'typing.Tuple[GeneralFunction_e2280d25, ...]':
-        """
-        specifies the subtotals that are inserted for the level.
-        
-        The subtotals are calculated with the members of this level.
-        """
-    @abstractproperty
-    def SubTotals2(self) -> 'typing.Tuple[int, ...]':
-        """
-        specifies the subtotals that are inserted for the level.
-        
-        The subtotals are calculated with the members of this level.
-        
-        **since**
-        
-            LibreOffice 5.3
         """
 
 __all__ = ['DataPilotSourceLevel']

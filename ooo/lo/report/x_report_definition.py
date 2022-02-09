@@ -206,5 +206,6 @@ class XReportDefinition(XDocumentSubStorageSupplier_da021351, XStorageBasedDocum
         Default is FALSE.
         """
 
+
 __all__ = ['XReportDefinition']
 

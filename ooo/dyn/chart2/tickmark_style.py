@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import TickmarkStyle
+    from com.sun.star.chart2 import TickmarkStyle as TickmarkStyle
 else:
     from ...lo.chart2.tickmark_style import TickmarkStyle as TickmarkStyle
 

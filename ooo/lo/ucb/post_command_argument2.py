@@ -36,6 +36,7 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
     typeName: str = 'com.sun.star.ucb.PostCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.PostCommandArgument2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MediaType(self) -> str:

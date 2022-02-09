@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .rule_term import RuleTerm as RuleTerm_7a4b0972
+from .rule_term import RuleTerm as RuleTerm_7a4b0972
 
 
 class SearchCriterium(object):
@@ -38,6 +37,11 @@ class SearchCriterium(object):
     typeName: str = 'com.sun.star.ucb.SearchCriterium'
     """Literal Constant ``com.sun.star.ucb.SearchCriterium``"""
 
+    Terms: typing.TypeAlias = typing.Tuple[RuleTerm_7a4b0972, ...]
+    """
+    a number of rule terms.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -49,11 +53,9 @@ class SearchCriterium(object):
                 values. Following the order of ``Keyword Arguments``.
 
         Keyword Arguments:
-            Terms (Tuple[RuleTerm, ...], optional): Terms value
         """
-        self._terms = None
 
-        key_order = ('Terms',)
+        key_order = ()
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SearchCriterium):
@@ -69,18 +71,6 @@ class SearchCriterium(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
-
-    @property
-    def Terms(self) -> 'typing.Tuple[RuleTerm_7a4b0972, ...]':
-        """
-        a number of rule terms.
-        """
-        return self._terms
-    
-    @Terms.setter
-    def Terms(self, value: 'typing.Tuple[RuleTerm_7a4b0972, ...]') -> None:
-        self._terms = value
 
 
 __all__ = ['SearchCriterium']

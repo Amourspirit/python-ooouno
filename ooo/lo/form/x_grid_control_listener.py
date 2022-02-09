@@ -46,5 +46,6 @@ class XGridControlListener(XEventListener_c7230c4a):
         called when the current column in a grid control changed
         """
 
+
 __all__ = ['XGridControlListener']
 

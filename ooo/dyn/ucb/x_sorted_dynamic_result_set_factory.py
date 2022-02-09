@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XSortedDynamicResultSetFactory
+    from com.sun.star.ucb import XSortedDynamicResultSetFactory as XSortedDynamicResultSetFactory
     setattr(XSortedDynamicResultSetFactory, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XSortedDynamicResultSetFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XSortedDynamicResultSetFactory')
     setattr(XSortedDynamicResultSetFactory, '__ooo_type_name__', 'interface')

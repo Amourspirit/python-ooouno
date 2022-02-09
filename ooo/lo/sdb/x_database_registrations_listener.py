@@ -58,5 +58,6 @@ class XDatabaseRegistrationsListener(XEventListener_c7230c4a):
         called when a database registration has been revoked
         """
 
+
 __all__ = ['XDatabaseRegistrationsListener']
 

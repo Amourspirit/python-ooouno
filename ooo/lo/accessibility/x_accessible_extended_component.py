@@ -64,5 +64,6 @@ class XAccessibleExtendedComponent(XAccessibleComponent_b2f21269):
         This method stems from the Java interface AccessibleExtendedComponent.
         """
 
+
 __all__ = ['XAccessibleExtendedComponent']
 

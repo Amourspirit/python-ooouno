@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import SearchFlags
+    from com.sun.star.util import SearchFlags as SearchFlags
 else:
     from ...lo.util.search_flags import SearchFlags as SearchFlags
 

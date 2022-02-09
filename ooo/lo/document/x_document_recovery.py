@@ -75,5 +75,6 @@ class XDocumentRecovery(ABC):
         However, in such a case, the document might be saved more often than needed. In particular during the periodic session save, this might become a problem when saving is expensive, for a single document or the sum of all open documents.
         """
 
+
 __all__ = ['XDocumentRecovery']
 

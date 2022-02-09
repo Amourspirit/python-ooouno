@@ -37,6 +37,7 @@ class CalendarItem(object):
     typeName: str = 'com.sun.star.i18n.CalendarItem'
     """Literal Constant ``com.sun.star.i18n.CalendarItem``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class CalendarItem(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ID(self) -> str:

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import Error
+    from com.sun.star.ucb import Error as Error
 else:
     from ...lo.ucb.error import Error as Error
 

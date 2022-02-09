@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import XCertificateContainer
+    from com.sun.star.security import XCertificateContainer as XCertificateContainer
     setattr(XCertificateContainer, '__ooo_ns__', 'com.sun.star.security')
     setattr(XCertificateContainer, '__ooo_full_ns__', 'com.sun.star.security.XCertificateContainer')
     setattr(XCertificateContainer, '__ooo_type_name__', 'interface')

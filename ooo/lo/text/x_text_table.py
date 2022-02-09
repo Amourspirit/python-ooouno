@@ -75,5 +75,6 @@ class XTextTable(XTextContent_b16e0ba5):
         This method must be called after the object is created and before the object is insert or attached elsewhere.
         """
 
+
 __all__ = ['XTextTable']
 

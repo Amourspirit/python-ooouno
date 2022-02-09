@@ -57,5 +57,6 @@ class XBrowseNode(XInterface_8f010a43):
         Indicates if this node contains any children.
         """
 
+
 __all__ = ['XBrowseNode']
 

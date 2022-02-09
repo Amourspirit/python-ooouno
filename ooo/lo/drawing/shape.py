@@ -20,13 +20,13 @@
 # Namespace: com.sun.star.drawing
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..beans.x_tolerant_multi_property_set import XTolerantMultiPropertySet as XTolerantMultiPropertySet_7bd4114e
 from .x_glue_points_supplier import XGluePointsSupplier as XGluePointsSupplier_3a770faa
 from .x_shape import XShape as XShape_8fd00a3d
 from ..lang.x_component import XComponent as XComponent_98dc0ab5
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from .homogen_matrix3 import HomogenMatrix3 as HomogenMatrix3_f0fb0d69
     from ..style.x_style import XStyle as XStyle_7c7f09a2
@@ -47,6 +47,17 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
     __ooo_ns__: str = 'com.sun.star.drawing'
     __ooo_full_ns__: str = 'com.sun.star.drawing.Shape'
     __ooo_type_name__: str = 'service'
+
+    InteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of shape properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.2
+    """
 
     @abstractproperty
     def Hyperlink(self) -> str:
@@ -164,17 +175,6 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
     def ZOrder(self) -> int:
         """
         is used to query or change the ZOrder of this Shape.
-        """
-    @abstractproperty
-    def InteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of shape properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.2
         """
 
 __all__ = ['Shape']

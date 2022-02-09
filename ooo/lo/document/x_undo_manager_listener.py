@@ -109,5 +109,6 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         Note that the action must not necessarily be the new top element of the stack: In case there's an open Undo context, UndoManagerEvent.UndoContextDepth will be greater 0, and the newly added action will be subordinate of the context action.
         """
 
+
 __all__ = ['XUndoManagerListener']
 

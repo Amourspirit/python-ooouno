@@ -58,5 +58,6 @@ class XNumberFormatCode(XInterface_8f010a43):
         returns the number format pointed to by nFormatIndex for a given locale.
         """
 
+
 __all__ = ['XNumberFormatCode']
 

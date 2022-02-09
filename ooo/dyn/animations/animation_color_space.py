@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import AnimationColorSpace
+    from com.sun.star.animations import AnimationColorSpace as AnimationColorSpace
 else:
     from ...lo.animations.animation_color_space import AnimationColorSpace as AnimationColorSpace
 

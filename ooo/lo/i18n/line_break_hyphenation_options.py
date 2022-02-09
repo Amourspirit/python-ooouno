@@ -39,6 +39,7 @@ class LineBreakHyphenationOptions(object):
     typeName: str = 'com.sun.star.i18n.LineBreakHyphenationOptions'
     """Literal Constant ``com.sun.star.i18n.LineBreakHyphenationOptions``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class LineBreakHyphenationOptions(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def rHyphenator(self) -> 'XHyphenator_ff4e0def':

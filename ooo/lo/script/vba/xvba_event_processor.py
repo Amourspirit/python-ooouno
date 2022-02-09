@@ -51,5 +51,6 @@ class XVBAEventProcessor(ABC):
             com.sun.star.util.VetoException: ``VetoException``
         """
 
+
 __all__ = ['XVBAEventProcessor']
 

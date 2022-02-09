@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XScriptEventsAttacher
+    from com.sun.star.script import XScriptEventsAttacher as XScriptEventsAttacher
     setattr(XScriptEventsAttacher, '__ooo_ns__', 'com.sun.star.script')
     setattr(XScriptEventsAttacher, '__ooo_full_ns__', 'com.sun.star.script.XScriptEventsAttacher')
     setattr(XScriptEventsAttacher, '__ooo_type_name__', 'interface')

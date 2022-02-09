@@ -38,6 +38,7 @@ class DockingData(object):
     typeName: str = 'com.sun.star.awt.DockingData'
     """Literal Constant ``com.sun.star.awt.DockingData``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class DockingData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def TrackingRectangle(self) -> 'Rectangle_84b109e9':

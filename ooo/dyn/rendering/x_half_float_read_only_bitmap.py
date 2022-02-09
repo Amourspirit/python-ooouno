@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XHalfFloatReadOnlyBitmap
+    from com.sun.star.rendering import XHalfFloatReadOnlyBitmap as XHalfFloatReadOnlyBitmap
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XHalfFloatReadOnlyBitmap')
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_type_name__', 'interface')

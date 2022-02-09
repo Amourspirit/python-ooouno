@@ -46,5 +46,6 @@ class XContentIdentifier(XInterface_8f010a43):
         This string will be calculated from the content identifier string and must be lower-cased(!). It is the \"scheme\" the content provider is registered for. In example, a provider for FTP contents will use ftp-URLs as content identifiers. The content provider scheme for all contents provided by that provider will be \"ftp\".
         """
 
+
 __all__ = ['XContentIdentifier']
 

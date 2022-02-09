@@ -20,8 +20,9 @@
 # Namespace: com.sun.star.style
 import typing
 from abc import abstractproperty, ABC
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
+from .tab_stop import TabStop as TabStop_860309f6
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_index_replace import XIndexReplace as XIndexReplace_feed0dd7
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
@@ -30,7 +31,6 @@ if typing.TYPE_CHECKING:
     from .graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
     from .line_spacing import LineSpacing as LineSpacing_b1ad0b86
     from .paragraph_adjust import ParagraphAdjust as ParagraphAdjust_e42a0d3a
-    from .tab_stop import TabStop as TabStop_860309f6
     from ..table.border_line import BorderLine as BorderLine_a3f80af6
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from ..util.color import Color as Color_68e908c5
@@ -51,6 +51,22 @@ class ParagraphProperties(ABC):
     __ooo_ns__: str = 'com.sun.star.style'
     __ooo_full_ns__: str = 'com.sun.star.style.ParagraphProperties'
     __ooo_type_name__: str = 'service'
+
+    ParaInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of paragraph properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.2
+    """
+
+    ParaTabStops: typing.TypeAlias = typing.Tuple[TabStop_860309f6, ...]
+    """
+    specifies the positions and kinds of the tab stops within this paragraph.
+    """
 
     @abstractproperty
     def BorderDistance(self) -> int:
@@ -411,22 +427,6 @@ class ParagraphProperties(ABC):
     def TopBorderDistance(self) -> int:
         """
         contains the distance from the top border to the object.
-        """
-    @abstractproperty
-    def ParaInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of paragraph properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.2
-        """
-    @abstractproperty
-    def ParaTabStops(self) -> 'typing.Tuple[TabStop_860309f6, ...]':
-        """
-        specifies the positions and kinds of the tab stops within this paragraph.
         """
 
 __all__ = ['ParagraphProperties']

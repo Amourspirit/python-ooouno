@@ -53,5 +53,6 @@ class XMenuProxyListener(XInterface_8f010a43):
         is called, if one menu item designated by the ID, is deleted.
         """
 
+
 __all__ = ['XMenuProxyListener']
 

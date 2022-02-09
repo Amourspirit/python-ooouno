@@ -20,11 +20,10 @@
 # Namespace: com.sun.star.drawing
 import typing
 from abc import abstractproperty, ABC
-if typing.TYPE_CHECKING:
-    from ..awt.size import Size as Size_576707ef
-    from .enhanced_custom_shape_parameter_pair import EnhancedCustomShapeParameterPair as EnhancedCustomShapeParameterPair_262914a3
-    from .enhanced_custom_shape_segment import EnhancedCustomShapeSegment as EnhancedCustomShapeSegment_b07b1249
-    from .enhanced_custom_shape_text_frame import EnhancedCustomShapeTextFrame as EnhancedCustomShapeTextFrame_d6321306
+from ..awt.size import Size as Size_576707ef
+from .enhanced_custom_shape_parameter_pair import EnhancedCustomShapeParameterPair as EnhancedCustomShapeParameterPair_262914a3
+from .enhanced_custom_shape_segment import EnhancedCustomShapeSegment as EnhancedCustomShapeSegment_b07b1249
+from .enhanced_custom_shape_text_frame import EnhancedCustomShapeTextFrame as EnhancedCustomShapeTextFrame_d6321306
 
 class EnhancedCustomShapePath(ABC):
     """
@@ -38,6 +37,38 @@ class EnhancedCustomShapePath(ABC):
     __ooo_ns__: str = 'com.sun.star.drawing'
     __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapePath'
     __ooo_type_name__: str = 'service'
+
+    Coordinates: typing.TypeAlias = typing.Tuple[EnhancedCustomShapeParameterPair_262914a3, ...]
+    """
+    This property is specifying the points that makes the geometry of the shape.
+    """
+
+    GluePointLeavingDirections: typing.TypeAlias = typing.Tuple[float, ...]
+    """
+    This property specifies GluePoint leaving directions.
+    """
+
+    GluePoints: typing.TypeAlias = typing.Tuple[EnhancedCustomShapeParameterPair_262914a3, ...]
+    """
+    This property specifies custom glue points.
+    """
+
+    Segments: typing.TypeAlias = typing.Tuple[EnhancedCustomShapeSegment_b07b1249, ...]
+    """
+    This property specifies the commands and the way the Coordinates have to be interpreted.
+    """
+
+    SubViewSize: typing.TypeAlias = typing.Tuple[Size_576707ef, ...]
+    """
+    This property specifies view size per sub path.
+    """
+
+    TextFrames: typing.TypeAlias = typing.Tuple[EnhancedCustomShapeTextFrame_d6321306, ...]
+    """
+    This property specifies the text frames that can be used with the shape.
+    
+    In general the first text frame is used, except the shape is containing vertical text, then the object tries to use the second text frame. The default text frame will be as big as the shape.
+    """
 
     @abstractproperty
     def ConcentricGradientFillAllowed(self) -> bool:
@@ -80,38 +111,6 @@ class EnhancedCustomShapePath(ABC):
         This property specifies if this shape supports concentric gradient fill.
         
         The default is false;
-        """
-    @abstractproperty
-    def Coordinates(self) -> 'typing.Tuple[EnhancedCustomShapeParameterPair_262914a3, ...]':
-        """
-        This property is specifying the points that makes the geometry of the shape.
-        """
-    @abstractproperty
-    def GluePointLeavingDirections(self) -> 'typing.Tuple[float, ...]':
-        """
-        This property specifies GluePoint leaving directions.
-        """
-    @abstractproperty
-    def GluePoints(self) -> 'typing.Tuple[EnhancedCustomShapeParameterPair_262914a3, ...]':
-        """
-        This property specifies custom glue points.
-        """
-    @abstractproperty
-    def Segments(self) -> 'typing.Tuple[EnhancedCustomShapeSegment_b07b1249, ...]':
-        """
-        This property specifies the commands and the way the Coordinates have to be interpreted.
-        """
-    @abstractproperty
-    def SubViewSize(self) -> 'typing.Tuple[Size_576707ef, ...]':
-        """
-        This property specifies view size per sub path.
-        """
-    @abstractproperty
-    def TextFrames(self) -> 'typing.Tuple[EnhancedCustomShapeTextFrame_d6321306, ...]':
-        """
-        This property specifies the text frames that can be used with the shape.
-        
-        In general the first text frame is used, except the shape is containing vertical text, then the object tries to use the second text frame. The default text frame will be as big as the shape.
         """
 
 __all__ = ['EnhancedCustomShapePath']

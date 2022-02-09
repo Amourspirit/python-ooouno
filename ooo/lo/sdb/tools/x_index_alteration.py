@@ -59,5 +59,6 @@ class XIndexAlteration(XConnectionSupplier_57f3105c):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
 
+
 __all__ = ['XIndexAlteration']
 

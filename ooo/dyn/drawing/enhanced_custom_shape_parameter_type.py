@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import EnhancedCustomShapeParameterType
+    from com.sun.star.drawing import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
 else:
     from ...lo.drawing.enhanced_custom_shape_parameter_type import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
 

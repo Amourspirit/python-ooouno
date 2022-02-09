@@ -40,5 +40,6 @@ class XXPathExtension(XInterface_8f010a43):
         """
         """
 
+
 __all__ = ['XXPathExtension']
 

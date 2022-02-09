@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.io import XActiveDataControl
+    from com.sun.star.io import XActiveDataControl as XActiveDataControl
     setattr(XActiveDataControl, '__ooo_ns__', 'com.sun.star.io')
     setattr(XActiveDataControl, '__ooo_full_ns__', 'com.sun.star.io.XActiveDataControl')
     setattr(XActiveDataControl, '__ooo_type_name__', 'interface')

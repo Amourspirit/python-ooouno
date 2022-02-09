@@ -53,5 +53,6 @@ class XDatabaseParameterBroadcaster2(XDatabaseParameterBroadcaster_ac7f1234):
         This method behaves exactly as the XDatabaseParameterBroadcaster.removeParameterListener() method inherited from the base interface.
         """
 
+
 __all__ = ['XDatabaseParameterBroadcaster2']
 

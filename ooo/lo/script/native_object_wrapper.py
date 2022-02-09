@@ -34,6 +34,7 @@ class NativeObjectWrapper(object):
     typeName: str = 'com.sun.star.script.NativeObjectWrapper'
     """Literal Constant ``com.sun.star.script.NativeObjectWrapper``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -66,9 +67,10 @@ class NativeObjectWrapper(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def ObjectId(self) -> object:
+        """
+        """
         return self._object_id
     
     @ObjectId.setter

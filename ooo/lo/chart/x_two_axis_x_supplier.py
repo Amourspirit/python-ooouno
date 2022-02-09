@@ -42,5 +42,6 @@ class XTwoAxisXSupplier(XAxisXSupplier_d43a0cb3):
         The returned property set contains scaling properties as well as formatting properties.
         """
 
+
 __all__ = ['XTwoAxisXSupplier']
 

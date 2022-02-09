@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ReferenceFieldSource
+    from com.sun.star.text import ReferenceFieldSource as ReferenceFieldSource
 else:
     from ...lo.text.reference_field_source import ReferenceFieldSource as ReferenceFieldSource
 

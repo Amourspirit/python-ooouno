@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rdf import XRepositorySupplier
+    from com.sun.star.rdf import XRepositorySupplier as XRepositorySupplier
     setattr(XRepositorySupplier, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XRepositorySupplier, '__ooo_full_ns__', 'com.sun.star.rdf.XRepositorySupplier')
     setattr(XRepositorySupplier, '__ooo_type_name__', 'interface')

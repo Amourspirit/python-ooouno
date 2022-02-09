@@ -47,5 +47,6 @@ class XShapes(XIndexAccess_f0910d6d):
         removes a Shape from this collection.
         """
 
+
 __all__ = ['XShapes']
 

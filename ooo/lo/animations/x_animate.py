@@ -20,9 +20,8 @@
 # Namespace: com.sun.star.animations
 import typing
 from abc import abstractproperty
+from .time_filter_pair import TimeFilterPair as TimeFilterPair_1d250ebc
 from .x_animation_node import XAnimationNode as XAnimationNode_1cf10eb9
-if typing.TYPE_CHECKING:
-    from .time_filter_pair import TimeFilterPair as TimeFilterPair_1d250ebc
 
 class XAnimate(XAnimationNode_1cf10eb9):
     """
@@ -35,6 +34,20 @@ class XAnimate(XAnimationNode_1cf10eb9):
     __ooo_full_ns__: str = 'com.sun.star.animations.XAnimate'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.animations.XAnimate'
+
+    KeyTimes: typing.TypeAlias = typing.Tuple[float, ...]
+    """
+    """
+
+    TimeFilter: typing.TypeAlias = typing.Tuple[TimeFilterPair_1d250ebc, ...]
+    """
+    todo: timeFilter=\"0,0; 0.14,0.36; 0.43,0.73; 0.71,0.91; 1.0,1.0\" ?
+    """
+
+    Values: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    A sequence of one or more values, each of which must be a legal value for the specified attribute.
+    """
 
     @abstractproperty
     def Accumulate(self) -> bool:
@@ -105,20 +118,7 @@ class XAnimate(XAnimationNode_1cf10eb9):
     def ValueType(self) -> int:
         """
         """
-    @abstractproperty
-    def KeyTimes(self) -> 'typing.Tuple[float, ...]':
-        """
-        """
-    @abstractproperty
-    def TimeFilter(self) -> 'typing.Tuple[TimeFilterPair_1d250ebc, ...]':
-        """
-        todo: timeFilter=\"0,0; 0.14,0.36; 0.43,0.73; 0.71,0.91; 1.0,1.0\" ?
-        """
-    @abstractproperty
-    def Values(self) -> 'typing.Tuple[object, ...]':
-        """
-        A sequence of one or more values, each of which must be a legal value for the specified attribute.
-        """
+
 
 __all__ = ['XAnimate']
 

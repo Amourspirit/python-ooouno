@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('subRegExpressions', 'startOffset', 'endOffset')
+            key_order = ('subRegExpressions',)
             struct = uno.createUnoStruct('com.sun.star.util.SearchResult')
             if arg_len > len(key_order):
                 raise ValueError("SearchResult.__init__() To many parameters")

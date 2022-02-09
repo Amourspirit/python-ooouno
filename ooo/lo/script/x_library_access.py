@@ -78,5 +78,6 @@ class XLibraryAccess(XInterface_8f010a43):
         returns TRUE if a fully qualified function name begins with this name.
         """
 
+
 __all__ = ['XLibraryAccess']
 

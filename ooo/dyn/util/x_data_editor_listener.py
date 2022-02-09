@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XDataEditorListener
+    from com.sun.star.util import XDataEditorListener as XDataEditorListener
     setattr(XDataEditorListener, '__ooo_ns__', 'com.sun.star.util')
     setattr(XDataEditorListener, '__ooo_full_ns__', 'com.sun.star.util.XDataEditorListener')
     setattr(XDataEditorListener, '__ooo_type_name__', 'interface')

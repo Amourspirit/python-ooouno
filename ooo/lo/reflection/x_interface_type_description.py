@@ -62,5 +62,6 @@ class XInterfaceTypeDescription(XTypeDescription_3c210fb1):
         Returns the UIK, i.e. the unique identifier of the interface.
         """
 
+
 __all__ = ['XInterfaceTypeDescription']
 

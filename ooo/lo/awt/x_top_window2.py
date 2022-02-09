@@ -51,5 +51,6 @@ class XTopWindow2(XTopWindow_8ebb0a57):
         controls whether the window is currently minimized
         """
 
+
 __all__ = ['XTopWindow2']
 

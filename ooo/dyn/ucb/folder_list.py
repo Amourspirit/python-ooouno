@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Command', 'List')
+            key_order = ('Command',)
             struct = uno.createUnoStruct('com.sun.star.ucb.FolderList')
             if arg_len > len(key_order):
                 raise ValueError("FolderList.__init__() To many parameters")

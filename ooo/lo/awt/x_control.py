@@ -99,5 +99,6 @@ class XControl(XComponent_98dc0ab5):
         sets a model for the control.
         """
 
+
 __all__ = ['XControl']
 

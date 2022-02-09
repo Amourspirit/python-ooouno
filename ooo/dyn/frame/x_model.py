@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XModel
+    from com.sun.star.frame import XModel as XModel
     setattr(XModel, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XModel, '__ooo_full_ns__', 'com.sun.star.frame.XModel')
     setattr(XModel, '__ooo_type_name__', 'interface')

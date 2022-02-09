@@ -44,5 +44,6 @@ class XInterfaceMemberTypeDescription(XTypeDescription_3c210fb1):
         Returns the position the member including all inherited members of base interfaces.
         """
 
+
 __all__ = ['XInterfaceMemberTypeDescription']
 

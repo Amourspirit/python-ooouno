@@ -67,5 +67,6 @@ class XDispatchRecorderSupplier(XInterface_8f010a43):
         Setting of a new recorder make it possible to change recording mode. May there can exist different implementations of a recorder (e.g. to generate Java, Basic or other formats). Changing between local recording inside one Frame or global one by using more than ones can be forced too.
         """
 
+
 __all__ = ['XDispatchRecorderSupplier']
 

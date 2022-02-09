@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .rule_term import RuleTerm as RuleTerm_7a4b0972
+from .rule_term import RuleTerm as RuleTerm_7a4b0972
 
 
 class Rule(object):
@@ -40,6 +39,11 @@ class Rule(object):
     typeName: str = 'com.sun.star.ucb.Rule'
     """Literal Constant ``com.sun.star.ucb.Rule``"""
 
+    Terms: typing.TypeAlias = typing.Tuple[RuleTerm_7a4b0972, ...]
+    """
+    the rule terms describing the objects to which the rule should be applied.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -53,13 +57,11 @@ class Rule(object):
         Keyword Arguments:
             Parameter (str, optional): Parameter value
             Action (int, optional): Action value
-            Terms (Tuple[RuleTerm, ...], optional): Terms value
         """
         self._parameter = None
         self._action = None
-        self._terms = None
 
-        key_order = ('Parameter', 'Action', 'Terms')
+        key_order = ('Parameter', 'Action')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], Rule):
@@ -75,7 +77,6 @@ class Rule(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Parameter(self) -> str:
@@ -100,17 +101,6 @@ class Rule(object):
     @Action.setter
     def Action(self, value: int) -> None:
         self._action = value
-
-    @property
-    def Terms(self) -> 'typing.Tuple[RuleTerm_7a4b0972, ...]':
-        """
-        the rule terms describing the objects to which the rule should be applied.
-        """
-        return self._terms
-    
-    @Terms.setter
-    def Terms(self, value: 'typing.Tuple[RuleTerm_7a4b0972, ...]') -> None:
-        self._terms = value
 
 
 __all__ = ['Rule']

@@ -42,5 +42,6 @@ class XGraphicObject(XInterface_8f010a43):
         is the associated image/graphic for this object.
         """
 
+
 __all__ = ['XGraphicObject']
 

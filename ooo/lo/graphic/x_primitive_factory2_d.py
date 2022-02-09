@@ -52,5 +52,6 @@ class XPrimitiveFactory2D(XInterface_8f010a43):
         Create primitives from com.sun.star.drawing.XShape.
         """
 
+
 __all__ = ['XPrimitiveFactory2D']
 

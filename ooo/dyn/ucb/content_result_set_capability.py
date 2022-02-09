@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import ContentResultSetCapability
+    from com.sun.star.ucb import ContentResultSetCapability as ContentResultSetCapability
 else:
     from ...lo.ucb.content_result_set_capability import ContentResultSetCapability as ContentResultSetCapability
 

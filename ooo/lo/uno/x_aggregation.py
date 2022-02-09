@@ -54,5 +54,6 @@ class XAggregation(XInterface_8f010a43):
         sets the object to which all calls to the method XInterface.queryInterface() have to be forwarded.
         """
 
+
 __all__ = ['XAggregation']
 

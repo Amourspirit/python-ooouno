@@ -185,5 +185,6 @@ class XPathSettings(XPropertySet_bc180bfa):
         The path specified here can be seen in the Open or Save dialog.
         """
 
+
 __all__ = ['XPathSettings']
 

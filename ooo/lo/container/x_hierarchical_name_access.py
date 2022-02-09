@@ -50,5 +50,6 @@ class XHierarchicalNameAccess(XInterface_8f010a43):
         In many cases, the next call is XNameAccess.getByName(). You should optimize this case.
         """
 
+
 __all__ = ['XHierarchicalNameAccess']
 

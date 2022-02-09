@@ -35,6 +35,7 @@ class AtomDescription(object):
     typeName: str = 'com.sun.star.util.AtomDescription'
     """Literal Constant ``com.sun.star.util.AtomDescription``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class AtomDescription(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def atom(self) -> int:

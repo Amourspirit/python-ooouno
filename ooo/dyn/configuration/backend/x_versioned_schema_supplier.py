@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import XVersionedSchemaSupplier
+    from com.sun.star.configuration.backend import XVersionedSchemaSupplier as XVersionedSchemaSupplier
     setattr(XVersionedSchemaSupplier, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XVersionedSchemaSupplier, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XVersionedSchemaSupplier')
     setattr(XVersionedSchemaSupplier, '__ooo_type_name__', 'interface')

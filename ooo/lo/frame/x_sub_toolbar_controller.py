@@ -64,5 +64,6 @@ class XSubToolbarController(XInterface_8f010a43):
         Only the controller instance is able to set the correct image for the current function. A toolbar implementation will ask sub-toolbar controllers to update their image whenever it has to update the images of all its buttons.
         """
 
+
 __all__ = ['XSubToolbarController']
 

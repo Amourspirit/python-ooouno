@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XSheetFilterDescriptor
+    from com.sun.star.sheet import XSheetFilterDescriptor as XSheetFilterDescriptor
     setattr(XSheetFilterDescriptor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetFilterDescriptor, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetFilterDescriptor')
     setattr(XSheetFilterDescriptor, '__ooo_type_name__', 'interface')

@@ -55,5 +55,6 @@ class XTransitionFactory(XInterface_8f010a43):
         Checks whether this instance provides an implementation for given transition id.
         """
 
+
 __all__ = ['XTransitionFactory']
 

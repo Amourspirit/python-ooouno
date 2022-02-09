@@ -40,5 +40,6 @@ class XUIConfigurationManager2(XComponent_98dc0ab5, XUIConfiguration_c4eb0c34, X
     __pyunointerface__: str = 'com.sun.star.ui.XUIConfigurationManager2'
 
 
+
 __all__ = ['XUIConfigurationManager2']
 

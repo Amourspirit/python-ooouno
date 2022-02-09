@@ -73,5 +73,6 @@ class XPropertyState(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
 
+
 __all__ = ['XPropertyState']
 

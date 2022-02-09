@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import MeasureUnit
+    from com.sun.star.util import MeasureUnit as MeasureUnit
 else:
     from ...lo.util.measure_unit import MeasureUnit as MeasureUnit
 

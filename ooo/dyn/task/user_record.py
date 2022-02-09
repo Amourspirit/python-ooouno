@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('UserName', 'Passwords')
+            key_order = ('UserName',)
             struct = uno.createUnoStruct('com.sun.star.task.UserRecord')
             if arg_len > len(key_order):
                 raise ValueError("UserRecord.__init__() To many parameters")

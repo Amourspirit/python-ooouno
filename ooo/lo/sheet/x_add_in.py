@@ -85,5 +85,6 @@ class XAddIn(XLocalizable_aee00b64):
         Attention: The method name contains a spelling error. Due to compatibility reasons the name cannot be changed.
         """
 
+
 __all__ = ['XAddIn']
 

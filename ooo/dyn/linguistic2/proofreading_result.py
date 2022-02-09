@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('aDocumentIdentifier', 'xFlatParagraph', 'aText', 'aLocale', 'nStartOfSentencePosition', 'nBehindEndOfSentencePosition', 'nStartOfNextSentencePosition', 'xProofreader', 'aErrors', 'aProperties')
+            key_order = ('aDocumentIdentifier', 'xFlatParagraph', 'aText', 'aLocale', 'nStartOfSentencePosition', 'nBehindEndOfSentencePosition', 'nStartOfNextSentencePosition', 'xProofreader')
             struct = uno.createUnoStruct('com.sun.star.linguistic2.ProofreadingResult')
             if arg_len > len(key_order):
                 raise ValueError("ProofreadingResult.__init__() To many parameters")

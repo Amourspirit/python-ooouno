@@ -35,6 +35,7 @@ class AttributeData(object):
     typeName: str = 'com.sun.star.xml.AttributeData'
     """Literal Constant ``com.sun.star.xml.AttributeData``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class AttributeData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Namespace(self) -> str:

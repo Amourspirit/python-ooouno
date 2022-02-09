@@ -42,5 +42,6 @@ class XParametersSupplier(XInterface_8f010a43):
         returns the container of parameters.
         """
 
+
 __all__ = ['XParametersSupplier']
 

@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('aName', 'eMemberType', 'PropertyAttribute', 'aType', 'aParamTypes', 'aParamModes')
+            key_order = ('aName', 'eMemberType', 'PropertyAttribute', 'aType')
             struct = uno.createUnoStruct('com.sun.star.script.InvocationInfo')
             if arg_len > len(key_order):
                 raise ValueError("InvocationInfo.__init__() To many parameters")

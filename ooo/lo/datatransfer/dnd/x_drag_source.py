@@ -63,5 +63,6 @@ class XDragSource(XInterface_8f010a43):
         Note: this call does not block until the drag and drop operation ends. If the Drag and Drop system is unable to initiate a drag operation or if the user attempts to start a drag while an existing drag operation is still executing, the action fails immediately. This is indicated by calling com.sun.star.datatransfer.dnd.XDragSourceListener.dragDropEnd() on the parameter listener with a DragSourceDragEvent showing a failure.
         """
 
+
 __all__ = ['XDragSource']
 

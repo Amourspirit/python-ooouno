@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import XTransitionFactory
+    from com.sun.star.presentation import XTransitionFactory as XTransitionFactory
     setattr(XTransitionFactory, '__ooo_ns__', 'com.sun.star.presentation')
     setattr(XTransitionFactory, '__ooo_full_ns__', 'com.sun.star.presentation.XTransitionFactory')
     setattr(XTransitionFactory, '__ooo_type_name__', 'interface')

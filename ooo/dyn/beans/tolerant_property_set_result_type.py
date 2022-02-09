@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import TolerantPropertySetResultType
+    from com.sun.star.beans import TolerantPropertySetResultType as TolerantPropertySetResultType
 else:
     from ...lo.beans.tolerant_property_set_result_type import TolerantPropertySetResultType as TolerantPropertySetResultType
 

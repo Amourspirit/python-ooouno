@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import XSlideShowView
+    from com.sun.star.presentation import XSlideShowView as XSlideShowView
     setattr(XSlideShowView, '__ooo_ns__', 'com.sun.star.presentation')
     setattr(XSlideShowView, '__ooo_full_ns__', 'com.sun.star.presentation.XSlideShowView')
     setattr(XSlideShowView, '__ooo_type_name__', 'interface')

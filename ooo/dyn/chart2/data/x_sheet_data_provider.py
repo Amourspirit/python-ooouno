@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2.data import XSheetDataProvider
+    from com.sun.star.chart2.data import XSheetDataProvider as XSheetDataProvider
     setattr(XSheetDataProvider, '__ooo_ns__', 'com.sun.star.chart2.data')
     setattr(XSheetDataProvider, '__ooo_full_ns__', 'com.sun.star.chart2.data.XSheetDataProvider')
     setattr(XSheetDataProvider, '__ooo_type_name__', 'interface')

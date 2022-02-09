@@ -60,5 +60,6 @@ class XUIElementSettings(XInterface_8f010a43):
         This is not done automatically as configurable user interface elements are controlled by layout managers. It is more efficient to let the responsible layout manager to control the update process in a single task.
         """
 
+
 __all__ = ['XUIElementSettings']
 

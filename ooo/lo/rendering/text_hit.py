@@ -41,6 +41,7 @@ class TextHit(object):
     typeName: str = 'com.sun.star.rendering.TextHit'
     """Literal Constant ``com.sun.star.rendering.TextHit``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class TextHit(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def EntryIndex(self) -> int:

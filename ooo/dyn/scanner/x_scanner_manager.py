@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.scanner import XScannerManager
+    from com.sun.star.scanner import XScannerManager as XScannerManager
     setattr(XScannerManager, '__ooo_ns__', 'com.sun.star.scanner')
     setattr(XScannerManager, '__ooo_full_ns__', 'com.sun.star.scanner.XScannerManager')
     setattr(XScannerManager, '__ooo_type_name__', 'interface')

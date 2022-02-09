@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import ShapeAnimationSubType
+    from com.sun.star.presentation import ShapeAnimationSubType as ShapeAnimationSubType
 else:
     from ...lo.presentation.shape_animation_sub_type import ShapeAnimationSubType as ShapeAnimationSubType
 

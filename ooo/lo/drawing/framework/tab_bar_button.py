@@ -42,6 +42,7 @@ class TabBarButton(object):
     typeName: str = 'com.sun.star.drawing.framework.TabBarButton'
     """Literal Constant ``com.sun.star.drawing.framework.TabBarButton``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class TabBarButton(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ButtonLabel(self) -> str:

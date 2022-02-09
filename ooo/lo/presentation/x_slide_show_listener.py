@@ -75,5 +75,6 @@ class XSlideShowListener(XAnimationListener_5c5a1079):
         Notify that a new slide starts to become visible.
         """
 
+
 __all__ = ['XSlideShowListener']
 

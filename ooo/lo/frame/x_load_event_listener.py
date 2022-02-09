@@ -47,5 +47,6 @@ class XLoadEventListener(XEventListener_c7230c4a):
         is called when a new component is loaded into a frame successfully.
         """
 
+
 __all__ = ['XLoadEventListener']
 

@@ -47,6 +47,7 @@ class FontRequest(object):
     typeName: str = 'com.sun.star.rendering.FontRequest'
     """Literal Constant ``com.sun.star.rendering.FontRequest``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class FontRequest(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FontDescription(self) -> 'FontInfo_bded0be9':

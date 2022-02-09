@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import PositionLayoutDir
+    from com.sun.star.text import PositionLayoutDir as PositionLayoutDir
 else:
     from ...lo.text.position_layout_dir import PositionLayoutDir as PositionLayoutDir
 

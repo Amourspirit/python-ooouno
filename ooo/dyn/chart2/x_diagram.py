@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import XDiagram
+    from com.sun.star.chart2 import XDiagram as XDiagram
     setattr(XDiagram, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XDiagram, '__ooo_full_ns__', 'com.sun.star.chart2.XDiagram')
     setattr(XDiagram, '__ooo_type_name__', 'interface')

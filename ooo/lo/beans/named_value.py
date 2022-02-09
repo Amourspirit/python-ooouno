@@ -35,6 +35,7 @@ class NamedValue(object):
     typeName: str = 'com.sun.star.beans.NamedValue'
     """Literal Constant ``com.sun.star.beans.NamedValue``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class NamedValue(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

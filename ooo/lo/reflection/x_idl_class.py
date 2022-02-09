@@ -145,5 +145,6 @@ class XIdlClass(XInterface_8f010a43):
         Tests whether values of this reflected type are assignable from values of a second one (xType).
         """
 
+
 __all__ = ['XIdlClass']
 

@@ -53,5 +53,6 @@ class XDefaultNumberingProvider(XInterface_8f010a43):
         Outline numberings usually consist of levels with different settings.
         """
 
+
 __all__ = ['XDefaultNumberingProvider']
 

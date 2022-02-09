@@ -97,5 +97,6 @@ class XPivotTableDataProvider(XInterface_8f010a43):
         set the associated pivot table name
         """
 
+
 __all__ = ['XPivotTableDataProvider']
 

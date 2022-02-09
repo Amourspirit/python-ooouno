@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DimensionFlags
+    from com.sun.star.sheet import DimensionFlags as DimensionFlags
 else:
     from ...lo.sheet.dimension_flags import DimensionFlags as DimensionFlags
 

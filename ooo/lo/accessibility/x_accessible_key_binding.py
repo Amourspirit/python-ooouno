@@ -60,5 +60,6 @@ class XAccessibleKeyBinding(XInterface_8f010a43):
         Return the number of available key bindings.
         """
 
+
 __all__ = ['XAccessibleKeyBinding']
 

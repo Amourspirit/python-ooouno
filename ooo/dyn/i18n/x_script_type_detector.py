@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import XScriptTypeDetector
+    from com.sun.star.i18n import XScriptTypeDetector as XScriptTypeDetector
     setattr(XScriptTypeDetector, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XScriptTypeDetector, '__ooo_full_ns__', 'com.sun.star.i18n.XScriptTypeDetector')
     setattr(XScriptTypeDetector, '__ooo_type_name__', 'interface')

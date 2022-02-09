@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XVisualObject
+    from com.sun.star.embed import XVisualObject as XVisualObject
     setattr(XVisualObject, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XVisualObject, '__ooo_full_ns__', 'com.sun.star.embed.XVisualObject')
     setattr(XVisualObject, '__ooo_type_name__', 'interface')

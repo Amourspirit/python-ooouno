@@ -56,5 +56,6 @@ class XFunctionManager(XIndexAccess_f0910d6d, XComponent_98dc0ab5):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
+
 __all__ = ['XFunctionManager']
 

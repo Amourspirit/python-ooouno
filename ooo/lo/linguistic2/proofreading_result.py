@@ -19,10 +19,10 @@
 # Namespace: com.sun.star.linguistic2
 # Libre Office Version: 7.2
 import typing
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
+from .single_proofreading_error import SingleProofreadingError as SingleProofreadingError_c54812c1
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..lang.locale import Locale as Locale_70d308fa
-    from .single_proofreading_error import SingleProofreadingError as SingleProofreadingError_c54812c1
     from .x_proofreader import XProofreader as XProofreader_dab0e46
     from ..text.x_flat_paragraph import XFlatParagraph as XFlatParagraph_c8310c42
 
@@ -46,6 +46,13 @@ class ProofreadingResult(object):
     typeName: str = 'com.sun.star.linguistic2.ProofreadingResult'
     """Literal Constant ``com.sun.star.linguistic2.ProofreadingResult``"""
 
+    aErrors: typing.TypeAlias = typing.Tuple[SingleProofreadingError_c54812c1, ...]
+    """
+    """
+    aProperties: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -65,8 +72,6 @@ class ProofreadingResult(object):
             nBehindEndOfSentencePosition (int, optional): nBehindEndOfSentencePosition value
             nStartOfNextSentencePosition (int, optional): nStartOfNextSentencePosition value
             xProofreader (XProofreader, optional): xProofreader value
-            aErrors (Tuple[SingleProofreadingError, ...], optional): aErrors value
-            aProperties (Tuple[PropertyValue, ...], optional): aProperties value
         """
         self._a_document_identifier = None
         self._x_flat_paragraph = None
@@ -76,10 +81,8 @@ class ProofreadingResult(object):
         self._n_behind_end_of_sentence_position = None
         self._n_start_of_next_sentence_position = None
         self._x_proofreader = None
-        self._a_errors = None
-        self._a_properties = None
 
-        key_order = ('aDocumentIdentifier', 'xFlatParagraph', 'aText', 'aLocale', 'nStartOfSentencePosition', 'nBehindEndOfSentencePosition', 'nStartOfNextSentencePosition', 'xProofreader', 'aErrors', 'aProperties')
+        key_order = ('aDocumentIdentifier', 'xFlatParagraph', 'aText', 'aLocale', 'nStartOfSentencePosition', 'nBehindEndOfSentencePosition', 'nStartOfNextSentencePosition', 'xProofreader')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ProofreadingResult):
@@ -96,9 +99,10 @@ class ProofreadingResult(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def aDocumentIdentifier(self) -> str:
+        """
+        """
         return self._a_document_identifier
     
     @aDocumentIdentifier.setter
@@ -107,6 +111,8 @@ class ProofreadingResult(object):
 
     @property
     def xFlatParagraph(self) -> 'XFlatParagraph_c8310c42':
+        """
+        """
         return self._x_flat_paragraph
     
     @xFlatParagraph.setter
@@ -115,6 +121,8 @@ class ProofreadingResult(object):
 
     @property
     def aText(self) -> str:
+        """
+        """
         return self._a_text
     
     @aText.setter
@@ -123,6 +131,8 @@ class ProofreadingResult(object):
 
     @property
     def aLocale(self) -> 'Locale_70d308fa':
+        """
+        """
         return self._a_locale
     
     @aLocale.setter
@@ -131,6 +141,8 @@ class ProofreadingResult(object):
 
     @property
     def nStartOfSentencePosition(self) -> int:
+        """
+        """
         return self._n_start_of_sentence_position
     
     @nStartOfSentencePosition.setter
@@ -139,6 +151,8 @@ class ProofreadingResult(object):
 
     @property
     def nBehindEndOfSentencePosition(self) -> int:
+        """
+        """
         return self._n_behind_end_of_sentence_position
     
     @nBehindEndOfSentencePosition.setter
@@ -147,6 +161,8 @@ class ProofreadingResult(object):
 
     @property
     def nStartOfNextSentencePosition(self) -> int:
+        """
+        """
         return self._n_start_of_next_sentence_position
     
     @nStartOfNextSentencePosition.setter
@@ -155,27 +171,13 @@ class ProofreadingResult(object):
 
     @property
     def xProofreader(self) -> 'XProofreader_dab0e46':
+        """
+        """
         return self._x_proofreader
     
     @xProofreader.setter
     def xProofreader(self, value: 'XProofreader_dab0e46') -> None:
         self._x_proofreader = value
-
-    @property
-    def aErrors(self) -> 'typing.Tuple[SingleProofreadingError_c54812c1, ...]':
-        return self._a_errors
-    
-    @aErrors.setter
-    def aErrors(self, value: 'typing.Tuple[SingleProofreadingError_c54812c1, ...]') -> None:
-        self._a_errors = value
-
-    @property
-    def aProperties(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        return self._a_properties
-    
-    @aProperties.setter
-    def aProperties(self, value: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
-        self._a_properties = value
 
 
 __all__ = ['ProofreadingResult']

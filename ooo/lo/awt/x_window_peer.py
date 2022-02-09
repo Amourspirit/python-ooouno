@@ -65,5 +65,6 @@ class XWindowPeer(XComponent_98dc0ab5):
         sets the mouse pointer.
         """
 
+
 __all__ = ['XWindowPeer']
 

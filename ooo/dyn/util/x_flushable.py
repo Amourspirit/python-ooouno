@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XFlushable
+    from com.sun.star.util import XFlushable as XFlushable
     setattr(XFlushable, '__ooo_ns__', 'com.sun.star.util')
     setattr(XFlushable, '__ooo_full_ns__', 'com.sun.star.util.XFlushable')
     setattr(XFlushable, '__ooo_type_name__', 'interface')

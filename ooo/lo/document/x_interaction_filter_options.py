@@ -51,5 +51,6 @@ class XInteractionFilterOptions(XInteractionContinuation_5af0108e):
         Store results to the continuation.
         """
 
+
 __all__ = ['XInteractionFilterOptions']
 

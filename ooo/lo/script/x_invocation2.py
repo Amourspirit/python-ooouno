@@ -55,5 +55,6 @@ class XInvocation2(XInvocation_be070c0f):
         returns the names of all methods and properties accessible via XInvocation.
         """
 
+
 __all__ = ['XInvocation2']
 

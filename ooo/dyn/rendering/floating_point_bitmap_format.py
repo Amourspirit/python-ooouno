@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import FloatingPointBitmapFormat
+    from com.sun.star.rendering import FloatingPointBitmapFormat as FloatingPointBitmapFormat
 else:
     from ...lo.rendering.floating_point_bitmap_format import FloatingPointBitmapFormat as FloatingPointBitmapFormat
 

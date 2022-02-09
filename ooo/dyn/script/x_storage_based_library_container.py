@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XStorageBasedLibraryContainer
+    from com.sun.star.script import XStorageBasedLibraryContainer as XStorageBasedLibraryContainer
     setattr(XStorageBasedLibraryContainer, '__ooo_ns__', 'com.sun.star.script')
     setattr(XStorageBasedLibraryContainer, '__ooo_full_ns__', 'com.sun.star.script.XStorageBasedLibraryContainer')
     setattr(XStorageBasedLibraryContainer, '__ooo_type_name__', 'interface')

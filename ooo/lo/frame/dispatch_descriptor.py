@@ -40,6 +40,7 @@ class DispatchDescriptor(object):
     typeName: str = 'com.sun.star.frame.DispatchDescriptor'
     """Literal Constant ``com.sun.star.frame.DispatchDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class DispatchDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FeatureURL(self) -> 'URL_57ad07b9':

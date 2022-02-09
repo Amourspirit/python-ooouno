@@ -42,5 +42,6 @@ class XGraphicRenderer(XInterface_8f010a43):
         Renders the XGraphic container.
         """
 
+
 __all__ = ['XGraphicRenderer']
 

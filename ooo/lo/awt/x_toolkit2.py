@@ -42,5 +42,6 @@ class XToolkit2(XDataTransferProviderAccess_78691108, XExtendedToolkit_d4c90cc3,
     __pyunointerface__: str = 'com.sun.star.awt.XToolkit2'
 
 
+
 __all__ = ['XToolkit2']
 

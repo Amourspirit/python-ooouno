@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import NumberFormat
+    from com.sun.star.util import NumberFormat as NumberFormat
 else:
     from ...lo.util.number_format import NumberFormat as NumberFormat
 

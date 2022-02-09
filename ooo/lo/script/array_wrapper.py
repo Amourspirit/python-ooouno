@@ -39,6 +39,7 @@ class ArrayWrapper(object):
     typeName: str = 'com.sun.star.script.ArrayWrapper'
     """Literal Constant ``com.sun.star.script.ArrayWrapper``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class ArrayWrapper(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def IsZeroIndex(self) -> bool:

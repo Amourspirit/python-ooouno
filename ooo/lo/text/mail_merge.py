@@ -20,13 +20,13 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..sdb.data_access_descriptor import DataAccessDescriptor as DataAccessDescriptor_6c50e2c
 from ..task.x_job import XJob as XJob_5fa1082e
 from .x_mail_merge_broadcaster import XMailMergeBroadcaster as XMailMergeBroadcaster_27c30f02
 from ..util.x_cancellable import XCancellable as XCancellable_afc30b64
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..frame.x_model import XModel as XModel_7a6e095c
     from ..sdbc.x_connection import XConnection as XConnection_a36a0b0c
     from ..sdbc.x_result_set import XResultSet as XResultSet_98e30aa7
@@ -47,6 +47,49 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.MailMerge'
     __ooo_type_name__: str = 'service'
+
+    BlindCopiesTo: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    This property is only evaluated for e-Mail output.
+    
+    **since**
+    
+        OOo 2.0
+    """
+
+    CopiesTo: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains a list of e-Mail addresses to
+    
+    This property is only evaluated for e-Mail output.
+    
+    **since**
+    
+        OOo 2.0
+    """
+
+    PrintOptions: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    contains the properties that are defined in <com.sun.star.view.PrintOptions>.
+    
+    This property is only evaluated for printer output.
+    
+    **since**
+    
+        OOo 2.0
+    """
+
+    Selection: typing.TypeAlias = typing.Tuple[object, ...]
+    """
+    contains a selection that refers to bookmarks of the ResultSet.
+    
+    This property is relevant in conjunction with the ResultSet only. A single element of this array describes a bookmark relative to the result set.
+    Note that this implies that the ResultSet needs to support the com.sun.star.sdbcx.XRowLocate interface.
+    
+    If this array is empty, the whole result set, as described by ResultSet respectively the triple (DataSourceName, CommandType, Command).
+    
+    For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
+    """
 
     @abstractproperty
     def ActiveConnection(self) -> 'XConnection_a36a0b0c':
@@ -284,49 +327,6 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         **since**
         
             OOo 2.0
-        """
-    @abstractproperty
-    def BlindCopiesTo(self) -> 'typing.Tuple[str, ...]':
-        """
-        This property is only evaluated for e-Mail output.
-        
-        **since**
-        
-            OOo 2.0
-        """
-    @abstractproperty
-    def CopiesTo(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains a list of e-Mail addresses to
-        
-        This property is only evaluated for e-Mail output.
-        
-        **since**
-        
-            OOo 2.0
-        """
-    @abstractproperty
-    def PrintOptions(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        contains the properties that are defined in <com.sun.star.view.PrintOptions>.
-        
-        This property is only evaluated for printer output.
-        
-        **since**
-        
-            OOo 2.0
-        """
-    @abstractproperty
-    def Selection(self) -> 'typing.Tuple[object, ...]':
-        """
-        contains a selection that refers to bookmarks of the ResultSet.
-        
-        This property is relevant in conjunction with the ResultSet only. A single element of this array describes a bookmark relative to the result set.
-        Note that this implies that the ResultSet needs to support the com.sun.star.sdbcx.XRowLocate interface.
-        
-        If this array is empty, the whole result set, as described by ResultSet respectively the triple (DataSourceName, CommandType, Command).
-        
-        For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
 
 __all__ = ['MailMerge']

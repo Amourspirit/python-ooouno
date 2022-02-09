@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import AuthorDisplayFormat
+    from com.sun.star.text import AuthorDisplayFormat as AuthorDisplayFormat
 else:
     from ...lo.text.author_display_format import AuthorDisplayFormat as AuthorDisplayFormat
 

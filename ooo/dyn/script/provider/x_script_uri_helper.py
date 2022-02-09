@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.provider import XScriptURIHelper
+    from com.sun.star.script.provider import XScriptURIHelper as XScriptURIHelper
     setattr(XScriptURIHelper, '__ooo_ns__', 'com.sun.star.script.provider')
     setattr(XScriptURIHelper, '__ooo_full_ns__', 'com.sun.star.script.provider.XScriptURIHelper')
     setattr(XScriptURIHelper, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form.binding import XListEntryListener
+    from com.sun.star.form.binding import XListEntryListener as XListEntryListener
     setattr(XListEntryListener, '__ooo_ns__', 'com.sun.star.form.binding')
     setattr(XListEntryListener, '__ooo_full_ns__', 'com.sun.star.form.binding.XListEntryListener')
     setattr(XListEntryListener, '__ooo_type_name__', 'interface')

@@ -52,5 +52,6 @@ class XSmtpService(XMailService_ae610b57):
             com.sun.star.datatransfer.UnsupportedFlavorException: ``UnsupportedFlavorException``
         """
 
+
 __all__ = ['XSmtpService']
 

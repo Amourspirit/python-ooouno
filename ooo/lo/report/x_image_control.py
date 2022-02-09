@@ -63,5 +63,6 @@ class XImageControl(XImageProducerSupplier_37df0f8f, XReportControlModel_2d800f4
             OOo 3.2
         """
 
+
 __all__ = ['XImageControl']
 

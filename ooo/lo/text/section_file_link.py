@@ -41,6 +41,7 @@ class SectionFileLink(object):
     typeName: str = 'com.sun.star.text.SectionFileLink'
     """Literal Constant ``com.sun.star.text.SectionFileLink``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class SectionFileLink(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FileURL(self) -> str:

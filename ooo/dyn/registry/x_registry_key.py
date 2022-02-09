@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.registry import XRegistryKey
+    from com.sun.star.registry import XRegistryKey as XRegistryKey
     setattr(XRegistryKey, '__ooo_ns__', 'com.sun.star.registry')
     setattr(XRegistryKey, '__ooo_full_ns__', 'com.sun.star.registry.XRegistryKey')
     setattr(XRegistryKey, '__ooo_type_name__', 'interface')

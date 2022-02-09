@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import TransactionIsolation
+    from com.sun.star.sdbc import TransactionIsolation as TransactionIsolation
 else:
     from ...lo.sdbc.transaction_isolation import TransactionIsolation as TransactionIsolation
 

@@ -41,6 +41,7 @@ class Symbol(object):
     typeName: str = 'com.sun.star.chart2.Symbol'
     """Literal Constant ``com.sun.star.chart2.Symbol``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -84,7 +85,6 @@ class Symbol(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Style(self) -> 'SymbolStyle_baa20bd3':

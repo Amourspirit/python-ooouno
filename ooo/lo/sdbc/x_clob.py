@@ -89,5 +89,6 @@ class XClob(XInterface_8f010a43):
             SQLException: ``SQLException``
         """
 
+
 __all__ = ['XClob']
 

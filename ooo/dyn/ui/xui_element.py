@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import XUIElement
+    from com.sun.star.ui import XUIElement as XUIElement
     setattr(XUIElement, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XUIElement, '__ooo_full_ns__', 'com.sun.star.ui.XUIElement')
     setattr(XUIElement, '__ooo_type_name__', 'interface')

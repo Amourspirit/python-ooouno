@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.report import XReportEngine
+    from com.sun.star.report import XReportEngine as XReportEngine
     setattr(XReportEngine, '__ooo_ns__', 'com.sun.star.report')
     setattr(XReportEngine, '__ooo_full_ns__', 'com.sun.star.report.XReportEngine')
     setattr(XReportEngine, '__ooo_type_name__', 'interface')

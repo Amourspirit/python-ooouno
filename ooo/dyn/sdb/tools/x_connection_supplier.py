@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import XConnectionSupplier
+    from com.sun.star.sdb.tools import XConnectionSupplier as XConnectionSupplier
     setattr(XConnectionSupplier, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XConnectionSupplier, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XConnectionSupplier')
     setattr(XConnectionSupplier, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form.binding import XBindableValue
+    from com.sun.star.form.binding import XBindableValue as XBindableValue
     setattr(XBindableValue, '__ooo_ns__', 'com.sun.star.form.binding')
     setattr(XBindableValue, '__ooo_full_ns__', 'com.sun.star.form.binding.XBindableValue')
     setattr(XBindableValue, '__ooo_type_name__', 'interface')

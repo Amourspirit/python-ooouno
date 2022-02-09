@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.mozilla import XProfileManager
+    from com.sun.star.mozilla import XProfileManager as XProfileManager
     setattr(XProfileManager, '__ooo_ns__', 'com.sun.star.mozilla')
     setattr(XProfileManager, '__ooo_full_ns__', 'com.sun.star.mozilla.XProfileManager')
     setattr(XProfileManager, '__ooo_type_name__', 'interface')

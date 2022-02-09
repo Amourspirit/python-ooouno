@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontType
+    from com.sun.star.awt import FontType as FontType
 else:
     from ...lo.awt.font_type import FontType as FontType
 

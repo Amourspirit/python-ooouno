@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Info', 'Properties')
+            key_order = ('Info',)
             struct = uno.createUnoStruct('com.sun.star.ucb.SearchCommandArgument')
             if arg_len > len(key_order):
                 raise ValueError("SearchCommandArgument.__init__() To many parameters")

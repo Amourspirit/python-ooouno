@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import GeneralFunction2
+    from com.sun.star.sheet import GeneralFunction2 as GeneralFunction2
 else:
     from ...lo.sheet.general_function2 import GeneralFunction2 as GeneralFunction2
 

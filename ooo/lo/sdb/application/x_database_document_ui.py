@@ -20,10 +20,10 @@
 # Namespace: com.sun.star.sdb.application
 import typing
 from abc import abstractmethod, abstractproperty, ABC
+from ...lang.x_component import XComponent as XComponent_98dc0ab5
 if typing.TYPE_CHECKING:
     from ...awt.x_window import XWindow as XWindow_713b0924
     from ...beans.property_value import PropertyValue as PropertyValue_c9610c73
-    from ...lang.x_component import XComponent as XComponent_98dc0ab5
     from ...sdbc.x_connection import XConnection as XConnection_a36a0b0c
     from ...sdbc.x_data_source import XDataSource as XDataSource_a2990ae7
 
@@ -44,6 +44,19 @@ class XDatabaseDocumentUI(ABC):
     __ooo_full_ns__: str = 'com.sun.star.sdb.application.XDatabaseDocumentUI'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.sdb.application.XDatabaseDocumentUI'
+
+    SubComponents: typing.TypeAlias = typing.Tuple[XComponent_98dc0ab5, ...]
+    """
+    contains all sub components of the database document
+    
+    During working with the database, the user might open different sub components: forms, reports, tables, queries. Those components are tracked by the application, and provided in this attribute.
+    
+    The components here might either be documents (com.sun.star.frame.XModel), controllers (com.sun.star.frame.XController), or frames (com.sun.star.frame.XFrame).
+    
+    **since**
+    
+        OOo 3.0
+    """
 
     @abstractmethod
     def closeSubComponents(self) -> bool:
@@ -163,19 +176,7 @@ class XDatabaseDocumentUI(ABC):
         """
         provides access to the data source belong to the database document
         """
-    @abstractproperty
-    def SubComponents(self) -> 'typing.Tuple[XComponent_98dc0ab5, ...]':
-        """
-        contains all sub components of the database document
-        
-        During working with the database, the user might open different sub components: forms, reports, tables, queries. Those components are tracked by the application, and provided in this attribute.
-        
-        The components here might either be documents (com.sun.star.frame.XModel), controllers (com.sun.star.frame.XController), or frames (com.sun.star.frame.XFrame).
-        
-        **since**
-        
-            OOo 3.0
-        """
+
 
 __all__ = ['XDatabaseDocumentUI']
 

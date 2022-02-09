@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import XAccessibleTableSelection
+    from com.sun.star.accessibility import XAccessibleTableSelection as XAccessibleTableSelection
     setattr(XAccessibleTableSelection, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleTableSelection, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleTableSelection')
     setattr(XAccessibleTableSelection, '__ooo_type_name__', 'interface')

@@ -20,8 +20,8 @@
 # Namespace: com.sun.star.document
 import typing
 from abc import abstractmethod, abstractproperty, ABC
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
     from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..beans.x_property_container import XPropertyContainer as XPropertyContainer_c600e71
     from ..embed.x_storage import XStorage as XStorage_8e460a32
@@ -45,6 +45,18 @@ class XDocumentProperties(ABC):
     __ooo_full_ns__: str = 'com.sun.star.document.XDocumentProperties'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.document.XDocumentProperties'
+
+    DocumentStatistics: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    contains some statistics about the document.
+    
+    The contained statistics may be specific to the type of the document.
+    """
+
+    Keywords: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains a list of keywords for the document.
+    """
 
     @abstractmethod
     def getUserDefinedProperties(self) -> 'XPropertyContainer_c600e71':
@@ -225,18 +237,7 @@ class XDocumentProperties(ABC):
         """
         contains the title of the document.
         """
-    @abstractproperty
-    def DocumentStatistics(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        contains some statistics about the document.
-        
-        The contained statistics may be specific to the type of the document.
-        """
-    @abstractproperty
-    def Keywords(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains a list of keywords for the document.
-        """
+
 
 __all__ = ['XDocumentProperties']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import XKeyAlteration
+    from com.sun.star.sdb.tools import XKeyAlteration as XKeyAlteration
     setattr(XKeyAlteration, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XKeyAlteration, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XKeyAlteration')
     setattr(XKeyAlteration, '__ooo_type_name__', 'interface')

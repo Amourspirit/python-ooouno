@@ -35,6 +35,7 @@ class CellProtection(object):
     typeName: str = 'com.sun.star.util.CellProtection'
     """Literal Constant ``com.sun.star.util.CellProtection``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class CellProtection(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def IsLocked(self) -> bool:

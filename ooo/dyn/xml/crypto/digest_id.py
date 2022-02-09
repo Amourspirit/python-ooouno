@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import DigestID
+    from com.sun.star.xml.crypto import DigestID as DigestID
 else:
     from ....lo.xml.crypto.digest_id import DigestID as DigestID
 

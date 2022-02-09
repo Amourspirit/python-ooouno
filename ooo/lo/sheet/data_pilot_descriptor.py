@@ -20,11 +20,10 @@
 # Namespace: com.sun.star.sheet
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_data_pilot_data_layout_field_supplier import XDataPilotDataLayoutFieldSupplier as XDataPilotDataLayoutFieldSupplier_c07142b
 from .x_data_pilot_descriptor import XDataPilotDescriptor as XDataPilotDescriptor_27650f1a
-if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 class DataPilotDescriptor(XPropertySet_bc180bfa, XDataPilotDataLayoutFieldSupplier_c07142b, XDataPilotDescriptor_27650f1a):
     """
@@ -42,6 +41,24 @@ class DataPilotDescriptor(XPropertySet_bc180bfa, XDataPilotDataLayoutFieldSuppli
     __ooo_ns__: str = 'com.sun.star.sheet'
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotDescriptor'
     __ooo_type_name__: str = 'service'
+
+    ImportDescriptor: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    specifies parameters to create the data pilot table from a database.
+    
+    **since**
+    
+        OOo 3.3
+    """
+
+    ServiceArguments: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    specifies arguments that are passed to the implementation named by SourceServiceName.
+    
+    **since**
+    
+        OOo 3.3
+    """
 
     @abstractproperty
     def ColumnGrand(self) -> bool:
@@ -86,24 +103,6 @@ class DataPilotDescriptor(XPropertySet_bc180bfa, XDataPilotDataLayoutFieldSuppli
     def SourceServiceName(self) -> str:
         """
         specifies the name of a DataPilotSource implementation for the data pilot table.
-        
-        **since**
-        
-            OOo 3.3
-        """
-    @abstractproperty
-    def ImportDescriptor(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        specifies parameters to create the data pilot table from a database.
-        
-        **since**
-        
-            OOo 3.3
-        """
-    @abstractproperty
-    def ServiceArguments(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        specifies arguments that are passed to the implementation named by SourceServiceName.
         
         **since**
         

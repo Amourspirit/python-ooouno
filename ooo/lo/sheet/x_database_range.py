@@ -79,5 +79,6 @@ class XDatabaseRange(XInterface_8f010a43):
         sets the data area of the database range.
         """
 
+
 __all__ = ['XDatabaseRange']
 

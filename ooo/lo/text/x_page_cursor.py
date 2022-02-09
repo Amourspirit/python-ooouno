@@ -73,5 +73,6 @@ class XPageCursor(XInterface_8f010a43):
         moves the cursor to the start of the current page.
         """
 
+
 __all__ = ['XPageCursor']
 

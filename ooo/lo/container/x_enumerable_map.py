@@ -73,5 +73,6 @@ class XEnumerableMap(XMap_90a60a41):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
 
+
 __all__ = ['XEnumerableMap']
 

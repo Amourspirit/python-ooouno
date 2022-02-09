@@ -42,6 +42,11 @@ class TextConversionResult(object):
     typeName: str = 'com.sun.star.i18n.TextConversionResult'
     """Literal Constant ``com.sun.star.i18n.TextConversionResult``"""
 
+    Candidates: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    A list of replacement candidates for the first convertible word found in the given text.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -54,12 +59,10 @@ class TextConversionResult(object):
 
         Keyword Arguments:
             Boundary (Boundary, optional): Boundary value
-            Candidates (Tuple[str, ...], optional): Candidates value
         """
         self._boundary = None
-        self._candidates = None
 
-        key_order = ('Boundary', 'Candidates')
+        key_order = ('Boundary',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], TextConversionResult):
@@ -76,7 +79,6 @@ class TextConversionResult(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Boundary(self) -> 'Boundary_7fe2098c':
         """
@@ -89,17 +91,6 @@ class TextConversionResult(object):
     @Boundary.setter
     def Boundary(self, value: 'Boundary_7fe2098c') -> None:
         self._boundary = value
-
-    @property
-    def Candidates(self) -> 'typing.Tuple[str, ...]':
-        """
-        A list of replacement candidates for the first convertible word found in the given text.
-        """
-        return self._candidates
-    
-    @Candidates.setter
-    def Candidates(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._candidates = value
 
 
 __all__ = ['TextConversionResult']

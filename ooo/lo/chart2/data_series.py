@@ -47,6 +47,34 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
     __ooo_full_ns__: str = 'com.sun.star.chart2.DataSeries'
     __ooo_type_name__: str = 'service'
 
+    AttributedDataPoints: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    This service will be used to render this data series.
+    
+    This service name can be used to determine which DataSeries are of the same type.
+    
+    The result of the DataSeries.DataSequenceRoles depends on the renderer service set here.
+    
+    a sequence of indexes denoting which data points have set properties that differ from the default.
+    
+    The default values are determined by the properties set at the DataPointProperties of the data series.
+    
+    If the sequence is empty, that means that all data points look alike. They are formatted using the property values set in the data series.
+    
+    The indexes in this sequence match the indexes used by the XIndexContainer.
+    
+    This property is especially useful for large data series with only some formatted data points, because you do not have to iterate over all elements.
+    """
+
+    DeletedLegendEntries: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    A sequence of indexes denoting which data points shouldn't be shown in the legend.
+    
+    **since**
+    
+        LibreOffice 7.0
+    """
+
     @abstractproperty
     def AttachedAxisIndex(self) -> int:
         """
@@ -85,34 +113,6 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
     def VaryColorsByPoint(self) -> bool:
         """
         If TRUE, the data points of this series get different colors by default, like in a pie chart.
-        """
-    @abstractproperty
-    def AttributedDataPoints(self) -> 'typing.Tuple[int, ...]':
-        """
-        This service will be used to render this data series.
-        
-        This service name can be used to determine which DataSeries are of the same type.
-        
-        The result of the DataSeries.DataSequenceRoles depends on the renderer service set here.
-        
-        a sequence of indexes denoting which data points have set properties that differ from the default.
-        
-        The default values are determined by the properties set at the DataPointProperties of the data series.
-        
-        If the sequence is empty, that means that all data points look alike. They are formatted using the property values set in the data series.
-        
-        The indexes in this sequence match the indexes used by the XIndexContainer.
-        
-        This property is especially useful for large data series with only some formatted data points, because you do not have to iterate over all elements.
-        """
-    @abstractproperty
-    def DeletedLegendEntries(self) -> 'typing.Tuple[int, ...]':
-        """
-        A sequence of indexes denoting which data points shouldn't be shown in the legend.
-        
-        **since**
-        
-            LibreOffice 7.0
         """
 
 __all__ = ['DataSeries']

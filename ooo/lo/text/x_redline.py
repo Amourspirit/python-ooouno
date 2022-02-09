@@ -44,5 +44,6 @@ class XRedline(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XRedline']
 

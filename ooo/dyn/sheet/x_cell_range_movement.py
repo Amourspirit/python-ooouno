@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XCellRangeMovement
+    from com.sun.star.sheet import XCellRangeMovement as XCellRangeMovement
     setattr(XCellRangeMovement, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCellRangeMovement, '__ooo_full_ns__', 'com.sun.star.sheet.XCellRangeMovement')
     setattr(XCellRangeMovement, '__ooo_type_name__', 'interface')

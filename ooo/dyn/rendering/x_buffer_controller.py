@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XBufferController
+    from com.sun.star.rendering import XBufferController as XBufferController
     setattr(XBufferController, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XBufferController, '__ooo_full_ns__', 'com.sun.star.rendering.XBufferController')
     setattr(XBufferController, '__ooo_type_name__', 'interface')

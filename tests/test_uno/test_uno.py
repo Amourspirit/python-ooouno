@@ -9,23 +9,19 @@ def test_sequence(get_document):
     import uno
     from ooo.lo.text.x_text import XText
     from ooo.lo.text.generic_text_document import GenericTextDocument
-    from ooo.dyn.text.text_table import TextTable
+    from ooo.lo.io.sequence_input_stream import SequenceInputStream
+    from ooo.lo.text.text_table import TextTable
     from ooo.dyn.beans.property_value import PropertyValue
-    from ooo.dyn.io import sequence_input_stream
     from ooo.helper import uno_helper
 
     doc: GenericTextDocument = get_document
     table: TextTable = doc.createInstance("com.sun.star.text.TextTable")
-    # table = text_table.createInstance(doc)
-    # from ooo_uno.helper import uno_helper
     text: XText = doc.getText()
-    # ctx = uno.getCurrentContext()
-    # table = create_service(ctx=ctx)
     table.setName('NewTable')
-    # table.initialize(nRows=2, nColumns=2) # named args do not work
+    # table.initialize(nRows=2, nColumns=2) # named args are not supported
     table.initialize(2, 2)
     text.insertTextContent(text.getEnd(), table, True)
-    # text.insertTextContent(xRange=text.getEnd(), xContent=table, bAbsorb=True) # named args do not work
+    # text.insertTextContent(xRange=text.getEnd(), xContent=table, bAbsorb=True) # named args are not supported
     a = (("foo", "bar"), (1, 2))
     table.setDataArray(a)
     data = table.getDataArray()
@@ -37,8 +33,8 @@ def test_sequence(get_document):
     arg2.Name = "FilterName"
     arg2.Value = "writer_web_HTML"
     bs = b"<html><body><p>Text from <b>HTML</b>.</p></body></html>"
-    # sequence: sequence_input_stream.SequenceInputStream = uno_helper.create_uno_service("com.sun.star.io.SequenceInputStream")
-    sequence: sequence_input_stream.SequenceInputStream = uno_helper.create_uno_service(sequence_input_stream.SequenceInputStream)
+    # sequence: SequenceInputStream = uno_helper.create_uno_service("com.sun.star.io.SequenceInputStream")
+    sequence: SequenceInputStream = uno_helper.create_uno_service(SequenceInputStream)
     sequence.initialize((uno.ByteSequence(bs),))
     # sequence.createStreamFromSequence((uno.ByteSequence(bs),))
     arg1.Value = sequence

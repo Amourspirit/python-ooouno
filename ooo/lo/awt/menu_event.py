@@ -36,6 +36,7 @@ class MenuEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.MenuEvent'
     """Literal Constant ``com.sun.star.awt.MenuEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -67,7 +68,6 @@ class MenuEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MenuId(self) -> int:

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import XErrorListener
+    from com.sun.star.form import XErrorListener as XErrorListener
     setattr(XErrorListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XErrorListener, '__ooo_full_ns__', 'com.sun.star.form.XErrorListener')
     setattr(XErrorListener, '__ooo_type_name__', 'interface')

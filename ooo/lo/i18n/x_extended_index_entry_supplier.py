@@ -82,5 +82,6 @@ class XExtendedIndexEntrySupplier(XIndexEntrySupplier_1cb0dfe):
         Checks if Phonetic Entry should be used for the locale.
         """
 
+
 __all__ = ['XExtendedIndexEntrySupplier']
 

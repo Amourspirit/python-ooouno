@@ -164,5 +164,6 @@ class XSlideShow(XInterface_8f010a43):
         * ``nNextTimeout`` is an out direction argument.
         """
 
+
 __all__ = ['XSlideShow']
 

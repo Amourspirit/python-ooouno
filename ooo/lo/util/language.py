@@ -27,6 +27,6 @@ TypeDef type alias
 This type is used for a language identifier number.
 
 See Also:
-    `API Language <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a1eba7fdd59cb0581d2b072a5798bd75d>`_
+    `API Language <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#af3741b059f727ead3518cbb4b259038e>`_
 """
 

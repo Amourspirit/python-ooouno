@@ -59,5 +59,6 @@ class XEmfParser(XInterface_8f010a43):
             LibreOffice 7.1
         """
 
+
 __all__ = ['XEmfParser']
 

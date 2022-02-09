@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
+from ..beans.property import Property as Property_8f4e0a76
 if typing.TYPE_CHECKING:
-    from ..beans.property import Property as Property_8f4e0a76
     from ..uno.x_interface import XInterface as XInterface_8f010a43
 
 
@@ -39,6 +39,11 @@ class OpenCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument``"""
 
+    Properties: typing.TypeAlias = typing.Tuple[Property_8f4e0a76, ...]
+    """
+    The properties, for that the values shall be provided by the DynamicResultSet returned by the command).
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -53,14 +58,12 @@ class OpenCommandArgument(object):
             Mode (int, optional): Mode value
             Priority (int, optional): Priority value
             Sink (XInterface, optional): Sink value
-            Properties (Tuple[Property, ...], optional): Properties value
         """
         self._mode = None
         self._priority = None
         self._sink = None
-        self._properties = None
 
-        key_order = ('Mode', 'Priority', 'Sink', 'Properties')
+        key_order = ('Mode', 'Priority', 'Sink')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], OpenCommandArgument):
@@ -76,7 +79,6 @@ class OpenCommandArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Mode(self) -> int:
@@ -116,17 +118,6 @@ class OpenCommandArgument(object):
     @Sink.setter
     def Sink(self, value: 'XInterface_8f010a43') -> None:
         self._sink = value
-
-    @property
-    def Properties(self) -> 'typing.Tuple[Property_8f4e0a76, ...]':
-        """
-        The properties, for that the values shall be provided by the DynamicResultSet returned by the command).
-        """
-        return self._properties
-    
-    @Properties.setter
-    def Properties(self, value: 'typing.Tuple[Property_8f4e0a76, ...]') -> None:
-        self._properties = value
 
 
 __all__ = ['OpenCommandArgument']

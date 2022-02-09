@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XAlterView
+    from com.sun.star.sdbcx import XAlterView as XAlterView
     setattr(XAlterView, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XAlterView, '__ooo_full_ns__', 'com.sun.star.sdbcx.XAlterView')
     setattr(XAlterView, '__ooo_type_name__', 'interface')

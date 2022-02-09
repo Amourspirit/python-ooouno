@@ -33,5 +33,6 @@ class XInteractionAskLater(XInteractionContinuation_5af0108e):
     __pyunointerface__: str = 'com.sun.star.task.XInteractionAskLater'
 
 
+
 __all__ = ['XInteractionAskLater']
 

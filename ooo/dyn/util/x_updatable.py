@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XUpdatable
+    from com.sun.star.util import XUpdatable as XUpdatable
     setattr(XUpdatable, '__ooo_ns__', 'com.sun.star.util')
     setattr(XUpdatable, '__ooo_full_ns__', 'com.sun.star.util.XUpdatable')
     setattr(XUpdatable, '__ooo_type_name__', 'interface')

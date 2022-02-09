@@ -38,6 +38,7 @@ class ContentProviderInfo(object):
     typeName: str = 'com.sun.star.ucb.ContentProviderInfo'
     """Literal Constant ``com.sun.star.ucb.ContentProviderInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ContentProviderInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ContentProvider(self) -> 'XContentProvider_d4150cc0':

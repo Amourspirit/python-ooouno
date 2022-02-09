@@ -72,5 +72,6 @@ class XMimeContentType(XInterface_8f010a43):
         A value of FALSE if the MIME content-type has not the specified parameter.
         """
 
+
 __all__ = ['XMimeContentType']
 

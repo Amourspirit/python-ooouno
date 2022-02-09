@@ -134,5 +134,6 @@ class XOptimizedStorage(ABC):
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
 
+
 __all__ = ['XOptimizedStorage']
 

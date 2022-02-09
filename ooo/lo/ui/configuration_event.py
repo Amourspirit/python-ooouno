@@ -40,6 +40,7 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
     typeName: str = 'com.sun.star.ui.ConfigurationEvent'
     """Literal Constant ``com.sun.star.ui.ConfigurationEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ResourceURL(self) -> str:

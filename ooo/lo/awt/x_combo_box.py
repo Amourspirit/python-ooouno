@@ -98,5 +98,6 @@ class XComboBox(XInterface_8f010a43):
         sets the number of visible lines for drop down mode.
         """
 
+
 __all__ = ['XComboBox']
 

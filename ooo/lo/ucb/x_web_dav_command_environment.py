@@ -45,5 +45,6 @@ class XWebDAVCommandEnvironment(XCommandEnvironment_fb330dee):
         The returned headername-headervalue pairs will be appended to the list of request headers before the request is dispatched.
         """
 
+
 __all__ = ['XWebDAVCommandEnvironment']
 

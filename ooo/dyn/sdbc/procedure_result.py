@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ProcedureResult
+    from com.sun.star.sdbc import ProcedureResult as ProcedureResult
 else:
     from ...lo.sdbc.procedure_result import ProcedureResult as ProcedureResult
 

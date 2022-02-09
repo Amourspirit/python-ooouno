@@ -37,6 +37,7 @@ class RelativeSize(object):
     typeName: str = 'com.sun.star.chart2.RelativeSize'
     """Literal Constant ``com.sun.star.chart2.RelativeSize``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class RelativeSize(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Primary(self) -> float:

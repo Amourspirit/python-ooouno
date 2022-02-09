@@ -41,6 +41,7 @@ class StringContext(object):
     typeName: str = 'com.sun.star.rendering.StringContext'
     """Literal Constant ``com.sun.star.rendering.StringContext``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class StringContext(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Text(self) -> str:

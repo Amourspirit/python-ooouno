@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.loader import XImplementationLoader
+    from com.sun.star.loader import XImplementationLoader as XImplementationLoader
     setattr(XImplementationLoader, '__ooo_ns__', 'com.sun.star.loader')
     setattr(XImplementationLoader, '__ooo_full_ns__', 'com.sun.star.loader.XImplementationLoader')
     setattr(XImplementationLoader, '__ooo_type_name__', 'interface')

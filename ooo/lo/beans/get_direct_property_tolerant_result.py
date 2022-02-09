@@ -38,6 +38,7 @@ class GetDirectPropertyTolerantResult(GetPropertyTolerantResult_7c4e115e):
     typeName: str = 'com.sun.star.beans.GetDirectPropertyTolerantResult'
     """Literal Constant ``com.sun.star.beans.GetDirectPropertyTolerantResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class GetDirectPropertyTolerantResult(GetPropertyTolerantResult_7c4e115e):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

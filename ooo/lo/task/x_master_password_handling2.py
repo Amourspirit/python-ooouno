@@ -49,5 +49,6 @@ class XMasterPasswordHandling2(XMasterPasswordHandling_49900ff7):
         Please use this method with care. Using of default master password let the passwords be stored non-encrypted. If a master password is predefined in the algorithm it is no more an encryption, it is just an encoding.
         """
 
+
 __all__ = ['XMasterPasswordHandling2']
 

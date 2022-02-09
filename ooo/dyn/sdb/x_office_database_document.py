@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import XOfficeDatabaseDocument
+    from com.sun.star.sdb import XOfficeDatabaseDocument as XOfficeDatabaseDocument
     setattr(XOfficeDatabaseDocument, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XOfficeDatabaseDocument, '__ooo_full_ns__', 'com.sun.star.sdb.XOfficeDatabaseDocument')
     setattr(XOfficeDatabaseDocument, '__ooo_type_name__', 'interface')

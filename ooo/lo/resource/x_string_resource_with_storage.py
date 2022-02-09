@@ -59,5 +59,6 @@ class XStringResourceWithStorage(XStringResourcePersistence_cabc130c):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XStringResourceWithStorage']
 

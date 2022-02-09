@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.application import XTableUIProvider
+    from com.sun.star.sdb.application import XTableUIProvider as XTableUIProvider
     setattr(XTableUIProvider, '__ooo_ns__', 'com.sun.star.sdb.application')
     setattr(XTableUIProvider, '__ooo_full_ns__', 'com.sun.star.sdb.application.XTableUIProvider')
     setattr(XTableUIProvider, '__ooo_type_name__', 'interface')

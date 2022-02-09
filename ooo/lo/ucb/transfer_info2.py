@@ -36,6 +36,7 @@ class TransferInfo2(TransferInfo_a4600b13):
     typeName: str = 'com.sun.star.ucb.TransferInfo2'
     """Literal Constant ``com.sun.star.ucb.TransferInfo2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -67,7 +68,6 @@ class TransferInfo2(TransferInfo_a4600b13):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MimeType(self) -> str:

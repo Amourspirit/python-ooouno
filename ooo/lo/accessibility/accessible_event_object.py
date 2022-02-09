@@ -42,6 +42,7 @@ class AccessibleEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.accessibility.AccessibleEventObject'
     """Literal Constant ``com.sun.star.accessibility.AccessibleEventObject``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class AccessibleEventObject(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def EventId(self) -> int:

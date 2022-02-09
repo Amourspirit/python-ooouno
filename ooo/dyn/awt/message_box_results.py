@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import MessageBoxResults
+    from com.sun.star.awt import MessageBoxResults as MessageBoxResults
 else:
     from ...lo.awt.message_box_results import MessageBoxResults as MessageBoxResults
 

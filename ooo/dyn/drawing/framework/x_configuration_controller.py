@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing.framework import XConfigurationController
+    from com.sun.star.drawing.framework import XConfigurationController as XConfigurationController
     setattr(XConfigurationController, '__ooo_ns__', 'com.sun.star.drawing.framework')
     setattr(XConfigurationController, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XConfigurationController')
     setattr(XConfigurationController, '__ooo_type_name__', 'interface')

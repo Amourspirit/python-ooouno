@@ -67,5 +67,6 @@ class XNumericControl(XPropertyControl_3f260fe2):
         The core measurement unit for a property value might differ from the unit which is used by the control to display it. For instance, your property value might require that your values denote 100th millimeters, but to the user, you want to present the value as, say, inches. In this case, a numeric control can automatically handle the value conversion for you, if you give it a ValueUnit different from the DisplayUnit.
         """
 
+
 __all__ = ['XNumericControl']
 

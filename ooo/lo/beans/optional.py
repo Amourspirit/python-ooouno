@@ -31,8 +31,12 @@ class Optional(object):
     See Also:
         `API Optional <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1beans_1_1Optional_3_01T_01_4.html>`_
     """
+    __ooo_ns__: str = 'com.sun.star.beans'
+    __ooo_full_ns__: str = 'com.sun.star.beans.Optional'
+    __ooo_type_name__: str = 'struct'
     typeName: str = 'com.sun.star.beans.Optional'
     """Literal Constant ``com.sun.star.beans.Optional``"""
+
 
     def __init__(self, *args, **kwargs):
         """
@@ -67,7 +71,6 @@ class Optional(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def IsPresent(self) -> bool:

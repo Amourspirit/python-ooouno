@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XDrillDownDataSupplier
+    from com.sun.star.sheet import XDrillDownDataSupplier as XDrillDownDataSupplier
     setattr(XDrillDownDataSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDrillDownDataSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XDrillDownDataSupplier')
     setattr(XDrillDownDataSupplier, '__ooo_type_name__', 'interface')

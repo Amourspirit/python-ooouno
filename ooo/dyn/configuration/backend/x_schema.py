@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import XSchema
+    from com.sun.star.configuration.backend import XSchema as XSchema
     setattr(XSchema, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XSchema, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XSchema')
     setattr(XSchema, '__ooo_type_name__', 'interface')

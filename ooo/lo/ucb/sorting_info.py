@@ -35,6 +35,7 @@ class SortingInfo(object):
     typeName: str = 'com.sun.star.ucb.SortingInfo'
     """Literal Constant ``com.sun.star.ucb.SortingInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class SortingInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def PropertyName(self) -> str:

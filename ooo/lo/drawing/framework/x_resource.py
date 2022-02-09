@@ -52,5 +52,6 @@ class XResource(ABC):
         The return value is used to determine whether a resource has to be deactivated when it has no children, either because none is requested or because none can be created.
         """
 
+
 __all__ = ['XResource']
 

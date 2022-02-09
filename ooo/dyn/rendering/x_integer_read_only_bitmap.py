@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XIntegerReadOnlyBitmap
+    from com.sun.star.rendering import XIntegerReadOnlyBitmap as XIntegerReadOnlyBitmap
     setattr(XIntegerReadOnlyBitmap, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XIntegerReadOnlyBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XIntegerReadOnlyBitmap')
     setattr(XIntegerReadOnlyBitmap, '__ooo_type_name__', 'interface')

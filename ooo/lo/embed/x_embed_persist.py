@@ -106,5 +106,6 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XEmbedPersist']
 

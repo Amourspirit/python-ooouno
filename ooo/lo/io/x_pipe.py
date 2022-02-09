@@ -42,5 +42,6 @@ class XPipe(XInputStream_98d40ab4, XOutputStream_a4e00b35):
     __pyunointerface__: str = 'com.sun.star.io.XPipe'
 
 
+
 __all__ = ['XPipe']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import XXMLSecurityTemplate
+    from com.sun.star.xml.crypto import XXMLSecurityTemplate as XXMLSecurityTemplate
     setattr(XXMLSecurityTemplate, '__ooo_ns__', 'com.sun.star.xml.crypto')
     setattr(XXMLSecurityTemplate, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XXMLSecurityTemplate')
     setattr(XXMLSecurityTemplate, '__ooo_type_name__', 'interface')

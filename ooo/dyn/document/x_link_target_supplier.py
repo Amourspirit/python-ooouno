@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XLinkTargetSupplier
+    from com.sun.star.document import XLinkTargetSupplier as XLinkTargetSupplier
     setattr(XLinkTargetSupplier, '__ooo_ns__', 'com.sun.star.document')
     setattr(XLinkTargetSupplier, '__ooo_full_ns__', 'com.sun.star.document.XLinkTargetSupplier')
     setattr(XLinkTargetSupplier, '__ooo_type_name__', 'interface')

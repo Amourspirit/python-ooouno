@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import KeyType
+    from com.sun.star.sdbcx import KeyType as KeyType
 else:
     from ...lo.sdbcx.key_type import KeyType as KeyType
 

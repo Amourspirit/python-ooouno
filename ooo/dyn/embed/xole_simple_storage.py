@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XOLESimpleStorage
+    from com.sun.star.embed import XOLESimpleStorage as XOLESimpleStorage
     setattr(XOLESimpleStorage, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XOLESimpleStorage, '__ooo_full_ns__', 'com.sun.star.embed.XOLESimpleStorage')
     setattr(XOLESimpleStorage, '__ooo_type_name__', 'interface')

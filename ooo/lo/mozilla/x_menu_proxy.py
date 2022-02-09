@@ -52,5 +52,6 @@ class XMenuProxy(XComponent_98dc0ab5):
         Unregisters an event listener which was registered with XMenuProxy.addMenuProxyListener().
         """
 
+
 __all__ = ['XMenuProxy']
 

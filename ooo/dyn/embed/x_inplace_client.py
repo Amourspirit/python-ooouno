@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XInplaceClient
+    from com.sun.star.embed import XInplaceClient as XInplaceClient
     setattr(XInplaceClient, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XInplaceClient, '__ooo_full_ns__', 'com.sun.star.embed.XInplaceClient')
     setattr(XInplaceClient, '__ooo_type_name__', 'interface')

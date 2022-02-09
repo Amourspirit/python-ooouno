@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 import typing
+from .data_pilot_field_filter import DataPilotFieldFilter as DataPilotFieldFilter_271e0eed
 if typing.TYPE_CHECKING:
-    from .data_pilot_field_filter import DataPilotFieldFilter as DataPilotFieldFilter_271e0eed
     from .data_result import DataResult as DataResult_a47d0b1a
 
 
@@ -45,6 +45,11 @@ class DataPilotTableResultData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTableResultData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTableResultData``"""
 
+    FieldFilters: typing.TypeAlias = typing.Tuple[DataPilotFieldFilter_271e0eed, ...]
+    """
+    This is a set of filter criteria that can be used to re-create those data rows that contribute to the value shown in the cell.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -58,13 +63,11 @@ class DataPilotTableResultData(object):
         Keyword Arguments:
             DataFieldIndex (int, optional): DataFieldIndex value
             Result (DataResult, optional): Result value
-            FieldFilters (Tuple[DataPilotFieldFilter, ...], optional): FieldFilters value
         """
         self._data_field_index = None
         self._result = None
-        self._field_filters = None
 
-        key_order = ('DataFieldIndex', 'Result', 'FieldFilters')
+        key_order = ('DataFieldIndex', 'Result')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], DataPilotTableResultData):
@@ -80,7 +83,6 @@ class DataPilotTableResultData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def DataFieldIndex(self) -> int:
@@ -103,17 +105,6 @@ class DataPilotTableResultData(object):
     @Result.setter
     def Result(self, value: 'DataResult_a47d0b1a') -> None:
         self._result = value
-
-    @property
-    def FieldFilters(self) -> 'typing.Tuple[DataPilotFieldFilter_271e0eed, ...]':
-        """
-        This is a set of filter criteria that can be used to re-create those data rows that contribute to the value shown in the cell.
-        """
-        return self._field_filters
-    
-    @FieldFilters.setter
-    def FieldFilters(self, value: 'typing.Tuple[DataPilotFieldFilter_271e0eed, ...]') -> None:
-        self._field_filters = value
 
 
 __all__ = ['DataPilotTableResultData']

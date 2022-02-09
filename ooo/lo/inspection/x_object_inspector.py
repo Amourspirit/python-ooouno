@@ -78,5 +78,6 @@ class XObjectInspector(XController_b00e0b8f, XDispatchProvider_fc690de6):
             OOo 2.2
         """
 
+
 __all__ = ['XObjectInspector']
 

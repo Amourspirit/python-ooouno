@@ -19,10 +19,10 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.2
 import typing
+from ..security.document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation_f36c13f7
 from .classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
 if typing.TYPE_CHECKING:
     from ..embed.x_storage import XStorage as XStorage_8e460a32
-    from ..security.document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation_f36c13f7
 
 class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     """
@@ -41,6 +41,11 @@ class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.task.DocumentMacroConfirmationRequest'
     """Literal Constant ``com.sun.star.task.DocumentMacroConfirmationRequest``"""
 
+    DocumentSignatureInformation: typing.TypeAlias = typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]
+    """
+    contains information about the signatures in the document
+    """
+
     DocumentStorage: 'XStorage_8e460a32' = None
     """
         refers to the storage related to the last committed version of the document.
@@ -56,11 +61,6 @@ class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     DocumentVersion: str = None
     """
         contains information about the ODF version of the document
-    """
-
-    DocumentSignatureInformation: 'typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]' = None
-    """
-    contains information about the signatures in the document
     """
 
 

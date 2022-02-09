@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XEmbeddedObjectCreator
+    from com.sun.star.embed import XEmbeddedObjectCreator as XEmbeddedObjectCreator
     setattr(XEmbeddedObjectCreator, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XEmbeddedObjectCreator, '__ooo_full_ns__', 'com.sun.star.embed.XEmbeddedObjectCreator')
     setattr(XEmbeddedObjectCreator, '__ooo_type_name__', 'interface')

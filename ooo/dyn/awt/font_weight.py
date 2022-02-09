@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontWeight
+    from com.sun.star.awt import FontWeight as FontWeight
 else:
     from ...lo.awt.font_weight import FontWeight as FontWeight
 

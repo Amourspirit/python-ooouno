@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import LabelFollow
+    from com.sun.star.text import LabelFollow as LabelFollow
 else:
     from ...lo.text.label_follow import LabelFollow as LabelFollow
 

@@ -36,6 +36,11 @@ class MenuMultipleChange(object):
     typeName: str = 'com.sun.star.mozilla.MenuMultipleChange'
     """Literal Constant ``com.sun.star.mozilla.MenuMultipleChange``"""
 
+    Image: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    sequence of bytes representing a possible image
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -55,7 +60,6 @@ class MenuMultipleChange(object):
             IsActive (bool, optional): IsActive value
             IsCheckable (bool, optional): IsCheckable value
             IsChecked (bool, optional): IsChecked value
-            Image (Tuple[int, ...], optional): Image value
         """
         self._id = None
         self._group_id = None
@@ -65,9 +69,8 @@ class MenuMultipleChange(object):
         self._is_active = None
         self._is_checkable = None
         self._is_checked = None
-        self._image = None
 
-        key_order = ('ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked', 'Image')
+        key_order = ('ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], MenuMultipleChange):
@@ -83,7 +86,6 @@ class MenuMultipleChange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ID(self) -> int:
@@ -172,17 +174,6 @@ class MenuMultipleChange(object):
     @IsChecked.setter
     def IsChecked(self, value: bool) -> None:
         self._is_checked = value
-
-    @property
-    def Image(self) -> 'typing.Tuple[int, ...]':
-        """
-        sequence of bytes representing a possible image
-        """
-        return self._image
-    
-    @Image.setter
-    def Image(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._image = value
 
 
 __all__ = ['MenuMultipleChange']

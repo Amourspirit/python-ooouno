@@ -78,5 +78,6 @@ class XTextCursor(XTextRange_9a910ab7):
         determines if the start and end positions are the same.
         """
 
+
 __all__ = ['XTextCursor']
 

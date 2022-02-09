@@ -20,6 +20,7 @@
 # Namespace: com.sun.star.sdb
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_bookmarks_supplier import XBookmarksSupplier as XBookmarksSupplier_ee870d96
 from .x_completed_connection import XCompletedConnection as XCompletedConnection_98a0e46
@@ -28,7 +29,6 @@ from ..sdbc.x_data_source import XDataSource as XDataSource_a2990ae7
 from ..sdbc.x_isolated_connection import XIsolatedConnection as XIsolatedConnection_99c0e41
 from ..util.x_flushable import XFlushable as XFlushable_9a420ab4
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..util.x_number_formats_supplier import XNumberFormatsSupplier as XNumberFormatsSupplier_3afb0fb7
 
 class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedConnection_98a0e46, XQueryDefinitionsSupplier_5913107f, XDataSource_a2990ae7, XIsolatedConnection_99c0e41, XFlushable_9a420ab4):
@@ -49,6 +49,29 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
     __ooo_ns__: str = 'com.sun.star.sdb'
     __ooo_full_ns__: str = 'com.sun.star.sdb.DataSource'
     __ooo_type_name__: str = 'service'
+
+    Info: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    is a list of arbitrary string tag/value pairs as connection arguments
+    
+    The DataSource itself does not attempt to interpret any of those values.
+    
+    Instead, the values in this property have two use cases:
+    """
+
+    TableFilter: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    defines a list of tables, on which the DataSource should have it's focus.
+    
+    If empty, all tables are rejected.
+    """
+
+    TableTypeFilter: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    defines a list of table types, on which the DataSource should have it's focus.
+    
+    If empty, all table types are rejected.
+    """
 
     @abstractproperty
     def IsPasswordRequired(self) -> bool:
@@ -121,29 +144,6 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
     def User(self) -> str:
         """
         determines a users login name.
-        """
-    @abstractproperty
-    def Info(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        is a list of arbitrary string tag/value pairs as connection arguments
-        
-        The DataSource itself does not attempt to interpret any of those values.
-        
-        Instead, the values in this property have two use cases:
-        """
-    @abstractproperty
-    def TableFilter(self) -> 'typing.Tuple[str, ...]':
-        """
-        defines a list of tables, on which the DataSource should have it's focus.
-        
-        If empty, all tables are rejected.
-        """
-    @abstractproperty
-    def TableTypeFilter(self) -> 'typing.Tuple[str, ...]':
-        """
-        defines a list of table types, on which the DataSource should have it's focus.
-        
-        If empty, all table types are rejected.
         """
 
 __all__ = ['DataSource']

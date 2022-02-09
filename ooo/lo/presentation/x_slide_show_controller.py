@@ -253,5 +253,6 @@ class XSlideShowController(ABC):
         You can draw on the presentation with this pen.
         """
 
+
 __all__ = ['XSlideShowController']
 

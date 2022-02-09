@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XDeleteRows
+    from com.sun.star.sdbcx import XDeleteRows as XDeleteRows
     setattr(XDeleteRows, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XDeleteRows, '__ooo_full_ns__', 'com.sun.star.sdbcx.XDeleteRows')
     setattr(XDeleteRows, '__ooo_type_name__', 'interface')

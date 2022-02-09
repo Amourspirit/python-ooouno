@@ -70,5 +70,6 @@ class XTreeExpansionListener(XEventListener_c7230c4a):
             ExpandVetoException: ``ExpandVetoException``
         """
 
+
 __all__ = ['XTreeExpansionListener']
 

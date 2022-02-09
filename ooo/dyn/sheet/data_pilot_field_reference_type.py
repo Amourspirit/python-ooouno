@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldReferenceType
+    from com.sun.star.sheet import DataPilotFieldReferenceType as DataPilotFieldReferenceType
 else:
     from ...lo.sheet.data_pilot_field_reference_type import DataPilotFieldReferenceType as DataPilotFieldReferenceType
 

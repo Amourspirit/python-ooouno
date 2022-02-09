@@ -68,5 +68,6 @@ class XDatabaseAccess(XDataSource_a2990ae7):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
 
+
 __all__ = ['XDatabaseAccess']
 

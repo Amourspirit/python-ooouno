@@ -61,5 +61,6 @@ class XLayerManager(XIndexAccess_f0910d6d):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
+
 __all__ = ['XLayerManager']
 

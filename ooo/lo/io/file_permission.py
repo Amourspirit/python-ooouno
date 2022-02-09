@@ -47,6 +47,7 @@ class FilePermission(object):
     typeName: str = 'com.sun.star.io.FilePermission'
     """Literal Constant ``com.sun.star.io.FilePermission``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -80,7 +81,6 @@ class FilePermission(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def URL(self) -> str:

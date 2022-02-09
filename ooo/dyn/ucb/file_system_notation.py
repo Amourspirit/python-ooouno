@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import FileSystemNotation
+    from com.sun.star.ucb import FileSystemNotation as FileSystemNotation
 else:
     from ...lo.ucb.file_system_notation import FileSystemNotation as FileSystemNotation
 

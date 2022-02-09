@@ -19,8 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
+from ..beans.property import Property as Property_8f4e0a76
 if typing.TYPE_CHECKING:
-    from ..beans.property import Property as Property_8f4e0a76
     from .search_info import SearchInfo as SearchInfo_8daf0a24
 
 
@@ -39,6 +39,11 @@ class SearchCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.SearchCommandArgument'
     """Literal Constant ``com.sun.star.ucb.SearchCommandArgument``"""
 
+    Properties: typing.TypeAlias = typing.Tuple[Property_8f4e0a76, ...]
+    """
+    the properties for which values shall be provided through the ContentResultSet returned by the search command.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,12 +56,10 @@ class SearchCommandArgument(object):
 
         Keyword Arguments:
             Info (SearchInfo, optional): Info value
-            Properties (Tuple[Property, ...], optional): Properties value
         """
         self._info = None
-        self._properties = None
 
-        key_order = ('Info', 'Properties')
+        key_order = ('Info',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SearchCommandArgument):
@@ -73,7 +76,6 @@ class SearchCommandArgument(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Info(self) -> 'SearchInfo_8daf0a24':
         """
@@ -84,17 +86,6 @@ class SearchCommandArgument(object):
     @Info.setter
     def Info(self, value: 'SearchInfo_8daf0a24') -> None:
         self._info = value
-
-    @property
-    def Properties(self) -> 'typing.Tuple[Property_8f4e0a76, ...]':
-        """
-        the properties for which values shall be provided through the ContentResultSet returned by the search command.
-        """
-        return self._properties
-    
-    @Properties.setter
-    def Properties(self, value: 'typing.Tuple[Property_8f4e0a76, ...]') -> None:
-        self._properties = value
 
 
 __all__ = ['SearchCommandArgument']

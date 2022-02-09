@@ -57,5 +57,6 @@ class XUnoControlContainer(XInterface_8f010a43):
         sets a set of tab controllers.
         """
 
+
 __all__ = ['XUnoControlContainer']
 

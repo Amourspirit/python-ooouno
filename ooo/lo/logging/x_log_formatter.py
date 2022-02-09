@@ -63,5 +63,6 @@ class XLogFormatter(ABC):
         This can be used to generate a footer string, which by the XLogHandler is emitted to its output channel before it is finally being closed.
         """
 
+
 __all__ = ['XLogFormatter']
 

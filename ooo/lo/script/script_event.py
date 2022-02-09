@@ -38,6 +38,7 @@ class ScriptEvent(AllEventObject_e2c20d0f):
     typeName: str = 'com.sun.star.script.ScriptEvent'
     """Literal Constant ``com.sun.star.script.ScriptEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ScriptEvent(AllEventObject_e2c20d0f):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ScriptType(self) -> str:

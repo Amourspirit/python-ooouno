@@ -39,6 +39,7 @@ class PostCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.PostCommandArgument'
     """Literal Constant ``com.sun.star.ucb.PostCommandArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class PostCommandArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Source(self) -> 'XInputStream_98d40ab4':

@@ -68,5 +68,6 @@ class XLabeled(ABC):
         """
         """
 
+
 __all__ = ['XLabeled']
 

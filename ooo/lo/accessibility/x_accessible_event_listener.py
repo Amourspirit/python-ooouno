@@ -46,5 +46,6 @@ class XAccessibleEventListener(XEventListener_c7230c4a):
         is called whenever an accessible event (see AccessibleEventObject) occurs.
         """
 
+
 __all__ = ['XAccessibleEventListener']
 

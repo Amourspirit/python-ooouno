@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ChartDataCaption
+    from com.sun.star.chart import ChartDataCaption as ChartDataCaption
 else:
     from ...lo.chart.chart_data_caption import ChartDataCaption as ChartDataCaption
 

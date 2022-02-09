@@ -98,5 +98,6 @@ class XTextComponent(XInterface_8f010a43):
         sets the text of the component.
         """
 
+
 __all__ = ['XTextComponent']
 

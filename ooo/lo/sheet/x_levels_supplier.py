@@ -42,5 +42,6 @@ class XLevelsSupplier(XInterface_8f010a43):
         returns the collection of levels.
         """
 
+
 __all__ = ['XLevelsSupplier']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.qa import XDumper
+    from com.sun.star.qa import XDumper as XDumper
     setattr(XDumper, '__ooo_ns__', 'com.sun.star.qa')
     setattr(XDumper, '__ooo_full_ns__', 'com.sun.star.qa.XDumper')
     setattr(XDumper, '__ooo_type_name__', 'interface')

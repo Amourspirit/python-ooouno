@@ -53,5 +53,6 @@ class XNameContainer(XNameReplace_f0900d60):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
+
 __all__ = ['XNameContainer']
 

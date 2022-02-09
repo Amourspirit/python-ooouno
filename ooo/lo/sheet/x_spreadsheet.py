@@ -47,5 +47,6 @@ class XSpreadsheet(XSheetCellRange_e09d0cdf):
         creates a cell cursor to travel in the given range context.
         """
 
+
 __all__ = ['XSpreadsheet']
 

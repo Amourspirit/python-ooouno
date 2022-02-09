@@ -59,5 +59,6 @@ class XImplementationLoader(XInterface_8f010a43):
             com.sun.star.registry.CannotRegisterImplementationException: ``CannotRegisterImplementationException``
         """
 
+
 __all__ = ['XImplementationLoader']
 

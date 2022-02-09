@@ -47,5 +47,6 @@ class XSimpleFileAccess2(XSimpleFileAccess_dede0cd6):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XSimpleFileAccess2']
 

@@ -71,5 +71,6 @@ class XStatusIndicator(XInterface_8f010a43):
         It activates a new created or reactivate an already used indicator (must be finished by calling XStatusIndicator.end() before!). By the way it's possible to set first progress description and the possible range of progress value. That means that a progress can runs from 0 to Range.
         """
 
+
 __all__ = ['XStatusIndicator']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XNumberFormatPreviewer
+    from com.sun.star.util import XNumberFormatPreviewer as XNumberFormatPreviewer
     setattr(XNumberFormatPreviewer, '__ooo_ns__', 'com.sun.star.util')
     setattr(XNumberFormatPreviewer, '__ooo_full_ns__', 'com.sun.star.util.XNumberFormatPreviewer')
     setattr(XNumberFormatPreviewer, '__ooo_type_name__', 'interface')

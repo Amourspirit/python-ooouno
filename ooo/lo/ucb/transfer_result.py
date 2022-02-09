@@ -35,6 +35,7 @@ class TransferResult(object):
     typeName: str = 'com.sun.star.ucb.TransferResult'
     """Literal Constant ``com.sun.star.ucb.TransferResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class TransferResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Source(self) -> str:

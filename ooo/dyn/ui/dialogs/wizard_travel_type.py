@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import WizardTravelType
+    from com.sun.star.ui.dialogs import WizardTravelType as WizardTravelType
 else:
     from ....lo.ui.dialogs.wizard_travel_type import WizardTravelType as WizardTravelType
 

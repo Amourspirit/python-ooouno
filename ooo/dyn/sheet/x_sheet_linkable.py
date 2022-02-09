@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XSheetLinkable
+    from com.sun.star.sheet import XSheetLinkable as XSheetLinkable
     setattr(XSheetLinkable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetLinkable, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetLinkable')
     setattr(XSheetLinkable, '__ooo_type_name__', 'interface')

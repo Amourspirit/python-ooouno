@@ -35,6 +35,7 @@ class Direction3D(object):
     typeName: str = 'com.sun.star.drawing.Direction3D'
     """Literal Constant ``com.sun.star.drawing.Direction3D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,9 +72,10 @@ class Direction3D(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def DirectionX(self) -> float:
+        """
+        """
         return self._direction_x
     
     @DirectionX.setter
@@ -82,6 +84,8 @@ class Direction3D(object):
 
     @property
     def DirectionY(self) -> float:
+        """
+        """
         return self._direction_y
     
     @DirectionY.setter
@@ -90,6 +94,8 @@ class Direction3D(object):
 
     @property
     def DirectionZ(self) -> float:
+        """
+        """
         return self._direction_z
     
     @DirectionZ.setter

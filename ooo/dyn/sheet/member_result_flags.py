@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import MemberResultFlags
+    from com.sun.star.sheet import MemberResultFlags as MemberResultFlags
 else:
     from ...lo.sheet.member_result_flags import MemberResultFlags as MemberResultFlags
 

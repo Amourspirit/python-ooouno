@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import XEventAttacher2
+    from com.sun.star.script import XEventAttacher2 as XEventAttacher2
     setattr(XEventAttacher2, '__ooo_ns__', 'com.sun.star.script')
     setattr(XEventAttacher2, '__ooo_full_ns__', 'com.sun.star.script.XEventAttacher2')
     setattr(XEventAttacher2, '__ooo_type_name__', 'interface')

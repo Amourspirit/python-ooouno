@@ -69,5 +69,6 @@ class XProtocolProperties(XInterface_8f010a43):
         This method should always be called in the scope of the local bridge setting object, because the remote counter part may do such a call at the same time (typically at startup time).
         """
 
+
 __all__ = ['XProtocolProperties']
 

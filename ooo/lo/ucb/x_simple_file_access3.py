@@ -56,5 +56,6 @@ class XSimpleFileAccess3(XSimpleFileAccess2_ebe60d08):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['XSimpleFileAccess3']
 

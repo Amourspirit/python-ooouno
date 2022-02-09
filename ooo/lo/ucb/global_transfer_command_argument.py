@@ -38,6 +38,7 @@ class GlobalTransferCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.GlobalTransferCommandArgument'
     """Literal Constant ``com.sun.star.ucb.GlobalTransferCommandArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class GlobalTransferCommandArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Operation(self) -> 'TransferCommandOperation_486a0ff7':

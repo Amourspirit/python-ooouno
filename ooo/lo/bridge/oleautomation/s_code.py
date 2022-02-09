@@ -43,6 +43,7 @@ class SCode(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.SCode'
     """Literal Constant ``com.sun.star.bridge.oleautomation.SCode``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,9 +76,10 @@ class SCode(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Value(self) -> int:
+        """
+        """
         return self._value
     
     @Value.setter

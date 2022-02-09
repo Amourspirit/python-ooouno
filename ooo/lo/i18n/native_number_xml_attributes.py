@@ -44,6 +44,7 @@ class NativeNumberXmlAttributes(object):
     typeName: str = 'com.sun.star.i18n.NativeNumberXmlAttributes'
     """Literal Constant ``com.sun.star.i18n.NativeNumberXmlAttributes``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -79,7 +80,6 @@ class NativeNumberXmlAttributes(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Locale(self) -> 'Locale_70d308fa':

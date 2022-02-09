@@ -47,5 +47,6 @@ class XFormatCondition(XPropertySet_bc180bfa, XReportControlFormat_3d4e0fc2):
         If the formula evaluates to TRUE then the format will be applied.
         """
 
+
 __all__ = ['XFormatCondition']
 

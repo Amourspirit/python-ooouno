@@ -38,6 +38,7 @@ class PropertySetInfoChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.beans.PropertySetInfoChangeEvent'
     """Literal Constant ``com.sun.star.beans.PropertySetInfoChangeEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class PropertySetInfoChangeEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

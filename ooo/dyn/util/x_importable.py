@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XImportable
+    from com.sun.star.util import XImportable as XImportable
     setattr(XImportable, '__ooo_ns__', 'com.sun.star.util')
     setattr(XImportable, '__ooo_full_ns__', 'com.sun.star.util.XImportable')
     setattr(XImportable, '__ooo_type_name__', 'interface')

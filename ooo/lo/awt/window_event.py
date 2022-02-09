@@ -36,6 +36,7 @@ class WindowEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.WindowEvent'
     """Literal Constant ``com.sun.star.awt.WindowEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -81,7 +82,6 @@ class WindowEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def X(self) -> int:

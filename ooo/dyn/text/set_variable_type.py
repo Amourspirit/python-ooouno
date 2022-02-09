@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import SetVariableType
+    from com.sun.star.text import SetVariableType as SetVariableType
 else:
     from ...lo.text.set_variable_type import SetVariableType as SetVariableType
 

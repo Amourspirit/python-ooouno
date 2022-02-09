@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.style
 import typing
 from abc import abstractproperty, ABC
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 if typing.TYPE_CHECKING:
     from ..awt.font_slant import FontSlant as FontSlant_849509ed
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from ..lang.locale import Locale as Locale_70d308fa
     from ..table.border_line2 import BorderLine2 as BorderLine2_af200b28
@@ -45,6 +45,28 @@ class CharacterProperties(ABC):
     __ooo_ns__: str = 'com.sun.star.style'
     __ooo_full_ns__: str = 'com.sun.star.style.CharacterProperties'
     __ooo_type_name__: str = 'service'
+
+    CharInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of character properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.3
+    """
+
+    CharStyleNames: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    This optional property specifies the names of the all styles applied to the font.
+    
+    It is not guaranteed that the order in the sequence reflects the order of the evaluation of the character style attributes.
+    
+    **since**
+    
+        OOo 1.1.2
+    """
 
     @abstractproperty
     def CharAutoKerning(self) -> bool:
@@ -451,28 +473,6 @@ class CharacterProperties(ABC):
     def VisitedCharStyleName(self) -> str:
         """
         This optional property contains the character style name for visited hyperlinks.
-        """
-    @abstractproperty
-    def CharInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of character properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.3
-        """
-    @abstractproperty
-    def CharStyleNames(self) -> 'typing.Tuple[str, ...]':
-        """
-        This optional property specifies the names of the all styles applied to the font.
-        
-        It is not guaranteed that the order in the sequence reflects the order of the evaluation of the character style attributes.
-        
-        **since**
-        
-            OOo 1.1.2
         """
 
 __all__ = ['CharacterProperties']

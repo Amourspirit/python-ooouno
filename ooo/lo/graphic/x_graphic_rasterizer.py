@@ -68,5 +68,6 @@ class XGraphicRasterizer(XInterface_8f010a43):
         In case of any fault during the rasterization process, the XGraphic container will be empty afterwards and the method will return false
         """
 
+
 __all__ = ['XGraphicRasterizer']
 

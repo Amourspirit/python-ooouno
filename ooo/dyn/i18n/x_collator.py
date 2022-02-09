@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import XCollator
+    from com.sun.star.i18n import XCollator as XCollator
     setattr(XCollator, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XCollator, '__ooo_full_ns__', 'com.sun.star.i18n.XCollator')
     setattr(XCollator, '__ooo_type_name__', 'interface')

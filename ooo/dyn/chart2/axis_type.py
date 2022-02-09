@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import AxisType
+    from com.sun.star.chart2 import AxisType as AxisType
 else:
     from ...lo.chart2.axis_type import AxisType as AxisType
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XPropertyMatcher
+    from com.sun.star.ucb import XPropertyMatcher as XPropertyMatcher
     setattr(XPropertyMatcher, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XPropertyMatcher, '__ooo_full_ns__', 'com.sun.star.ucb.XPropertyMatcher')
     setattr(XPropertyMatcher, '__ooo_type_name__', 'interface')

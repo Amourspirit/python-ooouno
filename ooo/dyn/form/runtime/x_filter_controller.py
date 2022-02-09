@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form.runtime import XFilterController
+    from com.sun.star.form.runtime import XFilterController as XFilterController
     setattr(XFilterController, '__ooo_ns__', 'com.sun.star.form.runtime')
     setattr(XFilterController, '__ooo_full_ns__', 'com.sun.star.form.runtime.XFilterController')
     setattr(XFilterController, '__ooo_type_name__', 'interface')

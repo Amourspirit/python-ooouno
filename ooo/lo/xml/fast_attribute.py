@@ -35,6 +35,7 @@ class FastAttribute(object):
     typeName: str = 'com.sun.star.xml.FastAttribute'
     """Literal Constant ``com.sun.star.xml.FastAttribute``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class FastAttribute(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Token(self) -> int:

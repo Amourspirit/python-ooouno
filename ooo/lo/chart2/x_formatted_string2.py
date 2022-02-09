@@ -38,5 +38,6 @@ class XFormattedString2(XPropertySet_bc180bfa, XFormattedString_f9ff0dc1):
     __pyunointerface__: str = 'com.sun.star.chart2.XFormattedString2'
 
 
+
 __all__ = ['XFormattedString2']
 

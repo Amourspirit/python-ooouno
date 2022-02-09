@@ -38,6 +38,7 @@ class LinguServiceEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.linguistic2.LinguServiceEvent'
     """Literal Constant ``com.sun.star.linguistic2.LinguServiceEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class LinguServiceEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def nEvent(self) -> int:

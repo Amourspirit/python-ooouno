@@ -42,5 +42,6 @@ class XComponentEnumerationAccess(XEnumerationAccess_4bac0ffc):
         creates a new instance of enumeration through components.
         """
 
+
 __all__ = ['XComponentEnumerationAccess']
 

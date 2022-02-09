@@ -76,5 +76,6 @@ class XDispatchRecorder(XInterface_8f010a43):
         initializes the recorder by passing the frame for which all macro statements shall be recorded
         """
 
+
 __all__ = ['XDispatchRecorder']
 

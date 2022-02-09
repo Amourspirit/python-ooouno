@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XCloseListener
+    from com.sun.star.util import XCloseListener as XCloseListener
     setattr(XCloseListener, '__ooo_ns__', 'com.sun.star.util')
     setattr(XCloseListener, '__ooo_full_ns__', 'com.sun.star.util.XCloseListener')
     setattr(XCloseListener, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XPropertyReplace
+    from com.sun.star.util import XPropertyReplace as XPropertyReplace
     setattr(XPropertyReplace, '__ooo_ns__', 'com.sun.star.util')
     setattr(XPropertyReplace, '__ooo_full_ns__', 'com.sun.star.util.XPropertyReplace')
     setattr(XPropertyReplace, '__ooo_type_name__', 'interface')

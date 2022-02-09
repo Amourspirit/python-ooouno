@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import WindowAttribute
+    from com.sun.star.awt import WindowAttribute as WindowAttribute
 else:
     from ...lo.awt.window_attribute import WindowAttribute as WindowAttribute
 

@@ -52,5 +52,6 @@ class XFetchProviderForContentAccess(XInterface_8f010a43):
         returns the XContent s of the columns of the indicated rows
         """
 
+
 __all__ = ['XFetchProviderForContentAccess']
 

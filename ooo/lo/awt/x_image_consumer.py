@@ -70,5 +70,6 @@ class XImageConsumer(XInterface_8f010a43):
         The pixels of the image are delivered using one or more calls to this method. Each call specifies the location and size of the rectangle of source pixels that are contained in the array of pixels. The specified color model object should be used to convert the pixels into their corresponding color and alpha components. Pixel (m,n) is stored in the pixels array at index (n * nScanSize
         """
 
+
 __all__ = ['XImageConsumer']
 

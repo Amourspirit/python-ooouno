@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import XObjectNames
+    from com.sun.star.sdb.tools import XObjectNames as XObjectNames
     setattr(XObjectNames, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XObjectNames, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XObjectNames')
     setattr(XObjectNames, '__ooo_type_name__', 'interface')

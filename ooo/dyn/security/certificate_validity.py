@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import CertificateValidity
+    from com.sun.star.security import CertificateValidity as CertificateValidity
 else:
     from ...lo.security.certificate_validity import CertificateValidity as CertificateValidity
 

@@ -43,5 +43,6 @@ class XText(XCharacterData_ec070d26):
             DOMException: ``DOMException``
         """
 
+
 __all__ = ['XText']
 

@@ -39,5 +39,6 @@ class XGalleryItem(XInterface_8f010a43):
         retrieves the type of the Gallery item
         """
 
+
 __all__ = ['XGalleryItem']
 

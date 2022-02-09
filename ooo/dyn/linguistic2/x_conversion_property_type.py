@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import XConversionPropertyType
+    from com.sun.star.linguistic2 import XConversionPropertyType as XConversionPropertyType
     setattr(XConversionPropertyType, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XConversionPropertyType, '__ooo_full_ns__', 'com.sun.star.linguistic2.XConversionPropertyType')
     setattr(XConversionPropertyType, '__ooo_type_name__', 'interface')

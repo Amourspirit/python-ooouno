@@ -69,5 +69,6 @@ class XDropTargetListener(XEventListener_c7230c4a):
         Called when the user has modified the drop gesture.
         """
 
+
 __all__ = ['XDropTargetListener']
 

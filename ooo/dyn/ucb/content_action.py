@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import ContentAction
+    from com.sun.star.ucb import ContentAction as ContentAction
 else:
     from ...lo.ucb.content_action import ContentAction as ContentAction
 

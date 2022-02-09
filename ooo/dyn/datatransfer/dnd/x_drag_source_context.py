@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import XDragSourceContext
+    from com.sun.star.datatransfer.dnd import XDragSourceContext as XDragSourceContext
     setattr(XDragSourceContext, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
     setattr(XDragSourceContext, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDragSourceContext')
     setattr(XDragSourceContext, '__ooo_type_name__', 'interface')

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import ConversionPropertyType
+    from com.sun.star.linguistic2 import ConversionPropertyType as ConversionPropertyType
 else:
     from ...lo.linguistic2.conversion_property_type import ConversionPropertyType as ConversionPropertyType
 

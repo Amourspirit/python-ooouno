@@ -44,6 +44,7 @@ class FloatingPointBitmapLayout(object):
     typeName: str = 'com.sun.star.rendering.FloatingPointBitmapLayout'
     """Literal Constant ``com.sun.star.rendering.FloatingPointBitmapLayout``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -89,7 +90,6 @@ class FloatingPointBitmapLayout(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ScanLines(self) -> int:

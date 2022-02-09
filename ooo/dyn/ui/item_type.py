@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import ItemType
+    from com.sun.star.ui import ItemType as ItemType
 else:
     from ...lo.ui.item_type import ItemType as ItemType
 

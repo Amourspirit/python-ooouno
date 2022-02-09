@@ -48,5 +48,6 @@ class XProxyFactory(XInterface_8f010a43):
         The proxy delegates calls to the given target object. In addition, it is aggregatable, thus it is possible to intercept calls on the proxy's interfaces.
         """
 
+
 __all__ = ['XProxyFactory']
 

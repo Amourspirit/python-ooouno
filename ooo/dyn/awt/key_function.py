@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import KeyFunction
+    from com.sun.star.awt import KeyFunction as KeyFunction
 else:
     from ...lo.awt.key_function import KeyFunction as KeyFunction
 

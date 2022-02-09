@@ -46,5 +46,6 @@ class XLocalizable(XInterface_8f010a43):
         sets the locale to be used by this object.
         """
 
+
 __all__ = ['XLocalizable']
 

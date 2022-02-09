@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import NodeAttribute
+    from com.sun.star.configuration.backend import NodeAttribute as NodeAttribute
 else:
     from ....lo.configuration.backend.node_attribute import NodeAttribute as NodeAttribute
 

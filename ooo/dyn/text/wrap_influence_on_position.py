@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import WrapInfluenceOnPosition
+    from com.sun.star.text import WrapInfluenceOnPosition as WrapInfluenceOnPosition
 else:
     from ...lo.text.wrap_influence_on_position import WrapInfluenceOnPosition as WrapInfluenceOnPosition
 

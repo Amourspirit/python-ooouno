@@ -38,6 +38,7 @@ class WelcomeDynamicResultSetStruct(object):
     typeName: str = 'com.sun.star.ucb.WelcomeDynamicResultSetStruct'
     """Literal Constant ``com.sun.star.ucb.WelcomeDynamicResultSetStruct``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class WelcomeDynamicResultSetStruct(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Old(self) -> 'XResultSet_98e30aa7':

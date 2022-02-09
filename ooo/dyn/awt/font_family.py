@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontFamily
+    from com.sun.star.awt import FontFamily as FontFamily
 else:
     from ...lo.awt.font_family import FontFamily as FontFamily
 

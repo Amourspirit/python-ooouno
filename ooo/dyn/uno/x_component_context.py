@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.uno import XComponentContext
+    from com.sun.star.uno import XComponentContext as XComponentContext
     setattr(XComponentContext, '__ooo_ns__', 'com.sun.star.uno')
     setattr(XComponentContext, '__ooo_full_ns__', 'com.sun.star.uno.XComponentContext')
     setattr(XComponentContext, '__ooo_type_name__', 'interface')

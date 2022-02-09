@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import PositionAndSpaceMode
+    from com.sun.star.text import PositionAndSpaceMode as PositionAndSpaceMode
 else:
     from ...lo.text.position_and_space_mode import PositionAndSpaceMode as PositionAndSpaceMode
 

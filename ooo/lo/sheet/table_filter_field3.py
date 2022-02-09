@@ -19,9 +19,9 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 import typing
+from .filter_field_value import FilterFieldValue as FilterFieldValue_ef2a0d68
 if typing.TYPE_CHECKING:
     from .filter_connection import FilterConnection as FilterConnection_f01f0d97
-    from .filter_field_value import FilterFieldValue as FilterFieldValue_ef2a0d68
 
 
 class TableFilterField3(object):
@@ -42,6 +42,13 @@ class TableFilterField3(object):
     typeName: str = 'com.sun.star.sheet.TableFilterField3'
     """Literal Constant ``com.sun.star.sheet.TableFilterField3``"""
 
+    Values: typing.TypeAlias = typing.Tuple[FilterFieldValue_ef2a0d68, ...]
+    """
+    specifies values to match against.
+    
+    Each filter field may have one or more values.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -56,14 +63,12 @@ class TableFilterField3(object):
             Connection (FilterConnection, optional): Connection value
             Field (int, optional): Field value
             Operator (int, optional): Operator value
-            Values (Tuple[FilterFieldValue, ...], optional): Values value
         """
         self._connection = None
         self._field = None
         self._operator = None
-        self._values = None
 
-        key_order = ('Connection', 'Field', 'Operator', 'Values')
+        key_order = ('Connection', 'Field', 'Operator')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], TableFilterField3):
@@ -79,7 +84,6 @@ class TableFilterField3(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Connection(self) -> 'FilterConnection_f01f0d97':
@@ -113,19 +117,6 @@ class TableFilterField3(object):
     @Operator.setter
     def Operator(self, value: int) -> None:
         self._operator = value
-
-    @property
-    def Values(self) -> 'typing.Tuple[FilterFieldValue_ef2a0d68, ...]':
-        """
-        specifies values to match against.
-        
-        Each filter field may have one or more values.
-        """
-        return self._values
-    
-    @Values.setter
-    def Values(self, value: 'typing.Tuple[FilterFieldValue_ef2a0d68, ...]') -> None:
-        self._values = value
 
 
 __all__ = ['TableFilterField3']

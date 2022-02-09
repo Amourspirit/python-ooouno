@@ -58,5 +58,6 @@ class XImageProducer(XInterface_8f010a43):
         The image data will then be delivered to this consumer and any other consumer which may have already been registered with the producer. This method differs from the addConsumer method in that a reproduction of the image data should be triggered as soon as possible.
         """
 
+
 __all__ = ['XImageProducer']
 

@@ -53,7 +53,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
     @abstractmethod
-    def getBezierSegments(self, nPolygonIndex: int, nNumberOfPolygons: int, nPointIndex: int, nNumberOfPoints: int) -> 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...]]':
+    def getBezierSegments(self, nPolygonIndex: int, nNumberOfPolygons: int, nPointIndex: int, nNumberOfPoints: int) -> 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]':
         """
         Query subset of this poly-polygon.
         
@@ -73,7 +73,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
     @abstractmethod
-    def setBezierSegments(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...]]', nPolygonIndex: int) -> None:
+    def setBezierSegments(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]', nPolygonIndex: int) -> None:
         """
         Set the specified sequence of Bezier segments to the poly-polygon.
         
@@ -82,6 +82,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+
 
 __all__ = ['XBezierPolyPolygon2D']
 

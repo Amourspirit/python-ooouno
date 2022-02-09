@@ -72,5 +72,6 @@ class XSheetCellCursor(XSheetCellRange_e09d0cdf):
         expands the cursor to include the entire rows of the cells to which it is currently pointing.
         """
 
+
 __all__ = ['XSheetCellCursor']
 

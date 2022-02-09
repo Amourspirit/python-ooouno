@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import FootnoteLineStyle
+    from com.sun.star.style import FootnoteLineStyle as FootnoteLineStyle
 else:
     from ...lo.style.footnote_line_style import FootnoteLineStyle as FootnoteLineStyle
 

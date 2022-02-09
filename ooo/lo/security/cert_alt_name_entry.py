@@ -38,6 +38,7 @@ class CertAltNameEntry(object):
     typeName: str = 'com.sun.star.security.CertAltNameEntry'
     """Literal Constant ``com.sun.star.security.CertAltNameEntry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class CertAltNameEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> 'ExtAltNameType_8c0df5':

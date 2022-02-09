@@ -39,6 +39,7 @@ class UpperLowerMargin(object):
     typeName: str = 'com.sun.star.frame.status.UpperLowerMargin'
     """Literal Constant ``com.sun.star.frame.status.UpperLowerMargin``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class UpperLowerMargin(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Upper(self) -> int:

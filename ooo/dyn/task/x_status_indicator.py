@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import XStatusIndicator
+    from com.sun.star.task import XStatusIndicator as XStatusIndicator
     setattr(XStatusIndicator, '__ooo_ns__', 'com.sun.star.task')
     setattr(XStatusIndicator, '__ooo_full_ns__', 'com.sun.star.task.XStatusIndicator')
     setattr(XStatusIndicator, '__ooo_type_name__', 'interface')

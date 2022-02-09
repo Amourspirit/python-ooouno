@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Target', 'Properties')
+            key_order = ('Target',)
             struct = uno.createUnoStruct('com.sun.star.animations.TargetProperties')
             if arg_len > len(key_order):
                 raise ValueError("TargetProperties.__init__() To many parameters")

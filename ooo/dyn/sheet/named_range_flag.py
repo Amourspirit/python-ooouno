@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import NamedRangeFlag
+    from com.sun.star.sheet import NamedRangeFlag as NamedRangeFlag
 else:
     from ...lo.sheet.named_range_flag import NamedRangeFlag as NamedRangeFlag
 

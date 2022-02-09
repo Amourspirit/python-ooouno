@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XDynamicResultSetListener
+    from com.sun.star.ucb import XDynamicResultSetListener as XDynamicResultSetListener
     setattr(XDynamicResultSetListener, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XDynamicResultSetListener, '__ooo_full_ns__', 'com.sun.star.ucb.XDynamicResultSetListener')
     setattr(XDynamicResultSetListener, '__ooo_type_name__', 'interface')

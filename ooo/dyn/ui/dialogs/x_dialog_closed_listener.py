@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import XDialogClosedListener
+    from com.sun.star.ui.dialogs import XDialogClosedListener as XDialogClosedListener
     setattr(XDialogClosedListener, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XDialogClosedListener, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XDialogClosedListener')
     setattr(XDialogClosedListener, '__ooo_type_name__', 'interface')

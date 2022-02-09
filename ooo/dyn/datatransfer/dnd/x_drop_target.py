@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import XDropTarget
+    from com.sun.star.datatransfer.dnd import XDropTarget as XDropTarget
     setattr(XDropTarget, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
     setattr(XDropTarget, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDropTarget')
     setattr(XDropTarget, '__ooo_type_name__', 'interface')

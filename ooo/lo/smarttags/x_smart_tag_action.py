@@ -128,5 +128,6 @@ class XSmartTagAction(XInitialization_d46c0cca):
         the number of smart tag types supported by this action component.
         """
 
+
 __all__ = ['XSmartTagAction']
 

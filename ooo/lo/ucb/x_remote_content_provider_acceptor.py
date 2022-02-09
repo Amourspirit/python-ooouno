@@ -50,5 +50,6 @@ class XRemoteContentProviderAcceptor(XInterface_8f010a43):
         Remove a remote content provider.
         """
 
+
 __all__ = ['XRemoteContentProviderAcceptor']
 

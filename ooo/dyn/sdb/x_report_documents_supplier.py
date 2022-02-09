@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import XReportDocumentsSupplier
+    from com.sun.star.sdb import XReportDocumentsSupplier as XReportDocumentsSupplier
     setattr(XReportDocumentsSupplier, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XReportDocumentsSupplier, '__ooo_full_ns__', 'com.sun.star.sdb.XReportDocumentsSupplier')
     setattr(XReportDocumentsSupplier, '__ooo_type_name__', 'interface')

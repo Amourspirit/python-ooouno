@@ -108,5 +108,6 @@ class XSimpleMailMessage(XInterface_8f010a43):
         To set the subject of a simple mail message.
         """
 
+
 __all__ = ['XSimpleMailMessage']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import XPolicy
+    from com.sun.star.security import XPolicy as XPolicy
     setattr(XPolicy, '__ooo_ns__', 'com.sun.star.security')
     setattr(XPolicy, '__ooo_full_ns__', 'com.sun.star.security.XPolicy')
     setattr(XPolicy, '__ooo_type_name__', 'interface')

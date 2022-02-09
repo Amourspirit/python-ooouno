@@ -59,7 +59,7 @@ class XGraphicDevice(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def createCompatibleBezierPolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...]]') -> 'XBezierPolyPolygon2D_6ba01081':
+    def createCompatibleBezierPolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]') -> 'XBezierPolyPolygon2D_6ba01081':
         """
         Create a Bezier poly-polygon which can internally use device-optimized representations already.
         """
@@ -72,7 +72,7 @@ class XGraphicDevice(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def createCompatibleLinePolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealPoint2D_d6e70c78, ...]]') -> 'XLinePolyPolygon2D_4a270fa8':
+    def createCompatibleLinePolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealPoint2D_d6e70c78, ...], ...]') -> 'XLinePolyPolygon2D_4a270fa8':
         """
         Create a line poly-polygon which can internally use device-optimized representations already.
         """
@@ -145,6 +145,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         whether a window can cover the whole screen exclusively.
         """
+
 
 __all__ = ['XGraphicDevice']
 

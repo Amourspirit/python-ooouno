@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt.tree import XTreeEditListener
+    from com.sun.star.awt.tree import XTreeEditListener as XTreeEditListener
     setattr(XTreeEditListener, '__ooo_ns__', 'com.sun.star.awt.tree')
     setattr(XTreeEditListener, '__ooo_full_ns__', 'com.sun.star.awt.tree.XTreeEditListener')
     setattr(XTreeEditListener, '__ooo_type_name__', 'interface')

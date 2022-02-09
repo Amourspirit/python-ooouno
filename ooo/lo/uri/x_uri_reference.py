@@ -135,5 +135,6 @@ class XUriReference(XInterface_8f010a43):
         sets the fragment part of this URI reference.
         """
 
+
 __all__ = ['XUriReference']
 

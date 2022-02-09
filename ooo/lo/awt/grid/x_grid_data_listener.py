@@ -65,5 +65,6 @@ class XGridDataListener(XEventListener_c7230c4a):
         is called when one or more rows of data have been removed from a grid control's data model.
         """
 
+
 __all__ = ['XGridDataListener']
 

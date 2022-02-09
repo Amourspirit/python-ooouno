@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import XXMLSignature
+    from com.sun.star.xml.crypto import XXMLSignature as XXMLSignature
     setattr(XXMLSignature, '__ooo_ns__', 'com.sun.star.xml.crypto')
     setattr(XXMLSignature, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XXMLSignature')
     setattr(XXMLSignature, '__ooo_type_name__', 'interface')

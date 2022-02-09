@@ -128,5 +128,6 @@ class XSection(XPropertySet_bc180bfa, XChild_a6390b07, XContainer_d6fb0cc6, XEnu
         Defines if the section should be visible in report.
         """
 
+
 __all__ = ['XSection']
 

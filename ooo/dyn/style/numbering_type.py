@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import NumberingType
+    from com.sun.star.style import NumberingType as NumberingType
 else:
     from ...lo.style.numbering_type import NumberingType as NumberingType
 

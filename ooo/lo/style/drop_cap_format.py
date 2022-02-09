@@ -35,6 +35,7 @@ class DropCapFormat(object):
     typeName: str = 'com.sun.star.style.DropCapFormat'
     """Literal Constant ``com.sun.star.style.DropCapFormat``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class DropCapFormat(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Lines(self) -> int:

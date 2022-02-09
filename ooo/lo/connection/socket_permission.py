@@ -54,6 +54,7 @@ class SocketPermission(object):
     typeName: str = 'com.sun.star.connection.SocketPermission'
     """Literal Constant ``com.sun.star.connection.SocketPermission``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -87,7 +88,6 @@ class SocketPermission(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Host(self) -> str:

@@ -66,5 +66,6 @@ class XAccessibleRelationSet(XInterface_8f010a43):
         Returns the number of relations in this relation set.
         """
 
+
 __all__ = ['XAccessibleRelationSet']
 

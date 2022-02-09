@@ -40,6 +40,7 @@ class RelativePosition(object):
     typeName: str = 'com.sun.star.chart2.RelativePosition'
     """Literal Constant ``com.sun.star.chart2.RelativePosition``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class RelativePosition(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Primary(self) -> float:

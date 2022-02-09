@@ -50,5 +50,6 @@ class XShapes3(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XShapes3']
 

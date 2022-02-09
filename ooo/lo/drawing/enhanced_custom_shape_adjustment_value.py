@@ -38,6 +38,7 @@ class EnhancedCustomShapeAdjustmentValue(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeAdjustmentValue'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeAdjustmentValue``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class EnhancedCustomShapeAdjustmentValue(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Value(self) -> object:
         """
@@ -88,6 +88,8 @@ class EnhancedCustomShapeAdjustmentValue(object):
 
     @property
     def State(self) -> 'PropertyState_c97b0c77':
+        """
+        """
         return self._state
     
     @State.setter

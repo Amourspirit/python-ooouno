@@ -72,5 +72,6 @@ class XViewSplitable(XInterface_8f010a43):
         To split only horizontally, specify nPixelY as 0. To split only vertically, specify nPixelX as 0.
         """
 
+
 __all__ = ['XViewSplitable']
 

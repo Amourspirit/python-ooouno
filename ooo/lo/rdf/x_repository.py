@@ -170,5 +170,6 @@ class XRepository(ABC):
             RepositoryException: ``RepositoryException``
         """
 
+
 __all__ = ['XRepository']
 

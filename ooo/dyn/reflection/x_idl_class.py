@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.reflection import XIdlClass
+    from com.sun.star.reflection import XIdlClass as XIdlClass
     setattr(XIdlClass, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XIdlClass, '__ooo_full_ns__', 'com.sun.star.reflection.XIdlClass')
     setattr(XIdlClass, '__ooo_type_name__', 'interface')

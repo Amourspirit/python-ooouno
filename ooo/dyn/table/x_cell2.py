@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import XCell2
+    from com.sun.star.table import XCell2 as XCell2
     setattr(XCell2, '__ooo_ns__', 'com.sun.star.table')
     setattr(XCell2, '__ooo_full_ns__', 'com.sun.star.table.XCell2')
     setattr(XCell2, '__ooo_type_name__', 'interface')

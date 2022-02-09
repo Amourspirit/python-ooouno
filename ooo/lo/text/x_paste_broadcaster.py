@@ -51,5 +51,6 @@ class XPasteBroadcaster(XInterface_8f010a43):
         Removes an entry to the list of paste listeners.
         """
 
+
 __all__ = ['XPasteBroadcaster']
 

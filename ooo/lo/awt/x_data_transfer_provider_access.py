@@ -61,5 +61,6 @@ class XDataTransferProviderAccess(XInterface_8f010a43):
         returns the drop target of the specified window.
         """
 
+
 __all__ = ['XDataTransferProviderAccess']
 

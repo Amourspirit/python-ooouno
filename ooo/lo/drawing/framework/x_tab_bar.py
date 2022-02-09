@@ -73,5 +73,6 @@ class XTabBar(ABC):
         Remove a tab bar button.
         """
 
+
 __all__ = ['XTabBar']
 

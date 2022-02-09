@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import XQueriesSupplier
+    from com.sun.star.sdb import XQueriesSupplier as XQueriesSupplier
     setattr(XQueriesSupplier, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XQueriesSupplier, '__ooo_full_ns__', 'com.sun.star.sdb.XQueriesSupplier')
     setattr(XQueriesSupplier, '__ooo_type_name__', 'interface')

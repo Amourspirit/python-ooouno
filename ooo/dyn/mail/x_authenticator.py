@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.mail import XAuthenticator
+    from com.sun.star.mail import XAuthenticator as XAuthenticator
     setattr(XAuthenticator, '__ooo_ns__', 'com.sun.star.mail')
     setattr(XAuthenticator, '__ooo_full_ns__', 'com.sun.star.mail.XAuthenticator')
     setattr(XAuthenticator, '__ooo_type_name__', 'interface')

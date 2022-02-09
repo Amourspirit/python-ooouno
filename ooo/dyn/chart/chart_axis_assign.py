@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ChartAxisAssign
+    from com.sun.star.chart import ChartAxisAssign as ChartAxisAssign
 else:
     from ...lo.chart.chart_axis_assign import ChartAxisAssign as ChartAxisAssign
 

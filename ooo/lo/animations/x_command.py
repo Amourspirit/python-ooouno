@@ -55,5 +55,6 @@ class XCommand(XAnimationNode_1cf10eb9):
         See documentation of used application for supported targets.
         """
 
+
 __all__ = ['XCommand']
 

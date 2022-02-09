@@ -57,5 +57,6 @@ class XNumberingTypeInfo(XInterface_8f010a43):
         determines whether an identifier is supported.
         """
 
+
 __all__ = ['XNumberingTypeInfo']
 

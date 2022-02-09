@@ -94,5 +94,6 @@ class XDockableWindow(XInterface_8f010a43):
         enables undocking this has no effect if the window is floating
         """
 
+
 __all__ = ['XDockableWindow']
 

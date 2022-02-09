@@ -73,5 +73,6 @@ class XController(XComponent_98dc0ab5):
         is called to prepare the controller for closing the view
         """
 
+
 __all__ = ['XController']
 

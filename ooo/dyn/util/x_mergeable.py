@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XMergeable
+    from com.sun.star.util import XMergeable as XMergeable
     setattr(XMergeable, '__ooo_ns__', 'com.sun.star.util')
     setattr(XMergeable, '__ooo_full_ns__', 'com.sun.star.util.XMergeable')
     setattr(XMergeable, '__ooo_type_name__', 'interface')

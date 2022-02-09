@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import XXMLEncryption
+    from com.sun.star.xml.crypto import XXMLEncryption as XXMLEncryption
     setattr(XXMLEncryption, '__ooo_ns__', 'com.sun.star.xml.crypto')
     setattr(XXMLEncryption, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XXMLEncryption')
     setattr(XXMLEncryption, '__ooo_type_name__', 'interface')

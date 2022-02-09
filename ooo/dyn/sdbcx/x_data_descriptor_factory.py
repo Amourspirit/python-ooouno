@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XDataDescriptorFactory
+    from com.sun.star.sdbcx import XDataDescriptorFactory as XDataDescriptorFactory
     setattr(XDataDescriptorFactory, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XDataDescriptorFactory, '__ooo_full_ns__', 'com.sun.star.sdbcx.XDataDescriptorFactory')
     setattr(XDataDescriptorFactory, '__ooo_type_name__', 'interface')

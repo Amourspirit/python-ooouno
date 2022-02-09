@@ -62,5 +62,6 @@ class XDragSourceContext(XInterface_8f010a43):
         This method notifies the context that the com.sun.star.datatransfer.DataFlavor types of the transferable object have changed.
         """
 
+
 __all__ = ['XDragSourceContext']
 

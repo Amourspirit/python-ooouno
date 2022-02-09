@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import PropertySetInfoChange
+    from com.sun.star.beans import PropertySetInfoChange as PropertySetInfoChange
 else:
     from ...lo.beans.property_set_info_change import PropertySetInfoChange as PropertySetInfoChange
 

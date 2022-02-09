@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ColumnType
+    from com.sun.star.sdbc import ColumnType as ColumnType
 else:
     from ...lo.sdbc.column_type import ColumnType as ColumnType
 

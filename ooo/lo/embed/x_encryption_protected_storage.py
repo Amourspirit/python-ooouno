@@ -58,7 +58,7 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def setGpgProperties(self, aProps: 'typing.Tuple[typing.Tuple[NamedValue_a37a0af3, ...]]') -> None:
+    def setGpgProperties(self, aProps: 'typing.Tuple[typing.Tuple[NamedValue_a37a0af3, ...], ...]') -> None:
         """
         set OpenPGP-specific encryption properties
         
@@ -73,6 +73,7 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+
 
 __all__ = ['XEncryptionProtectedStorage']
 

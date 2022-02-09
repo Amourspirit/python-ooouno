@@ -109,14 +109,14 @@ class XSingleSelectQueryAnalyzer(XInterface_8f010a43):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
     @abstractmethod
-    def getStructuredFilter(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]':
+    def getStructuredFilter(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
         returns the currently used filter.
         
         The filter criteria is split into levels. Each level represents the OR criteria. Within each level, the filters are provided as an AND criteria with the name of the column and the filter condition. The filter condition is of type string. The operator used, is defined by com.sun.star.sdb.SQLFilterOperator.
         """
     @abstractmethod
-    def getStructuredHavingClause(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...]]':
+    def getStructuredHavingClause(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
         returns the currently used HAVING filter.
         
@@ -142,6 +142,7 @@ class XSingleSelectQueryAnalyzer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+
 
 __all__ = ['XSingleSelectQueryAnalyzer']
 

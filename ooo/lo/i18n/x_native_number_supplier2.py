@@ -46,5 +46,6 @@ class XNativeNumberSupplier2(XNativeNumberSupplier_1eb80ec4):
         Returns native number string for given number string, using NatNum params.
         """
 
+
 __all__ = ['XNativeNumberSupplier2']
 

@@ -42,5 +42,6 @@ class XSQLErrorListener(XEventListener_c7230c4a):
         invoked when a database error occurs, just before a com.sun.star.sdbc.SQLException is thrown to the application.
         """
 
+
 __all__ = ['XSQLErrorListener']
 

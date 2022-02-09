@@ -49,5 +49,6 @@ class XProgressHandler(XInterface_8f010a43):
         The task notifies the handler that its current activity is making progress.
         """
 
+
 __all__ = ['XProgressHandler']
 

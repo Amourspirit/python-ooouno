@@ -60,5 +60,6 @@ class XLiteral(XNode_5ee40822):
         the content of the literal
         """
 
+
 __all__ = ['XLiteral']
 

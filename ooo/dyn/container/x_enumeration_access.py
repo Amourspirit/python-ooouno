@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.container import XEnumerationAccess
+    from com.sun.star.container import XEnumerationAccess as XEnumerationAccess
     setattr(XEnumerationAccess, '__ooo_ns__', 'com.sun.star.container')
     setattr(XEnumerationAccess, '__ooo_full_ns__', 'com.sun.star.container.XEnumerationAccess')
     setattr(XEnumerationAccess, '__ooo_type_name__', 'interface')

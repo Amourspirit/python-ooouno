@@ -110,5 +110,6 @@ class XAccessibleComponent(XInterface_8f010a43):
         If this object can not accept the focus, i.e. isFocusTraversable() returns FALSE for this object then nothing happens. Otherwise the object will attempt to take the focus. Nothing happens if that fails, otherwise the object has the focus. This method is called requestFocus in the Java Accessibility API 1.4.
         """
 
+
 __all__ = ['XAccessibleComponent']
 

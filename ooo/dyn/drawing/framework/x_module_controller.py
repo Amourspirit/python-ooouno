@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing.framework import XModuleController
+    from com.sun.star.drawing.framework import XModuleController as XModuleController
     setattr(XModuleController, '__ooo_ns__', 'com.sun.star.drawing.framework')
     setattr(XModuleController, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XModuleController')
     setattr(XModuleController, '__ooo_type_name__', 'interface')

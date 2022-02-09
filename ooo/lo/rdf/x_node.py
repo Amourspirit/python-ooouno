@@ -44,5 +44,6 @@ class XNode(ABC):
         the string value of the node.
         """
 
+
 __all__ = ['XNode']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.container import XChild
+    from com.sun.star.container import XChild as XChild
     setattr(XChild, '__ooo_ns__', 'com.sun.star.container')
     setattr(XChild, '__ooo_full_ns__', 'com.sun.star.container.XChild')
     setattr(XChild, '__ooo_type_name__', 'interface')

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import MacroExecMode
+    from com.sun.star.document import MacroExecMode as MacroExecMode
 else:
     from ...lo.document.macro_exec_mode import MacroExecMode as MacroExecMode
 

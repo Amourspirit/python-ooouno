@@ -35,5 +35,6 @@ class XFormComponent(XChild_a6390b07):
     __pyunointerface__: str = 'com.sun.star.form.XFormComponent'
 
 
+
 __all__ = ['XFormComponent']
 

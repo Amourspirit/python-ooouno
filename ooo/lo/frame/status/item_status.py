@@ -39,6 +39,7 @@ class ItemStatus(object):
     typeName: str = 'com.sun.star.frame.status.ItemStatus'
     """Literal Constant ``com.sun.star.frame.status.ItemStatus``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class ItemStatus(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def State(self) -> int:

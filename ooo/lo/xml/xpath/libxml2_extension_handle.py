@@ -34,6 +34,7 @@ class Libxml2ExtensionHandle(object):
     typeName: str = 'com.sun.star.xml.xpath.Libxml2ExtensionHandle'
     """Literal Constant ``com.sun.star.xml.xpath.Libxml2ExtensionHandle``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,9 +73,10 @@ class Libxml2ExtensionHandle(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def functionLookupFunction(self) -> int:
+        """
+        """
         return self._function_lookup_function
     
     @functionLookupFunction.setter
@@ -83,6 +85,8 @@ class Libxml2ExtensionHandle(object):
 
     @property
     def functionData(self) -> int:
+        """
+        """
         return self._function_data
     
     @functionData.setter
@@ -91,6 +95,8 @@ class Libxml2ExtensionHandle(object):
 
     @property
     def variableLookupFunction(self) -> int:
+        """
+        """
         return self._variable_lookup_function
     
     @variableLookupFunction.setter
@@ -99,6 +105,8 @@ class Libxml2ExtensionHandle(object):
 
     @property
     def variableData(self) -> int:
+        """
+        """
         return self._variable_data
     
     @variableData.setter

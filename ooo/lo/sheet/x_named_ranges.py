@@ -69,5 +69,6 @@ class XNamedRanges(XNameAccess_e2ab0cf6):
         removes a named range from the collection.
         """
 
+
 __all__ = ['XNamedRanges']
 

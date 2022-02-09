@@ -54,5 +54,6 @@ class XURI(XResource_842709e4):
         prefix
         """
 
+
 __all__ = ['XURI']
 

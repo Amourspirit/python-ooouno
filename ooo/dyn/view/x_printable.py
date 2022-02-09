@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import XPrintable
+    from com.sun.star.view import XPrintable as XPrintable
     setattr(XPrintable, '__ooo_ns__', 'com.sun.star.view')
     setattr(XPrintable, '__ooo_full_ns__', 'com.sun.star.view.XPrintable')
     setattr(XPrintable, '__ooo_type_name__', 'interface')

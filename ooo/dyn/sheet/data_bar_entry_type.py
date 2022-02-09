@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataBarEntryType
+    from com.sun.star.sheet import DataBarEntryType as DataBarEntryType
 else:
     from ...lo.sheet.data_bar_entry_type import DataBarEntryType as DataBarEntryType
 

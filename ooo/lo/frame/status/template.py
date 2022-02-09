@@ -39,6 +39,7 @@ class Template(object):
     typeName: str = 'com.sun.star.frame.status.Template'
     """Literal Constant ``com.sun.star.frame.status.Template``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class Template(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StyleName(self) -> str:

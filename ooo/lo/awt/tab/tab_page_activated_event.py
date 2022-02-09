@@ -40,6 +40,7 @@ class TabPageActivatedEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.tab.TabPageActivatedEvent'
     """Literal Constant ``com.sun.star.awt.tab.TabPageActivatedEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class TabPageActivatedEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def TabPageID(self) -> int:

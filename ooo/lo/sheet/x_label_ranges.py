@@ -47,5 +47,6 @@ class XLabelRanges(XIndexAccess_f0910d6d):
         removes a label range from the collection.
         """
 
+
 __all__ = ['XLabelRanges']
 

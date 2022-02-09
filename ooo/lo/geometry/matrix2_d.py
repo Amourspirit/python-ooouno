@@ -51,6 +51,7 @@ class Matrix2D(object):
     typeName: str = 'com.sun.star.geometry.Matrix2D'
     """Literal Constant ``com.sun.star.geometry.Matrix2D``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -88,7 +89,6 @@ class Matrix2D(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def m00(self) -> float:

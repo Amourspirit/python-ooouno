@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XCalculatable
+    from com.sun.star.sheet import XCalculatable as XCalculatable
     setattr(XCalculatable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCalculatable, '__ooo_full_ns__', 'com.sun.star.sheet.XCalculatable')
     setattr(XCalculatable, '__ooo_type_name__', 'interface')

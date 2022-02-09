@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import FontRelief
+    from com.sun.star.text import FontRelief as FontRelief
 else:
     from ...lo.text.font_relief import FontRelief as FontRelief
 

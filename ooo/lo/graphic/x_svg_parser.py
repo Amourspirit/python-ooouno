@@ -57,5 +57,6 @@ class XSvgParser(XInterface_8f010a43):
             LibreOffice 6.3
         """
 
+
 __all__ = ['XSvgParser']
 

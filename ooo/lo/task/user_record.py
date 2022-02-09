@@ -35,6 +35,11 @@ class UserRecord(object):
     typeName: str = 'com.sun.star.task.UserRecord'
     """Literal Constant ``com.sun.star.task.UserRecord``"""
 
+    Passwords: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    specifies the passwords for the given user.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -47,12 +52,10 @@ class UserRecord(object):
 
         Keyword Arguments:
             UserName (str, optional): UserName value
-            Passwords (Tuple[str, ...], optional): Passwords value
         """
         self._user_name = None
-        self._passwords = None
 
-        key_order = ('UserName', 'Passwords')
+        key_order = ('UserName',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], UserRecord):
@@ -69,7 +72,6 @@ class UserRecord(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def UserName(self) -> str:
         """
@@ -80,17 +82,6 @@ class UserRecord(object):
     @UserName.setter
     def UserName(self, value: str) -> None:
         self._user_name = value
-
-    @property
-    def Passwords(self) -> 'typing.Tuple[str, ...]':
-        """
-        specifies the passwords for the given user.
-        """
-        return self._passwords
-    
-    @Passwords.setter
-    def Passwords(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._passwords = value
 
 
 __all__ = ['UserRecord']

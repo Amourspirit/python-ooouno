@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.container import XNamed
+    from com.sun.star.container import XNamed as XNamed
     setattr(XNamed, '__ooo_ns__', 'com.sun.star.container')
     setattr(XNamed, '__ooo_full_ns__', 'com.sun.star.container.XNamed')
     setattr(XNamed, '__ooo_type_name__', 'interface')

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import XDeck
+    from com.sun.star.ui import XDeck as XDeck
     setattr(XDeck, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XDeck, '__ooo_full_ns__', 'com.sun.star.ui.XDeck')
     setattr(XDeck, '__ooo_type_name__', 'interface')

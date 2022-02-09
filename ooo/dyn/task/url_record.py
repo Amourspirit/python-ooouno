@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Url', 'UserList')
+            key_order = ('Url',)
             struct = uno.createUnoStruct('com.sun.star.task.UrlRecord')
             if arg_len > len(key_order):
                 raise ValueError("UrlRecord.__init__() To many parameters")

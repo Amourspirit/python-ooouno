@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .sub_increment import SubIncrement as SubIncrement_c5630c1b
+from .sub_increment import SubIncrement as SubIncrement_c5630c1b
 
 
 class IncrementData(object):
@@ -38,6 +37,13 @@ class IncrementData(object):
     typeName: str = 'com.sun.star.chart2.IncrementData'
     """Literal Constant ``com.sun.star.chart2.IncrementData``"""
 
+    SubIncrements: typing.TypeAlias = typing.Tuple[SubIncrement_c5630c1b, ...]
+    """
+    SubIncrements describes the positioning of further sub tickmarks on the scale of an axis.
+    
+    The first SubIncrement in this sequence determines how the distance between two neighboring main tickmarks is divided for positioning of further sub tickmarks. Every following SubIncrement determines the positions of subsequent tickmarks in relation to their parent tickmarks given by the preceding SubIncrement.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -52,14 +58,12 @@ class IncrementData(object):
             Distance (object, optional): Distance value
             PostEquidistant (object, optional): PostEquidistant value
             BaseValue (object, optional): BaseValue value
-            SubIncrements (Tuple[SubIncrement, ...], optional): SubIncrements value
         """
         self._distance = None
         self._post_equidistant = None
         self._base_value = None
-        self._sub_increments = None
 
-        key_order = ('Distance', 'PostEquidistant', 'BaseValue', 'SubIncrements')
+        key_order = ('Distance', 'PostEquidistant', 'BaseValue')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], IncrementData):
@@ -75,7 +79,6 @@ class IncrementData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Distance(self) -> object:
@@ -115,19 +118,6 @@ class IncrementData(object):
     @BaseValue.setter
     def BaseValue(self, value: object) -> None:
         self._base_value = value
-
-    @property
-    def SubIncrements(self) -> 'typing.Tuple[SubIncrement_c5630c1b, ...]':
-        """
-        SubIncrements describes the positioning of further sub tickmarks on the scale of an axis.
-        
-        The first SubIncrement in this sequence determines how the distance between two neighboring main tickmarks is divided for positioning of further sub tickmarks. Every following SubIncrement determines the positions of subsequent tickmarks in relation to their parent tickmarks given by the preceding SubIncrement.
-        """
-        return self._sub_increments
-    
-    @SubIncrements.setter
-    def SubIncrements(self, value: 'typing.Tuple[SubIncrement_c5630c1b, ...]') -> None:
-        self._sub_increments = value
 
 
 __all__ = ['IncrementData']

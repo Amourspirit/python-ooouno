@@ -42,5 +42,6 @@ class XCellRangeReferrer(XInterface_8f010a43):
         returns the cell range object that is represented.
         """
 
+
 __all__ = ['XCellRangeReferrer']
 

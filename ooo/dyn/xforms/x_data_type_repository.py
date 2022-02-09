@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xforms import XDataTypeRepository
+    from com.sun.star.xforms import XDataTypeRepository as XDataTypeRepository
     setattr(XDataTypeRepository, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XDataTypeRepository, '__ooo_full_ns__', 'com.sun.star.xforms.XDataTypeRepository')
     setattr(XDataTypeRepository, '__ooo_type_name__', 'interface')

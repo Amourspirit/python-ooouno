@@ -163,5 +163,6 @@ class XWizard(XExecutableDialog_450f0fa1):
         is the help URL of the wizard's main window.
         """
 
+
 __all__ = ['XWizard']
 

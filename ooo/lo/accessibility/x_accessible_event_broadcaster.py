@@ -51,5 +51,6 @@ class XAccessibleEventBroadcaster(XInterface_8f010a43):
         unregisters the given XAccessibleEventListener.
         """
 
+
 __all__ = ['XAccessibleEventBroadcaster']
 

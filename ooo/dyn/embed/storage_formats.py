@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import StorageFormats
+    from com.sun.star.embed import StorageFormats as StorageFormats
 else:
     from ...lo.embed.storage_formats import StorageFormats as StorageFormats
 

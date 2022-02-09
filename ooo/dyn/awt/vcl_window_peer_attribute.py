@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import VclWindowPeerAttribute
+    from com.sun.star.awt import VclWindowPeerAttribute as VclWindowPeerAttribute
 else:
     from ...lo.awt.vcl_window_peer_attribute import VclWindowPeerAttribute as VclWindowPeerAttribute
 

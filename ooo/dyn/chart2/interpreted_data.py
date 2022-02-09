@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Categories', 'Series')
+            key_order = ('Categories',)
             struct = uno.createUnoStruct('com.sun.star.chart2.InterpretedData')
             if arg_len > len(key_order):
                 raise ValueError("InterpretedData.__init__() To many parameters")

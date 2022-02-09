@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XFlushListener
+    from com.sun.star.util import XFlushListener as XFlushListener
     setattr(XFlushListener, '__ooo_ns__', 'com.sun.star.util')
     setattr(XFlushListener, '__ooo_full_ns__', 'com.sun.star.util.XFlushListener')
     setattr(XFlushListener, '__ooo_type_name__', 'interface')

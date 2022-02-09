@@ -40,6 +40,7 @@ class FontDescriptor(object):
     typeName: str = 'com.sun.star.awt.FontDescriptor'
     """Literal Constant ``com.sun.star.awt.FontDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -101,7 +102,6 @@ class FontDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

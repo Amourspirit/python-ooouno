@@ -35,6 +35,7 @@ class FormulaToken(object):
     typeName: str = 'com.sun.star.sheet.FormulaToken'
     """Literal Constant ``com.sun.star.sheet.FormulaToken``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class FormulaToken(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def OpCode(self) -> int:

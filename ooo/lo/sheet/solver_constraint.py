@@ -39,6 +39,7 @@ class SolverConstraint(object):
     typeName: str = 'com.sun.star.sheet.SolverConstraint'
     """Literal Constant ``com.sun.star.sheet.SolverConstraint``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class SolverConstraint(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Left(self) -> 'CellAddress_ae5f0b56':

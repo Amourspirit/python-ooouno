@@ -41,6 +41,7 @@ class PropertyPutArgument(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.PropertyPutArgument'
     """Literal Constant ``com.sun.star.bridge.oleautomation.PropertyPutArgument``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class PropertyPutArgument(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Value(self) -> object:

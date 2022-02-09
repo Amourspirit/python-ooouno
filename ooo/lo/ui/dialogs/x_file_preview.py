@@ -89,5 +89,6 @@ class XFilePreview(XInterface_8f010a43):
         A value of FALSE if the operation fails for any reason or the preview implementation doesn't support hiding the preview.
         """
 
+
 __all__ = ['XFilePreview']
 

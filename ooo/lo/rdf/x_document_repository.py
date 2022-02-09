@@ -92,5 +92,6 @@ class XDocumentRepository(XRepository_995d0adc):
             RepositoryException: ``RepositoryException``
         """
 
+
 __all__ = ['XDocumentRepository']
 

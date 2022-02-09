@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import XAccounting
+    from com.sun.star.util import XAccounting as XAccounting
     setattr(XAccounting, '__ooo_ns__', 'com.sun.star.util')
     setattr(XAccounting, '__ooo_full_ns__', 'com.sun.star.util.XAccounting')
     setattr(XAccounting, '__ooo_type_name__', 'interface')

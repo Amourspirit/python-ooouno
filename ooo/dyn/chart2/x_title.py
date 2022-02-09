@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import XTitle
+    from com.sun.star.chart2 import XTitle as XTitle
     setattr(XTitle, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XTitle, '__ooo_full_ns__', 'com.sun.star.chart2.XTitle')
     setattr(XTitle, '__ooo_type_name__', 'interface')

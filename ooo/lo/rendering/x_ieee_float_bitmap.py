@@ -63,5 +63,6 @@ class XIeeeFloatBitmap(XIeeeFloatReadOnlyBitmap_ad4b1207):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
+
 __all__ = ['XIeeeFloatBitmap']
 

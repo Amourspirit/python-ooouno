@@ -79,5 +79,6 @@ class XIdlMethod(XIdlMember_e3400cfc):
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
 
+
 __all__ = ['XIdlMethod']
 

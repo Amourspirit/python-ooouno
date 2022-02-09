@@ -27,6 +27,6 @@ TypeDef type alias
 
 
 See Also:
-    `API FlagSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a5fba30ad0b948910e5a46d57bb673a3f>`_
+    `API FlagSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a74f8af1a8832994bee18d13ff6855f87>`_
 """
 

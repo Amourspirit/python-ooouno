@@ -35,6 +35,7 @@ class SimpleFontMetric(object):
     typeName: str = 'com.sun.star.awt.SimpleFontMetric'
     """Literal Constant ``com.sun.star.awt.SimpleFontMetric``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class SimpleFontMetric(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Ascent(self) -> int:

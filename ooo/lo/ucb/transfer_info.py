@@ -37,6 +37,7 @@ class TransferInfo(object):
     typeName: str = 'com.sun.star.ucb.TransferInfo'
     """Literal Constant ``com.sun.star.ucb.TransferInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class TransferInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MoveData(self) -> bool:

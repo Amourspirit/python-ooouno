@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.packages.zip import ZipConstants
+    from com.sun.star.packages.zip import ZipConstants as ZipConstants
 else:
     from ....lo.packages.zip.zip_constants import ZipConstants as ZipConstants
 

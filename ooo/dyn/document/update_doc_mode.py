@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import UpdateDocMode
+    from com.sun.star.document import UpdateDocMode as UpdateDocMode
 else:
     from ...lo.document.update_doc_mode import UpdateDocMode as UpdateDocMode
 

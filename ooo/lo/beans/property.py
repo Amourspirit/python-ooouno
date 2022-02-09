@@ -37,6 +37,7 @@ class Property(object):
     typeName: str = 'com.sun.star.beans.Property'
     """Literal Constant ``com.sun.star.beans.Property``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class Property(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

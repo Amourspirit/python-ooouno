@@ -180,5 +180,6 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
+
 __all__ = ['XDocumentMetadataAccess']
 

@@ -38,6 +38,7 @@ class ElementStackItem(object):
     typeName: str = 'com.sun.star.xml.crypto.sax.ElementStackItem'
     """Literal Constant ``com.sun.star.xml.crypto.sax.ElementStackItem``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class ElementStackItem(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def isStartElementEvent(self) -> bool:

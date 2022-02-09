@@ -42,5 +42,6 @@ class XAvailableLocales(XInterface_8f010a43):
         retrieve the list of supported languages (Locales).
         """
 
+
 __all__ = ['XAvailableLocales']
 

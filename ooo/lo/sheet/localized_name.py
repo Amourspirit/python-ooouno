@@ -38,6 +38,7 @@ class LocalizedName(object):
     typeName: str = 'com.sun.star.sheet.LocalizedName'
     """Literal Constant ``com.sun.star.sheet.LocalizedName``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class LocalizedName(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Locale(self) -> 'Locale_70d308fa':

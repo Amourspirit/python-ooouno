@@ -39,6 +39,7 @@ class DispatchInformation(object):
     typeName: str = 'com.sun.star.frame.DispatchInformation'
     """Literal Constant ``com.sun.star.frame.DispatchInformation``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class DispatchInformation(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Command(self) -> str:

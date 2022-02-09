@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 
 class DispatchStatement(object):
@@ -42,6 +41,13 @@ class DispatchStatement(object):
     typeName: str = 'com.sun.star.frame.DispatchStatement'
     """Literal Constant ``com.sun.star.frame.DispatchStatement``"""
 
+    aArgs: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    specifies the dispatch command arguments
+    
+    That means the Arguments parameter of a corresponding XDispatch.dispatch() request.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -57,15 +63,13 @@ class DispatchStatement(object):
             aTarget (str, optional): aTarget value
             nFlags (int, optional): nFlags value
             bIsComment (bool, optional): bIsComment value
-            aArgs (Tuple[PropertyValue, ...], optional): aArgs value
         """
         self._a_command = None
         self._a_target = None
         self._n_flags = None
         self._b_is_comment = None
-        self._a_args = None
 
-        key_order = ('aCommand', 'aTarget', 'nFlags', 'bIsComment', 'aArgs')
+        key_order = ('aCommand', 'aTarget', 'nFlags', 'bIsComment')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], DispatchStatement):
@@ -81,7 +85,6 @@ class DispatchStatement(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aCommand(self) -> str:
@@ -132,19 +135,6 @@ class DispatchStatement(object):
     @bIsComment.setter
     def bIsComment(self, value: bool) -> None:
         self._b_is_comment = value
-
-    @property
-    def aArgs(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        specifies the dispatch command arguments
-        
-        That means the Arguments parameter of a corresponding XDispatch.dispatch() request.
-        """
-        return self._a_args
-    
-    @aArgs.setter
-    def aArgs(self, value: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
-        self._a_args = value
 
 
 __all__ = ['DispatchStatement']

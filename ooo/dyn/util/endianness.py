@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import Endianness
+    from com.sun.star.util import Endianness as Endianness
 else:
     from ...lo.util.endianness import Endianness as Endianness
 

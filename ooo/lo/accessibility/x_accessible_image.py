@@ -61,5 +61,6 @@ class XAccessibleImage(XInterface_8f010a43):
         The width is returned in units specified by the parents coordinate system.
         """
 
+
 __all__ = ['XAccessibleImage']
 

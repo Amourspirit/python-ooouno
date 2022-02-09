@@ -51,5 +51,6 @@ class XSAXEventKeeperStatusChangeListener(XInterface_8f010a43):
         Notifies the SAXEventKeeper is entering/leaving collecting state.
         """
 
+
 __all__ = ['XSAXEventKeeperStatusChangeListener']
 

@@ -57,5 +57,6 @@ class XPlayerWindow(XWindow_713b0924):
         redraws the player window
         """
 
+
 __all__ = ['XPlayerWindow']
 

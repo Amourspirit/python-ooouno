@@ -70,5 +70,6 @@ class XGridControl(ABC):
             com.sun.star.util.VetoException: ``VetoException``
         """
 
+
 __all__ = ['XGridControl']
 

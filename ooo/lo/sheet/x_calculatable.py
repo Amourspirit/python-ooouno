@@ -60,5 +60,6 @@ class XCalculatable(XInterface_8f010a43):
         With automatic calculation, each formula cell is recalculated whenever its value is needed after its precedents have changed. The value is needed if the cell is displayed or used in another calculation.
         """
 
+
 __all__ = ['XCalculatable']
 

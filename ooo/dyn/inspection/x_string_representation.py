@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.inspection import XStringRepresentation
+    from com.sun.star.inspection import XStringRepresentation as XStringRepresentation
     setattr(XStringRepresentation, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XStringRepresentation, '__ooo_full_ns__', 'com.sun.star.inspection.XStringRepresentation')
     setattr(XStringRepresentation, '__ooo_type_name__', 'interface')

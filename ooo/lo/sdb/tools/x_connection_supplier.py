@@ -46,5 +46,6 @@ class XConnectionSupplier(XInitialization_d46c0cca):
         returns the source connection.
         """
 
+
 __all__ = ['XConnectionSupplier']
 

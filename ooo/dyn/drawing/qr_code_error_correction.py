@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import QRCodeErrorCorrection
+    from com.sun.star.drawing import QRCodeErrorCorrection as QRCodeErrorCorrection
 else:
     from ...lo.drawing.qr_code_error_correction import QRCodeErrorCorrection as QRCodeErrorCorrection
 

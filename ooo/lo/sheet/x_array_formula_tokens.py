@@ -46,5 +46,6 @@ class XArrayFormulaTokens(ABC):
         sets the array formula as sequence of tokens.
         """
 
+
 __all__ = ['XArrayFormulaTokens']
 

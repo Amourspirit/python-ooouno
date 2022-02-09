@@ -140,5 +140,6 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Query whether color data bytes need to be swapped.
         """
 
+
 __all__ = ['XIntegerBitmapColorSpace']
 

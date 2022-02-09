@@ -37,18 +37,18 @@ class ListBox(UnoControlListBoxModel_2a3c0f1d, FormControlModel_e2990d22, XReset
     __ooo_full_ns__: str = 'com.sun.star.form.component.ListBox'
     __ooo_type_name__: str = 'service'
 
-    @abstractproperty
-    def DefaultSelection(self) -> 'typing.Tuple[int, ...]':
-        """
-        contains the indexes of entries of the listbox, which should selected by default.
-        
-        This selection is used initially or for a reset.
-        """
-    @abstractproperty
-    def ListSource(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains the values associated to the strings to be displayed (which are specified by com.sun.star.awt.UnoControlListBoxModel.StringItemList)
-        """
+    DefaultSelection: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    contains the indexes of entries of the listbox, which should selected by default.
+    
+    This selection is used initially or for a reset.
+    """
+
+    ListSource: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains the values associated to the strings to be displayed (which are specified by com.sun.star.awt.UnoControlListBoxModel.StringItemList)
+    """
+
 
 __all__ = ['ListBox']
 

@@ -53,5 +53,6 @@ class XSAXSerializable(ABC):
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
 
+
 __all__ = ['XSAXSerializable']
 

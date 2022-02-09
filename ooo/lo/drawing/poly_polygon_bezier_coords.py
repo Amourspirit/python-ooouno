@@ -39,6 +39,7 @@ class PolyPolygonBezierCoords(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonBezierCoords'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonBezierCoords``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,9 +74,10 @@ class PolyPolygonBezierCoords(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Coordinates(self) -> 'PointSequenceSequence_5c591070':
+        """
+        """
         return self._coordinates
     
     @Coordinates.setter
@@ -84,6 +86,8 @@ class PolyPolygonBezierCoords(object):
 
     @property
     def Flags(self) -> 'FlagSequenceSequence_49130fe0':
+        """
+        """
         return self._flags
     
     @Flags.setter

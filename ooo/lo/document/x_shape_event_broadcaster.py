@@ -52,5 +52,6 @@ class XShapeEventBroadcaster(XEventBroadcaster_2b120f2b):
         unregisters the given listener
         """
 
+
 __all__ = ['XShapeEventBroadcaster']
 

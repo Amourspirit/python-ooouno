@@ -21,9 +21,9 @@
 import typing
 from abc import abstractproperty
 from .base_index import BaseIndex as BaseIndex_8f0d0a40
+from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 if typing.TYPE_CHECKING:
     from ..container.x_index_replace import XIndexReplace as XIndexReplace_feed0dd7
-    from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 
 class UserDefinedIndex(BaseIndex_8f0d0a40):
     """
@@ -37,6 +37,11 @@ class UserDefinedIndex(BaseIndex_8f0d0a40):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.UserDefinedIndex'
     __ooo_type_name__: str = 'service'
+
+    DocumentIndexMarks: typing.TypeAlias = typing.Tuple[XDocumentIndexMark_fe490de7, ...]
+    """
+    contains all index marks that are related to this index.
+    """
 
     @abstractproperty
     def CreateFromEmbeddedObjects(self) -> bool:
@@ -72,11 +77,6 @@ class UserDefinedIndex(BaseIndex_8f0d0a40):
     def UseLevelFromSource(self) -> bool:
         """
         determines if the outline level of the location of the indexed object is used as index level of the index entry.
-        """
-    @abstractproperty
-    def DocumentIndexMarks(self) -> 'typing.Tuple[XDocumentIndexMark_fe490de7, ...]':
-        """
-        contains all index marks that are related to this index.
         """
 
 __all__ = ['UserDefinedIndex']

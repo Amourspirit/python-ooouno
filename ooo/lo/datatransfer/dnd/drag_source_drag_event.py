@@ -38,6 +38,7 @@ class DragSourceDragEvent(DragSourceEvent_8ccf115c):
     typeName: str = 'com.sun.star.datatransfer.dnd.DragSourceDragEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DragSourceDragEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class DragSourceDragEvent(DragSourceEvent_8ccf115c):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def DropAction(self) -> int:

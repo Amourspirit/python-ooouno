@@ -101,7 +101,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
     @abstractmethod
-    def getAllExtensions(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[typing.Tuple[XPackage_cb1f0c4d, ...]]':
+    def getAllExtensions(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[typing.Tuple[XPackage_cb1f0c4d, ...], ...]':
         """
         returns a sequence containing all installed extensions.
         
@@ -210,6 +210,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+
 
 __all__ = ['XExtensionManager']
 

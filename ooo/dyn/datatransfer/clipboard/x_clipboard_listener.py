@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.clipboard import XClipboardListener
+    from com.sun.star.datatransfer.clipboard import XClipboardListener as XClipboardListener
     setattr(XClipboardListener, '__ooo_ns__', 'com.sun.star.datatransfer.clipboard')
     setattr(XClipboardListener, '__ooo_full_ns__', 'com.sun.star.datatransfer.clipboard.XClipboardListener')
     setattr(XClipboardListener, '__ooo_type_name__', 'interface')

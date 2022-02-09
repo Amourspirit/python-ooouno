@@ -37,19 +37,20 @@ class XCellRangeData(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.sheet.XCellRangeData'
 
     @abstractmethod
-    def getDataArray(self) -> 'typing.Tuple[typing.Tuple[object, ...]]':
+    def getDataArray(self) -> 'typing.Tuple[typing.Tuple[object, ...], ...]':
         """
         gets an array from the contents of the cell range.
         
         Each element of the result contains a double or a string.
         """
     @abstractmethod
-    def setDataArray(self, aArray: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def setDataArray(self, aArray: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         fills the cell range with values from an array.
         
         The size of the array must be the same as the size of the cell range. Each element of the array must contain a double or a string.
         """
+
 
 __all__ = ['XCellRangeData']
 

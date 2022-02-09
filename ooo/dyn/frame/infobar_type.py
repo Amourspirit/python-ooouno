@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import InfobarType
+    from com.sun.star.frame import InfobarType as InfobarType
 else:
     from ...lo.frame.infobar_type import InfobarType as InfobarType
 

@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('aURL', 'Event', 'aInformation')
+            key_order = ('aURL', 'Event')
             struct = uno.createUnoStruct('com.sun.star.frame.ControlEvent')
             if arg_len > len(key_order):
                 raise ValueError("ControlEvent.__init__() To many parameters")

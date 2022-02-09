@@ -20,10 +20,10 @@
 # Namespace: com.sun.star.xml.sax
 import typing
 from abc import abstractmethod, abstractproperty
+from ...beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .x_fast_context_handler import XFastContextHandler as XFastContextHandler_361e0f5c
 if typing.TYPE_CHECKING:
     from ...awt.point import Point as Point_5fb2085e
-    from ...beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ...document.x_document_properties import XDocumentProperties as XDocumentProperties_4c31102b
     from ...drawing.x_draw_page import XDrawPage as XDrawPage_b07a0b57
     from ...drawing.x_shape import XShape as XShape_8fd00a3d
@@ -45,6 +45,10 @@ class XFastShapeContextHandler(XFastContextHandler_361e0f5c):
     __ooo_full_ns__: str = 'com.sun.star.xml.sax.XFastShapeContextHandler'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.xml.sax.XFastShapeContextHandler'
+
+    MediaDescriptor: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    """
 
     @abstractmethod
     def setGraphicMapper(self, xGraphicMapper: 'XGraphicMapper_eec10d61') -> None:
@@ -85,10 +89,7 @@ class XFastShapeContextHandler(XFastContextHandler_361e0f5c):
     def StartToken(self) -> int:
         """
         """
-    @abstractproperty
-    def MediaDescriptor(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        """
+
 
 __all__ = ['XFastShapeContextHandler']
 

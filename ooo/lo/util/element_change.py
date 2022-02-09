@@ -35,6 +35,7 @@ class ElementChange(object):
     typeName: str = 'com.sun.star.util.ElementChange'
     """Literal Constant ``com.sun.star.util.ElementChange``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -70,7 +71,6 @@ class ElementChange(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Accessor(self) -> object:

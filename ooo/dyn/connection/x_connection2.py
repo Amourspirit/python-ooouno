@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.connection import XConnection2
+    from com.sun.star.connection import XConnection2 as XConnection2
     setattr(XConnection2, '__ooo_ns__', 'com.sun.star.connection')
     setattr(XConnection2, '__ooo_full_ns__', 'com.sun.star.connection.XConnection2')
     setattr(XConnection2, '__ooo_type_name__', 'interface')

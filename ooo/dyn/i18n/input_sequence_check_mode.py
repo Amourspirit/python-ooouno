@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import InputSequenceCheckMode
+    from com.sun.star.i18n import InputSequenceCheckMode as InputSequenceCheckMode
 else:
     from ...lo.i18n.input_sequence_check_mode import InputSequenceCheckMode as InputSequenceCheckMode
 

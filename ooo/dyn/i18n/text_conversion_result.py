@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Boundary', 'Candidates')
+            key_order = ('Boundary',)
             struct = uno.createUnoStruct('com.sun.star.i18n.TextConversionResult')
             if arg_len > len(key_order):
                 raise ValueError("TextConversionResult.__init__() To many parameters")

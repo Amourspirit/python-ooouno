@@ -34,6 +34,7 @@ class DataPilotFieldFilter(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldFilter'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldFilter``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class DataPilotFieldFilter(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FieldName(self) -> str:

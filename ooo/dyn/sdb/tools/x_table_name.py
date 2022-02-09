@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.tools import XTableName
+    from com.sun.star.sdb.tools import XTableName as XTableName
     setattr(XTableName, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XTableName, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XTableName')
     setattr(XTableName, '__ooo_type_name__', 'interface')

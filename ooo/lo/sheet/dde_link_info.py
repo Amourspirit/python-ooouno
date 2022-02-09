@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .dde_item_info import DDEItemInfo as DDEItemInfo_ac870b09
+from .dde_item_info import DDEItemInfo as DDEItemInfo_ac870b09
 
 
 class DDELinkInfo(object):
@@ -46,6 +45,13 @@ class DDELinkInfo(object):
     typeName: str = 'com.sun.star.sheet.DDELinkInfo'
     """Literal Constant ``com.sun.star.sheet.DDELinkInfo``"""
 
+    Items: typing.TypeAlias = typing.Tuple[DDEItemInfo_ac870b09, ...]
+    """
+    A list of DDE items.
+    
+    Each item may contain its results from the last update.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -59,13 +65,11 @@ class DDELinkInfo(object):
         Keyword Arguments:
             Service (str, optional): Service value
             Topic (str, optional): Topic value
-            Items (Tuple[DDEItemInfo, ...], optional): Items value
         """
         self._service = None
         self._topic = None
-        self._items = None
 
-        key_order = ('Service', 'Topic', 'Items')
+        key_order = ('Service', 'Topic')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], DDELinkInfo):
@@ -81,7 +85,6 @@ class DDELinkInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Service(self) -> str:
@@ -104,19 +107,6 @@ class DDELinkInfo(object):
     @Topic.setter
     def Topic(self, value: str) -> None:
         self._topic = value
-
-    @property
-    def Items(self) -> 'typing.Tuple[DDEItemInfo_ac870b09, ...]':
-        """
-        A list of DDE items.
-        
-        Each item may contain its results from the last update.
-        """
-        return self._items
-    
-    @Items.setter
-    def Items(self, value: 'typing.Tuple[DDEItemInfo_ac870b09, ...]') -> None:
-        self._items = value
 
 
 __all__ = ['DDELinkInfo']

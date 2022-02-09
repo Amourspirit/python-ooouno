@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('SortingInfo',)
+            key_order = ()
             struct = uno.createUnoStruct('com.sun.star.ucb.OpenCommandArgument2')
             if arg_len > len(key_order):
                 raise ValueError("OpenCommandArgument2.__init__() To many parameters")

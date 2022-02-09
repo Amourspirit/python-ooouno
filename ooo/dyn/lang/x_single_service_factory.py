@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.lang import XSingleServiceFactory
+    from com.sun.star.lang import XSingleServiceFactory as XSingleServiceFactory
     setattr(XSingleServiceFactory, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XSingleServiceFactory, '__ooo_full_ns__', 'com.sun.star.lang.XSingleServiceFactory')
     setattr(XSingleServiceFactory, '__ooo_type_name__', 'interface')

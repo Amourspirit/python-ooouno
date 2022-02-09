@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import BreakType
+    from com.sun.star.i18n import BreakType as BreakType
 else:
     from ...lo.i18n.break_type import BreakType as BreakType
 

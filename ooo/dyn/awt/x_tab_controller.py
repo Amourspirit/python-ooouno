@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XTabController
+    from com.sun.star.awt import XTabController as XTabController
     setattr(XTabController, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XTabController, '__ooo_full_ns__', 'com.sun.star.awt.XTabController')
     setattr(XTabController, '__ooo_type_name__', 'interface')

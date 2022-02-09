@@ -44,5 +44,6 @@ class XSheetConditionalEntry(XInterface_8f010a43):
         sets the name of the cell style that is used when the condition is fulfilled.
         """
 
+
 __all__ = ['XSheetConditionalEntry']
 

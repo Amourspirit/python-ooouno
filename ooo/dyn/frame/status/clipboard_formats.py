@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Identifiers', 'Names')
+            key_order = ()
             struct = uno.createUnoStruct('com.sun.star.frame.status.ClipboardFormats')
             if arg_len > len(key_order):
                 raise ValueError("ClipboardFormats.__init__() To many parameters")

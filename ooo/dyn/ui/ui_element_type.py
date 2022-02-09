@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import UIElementType
+    from com.sun.star.ui import UIElementType as UIElementType
 else:
     from ...lo.ui.ui_element_type import UIElementType as UIElementType
 

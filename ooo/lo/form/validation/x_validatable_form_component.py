@@ -81,5 +81,6 @@ class XValidatableFormComponent(XValidatable_49570fc6):
             com.sun.star.lang.NullPointerException: ``NullPointerException``
         """
 
+
 __all__ = ['XValidatableFormComponent']
 

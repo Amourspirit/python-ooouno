@@ -36,6 +36,7 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
     typeName: str = 'com.sun.star.ucb.GlobalTransferCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.GlobalTransferCommandArgument2``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,7 +70,6 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def MimeType(self) -> str:

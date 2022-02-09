@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.bridge import XBridgeFactory2
+    from com.sun.star.bridge import XBridgeFactory2 as XBridgeFactory2
     setattr(XBridgeFactory2, '__ooo_ns__', 'com.sun.star.bridge')
     setattr(XBridgeFactory2, '__ooo_full_ns__', 'com.sun.star.bridge.XBridgeFactory2')
     setattr(XBridgeFactory2, '__ooo_type_name__', 'interface')

@@ -60,5 +60,6 @@ class XClipboard(XInterface_8f010a43):
         NULL is an acceptable value and means that the caller is not interested in lost ownership notifications.
         """
 
+
 __all__ = ['XClipboard']
 

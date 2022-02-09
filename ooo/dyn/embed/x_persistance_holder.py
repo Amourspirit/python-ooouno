@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XPersistanceHolder
+    from com.sun.star.embed import XPersistanceHolder as XPersistanceHolder
     setattr(XPersistanceHolder, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XPersistanceHolder, '__ooo_full_ns__', 'com.sun.star.embed.XPersistanceHolder')
     setattr(XPersistanceHolder, '__ooo_type_name__', 'interface')

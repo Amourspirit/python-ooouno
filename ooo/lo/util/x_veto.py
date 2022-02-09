@@ -45,5 +45,6 @@ class XVeto(ABC):
         describes the reason for the veto
         """
 
+
 __all__ = ['XVeto']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.lang import XMain
+    from com.sun.star.lang import XMain as XMain
     setattr(XMain, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XMain, '__ooo_full_ns__', 'com.sun.star.lang.XMain')
     setattr(XMain, '__ooo_type_name__', 'interface')

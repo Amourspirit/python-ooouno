@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import OpenMode
+    from com.sun.star.ucb import OpenMode as OpenMode
 else:
     from ...lo.ucb.open_mode import OpenMode as OpenMode
 

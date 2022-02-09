@@ -40,6 +40,7 @@ class WindowDescriptor(object):
     typeName: str = 'com.sun.star.awt.WindowDescriptor'
     """Literal Constant ``com.sun.star.awt.WindowDescriptor``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -81,7 +82,6 @@ class WindowDescriptor(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Type(self) -> 'WindowClass_99f60ac2':

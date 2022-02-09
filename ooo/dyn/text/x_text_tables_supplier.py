@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XTextTablesSupplier
+    from com.sun.star.text import XTextTablesSupplier as XTextTablesSupplier
     setattr(XTextTablesSupplier, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextTablesSupplier, '__ooo_full_ns__', 'com.sun.star.text.XTextTablesSupplier')
     setattr(XTextTablesSupplier, '__ooo_type_name__', 'interface')

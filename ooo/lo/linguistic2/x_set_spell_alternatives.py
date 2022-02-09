@@ -59,5 +59,6 @@ class XSetSpellAlternatives(XInterface_8f010a43):
             OOo 3.0.1
         """
 
+
 __all__ = ['XSetSpellAlternatives']
 

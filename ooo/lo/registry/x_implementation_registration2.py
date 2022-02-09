@@ -51,5 +51,6 @@ class XImplementationRegistration2(XImplementationRegistration_df8c139a):
             com.sun.star.registry.CannotRegisterImplementationException: ``CannotRegisterImplementationException``
         """
 
+
 __all__ = ['XImplementationRegistration2']
 

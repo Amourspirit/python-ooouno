@@ -50,5 +50,6 @@ class XUpdatableLayer(XLayer_4cd50fcb):
             MalformedDataException: ``MalformedDataException``
         """
 
+
 __all__ = ['XUpdatableLayer']
 

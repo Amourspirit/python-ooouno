@@ -61,5 +61,6 @@ class XSheetPastable(XInterface_8f010a43):
         pastes the contents of the clipboard at the specified position on the sheet, using the specified format.
         """
 
+
 __all__ = ['XSheetPastable']
 

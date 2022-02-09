@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import XAccessControlContext
+    from com.sun.star.security import XAccessControlContext as XAccessControlContext
     setattr(XAccessControlContext, '__ooo_ns__', 'com.sun.star.security')
     setattr(XAccessControlContext, '__ooo_full_ns__', 'com.sun.star.security.XAccessControlContext')
     setattr(XAccessControlContext, '__ooo_type_name__', 'interface')

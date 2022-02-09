@@ -34,6 +34,7 @@ class EnhancedCustomShapeSegment(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeSegment'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeSegment``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,9 +69,10 @@ class EnhancedCustomShapeSegment(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Command(self) -> int:
+        """
+        """
         return self._command
     
     @Command.setter
@@ -79,6 +81,8 @@ class EnhancedCustomShapeSegment(object):
 
     @property
     def Count(self) -> int:
+        """
+        """
         return self._count
     
     @Count.setter

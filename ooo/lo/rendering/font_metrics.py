@@ -43,6 +43,7 @@ class FontMetrics(object):
     typeName: str = 'com.sun.star.rendering.FontMetrics'
     """Literal Constant ``com.sun.star.rendering.FontMetrics``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -86,7 +87,6 @@ class FontMetrics(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Ascent(self) -> float:

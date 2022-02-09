@@ -53,5 +53,6 @@ class XHyperlinkControl(XPropertyControl_3f260fe2):
         removes a listener which was previously added via addActionListener()
         """
 
+
 __all__ = ['XHyperlinkControl']
 

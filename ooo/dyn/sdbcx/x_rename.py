@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XRename
+    from com.sun.star.sdbcx import XRename as XRename
     setattr(XRename, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XRename, '__ooo_full_ns__', 'com.sun.star.sdbcx.XRename')
     setattr(XRename, '__ooo_type_name__', 'interface')

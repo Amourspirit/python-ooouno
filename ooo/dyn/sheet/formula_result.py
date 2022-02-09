@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import FormulaResult
+    from com.sun.star.sheet import FormulaResult as FormulaResult
 else:
     from ...lo.sheet.formula_result import FormulaResult as FormulaResult
 

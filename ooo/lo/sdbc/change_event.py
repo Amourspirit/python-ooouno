@@ -39,6 +39,7 @@ class ChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sdbc.ChangeEvent'
     """Literal Constant ``com.sun.star.sdbc.ChangeEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class ChangeEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Action(self) -> int:

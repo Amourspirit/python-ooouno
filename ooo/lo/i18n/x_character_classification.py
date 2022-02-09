@@ -94,5 +94,6 @@ class XCharacterClassification(XInterface_8f010a43):
         Convert lower case alpha to upper case alpha, starting at position nPos for nCount code points.
         """
 
+
 __all__ = ['XCharacterClassification']
 

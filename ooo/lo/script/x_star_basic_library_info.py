@@ -79,5 +79,6 @@ class XStarBasicLibraryInfo(XInterface_8f010a43):
         returns the password, if the library is protected with one, an empty string otherwise.
         """
 
+
 __all__ = ['XStarBasicLibraryInfo']
 

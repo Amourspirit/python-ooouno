@@ -56,5 +56,6 @@ class XFrames(XIndexAccess_f0910d6d):
         Note:
         """
 
+
 __all__ = ['XFrames']
 

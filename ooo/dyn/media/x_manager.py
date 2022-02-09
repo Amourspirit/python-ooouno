@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.media import XManager
+    from com.sun.star.media import XManager as XManager
     setattr(XManager, '__ooo_ns__', 'com.sun.star.media')
     setattr(XManager, '__ooo_full_ns__', 'com.sun.star.media.XManager')
     setattr(XManager, '__ooo_type_name__', 'interface')

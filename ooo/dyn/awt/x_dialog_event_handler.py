@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XDialogEventHandler
+    from com.sun.star.awt import XDialogEventHandler as XDialogEventHandler
     setattr(XDialogEventHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XDialogEventHandler, '__ooo_full_ns__', 'com.sun.star.awt.XDialogEventHandler')
     setattr(XDialogEventHandler, '__ooo_type_name__', 'interface')

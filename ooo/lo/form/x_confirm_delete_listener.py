@@ -42,5 +42,6 @@ class XConfirmDeleteListener(XEventListener_c7230c4a):
         is invoked when the current record of a database form will be deleted.
         """
 
+
 __all__ = ['XConfirmDeleteListener']
 

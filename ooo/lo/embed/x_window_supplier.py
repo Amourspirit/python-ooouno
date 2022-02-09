@@ -42,5 +42,6 @@ class XWindowSupplier(XInterface_8f010a43):
         allows to get access to a VCL window implementation.
         """
 
+
 __all__ = ['XWindowSupplier']
 

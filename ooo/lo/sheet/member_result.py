@@ -39,6 +39,7 @@ class MemberResult(object):
     typeName: str = 'com.sun.star.sheet.MemberResult'
     """Literal Constant ``com.sun.star.sheet.MemberResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -76,7 +77,6 @@ class MemberResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

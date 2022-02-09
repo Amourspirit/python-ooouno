@@ -19,9 +19,9 @@
 # Namespace: com.sun.star.document
 # Libre Office Version: 7.2
 import typing
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..uno.exception import Exception as Exception_85530a09
 if typing.TYPE_CHECKING:
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..frame.x_model import XModel as XModel_7a6e095c
 
 class FilterOptionsRequest(Exception_85530a09):
@@ -45,14 +45,14 @@ class FilterOptionsRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.FilterOptionsRequest'
     """Literal Constant ``com.sun.star.document.FilterOptionsRequest``"""
 
+    rProperties: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    The Media-descriptor of the document.
+    """
+
     rModel: 'XModel_7a6e095c' = None
     """
         The model of the document that should be provided to filters that supports XExporter interface.
-    """
-
-    rProperties: 'typing.Tuple[PropertyValue_c9610c73, ...]' = None
-    """
-    The Media-descriptor of the document.
     """
 
 

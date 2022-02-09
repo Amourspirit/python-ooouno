@@ -49,5 +49,6 @@ class XFastTokenHandler(XInterface_8f010a43):
         returns an identifier for the given integer token as a byte sequence encoded in UTF-8.
         """
 
+
 __all__ = ['XFastTokenHandler']
 

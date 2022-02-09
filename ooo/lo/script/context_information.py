@@ -40,6 +40,11 @@ class ContextInformation(object):
     typeName: str = 'com.sun.star.script.ContextInformation'
     """Literal Constant ``com.sun.star.script.ContextInformation``"""
 
+    LocalVariableNames: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    Get all names of the local variable in this context.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -57,7 +62,6 @@ class ContextInformation(object):
             StartColumn (int, optional): StartColumn value
             EndLine (int, optional): EndLine value
             EndColumn (int, optional): EndColumn value
-            LocalVariableNames (Tuple[str, ...], optional): LocalVariableNames value
         """
         self._name = None
         self._source_code = None
@@ -65,9 +69,8 @@ class ContextInformation(object):
         self._start_column = None
         self._end_line = None
         self._end_column = None
-        self._local_variable_names = None
 
-        key_order = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn', 'LocalVariableNames')
+        key_order = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], ContextInformation):
@@ -83,7 +86,6 @@ class ContextInformation(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:
@@ -156,17 +158,6 @@ class ContextInformation(object):
     @EndColumn.setter
     def EndColumn(self, value: int) -> None:
         self._end_column = value
-
-    @property
-    def LocalVariableNames(self) -> 'typing.Tuple[str, ...]':
-        """
-        Get all names of the local variable in this context.
-        """
-        return self._local_variable_names
-    
-    @LocalVariableNames.setter
-    def LocalVariableNames(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._local_variable_names = value
 
 
 __all__ = ['ContextInformation']

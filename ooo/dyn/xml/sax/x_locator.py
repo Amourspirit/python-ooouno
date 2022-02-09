@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.sax import XLocator
+    from com.sun.star.xml.sax import XLocator as XLocator
     setattr(XLocator, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XLocator, '__ooo_full_ns__', 'com.sun.star.xml.sax.XLocator')
     setattr(XLocator, '__ooo_type_name__', 'interface')

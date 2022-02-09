@@ -61,5 +61,6 @@ class XColorScaleEntry(ABC):
         See com.sun.star.sheet.ColorScaleEntryType for possible values.
         """
 
+
 __all__ = ['XColorScaleEntry']
 

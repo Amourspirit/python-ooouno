@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ChartSolidType
+    from com.sun.star.chart import ChartSolidType as ChartSolidType
 else:
     from ...lo.chart.chart_solid_type import ChartSolidType as ChartSolidType
 

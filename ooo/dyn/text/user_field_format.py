@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import UserFieldFormat
+    from com.sun.star.text import UserFieldFormat as UserFieldFormat
 else:
     from ...lo.text.user_field_format import UserFieldFormat as UserFieldFormat
 

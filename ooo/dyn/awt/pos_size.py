@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import PosSize
+    from com.sun.star.awt import PosSize as PosSize
 else:
     from ...lo.awt.pos_size import PosSize as PosSize
 

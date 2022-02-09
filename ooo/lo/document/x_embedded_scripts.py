@@ -57,5 +57,6 @@ class XEmbeddedScripts(ABC):
         is the container of dialogs libraries contained in the document
         """
 
+
 __all__ = ['XEmbeddedScripts']
 

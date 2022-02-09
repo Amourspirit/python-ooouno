@@ -89,5 +89,6 @@ class XDocumentBuilder(XInterface_8f010a43):
         Specify the ErrorHandler to be used to report errors present in the XML document to be parsed.
         """
 
+
 __all__ = ['XDocumentBuilder']
 

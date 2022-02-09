@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import XDictionaryEventListener
+    from com.sun.star.linguistic2 import XDictionaryEventListener as XDictionaryEventListener
     setattr(XDictionaryEventListener, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XDictionaryEventListener, '__ooo_full_ns__', 'com.sun.star.linguistic2.XDictionaryEventListener')
     setattr(XDictionaryEventListener, '__ooo_type_name__', 'interface')

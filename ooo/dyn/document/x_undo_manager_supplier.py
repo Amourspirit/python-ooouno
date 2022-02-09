@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XUndoManagerSupplier
+    from com.sun.star.document import XUndoManagerSupplier as XUndoManagerSupplier
     setattr(XUndoManagerSupplier, '__ooo_ns__', 'com.sun.star.document')
     setattr(XUndoManagerSupplier, '__ooo_full_ns__', 'com.sun.star.document.XUndoManagerSupplier')
     setattr(XUndoManagerSupplier, '__ooo_type_name__', 'interface')

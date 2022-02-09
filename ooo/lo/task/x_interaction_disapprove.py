@@ -33,5 +33,6 @@ class XInteractionDisapprove(XInteractionContinuation_5af0108e):
     __pyunointerface__: str = 'com.sun.star.task.XInteractionDisapprove'
 
 
+
 __all__ = ['XInteractionDisapprove']
 

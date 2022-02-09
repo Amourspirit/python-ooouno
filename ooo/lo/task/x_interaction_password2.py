@@ -62,5 +62,6 @@ class XInteractionPassword2(XInteractionPassword_1ba00ee6):
         It specifies whether the document should be loaded readonly per default.
         """
 
+
 __all__ = ['XInteractionPassword2']
 

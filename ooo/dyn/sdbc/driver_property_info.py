@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Name', 'Description', 'IsRequired', 'Value', 'Choices')
+            key_order = ('Name', 'Description', 'IsRequired', 'Value')
             struct = uno.createUnoStruct('com.sun.star.sdbc.DriverPropertyInfo')
             if arg_len > len(key_order):
                 raise ValueError("DriverPropertyInfo.__init__() To many parameters")

@@ -76,5 +76,6 @@ class XWizardController(ABC):
         called when a page in the wizard is being deactivated
         """
 
+
 __all__ = ['XWizardController']
 

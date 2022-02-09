@@ -36,6 +36,11 @@ class SendMediaTypes(object):
     typeName: str = 'com.sun.star.ucb.SendMediaTypes'
     """Literal Constant ``com.sun.star.ucb.SendMediaTypes``"""
 
+    Value: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    a list of Internet media types
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -48,12 +53,10 @@ class SendMediaTypes(object):
 
         Keyword Arguments:
             ProtocolType (str, optional): ProtocolType value
-            Value (Tuple[str, ...], optional): Value value
         """
         self._protocol_type = None
-        self._value = None
 
-        key_order = ('ProtocolType', 'Value')
+        key_order = ('ProtocolType',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SendMediaTypes):
@@ -70,7 +73,6 @@ class SendMediaTypes(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def ProtocolType(self) -> str:
         """
@@ -83,17 +85,6 @@ class SendMediaTypes(object):
     @ProtocolType.setter
     def ProtocolType(self, value: str) -> None:
         self._protocol_type = value
-
-    @property
-    def Value(self) -> 'typing.Tuple[str, ...]':
-        """
-        a list of Internet media types
-        """
-        return self._value
-    
-    @Value.setter
-    def Value(self, value: 'typing.Tuple[str, ...]') -> None:
-        self._value = value
 
 
 __all__ = ['SendMediaTypes']

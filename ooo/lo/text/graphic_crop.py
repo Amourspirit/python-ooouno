@@ -41,6 +41,7 @@ class GraphicCrop(object):
     typeName: str = 'com.sun.star.text.GraphicCrop'
     """Literal Constant ``com.sun.star.text.GraphicCrop``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class GraphicCrop(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Top(self) -> int:

@@ -35,6 +35,13 @@ class SearchResult(object):
     typeName: str = 'com.sun.star.util.SearchResult'
     """Literal Constant ``com.sun.star.util.SearchResult``"""
 
+    startOffset: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    """
+    endOffset: typing.TypeAlias = typing.Tuple[int, ...]
+    """
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -47,14 +54,10 @@ class SearchResult(object):
 
         Keyword Arguments:
             subRegExpressions (int, optional): subRegExpressions value
-            startOffset (Tuple[int, ...], optional): startOffset value
-            endOffset (Tuple[int, ...], optional): endOffset value
         """
         self._sub_reg_expressions = None
-        self._start_offset = None
-        self._end_offset = None
 
-        key_order = ('subRegExpressions', 'startOffset', 'endOffset')
+        key_order = ('subRegExpressions',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], SearchResult):
@@ -70,7 +73,6 @@ class SearchResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def subRegExpressions(self) -> int:
@@ -90,22 +92,6 @@ class SearchResult(object):
     @subRegExpressions.setter
     def subRegExpressions(self, value: int) -> None:
         self._sub_reg_expressions = value
-
-    @property
-    def startOffset(self) -> 'typing.Tuple[int, ...]':
-        return self._start_offset
-    
-    @startOffset.setter
-    def startOffset(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._start_offset = value
-
-    @property
-    def endOffset(self) -> 'typing.Tuple[int, ...]':
-        return self._end_offset
-    
-    @endOffset.setter
-    def endOffset(self, value: 'typing.Tuple[int, ...]') -> None:
-        self._end_offset = value
 
 
 __all__ = ['SearchResult']

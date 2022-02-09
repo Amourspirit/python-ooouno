@@ -39,6 +39,7 @@ class QRCode(object):
     typeName: str = 'com.sun.star.drawing.QRCode'
     """Literal Constant ``com.sun.star.drawing.QRCode``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class QRCode(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Payload(self) -> str:

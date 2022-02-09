@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import XAccessibleExtendedAttributes
+    from com.sun.star.accessibility import XAccessibleExtendedAttributes as XAccessibleExtendedAttributes
     setattr(XAccessibleExtendedAttributes, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleExtendedAttributes, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleExtendedAttributes')
     setattr(XAccessibleExtendedAttributes, '__ooo_type_name__', 'interface')

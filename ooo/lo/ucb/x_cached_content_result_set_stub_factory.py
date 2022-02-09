@@ -42,5 +42,6 @@ class XCachedContentResultSetStubFactory(XInterface_8f010a43):
         creates a remote optimized com.sun.star.sdbc.XResultSet.
         """
 
+
 __all__ = ['XCachedContentResultSetStubFactory']
 

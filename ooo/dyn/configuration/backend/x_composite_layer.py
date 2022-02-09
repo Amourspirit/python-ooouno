@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import XCompositeLayer
+    from com.sun.star.configuration.backend import XCompositeLayer as XCompositeLayer
     setattr(XCompositeLayer, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XCompositeLayer, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XCompositeLayer')
     setattr(XCompositeLayer, '__ooo_type_name__', 'interface')

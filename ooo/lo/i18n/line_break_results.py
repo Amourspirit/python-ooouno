@@ -38,6 +38,7 @@ class LineBreakResults(object):
     typeName: str = 'com.sun.star.i18n.LineBreakResults'
     """Literal Constant ``com.sun.star.i18n.LineBreakResults``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -73,7 +74,6 @@ class LineBreakResults(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def breakType(self) -> int:

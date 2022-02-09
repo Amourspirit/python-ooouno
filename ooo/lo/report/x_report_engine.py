@@ -109,5 +109,6 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         specifies the status indicator which shows the progress of the report generation process.
         """
 
+
 __all__ = ['XReportEngine']
 

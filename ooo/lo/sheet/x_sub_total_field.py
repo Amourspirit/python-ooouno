@@ -57,5 +57,6 @@ class XSubTotalField(XInterface_8f010a43):
         sets the definitions of which columns should have subtotals added to them.
         """
 
+
 __all__ = ['XSubTotalField']
 

@@ -42,6 +42,7 @@ class UpdateInformationEntry(object):
     typeName: str = 'com.sun.star.deployment.UpdateInformationEntry'
     """Literal Constant ``com.sun.star.deployment.UpdateInformationEntry``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class UpdateInformationEntry(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def UpdateDocument(self) -> 'XElement_a33d0ae9':

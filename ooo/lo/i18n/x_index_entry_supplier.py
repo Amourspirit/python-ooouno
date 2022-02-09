@@ -54,5 +54,6 @@ class XIndexEntrySupplier(XInterface_8f010a43):
         \"pp.\" for bMorePages == TRUE
         """
 
+
 __all__ = ['XIndexEntrySupplier']
 

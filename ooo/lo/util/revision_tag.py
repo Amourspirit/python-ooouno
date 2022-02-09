@@ -38,6 +38,7 @@ class RevisionTag(object):
     typeName: str = 'com.sun.star.util.RevisionTag'
     """Literal Constant ``com.sun.star.util.RevisionTag``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class RevisionTag(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def TimeStamp(self) -> 'DateTime_84de09d3':

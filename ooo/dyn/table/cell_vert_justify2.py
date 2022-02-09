@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import CellVertJustify2
+    from com.sun.star.table import CellVertJustify2 as CellVertJustify2
 else:
     from ...lo.table.cell_vert_justify2 import CellVertJustify2 as CellVertJustify2
 

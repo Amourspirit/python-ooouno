@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import XGraphicStorageHandler
+    from com.sun.star.document import XGraphicStorageHandler as XGraphicStorageHandler
     setattr(XGraphicStorageHandler, '__ooo_ns__', 'com.sun.star.document')
     setattr(XGraphicStorageHandler, '__ooo_full_ns__', 'com.sun.star.document.XGraphicStorageHandler')
     setattr(XGraphicStorageHandler, '__ooo_type_name__', 'interface')

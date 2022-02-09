@@ -50,5 +50,6 @@ class XDirectInvocation(XInterface_8f010a43):
         returns TRUE if the method or property with the specified name exists, else FALSE.
         """
 
+
 __all__ = ['XDirectInvocation']
 

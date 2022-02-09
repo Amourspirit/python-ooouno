@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import RubyPosition
+    from com.sun.star.text import RubyPosition as RubyPosition
 else:
     from ...lo.text.ruby_position import RubyPosition as RubyPosition
 

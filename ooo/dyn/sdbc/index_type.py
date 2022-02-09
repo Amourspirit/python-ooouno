@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import IndexType
+    from com.sun.star.sdbc import IndexType as IndexType
 else:
     from ...lo.sdbc.index_type import IndexType as IndexType
 

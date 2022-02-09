@@ -46,5 +46,6 @@ class XReifiedStatement(XResource_842709e4):
         the statement that is reified
         """
 
+
 __all__ = ['XReifiedStatement']
 

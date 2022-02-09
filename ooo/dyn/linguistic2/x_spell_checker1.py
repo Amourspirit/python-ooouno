@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import XSpellChecker1
+    from com.sun.star.linguistic2 import XSpellChecker1 as XSpellChecker1
     setattr(XSpellChecker1, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XSpellChecker1, '__ooo_full_ns__', 'com.sun.star.linguistic2.XSpellChecker1')
     setattr(XSpellChecker1, '__ooo_type_name__', 'interface')

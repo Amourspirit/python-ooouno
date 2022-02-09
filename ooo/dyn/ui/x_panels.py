@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import XPanels
+    from com.sun.star.ui import XPanels as XPanels
     setattr(XPanels, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XPanels, '__ooo_full_ns__', 'com.sun.star.ui.XPanels')
     setattr(XPanels, '__ooo_type_name__', 'interface')

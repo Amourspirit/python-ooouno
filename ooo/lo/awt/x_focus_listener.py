@@ -49,5 +49,6 @@ class XFocusListener(XEventListener_c7230c4a):
         is invoked when a window loses the keyboard focus.
         """
 
+
 __all__ = ['XFocusListener']
 

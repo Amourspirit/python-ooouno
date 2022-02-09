@@ -64,5 +64,6 @@ class XTable(XFastPropertySet_ee6b0d88, XPropertySet_bc180bfa, XComponent_98dc0a
         stores the current row count of this table
         """
 
+
 __all__ = ['XTable']
 

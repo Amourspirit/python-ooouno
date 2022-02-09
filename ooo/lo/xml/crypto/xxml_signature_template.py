@@ -64,5 +64,6 @@ class XXMLSignatureTemplate(XXMLSecurityTemplate_79221105):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XXMLSignatureTemplate']
 

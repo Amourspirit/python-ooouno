@@ -37,5 +37,6 @@ class XAutoTextContainer2(XIndexAccess_f0910d6d, XAutoTextContainer_fecd0e06):
     __pyunointerface__: str = 'com.sun.star.text.XAutoTextContainer2'
 
 
+
 __all__ = ['XAutoTextContainer2']
 

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import LayoutManagerEvents
+    from com.sun.star.frame import LayoutManagerEvents as LayoutManagerEvents
 else:
     from ...lo.frame.layout_manager_events import LayoutManagerEvents as LayoutManagerEvents
 

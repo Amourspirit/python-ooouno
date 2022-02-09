@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.browse import BrowseNodeTypes
+    from com.sun.star.script.browse import BrowseNodeTypes as BrowseNodeTypes
 else:
     from ....lo.script.browse.browse_node_types import BrowseNodeTypes as BrowseNodeTypes
 

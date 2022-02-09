@@ -97,7 +97,7 @@ class XGraphics(XInterface_8f010a43):
         draws multiple lines in the output device at once.
         """
     @abstractmethod
-    def drawPolyPolygon(self, DataX: 'typing.Tuple[typing.Tuple[int, ...]]', DataY: 'typing.Tuple[typing.Tuple[int, ...]]') -> None:
+    def drawPolyPolygon(self, DataX: 'typing.Tuple[typing.Tuple[int, ...], ...]', DataY: 'typing.Tuple[typing.Tuple[int, ...], ...]') -> None:
         """
         draws multiple polygons in the output device at once.
         """
@@ -193,6 +193,7 @@ class XGraphics(XInterface_8f010a43):
         """
         sets the fill color used by text operations.
         """
+
 
 __all__ = ['XGraphics']
 

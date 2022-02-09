@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.sax import FastToken
+    from com.sun.star.xml.sax import FastToken as FastToken
 else:
     from ....lo.xml.sax.fast_token import FastToken as FastToken
 

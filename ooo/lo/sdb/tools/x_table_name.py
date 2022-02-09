@@ -89,5 +89,6 @@ class XTableName(ABC):
         denotes the mere, unqualified table name, excluding any catalog and schema.
         """
 
+
 __all__ = ['XTableName']
 

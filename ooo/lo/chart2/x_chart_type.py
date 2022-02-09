@@ -79,5 +79,6 @@ class XChartType(XInterface_8f010a43):
         An example for a property mapping role is FillColor.
         """
 
+
 __all__ = ['XChartType']
 

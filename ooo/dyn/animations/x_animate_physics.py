@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import XAnimatePhysics
+    from com.sun.star.animations import XAnimatePhysics as XAnimatePhysics
     setattr(XAnimatePhysics, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XAnimatePhysics, '__ooo_full_ns__', 'com.sun.star.animations.XAnimatePhysics')
     setattr(XAnimatePhysics, '__ooo_type_name__', 'interface')

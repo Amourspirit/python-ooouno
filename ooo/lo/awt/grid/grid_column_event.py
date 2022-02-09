@@ -40,6 +40,7 @@ class GridColumnEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.grid.GridColumnEvent'
     """Literal Constant ``com.sun.star.awt.grid.GridColumnEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -77,7 +78,6 @@ class GridColumnEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def AttributeName(self) -> str:

@@ -34,6 +34,7 @@ class ValuePair(object):
     typeName: str = 'com.sun.star.animations.ValuePair'
     """Literal Constant ``com.sun.star.animations.ValuePair``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,9 +69,10 @@ class ValuePair(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def First(self) -> object:
+        """
+        """
         return self._first
     
     @First.setter
@@ -79,6 +81,8 @@ class ValuePair(object):
 
     @property
     def Second(self) -> object:
+        """
+        """
         return self._second
     
     @Second.setter

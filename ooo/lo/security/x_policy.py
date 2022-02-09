@@ -54,5 +54,6 @@ class XPolicy(XInterface_8f010a43):
         Refreshes the policy configuration.
         """
 
+
 __all__ = ['XPolicy']
 

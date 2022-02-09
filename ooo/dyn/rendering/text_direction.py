@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import TextDirection
+    from com.sun.star.rendering import TextDirection as TextDirection
 else:
     from ...lo.rendering.text_direction import TextDirection as TextDirection
 

@@ -61,5 +61,6 @@ class XSessionManagerListener(XEventListener_c7230c4a):
         No further interaction is necessary and further calls on the session manager client service object will be ignored.
         """
 
+
 __all__ = ['XSessionManagerListener']
 

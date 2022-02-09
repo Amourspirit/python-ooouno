@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import XUnitConversion
+    from com.sun.star.awt import XUnitConversion as XUnitConversion
     setattr(XUnitConversion, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XUnitConversion, '__ooo_full_ns__', 'com.sun.star.awt.XUnitConversion')
     setattr(XUnitConversion, '__ooo_type_name__', 'interface')

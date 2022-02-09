@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import ShadingPattern
+    from com.sun.star.drawing import ShadingPattern as ShadingPattern
 else:
     from ...lo.drawing.shading_pattern import ShadingPattern as ShadingPattern
 

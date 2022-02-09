@@ -79,5 +79,6 @@ class XMultiSelectionSupplier(XSelectionSupplier_fed20e15):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XMultiSelectionSupplier']
 

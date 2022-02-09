@@ -45,6 +45,7 @@ class DocumentSignatureInformation(object):
     typeName: str = 'com.sun.star.security.DocumentSignatureInformation'
     """Literal Constant ``com.sun.star.security.DocumentSignatureInformation``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -93,9 +94,10 @@ class DocumentSignatureInformation(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Signer(self) -> 'XCertificate_e55b0d3b':
+        """
+        """
         return self._signer
     
     @Signer.setter
@@ -104,6 +106,8 @@ class DocumentSignatureInformation(object):
 
     @property
     def SignatureDate(self) -> int:
+        """
+        """
         return self._signature_date
     
     @SignatureDate.setter
@@ -123,6 +127,8 @@ class DocumentSignatureInformation(object):
 
     @property
     def SignatureIsValid(self) -> bool:
+        """
+        """
         return self._signature_is_valid
     
     @SignatureIsValid.setter

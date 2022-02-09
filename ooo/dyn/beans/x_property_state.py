@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import XPropertyState
+    from com.sun.star.beans import XPropertyState as XPropertyState
     setattr(XPropertyState, '__ooo_ns__', 'com.sun.star.beans')
     setattr(XPropertyState, '__ooo_full_ns__', 'com.sun.star.beans.XPropertyState')
     setattr(XPropertyState, '__ooo_type_name__', 'interface')

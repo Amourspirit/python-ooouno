@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XEnhancedCustomShapeDefaulter
+    from com.sun.star.drawing import XEnhancedCustomShapeDefaulter as XEnhancedCustomShapeDefaulter
     setattr(XEnhancedCustomShapeDefaulter, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XEnhancedCustomShapeDefaulter, '__ooo_full_ns__', 'com.sun.star.drawing.XEnhancedCustomShapeDefaulter')
     setattr(XEnhancedCustomShapeDefaulter, '__ooo_type_name__', 'interface')

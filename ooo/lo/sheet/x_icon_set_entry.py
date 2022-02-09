@@ -50,5 +50,6 @@ class XIconSetEntry(ABC):
         See com.sun.star.sheet.IconSetEntryType for possible values.
         """
 
+
 __all__ = ['XIconSetEntry']
 

@@ -38,7 +38,7 @@ class ModuleSizeExceededRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.script.ModuleSizeExceededRequest'
     """Literal Constant ``com.sun.star.script.ModuleSizeExceededRequest``"""
 
-    Names: 'typing.Tuple[str, ...]' = None
+    Names: typing.TypeAlias = typing.Tuple[str, ...]
     """
     The name of the modules that exceed size that can be stored.
     """

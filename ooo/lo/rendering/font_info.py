@@ -43,6 +43,7 @@ class FontInfo(object):
     typeName: str = 'com.sun.star.rendering.FontInfo'
     """Literal Constant ``com.sun.star.rendering.FontInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -90,7 +91,6 @@ class FontInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def FontDescription(self) -> 'Panose_a6bc0b2c':
@@ -150,6 +150,8 @@ class FontInfo(object):
 
     @property
     def UnicodeRanges1(self) -> int:
+        """
+        """
         return self._unicode_ranges1
     
     @UnicodeRanges1.setter
@@ -158,6 +160,8 @@ class FontInfo(object):
 
     @property
     def UnicodeRanges2(self) -> int:
+        """
+        """
         return self._unicode_ranges2
     
     @UnicodeRanges2.setter
@@ -166,6 +170,8 @@ class FontInfo(object):
 
     @property
     def UnicodeRanges3(self) -> int:
+        """
+        """
         return self._unicode_ranges3
     
     @UnicodeRanges3.setter

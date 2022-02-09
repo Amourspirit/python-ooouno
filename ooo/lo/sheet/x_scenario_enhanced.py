@@ -46,5 +46,6 @@ class XScenarioEnhanced(XInterface_8f010a43):
         gets the ranges to the scenario.
         """
 
+
 __all__ = ['XScenarioEnhanced']
 

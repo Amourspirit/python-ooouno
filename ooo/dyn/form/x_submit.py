@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import XSubmit
+    from com.sun.star.form import XSubmit as XSubmit
     setattr(XSubmit, '__ooo_ns__', 'com.sun.star.form')
     setattr(XSubmit, '__ooo_full_ns__', 'com.sun.star.form.XSubmit')
     setattr(XSubmit, '__ooo_type_name__', 'interface')

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import LineEndFormat
+    from com.sun.star.awt import LineEndFormat as LineEndFormat
 else:
     from ...lo.awt.line_end_format import LineEndFormat as LineEndFormat
 

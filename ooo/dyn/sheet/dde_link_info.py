@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Service', 'Topic', 'Items')
+            key_order = ('Service', 'Topic')
             struct = uno.createUnoStruct('com.sun.star.sheet.DDELinkInfo')
             if arg_len > len(key_order):
                 raise ValueError("DDELinkInfo.__init__() To many parameters")

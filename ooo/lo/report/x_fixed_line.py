@@ -68,5 +68,6 @@ class XFixedLine(XReportControlModel_2d800f4a):
         specifies the orientation of the control.
         """
 
+
 __all__ = ['XFixedLine']
 

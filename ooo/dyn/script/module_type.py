@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import ModuleType
+    from com.sun.star.script import ModuleType as ModuleType
 else:
     from ...lo.script.module_type import ModuleType as ModuleType
 

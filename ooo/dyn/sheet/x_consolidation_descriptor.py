@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XConsolidationDescriptor
+    from com.sun.star.sheet import XConsolidationDescriptor as XConsolidationDescriptor
     setattr(XConsolidationDescriptor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XConsolidationDescriptor, '__ooo_full_ns__', 'com.sun.star.sheet.XConsolidationDescriptor')
     setattr(XConsolidationDescriptor, '__ooo_type_name__', 'interface')

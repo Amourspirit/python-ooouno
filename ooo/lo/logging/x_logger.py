@@ -83,5 +83,6 @@ class XLogger(ABC):
         denotes the name of the logger.
         """
 
+
 __all__ = ['XLogger']
 

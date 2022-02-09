@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import EntryInitModes
+    from com.sun.star.embed import EntryInitModes as EntryInitModes
 else:
     from ...lo.embed.entry_init_modes import EntryInitModes as EntryInitModes
 

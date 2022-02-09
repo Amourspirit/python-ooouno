@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.system import XSystemShellExecute
+    from com.sun.star.system import XSystemShellExecute as XSystemShellExecute
     setattr(XSystemShellExecute, '__ooo_ns__', 'com.sun.star.system')
     setattr(XSystemShellExecute, '__ooo_full_ns__', 'com.sun.star.system.XSystemShellExecute')
     setattr(XSystemShellExecute, '__ooo_type_name__', 'interface')

@@ -53,5 +53,6 @@ class XLockable(ABC):
             NotLockedException: ``NotLockedException``
         """
 
+
 __all__ = ['XLockable']
 

@@ -35,6 +35,7 @@ class GoalResult(object):
     typeName: str = 'com.sun.star.sheet.GoalResult'
     """Literal Constant ``com.sun.star.sheet.GoalResult``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,7 +69,6 @@ class GoalResult(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Divergence(self) -> float:

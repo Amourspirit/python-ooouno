@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XExternalSheetCache
+    from com.sun.star.sheet import XExternalSheetCache as XExternalSheetCache
     setattr(XExternalSheetCache, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XExternalSheetCache, '__ooo_full_ns__', 'com.sun.star.sheet.XExternalSheetCache')
     setattr(XExternalSheetCache, '__ooo_type_name__', 'interface')

@@ -38,6 +38,7 @@ class LineDash(object):
     typeName: str = 'com.sun.star.drawing.LineDash'
     """Literal Constant ``com.sun.star.drawing.LineDash``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -79,7 +80,6 @@ class LineDash(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Style(self) -> 'DashStyle_b10d0b85':

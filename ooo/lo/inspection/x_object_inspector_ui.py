@@ -122,5 +122,6 @@ class XObjectInspectorUI(ABC):
         shows the UI for a given property
         """
 
+
 __all__ = ['XObjectInspectorUI']
 

@@ -64,5 +64,6 @@ class XCloseListener(XEventListener_c7230c4a):
             CloseVetoException: ``CloseVetoException``
         """
 
+
 __all__ = ['XCloseListener']
 

@@ -138,5 +138,6 @@ class XSlideShowView(XInterface_8f010a43):
         This method changes the mouse cursor currently in effect, for this view.
         """
 
+
 __all__ = ['XSlideShowView']
 

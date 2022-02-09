@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleRole
+    from com.sun.star.accessibility import AccessibleRole as AccessibleRole
 else:
     from ...lo.accessibility.accessible_role import AccessibleRole as AccessibleRole
 

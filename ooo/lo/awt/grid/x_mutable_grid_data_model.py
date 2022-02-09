@@ -47,7 +47,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         appends a row to the model.
         """
     @abstractmethod
-    def addRows(self, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def addRows(self, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         appends multiple rows of data to the model.
 
@@ -63,7 +63,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
     @abstractmethod
-    def insertRows(self, Index: int, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...]]') -> None:
+    def insertRows(self, Index: int, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         inserts multiple rows of data into the model.
 
@@ -134,6 +134,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+
 
 __all__ = ['XMutableGridDataModel']
 

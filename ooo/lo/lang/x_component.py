@@ -76,5 +76,6 @@ class XComponent(XInterface_8f010a43):
         If this XComponent is already disposed when XComponent.removeEventListener() is called, the call will not fail with a DisposedException, but will rather be ignored silently.
         """
 
+
 __all__ = ['XComponent']
 

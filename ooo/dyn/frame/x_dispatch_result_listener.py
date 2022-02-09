@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XDispatchResultListener
+    from com.sun.star.frame import XDispatchResultListener as XDispatchResultListener
     setattr(XDispatchResultListener, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XDispatchResultListener, '__ooo_full_ns__', 'com.sun.star.frame.XDispatchResultListener')
     setattr(XDispatchResultListener, '__ooo_type_name__', 'interface')

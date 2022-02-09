@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import ImageStatus
+    from com.sun.star.awt import ImageStatus as ImageStatus
 else:
     from ...lo.awt.image_status import ImageStatus as ImageStatus
 

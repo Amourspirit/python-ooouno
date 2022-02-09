@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XTransactionBroadcaster
+    from com.sun.star.embed import XTransactionBroadcaster as XTransactionBroadcaster
     setattr(XTransactionBroadcaster, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XTransactionBroadcaster, '__ooo_full_ns__', 'com.sun.star.embed.XTransactionBroadcaster')
     setattr(XTransactionBroadcaster, '__ooo_type_name__', 'interface')

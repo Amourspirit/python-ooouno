@@ -72,5 +72,6 @@ class XSidebarProvider(XInterface_8f010a43):
         Decks container visibility.
         """
 
+
 __all__ = ['XSidebarProvider']
 

@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('HandleFolder', 'Rules')
+            key_order = ('HandleFolder',)
             struct = uno.createUnoStruct('com.sun.star.ucb.RuleSet')
             if arg_len > len(key_order):
                 raise ValueError("RuleSet.__init__() To many parameters")

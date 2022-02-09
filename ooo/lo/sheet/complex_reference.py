@@ -38,6 +38,7 @@ class ComplexReference(object):
     typeName: str = 'com.sun.star.sheet.ComplexReference'
     """Literal Constant ``com.sun.star.sheet.ComplexReference``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ComplexReference(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Reference1(self) -> 'SingleReference_e27e0d12':

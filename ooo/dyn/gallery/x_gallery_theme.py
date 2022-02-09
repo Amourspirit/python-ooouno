@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.gallery import XGalleryTheme
+    from com.sun.star.gallery import XGalleryTheme as XGalleryTheme
     setattr(XGalleryTheme, '__ooo_ns__', 'com.sun.star.gallery')
     setattr(XGalleryTheme, '__ooo_full_ns__', 'com.sun.star.gallery.XGalleryTheme')
     setattr(XGalleryTheme, '__ooo_type_name__', 'interface')

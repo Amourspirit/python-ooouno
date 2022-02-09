@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import XGraphicDevice
+    from com.sun.star.rendering import XGraphicDevice as XGraphicDevice
     setattr(XGraphicDevice, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XGraphicDevice, '__ooo_full_ns__', 'com.sun.star.rendering.XGraphicDevice')
     setattr(XGraphicDevice, '__ooo_type_name__', 'interface')

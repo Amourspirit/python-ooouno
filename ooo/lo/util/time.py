@@ -39,6 +39,7 @@ class Time(object):
     typeName: str = 'com.sun.star.util.Time'
     """Literal Constant ``com.sun.star.util.Time``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class Time(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def NanoSeconds(self) -> int:

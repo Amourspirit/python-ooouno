@@ -46,5 +46,6 @@ class XNodeList(XInterface_8f010a43):
         Returns a node specified by index in the collection.
         """
 
+
 __all__ = ['XNodeList']
 

@@ -19,9 +19,9 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 import typing
+from .folder_list_entry import FolderListEntry as FolderListEntry_c6c30c4c
 if typing.TYPE_CHECKING:
     from .folder_list_command import FolderListCommand as FolderListCommand_e0140cf9
-    from .folder_list_entry import FolderListEntry as FolderListEntry_c6c30c4c
 
 
 class FolderList(object):
@@ -39,6 +39,11 @@ class FolderList(object):
     typeName: str = 'com.sun.star.ucb.FolderList'
     """Literal Constant ``com.sun.star.ucb.FolderList``"""
 
+    List: typing.TypeAlias = typing.Tuple[FolderListEntry_c6c30c4c, ...]
+    """
+    The list of folders (only used in conjunction with FolderListCommand.SET).
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -51,12 +56,10 @@ class FolderList(object):
 
         Keyword Arguments:
             Command (FolderListCommand, optional): Command value
-            List (Tuple[FolderListEntry, ...], optional): List value
         """
         self._command = None
-        self._list = None
 
-        key_order = ('Command', 'List')
+        key_order = ('Command',)
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], FolderList):
@@ -73,7 +76,6 @@ class FolderList(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Command(self) -> 'FolderListCommand_e0140cf9':
         """
@@ -84,17 +86,6 @@ class FolderList(object):
     @Command.setter
     def Command(self, value: 'FolderListCommand_e0140cf9') -> None:
         self._command = value
-
-    @property
-    def List(self) -> 'typing.Tuple[FolderListEntry_c6c30c4c, ...]':
-        """
-        The list of folders (only used in conjunction with FolderListCommand.SET).
-        """
-        return self._list
-    
-    @List.setter
-    def List(self, value: 'typing.Tuple[FolderListEntry_c6c30c4c, ...]') -> None:
-        self._list = value
 
 
 __all__ = ['FolderList']

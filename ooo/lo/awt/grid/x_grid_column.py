@@ -130,5 +130,6 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         A title is displayed in the column header row if UnoControlGridModel.ShowColumnHeader() is set to TRUE
         """
 
+
 __all__ = ['XGridColumn']
 

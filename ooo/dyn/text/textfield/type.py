@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text.textfield import Type
+    from com.sun.star.text.textfield import Type as Type
 else:
     from ....lo.text.textfield.type import Type as Type
 

@@ -265,5 +265,6 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         Only Scripting content will be checked.
         """
 
+
 __all__ = ['XDocumentDigitalSignatures']
 

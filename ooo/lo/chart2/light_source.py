@@ -37,6 +37,7 @@ class LightSource(object):
     typeName: str = 'com.sun.star.chart2.LightSource'
     """Literal Constant ``com.sun.star.chart2.LightSource``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -75,7 +76,6 @@ class LightSource(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def nDiffuseColor(self) -> int:
         """
@@ -100,6 +100,8 @@ class LightSource(object):
 
     @property
     def bIsEnabled(self) -> bool:
+        """
+        """
         return self._b_is_enabled
     
     @bIsEnabled.setter

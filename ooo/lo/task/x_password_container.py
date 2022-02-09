@@ -78,5 +78,6 @@ class XPasswordContainer(XInterface_8f010a43):
         Remove passwords for the url pattern and username from the file.
         """
 
+
 __all__ = ['XPasswordContainer']
 

@@ -42,5 +42,6 @@ class XJobListener(XEventListener_c7230c4a):
         indicates that the job is done
         """
 
+
 __all__ = ['XJobListener']
 

@@ -62,5 +62,6 @@ class XExtendedTransliteration(XTransliteration_daf70ce3):
         The functionality is the same as com.sun.star.i18n.XTransliteration.transliterate() but omits the offset parameter to improve performance.
         """
 
+
 __all__ = ['XExtendedTransliteration']
 

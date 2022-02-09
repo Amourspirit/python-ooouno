@@ -40,7 +40,7 @@ class XTextConvert(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.text.XTextConvert'
 
     @abstractmethod
-    def convertToTable(self, TableRanges: 'typing.Tuple[object]', CellProperties: 'typing.Tuple[typing.Tuple[PropertyValues_d6470ce6, ...]]', RowProperties: 'typing.Tuple[PropertyValues_d6470ce6, ...]', TableProperties: 'PropertyValues_d6470ce6') -> 'XTextTable_9a810ab2':
+    def convertToTable(self, TableRanges: 'typing.Tuple[object, ...]', CellProperties: 'typing.Tuple[typing.Tuple[PropertyValues_d6470ce6, ...], ...]', RowProperties: 'typing.Tuple[PropertyValues_d6470ce6, ...]', TableProperties: 'PropertyValues_d6470ce6') -> 'XTextTable_9a810ab2':
         """
         converts the paragraphs marked in TableRanges into a table.
         
@@ -60,6 +60,7 @@ class XTextConvert(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
+
 
 __all__ = ['XTextConvert']
 

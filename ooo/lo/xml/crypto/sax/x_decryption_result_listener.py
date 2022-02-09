@@ -44,5 +44,6 @@ class XDecryptionResultListener(XInterface_8f010a43):
         Notifies the decryption result.
         """
 
+
 __all__ = ['XDecryptionResultListener']
 

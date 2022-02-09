@@ -37,5 +37,6 @@ class XParallelTimeContainer(XTimeContainer_1cca0ec5, XEnumerationAccess_4bac0ff
     __pyunointerface__: str = 'com.sun.star.animations.XParallelTimeContainer'
 
 
+
 __all__ = ['XParallelTimeContainer']
 

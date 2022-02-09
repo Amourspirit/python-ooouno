@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked', 'Image')
+            key_order = ('ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked')
             struct = uno.createUnoStruct('com.sun.star.mozilla.MenuMultipleChange')
             if arg_len > len(key_order):
                 raise ValueError("MenuMultipleChange.__init__() To many parameters")

@@ -78,5 +78,6 @@ class XPrinterPropertySet(XPropertySet_bc180bfa):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['XPrinterPropertySet']
 

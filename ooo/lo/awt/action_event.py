@@ -40,6 +40,7 @@ class ActionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.ActionEvent'
     """Literal Constant ``com.sun.star.awt.ActionEvent``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -71,7 +72,6 @@ class ActionEvent(EventObject_a3d70b03):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def ActionCommand(self) -> str:

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import RenderingIntent
+    from com.sun.star.rendering import RenderingIntent as RenderingIntent
 else:
     from ...lo.rendering.rendering_intent import RenderingIntent as RenderingIntent
 

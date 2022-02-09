@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import XNumberingTypeInfo
+    from com.sun.star.text import XNumberingTypeInfo as XNumberingTypeInfo
     setattr(XNumberingTypeInfo, '__ooo_ns__', 'com.sun.star.text')
     setattr(XNumberingTypeInfo, '__ooo_full_ns__', 'com.sun.star.text.XNumberingTypeInfo')
     setattr(XNumberingTypeInfo, '__ooo_type_name__', 'interface')

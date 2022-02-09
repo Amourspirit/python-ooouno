@@ -21,12 +21,12 @@
 import typing
 from abc import abstractproperty
 from ..uno_control_model import UnoControlModel as UnoControlModel_c8ce0c58
+from ...util.color import Color as Color_68e908c5
 if typing.TYPE_CHECKING:
     from ..font_descriptor import FontDescriptor as FontDescriptor_bc110c0a
     from .x_grid_column_model import XGridColumnModel as XGridColumnModel_16290e65
     from .x_grid_data_model import XGridDataModel as XGridDataModel_f8b20d71
     from ...style.vertical_alignment import VerticalAlignment as VerticalAlignment_8d0e12
-    from ...util.color import Color as Color_68e908c5
     from ...view.selection_type import SelectionType as SelectionType_bd790c0b
 
 class UnoControlGridModel(UnoControlModel_c8ce0c58):
@@ -45,6 +45,17 @@ class UnoControlGridModel(UnoControlModel_c8ce0c58):
     __ooo_ns__: str = 'com.sun.star.awt.grid'
     __ooo_full_ns__: str = 'com.sun.star.awt.grid.UnoControlGridModel'
     __ooo_type_name__: str = 'service'
+
+    RowBackgroundColors: typing.TypeAlias = typing.Tuple[Color_68e908c5, ...]
+    """
+    specifies the colors to be used as background for data rows.
+    
+    If this sequence is non-empty, the data rows will be rendered with alternating background colors: Assuming the sequence has n elements, each row will use the background color as specified by its number's remainder modulo n.
+    
+    If this sequence is empty, all rows will use the same background color as the control as whole.
+    
+    If this property has a value of VOID, rows will be painted in alternating background colors, every second row having a background color derived from the control's selection color.
+    """
 
     @abstractproperty
     def ActiveSelectionBackgroundColor(self) -> 'Color_68e908c5':
@@ -232,17 +243,6 @@ class UnoControlGridModel(UnoControlModel_c8ce0c58):
     def VerticalAlign(self) -> 'VerticalAlignment_8d0e12':
         """
         specifies the vertical alignment of the content in the control.
-        """
-    @abstractproperty
-    def RowBackgroundColors(self) -> 'typing.Tuple[Color_68e908c5, ...]':
-        """
-        specifies the colors to be used as background for data rows.
-        
-        If this sequence is non-empty, the data rows will be rendered with alternating background colors: Assuming the sequence has n elements, each row will use the background color as specified by its number's remainder modulo n.
-        
-        If this sequence is empty, all rows will use the same background color as the control as whole.
-        
-        If this property has a value of VOID, rows will be painted in alternating background colors, every second row having a background color derived from the control's selection color.
         """
 
 __all__ = ['UnoControlGridModel']

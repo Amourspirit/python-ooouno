@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import XGrid
+    from com.sun.star.form import XGrid as XGrid
     setattr(XGrid, '__ooo_ns__', 'com.sun.star.form')
     setattr(XGrid, '__ooo_full_ns__', 'com.sun.star.form.XGrid')
     setattr(XGrid, '__ooo_type_name__', 'interface')

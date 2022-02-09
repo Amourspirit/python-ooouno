@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Command', 'Arguments')
+            key_order = ('Command',)
             struct = uno.createUnoStruct('com.sun.star.frame.ControlCommand')
             if arg_len > len(key_order):
                 raise ValueError("ControlCommand.__init__() To many parameters")

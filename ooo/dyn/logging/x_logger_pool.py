@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.logging import XLoggerPool
+    from com.sun.star.logging import XLoggerPool as XLoggerPool
     setattr(XLoggerPool, '__ooo_ns__', 'com.sun.star.logging')
     setattr(XLoggerPool, '__ooo_full_ns__', 'com.sun.star.logging.XLoggerPool')
     setattr(XLoggerPool, '__ooo_type_name__', 'interface')

@@ -74,5 +74,6 @@ class XWizardPage(XComponent_98dc0ab5):
         provides read-only access to the window of the page
         """
 
+
 __all__ = ['XWizardPage']
 

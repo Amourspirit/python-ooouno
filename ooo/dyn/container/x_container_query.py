@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.container import XContainerQuery
+    from com.sun.star.container import XContainerQuery as XContainerQuery
     setattr(XContainerQuery, '__ooo_ns__', 'com.sun.star.container')
     setattr(XContainerQuery, '__ooo_full_ns__', 'com.sun.star.container.XContainerQuery')
     setattr(XContainerQuery, '__ooo_type_name__', 'interface')

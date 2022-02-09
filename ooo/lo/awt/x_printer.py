@@ -81,5 +81,6 @@ class XPrinter(XPrinterPropertySet_ff190e21):
         If the method com.sun.star.awt.XPrinter.end() is called beforehand, then this call does nothing. If you call com.sun.star.awt.XPrinter.terminate() in or before the call to com.sun.star.awt.XPrinter.start(), com.sun.star.awt.XPrinter.terminate() returns FALSE. This call must not block the thread.
         """
 
+
 __all__ = ['XPrinter']
 

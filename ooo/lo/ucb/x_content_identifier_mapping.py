@@ -62,5 +62,6 @@ class XContentIdentifierMapping(XInterface_8f010a43):
         Map the content identifiers (or related data) contained in the columns of a com.sun.star.sdbc.XRow.
         """
 
+
 __all__ = ['XContentIdentifierMapping']
 

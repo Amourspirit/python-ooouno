@@ -186,5 +186,6 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         This can be overridden for individual nodes by XTreeNode.getExpandedGraphicURL()
         """
 
+
 __all__ = ['XTreeControl']
 

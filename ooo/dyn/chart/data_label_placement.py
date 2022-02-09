@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import DataLabelPlacement
+    from com.sun.star.chart import DataLabelPlacement as DataLabelPlacement
 else:
     from ...lo.chart.data_label_placement import DataLabelPlacement as DataLabelPlacement
 

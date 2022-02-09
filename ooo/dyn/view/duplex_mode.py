@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import DuplexMode
+    from com.sun.star.view import DuplexMode as DuplexMode
 else:
     from ...lo.view.duplex_mode import DuplexMode as DuplexMode
 

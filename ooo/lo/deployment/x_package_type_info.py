@@ -72,5 +72,6 @@ class XPackageTypeInfo(ABC):
             ExtensionRemovedException: ``ExtensionRemovedException``
         """
 
+
 __all__ = ['XPackageTypeInfo']
 

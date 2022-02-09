@@ -35,6 +35,7 @@ class NameToken(object):
     typeName: str = 'com.sun.star.sheet.NameToken'
     """Literal Constant ``com.sun.star.sheet.NameToken``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -69,9 +70,10 @@ class NameToken(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Index(self) -> int:
+        """
+        """
         return self._index
     
     @Index.setter
@@ -80,6 +82,8 @@ class NameToken(object):
 
     @property
     def Sheet(self) -> int:
+        """
+        """
         return self._sheet
     
     @Sheet.setter

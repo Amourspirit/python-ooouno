@@ -50,5 +50,6 @@ class XEnumTypeDescription(XTypeDescription_3c210fb1):
         Returns the enum member names.
         """
 
+
 __all__ = ['XEnumTypeDescription']
 

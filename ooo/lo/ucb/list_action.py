@@ -35,6 +35,7 @@ class ListAction(object):
     typeName: str = 'com.sun.star.ucb.ListAction'
     """Literal Constant ``com.sun.star.ucb.ListAction``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class ListAction(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Position(self) -> int:

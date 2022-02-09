@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import XGroupsSupplier
+    from com.sun.star.sdbcx import XGroupsSupplier as XGroupsSupplier
     setattr(XGroupsSupplier, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XGroupsSupplier, '__ooo_full_ns__', 'com.sun.star.sdbcx.XGroupsSupplier')
     setattr(XGroupsSupplier, '__ooo_type_name__', 'interface')

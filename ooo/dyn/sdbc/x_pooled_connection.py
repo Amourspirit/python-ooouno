@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import XPooledConnection
+    from com.sun.star.sdbc import XPooledConnection as XPooledConnection
     setattr(XPooledConnection, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XPooledConnection, '__ooo_full_ns__', 'com.sun.star.sdbc.XPooledConnection')
     setattr(XPooledConnection, '__ooo_type_name__', 'interface')

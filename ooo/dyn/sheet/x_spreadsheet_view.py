@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import XSpreadsheetView
+    from com.sun.star.sheet import XSpreadsheetView as XSpreadsheetView
     setattr(XSpreadsheetView, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSpreadsheetView, '__ooo_full_ns__', 'com.sun.star.sheet.XSpreadsheetView')
     setattr(XSpreadsheetView, '__ooo_type_name__', 'interface')

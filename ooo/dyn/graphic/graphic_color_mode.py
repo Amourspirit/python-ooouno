@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.graphic import GraphicColorMode
+    from com.sun.star.graphic import GraphicColorMode as GraphicColorMode
 else:
     from ...lo.graphic.graphic_color_mode import GraphicColorMode as GraphicColorMode
 

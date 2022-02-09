@@ -50,5 +50,6 @@ class XDataBarEntry(ABC):
         See com.sun.star.sheet.DataBarEntryType for possible values.
         """
 
+
 __all__ = ['XDataBarEntry']
 

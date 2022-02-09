@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('aCommand', 'aTarget', 'nFlags', 'bIsComment', 'aArgs')
+            key_order = ('aCommand', 'aTarget', 'nFlags', 'bIsComment')
             struct = uno.createUnoStruct('com.sun.star.frame.DispatchStatement')
             if arg_len > len(key_order):
                 raise ValueError("DispatchStatement.__init__() To many parameters")

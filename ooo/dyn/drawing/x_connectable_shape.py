@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import XConnectableShape
+    from com.sun.star.drawing import XConnectableShape as XConnectableShape
     setattr(XConnectableShape, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XConnectableShape, '__ooo_full_ns__', 'com.sun.star.drawing.XConnectableShape')
     setattr(XConnectableShape, '__ooo_type_name__', 'interface')

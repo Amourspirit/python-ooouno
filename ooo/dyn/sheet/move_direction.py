@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import MoveDirection
+    from com.sun.star.sheet import MoveDirection as MoveDirection
 else:
     from ...lo.sheet.move_direction import MoveDirection as MoveDirection
 

@@ -73,5 +73,6 @@ class XListEntrySource(XInterface_8f010a43):
             com.sun.star.lang.NullPointerException: ``NullPointerException``
         """
 
+
 __all__ = ['XListEntrySource']
 

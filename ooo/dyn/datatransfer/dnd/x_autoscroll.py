@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import XAutoscroll
+    from com.sun.star.datatransfer.dnd import XAutoscroll as XAutoscroll
     setattr(XAutoscroll, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
     setattr(XAutoscroll, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XAutoscroll')
     setattr(XAutoscroll, '__ooo_type_name__', 'interface')

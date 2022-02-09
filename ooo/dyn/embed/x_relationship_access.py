@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import XRelationshipAccess
+    from com.sun.star.embed import XRelationshipAccess as XRelationshipAccess
     setattr(XRelationshipAccess, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XRelationshipAccess, '__ooo_full_ns__', 'com.sun.star.embed.XRelationshipAccess')
     setattr(XRelationshipAccess, '__ooo_type_name__', 'interface')

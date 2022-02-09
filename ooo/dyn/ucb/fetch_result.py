@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('StartIndex', 'Orientation', 'FetchError', 'Rows')
+            key_order = ('StartIndex', 'Orientation', 'FetchError')
             struct = uno.createUnoStruct('com.sun.star.ucb.FetchResult')
             if arg_len > len(key_order):
                 raise ValueError("FetchResult.__init__() To many parameters")

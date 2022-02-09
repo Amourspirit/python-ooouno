@@ -75,5 +75,6 @@ class XDataType(XPropertySet_bc180bfa):
         See http://www.w3.org/TR/xmlschema-2/#rf-whiteSpace
         """
 
+
 __all__ = ['XDataType']
 

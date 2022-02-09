@@ -35,6 +35,7 @@ class SingleReference(object):
     typeName: str = 'com.sun.star.sheet.SingleReference'
     """Literal Constant ``com.sun.star.sheet.SingleReference``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -78,7 +79,6 @@ class SingleReference(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Column(self) -> int:

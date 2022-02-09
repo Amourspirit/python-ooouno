@@ -79,5 +79,6 @@ class XAttributes(XInterface_8f010a43):
         For convenience: Gets the value of an attribute passing uid, local name.
         """
 
+
 __all__ = ['XAttributes']
 

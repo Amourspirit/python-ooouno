@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import XUIConfigurationManagerSupplier
+    from com.sun.star.ui import XUIConfigurationManagerSupplier as XUIConfigurationManagerSupplier
     setattr(XUIConfigurationManagerSupplier, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XUIConfigurationManagerSupplier, '__ooo_full_ns__', 'com.sun.star.ui.XUIConfigurationManagerSupplier')
     setattr(XUIConfigurationManagerSupplier, '__ooo_type_name__', 'interface')

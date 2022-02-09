@@ -53,5 +53,6 @@ class XSheetFilterDescriptor2(XInterface_8f010a43):
         sets a new collection of filter fields.
         """
 
+
 __all__ = ['XSheetFilterDescriptor2']
 

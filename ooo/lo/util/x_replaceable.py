@@ -50,5 +50,6 @@ class XReplaceable(XSearchable_a4e80b08):
         searches for all occurrences of whatever is specified.
         """
 
+
 __all__ = ['XReplaceable']
 

@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import XSQLErrorBroadcaster
+    from com.sun.star.sdb import XSQLErrorBroadcaster as XSQLErrorBroadcaster
     setattr(XSQLErrorBroadcaster, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XSQLErrorBroadcaster, '__ooo_full_ns__', 'com.sun.star.sdb.XSQLErrorBroadcaster')
     setattr(XSQLErrorBroadcaster, '__ooo_type_name__', 'interface')

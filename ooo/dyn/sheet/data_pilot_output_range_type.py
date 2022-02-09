@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotOutputRangeType
+    from com.sun.star.sheet import DataPilotOutputRangeType as DataPilotOutputRangeType
 else:
     from ...lo.sheet.data_pilot_output_range_type import DataPilotOutputRangeType as DataPilotOutputRangeType
 

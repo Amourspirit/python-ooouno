@@ -44,5 +44,6 @@ class XTitle(XInterface_8f010a43):
         Sets the title of the object.
         """
 
+
 __all__ = ['XTitle']
 

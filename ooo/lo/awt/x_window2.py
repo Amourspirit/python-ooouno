@@ -69,5 +69,6 @@ class XWindow2(XWindow_713b0924):
         sets the inner bounds of the window, also known as the client size
         """
 
+
 __all__ = ['XWindow2']
 

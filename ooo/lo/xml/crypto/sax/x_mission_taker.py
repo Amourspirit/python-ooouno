@@ -41,5 +41,6 @@ class XMissionTaker(XInterface_8f010a43):
         Forces a mission to make an end.
         """
 
+
 __all__ = ['XMissionTaker']
 

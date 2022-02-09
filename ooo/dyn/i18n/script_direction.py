@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import ScriptDirection
+    from com.sun.star.i18n import ScriptDirection as ScriptDirection
 else:
     from ...lo.i18n.script_direction import ScriptDirection as ScriptDirection
 

@@ -152,5 +152,6 @@ class XListBox(XInterface_8f010a43):
         determines if only a single item or multiple items can be selected.
         """
 
+
 __all__ = ['XListBox']
 

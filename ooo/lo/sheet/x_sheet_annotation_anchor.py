@@ -42,5 +42,6 @@ class XSheetAnnotationAnchor(XInterface_8f010a43):
         returns the annotation at this anchor.
         """
 
+
 __all__ = ['XSheetAnnotationAnchor']
 

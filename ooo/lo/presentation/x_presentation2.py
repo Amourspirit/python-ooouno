@@ -60,5 +60,6 @@ class XPresentation2(XPropertySet_bc180bfa, XPresentation_30890f78):
         All arguments override the values from Presentation.
         """
 
+
 __all__ = ['XPresentation2']
 

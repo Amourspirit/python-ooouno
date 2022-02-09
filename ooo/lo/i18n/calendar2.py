@@ -19,8 +19,7 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 import typing
-if typing.TYPE_CHECKING:
-    from .calendar_item2 import CalendarItem2 as CalendarItem2_b38f0b23
+from .calendar_item2 import CalendarItem2 as CalendarItem2_b38f0b23
 
 
 class Calendar2(object):
@@ -46,6 +45,27 @@ class Calendar2(object):
     typeName: str = 'com.sun.star.i18n.Calendar2'
     """Literal Constant ``com.sun.star.i18n.Calendar2``"""
 
+    Days: typing.TypeAlias = typing.Tuple[CalendarItem2_b38f0b23, ...]
+    """
+    The days of the week.
+    """
+    Months: typing.TypeAlias = typing.Tuple[CalendarItem2_b38f0b23, ...]
+    """
+    The months of the year.
+    """
+    GenitiveMonths: typing.TypeAlias = typing.Tuple[CalendarItem2_b38f0b23, ...]
+    """
+    The months of the year in possessive genitive case.
+    """
+    PartitiveMonths: typing.TypeAlias = typing.Tuple[CalendarItem2_b38f0b23, ...]
+    """
+    The months of the year in partitive case.
+    """
+    Eras: typing.TypeAlias = typing.Tuple[CalendarItem2_b38f0b23, ...]
+    """
+    The possible eras.
+    """
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -61,23 +81,13 @@ class Calendar2(object):
             MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value
             Default (bool, optional): Default value
             Name (str, optional): Name value
-            Days (Tuple[CalendarItem2, ...], optional): Days value
-            Months (Tuple[CalendarItem2, ...], optional): Months value
-            GenitiveMonths (Tuple[CalendarItem2, ...], optional): GenitiveMonths value
-            PartitiveMonths (Tuple[CalendarItem2, ...], optional): PartitiveMonths value
-            Eras (Tuple[CalendarItem2, ...], optional): Eras value
         """
         self._start_of_week = None
         self._minimum_number_of_days_for_first_week = None
         self._default = None
         self._name = None
-        self._days = None
-        self._months = None
-        self._genitive_months = None
-        self._partitive_months = None
-        self._eras = None
 
-        key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name', 'Days', 'Months', 'GenitiveMonths', 'PartitiveMonths', 'Eras')
+        key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name')
         arg_len = len(args)
         if arg_len == 1:
             if isinstance(args[0], Calendar2):
@@ -93,7 +103,6 @@ class Calendar2(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def StartOfWeek(self) -> str:
@@ -138,61 +147,6 @@ class Calendar2(object):
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
-
-    @property
-    def Days(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
-        """
-        The days of the week.
-        """
-        return self._days
-    
-    @Days.setter
-    def Days(self, value: 'typing.Tuple[CalendarItem2_b38f0b23, ...]') -> None:
-        self._days = value
-
-    @property
-    def Months(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
-        """
-        The months of the year.
-        """
-        return self._months
-    
-    @Months.setter
-    def Months(self, value: 'typing.Tuple[CalendarItem2_b38f0b23, ...]') -> None:
-        self._months = value
-
-    @property
-    def GenitiveMonths(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
-        """
-        The months of the year in possessive genitive case.
-        """
-        return self._genitive_months
-    
-    @GenitiveMonths.setter
-    def GenitiveMonths(self, value: 'typing.Tuple[CalendarItem2_b38f0b23, ...]') -> None:
-        self._genitive_months = value
-
-    @property
-    def PartitiveMonths(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
-        """
-        The months of the year in partitive case.
-        """
-        return self._partitive_months
-    
-    @PartitiveMonths.setter
-    def PartitiveMonths(self, value: 'typing.Tuple[CalendarItem2_b38f0b23, ...]') -> None:
-        self._partitive_months = value
-
-    @property
-    def Eras(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
-        """
-        The possible eras.
-        """
-        return self._eras
-    
-    @Eras.setter
-    def Eras(self, value: 'typing.Tuple[CalendarItem2_b38f0b23, ...]') -> None:
-        self._eras = value
 
 
 __all__ = ['Calendar2']

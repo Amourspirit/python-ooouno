@@ -51,5 +51,6 @@ class XFormControllerListener(XEventListener_c7230c4a):
         In other words, no control of the controller owns the focus.
         """
 
+
 __all__ = ['XFormControllerListener']
 

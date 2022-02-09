@@ -39,6 +39,7 @@ class ParamInfo(object):
     typeName: str = 'com.sun.star.reflection.ParamInfo'
     """Literal Constant ``com.sun.star.reflection.ParamInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class ParamInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def aName(self) -> str:

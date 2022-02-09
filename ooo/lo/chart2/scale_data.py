@@ -41,6 +41,7 @@ class ScaleData(object):
     typeName: str = 'com.sun.star.chart2.ScaleData'
     """Literal Constant ``com.sun.star.chart2.ScaleData``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -92,7 +93,6 @@ class ScaleData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Minimum(self) -> object:
@@ -154,6 +154,8 @@ class ScaleData(object):
 
     @property
     def Scaling(self) -> 'XScaling_97500a65':
+        """
+        """
         return self._scaling
     
     @Scaling.setter
@@ -162,6 +164,8 @@ class ScaleData(object):
 
     @property
     def Categories(self) -> 'XLabeledDataSequence_7e1a10c8':
+        """
+        """
         return self._categories
     
     @Categories.setter

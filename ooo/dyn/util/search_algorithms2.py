@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import SearchAlgorithms2
+    from com.sun.star.util import SearchAlgorithms2 as SearchAlgorithms2
 else:
     from ...lo.util.search_algorithms2 import SearchAlgorithms2 as SearchAlgorithms2
 

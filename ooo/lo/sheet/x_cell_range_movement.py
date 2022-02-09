@@ -66,5 +66,6 @@ class XCellRangeMovement(XInterface_8f010a43):
         deletes cells, moving other cells up or left.
         """
 
+
 __all__ = ['XCellRangeMovement']
 

@@ -35,6 +35,7 @@ class PropertyInfo(object):
     typeName: str = 'com.sun.star.configuration.backend.PropertyInfo'
     """Literal Constant ``com.sun.star.configuration.backend.PropertyInfo``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -72,7 +73,6 @@ class PropertyInfo(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Name(self) -> str:

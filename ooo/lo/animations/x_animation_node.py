@@ -20,9 +20,8 @@
 # Namespace: com.sun.star.animations
 import typing
 from abc import abstractproperty
+from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 from ..container.x_child import XChild as XChild_a6390b07
-if typing.TYPE_CHECKING:
-    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 
 class XAnimationNode(XChild_a6390b07):
     """
@@ -34,6 +33,10 @@ class XAnimationNode(XChild_a6390b07):
     __ooo_full_ns__: str = 'com.sun.star.animations.XAnimationNode'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.animations.XAnimationNode'
+
+    UserData: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
+    """
+    """
 
     @abstractproperty
     def Acceleration(self) -> float:
@@ -133,10 +136,7 @@ class XAnimationNode(XChild_a6390b07):
         """
         a value from AnimationNodeType.
         """
-    @abstractproperty
-    def UserData(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
-        """
-        """
+
 
 __all__ = ['XAnimationNode']
 

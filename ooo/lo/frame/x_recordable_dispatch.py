@@ -52,5 +52,6 @@ class XRecordableDispatch(XInterface_8f010a43):
         dispatch and record it
         """
 
+
 __all__ = ['XRecordableDispatch']
 

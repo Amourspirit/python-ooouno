@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import XMenuBarMergingAcceptor
+    from com.sun.star.frame import XMenuBarMergingAcceptor as XMenuBarMergingAcceptor
     setattr(XMenuBarMergingAcceptor, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XMenuBarMergingAcceptor, '__ooo_full_ns__', 'com.sun.star.frame.XMenuBarMergingAcceptor')
     setattr(XMenuBarMergingAcceptor, '__ooo_type_name__', 'interface')

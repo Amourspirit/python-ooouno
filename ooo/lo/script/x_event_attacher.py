@@ -73,5 +73,6 @@ class XEventAttacher(XInterface_8f010a43):
             com.sun.star.beans.IntrospectionException: ``IntrospectionException``
         """
 
+
 __all__ = ['XEventAttacher']
 

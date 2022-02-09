@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.vba import XVBAEventProcessor
+    from com.sun.star.script.vba import XVBAEventProcessor as XVBAEventProcessor
     setattr(XVBAEventProcessor, '__ooo_ns__', 'com.sun.star.script.vba')
     setattr(XVBAEventProcessor, '__ooo_full_ns__', 'com.sun.star.script.vba.XVBAEventProcessor')
     setattr(XVBAEventProcessor, '__ooo_type_name__', 'interface')

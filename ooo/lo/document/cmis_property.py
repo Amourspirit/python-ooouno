@@ -35,6 +35,7 @@ class CmisProperty(object):
     typeName: str = 'com.sun.star.document.CmisProperty'
     """Literal Constant ``com.sun.star.document.CmisProperty``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -82,7 +83,6 @@ class CmisProperty(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def Id(self) -> str:

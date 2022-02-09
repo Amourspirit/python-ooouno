@@ -36,6 +36,13 @@ class XGlobalSheetSettings(ABC):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.sheet.XGlobalSheetSettings'
 
+    UserLists: typing.TypeAlias = typing.Tuple[str, ...]
+    """
+    contains the string lists used for sorting and filling.
+    
+    Each string contains the members of a list, separated by commas.
+    """
+
     @abstractproperty
     def DoAutoComplete(self) -> bool:
         """
@@ -137,13 +144,7 @@ class XGlobalSheetSettings(ABC):
         """
         specifies whether the enter key moves the cursor to the column it was in before using the tab key to change columns.
         """
-    @abstractproperty
-    def UserLists(self) -> 'typing.Tuple[str, ...]':
-        """
-        contains the string lists used for sorting and filling.
-        
-        Each string contains the members of a list, separated by commas.
-        """
+
 
 __all__ = ['XGlobalSheetSettings']
 

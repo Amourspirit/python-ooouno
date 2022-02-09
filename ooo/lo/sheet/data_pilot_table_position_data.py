@@ -41,6 +41,7 @@ class DataPilotTablePositionData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTablePositionData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTablePositionData``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -74,7 +75,6 @@ class DataPilotTablePositionData(object):
         for k, v in kwargs.items():
             if k in key_order:
                 setattr(self, k, v)
-
 
     @property
     def PositionType(self) -> int:

@@ -72,5 +72,6 @@ class XConfiguration(XCloneable_99d00aa3):
         This method should be used only by objects that implement the XConfigurationRequest interface or by the configuration controller.
         """
 
+
 __all__ = ['XConfiguration']
 

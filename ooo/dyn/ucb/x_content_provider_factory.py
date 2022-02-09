@@ -25,7 +25,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import XContentProviderFactory
+    from com.sun.star.ucb import XContentProviderFactory as XContentProviderFactory
     setattr(XContentProviderFactory, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XContentProviderFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XContentProviderFactory')
     setattr(XContentProviderFactory, '__ooo_type_name__', 'interface')

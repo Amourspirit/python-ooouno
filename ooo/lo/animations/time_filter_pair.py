@@ -34,6 +34,7 @@ class TimeFilterPair(object):
     typeName: str = 'com.sun.star.animations.TimeFilterPair'
     """Literal Constant ``com.sun.star.animations.TimeFilterPair``"""
 
+
     def __init__(self, *args, **kwargs):
         """
         Constructor
@@ -68,9 +69,10 @@ class TimeFilterPair(object):
             if k in key_order:
                 setattr(self, k, v)
 
-
     @property
     def Time(self) -> float:
+        """
+        """
         return self._time
     
     @Time.setter
@@ -79,6 +81,8 @@ class TimeFilterPair(object):
 
     @property
     def Progress(self) -> float:
+        """
+        """
         return self._progress
     
     @Progress.setter

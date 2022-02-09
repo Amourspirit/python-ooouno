@@ -62,5 +62,6 @@ class XGraphics2(XGraphics_842309dd):
             LibreOffice 4.1
         """
 
+
 __all__ = ['XGraphics2']
 

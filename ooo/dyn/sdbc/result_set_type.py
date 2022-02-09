@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ResultSetType
+    from com.sun.star.sdbc import ResultSetType as ResultSetType
 else:
     from ...lo.sdbc.result_set_type import ResultSetType as ResultSetType
 

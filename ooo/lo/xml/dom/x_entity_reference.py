@@ -32,5 +32,6 @@ class XEntityReference(XNode_83fb09a5):
     __pyunointerface__: str = 'com.sun.star.xml.dom.XEntityReference'
 
 
+
 __all__ = ['XEntityReference']
 

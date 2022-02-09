@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.vba import VBAEventId
+    from com.sun.star.script.vba import VBAEventId as VBAEventId
 else:
     from ....lo.script.vba.vba_event_id import VBAEventId as VBAEventId
 

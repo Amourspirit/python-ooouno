@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import MovingAverageType
+    from com.sun.star.chart2 import MovingAverageType as MovingAverageType
 else:
     from ...lo.chart2.moving_average_type import MovingAverageType as MovingAverageType
 

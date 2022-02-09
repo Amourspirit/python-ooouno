@@ -73,7 +73,7 @@ class XFilterController(ABC):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
     @abstractmethod
-    def getPredicateExpressions(self) -> 'typing.Tuple[typing.Tuple[str, ...]]':
+    def getPredicateExpressions(self) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         retrieves the entirety of the predicate expressions represented by the filter controller.
         
@@ -117,6 +117,7 @@ class XFilterController(ABC):
         
         This number is constant during one session of the form based filter.
         """
+
 
 __all__ = ['XFilterController']
 

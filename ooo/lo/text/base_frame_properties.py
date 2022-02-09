@@ -20,11 +20,11 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
+from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
     from ..awt.gradient import Gradient as Gradient_7a8a0982
     from ..awt.size import Size as Size_576707ef
-    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..drawing.fill_style import FillStyle as FillStyle_b1460b8c
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..style.graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
@@ -50,6 +50,17 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.BaseFrameProperties'
     __ooo_type_name__: str = 'service'
+
+    FrameInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
+    """
+    Grab bag of frame properties, used as a string-any map for interim interop purposes.
+    
+    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+    
+    **since**
+    
+        LibreOffice 4.2
+    """
 
     @abstractproperty
     def AllowOverlap(self) -> bool:
@@ -422,17 +433,6 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         **since**
         
             OOo 2.0
-        """
-    @abstractproperty
-    def FrameInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
-        """
-        Grab bag of frame properties, used as a string-any map for interim interop purposes.
-        
-        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-        
-        **since**
-        
-            LibreOffice 4.2
         """
 
 __all__ = ['BaseFrameProperties']

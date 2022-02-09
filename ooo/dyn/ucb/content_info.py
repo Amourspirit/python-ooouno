@@ -45,7 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
                     _set_attr(struct)
                     return struct
 
-            key_order = ('Type', 'Attributes', 'Properties')
+            key_order = ('Type', 'Attributes')
             struct = uno.createUnoStruct('com.sun.star.ucb.ContentInfo')
             if arg_len > len(key_order):
                 raise ValueError("ContentInfo.__init__() To many parameters")

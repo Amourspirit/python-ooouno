@@ -83,5 +83,6 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         This is a volatile state that may change without further warning like e.g. sending an appropriate event.
         """
 
+
 __all__ = ['XAccessibleHyperlink']
 

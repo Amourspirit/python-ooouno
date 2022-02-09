@@ -47,5 +47,6 @@ class XControlShape(XShape_8fd00a3d):
         sets the control model for this Shape.
         """
 
+
 __all__ = ['XControlShape']
 

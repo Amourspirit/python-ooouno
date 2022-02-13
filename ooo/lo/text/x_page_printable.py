@@ -55,6 +55,5 @@ class XPagePrintable(XInterface_8f010a43):
         adjusts the settings of the page printing.
         """
 
-
 __all__ = ['XPagePrintable']
 

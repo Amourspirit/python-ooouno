@@ -70,6 +70,5 @@ class XGraphicStorageHandler(XInterface_8f010a43):
         * ``savedMimeType`` is an out direction argument.
         """
 
-
 __all__ = ['XGraphicStorageHandler']
 

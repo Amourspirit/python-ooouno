@@ -45,6 +45,5 @@ class XScriptProvider(XInterface_8f010a43):
             com.sun.star.script.provider.ScriptFrameworkErrorException: ``ScriptFrameworkErrorException``
         """
 
-
 __all__ = ['XScriptProvider']
 

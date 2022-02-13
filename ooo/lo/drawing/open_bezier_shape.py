@@ -39,5 +39,6 @@ class OpenBezierShape(LineProperties_f13f0da9, PolyPolygonBezierDescriptor_c7e61
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OpenBezierShape']
 

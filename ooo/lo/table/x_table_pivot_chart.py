@@ -43,6 +43,5 @@ class XTablePivotChart(XInterface_8f010a43):
         returns the pivot table name of the associated pivot table
         """
 
-
 __all__ = ['XTablePivotChart']
 

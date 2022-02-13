@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.logging
 import typing
-from abc import abstractmethod, abstractproperty, ABC
+from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from .x_log_handler import XLogHandler as XLogHandler_c7f80c27
 
@@ -72,17 +72,6 @@ class XLogger(ABC):
         """
         removes the given handler from the list of handlers.
         """
-    @abstractproperty
-    def Level(self) -> int:
-        """
-        specifies which log events are logged or ignored.
-        """
-    @abstractproperty
-    def Name(self) -> str:
-        """
-        denotes the name of the logger.
-        """
-
 
 __all__ = ['XLogger']
 

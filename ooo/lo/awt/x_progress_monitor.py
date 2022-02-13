@@ -53,6 +53,5 @@ class XProgressMonitor(XProgressBar_a4cb0b16):
         updates an existing text line at the control.
         """
 
-
 __all__ = ['XProgressMonitor']
 

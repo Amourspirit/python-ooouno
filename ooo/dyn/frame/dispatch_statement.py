@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.frame import DispatchStatement as UDispatchStatement
+        # Dynamically create uno com.sun.star.frame.DispatchStatement using uno
         global DispatchStatement
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.DispatchStatement'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.frame import DispatchStatement as UDispatchStatement
-                if isinstance(args[0], UDispatchStatement):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.frame.DispatchStatement', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(aArgs = UNO_NONE, aCommand = UNO_NONE, aTarget = UNO_NONE, nFlags = UNO_NONE, bIsComment = UNO_NONE):
+            ns = 'com.sun.star.frame.DispatchStatement'
+            if isinstance(aArgs, UDispatchStatement):
+                inst = uno.createUnoStruct(ns, aArgs)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('aCommand', 'aTarget', 'nFlags', 'bIsComment')
-            struct = uno.createUnoStruct('com.sun.star.frame.DispatchStatement')
-            if arg_len > len(key_order):
-                raise ValueError("DispatchStatement.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not aArgs is UNO_NONE:
+                if getattr(struct, 'aArgs') != aArgs:
+                    setattr(struct, 'aArgs', aArgs)
+            if not aCommand is UNO_NONE:
+                if getattr(struct, 'aCommand') != aCommand:
+                    setattr(struct, 'aCommand', aCommand)
+            if not aTarget is UNO_NONE:
+                if getattr(struct, 'aTarget') != aTarget:
+                    setattr(struct, 'aTarget', aTarget)
+            if not nFlags is UNO_NONE:
+                if getattr(struct, 'nFlags') != nFlags:
+                    setattr(struct, 'nFlags', nFlags)
+            if not bIsComment is UNO_NONE:
+                if getattr(struct, 'bIsComment') != bIsComment:
+                    setattr(struct, 'bIsComment', bIsComment)
             _set_attr(struct)
             return struct
         DispatchStatement = _struct_init

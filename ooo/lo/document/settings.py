@@ -43,51 +43,52 @@ class Settings(XPropertySet_bc180bfa):
     __ooo_full_ns__: str = 'com.sun.star.document.Settings'
     __ooo_type_name__: str = 'service'
 
-    PrinterSetup: typing.TypeAlias = typing.Tuple[int, ...]
-    """
-    platform and driver dependent printer setup data.
-    
-    This property serves to capture the current printer setup settings, such as paper tray, printer options, etc. The data can typically be interpreted only by the system that generated it. The PrinterSetup property may be used to save and restore the user's printer settings.
-    """
-
     @abstractproperty
     def AddExternalLeading(self) -> bool:
         """
         layout engine should add value of a Font's \"external leading\" attribute to the line spacing.
         """
+
     @abstractproperty
     def ApplyUserData(self) -> bool:
         """
         specifies if the user-specific settings saved within a document should be loaded with the document.
         """
+
     @abstractproperty
     def AutoCalculate(self) -> bool:
         """
         """
+
     @abstractproperty
     def BitmapTableURL(self) -> str:
         """
         """
+
     @abstractproperty
     def CharacterCompressionType(self) -> int:
         """
         specifies the compression (character spacing) type used for Asian characters.
         """
+
     @abstractproperty
     def ColorTableURL(self) -> str:
         """
         contains the URL that points to a color table (file extension .soc) that will be used for showing a palette in dialogs using colors.
         """
+
     @abstractproperty
     def CurrentDatabaseCommand(self) -> str:
         """
         a string value, specifying the name of the object displayed currently (or the SQL statement used).
         """
+
     @abstractproperty
     def CurrentDatabaseCommandType(self) -> int:
         """
         determines the interpretation of the property DataTableName.
         """
+
     @abstractproperty
     def CurrentDatabaseDataSource(self) -> str:
         """
@@ -95,14 +96,17 @@ class Settings(XPropertySet_bc180bfa):
         
         The data source can e.g. be used for feeding a form letter.
         """
+
     @abstractproperty
     def DashTableURL(self) -> str:
         """
         """
+
     @abstractproperty
     def DefaultTabStop(self) -> int:
         """
         """
+
     @abstractproperty
     def EmbedAsianScriptFonts(self) -> bool:
         """
@@ -112,6 +116,7 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 6.2
         """
+
     @abstractproperty
     def EmbedComplexScriptFonts(self) -> bool:
         """
@@ -121,6 +126,7 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 6.2
         """
+
     @abstractproperty
     def EmbedFonts(self) -> bool:
         """
@@ -132,6 +138,7 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def EmbedLatinScriptFonts(self) -> bool:
         """
@@ -141,6 +148,7 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 6.2
         """
+
     @abstractproperty
     def EmbedOnlyUsedFonts(self) -> bool:
         """
@@ -150,6 +158,7 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 6.2
         """
+
     @abstractproperty
     def EmbedSystemFonts(self) -> bool:
         """
@@ -161,24 +170,29 @@ class Settings(XPropertySet_bc180bfa):
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def FieldAutoUpdate(self) -> bool:
         """
         specifies if fields in text documents are updated automatically.
         """
+
     @abstractproperty
     def ForbiddenCharacters(self) -> 'XForbiddenCharacters_df60e2d':
         """
         gives access to the set of forbidden characters.
         """
+
     @abstractproperty
     def GradientTableURL(self) -> str:
         """
         """
+
     @abstractproperty
     def HatchTableURL(self) -> str:
         """
         """
+
     @abstractproperty
     def IsKernAsianPunctuation(self) -> bool:
         """
@@ -186,6 +200,7 @@ class Settings(XPropertySet_bc180bfa):
         
         Applies only if kerning is enabled.
         """
+
     @abstractproperty
     def IsPrintBooklet(self) -> bool:
         """
@@ -193,6 +208,7 @@ class Settings(XPropertySet_bc180bfa):
         
         Note, that you have to print in duplex mode, if both, IsPrintBookletFront and IsPrintBookletBack are set to TRUE.
         """
+
     @abstractproperty
     def IsPrintBookletBack(self) -> bool:
         """
@@ -202,6 +218,7 @@ class Settings(XPropertySet_bc180bfa):
         
         This is especially useful, if your printer does not supply duplex printing.
         """
+
     @abstractproperty
     def IsPrintBookletFront(self) -> bool:
         """
@@ -211,10 +228,12 @@ class Settings(XPropertySet_bc180bfa):
         
         This is especially useful, if your printer does not supply duplex printing.
         """
+
     @abstractproperty
     def LineEndTableURL(self) -> str:
         """
         """
+
     @abstractproperty
     def LinkUpdateMode(self) -> int:
         """
@@ -222,11 +241,13 @@ class Settings(XPropertySet_bc180bfa):
         
         For supported values see the constants group LinkUpdateModes.
         """
+
     @abstractproperty
     def PrintQuality(self) -> int:
         """
         how printing uses color.
         """
+
     @abstractproperty
     def PrinterIndependentLayout(self) -> int:
         """
@@ -234,16 +255,19 @@ class Settings(XPropertySet_bc180bfa):
         
         For supported values see the constants group PrinterIndependentLayout.
         """
+
     @abstractproperty
     def PrinterName(self) -> str:
         """
         printer used by the document.
         """
+
     @abstractproperty
     def SaveVersionOnClose(self) -> bool:
         """
         specifies if a new version is created if a document has been modified and you want to close it.
         """
+
     @abstractproperty
     def UpdateFromTemplate(self) -> bool:
         """
@@ -251,6 +275,8 @@ class Settings(XPropertySet_bc180bfa):
         
         Applies only for documents that were created from a template.
         """
+
+
 
 __all__ = ['Settings']
 

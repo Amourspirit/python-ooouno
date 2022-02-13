@@ -42,5 +42,6 @@ class Accessible(XAccessible_1cbc0eb6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Accessible']
 

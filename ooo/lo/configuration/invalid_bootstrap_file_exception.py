@@ -37,9 +37,15 @@ class InvalidBootstrapFileException(CannotLoadConfigurationException_b325176a):
     typeName: str = 'com.sun.star.configuration.InvalidBootstrapFileException'
     """Literal Constant ``com.sun.star.configuration.InvalidBootstrapFileException``"""
 
-    BootstrapFileURL: str = None
-    """
-        the URL of the bootstrap file that is invalid
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

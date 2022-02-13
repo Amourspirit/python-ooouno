@@ -41,19 +41,15 @@ class OwnLockOnDocumentRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.OwnLockOnDocumentRequest'
     """Literal Constant ``com.sun.star.document.OwnLockOnDocumentRequest``"""
 
-    DocumentURL: str = None
-    """
-        The URL of the locked document.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    IsStoring: bool = None
-    """
-        Whether the request is related to storing process.
-    """
+        Keyword Arguments:
 
-    TimeInfo: str = None
-    """
-        The time from which the document is locked.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

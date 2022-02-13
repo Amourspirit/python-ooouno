@@ -41,4 +41,15 @@ class LockFileIgnoreRequest(IOException_8c450a27):
     typeName: str = 'com.sun.star.document.LockFileIgnoreRequest'
     """Literal Constant ``com.sun.star.document.LockFileIgnoreRequest``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

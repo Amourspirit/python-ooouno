@@ -47,6 +47,5 @@ class XScenarios(XNameAccess_e2ab0cf6):
         removes a scenario from the collection.
         """
 
-
 __all__ = ['XScenarios']
 

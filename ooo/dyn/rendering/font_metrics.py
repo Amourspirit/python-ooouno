@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import FontMetrics as UFontMetrics
+        # Dynamically create uno com.sun.star.rendering.FontMetrics using uno
         global FontMetrics
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.FontMetrics'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import FontMetrics as UFontMetrics
-                if isinstance(args[0], UFontMetrics):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.FontMetrics', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Ascent = UNO_NONE, Descent = UNO_NONE, InternalLeading = UNO_NONE, ExternalLeading = UNO_NONE, ReferenceCharSize = UNO_NONE, UnderlineOffset = UNO_NONE, StrikeThroughOffset = UNO_NONE):
+            ns = 'com.sun.star.rendering.FontMetrics'
+            if isinstance(Ascent, UFontMetrics):
+                inst = uno.createUnoStruct(ns, Ascent)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Ascent', 'Descent', 'InternalLeading', 'ExternalLeading', 'ReferenceCharSize', 'UnderlineOffset', 'StrikeThroughOffset')
-            struct = uno.createUnoStruct('com.sun.star.rendering.FontMetrics')
-            if arg_len > len(key_order):
-                raise ValueError("FontMetrics.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Ascent is UNO_NONE:
+                if getattr(struct, 'Ascent') != Ascent:
+                    setattr(struct, 'Ascent', Ascent)
+            if not Descent is UNO_NONE:
+                if getattr(struct, 'Descent') != Descent:
+                    setattr(struct, 'Descent', Descent)
+            if not InternalLeading is UNO_NONE:
+                if getattr(struct, 'InternalLeading') != InternalLeading:
+                    setattr(struct, 'InternalLeading', InternalLeading)
+            if not ExternalLeading is UNO_NONE:
+                if getattr(struct, 'ExternalLeading') != ExternalLeading:
+                    setattr(struct, 'ExternalLeading', ExternalLeading)
+            if not ReferenceCharSize is UNO_NONE:
+                if getattr(struct, 'ReferenceCharSize') != ReferenceCharSize:
+                    setattr(struct, 'ReferenceCharSize', ReferenceCharSize)
+            if not UnderlineOffset is UNO_NONE:
+                if getattr(struct, 'UnderlineOffset') != UnderlineOffset:
+                    setattr(struct, 'UnderlineOffset', UnderlineOffset)
+            if not StrikeThroughOffset is UNO_NONE:
+                if getattr(struct, 'StrikeThroughOffset') != StrikeThroughOffset:
+                    setattr(struct, 'StrikeThroughOffset', StrikeThroughOffset)
             _set_attr(struct)
             return struct
         FontMetrics = _struct_init

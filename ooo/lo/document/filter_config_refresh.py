@@ -37,5 +37,6 @@ class FilterConfigRefresh(XRefreshable_b0d60b81):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FilterConfigRefresh']
 

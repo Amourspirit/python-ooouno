@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.text import HoriOrientationFormat as UHoriOrientationFormat
+        # Dynamically create uno com.sun.star.text.HoriOrientationFormat using uno
         global HoriOrientationFormat
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.HoriOrientationFormat'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.text import HoriOrientationFormat as UHoriOrientationFormat
-                if isinstance(args[0], UHoriOrientationFormat):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.text.HoriOrientationFormat', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(XPos = UNO_NONE, HorizontalOrientation = UNO_NONE, HorizontalRelation = UNO_NONE, PositionToggle = UNO_NONE):
+            ns = 'com.sun.star.text.HoriOrientationFormat'
+            if isinstance(XPos, UHoriOrientationFormat):
+                inst = uno.createUnoStruct(ns, XPos)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('XPos', 'HorizontalOrientation', 'HorizontalRelation', 'PositionToggle')
-            struct = uno.createUnoStruct('com.sun.star.text.HoriOrientationFormat')
-            if arg_len > len(key_order):
-                raise ValueError("HoriOrientationFormat.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not XPos is UNO_NONE:
+                if getattr(struct, 'XPos') != XPos:
+                    setattr(struct, 'XPos', XPos)
+            if not HorizontalOrientation is UNO_NONE:
+                if getattr(struct, 'HorizontalOrientation') != HorizontalOrientation:
+                    setattr(struct, 'HorizontalOrientation', HorizontalOrientation)
+            if not HorizontalRelation is UNO_NONE:
+                if getattr(struct, 'HorizontalRelation') != HorizontalRelation:
+                    setattr(struct, 'HorizontalRelation', HorizontalRelation)
+            if not PositionToggle is UNO_NONE:
+                if getattr(struct, 'PositionToggle') != PositionToggle:
+                    setattr(struct, 'PositionToggle', PositionToggle)
             _set_attr(struct)
             return struct
         HoriOrientationFormat = _struct_init

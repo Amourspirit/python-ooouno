@@ -43,5 +43,6 @@ class DatabaseDefinition(XGroupsSupplier_e3410d48, XTablesSupplier_e1ad0d23, XUs
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DatabaseDefinition']
 

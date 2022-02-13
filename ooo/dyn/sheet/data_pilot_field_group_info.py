@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import DataPilotFieldGroupInfo as UDataPilotFieldGroupInfo
+        # Dynamically create uno com.sun.star.sheet.DataPilotFieldGroupInfo using uno
         global DataPilotFieldGroupInfo
 
         def _set_attr(struct):
@@ -35,25 +36,41 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import DataPilotFieldGroupInfo as UDataPilotFieldGroupInfo
-                if isinstance(args[0], UDataPilotFieldGroupInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.DataPilotFieldGroupInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(HasAutoStart = UNO_NONE, HasAutoEnd = UNO_NONE, HasDateValues = UNO_NONE, Start = UNO_NONE, End = UNO_NONE, Step = UNO_NONE, GroupBy = UNO_NONE, SourceField = UNO_NONE, Groups = UNO_NONE):
+            ns = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
+            if isinstance(HasAutoStart, UDataPilotFieldGroupInfo):
+                inst = uno.createUnoStruct(ns, HasAutoStart)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('HasAutoStart', 'HasAutoEnd', 'HasDateValues', 'Start', 'End', 'Step', 'GroupBy', 'SourceField', 'Groups')
-            struct = uno.createUnoStruct('com.sun.star.sheet.DataPilotFieldGroupInfo')
-            if arg_len > len(key_order):
-                raise ValueError("DataPilotFieldGroupInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not HasAutoStart is UNO_NONE:
+                if getattr(struct, 'HasAutoStart') != HasAutoStart:
+                    setattr(struct, 'HasAutoStart', HasAutoStart)
+            if not HasAutoEnd is UNO_NONE:
+                if getattr(struct, 'HasAutoEnd') != HasAutoEnd:
+                    setattr(struct, 'HasAutoEnd', HasAutoEnd)
+            if not HasDateValues is UNO_NONE:
+                if getattr(struct, 'HasDateValues') != HasDateValues:
+                    setattr(struct, 'HasDateValues', HasDateValues)
+            if not Start is UNO_NONE:
+                if getattr(struct, 'Start') != Start:
+                    setattr(struct, 'Start', Start)
+            if not End is UNO_NONE:
+                if getattr(struct, 'End') != End:
+                    setattr(struct, 'End', End)
+            if not Step is UNO_NONE:
+                if getattr(struct, 'Step') != Step:
+                    setattr(struct, 'Step', Step)
+            if not GroupBy is UNO_NONE:
+                if getattr(struct, 'GroupBy') != GroupBy:
+                    setattr(struct, 'GroupBy', GroupBy)
+            if not SourceField is UNO_NONE:
+                if getattr(struct, 'SourceField') != SourceField:
+                    setattr(struct, 'SourceField', SourceField)
+            if not Groups is UNO_NONE:
+                if getattr(struct, 'Groups') != Groups:
+                    setattr(struct, 'Groups', Groups)
             _set_attr(struct)
             return struct
         DataPilotFieldGroupInfo = _struct_init

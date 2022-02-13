@@ -66,6 +66,5 @@ class XFilePickerListener(XEventListener_c7230c4a):
         A client receives this event if the F1 key or the help button was pressed.
         """
 
-
 __all__ = ['XFilePickerListener']
 

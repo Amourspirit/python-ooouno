@@ -35,5 +35,6 @@ class ReplaceDescriptor(SearchDescriptor_e2c20d3b, XReplaceDescriptor_fd510df9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ReplaceDescriptor']
 

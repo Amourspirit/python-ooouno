@@ -38,6 +38,5 @@ class XBridgeFactory2(XBridgeFactory_df9d0cf2, XComponent_98dc0ab5):
     __pyunointerface__: str = 'com.sun.star.bridge.XBridgeFactory2'
 
 
-
 __all__ = ['XBridgeFactory2']
 

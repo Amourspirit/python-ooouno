@@ -63,6 +63,5 @@ class XFolderPicker(XExecutableDialog_450f0fa1):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XFolderPicker']
 

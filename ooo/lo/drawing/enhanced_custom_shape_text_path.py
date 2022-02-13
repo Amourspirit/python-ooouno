@@ -41,6 +41,7 @@ class EnhancedCustomShapeTextPath(ABC):
         """
         This property specifies if the text is scaled using the shape path.
         """
+
     @abstractproperty
     def TextPath(self) -> bool:
         """
@@ -48,11 +49,14 @@ class EnhancedCustomShapeTextPath(ABC):
         
         The default is false.
         """
+
     @abstractproperty
     def TextPathMode(self) -> 'EnhancedCustomShapeTextPathMode_119f142d':
         """
         This property specifies how the text is drawn.
         """
+
+
 
 __all__ = ['EnhancedCustomShapeTextPath']
 

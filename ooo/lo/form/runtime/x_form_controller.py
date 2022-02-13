@@ -113,11 +113,13 @@ class XFormController(XTabController_bacd0be7, XChild_a6390b07, XEnumerationAcce
         """
         allows to delegate certain tasks to the context of the form controller
         """
+
     @abstractproperty
     def CurrentControl(self) -> 'XControl_7a9c098d':
         """
         provides access to the currently active control
         """
+
     @abstractproperty
     def FormOperations(self) -> 'XFormOperations_4a450ffe':
         """
@@ -125,6 +127,7 @@ class XFormController(XTabController_bacd0be7, XChild_a6390b07, XEnumerationAcce
         
         This instance can be used, for instance, to determine the current state of certain form features.
         """
+
     @abstractproperty
     def InteractionHandler(self) -> 'XInteractionHandler_bf80e51':
         """

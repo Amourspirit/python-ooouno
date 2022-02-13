@@ -41,5 +41,6 @@ class CoreReflection(XComponent_98dc0ab5, XIdlReflection_1b8b0eaf):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CoreReflection']
 

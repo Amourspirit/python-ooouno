@@ -34,5 +34,6 @@ class DocumentRevisionListPersistence(XDocumentRevisionListPersistence_4207156e)
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DocumentRevisionListPersistence']
 

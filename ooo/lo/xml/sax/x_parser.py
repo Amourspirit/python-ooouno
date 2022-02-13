@@ -84,6 +84,5 @@ class XParser(XInterface_8f010a43):
         Set the language of the error messages. Useful when the parsing errors will be presented to the user.
         """
 
-
 __all__ = ['XParser']
 

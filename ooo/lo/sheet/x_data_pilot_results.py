@@ -51,6 +51,5 @@ class XDataPilotResults(XInterface_8f010a43):
         The outer sequence contains the value rows. The inner sequences contain the values for one row.
         """
 
-
 __all__ = ['XDataPilotResults']
 

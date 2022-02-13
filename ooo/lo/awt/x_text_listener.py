@@ -42,6 +42,5 @@ class XTextListener(XEventListener_c7230c4a):
         is invoked when the text has changed.
         """
 
-
 __all__ = ['XTextListener']
 

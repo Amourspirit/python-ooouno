@@ -52,6 +52,5 @@ class XRowSetListener(XEventListener_c7230c4a):
         is called when the row set has changed, or in other words, when the row set has been reexecuted.
         """
 
-
 __all__ = ['XRowSetListener']
 

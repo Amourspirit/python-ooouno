@@ -36,5 +36,6 @@ class SimpleCommandMail(XSimpleMailClientSupplier_8f9111a5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SimpleCommandMail']
 

@@ -42,6 +42,5 @@ class XViewsSupplier(XInterface_8f010a43):
         returns the container of views.
         """
 
-
 __all__ = ['XViewsSupplier']
 

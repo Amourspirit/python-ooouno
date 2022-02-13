@@ -33,5 +33,6 @@ class UITest(XUITest_97fa0a6a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UITest']
 

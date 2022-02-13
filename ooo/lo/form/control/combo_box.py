@@ -37,5 +37,6 @@ class ComboBox(UnoControlComboBox_efd50d80, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ComboBox']
 

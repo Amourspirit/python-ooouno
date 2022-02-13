@@ -42,6 +42,5 @@ class XSimpleMailClientSupplier(XInterface_8f010a43):
         Allows a client to query for an object that implements XSimpleMailClient.
         """
 
-
 __all__ = ['XSimpleMailClientSupplier']
 

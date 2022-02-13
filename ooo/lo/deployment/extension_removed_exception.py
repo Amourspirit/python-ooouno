@@ -43,4 +43,15 @@ class ExtensionRemovedException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.ExtensionRemovedException'
     """Literal Constant ``com.sun.star.deployment.ExtensionRemovedException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

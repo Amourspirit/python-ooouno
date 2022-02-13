@@ -69,6 +69,5 @@ class XCalendar3(XExtendedCalendar_e5480ceb):
         returns a sequence of CalendarItem2 describing the partitive case month names.
         """
 
-
 __all__ = ['XCalendar3']
 

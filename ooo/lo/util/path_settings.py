@@ -42,5 +42,6 @@ class PathSettings(XPathSettings_bc930bfc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PathSettings']
 

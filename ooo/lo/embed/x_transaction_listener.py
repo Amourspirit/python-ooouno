@@ -63,6 +63,5 @@ class XTransactionListener(XEventListener_c7230c4a):
         is called after the object is reverted.
         """
 
-
 __all__ = ['XTransactionListener']
 

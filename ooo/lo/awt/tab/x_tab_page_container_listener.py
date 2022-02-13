@@ -46,6 +46,5 @@ class XTabPageContainerListener(XEventListener_c7230c4a):
         Invoked after a tab page was activated.
         """
 
-
 __all__ = ['XTabPageContainerListener']
 

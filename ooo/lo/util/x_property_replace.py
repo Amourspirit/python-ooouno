@@ -73,6 +73,5 @@ class XPropertyReplace(XReplaceDescriptor_fd510df9):
         specifies if specific property values are searched, or just the existence of the specified properties.
         """
 
-
 __all__ = ['XPropertyReplace']
 

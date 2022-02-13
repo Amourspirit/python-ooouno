@@ -41,6 +41,5 @@ class XInteractionContinuation(XInterface_8f010a43):
         Select this way of continuing from an com.sun.star.task.XInteractionRequest (given a choice of various instances of com.sun.star.task.XInteractionContinuation).
         """
 
-
 __all__ = ['XInteractionContinuation']
 

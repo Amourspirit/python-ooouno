@@ -58,5 +58,6 @@ class Wizard(XWizard_bae60bc0):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['Wizard']
 

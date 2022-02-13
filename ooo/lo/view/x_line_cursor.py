@@ -54,6 +54,5 @@ class XLineCursor(XInterface_8f010a43):
         determines if the cursor is positioned at the start of a line.
         """
 
-
 __all__ = ['XLineCursor']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import TableFilterField as UTableFilterField
+        # Dynamically create uno com.sun.star.sheet.TableFilterField using uno
         global TableFilterField
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.TableFilterField'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import TableFilterField as UTableFilterField
-                if isinstance(args[0], UTableFilterField):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.TableFilterField', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Connection = UNO_NONE, Field = UNO_NONE, Operator = UNO_NONE, IsNumeric = UNO_NONE, NumericValue = UNO_NONE, StringValue = UNO_NONE):
+            ns = 'com.sun.star.sheet.TableFilterField'
+            if isinstance(Connection, UTableFilterField):
+                inst = uno.createUnoStruct(ns, Connection)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Connection', 'Field', 'Operator', 'IsNumeric', 'NumericValue', 'StringValue')
-            struct = uno.createUnoStruct('com.sun.star.sheet.TableFilterField')
-            if arg_len > len(key_order):
-                raise ValueError("TableFilterField.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Connection is UNO_NONE:
+                if getattr(struct, 'Connection') != Connection:
+                    setattr(struct, 'Connection', Connection)
+            if not Field is UNO_NONE:
+                if getattr(struct, 'Field') != Field:
+                    setattr(struct, 'Field', Field)
+            if not Operator is UNO_NONE:
+                if getattr(struct, 'Operator') != Operator:
+                    setattr(struct, 'Operator', Operator)
+            if not IsNumeric is UNO_NONE:
+                if getattr(struct, 'IsNumeric') != IsNumeric:
+                    setattr(struct, 'IsNumeric', IsNumeric)
+            if not NumericValue is UNO_NONE:
+                if getattr(struct, 'NumericValue') != NumericValue:
+                    setattr(struct, 'NumericValue', NumericValue)
+            if not StringValue is UNO_NONE:
+                if getattr(struct, 'StringValue') != StringValue:
+                    setattr(struct, 'StringValue', StringValue)
             _set_attr(struct)
             return struct
         TableFilterField = _struct_init

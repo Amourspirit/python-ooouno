@@ -79,6 +79,5 @@ class XDropTarget(XInterface_8f010a43):
         By default the listener will receive notifications for all actions.
         """
 
-
 __all__ = ['XDropTarget']
 

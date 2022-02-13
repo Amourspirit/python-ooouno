@@ -32,6 +32,5 @@ class XComment(XCharacterData_ec070d26):
     __pyunointerface__: str = 'com.sun.star.xml.dom.XComment'
 
 
-
 __all__ = ['XComment']
 

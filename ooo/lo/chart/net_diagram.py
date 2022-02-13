@@ -38,5 +38,6 @@ class NetDiagram(ChartAxisYSupplier_a9e0e4e, Diagram_844409cf, StackableDiagram_
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NetDiagram']
 

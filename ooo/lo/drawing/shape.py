@@ -20,13 +20,13 @@
 # Namespace: com.sun.star.drawing
 import typing
 from abc import abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..beans.x_tolerant_multi_property_set import XTolerantMultiPropertySet as XTolerantMultiPropertySet_7bd4114e
 from .x_glue_points_supplier import XGluePointsSupplier as XGluePointsSupplier_3a770faa
 from .x_shape import XShape as XShape_8fd00a3d
 from ..lang.x_component import XComponent as XComponent_98dc0ab5
 if typing.TYPE_CHECKING:
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from .homogen_matrix3 import HomogenMatrix3 as HomogenMatrix3_f0fb0d69
     from ..style.x_style import XStyle as XStyle_7c7f09a2
@@ -48,42 +48,48 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
     __ooo_full_ns__: str = 'com.sun.star.drawing.Shape'
     __ooo_type_name__: str = 'service'
 
-    InteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    Grab bag of shape properties, used as a string-any map for interim interop purposes.
-    
-    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-    
-    **since**
-    
-        LibreOffice 4.2
-    """
+    @abstractproperty
+    def InteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        Grab bag of shape properties, used as a string-any map for interim interop purposes.
+        
+        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+        
+        **since**
+        
+            LibreOffice 4.2
+        """
 
     @abstractproperty
     def Hyperlink(self) -> str:
         """
         this property lets you get and set a hyperlink for this shape.
         """
+
     @abstractproperty
     def LayerID(self) -> int:
         """
         This is the ID of the Layer to which this Shape is attached.
         """
+
     @abstractproperty
     def LayerName(self) -> str:
         """
         This is the name of the Layer to which this Shape is attached.
         """
+
     @abstractproperty
     def MoveProtect(self) -> bool:
         """
         With this set to TRUE, this Shape cannot be moved interactively in the user interface.
         """
+
     @abstractproperty
     def Name(self) -> str:
         """
         This is the name of this Shape.
         """
+
     @abstractproperty
     def NavigationOrder(self) -> int:
         """
@@ -91,11 +97,13 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
         If this value is negative, the navigation order for this shapes page is equal to the z-order.
         """
+
     @abstractproperty
     def Printable(self) -> bool:
         """
         If this is FALSE, the Shape is not visible on printer outputs.
         """
+
     @abstractproperty
     def RelativeHeight(self) -> int:
         """
@@ -107,6 +115,7 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
             LibreOffice 4.3
         """
+
     @abstractproperty
     def RelativeHeightRelation(self) -> int:
         """
@@ -118,6 +127,7 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
             LibreOffice 4.3
         """
+
     @abstractproperty
     def RelativeWidth(self) -> int:
         """
@@ -129,6 +139,7 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
             LibreOffice 4.3
         """
+
     @abstractproperty
     def RelativeWidthRelation(self) -> int:
         """
@@ -140,6 +151,7 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
             LibreOffice 4.3
         """
+
     @abstractproperty
     def ShapeUserDefinedAttributes(self) -> 'XNameContainer_cb90e47':
         """
@@ -147,16 +159,19 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
         They will be saved to and restored from automatic styles inside xml files.
         """
+
     @abstractproperty
     def SizeProtect(self) -> bool:
         """
         With this set to TRUE, this Shape may not be sized interactively in the user interface.
         """
+
     @abstractproperty
     def Style(self) -> 'XStyle_7c7f09a2':
         """
         this property lets you get and set a style for this shape.
         """
+
     @abstractproperty
     def Transformation(self) -> 'HomogenMatrix3_f0fb0d69':
         """
@@ -164,6 +179,7 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
         The transformation is a 3x3 homogeneous matrix and can contain translation, rotation, shearing and scaling.
         """
+
     @abstractproperty
     def Visible(self) -> bool:
         """
@@ -171,11 +187,14 @@ class Shape(XPropertySet_bc180bfa, XTolerantMultiPropertySet_7bd4114e, XGluePoin
         
         Please note that the Shape may still be visible when printed, see Printable.
         """
+
     @abstractproperty
     def ZOrder(self) -> int:
         """
         is used to query or change the ZOrder of this Shape.
         """
+
+
 
 __all__ = ['Shape']
 

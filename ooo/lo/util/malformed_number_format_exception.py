@@ -37,9 +37,15 @@ class MalformedNumberFormatException(Exception_85530a09):
     typeName: str = 'com.sun.star.util.MalformedNumberFormatException'
     """Literal Constant ``com.sun.star.util.MalformedNumberFormatException``"""
 
-    CheckPos: int = None
-    """
-        contains the character position in the string where the malformation begins.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

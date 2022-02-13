@@ -49,6 +49,5 @@ class XWriter(XActiveDataSource_d1900c7f, XExtendedDocumentHandler_89231159):
             LibreOffice 7.2
         """
 
-
 __all__ = ['XWriter']
 

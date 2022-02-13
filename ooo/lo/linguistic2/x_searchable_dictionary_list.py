@@ -45,6 +45,5 @@ class XSearchableDictionaryList(XDictionaryList_3a070f7f):
         looks for an entry for a given word in the list of dictionaries.
         """
 
-
 __all__ = ['XSearchableDictionaryList']
 

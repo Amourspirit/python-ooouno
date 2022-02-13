@@ -38,5 +38,6 @@ class JobExecutor(XJobExecutor_af4e0b7d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['JobExecutor']
 

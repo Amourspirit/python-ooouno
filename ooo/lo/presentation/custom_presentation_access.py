@@ -35,5 +35,6 @@ class CustomPresentationAccess(XNameContainer_cb90e47, XSingleServiceFactory_272
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CustomPresentationAccess']
 

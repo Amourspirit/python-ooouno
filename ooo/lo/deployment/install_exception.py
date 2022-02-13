@@ -43,9 +43,15 @@ class InstallException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.InstallException'
     """Literal Constant ``com.sun.star.deployment.InstallException``"""
 
-    displayName: str = None
-    """
-        the display name of the extension, which is to be installed.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

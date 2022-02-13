@@ -35,5 +35,6 @@ class SheetRangesQuery(XCellRangesQuery_edde0d6f, XFormulaQuery_c8d10c65):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SheetRangesQuery']
 

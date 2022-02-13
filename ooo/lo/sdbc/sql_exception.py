@@ -39,25 +39,15 @@ class SQLException(Exception_85530a09):
     typeName: str = 'com.sun.star.sdbc.SQLException'
     """Literal Constant ``com.sun.star.sdbc.SQLException``"""
 
-    ErrorCode: int = None
-    """
-        returns an integer error code that is specific to each vendor.
-        
-        Normally this will be the actual error code returned by the underlying database.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    NextException: object = None
-    """
-        returns a chain to the next Exception.
-        
-        This can be used to provide additional error information.
-    """
+        Keyword Arguments:
 
-    SQLState: str = None
-    """
-        returns a string, which uses the XOPEN SQLState conventions.
-        
-        The values of the SQLState string are described in the XOPEN SQL spec.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

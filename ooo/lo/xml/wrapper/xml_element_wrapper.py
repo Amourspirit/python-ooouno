@@ -36,5 +36,6 @@ class XMLElementWrapper(XInitialization_d46c0cca, XUnoTunnel_98fb0aaa, XXMLEleme
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['XMLElementWrapper']
 

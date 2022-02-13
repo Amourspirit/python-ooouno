@@ -37,5 +37,6 @@ class CommandDefinition(XRename_848c09cc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CommandDefinition']
 

@@ -44,6 +44,5 @@ class XNameReplace(XNameAccess_e2ab0cf6):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XNameReplace']
 

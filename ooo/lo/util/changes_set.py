@@ -21,7 +21,7 @@
 import typing
 from .element_change import ElementChange
 
-ChangesSet = typing.Tuple[ElementChange, ...]
+ChangesSet = typing.NewType('ChangesSet', typing.Tuple[ElementChange, ...])
 """
 TypeDef type alias
 

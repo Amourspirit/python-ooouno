@@ -157,6 +157,5 @@ class XCalendar(XInterface_8f010a43):
         Set the value of a field.
         """
 
-
 __all__ = ['XCalendar']
 

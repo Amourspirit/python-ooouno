@@ -33,5 +33,6 @@ class ReportDefinition(XReportDefinition_ec30e81):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ReportDefinition']
 

@@ -34,5 +34,6 @@ class ScriptProviderForBeanShell(LanguageScriptProvider_325141a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ScriptProviderForBeanShell']
 

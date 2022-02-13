@@ -43,9 +43,15 @@ class UnsupportedOverwriteRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.task.UnsupportedOverwriteRequest'
     """Literal Constant ``com.sun.star.task.UnsupportedOverwriteRequest``"""
 
-    Name: str = None
-    """
-        the name of the target that might be overwritten, can be empty.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

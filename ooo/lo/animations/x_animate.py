@@ -20,8 +20,9 @@
 # Namespace: com.sun.star.animations
 import typing
 from abc import abstractproperty
-from .time_filter_pair import TimeFilterPair as TimeFilterPair_1d250ebc
 from .x_animation_node import XAnimationNode as XAnimationNode_1cf10eb9
+if typing.TYPE_CHECKING:
+    from .time_filter_pair import TimeFilterPair as TimeFilterPair_1d250ebc
 
 class XAnimate(XAnimationNode_1cf10eb9):
     """
@@ -35,88 +36,21 @@ class XAnimate(XAnimationNode_1cf10eb9):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.animations.XAnimate'
 
-    KeyTimes: typing.TypeAlias = typing.Tuple[float, ...]
-    """
-    """
-
-    TimeFilter: typing.TypeAlias = typing.Tuple[TimeFilterPair_1d250ebc, ...]
-    """
-    todo: timeFilter=\"0,0; 0.14,0.36; 0.43,0.73; 0.71,0.91; 1.0,1.0\" ?
-    """
-
-    Values: typing.TypeAlias = typing.Tuple[object, ...]
-    """
-    A sequence of one or more values, each of which must be a legal value for the specified attribute.
-    """
+    @abstractproperty
+    def KeyTimes(self) -> 'typing.Tuple[float, ...]':
+        """
+        """
 
     @abstractproperty
-    def Accumulate(self) -> bool:
+    def TimeFilter(self) -> 'typing.Tuple[TimeFilterPair_1d250ebc, ...]':
         """
-        Controls whether or not the animation is cumulative.
+        todo: timeFilter=\"0,0; 0.14,0.36; 0.43,0.73; 0.71,0.91; 1.0,1.0\" ?
         """
+
     @abstractproperty
-    def Additive(self) -> int:
+    def Values(self) -> 'typing.Tuple[object, ...]':
         """
-        Controls whether or not the animation is additive.
-        """
-    @abstractproperty
-    def AttributeName(self) -> str:
-        """
-        Specifies the target attribute.
-        """
-    @abstractproperty
-    def By(self) -> object:
-        """
-        Specifies a relative offset value for the animation.
-        
-        Must be a legal value of a domain for which addition to the attributeType domain is defined and which yields a value in the attributeType domain. Ignored if the values attribute is specified. Ignored if the Values attribute is specified.
-        """
-    @abstractproperty
-    def CalcMode(self) -> int:
-        """
-        Specifies the interpolation mode for the animation.
-        
-        If the target attribute does not support linear interpolation (e.g. for strings), or if the values attribute has only one value, the CalcMode attribute is ignored and discrete interpolation is used.
-        """
-    @abstractproperty
-    def Formula(self) -> str:
-        """
-        if this string is set, its contents will be parsed as a formula.
-        
-        All values are used as a parameter for this formula and the computed result will be used.
-        """
-    @abstractproperty
-    def From(self) -> object:
-        """
-        Specifies the starting value of the animation.
-        
-        Must be a legal value for the specified attribute. Ignored if the Values attribute is specified.
-        """
-    @abstractproperty
-    def SubItem(self) -> int:
-        """
-        This attribute specifies an optional subitem from the target element that should be animated.
-        
-        A value of zero should always be the default and animate the complete target.
-        See documentation of used animation engine for supported subitems.
-        """
-    @abstractproperty
-    def Target(self) -> object:
-        """
-        This attribute specifies the target element to be animated.
-        
-        See documentation of used animation engine for supported targets.
-        """
-    @abstractproperty
-    def To(self) -> object:
-        """
-        Specifies the ending value of the animation.
-        
-        Must be a legal value for the specified attribute. Ignored if the Values attribute is specified.
-        """
-    @abstractproperty
-    def ValueType(self) -> int:
-        """
+        A sequence of one or more values, each of which must be a legal value for the specified attribute.
         """
 
 

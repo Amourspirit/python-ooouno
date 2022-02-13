@@ -81,6 +81,5 @@ class XDiagram(XInterface_8f010a43):
         sets a new legend.
         """
 
-
 __all__ = ['XDiagram']
 

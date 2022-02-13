@@ -43,9 +43,15 @@ class InteractiveFileIOException(InteractiveIOException_27a60f07):
     typeName: str = 'com.sun.star.ucb.InteractiveFileIOException'
     """Literal Constant ``com.sun.star.ucb.InteractiveFileIOException``"""
 
-    FileName: str = None
-    """
-        The file url where the i/o error occurred.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

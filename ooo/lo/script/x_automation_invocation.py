@@ -58,6 +58,5 @@ class XAutomationInvocation(XInvocation_be070c0f):
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
 
-
 __all__ = ['XAutomationInvocation']
 

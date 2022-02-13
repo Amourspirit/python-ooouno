@@ -20,10 +20,10 @@
 # Namespace: com.sun.star.security
 import typing
 from abc import abstractmethod, abstractproperty
-from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .certificate_kind import CertificateKind as CertificateKind_ffd0e69
+    from .x_certificate_extension import XCertificateExtension as XCertificateExtension_6ead10f8
     from ..util.date_time import DateTime as DateTime_84de09d3
 
 class XCertificate(XInterface_8f010a43):
@@ -44,46 +44,6 @@ class XCertificate(XInterface_8f010a43):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.security.XCertificate'
 
-    Encoded: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the DER encoded form of the certificate
-    """
-
-    Extensions: typing.TypeAlias = typing.Tuple[XCertificateExtension_6ead10f8, ...]
-    """
-    all extensions of a certificate.
-    """
-
-    IssuerUniqueID: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the issuer unique ID attribute of the certificate.
-    """
-
-    MD5Thumbprint: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the MD5 thumbprint
-    """
-
-    SHA1Thumbprint: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the SHA-1 thumbprint
-    """
-
-    SerialNumber: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the serial number attribute of the certificate.
-    """
-
-    SubjectPublicKeyValue: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the value of the subject public key
-    """
-
-    SubjectUniqueID: typing.TypeAlias = 'typing.Tuple[int, ...]'
-    """
-    the subject unique ID attribute of the certificate.
-    """
-
     @abstractmethod
     def findCertificateExtension(self, oid: 'typing.Tuple[int, ...]') -> 'XCertificateExtension_6ead10f8':
         """
@@ -97,6 +57,54 @@ class XCertificate(XInterface_8f010a43):
         The return value is a set of bits, as defined in RFC3280 for the KeyUsage BIT STRING. Note the bit and byte order used in ASN.1, so for instance the bit dataEncipherment in KeyUsage, \"bit 3\", corresponds to CERT_DATA_ENCIPHERMENT_KEY_USAGE in Win32 and KU_DATA_ENCIPHERMENT in NSS, both with value 0x10.
         """
     @abstractproperty
+    def Encoded(self) -> 'typing.Tuple[int, ...]':
+        """
+        the DER encoded form of the certificate
+        """
+
+    @abstractproperty
+    def Extensions(self) -> 'typing.Tuple[XCertificateExtension_6ead10f8, ...]':
+        """
+        all extensions of a certificate.
+        """
+
+    @abstractproperty
+    def IssuerUniqueID(self) -> 'typing.Tuple[int, ...]':
+        """
+        the issuer unique ID attribute of the certificate.
+        """
+
+    @abstractproperty
+    def MD5Thumbprint(self) -> 'typing.Tuple[int, ...]':
+        """
+        the MD5 thumbprint
+        """
+
+    @abstractproperty
+    def SHA1Thumbprint(self) -> 'typing.Tuple[int, ...]':
+        """
+        the SHA-1 thumbprint
+        """
+
+    @abstractproperty
+    def SerialNumber(self) -> 'typing.Tuple[int, ...]':
+        """
+        the serial number attribute of the certificate.
+        """
+
+    @abstractproperty
+    def SubjectPublicKeyValue(self) -> 'typing.Tuple[int, ...]':
+        """
+        the value of the subject public key
+        """
+
+    @abstractproperty
+    def SubjectUniqueID(self) -> 'typing.Tuple[int, ...]':
+        """
+        the subject unique ID attribute of the certificate.
+        """
+
+    @abstractproperty
     def CertificateKind(self) -> 'CertificateKind_ffd0e69':
         """
         the kind of certificate, X.509 or OpenPGP
@@ -105,36 +113,43 @@ class XCertificate(XInterface_8f010a43):
         
             LibreOffice 5.4
         """
+
     @abstractproperty
     def IssuerName(self) -> str:
         """
         the issuer name attribute of the certificate.
         """
+
     @abstractproperty
     def NotValidAfter(self) -> 'DateTime_84de09d3':
         """
         the validity NotAfter date attribute of the certificate.
         """
+
     @abstractproperty
     def NotValidBefore(self) -> 'DateTime_84de09d3':
         """
         the validity NotBefore date attribute of the certificate.
         """
+
     @abstractproperty
     def SignatureAlgorithm(self) -> str:
         """
         the signature algorithm
         """
+
     @abstractproperty
     def SubjectName(self) -> str:
         """
         the subject name attribute of the certificate.
         """
+
     @abstractproperty
     def SubjectPublicKeyAlgorithm(self) -> str:
         """
         the algorithm of the subject public key
         """
+
     @abstractproperty
     def Version(self) -> int:
         """

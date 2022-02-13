@@ -1,4 +1,8 @@
 # coding: utf-8
+# NOTE:
+#   On slower machines this test may have to be run several times before connection can be made
+#   to Libre Office. If you see com.sun.star.connection.NoConnectException error this is an indicator.
+
 import pytest
 
 if __name__ == "__main__":

@@ -55,6 +55,5 @@ class XPropertyContainer(XInterface_8f010a43):
             com.sun.star.beans.NotRemoveableException: ``NotRemoveableException``
         """
 
-
 __all__ = ['XPropertyContainer']
 

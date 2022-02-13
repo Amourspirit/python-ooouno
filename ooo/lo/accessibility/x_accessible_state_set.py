@@ -63,6 +63,5 @@ class XAccessibleStateSet(XInterface_8f010a43):
         Checks whether the current state set is empty.
         """
 
-
 __all__ = ['XAccessibleStateSet']
 

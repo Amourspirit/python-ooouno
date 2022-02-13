@@ -38,6 +38,5 @@ class XGraphicExportFilter(XExporter_be500c18, XFilter_a6300b25, XMimeTypeInfo_f
     __pyunointerface__: str = 'com.sun.star.drawing.XGraphicExportFilter'
 
 
-
 __all__ = ['XGraphicExportFilter']
 

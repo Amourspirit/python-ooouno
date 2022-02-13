@@ -38,5 +38,6 @@ class FormControllerDispatcher(XDispatchProvider_fc690de6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormControllerDispatcher']
 

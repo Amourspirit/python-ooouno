@@ -51,6 +51,5 @@ class XSheetAnnotations(XIndexAccess_f0910d6d):
         This method removes the annotation from its cell and from the collection.
         """
 
-
 __all__ = ['XSheetAnnotations']
 

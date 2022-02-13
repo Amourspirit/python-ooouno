@@ -34,5 +34,6 @@ class DataSink(XDataSink_dbc40c7b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataSink']
 

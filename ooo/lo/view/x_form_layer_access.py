@@ -63,6 +63,5 @@ class XFormLayerAccess(XControlAccess_c89d0c4e):
         Note: This is a convenience method. In the user interface, the design mode is coupled with the .uno:SwitchControlDesignMode feature (see com.sun.star.frame.XDispatchProvider), and changing the current mode is the same as dispatching this feature URL.
         """
 
-
 __all__ = ['XFormLayerAccess']
 

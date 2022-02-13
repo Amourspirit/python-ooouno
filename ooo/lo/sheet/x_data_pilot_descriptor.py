@@ -96,6 +96,5 @@ class XDataPilotDescriptor(XNamed_a6520b08):
         sets an additional string stored in the data pilot table.
         """
 
-
 __all__ = ['XDataPilotDescriptor']
 

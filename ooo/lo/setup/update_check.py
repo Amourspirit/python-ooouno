@@ -37,5 +37,6 @@ class UpdateCheck(XJob_5fa1082e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UpdateCheck']
 

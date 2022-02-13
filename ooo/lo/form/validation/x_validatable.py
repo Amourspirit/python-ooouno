@@ -52,6 +52,5 @@ class XValidatable(XInterface_8f010a43):
             com.sun.star.util.VetoException: ``VetoException``
         """
 
-
 __all__ = ['XValidatable']
 

@@ -113,6 +113,5 @@ class XModel(XComponent_98dc0ab5):
         The calls to XModel.lockControllers() and XModel.unlockControllers() may be nested and even overlapping, but they must be in pairs. While there is at least one lock remaining, some notifications for display updates are not broadcasted.
         """
 
-
 __all__ = ['XModel']
 

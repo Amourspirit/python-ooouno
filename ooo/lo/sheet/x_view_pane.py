@@ -62,6 +62,5 @@ class XViewPane(XInterface_8f010a43):
         sets the first row that is visible in the pane.
         """
 
-
 __all__ = ['XViewPane']
 

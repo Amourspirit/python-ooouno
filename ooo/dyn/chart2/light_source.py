@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart2 import LightSource as ULightSource
+        # Dynamically create uno com.sun.star.chart2.LightSource using uno
         global LightSource
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.LightSource'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart2 import LightSource as ULightSource
-                if isinstance(args[0], ULightSource):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart2.LightSource', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(nDiffuseColor = UNO_NONE, aDirection = UNO_NONE, bIsEnabled = UNO_NONE, bSpecular = UNO_NONE):
+            ns = 'com.sun.star.chart2.LightSource'
+            if isinstance(nDiffuseColor, ULightSource):
+                inst = uno.createUnoStruct(ns, nDiffuseColor)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('nDiffuseColor', 'aDirection', 'bIsEnabled', 'bSpecular')
-            struct = uno.createUnoStruct('com.sun.star.chart2.LightSource')
-            if arg_len > len(key_order):
-                raise ValueError("LightSource.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not nDiffuseColor is UNO_NONE:
+                if getattr(struct, 'nDiffuseColor') != nDiffuseColor:
+                    setattr(struct, 'nDiffuseColor', nDiffuseColor)
+            if not aDirection is UNO_NONE:
+                if getattr(struct, 'aDirection') != aDirection:
+                    setattr(struct, 'aDirection', aDirection)
+            if not bIsEnabled is UNO_NONE:
+                if getattr(struct, 'bIsEnabled') != bIsEnabled:
+                    setattr(struct, 'bIsEnabled', bIsEnabled)
+            if not bSpecular is UNO_NONE:
+                if getattr(struct, 'bSpecular') != bSpecular:
+                    setattr(struct, 'bSpecular', bSpecular)
             _set_attr(struct)
             return struct
         LightSource = _struct_init

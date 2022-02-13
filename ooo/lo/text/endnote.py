@@ -34,5 +34,6 @@ class Endnote(Footnote_86390a1b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Endnote']
 

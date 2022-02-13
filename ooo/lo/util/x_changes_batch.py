@@ -61,6 +61,5 @@ class XChangesBatch(XInterface_8f010a43):
         checks whether this object has any pending changes that can be committed.
         """
 
-
 __all__ = ['XChangesBatch']
 

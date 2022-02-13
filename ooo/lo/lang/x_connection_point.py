@@ -78,6 +78,5 @@ class XConnectionPoint(XInterface_8f010a43):
         A few remove...Listener methods need additional parameters to add listeners or throw exceptions. One of these methods is com.sun.star.beans.XPropertySet.removePropertyChangeListener(). We ignore the problem in this interface. A solution must be provided in an additional XConnectionPoint interface.
         """
 
-
 __all__ = ['XConnectionPoint']
 

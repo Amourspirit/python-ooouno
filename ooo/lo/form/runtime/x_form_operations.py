@@ -136,11 +136,13 @@ class XFormOperations(XComponent_98dc0ab5):
         
         Note that it is possible to operate on a user interface form without actually having access to the form controller instance. However, in this case some functionality will not be available. In particular, every feature which relies on the active control of the controller might be of limited use.
         """
+
     @abstractproperty
     def Cursor(self) -> 'XRowSet_7a090960':
         """
         provides access to the cursor of the form the instance is operating on.
         """
+
     @abstractproperty
     def FeatureInvalidation(self) -> 'XFeatureInvalidation_9f4211f4':
         """
@@ -152,6 +154,7 @@ class XFormOperations(XComponent_98dc0ab5):
         
         Note that the instance does not actually notify changes in the feature states, but only potential changes: It's up to the callee to react on this appropriately. This is since OpenOffice.org's application framework features own mechanisms to cache and invalidate feature states, so we do not burden this implementation here with such mechanisms.
         """
+
     @abstractproperty
     def UpdateCursor(self) -> 'XResultSetUpdate_e0fb0d0a':
         """

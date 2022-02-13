@@ -42,6 +42,5 @@ class XRangeSelectionChangeListener(XEventListener_c7230c4a):
         is called when the selected range is changed while range selection is active.
         """
 
-
 __all__ = ['XRangeSelectionChangeListener']
 

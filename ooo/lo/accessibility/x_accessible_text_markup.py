@@ -79,6 +79,5 @@ class XAccessibleTextMarkup(XAccessibleText_5b77105b):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XAccessibleTextMarkup']
 

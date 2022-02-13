@@ -53,6 +53,5 @@ class XInterfaceTypeDescription2(XInterfaceTypeDescription_d92e1342):
         Returns a sequence of all directly inherited optional base interface types.
         """
 
-
 __all__ = ['XInterfaceTypeDescription2']
 

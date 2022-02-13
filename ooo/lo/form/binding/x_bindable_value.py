@@ -52,6 +52,5 @@ class XBindableValue(XInterface_8f010a43):
             IncompatibleTypesException: ``IncompatibleTypesException``
         """
 
-
 __all__ = ['XBindableValue']
 

@@ -36,5 +36,6 @@ class SessionManager(XSessionManagerClient_379b0f69):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SessionManager']
 

@@ -47,5 +47,6 @@ class StringResourceWithLocation(XStringResourceWithLocation_dd27135c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['StringResourceWithLocation']
 

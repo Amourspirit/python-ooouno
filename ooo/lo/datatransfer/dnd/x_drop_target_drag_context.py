@@ -52,6 +52,5 @@ class XDropTargetDragContext(XInterface_8f010a43):
         Reject the drag as a result of examining the available com.sun.star.datatransfer.DataFlavor types received in the com.sun.star.datatransfer.dnd.XDropTargetListener.dragEnter() method.
         """
 
-
 __all__ = ['XDropTargetDragContext']
 

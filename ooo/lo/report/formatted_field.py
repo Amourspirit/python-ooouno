@@ -33,5 +33,6 @@ class FormattedField(XFormattedField_f1e20d86):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormattedField']
 

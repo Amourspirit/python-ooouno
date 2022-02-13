@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.packages.zip
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.packages.zip import ZipEntry as UZipEntry
+        # Dynamically create uno com.sun.star.packages.zip.ZipEntry using uno
         global ZipEntry
 
         def _set_attr(struct):
@@ -35,25 +36,50 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.packages.zip.ZipEntry'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.packages.zip import ZipEntry as UZipEntry
-                if isinstance(args[0], UZipEntry):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.packages.zip.ZipEntry', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(extra = UNO_NONE, nVersion = UNO_NONE, nFlag = UNO_NONE, nMethod = UNO_NONE, nTime = UNO_NONE, nCrc = UNO_NONE, nCompressedSize = UNO_NONE, nSize = UNO_NONE, nOffset = UNO_NONE, nDiskNumber = UNO_NONE, sName = UNO_NONE, sComment = UNO_NONE):
+            ns = 'com.sun.star.packages.zip.ZipEntry'
+            if isinstance(extra, UZipEntry):
+                inst = uno.createUnoStruct(ns, extra)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('nVersion', 'nFlag', 'nMethod', 'nTime', 'nCrc', 'nCompressedSize', 'nSize', 'nOffset', 'nDiskNumber', 'sName', 'sComment')
-            struct = uno.createUnoStruct('com.sun.star.packages.zip.ZipEntry')
-            if arg_len > len(key_order):
-                raise ValueError("ZipEntry.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not extra is UNO_NONE:
+                if getattr(struct, 'extra') != extra:
+                    setattr(struct, 'extra', extra)
+            if not nVersion is UNO_NONE:
+                if getattr(struct, 'nVersion') != nVersion:
+                    setattr(struct, 'nVersion', nVersion)
+            if not nFlag is UNO_NONE:
+                if getattr(struct, 'nFlag') != nFlag:
+                    setattr(struct, 'nFlag', nFlag)
+            if not nMethod is UNO_NONE:
+                if getattr(struct, 'nMethod') != nMethod:
+                    setattr(struct, 'nMethod', nMethod)
+            if not nTime is UNO_NONE:
+                if getattr(struct, 'nTime') != nTime:
+                    setattr(struct, 'nTime', nTime)
+            if not nCrc is UNO_NONE:
+                if getattr(struct, 'nCrc') != nCrc:
+                    setattr(struct, 'nCrc', nCrc)
+            if not nCompressedSize is UNO_NONE:
+                if getattr(struct, 'nCompressedSize') != nCompressedSize:
+                    setattr(struct, 'nCompressedSize', nCompressedSize)
+            if not nSize is UNO_NONE:
+                if getattr(struct, 'nSize') != nSize:
+                    setattr(struct, 'nSize', nSize)
+            if not nOffset is UNO_NONE:
+                if getattr(struct, 'nOffset') != nOffset:
+                    setattr(struct, 'nOffset', nOffset)
+            if not nDiskNumber is UNO_NONE:
+                if getattr(struct, 'nDiskNumber') != nDiskNumber:
+                    setattr(struct, 'nDiskNumber', nDiskNumber)
+            if not sName is UNO_NONE:
+                if getattr(struct, 'sName') != sName:
+                    setattr(struct, 'sName', sName)
+            if not sComment is UNO_NONE:
+                if getattr(struct, 'sComment') != sComment:
+                    setattr(struct, 'sComment', sComment)
             _set_attr(struct)
             return struct
         ZipEntry = _struct_init

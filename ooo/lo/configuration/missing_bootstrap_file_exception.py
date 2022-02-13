@@ -37,9 +37,15 @@ class MissingBootstrapFileException(CannotLoadConfigurationException_b325176a):
     typeName: str = 'com.sun.star.configuration.MissingBootstrapFileException'
     """Literal Constant ``com.sun.star.configuration.MissingBootstrapFileException``"""
 
-    BootstrapFileURL: str = None
-    """
-        the URL of the bootstrap file that could not be found
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

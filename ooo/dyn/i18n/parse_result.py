@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import ParseResult as UParseResult
+        # Dynamically create uno com.sun.star.i18n.ParseResult using uno
         global ParseResult
 
         def _set_attr(struct):
@@ -35,25 +36,38 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.ParseResult'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import ParseResult as UParseResult
-                if isinstance(args[0], UParseResult):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.ParseResult', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(LeadingWhiteSpace = UNO_NONE, EndPos = UNO_NONE, CharLen = UNO_NONE, Value = UNO_NONE, TokenType = UNO_NONE, StartFlags = UNO_NONE, ContFlags = UNO_NONE, DequotedNameOrString = UNO_NONE):
+            ns = 'com.sun.star.i18n.ParseResult'
+            if isinstance(LeadingWhiteSpace, UParseResult):
+                inst = uno.createUnoStruct(ns, LeadingWhiteSpace)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('LeadingWhiteSpace', 'EndPos', 'CharLen', 'Value', 'TokenType', 'StartFlags', 'ContFlags', 'DequotedNameOrString')
-            struct = uno.createUnoStruct('com.sun.star.i18n.ParseResult')
-            if arg_len > len(key_order):
-                raise ValueError("ParseResult.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not LeadingWhiteSpace is UNO_NONE:
+                if getattr(struct, 'LeadingWhiteSpace') != LeadingWhiteSpace:
+                    setattr(struct, 'LeadingWhiteSpace', LeadingWhiteSpace)
+            if not EndPos is UNO_NONE:
+                if getattr(struct, 'EndPos') != EndPos:
+                    setattr(struct, 'EndPos', EndPos)
+            if not CharLen is UNO_NONE:
+                if getattr(struct, 'CharLen') != CharLen:
+                    setattr(struct, 'CharLen', CharLen)
+            if not Value is UNO_NONE:
+                if getattr(struct, 'Value') != Value:
+                    setattr(struct, 'Value', Value)
+            if not TokenType is UNO_NONE:
+                if getattr(struct, 'TokenType') != TokenType:
+                    setattr(struct, 'TokenType', TokenType)
+            if not StartFlags is UNO_NONE:
+                if getattr(struct, 'StartFlags') != StartFlags:
+                    setattr(struct, 'StartFlags', StartFlags)
+            if not ContFlags is UNO_NONE:
+                if getattr(struct, 'ContFlags') != ContFlags:
+                    setattr(struct, 'ContFlags', ContFlags)
+            if not DequotedNameOrString is UNO_NONE:
+                if getattr(struct, 'DequotedNameOrString') != DequotedNameOrString:
+                    setattr(struct, 'DequotedNameOrString', DequotedNameOrString)
             _set_attr(struct)
             return struct
         ParseResult = _struct_init

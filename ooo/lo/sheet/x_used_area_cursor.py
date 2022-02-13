@@ -46,6 +46,5 @@ class XUsedAreaCursor(XInterface_8f010a43):
         points the cursor to the start of the used area.
         """
 
-
 __all__ = ['XUsedAreaCursor']
 

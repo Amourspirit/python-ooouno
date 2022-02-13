@@ -34,5 +34,6 @@ class LinguProperties(XLinguProperties_4a6e0ff9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LinguProperties']
 

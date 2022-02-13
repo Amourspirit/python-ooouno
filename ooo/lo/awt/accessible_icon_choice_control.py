@@ -40,5 +40,6 @@ class AccessibleIconChoiceControl(AccessibleContext_7e0e1143, XAccessibleCompone
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleIconChoiceControl']
 

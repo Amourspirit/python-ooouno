@@ -47,6 +47,5 @@ class XObjectOutputStream(XDataOutputStream_d2f40caf):
             IOException: ``IOException``
         """
 
-
 __all__ = ['XObjectOutputStream']
 

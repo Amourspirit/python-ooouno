@@ -36,5 +36,6 @@ class DocumentIndexLevelFormat(XIndexReplace_feed0dd7):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DocumentIndexLevelFormat']
 

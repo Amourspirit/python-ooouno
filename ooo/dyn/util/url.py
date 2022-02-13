@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.util import URL as UURL
+        # Dynamically create uno com.sun.star.util.URL using uno
         global URL
 
         def _set_attr(struct):
@@ -35,25 +36,47 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.URL'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.util import URL as UURL
-                if isinstance(args[0], UURL):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.util.URL', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Complete = UNO_NONE, Main = UNO_NONE, Protocol = UNO_NONE, User = UNO_NONE, Password = UNO_NONE, Server = UNO_NONE, Port = UNO_NONE, Path = UNO_NONE, Name = UNO_NONE, Arguments = UNO_NONE, Mark = UNO_NONE):
+            ns = 'com.sun.star.util.URL'
+            if isinstance(Complete, UURL):
+                inst = uno.createUnoStruct(ns, Complete)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Complete', 'Main', 'Protocol', 'User', 'Password', 'Server', 'Port', 'Path', 'Name', 'Arguments', 'Mark')
-            struct = uno.createUnoStruct('com.sun.star.util.URL')
-            if arg_len > len(key_order):
-                raise ValueError("URL.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Complete is UNO_NONE:
+                if getattr(struct, 'Complete') != Complete:
+                    setattr(struct, 'Complete', Complete)
+            if not Main is UNO_NONE:
+                if getattr(struct, 'Main') != Main:
+                    setattr(struct, 'Main', Main)
+            if not Protocol is UNO_NONE:
+                if getattr(struct, 'Protocol') != Protocol:
+                    setattr(struct, 'Protocol', Protocol)
+            if not User is UNO_NONE:
+                if getattr(struct, 'User') != User:
+                    setattr(struct, 'User', User)
+            if not Password is UNO_NONE:
+                if getattr(struct, 'Password') != Password:
+                    setattr(struct, 'Password', Password)
+            if not Server is UNO_NONE:
+                if getattr(struct, 'Server') != Server:
+                    setattr(struct, 'Server', Server)
+            if not Port is UNO_NONE:
+                if getattr(struct, 'Port') != Port:
+                    setattr(struct, 'Port', Port)
+            if not Path is UNO_NONE:
+                if getattr(struct, 'Path') != Path:
+                    setattr(struct, 'Path', Path)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not Arguments is UNO_NONE:
+                if getattr(struct, 'Arguments') != Arguments:
+                    setattr(struct, 'Arguments', Arguments)
+            if not Mark is UNO_NONE:
+                if getattr(struct, 'Mark') != Mark:
+                    setattr(struct, 'Mark', Mark)
             _set_attr(struct)
             return struct
         URL = _struct_init

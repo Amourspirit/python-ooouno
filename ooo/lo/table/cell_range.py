@@ -35,5 +35,6 @@ class CellRange(CellProperties_d4360cbd, XCellRange_a2f70ad5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CellRange']
 

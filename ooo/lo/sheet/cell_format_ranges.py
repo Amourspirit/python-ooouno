@@ -37,5 +37,6 @@ class CellFormatRanges(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CellFormatRanges']
 

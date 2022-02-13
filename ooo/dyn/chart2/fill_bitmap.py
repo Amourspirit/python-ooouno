@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart2 import FillBitmap as UFillBitmap
+        # Dynamically create uno com.sun.star.chart2.FillBitmap using uno
         global FillBitmap
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.FillBitmap'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart2 import FillBitmap as UFillBitmap
-                if isinstance(args[0], UFillBitmap):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart2.FillBitmap', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(aURL = UNO_NONE, aOffset = UNO_NONE, aPositionOffset = UNO_NONE, aRectanglePoint = UNO_NONE, bLogicalSize = UNO_NONE, aSize = UNO_NONE, aBitmapMode = UNO_NONE):
+            ns = 'com.sun.star.chart2.FillBitmap'
+            if isinstance(aURL, UFillBitmap):
+                inst = uno.createUnoStruct(ns, aURL)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('aURL', 'aOffset', 'aPositionOffset', 'aRectanglePoint', 'bLogicalSize', 'aSize', 'aBitmapMode')
-            struct = uno.createUnoStruct('com.sun.star.chart2.FillBitmap')
-            if arg_len > len(key_order):
-                raise ValueError("FillBitmap.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not aURL is UNO_NONE:
+                if getattr(struct, 'aURL') != aURL:
+                    setattr(struct, 'aURL', aURL)
+            if not aOffset is UNO_NONE:
+                if getattr(struct, 'aOffset') != aOffset:
+                    setattr(struct, 'aOffset', aOffset)
+            if not aPositionOffset is UNO_NONE:
+                if getattr(struct, 'aPositionOffset') != aPositionOffset:
+                    setattr(struct, 'aPositionOffset', aPositionOffset)
+            if not aRectanglePoint is UNO_NONE:
+                if getattr(struct, 'aRectanglePoint') != aRectanglePoint:
+                    setattr(struct, 'aRectanglePoint', aRectanglePoint)
+            if not bLogicalSize is UNO_NONE:
+                if getattr(struct, 'bLogicalSize') != bLogicalSize:
+                    setattr(struct, 'bLogicalSize', bLogicalSize)
+            if not aSize is UNO_NONE:
+                if getattr(struct, 'aSize') != aSize:
+                    setattr(struct, 'aSize', aSize)
+            if not aBitmapMode is UNO_NONE:
+                if getattr(struct, 'aBitmapMode') != aBitmapMode:
+                    setattr(struct, 'aBitmapMode', aBitmapMode)
             _set_attr(struct)
             return struct
         FillBitmap = _struct_init

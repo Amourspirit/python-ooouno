@@ -68,6 +68,5 @@ class XAccessibleValue(XInterface_8f010a43):
         The argument is clipped to the valid interval whose upper and lower bounds are returned by the methods getMaximumAccessibleValue() and getMinimumAccessibleValue(), i.e. if it is lower than the minimum value the new value will be the minimum and if it is greater than the maximum then the new value will be the maximum.
         """
 
-
 __all__ = ['XAccessibleValue']
 

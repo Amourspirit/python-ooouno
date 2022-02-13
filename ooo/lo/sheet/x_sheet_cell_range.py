@@ -42,6 +42,5 @@ class XSheetCellRange(XCellRange_a2f70ad5):
         returns the spreadsheet interface which contains the cell range.
         """
 
-
 __all__ = ['XSheetCellRange']
 

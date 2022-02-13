@@ -39,6 +39,5 @@ class XPresentationPage(XDrawPage_b07a0b57):
         return the note page from the current page in the presentation, the name for the note page in the user interface note view, and one of the views from a presentation page.
         """
 
-
 __all__ = ['XPresentationPage']
 

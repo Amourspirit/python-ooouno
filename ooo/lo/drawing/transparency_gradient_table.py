@@ -36,5 +36,6 @@ class TransparencyGradientTable(XNameContainer_cb90e47):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TransparencyGradientTable']
 

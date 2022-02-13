@@ -42,5 +42,6 @@ class TextTableCursor(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextTableCursor']
 

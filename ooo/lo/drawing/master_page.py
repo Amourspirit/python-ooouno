@@ -36,5 +36,6 @@ class MasterPage(GenericDrawPage_fd960dbc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MasterPage']
 

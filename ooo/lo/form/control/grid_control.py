@@ -46,5 +46,6 @@ class GridControl(UnoControl_8f2c0a67, XBoundComponent_d4830cbf, XGridControl_af
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GridControl']
 

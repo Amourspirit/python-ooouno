@@ -40,6 +40,5 @@ class XNumericalDataSequence(XInterface_8f010a43):
         retrieves data as double values.
         """
 
-
 __all__ = ['XNumericalDataSequence']
 

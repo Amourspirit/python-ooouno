@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.table
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ..beans.x_fast_property_set import XFastPropertySet as XFastPropertySet_ee6b0d88
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..lang.x_component import XComponent as XComponent_98dc0ab5
@@ -53,17 +53,6 @@ class XTable(XFastPropertySet_ee6b0d88, XPropertySet_bc180bfa, XComponent_98dc0a
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
-    @abstractproperty
-    def ColumnCount(self) -> int:
-        """
-        stores the current column count of this table
-        """
-    @abstractproperty
-    def RowCount(self) -> int:
-        """
-        stores the current row count of this table
-        """
-
 
 __all__ = ['XTable']
 

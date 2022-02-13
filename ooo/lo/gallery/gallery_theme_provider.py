@@ -35,5 +35,6 @@ class GalleryThemeProvider(XGalleryThemeProvider_59c7105e, XInitialization_d46c0
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GalleryThemeProvider']
 

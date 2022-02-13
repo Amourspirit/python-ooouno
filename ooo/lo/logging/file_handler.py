@@ -63,5 +63,6 @@ class FileHandler(XLogHandler_c7f80c27):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['FileHandler']
 

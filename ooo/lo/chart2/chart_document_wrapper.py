@@ -35,5 +35,6 @@ class ChartDocumentWrapper(ChartDocument_c7790c4b, XAggregation_a4230b1a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChartDocumentWrapper']
 

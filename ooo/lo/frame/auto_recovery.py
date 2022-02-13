@@ -42,5 +42,6 @@ class AutoRecovery(XDispatch_98ff0a9b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AutoRecovery']
 

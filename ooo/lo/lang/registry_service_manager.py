@@ -46,5 +46,7 @@ class RegistryServiceManager(ServiceManager_c7920c36, XInitialization_d46c0cca):
         Specifies the current registry to be read from.
         """
 
+
+
 __all__ = ['RegistryServiceManager']
 

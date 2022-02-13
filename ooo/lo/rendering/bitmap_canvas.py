@@ -35,5 +35,6 @@ class BitmapCanvas(XBitmap_b1b70b7b, XBitmapCanvas_fe5f0dd7):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BitmapCanvas']
 

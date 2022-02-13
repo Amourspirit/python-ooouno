@@ -48,6 +48,5 @@ class XDialog2(XDialog_709d08fc):
         sets the help id so that the standard help button action will show the appropriate help page.
         """
 
-
 __all__ = ['XDialog2']
 

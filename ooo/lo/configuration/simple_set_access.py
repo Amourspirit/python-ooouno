@@ -43,5 +43,6 @@ class SimpleSetAccess(XTemplateContainer_928f11b7, XContainer_d6fb0cc6, XNameAcc
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SimpleSetAccess']
 

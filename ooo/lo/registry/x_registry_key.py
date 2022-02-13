@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.registry
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .registry_key_type import RegistryKeyType as RegistryKeyType_11940ea5
@@ -275,14 +275,6 @@ class XRegistryKey(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
-    @abstractproperty
-    def KeyName(self) -> str:
-        """
-        This is the key of the entry relative to its parent.
-        
-        The access path starts with the root \"/\" and all parent entry names are delimited with slashes \"/\" too, like in a UNIX (R) file system. Slashes which are part of single names are represented as hexadecimals preceded with a \"%\" like in URL syntax.
-        """
-
 
 __all__ = ['XRegistryKey']
 

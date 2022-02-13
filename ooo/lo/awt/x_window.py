@@ -130,6 +130,5 @@ class XWindow(XComponent_98dc0ab5):
         shows or hides the window depending on the parameter.
         """
 
-
 __all__ = ['XWindow']
 

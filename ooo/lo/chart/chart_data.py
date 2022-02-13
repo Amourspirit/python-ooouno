@@ -34,5 +34,6 @@ class ChartData(XChartData_a3580ade):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChartData']
 

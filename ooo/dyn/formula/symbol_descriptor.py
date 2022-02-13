@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.formula
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.formula import SymbolDescriptor as USymbolDescriptor
+        # Dynamically create uno com.sun.star.formula.SymbolDescriptor using uno
         global SymbolDescriptor
 
         def _set_attr(struct):
@@ -35,25 +36,44 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.formula.SymbolDescriptor'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.formula import SymbolDescriptor as USymbolDescriptor
-                if isinstance(args[0], USymbolDescriptor):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.formula.SymbolDescriptor', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(sName = UNO_NONE, sExportName = UNO_NONE, sSymbolSet = UNO_NONE, nCharacter = UNO_NONE, sFontName = UNO_NONE, nCharSet = UNO_NONE, nFamily = UNO_NONE, nPitch = UNO_NONE, nWeight = UNO_NONE, nItalic = UNO_NONE):
+            ns = 'com.sun.star.formula.SymbolDescriptor'
+            if isinstance(sName, USymbolDescriptor):
+                inst = uno.createUnoStruct(ns, sName)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('sName', 'sExportName', 'sSymbolSet', 'nCharacter', 'sFontName', 'nCharSet', 'nFamily', 'nPitch', 'nWeight', 'nItalic')
-            struct = uno.createUnoStruct('com.sun.star.formula.SymbolDescriptor')
-            if arg_len > len(key_order):
-                raise ValueError("SymbolDescriptor.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not sName is UNO_NONE:
+                if getattr(struct, 'sName') != sName:
+                    setattr(struct, 'sName', sName)
+            if not sExportName is UNO_NONE:
+                if getattr(struct, 'sExportName') != sExportName:
+                    setattr(struct, 'sExportName', sExportName)
+            if not sSymbolSet is UNO_NONE:
+                if getattr(struct, 'sSymbolSet') != sSymbolSet:
+                    setattr(struct, 'sSymbolSet', sSymbolSet)
+            if not nCharacter is UNO_NONE:
+                if getattr(struct, 'nCharacter') != nCharacter:
+                    setattr(struct, 'nCharacter', nCharacter)
+            if not sFontName is UNO_NONE:
+                if getattr(struct, 'sFontName') != sFontName:
+                    setattr(struct, 'sFontName', sFontName)
+            if not nCharSet is UNO_NONE:
+                if getattr(struct, 'nCharSet') != nCharSet:
+                    setattr(struct, 'nCharSet', nCharSet)
+            if not nFamily is UNO_NONE:
+                if getattr(struct, 'nFamily') != nFamily:
+                    setattr(struct, 'nFamily', nFamily)
+            if not nPitch is UNO_NONE:
+                if getattr(struct, 'nPitch') != nPitch:
+                    setattr(struct, 'nPitch', nPitch)
+            if not nWeight is UNO_NONE:
+                if getattr(struct, 'nWeight') != nWeight:
+                    setattr(struct, 'nWeight', nWeight)
+            if not nItalic is UNO_NONE:
+                if getattr(struct, 'nItalic') != nItalic:
+                    setattr(struct, 'nItalic', nItalic)
             _set_attr(struct)
             return struct
         SymbolDescriptor = _struct_init

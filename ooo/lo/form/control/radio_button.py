@@ -37,5 +37,6 @@ class RadioButton(UnoControlRadioButton_1b1a0ed2, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RadioButton']
 

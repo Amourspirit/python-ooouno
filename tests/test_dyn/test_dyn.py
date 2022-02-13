@@ -50,16 +50,13 @@ def test_interface():
 
 def test_exception():
     from ooo.dyn.uno.exception import Exception
-    assert Exception.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
-    assert Exception.__ooo_ns__ == 'com.sun.star.uno'
-    assert Exception.__ooo_type_name__ == 'exception'
     ex = Exception()
     assert id(ex) != id(Exception)
     ex.Message = "Hello World"
     assert ex.Message == 'Hello World'
-    assert Exception.typeName == 'com.sun.star.uno.Exception'
-    assert ex.__pyunointerface__ == Exception.typeName
-    assert ex.__pyunostruct__ == Exception.typeName
+    # assert Exception.typeName == 'com.sun.star.uno.Exception'
+    # assert ex.__pyunointerface__ == Exception.typeName
+    assert ex.__pyunostruct__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_ns__ == 'com.sun.star.uno'
     assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_type_name__ == 'exception'
@@ -69,7 +66,7 @@ def test_exception():
 def test_exception_oth():
     from ooo.dyn.accessibility.illegal_accessible_component_state_exception import IllegalAccessibleComponentStateException
     ex = IllegalAccessibleComponentStateException()
-    assert IllegalAccessibleComponentStateException.__pyunointerface__ == 'com.sun.star.accessibility.IllegalAccessibleComponentStateException'
+    assert IllegalAccessibleComponentStateException.typeName == 'com.sun.star.accessibility.IllegalAccessibleComponentStateException'
     assert ex.__ooo_ns__ == 'com.sun.star.accessibility'
     assert ex.__ooo_full_ns__ == 'com.sun.star.accessibility.IllegalAccessibleComponentStateException'
     assert ex.__ooo_type_name__ == 'exception'
@@ -119,3 +116,20 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
+
+def test_struct_accessible_relation():
+    import uno
+    from ooo.lo.accessibility.accessible_relation import AccessibleRelation
+    from ooo.dyn.accessibility.accessible_relation_type import AccessibleRelationType
+    bs = b"<html><body><p>Text from <b>HTML</b>.</p></body></html>"
+    rel:AccessibleRelation = uno.createUnoStruct("com.sun.star.accessibility.AccessibleRelation", 3)
+    assert rel.typeName == 'com.sun.star.accessibility.AccessibleRelation'
+    rel.RelationType = AccessibleRelationType.CONTROLLED_BY
+    rel.TargetSet = uno.ByteSequence(bs)
+    assert rel.RelationType == AccessibleRelationType.CONTROLLED_BY
+
+def test_excpetion_createUnoStruct():
+    from ooo.dyn.ucb.missing_properties_exception import MissingPropertiesException
+    prop = ("hello", "world")
+    ex: MissingPropertiesException = MissingPropertiesException(Properties=prop)
+    assert ex.Properties == ("hello", "world")

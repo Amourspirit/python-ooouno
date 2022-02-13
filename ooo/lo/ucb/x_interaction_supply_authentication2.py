@@ -52,6 +52,5 @@ class XInteractionSupplyAuthentication2(XInteractionSupplyAuthentication_d861136
         Set a new \"use system credentials\" value to hand back.
         """
 
-
 __all__ = ['XInteractionSupplyAuthentication2']
 

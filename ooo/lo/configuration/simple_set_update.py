@@ -41,5 +41,6 @@ class SimpleSetUpdate(SimpleSetAccess_5ea81068, XNameContainer_cb90e47, XMultiSe
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SimpleSetUpdate']
 

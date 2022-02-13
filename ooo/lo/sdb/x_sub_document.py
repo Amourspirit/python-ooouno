@@ -74,6 +74,5 @@ class XSubDocument(ABC):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XSubDocument']
 

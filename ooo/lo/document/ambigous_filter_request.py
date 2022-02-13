@@ -39,19 +39,15 @@ class AmbigousFilterRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.AmbigousFilterRequest'
     """Literal Constant ``com.sun.star.document.AmbigousFilterRequest``"""
 
-    DetectedFilter: str = None
-    """
-        transport the real detected filter, which stands in conflict to the pre selected one
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    SelectedFilter: str = None
-    """
-        transport the preselected filter
-    """
+        Keyword Arguments:
 
-    URL: str = None
-    """
-        transport URL which couldn't be detected right
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

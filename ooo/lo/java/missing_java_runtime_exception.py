@@ -43,9 +43,15 @@ class MissingJavaRuntimeException(JavaInitializationException_8b6211a3):
     typeName: str = 'com.sun.star.java.MissingJavaRuntimeException'
     """Literal Constant ``com.sun.star.java.MissingJavaRuntimeException``"""
 
-    URLRuntimeLib: str = None
-    """
-        contains the path to the runtime lib as file URL.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

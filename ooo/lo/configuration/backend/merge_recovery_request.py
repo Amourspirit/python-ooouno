@@ -41,28 +41,15 @@ class MergeRecoveryRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.configuration.backend.MergeRecoveryRequest'
     """Literal Constant ``com.sun.star.configuration.backend.MergeRecoveryRequest``"""
 
-    ErrorDetails: object = None
-    """
-        data that provides more detailed information about the reason and location of the error.
-        
-        Typically this member should contain an exception characterizing the error in detail.
-        
-        For example the following exceptions may be used:
-        
-        If no more detail information is available, this may be left VOID.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    ErrorLayerId: str = None
-    """
-        Identifier of the layer object containing the invalid data.
-    """
+        Keyword Arguments:
 
-    IsRemovalRequest: bool = None
-    """
-        specifies whether the requester wants to remove or skip the invalid layer.
-        
-        If TRUE the requester wants to remove the underlying data of the layer.
-        If FALSE the request is to skip the underlying data this time, but without removing it.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

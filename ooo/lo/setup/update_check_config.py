@@ -38,5 +38,6 @@ class UpdateCheckConfig(XNameReplace_f0900d60):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UpdateCheckConfig']
 

@@ -34,5 +34,6 @@ class PropertiesManager(XPropertySetInfo_efa90d86):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PropertiesManager']
 

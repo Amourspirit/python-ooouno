@@ -39,33 +39,15 @@ class DataTruncation(SQLWarning_96f10a6a):
     typeName: str = 'com.sun.star.sdbc.DataTruncation'
     """Literal Constant ``com.sun.star.sdbc.DataTruncation``"""
 
-    DataSize: int = None
-    """
-        contains the number of bytes of data that should have been transferred.
-        
-        This number may be approximate if data conversions were being performed. The value may be -1 if the size is unknown.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    DuringRead: bool = None
-    """
-        is TRUE if a read was truncated.
-    """
+        Keyword Arguments:
 
-    Index: int = None
-    """
-        is the index of the parameter or column value.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
 
-    IsParameter: bool = None
-    """
-        is TRUE if a parameter value is truncated.
-    """
-
-    TransferSize: int = None
-    """
-        contains the number of bytes of data actually transferred.
-        
-        The value may be -1 if the size is unknown.
-    """
 
 

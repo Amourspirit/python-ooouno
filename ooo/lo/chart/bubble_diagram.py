@@ -41,5 +41,6 @@ class BubbleDiagram(ChartAxisXSupplier_a950e4d, ChartStatistics_e2190d37, ChartT
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BubbleDiagram']
 

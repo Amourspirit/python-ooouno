@@ -108,6 +108,5 @@ class XConversionDictionary(XInterface_8f010a43):
         specifies whether the dictionary should be used or not .
         """
 
-
 __all__ = ['XConversionDictionary']
 

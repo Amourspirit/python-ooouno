@@ -47,6 +47,5 @@ class XCommandInfoChangeNotifier(XInterface_8f010a43):
         removes a listener for CommandInfoChangeEvents.
         """
 
-
 __all__ = ['XCommandInfoChangeNotifier']
 

@@ -21,7 +21,6 @@
 import typing
 from abc import abstractproperty
 from ..beans.property_set import PropertySet as PropertySet_b0e70ba2
-from .x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField_94771167
 from ..drawing.fill_properties import FillProperties as FillProperties_f1200da8
 if typing.TYPE_CHECKING:
     from ..awt.gradient import Gradient as Gradient_7a8a0982
@@ -30,6 +29,7 @@ if typing.TYPE_CHECKING:
     from .data_point_label import DataPointLabel as DataPointLabel_dd530cb0
     from .relative_position import RelativePosition as RelativePosition_fae10ddd
     from .symbol import Symbol as Symbol_83c109c2
+    from .x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField_94771167
     from ..drawing.bitmap_mode import BitmapMode as BitmapMode_bced0bd6
     from ..drawing.fill_style import FillStyle as FillStyle_b1460b8c
     from ..drawing.hatch import Hatch as Hatch_859b09dc
@@ -53,14 +53,15 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
     __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointProperties'
     __ooo_type_name__: str = 'service'
 
-    CustomLabelFields: typing.TypeAlias = typing.Tuple[XDataPointCustomLabelField_94771167, ...]
-    """
-    specifies a text with possible fields that is used as a data point label, if set then Label property is ignored
-    
-    **since**
-    
-        LibreOffice 6.1
-    """
+    @abstractproperty
+    def CustomLabelFields(self) -> 'typing.Tuple[XDataPointCustomLabelField_94771167, ...]':
+        """
+        specifies a text with possible fields that is used as a data point label, if set then Label property is ignored
+        
+        **since**
+        
+            LibreOffice 6.1
+        """
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -69,6 +70,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         See LineColor.
         """
+
     @abstractproperty
     def BorderDash(self) -> 'LineDash_a54e0afc':
         """
@@ -76,11 +78,13 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         See LineDash.
         """
+
     @abstractproperty
     def BorderDashName(self) -> str:
         """
         The name of a dash that can be found in the com.sun.star.container.XNameContainer \"com.sun.star.drawing.LineDashTable\", that can be created via the com.sun.star.uno.XMultiServiceFactory of the ChartDocument.
         """
+
     @abstractproperty
     def BorderStyle(self) -> 'LineStyle_b1600b8d':
         """
@@ -88,6 +92,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         See LineStyle.
         """
+
     @abstractproperty
     def BorderTransparency(self) -> int:
         """
@@ -95,6 +100,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         See LineTransparence.
         """
+
     @abstractproperty
     def BorderWidth(self) -> int:
         """
@@ -102,6 +108,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         See LineWidth.
         """
+
     @abstractproperty
     def Color(self) -> int:
         """
@@ -111,6 +118,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         For charts with filled areas, like bar-charts, this should map to the FillColor of the objects. For line-charts this should map to the LineColor property.
         """
+
     @abstractproperty
     def CustomLabelPosition(self) -> 'RelativePosition_fae10ddd':
         """
@@ -120,6 +128,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
             LibreOffice 7.0
         """
+
     @abstractproperty
     def ErrorBarX(self) -> 'XPropertySet_bc180bfa':
         """
@@ -127,6 +136,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         The com.sun.star.beans.XPropertySet must support the service ErrorBar.
         """
+
     @abstractproperty
     def ErrorBarY(self) -> 'XPropertySet_bc180bfa':
         """
@@ -134,11 +144,13 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         The com.sun.star.beans.XPropertySet must support the service ErrorBar.
         """
+
     @abstractproperty
     def FillBackground(self) -> bool:
         """
         If TRUE, fills the background of a hatch with the color given in the Color property.
         """
+
     @abstractproperty
     def FillBitmapLogicalSize(self) -> bool:
         """
@@ -146,15 +158,18 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         If this is TRUE, the properties FillBitmapSizeX and FillBitmapSizeY contain the size of the tile in percent of the size of the original bitmap. If this is FALSE, the size of the tile is specified with 1/100th mm.
         """
+
     @abstractproperty
     def FillBitmapMode(self) -> 'BitmapMode_bced0bd6':
         """
         this enum selects how an area is filled with a single bitmap.
         """
+
     @abstractproperty
     def FillBitmapName(self) -> str:
         """
         """
+
     @abstractproperty
     def FillBitmapOffsetX(self) -> int:
         """
@@ -162,6 +177,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         It is given in percent in relation to the width of the bitmap.
         """
+
     @abstractproperty
     def FillBitmapOffsetY(self) -> int:
         """
@@ -169,21 +185,25 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         It is given in percent in relation to the width of the bitmap.
         """
+
     @abstractproperty
     def FillBitmapPositionOffsetX(self) -> int:
         """
         Every second line of tiles is moved the given percent of the width of the bitmap.
         """
+
     @abstractproperty
     def FillBitmapPositionOffsetY(self) -> int:
         """
         Every second row of tiles is moved the given percent of the width of the bitmap.
         """
+
     @abstractproperty
     def FillBitmapRectanglePoint(self) -> 'RectanglePoint_f0ff0d93':
         """
         The RectanglePoint specifies the position inside of the bitmap to use as the top left position for rendering.
         """
+
     @abstractproperty
     def FillBitmapSizeX(self) -> int:
         """
@@ -191,6 +211,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         Depending on the property FillBitmapLogicalSize, this is either relative or absolute.
         """
+
     @abstractproperty
     def FillBitmapSizeY(self) -> int:
         """
@@ -198,11 +219,13 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         Depending on the property FillBitmapLogicalSize, this is either relative or absolute.
         """
+
     @abstractproperty
     def FillStyle(self) -> 'FillStyle_b1460b8c':
         """
         This enumeration selects the style with which the area will be filled.
         """
+
     @abstractproperty
     def Geometry3D(self) -> int:
         """
@@ -214,60 +237,73 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         CUBOID==0 CYLINDER==1 CONE==2 PYRAMID==3 CUBOID==else
         """
+
     @abstractproperty
     def Gradient(self) -> 'Gradient_7a8a0982':
         """
         """
+
     @abstractproperty
     def GradientName(self) -> str:
         """
         """
+
     @abstractproperty
     def Hatch(self) -> 'Hatch_859b09dc':
         """
         """
+
     @abstractproperty
     def HatchName(self) -> str:
         """
         """
+
     @abstractproperty
     def Label(self) -> 'DataPointLabel_dd530cb0':
         """
         """
+
     @abstractproperty
     def LabelPlacement(self) -> int:
         """
         specifies a relative position for the data label
         """
+
     @abstractproperty
     def LabelSeparator(self) -> str:
         """
         specifies a string that is used to separate the parts of a data label (caption)
         """
+
     @abstractproperty
     def LineDash(self) -> 'LineDash_a54e0afc':
         """
         Is only used for line-chart types.
         """
+
     @abstractproperty
     def LineDashName(self) -> str:
         """
         The name of a dash that can be found in the com.sun.star.container.XNameContainer \"com.sun.star.drawing.LineDashTable\", that can be created via the com.sun.star.uno.XMultiServiceFactory of the ChartDocument.
         """
+
     @abstractproperty
     def LineStyle(self) -> 'LineStyle_b1600b8d':
         """
         """
+
     @abstractproperty
     def LineWidth(self) -> int:
         """
         Is only used for line-chart types.
         """
+
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         specifies a number format for the display of the value in the data label
         """
+
     @abstractproperty
     def Offset(self) -> float:
         """
@@ -275,16 +311,19 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         This is especially useful for the explosion of pie-chart segments.
         """
+
     @abstractproperty
     def PercentDiagonal(self) -> int:
         """
         A value between 0 and 100 indicating the percentage how round an edge should be.
         """
+
     @abstractproperty
     def PercentageNumberFormat(self) -> int:
         """
         specifies a number format for the display of the percentage value in the data label
         """
+
     @abstractproperty
     def ReferencePageSize(self) -> 'Size_576707ef':
         """
@@ -292,15 +331,18 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         This size is used to resize text in the view when the size of the page has changed since the font sizes were set (automatic text scaling).
         """
+
     @abstractproperty
     def ShowErrorBox(self) -> bool:
         """
         In case ErrorBarX and ErrorBarY both are set, and error bars are shown, a box spanning all error-indicators is rendered.
         """
+
     @abstractproperty
     def Symbol(self) -> 'Symbol_83c109c2':
         """
         """
+
     @abstractproperty
     def TextWordWrap(self) -> bool:
         """
@@ -310,6 +352,7 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
             LibreOffice 5.1
         """
+
     @abstractproperty
     def Transparency(self) -> int:
         """
@@ -317,15 +360,19 @@ class DataPointProperties(PropertySet_b0e70ba2, FillProperties_f1200da8):
         
         For charts with filled areas, like bar-charts, this should map to the FillTransparence of the objects. For line-charts this should map to the LineTransparence property.
         """
+
     @abstractproperty
     def TransparencyGradient(self) -> 'Gradient_7a8a0982':
         """
         This describes the transparency of the fill area as a gradient.
         """
+
     @abstractproperty
     def TransparencyGradientName(self) -> str:
         """
         """
+
+
 
 __all__ = ['DataPointProperties']
 

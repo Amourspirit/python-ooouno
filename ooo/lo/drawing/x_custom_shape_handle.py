@@ -47,6 +47,5 @@ class XCustomShapeHandle(XInterface_8f010a43):
         is setting a new position for the handle
         """
 
-
 __all__ = ['XCustomShapeHandle']
 

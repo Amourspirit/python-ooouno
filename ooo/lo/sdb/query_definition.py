@@ -36,5 +36,6 @@ class QueryDefinition(XQueryDefinition_d3bf0cb8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['QueryDefinition']
 

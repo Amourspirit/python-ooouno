@@ -68,6 +68,5 @@ class XCommandInfo(XInterface_8f010a43):
         checks whether a command specific is supported.
         """
 
-
 __all__ = ['XCommandInfo']
 

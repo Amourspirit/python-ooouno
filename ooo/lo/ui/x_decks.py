@@ -38,6 +38,5 @@ class XDecks(XIndexAccess_f0910d6d, XNameAccess_e2ab0cf6):
     __pyunointerface__: str = 'com.sun.star.ui.XDecks'
 
 
-
 __all__ = ['XDecks']
 

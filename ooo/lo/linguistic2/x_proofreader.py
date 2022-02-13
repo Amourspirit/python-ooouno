@@ -73,6 +73,5 @@ class XProofreader(XSupportedLocales_5bda1056):
         sets all rules back to their default settings.
         """
 
-
 __all__ = ['XProofreader']
 

@@ -41,4 +41,15 @@ class PersistenceFailureException(Exception_85530a09):
     typeName: str = 'com.sun.star.auth.PersistenceFailureException'
     """Literal Constant ``com.sun.star.auth.PersistenceFailureException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

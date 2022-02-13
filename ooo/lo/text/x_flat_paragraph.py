@@ -99,6 +99,5 @@ class XFlatParagraph(XTextMarkup_a5d60b3a):
         change the \"checked\" flag of the respective text node, i.e., mark the text node as \"processed\"
         """
 
-
 __all__ = ['XFlatParagraph']
 

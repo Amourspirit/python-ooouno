@@ -39,9 +39,15 @@ class WrappedTargetException(Exception_85530a09):
     typeName: str = 'com.sun.star.lang.WrappedTargetException'
     """Literal Constant ``com.sun.star.lang.WrappedTargetException``"""
 
-    TargetException: object = None
-    """
-        The exception is thrown by the target.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

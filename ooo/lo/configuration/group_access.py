@@ -43,5 +43,6 @@ class GroupAccess(HierarchyAccess_5e871071, PropertyHierarchy_83841184):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GroupAccess']
 

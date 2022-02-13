@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.report
 import typing
 from abc import abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .x_report_control_model import XReportControlModel as XReportControlModel_2d800f4a
 if typing.TYPE_CHECKING:
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..drawing.homogen_matrix3 import HomogenMatrix3 as HomogenMatrix3_f0fb0d69
 
 class XShape(XReportControlModel_2d800f4a):
@@ -36,30 +36,34 @@ class XShape(XReportControlModel_2d800f4a):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.report.XShape'
 
-    CustomShapeGeometry: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    This property describes the geometry of the CustomShape.
-    
-    The CustomShapeEngine that is used should be able to get on with the content of this property.
-    
-    If the CustomShapeEngine property is \"com.sun.star.drawing.EnhancedCustomShapeEngine\", then this property is containing properties as they are specified in the service com.sun.star.drawing.EnhancedCustomShapeGeometry
-    """
+    @abstractproperty
+    def CustomShapeGeometry(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        This property describes the geometry of the CustomShape.
+        
+        The CustomShapeEngine that is used should be able to get on with the content of this property.
+        
+        If the CustomShapeEngine property is \"com.sun.star.drawing.EnhancedCustomShapeEngine\", then this property is containing properties as they are specified in the service com.sun.star.drawing.EnhancedCustomShapeGeometry
+        """
 
     @abstractproperty
     def CustomShapeData(self) -> str:
         """
         This property can be used to store data that the CustomShapeEngine may use for rendering.
         """
+
     @abstractproperty
     def CustomShapeEngine(self) -> str:
         """
         This property contains the CustomShapeEngine service name that has to be used for rendering.
         """
+
     @abstractproperty
     def Opaque(self) -> bool:
         """
         determines if the object is opaque or transparent for text.
         """
+
     @abstractproperty
     def Transformation(self) -> 'HomogenMatrix3_f0fb0d69':
         """
@@ -67,6 +71,7 @@ class XShape(XReportControlModel_2d800f4a):
         
         The transformation is a 3x3 homogeneous matrix and can contain translation, rotation, shearing and scaling.
         """
+
     @abstractproperty
     def ZOrder(self) -> int:
         """

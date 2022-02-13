@@ -64,6 +64,5 @@ class XVBAModuleInfo(ABC):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XVBAModuleInfo']
 

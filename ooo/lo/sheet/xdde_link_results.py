@@ -49,6 +49,5 @@ class XDDELinkResults(XInterface_8f010a43):
         sets the DDE link results.
         """
 
-
 __all__ = ['XDDELinkResults']
 

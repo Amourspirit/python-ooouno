@@ -38,5 +38,6 @@ class VndSunStarPkgUrlReferenceFactory(XVndSunStarPkgUrlReferenceFactory_e5f9136
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['VndSunStarPkgUrlReferenceFactory']
 

@@ -52,6 +52,5 @@ class XShapeMirror(XInterface_8f010a43):
         mirrors the given Shapes at the given axis.
         """
 
-
 __all__ = ['XShapeMirror']
 

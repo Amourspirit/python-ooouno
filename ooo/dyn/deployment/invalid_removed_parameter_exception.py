@@ -19,16 +19,41 @@
 # Namespace: com.sun.star.deployment
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.deployment import InvalidRemovedParameterException
-    setattr(InvalidRemovedParameterException, '__ooo_ns__', 'com.sun.star.deployment')
-    setattr(InvalidRemovedParameterException, '__ooo_full_ns__', 'com.sun.star.deployment.InvalidRemovedParameterException')
-    setattr(InvalidRemovedParameterException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.deployment.InvalidRemovedParameterException using uno
+        global InvalidRemovedParameterException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.deployment'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.deployment.InvalidRemovedParameterException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(PreviousValue = UNO_NONE, Extension = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.deployment.InvalidRemovedParameterException'
+            ex = uno.createUnoStruct(ns)
+            if not PreviousValue is UNO_NONE:
+                if getattr(ex, 'PreviousValue') != PreviousValue:
+                    setattr(ex, 'PreviousValue', PreviousValue)
+            if not Extension is UNO_NONE:
+                if getattr(ex, 'Extension') != Extension:
+                    setattr(ex, 'Extension', Extension)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        InvalidRemovedParameterException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.deployment.invalid_removed_parameter_exception import InvalidRemovedParameterException as InvalidRemovedParameterException
     

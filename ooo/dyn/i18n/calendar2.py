@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import Calendar2 as UCalendar2
+        # Dynamically create uno com.sun.star.i18n.Calendar2 using uno
         global Calendar2
 
         def _set_attr(struct):
@@ -35,25 +36,41 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.Calendar2'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import Calendar2 as UCalendar2
-                if isinstance(args[0], UCalendar2):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.Calendar2', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Days = UNO_NONE, Months = UNO_NONE, GenitiveMonths = UNO_NONE, PartitiveMonths = UNO_NONE, Eras = UNO_NONE, StartOfWeek = UNO_NONE, MinimumNumberOfDaysForFirstWeek = UNO_NONE, Default = UNO_NONE, Name = UNO_NONE):
+            ns = 'com.sun.star.i18n.Calendar2'
+            if isinstance(Days, UCalendar2):
+                inst = uno.createUnoStruct(ns, Days)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name')
-            struct = uno.createUnoStruct('com.sun.star.i18n.Calendar2')
-            if arg_len > len(key_order):
-                raise ValueError("Calendar2.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Days is UNO_NONE:
+                if getattr(struct, 'Days') != Days:
+                    setattr(struct, 'Days', Days)
+            if not Months is UNO_NONE:
+                if getattr(struct, 'Months') != Months:
+                    setattr(struct, 'Months', Months)
+            if not GenitiveMonths is UNO_NONE:
+                if getattr(struct, 'GenitiveMonths') != GenitiveMonths:
+                    setattr(struct, 'GenitiveMonths', GenitiveMonths)
+            if not PartitiveMonths is UNO_NONE:
+                if getattr(struct, 'PartitiveMonths') != PartitiveMonths:
+                    setattr(struct, 'PartitiveMonths', PartitiveMonths)
+            if not Eras is UNO_NONE:
+                if getattr(struct, 'Eras') != Eras:
+                    setattr(struct, 'Eras', Eras)
+            if not StartOfWeek is UNO_NONE:
+                if getattr(struct, 'StartOfWeek') != StartOfWeek:
+                    setattr(struct, 'StartOfWeek', StartOfWeek)
+            if not MinimumNumberOfDaysForFirstWeek is UNO_NONE:
+                if getattr(struct, 'MinimumNumberOfDaysForFirstWeek') != MinimumNumberOfDaysForFirstWeek:
+                    setattr(struct, 'MinimumNumberOfDaysForFirstWeek', MinimumNumberOfDaysForFirstWeek)
+            if not Default is UNO_NONE:
+                if getattr(struct, 'Default') != Default:
+                    setattr(struct, 'Default', Default)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
             _set_attr(struct)
             return struct
         Calendar2 = _struct_init

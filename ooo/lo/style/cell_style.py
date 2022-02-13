@@ -34,5 +34,6 @@ class CellStyle(Style_7336094a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CellStyle']
 

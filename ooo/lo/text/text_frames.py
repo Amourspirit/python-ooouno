@@ -38,5 +38,6 @@ class TextFrames(XContainer_d6fb0cc6, XIndexAccess_f0910d6d, XNameAccess_e2ab0cf
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextFrames']
 

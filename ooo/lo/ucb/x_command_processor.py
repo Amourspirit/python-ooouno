@@ -67,6 +67,5 @@ class XCommandProcessor(XInterface_8f010a43):
             CommandAbortedException: ``CommandAbortedException``
         """
 
-
 __all__ = ['XCommandProcessor']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.script
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.script import InterruptEngineEvent as UInterruptEngineEvent
+        # Dynamically create uno com.sun.star.script.InterruptEngineEvent using uno
         global InterruptEngineEvent
 
         def _set_attr(struct):
@@ -35,25 +36,43 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.script.InterruptEngineEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.script import InterruptEngineEvent as UInterruptEngineEvent
-                if isinstance(args[0], UInterruptEngineEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.script.InterruptEngineEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Name = UNO_NONE, SourceCode = UNO_NONE, StartLine = UNO_NONE, StartColumn = UNO_NONE, EndLine = UNO_NONE, EndColumn = UNO_NONE, ErrorMessage = UNO_NONE, Reason = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.script.InterruptEngineEvent'
+            if isinstance(Name, UInterruptEngineEvent):
+                inst = uno.createUnoStruct(ns, Name)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn', 'ErrorMessage', 'Reason')
-            struct = uno.createUnoStruct('com.sun.star.script.InterruptEngineEvent')
-            if arg_len > len(key_order):
-                raise ValueError("InterruptEngineEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not SourceCode is UNO_NONE:
+                if getattr(struct, 'SourceCode') != SourceCode:
+                    setattr(struct, 'SourceCode', SourceCode)
+            if not StartLine is UNO_NONE:
+                if getattr(struct, 'StartLine') != StartLine:
+                    setattr(struct, 'StartLine', StartLine)
+            if not StartColumn is UNO_NONE:
+                if getattr(struct, 'StartColumn') != StartColumn:
+                    setattr(struct, 'StartColumn', StartColumn)
+            if not EndLine is UNO_NONE:
+                if getattr(struct, 'EndLine') != EndLine:
+                    setattr(struct, 'EndLine', EndLine)
+            if not EndColumn is UNO_NONE:
+                if getattr(struct, 'EndColumn') != EndColumn:
+                    setattr(struct, 'EndColumn', EndColumn)
+            if not ErrorMessage is UNO_NONE:
+                if getattr(struct, 'ErrorMessage') != ErrorMessage:
+                    setattr(struct, 'ErrorMessage', ErrorMessage)
+            if not Reason is UNO_NONE:
+                if getattr(struct, 'Reason') != Reason:
+                    setattr(struct, 'Reason', Reason)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         InterruptEngineEvent = _struct_init

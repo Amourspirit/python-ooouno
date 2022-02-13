@@ -36,5 +36,6 @@ class Acceptor(XAcceptor_d6eb0cc1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Acceptor']
 

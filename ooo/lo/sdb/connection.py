@@ -40,5 +40,6 @@ class Connection(Connection_98fe0ab4, DatabaseDefinition_9d00e3a, XChild_a6390b0
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Connection']
 

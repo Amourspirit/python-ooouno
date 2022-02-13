@@ -42,5 +42,6 @@ class UnoControlNumericField(UnoControlEdit_bc4e0bed, XNumericField_af9f0b63, XS
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlNumericField']
 

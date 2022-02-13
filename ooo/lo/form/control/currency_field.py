@@ -37,5 +37,6 @@ class CurrencyField(UnoControlCurrencyField_3aa80f96, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CurrencyField']
 

@@ -135,6 +135,5 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
-
 __all__ = ['XMutableGridDataModel']
 

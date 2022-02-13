@@ -34,5 +34,6 @@ class AutoTextContainer(XAutoTextContainer2_d140e38):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AutoTextContainer']
 

@@ -49,6 +49,5 @@ class XDumper(XInterface_8f010a43):
             LibreOffice 3.6
         """
 
-
 __all__ = ['XDumper']
 

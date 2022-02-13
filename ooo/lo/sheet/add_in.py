@@ -44,5 +44,6 @@ class AddIn(XServiceName_af090b54, XAddIn_7a560939, XCompatibilityNames_1b100ec7
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AddIn']
 

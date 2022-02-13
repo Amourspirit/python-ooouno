@@ -36,5 +36,6 @@ class FormattedField(UnoControlFormattedFieldModel_9fb511e2, FormControlModel_e2
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormattedField']
 

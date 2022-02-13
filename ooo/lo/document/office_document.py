@@ -20,7 +20,6 @@
 # Namespace: com.sun.star.document
 import typing
 from abc import abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .x_document_event_broadcaster import XDocumentEventBroadcaster as XDocumentEventBroadcaster_b2f1126a
 from .x_document_properties_supplier import XDocumentPropertiesSupplier as XDocumentPropertiesSupplier_dc4b137f
 from .x_embedded_scripts import XEmbeddedScripts as XEmbeddedScripts_1ab50eb1
@@ -33,6 +32,8 @@ from ..frame.x_storable import XStorable as XStorable_998f0aa7
 from ..util.x_modifiable import XModifiable as XModifiable_a4f60b0a
 from ..view.x_print_job_broadcaster import XPrintJobBroadcaster as XPrintJobBroadcaster_19ea0ead
 from ..view.x_printable import XPrintable as XPrintable_9a5b0abc
+if typing.TYPE_CHECKING:
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 
 class OfficeDocument(XDocumentEventBroadcaster_b2f1126a, XDocumentPropertiesSupplier_dc4b137f, XEmbeddedScripts_1ab50eb1, XEventBroadcaster_2b120f2b, XEventsSupplier_ecd0e88, XUndoManagerSupplier_5aae1064, XViewDataSupplier_2ae20f28, XModel_7a6e095c, XStorable_998f0aa7, XModifiable_a4f60b0a, XPrintJobBroadcaster_19ea0ead, XPrintable_9a5b0abc):
     """
@@ -53,40 +54,19 @@ class OfficeDocument(XDocumentEventBroadcaster_b2f1126a, XDocumentPropertiesSupp
     __ooo_full_ns__: str = 'com.sun.star.document.OfficeDocument'
     __ooo_type_name__: str = 'service'
 
-    InteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    Grab bag of document properties, used as a string-any map for interim interop purposes.
-    
-    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-    
-    **since**
-    
-        LibreOffice 4.2
-    """
+    @abstractproperty
+    def InteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        Grab bag of document properties, used as a string-any map for interim interop purposes.
+        
+        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+        
+        **since**
+        
+            LibreOffice 4.2
+        """
 
-    @abstractproperty
-    def ApplyFormDesignMode(self) -> bool:
-        """
-        controls the initial (on-load) behavior of the form controls in the document
-        
-        If set to TRUE, upon loading the document, the form controls will be in design mode.
-        If set to FALSE, they will be alive, i.e. operational.
-        With this, you may control if your document works primarily as a form document.
-        """
-    @abstractproperty
-    def AutomaticControlFocus(self) -> bool:
-        """
-        controls the focus behavior of the form controls in the document
-        
-        If this flag is set to TRUE, any view belonging to the document should focus the first control in the document. With this, you may control if your document works primarily as a form document.
-        """
-    @abstractproperty
-    def RuntimeUID(self) -> str:
-        """
-        contains a unique id for the document
-        
-        Once calculated, the id must not change until the document has been closed. Upon closing it will not be made persistent. Thus, the document may get a different id every time it gets loaded.
-        """
+
 
 __all__ = ['OfficeDocument']
 

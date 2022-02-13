@@ -36,5 +36,6 @@ class ContentProvider(XContentIdentifierFactory_56b91050, XContentProvider_d4150
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ContentProvider']
 

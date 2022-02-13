@@ -33,6 +33,5 @@ class XInteractionRetry(XInteractionContinuation_5af0108e):
     __pyunointerface__: str = 'com.sun.star.task.XInteractionRetry'
 
 
-
 __all__ = ['XInteractionRetry']
 

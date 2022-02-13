@@ -36,5 +36,6 @@ class UnoControlFixedText(UnoControl_8f2c0a67, XFixedText_8e2a0a41, XLayoutConst
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlFixedText']
 

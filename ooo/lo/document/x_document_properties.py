@@ -20,8 +20,8 @@
 # Namespace: com.sun.star.document
 import typing
 from abc import abstractmethod, abstractproperty, ABC
-from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 if typing.TYPE_CHECKING:
+    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
     from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..beans.x_property_container import XPropertyContainer as XPropertyContainer_c600e71
     from ..embed.x_storage import XStorage as XStorage_8e460a32
@@ -45,18 +45,6 @@ class XDocumentProperties(ABC):
     __ooo_full_ns__: str = 'com.sun.star.document.XDocumentProperties'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.document.XDocumentProperties'
-
-    DocumentStatistics: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
-    """
-    contains some statistics about the document.
-    
-    The contained statistics may be specific to the type of the document.
-    """
-
-    Keywords: typing.TypeAlias = typing.Tuple[str, ...]
-    """
-    contains a list of keywords for the document.
-    """
 
     @abstractmethod
     def getUserDefinedProperties(self) -> 'XPropertyContainer_c600e71':
@@ -125,10 +113,25 @@ class XDocumentProperties(ABC):
             com.sun.star.io.IOException: ``IOException``
         """
     @abstractproperty
+    def DocumentStatistics(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
+        """
+        contains some statistics about the document.
+        
+        The contained statistics may be specific to the type of the document.
+        """
+
+    @abstractproperty
+    def Keywords(self) -> 'typing.Tuple[str, ...]':
+        """
+        contains a list of keywords for the document.
+        """
+
+    @abstractproperty
     def Author(self) -> str:
         """
         contains the initial author of the document.
         """
+
     @abstractproperty
     def AutoloadSecs(self) -> int:
         """
@@ -136,6 +139,7 @@ class XDocumentProperties(ABC):
         
         A value of 0 is valid and describes a redirection. A value of 0 together with an empty string as AutoloadURL describes a case where no autoload is specified.
         """
+
     @abstractproperty
     def AutoloadURL(self) -> str:
         """
@@ -143,11 +147,13 @@ class XDocumentProperties(ABC):
         
         An empty URL is valid and describes a case where the document shall be reloaded from its original location after some time described by the attribute AutoloadSecs. An empty string together with an AutoloadSecs value of 0 describes a case where no autoload is specified.
         """
+
     @abstractproperty
     def CreationDate(self) -> 'DateTime_84de09d3':
         """
         contains the date and time when the document was created.
         """
+
     @abstractproperty
     def DefaultTarget(self) -> str:
         """
@@ -155,6 +161,7 @@ class XDocumentProperties(ABC):
         
         This applies to the autoload feature too, but to others as well.
         """
+
     @abstractproperty
     def Description(self) -> str:
         """
@@ -162,16 +169,19 @@ class XDocumentProperties(ABC):
         
         Line delimiters can be UNIX, Macintosh or DOS style.
         """
+
     @abstractproperty
     def EditingCycles(self) -> int:
         """
         describes how often the document was edited and saved.
         """
+
     @abstractproperty
     def EditingDuration(self) -> int:
         """
         contains the net time of editing the document (in seconds).
         """
+
     @abstractproperty
     def Generator(self) -> str:
         """
@@ -179,11 +189,13 @@ class XDocumentProperties(ABC):
         
         The generating application will set this attribute when it creates a new document or it saves a document. When a document is loaded that itself contains such an attribute it will be preserved until the document is saved again.
         """
+
     @abstractproperty
     def Language(self) -> 'Locale_70d308fa':
         """
         contains the default language of the document.
         """
+
     @abstractproperty
     def ModificationDate(self) -> 'DateTime_84de09d3':
         """
@@ -191,11 +203,13 @@ class XDocumentProperties(ABC):
         
         If the document has never been stored, contains a default value.
         """
+
     @abstractproperty
     def ModifiedBy(self) -> str:
         """
         contains the name of the person who most recently stored the document.
         """
+
     @abstractproperty
     def PrintDate(self) -> 'DateTime_84de09d3':
         """
@@ -203,21 +217,25 @@ class XDocumentProperties(ABC):
         
         If the document has never been printed, contains a default value.
         """
+
     @abstractproperty
     def PrintedBy(self) -> str:
         """
         contains the name of the person who most recently printed the document.
         """
+
     @abstractproperty
     def Subject(self) -> str:
         """
         contains the subject of the document.
         """
+
     @abstractproperty
     def TemplateDate(self) -> 'DateTime_84de09d3':
         """
         contains the date and time of when the document was created or updated from the template.
         """
+
     @abstractproperty
     def TemplateName(self) -> str:
         """
@@ -225,6 +243,7 @@ class XDocumentProperties(ABC):
         
         The value is an empty string if the document was not created from a template or if it was detached from the template.
         """
+
     @abstractproperty
     def TemplateURL(self) -> str:
         """
@@ -232,6 +251,7 @@ class XDocumentProperties(ABC):
         
         The value is an empty string if the document was not created from a template or if it was detached from the template.
         """
+
     @abstractproperty
     def Title(self) -> str:
         """

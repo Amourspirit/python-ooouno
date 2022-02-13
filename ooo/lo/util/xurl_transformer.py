@@ -63,6 +63,5 @@ class XURLTransformer(XInterface_8f010a43):
         The implementation is allowed to correct minor failures in URL.Complete if the meaning of the URL remain unchanged. Parts of the URL are stored in the other fields of aURL.
         """
 
-
 __all__ = ['XURLTransformer']
 

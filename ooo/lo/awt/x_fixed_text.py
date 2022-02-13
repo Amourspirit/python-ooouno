@@ -54,6 +54,5 @@ class XFixedText(XInterface_8f010a43):
         sets the text of the control.
         """
 
-
 __all__ = ['XFixedText']
 

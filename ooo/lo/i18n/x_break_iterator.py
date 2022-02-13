@@ -161,6 +161,5 @@ class XBreakIterator(XInterface_8f010a43):
         Note that the OpenOffice.org 1.0 / StarOffice 6.0 / StarSuite 6.0 i18n framework doesn't behave like this and mixed Western/CJK text may lead to wrong word iteration. This is fixed in later versions.
         """
 
-
 __all__ = ['XBreakIterator']
 

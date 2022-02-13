@@ -55,6 +55,5 @@ class XEnhancedMouseClickBroadcaster(XInterface_8f010a43):
         removes a previously registered listener.
         """
 
-
 __all__ = ['XEnhancedMouseClickBroadcaster']
 

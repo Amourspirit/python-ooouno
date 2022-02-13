@@ -41,4 +41,15 @@ class NoSuchTypeNameException(Exception_85530a09):
     typeName: str = 'com.sun.star.reflection.NoSuchTypeNameException'
     """Literal Constant ``com.sun.star.reflection.NoSuchTypeNameException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

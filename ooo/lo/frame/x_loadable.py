@@ -63,6 +63,5 @@ class XLoadable(XInterface_8f010a43):
             com.sun.star.uno.Exception: ``Exception``
         """
 
-
 __all__ = ['XLoadable']
 

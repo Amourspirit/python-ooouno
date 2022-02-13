@@ -49,6 +49,5 @@ class XListEntrySink(XInterface_8f010a43):
         The list represented by this component will be cleared, and initially filled with the entries from the new list source.
         """
 
-
 __all__ = ['XListEntrySink']
 

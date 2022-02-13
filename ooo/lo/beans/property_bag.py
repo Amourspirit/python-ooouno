@@ -46,5 +46,6 @@ class PropertyBag(XPropertyBag_bbd00bd8):
         """
         """
 
+
 __all__ = ['PropertyBag']
 

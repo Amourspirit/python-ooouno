@@ -41,9 +41,15 @@ class UseBackupException(IOException_8c450a27):
     typeName: str = 'com.sun.star.embed.UseBackupException'
     """Literal Constant ``com.sun.star.embed.UseBackupException``"""
 
-    TemporaryFileURL: str = None
-    """
-        The URL of the temporary file the storage is based on now.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

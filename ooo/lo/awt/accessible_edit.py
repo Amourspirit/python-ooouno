@@ -41,5 +41,6 @@ class AccessibleEdit(XAccessibleContext_8eae119b, XAccessibleEditableText_eb1413
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleEdit']
 

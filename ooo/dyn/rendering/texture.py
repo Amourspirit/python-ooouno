@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import Texture as UTexture
+        # Dynamically create uno com.sun.star.rendering.Texture using uno
         global Texture
 
         def _set_attr(struct):
@@ -35,25 +36,41 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.Texture'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import Texture as UTexture
-                if isinstance(args[0], UTexture):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.Texture', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(AffineTransform = UNO_NONE, Alpha = UNO_NONE, NumberOfHatchPolygons = UNO_NONE, Bitmap = UNO_NONE, Gradient = UNO_NONE, Hatching = UNO_NONE, HatchAttributes = UNO_NONE, RepeatModeX = UNO_NONE, RepeatModeY = UNO_NONE):
+            ns = 'com.sun.star.rendering.Texture'
+            if isinstance(AffineTransform, UTexture):
+                inst = uno.createUnoStruct(ns, AffineTransform)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('AffineTransform', 'Alpha', 'NumberOfHatchPolygons', 'Bitmap', 'Gradient', 'Hatching', 'HatchAttributes', 'RepeatModeX', 'RepeatModeY')
-            struct = uno.createUnoStruct('com.sun.star.rendering.Texture')
-            if arg_len > len(key_order):
-                raise ValueError("Texture.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not AffineTransform is UNO_NONE:
+                if getattr(struct, 'AffineTransform') != AffineTransform:
+                    setattr(struct, 'AffineTransform', AffineTransform)
+            if not Alpha is UNO_NONE:
+                if getattr(struct, 'Alpha') != Alpha:
+                    setattr(struct, 'Alpha', Alpha)
+            if not NumberOfHatchPolygons is UNO_NONE:
+                if getattr(struct, 'NumberOfHatchPolygons') != NumberOfHatchPolygons:
+                    setattr(struct, 'NumberOfHatchPolygons', NumberOfHatchPolygons)
+            if not Bitmap is UNO_NONE:
+                if getattr(struct, 'Bitmap') != Bitmap:
+                    setattr(struct, 'Bitmap', Bitmap)
+            if not Gradient is UNO_NONE:
+                if getattr(struct, 'Gradient') != Gradient:
+                    setattr(struct, 'Gradient', Gradient)
+            if not Hatching is UNO_NONE:
+                if getattr(struct, 'Hatching') != Hatching:
+                    setattr(struct, 'Hatching', Hatching)
+            if not HatchAttributes is UNO_NONE:
+                if getattr(struct, 'HatchAttributes') != HatchAttributes:
+                    setattr(struct, 'HatchAttributes', HatchAttributes)
+            if not RepeatModeX is UNO_NONE:
+                if getattr(struct, 'RepeatModeX') != RepeatModeX:
+                    setattr(struct, 'RepeatModeX', RepeatModeX)
+            if not RepeatModeY is UNO_NONE:
+                if getattr(struct, 'RepeatModeY') != RepeatModeY:
+                    setattr(struct, 'RepeatModeY', RepeatModeY)
             _set_attr(struct)
             return struct
         Texture = _struct_init

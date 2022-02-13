@@ -38,5 +38,6 @@ class SpinningProgressControlModel(AnimatedImagesControlModel_67d1109f):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SpinningProgressControlModel']
 

@@ -39,6 +39,5 @@ class XExtendedStorageStream(XPropertySet_bc180bfa, XEncryptionProtectedSource_8
     __pyunointerface__: str = 'com.sun.star.embed.XExtendedStorageStream'
 
 
-
 __all__ = ['XExtendedStorageStream']
 

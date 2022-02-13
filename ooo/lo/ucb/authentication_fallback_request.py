@@ -41,14 +41,15 @@ class AuthenticationFallbackRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.AuthenticationFallbackRequest'
     """Literal Constant ``com.sun.star.ucb.AuthenticationFallbackRequest``"""
 
-    instructions: str = None
-    """
-        Instructions to be followed by the user.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    url: str = None
-    """
-        url to be opened in browser
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

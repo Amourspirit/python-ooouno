@@ -37,5 +37,6 @@ class PreparedStatement(PreparedStatement_eef40d8c, XColumnsSupplier_f0600da9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PreparedStatement']
 

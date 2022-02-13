@@ -32,6 +32,5 @@ class XCDATASection(XText_842c09c4):
     __pyunointerface__: str = 'com.sun.star.xml.dom.XCDATASection'
 
 
-
 __all__ = ['XCDATASection']
 

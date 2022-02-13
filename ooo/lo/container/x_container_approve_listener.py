@@ -61,6 +61,5 @@ class XContainerApproveListener(ABC):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XContainerApproveListener']
 

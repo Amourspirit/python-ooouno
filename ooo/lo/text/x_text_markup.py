@@ -55,6 +55,5 @@ class XTextMarkup(ABC):
         obtains a container to store additional user defined text markup information.
         """
 
-
 __all__ = ['XTextMarkup']
 

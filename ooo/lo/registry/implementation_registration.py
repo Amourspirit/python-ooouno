@@ -38,5 +38,6 @@ class ImplementationRegistration(XImplementationRegistration_df8c139a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ImplementationRegistration']
 

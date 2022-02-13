@@ -69,6 +69,5 @@ class XChartDataArray(XChartData_a3580ade):
         sets the description texts for all rows.
         """
 
-
 __all__ = ['XChartDataArray']
 

@@ -36,5 +36,6 @@ class LinguServiceManager(XLinguServiceManager2_9dec118a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LinguServiceManager']
 

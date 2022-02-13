@@ -19,16 +19,35 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import NoConvergenceException
-    setattr(NoConvergenceException, '__ooo_ns__', 'com.sun.star.sheet')
-    setattr(NoConvergenceException, '__ooo_full_ns__', 'com.sun.star.sheet.NoConvergenceException')
-    setattr(NoConvergenceException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.sheet.NoConvergenceException using uno
+        global NoConvergenceException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.sheet'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.NoConvergenceException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(**kwargs):
+            ns = 'com.sun.star.sheet.NoConvergenceException'
+            ex = uno.createUnoStruct(ns)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        NoConvergenceException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.sheet.no_convergence_exception import NoConvergenceException as NoConvergenceException
     

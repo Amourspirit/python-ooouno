@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import FontInfo as UFontInfo
+        # Dynamically create uno com.sun.star.rendering.FontInfo using uno
         global FontInfo
 
         def _set_attr(struct):
@@ -35,25 +36,41 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.FontInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import FontInfo as UFontInfo
-                if isinstance(args[0], UFontInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.FontInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(FontDescription = UNO_NONE, FamilyName = UNO_NONE, StyleName = UNO_NONE, UnicodeRanges0 = UNO_NONE, UnicodeRanges1 = UNO_NONE, UnicodeRanges2 = UNO_NONE, UnicodeRanges3 = UNO_NONE, IsSymbolFont = UNO_NONE, IsVertical = UNO_NONE):
+            ns = 'com.sun.star.rendering.FontInfo'
+            if isinstance(FontDescription, UFontInfo):
+                inst = uno.createUnoStruct(ns, FontDescription)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('FontDescription', 'FamilyName', 'StyleName', 'UnicodeRanges0', 'UnicodeRanges1', 'UnicodeRanges2', 'UnicodeRanges3', 'IsSymbolFont', 'IsVertical')
-            struct = uno.createUnoStruct('com.sun.star.rendering.FontInfo')
-            if arg_len > len(key_order):
-                raise ValueError("FontInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not FontDescription is UNO_NONE:
+                if getattr(struct, 'FontDescription') != FontDescription:
+                    setattr(struct, 'FontDescription', FontDescription)
+            if not FamilyName is UNO_NONE:
+                if getattr(struct, 'FamilyName') != FamilyName:
+                    setattr(struct, 'FamilyName', FamilyName)
+            if not StyleName is UNO_NONE:
+                if getattr(struct, 'StyleName') != StyleName:
+                    setattr(struct, 'StyleName', StyleName)
+            if not UnicodeRanges0 is UNO_NONE:
+                if getattr(struct, 'UnicodeRanges0') != UnicodeRanges0:
+                    setattr(struct, 'UnicodeRanges0', UnicodeRanges0)
+            if not UnicodeRanges1 is UNO_NONE:
+                if getattr(struct, 'UnicodeRanges1') != UnicodeRanges1:
+                    setattr(struct, 'UnicodeRanges1', UnicodeRanges1)
+            if not UnicodeRanges2 is UNO_NONE:
+                if getattr(struct, 'UnicodeRanges2') != UnicodeRanges2:
+                    setattr(struct, 'UnicodeRanges2', UnicodeRanges2)
+            if not UnicodeRanges3 is UNO_NONE:
+                if getattr(struct, 'UnicodeRanges3') != UnicodeRanges3:
+                    setattr(struct, 'UnicodeRanges3', UnicodeRanges3)
+            if not IsSymbolFont is UNO_NONE:
+                if getattr(struct, 'IsSymbolFont') != IsSymbolFont:
+                    setattr(struct, 'IsSymbolFont', IsSymbolFont)
+            if not IsVertical is UNO_NONE:
+                if getattr(struct, 'IsVertical') != IsVertical:
+                    setattr(struct, 'IsVertical', IsVertical)
             _set_attr(struct)
             return struct
         FontInfo = _struct_init

@@ -108,6 +108,5 @@ class XPopupMenu(XMenu_5f470841):
         sets the image for the menu item.
         """
 
-
 __all__ = ['XPopupMenu']
 

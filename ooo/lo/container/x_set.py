@@ -56,6 +56,5 @@ class XSet(XEnumerationAccess_4bac0ffc):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XSet']
 

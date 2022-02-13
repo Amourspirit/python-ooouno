@@ -39,5 +39,6 @@ class AnimatedImagesControlModel(UnoControlModel_c8ce0c58, XAnimatedImages_c6990
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AnimatedImagesControlModel']
 

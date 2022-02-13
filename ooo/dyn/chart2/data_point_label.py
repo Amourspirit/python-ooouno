@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart2 import DataPointLabel as UDataPointLabel
+        # Dynamically create uno com.sun.star.chart2.DataPointLabel using uno
         global DataPointLabel
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.DataPointLabel'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart2 import DataPointLabel as UDataPointLabel
-                if isinstance(args[0], UDataPointLabel):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart2.DataPointLabel', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ShowNumber = UNO_NONE, ShowNumberInPercent = UNO_NONE, ShowCategoryName = UNO_NONE, ShowLegendSymbol = UNO_NONE, ShowCustomLabel = UNO_NONE, ShowSeriesName = UNO_NONE):
+            ns = 'com.sun.star.chart2.DataPointLabel'
+            if isinstance(ShowNumber, UDataPointLabel):
+                inst = uno.createUnoStruct(ns, ShowNumber)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ShowNumber', 'ShowNumberInPercent', 'ShowCategoryName', 'ShowLegendSymbol', 'ShowCustomLabel', 'ShowSeriesName')
-            struct = uno.createUnoStruct('com.sun.star.chart2.DataPointLabel')
-            if arg_len > len(key_order):
-                raise ValueError("DataPointLabel.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ShowNumber is UNO_NONE:
+                if getattr(struct, 'ShowNumber') != ShowNumber:
+                    setattr(struct, 'ShowNumber', ShowNumber)
+            if not ShowNumberInPercent is UNO_NONE:
+                if getattr(struct, 'ShowNumberInPercent') != ShowNumberInPercent:
+                    setattr(struct, 'ShowNumberInPercent', ShowNumberInPercent)
+            if not ShowCategoryName is UNO_NONE:
+                if getattr(struct, 'ShowCategoryName') != ShowCategoryName:
+                    setattr(struct, 'ShowCategoryName', ShowCategoryName)
+            if not ShowLegendSymbol is UNO_NONE:
+                if getattr(struct, 'ShowLegendSymbol') != ShowLegendSymbol:
+                    setattr(struct, 'ShowLegendSymbol', ShowLegendSymbol)
+            if not ShowCustomLabel is UNO_NONE:
+                if getattr(struct, 'ShowCustomLabel') != ShowCustomLabel:
+                    setattr(struct, 'ShowCustomLabel', ShowCustomLabel)
+            if not ShowSeriesName is UNO_NONE:
+                if getattr(struct, 'ShowSeriesName') != ShowSeriesName:
+                    setattr(struct, 'ShowSeriesName', ShowSeriesName)
             _set_attr(struct)
             return struct
         DataPointLabel = _struct_init

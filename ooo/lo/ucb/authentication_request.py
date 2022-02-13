@@ -37,62 +37,15 @@ class AuthenticationRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.AuthenticationRequest'
     """Literal Constant ``com.sun.star.ucb.AuthenticationRequest``"""
 
-    Account: str = None
-    """
-        Any already specified account.
-        
-        If HasAccount is false, this member should be ignored.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    Diagnostic: str = None
-    """
-        Any diagnostic message about the failure to log in (if applicable; it will typically be an English phrase or sentence).
-    """
+        Keyword Arguments:
 
-    HasAccount: bool = None
-    """
-        Specifies if the authentication involves an \"account\" (as can be the case for FTP).
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
 
-    HasPassword: bool = None
-    """
-        Specifies if the authentication involves a \"password\" (as is almost always the case).
-    """
-
-    HasRealm: bool = None
-    """
-        Specifies if the authentication involves a \"realm\" (as can be the case for HTTP).
-    """
-
-    HasUserName: bool = None
-    """
-        Specifies if the authentication involves a \"user name\" (as is almost always the case).
-    """
-
-    Password: str = None
-    """
-        Any already specified password.
-        
-        If HasPassword is false, this member should be ignored.
-    """
-
-    Realm: str = None
-    """
-        Any already specified realm.
-        
-        If HasRealm is false, this member should be ignored.
-    """
-
-    ServerName: str = None
-    """
-        The name of the server (if applicable).
-    """
-
-    UserName: str = None
-    """
-        Any already specified user name.
-        
-        If HasUserName is false, this member should be ignored.
-    """
 
 

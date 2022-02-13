@@ -37,5 +37,6 @@ class GraphicObjectShape(GraphicObjectShape_29a00efa, Shape_c0c80c15):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GraphicObjectShape']
 

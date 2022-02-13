@@ -51,6 +51,5 @@ class XFileIdentifierConverter(XInterface_8f010a43):
         converts a (file) URL to a file path in system dependent notation.
         """
 
-
 __all__ = ['XFileIdentifierConverter']
 

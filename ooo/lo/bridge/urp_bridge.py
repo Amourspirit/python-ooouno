@@ -38,5 +38,6 @@ class UrpBridge(XBridge_8e4e0a1a, XComponent_98dc0ab5, XInitialization_d46c0cca)
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UrpBridge']
 

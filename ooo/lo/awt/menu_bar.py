@@ -36,5 +36,6 @@ class MenuBar(XMenuBar_7a040956):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MenuBar']
 

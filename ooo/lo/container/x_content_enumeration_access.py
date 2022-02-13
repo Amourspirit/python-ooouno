@@ -48,6 +48,5 @@ class XContentEnumerationAccess(XInterface_8f010a43):
         XContentEnumerationAccess.createContentEnumeration() creates an enumeration for all the service names which are listed here. For all others it creates no enumeration.
         """
 
-
 __all__ = ['XContentEnumerationAccess']
 

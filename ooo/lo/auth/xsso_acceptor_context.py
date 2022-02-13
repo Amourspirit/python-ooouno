@@ -54,6 +54,5 @@ class XSSOAcceptorContext(XSSOContext_a2840aec):
             AuthenticationFailedException: ``AuthenticationFailedException``
         """
 
-
 __all__ = ['XSSOAcceptorContext']
 

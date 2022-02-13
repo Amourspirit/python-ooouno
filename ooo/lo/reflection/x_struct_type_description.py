@@ -55,6 +55,5 @@ class XStructTypeDescription(XCompoundTypeDescription_c7be12f6):
         Returns the type parameters of a polymorphic struct type template.
         """
 
-
 __all__ = ['XStructTypeDescription']
 

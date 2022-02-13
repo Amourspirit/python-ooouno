@@ -38,5 +38,6 @@ class Pipe(XPipe_567d07c6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Pipe']
 

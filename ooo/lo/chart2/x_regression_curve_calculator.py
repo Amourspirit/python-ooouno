@@ -94,6 +94,5 @@ class XRegressionCurveCalculator(XInterface_8f010a43):
         Set the names of X and Y variables of the equation to replace \"x\" and \"f(x)\" in representation.
         """
 
-
 __all__ = ['XRegressionCurveCalculator']
 

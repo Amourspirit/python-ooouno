@@ -37,5 +37,6 @@ class CheckBox(UnoControlCheckBox_ef690d6e, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CheckBox']
 

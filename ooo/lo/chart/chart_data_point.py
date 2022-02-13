@@ -21,7 +21,7 @@
 import typing
 from .chart_data_value import ChartDataValue
 
-ChartDataPoint = typing.Tuple[ChartDataValue, ...]
+ChartDataPoint = typing.NewType('ChartDataPoint', typing.Tuple[ChartDataValue, ...])
 """
 TypeDef type alias
 

@@ -41,4 +41,15 @@ class AuthenticationFailedException(BackendSetupException_68ae15de):
     typeName: str = 'com.sun.star.configuration.backend.AuthenticationFailedException'
     """Literal Constant ``com.sun.star.configuration.backend.AuthenticationFailedException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

@@ -51,6 +51,5 @@ class XComponentContext(XInterface_8f010a43):
         Gets a value from the context.
         """
 
-
 __all__ = ['XComponentContext']
 

@@ -40,5 +40,6 @@ class PropertySet(XFastPropertySet_ee6b0d88, XMultiPropertySet_fd880e05, XProper
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PropertySet']
 

@@ -64,6 +64,5 @@ class XProgressBar(XInterface_8f010a43):
         sets the progress value of the progress bar.
         """
 
-
 __all__ = ['XProgressBar']
 

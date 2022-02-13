@@ -58,6 +58,5 @@ class XGridFieldDataSupplier(XInterface_8f010a43):
         To check if the type you need is supported by the columns, use this method.
         """
 
-
 __all__ = ['XGridFieldDataSupplier']
 

@@ -46,6 +46,5 @@ class XClipboardNotifier(XInterface_8f010a43):
         Removes listener from notification list.
         """
 
-
 __all__ = ['XClipboardNotifier']
 

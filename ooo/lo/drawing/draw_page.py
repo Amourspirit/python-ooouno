@@ -36,5 +36,6 @@ class DrawPage(GenericDrawPage_fd960dbc, XMasterPageTarget_1a670e9c, XFormsSuppl
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DrawPage']
 

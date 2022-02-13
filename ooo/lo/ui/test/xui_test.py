@@ -56,6 +56,5 @@ class XUITest(ABC):
         """
         """
 
-
 __all__ = ['XUITest']
 

@@ -37,4 +37,15 @@ class ResultSetException(SQLException_acc90b43):
     typeName: str = 'com.sun.star.ucb.ResultSetException'
     """Literal Constant ``com.sun.star.ucb.ResultSetException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

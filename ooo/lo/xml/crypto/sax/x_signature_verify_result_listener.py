@@ -44,6 +44,5 @@ class XSignatureVerifyResultListener(XInterface_8f010a43):
         Notifies the signature verify result.
         """
 
-
 __all__ = ['XSignatureVerifyResultListener']
 

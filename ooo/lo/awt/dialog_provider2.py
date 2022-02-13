@@ -34,5 +34,6 @@ class DialogProvider2(XDialogProvider2_d3880c79):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DialogProvider2']
 

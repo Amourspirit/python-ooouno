@@ -43,5 +43,6 @@ class ExtendedTypeDetectionFactory(XContainerQuery_1cdd0edc, XNameContainer_cb90
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ExtendedTypeDetectionFactory']
 

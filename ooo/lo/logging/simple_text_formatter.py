@@ -46,5 +46,6 @@ class SimpleTextFormatter(XLogFormatter_e23d0d1d):
         creates a SimpleTextFormatter instance
         """
 
+
 __all__ = ['SimpleTextFormatter']
 

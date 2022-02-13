@@ -59,6 +59,5 @@ class XUIObject(ABC):
         """
         """
 
-
 __all__ = ['XUIObject']
 

@@ -41,15 +41,15 @@ class MalformedDataException(Exception_85530a09):
     typeName: str = 'com.sun.star.configuration.backend.MalformedDataException'
     """Literal Constant ``com.sun.star.configuration.backend.MalformedDataException``"""
 
-    ErrorDetails: object = None
-    """
-        data that provides more detailed information about the reason and location of the error.
-        
-        Typically this member should contain an exception characterizing the error in detail.
-        
-        For example the following exceptions may be used:
-        
-        If no more detail information is available, this may be left VOID.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

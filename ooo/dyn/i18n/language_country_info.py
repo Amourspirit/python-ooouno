@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import LanguageCountryInfo as ULanguageCountryInfo
+        # Dynamically create uno com.sun.star.i18n.LanguageCountryInfo using uno
         global LanguageCountryInfo
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.LanguageCountryInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import LanguageCountryInfo as ULanguageCountryInfo
-                if isinstance(args[0], ULanguageCountryInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.LanguageCountryInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Language = UNO_NONE, LanguageDefaultName = UNO_NONE, Country = UNO_NONE, CountryDefaultName = UNO_NONE, Variant = UNO_NONE):
+            ns = 'com.sun.star.i18n.LanguageCountryInfo'
+            if isinstance(Language, ULanguageCountryInfo):
+                inst = uno.createUnoStruct(ns, Language)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Language', 'LanguageDefaultName', 'Country', 'CountryDefaultName', 'Variant')
-            struct = uno.createUnoStruct('com.sun.star.i18n.LanguageCountryInfo')
-            if arg_len > len(key_order):
-                raise ValueError("LanguageCountryInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Language is UNO_NONE:
+                if getattr(struct, 'Language') != Language:
+                    setattr(struct, 'Language', Language)
+            if not LanguageDefaultName is UNO_NONE:
+                if getattr(struct, 'LanguageDefaultName') != LanguageDefaultName:
+                    setattr(struct, 'LanguageDefaultName', LanguageDefaultName)
+            if not Country is UNO_NONE:
+                if getattr(struct, 'Country') != Country:
+                    setattr(struct, 'Country', Country)
+            if not CountryDefaultName is UNO_NONE:
+                if getattr(struct, 'CountryDefaultName') != CountryDefaultName:
+                    setattr(struct, 'CountryDefaultName', CountryDefaultName)
+            if not Variant is UNO_NONE:
+                if getattr(struct, 'Variant') != Variant:
+                    setattr(struct, 'Variant', Variant)
             _set_attr(struct)
             return struct
         LanguageCountryInfo = _struct_init

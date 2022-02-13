@@ -35,5 +35,6 @@ class NumberFormats(XNumberFormatTypes_fe740e05, XNumberFormats_c9120c63):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NumberFormats']
 

@@ -80,6 +80,5 @@ class XSheetAuditing(XInterface_8f010a43):
         If the method is executed again for the same cell, the next level of dependent cells is marked.
         """
 
-
 __all__ = ['XSheetAuditing']
 

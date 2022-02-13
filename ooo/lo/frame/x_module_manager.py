@@ -53,6 +53,5 @@ class XModuleManager(XInterface_8f010a43):
             UnknownModuleException: ``UnknownModuleException``
         """
 
-
 __all__ = ['XModuleManager']
 

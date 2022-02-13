@@ -55,6 +55,5 @@ class XStyle(XNamed_a6520b08):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XStyle']
 

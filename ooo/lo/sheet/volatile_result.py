@@ -36,5 +36,6 @@ class VolatileResult(XVolatileResult_e2e00d38):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['VolatileResult']
 

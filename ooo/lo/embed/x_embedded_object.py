@@ -136,6 +136,5 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.uno.Exception: ``Exception``
         """
 
-
 __all__ = ['XEmbeddedObject']
 

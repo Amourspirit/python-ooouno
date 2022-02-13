@@ -66,5 +66,6 @@ class InteractionHandler(XInteractionHandler2_1a7b0e83):
         Creates an instance with an additional context.
         """
 
+
 __all__ = ['InteractionHandler']
 

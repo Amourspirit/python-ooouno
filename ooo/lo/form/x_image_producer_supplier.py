@@ -42,6 +42,5 @@ class XImageProducerSupplier(XInterface_8f010a43):
         accesses the image producer.
         """
 
-
 __all__ = ['XImageProducerSupplier']
 

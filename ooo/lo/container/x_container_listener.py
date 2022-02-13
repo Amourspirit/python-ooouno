@@ -52,6 +52,5 @@ class XContainerListener(XEventListener_c7230c4a):
         is invoked when a container has replaced an element.
         """
 
-
 __all__ = ['XContainerListener']
 

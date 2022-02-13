@@ -51,6 +51,5 @@ class XActivateListener(XEventListener_c7230c4a):
         A window is deactivated if a child or itself lost the focus.
         """
 
-
 __all__ = ['XActivateListener']
 

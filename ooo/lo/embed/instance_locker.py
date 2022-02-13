@@ -63,5 +63,6 @@ class InstanceLocker(XComponent_98dc0ab5):
             com.sun.star.uno.Exception: ``Exception``
         """
 
+
 __all__ = ['InstanceLocker']
 

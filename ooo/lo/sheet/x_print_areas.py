@@ -101,6 +101,5 @@ class XPrintAreas(XInterface_8f010a43):
         Title rows can be automatically repeated on all subsequent print pages to the bottom, using XPrintAreas.setPrintTitleRows().
         """
 
-
 __all__ = ['XPrintAreas']
 

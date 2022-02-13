@@ -64,6 +64,5 @@ class XClipboardManager(XInterface_8f010a43):
         Removes the clipboard with the specified name from the list.
         """
 
-
 __all__ = ['XClipboardManager']
 

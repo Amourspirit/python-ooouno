@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart2 import Symbol as USymbol
+        # Dynamically create uno com.sun.star.chart2.Symbol using uno
         global Symbol
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.Symbol'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart2 import Symbol as USymbol
-                if isinstance(args[0], USymbol):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart2.Symbol', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Style = UNO_NONE, PolygonCoords = UNO_NONE, StandardSymbol = UNO_NONE, Graphic = UNO_NONE, Size = UNO_NONE, BorderColor = UNO_NONE, FillColor = UNO_NONE):
+            ns = 'com.sun.star.chart2.Symbol'
+            if isinstance(Style, USymbol):
+                inst = uno.createUnoStruct(ns, Style)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Style', 'PolygonCoords', 'StandardSymbol', 'Graphic', 'Size', 'BorderColor', 'FillColor')
-            struct = uno.createUnoStruct('com.sun.star.chart2.Symbol')
-            if arg_len > len(key_order):
-                raise ValueError("Symbol.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Style is UNO_NONE:
+                if getattr(struct, 'Style') != Style:
+                    setattr(struct, 'Style', Style)
+            if not PolygonCoords is UNO_NONE:
+                if getattr(struct, 'PolygonCoords') != PolygonCoords:
+                    setattr(struct, 'PolygonCoords', PolygonCoords)
+            if not StandardSymbol is UNO_NONE:
+                if getattr(struct, 'StandardSymbol') != StandardSymbol:
+                    setattr(struct, 'StandardSymbol', StandardSymbol)
+            if not Graphic is UNO_NONE:
+                if getattr(struct, 'Graphic') != Graphic:
+                    setattr(struct, 'Graphic', Graphic)
+            if not Size is UNO_NONE:
+                if getattr(struct, 'Size') != Size:
+                    setattr(struct, 'Size', Size)
+            if not BorderColor is UNO_NONE:
+                if getattr(struct, 'BorderColor') != BorderColor:
+                    setattr(struct, 'BorderColor', BorderColor)
+            if not FillColor is UNO_NONE:
+                if getattr(struct, 'FillColor') != FillColor:
+                    setattr(struct, 'FillColor', FillColor)
             _set_attr(struct)
             return struct
         Symbol = _struct_init

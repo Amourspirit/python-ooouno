@@ -61,6 +61,5 @@ class XMutationEvent(XEvent_e0c30ce4):
         """
         """
 
-
 __all__ = ['XMutationEvent']
 

@@ -55,6 +55,5 @@ class XUIControllerRegistration(XInterface_8f010a43):
         function to create an association between a user interface controller implementation and a command URL and optional module.
         """
 
-
 __all__ = ['XUIControllerRegistration']
 

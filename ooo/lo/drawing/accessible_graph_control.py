@@ -44,5 +44,6 @@ class AccessibleGraphControl(XAccessible_1cbc0eb6, XAccessibleComponent_b2f21269
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleGraphControl']
 

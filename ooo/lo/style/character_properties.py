@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.style
 import typing
 from abc import abstractproperty, ABC
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 if typing.TYPE_CHECKING:
     from ..awt.font_slant import FontSlant as FontSlant_849509ed
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
     from ..lang.locale import Locale as Locale_70d308fa
     from ..table.border_line2 import BorderLine2 as BorderLine2_af200b28
@@ -46,27 +46,29 @@ class CharacterProperties(ABC):
     __ooo_full_ns__: str = 'com.sun.star.style.CharacterProperties'
     __ooo_type_name__: str = 'service'
 
-    CharInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    Grab bag of character properties, used as a string-any map for interim interop purposes.
-    
-    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-    
-    **since**
-    
-        LibreOffice 4.3
-    """
+    @abstractproperty
+    def CharInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        Grab bag of character properties, used as a string-any map for interim interop purposes.
+        
+        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+        
+        **since**
+        
+            LibreOffice 4.3
+        """
 
-    CharStyleNames: typing.TypeAlias = typing.Tuple[str, ...]
-    """
-    This optional property specifies the names of the all styles applied to the font.
-    
-    It is not guaranteed that the order in the sequence reflects the order of the evaluation of the character style attributes.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
+    @abstractproperty
+    def CharStyleNames(self) -> 'typing.Tuple[str, ...]':
+        """
+        This optional property specifies the names of the all styles applied to the font.
+        
+        It is not guaranteed that the order in the sequence reflects the order of the evaluation of the character style attributes.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
 
     @abstractproperty
     def CharAutoKerning(self) -> bool:
@@ -75,16 +77,19 @@ class CharacterProperties(ABC):
         
         Automatic kerning applies a spacing in between certain pairs of characters to make the text look better.
         """
+
     @abstractproperty
     def CharBackColor(self) -> 'Color_68e908c5':
         """
         This optional property contains the text background color.
         """
+
     @abstractproperty
     def CharBackTransparent(self) -> bool:
         """
         This property determines if the text background color is set to transparent.
         """
+
     @abstractproperty
     def CharBorderDistance(self) -> int:
         """
@@ -94,6 +99,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharBottomBorder(self) -> 'BorderLine2_af200b28':
         """
@@ -103,6 +109,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharBottomBorderDistance(self) -> int:
         """
@@ -112,16 +119,19 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharCaseMap(self) -> int:
         """
         This optional property contains the value of the case-mapping of the text for formatting and displaying.
         """
+
     @abstractproperty
     def CharColor(self) -> 'Color_68e908c5':
         """
         This property contains the value of the text color.
         """
+
     @abstractproperty
     def CharCombineIsOn(self) -> bool:
         """
@@ -129,6 +139,7 @@ class CharacterProperties(ABC):
         
         It is linked to the properties CharCombinePrefix and CharCombineSuffix.
         """
+
     @abstractproperty
     def CharCombinePrefix(self) -> str:
         """
@@ -136,6 +147,7 @@ class CharacterProperties(ABC):
         
         It is linked to the properties CharCombineIsOn and CharCombineSuffix.
         """
+
     @abstractproperty
     def CharCombineSuffix(self) -> str:
         """
@@ -143,21 +155,25 @@ class CharacterProperties(ABC):
         
         It is linked to the properties CharCombineIsOn and CharCombinePrefix.
         """
+
     @abstractproperty
     def CharContoured(self) -> bool:
         """
         This optional property specifies if the characters are formatted and displayed with a contour effect.
         """
+
     @abstractproperty
     def CharCrossedOut(self) -> bool:
         """
         This property is TRUE if the characters are crossed out.
         """
+
     @abstractproperty
     def CharEmphasis(self) -> int:
         """
         This optional property contains the font emphasis value.
         """
+
     @abstractproperty
     def CharEscapement(self) -> int:
         """
@@ -165,6 +181,7 @@ class CharacterProperties(ABC):
         
         Negative values denote subscripts and positive values superscripts.
         """
+
     @abstractproperty
     def CharEscapementHeight(self) -> int:
         """
@@ -172,21 +189,25 @@ class CharacterProperties(ABC):
         
         The value 100 denotes the original height of the characters.
         """
+
     @abstractproperty
     def CharFlash(self) -> bool:
         """
         If this optional property is TRUE, then the characters are flashing.
         """
+
     @abstractproperty
     def CharFontCharSet(self) -> int:
         """
         This property contains the text encoding of the font.
         """
+
     @abstractproperty
     def CharFontFamily(self) -> int:
         """
         This property contains font family.
         """
+
     @abstractproperty
     def CharFontName(self) -> str:
         """
@@ -194,11 +215,13 @@ class CharacterProperties(ABC):
         
         It may contain more than one name separated by comma.
         """
+
     @abstractproperty
     def CharFontPitch(self) -> int:
         """
         This property contains the font pitch.
         """
+
     @abstractproperty
     def CharFontStyleName(self) -> str:
         """
@@ -206,16 +229,19 @@ class CharacterProperties(ABC):
         
         This property may be empty.
         """
+
     @abstractproperty
     def CharFontType(self) -> int:
         """
         This optional property specifies the fundamental technology of the font.
         """
+
     @abstractproperty
     def CharHeight(self) -> float:
         """
         This value contains the height of the characters in point.
         """
+
     @abstractproperty
     def CharHidden(self) -> bool:
         """
@@ -225,6 +251,7 @@ class CharacterProperties(ABC):
         
             OOo 2.0
         """
+
     @abstractproperty
     def CharHighlight(self) -> 'Color_68e908c5':
         """
@@ -234,6 +261,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharKeepTogether(self) -> bool:
         """
@@ -241,11 +269,13 @@ class CharacterProperties(ABC):
         
         A line break is applied before the range of characters if the layout makes a break necessary within the range.
         """
+
     @abstractproperty
     def CharKerning(self) -> int:
         """
         This optional property contains the value of the kerning of the characters.
         """
+
     @abstractproperty
     def CharLeftBorder(self) -> 'BorderLine2_af200b28':
         """
@@ -255,6 +285,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharLeftBorderDistance(self) -> int:
         """
@@ -264,16 +295,19 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharLocale(self) -> 'Locale_70d308fa':
         """
         This property contains the value of the locale.
         """
+
     @abstractproperty
     def CharNoHyphenation(self) -> bool:
         """
         This optional property determines if the word can be hyphenated at the character.
         """
+
     @abstractproperty
     def CharNoLineBreak(self) -> bool:
         """
@@ -281,16 +315,19 @@ class CharacterProperties(ABC):
         
         A line break is applied behind the range of characters if the layout makes a break necessary within the range. That means that the text may go through the border.
         """
+
     @abstractproperty
     def CharPosture(self) -> 'FontSlant_849509ed':
         """
         This property contains the value of the posture of the document.
         """
+
     @abstractproperty
     def CharRelief(self) -> int:
         """
         This optional property contains the relief style of the characters.
         """
+
     @abstractproperty
     def CharRightBorder(self) -> 'BorderLine2_af200b28':
         """
@@ -300,6 +337,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharRightBorderDistance(self) -> int:
         """
@@ -309,6 +347,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharRotation(self) -> int:
         """
@@ -316,11 +355,13 @@ class CharacterProperties(ABC):
         
         Depending on the implementation only certain values may be allowed.
         """
+
     @abstractproperty
     def CharRotationIsFitToLine(self) -> bool:
         """
         This optional property determines whether the text formatting tries to fit rotated text into the surrounded line height.
         """
+
     @abstractproperty
     def CharScaleWidth(self) -> int:
         """
@@ -328,11 +369,13 @@ class CharacterProperties(ABC):
         
         The value refers to the original width which is denoted by 100, and it has to be greater than 0.
         """
+
     @abstractproperty
     def CharShadingValue(self) -> int:
         """
         This optional property contains the text shading value.
         """
+
     @abstractproperty
     def CharShadowFormat(self) -> 'ShadowFormat_bb840bdf':
         """
@@ -342,21 +385,25 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharShadowed(self) -> bool:
         """
         This optional property specifies if the characters are formatted and displayed with a shadow effect.
         """
+
     @abstractproperty
     def CharStrikeout(self) -> int:
         """
         This property determines the type of the strike out of the character.
         """
+
     @abstractproperty
     def CharStyleName(self) -> str:
         """
         This optional property specifies the name of the style of the font.
         """
+
     @abstractproperty
     def CharTopBorder(self) -> 'BorderLine2_af200b28':
         """
@@ -366,6 +413,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharTopBorderDistance(self) -> int:
         """
@@ -375,6 +423,7 @@ class CharacterProperties(ABC):
         
             LibreOffice 4.2
         """
+
     @abstractproperty
     def CharTransparence(self) -> int:
         """
@@ -386,56 +435,67 @@ class CharacterProperties(ABC):
         
             LibreOffice 7.0
         """
+
     @abstractproperty
     def CharUnderline(self) -> int:
         """
         This property contains the value for the character underline.
         """
+
     @abstractproperty
     def CharUnderlineColor(self) -> 'Color_68e908c5':
         """
         This property contains the color of the underline for the characters.
         """
+
     @abstractproperty
     def CharUnderlineHasColor(self) -> bool:
         """
         This property specifies if the property CharUnderlineColor is used for an underline.
         """
+
     @abstractproperty
     def CharWeight(self) -> float:
         """
         This property contains the value of the font weight.
         """
+
     @abstractproperty
     def CharWordMode(self) -> bool:
         """
         If this property is TRUE, the underline and strike-through properties are not applied to white spaces.
         """
+
     @abstractproperty
     def HyperLinkName(self) -> str:
         """
         This optional property contains the name of the hyperlink.
         """
+
     @abstractproperty
     def HyperLinkTarget(self) -> str:
         """
         This optional property contains the name of the target for a hyperlink.
         """
+
     @abstractproperty
     def HyperLinkURL(self) -> str:
         """
         This optional property contains the URL of a hyperlink.
         """
+
     @abstractproperty
     def RubyAdjust(self) -> int:
         """
         This optional property determines the adjustment of the ruby .
         """
+
     @abstractproperty
     def RubyCharStyleName(self) -> str:
         """
         This optional property contains the name of the character style that is applied to RubyText.
         """
+
     @abstractproperty
     def RubyIsAbove(self) -> bool:
         """
@@ -443,6 +503,7 @@ class CharacterProperties(ABC):
         
         This property is replaced by RubyPosition.
         """
+
     @abstractproperty
     def RubyPosition(self) -> int:
         """
@@ -452,11 +513,13 @@ class CharacterProperties(ABC):
         
             LibreOffice 6.1
         """
+
     @abstractproperty
     def RubyText(self) -> str:
         """
         This optional property contains the text that is set as ruby.
         """
+
     @abstractproperty
     def TextUserDefinedAttributes(self) -> 'XNameContainer_cb90e47':
         """
@@ -464,16 +527,20 @@ class CharacterProperties(ABC):
         
         They will be saved to and restored from automatic styles inside XML files.
         """
+
     @abstractproperty
     def UnvisitedCharStyleName(self) -> str:
         """
         This optional property contains the character style name for unvisited hyperlinks.
         """
+
     @abstractproperty
     def VisitedCharStyleName(self) -> str:
         """
         This optional property contains the character style name for visited hyperlinks.
         """
+
+
 
 __all__ = ['CharacterProperties']
 

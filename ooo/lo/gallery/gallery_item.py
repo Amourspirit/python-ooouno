@@ -46,11 +46,13 @@ class GalleryItem(XPropertySet_bc180bfa, XGalleryItem_d5730caf):
         
         This is an optional property and may not available for every item
         """
+
     @abstractproperty
     def GalleryItemType(self) -> int:
         """
         The type of the Gallery item.
         """
+
     @abstractproperty
     def Graphic(self) -> 'XGraphic_a4da0afc':
         """
@@ -58,6 +60,7 @@ class GalleryItem(XPropertySet_bc180bfa, XGalleryItem_d5730caf):
         
         This is an optional property and may not available for every item
         """
+
     @abstractproperty
     def Thumbnail(self) -> 'XGraphic_a4da0afc':
         """
@@ -65,11 +68,13 @@ class GalleryItem(XPropertySet_bc180bfa, XGalleryItem_d5730caf):
         
         The thumbnail may be either a pixel or a vector graphic
         """
+
     @abstractproperty
     def Title(self) -> str:
         """
         the title of the Gallery item
         """
+
     @abstractproperty
     def URL(self) -> str:
         """
@@ -77,6 +82,8 @@ class GalleryItem(XPropertySet_bc180bfa, XGalleryItem_d5730caf):
         
         The interpretation of the URL depends on the type of the Gallery item. In case of graphic and media items, the URL is a \"real\" URL, in case of drawings it is a private URL
         """
+
+
 
 __all__ = ['GalleryItem']
 

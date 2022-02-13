@@ -47,16 +47,12 @@ class DataSequence(XPropertySet_bc180bfa, XDataSequence_11f00e1f, XNumericalData
     __ooo_full_ns__: str = 'com.sun.star.chart2.data.DataSequence'
     __ooo_type_name__: str = 'service'
 
-    HiddenValues: typing.TypeAlias = typing.Tuple[int, ...]
-    """
-    a sequence of indexes that identify values that are hidden in the underlying data provider.
-    """
-
     @abstractproperty
     def IncludeHiddenCells(self) -> bool:
         """
         If set to false FALSE, values from hidden cells are not returned.
         """
+
     @abstractproperty
     def Role(self) -> 'DataSequenceRole_3f520f59':
         """
@@ -66,6 +62,8 @@ class DataSequence(XPropertySet_bc180bfa, XDataSequence_11f00e1f, XNumericalData
         
         The role of the series inside a data series. This may be any string. However some strings are predefined and should always be used in the same way.
         """
+
+
 
 __all__ = ['DataSequence']
 

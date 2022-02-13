@@ -40,6 +40,5 @@ class XGlobalEventBroadcaster(XSet_90c40a4f, XDocumentEventBroadcaster_b2f1126a,
     __pyunointerface__: str = 'com.sun.star.frame.XGlobalEventBroadcaster'
 
 
-
 __all__ = ['XGlobalEventBroadcaster']
 

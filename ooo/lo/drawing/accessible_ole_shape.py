@@ -45,5 +45,6 @@ class AccessibleOLEShape(AccessibleShape_fdd20dd3, XAccessibleAction_7ccc1114):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleOLEShape']
 

@@ -114,6 +114,5 @@ class XNumericField(XInterface_8f010a43):
         sets the value which is displayed in the numeric field.
         """
 
-
 __all__ = ['XNumericField']
 

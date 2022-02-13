@@ -51,6 +51,5 @@ class XModifiable2(XModifiable_a4f60b0a):
         allows to detect whether the modified state change is enabled
         """
 
-
 __all__ = ['XModifiable2']
 

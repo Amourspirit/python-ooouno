@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.drawing
 import typing
 
-DoubleSequence = typing.Tuple[float, ...]
+DoubleSequence = typing.NewType('DoubleSequence', typing.Tuple[float, ...])
 """
 TypeDef type alias
 

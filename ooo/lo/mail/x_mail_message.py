@@ -96,6 +96,7 @@ class XMailMessage(XInterface_8f010a43):
         
         It is expected that the transferable delivers the data as a string. Although a transferable may support multiple data flavors only the first data flavor supplied will be used to retrieve the data and it is expected that the data will be provided as a string.
         """
+
     @abstractproperty
     def ReplyToAddress(self) -> str:
         """
@@ -103,6 +104,7 @@ class XMailMessage(XInterface_8f010a43):
         
         If the e-mail address doesn't conform to RFC 822 sending the mail message later will fail. If no ReplyToAddress is set replies go to the SenderAddress.
         """
+
     @abstractproperty
     def SenderAddress(self) -> str:
         """
@@ -110,11 +112,13 @@ class XMailMessage(XInterface_8f010a43):
         
         The e-mail address has to conform to RFC 822.
         """
+
     @abstractproperty
     def SenderName(self) -> str:
         """
         The display name of the sender of this mail message.
         """
+
     @abstractproperty
     def Subject(self) -> str:
         """

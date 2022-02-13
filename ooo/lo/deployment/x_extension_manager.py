@@ -211,6 +211,5 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XExtensionManager']
 

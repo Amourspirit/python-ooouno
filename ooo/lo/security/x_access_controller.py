@@ -85,6 +85,5 @@ class XAccessController(XInterface_8f010a43):
         This context may then be checked at a later point, possibly in another thread.
         """
 
-
 __all__ = ['XAccessController']
 

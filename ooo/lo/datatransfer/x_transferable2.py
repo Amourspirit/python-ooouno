@@ -58,6 +58,5 @@ class XTransferable2(XTransferable_2d800f38):
             LibreOffice 6.4
         """
 
-
 __all__ = ['XTransferable2']
 

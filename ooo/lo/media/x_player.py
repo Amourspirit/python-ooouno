@@ -117,6 +117,5 @@ class XPlayer(ABC):
         stops reading the stream and leave the cursor at its current position.
         """
 
-
 __all__ = ['XPlayer']
 

@@ -41,5 +41,6 @@ class DatabaseDataProvider(XDatabaseDataProvider_8fe51146):
         """
         """
 
+
 __all__ = ['DatabaseDataProvider']
 

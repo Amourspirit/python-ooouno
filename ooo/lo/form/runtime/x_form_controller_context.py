@@ -43,6 +43,5 @@ class XFormControllerContext(ABC):
         ensures the given control is visible, by scrolling the view if necessary.
         """
 
-
 __all__ = ['XFormControllerContext']
 

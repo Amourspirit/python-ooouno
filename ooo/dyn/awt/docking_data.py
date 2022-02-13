@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import DockingData as UDockingData
+        # Dynamically create uno com.sun.star.awt.DockingData using uno
         global DockingData
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.DockingData'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import DockingData as UDockingData
-                if isinstance(args[0], UDockingData):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.DockingData', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(TrackingRectangle = UNO_NONE, bFloating = UNO_NONE):
+            ns = 'com.sun.star.awt.DockingData'
+            if isinstance(TrackingRectangle, UDockingData):
+                inst = uno.createUnoStruct(ns, TrackingRectangle)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('TrackingRectangle', 'bFloating')
-            struct = uno.createUnoStruct('com.sun.star.awt.DockingData')
-            if arg_len > len(key_order):
-                raise ValueError("DockingData.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not TrackingRectangle is UNO_NONE:
+                if getattr(struct, 'TrackingRectangle') != TrackingRectangle:
+                    setattr(struct, 'TrackingRectangle', TrackingRectangle)
+            if not bFloating is UNO_NONE:
+                if getattr(struct, 'bFloating') != bFloating:
+                    setattr(struct, 'bFloating', bFloating)
             _set_attr(struct)
             return struct
         DockingData = _struct_init

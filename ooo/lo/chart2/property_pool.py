@@ -34,5 +34,6 @@ class PropertyPool(Style_7336094a, XDefaultsSupplier_ffc40e1d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PropertyPool']
 

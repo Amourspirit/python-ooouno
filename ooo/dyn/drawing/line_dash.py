@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.drawing import LineDash as ULineDash
+        # Dynamically create uno com.sun.star.drawing.LineDash using uno
         global LineDash
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.LineDash'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.drawing import LineDash as ULineDash
-                if isinstance(args[0], ULineDash):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.drawing.LineDash', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Style = UNO_NONE, Dots = UNO_NONE, DotLen = UNO_NONE, Dashes = UNO_NONE, DashLen = UNO_NONE, Distance = UNO_NONE):
+            ns = 'com.sun.star.drawing.LineDash'
+            if isinstance(Style, ULineDash):
+                inst = uno.createUnoStruct(ns, Style)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Style', 'Dots', 'DotLen', 'Dashes', 'DashLen', 'Distance')
-            struct = uno.createUnoStruct('com.sun.star.drawing.LineDash')
-            if arg_len > len(key_order):
-                raise ValueError("LineDash.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Style is UNO_NONE:
+                if getattr(struct, 'Style') != Style:
+                    setattr(struct, 'Style', Style)
+            if not Dots is UNO_NONE:
+                if getattr(struct, 'Dots') != Dots:
+                    setattr(struct, 'Dots', Dots)
+            if not DotLen is UNO_NONE:
+                if getattr(struct, 'DotLen') != DotLen:
+                    setattr(struct, 'DotLen', DotLen)
+            if not Dashes is UNO_NONE:
+                if getattr(struct, 'Dashes') != Dashes:
+                    setattr(struct, 'Dashes', Dashes)
+            if not DashLen is UNO_NONE:
+                if getattr(struct, 'DashLen') != DashLen:
+                    setattr(struct, 'DashLen', DashLen)
+            if not Distance is UNO_NONE:
+                if getattr(struct, 'Distance') != Distance:
+                    setattr(struct, 'Distance', Distance)
             _set_attr(struct)
             return struct
         LineDash = _struct_init

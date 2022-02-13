@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.table import TableBorder as UTableBorder
+        # Dynamically create uno com.sun.star.table.TableBorder using uno
         global TableBorder
 
         def _set_attr(struct):
@@ -35,25 +36,56 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.table.TableBorder'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.table import TableBorder as UTableBorder
-                if isinstance(args[0], UTableBorder):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.table.TableBorder', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(TopLine = UNO_NONE, IsTopLineValid = UNO_NONE, BottomLine = UNO_NONE, IsBottomLineValid = UNO_NONE, LeftLine = UNO_NONE, IsLeftLineValid = UNO_NONE, RightLine = UNO_NONE, IsRightLineValid = UNO_NONE, HorizontalLine = UNO_NONE, IsHorizontalLineValid = UNO_NONE, VerticalLine = UNO_NONE, IsVerticalLineValid = UNO_NONE, Distance = UNO_NONE, IsDistanceValid = UNO_NONE):
+            ns = 'com.sun.star.table.TableBorder'
+            if isinstance(TopLine, UTableBorder):
+                inst = uno.createUnoStruct(ns, TopLine)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('TopLine', 'IsTopLineValid', 'BottomLine', 'IsBottomLineValid', 'LeftLine', 'IsLeftLineValid', 'RightLine', 'IsRightLineValid', 'HorizontalLine', 'IsHorizontalLineValid', 'VerticalLine', 'IsVerticalLineValid', 'Distance', 'IsDistanceValid')
-            struct = uno.createUnoStruct('com.sun.star.table.TableBorder')
-            if arg_len > len(key_order):
-                raise ValueError("TableBorder.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not TopLine is UNO_NONE:
+                if getattr(struct, 'TopLine') != TopLine:
+                    setattr(struct, 'TopLine', TopLine)
+            if not IsTopLineValid is UNO_NONE:
+                if getattr(struct, 'IsTopLineValid') != IsTopLineValid:
+                    setattr(struct, 'IsTopLineValid', IsTopLineValid)
+            if not BottomLine is UNO_NONE:
+                if getattr(struct, 'BottomLine') != BottomLine:
+                    setattr(struct, 'BottomLine', BottomLine)
+            if not IsBottomLineValid is UNO_NONE:
+                if getattr(struct, 'IsBottomLineValid') != IsBottomLineValid:
+                    setattr(struct, 'IsBottomLineValid', IsBottomLineValid)
+            if not LeftLine is UNO_NONE:
+                if getattr(struct, 'LeftLine') != LeftLine:
+                    setattr(struct, 'LeftLine', LeftLine)
+            if not IsLeftLineValid is UNO_NONE:
+                if getattr(struct, 'IsLeftLineValid') != IsLeftLineValid:
+                    setattr(struct, 'IsLeftLineValid', IsLeftLineValid)
+            if not RightLine is UNO_NONE:
+                if getattr(struct, 'RightLine') != RightLine:
+                    setattr(struct, 'RightLine', RightLine)
+            if not IsRightLineValid is UNO_NONE:
+                if getattr(struct, 'IsRightLineValid') != IsRightLineValid:
+                    setattr(struct, 'IsRightLineValid', IsRightLineValid)
+            if not HorizontalLine is UNO_NONE:
+                if getattr(struct, 'HorizontalLine') != HorizontalLine:
+                    setattr(struct, 'HorizontalLine', HorizontalLine)
+            if not IsHorizontalLineValid is UNO_NONE:
+                if getattr(struct, 'IsHorizontalLineValid') != IsHorizontalLineValid:
+                    setattr(struct, 'IsHorizontalLineValid', IsHorizontalLineValid)
+            if not VerticalLine is UNO_NONE:
+                if getattr(struct, 'VerticalLine') != VerticalLine:
+                    setattr(struct, 'VerticalLine', VerticalLine)
+            if not IsVerticalLineValid is UNO_NONE:
+                if getattr(struct, 'IsVerticalLineValid') != IsVerticalLineValid:
+                    setattr(struct, 'IsVerticalLineValid', IsVerticalLineValid)
+            if not Distance is UNO_NONE:
+                if getattr(struct, 'Distance') != Distance:
+                    setattr(struct, 'Distance', Distance)
+            if not IsDistanceValid is UNO_NONE:
+                if getattr(struct, 'IsDistanceValid') != IsDistanceValid:
+                    setattr(struct, 'IsDistanceValid', IsDistanceValid)
             _set_attr(struct)
             return struct
         TableBorder = _struct_init

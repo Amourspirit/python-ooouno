@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.table import BorderLine as UBorderLine
+        # Dynamically create uno com.sun.star.table.BorderLine using uno
         global BorderLine
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.table.BorderLine'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.table import BorderLine as UBorderLine
-                if isinstance(args[0], UBorderLine):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.table.BorderLine', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Color = UNO_NONE, InnerLineWidth = UNO_NONE, OuterLineWidth = UNO_NONE, LineDistance = UNO_NONE):
+            ns = 'com.sun.star.table.BorderLine'
+            if isinstance(Color, UBorderLine):
+                inst = uno.createUnoStruct(ns, Color)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Color', 'InnerLineWidth', 'OuterLineWidth', 'LineDistance')
-            struct = uno.createUnoStruct('com.sun.star.table.BorderLine')
-            if arg_len > len(key_order):
-                raise ValueError("BorderLine.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Color is UNO_NONE:
+                if getattr(struct, 'Color') != Color:
+                    setattr(struct, 'Color', Color)
+            if not InnerLineWidth is UNO_NONE:
+                if getattr(struct, 'InnerLineWidth') != InnerLineWidth:
+                    setattr(struct, 'InnerLineWidth', InnerLineWidth)
+            if not OuterLineWidth is UNO_NONE:
+                if getattr(struct, 'OuterLineWidth') != OuterLineWidth:
+                    setattr(struct, 'OuterLineWidth', OuterLineWidth)
+            if not LineDistance is UNO_NONE:
+                if getattr(struct, 'LineDistance') != LineDistance:
+                    setattr(struct, 'LineDistance', LineDistance)
             _set_attr(struct)
             return struct
         BorderLine = _struct_init

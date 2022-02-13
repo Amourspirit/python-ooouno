@@ -52,6 +52,5 @@ class XMutableTreeDataModel(XTreeDataModel_f9fc0d85):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XMutableTreeDataModel']
 

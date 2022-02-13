@@ -52,5 +52,6 @@ class MailMessage(XMailMessage_ae200b4b):
         Constructs an instance of a mail message.
         """
 
+
 __all__ = ['MailMessage']
 

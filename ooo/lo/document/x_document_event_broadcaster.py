@@ -68,6 +68,5 @@ class XDocumentEventBroadcaster(ABC):
         revokes a listener which has previously been registered to be notified about document events.
         """
 
-
 __all__ = ['XDocumentEventBroadcaster']
 

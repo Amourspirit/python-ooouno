@@ -47,5 +47,6 @@ class ModuleController(XModuleController_c5d112d2):
         Create a new instance of a ModuleController as sub controller of the given XController object.
         """
 
+
 __all__ = ['ModuleController']
 

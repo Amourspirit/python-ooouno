@@ -60,6 +60,5 @@ class XSheetPageBreak(XInterface_8f010a43):
         removes all manual page breaks on the sheet.
         """
 
-
 __all__ = ['XSheetPageBreak']
 

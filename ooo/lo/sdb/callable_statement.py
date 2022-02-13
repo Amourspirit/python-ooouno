@@ -37,5 +37,6 @@ class CallableStatement(PreparedStatement_e1880d29, CallableStatement_eccf0d69):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CallableStatement']
 

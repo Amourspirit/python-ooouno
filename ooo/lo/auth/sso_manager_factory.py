@@ -42,5 +42,6 @@ class SSOManagerFactory(XSSOManagerFactory_f7ef0d9a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SSOManagerFactory']
 

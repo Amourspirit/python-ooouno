@@ -34,5 +34,6 @@ class CachedContentResultSetFactory(XCachedContentResultSetFactory_a99d1230):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CachedContentResultSetFactory']
 

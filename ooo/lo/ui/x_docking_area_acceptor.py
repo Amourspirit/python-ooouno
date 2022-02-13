@@ -65,6 +65,5 @@ class XDockingAreaAcceptor(XInterface_8f010a43):
         The callee must size its document window so that we have the amount of space we have provided. The com.sun.star.awt.Rectangle parameter is filled by the caller with pixel data. The members of com.sun.star.awt.Rectangle must be filled as following:
         """
 
-
 __all__ = ['XDockingAreaAcceptor']
 

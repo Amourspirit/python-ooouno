@@ -51,6 +51,5 @@ class XUpdateListener(XEventListener_c7230c4a):
         is invoked when an object has finished processing the updates and the data has been successfully written.
         """
 
-
 __all__ = ['XUpdateListener']
 

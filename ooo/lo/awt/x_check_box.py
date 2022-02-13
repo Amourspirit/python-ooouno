@@ -67,6 +67,5 @@ class XCheckBox(XInterface_8f010a43):
         sets the state of the check box.
         """
 
-
 __all__ = ['XCheckBox']
 

@@ -60,6 +60,5 @@ class XXMLEncryptionTemplate(XXMLSecurityTemplate_79221105):
         the element to be encrypted
         """
 
-
 __all__ = ['XXMLEncryptionTemplate']
 

@@ -20,12 +20,12 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
-from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
 if typing.TYPE_CHECKING:
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..style.graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
+    from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
 
 class TextTableRow(XPropertySet_bc180bfa):
@@ -45,27 +45,30 @@ class TextTableRow(XPropertySet_bc180bfa):
     __ooo_full_ns__: str = 'com.sun.star.text.TextTableRow'
     __ooo_type_name__: str = 'service'
 
-    RowInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    Grab bag of row properties, used as a string-any map for interop purposes.
-    
-    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-    
-    **since**
-    
-        LibreOffice 4.4
-    """
+    @abstractproperty
+    def RowInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        Grab bag of row properties, used as a string-any map for interop purposes.
+        
+        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+        
+        **since**
+        
+            LibreOffice 4.4
+        """
 
-    TableColumnSeparators: typing.TypeAlias = typing.Tuple[TableColumnSeparator_1b630ed4, ...]
-    """
-    contains the description of the columns in the table row.
-    """
+    @abstractproperty
+    def TableColumnSeparators(self) -> 'typing.Tuple[TableColumnSeparator_1b630ed4, ...]':
+        """
+        contains the description of the columns in the table row.
+        """
 
     @abstractproperty
     def BackColor(self) -> 'Color_68e908c5':
         """
         specifies the color of the background.
         """
+
     @abstractproperty
     def BackGraphic(self) -> 'XGraphic_a4da0afc':
         """
@@ -75,16 +78,19 @@ class TextTableRow(XPropertySet_bc180bfa):
         
             LibreOffice 6.1
         """
+
     @abstractproperty
     def BackGraphicFilter(self) -> str:
         """
         contains the name of the file filter of a background graphic.
         """
+
     @abstractproperty
     def BackGraphicLocation(self) -> 'GraphicLocation_e3ef0d30':
         """
         determines the position of the background graphic.
         """
+
     @abstractproperty
     def BackGraphicURL(self) -> str:
         """
@@ -92,11 +98,13 @@ class TextTableRow(XPropertySet_bc180bfa):
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the graphic and set the BackGraphic property.
         """
+
     @abstractproperty
     def BackTransparent(self) -> bool:
         """
         If TRUE, the background color value in \"BackColor\" is not visible.
         """
+
     @abstractproperty
     def HasTextChangesOnly(self) -> bool:
         """
@@ -106,21 +114,26 @@ class TextTableRow(XPropertySet_bc180bfa):
         
             LibreOffice 7.2
         """
+
     @abstractproperty
     def Height(self) -> int:
         """
         contains the height of the table row.
         """
+
     @abstractproperty
     def IsAutoHeight(self) -> bool:
         """
         If the value of this property is TRUE, the height of the table row depends on the content of the table cells.
         """
+
     @abstractproperty
     def IsSplitAllowed(self) -> bool:
         """
         If TRUE, the row is allowed to be split at page or column breaks.
         """
+
+
 
 __all__ = ['TextTableRow']
 

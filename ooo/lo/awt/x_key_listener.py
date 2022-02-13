@@ -47,6 +47,5 @@ class XKeyListener(XEventListener_c7230c4a):
         is invoked when a key has been released.
         """
 
-
 __all__ = ['XKeyListener']
 

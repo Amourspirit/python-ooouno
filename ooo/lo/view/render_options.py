@@ -47,6 +47,7 @@ class RenderOptions(ABC):
         
         Hyperlinks, notes, and outlines cannot be exported on a per page base. They have to be exported once before the first page is exported. Therefore the IsFirstPage property has been introduced. It is evaluated in the render function and indicates that the current page is the first page to be exported.
         """
+
     @abstractproperty
     def IsLastPage(self) -> bool:
         """
@@ -54,6 +55,7 @@ class RenderOptions(ABC):
         
         Hyperlinks from the EditEngine have to be exported once after the last page has been processed. Therefore the IsLastPage property has been introduced. It is evaluated in the render function and indicates that the current page is the last page to be exported.
         """
+
     @abstractproperty
     def IsSkipEmptyPages(self) -> bool:
         """
@@ -61,6 +63,7 @@ class RenderOptions(ABC):
         
         Tells the PDF export to skip empty pages. This flag also has to be passed to the render function, in order to calculate to correct page numbers during the export of hyperlinks, notes, and outlines.
         """
+
     @abstractproperty
     def PageRange(self) -> str:
         """
@@ -68,11 +71,14 @@ class RenderOptions(ABC):
         
         Tells the PDF export to skip empty pages. This flag also has to be passed to the render function, in order to calculate to correct page numbers during the export of hyperlinks, notes, and outlines.
         """
+
     @abstractproperty
     def RenderDevice(self) -> 'XDevice_70ba08fc':
         """
         specifies the device the page should be rendered to
         """
+
+
 
 __all__ = ['RenderOptions']
 

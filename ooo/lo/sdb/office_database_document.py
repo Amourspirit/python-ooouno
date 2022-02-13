@@ -46,5 +46,6 @@ class OfficeDatabaseDocument(OfficeDocument_fecd0df2, XLoadable_989a0a7f, XScrip
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OfficeDatabaseDocument']
 

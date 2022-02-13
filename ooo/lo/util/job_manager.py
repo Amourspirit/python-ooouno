@@ -34,5 +34,6 @@ class JobManager(XJobManager_a40d0af4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['JobManager']
 

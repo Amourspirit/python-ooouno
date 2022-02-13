@@ -61,6 +61,5 @@ class XRowSet(XResultSet_98e30aa7):
         removes the specified listener.
         """
 
-
 __all__ = ['XRowSet']
 

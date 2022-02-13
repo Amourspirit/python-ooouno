@@ -50,6 +50,5 @@ class XTransferableSupplier(ABC):
             UnsupportedFlavorException: ``UnsupportedFlavorException``
         """
 
-
 __all__ = ['XTransferableSupplier']
 

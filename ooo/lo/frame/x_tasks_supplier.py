@@ -52,6 +52,5 @@ class XTasksSupplier(XInterface_8f010a43):
         use XFramesSupplier.getFrames() instead of this one
         """
 
-
 __all__ = ['XTasksSupplier']
 

@@ -67,6 +67,5 @@ class XIdlField(XIdlMember_e3400cfc):
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
 
-
 __all__ = ['XIdlField']
 

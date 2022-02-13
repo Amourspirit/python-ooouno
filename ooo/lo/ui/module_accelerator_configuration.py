@@ -42,5 +42,6 @@ class ModuleAcceleratorConfiguration(XAcceleratorConfiguration_46580ffb):
         """
         """
 
+
 __all__ = ['ModuleAcceleratorConfiguration']
 

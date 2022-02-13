@@ -37,5 +37,6 @@ class UnoControlContainer(UnoControl_8f2c0a67, XControlContainer_e22d0d30, XUnoC
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlContainer']
 

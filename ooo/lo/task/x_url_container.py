@@ -61,6 +61,5 @@ class XUrlContainer(XInterface_8f010a43):
         Remove a URL from the container.
         """
 
-
 __all__ = ['XUrlContainer']
 

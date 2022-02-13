@@ -35,5 +35,6 @@ class AutoTextEntry(XAutoTextEntry_c96f0c75, XText_690408ca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AutoTextEntry']
 

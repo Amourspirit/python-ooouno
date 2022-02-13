@@ -22,7 +22,6 @@ import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..container.x_named import XNamed as XNamed_a6520b08
-from .general_function import GeneralFunction as GeneralFunction_e2280d25
 from .x_data_pilot_field import XDataPilotField as XDataPilotField_e0350cdf
 from .x_data_pilot_field_grouping import XDataPilotFieldGrouping as XDataPilotFieldGrouping_55b3102a
 if typing.TYPE_CHECKING:
@@ -32,6 +31,7 @@ if typing.TYPE_CHECKING:
     from .data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation_78701113
     from .data_pilot_field_reference import DataPilotFieldReference as DataPilotFieldReference_562f1016
     from .data_pilot_field_sort_info import DataPilotFieldSortInfo as DataPilotFieldSortInfo_466d0fbb
+    from .general_function import GeneralFunction as GeneralFunction_e2280d25
 
 class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e0350cdf, XDataPilotFieldGrouping_55b3102a):
     """
@@ -52,37 +52,40 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotField'
     __ooo_type_name__: str = 'service'
 
-    Subtotals: typing.TypeAlias = typing.Tuple[GeneralFunction_e2280d25, ...]
-    """
-    specifies the functions used to calculate subtotals for this field.
-    
-    This property is supported by column and row fields only.
-    
-    An empty sequence means no subtotals. The same effect can be achieved by setting the property Function to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction.NONE or GeneralFunction.AUTO.
-    
-    The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
-    """
+    @abstractproperty
+    def Subtotals(self) -> 'typing.Tuple[GeneralFunction_e2280d25, ...]':
+        """
+        specifies the functions used to calculate subtotals for this field.
+        
+        This property is supported by column and row fields only.
+        
+        An empty sequence means no subtotals. The same effect can be achieved by setting the property Function to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction.NONE or GeneralFunction.AUTO.
+        
+        The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
+        """
 
-    Subtotals2: typing.TypeAlias = typing.Tuple[int, ...]
-    """
-    specifies the functions used to calculate subtotals for this field.
-    
-    This property is supported by column and row fields only.
-    
-    An empty sequence means no subtotals. The same effect can be achieved by setting the property Function2 to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction2.NONE or GeneralFunction2.AUTO.
-    
-    The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
+    @abstractproperty
+    def Subtotals2(self) -> 'typing.Tuple[int, ...]':
+        """
+        specifies the functions used to calculate subtotals for this field.
+        
+        This property is supported by column and row fields only.
+        
+        An empty sequence means no subtotals. The same effect can be achieved by setting the property Function2 to the value GeneralFunction.NONE. If the length of the sequence is greater than 1, then the sequence MUST NOT contain one of the values GeneralFunction2.NONE or GeneralFunction2.AUTO.
+        
+        The order of the functions in this sequence is reflected in the DataPilot table. Multiple entries of the same function are ignored when setting the property.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
 
     @abstractproperty
     def AutoShowInfo(self) -> 'DataPilotFieldAutoShowInfo_88d7114d':
         """
         enables the automatic inclusion of only a number of items with the highest or lowest result values.
         """
+
     @abstractproperty
     def Function(self) -> 'GeneralFunction_e2280d25':
         """
@@ -90,6 +93,7 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
         
         For column and row fields, this is the function for subtotals (GeneralFunction.NONE means no subtotals). For data fields, this is the function shown in the data pilot table.
         """
+
     @abstractproperty
     def Function2(self) -> int:
         """
@@ -101,6 +105,7 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
         
             LibreOffice 5.3
         """
+
     @abstractproperty
     def GroupInfo(self) -> 'DataPilotFieldGroupInfo_56691020':
         """
@@ -108,36 +113,43 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
         
         By changing the value of this property it is possible to modify the grouping settings of this field.
         """
+
     @abstractproperty
     def HasAutoShowInfo(self) -> bool:
         """
         specifies whether this field has auto show information.
         """
+
     @abstractproperty
     def HasLayoutInfo(self) -> bool:
         """
         specifies whether this field has layout information.
         """
+
     @abstractproperty
     def HasReference(self) -> bool:
         """
         specifies whether this field has a reference.
         """
+
     @abstractproperty
     def HasSortInfo(self) -> bool:
         """
         specifies whether this field has sorting information.
         """
+
     @abstractproperty
     def IsGroupField(self) -> bool:
         """
         specifies whether this field is a group field.
         """
+
     @abstractproperty
     def LayoutInfo(self) -> 'DataPilotFieldLayoutInfo_671e1091':
         """
         controls how the field's items are laid out in the result table.
         """
+
     @abstractproperty
     def Orientation(self) -> 'DataPilotFieldOrientation_78701113':
         """
@@ -145,36 +157,44 @@ class DataPilotField(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotField_e03
         
         If the orientation of a field has been changed using this property, the field will be moved to the last position in the collection of all fields with the specified orientation.
         """
+
     @abstractproperty
     def Reference(self) -> 'DataPilotFieldReference_562f1016':
         """
         controls how the results are shown in relation to a selected reference result.
         """
+
     @abstractproperty
     def SelectedPage(self) -> str:
         """
         specifies the selected page which is used to filter the data pilot.
         """
+
     @abstractproperty
     def ShowEmpty(self) -> bool:
         """
         specifies whether to show this field also if it is empty or not.
         """
+
     @abstractproperty
     def SortInfo(self) -> 'DataPilotFieldSortInfo_466d0fbb':
         """
         controls how the field's items are sorted.
         """
+
     @abstractproperty
     def UseSelectedPage(self) -> bool:
         """
         specifies whether to use the selected page to filter the data pilot or show all.
         """
+
     @abstractproperty
     def UsedHierarchy(self) -> str:
         """
         specifies which hierarchy of the dimension is used.
         """
+
+
 
 __all__ = ['DataPilotField']
 

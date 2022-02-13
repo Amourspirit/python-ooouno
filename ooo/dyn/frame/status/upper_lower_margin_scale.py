@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.frame.status
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.frame.status import UpperLowerMarginScale as UUpperLowerMarginScale
+        # Dynamically create uno com.sun.star.frame.status.UpperLowerMarginScale using uno
         global UpperLowerMarginScale
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.status.UpperLowerMarginScale'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.frame.status import UpperLowerMarginScale as UUpperLowerMarginScale
-                if isinstance(args[0], UUpperLowerMarginScale):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.frame.status.UpperLowerMarginScale', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Upper = UNO_NONE, Lower = UNO_NONE, ScaleUpper = UNO_NONE, ScaleLower = UNO_NONE):
+            ns = 'com.sun.star.frame.status.UpperLowerMarginScale'
+            if isinstance(Upper, UUpperLowerMarginScale):
+                inst = uno.createUnoStruct(ns, Upper)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Upper', 'Lower', 'ScaleUpper', 'ScaleLower')
-            struct = uno.createUnoStruct('com.sun.star.frame.status.UpperLowerMarginScale')
-            if arg_len > len(key_order):
-                raise ValueError("UpperLowerMarginScale.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Upper is UNO_NONE:
+                if getattr(struct, 'Upper') != Upper:
+                    setattr(struct, 'Upper', Upper)
+            if not Lower is UNO_NONE:
+                if getattr(struct, 'Lower') != Lower:
+                    setattr(struct, 'Lower', Lower)
+            if not ScaleUpper is UNO_NONE:
+                if getattr(struct, 'ScaleUpper') != ScaleUpper:
+                    setattr(struct, 'ScaleUpper', ScaleUpper)
+            if not ScaleLower is UNO_NONE:
+                if getattr(struct, 'ScaleLower') != ScaleLower:
+                    setattr(struct, 'ScaleLower', ScaleLower)
             _set_attr(struct)
             return struct
         UpperLowerMarginScale = _struct_init

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.geometry
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.geometry import AffineMatrix3D as UAffineMatrix3D
+        # Dynamically create uno com.sun.star.geometry.AffineMatrix3D using uno
         global AffineMatrix3D
 
         def _set_attr(struct):
@@ -35,25 +36,50 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.AffineMatrix3D'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.geometry import AffineMatrix3D as UAffineMatrix3D
-                if isinstance(args[0], UAffineMatrix3D):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.geometry.AffineMatrix3D', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(m00 = UNO_NONE, m01 = UNO_NONE, m02 = UNO_NONE, m03 = UNO_NONE, m10 = UNO_NONE, m11 = UNO_NONE, m12 = UNO_NONE, m13 = UNO_NONE, m20 = UNO_NONE, m21 = UNO_NONE, m22 = UNO_NONE, m23 = UNO_NONE):
+            ns = 'com.sun.star.geometry.AffineMatrix3D'
+            if isinstance(m00, UAffineMatrix3D):
+                inst = uno.createUnoStruct(ns, m00)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('m00', 'm01', 'm02', 'm03', 'm10', 'm11', 'm12', 'm13', 'm20', 'm21', 'm22', 'm23')
-            struct = uno.createUnoStruct('com.sun.star.geometry.AffineMatrix3D')
-            if arg_len > len(key_order):
-                raise ValueError("AffineMatrix3D.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not m00 is UNO_NONE:
+                if getattr(struct, 'm00') != m00:
+                    setattr(struct, 'm00', m00)
+            if not m01 is UNO_NONE:
+                if getattr(struct, 'm01') != m01:
+                    setattr(struct, 'm01', m01)
+            if not m02 is UNO_NONE:
+                if getattr(struct, 'm02') != m02:
+                    setattr(struct, 'm02', m02)
+            if not m03 is UNO_NONE:
+                if getattr(struct, 'm03') != m03:
+                    setattr(struct, 'm03', m03)
+            if not m10 is UNO_NONE:
+                if getattr(struct, 'm10') != m10:
+                    setattr(struct, 'm10', m10)
+            if not m11 is UNO_NONE:
+                if getattr(struct, 'm11') != m11:
+                    setattr(struct, 'm11', m11)
+            if not m12 is UNO_NONE:
+                if getattr(struct, 'm12') != m12:
+                    setattr(struct, 'm12', m12)
+            if not m13 is UNO_NONE:
+                if getattr(struct, 'm13') != m13:
+                    setattr(struct, 'm13', m13)
+            if not m20 is UNO_NONE:
+                if getattr(struct, 'm20') != m20:
+                    setattr(struct, 'm20', m20)
+            if not m21 is UNO_NONE:
+                if getattr(struct, 'm21') != m21:
+                    setattr(struct, 'm21', m21)
+            if not m22 is UNO_NONE:
+                if getattr(struct, 'm22') != m22:
+                    setattr(struct, 'm22', m22)
+            if not m23 is UNO_NONE:
+                if getattr(struct, 'm23') != m23:
+                    setattr(struct, 'm23', m23)
             _set_attr(struct)
             return struct
         AffineMatrix3D = _struct_init

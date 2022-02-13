@@ -48,5 +48,6 @@ class UnoControlGrid(UnoControl_8f2c0a67, XGridControl_df2e0ce7, XGridRowSelecti
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlGrid']
 

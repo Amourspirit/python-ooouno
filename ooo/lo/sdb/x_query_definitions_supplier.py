@@ -42,6 +42,5 @@ class XQueryDefinitionsSupplier(XInterface_8f010a43):
         returns the container of commands.
         """
 
-
 __all__ = ['XQueryDefinitionsSupplier']
 

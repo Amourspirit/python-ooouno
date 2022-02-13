@@ -93,6 +93,5 @@ class XTreeNode(ABC):
         A TreeControl will handle a node that returns TRUE always like a node that has child nodes, even if getChildCount() returns 0.
         """
 
-
 __all__ = ['XTreeNode']
 

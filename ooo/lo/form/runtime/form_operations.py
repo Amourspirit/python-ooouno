@@ -59,5 +59,6 @@ class FormOperations(XFormOperations_4a450ffe):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['FormOperations']
 

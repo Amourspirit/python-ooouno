@@ -42,6 +42,5 @@ class XDispatchResultListener(XEventListener_c7230c4a):
         indicates finished dispatch
         """
 
-
 __all__ = ['XDispatchResultListener']
 

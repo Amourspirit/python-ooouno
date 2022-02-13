@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.util import DateTime as UDateTime
+        # Dynamically create uno com.sun.star.util.DateTime using uno
         global DateTime
 
         def _set_attr(struct):
@@ -35,25 +36,38 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.DateTime'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.util import DateTime as UDateTime
-                if isinstance(args[0], UDateTime):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.util.DateTime', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(NanoSeconds = UNO_NONE, Seconds = UNO_NONE, Minutes = UNO_NONE, Hours = UNO_NONE, Day = UNO_NONE, Month = UNO_NONE, Year = UNO_NONE, IsUTC = UNO_NONE):
+            ns = 'com.sun.star.util.DateTime'
+            if isinstance(NanoSeconds, UDateTime):
+                inst = uno.createUnoStruct(ns, NanoSeconds)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('NanoSeconds', 'Seconds', 'Minutes', 'Hours', 'Day', 'Month', 'Year', 'IsUTC')
-            struct = uno.createUnoStruct('com.sun.star.util.DateTime')
-            if arg_len > len(key_order):
-                raise ValueError("DateTime.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not NanoSeconds is UNO_NONE:
+                if getattr(struct, 'NanoSeconds') != NanoSeconds:
+                    setattr(struct, 'NanoSeconds', NanoSeconds)
+            if not Seconds is UNO_NONE:
+                if getattr(struct, 'Seconds') != Seconds:
+                    setattr(struct, 'Seconds', Seconds)
+            if not Minutes is UNO_NONE:
+                if getattr(struct, 'Minutes') != Minutes:
+                    setattr(struct, 'Minutes', Minutes)
+            if not Hours is UNO_NONE:
+                if getattr(struct, 'Hours') != Hours:
+                    setattr(struct, 'Hours', Hours)
+            if not Day is UNO_NONE:
+                if getattr(struct, 'Day') != Day:
+                    setattr(struct, 'Day', Day)
+            if not Month is UNO_NONE:
+                if getattr(struct, 'Month') != Month:
+                    setattr(struct, 'Month', Month)
+            if not Year is UNO_NONE:
+                if getattr(struct, 'Year') != Year:
+                    setattr(struct, 'Year', Year)
+            if not IsUTC is UNO_NONE:
+                if getattr(struct, 'IsUTC') != IsUTC:
+                    setattr(struct, 'IsUTC', IsUTC)
             _set_attr(struct)
             return struct
         DateTime = _struct_init

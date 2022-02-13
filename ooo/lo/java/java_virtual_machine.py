@@ -38,5 +38,6 @@ class JavaVirtualMachine(XJavaVM_799d0927):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['JavaVirtualMachine']
 

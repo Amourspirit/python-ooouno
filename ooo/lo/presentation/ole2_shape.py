@@ -37,5 +37,6 @@ class OLE2Shape(OLE2Shape_add20af7, Shape_c0c80c15):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OLE2Shape']
 

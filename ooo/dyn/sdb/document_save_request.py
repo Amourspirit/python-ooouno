@@ -19,16 +19,41 @@
 # Namespace: com.sun.star.sdb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import DocumentSaveRequest
-    setattr(DocumentSaveRequest, '__ooo_ns__', 'com.sun.star.sdb')
-    setattr(DocumentSaveRequest, '__ooo_full_ns__', 'com.sun.star.sdb.DocumentSaveRequest')
-    setattr(DocumentSaveRequest, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.sdb.DocumentSaveRequest using uno
+        global DocumentSaveRequest
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.sdb'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.sdb.DocumentSaveRequest'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(Content = UNO_NONE, Name = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.sdb.DocumentSaveRequest'
+            ex = uno.createUnoStruct(ns)
+            if not Content is UNO_NONE:
+                if getattr(ex, 'Content') != Content:
+                    setattr(ex, 'Content', Content)
+            if not Name is UNO_NONE:
+                if getattr(ex, 'Name') != Name:
+                    setattr(ex, 'Name', Name)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        DocumentSaveRequest = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.sdb.document_save_request import DocumentSaveRequest as DocumentSaveRequest
     

@@ -53,6 +53,5 @@ class XMailMergeBroadcaster(XInterface_8f010a43):
         Removes an entry to the list of mail merge listeners.
         """
 
-
 __all__ = ['XMailMergeBroadcaster']
 

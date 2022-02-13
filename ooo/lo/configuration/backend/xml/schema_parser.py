@@ -42,5 +42,6 @@ class SchemaParser(XSchema_5ce7101f, XActiveDataSink_b8d00ba3, XInitialization_d
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SchemaParser']
 

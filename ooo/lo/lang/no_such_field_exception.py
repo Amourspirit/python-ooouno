@@ -37,4 +37,15 @@ class NoSuchFieldException(Exception_85530a09):
     typeName: str = 'com.sun.star.lang.NoSuchFieldException'
     """Literal Constant ``com.sun.star.lang.NoSuchFieldException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

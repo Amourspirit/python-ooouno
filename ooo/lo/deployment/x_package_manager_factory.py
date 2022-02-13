@@ -58,6 +58,5 @@ class XPackageManagerFactory(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XPackageManagerFactory']
 

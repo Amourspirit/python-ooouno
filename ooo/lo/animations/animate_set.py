@@ -37,5 +37,6 @@ class AnimateSet(XAnimate_ca680c52):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AnimateSet']
 

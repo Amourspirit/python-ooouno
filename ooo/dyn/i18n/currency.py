@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import Currency as UCurrency
+        # Dynamically create uno com.sun.star.i18n.Currency using uno
         global Currency
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.Currency'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import Currency as UCurrency
-                if isinstance(args[0], UCurrency):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.Currency', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ID = UNO_NONE, Symbol = UNO_NONE, BankSymbol = UNO_NONE, Name = UNO_NONE, Default = UNO_NONE, UsedInCompatibleFormatCodes = UNO_NONE, DecimalPlaces = UNO_NONE):
+            ns = 'com.sun.star.i18n.Currency'
+            if isinstance(ID, UCurrency):
+                inst = uno.createUnoStruct(ns, ID)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ID', 'Symbol', 'BankSymbol', 'Name', 'Default', 'UsedInCompatibleFormatCodes', 'DecimalPlaces')
-            struct = uno.createUnoStruct('com.sun.star.i18n.Currency')
-            if arg_len > len(key_order):
-                raise ValueError("Currency.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ID is UNO_NONE:
+                if getattr(struct, 'ID') != ID:
+                    setattr(struct, 'ID', ID)
+            if not Symbol is UNO_NONE:
+                if getattr(struct, 'Symbol') != Symbol:
+                    setattr(struct, 'Symbol', Symbol)
+            if not BankSymbol is UNO_NONE:
+                if getattr(struct, 'BankSymbol') != BankSymbol:
+                    setattr(struct, 'BankSymbol', BankSymbol)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not Default is UNO_NONE:
+                if getattr(struct, 'Default') != Default:
+                    setattr(struct, 'Default', Default)
+            if not UsedInCompatibleFormatCodes is UNO_NONE:
+                if getattr(struct, 'UsedInCompatibleFormatCodes') != UsedInCompatibleFormatCodes:
+                    setattr(struct, 'UsedInCompatibleFormatCodes', UsedInCompatibleFormatCodes)
+            if not DecimalPlaces is UNO_NONE:
+                if getattr(struct, 'DecimalPlaces') != DecimalPlaces:
+                    setattr(struct, 'DecimalPlaces', DecimalPlaces)
             _set_attr(struct)
             return struct
         Currency = _struct_init

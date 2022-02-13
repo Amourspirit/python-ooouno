@@ -37,5 +37,6 @@ class DataPointCustomLabelField(XDataPointCustomLabelField_94771167):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataPointCustomLabelField']
 

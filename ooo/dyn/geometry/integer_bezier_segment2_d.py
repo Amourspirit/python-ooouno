@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.geometry
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.geometry import IntegerBezierSegment2D as UIntegerBezierSegment2D
+        # Dynamically create uno com.sun.star.geometry.IntegerBezierSegment2D using uno
         global IntegerBezierSegment2D
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.IntegerBezierSegment2D'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.geometry import IntegerBezierSegment2D as UIntegerBezierSegment2D
-                if isinstance(args[0], UIntegerBezierSegment2D):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.geometry.IntegerBezierSegment2D', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Px = UNO_NONE, Py = UNO_NONE, C1x = UNO_NONE, C1y = UNO_NONE, C2x = UNO_NONE, C2y = UNO_NONE):
+            ns = 'com.sun.star.geometry.IntegerBezierSegment2D'
+            if isinstance(Px, UIntegerBezierSegment2D):
+                inst = uno.createUnoStruct(ns, Px)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Px', 'Py', 'C1x', 'C1y', 'C2x', 'C2y')
-            struct = uno.createUnoStruct('com.sun.star.geometry.IntegerBezierSegment2D')
-            if arg_len > len(key_order):
-                raise ValueError("IntegerBezierSegment2D.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Px is UNO_NONE:
+                if getattr(struct, 'Px') != Px:
+                    setattr(struct, 'Px', Px)
+            if not Py is UNO_NONE:
+                if getattr(struct, 'Py') != Py:
+                    setattr(struct, 'Py', Py)
+            if not C1x is UNO_NONE:
+                if getattr(struct, 'C1x') != C1x:
+                    setattr(struct, 'C1x', C1x)
+            if not C1y is UNO_NONE:
+                if getattr(struct, 'C1y') != C1y:
+                    setattr(struct, 'C1y', C1y)
+            if not C2x is UNO_NONE:
+                if getattr(struct, 'C2x') != C2x:
+                    setattr(struct, 'C2x', C2x)
+            if not C2y is UNO_NONE:
+                if getattr(struct, 'C2y') != C2y:
+                    setattr(struct, 'C2y', C2y)
             _set_attr(struct)
             return struct
         IntegerBezierSegment2D = _struct_init

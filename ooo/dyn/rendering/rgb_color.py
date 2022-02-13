@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import RGBColor as URGBColor
+        # Dynamically create uno com.sun.star.rendering.RGBColor using uno
         global RGBColor
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.RGBColor'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import RGBColor as URGBColor
-                if isinstance(args[0], URGBColor):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.RGBColor', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Red = UNO_NONE, Green = UNO_NONE, Blue = UNO_NONE):
+            ns = 'com.sun.star.rendering.RGBColor'
+            if isinstance(Red, URGBColor):
+                inst = uno.createUnoStruct(ns, Red)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Red', 'Green', 'Blue')
-            struct = uno.createUnoStruct('com.sun.star.rendering.RGBColor')
-            if arg_len > len(key_order):
-                raise ValueError("RGBColor.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Red is UNO_NONE:
+                if getattr(struct, 'Red') != Red:
+                    setattr(struct, 'Red', Red)
+            if not Green is UNO_NONE:
+                if getattr(struct, 'Green') != Green:
+                    setattr(struct, 'Green', Green)
+            if not Blue is UNO_NONE:
+                if getattr(struct, 'Blue') != Blue:
+                    setattr(struct, 'Blue', Blue)
             _set_attr(struct)
             return struct
         RGBColor = _struct_init

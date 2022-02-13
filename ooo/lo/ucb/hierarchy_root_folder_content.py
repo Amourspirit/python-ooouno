@@ -45,5 +45,6 @@ class HierarchyRootFolderContent(XPropertiesChangeNotifier_7a7b111c, XPropertyCo
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HierarchyRootFolderContent']
 

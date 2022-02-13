@@ -50,6 +50,5 @@ class XExternalSheetName(XInterface_8f010a43):
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
 
-
 __all__ = ['XExternalSheetName']
 

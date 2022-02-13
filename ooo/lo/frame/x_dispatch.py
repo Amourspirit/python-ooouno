@@ -72,6 +72,5 @@ class XDispatch(XInterface_8f010a43):
         unregisters a listener from a control.
         """
 
-
 __all__ = ['XDispatch']
 

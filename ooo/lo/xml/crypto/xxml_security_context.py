@@ -74,6 +74,5 @@ class XXMLSecurityContext(XInterface_8f010a43):
         set the ID of the internal security environment
         """
 
-
 __all__ = ['XXMLSecurityContext']
 

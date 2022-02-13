@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.drawing import GluePoint2 as UGluePoint2
+        # Dynamically create uno com.sun.star.drawing.GluePoint2 using uno
         global GluePoint2
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.GluePoint2'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.drawing import GluePoint2 as UGluePoint2
-                if isinstance(args[0], UGluePoint2):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.drawing.GluePoint2', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Position = UNO_NONE, IsRelative = UNO_NONE, PositionAlignment = UNO_NONE, Escape = UNO_NONE, IsUserDefined = UNO_NONE):
+            ns = 'com.sun.star.drawing.GluePoint2'
+            if isinstance(Position, UGluePoint2):
+                inst = uno.createUnoStruct(ns, Position)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Position', 'IsRelative', 'PositionAlignment', 'Escape', 'IsUserDefined')
-            struct = uno.createUnoStruct('com.sun.star.drawing.GluePoint2')
-            if arg_len > len(key_order):
-                raise ValueError("GluePoint2.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Position is UNO_NONE:
+                if getattr(struct, 'Position') != Position:
+                    setattr(struct, 'Position', Position)
+            if not IsRelative is UNO_NONE:
+                if getattr(struct, 'IsRelative') != IsRelative:
+                    setattr(struct, 'IsRelative', IsRelative)
+            if not PositionAlignment is UNO_NONE:
+                if getattr(struct, 'PositionAlignment') != PositionAlignment:
+                    setattr(struct, 'PositionAlignment', PositionAlignment)
+            if not Escape is UNO_NONE:
+                if getattr(struct, 'Escape') != Escape:
+                    setattr(struct, 'Escape', Escape)
+            if not IsUserDefined is UNO_NONE:
+                if getattr(struct, 'IsUserDefined') != IsUserDefined:
+                    setattr(struct, 'IsUserDefined', IsUserDefined)
             _set_attr(struct)
             return struct
         GluePoint2 = _struct_init

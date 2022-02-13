@@ -252,6 +252,5 @@ class XCanvas(XInterface_8f010a43):
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
 
-
 __all__ = ['XCanvas']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import Panose as UPanose
+        # Dynamically create uno com.sun.star.rendering.Panose using uno
         global Panose
 
         def _set_attr(struct):
@@ -35,25 +36,44 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.Panose'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import Panose as UPanose
-                if isinstance(args[0], UPanose):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.Panose', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(FamilyType = UNO_NONE, SerifStyle = UNO_NONE, Weight = UNO_NONE, Proportion = UNO_NONE, Contrast = UNO_NONE, StrokeVariation = UNO_NONE, ArmStyle = UNO_NONE, Letterform = UNO_NONE, Midline = UNO_NONE, XHeight = UNO_NONE):
+            ns = 'com.sun.star.rendering.Panose'
+            if isinstance(FamilyType, UPanose):
+                inst = uno.createUnoStruct(ns, FamilyType)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('FamilyType', 'SerifStyle', 'Weight', 'Proportion', 'Contrast', 'StrokeVariation', 'ArmStyle', 'Letterform', 'Midline', 'XHeight')
-            struct = uno.createUnoStruct('com.sun.star.rendering.Panose')
-            if arg_len > len(key_order):
-                raise ValueError("Panose.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not FamilyType is UNO_NONE:
+                if getattr(struct, 'FamilyType') != FamilyType:
+                    setattr(struct, 'FamilyType', FamilyType)
+            if not SerifStyle is UNO_NONE:
+                if getattr(struct, 'SerifStyle') != SerifStyle:
+                    setattr(struct, 'SerifStyle', SerifStyle)
+            if not Weight is UNO_NONE:
+                if getattr(struct, 'Weight') != Weight:
+                    setattr(struct, 'Weight', Weight)
+            if not Proportion is UNO_NONE:
+                if getattr(struct, 'Proportion') != Proportion:
+                    setattr(struct, 'Proportion', Proportion)
+            if not Contrast is UNO_NONE:
+                if getattr(struct, 'Contrast') != Contrast:
+                    setattr(struct, 'Contrast', Contrast)
+            if not StrokeVariation is UNO_NONE:
+                if getattr(struct, 'StrokeVariation') != StrokeVariation:
+                    setattr(struct, 'StrokeVariation', StrokeVariation)
+            if not ArmStyle is UNO_NONE:
+                if getattr(struct, 'ArmStyle') != ArmStyle:
+                    setattr(struct, 'ArmStyle', ArmStyle)
+            if not Letterform is UNO_NONE:
+                if getattr(struct, 'Letterform') != Letterform:
+                    setattr(struct, 'Letterform', Letterform)
+            if not Midline is UNO_NONE:
+                if getattr(struct, 'Midline') != Midline:
+                    setattr(struct, 'Midline', Midline)
+            if not XHeight is UNO_NONE:
+                if getattr(struct, 'XHeight') != XHeight:
+                    setattr(struct, 'XHeight', XHeight)
             _set_attr(struct)
             return struct
         Panose = _struct_init

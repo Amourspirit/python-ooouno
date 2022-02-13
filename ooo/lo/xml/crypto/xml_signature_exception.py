@@ -36,4 +36,15 @@ class XMLSignatureException(SignatureException_3f870fe1):
     typeName: str = 'com.sun.star.xml.crypto.XMLSignatureException'
     """Literal Constant ``com.sun.star.xml.crypto.XMLSignatureException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

@@ -48,6 +48,5 @@ class XEntity(XNode_83fb09a5):
         The system identifier associated with the entity, if specified.
         """
 
-
 __all__ = ['XEntity']
 

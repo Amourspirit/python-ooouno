@@ -46,5 +46,6 @@ class BootstrapContext(XComponentContext_e2e10d4a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BootstrapContext']
 

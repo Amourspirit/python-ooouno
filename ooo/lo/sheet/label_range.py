@@ -36,5 +36,6 @@ class LabelRange(XLabelRange_af090b46):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LabelRange']
 

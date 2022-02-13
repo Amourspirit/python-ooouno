@@ -51,11 +51,13 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         """
         specifies the background color (RGB) of the dialog.
         """
+
     @abstractproperty
     def Closeable(self) -> bool:
         """
         specifies if the dialog is closeable.
         """
+
     @abstractproperty
     def DesktopAsParent(self) -> bool:
         """
@@ -65,26 +67,31 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             OOo 2.3
         """
+
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether a dialog is enabled or disabled.
         """
+
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font attributes of the text in the caption bar of the dialog.
         """
+
     @abstractproperty
     def FontEmphasisMark(self) -> int:
         """
         specifies the com.sun.star.text.FontEmphasis value of the text in the caption bar of the dialog.
         """
+
     @abstractproperty
     def FontRelief(self) -> int:
         """
         specifies the com.sun.star.text.FontRelief value of the text in the caption bar of the dialog.
         """
+
     @abstractproperty
     def Graphic(self) -> 'XGraphic_a4da0afc':
         """
@@ -96,6 +103,7 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             OOo 2.4
         """
+
     @abstractproperty
     def HScroll(self) -> bool:
         """
@@ -105,16 +113,19 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the dialog.
         """
+
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the dialog.
         """
+
     @abstractproperty
     def ImageURL(self) -> str:
         """
@@ -124,11 +135,13 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             OOo 2.4
         """
+
     @abstractproperty
     def Moveable(self) -> bool:
         """
         specifies if the dialog is moveable.
         """
+
     @abstractproperty
     def ScrollHeight(self) -> int:
         """
@@ -138,6 +151,7 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def ScrollLeft(self) -> int:
         """
@@ -147,6 +161,7 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def ScrollTop(self) -> int:
         """
@@ -156,6 +171,7 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def ScrollWidth(self) -> int:
         """
@@ -165,26 +181,31 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
     @abstractproperty
     def Sizeable(self) -> bool:
         """
         specifies if the dialog is sizeable.
         """
+
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) of the dialog.
         """
+
     @abstractproperty
     def TextLineColor(self) -> 'Color_68e908c5':
         """
         specifies the text line color (RGB) of the dialog.
         """
+
     @abstractproperty
     def Title(self) -> str:
         """
         specifies the text that is displayed in the caption bar of the dialog.
         """
+
     @abstractproperty
     def VScroll(self) -> bool:
         """
@@ -194,6 +215,8 @@ class UnoControlDialogModel(UnoControlModel_c8ce0c58, XContainer_d6fb0cc6, XName
         
             LibreOffice 4.0
         """
+
+
 
 __all__ = ['UnoControlDialogModel']
 

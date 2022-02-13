@@ -62,6 +62,5 @@ class XControlContainer(XInterface_8f010a43):
         sets the status text in the status bar of the container.
         """
 
-
 __all__ = ['XControlContainer']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.geometry
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.geometry import AffineMatrix2D as UAffineMatrix2D
+        # Dynamically create uno com.sun.star.geometry.AffineMatrix2D using uno
         global AffineMatrix2D
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.AffineMatrix2D'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.geometry import AffineMatrix2D as UAffineMatrix2D
-                if isinstance(args[0], UAffineMatrix2D):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.geometry.AffineMatrix2D', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(m00 = UNO_NONE, m01 = UNO_NONE, m02 = UNO_NONE, m10 = UNO_NONE, m11 = UNO_NONE, m12 = UNO_NONE):
+            ns = 'com.sun.star.geometry.AffineMatrix2D'
+            if isinstance(m00, UAffineMatrix2D):
+                inst = uno.createUnoStruct(ns, m00)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('m00', 'm01', 'm02', 'm10', 'm11', 'm12')
-            struct = uno.createUnoStruct('com.sun.star.geometry.AffineMatrix2D')
-            if arg_len > len(key_order):
-                raise ValueError("AffineMatrix2D.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not m00 is UNO_NONE:
+                if getattr(struct, 'm00') != m00:
+                    setattr(struct, 'm00', m00)
+            if not m01 is UNO_NONE:
+                if getattr(struct, 'm01') != m01:
+                    setattr(struct, 'm01', m01)
+            if not m02 is UNO_NONE:
+                if getattr(struct, 'm02') != m02:
+                    setattr(struct, 'm02', m02)
+            if not m10 is UNO_NONE:
+                if getattr(struct, 'm10') != m10:
+                    setattr(struct, 'm10', m10)
+            if not m11 is UNO_NONE:
+                if getattr(struct, 'm11') != m11:
+                    setattr(struct, 'm11', m11)
+            if not m12 is UNO_NONE:
+                if getattr(struct, 'm12') != m12:
+                    setattr(struct, 'm12', m12)
             _set_attr(struct)
             return struct
         AffineMatrix2D = _struct_init

@@ -49,6 +49,7 @@ class XEmbeddedObjectSupplier2(XEmbeddedObjectSupplier_8b631174):
         """
         allows to control the aspect of the object.
         """
+
     @abstractproperty
     def ReplacementGraphic(self) -> 'XGraphic_a4da0afc':
         """

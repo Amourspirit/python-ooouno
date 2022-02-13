@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.chart2
 import typing
 
-CoordinateSystemTypeID = str
+CoordinateSystemTypeID = typing.NewType('CoordinateSystemTypeID', str)
 """
 TypeDef type alias
 

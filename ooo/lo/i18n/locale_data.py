@@ -34,5 +34,6 @@ class LocaleData(XLocaleData4_a7ae0a9e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LocaleData']
 

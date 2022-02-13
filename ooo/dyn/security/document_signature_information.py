@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.security
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.security import DocumentSignatureInformation as UDocumentSignatureInformation
+        # Dynamically create uno com.sun.star.security.DocumentSignatureInformation using uno
         global DocumentSignatureInformation
 
         def _set_attr(struct):
@@ -35,25 +36,41 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.security.DocumentSignatureInformation'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.security import DocumentSignatureInformation as UDocumentSignatureInformation
-                if isinstance(args[0], UDocumentSignatureInformation):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.security.DocumentSignatureInformation', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Signer = UNO_NONE, SignatureDate = UNO_NONE, SignatureTime = UNO_NONE, SignatureIsValid = UNO_NONE, CertificateStatus = UNO_NONE, PartialDocumentSignature = UNO_NONE, SignatureLineId = UNO_NONE, ValidSignatureLineImage = UNO_NONE, InvalidSignatureLineImage = UNO_NONE):
+            ns = 'com.sun.star.security.DocumentSignatureInformation'
+            if isinstance(Signer, UDocumentSignatureInformation):
+                inst = uno.createUnoStruct(ns, Signer)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Signer', 'SignatureDate', 'SignatureTime', 'SignatureIsValid', 'CertificateStatus', 'PartialDocumentSignature', 'SignatureLineId', 'ValidSignatureLineImage', 'InvalidSignatureLineImage')
-            struct = uno.createUnoStruct('com.sun.star.security.DocumentSignatureInformation')
-            if arg_len > len(key_order):
-                raise ValueError("DocumentSignatureInformation.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Signer is UNO_NONE:
+                if getattr(struct, 'Signer') != Signer:
+                    setattr(struct, 'Signer', Signer)
+            if not SignatureDate is UNO_NONE:
+                if getattr(struct, 'SignatureDate') != SignatureDate:
+                    setattr(struct, 'SignatureDate', SignatureDate)
+            if not SignatureTime is UNO_NONE:
+                if getattr(struct, 'SignatureTime') != SignatureTime:
+                    setattr(struct, 'SignatureTime', SignatureTime)
+            if not SignatureIsValid is UNO_NONE:
+                if getattr(struct, 'SignatureIsValid') != SignatureIsValid:
+                    setattr(struct, 'SignatureIsValid', SignatureIsValid)
+            if not CertificateStatus is UNO_NONE:
+                if getattr(struct, 'CertificateStatus') != CertificateStatus:
+                    setattr(struct, 'CertificateStatus', CertificateStatus)
+            if not PartialDocumentSignature is UNO_NONE:
+                if getattr(struct, 'PartialDocumentSignature') != PartialDocumentSignature:
+                    setattr(struct, 'PartialDocumentSignature', PartialDocumentSignature)
+            if not SignatureLineId is UNO_NONE:
+                if getattr(struct, 'SignatureLineId') != SignatureLineId:
+                    setattr(struct, 'SignatureLineId', SignatureLineId)
+            if not ValidSignatureLineImage is UNO_NONE:
+                if getattr(struct, 'ValidSignatureLineImage') != ValidSignatureLineImage:
+                    setattr(struct, 'ValidSignatureLineImage', ValidSignatureLineImage)
+            if not InvalidSignatureLineImage is UNO_NONE:
+                if getattr(struct, 'InvalidSignatureLineImage') != InvalidSignatureLineImage:
+                    setattr(struct, 'InvalidSignatureLineImage', InvalidSignatureLineImage)
             _set_attr(struct)
             return struct
         DocumentSignatureInformation = _struct_init

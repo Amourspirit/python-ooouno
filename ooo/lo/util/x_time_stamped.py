@@ -47,6 +47,5 @@ class XTimeStamped(XInterface_8f010a43):
         returns the timestamp of the object.
         """
 
-
 __all__ = ['XTimeStamped']
 

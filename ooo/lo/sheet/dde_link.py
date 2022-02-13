@@ -43,5 +43,6 @@ class DDELink(XNamed_a6520b08, XDDELink_8cc609d4, XDDELinkResults_dce00cc6, XRef
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DDELink']
 

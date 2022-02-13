@@ -64,6 +64,5 @@ class XConfigManager(XInterface_8f010a43):
         The value of Text is NOT changed.
         """
 
-
 __all__ = ['XConfigManager']
 

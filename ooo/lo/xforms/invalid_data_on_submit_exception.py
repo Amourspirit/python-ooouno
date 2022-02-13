@@ -39,4 +39,15 @@ class InvalidDataOnSubmitException(VetoException_bdad0c13):
     typeName: str = 'com.sun.star.xforms.InvalidDataOnSubmitException'
     """Literal Constant ``com.sun.star.xforms.InvalidDataOnSubmitException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

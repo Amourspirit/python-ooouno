@@ -47,5 +47,6 @@ class DocumentDigitalSignatures(XDocumentDigitalSignatures_c8a812fa):
         """
         """
 
+
 __all__ = ['DocumentDigitalSignatures']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import DataPilotTableHeaderData as UDataPilotTableHeaderData
+        # Dynamically create uno com.sun.star.sheet.DataPilotTableHeaderData using uno
         global DataPilotTableHeaderData
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotTableHeaderData'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import DataPilotTableHeaderData as UDataPilotTableHeaderData
-                if isinstance(args[0], UDataPilotTableHeaderData):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.DataPilotTableHeaderData', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Dimension = UNO_NONE, Hierarchy = UNO_NONE, Level = UNO_NONE, Flags = UNO_NONE, MemberName = UNO_NONE):
+            ns = 'com.sun.star.sheet.DataPilotTableHeaderData'
+            if isinstance(Dimension, UDataPilotTableHeaderData):
+                inst = uno.createUnoStruct(ns, Dimension)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Dimension', 'Hierarchy', 'Level', 'Flags', 'MemberName')
-            struct = uno.createUnoStruct('com.sun.star.sheet.DataPilotTableHeaderData')
-            if arg_len > len(key_order):
-                raise ValueError("DataPilotTableHeaderData.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Dimension is UNO_NONE:
+                if getattr(struct, 'Dimension') != Dimension:
+                    setattr(struct, 'Dimension', Dimension)
+            if not Hierarchy is UNO_NONE:
+                if getattr(struct, 'Hierarchy') != Hierarchy:
+                    setattr(struct, 'Hierarchy', Hierarchy)
+            if not Level is UNO_NONE:
+                if getattr(struct, 'Level') != Level:
+                    setattr(struct, 'Level', Level)
+            if not Flags is UNO_NONE:
+                if getattr(struct, 'Flags') != Flags:
+                    setattr(struct, 'Flags', Flags)
+            if not MemberName is UNO_NONE:
+                if getattr(struct, 'MemberName') != MemberName:
+                    setattr(struct, 'MemberName', MemberName)
             _set_attr(struct)
             return struct
         DataPilotTableHeaderData = _struct_init

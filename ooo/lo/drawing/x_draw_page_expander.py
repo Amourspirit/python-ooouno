@@ -47,6 +47,5 @@ class XDrawPageExpander(XInterface_8f010a43):
         creates a collection of DrawPages from the summary inside the given DrawPage and adds them to the same model as the source DrawPage.
         """
 
-
 __all__ = ['XDrawPageExpander']
 

@@ -58,6 +58,5 @@ class XTypeDescriptionEnumerationAccess(XInterface_8f010a43):
             InvalidTypeNameException: ``InvalidTypeNameException``
         """
 
-
 __all__ = ['XTypeDescriptionEnumerationAccess']
 

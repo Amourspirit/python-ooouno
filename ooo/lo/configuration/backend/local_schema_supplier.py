@@ -34,5 +34,6 @@ class LocalSchemaSupplier(SchemaSupplier_da03131b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LocalSchemaSupplier']
 

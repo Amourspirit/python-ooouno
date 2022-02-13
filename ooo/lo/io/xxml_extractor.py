@@ -42,6 +42,5 @@ class XXMLExtractor(XInterface_8f010a43):
         extracts the XML stream from the document storage.
         """
 
-
 __all__ = ['XXMLExtractor']
 

@@ -152,6 +152,5 @@ class XElement(XNode_83fb09a5):
             DOMException: ``DOMException``
         """
 
-
 __all__ = ['XElement']
 

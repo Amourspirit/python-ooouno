@@ -35,5 +35,6 @@ class XMLSignature(XInitialization_d46c0cca, XXMLSignature_aa50e23):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['XMLSignature']
 

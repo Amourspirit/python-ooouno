@@ -44,6 +44,5 @@ class XTextSection(XTextContent_b16e0ba5):
         If the object is a child section, then this method returns the parent text section.
         """
 
-
 __all__ = ['XTextSection']
 

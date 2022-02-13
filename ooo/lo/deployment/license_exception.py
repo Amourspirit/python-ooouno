@@ -41,21 +41,15 @@ class LicenseException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.LicenseException'
     """Literal Constant ``com.sun.star.deployment.LicenseException``"""
 
-    AcceptBy: str = None
-    """
-        contains the value of the attribute /description/registration/simple-license/@accept-by from the description.xml
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    ExtensionName: str = None
-    """
-        name of the extension.
-        
-        The display name of the extension. See XPackage.getDisplayName()
-    """
+        Keyword Arguments:
 
-    Text: str = None
-    """
-        contains the text of the license.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -57,6 +57,5 @@ class XMenuListener(XEventListener_c7230c4a):
         is invoked when a menu item is selected.
         """
 
-
 __all__ = ['XMenuListener']
 

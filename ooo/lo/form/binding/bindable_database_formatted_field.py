@@ -37,5 +37,6 @@ class BindableDatabaseFormattedField(BindableDataAwareControlModel_47091512, Dat
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BindableDatabaseFormattedField']
 

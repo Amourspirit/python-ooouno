@@ -57,6 +57,5 @@ class XSpinListener(XEventListener_c7230c4a):
         is invoked when the spin field is spun up.
         """
 
-
 __all__ = ['XSpinListener']
 

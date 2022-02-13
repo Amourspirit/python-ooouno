@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.text import TextRangeSelection as UTextRangeSelection
+        # Dynamically create uno com.sun.star.text.TextRangeSelection using uno
         global TextRangeSelection
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.TextRangeSelection'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.text import TextRangeSelection as UTextRangeSelection
-                if isinstance(args[0], UTextRangeSelection):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.text.TextRangeSelection', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Start = UNO_NONE, End = UNO_NONE):
+            ns = 'com.sun.star.text.TextRangeSelection'
+            if isinstance(Start, UTextRangeSelection):
+                inst = uno.createUnoStruct(ns, Start)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Start', 'End')
-            struct = uno.createUnoStruct('com.sun.star.text.TextRangeSelection')
-            if arg_len > len(key_order):
-                raise ValueError("TextRangeSelection.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Start is UNO_NONE:
+                if getattr(struct, 'Start') != Start:
+                    setattr(struct, 'Start', Start)
+            if not End is UNO_NONE:
+                if getattr(struct, 'End') != End:
+                    setattr(struct, 'End', End)
             _set_attr(struct)
             return struct
         TextRangeSelection = _struct_init

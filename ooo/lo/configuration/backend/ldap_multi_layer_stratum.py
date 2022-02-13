@@ -34,5 +34,6 @@ class LdapMultiLayerStratum(MultiLayerStratum_16ad146e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LdapMultiLayerStratum']
 

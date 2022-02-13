@@ -37,5 +37,6 @@ class HatchWindowFactory(XHatchWindowFactory_167d0e95):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HatchWindowFactory']
 

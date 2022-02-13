@@ -43,5 +43,7 @@ class ImageMapPolygonObject(ImageMapObject_d1e20c63):
         This sequence of points outlines the click area of this image map object.
         """
 
+
+
 __all__ = ['ImageMapPolygonObject']
 

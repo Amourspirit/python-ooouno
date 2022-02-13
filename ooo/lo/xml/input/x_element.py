@@ -97,6 +97,5 @@ class XElement(XInterface_8f010a43):
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
 
-
 __all__ = ['XElement']
 

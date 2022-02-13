@@ -36,5 +36,6 @@ class OfficeDocumentView(XControlAccess_c89d0c4e, XSelectionSupplier_fed20e15, X
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OfficeDocumentView']
 

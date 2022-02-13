@@ -232,6 +232,5 @@ class XPropertyHandler(XComponent_98dc0ab5):
         If suspension is not to be vetoed, then all non-modal UI components opened by the handler should have been closed when it returns from the suspend() call.
         """
 
-
 __all__ = ['XPropertyHandler']
 

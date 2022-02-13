@@ -37,5 +37,6 @@ class UnoControlEdit(UnoControl_8f2c0a67, XLayoutConstrains_e2e50d4e, XTextCompo
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlEdit']
 

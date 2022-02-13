@@ -60,6 +60,5 @@ class XSearchable(XInterface_8f010a43):
         searches the contained texts for the next occurrence of whatever is specified.
         """
 
-
 __all__ = ['XSearchable']
 

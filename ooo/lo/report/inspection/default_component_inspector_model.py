@@ -62,5 +62,6 @@ class DefaultComponentInspectorModel(XObjectInspectorModel_9077119b):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['DefaultComponentInspectorModel']
 

@@ -42,5 +42,6 @@ class Proofreader(XProofreader_dab0e46):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Proofreader']
 

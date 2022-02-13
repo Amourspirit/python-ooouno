@@ -36,5 +36,6 @@ class CachedContentResultSetStub(ContentResultSet_d4ee0cc8, XFetchProvider_b9f10
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CachedContentResultSetStub']
 

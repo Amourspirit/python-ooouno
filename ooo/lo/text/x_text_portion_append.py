@@ -66,6 +66,5 @@ class XTextPortionAppend(XInterface_8f010a43):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
 
-
 __all__ = ['XTextPortionAppend']
 

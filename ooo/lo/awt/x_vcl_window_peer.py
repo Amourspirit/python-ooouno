@@ -91,6 +91,5 @@ class XVclWindowPeer(XWindowPeer_99760ab0):
         sets the value of the property with the specified name.
         """
 
-
 __all__ = ['XVclWindowPeer']
 

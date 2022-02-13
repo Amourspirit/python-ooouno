@@ -74,6 +74,5 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XEncryptionProtectedStorage']
 

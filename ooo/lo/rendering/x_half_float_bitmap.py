@@ -63,6 +63,5 @@ class XHalfFloatBitmap(XHalfFloatReadOnlyBitmap_ad83120a):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
-
 __all__ = ['XHalfFloatBitmap']
 

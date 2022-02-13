@@ -43,5 +43,6 @@ class SessionListener(XSessionManagerListener2_68af1082):
         """
         """
 
+
 __all__ = ['SessionListener']
 

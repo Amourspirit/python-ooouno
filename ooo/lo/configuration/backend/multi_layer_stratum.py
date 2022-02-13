@@ -35,5 +35,6 @@ class MultiLayerStratum(XBackendEntities_fecf13bb, XMultiLayerStratum_2a5314c6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MultiLayerStratum']
 

@@ -137,6 +137,5 @@ class XColorSpace(ABC):
         Query type of this color space.
         """
 
-
 __all__ = ['XColorSpace']
 

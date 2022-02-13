@@ -49,6 +49,5 @@ class XTypeDescriptionEnumeration(XEnumeration_f2180daa):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XTypeDescriptionEnumeration']
 

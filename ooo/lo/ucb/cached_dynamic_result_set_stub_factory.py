@@ -34,5 +34,6 @@ class CachedDynamicResultSetStubFactory(XCachedDynamicResultSetStubFactory_f47f1
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CachedDynamicResultSetStubFactory']
 

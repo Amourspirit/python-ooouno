@@ -43,9 +43,15 @@ class LdapGenericException(Exception_85530a09):
     typeName: str = 'com.sun.star.ldap.LdapGenericException'
     """Literal Constant ``com.sun.star.ldap.LdapGenericException``"""
 
-    ErrorCode: int = None
-    """
-        LDAP error code, see LDAP SDK documentation for complete list of possible values and their meaning.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

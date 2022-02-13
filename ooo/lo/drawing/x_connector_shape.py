@@ -61,6 +61,5 @@ class XConnectorShape(XShape_8fd00a3d):
         disconnects the given Shape from the end of this instance.
         """
 
-
 __all__ = ['XConnectorShape']
 

@@ -34,5 +34,6 @@ class Solver(XSolver_853909f4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Solver']
 

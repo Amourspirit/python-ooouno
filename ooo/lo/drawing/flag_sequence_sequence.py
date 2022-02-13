@@ -21,7 +21,7 @@
 import typing
 from .flag_sequence import FlagSequence
 
-FlagSequenceSequence = typing.Tuple[FlagSequence, ...]
+FlagSequenceSequence = typing.NewType('FlagSequenceSequence', typing.Tuple[FlagSequence, ...])
 """
 TypeDef type alias
 

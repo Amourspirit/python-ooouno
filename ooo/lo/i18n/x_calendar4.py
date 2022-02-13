@@ -79,6 +79,5 @@ class XCalendar4(XCalendar3_927a09ed):
         The actual timezone and daylight saving time offsets effective at the given date and time are considered and subtracted before setting the UTC time at the calendar.
         """
 
-
 __all__ = ['XCalendar4']
 

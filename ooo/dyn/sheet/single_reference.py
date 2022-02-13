@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import SingleReference as USingleReference
+        # Dynamically create uno com.sun.star.sheet.SingleReference using uno
         global SingleReference
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.SingleReference'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import SingleReference as USingleReference
-                if isinstance(args[0], USingleReference):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.SingleReference', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Column = UNO_NONE, RelativeColumn = UNO_NONE, Row = UNO_NONE, RelativeRow = UNO_NONE, Sheet = UNO_NONE, RelativeSheet = UNO_NONE, Flags = UNO_NONE):
+            ns = 'com.sun.star.sheet.SingleReference'
+            if isinstance(Column, USingleReference):
+                inst = uno.createUnoStruct(ns, Column)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Column', 'RelativeColumn', 'Row', 'RelativeRow', 'Sheet', 'RelativeSheet', 'Flags')
-            struct = uno.createUnoStruct('com.sun.star.sheet.SingleReference')
-            if arg_len > len(key_order):
-                raise ValueError("SingleReference.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Column is UNO_NONE:
+                if getattr(struct, 'Column') != Column:
+                    setattr(struct, 'Column', Column)
+            if not RelativeColumn is UNO_NONE:
+                if getattr(struct, 'RelativeColumn') != RelativeColumn:
+                    setattr(struct, 'RelativeColumn', RelativeColumn)
+            if not Row is UNO_NONE:
+                if getattr(struct, 'Row') != Row:
+                    setattr(struct, 'Row', Row)
+            if not RelativeRow is UNO_NONE:
+                if getattr(struct, 'RelativeRow') != RelativeRow:
+                    setattr(struct, 'RelativeRow', RelativeRow)
+            if not Sheet is UNO_NONE:
+                if getattr(struct, 'Sheet') != Sheet:
+                    setattr(struct, 'Sheet', Sheet)
+            if not RelativeSheet is UNO_NONE:
+                if getattr(struct, 'RelativeSheet') != RelativeSheet:
+                    setattr(struct, 'RelativeSheet', RelativeSheet)
+            if not Flags is UNO_NONE:
+                if getattr(struct, 'Flags') != Flags:
+                    setattr(struct, 'Flags', Flags)
             _set_attr(struct)
             return struct
         SingleReference = _struct_init

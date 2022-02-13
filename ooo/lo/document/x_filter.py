@@ -53,6 +53,5 @@ class XFilter(XInterface_8f010a43):
         Don't hold hard references to the descriptor items. You must copy needed information! Otherwise we couldn't destroy (for example) an existing input stream!
         """
 
-
 __all__ = ['XFilter']
 

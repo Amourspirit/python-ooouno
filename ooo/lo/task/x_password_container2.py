@@ -39,6 +39,5 @@ class XPasswordContainer2(XMasterPasswordHandling2_59b91029, XPasswordContainer_
     __pyunointerface__: str = 'com.sun.star.task.XPasswordContainer2'
 
 
-
 __all__ = ['XPasswordContainer2']
 

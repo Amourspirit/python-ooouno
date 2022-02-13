@@ -34,6 +34,5 @@ class XReadWriteAccess(XHierarchicalPropertySetInfo_ae271245, XHierarchicalNameR
     __pyunointerface__: str = 'com.sun.star.configuration.XReadWriteAccess'
 
 
-
 __all__ = ['XReadWriteAccess']
 

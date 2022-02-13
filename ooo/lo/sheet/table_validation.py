@@ -46,6 +46,7 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         This is used only if TableValidation.ShowErrorMessage is set to TRUE.
         """
+
     @abstractproperty
     def ErrorMessage(self) -> str:
         """
@@ -53,6 +54,7 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         This is only used if TableValidation.ShowErrorMessage is set to TRUE.
         """
+
     @abstractproperty
     def ErrorTitle(self) -> str:
         """
@@ -60,11 +62,13 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         This is only used if TableValidation.ShowErrorMessage is set to TRUE.
         """
+
     @abstractproperty
     def IgnoreBlankCells(self) -> bool:
         """
         specifies if blank cells should be allowed.
         """
+
     @abstractproperty
     def InputMessage(self) -> str:
         """
@@ -72,6 +76,7 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         This is only used if TableValidation.ShowInputMessage is set to TRUE.
         """
+
     @abstractproperty
     def InputTitle(self) -> str:
         """
@@ -79,16 +84,19 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         This is only used if TableValidation.ShowInputMessage is set to TRUE.
         """
+
     @abstractproperty
     def ShowErrorMessage(self) -> bool:
         """
         specifies if an error message is displayed when invalid data is entered.
         """
+
     @abstractproperty
     def ShowInputMessage(self) -> bool:
         """
         specifies if an input message is shown when the cursor is in a cell with these validation settings.
         """
+
     @abstractproperty
     def ShowList(self) -> int:
         """
@@ -96,11 +104,14 @@ class TableValidation(XPropertySet_bc180bfa, XSheetCondition_e1940d19):
         
         See also TableValidationVisibility
         """
+
     @abstractproperty
     def Type(self) -> 'ValidationType_d6110cce':
         """
         specifies the type of validation.
         """
+
+
 
 __all__ = ['TableValidation']
 

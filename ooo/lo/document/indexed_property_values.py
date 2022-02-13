@@ -37,5 +37,6 @@ class IndexedPropertyValues(XIndexContainer_1c040ebe):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['IndexedPropertyValues']
 

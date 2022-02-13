@@ -63,5 +63,6 @@ class URI(XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['URI']
 

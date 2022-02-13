@@ -51,6 +51,5 @@ class XFilePickerNotifier(XInterface_8f010a43):
         Invalid interfaces or NULL values will be ignored.
         """
 
-
 __all__ = ['XFilePickerNotifier']
 

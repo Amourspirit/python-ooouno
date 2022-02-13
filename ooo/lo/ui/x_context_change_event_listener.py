@@ -40,6 +40,5 @@ class XContextChangeEventListener(XEventListener_c7230c4a):
         """
         """
 
-
 __all__ = ['XContextChangeEventListener']
 

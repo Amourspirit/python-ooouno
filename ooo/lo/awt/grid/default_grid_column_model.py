@@ -38,5 +38,6 @@ class DefaultGridColumnModel(XGridColumnModel_16290e65):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DefaultGridColumnModel']
 

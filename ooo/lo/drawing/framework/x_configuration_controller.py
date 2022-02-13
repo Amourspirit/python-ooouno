@@ -123,6 +123,5 @@ class XConfigurationController(XConfigurationControllerBroadcaster_5e871a2e, XCo
         Call it when a resource is activated or deactivated without the control and knowledge of the drawing framework. Calling this method (from outside the drawing framework) should hardly every be necessary.
         """
 
-
 __all__ = ['XConfigurationController']
 

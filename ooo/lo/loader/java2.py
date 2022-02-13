@@ -40,5 +40,6 @@ class Java2(XImplementationLoader_498f0ff4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Java2']
 

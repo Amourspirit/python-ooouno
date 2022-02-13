@@ -42,6 +42,5 @@ class XFormsSupplier(XInterface_8f010a43):
         access XForms model container.
         """
 
-
 __all__ = ['XFormsSupplier']
 

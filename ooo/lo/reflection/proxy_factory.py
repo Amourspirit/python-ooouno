@@ -40,5 +40,6 @@ class ProxyFactory(XProxyFactory_f030e85):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ProxyFactory']
 

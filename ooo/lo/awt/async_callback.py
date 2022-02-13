@@ -34,5 +34,6 @@ class AsyncCallback(XRequestCallback_d4ac0ca2):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AsyncCallback']
 

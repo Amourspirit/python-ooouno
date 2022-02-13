@@ -49,6 +49,5 @@ class XMergeableCell(XCell_70d408e8):
         returns TRUE if this cell is merged with another cell.
         """
 
-
 __all__ = ['XMergeableCell']
 

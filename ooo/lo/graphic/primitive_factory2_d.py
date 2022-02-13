@@ -37,5 +37,6 @@ class PrimitiveFactory2D(XPrimitiveFactory2D_398c0f45):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PrimitiveFactory2D']
 

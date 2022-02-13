@@ -65,6 +65,5 @@ class XAccessibleTextAttributes(ABC):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
-
 __all__ = ['XAccessibleTextAttributes']
 

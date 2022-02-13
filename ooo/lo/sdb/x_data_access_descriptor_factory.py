@@ -44,6 +44,5 @@ class XDataAccessDescriptorFactory(ABC):
         creates a DataAccessDescriptor which supports all properties defined for this service, even if they're normally optional only.
         """
 
-
 __all__ = ['XDataAccessDescriptorFactory']
 

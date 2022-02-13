@@ -42,11 +42,13 @@ class CharacterPropertiesAsian(ABC):
         """
         This property contains the text encoding of the font as specified in com.sun.star.awt.CharSet.
         """
+
     @abstractproperty
     def CharFontFamilyAsian(self) -> int:
         """
         This property contains font family as specified in com.sun.star.awt.FontFamily .
         """
+
     @abstractproperty
     def CharFontNameAsian(self) -> str:
         """
@@ -54,11 +56,13 @@ class CharacterPropertiesAsian(ABC):
         
         It may contain more than one name separated by comma.
         """
+
     @abstractproperty
     def CharFontPitchAsian(self) -> int:
         """
         This property contains the font pitch as specified in com.sun.star.awt.FontPitch.
         """
+
     @abstractproperty
     def CharFontStyleNameAsian(self) -> str:
         """
@@ -66,26 +70,32 @@ class CharacterPropertiesAsian(ABC):
         
         This property may be empty.
         """
+
     @abstractproperty
     def CharHeightAsian(self) -> float:
         """
         This value contains the height of the characters in point.
         """
+
     @abstractproperty
     def CharLocaleAsian(self) -> 'Locale_70d308fa':
         """
         contains the value of the locale.
         """
+
     @abstractproperty
     def CharPostureAsian(self) -> 'FontSlant_849509ed':
         """
         This property contains the value of the posture of the document.
         """
+
     @abstractproperty
     def CharWeightAsian(self) -> float:
         """
         This property contains the value of the font weight.
         """
+
+
 
 __all__ = ['CharacterPropertiesAsian']
 

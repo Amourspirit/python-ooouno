@@ -43,5 +43,6 @@ class UIElement(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIElement_820509
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UIElement']
 

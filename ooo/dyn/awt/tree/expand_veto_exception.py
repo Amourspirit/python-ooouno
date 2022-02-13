@@ -19,16 +19,38 @@
 # Namespace: com.sun.star.awt.tree
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt.tree import ExpandVetoException
-    setattr(ExpandVetoException, '__ooo_ns__', 'com.sun.star.awt.tree')
-    setattr(ExpandVetoException, '__ooo_full_ns__', 'com.sun.star.awt.tree.ExpandVetoException')
-    setattr(ExpandVetoException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.awt.tree.ExpandVetoException using uno
+        global ExpandVetoException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.awt.tree'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.tree.ExpandVetoException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(Event = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.awt.tree.ExpandVetoException'
+            ex = uno.createUnoStruct(ns)
+            if not Event is UNO_NONE:
+                if getattr(ex, 'Event') != Event:
+                    setattr(ex, 'Event', Event)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        ExpandVetoException = _ex_init
+
+    _dynamic_ex()
 else:
     from ....lo.awt.tree.expand_veto_exception import ExpandVetoException as ExpandVetoException
     

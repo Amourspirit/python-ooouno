@@ -38,6 +38,5 @@ class XCallback(ABC):
         notifies the callback implementation
         """
 
-
 __all__ = ['XCallback']
 

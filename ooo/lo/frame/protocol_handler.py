@@ -39,5 +39,6 @@ class ProtocolHandler(XDispatchProvider_fc690de6, XInitialization_d46c0cca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ProtocolHandler']
 

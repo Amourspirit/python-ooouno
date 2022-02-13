@@ -40,5 +40,6 @@ class ModuleManager(XModuleManager2_e0500cbe):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ModuleManager']
 

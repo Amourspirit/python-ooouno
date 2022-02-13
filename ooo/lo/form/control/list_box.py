@@ -38,5 +38,6 @@ class ListBox(UnoControlListBox_e2b20d2c, XBoundControl_bba00bed, XChangeBroadca
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ListBox']
 

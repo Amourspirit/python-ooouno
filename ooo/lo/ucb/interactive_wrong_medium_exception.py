@@ -37,9 +37,15 @@ class InteractiveWrongMediumException(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.InteractiveWrongMediumException'
     """Literal Constant ``com.sun.star.ucb.InteractiveWrongMediumException``"""
 
-    Medium: object = None
-    """
-        identifies the medium that's needed to continue with the pending operation.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -58,5 +58,6 @@ class DocumentScriptLibraryContainer(XStorageBasedLibraryContainer_d72a1321):
         """
         """
 
+
 __all__ = ['DocumentScriptLibraryContainer']
 

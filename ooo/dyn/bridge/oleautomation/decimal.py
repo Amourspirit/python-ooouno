@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.bridge.oleautomation
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.bridge.oleautomation import Decimal as UDecimal
+        # Dynamically create uno com.sun.star.bridge.oleautomation.Decimal using uno
         global Decimal
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.bridge.oleautomation.Decimal'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.bridge.oleautomation import Decimal as UDecimal
-                if isinstance(args[0], UDecimal):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.bridge.oleautomation.Decimal', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Scale = UNO_NONE, Sign = UNO_NONE, LowValue = UNO_NONE, MiddleValue = UNO_NONE, HighValue = UNO_NONE):
+            ns = 'com.sun.star.bridge.oleautomation.Decimal'
+            if isinstance(Scale, UDecimal):
+                inst = uno.createUnoStruct(ns, Scale)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Scale', 'Sign', 'LowValue', 'MiddleValue', 'HighValue')
-            struct = uno.createUnoStruct('com.sun.star.bridge.oleautomation.Decimal')
-            if arg_len > len(key_order):
-                raise ValueError("Decimal.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Scale is UNO_NONE:
+                if getattr(struct, 'Scale') != Scale:
+                    setattr(struct, 'Scale', Scale)
+            if not Sign is UNO_NONE:
+                if getattr(struct, 'Sign') != Sign:
+                    setattr(struct, 'Sign', Sign)
+            if not LowValue is UNO_NONE:
+                if getattr(struct, 'LowValue') != LowValue:
+                    setattr(struct, 'LowValue', LowValue)
+            if not MiddleValue is UNO_NONE:
+                if getattr(struct, 'MiddleValue') != MiddleValue:
+                    setattr(struct, 'MiddleValue', MiddleValue)
+            if not HighValue is UNO_NONE:
+                if getattr(struct, 'HighValue') != HighValue:
+                    setattr(struct, 'HighValue', HighValue)
             _set_attr(struct)
             return struct
         Decimal = _struct_init

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.embed
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.embed import VerbDescriptor as UVerbDescriptor
+        # Dynamically create uno com.sun.star.embed.VerbDescriptor using uno
         global VerbDescriptor
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.embed.VerbDescriptor'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.embed import VerbDescriptor as UVerbDescriptor
-                if isinstance(args[0], UVerbDescriptor):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.embed.VerbDescriptor', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(VerbID = UNO_NONE, VerbName = UNO_NONE, VerbFlags = UNO_NONE, VerbAttributes = UNO_NONE):
+            ns = 'com.sun.star.embed.VerbDescriptor'
+            if isinstance(VerbID, UVerbDescriptor):
+                inst = uno.createUnoStruct(ns, VerbID)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('VerbID', 'VerbName', 'VerbFlags', 'VerbAttributes')
-            struct = uno.createUnoStruct('com.sun.star.embed.VerbDescriptor')
-            if arg_len > len(key_order):
-                raise ValueError("VerbDescriptor.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not VerbID is UNO_NONE:
+                if getattr(struct, 'VerbID') != VerbID:
+                    setattr(struct, 'VerbID', VerbID)
+            if not VerbName is UNO_NONE:
+                if getattr(struct, 'VerbName') != VerbName:
+                    setattr(struct, 'VerbName', VerbName)
+            if not VerbFlags is UNO_NONE:
+                if getattr(struct, 'VerbFlags') != VerbFlags:
+                    setattr(struct, 'VerbFlags', VerbFlags)
+            if not VerbAttributes is UNO_NONE:
+                if getattr(struct, 'VerbAttributes') != VerbAttributes:
+                    setattr(struct, 'VerbAttributes', VerbAttributes)
             _set_attr(struct)
             return struct
         VerbDescriptor = _struct_init

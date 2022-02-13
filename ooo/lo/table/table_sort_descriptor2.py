@@ -20,8 +20,9 @@
 # Namespace: com.sun.star.table
 import typing
 from abc import abstractproperty
-from .table_sort_field import TableSortField as TableSortField_d3860c84
 from ..util.sort_descriptor2 import SortDescriptor2 as SortDescriptor2_d7270cbf
+if typing.TYPE_CHECKING:
+    from .table_sort_field import TableSortField as TableSortField_d3860c84
 
 class TableSortDescriptor2(SortDescriptor2_d7270cbf):
     """
@@ -40,23 +41,15 @@ class TableSortDescriptor2(SortDescriptor2_d7270cbf):
     __ooo_full_ns__: str = 'com.sun.star.table.TableSortDescriptor2'
     __ooo_type_name__: str = 'service'
 
-    SortFields: typing.TypeAlias = typing.Tuple[TableSortField_d3860c84, ...]
-    """
-    specifies a list of individual sort fields.
-    
-    Each entry specifies properties that state the row/column to be sorted and how that should be done.
-    """
+    @abstractproperty
+    def SortFields(self) -> 'typing.Tuple[TableSortField_d3860c84, ...]':
+        """
+        specifies a list of individual sort fields.
+        
+        Each entry specifies properties that state the row/column to be sorted and how that should be done.
+        """
 
-    @abstractproperty
-    def IsSortColumns(self) -> bool:
-        """
-        specifies if the columns or rows are to be sorted.
-        """
-    @abstractproperty
-    def MaxSortFieldsCount(self) -> int:
-        """
-        contains the maximum number of sort fields the descriptor can hold.
-        """
+
 
 __all__ = ['TableSortDescriptor2']
 

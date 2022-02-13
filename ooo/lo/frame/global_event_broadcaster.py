@@ -38,5 +38,6 @@ class GlobalEventBroadcaster(XGlobalEventBroadcaster_55351028):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GlobalEventBroadcaster']
 

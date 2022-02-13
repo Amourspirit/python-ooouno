@@ -65,6 +65,5 @@ class XControlInformation(XInterface_8f010a43):
         Returns whether the specified control is supported or not.
         """
 
-
 __all__ = ['XControlInformation']
 

@@ -52,6 +52,5 @@ class XTabPageContainerModel(XContainer_d6fb0cc6, XIndexContainer_1c040ebe):
         creates a TabPageModel which can be inserted into the container, by loading it from a user interface resource file.
         """
 
-
 __all__ = ['XTabPageContainerModel']
 

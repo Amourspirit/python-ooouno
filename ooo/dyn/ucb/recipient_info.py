@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ucb import RecipientInfo as URecipientInfo
+        # Dynamically create uno com.sun.star.ucb.RecipientInfo using uno
         global RecipientInfo
 
         def _set_attr(struct):
@@ -35,25 +36,53 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.RecipientInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ucb import RecipientInfo as URecipientInfo
-                if isinstance(args[0], URecipientInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ucb.RecipientInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ProtocolType = UNO_NONE, State = UNO_NONE, To = UNO_NONE, CC = UNO_NONE, BCC = UNO_NONE, Newsgroups = UNO_NONE, Server = UNO_NONE, Username = UNO_NONE, Password = UNO_NONE, VIMPostOfficePath = UNO_NONE, ProtocolErrorString = UNO_NONE, ProtocolErrorNumber = UNO_NONE, SendTries = UNO_NONE):
+            ns = 'com.sun.star.ucb.RecipientInfo'
+            if isinstance(ProtocolType, URecipientInfo):
+                inst = uno.createUnoStruct(ns, ProtocolType)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ProtocolType', 'State', 'To', 'CC', 'BCC', 'Newsgroups', 'Server', 'Username', 'Password', 'VIMPostOfficePath', 'ProtocolErrorString', 'ProtocolErrorNumber', 'SendTries')
-            struct = uno.createUnoStruct('com.sun.star.ucb.RecipientInfo')
-            if arg_len > len(key_order):
-                raise ValueError("RecipientInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ProtocolType is UNO_NONE:
+                if getattr(struct, 'ProtocolType') != ProtocolType:
+                    setattr(struct, 'ProtocolType', ProtocolType)
+            if not State is UNO_NONE:
+                if getattr(struct, 'State') != State:
+                    setattr(struct, 'State', State)
+            if not To is UNO_NONE:
+                if getattr(struct, 'To') != To:
+                    setattr(struct, 'To', To)
+            if not CC is UNO_NONE:
+                if getattr(struct, 'CC') != CC:
+                    setattr(struct, 'CC', CC)
+            if not BCC is UNO_NONE:
+                if getattr(struct, 'BCC') != BCC:
+                    setattr(struct, 'BCC', BCC)
+            if not Newsgroups is UNO_NONE:
+                if getattr(struct, 'Newsgroups') != Newsgroups:
+                    setattr(struct, 'Newsgroups', Newsgroups)
+            if not Server is UNO_NONE:
+                if getattr(struct, 'Server') != Server:
+                    setattr(struct, 'Server', Server)
+            if not Username is UNO_NONE:
+                if getattr(struct, 'Username') != Username:
+                    setattr(struct, 'Username', Username)
+            if not Password is UNO_NONE:
+                if getattr(struct, 'Password') != Password:
+                    setattr(struct, 'Password', Password)
+            if not VIMPostOfficePath is UNO_NONE:
+                if getattr(struct, 'VIMPostOfficePath') != VIMPostOfficePath:
+                    setattr(struct, 'VIMPostOfficePath', VIMPostOfficePath)
+            if not ProtocolErrorString is UNO_NONE:
+                if getattr(struct, 'ProtocolErrorString') != ProtocolErrorString:
+                    setattr(struct, 'ProtocolErrorString', ProtocolErrorString)
+            if not ProtocolErrorNumber is UNO_NONE:
+                if getattr(struct, 'ProtocolErrorNumber') != ProtocolErrorNumber:
+                    setattr(struct, 'ProtocolErrorNumber', ProtocolErrorNumber)
+            if not SendTries is UNO_NONE:
+                if getattr(struct, 'SendTries') != SendTries:
+                    setattr(struct, 'SendTries', SendTries)
             _set_attr(struct)
             return struct
         RecipientInfo = _struct_init

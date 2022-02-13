@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.form.runtime
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.form.runtime import FilterEvent as UFilterEvent
+        # Dynamically create uno com.sun.star.form.runtime.FilterEvent using uno
         global FilterEvent
 
         def _set_attr(struct):
@@ -35,25 +36,28 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.form.runtime.FilterEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.form.runtime import FilterEvent as UFilterEvent
-                if isinstance(args[0], UFilterEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.form.runtime.FilterEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(DisjunctiveTerm = UNO_NONE, FilterComponent = UNO_NONE, PredicateExpression = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.form.runtime.FilterEvent'
+            if isinstance(DisjunctiveTerm, UFilterEvent):
+                inst = uno.createUnoStruct(ns, DisjunctiveTerm)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('DisjunctiveTerm', 'FilterComponent', 'PredicateExpression')
-            struct = uno.createUnoStruct('com.sun.star.form.runtime.FilterEvent')
-            if arg_len > len(key_order):
-                raise ValueError("FilterEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not DisjunctiveTerm is UNO_NONE:
+                if getattr(struct, 'DisjunctiveTerm') != DisjunctiveTerm:
+                    setattr(struct, 'DisjunctiveTerm', DisjunctiveTerm)
+            if not FilterComponent is UNO_NONE:
+                if getattr(struct, 'FilterComponent') != FilterComponent:
+                    setattr(struct, 'FilterComponent', FilterComponent)
+            if not PredicateExpression is UNO_NONE:
+                if getattr(struct, 'PredicateExpression') != PredicateExpression:
+                    setattr(struct, 'PredicateExpression', PredicateExpression)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         FilterEvent = _struct_init

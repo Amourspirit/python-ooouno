@@ -33,6 +33,5 @@ class XToolBar(XResource_3bcd0f90):
     __pyunointerface__: str = 'com.sun.star.drawing.framework.XToolBar'
 
 
-
 __all__ = ['XToolBar']
 

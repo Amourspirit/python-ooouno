@@ -39,5 +39,6 @@ class AsyncJob(XAsyncJob_8eb50a2c, XCloseable_99ee0aa8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AsyncJob']
 

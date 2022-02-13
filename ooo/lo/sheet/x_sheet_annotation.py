@@ -62,6 +62,5 @@ class XSheetAnnotation(XInterface_8f010a43):
         specifies whether the annotation is permanently visible.
         """
 
-
 __all__ = ['XSheetAnnotation']
 

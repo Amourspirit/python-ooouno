@@ -42,5 +42,6 @@ class HierarchyElement(XProperty_99770ace, XPropertyWithState_c960e6b, XChild_a6
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HierarchyElement']
 

@@ -69,6 +69,5 @@ class XIntegerBitmap(XIntegerReadOnlyBitmap_8cc01167):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
-
 __all__ = ['XIntegerBitmap']
 

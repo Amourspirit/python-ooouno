@@ -69,6 +69,5 @@ class XContentProviderManager(XInterface_8f010a43):
             com.sun.star.ucb.DuplicateProviderException: ``DuplicateProviderException``
         """
 
-
 __all__ = ['XContentProviderManager']
 

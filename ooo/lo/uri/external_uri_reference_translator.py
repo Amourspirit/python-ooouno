@@ -38,5 +38,6 @@ class ExternalUriReferenceTranslator(XExternalUriReferenceTranslator_c41d12dc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ExternalUriReferenceTranslator']
 

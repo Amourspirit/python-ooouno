@@ -145,6 +145,5 @@ class XFastParser(XInterface_8f010a43):
         must be registered to translate known XML names to integer tokens.
         """
 
-
 __all__ = ['XFastParser']
 

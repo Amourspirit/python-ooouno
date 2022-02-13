@@ -73,6 +73,5 @@ class XNamedRange(XNamed_a6520b08):
         sets the type of the named range.
         """
 
-
 __all__ = ['XNamedRange']
 

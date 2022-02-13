@@ -71,6 +71,5 @@ class XTextConversion(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
 
-
 __all__ = ['XTextConversion']
 

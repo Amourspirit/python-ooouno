@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.util import Duration as UDuration
+        # Dynamically create uno com.sun.star.util.Duration using uno
         global Duration
 
         def _set_attr(struct):
@@ -35,25 +36,38 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.Duration'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.util import Duration as UDuration
-                if isinstance(args[0], UDuration):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.util.Duration', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Negative = UNO_NONE, Years = UNO_NONE, Months = UNO_NONE, Days = UNO_NONE, Hours = UNO_NONE, Minutes = UNO_NONE, Seconds = UNO_NONE, NanoSeconds = UNO_NONE):
+            ns = 'com.sun.star.util.Duration'
+            if isinstance(Negative, UDuration):
+                inst = uno.createUnoStruct(ns, Negative)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Negative', 'Years', 'Months', 'Days', 'Hours', 'Minutes', 'Seconds', 'NanoSeconds')
-            struct = uno.createUnoStruct('com.sun.star.util.Duration')
-            if arg_len > len(key_order):
-                raise ValueError("Duration.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Negative is UNO_NONE:
+                if getattr(struct, 'Negative') != Negative:
+                    setattr(struct, 'Negative', Negative)
+            if not Years is UNO_NONE:
+                if getattr(struct, 'Years') != Years:
+                    setattr(struct, 'Years', Years)
+            if not Months is UNO_NONE:
+                if getattr(struct, 'Months') != Months:
+                    setattr(struct, 'Months', Months)
+            if not Days is UNO_NONE:
+                if getattr(struct, 'Days') != Days:
+                    setattr(struct, 'Days', Days)
+            if not Hours is UNO_NONE:
+                if getattr(struct, 'Hours') != Hours:
+                    setattr(struct, 'Hours', Hours)
+            if not Minutes is UNO_NONE:
+                if getattr(struct, 'Minutes') != Minutes:
+                    setattr(struct, 'Minutes', Minutes)
+            if not Seconds is UNO_NONE:
+                if getattr(struct, 'Seconds') != Seconds:
+                    setattr(struct, 'Seconds', Seconds)
+            if not NanoSeconds is UNO_NONE:
+                if getattr(struct, 'NanoSeconds') != NanoSeconds:
+                    setattr(struct, 'NanoSeconds', NanoSeconds)
             _set_attr(struct)
             return struct
         Duration = _struct_init

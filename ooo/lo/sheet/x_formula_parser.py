@@ -47,6 +47,5 @@ class XFormulaParser(ABC):
         converts a formula into a string.
         """
 
-
 __all__ = ['XFormulaParser']
 

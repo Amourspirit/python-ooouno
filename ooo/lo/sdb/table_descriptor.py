@@ -35,5 +35,6 @@ class TableDescriptor(DataSettings_a3000b0c, TableDescriptor_e1470d23):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TableDescriptor']
 

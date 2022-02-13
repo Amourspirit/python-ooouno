@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sdb
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from .x_single_select_query_analyzer import XSingleSelectQueryAnalyzer as XSingleSelectQueryAnalyzer_66ad10b7
 if typing.TYPE_CHECKING:
     from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
@@ -128,26 +128,6 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
-    @abstractproperty
-    def ElementaryQuery(self) -> str:
-        """
-        sets a new elementary query for the composer
-        
-        An elementary query or statement is a (single select) statement whose parts are not covered by the various set and get methods of the composer. That is, if the elementary statement contains a filter clause, a call to XSingleSelectQueryAnalyzer.getFilter() will not return you this filter. Instead, only filters which have been set using for instance setFilter() are covered by the get methods.
-        
-        The only methods which take all parts of the elementary statement into account are XSingleSelectQueryAnalyzer.getQuery() and XSingleSelectQueryAnalyzer.getQueryWithSubstitution(), which always returns the complete composed query.
-        
-        As a result, you can use the composer to build cumulative filter expressions. That is, you can set ElementaryQuery to a statement already containing filters, and then use setFilter() to append additional filters.
-        
-        The very same holds for sort orders, HAVING and GROUP BY clauses.
-        
-        There are various use cases for this. For instance, you might want to use the statement represented by a QueryDefinition, and extend it with additional filters or sort orders, while not touching the respective parts already present in QueryDefinition.Command. This can be achieved by setting the QueryDefinition.Command as ElementaryQuery of a SingleSelectQueryComposer.
-        
-        If, in such a scenario, you would be interested in the filter part of the QueryDefinition.Command, you would set it via XSingleSelectQueryAnalyzer.setQuery(), and retrieve the filter part via XSingleSelectQueryAnalyzer.getFilter().
-        
-        If you'd be interested in the composed filter, you would set the QueryDefinition.Command as ElementaryQuery, add your filter, and propagate the resulting query (XSingleSelectQueryAnalyzer.getQuery()) to an SingleSelectQueryAnalyzer instance via XSingleSelectQueryAnalyzer.setQuery().
-        """
-
 
 __all__ = ['XSingleSelectQueryComposer']
 

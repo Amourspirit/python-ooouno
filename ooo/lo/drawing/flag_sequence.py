@@ -21,7 +21,7 @@
 import typing
 from .polygon_flags import PolygonFlags
 
-FlagSequence = typing.Tuple[PolygonFlags, ...]
+FlagSequence = typing.NewType('FlagSequence', typing.Tuple[PolygonFlags, ...])
 """
 TypeDef type alias
 

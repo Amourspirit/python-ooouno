@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import FontDescriptor as UFontDescriptor
+        # Dynamically create uno com.sun.star.awt.FontDescriptor using uno
         global FontDescriptor
 
         def _set_attr(struct):
@@ -35,25 +36,62 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.FontDescriptor'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import FontDescriptor as UFontDescriptor
-                if isinstance(args[0], UFontDescriptor):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.FontDescriptor', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Name = UNO_NONE, Height = UNO_NONE, Width = UNO_NONE, StyleName = UNO_NONE, Family = UNO_NONE, CharSet = UNO_NONE, Pitch = UNO_NONE, CharacterWidth = UNO_NONE, Weight = UNO_NONE, Slant = UNO_NONE, Underline = UNO_NONE, Strikeout = UNO_NONE, Orientation = UNO_NONE, Kerning = UNO_NONE, WordLineMode = UNO_NONE, Type = UNO_NONE):
+            ns = 'com.sun.star.awt.FontDescriptor'
+            if isinstance(Name, UFontDescriptor):
+                inst = uno.createUnoStruct(ns, Name)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Name', 'Height', 'Width', 'StyleName', 'Family', 'CharSet', 'Pitch', 'CharacterWidth', 'Weight', 'Slant', 'Underline', 'Strikeout', 'Orientation', 'Kerning', 'WordLineMode', 'Type')
-            struct = uno.createUnoStruct('com.sun.star.awt.FontDescriptor')
-            if arg_len > len(key_order):
-                raise ValueError("FontDescriptor.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not Height is UNO_NONE:
+                if getattr(struct, 'Height') != Height:
+                    setattr(struct, 'Height', Height)
+            if not Width is UNO_NONE:
+                if getattr(struct, 'Width') != Width:
+                    setattr(struct, 'Width', Width)
+            if not StyleName is UNO_NONE:
+                if getattr(struct, 'StyleName') != StyleName:
+                    setattr(struct, 'StyleName', StyleName)
+            if not Family is UNO_NONE:
+                if getattr(struct, 'Family') != Family:
+                    setattr(struct, 'Family', Family)
+            if not CharSet is UNO_NONE:
+                if getattr(struct, 'CharSet') != CharSet:
+                    setattr(struct, 'CharSet', CharSet)
+            if not Pitch is UNO_NONE:
+                if getattr(struct, 'Pitch') != Pitch:
+                    setattr(struct, 'Pitch', Pitch)
+            if not CharacterWidth is UNO_NONE:
+                if getattr(struct, 'CharacterWidth') != CharacterWidth:
+                    setattr(struct, 'CharacterWidth', CharacterWidth)
+            if not Weight is UNO_NONE:
+                if getattr(struct, 'Weight') != Weight:
+                    setattr(struct, 'Weight', Weight)
+            if not Slant is UNO_NONE:
+                if getattr(struct, 'Slant') != Slant:
+                    setattr(struct, 'Slant', Slant)
+            if not Underline is UNO_NONE:
+                if getattr(struct, 'Underline') != Underline:
+                    setattr(struct, 'Underline', Underline)
+            if not Strikeout is UNO_NONE:
+                if getattr(struct, 'Strikeout') != Strikeout:
+                    setattr(struct, 'Strikeout', Strikeout)
+            if not Orientation is UNO_NONE:
+                if getattr(struct, 'Orientation') != Orientation:
+                    setattr(struct, 'Orientation', Orientation)
+            if not Kerning is UNO_NONE:
+                if getattr(struct, 'Kerning') != Kerning:
+                    setattr(struct, 'Kerning', Kerning)
+            if not WordLineMode is UNO_NONE:
+                if getattr(struct, 'WordLineMode') != WordLineMode:
+                    setattr(struct, 'WordLineMode', WordLineMode)
+            if not Type is UNO_NONE:
+                if getattr(struct, 'Type') != Type:
+                    setattr(struct, 'Type', Type)
             _set_attr(struct)
             return struct
         FontDescriptor = _struct_init

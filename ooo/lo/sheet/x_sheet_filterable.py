@@ -47,6 +47,5 @@ class XSheetFilterable(XInterface_8f010a43):
         performs a filter operation, using the settings of the passed filter descriptor.
         """
 
-
 __all__ = ['XSheetFilterable']
 

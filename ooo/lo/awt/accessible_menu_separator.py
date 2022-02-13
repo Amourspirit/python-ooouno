@@ -40,5 +40,6 @@ class AccessibleMenuSeparator(XAccessibleContext_8eae119b, XAccessibleEventBroad
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleMenuSeparator']
 

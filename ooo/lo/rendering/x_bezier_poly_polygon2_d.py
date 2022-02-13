@@ -83,6 +83,5 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
 
-
 __all__ = ['XBezierPolyPolygon2D']
 

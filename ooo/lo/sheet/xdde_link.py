@@ -53,6 +53,5 @@ class XDDELink(XInterface_8f010a43):
         returns the DDE topic from which data are requested.
         """
 
-
 __all__ = ['XDDELink']
 

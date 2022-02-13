@@ -55,6 +55,5 @@ class XSheetCellRanges(XIndexAccess_f0910d6d):
         The range addresses are separated with semicolons. For instance the string could have the form \"Sheet1.A1:C3;Sheet2.D5:F8\".
         """
 
-
 __all__ = ['XSheetCellRanges']
 

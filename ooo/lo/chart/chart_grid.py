@@ -42,5 +42,6 @@ class ChartGrid(LineProperties_f13f0da9, UserDefinedAttributesSupplier_9fbe1222,
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChartGrid']
 

@@ -124,6 +124,5 @@ class XExtendedToolkit(XInterface_8f010a43):
         Remove the specified listener from the list of listeners.
         """
 
-
 __all__ = ['XExtendedToolkit']
 

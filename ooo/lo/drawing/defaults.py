@@ -39,5 +39,6 @@ class Defaults(ConnectorProperties_3c5e0fcc, FillProperties_f1200da8, LineProper
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Defaults']
 

@@ -37,5 +37,6 @@ class ChartDataArray(ChartData_98ce0a86, XChartDataArray_df4c0cdd):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChartDataArray']
 

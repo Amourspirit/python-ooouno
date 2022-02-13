@@ -21,7 +21,7 @@
 import typing
 from .color_component import ColorComponent
 
-Color = typing.Tuple[ColorComponent, ...]
+Color = typing.NewType('Color', typing.Tuple[ColorComponent, ...])
 """
 TypeDef type alias
 

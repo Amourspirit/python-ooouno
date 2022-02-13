@@ -37,5 +37,6 @@ class ImageManager(XImageManager_a20b0adc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ImageManager']
 

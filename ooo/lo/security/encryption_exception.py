@@ -36,4 +36,15 @@ class EncryptionException(CryptographyException_735a113b):
     typeName: str = 'com.sun.star.security.EncryptionException'
     """Literal Constant ``com.sun.star.security.EncryptionException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

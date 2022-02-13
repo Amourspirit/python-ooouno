@@ -43,9 +43,15 @@ class DocumentPasswordRequest(PasswordRequest_d7280cf7):
     typeName: str = 'com.sun.star.task.DocumentPasswordRequest'
     """Literal Constant ``com.sun.star.task.DocumentPasswordRequest``"""
 
-    Name: str = None
-    """
-        the name of the document (more properly, the URL of the document)
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -57,5 +57,6 @@ class ConsoleHandler(XConsoleHandler_fdad0dd8):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['ConsoleHandler']
 

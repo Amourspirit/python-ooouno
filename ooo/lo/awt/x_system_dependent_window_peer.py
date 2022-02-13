@@ -50,6 +50,5 @@ class XSystemDependentWindowPeer(XInterface_8f010a43):
         XWINDOW: Returns a structure SystemDependentXWindow or void if it is not reachable.
         """
 
-
 __all__ = ['XSystemDependentWindowPeer']
 

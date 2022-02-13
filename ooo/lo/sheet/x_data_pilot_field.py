@@ -42,6 +42,5 @@ class XDataPilotField(XInterface_8f010a43):
         returns the collection of the data pilot items.
         """
 
-
 __all__ = ['XDataPilotField']
 

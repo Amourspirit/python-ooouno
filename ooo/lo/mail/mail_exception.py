@@ -41,4 +41,15 @@ class MailException(Exception_85530a09):
     typeName: str = 'com.sun.star.mail.MailException'
     """Literal Constant ``com.sun.star.mail.MailException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

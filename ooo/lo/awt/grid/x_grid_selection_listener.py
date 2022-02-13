@@ -42,6 +42,5 @@ class XGridSelectionListener(XEventListener_c7230c4a):
         Invoked after a selection was changed.
         """
 
-
 __all__ = ['XGridSelectionListener']
 

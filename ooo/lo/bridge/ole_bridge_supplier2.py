@@ -44,5 +44,6 @@ class OleBridgeSupplier2(XBridgeSupplier2_fb800da0):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleBridgeSupplier2']
 

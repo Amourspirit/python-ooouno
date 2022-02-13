@@ -61,6 +61,5 @@ class XDataEditor(XInterface_8f010a43):
         makes the data editor visible to the user.
         """
 
-
 __all__ = ['XDataEditor']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import MouseEvent as UMouseEvent
+        # Dynamically create uno com.sun.star.awt.MouseEvent using uno
         global MouseEvent
 
         def _set_attr(struct):
@@ -35,25 +36,34 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.MouseEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import MouseEvent as UMouseEvent
-                if isinstance(args[0], UMouseEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.MouseEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Buttons = UNO_NONE, X = UNO_NONE, Y = UNO_NONE, ClickCount = UNO_NONE, PopupTrigger = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.awt.MouseEvent'
+            if isinstance(Buttons, UMouseEvent):
+                inst = uno.createUnoStruct(ns, Buttons)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Buttons', 'X', 'Y', 'ClickCount', 'PopupTrigger')
-            struct = uno.createUnoStruct('com.sun.star.awt.MouseEvent')
-            if arg_len > len(key_order):
-                raise ValueError("MouseEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not Buttons is UNO_NONE:
+                if getattr(struct, 'Buttons') != Buttons:
+                    setattr(struct, 'Buttons', Buttons)
+            if not X is UNO_NONE:
+                if getattr(struct, 'X') != X:
+                    setattr(struct, 'X', X)
+            if not Y is UNO_NONE:
+                if getattr(struct, 'Y') != Y:
+                    setattr(struct, 'Y', Y)
+            if not ClickCount is UNO_NONE:
+                if getattr(struct, 'ClickCount') != ClickCount:
+                    setattr(struct, 'ClickCount', ClickCount)
+            if not PopupTrigger is UNO_NONE:
+                if getattr(struct, 'PopupTrigger') != PopupTrigger:
+                    setattr(struct, 'PopupTrigger', PopupTrigger)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         MouseEvent = _struct_init

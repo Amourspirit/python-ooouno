@@ -42,5 +42,6 @@ class LayoutManager(XLayoutManager2_e1270cd6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LayoutManager']
 

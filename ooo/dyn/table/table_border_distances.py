@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.table import TableBorderDistances as UTableBorderDistances
+        # Dynamically create uno com.sun.star.table.TableBorderDistances using uno
         global TableBorderDistances
 
         def _set_attr(struct):
@@ -35,25 +36,38 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.table.TableBorderDistances'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.table import TableBorderDistances as UTableBorderDistances
-                if isinstance(args[0], UTableBorderDistances):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.table.TableBorderDistances', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(TopDistance = UNO_NONE, IsTopDistanceValid = UNO_NONE, BottomDistance = UNO_NONE, IsBottomDistanceValid = UNO_NONE, LeftDistance = UNO_NONE, IsLeftDistanceValid = UNO_NONE, RightDistance = UNO_NONE, IsRightDistanceValid = UNO_NONE):
+            ns = 'com.sun.star.table.TableBorderDistances'
+            if isinstance(TopDistance, UTableBorderDistances):
+                inst = uno.createUnoStruct(ns, TopDistance)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('TopDistance', 'IsTopDistanceValid', 'BottomDistance', 'IsBottomDistanceValid', 'LeftDistance', 'IsLeftDistanceValid', 'RightDistance', 'IsRightDistanceValid')
-            struct = uno.createUnoStruct('com.sun.star.table.TableBorderDistances')
-            if arg_len > len(key_order):
-                raise ValueError("TableBorderDistances.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not TopDistance is UNO_NONE:
+                if getattr(struct, 'TopDistance') != TopDistance:
+                    setattr(struct, 'TopDistance', TopDistance)
+            if not IsTopDistanceValid is UNO_NONE:
+                if getattr(struct, 'IsTopDistanceValid') != IsTopDistanceValid:
+                    setattr(struct, 'IsTopDistanceValid', IsTopDistanceValid)
+            if not BottomDistance is UNO_NONE:
+                if getattr(struct, 'BottomDistance') != BottomDistance:
+                    setattr(struct, 'BottomDistance', BottomDistance)
+            if not IsBottomDistanceValid is UNO_NONE:
+                if getattr(struct, 'IsBottomDistanceValid') != IsBottomDistanceValid:
+                    setattr(struct, 'IsBottomDistanceValid', IsBottomDistanceValid)
+            if not LeftDistance is UNO_NONE:
+                if getattr(struct, 'LeftDistance') != LeftDistance:
+                    setattr(struct, 'LeftDistance', LeftDistance)
+            if not IsLeftDistanceValid is UNO_NONE:
+                if getattr(struct, 'IsLeftDistanceValid') != IsLeftDistanceValid:
+                    setattr(struct, 'IsLeftDistanceValid', IsLeftDistanceValid)
+            if not RightDistance is UNO_NONE:
+                if getattr(struct, 'RightDistance') != RightDistance:
+                    setattr(struct, 'RightDistance', RightDistance)
+            if not IsRightDistanceValid is UNO_NONE:
+                if getattr(struct, 'IsRightDistanceValid') != IsRightDistanceValid:
+                    setattr(struct, 'IsRightDistanceValid', IsRightDistanceValid)
             _set_attr(struct)
             return struct
         TableBorderDistances = _struct_init

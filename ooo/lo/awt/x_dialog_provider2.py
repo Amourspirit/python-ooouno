@@ -73,6 +73,5 @@ class XDialogProvider2(XDialogProvider_c70f0c47):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XDialogProvider2']
 

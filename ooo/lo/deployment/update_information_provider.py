@@ -38,5 +38,6 @@ class UpdateInformationProvider(XUpdateInformationProvider_f0c713d5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UpdateInformationProvider']
 

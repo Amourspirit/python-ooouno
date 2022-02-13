@@ -52,6 +52,5 @@ class XStateChangeListener(XEventListener_c7230c4a):
         is called after the object has changed state.
         """
 
-
 __all__ = ['XStateChangeListener']
 

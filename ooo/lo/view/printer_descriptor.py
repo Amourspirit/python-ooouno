@@ -45,21 +45,25 @@ class PrinterDescriptor(ABC):
         """
         indicates, whether the printer allows changes to PrinterDescriptor.PaperFormat.
         """
+
     @abstractproperty
     def CanSetPaperOrientation(self) -> bool:
         """
         indicates, whether the printer allows changes to PrinterDescriptor.PaperOrientation.
         """
+
     @abstractproperty
     def CanSetPaperSize(self) -> bool:
         """
         indicates if the printer allows changes to PrinterDescriptor.PaperSize.
         """
+
     @abstractproperty
     def IsBusy(self) -> bool:
         """
         indicates, whether the printer is busy or not.
         """
+
     @abstractproperty
     def Name(self) -> str:
         """
@@ -67,6 +71,7 @@ class PrinterDescriptor(ABC):
         
         Which printer queues are available, can be figured out with the system library of the used programming language/environment.
         """
+
     @abstractproperty
     def PaperFormat(self) -> 'PaperFormat_a5340b24':
         """
@@ -74,11 +79,13 @@ class PrinterDescriptor(ABC):
         
         Setting this property may change the value of PrinterDescriptor.PaperSize.
         """
+
     @abstractproperty
     def PaperOrientation(self) -> 'PaperOrientation_e36f0d47':
         """
         specifies the orientation of the paper.
         """
+
     @abstractproperty
     def PaperSize(self) -> 'Size_576707ef':
         """
@@ -86,6 +93,8 @@ class PrinterDescriptor(ABC):
         
         Setting this property may change the value of PrinterDescriptor.PaperFormat.
         """
+
+
 
 __all__ = ['PrinterDescriptor']
 

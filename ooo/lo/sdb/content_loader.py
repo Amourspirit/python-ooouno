@@ -36,5 +36,6 @@ class ContentLoader(FrameLoader_af070b55):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ContentLoader']
 

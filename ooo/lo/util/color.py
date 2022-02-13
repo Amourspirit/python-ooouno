@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.util
 import typing
 
-Color = int
+Color = typing.NewType('Color', int)
 """
 TypeDef type alias
 

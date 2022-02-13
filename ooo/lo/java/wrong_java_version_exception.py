@@ -37,19 +37,15 @@ class WrongJavaVersionException(Exception_85530a09):
     typeName: str = 'com.sun.star.java.WrongJavaVersionException'
     """Literal Constant ``com.sun.star.java.WrongJavaVersionException``"""
 
-    DetectedVersion: str = None
-    """
-        contains the Java version that has been detected, or is left empty if this is unknown.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    HighestSupportedVersion: str = None
-    """
-        contains the highest Java version for which the operation would succeed, or is left empty if this is unknown.
-    """
+        Keyword Arguments:
 
-    LowestSupportedVersion: str = None
-    """
-        contains the lowest Java version for which the operation would succeed, or is left empty if this is unknown.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

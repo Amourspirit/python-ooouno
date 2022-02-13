@@ -36,5 +36,6 @@ class ButtonNavigationHandler(XPropertyHandler_3e950fbf):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ButtonNavigationHandler']
 

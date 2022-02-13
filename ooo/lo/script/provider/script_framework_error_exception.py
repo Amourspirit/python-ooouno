@@ -37,19 +37,15 @@ class ScriptFrameworkErrorException(Exception_85530a09):
     typeName: str = 'com.sun.star.script.provider.ScriptFrameworkErrorException'
     """Literal Constant ``com.sun.star.script.provider.ScriptFrameworkErrorException``"""
 
-    errorType: int = None
-    """
-        error type com.sun.star.script.provider.ScriptFrameworkErrorType
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    language: str = None
-    """
-        Scripting language of script that generated exception.
-    """
+        Keyword Arguments:
 
-    scriptName: str = None
-    """
-        Name of script where error occurred.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

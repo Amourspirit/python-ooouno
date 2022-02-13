@@ -21,7 +21,7 @@
 import typing
 from .property_value import PropertyValue
 
-PropertyValues = typing.Tuple[PropertyValue, ...]
+PropertyValues = typing.NewType('PropertyValues', typing.Tuple[PropertyValue, ...])
 """
 TypeDef type alias
 

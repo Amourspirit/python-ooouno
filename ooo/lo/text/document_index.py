@@ -21,9 +21,9 @@
 import typing
 from abc import abstractproperty
 from .base_index import BaseIndex as BaseIndex_8f0d0a40
-from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 if typing.TYPE_CHECKING:
     from ..lang.locale import Locale as Locale_70d308fa
+    from .x_document_index_mark import XDocumentIndexMark as XDocumentIndexMark_fe490de7
 
 class DocumentIndex(BaseIndex_8f0d0a40):
     """
@@ -38,61 +38,73 @@ class DocumentIndex(BaseIndex_8f0d0a40):
     __ooo_full_ns__: str = 'com.sun.star.text.DocumentIndex'
     __ooo_type_name__: str = 'service'
 
-    DocumentIndexMarks: typing.TypeAlias = typing.Tuple[XDocumentIndexMark_fe490de7, ...]
-    """
-    contains all index marks that are related to this index.
-    """
+    @abstractproperty
+    def DocumentIndexMarks(self) -> 'typing.Tuple[XDocumentIndexMark_fe490de7, ...]':
+        """
+        contains all index marks that are related to this index.
+        """
 
     @abstractproperty
     def IsCaseSensitive(self) -> bool:
         """
         determines if the similarity of index entries is checked case sensitively.
         """
+
     @abstractproperty
     def Locale(self) -> 'Locale_70d308fa':
         """
         contains the locale of the index.
         """
+
     @abstractproperty
     def MainEntryCharacterStyleName(self) -> str:
         """
         determines the name of the character style that is applied to the number of a page where main index entry is located.
         """
+
     @abstractproperty
     def SortAlgorithm(self) -> str:
         """
         contains the name of the sort algorithm that is used to sort the entries.
         """
+
     @abstractproperty
     def UseAlphabeticalSeparators(self) -> bool:
         """
         determines if alphabetical separators are generated.
         """
+
     @abstractproperty
     def UseCombinedEntries(self) -> bool:
         """
         determines if same entries on different pages are combined into one index entry.
         """
+
     @abstractproperty
     def UseDash(self) -> bool:
         """
         determines if following page numbers are displayed using a dash.
         """
+
     @abstractproperty
     def UseKeyAsEntry(self) -> bool:
         """
         determines if an index entry is generated for each primary/secondary key.
         """
+
     @abstractproperty
     def UsePP(self) -> bool:
         """
         determines if following page numbers are displayed using a \"pp.\".
         """
+
     @abstractproperty
     def UseUpperCase(self) -> bool:
         """
         determines if all entries start with a capital letter.
         """
+
+
 
 __all__ = ['DocumentIndex']
 

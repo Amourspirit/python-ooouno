@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ..container.x_container import XContainer as XContainer_d6fb0cc6
 
 class XAnimatedImages(XContainer_d6fb0cc6):
@@ -77,28 +77,6 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
-    @abstractproperty
-    def AutoRepeat(self) -> bool:
-        """
-        specifies whether the animation should start over with the first image of the image series when the last image has been played.
-        
-        The default value for this attribute is TRUE.
-        """
-    @abstractproperty
-    def ScaleMode(self) -> int:
-        """
-        controls the way the images are scaled up or down, when the available space is larger or smaller than what is needed for them.
-        
-        Allowed values are those from the ImageScaleMode constants group.
-        """
-    @abstractproperty
-    def StepTime(self) -> int:
-        """
-        specifies the time in milliseconds between two animation steps.
-        
-        This is the minimum time, the actual value might be longer due to system load. The default value will be 100 ms.
-        """
-
 
 __all__ = ['XAnimatedImages']
 

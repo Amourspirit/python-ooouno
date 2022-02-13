@@ -34,5 +34,6 @@ class LocalSingleStratum(SingleLayerStratum_2a7614c5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LocalSingleStratum']
 

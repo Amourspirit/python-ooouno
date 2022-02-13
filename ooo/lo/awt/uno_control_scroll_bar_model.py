@@ -50,16 +50,19 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def BlockIncrement(self) -> int:
         """
         specifies the increment for a block move.
         """
+
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+
     @abstractproperty
     def BorderColor(self) -> int:
         """
@@ -71,26 +74,31 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+
     @abstractproperty
     def LineIncrement(self) -> int:
         """
         specifies the increment for a single line move.
         """
+
     @abstractproperty
     def LiveScroll(self) -> bool:
         """
@@ -102,16 +110,19 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def Orientation(self) -> int:
         """
         specifies the ScrollBarOrientation of the control.
         """
+
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies that the control will be printed with the document.
         """
+
     @abstractproperty
     def RepeatDelay(self) -> int:
         """
@@ -123,16 +134,19 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def ScrollValue(self) -> int:
         """
         specifies the scroll value of the control.
         """
+
     @abstractproperty
     def ScrollValueMax(self) -> int:
         """
         specifies the maximum scroll value of the control.
         """
+
     @abstractproperty
     def ScrollValueMin(self) -> int:
         """
@@ -140,6 +154,7 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
         If this optional property is not present, clients of the component should assume a minimal scroll value of 0.
         """
+
     @abstractproperty
     def SymbolColor(self) -> 'Color_68e908c5':
         """
@@ -149,6 +164,7 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def Tabstop(self) -> bool:
         """
@@ -158,11 +174,14 @@ class UnoControlScrollBarModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+
     @abstractproperty
     def VisibleSize(self) -> int:
         """
         specifies the visible size of the scroll bar.
         """
+
+
 
 __all__ = ['UnoControlScrollBarModel']
 

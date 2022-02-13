@@ -100,6 +100,5 @@ class XSAXEventKeeper(XInterface_8f010a43):
         This handler will receive SAX events forwarded by the SAXEventKeeper.
         """
 
-
 __all__ = ['XSAXEventKeeper']
 

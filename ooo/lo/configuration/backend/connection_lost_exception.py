@@ -43,4 +43,15 @@ class ConnectionLostException(BackendAccessException_7cb5161f):
     typeName: str = 'com.sun.star.configuration.backend.ConnectionLostException'
     """Literal Constant ``com.sun.star.configuration.backend.ConnectionLostException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

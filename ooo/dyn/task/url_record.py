@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.task import UrlRecord as UUrlRecord
+        # Dynamically create uno com.sun.star.task.UrlRecord using uno
         global UrlRecord
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.task.UrlRecord'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.task import UrlRecord as UUrlRecord
-                if isinstance(args[0], UUrlRecord):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.task.UrlRecord', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(UserList = UNO_NONE, Url = UNO_NONE):
+            ns = 'com.sun.star.task.UrlRecord'
+            if isinstance(UserList, UUrlRecord):
+                inst = uno.createUnoStruct(ns, UserList)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Url',)
-            struct = uno.createUnoStruct('com.sun.star.task.UrlRecord')
-            if arg_len > len(key_order):
-                raise ValueError("UrlRecord.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not UserList is UNO_NONE:
+                if getattr(struct, 'UserList') != UserList:
+                    setattr(struct, 'UserList', UserList)
+            if not Url is UNO_NONE:
+                if getattr(struct, 'Url') != Url:
+                    setattr(struct, 'Url', Url)
             _set_attr(struct)
             return struct
         UrlRecord = _struct_init

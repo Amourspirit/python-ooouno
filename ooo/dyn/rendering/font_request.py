@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import FontRequest as UFontRequest
+        # Dynamically create uno com.sun.star.rendering.FontRequest using uno
         global FontRequest
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.FontRequest'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import FontRequest as UFontRequest
-                if isinstance(args[0], UFontRequest):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.FontRequest', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(FontDescription = UNO_NONE, CellSize = UNO_NONE, ReferenceAdvancement = UNO_NONE, Locale = UNO_NONE):
+            ns = 'com.sun.star.rendering.FontRequest'
+            if isinstance(FontDescription, UFontRequest):
+                inst = uno.createUnoStruct(ns, FontDescription)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('FontDescription', 'CellSize', 'ReferenceAdvancement', 'Locale')
-            struct = uno.createUnoStruct('com.sun.star.rendering.FontRequest')
-            if arg_len > len(key_order):
-                raise ValueError("FontRequest.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not FontDescription is UNO_NONE:
+                if getattr(struct, 'FontDescription') != FontDescription:
+                    setattr(struct, 'FontDescription', FontDescription)
+            if not CellSize is UNO_NONE:
+                if getattr(struct, 'CellSize') != CellSize:
+                    setattr(struct, 'CellSize', CellSize)
+            if not ReferenceAdvancement is UNO_NONE:
+                if getattr(struct, 'ReferenceAdvancement') != ReferenceAdvancement:
+                    setattr(struct, 'ReferenceAdvancement', ReferenceAdvancement)
+            if not Locale is UNO_NONE:
+                if getattr(struct, 'Locale') != Locale:
+                    setattr(struct, 'Locale', Locale)
             _set_attr(struct)
             return struct
         FontRequest = _struct_init

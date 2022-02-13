@@ -37,5 +37,6 @@ class DatabaseCheckBox(DataAwareControlModel_27110ef8, CheckBox_fe600dc4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DatabaseCheckBox']
 

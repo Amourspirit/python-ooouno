@@ -38,5 +38,6 @@ class ReportDesign(XController2_bbcf0bc1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ReportDesign']
 

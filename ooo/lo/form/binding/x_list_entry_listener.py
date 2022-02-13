@@ -60,6 +60,5 @@ class XListEntryListener(XEventListener_c7230c4a):
         notifies the listener that a range of entries has been removed from the list
         """
 
-
 __all__ = ['XListEntryListener']
 

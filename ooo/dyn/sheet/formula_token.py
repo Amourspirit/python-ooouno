@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import FormulaToken as UFormulaToken
+        # Dynamically create uno com.sun.star.sheet.FormulaToken using uno
         global FormulaToken
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaToken'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import FormulaToken as UFormulaToken
-                if isinstance(args[0], UFormulaToken):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.FormulaToken', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(OpCode = UNO_NONE, Data = UNO_NONE):
+            ns = 'com.sun.star.sheet.FormulaToken'
+            if isinstance(OpCode, UFormulaToken):
+                inst = uno.createUnoStruct(ns, OpCode)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('OpCode', 'Data')
-            struct = uno.createUnoStruct('com.sun.star.sheet.FormulaToken')
-            if arg_len > len(key_order):
-                raise ValueError("FormulaToken.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not OpCode is UNO_NONE:
+                if getattr(struct, 'OpCode') != OpCode:
+                    setattr(struct, 'OpCode', OpCode)
+            if not Data is UNO_NONE:
+                if getattr(struct, 'Data') != Data:
+                    setattr(struct, 'Data', Data)
             _set_attr(struct)
             return struct
         FormulaToken = _struct_init

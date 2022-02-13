@@ -42,6 +42,5 @@ class XContentProviderSupplier(XInterface_8f010a43):
         returns a content provider.
         """
 
-
 __all__ = ['XContentProviderSupplier']
 

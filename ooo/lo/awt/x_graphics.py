@@ -194,6 +194,5 @@ class XGraphics(XInterface_8f010a43):
         sets the fill color used by text operations.
         """
 
-
 __all__ = ['XGraphics']
 

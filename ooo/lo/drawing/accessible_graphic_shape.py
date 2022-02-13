@@ -41,5 +41,6 @@ class AccessibleGraphicShape(AccessibleShape_fdd20dd3, XAccessibleImage_6bc11099
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleGraphicShape']
 

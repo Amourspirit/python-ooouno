@@ -34,5 +34,6 @@ class ChartTypeManager(MultiServiceFactory_b940e5e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChartTypeManager']
 

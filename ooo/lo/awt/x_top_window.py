@@ -63,6 +63,5 @@ class XTopWindow(XInterface_8f010a43):
         places this window at the top of the stacking order and shows it in front of any other windows.
         """
 
-
 __all__ = ['XTopWindow']
 

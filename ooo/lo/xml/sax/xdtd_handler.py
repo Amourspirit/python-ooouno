@@ -46,6 +46,5 @@ class XDTDHandler(XInterface_8f010a43):
         receives notification of an unparsed entity declaration event.
         """
 
-
 __all__ = ['XDTDHandler']
 

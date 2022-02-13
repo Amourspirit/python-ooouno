@@ -33,5 +33,6 @@ class ReportControlFormat(XReportControlFormat_3d4e0fc2):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ReportControlFormat']
 

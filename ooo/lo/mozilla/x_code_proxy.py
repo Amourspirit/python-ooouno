@@ -52,6 +52,5 @@ class XCodeProxy(XInterface_8f010a43):
         all Mozilla XPCOM code must be called in run() or functions called by run()
         """
 
-
 __all__ = ['XCodeProxy']
 

@@ -50,6 +50,5 @@ class XActiveDataSink(XInterface_8f010a43):
         If XConnectable is also implemented, this method should query aStream for an XConnectable and connect both.
         """
 
-
 __all__ = ['XActiveDataSink']
 

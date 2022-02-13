@@ -43,6 +43,5 @@ class XStorageChangeListener(XEventListener_c7230c4a):
         is called when document switches to another storage.
         """
 
-
 __all__ = ['XStorageChangeListener']
 

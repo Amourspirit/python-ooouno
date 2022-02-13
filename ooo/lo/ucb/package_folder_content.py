@@ -43,5 +43,6 @@ class PackageFolderContent(XPropertiesChangeNotifier_7a7b111c, XPropertyContaine
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PackageFolderContent']
 

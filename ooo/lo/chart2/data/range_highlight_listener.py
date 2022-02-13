@@ -34,5 +34,6 @@ class RangeHighlightListener(XSelectionChangeListener_58bf104d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RangeHighlightListener']
 

@@ -34,5 +34,6 @@ class LocaleCalendar(XCalendar3_927a09ed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LocaleCalendar']
 

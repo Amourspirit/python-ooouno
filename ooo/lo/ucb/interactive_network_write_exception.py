@@ -37,9 +37,15 @@ class InteractiveNetworkWriteException(InteractiveNetworkException_7ca31159):
     typeName: str = 'com.sun.star.ucb.InteractiveNetworkWriteException'
     """Literal Constant ``com.sun.star.ucb.InteractiveNetworkWriteException``"""
 
-    Diagnostic: str = None
-    """
-        Any diagnostic message about the failure (which will typically be an English phrase or sentence).
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

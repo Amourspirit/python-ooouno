@@ -42,6 +42,5 @@ class XResultListener(XEventListener_c7230c4a):
         is called when a new value is available.
         """
 
-
 __all__ = ['XResultListener']
 

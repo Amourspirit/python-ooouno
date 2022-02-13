@@ -52,6 +52,5 @@ class XScriptListener(XEventListener_c7230c4a):
         For that a ScriptEventDescriptor is registered at and attached to an object by an XEventAttacherManager.
         """
 
-
 __all__ = ['XScriptListener']
 

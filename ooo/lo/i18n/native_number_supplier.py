@@ -38,5 +38,6 @@ class NativeNumberSupplier(XNativeNumberSupplier_1eb80ec4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NativeNumberSupplier']
 

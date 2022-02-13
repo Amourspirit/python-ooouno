@@ -43,4 +43,15 @@ class InvalidJavaSettingsException(JavaInitializationException_8b6211a3):
     typeName: str = 'com.sun.star.java.InvalidJavaSettingsException'
     """Literal Constant ``com.sun.star.java.InvalidJavaSettingsException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

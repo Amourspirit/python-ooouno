@@ -52,6 +52,5 @@ class XTransactedObject(XInterface_8f010a43):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XTransactedObject']
 

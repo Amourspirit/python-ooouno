@@ -40,6 +40,5 @@ class XXSLTTransformer(XActiveDataControl_de310cef, XActiveDataSink_b8d00ba3, XA
     __pyunointerface__: str = 'com.sun.star.xml.xslt.XXSLTTransformer'
 
 
-
 __all__ = ['XXSLTTransformer']
 

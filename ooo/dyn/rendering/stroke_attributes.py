@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import StrokeAttributes as UStrokeAttributes
+        # Dynamically create uno com.sun.star.rendering.StrokeAttributes using uno
         global StrokeAttributes
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.StrokeAttributes'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import StrokeAttributes as UStrokeAttributes
-                if isinstance(args[0], UStrokeAttributes):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.StrokeAttributes', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(DashArray = UNO_NONE, LineArray = UNO_NONE, StrokeWidth = UNO_NONE, MiterLimit = UNO_NONE, StartCapType = UNO_NONE, EndCapType = UNO_NONE, JoinType = UNO_NONE):
+            ns = 'com.sun.star.rendering.StrokeAttributes'
+            if isinstance(DashArray, UStrokeAttributes):
+                inst = uno.createUnoStruct(ns, DashArray)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType')
-            struct = uno.createUnoStruct('com.sun.star.rendering.StrokeAttributes')
-            if arg_len > len(key_order):
-                raise ValueError("StrokeAttributes.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not DashArray is UNO_NONE:
+                if getattr(struct, 'DashArray') != DashArray:
+                    setattr(struct, 'DashArray', DashArray)
+            if not LineArray is UNO_NONE:
+                if getattr(struct, 'LineArray') != LineArray:
+                    setattr(struct, 'LineArray', LineArray)
+            if not StrokeWidth is UNO_NONE:
+                if getattr(struct, 'StrokeWidth') != StrokeWidth:
+                    setattr(struct, 'StrokeWidth', StrokeWidth)
+            if not MiterLimit is UNO_NONE:
+                if getattr(struct, 'MiterLimit') != MiterLimit:
+                    setattr(struct, 'MiterLimit', MiterLimit)
+            if not StartCapType is UNO_NONE:
+                if getattr(struct, 'StartCapType') != StartCapType:
+                    setattr(struct, 'StartCapType', StartCapType)
+            if not EndCapType is UNO_NONE:
+                if getattr(struct, 'EndCapType') != EndCapType:
+                    setattr(struct, 'EndCapType', EndCapType)
+            if not JoinType is UNO_NONE:
+                if getattr(struct, 'JoinType') != JoinType:
+                    setattr(struct, 'JoinType', JoinType)
             _set_attr(struct)
             return struct
         StrokeAttributes = _struct_init

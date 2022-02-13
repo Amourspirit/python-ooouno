@@ -54,6 +54,5 @@ class XTerminateListener(XEventListener_c7230c4a):
             TerminationVetoException: ``TerminationVetoException``
         """
 
-
 __all__ = ['XTerminateListener']
 

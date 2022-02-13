@@ -50,6 +50,5 @@ class XPropertyControlObserver(ABC):
         notifies the observer that a certain XPropertyControl's value changed.
         """
 
-
 __all__ = ['XPropertyControlObserver']
 

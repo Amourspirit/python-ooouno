@@ -61,6 +61,5 @@ class XToolkitRobot(ABC):
         """
         """
 
-
 __all__ = ['XToolkitRobot']
 

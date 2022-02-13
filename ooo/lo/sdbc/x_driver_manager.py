@@ -70,6 +70,5 @@ class XDriverManager(XInterface_8f010a43):
         sets the maximum time in seconds that a driver will wait while attempting to connect to a database.
         """
 
-
 __all__ = ['XDriverManager']
 

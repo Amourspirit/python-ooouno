@@ -84,6 +84,5 @@ class XDataSequence(XInterface_8f010a43):
         returns the (UI) range representation string used by this XDataSequence.
         """
 
-
 __all__ = ['XDataSequence']
 

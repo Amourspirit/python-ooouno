@@ -36,5 +36,6 @@ class TableCharts(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d, XTableChar
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TableCharts']
 

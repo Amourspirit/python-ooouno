@@ -46,6 +46,5 @@ class XFormulaTokens(ABC):
         sets the formula as sequence of tokens.
         """
 
-
 __all__ = ['XFormulaTokens']
 

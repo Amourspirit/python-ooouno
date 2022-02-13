@@ -43,9 +43,15 @@ class DocumentMSPasswordRequest2(DocumentMSPasswordRequest_69f810d6):
     typeName: str = 'com.sun.star.task.DocumentMSPasswordRequest2'
     """Literal Constant ``com.sun.star.task.DocumentMSPasswordRequest2``"""
 
-    IsRequestPasswordToModify: bool = None
-    """
-        specifies if the requested password is for opening a document or for modifying it.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

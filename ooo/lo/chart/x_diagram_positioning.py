@@ -79,6 +79,5 @@ class XDiagramPositioning(XInterface_8f010a43):
         For the placement the current axis titles are taken into account, so the titles must be initialized properly before this method is called.
         """
 
-
 __all__ = ['XDiagramPositioning']
 

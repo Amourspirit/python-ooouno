@@ -112,6 +112,5 @@ class XScrollBar(XInterface_8f010a43):
         sets the visible size of the scroll bar.
         """
 
-
 __all__ = ['XScrollBar']
 

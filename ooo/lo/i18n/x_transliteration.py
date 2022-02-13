@@ -150,6 +150,5 @@ class XTransliteration(XInterface_8f010a43):
         Use this transliteration to create regular expressions like [a-i] --> [A-Ia-i].
         """
 
-
 __all__ = ['XTransliteration']
 

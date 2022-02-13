@@ -99,6 +99,5 @@ class XMailService(XInterface_8f010a43):
         Unregister a connection listener.
         """
 
-
 __all__ = ['XMailService']
 

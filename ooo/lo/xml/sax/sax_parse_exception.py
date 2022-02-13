@@ -37,24 +37,15 @@ class SAXParseException(SAXException_d1a00c6e):
     typeName: str = 'com.sun.star.xml.sax.SAXParseException'
     """Literal Constant ``com.sun.star.xml.sax.SAXParseException``"""
 
-    ColumnNumber: int = None
-    """
-        contains the column number in the document.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    LineNumber: int = None
-    """
-        contains the line number in the document.
-    """
+        Keyword Arguments:
 
-    PublicId: str = None
-    """
-        contains the public identifier of the document where the exception has occurred.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
 
-    SystemId: str = None
-    """
-        contains the system identifier of the document.
-    """
 
 

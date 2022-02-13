@@ -36,5 +36,6 @@ class BridgeFactory(XBridgeFactory2_ecc10d24):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BridgeFactory']
 

@@ -61,6 +61,5 @@ class XShape(XShapeDescriptor_be80e5c):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
 
-
 __all__ = ['XShape']
 

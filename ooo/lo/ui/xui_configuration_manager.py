@@ -140,6 +140,5 @@ class XUIConfigurationManager(XInterface_8f010a43):
         This means that all user interface configuration data of the instance will be removed. A module based user interface configuration manager removes user defined elements, but set all other elements back to default. It is not possible to remove default elements from a module user interface configuration manager.
         """
 
-
 __all__ = ['XUIConfigurationManager']
 

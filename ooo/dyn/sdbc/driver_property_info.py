@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sdbc
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sdbc import DriverPropertyInfo as UDriverPropertyInfo
+        # Dynamically create uno com.sun.star.sdbc.DriverPropertyInfo using uno
         global DriverPropertyInfo
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sdbc.DriverPropertyInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sdbc import DriverPropertyInfo as UDriverPropertyInfo
-                if isinstance(args[0], UDriverPropertyInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sdbc.DriverPropertyInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Choices = UNO_NONE, Name = UNO_NONE, Description = UNO_NONE, IsRequired = UNO_NONE, Value = UNO_NONE):
+            ns = 'com.sun.star.sdbc.DriverPropertyInfo'
+            if isinstance(Choices, UDriverPropertyInfo):
+                inst = uno.createUnoStruct(ns, Choices)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Name', 'Description', 'IsRequired', 'Value')
-            struct = uno.createUnoStruct('com.sun.star.sdbc.DriverPropertyInfo')
-            if arg_len > len(key_order):
-                raise ValueError("DriverPropertyInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Choices is UNO_NONE:
+                if getattr(struct, 'Choices') != Choices:
+                    setattr(struct, 'Choices', Choices)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not Description is UNO_NONE:
+                if getattr(struct, 'Description') != Description:
+                    setattr(struct, 'Description', Description)
+            if not IsRequired is UNO_NONE:
+                if getattr(struct, 'IsRequired') != IsRequired:
+                    setattr(struct, 'IsRequired', IsRequired)
+            if not Value is UNO_NONE:
+                if getattr(struct, 'Value') != Value:
+                    setattr(struct, 'Value', Value)
             _set_attr(struct)
             return struct
         DriverPropertyInfo = _struct_init

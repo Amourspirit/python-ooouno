@@ -44,6 +44,5 @@ class XHierarchicalNameReplace(XHierarchicalNameAccess_9e2611b5):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XHierarchicalNameReplace']
 

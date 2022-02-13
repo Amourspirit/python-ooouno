@@ -73,6 +73,5 @@ class XShapeArranger(XInterface_8f010a43):
         moves the specified collection of Shapes in front of the specified single Shape.
         """
 
-
 __all__ = ['XShapeArranger']
 

@@ -41,6 +41,5 @@ class XActionsApproval(XInterface_8f010a43):
         requests an approval for the specified action.
         """
 
-
 __all__ = ['XActionsApproval']
 

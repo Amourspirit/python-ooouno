@@ -64,6 +64,5 @@ class XScenario(XInterface_8f010a43):
         sets a new comment for the scenario.
         """
 
-
 __all__ = ['XScenario']
 

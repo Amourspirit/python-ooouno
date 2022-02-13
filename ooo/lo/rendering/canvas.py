@@ -34,5 +34,6 @@ class Canvas(XCanvas_b19b0b7a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Canvas']
 

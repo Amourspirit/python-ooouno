@@ -33,5 +33,6 @@ class ManifestWriter(XManifestWriter_9d0811d8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ManifestWriter']
 

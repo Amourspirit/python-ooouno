@@ -37,4 +37,15 @@ class NotConnectedException(IOException_8c450a27):
     typeName: str = 'com.sun.star.io.NotConnectedException'
     """Literal Constant ``com.sun.star.io.NotConnectedException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

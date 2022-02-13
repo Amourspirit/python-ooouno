@@ -46,5 +46,6 @@ class PlainTextFormatter(XLogFormatter_e23d0d1d):
         creates a PlainTextFormatter instance
         """
 
+
 __all__ = ['PlainTextFormatter']
 

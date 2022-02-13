@@ -42,6 +42,5 @@ class XActionListener(XEventListener_c7230c4a):
         is invoked when an action is performed.
         """
 
-
 __all__ = ['XActionListener']
 

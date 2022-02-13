@@ -20,23 +20,23 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..chart.x_chart_data_array import XChartDataArray as XChartDataArray_df4c0cdd
 from ..container.x_named import XNamed as XNamed_a6520b08
 from ..sheet.x_cell_range_data import XCellRangeData as XCellRangeData_d2e70c60
 from ..table.x_auto_formattable import XAutoFormattable as XAutoFormattable_ee660d72
 from ..table.x_cell_range import XCellRange as XCellRange_a2f70ad5
-from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
 from .text_content import TextContent as TextContent_a6810b4d
 from .x_text_table import XTextTable as XTextTable_9a810ab2
 from ..util.x_sortable import XSortable as XSortable_8ff20a5a
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..style.break_type import BreakType as BreakType_9b050ac0
     from ..style.graphic_location import GraphicLocation as GraphicLocation_e3ef0d30
     from ..table.shadow_format import ShadowFormat as ShadowFormat_bb840bdf
     from ..table.table_border import TableBorder as TableBorder_aedf0b56
+    from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
 
 class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XChartDataArray_df4c0cdd, XNamed_a6520b08, XCellRangeData_d2e70c60, XAutoFormattable_ee660d72, XCellRange_a2f70ad5, XTextTable_9a810ab2, XSortable_8ff20a5a):
@@ -62,27 +62,30 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
     __ooo_full_ns__: str = 'com.sun.star.text.TextTable'
     __ooo_type_name__: str = 'service'
 
-    TableColumnSeparators: typing.TypeAlias = typing.Tuple[TableColumnSeparator_1b630ed4, ...]
-    """
-    contains the column description of the table.
-    """
+    @abstractproperty
+    def TableColumnSeparators(self) -> 'typing.Tuple[TableColumnSeparator_1b630ed4, ...]':
+        """
+        contains the column description of the table.
+        """
 
-    TableInteropGrabBag: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    Grab bag of table properties, used as a string-any map for interim interop purposes.
-    
-    This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
-    
-    **since**
-    
-        LibreOffice 4.3
-    """
+    @abstractproperty
+    def TableInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        Grab bag of table properties, used as a string-any map for interim interop purposes.
+        
+        This property is intentionally not handled by the ODF filter. Any member that should be handled there should be first moved out from this grab bag to a separate property.
+        
+        **since**
+        
+            LibreOffice 4.3
+        """
 
     @abstractproperty
     def BackColor(self) -> 'Color_68e908c5':
         """
         contains the color of the background.
         """
+
     @abstractproperty
     def BackGraphic(self) -> 'XGraphic_a4da0afc':
         """
@@ -92,16 +95,19 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
         
             LibreOffice 6.1
         """
+
     @abstractproperty
     def BackGraphicFilter(self) -> str:
         """
         contains the name of the file filter for the background graphic.
         """
+
     @abstractproperty
     def BackGraphicLocation(self) -> 'GraphicLocation_e3ef0d30':
         """
         determines the position of the background graphic.
         """
+
     @abstractproperty
     def BackGraphicURL(self) -> str:
         """
@@ -109,106 +115,127 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the graphic and set the BackGraphic property.
         """
+
     @abstractproperty
     def BackTransparent(self) -> bool:
         """
         determines if the background color is transparent.
         """
+
     @abstractproperty
     def BottomMargin(self) -> int:
         """
         determines the bottom margin.
         """
+
     @abstractproperty
     def BreakType(self) -> 'BreakType_9b050ac0':
         """
         determines the type of break that is applied at the beginning of the table.
         """
+
     @abstractproperty
     def ChartColumnAsLabel(self) -> bool:
         """
         determines if the first column of the table should be treated as axis labels when a chart is to be created.
         """
+
     @abstractproperty
     def ChartRowAsLabel(self) -> bool:
         """
         determines if the first row of the table should be treated as axis labels when a chart is to be created.
         """
+
     @abstractproperty
     def CollapsingBorders(self) -> bool:
         """
         determines whether borders of neighboring table cells are collapsed into one
         """
+
     @abstractproperty
     def HeaderRowCount(self) -> int:
         """
         determines the number of rows of the table repeated on every new page.
         """
+
     @abstractproperty
     def HoriOrient(self) -> int:
         """
         contains the horizontal orientation.
         """
+
     @abstractproperty
     def IsWidthRelative(self) -> bool:
         """
         determines if the value of the relative width is valid.
         """
+
     @abstractproperty
     def KeepTogether(self) -> bool:
         """
         Setting this property to TRUE prevents page or column breaks between this table and the following paragraph or text table.
         """
+
     @abstractproperty
     def LeftMargin(self) -> int:
         """
         contains the left margin of the table.
         """
+
     @abstractproperty
     def PageDescName(self) -> str:
         """
         If this property is set, it creates a page break before the table and assigns the value as the name of the new page style sheet to use.
         """
+
     @abstractproperty
     def PageNumberOffset(self) -> int:
         """
         If a page break property is set at the table, this property contains the new value for the page number.
         """
+
     @abstractproperty
     def RelativeWidth(self) -> int:
         """
         determines the width of the table relative to its environment.
         """
+
     @abstractproperty
     def RepeatHeadline(self) -> bool:
         """
         determines if the first row of the table is repeated on every new page.
         """
+
     @abstractproperty
     def RightMargin(self) -> int:
         """
         contains the right margin of the table.
         """
+
     @abstractproperty
     def ShadowFormat(self) -> 'ShadowFormat_bb840bdf':
         """
         determines the type, color and size of the shadow.
         """
+
     @abstractproperty
     def Split(self) -> bool:
         """
         Setting this property to FALSE prevents the table from getting spread on two pages.
         """
+
     @abstractproperty
     def TableBorder(self) -> 'TableBorder_aedf0b56':
         """
         contains the description of the table borders.
         """
+
     @abstractproperty
     def TableColumnRelativeSum(self) -> int:
         """
         contains the sum of the column width values used in TableColumnSeparators.
         """
+
     @abstractproperty
     def TableTemplateName(self) -> str:
         """
@@ -218,11 +245,13 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
         
             LibreOffice 5.3
         """
+
     @abstractproperty
     def TopMargin(self) -> int:
         """
         determines the top margin.
         """
+
     @abstractproperty
     def Width(self) -> int:
         """
@@ -230,6 +259,8 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
         
         As this is only a describing property the value of the actual table may vary depending on the environment the table is located in and the settings of LeftMargin, RightMargin and HoriOrient.
         """
+
+
 
 __all__ = ['TextTable']
 

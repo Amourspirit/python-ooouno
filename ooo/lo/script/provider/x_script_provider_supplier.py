@@ -42,6 +42,5 @@ class XScriptProviderSupplier(XInterface_8f010a43):
         returns scripting provider related to the object.
         """
 
-
 __all__ = ['XScriptProviderSupplier']
 

@@ -46,6 +46,5 @@ class XUIConfigurationManagerSupplier(XInterface_8f010a43):
         returns the user interface configuration manager related to the object.
         """
 
-
 __all__ = ['XUIConfigurationManagerSupplier']
 

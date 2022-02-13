@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import DataPilotFieldAutoShowInfo as UDataPilotFieldAutoShowInfo
+        # Dynamically create uno com.sun.star.sheet.DataPilotFieldAutoShowInfo using uno
         global DataPilotFieldAutoShowInfo
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldAutoShowInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import DataPilotFieldAutoShowInfo as UDataPilotFieldAutoShowInfo
-                if isinstance(args[0], UDataPilotFieldAutoShowInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.DataPilotFieldAutoShowInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(IsEnabled = UNO_NONE, ShowItemsMode = UNO_NONE, ItemCount = UNO_NONE, DataField = UNO_NONE):
+            ns = 'com.sun.star.sheet.DataPilotFieldAutoShowInfo'
+            if isinstance(IsEnabled, UDataPilotFieldAutoShowInfo):
+                inst = uno.createUnoStruct(ns, IsEnabled)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('IsEnabled', 'ShowItemsMode', 'ItemCount', 'DataField')
-            struct = uno.createUnoStruct('com.sun.star.sheet.DataPilotFieldAutoShowInfo')
-            if arg_len > len(key_order):
-                raise ValueError("DataPilotFieldAutoShowInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not IsEnabled is UNO_NONE:
+                if getattr(struct, 'IsEnabled') != IsEnabled:
+                    setattr(struct, 'IsEnabled', IsEnabled)
+            if not ShowItemsMode is UNO_NONE:
+                if getattr(struct, 'ShowItemsMode') != ShowItemsMode:
+                    setattr(struct, 'ShowItemsMode', ShowItemsMode)
+            if not ItemCount is UNO_NONE:
+                if getattr(struct, 'ItemCount') != ItemCount:
+                    setattr(struct, 'ItemCount', ItemCount)
+            if not DataField is UNO_NONE:
+                if getattr(struct, 'DataField') != DataField:
+                    setattr(struct, 'DataField', DataField)
             _set_attr(struct)
             return struct
         DataPilotFieldAutoShowInfo = _struct_init

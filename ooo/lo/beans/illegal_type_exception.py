@@ -39,4 +39,15 @@ class IllegalTypeException(Exception_85530a09):
     typeName: str = 'com.sun.star.beans.IllegalTypeException'
     """Literal Constant ``com.sun.star.beans.IllegalTypeException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

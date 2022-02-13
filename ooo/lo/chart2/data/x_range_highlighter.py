@@ -52,6 +52,5 @@ class XRangeHighlighter(XInterface_8f010a43):
         unregisters an event listener which was registered with XRangeHighlighter.addSelectionChangeListener() before.
         """
 
-
 __all__ = ['XRangeHighlighter']
 

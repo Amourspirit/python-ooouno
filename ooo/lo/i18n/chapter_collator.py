@@ -34,5 +34,6 @@ class ChapterCollator(XCollator_892a09e0):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ChapterCollator']
 

@@ -42,5 +42,6 @@ class OleBridgeSupplierVar1(OleBridgeSupplier2_18030e68):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleBridgeSupplierVar1']
 

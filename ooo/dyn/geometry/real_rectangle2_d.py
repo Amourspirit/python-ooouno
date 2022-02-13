@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.geometry
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.geometry import RealRectangle2D as URealRectangle2D
+        # Dynamically create uno com.sun.star.geometry.RealRectangle2D using uno
         global RealRectangle2D
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.RealRectangle2D'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.geometry import RealRectangle2D as URealRectangle2D
-                if isinstance(args[0], URealRectangle2D):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.geometry.RealRectangle2D', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(X1 = UNO_NONE, Y1 = UNO_NONE, X2 = UNO_NONE, Y2 = UNO_NONE):
+            ns = 'com.sun.star.geometry.RealRectangle2D'
+            if isinstance(X1, URealRectangle2D):
+                inst = uno.createUnoStruct(ns, X1)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('X1', 'Y1', 'X2', 'Y2')
-            struct = uno.createUnoStruct('com.sun.star.geometry.RealRectangle2D')
-            if arg_len > len(key_order):
-                raise ValueError("RealRectangle2D.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not X1 is UNO_NONE:
+                if getattr(struct, 'X1') != X1:
+                    setattr(struct, 'X1', X1)
+            if not Y1 is UNO_NONE:
+                if getattr(struct, 'Y1') != Y1:
+                    setattr(struct, 'Y1', Y1)
+            if not X2 is UNO_NONE:
+                if getattr(struct, 'X2') != X2:
+                    setattr(struct, 'X2', X2)
+            if not Y2 is UNO_NONE:
+                if getattr(struct, 'Y2') != Y2:
+                    setattr(struct, 'Y2', Y2)
             _set_attr(struct)
             return struct
         RealRectangle2D = _struct_init

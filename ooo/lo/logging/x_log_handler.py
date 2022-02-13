@@ -60,11 +60,13 @@ class XLogHandler(XComponent_98dc0ab5):
         
         It depends on the concrete handler implementation whether or not this parameter is needed.
         """
+
     @abstractproperty
     def Formatter(self) -> 'XLogFormatter_e23d0d1d':
         """
         specifies the formatter to be used by this handler.
         """
+
     @abstractproperty
     def Level(self) -> int:
         """

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ui
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ui import ContextChangeEventObject as UContextChangeEventObject
+        # Dynamically create uno com.sun.star.ui.ContextChangeEventObject using uno
         global ContextChangeEventObject
 
         def _set_attr(struct):
@@ -35,25 +36,25 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ui.ContextChangeEventObject'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ui import ContextChangeEventObject as UContextChangeEventObject
-                if isinstance(args[0], UContextChangeEventObject):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ui.ContextChangeEventObject', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ApplicationName = UNO_NONE, ContextName = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.ui.ContextChangeEventObject'
+            if isinstance(ApplicationName, UContextChangeEventObject):
+                inst = uno.createUnoStruct(ns, ApplicationName)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ApplicationName', 'ContextName')
-            struct = uno.createUnoStruct('com.sun.star.ui.ContextChangeEventObject')
-            if arg_len > len(key_order):
-                raise ValueError("ContextChangeEventObject.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not ApplicationName is UNO_NONE:
+                if getattr(struct, 'ApplicationName') != ApplicationName:
+                    setattr(struct, 'ApplicationName', ApplicationName)
+            if not ContextName is UNO_NONE:
+                if getattr(struct, 'ContextName') != ContextName:
+                    setattr(struct, 'ContextName', ContextName)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         ContextChangeEventObject = _struct_init

@@ -42,5 +42,6 @@ class HangulHanjaConversionDictionary(ConversionDictionary_8fa111b1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HangulHanjaConversionDictionary']
 

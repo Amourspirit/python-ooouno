@@ -84,6 +84,5 @@ class XDockableWindowListener(XEventListener_c7230c4a):
         is invoked when the floating mode is changed between floating and docked or vice versa
         """
 
-
 __all__ = ['XDockableWindowListener']
 

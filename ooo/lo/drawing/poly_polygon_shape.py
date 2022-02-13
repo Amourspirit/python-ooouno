@@ -42,5 +42,6 @@ class PolyPolygonShape(FillProperties_f1200da8, LineProperties_f13f0da9, PolyPol
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PolyPolygonShape']
 

@@ -44,6 +44,5 @@ class XChangeListener(XEventListener_c7230c4a):
         is invoked when the data of a component has been changed.
         """
 
-
 __all__ = ['XChangeListener']
 

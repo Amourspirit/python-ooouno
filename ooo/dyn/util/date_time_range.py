@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.util import DateTimeRange as UDateTimeRange
+        # Dynamically create uno com.sun.star.util.DateTimeRange using uno
         global DateTimeRange
 
         def _set_attr(struct):
@@ -35,25 +36,59 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.DateTimeRange'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.util import DateTimeRange as UDateTimeRange
-                if isinstance(args[0], UDateTimeRange):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.util.DateTimeRange', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(StartNanoSeconds = UNO_NONE, StartSeconds = UNO_NONE, StartMinutes = UNO_NONE, StartHours = UNO_NONE, StartDay = UNO_NONE, StartMonth = UNO_NONE, StartYear = UNO_NONE, EndNanoSeconds = UNO_NONE, EndSeconds = UNO_NONE, EndMinutes = UNO_NONE, EndHours = UNO_NONE, EndDay = UNO_NONE, EndMonth = UNO_NONE, EndYear = UNO_NONE, IsUTC = UNO_NONE):
+            ns = 'com.sun.star.util.DateTimeRange'
+            if isinstance(StartNanoSeconds, UDateTimeRange):
+                inst = uno.createUnoStruct(ns, StartNanoSeconds)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('StartNanoSeconds', 'StartSeconds', 'StartMinutes', 'StartHours', 'StartDay', 'StartMonth', 'StartYear', 'EndNanoSeconds', 'EndSeconds', 'EndMinutes', 'EndHours', 'EndDay', 'EndMonth', 'EndYear', 'IsUTC')
-            struct = uno.createUnoStruct('com.sun.star.util.DateTimeRange')
-            if arg_len > len(key_order):
-                raise ValueError("DateTimeRange.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not StartNanoSeconds is UNO_NONE:
+                if getattr(struct, 'StartNanoSeconds') != StartNanoSeconds:
+                    setattr(struct, 'StartNanoSeconds', StartNanoSeconds)
+            if not StartSeconds is UNO_NONE:
+                if getattr(struct, 'StartSeconds') != StartSeconds:
+                    setattr(struct, 'StartSeconds', StartSeconds)
+            if not StartMinutes is UNO_NONE:
+                if getattr(struct, 'StartMinutes') != StartMinutes:
+                    setattr(struct, 'StartMinutes', StartMinutes)
+            if not StartHours is UNO_NONE:
+                if getattr(struct, 'StartHours') != StartHours:
+                    setattr(struct, 'StartHours', StartHours)
+            if not StartDay is UNO_NONE:
+                if getattr(struct, 'StartDay') != StartDay:
+                    setattr(struct, 'StartDay', StartDay)
+            if not StartMonth is UNO_NONE:
+                if getattr(struct, 'StartMonth') != StartMonth:
+                    setattr(struct, 'StartMonth', StartMonth)
+            if not StartYear is UNO_NONE:
+                if getattr(struct, 'StartYear') != StartYear:
+                    setattr(struct, 'StartYear', StartYear)
+            if not EndNanoSeconds is UNO_NONE:
+                if getattr(struct, 'EndNanoSeconds') != EndNanoSeconds:
+                    setattr(struct, 'EndNanoSeconds', EndNanoSeconds)
+            if not EndSeconds is UNO_NONE:
+                if getattr(struct, 'EndSeconds') != EndSeconds:
+                    setattr(struct, 'EndSeconds', EndSeconds)
+            if not EndMinutes is UNO_NONE:
+                if getattr(struct, 'EndMinutes') != EndMinutes:
+                    setattr(struct, 'EndMinutes', EndMinutes)
+            if not EndHours is UNO_NONE:
+                if getattr(struct, 'EndHours') != EndHours:
+                    setattr(struct, 'EndHours', EndHours)
+            if not EndDay is UNO_NONE:
+                if getattr(struct, 'EndDay') != EndDay:
+                    setattr(struct, 'EndDay', EndDay)
+            if not EndMonth is UNO_NONE:
+                if getattr(struct, 'EndMonth') != EndMonth:
+                    setattr(struct, 'EndMonth', EndMonth)
+            if not EndYear is UNO_NONE:
+                if getattr(struct, 'EndYear') != EndYear:
+                    setattr(struct, 'EndYear', EndYear)
+            if not IsUTC is UNO_NONE:
+                if getattr(struct, 'IsUTC') != IsUTC:
+                    setattr(struct, 'IsUTC', IsUTC)
             _set_attr(struct)
             return struct
         DateTimeRange = _struct_init

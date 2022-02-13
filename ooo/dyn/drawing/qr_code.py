@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.drawing import QRCode as UQRCode
+        # Dynamically create uno com.sun.star.drawing.QRCode using uno
         global QRCode
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.QRCode'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.drawing import QRCode as UQRCode
-                if isinstance(args[0], UQRCode):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.drawing.QRCode', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Payload = UNO_NONE, ErrorCorrection = UNO_NONE, Border = UNO_NONE):
+            ns = 'com.sun.star.drawing.QRCode'
+            if isinstance(Payload, UQRCode):
+                inst = uno.createUnoStruct(ns, Payload)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Payload', 'ErrorCorrection', 'Border')
-            struct = uno.createUnoStruct('com.sun.star.drawing.QRCode')
-            if arg_len > len(key_order):
-                raise ValueError("QRCode.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Payload is UNO_NONE:
+                if getattr(struct, 'Payload') != Payload:
+                    setattr(struct, 'Payload', Payload)
+            if not ErrorCorrection is UNO_NONE:
+                if getattr(struct, 'ErrorCorrection') != ErrorCorrection:
+                    setattr(struct, 'ErrorCorrection', ErrorCorrection)
+            if not Border is UNO_NONE:
+                if getattr(struct, 'Border') != Border:
+                    setattr(struct, 'Border', Border)
             _set_attr(struct)
             return struct
         QRCode = _struct_init

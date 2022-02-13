@@ -45,6 +45,5 @@ class XScaling(XInterface_8f010a43):
         Get an interface object that conforms to a scaling rule that is the reverse of the original scaling rule.
         """
 
-
 __all__ = ['XScaling']
 

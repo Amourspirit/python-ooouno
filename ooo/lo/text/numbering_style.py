@@ -35,5 +35,6 @@ class NumberingStyle(Style_7336094a, NumberingRules_cabc0c7f):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NumberingStyle']
 

@@ -42,6 +42,5 @@ class XSpreadsheetDocument(XInterface_8f010a43):
         returns the collection of sheets in the document.
         """
 
-
 __all__ = ['XSpreadsheetDocument']
 

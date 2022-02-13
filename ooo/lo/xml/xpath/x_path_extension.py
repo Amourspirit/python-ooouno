@@ -42,5 +42,6 @@ class XPathExtension(XXPathExtension_194c0ea6):
         """
         """
 
+
 __all__ = ['XPathExtension']
 

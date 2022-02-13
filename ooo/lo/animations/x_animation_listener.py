@@ -68,6 +68,5 @@ class XAnimationListener(XEventListener_c7230c4a):
         Associated with the repeat event is an integer that indicates which repeat iteration is beginning.
         """
 
-
 __all__ = ['XAnimationListener']
 

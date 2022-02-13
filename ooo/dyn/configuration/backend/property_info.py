@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.configuration.backend
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.configuration.backend import PropertyInfo as UPropertyInfo
+        # Dynamically create uno com.sun.star.configuration.backend.PropertyInfo using uno
         global PropertyInfo
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.configuration.backend.PropertyInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.configuration.backend import PropertyInfo as UPropertyInfo
-                if isinstance(args[0], UPropertyInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.configuration.backend.PropertyInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Name = UNO_NONE, Type = UNO_NONE, Value = UNO_NONE, Protected = UNO_NONE):
+            ns = 'com.sun.star.configuration.backend.PropertyInfo'
+            if isinstance(Name, UPropertyInfo):
+                inst = uno.createUnoStruct(ns, Name)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Name', 'Type', 'Value', 'Protected')
-            struct = uno.createUnoStruct('com.sun.star.configuration.backend.PropertyInfo')
-            if arg_len > len(key_order):
-                raise ValueError("PropertyInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Name is UNO_NONE:
+                if getattr(struct, 'Name') != Name:
+                    setattr(struct, 'Name', Name)
+            if not Type is UNO_NONE:
+                if getattr(struct, 'Type') != Type:
+                    setattr(struct, 'Type', Type)
+            if not Value is UNO_NONE:
+                if getattr(struct, 'Value') != Value:
+                    setattr(struct, 'Value', Value)
+            if not Protected is UNO_NONE:
+                if getattr(struct, 'Protected') != Protected:
+                    setattr(struct, 'Protected', Protected)
             _set_attr(struct)
             return struct
         PropertyInfo = _struct_init

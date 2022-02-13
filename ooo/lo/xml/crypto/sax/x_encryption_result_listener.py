@@ -44,6 +44,5 @@ class XEncryptionResultListener(XInterface_8f010a43):
         Notifies the encryption result.
         """
 
-
 __all__ = ['XEncryptionResultListener']
 

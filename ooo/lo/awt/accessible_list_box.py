@@ -39,5 +39,6 @@ class AccessibleListBox(AccessibleContext_7e0e1143, XAccessibleExtendedComponent
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleListBox']
 

@@ -43,9 +43,15 @@ class CorruptedConfigurationException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.configuration.CorruptedConfigurationException'
     """Literal Constant ``com.sun.star.configuration.CorruptedConfigurationException``"""
 
-    Details: str = None
-    """
-        Instead of the message part of an exception, this value describe the type of corruption more in detail.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

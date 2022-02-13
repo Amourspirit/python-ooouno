@@ -37,11 +37,15 @@ class IllegalArgumentException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.lang.IllegalArgumentException'
     """Literal Constant ``com.sun.star.lang.IllegalArgumentException``"""
 
-    ArgumentPosition: int = None
-    """
-        identifies the position of the illegal argument.
-        
-        This field is -1 if the position is not known.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

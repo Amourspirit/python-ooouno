@@ -46,5 +46,6 @@ class AnyCompareFactory(XAnyCompareFactory_ec090d61):
         """
         """
 
+
 __all__ = ['AnyCompareFactory']
 

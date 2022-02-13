@@ -46,6 +46,5 @@ class XDataProviderAccess(XInterface_8f010a43):
         creates a data provider for chart2, if possible
         """
 
-
 __all__ = ['XDataProviderAccess']
 

@@ -36,5 +36,6 @@ class TextInputStream(XTextInputStream2_d4390c8b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextInputStream']
 

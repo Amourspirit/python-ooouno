@@ -41,5 +41,6 @@ class Package(XHierarchicalNameAccess_9e2611b5, XInitialization_d46c0cca, XSingl
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Package']
 

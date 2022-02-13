@@ -46,5 +46,6 @@ class OleApplicationRegistration(XInterface_8f010a43):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleApplicationRegistration']
 

@@ -51,6 +51,5 @@ class XGrid(XInterface_8f010a43):
         sets the current column position.
         """
 
-
 __all__ = ['XGrid']
 

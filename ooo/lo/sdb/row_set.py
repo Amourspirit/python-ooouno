@@ -63,6 +63,7 @@ class RowSet(ResultSet_847b09ec, RowSet_70fd0908, XCompletedExecution_fb8c0dea, 
         """
         is the command which is currently used.
         """
+
     @abstractproperty
     def ActiveConnection(self) -> 'XConnection_a36a0b0c':
         """
@@ -70,11 +71,13 @@ class RowSet(ResultSet_847b09ec, RowSet_70fd0908, XCompletedExecution_fb8c0dea, 
         
         It could also be set from outside. When set from outside the RowSet is not responsible for the closing of the connection.
         """
+
     @abstractproperty
     def ApplyFilter(self) -> bool:
         """
         indicates whether the filter should be applied or not, default is FALSE.
         """
+
     @abstractproperty
     def Command(self) -> str:
         """
@@ -84,81 +87,98 @@ class RowSet(ResultSet_847b09ec, RowSet_70fd0908, XCompletedExecution_fb8c0dea, 
         It then can be to used to specify whether the SQL statement should be analyzed on the client side before sending it to the database server.
         The default value for com.sun.star.sdbc.RowSet.EscapeProcessing is TRUE. By switching it to FALSE, you can pass backend-specific SQL statements, which are not standard SQL, to your database.
         """
+
     @abstractproperty
     def CommandType(self) -> int:
         """
         is the type of the command.
         """
+
     @abstractproperty
     def DataSourceName(self) -> str:
         """
         is the name of the datasource to use, this could be a named datasource or the URL of a data access component.
         """
+
     @abstractproperty
     def Filter(self) -> str:
         """
         additional filter for a row set.
         """
+
     @abstractproperty
     def GroupBy(self) -> str:
         """
         additional group by for the row set
         """
+
     @abstractproperty
     def HavingClause(self) -> str:
         """
         additional having clause for the row set
         """
+
     @abstractproperty
     def IgnoreResult(self) -> bool:
         """
         indicates whether all results should be discarded or not.
         """
+
     @abstractproperty
     def IsModified(self) -> bool:
         """
         indicates that the current row is modified.
         """
+
     @abstractproperty
     def IsNew(self) -> bool:
         """
         indicates that the current row is going to be inserted to the database.
         """
+
     @abstractproperty
     def IsRowCountFinal(self) -> bool:
         """
         indicates that all rows of the row set have been counted.
         """
+
     @abstractproperty
     def Order(self) -> str:
         """
         is an additional sort order definition for a row set.
         """
+
     @abstractproperty
     def Privileges(self) -> int:
         """
         indicates the privileges for insert, update, and delete.
         """
+
     @abstractproperty
     def RowCount(self) -> int:
         """
         contains the number of rows accessed in the data source.
         """
+
     @abstractproperty
     def UpdateCatalogName(self) -> str:
         """
         is the name of the table catalog
         """
+
     @abstractproperty
     def UpdateSchemaName(self) -> str:
         """
         is the name of the table schema.
         """
+
     @abstractproperty
     def UpdateTableName(self) -> str:
         """
         is the name of the table which should be updated, this is usually used for queries which relate to more than one table.
         """
+
+
 
 __all__ = ['RowSet']
 

@@ -47,6 +47,5 @@ class XTypeProvider(XInterface_8f010a43):
         returns a sequence of all types (usually interface types) provided by the object.
         """
 
-
 __all__ = ['XTypeProvider']
 

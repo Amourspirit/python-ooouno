@@ -46,5 +46,6 @@ class GraphicStorageHandler(XGraphicStorageHandler_7c171110):
         """
         """
 
+
 __all__ = ['GraphicStorageHandler']
 

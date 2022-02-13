@@ -47,6 +47,5 @@ class XDatabaseRanges(XNameAccess_e2ab0cf6):
         removes a database range from the collection.
         """
 
-
 __all__ = ['XDatabaseRanges']
 

@@ -62,6 +62,5 @@ class XDisplayConnection(XInterface_8f010a43):
         removes an eventHandler from the handler list.
         """
 
-
 __all__ = ['XDisplayConnection']
 

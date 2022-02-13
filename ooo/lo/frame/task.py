@@ -44,5 +44,6 @@ class Task(XTask_712808fe):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Task']
 

@@ -80,6 +80,5 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
 
-
 __all__ = ['XExtendedDocumentHandler']
 

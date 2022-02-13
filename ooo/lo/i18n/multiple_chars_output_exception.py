@@ -43,4 +43,15 @@ class MultipleCharsOutputException(Exception_85530a09):
     typeName: str = 'com.sun.star.i18n.MultipleCharsOutputException'
     """Literal Constant ``com.sun.star.i18n.MultipleCharsOutputException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

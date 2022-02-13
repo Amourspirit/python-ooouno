@@ -39,9 +39,15 @@ class SystemShellExecuteException(Exception_85530a09):
     typeName: str = 'com.sun.star.system.SystemShellExecuteException'
     """Literal Constant ``com.sun.star.system.SystemShellExecuteException``"""
 
-    PosixError: int = None
-    """
-        A POSIX conforming error code or -1 for unknown errors.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

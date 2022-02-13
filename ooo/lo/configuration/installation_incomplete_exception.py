@@ -37,4 +37,15 @@ class InstallationIncompleteException(CannotLoadConfigurationException_b325176a)
     typeName: str = 'com.sun.star.configuration.InstallationIncompleteException'
     """Literal Constant ``com.sun.star.configuration.InstallationIncompleteException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

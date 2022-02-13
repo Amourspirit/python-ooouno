@@ -34,5 +34,6 @@ class UnoUrlResolver(XUnoUrlResolver_eec20d84):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoUrlResolver']
 

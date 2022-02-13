@@ -39,5 +39,6 @@ class PropertyHierarchy(XHierarchicalPropertySet_679a10b9, XMultiHierarchicalPro
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PropertyHierarchy']
 

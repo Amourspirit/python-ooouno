@@ -60,6 +60,5 @@ class XSSOContext(XInterface_8f010a43):
         retrieves the principal name of the target/acceptor of the context.
         """
 
-
 __all__ = ['XSSOContext']
 

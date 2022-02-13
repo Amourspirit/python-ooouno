@@ -95,6 +95,5 @@ class XAnimatedSprite(XSprite_b2470b95):
         This method has no effect when called for a bitmap-sequence sprite. Please note that if an animation is not started, the associated XSpriteCanvas does not update changed sprites automatically, but has to be told to do so via XSpriteCanvas.updateScreen().
         """
 
-
 __all__ = ['XAnimatedSprite']
 

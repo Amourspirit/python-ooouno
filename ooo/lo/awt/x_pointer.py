@@ -44,6 +44,5 @@ class XPointer(XInterface_8f010a43):
         selects a SystemPointer for this mouse pointer.
         """
 
-
 __all__ = ['XPointer']
 

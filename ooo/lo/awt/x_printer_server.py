@@ -57,6 +57,5 @@ class XPrinterServer(XInterface_8f010a43):
         returns a list of all available printer names.
         """
 
-
 __all__ = ['XPrinterServer']
 

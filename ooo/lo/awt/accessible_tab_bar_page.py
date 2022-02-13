@@ -40,5 +40,6 @@ class AccessibleTabBarPage(XAccessibleContext_8eae119b, XAccessibleEventBroadcas
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleTabBarPage']
 

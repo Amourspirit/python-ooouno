@@ -37,19 +37,15 @@ class ScriptErrorRaisedException(Exception_85530a09):
     typeName: str = 'com.sun.star.script.provider.ScriptErrorRaisedException'
     """Literal Constant ``com.sun.star.script.provider.ScriptErrorRaisedException``"""
 
-    language: str = None
-    """
-        Scripting language of script that generated exception.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    lineNum: int = None
-    """
-        line number where error occurred.
-    """
+        Keyword Arguments:
 
-    scriptName: str = None
-    """
-        Name of script where error occurred.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

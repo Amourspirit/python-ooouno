@@ -41,14 +41,15 @@ class BasicErrorException(Exception_85530a09):
     typeName: str = 'com.sun.star.script.BasicErrorException'
     """Literal Constant ``com.sun.star.script.BasicErrorException``"""
 
-    ErrorCode: int = None
-    """
-        The error code.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    ErrorMessageArgument: str = None
-    """
-        Specifies the argument which is used in the localized error message for the placeholder.
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -59,11 +59,13 @@ class XPropertyControl(ABC):
         
         The property control should actively notify its state changes to the context. In particular, changes in the focus and the value of the control must be notified.
         """
+
     @abstractproperty
     def ControlType(self) -> int:
         """
         denotes the type of the control, as one of the PropertyControlType constants
         """
+
     @abstractproperty
     def ControlWindow(self) -> 'XWindow_713b0924':
         """
@@ -73,6 +75,7 @@ class XPropertyControl(ABC):
         
         This Window must not be NULL, else the whole control is not usable.
         """
+
     @abstractproperty
     def Value(self) -> object:
         """
@@ -80,6 +83,7 @@ class XPropertyControl(ABC):
         
         At every point in time, this value is either VOID, or of the type described by ValueType.
         """
+
     @abstractproperty
     def ValueType(self) -> object:
         """

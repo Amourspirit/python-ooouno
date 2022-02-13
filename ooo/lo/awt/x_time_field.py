@@ -107,6 +107,5 @@ class XTimeField(XInterface_8f010a43):
         sets the time value which is displayed in the time field.
         """
 
-
 __all__ = ['XTimeField']
 

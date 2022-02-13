@@ -34,5 +34,6 @@ class ConfigurationRegistry(XSimpleRegistry_10150e9c, XFlushable_9a420ab4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ConfigurationRegistry']
 

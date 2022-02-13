@@ -39,5 +39,6 @@ class CommandButton(UnoControlButton_d5e30ce3, XApproveActionBroadcaster_693d10b
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CommandButton']
 

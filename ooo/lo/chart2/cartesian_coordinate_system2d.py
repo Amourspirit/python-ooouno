@@ -37,5 +37,6 @@ class CartesianCoordinateSystem2d(XCoordinateSystem_7ff0e31):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CartesianCoordinateSystem2d']
 

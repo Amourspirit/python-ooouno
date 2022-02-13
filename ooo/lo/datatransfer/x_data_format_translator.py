@@ -53,6 +53,5 @@ class XDataFormatTranslator(XInterface_8f010a43):
         If the is no system dependent data type for a given DataFlavor the returned any is empty.
         """
 
-
 __all__ = ['XDataFormatTranslator']
 

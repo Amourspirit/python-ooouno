@@ -37,5 +37,6 @@ class DataOutputStream(XActiveDataSource_d1900c7f, XDataOutputStream_d2f40caf):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataOutputStream']
 

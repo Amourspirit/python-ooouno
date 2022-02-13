@@ -39,5 +39,6 @@ class SingleSelectQueryAnalyzer(XParametersSupplier_fc7c0e01, XSingleSelectQuery
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SingleSelectQueryAnalyzer']
 

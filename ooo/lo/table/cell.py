@@ -36,5 +36,6 @@ class Cell(CellProperties_d4360cbd, XCell_70d408e8, XText_690408ca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Cell']
 

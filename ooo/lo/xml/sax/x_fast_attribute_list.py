@@ -93,6 +93,5 @@ class XFastAttributeList(XInterface_8f010a43):
         If the attribute name has a namespace that was registered with the XFastParser, Token contains the integer token of the attributes local name from the XFastTokenHandler and the integer token of the namespace combined with an arithmetic or operation.
         """
 
-
 __all__ = ['XFastAttributeList']
 

@@ -56,6 +56,5 @@ class XEncryptionResultBroadcaster(XInterface_8f010a43):
         After a listener is removed, no result information will be sent to it.
         """
 
-
 __all__ = ['XEncryptionResultBroadcaster']
 

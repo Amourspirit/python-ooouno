@@ -48,6 +48,5 @@ class XAnnotationEnumeration(ABC):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XAnnotationEnumeration']
 

@@ -54,6 +54,5 @@ class XAnnotationAccess(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XAnnotationAccess']
 

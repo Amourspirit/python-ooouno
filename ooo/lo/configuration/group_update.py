@@ -37,5 +37,6 @@ class GroupUpdate(GroupAccess_1f8f0edf, XNameReplace_f0900d60):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GroupUpdate']
 

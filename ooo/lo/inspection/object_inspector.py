@@ -79,5 +79,6 @@ class ObjectInspector(XObjectInspector_3c860faa):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['ObjectInspector']
 

@@ -131,6 +131,5 @@ class XLocale(XInterface_8f010a43):
         It is normally set once at the beginning of an application, then never reset. setDefault does not reset the host locale.
         """
 
-
 __all__ = ['XLocale']
 

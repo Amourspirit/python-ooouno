@@ -42,5 +42,6 @@ class UnoControlTimeField(UnoControlEdit_bc4e0bed, XSpinField_8e3a0a2a, XTimeFie
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlTimeField']
 

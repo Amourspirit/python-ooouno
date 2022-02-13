@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.logging
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from .x_log_formatter import XLogFormatter as XLogFormatter_e23d0d1d
 
 class XCsvLogFormatter(XLogFormatter_e23d0d1d):
@@ -38,13 +38,6 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.logging.XCsvLogFormatter'
 
-    Columnnames: typing.TypeAlias = 'typing.Tuple[str, ...]'
-    """
-    Defines the names of the additional columns this defaults to only one row titled \"message\".
-    
-    if this is set to more than one column, the messages need to be preformatted using formatMultiColumn
-    """
-
     @abstractmethod
     def formatMultiColumn(self, columnData: 'typing.Tuple[str, ...]') -> str:
         """
@@ -54,27 +47,6 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
         
         XLoggerInstance.log(1000, XCsvLogFormatterInstance.formatMultiColumn(columnData))
         """
-    @abstractproperty
-    def LogEventNo(self) -> bool:
-        """
-        Defines if the EventNo should be logged.
-        """
-    @abstractproperty
-    def LogSource(self) -> bool:
-        """
-        Defines if the Source should be logged.
-        """
-    @abstractproperty
-    def LogThread(self) -> bool:
-        """
-        Defines if the ThreadId should be logged.
-        """
-    @abstractproperty
-    def LogTimestamp(self) -> bool:
-        """
-        Defines if the Timestamp should be logged.
-        """
-
 
 __all__ = ['XCsvLogFormatter']
 

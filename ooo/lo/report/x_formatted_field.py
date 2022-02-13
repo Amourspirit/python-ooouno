@@ -43,6 +43,7 @@ class XFormattedField(XReportControlModel_2d800f4a):
         
         This value is meaningful relative to the FormatsSupplier attribute only.
         """
+
     @abstractproperty
     def FormatsSupplier(self) -> 'XNumberFormatsSupplier_3afb0fb7':
         """

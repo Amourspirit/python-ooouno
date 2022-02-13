@@ -36,4 +36,15 @@ class NoPasswordException(SecurityException_e4950d61):
     typeName: str = 'com.sun.star.security.NoPasswordException'
     """Literal Constant ``com.sun.star.security.NoPasswordException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

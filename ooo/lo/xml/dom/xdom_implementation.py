@@ -62,6 +62,5 @@ class XDOMImplementation(XInterface_8f010a43):
         Test if the DOM implementation implements a specific feature.
         """
 
-
 __all__ = ['XDOMImplementation']
 

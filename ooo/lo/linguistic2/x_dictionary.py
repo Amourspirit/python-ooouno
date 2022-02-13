@@ -123,6 +123,5 @@ class XDictionary(XNamed_a6520b08):
         is used to set the language of the dictionary.
         """
 
-
 __all__ = ['XDictionary']
 

@@ -35,5 +35,6 @@ class TextLayoutCursor(TextCursor_9b770af0, XPageCursor_a4cf0b20):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextLayoutCursor']
 

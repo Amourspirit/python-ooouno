@@ -46,5 +46,6 @@ class AccessibleChartElement(XAccessible_1cbc0eb6, XAccessibleContext_8eae119b, 
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleChartElement']
 

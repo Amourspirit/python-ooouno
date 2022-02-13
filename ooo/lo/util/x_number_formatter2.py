@@ -38,6 +38,5 @@ class XNumberFormatter2(XNumberFormatPreviewer_3a570fa9, XNumberFormatter_e3170d
     __pyunointerface__: str = 'com.sun.star.util.XNumberFormatter2'
 
 
-
 __all__ = ['XNumberFormatter2']
 

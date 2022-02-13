@@ -36,5 +36,6 @@ class DocumentTemplates(XDocumentTemplates_b000e59):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DocumentTemplates']
 

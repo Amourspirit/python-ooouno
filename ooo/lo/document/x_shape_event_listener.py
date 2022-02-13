@@ -47,6 +47,5 @@ class XShapeEventListener(ABC):
         is called whenever a document event (see EventObject) occurs
         """
 
-
 __all__ = ['XShapeEventListener']
 

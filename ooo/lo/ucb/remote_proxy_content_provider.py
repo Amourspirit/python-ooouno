@@ -44,5 +44,6 @@ class RemoteProxyContentProvider(XContentIdentifierFactory_56b91050, XContentPro
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RemoteProxyContentProvider']
 

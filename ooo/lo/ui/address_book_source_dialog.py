@@ -47,5 +47,6 @@ class AddressBookSourceDialog(XExecutableDialog_450f0fa1):
         """
         """
 
+
 __all__ = ['AddressBookSourceDialog']
 

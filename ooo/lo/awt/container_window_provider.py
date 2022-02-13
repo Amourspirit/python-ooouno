@@ -34,5 +34,6 @@ class ContainerWindowProvider(XContainerWindowProvider_498e1012):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ContainerWindowProvider']
 

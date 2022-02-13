@@ -38,5 +38,6 @@ class PrinterServer(XPrinterServer2_c8ba0c39):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PrinterServer']
 

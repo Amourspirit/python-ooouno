@@ -50,6 +50,5 @@ class XStorable2(XStorable_998f0aa7):
             com.sun.star.io.IOException: ``IOException``
         """
 
-
 __all__ = ['XStorable2']
 

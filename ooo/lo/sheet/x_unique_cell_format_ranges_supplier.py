@@ -46,6 +46,5 @@ class XUniqueCellFormatRangesSupplier(XInterface_8f010a43):
         All equal-formatted ranges are consolidated into one collection. These collections are the members contained in a UniqueCellFormatRanges collection.
         """
 
-
 __all__ = ['XUniqueCellFormatRangesSupplier']
 

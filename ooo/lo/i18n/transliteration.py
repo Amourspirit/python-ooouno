@@ -34,5 +34,6 @@ class Transliteration(XExtendedTransliteration_4e181014):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Transliteration']
 

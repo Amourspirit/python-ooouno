@@ -36,5 +36,6 @@ class NumberFormatter(XNumberFormatter2_f0840d6d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NumberFormatter']
 

@@ -118,6 +118,5 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         The text content of this object is set to the given string.
         """
 
-
 __all__ = ['XAccessibleEditableText']
 

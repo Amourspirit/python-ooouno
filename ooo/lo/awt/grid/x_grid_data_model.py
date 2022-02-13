@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt.grid
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ...lang.x_component import XComponent as XComponent_98dc0ab5
 from ...util.x_cloneable import XCloneable as XCloneable_99d00aa3
 
@@ -83,17 +83,6 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
-    @abstractproperty
-    def ColumnCount(self) -> int:
-        """
-        denotes the number of columns for which the model can provide data
-        """
-    @abstractproperty
-    def RowCount(self) -> int:
-        """
-        denotes the number of rows for which the model can provide data
-        """
-
 
 __all__ = ['XGridDataModel']
 

@@ -44,6 +44,5 @@ class XExtendedInputSequenceChecker(XInputSequenceChecker_1eb00e9e):
         """
         """
 
-
 __all__ = ['XExtendedInputSequenceChecker']
 

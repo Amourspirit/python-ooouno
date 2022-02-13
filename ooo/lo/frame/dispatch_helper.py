@@ -40,5 +40,6 @@ class DispatchHelper(XDispatchHelper_e0860cfb):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DispatchHelper']
 

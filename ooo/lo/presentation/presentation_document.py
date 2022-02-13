@@ -37,5 +37,6 @@ class PresentationDocument(GenericDrawingDocument_6a2d10bc, XLinkTargetSupplier_
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PresentationDocument']
 

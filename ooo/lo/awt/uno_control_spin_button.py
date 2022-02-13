@@ -37,5 +37,6 @@ class UnoControlSpinButton(UnoControl_8f2c0a67, XSpinValue_8e920a43):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlSpinButton']
 

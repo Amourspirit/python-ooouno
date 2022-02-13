@@ -44,5 +44,6 @@ class CanvasFactory(XMultiComponentFactory_381b0f98):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CanvasFactory']
 

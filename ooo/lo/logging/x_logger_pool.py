@@ -56,6 +56,5 @@ class XLoggerPool(ABC):
         Newly created logger instances are initialized via configuration. See the configuration module /org.openoffice.Office.Logging for an explanation of the initialization pattern.
         """
 
-
 __all__ = ['XLoggerPool']
 

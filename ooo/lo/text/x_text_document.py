@@ -47,6 +47,5 @@ class XTextDocument(XModel_7a6e095c):
         reformats the contents of the document.
         """
 
-
 __all__ = ['XTextDocument']
 

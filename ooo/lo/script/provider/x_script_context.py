@@ -76,6 +76,5 @@ class XScriptContext(XInterface_8f010a43):
             OOo 3.0
         """
 
-
 __all__ = ['XScriptContext']
 

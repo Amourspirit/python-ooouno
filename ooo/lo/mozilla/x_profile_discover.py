@@ -69,6 +69,5 @@ class XProfileDiscover(XInterface_8f010a43):
         attempts to get whether profile is locked by other applications.
         """
 
-
 __all__ = ['XProfileDiscover']
 

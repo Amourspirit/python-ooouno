@@ -39,4 +39,15 @@ class SQLWarning(SQLException_acc90b43):
     typeName: str = 'com.sun.star.sdbc.SQLWarning'
     """Literal Constant ``com.sun.star.sdbc.SQLWarning``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

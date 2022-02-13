@@ -38,5 +38,6 @@ class DataFormatTranslator(XDataFormatTranslator_b2b5126c):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataFormatTranslator']
 

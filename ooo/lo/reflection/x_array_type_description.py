@@ -54,6 +54,5 @@ class XArrayTypeDescription(XTypeDescription_3c210fb1):
         Returns the element type of the array.
         """
 
-
 __all__ = ['XArrayTypeDescription']
 

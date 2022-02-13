@@ -57,6 +57,5 @@ class XSlideRenderer(ABC):
         Exactly the same functionality as createPreview(), only a different return type: com.sun.star.rendering.XBitmap instead of com.sun.star.awt.XBitmap.
         """
 
-
 __all__ = ['XSlideRenderer']
 

@@ -40,5 +40,6 @@ class DataPilotTable(XDataPilotDescriptor_27650f1a, XDataPilotTable_e0530ce3, XM
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataPilotTable']
 

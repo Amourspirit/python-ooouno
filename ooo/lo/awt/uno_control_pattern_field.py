@@ -42,5 +42,6 @@ class UnoControlPatternField(UnoControlEdit_bc4e0bed, XPatternField_afc10b6e, XS
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlPatternField']
 

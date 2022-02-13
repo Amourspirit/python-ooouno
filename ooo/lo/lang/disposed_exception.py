@@ -39,4 +39,15 @@ class DisposedException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.lang.DisposedException'
     """Literal Constant ``com.sun.star.lang.DisposedException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

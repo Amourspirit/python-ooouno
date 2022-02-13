@@ -37,6 +37,5 @@ class XDrawSubController(XFastPropertySet_ee6b0d88, XDrawView_b0b80b75, XSelecti
     __pyunointerface__: str = 'com.sun.star.drawing.XDrawSubController'
 
 
-
 __all__ = ['XDrawSubController']
 

@@ -53,6 +53,5 @@ class XDispatchInformationProvider(XInterface_8f010a43):
         returns all supported command groups.
         """
 
-
 __all__ = ['XDispatchInformationProvider']
 

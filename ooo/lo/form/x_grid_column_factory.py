@@ -52,6 +52,5 @@ class XGridColumnFactory(XInterface_8f010a43):
         returns a list of available column types.
         """
 
-
 __all__ = ['XGridColumnFactory']
 

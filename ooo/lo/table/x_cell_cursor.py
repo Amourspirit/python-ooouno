@@ -63,6 +63,5 @@ class XCellCursor(XCellRange_a2f70ad5):
         points the cursor to a single cell which is the beginning of a contiguous series of (filled) cells.
         """
 
-
 __all__ = ['XCellCursor']
 

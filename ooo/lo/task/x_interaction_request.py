@@ -47,6 +47,5 @@ class XInteractionRequest(XInterface_8f010a43):
         Get information about the request itself.
         """
 
-
 __all__ = ['XInteractionRequest']
 

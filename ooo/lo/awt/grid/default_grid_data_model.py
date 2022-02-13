@@ -42,5 +42,6 @@ class DefaultGridDataModel(XMutableGridDataModel_6387103b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DefaultGridDataModel']
 

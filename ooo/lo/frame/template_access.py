@@ -35,5 +35,6 @@ class TemplateAccess(XDocumentTemplates_b000e59, XLocalizable_aee00b64):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TemplateAccess']
 

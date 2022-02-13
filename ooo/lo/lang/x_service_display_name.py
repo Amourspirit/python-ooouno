@@ -46,6 +46,5 @@ class XServiceDisplayName(XInterface_8f010a43):
         The caller may specify a com.sun.star.lang.Locale for the preferred language of the resulting string. However, if that locale is not supported the resulting string may be given in a different language. Usually this should be English.
         """
 
-
 __all__ = ['XServiceDisplayName']
 

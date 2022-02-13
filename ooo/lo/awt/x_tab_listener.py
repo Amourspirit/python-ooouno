@@ -64,6 +64,5 @@ class XTabListener(XEventListener_c7230c4a):
         a tab was removed.
         """
 
-
 __all__ = ['XTabListener']
 

@@ -41,4 +41,15 @@ class EmptyUndoStackException(InvalidStateException_2b290f3d):
     typeName: str = 'com.sun.star.document.EmptyUndoStackException'
     """Literal Constant ``com.sun.star.document.EmptyUndoStackException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

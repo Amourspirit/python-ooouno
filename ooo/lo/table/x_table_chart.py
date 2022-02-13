@@ -67,6 +67,5 @@ class XTableChart(XInterface_8f010a43):
         sets the cell ranges that contain the data for the chart.
         """
 
-
 __all__ = ['XTableChart']
 

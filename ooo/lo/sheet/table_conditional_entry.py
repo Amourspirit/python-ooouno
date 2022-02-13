@@ -35,5 +35,6 @@ class TableConditionalEntry(XSheetCondition_e1940d19, XSheetConditionalEntry_484
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TableConditionalEntry']
 

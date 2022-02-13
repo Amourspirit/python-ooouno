@@ -34,5 +34,6 @@ class Boolean(XDataType_83f209cb):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Boolean']
 

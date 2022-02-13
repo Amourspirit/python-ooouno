@@ -37,4 +37,15 @@ class MissingResourceException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.resource.MissingResourceException'
     """Literal Constant ``com.sun.star.resource.MissingResourceException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

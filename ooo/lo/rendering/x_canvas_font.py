@@ -74,6 +74,5 @@ class XCanvasFont(XInterface_8f010a43):
         Query the FontRequest that was used to generate this object.
         """
 
-
 __all__ = ['XCanvasFont']
 

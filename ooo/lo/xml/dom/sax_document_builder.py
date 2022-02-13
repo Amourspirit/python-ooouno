@@ -33,5 +33,6 @@ class SAXDocumentBuilder(XSAXDocumentBuilder2_40550f43):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SAXDocumentBuilder']
 

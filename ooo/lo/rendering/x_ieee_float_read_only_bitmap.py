@@ -80,6 +80,5 @@ class XIeeeFloatReadOnlyBitmap(XBitmap_b1b70b7b):
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
 
-
 __all__ = ['XIeeeFloatReadOnlyBitmap']
 

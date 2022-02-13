@@ -43,5 +43,6 @@ class RelationDesign(XController_b00e0b8f, XInitialization_d46c0cca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RelationDesign']
 

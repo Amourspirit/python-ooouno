@@ -44,6 +44,5 @@ class XCellAddressable(XInterface_8f010a43):
         The com.sun.star.table.CellAddress can be used to address the cell within its document.
         """
 
-
 __all__ = ['XCellAddressable']
 

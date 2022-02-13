@@ -39,5 +39,6 @@ class PackageStream(XPropertySet_bc180bfa, XChild_a6390b07, XNamed_a6520b08, XAc
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PackageStream']
 

@@ -34,6 +34,5 @@ class XSeekableInputStream(XInputStream_98d40ab4, XSeekable_79540954):
     __pyunointerface__: str = 'com.sun.star.io.XSeekableInputStream'
 
 
-
 __all__ = ['XSeekableInputStream']
 

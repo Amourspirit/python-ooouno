@@ -37,9 +37,15 @@ class ErrorCodeIOException(IOException_8c450a27):
     typeName: str = 'com.sun.star.task.ErrorCodeIOException'
     """Literal Constant ``com.sun.star.task.ErrorCodeIOException``"""
 
-    ErrCode: int = None
-    """
-        specifies the error code; see tools/errcode.hxx for details.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

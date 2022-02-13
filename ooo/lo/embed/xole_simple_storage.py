@@ -38,6 +38,5 @@ class XOLESimpleStorage(XNameContainer_cb90e47, XClassifiedObject_fa3b0dab, XTra
     __pyunointerface__: str = 'com.sun.star.embed.XOLESimpleStorage'
 
 
-
 __all__ = ['XOLESimpleStorage']
 

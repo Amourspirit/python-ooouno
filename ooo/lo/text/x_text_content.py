@@ -56,6 +56,5 @@ class XTextContent(XComponent_98dc0ab5):
         The reason why a text table still needs an anchor is that for example tables should be insertable via com.sun.star.text.insertTextContent and that interface uses a parameter of that type.
         """
 
-
 __all__ = ['XTextContent']
 

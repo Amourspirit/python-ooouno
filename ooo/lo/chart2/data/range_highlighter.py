@@ -33,5 +33,6 @@ class RangeHighlighter(XRangeHighlighter_4e810fc8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RangeHighlighter']
 

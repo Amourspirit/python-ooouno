@@ -52,6 +52,5 @@ class XBitmap(XInterface_8f010a43):
         returns the size of the bitmap in pixel.
         """
 
-
 __all__ = ['XBitmap']
 

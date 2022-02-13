@@ -21,7 +21,8 @@
 import typing
 from abc import abstractproperty
 from .x_condition_entry import XConditionEntry as XConditionEntry_e2340d32
-from .x_icon_set_entry import XIconSetEntry as XIconSetEntry_c7620c40
+if typing.TYPE_CHECKING:
+    from .x_icon_set_entry import XIconSetEntry as XIconSetEntry_c7620c40
 
 class IconSet(XConditionEntry_e2340d32):
     """
@@ -35,23 +36,12 @@ class IconSet(XConditionEntry_e2340d32):
     __ooo_full_ns__: str = 'com.sun.star.sheet.IconSet'
     __ooo_type_name__: str = 'service'
 
-    IconSetEntries: typing.TypeAlias = typing.Tuple[XIconSetEntry_c7620c40, ...]
-    """
-    """
+    @abstractproperty
+    def IconSetEntries(self) -> 'typing.Tuple[XIconSetEntry_c7620c40, ...]':
+        """
+        """
 
-    @abstractproperty
-    def Icons(self) -> int:
-        """
-        See com.sun.star.sheet.IconSetType for possible values.
-        """
-    @abstractproperty
-    def Reverse(self) -> bool:
-        """
-        """
-    @abstractproperty
-    def ShowValue(self) -> bool:
-        """
-        """
+
 
 __all__ = ['IconSet']
 

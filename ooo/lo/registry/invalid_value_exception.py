@@ -37,4 +37,15 @@ class InvalidValueException(Exception_85530a09):
     typeName: str = 'com.sun.star.registry.InvalidValueException'
     """Literal Constant ``com.sun.star.registry.InvalidValueException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

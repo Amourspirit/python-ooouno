@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.presentation
 import typing
-from abc import abstractmethod, abstractproperty, ABC
+from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from ..drawing.x_draw_page import XDrawPage as XDrawPage_b07a0b57
     from .x_slide_show import XSlideShow as XSlideShow_2a80e0e
@@ -221,38 +221,6 @@ class XSlideShowController(ABC):
         """
         stop all currently played sounds
         """
-    @abstractproperty
-    def AlwaysOnTop(self) -> bool:
-        """
-        If this attribute is set to TRUE, the window of the slide show is always on top of all other windows.
-        """
-    @abstractproperty
-    def MouseVisible(self) -> bool:
-        """
-        If this attribute is TRUE, the mouse is visible during the slide show.
-        """
-    @abstractproperty
-    def PenColor(self) -> int:
-        """
-        This attribute changes the color of the pen.
-        """
-    @abstractproperty
-    def PenWidth(self) -> float:
-        """
-        This attribute changes the width of the pen.
-        
-        **since**
-        
-            LibreOffice 4.2
-        """
-    @abstractproperty
-    def UsePen(self) -> bool:
-        """
-        If this is TRUE, a pen is shown during presentation.
-        
-        You can draw on the presentation with this pen.
-        """
-
 
 __all__ = ['XSlideShowController']
 

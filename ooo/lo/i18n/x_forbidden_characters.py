@@ -63,6 +63,5 @@ class XForbiddenCharacters(XInterface_8f010a43):
         sets the forbidden characters for a given Locale.
         """
 
-
 __all__ = ['XForbiddenCharacters']
 

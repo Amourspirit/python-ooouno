@@ -50,6 +50,5 @@ class XActiveDataStreamer(XInterface_8f010a43):
         If XConnectable is also implemented, this method should query aStream for a XConnectable and connect both.
         """
 
-
 __all__ = ['XActiveDataStreamer']
 

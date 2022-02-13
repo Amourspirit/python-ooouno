@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.scanner
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.scanner import ScannerContext as UScannerContext
+        # Dynamically create uno com.sun.star.scanner.ScannerContext using uno
         global ScannerContext
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.scanner.ScannerContext'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.scanner import ScannerContext as UScannerContext
-                if isinstance(args[0], UScannerContext):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.scanner.ScannerContext', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ScannerName = UNO_NONE, InternalData = UNO_NONE):
+            ns = 'com.sun.star.scanner.ScannerContext'
+            if isinstance(ScannerName, UScannerContext):
+                inst = uno.createUnoStruct(ns, ScannerName)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ScannerName', 'InternalData')
-            struct = uno.createUnoStruct('com.sun.star.scanner.ScannerContext')
-            if arg_len > len(key_order):
-                raise ValueError("ScannerContext.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ScannerName is UNO_NONE:
+                if getattr(struct, 'ScannerName') != ScannerName:
+                    setattr(struct, 'ScannerName', ScannerName)
+            if not InternalData is UNO_NONE:
+                if getattr(struct, 'InternalData') != InternalData:
+                    setattr(struct, 'InternalData', InternalData)
             _set_attr(struct)
             return struct
         ScannerContext = _struct_init

@@ -41,5 +41,6 @@ class MtfRenderer(XMtfRenderer_f0d90d7c):
         """
         """
 
+
 __all__ = ['MtfRenderer']
 

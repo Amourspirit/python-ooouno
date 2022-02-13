@@ -57,6 +57,5 @@ class XContentAccess(XInterface_8f010a43):
         Note that this string can be used later to recreate the content.
         """
 
-
 __all__ = ['XContentAccess']
 

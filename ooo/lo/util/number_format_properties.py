@@ -41,21 +41,26 @@ class NumberFormatProperties(ABC):
         """
         contains a comment regarding the number format for display to the user.
         """
+
     @abstractproperty
     def FormatString(self) -> str:
         """
         contains the format string of the number format.
         """
+
     @abstractproperty
     def Locale(self) -> 'Locale_70d308fa':
         """
         contains the locale of the number format.
         """
+
     @abstractproperty
     def Type(self) -> int:
         """
         contains the type of the number format.
         """
+
+
 
 __all__ = ['NumberFormatProperties']
 

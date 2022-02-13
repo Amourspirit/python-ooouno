@@ -38,5 +38,6 @@ class Invocation(XSingleServiceFactory_27210f0d):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Invocation']
 

@@ -53,5 +53,6 @@ class ErrorMessageDialog(XExecutableDialog_450f0fa1):
         allowed parameters are
         """
 
+
 __all__ = ['ErrorMessageDialog']
 

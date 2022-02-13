@@ -36,5 +36,6 @@ class TextOutputStream(XTextOutputStream2_e26b0d0c):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextOutputStream']
 

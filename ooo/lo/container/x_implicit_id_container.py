@@ -47,6 +47,5 @@ class XImplicitIDContainer(XImplicitIDReplace_49260fa7):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XImplicitIDContainer']
 

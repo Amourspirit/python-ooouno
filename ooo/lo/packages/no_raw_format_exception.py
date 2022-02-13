@@ -37,4 +37,15 @@ class NoRawFormatException(IOException_8c450a27):
     typeName: str = 'com.sun.star.packages.NoRawFormatException'
     """Literal Constant ``com.sun.star.packages.NoRawFormatException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

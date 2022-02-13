@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ui
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ui import LayoutSize as ULayoutSize
+        # Dynamically create uno com.sun.star.ui.LayoutSize using uno
         global LayoutSize
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ui.LayoutSize'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ui import LayoutSize as ULayoutSize
-                if isinstance(args[0], ULayoutSize):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ui.LayoutSize', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Minimum = UNO_NONE, Maximum = UNO_NONE, Preferred = UNO_NONE):
+            ns = 'com.sun.star.ui.LayoutSize'
+            if isinstance(Minimum, ULayoutSize):
+                inst = uno.createUnoStruct(ns, Minimum)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Minimum', 'Maximum', 'Preferred')
-            struct = uno.createUnoStruct('com.sun.star.ui.LayoutSize')
-            if arg_len > len(key_order):
-                raise ValueError("LayoutSize.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Minimum is UNO_NONE:
+                if getattr(struct, 'Minimum') != Minimum:
+                    setattr(struct, 'Minimum', Minimum)
+            if not Maximum is UNO_NONE:
+                if getattr(struct, 'Maximum') != Maximum:
+                    setattr(struct, 'Maximum', Maximum)
+            if not Preferred is UNO_NONE:
+                if getattr(struct, 'Preferred') != Preferred:
+                    setattr(struct, 'Preferred', Preferred)
             _set_attr(struct)
             return struct
         LayoutSize = _struct_init

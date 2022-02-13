@@ -82,6 +82,5 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XTimeContainer']
 

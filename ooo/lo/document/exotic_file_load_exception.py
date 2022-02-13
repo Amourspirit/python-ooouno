@@ -41,14 +41,15 @@ class ExoticFileLoadException(Exception_85530a09):
     typeName: str = 'com.sun.star.document.ExoticFileLoadException'
     """Literal Constant ``com.sun.star.document.ExoticFileLoadException``"""
 
-    FilterUIName: str = None
-    """
-        contains the UI name of the filter
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    URL: str = None
-    """
-        contains the URL of the document
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -37,5 +37,6 @@ class FixedText(UnoControlFixedTextModel_49a00fed, FormControlModel_e2990d22):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FixedText']
 

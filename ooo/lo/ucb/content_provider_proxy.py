@@ -38,5 +38,6 @@ class ContentProviderProxy(XContentProvider_d4150cc0, XContentProviderSupplier_4
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ContentProviderProxy']
 

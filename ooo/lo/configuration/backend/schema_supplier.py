@@ -34,5 +34,6 @@ class SchemaSupplier(XSchemaSupplier_eca11373):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SchemaSupplier']
 

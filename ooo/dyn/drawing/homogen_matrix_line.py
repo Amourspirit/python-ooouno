@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.drawing import HomogenMatrixLine as UHomogenMatrixLine
+        # Dynamically create uno com.sun.star.drawing.HomogenMatrixLine using uno
         global HomogenMatrixLine
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.HomogenMatrixLine'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.drawing import HomogenMatrixLine as UHomogenMatrixLine
-                if isinstance(args[0], UHomogenMatrixLine):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.drawing.HomogenMatrixLine', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Column1 = UNO_NONE, Column2 = UNO_NONE, Column3 = UNO_NONE, Column4 = UNO_NONE):
+            ns = 'com.sun.star.drawing.HomogenMatrixLine'
+            if isinstance(Column1, UHomogenMatrixLine):
+                inst = uno.createUnoStruct(ns, Column1)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Column1', 'Column2', 'Column3', 'Column4')
-            struct = uno.createUnoStruct('com.sun.star.drawing.HomogenMatrixLine')
-            if arg_len > len(key_order):
-                raise ValueError("HomogenMatrixLine.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Column1 is UNO_NONE:
+                if getattr(struct, 'Column1') != Column1:
+                    setattr(struct, 'Column1', Column1)
+            if not Column2 is UNO_NONE:
+                if getattr(struct, 'Column2') != Column2:
+                    setattr(struct, 'Column2', Column2)
+            if not Column3 is UNO_NONE:
+                if getattr(struct, 'Column3') != Column3:
+                    setattr(struct, 'Column3', Column3)
+            if not Column4 is UNO_NONE:
+                if getattr(struct, 'Column4') != Column4:
+                    setattr(struct, 'Column4', Column4)
             _set_attr(struct)
             return struct
         HomogenMatrixLine = _struct_init

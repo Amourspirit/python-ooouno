@@ -87,6 +87,5 @@ class XXPathObject(XInterface_8f010a43):
         get string value
         """
 
-
 __all__ = ['XXPathObject']
 

@@ -51,6 +51,5 @@ class XTypeDetection(XInterface_8f010a43):
         It use given URL in combination with the internal configuration of well known types only to specify the format of given document.
         """
 
-
 __all__ = ['XTypeDetection']
 

@@ -39,5 +39,6 @@ class FormattedField(UnoControlFormattedField_4a610ff1, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormattedField']
 

@@ -42,5 +42,6 @@ class Connection(XComponent_98dc0ab5, XConnection_a36a0b0c, XWarningsSupplier_ef
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Connection']
 

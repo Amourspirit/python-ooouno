@@ -39,5 +39,6 @@ class ValidatableBindableControlModel(BindableControlModel_9a1111a8, Validatable
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ValidatableBindableControlModel']
 

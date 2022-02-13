@@ -21,7 +21,7 @@
 import typing
 from .point_sequence import PointSequence
 
-PointSequenceSequence = typing.Tuple[PointSequence, ...]
+PointSequenceSequence = typing.NewType('PointSequenceSequence', typing.Tuple[PointSequence, ...])
 """
 TypeDef type alias
 

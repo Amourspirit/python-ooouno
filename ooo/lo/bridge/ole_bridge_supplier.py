@@ -40,5 +40,6 @@ class OleBridgeSupplier(XBridgeSupplier_ede00d6e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleBridgeSupplier']
 

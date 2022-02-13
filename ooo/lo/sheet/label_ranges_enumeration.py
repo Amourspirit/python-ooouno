@@ -34,5 +34,6 @@ class LabelRangesEnumeration(XEnumeration_f2180daa):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LabelRangesEnumeration']
 

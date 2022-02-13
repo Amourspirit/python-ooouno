@@ -52,6 +52,5 @@ class XAutoscroll(XInterface_8f010a43):
         Returns the regions describing the autoscrolling region.
         """
 
-
 __all__ = ['XAutoscroll']
 

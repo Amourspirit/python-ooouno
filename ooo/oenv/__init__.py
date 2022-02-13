@@ -14,4 +14,6 @@ if not TYPE_CHECKING:
 UNO_RUNTIME = False if (UNO_ENVIRONMENT is False or os.environ.get(
     'ooouno_ignore_runtime', None) == 'True') else True
 
-__all__ = ['UNO_ENVIRONMENT', 'UNO_RUNTIME']
+UNO_NONE = object()
+
+__all__ = ['UNO_ENVIRONMENT', 'UNO_RUNTIME', 'UNO_NONE']

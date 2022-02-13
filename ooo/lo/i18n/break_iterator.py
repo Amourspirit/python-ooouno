@@ -38,5 +38,6 @@ class BreakIterator(XBreakIterator_bf270bcf):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BreakIterator']
 

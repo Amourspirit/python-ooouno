@@ -44,5 +44,6 @@ class AccessibleDrawDocumentView(XAccessible_1cbc0eb6, XAccessibleComponent_b2f2
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleDrawDocumentView']
 

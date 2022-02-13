@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import CalendarItem as UCalendarItem
+        # Dynamically create uno com.sun.star.i18n.CalendarItem using uno
         global CalendarItem
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.CalendarItem'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import CalendarItem as UCalendarItem
-                if isinstance(args[0], UCalendarItem):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.CalendarItem', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ID = UNO_NONE, AbbrevName = UNO_NONE, FullName = UNO_NONE):
+            ns = 'com.sun.star.i18n.CalendarItem'
+            if isinstance(ID, UCalendarItem):
+                inst = uno.createUnoStruct(ns, ID)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ID', 'AbbrevName', 'FullName')
-            struct = uno.createUnoStruct('com.sun.star.i18n.CalendarItem')
-            if arg_len > len(key_order):
-                raise ValueError("CalendarItem.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ID is UNO_NONE:
+                if getattr(struct, 'ID') != ID:
+                    setattr(struct, 'ID', ID)
+            if not AbbrevName is UNO_NONE:
+                if getattr(struct, 'AbbrevName') != AbbrevName:
+                    setattr(struct, 'AbbrevName', AbbrevName)
+            if not FullName is UNO_NONE:
+                if getattr(struct, 'FullName') != FullName:
+                    setattr(struct, 'FullName', FullName)
             _set_attr(struct)
             return struct
         CalendarItem = _struct_init

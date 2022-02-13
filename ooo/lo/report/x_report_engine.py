@@ -90,6 +90,7 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         """
         specifies the active connection which is used to create the resulting report.
         """
+
     @abstractproperty
     def MaxRows(self) -> int:
         """
@@ -98,11 +99,13 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         If the limit is exceeded, the excess rows are silently dropped.
         There is no limitation, if set to zero.
         """
+
     @abstractproperty
     def ReportDefinition(self) -> 'XReportDefinition_ec30e81':
         """
         specifies the report definition object which is used to create the resulting report.
         """
+
     @abstractproperty
     def StatusIndicator(self) -> 'XStatusIndicator_e2d00d34':
         """

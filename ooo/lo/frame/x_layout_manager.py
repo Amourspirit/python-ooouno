@@ -237,6 +237,5 @@ class XLayoutManager(XInterface_8f010a43):
         unlocks a window based user interface element if it's in a docked state.
         """
 
-
 __all__ = ['XLayoutManager']
 

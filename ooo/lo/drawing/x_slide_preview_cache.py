@@ -98,6 +98,5 @@ class XSlidePreviewCache(ABC):
         This information is used for give preview creation for visible slides a higher priority than for those slides that are not visible.
         """
 
-
 __all__ = ['XSlidePreviewCache']
 

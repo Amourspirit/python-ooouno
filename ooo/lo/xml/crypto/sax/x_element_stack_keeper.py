@@ -54,6 +54,5 @@ class XElementStackKeeper(XInterface_8f010a43):
         Stops buffering key SAX events.
         """
 
-
 __all__ = ['XElementStackKeeper']
 

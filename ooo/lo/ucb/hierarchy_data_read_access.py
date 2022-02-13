@@ -41,5 +41,6 @@ class HierarchyDataReadAccess(XHierarchicalNameAccess_9e2611b5, XNameAccess_e2ab
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HierarchyDataReadAccess']
 

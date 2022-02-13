@@ -38,5 +38,6 @@ class LdapSingleBackend(SingleBackend_c64d1280):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LdapSingleBackend']
 

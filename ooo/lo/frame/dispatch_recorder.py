@@ -40,5 +40,6 @@ class DispatchRecorder(XDispatchRecorder_fbd70dd1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DispatchRecorder']
 

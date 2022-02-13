@@ -43,6 +43,5 @@ class XVbaMethodParameter(XInterface_8f010a43):
         sets the value of the parameter with the specified name.
         """
 
-
 __all__ = ['XVbaMethodParameter']
 

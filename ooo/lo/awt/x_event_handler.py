@@ -39,6 +39,5 @@ class XEventHandler(XInterface_8f010a43):
         requests the implementor of this interface to handle a platform dependent event.
         """
 
-
 __all__ = ['XEventHandler']
 

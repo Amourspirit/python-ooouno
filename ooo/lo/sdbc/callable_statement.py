@@ -47,5 +47,6 @@ class CallableStatement(PreparedStatement_eef40d8c, XOutParameters_c6db0c48, XRo
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CallableStatement']
 

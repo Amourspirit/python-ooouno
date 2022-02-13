@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.form.runtime
 import typing
-from abc import abstractmethod, abstractproperty, ABC
+from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from ...awt.x_control import XControl as XControl_7a9c098d
     from .x_filter_controller_listener import XFilterControllerListener as XFilterControllerListener_381416
@@ -100,24 +100,6 @@ class XFilterController(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
-    @abstractproperty
-    def ActiveTerm(self) -> int:
-        """
-        denotes the active term of the filter controller.
-        """
-    @abstractproperty
-    def DisjunctiveTerms(self) -> int:
-        """
-        is the number of disjunctive terms of the filter expression represented by the form based filter.
-        """
-    @abstractproperty
-    def FilterComponents(self) -> int:
-        """
-        is the number of filter components, or filter controls, which the filter controller is responsible for.
-        
-        This number is constant during one session of the form based filter.
-        """
-
 
 __all__ = ['XFilterController']
 

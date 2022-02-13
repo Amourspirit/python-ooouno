@@ -72,6 +72,5 @@ class XDataPilotTable2(XDataPilotTable_e0530ce3):
         The new sheet is always inserted to the immediate left of the current sheet where the DataPilot table is. Note that when the drill-down data is empty, no new sheet is inserted.
         """
 
-
 __all__ = ['XDataPilotTable2']
 

@@ -34,5 +34,6 @@ class NumberFormatMapper(XNumberFormatCode_e5c00ced):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NumberFormatMapper']
 

@@ -54,6 +54,5 @@ class XNumberFormatPreviewer(XInterface_8f010a43):
             com.sun.star.util.MalformedNumberFormatException: ``MalformedNumberFormatException``
         """
 
-
 __all__ = ['XNumberFormatPreviewer']
 

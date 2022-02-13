@@ -49,6 +49,5 @@ class XSynchronousDispatch(XInterface_8f010a43):
         After getting a dispatch object as a result of a queryDispatch call, this interface can be used to dispatch the URL synchronously and with a return value.
         """
 
-
 __all__ = ['XSynchronousDispatch']
 

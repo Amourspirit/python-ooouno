@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.inspection
 import typing
-from abc import abstractmethod, abstractproperty, ABC
+from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from .property_category_descriptor import PropertyCategoryDescriptor as PropertyCategoryDescriptor_f4691406
 
@@ -38,17 +38,6 @@ class XObjectInspectorModel(ABC):
     __ooo_full_ns__: str = 'com.sun.star.inspection.XObjectInspectorModel'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.inspection.XObjectInspectorModel'
-
-    HandlerFactories: typing.TypeAlias = typing.Tuple[object, ...]
-    """
-    describes a set of factories for creating XPropertyHandlers
-    
-    Every element of the sequence must contain information to create a XPropertyHandler instance. Two ways are currently supported:
-    
-    This attribute is usually only evaluated by the ObjectInspector instance which the model is currently bound to.
-    
-    The order of factories is important: If two property handlers declare themselves responsible for the same property, the one whose factory is listed last wins. Also, if a handler B wants to supersede a property of another handler A, A's factory must precede the factory of B.
-    """
 
     @abstractmethod
     def describeCategories(self) -> 'typing.Tuple[PropertyCategoryDescriptor_f4691406, ...]':
@@ -70,54 +59,6 @@ class XObjectInspectorModel(ABC):
         If for two different properties the same order index is returned, the ObjectInspector will assume the order in which those properties were provided by the respective property handler (XPropertyHandler.getSupportedProperties()).
         If two such properties originate from different handlers, they will be ordered according to the order of the handlers, as provided in the HandlerFactories attribute.
         """
-    @abstractproperty
-    def HasHelpSection(self) -> bool:
-        """
-        indicates that the object inspector should have a help section.
-        
-        The object inspector displays lines of property/values, optionally grouped into categories, as described by the property handlers.
-        Additionally, the inspector can optionally display a section dedicated to help texts. Clients could use this section to display context-sensitive help, for instance short texts explaining the currently selected property.
-        
-        **since**
-        
-            OOo 2.2
-        """
-    @abstractproperty
-    def IsReadOnly(self) -> bool:
-        """
-        determines whether the object inspector's UI should be read-only.
-        
-        In this case, the user is able to browse through all properties, but cannot change any of them.
-        
-        In a read-only object inspector, the property controls are readonly or disabled themselves, and the primary and secondary buttons of a property line are both disabled.
-        """
-    @abstractproperty
-    def MaxHelpTextLines(self) -> int:
-        """
-        denotes the maximum number of lines of text to be reserved for the help section.
-        
-        This property is ignored by the ObjectInspector if HasHelpSection is FALSE.
-        
-        The layout of the ObjectInspector is undefined if MaxHelpTextLines is smaller than MinHelpTextLines.
-        
-        **since**
-        
-            OOo 2.2
-        """
-    @abstractproperty
-    def MinHelpTextLines(self) -> int:
-        """
-        denotes the minimum number of lines of text to be reserved for the help section.
-        
-        This property is ignored by the ObjectInspector if HasHelpSection is FALSE.
-        
-        The layout of the ObjectInspector is undefined if MinHelpTextLines is larger than MaxHelpTextLines.
-        
-        **since**
-        
-            OOo 2.2
-        """
-
 
 __all__ = ['XObjectInspectorModel']
 

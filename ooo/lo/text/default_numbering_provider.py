@@ -34,5 +34,6 @@ class DefaultNumberingProvider(XDefaultNumberingProvider_6b4610dc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DefaultNumberingProvider']
 

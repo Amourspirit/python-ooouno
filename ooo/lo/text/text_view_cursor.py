@@ -35,5 +35,6 @@ class TextViewCursor(TextLayoutCursor_e5530d6e, XScreenCursor_bc4a0bf9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextViewCursor']
 

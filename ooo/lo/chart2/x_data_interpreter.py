@@ -71,6 +71,5 @@ class XDataInterpreter(XInterface_8f010a43):
         Re-interprets the data given in aInterpretedData while keeping the number of data series and the categories.
         """
 
-
 __all__ = ['XDataInterpreter']
 

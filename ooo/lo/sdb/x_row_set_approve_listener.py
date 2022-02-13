@@ -53,6 +53,5 @@ class XRowSetApproveListener(XEventListener_c7230c4a):
         is called before a row set is changed, or in other words before a row set is reexecuted.
         """
 
-
 __all__ = ['XRowSetApproveListener']
 

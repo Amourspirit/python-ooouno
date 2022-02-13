@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ucb import OpenCommandArgument2 as UOpenCommandArgument2
+        # Dynamically create uno com.sun.star.ucb.OpenCommandArgument2 using uno
         global OpenCommandArgument2
 
         def _set_attr(struct):
@@ -35,25 +36,22 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.OpenCommandArgument2'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ucb import OpenCommandArgument2 as UOpenCommandArgument2
-                if isinstance(args[0], UOpenCommandArgument2):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ucb.OpenCommandArgument2', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(SortingInfo = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.ucb.OpenCommandArgument2'
+            if isinstance(SortingInfo, UOpenCommandArgument2):
+                inst = uno.createUnoStruct(ns, SortingInfo)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ()
-            struct = uno.createUnoStruct('com.sun.star.ucb.OpenCommandArgument2')
-            if arg_len > len(key_order):
-                raise ValueError("OpenCommandArgument2.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not SortingInfo is UNO_NONE:
+                if getattr(struct, 'SortingInfo') != SortingInfo:
+                    setattr(struct, 'SortingInfo', SortingInfo)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         OpenCommandArgument2 = _struct_init

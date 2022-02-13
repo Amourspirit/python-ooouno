@@ -34,5 +34,6 @@ class GraphicRasterizer(XGraphicRasterizer_29080f27):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GraphicRasterizer']
 

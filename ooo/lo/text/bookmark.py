@@ -35,5 +35,6 @@ class Bookmark(TextContent_a6810b4d, XNamed_a6520b08):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Bookmark']
 

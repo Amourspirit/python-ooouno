@@ -88,6 +88,5 @@ class XSheetLinkable(XInterface_8f010a43):
         A SheetLink object with the same file name must exist already or the link will not work.
         """
 
-
 __all__ = ['XSheetLinkable']
 

@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt
 from ..accessibility.x_accessible_action import XAccessibleAction as XAccessibleAction_7ccc1114
+from ..accessibility.x_accessible_component import XAccessibleComponent as XAccessibleComponent_b2f21269
 from ..accessibility.x_accessible_context import XAccessibleContext as XAccessibleContext_8eae119b
 from ..accessibility.x_accessible_event_broadcaster import XAccessibleEventBroadcaster as XAccessibleEventBroadcaster_3d811522
 from ..accessibility.x_accessible_extended_component import XAccessibleExtendedComponent as XAccessibleExtendedComponent_539d159a
@@ -42,6 +43,7 @@ class AccessibleMenu(XAccessibleAction_7ccc1114, XAccessibleContext_8eae119b, XA
     __ooo_ns__: str = 'com.sun.star.awt'
     __ooo_full_ns__: str = 'com.sun.star.awt.AccessibleMenu'
     __ooo_type_name__: str = 'service'
+
 
 
 __all__ = ['AccessibleMenu']

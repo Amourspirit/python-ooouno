@@ -113,6 +113,5 @@ class XResourceId(ABC):
         This is a convenience variant of the isBoundTo() function that can also be seen as an optimization for the case that the anchor consists of exactly one URL.
         """
 
-
 __all__ = ['XResourceId']
 

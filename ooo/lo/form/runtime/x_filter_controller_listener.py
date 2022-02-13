@@ -70,6 +70,5 @@ class XFilterControllerListener(XEventListener_c7230c4a):
         FilterEvent.PredicateExpression is the new predicate expressions.
         """
 
-
 __all__ = ['XFilterControllerListener']
 

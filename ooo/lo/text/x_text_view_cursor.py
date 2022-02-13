@@ -50,6 +50,5 @@ class XTextViewCursor(XTextCursor_a60c0b48):
         shows or hides this cursor for the user.
         """
 
-
 __all__ = ['XTextViewCursor']
 

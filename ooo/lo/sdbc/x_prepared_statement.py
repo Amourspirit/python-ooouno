@@ -76,6 +76,5 @@ class XPreparedStatement(XInterface_8f010a43):
             SQLException: ``SQLException``
         """
 
-
 __all__ = ['XPreparedStatement']
 

@@ -43,5 +43,6 @@ class TextCursor(TextRange_90540a5f, XSortable_8ff20a5a, XSentenceCursor_d6590cd
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextCursor']
 

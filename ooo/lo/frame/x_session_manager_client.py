@@ -67,6 +67,5 @@ class XSessionManagerClient(XInterface_8f010a43):
         saveDone signals that a listener has processed a save request
         """
 
-
 __all__ = ['XSessionManagerClient']
 

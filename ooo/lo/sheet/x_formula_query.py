@@ -53,6 +53,5 @@ class XFormulaQuery(XInterface_8f010a43):
         Precedent cells are cells which are referenced from a formula cell.
         """
 
-
 __all__ = ['XFormulaQuery']
 

@@ -46,6 +46,5 @@ class XStatusIndicatorSupplier(XInterface_8f010a43):
         use XStatusIndicatorFactory.createStatusIndicator() instead of this
         """
 
-
 __all__ = ['XStatusIndicatorSupplier']
 

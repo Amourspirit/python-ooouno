@@ -73,6 +73,5 @@ class XLinkageSupport(XCommonEmbedPersist_16930e8d):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
 
-
 __all__ = ['XLinkageSupport']
 

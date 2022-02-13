@@ -37,11 +37,15 @@ class StateChangeInProgressException(WrongStateException_19f60ec2):
     typeName: str = 'com.sun.star.embed.StateChangeInProgressException'
     """Literal Constant ``com.sun.star.embed.StateChangeInProgressException``"""
 
-    TargetState: int = None
-    """
-        contains the target state the object tries to reach currently.
-        
-        Contains a value from EmbedStates constant set.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

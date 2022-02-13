@@ -37,5 +37,6 @@ class Model(XModel2_907b0a22):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Model']
 

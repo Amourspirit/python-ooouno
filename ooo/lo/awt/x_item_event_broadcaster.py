@@ -47,6 +47,5 @@ class XItemEventBroadcaster(XInterface_8f010a43):
         unregisters a listener for item events.
         """
 
-
 __all__ = ['XItemEventBroadcaster']
 

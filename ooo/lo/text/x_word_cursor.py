@@ -68,6 +68,5 @@ class XWordCursor(XTextCursor_a60c0b48):
         determines if the cursor is positioned at the start of a word.
         """
 
-
 __all__ = ['XWordCursor']
 

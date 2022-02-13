@@ -67,6 +67,5 @@ class XFilePickerControlAccess(XFilePicker_ec3e0d2d):
         Set the value of an additional element within a FilePicker.
         """
 
-
 __all__ = ['XFilePickerControlAccess']
 

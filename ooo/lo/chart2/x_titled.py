@@ -47,6 +47,5 @@ class XTitled(XInterface_8f010a43):
         set a new title object replacing the former one
         """
 
-
 __all__ = ['XTitled']
 

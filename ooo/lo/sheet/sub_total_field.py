@@ -36,5 +36,6 @@ class SubTotalField(XSubTotalField_d4710c8b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SubTotalField']
 

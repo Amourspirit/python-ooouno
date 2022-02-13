@@ -33,5 +33,6 @@ class SlideShow(XSlideShow_2a80e0e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SlideShow']
 

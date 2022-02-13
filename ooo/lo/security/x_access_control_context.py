@@ -52,6 +52,5 @@ class XAccessControlContext(XInterface_8f010a43):
             AccessControlException: ``AccessControlException``
         """
 
-
 __all__ = ['XAccessControlContext']
 

@@ -44,5 +44,6 @@ class TypeDescriptionProvider(XHierarchicalNameAccess_9e2611b5, XComponent_98dc0
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TypeDescriptionProvider']
 

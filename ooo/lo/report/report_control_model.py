@@ -33,5 +33,6 @@ class ReportControlModel(XReportControlModel_2d800f4a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ReportControlModel']
 

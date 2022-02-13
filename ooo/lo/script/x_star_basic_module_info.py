@@ -55,6 +55,5 @@ class XStarBasicModuleInfo(XInterface_8f010a43):
         The code has to correspond with the language defined by Language.
         """
 
-
 __all__ = ['XStarBasicModuleInfo']
 

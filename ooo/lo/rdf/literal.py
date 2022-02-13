@@ -58,5 +58,6 @@ class Literal(XLiteral_79ec0969, XNode_5ee40822):
         creates a typed literal RDF node.
         """
 
+
 __all__ = ['Literal']
 

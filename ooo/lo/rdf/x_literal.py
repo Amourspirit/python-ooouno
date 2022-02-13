@@ -49,11 +49,13 @@ class XLiteral(XNode_5ee40822):
         """
         the data type of the literal; may be NULL
         """
+
     @abstractproperty
     def Language(self) -> str:
         """
         the language of the literal; may be the empty string
         """
+
     @abstractproperty
     def Value(self) -> str:
         """

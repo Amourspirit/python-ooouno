@@ -41,5 +41,6 @@ class TableCellStyle(CellStyle_9b190aca, CharacterProperties_1d4f0ef3, Character
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TableCellStyle']
 

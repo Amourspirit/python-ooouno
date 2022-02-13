@@ -37,4 +37,15 @@ class SecurityException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.uno.SecurityException'
     """Literal Constant ``com.sun.star.uno.SecurityException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

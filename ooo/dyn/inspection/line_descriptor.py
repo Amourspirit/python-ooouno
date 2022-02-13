@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.inspection
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.inspection import LineDescriptor as ULineDescriptor
+        # Dynamically create uno com.sun.star.inspection.LineDescriptor using uno
         global LineDescriptor
 
         def _set_attr(struct):
@@ -35,25 +36,53 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.inspection.LineDescriptor'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.inspection import LineDescriptor as ULineDescriptor
-                if isinstance(args[0], ULineDescriptor):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.inspection.LineDescriptor', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(DisplayName = UNO_NONE, Control = UNO_NONE, HelpURL = UNO_NONE, HasPrimaryButton = UNO_NONE, PrimaryButtonId = UNO_NONE, PrimaryButtonImageURL = UNO_NONE, PrimaryButtonImage = UNO_NONE, HasSecondaryButton = UNO_NONE, SecondaryButtonId = UNO_NONE, SecondaryButtonImageURL = UNO_NONE, SecondaryButtonImage = UNO_NONE, IndentLevel = UNO_NONE, Category = UNO_NONE):
+            ns = 'com.sun.star.inspection.LineDescriptor'
+            if isinstance(DisplayName, ULineDescriptor):
+                inst = uno.createUnoStruct(ns, DisplayName)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('DisplayName', 'Control', 'HelpURL', 'HasPrimaryButton', 'PrimaryButtonId', 'PrimaryButtonImageURL', 'PrimaryButtonImage', 'HasSecondaryButton', 'SecondaryButtonId', 'SecondaryButtonImageURL', 'SecondaryButtonImage', 'IndentLevel', 'Category')
-            struct = uno.createUnoStruct('com.sun.star.inspection.LineDescriptor')
-            if arg_len > len(key_order):
-                raise ValueError("LineDescriptor.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not DisplayName is UNO_NONE:
+                if getattr(struct, 'DisplayName') != DisplayName:
+                    setattr(struct, 'DisplayName', DisplayName)
+            if not Control is UNO_NONE:
+                if getattr(struct, 'Control') != Control:
+                    setattr(struct, 'Control', Control)
+            if not HelpURL is UNO_NONE:
+                if getattr(struct, 'HelpURL') != HelpURL:
+                    setattr(struct, 'HelpURL', HelpURL)
+            if not HasPrimaryButton is UNO_NONE:
+                if getattr(struct, 'HasPrimaryButton') != HasPrimaryButton:
+                    setattr(struct, 'HasPrimaryButton', HasPrimaryButton)
+            if not PrimaryButtonId is UNO_NONE:
+                if getattr(struct, 'PrimaryButtonId') != PrimaryButtonId:
+                    setattr(struct, 'PrimaryButtonId', PrimaryButtonId)
+            if not PrimaryButtonImageURL is UNO_NONE:
+                if getattr(struct, 'PrimaryButtonImageURL') != PrimaryButtonImageURL:
+                    setattr(struct, 'PrimaryButtonImageURL', PrimaryButtonImageURL)
+            if not PrimaryButtonImage is UNO_NONE:
+                if getattr(struct, 'PrimaryButtonImage') != PrimaryButtonImage:
+                    setattr(struct, 'PrimaryButtonImage', PrimaryButtonImage)
+            if not HasSecondaryButton is UNO_NONE:
+                if getattr(struct, 'HasSecondaryButton') != HasSecondaryButton:
+                    setattr(struct, 'HasSecondaryButton', HasSecondaryButton)
+            if not SecondaryButtonId is UNO_NONE:
+                if getattr(struct, 'SecondaryButtonId') != SecondaryButtonId:
+                    setattr(struct, 'SecondaryButtonId', SecondaryButtonId)
+            if not SecondaryButtonImageURL is UNO_NONE:
+                if getattr(struct, 'SecondaryButtonImageURL') != SecondaryButtonImageURL:
+                    setattr(struct, 'SecondaryButtonImageURL', SecondaryButtonImageURL)
+            if not SecondaryButtonImage is UNO_NONE:
+                if getattr(struct, 'SecondaryButtonImage') != SecondaryButtonImage:
+                    setattr(struct, 'SecondaryButtonImage', SecondaryButtonImage)
+            if not IndentLevel is UNO_NONE:
+                if getattr(struct, 'IndentLevel') != IndentLevel:
+                    setattr(struct, 'IndentLevel', IndentLevel)
+            if not Category is UNO_NONE:
+                if getattr(struct, 'Category') != Category:
+                    setattr(struct, 'Category', Category)
             _set_attr(struct)
             return struct
         LineDescriptor = _struct_init

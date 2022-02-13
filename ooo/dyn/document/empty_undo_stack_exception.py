@@ -19,16 +19,35 @@
 # Namespace: com.sun.star.document
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import EmptyUndoStackException
-    setattr(EmptyUndoStackException, '__ooo_ns__', 'com.sun.star.document')
-    setattr(EmptyUndoStackException, '__ooo_full_ns__', 'com.sun.star.document.EmptyUndoStackException')
-    setattr(EmptyUndoStackException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.document.EmptyUndoStackException using uno
+        global EmptyUndoStackException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.document'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.document.EmptyUndoStackException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(**kwargs):
+            ns = 'com.sun.star.document.EmptyUndoStackException'
+            ex = uno.createUnoStruct(ns)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        EmptyUndoStackException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.document.empty_undo_stack_exception import EmptyUndoStackException as EmptyUndoStackException
     

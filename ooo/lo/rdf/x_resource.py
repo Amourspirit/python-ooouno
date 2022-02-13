@@ -39,6 +39,5 @@ class XResource(XNode_5ee40822):
     __pyunointerface__: str = 'com.sun.star.rdf.XResource'
 
 
-
 __all__ = ['XResource']
 

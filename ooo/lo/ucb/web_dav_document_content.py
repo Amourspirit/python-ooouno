@@ -44,5 +44,6 @@ class WebDAVDocumentContent(XPropertiesChangeNotifier_7a7b111c, XPropertyContain
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['WebDAVDocumentContent']
 

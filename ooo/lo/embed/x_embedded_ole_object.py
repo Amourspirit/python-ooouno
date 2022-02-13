@@ -37,6 +37,5 @@ class XEmbeddedOleObject(ABC):
     __pyunointerface__: str = 'com.sun.star.embed.XEmbeddedOleObject'
 
 
-
 __all__ = ['XEmbeddedOleObject']
 

@@ -52,6 +52,7 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         """
         Provides an automated position.
         """
+
     @abstractproperty
     def Expansion(self) -> 'ChartLegendExpansion_27740f10':
         """
@@ -59,6 +60,7 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         
         Set the Expansion to com.sun.star.chart.HIGH for a legend that is positioned on the right or left hand side. Use com.sun.star.chart.WIDE for a legend that is positioned on top or the bottom.
         """
+
     @abstractproperty
     def Overlay(self) -> bool:
         """
@@ -68,6 +70,7 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         
             LibreOffice 7.0
         """
+
     @abstractproperty
     def ReferencePageSize(self) -> 'Size_576707ef':
         """
@@ -77,6 +80,7 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         
         This way it is possible to resize objects (like text) in the view without modifying the model.
         """
+
     @abstractproperty
     def RelativePosition(self) -> 'RelativePosition_fae10ddd':
         """
@@ -86,11 +90,14 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         
         If VOID, the legend position is solely determined by the AnchorPosition.
         """
+
     @abstractproperty
     def Show(self) -> bool:
         """
         Determines, whether the legend should be rendered by the view.
         """
+
+
 
 __all__ = ['Legend']
 

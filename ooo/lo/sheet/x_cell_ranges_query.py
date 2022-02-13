@@ -84,6 +84,5 @@ class XCellRangesQuery(XInterface_8f010a43):
         queries all visible cells.
         """
 
-
 __all__ = ['XCellRangesQuery']
 

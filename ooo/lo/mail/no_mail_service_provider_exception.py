@@ -41,4 +41,15 @@ class NoMailServiceProviderException(MailException_ba9e0bdd):
     typeName: str = 'com.sun.star.mail.NoMailServiceProviderException'
     """Literal Constant ``com.sun.star.mail.NoMailServiceProviderException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

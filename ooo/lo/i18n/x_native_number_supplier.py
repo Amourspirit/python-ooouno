@@ -62,6 +62,5 @@ class XNativeNumberSupplier(XInterface_8f010a43):
         Check if the NatNum is valid for the given locale.
         """
 
-
 __all__ = ['XNativeNumberSupplier']
 

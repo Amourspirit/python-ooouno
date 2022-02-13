@@ -44,6 +44,5 @@ class XScreenCursor(XInterface_8f010a43):
         scrolls the view backward by one visible page.
         """
 
-
 __all__ = ['XScreenCursor']
 

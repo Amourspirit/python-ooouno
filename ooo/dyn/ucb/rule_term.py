@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ucb import RuleTerm as URuleTerm
+        # Dynamically create uno com.sun.star.ucb.RuleTerm using uno
         global RuleTerm
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.RuleTerm'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ucb import RuleTerm as URuleTerm
-                if isinstance(args[0], URuleTerm):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ucb.RuleTerm', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Property = UNO_NONE, Operand = UNO_NONE, Operator = UNO_NONE, CaseSensitive = UNO_NONE, RegularExpression = UNO_NONE):
+            ns = 'com.sun.star.ucb.RuleTerm'
+            if isinstance(Property, URuleTerm):
+                inst = uno.createUnoStruct(ns, Property)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Property', 'Operand', 'Operator', 'CaseSensitive', 'RegularExpression')
-            struct = uno.createUnoStruct('com.sun.star.ucb.RuleTerm')
-            if arg_len > len(key_order):
-                raise ValueError("RuleTerm.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Property is UNO_NONE:
+                if getattr(struct, 'Property') != Property:
+                    setattr(struct, 'Property', Property)
+            if not Operand is UNO_NONE:
+                if getattr(struct, 'Operand') != Operand:
+                    setattr(struct, 'Operand', Operand)
+            if not Operator is UNO_NONE:
+                if getattr(struct, 'Operator') != Operator:
+                    setattr(struct, 'Operator', Operator)
+            if not CaseSensitive is UNO_NONE:
+                if getattr(struct, 'CaseSensitive') != CaseSensitive:
+                    setattr(struct, 'CaseSensitive', CaseSensitive)
+            if not RegularExpression is UNO_NONE:
+                if getattr(struct, 'RegularExpression') != RegularExpression:
+                    setattr(struct, 'RegularExpression', RegularExpression)
             _set_attr(struct)
             return struct
         RuleTerm = _struct_init

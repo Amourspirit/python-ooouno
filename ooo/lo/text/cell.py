@@ -41,5 +41,6 @@ class Cell(CellProperties_d4360cbd, CellProperties_c9a70c7a, XCell_70d408e8, XTe
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Cell']
 

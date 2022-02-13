@@ -91,6 +91,5 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
         is called by a status bar if the controller has to update the visual representation.
         """
 
-
 __all__ = ['XStatusbarController']
 

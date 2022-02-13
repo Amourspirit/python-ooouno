@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart import ChartSeriesAddress as UChartSeriesAddress
+        # Dynamically create uno com.sun.star.chart.ChartSeriesAddress using uno
         global ChartSeriesAddress
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart.ChartSeriesAddress'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart import ChartSeriesAddress as UChartSeriesAddress
-                if isinstance(args[0], UChartSeriesAddress):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart.ChartSeriesAddress', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(DomainRangeAddresses = UNO_NONE, DataRangeAddress = UNO_NONE, LabelAddress = UNO_NONE):
+            ns = 'com.sun.star.chart.ChartSeriesAddress'
+            if isinstance(DomainRangeAddresses, UChartSeriesAddress):
+                inst = uno.createUnoStruct(ns, DomainRangeAddresses)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('DataRangeAddress', 'LabelAddress')
-            struct = uno.createUnoStruct('com.sun.star.chart.ChartSeriesAddress')
-            if arg_len > len(key_order):
-                raise ValueError("ChartSeriesAddress.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not DomainRangeAddresses is UNO_NONE:
+                if getattr(struct, 'DomainRangeAddresses') != DomainRangeAddresses:
+                    setattr(struct, 'DomainRangeAddresses', DomainRangeAddresses)
+            if not DataRangeAddress is UNO_NONE:
+                if getattr(struct, 'DataRangeAddress') != DataRangeAddress:
+                    setattr(struct, 'DataRangeAddress', DataRangeAddress)
+            if not LabelAddress is UNO_NONE:
+                if getattr(struct, 'LabelAddress') != LabelAddress:
+                    setattr(struct, 'LabelAddress', LabelAddress)
             _set_attr(struct)
             return struct
         ChartSeriesAddress = _struct_init

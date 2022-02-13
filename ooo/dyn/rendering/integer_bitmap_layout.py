@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import IntegerBitmapLayout as UIntegerBitmapLayout
+        # Dynamically create uno com.sun.star.rendering.IntegerBitmapLayout using uno
         global IntegerBitmapLayout
 
         def _set_attr(struct):
@@ -35,25 +36,35 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.IntegerBitmapLayout'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import IntegerBitmapLayout as UIntegerBitmapLayout
-                if isinstance(args[0], UIntegerBitmapLayout):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.IntegerBitmapLayout', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ScanLines = UNO_NONE, ScanLineBytes = UNO_NONE, ScanLineStride = UNO_NONE, PlaneStride = UNO_NONE, ColorSpace = UNO_NONE, Palette = UNO_NONE, IsMsbFirst = UNO_NONE):
+            ns = 'com.sun.star.rendering.IntegerBitmapLayout'
+            if isinstance(ScanLines, UIntegerBitmapLayout):
+                inst = uno.createUnoStruct(ns, ScanLines)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ScanLines', 'ScanLineBytes', 'ScanLineStride', 'PlaneStride', 'ColorSpace', 'Palette', 'IsMsbFirst')
-            struct = uno.createUnoStruct('com.sun.star.rendering.IntegerBitmapLayout')
-            if arg_len > len(key_order):
-                raise ValueError("IntegerBitmapLayout.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ScanLines is UNO_NONE:
+                if getattr(struct, 'ScanLines') != ScanLines:
+                    setattr(struct, 'ScanLines', ScanLines)
+            if not ScanLineBytes is UNO_NONE:
+                if getattr(struct, 'ScanLineBytes') != ScanLineBytes:
+                    setattr(struct, 'ScanLineBytes', ScanLineBytes)
+            if not ScanLineStride is UNO_NONE:
+                if getattr(struct, 'ScanLineStride') != ScanLineStride:
+                    setattr(struct, 'ScanLineStride', ScanLineStride)
+            if not PlaneStride is UNO_NONE:
+                if getattr(struct, 'PlaneStride') != PlaneStride:
+                    setattr(struct, 'PlaneStride', PlaneStride)
+            if not ColorSpace is UNO_NONE:
+                if getattr(struct, 'ColorSpace') != ColorSpace:
+                    setattr(struct, 'ColorSpace', ColorSpace)
+            if not Palette is UNO_NONE:
+                if getattr(struct, 'Palette') != Palette:
+                    setattr(struct, 'Palette', Palette)
+            if not IsMsbFirst is UNO_NONE:
+                if getattr(struct, 'IsMsbFirst') != IsMsbFirst:
+                    setattr(struct, 'IsMsbFirst', IsMsbFirst)
             _set_attr(struct)
             return struct
         IntegerBitmapLayout = _struct_init

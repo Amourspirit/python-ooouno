@@ -19,16 +19,36 @@
 # Namespace: com.sun.star.uno
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.uno import Exception
-    setattr(Exception, '__ooo_ns__', 'com.sun.star.uno')
-    setattr(Exception, '__ooo_full_ns__', 'com.sun.star.uno.Exception')
-    setattr(Exception, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.uno.Exception using uno
+        global Exception
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.uno'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.uno.Exception'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(Message = UNO_NONE, Context = UNO_NONE):
+            ns = 'com.sun.star.uno.Exception'
+            ex = uno.createUnoStruct(ns)
+            if not Message is UNO_NONE:
+                if getattr(ex, 'Message') != Message:
+                    setattr(ex, 'Message', Message)
+            if not Context is UNO_NONE:
+                if getattr(ex, 'Context') != Context:
+                    setattr(ex, 'Context', Context)
+            _set_attr(ex)
+            return ex
+        Exception = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.uno.exception import Exception as Exception
     

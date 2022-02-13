@@ -39,11 +39,15 @@ class SQLContext(SQLWarning_96f10a6a):
     typeName: str = 'com.sun.star.sdb.SQLContext'
     """Literal Constant ``com.sun.star.sdb.SQLContext``"""
 
-    Details: str = None
-    """
-        provides special info about the details where a com.sun.star.sdbc.SQLException occurred.
-        
-        As usual for SQLExceptions, several SQLContext-objects may be chained, then the most recent context is appended to the list's tail
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sheet
 import typing
-from abc import abstractmethod, abstractproperty, ABC
+from abc import abstractmethod, ABC
 
 class XExternalSheetCache(ABC):
     """
@@ -74,16 +74,6 @@ class XExternalSheetCache(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
-    @abstractproperty
-    def TokenIndex(self) -> int:
-        """
-        Index corresponding to this instance of an external sheet cache for usage in formula tokens.
-        
-        This index to the external sheet cache is expected in the SingleReference.Sheet member if it is part of an external reference token.
-        
-        Each external sheet cache has a unique index value inside the ExternalDocLink instance.
-        """
-
 
 __all__ = ['XExternalSheetCache']
 

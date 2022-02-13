@@ -58,6 +58,5 @@ class XShapes2(ABC):
             LibreOffice 4.2
         """
 
-
 __all__ = ['XShapes2']
 

@@ -34,5 +34,6 @@ class LanguageScriptProvider(ScriptProvider_6fa610f6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LanguageScriptProvider']
 

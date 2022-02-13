@@ -52,6 +52,5 @@ class XIdentifierContainer(XIdentifierReplace_4ac10fe2):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XIdentifierContainer']
 

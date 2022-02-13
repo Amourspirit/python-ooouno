@@ -52,5 +52,6 @@ class SetElement(HierarchyElement_6fb410e9, XTemplateInstance_81181149, XCompone
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SetElement']
 

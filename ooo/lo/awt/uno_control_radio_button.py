@@ -36,5 +36,6 @@ class UnoControlRadioButton(UnoControl_8f2c0a67, XLayoutConstrains_e2e50d4e, XRa
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlRadioButton']
 

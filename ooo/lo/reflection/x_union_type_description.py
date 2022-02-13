@@ -69,6 +69,5 @@ class XUnionTypeDescription(XTypeDescription_3c210fb1):
         Returns types of all members in order of IDL declaration.
         """
 
-
 __all__ = ['XUnionTypeDescription']
 

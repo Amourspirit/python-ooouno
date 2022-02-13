@@ -40,5 +40,6 @@ class SmartTagAction(XSmartTagAction_1d750eb7):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SmartTagAction']
 

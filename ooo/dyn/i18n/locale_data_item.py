@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.i18n import LocaleDataItem as ULocaleDataItem
+        # Dynamically create uno com.sun.star.i18n.LocaleDataItem using uno
         global LocaleDataItem
 
         def _set_attr(struct):
@@ -35,25 +36,68 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.LocaleDataItem'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.i18n import LocaleDataItem as ULocaleDataItem
-                if isinstance(args[0], ULocaleDataItem):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.i18n.LocaleDataItem', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(unoID = UNO_NONE, dateSeparator = UNO_NONE, thousandSeparator = UNO_NONE, decimalSeparator = UNO_NONE, timeSeparator = UNO_NONE, time100SecSeparator = UNO_NONE, listSeparator = UNO_NONE, quotationStart = UNO_NONE, quotationEnd = UNO_NONE, doubleQuotationStart = UNO_NONE, doubleQuotationEnd = UNO_NONE, timeAM = UNO_NONE, timePM = UNO_NONE, measurementSystem = UNO_NONE, LongDateDayOfWeekSeparator = UNO_NONE, LongDateDaySeparator = UNO_NONE, LongDateMonthSeparator = UNO_NONE, LongDateYearSeparator = UNO_NONE):
+            ns = 'com.sun.star.i18n.LocaleDataItem'
+            if isinstance(unoID, ULocaleDataItem):
+                inst = uno.createUnoStruct(ns, unoID)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('unoID', 'dateSeparator', 'thousandSeparator', 'decimalSeparator', 'timeSeparator', 'time100SecSeparator', 'listSeparator', 'quotationStart', 'quotationEnd', 'doubleQuotationStart', 'doubleQuotationEnd', 'timeAM', 'timePM', 'measurementSystem', 'LongDateDayOfWeekSeparator', 'LongDateDaySeparator', 'LongDateMonthSeparator', 'LongDateYearSeparator')
-            struct = uno.createUnoStruct('com.sun.star.i18n.LocaleDataItem')
-            if arg_len > len(key_order):
-                raise ValueError("LocaleDataItem.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not unoID is UNO_NONE:
+                if getattr(struct, 'unoID') != unoID:
+                    setattr(struct, 'unoID', unoID)
+            if not dateSeparator is UNO_NONE:
+                if getattr(struct, 'dateSeparator') != dateSeparator:
+                    setattr(struct, 'dateSeparator', dateSeparator)
+            if not thousandSeparator is UNO_NONE:
+                if getattr(struct, 'thousandSeparator') != thousandSeparator:
+                    setattr(struct, 'thousandSeparator', thousandSeparator)
+            if not decimalSeparator is UNO_NONE:
+                if getattr(struct, 'decimalSeparator') != decimalSeparator:
+                    setattr(struct, 'decimalSeparator', decimalSeparator)
+            if not timeSeparator is UNO_NONE:
+                if getattr(struct, 'timeSeparator') != timeSeparator:
+                    setattr(struct, 'timeSeparator', timeSeparator)
+            if not time100SecSeparator is UNO_NONE:
+                if getattr(struct, 'time100SecSeparator') != time100SecSeparator:
+                    setattr(struct, 'time100SecSeparator', time100SecSeparator)
+            if not listSeparator is UNO_NONE:
+                if getattr(struct, 'listSeparator') != listSeparator:
+                    setattr(struct, 'listSeparator', listSeparator)
+            if not quotationStart is UNO_NONE:
+                if getattr(struct, 'quotationStart') != quotationStart:
+                    setattr(struct, 'quotationStart', quotationStart)
+            if not quotationEnd is UNO_NONE:
+                if getattr(struct, 'quotationEnd') != quotationEnd:
+                    setattr(struct, 'quotationEnd', quotationEnd)
+            if not doubleQuotationStart is UNO_NONE:
+                if getattr(struct, 'doubleQuotationStart') != doubleQuotationStart:
+                    setattr(struct, 'doubleQuotationStart', doubleQuotationStart)
+            if not doubleQuotationEnd is UNO_NONE:
+                if getattr(struct, 'doubleQuotationEnd') != doubleQuotationEnd:
+                    setattr(struct, 'doubleQuotationEnd', doubleQuotationEnd)
+            if not timeAM is UNO_NONE:
+                if getattr(struct, 'timeAM') != timeAM:
+                    setattr(struct, 'timeAM', timeAM)
+            if not timePM is UNO_NONE:
+                if getattr(struct, 'timePM') != timePM:
+                    setattr(struct, 'timePM', timePM)
+            if not measurementSystem is UNO_NONE:
+                if getattr(struct, 'measurementSystem') != measurementSystem:
+                    setattr(struct, 'measurementSystem', measurementSystem)
+            if not LongDateDayOfWeekSeparator is UNO_NONE:
+                if getattr(struct, 'LongDateDayOfWeekSeparator') != LongDateDayOfWeekSeparator:
+                    setattr(struct, 'LongDateDayOfWeekSeparator', LongDateDayOfWeekSeparator)
+            if not LongDateDaySeparator is UNO_NONE:
+                if getattr(struct, 'LongDateDaySeparator') != LongDateDaySeparator:
+                    setattr(struct, 'LongDateDaySeparator', LongDateDaySeparator)
+            if not LongDateMonthSeparator is UNO_NONE:
+                if getattr(struct, 'LongDateMonthSeparator') != LongDateMonthSeparator:
+                    setattr(struct, 'LongDateMonthSeparator', LongDateMonthSeparator)
+            if not LongDateYearSeparator is UNO_NONE:
+                if getattr(struct, 'LongDateYearSeparator') != LongDateYearSeparator:
+                    setattr(struct, 'LongDateYearSeparator', LongDateYearSeparator)
             _set_attr(struct)
             return struct
         LocaleDataItem = _struct_init

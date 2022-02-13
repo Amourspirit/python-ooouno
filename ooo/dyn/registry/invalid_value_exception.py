@@ -19,16 +19,35 @@
 # Namespace: com.sun.star.registry
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.registry import InvalidValueException
-    setattr(InvalidValueException, '__ooo_ns__', 'com.sun.star.registry')
-    setattr(InvalidValueException, '__ooo_full_ns__', 'com.sun.star.registry.InvalidValueException')
-    setattr(InvalidValueException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.registry.InvalidValueException using uno
+        global InvalidValueException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.registry'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.registry.InvalidValueException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(**kwargs):
+            ns = 'com.sun.star.registry.InvalidValueException'
+            ex = uno.createUnoStruct(ns)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        InvalidValueException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.registry.invalid_value_exception import InvalidValueException as InvalidValueException
     

@@ -37,5 +37,6 @@ class BindableDatabaseTextField(BindableDataAwareControlModel_47091512, Database
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BindableDatabaseTextField']
 

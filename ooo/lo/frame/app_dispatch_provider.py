@@ -37,5 +37,6 @@ class AppDispatchProvider(XAppDispatchProvider_26dc0f07):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AppDispatchProvider']
 

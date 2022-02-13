@@ -43,6 +43,5 @@ class XLinkTargetSupplier(XInterface_8f010a43):
         """
         """
 
-
 __all__ = ['XLinkTargetSupplier']
 

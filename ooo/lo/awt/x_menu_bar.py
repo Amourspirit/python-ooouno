@@ -33,6 +33,5 @@ class XMenuBar(XMenu_5f470841):
     __pyunointerface__: str = 'com.sun.star.awt.XMenuBar'
 
 
-
 __all__ = ['XMenuBar']
 

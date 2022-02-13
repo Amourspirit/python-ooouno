@@ -34,5 +34,6 @@ class Primitive2DTools(XPrimitive2DRenderer_46eb0fa4):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Primitive2DTools']
 

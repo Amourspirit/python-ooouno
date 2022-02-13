@@ -44,6 +44,5 @@ class XBoundControl(XInterface_8f010a43):
         is used for altering the current lock state of the component.
         """
 
-
 __all__ = ['XBoundControl']
 

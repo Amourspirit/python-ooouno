@@ -49,6 +49,5 @@ class XFootnotesSupplier(XInterface_8f010a43):
         returns a collection of footnotes.
         """
 
-
 __all__ = ['XFootnotesSupplier']
 

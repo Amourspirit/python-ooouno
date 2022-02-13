@@ -20,8 +20,9 @@
 # Namespace: com.sun.star.sdbc
 import typing
 from abc import abstractproperty
-from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 from .connection_properties import ConnectionProperties as ConnectionProperties_1a9f0ee1
+if typing.TYPE_CHECKING:
+    from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 
 class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
     """
@@ -44,49 +45,24 @@ class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
     __ooo_full_ns__: str = 'com.sun.star.sdbc.JDBCConnectionProperties'
     __ooo_type_name__: str = 'service'
 
-    SystemProperties: typing.TypeAlias = typing.Tuple[NamedValue_a37a0af3, ...]
-    """
-    specifies a set of properties to pass to java.lang.System.setProperty before loading the system's JDBC driver.
-    """
-
-    TypeInfoSettings: typing.TypeAlias = typing.Tuple[object, ...]
-    """
-    specifies how the type info returned by com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo() will be modified.
-    
-    The sequence contains an even amount of string values. Each pair describes what should be searched for and what should be replaced if found.
-    The syntax is:
-    
-    COLUMN(X) defines the column which will be compared and the column which will be replaced. In the example above column 2 will be compared with the value -5. If this is true than column 6 will now return the value PRECISION.
-    """
+    @abstractproperty
+    def SystemProperties(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
+        """
+        specifies a set of properties to pass to java.lang.System.setProperty before loading the system's JDBC driver.
+        """
 
     @abstractproperty
-    def AutoRetrievingStatement(self) -> str:
+    def TypeInfoSettings(self) -> 'typing.Tuple[object, ...]':
         """
-        specifies the statement which should be executed when asking an \"INSERT\" statement for the XGeneratedResultSet (future concept) interface.
-        """
-    @abstractproperty
-    def IsAutoRetrievingEnabled(self) -> bool:
-        """
-        specifies if retrieving of auto generated values should be enabled or not.
+        specifies how the type info returned by com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo() will be modified.
         
-        If TRUE than the statement will support the XGeneratedResultSet (future concept) interface, otherwise not.
-        """
-    @abstractproperty
-    def JavaDriverClass(self) -> str:
-        """
-        which JDBC driver class should be loaded to create the connection.
-        """
-    @abstractproperty
-    def JavaDriverClassPath(self) -> str:
-        """
-        an optional class path to locate the com.sun.star.sdbc.JDBCConnectionProperties.JavaDriverClass
+        The sequence contains an even amount of string values. Each pair describes what should be searched for and what should be replaced if found.
+        The syntax is:
         
-        The class path is a list of zero or more internal (see the com.sun.star.uri.ExternalUriReferenceTranslator service) URI references, where any space characters (U+0020) are ignored (and, in particular, separate adjacent URI references). Any “vnd.sun.star.expand” URL references in the list are expanded using the com.sun.star.util.theMacroExpander singleton.
-        
-        **since**
-        
-            OOo 2.3
+        COLUMN(X) defines the column which will be compared and the column which will be replaced. In the example above column 2 will be compared with the value -5. If this is true than column 6 will now return the value PRECISION.
         """
+
+
 
 __all__ = ['JDBCConnectionProperties']
 

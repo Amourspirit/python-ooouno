@@ -52,6 +52,5 @@ class XServiceInfo(XInterface_8f010a43):
         implemented by the implementation.
         """
 
-
 __all__ = ['XServiceInfo']
 

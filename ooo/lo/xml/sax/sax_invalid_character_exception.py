@@ -37,4 +37,15 @@ class SAXInvalidCharacterException(SAXException_d1a00c6e):
     typeName: str = 'com.sun.star.xml.sax.SAXInvalidCharacterException'
     """Literal Constant ``com.sun.star.xml.sax.SAXInvalidCharacterException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

@@ -38,5 +38,6 @@ class InvocationAdapterFactory(XInvocationAdapterFactory2_a0fe11da):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['InvocationAdapterFactory']
 

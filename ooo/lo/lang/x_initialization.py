@@ -49,6 +49,5 @@ class XInitialization(XInterface_8f010a43):
             com.sun.star.uno.Exception: ``Exception``
         """
 
-
 __all__ = ['XInitialization']
 

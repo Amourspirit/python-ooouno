@@ -56,5 +56,6 @@ class ConfigurationAccess(AccessRootElement_7fef1140, GroupAccess_1f8f0edf, Grou
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ConfigurationAccess']
 

@@ -48,5 +48,6 @@ class FormController(FormControllerDispatcher_5b3a107b, XConfirmDeleteBroadcaste
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormController']
 

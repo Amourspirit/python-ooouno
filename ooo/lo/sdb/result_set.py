@@ -35,5 +35,6 @@ class ResultSet(ResultSet_9a6d0ac7, XColumnsSupplier_f0600da9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ResultSet']
 

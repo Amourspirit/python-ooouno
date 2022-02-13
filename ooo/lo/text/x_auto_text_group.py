@@ -73,6 +73,5 @@ class XAutoTextGroup(XNameAccess_e2ab0cf6):
             com.sun.star.io.IOException: ``IOException``
         """
 
-
 __all__ = ['XAutoTextGroup']
 

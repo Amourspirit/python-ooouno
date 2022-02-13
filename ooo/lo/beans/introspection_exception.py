@@ -43,4 +43,15 @@ class IntrospectionException(Exception_85530a09):
     typeName: str = 'com.sun.star.beans.IntrospectionException'
     """Literal Constant ``com.sun.star.beans.IntrospectionException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

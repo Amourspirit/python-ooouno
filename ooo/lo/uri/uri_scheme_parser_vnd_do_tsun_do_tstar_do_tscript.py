@@ -42,5 +42,6 @@ class UriSchemeParser_vndDOTsunDOTstarDOTscript(XUriSchemeParser_d3fd0ca2):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UriSchemeParser_vndDOTsunDOTstarDOTscript']
 

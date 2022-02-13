@@ -44,5 +44,6 @@ class Repository(XRepository_995d0adc):
         constructs repository with in-memory storage.
         """
 
+
 __all__ = ['Repository']
 

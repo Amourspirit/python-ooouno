@@ -63,6 +63,5 @@ class XSeekable(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
         """
 
-
 __all__ = ['XSeekable']
 

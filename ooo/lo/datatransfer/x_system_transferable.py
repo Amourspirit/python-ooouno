@@ -46,6 +46,5 @@ class XSystemTransferable(XInterface_8f010a43):
         Notes:Under Windows the returned any contains an unsigned long which represents a pointer to an IDataObject interface. The caller of getData has to release the data object (IDataObject.Release) if it is no longer needed. The caller must also make sure that the current thread has been initialized for OLE (use OleInitialize).
         """
 
-
 __all__ = ['XSystemTransferable']
 

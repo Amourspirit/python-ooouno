@@ -38,5 +38,6 @@ class ShapeCollection(XShapes_9a800ab0):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ShapeCollection']
 

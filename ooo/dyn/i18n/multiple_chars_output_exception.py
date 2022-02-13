@@ -19,16 +19,35 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import MultipleCharsOutputException
-    setattr(MultipleCharsOutputException, '__ooo_ns__', 'com.sun.star.i18n')
-    setattr(MultipleCharsOutputException, '__ooo_full_ns__', 'com.sun.star.i18n.MultipleCharsOutputException')
-    setattr(MultipleCharsOutputException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.i18n.MultipleCharsOutputException using uno
+        global MultipleCharsOutputException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.i18n'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.MultipleCharsOutputException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(**kwargs):
+            ns = 'com.sun.star.i18n.MultipleCharsOutputException'
+            ex = uno.createUnoStruct(ns)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        MultipleCharsOutputException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.i18n.multiple_chars_output_exception import MultipleCharsOutputException as MultipleCharsOutputException
     

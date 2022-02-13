@@ -61,5 +61,6 @@ class DataSourceBrowser(FormController_c9180c74, XController_b00e0b8f, XDispatch
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DataSourceBrowser']
 

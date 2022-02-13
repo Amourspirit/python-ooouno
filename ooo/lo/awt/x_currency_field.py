@@ -114,6 +114,5 @@ class XCurrencyField(XInterface_8f010a43):
         sets the value which is displayed in the currency field.
         """
 
-
 __all__ = ['XCurrencyField']
 

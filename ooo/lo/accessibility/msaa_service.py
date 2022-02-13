@@ -33,5 +33,6 @@ class MSAAService(XMSAAService_28a50ebb):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MSAAService']
 

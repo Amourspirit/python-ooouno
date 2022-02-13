@@ -21,9 +21,9 @@
 import typing
 from abc import abstractproperty
 from ..util.sort_descriptor import SortDescriptor as SortDescriptor_ca680c8d
-from ..util.sort_field import SortField as SortField_90080a52
 if typing.TYPE_CHECKING:
     from .table_orientation import TableOrientation as TableOrientation_ee780d84
+    from ..util.sort_field import SortField as SortField_90080a52
 
 class TableSortDescriptor(SortDescriptor_ca680c8d):
     """
@@ -44,21 +44,24 @@ class TableSortDescriptor(SortDescriptor_ca680c8d):
     __ooo_full_ns__: str = 'com.sun.star.table.TableSortDescriptor'
     __ooo_type_name__: str = 'service'
 
-    SortFields: typing.TypeAlias = typing.Tuple[SortField_90080a52, ...]
-    """
-    specifies the descriptions of the individual sort fields.
-    """
+    @abstractproperty
+    def SortFields(self) -> 'typing.Tuple[SortField_90080a52, ...]':
+        """
+        specifies the descriptions of the individual sort fields.
+        """
 
     @abstractproperty
     def ContainsHeader(self) -> bool:
         """
         specifies whether the first row or column (depending on com.sun.star.util.SortDescriptor.SortColumns) is a header which should not be sorted.
         """
+
     @abstractproperty
     def MaxFieldCount(self) -> int:
         """
         contains the maximum number of sort fields the descriptor can hold.
         """
+
     @abstractproperty
     def Orientation(self) -> 'TableOrientation_ee780d84':
         """
@@ -66,6 +69,8 @@ class TableSortDescriptor(SortDescriptor_ca680c8d):
         
         Some implementations may not support sorting columns.
         """
+
+
 
 __all__ = ['TableSortDescriptor']
 

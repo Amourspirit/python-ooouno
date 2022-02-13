@@ -35,5 +35,6 @@ class UnoControlScrollBar(UnoControl_8f2c0a67, XScrollBar_8e700a30):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlScrollBar']
 

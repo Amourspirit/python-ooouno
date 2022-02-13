@@ -77,6 +77,5 @@ class XCell(XInterface_8f010a43):
         After a call to this method the type of the cell is CellContentType.VALUE.
         """
 
-
 __all__ = ['XCell']
 

@@ -47,5 +47,6 @@ class TableDefinition(XPropertySet_bc180bfa):
         """
         """
 
+
 __all__ = ['TableDefinition']
 

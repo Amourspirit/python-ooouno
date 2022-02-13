@@ -49,6 +49,5 @@ class XStarBasicDialogInfo(XInterface_8f010a43):
         returns the name of the dialog
         """
 
-
 __all__ = ['XStarBasicDialogInfo']
 

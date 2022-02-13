@@ -58,6 +58,5 @@ class XAcceptor(XInterface_8f010a43):
         pushes acceptor out of the accept-call.
         """
 
-
 __all__ = ['XAcceptor']
 

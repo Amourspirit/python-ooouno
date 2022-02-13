@@ -35,5 +35,6 @@ class GlobalSettings(XPrintSettingsSupplier_3c330fcd, XViewSettingsSupplier_2be9
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GlobalSettings']
 

@@ -54,6 +54,5 @@ class XAllListener(XEventListener_c7230c4a):
         gets called when an event occurs at the object.
         """
 
-
 __all__ = ['XAllListener']
 

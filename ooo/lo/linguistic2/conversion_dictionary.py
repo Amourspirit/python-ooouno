@@ -42,5 +42,6 @@ class ConversionDictionary(XConversionDictionary_a04e1209, XConversionPropertyTy
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ConversionDictionary']
 

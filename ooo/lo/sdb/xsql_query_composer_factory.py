@@ -42,6 +42,5 @@ class XSQLQueryComposerFactory(XInterface_8f010a43):
         creates a new query composer.
         """
 
-
 __all__ = ['XSQLQueryComposerFactory']
 

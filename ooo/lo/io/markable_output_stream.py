@@ -39,5 +39,6 @@ class MarkableOutputStream(XActiveDataSource_d1900c7f, XConnectable_980a0a96, XM
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MarkableOutputStream']
 

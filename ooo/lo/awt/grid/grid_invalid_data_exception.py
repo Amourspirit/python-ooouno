@@ -43,4 +43,15 @@ class GridInvalidDataException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.awt.grid.GridInvalidDataException'
     """Literal Constant ``com.sun.star.awt.grid.GridInvalidDataException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

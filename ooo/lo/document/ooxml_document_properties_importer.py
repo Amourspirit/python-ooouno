@@ -34,5 +34,6 @@ class OOXMLDocumentPropertiesImporter(XOOXMLDocumentPropertiesImporter_34fc150c)
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OOXMLDocumentPropertiesImporter']
 

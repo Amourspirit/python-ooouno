@@ -35,5 +35,6 @@ class Text(TextProperties_f2980dc6, XText_690408ca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Text']
 

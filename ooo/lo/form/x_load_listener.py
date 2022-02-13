@@ -68,6 +68,5 @@ class XLoadListener(XEventListener_c7230c4a):
         Components may use this to stop any other event processing related to the event source before the object is unloaded.
         """
 
-
 __all__ = ['XLoadListener']
 

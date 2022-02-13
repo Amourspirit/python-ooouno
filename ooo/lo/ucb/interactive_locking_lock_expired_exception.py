@@ -41,4 +41,15 @@ class InteractiveLockingLockExpiredException(InteractiveLockingException_7af3113
     typeName: str = 'com.sun.star.ucb.InteractiveLockingLockExpiredException'
     """Literal Constant ``com.sun.star.ucb.InteractiveLockingLockExpiredException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

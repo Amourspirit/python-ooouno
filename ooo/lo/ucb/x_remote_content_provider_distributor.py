@@ -56,6 +56,5 @@ class XRemoteContentProviderDistributor(XInterface_8f010a43):
         Undo the offering of the local content broker to a specific remote content provider acceptor.
         """
 
-
 __all__ = ['XRemoteContentProviderDistributor']
 

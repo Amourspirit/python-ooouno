@@ -33,5 +33,6 @@ class FastTokenHandler(XFastTokenHandler_17510e78):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FastTokenHandler']
 

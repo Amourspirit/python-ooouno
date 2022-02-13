@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.chart2 import ScaleData as UScaleData
+        # Dynamically create uno com.sun.star.chart2.ScaleData using uno
         global ScaleData
 
         def _set_attr(struct):
@@ -35,25 +36,47 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.ScaleData'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.chart2 import ScaleData as UScaleData
-                if isinstance(args[0], UScaleData):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.chart2.ScaleData', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Minimum = UNO_NONE, Maximum = UNO_NONE, Origin = UNO_NONE, Orientation = UNO_NONE, Scaling = UNO_NONE, Categories = UNO_NONE, AxisType = UNO_NONE, AutoDateAxis = UNO_NONE, ShiftedCategoryPosition = UNO_NONE, IncrementData = UNO_NONE, TimeIncrement = UNO_NONE):
+            ns = 'com.sun.star.chart2.ScaleData'
+            if isinstance(Minimum, UScaleData):
+                inst = uno.createUnoStruct(ns, Minimum)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Minimum', 'Maximum', 'Origin', 'Orientation', 'Scaling', 'Categories', 'AxisType', 'AutoDateAxis', 'ShiftedCategoryPosition', 'IncrementData', 'TimeIncrement')
-            struct = uno.createUnoStruct('com.sun.star.chart2.ScaleData')
-            if arg_len > len(key_order):
-                raise ValueError("ScaleData.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Minimum is UNO_NONE:
+                if getattr(struct, 'Minimum') != Minimum:
+                    setattr(struct, 'Minimum', Minimum)
+            if not Maximum is UNO_NONE:
+                if getattr(struct, 'Maximum') != Maximum:
+                    setattr(struct, 'Maximum', Maximum)
+            if not Origin is UNO_NONE:
+                if getattr(struct, 'Origin') != Origin:
+                    setattr(struct, 'Origin', Origin)
+            if not Orientation is UNO_NONE:
+                if getattr(struct, 'Orientation') != Orientation:
+                    setattr(struct, 'Orientation', Orientation)
+            if not Scaling is UNO_NONE:
+                if getattr(struct, 'Scaling') != Scaling:
+                    setattr(struct, 'Scaling', Scaling)
+            if not Categories is UNO_NONE:
+                if getattr(struct, 'Categories') != Categories:
+                    setattr(struct, 'Categories', Categories)
+            if not AxisType is UNO_NONE:
+                if getattr(struct, 'AxisType') != AxisType:
+                    setattr(struct, 'AxisType', AxisType)
+            if not AutoDateAxis is UNO_NONE:
+                if getattr(struct, 'AutoDateAxis') != AutoDateAxis:
+                    setattr(struct, 'AutoDateAxis', AutoDateAxis)
+            if not ShiftedCategoryPosition is UNO_NONE:
+                if getattr(struct, 'ShiftedCategoryPosition') != ShiftedCategoryPosition:
+                    setattr(struct, 'ShiftedCategoryPosition', ShiftedCategoryPosition)
+            if not IncrementData is UNO_NONE:
+                if getattr(struct, 'IncrementData') != IncrementData:
+                    setattr(struct, 'IncrementData', IncrementData)
+            if not TimeIncrement is UNO_NONE:
+                if getattr(struct, 'TimeIncrement') != TimeIncrement:
+                    setattr(struct, 'TimeIncrement', TimeIncrement)
             _set_attr(struct)
             return struct
         ScaleData = _struct_init

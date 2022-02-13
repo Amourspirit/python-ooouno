@@ -39,5 +39,6 @@ class ExtendedTypeDetection(XExtendedFilterDetection_9ff211f5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ExtendedTypeDetection']
 

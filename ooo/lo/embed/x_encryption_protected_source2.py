@@ -54,6 +54,5 @@ class XEncryptionProtectedSource2(XEncryptionProtectedSource_8cdf11a3):
             com.sun.star.io.IOException: ``IOException``
         """
 
-
 __all__ = ['XEncryptionProtectedSource2']
 

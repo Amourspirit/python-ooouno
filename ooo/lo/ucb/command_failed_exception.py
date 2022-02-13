@@ -37,9 +37,15 @@ class CommandFailedException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.CommandFailedException'
     """Literal Constant ``com.sun.star.ucb.CommandFailedException``"""
 
-    Reason: object = None
-    """
-        contains the exception that was passed to the com.sun.star.task.XInteractionHandler.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

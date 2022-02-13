@@ -42,6 +42,5 @@ class XMain(XInterface_8f010a43):
         This method is called to run the component.
         """
 
-
 __all__ = ['XMain']
 

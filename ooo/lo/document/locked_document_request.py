@@ -41,14 +41,15 @@ class LockedDocumentRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.LockedDocumentRequest'
     """Literal Constant ``com.sun.star.document.LockedDocumentRequest``"""
 
-    DocumentURL: str = None
-    """
-        The URL of the locked document.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    UserInfo: str = None
-    """
-        The user information of the locked document.
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -114,6 +114,5 @@ class XDebugging(XInterface_8f010a43):
         To continue with the execution, call XDebugging.doContinue().
         """
 
-
 __all__ = ['XDebugging']
 

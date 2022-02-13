@@ -111,6 +111,5 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         When the current element is replaced outside of this interface, then uses this method can update the current element pointer.
         """
 
-
 __all__ = ['XXMLDocumentWrapper']
 

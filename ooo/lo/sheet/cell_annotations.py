@@ -35,5 +35,6 @@ class CellAnnotations(XEnumerationAccess_4bac0ffc, XSheetAnnotations_fd4a0e00):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CellAnnotations']
 

@@ -36,5 +36,6 @@ class Frame(XFrame2_83df0988):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Frame']
 

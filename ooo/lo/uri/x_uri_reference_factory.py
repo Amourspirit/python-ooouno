@@ -59,6 +59,5 @@ class XUriReferenceFactory(XInterface_8f010a43):
         parses the textual representation of a URI reference.
         """
 
-
 __all__ = ['XUriReferenceFactory']
 

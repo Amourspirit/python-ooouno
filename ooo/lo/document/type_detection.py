@@ -39,5 +39,6 @@ class TypeDetection(XContainerQuery_1cdd0edc, XNameContainer_cb90e47, XTypeDetec
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TypeDetection']
 

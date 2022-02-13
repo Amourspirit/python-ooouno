@@ -47,6 +47,5 @@ class XPropertySetRegistry(XInterface_8f010a43):
         removes a property set from the registry.
         """
 
-
 __all__ = ['XPropertySetRegistry']
 

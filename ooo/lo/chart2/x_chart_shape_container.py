@@ -52,6 +52,5 @@ class XChartShapeContainer(XInterface_8f010a43):
         if the visible range has changed)
         """
 
-
 __all__ = ['XChartShapeContainer']
 

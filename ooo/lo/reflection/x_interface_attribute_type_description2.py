@@ -58,6 +58,5 @@ class XInterfaceAttributeTypeDescription2(XInterfaceAttributeTypeDescription_98c
         Returns whether this object reflects a bound attribute.
         """
 
-
 __all__ = ['XInterfaceAttributeTypeDescription2']
 

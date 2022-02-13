@@ -51,5 +51,6 @@ class StringRepresentation(XStringRepresentation_939311e6):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['StringRepresentation']
 

@@ -57,6 +57,5 @@ class XDataPointCustomLabelField(XFormattedString2_8010df3):
         """
         """
 
-
 __all__ = ['XDataPointCustomLabelField']
 

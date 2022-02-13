@@ -53,6 +53,5 @@ class XSAXEventKeeperStatusChangeBroadcaster(XInterface_8f010a43):
         After a listener is removed, no status change notification will be sent to it.
         """
 
-
 __all__ = ['XSAXEventKeeperStatusChangeBroadcaster']
 

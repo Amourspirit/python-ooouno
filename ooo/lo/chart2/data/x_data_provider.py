@@ -99,6 +99,5 @@ class XDataProvider(XInterface_8f010a43):
         This method may return nothing, if it does not support range selection or if there is no current controller available that offers the functionality.
         """
 
-
 __all__ = ['XDataProvider']
 

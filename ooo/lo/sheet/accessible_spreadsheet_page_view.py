@@ -40,5 +40,6 @@ class AccessibleSpreadsheetPageView(XAccessibleComponent_b2f21269, XAccessibleCo
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleSpreadsheetPageView']
 

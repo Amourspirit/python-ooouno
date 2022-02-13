@@ -37,5 +37,6 @@ class NumberingRule(NumberingAlignment_f290e7f, NumberingLevel_d7f70cd8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NumberingRule']
 

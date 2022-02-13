@@ -42,5 +42,6 @@ class StatusbarControllerFactory(XUIControllerFactory_25e60f05):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['StatusbarControllerFactory']
 

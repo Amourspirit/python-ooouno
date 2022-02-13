@@ -22,9 +22,9 @@ import typing
 from abc import abstractproperty
 from ...beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ...lang.x_component import XComponent as XComponent_98dc0ab5
-from ...sheet.formula_op_code_map_entry import FormulaOpCodeMapEntry as FormulaOpCodeMapEntry_37da0f61
 from ...sheet.x_formula_parser import XFormulaParser as XFormulaParser_d54d0cbc
 if typing.TYPE_CHECKING:
+    from ...sheet.formula_op_code_map_entry import FormulaOpCodeMapEntry as FormulaOpCodeMapEntry_37da0f61
     from ...sheet.x_formula_op_code_mapper import XFormulaOpCodeMapper as XFormulaOpCodeMapper_27ff0eee
 
 class XFormulaParser(XPropertySet_bc180bfa, XComponent_98dc0ab5, XFormulaParser_d54d0cbc):
@@ -39,12 +39,13 @@ class XFormulaParser(XPropertySet_bc180bfa, XComponent_98dc0ab5, XFormulaParser_
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.report.meta.XFormulaParser'
 
-    OpCodeMap: typing.TypeAlias = typing.Tuple[FormulaOpCodeMapEntry_37da0f61, ...]
-    """
-    The complete mapping of Names to OpCodes.
-    
-    Names and symbols not defined here lead to a parser/print error.
-    """
+    @abstractproperty
+    def OpCodeMap(self) -> 'typing.Tuple[FormulaOpCodeMapEntry_37da0f61, ...]':
+        """
+        The complete mapping of Names to OpCodes.
+        
+        Names and symbols not defined here lead to a parser/print error.
+        """
 
     @abstractproperty
     def FormulaOpCodeMapper(self) -> 'XFormulaOpCodeMapper_27ff0eee':

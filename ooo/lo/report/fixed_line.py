@@ -33,5 +33,6 @@ class FixedLine(XFixedLine_b1760b74):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FixedLine']
 

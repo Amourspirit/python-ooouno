@@ -53,6 +53,5 @@ class XPackageInformationProvider(ABC):
         check if there are updates available for an extension.
         """
 
-
 __all__ = ['XPackageInformationProvider']
 

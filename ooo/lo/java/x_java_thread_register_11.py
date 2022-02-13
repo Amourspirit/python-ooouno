@@ -57,6 +57,5 @@ class XJavaThreadRegister_11(XInterface_8f010a43):
         This method should be called at the end of every JNI call from Java.
         """
 
-
 __all__ = ['XJavaThreadRegister_11']
 

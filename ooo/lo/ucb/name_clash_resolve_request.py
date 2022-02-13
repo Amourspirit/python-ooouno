@@ -41,21 +41,15 @@ class NameClashResolveRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.NameClashResolveRequest'
     """Literal Constant ``com.sun.star.ucb.NameClashResolveRequest``"""
 
-    ClashingName: str = None
-    """
-        contains the clashing name.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    ProposedNewName: str = None
-    """
-        contains a proposal for a new, non-clashing name.
-        
-        This field may be left empty if the implementation is not able to suggest a new name.
-    """
+        Keyword Arguments:
 
-    TargetFolderURL: str = None
-    """
-        contains the URL of the folder that contains the clashing resource.
-    """
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

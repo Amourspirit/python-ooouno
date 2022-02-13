@@ -34,5 +34,6 @@ class NamingService(XNamingService_bb9a0bdd):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NamingService']
 

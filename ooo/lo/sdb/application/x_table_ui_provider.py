@@ -58,6 +58,5 @@ class XTableUIProvider(ABC):
         The icon will usually be requested once per table, and cached. It might be requested again if the application settings change, for instance, if another desktop theme has been activated.
         """
 
-
 __all__ = ['XTableUIProvider']
 

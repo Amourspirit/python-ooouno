@@ -63,6 +63,5 @@ class XAnyDescriptionAccess(XComplexDescriptionAccess_7a521120):
         sets the descriptions for all rows.
         """
 
-
 __all__ = ['XAnyDescriptionAccess']
 

@@ -48,6 +48,5 @@ class XShapeCombiner(XInterface_8f010a43):
         splits Shapes.
         """
 
-
 __all__ = ['XShapeCombiner']
 

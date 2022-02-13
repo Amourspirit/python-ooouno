@@ -49,6 +49,5 @@ class XIdlMember(XInterface_8f010a43):
         Returns the fully-qualified name of the member.
         """
 
-
 __all__ = ['XIdlMember']
 

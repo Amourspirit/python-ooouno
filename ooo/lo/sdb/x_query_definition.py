@@ -38,6 +38,5 @@ class XQueryDefinition(XPropertySet_bc180bfa, XComponent_98dc0ab5, XContent_79db
     __pyunointerface__: str = 'com.sun.star.sdb.XQueryDefinition'
 
 
-
 __all__ = ['XQueryDefinition']
 

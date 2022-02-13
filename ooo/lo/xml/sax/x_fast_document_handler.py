@@ -77,6 +77,5 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
 
-
 __all__ = ['XFastDocumentHandler']
 

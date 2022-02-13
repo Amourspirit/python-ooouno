@@ -74,6 +74,5 @@ class XTopWindowListener(XEventListener_c7230c4a):
         is invoked when a window has been opened.
         """
 
-
 __all__ = ['XTopWindowListener']
 

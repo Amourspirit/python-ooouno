@@ -49,5 +49,6 @@ class BindableDataAwareControlModel(DataAwareControlModel_27110ef8, BindableCont
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BindableDataAwareControlModel']
 

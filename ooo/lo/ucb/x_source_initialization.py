@@ -46,6 +46,5 @@ class XSourceInitialization(XInterface_8f010a43):
             AlreadyInitializedException: ``AlreadyInitializedException``
         """
 
-
 __all__ = ['XSourceInitialization']
 

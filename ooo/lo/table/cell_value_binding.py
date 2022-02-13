@@ -50,5 +50,7 @@ class CellValueBinding(ValueBinding_18de0e7d, XInitialization_d46c0cca):
         specifies the cell within a document whose value is reflected by the binding.
         """
 
+
+
 __all__ = ['CellValueBinding']
 

@@ -35,5 +35,6 @@ class ControlShape(Shape_85cc09e5, XControlShape_e34e0d1e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ControlShape']
 

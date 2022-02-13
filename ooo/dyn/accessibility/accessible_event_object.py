@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.accessibility
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.accessibility import AccessibleEventObject as UAccessibleEventObject
+        # Dynamically create uno com.sun.star.accessibility.AccessibleEventObject using uno
         global AccessibleEventObject
 
         def _set_attr(struct):
@@ -35,25 +36,28 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleEventObject'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.accessibility import AccessibleEventObject as UAccessibleEventObject
-                if isinstance(args[0], UAccessibleEventObject):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.accessibility.AccessibleEventObject', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(EventId = UNO_NONE, NewValue = UNO_NONE, OldValue = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.accessibility.AccessibleEventObject'
+            if isinstance(EventId, UAccessibleEventObject):
+                inst = uno.createUnoStruct(ns, EventId)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('EventId', 'NewValue', 'OldValue')
-            struct = uno.createUnoStruct('com.sun.star.accessibility.AccessibleEventObject')
-            if arg_len > len(key_order):
-                raise ValueError("AccessibleEventObject.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not EventId is UNO_NONE:
+                if getattr(struct, 'EventId') != EventId:
+                    setattr(struct, 'EventId', EventId)
+            if not NewValue is UNO_NONE:
+                if getattr(struct, 'NewValue') != NewValue:
+                    setattr(struct, 'NewValue', NewValue)
+            if not OldValue is UNO_NONE:
+                if getattr(struct, 'OldValue') != OldValue:
+                    setattr(struct, 'OldValue', OldValue)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         AccessibleEventObject = _struct_init

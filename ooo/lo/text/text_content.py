@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.text
 import typing
 from abc import abstractproperty
-from .text_content_anchor_type import TextContentAnchorType as TextContentAnchorType_2cbe0f4a
 from .x_text_content import XTextContent as XTextContent_b16e0ba5
 if typing.TYPE_CHECKING:
+    from .text_content_anchor_type import TextContentAnchorType as TextContentAnchorType_2cbe0f4a
     from .wrap_text_mode import WrapTextMode as WrapTextMode_b1dd0b91
 
 class TextContent(XTextContent_b16e0ba5):
@@ -42,21 +42,25 @@ class TextContent(XTextContent_b16e0ba5):
     __ooo_full_ns__: str = 'com.sun.star.text.TextContent'
     __ooo_type_name__: str = 'service'
 
-    AnchorTypes: typing.TypeAlias = typing.Tuple[TextContentAnchorType_2cbe0f4a, ...]
-    """
-    contains the anchor type of the text content.
-    """
+    @abstractproperty
+    def AnchorTypes(self) -> 'typing.Tuple[TextContentAnchorType_2cbe0f4a, ...]':
+        """
+        contains the anchor type of the text content.
+        """
 
     @abstractproperty
     def AnchorType(self) -> 'TextContentAnchorType_2cbe0f4a':
         """
         specifies how the text content is attached to its surrounding Text.
         """
+
     @abstractproperty
     def TextWrap(self) -> 'WrapTextMode_b1dd0b91':
         """
         specifies if the text content is a shape and how the text is wrapped around the shape.
         """
+
+
 
 __all__ = ['TextContent']
 

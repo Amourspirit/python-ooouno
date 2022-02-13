@@ -39,4 +39,15 @@ class NeedsRunningStateException(WrongStateException_19f60ec2):
     typeName: str = 'com.sun.star.embed.NeedsRunningStateException'
     """Literal Constant ``com.sun.star.embed.NeedsRunningStateException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

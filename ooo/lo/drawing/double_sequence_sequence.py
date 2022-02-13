@@ -21,7 +21,7 @@
 import typing
 from .double_sequence import DoubleSequence
 
-DoubleSequenceSequence = typing.Tuple[DoubleSequence, ...]
+DoubleSequenceSequence = typing.NewType('DoubleSequenceSequence', typing.Tuple[DoubleSequence, ...])
 """
 TypeDef type alias
 

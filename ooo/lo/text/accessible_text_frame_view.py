@@ -40,5 +40,6 @@ class AccessibleTextFrameView(XAccessibleComponent_b2f21269, XAccessibleContext_
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleTextFrameView']
 

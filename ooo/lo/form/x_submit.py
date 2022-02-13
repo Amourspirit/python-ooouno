@@ -58,6 +58,5 @@ class XSubmit(XInterface_8f010a43):
         submits the component's data to a specified target.
         """
 
-
 __all__ = ['XSubmit']
 

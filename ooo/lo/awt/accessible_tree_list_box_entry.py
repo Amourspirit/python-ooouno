@@ -42,5 +42,6 @@ class AccessibleTreeListBoxEntry(AccessibleContext_7e0e1143, XAccessibleAction_7
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleTreeListBoxEntry']
 

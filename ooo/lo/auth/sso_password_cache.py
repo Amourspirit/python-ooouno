@@ -40,5 +40,6 @@ class SSOPasswordCache(XSSOPasswordCache_ec0f0d2e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SSOPasswordCache']
 

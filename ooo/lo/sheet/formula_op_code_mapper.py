@@ -33,5 +33,6 @@ class FormulaOpCodeMapper(XFormulaOpCodeMapper_27ff0eee):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormulaOpCodeMapper']
 

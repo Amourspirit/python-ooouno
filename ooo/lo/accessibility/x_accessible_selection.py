@@ -102,6 +102,5 @@ class XAccessibleSelection(XInterface_8f010a43):
         Causes every child of the object to be selected if the object supports multiple selections. If multiple selection is not supported then the first child, if it exists, is selected and all other children are deselected.
         """
 
-
 __all__ = ['XAccessibleSelection']
 

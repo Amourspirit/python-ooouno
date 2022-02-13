@@ -33,5 +33,6 @@ class FormatCondition(XFormatCondition_ffb00e0c):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FormatCondition']
 

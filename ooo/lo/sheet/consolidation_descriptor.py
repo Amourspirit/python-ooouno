@@ -34,5 +34,6 @@ class ConsolidationDescriptor(XConsolidationDescriptor_6b7610ee):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ConsolidationDescriptor']
 

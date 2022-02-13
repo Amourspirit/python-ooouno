@@ -35,5 +35,6 @@ class ClipboardManager(XClipboardManager_28b01488, XComponent_98dc0ab5):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ClipboardManager']
 

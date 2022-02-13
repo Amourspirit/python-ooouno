@@ -42,6 +42,5 @@ class XTableChartsSupplier(XInterface_8f010a43):
         returns the collection of charts.
         """
 
-
 __all__ = ['XTableChartsSupplier']
 

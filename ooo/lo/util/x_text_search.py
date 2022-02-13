@@ -57,6 +57,5 @@ class XTextSearch(XInterface_8f010a43):
         set the options for the forward or backward search.
         """
 
-
 __all__ = ['XTextSearch']
 

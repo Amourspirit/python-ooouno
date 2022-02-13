@@ -37,5 +37,6 @@ class Writer(XWriter_99830aa8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Writer']
 

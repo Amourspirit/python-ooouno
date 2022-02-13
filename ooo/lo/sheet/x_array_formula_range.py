@@ -44,6 +44,5 @@ class XArrayFormulaRange(XInterface_8f010a43):
         applies the array formula to the entire cell range.
         """
 
-
 __all__ = ['XArrayFormulaRange']
 

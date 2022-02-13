@@ -54,6 +54,5 @@ class XFastSAXSerializable(ABC):
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
 
-
 __all__ = ['XFastSAXSerializable']
 

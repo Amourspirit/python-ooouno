@@ -36,5 +36,6 @@ class SvgTools(XSvgParser_bc350bdb):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SvgTools']
 

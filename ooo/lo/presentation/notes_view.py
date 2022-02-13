@@ -38,5 +38,6 @@ class NotesView(DrawingDocumentDrawView_7c7d1128):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['NotesView']
 

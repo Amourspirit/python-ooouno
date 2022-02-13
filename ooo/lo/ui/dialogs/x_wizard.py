@@ -157,6 +157,7 @@ class XWizard(XExecutableDialog_450f0fa1):
     def DialogWindow(self) -> 'XWindow_713b0924':
         """
         """
+
     @abstractproperty
     def HelpURL(self) -> str:
         """

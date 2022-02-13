@@ -42,6 +42,5 @@ class XAnyCompareFactory(XInterface_8f010a43):
         creates an XAnyCompare instance.
         """
 
-
 __all__ = ['XAnyCompareFactory']
 

@@ -58,6 +58,5 @@ class XNumberFormatTypes(XInterface_8f010a43):
         verifies if one type of number format is compatible with another type.
         """
 
-
 __all__ = ['XNumberFormatTypes']
 

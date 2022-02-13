@@ -52,6 +52,5 @@ class XLayoutConstrains(XInterface_8f010a43):
         returns the preferred size for this component.
         """
 
-
 __all__ = ['XLayoutConstrains']
 

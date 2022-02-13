@@ -39,6 +39,5 @@ class XLinguServiceManager2(XComponent_98dc0ab5, XAvailableLocales_58501011, XLi
     __pyunointerface__: str = 'com.sun.star.linguistic2.XLinguServiceManager2'
 
 
-
 __all__ = ['XLinguServiceManager2']
 

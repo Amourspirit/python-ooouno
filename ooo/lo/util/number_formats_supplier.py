@@ -52,5 +52,6 @@ class NumberFormatsSupplier(XNumberFormatsSupplier_3afb0fb7):
         Create using specific locale.
         """
 
+
 __all__ = ['NumberFormatsSupplier']
 

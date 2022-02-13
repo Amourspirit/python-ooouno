@@ -37,5 +37,6 @@ class PersistentPropertySet(XPropertyAccess_e1d40d20, XPropertyContainer_c600e71
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PersistentPropertySet']
 

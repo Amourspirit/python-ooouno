@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import SimpleFontMetric as USimpleFontMetric
+        # Dynamically create uno com.sun.star.awt.SimpleFontMetric using uno
         global SimpleFontMetric
 
         def _set_attr(struct):
@@ -35,25 +36,32 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.SimpleFontMetric'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import SimpleFontMetric as USimpleFontMetric
-                if isinstance(args[0], USimpleFontMetric):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.SimpleFontMetric', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Ascent = UNO_NONE, Descent = UNO_NONE, Leading = UNO_NONE, Slant = UNO_NONE, FirstChar = UNO_NONE, LastChar = UNO_NONE):
+            ns = 'com.sun.star.awt.SimpleFontMetric'
+            if isinstance(Ascent, USimpleFontMetric):
+                inst = uno.createUnoStruct(ns, Ascent)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Ascent', 'Descent', 'Leading', 'Slant', 'FirstChar', 'LastChar')
-            struct = uno.createUnoStruct('com.sun.star.awt.SimpleFontMetric')
-            if arg_len > len(key_order):
-                raise ValueError("SimpleFontMetric.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Ascent is UNO_NONE:
+                if getattr(struct, 'Ascent') != Ascent:
+                    setattr(struct, 'Ascent', Ascent)
+            if not Descent is UNO_NONE:
+                if getattr(struct, 'Descent') != Descent:
+                    setattr(struct, 'Descent', Descent)
+            if not Leading is UNO_NONE:
+                if getattr(struct, 'Leading') != Leading:
+                    setattr(struct, 'Leading', Leading)
+            if not Slant is UNO_NONE:
+                if getattr(struct, 'Slant') != Slant:
+                    setattr(struct, 'Slant', Slant)
+            if not FirstChar is UNO_NONE:
+                if getattr(struct, 'FirstChar') != FirstChar:
+                    setattr(struct, 'FirstChar', FirstChar)
+            if not LastChar is UNO_NONE:
+                if getattr(struct, 'LastChar') != LastChar:
+                    setattr(struct, 'LastChar', LastChar)
             _set_attr(struct)
             return struct
         SimpleFontMetric = _struct_init

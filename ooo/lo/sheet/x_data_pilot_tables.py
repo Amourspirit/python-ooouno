@@ -57,6 +57,5 @@ class XDataPilotTables(XNameAccess_e2ab0cf6):
         deletes a data pilot table from the collection.
         """
 
-
 __all__ = ['XDataPilotTables']
 

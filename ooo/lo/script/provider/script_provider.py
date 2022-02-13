@@ -35,5 +35,6 @@ class ScriptProvider(BrowseNode_edb0e55, XScriptProvider_8004114e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ScriptProvider']
 

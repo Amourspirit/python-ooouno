@@ -20,7 +20,8 @@
 # Namespace: com.sun.star.chart
 import typing
 from abc import abstractproperty, ABC
-from .chart_series_address import ChartSeriesAddress as ChartSeriesAddress_a480e3d
+if typing.TYPE_CHECKING:
+    from .chart_series_address import ChartSeriesAddress as ChartSeriesAddress_a480e3d
 
 class ChartTableAddressSupplier(ABC):
     """
@@ -37,30 +38,15 @@ class ChartTableAddressSupplier(ABC):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartTableAddressSupplier'
     __ooo_type_name__: str = 'service'
 
-    SeriesAddresses: typing.TypeAlias = typing.Tuple[ChartSeriesAddress_a480e3d, ...]
-    """
-    contains the addresses to the elements of a series.
-    
-    This sequence should contain one element for each series in the chart.
-    """
-
     @abstractproperty
-    def CategoriesRangeAddress(self) -> str:
+    def SeriesAddresses(self) -> 'typing.Tuple[ChartSeriesAddress_a480e3d, ...]':
         """
-        contains the address to the cells containing the names of the categories.
+        contains the addresses to the elements of a series.
         
-        Note: Each value of a data series belongs exactly to one category.
+        This sequence should contain one element for each series in the chart.
         """
-    @abstractproperty
-    def MainTitleAddress(self) -> str:
-        """
-        contains the address to the main title.
-        """
-    @abstractproperty
-    def SubTitleAddress(self) -> str:
-        """
-        contains the address to the sub title.
-        """
+
+
 
 __all__ = ['ChartTableAddressSupplier']
 

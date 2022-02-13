@@ -69,5 +69,6 @@ class SortableGridDataModel(XSortableMutableGridDataModel_f6af1377):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['SortableGridDataModel']
 

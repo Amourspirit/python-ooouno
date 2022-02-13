@@ -36,5 +36,6 @@ class GraphicProvider(XGraphicProvider_b5b0e47):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GraphicProvider']
 

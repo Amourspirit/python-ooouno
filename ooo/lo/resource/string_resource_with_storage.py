@@ -47,5 +47,6 @@ class StringResourceWithStorage(XStringResourceWithStorage_ca5312f8):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['StringResourceWithStorage']
 

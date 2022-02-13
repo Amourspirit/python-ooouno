@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.util import SortField as USortField
+        # Dynamically create uno com.sun.star.util.SortField using uno
         global SortField
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.SortField'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.util import SortField as USortField
-                if isinstance(args[0], USortField):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.util.SortField', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Field = UNO_NONE, SortAscending = UNO_NONE, FieldType = UNO_NONE):
+            ns = 'com.sun.star.util.SortField'
+            if isinstance(Field, USortField):
+                inst = uno.createUnoStruct(ns, Field)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Field', 'SortAscending', 'FieldType')
-            struct = uno.createUnoStruct('com.sun.star.util.SortField')
-            if arg_len > len(key_order):
-                raise ValueError("SortField.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Field is UNO_NONE:
+                if getattr(struct, 'Field') != Field:
+                    setattr(struct, 'Field', Field)
+            if not SortAscending is UNO_NONE:
+                if getattr(struct, 'SortAscending') != SortAscending:
+                    setattr(struct, 'SortAscending', SortAscending)
+            if not FieldType is UNO_NONE:
+                if getattr(struct, 'FieldType') != FieldType:
+                    setattr(struct, 'FieldType', FieldType)
             _set_attr(struct)
             return struct
         SortField = _struct_init

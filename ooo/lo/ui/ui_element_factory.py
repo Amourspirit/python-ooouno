@@ -40,5 +40,6 @@ class UIElementFactory(XUIElementFactory_d0280c7e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UIElementFactory']
 

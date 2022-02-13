@@ -38,5 +38,6 @@ class FunctionDescriptions(XEnumerationAccess_4bac0ffc, XNameAccess_e2ab0cf6, XF
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FunctionDescriptions']
 

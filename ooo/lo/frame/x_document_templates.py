@@ -89,6 +89,5 @@ class XDocumentTemplates(XInterface_8f010a43):
         Because the templates are well known by links and not as direct content they can be outdated. An update force actualization of that to find wrong links.
         """
 
-
 __all__ = ['XDocumentTemplates']
 

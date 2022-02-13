@@ -34,5 +34,6 @@ class EndnoteSettings(FootnoteSettings_e5970d6c):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['EndnoteSettings']
 

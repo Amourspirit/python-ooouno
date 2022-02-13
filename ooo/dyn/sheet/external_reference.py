@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.sheet import ExternalReference as UExternalReference
+        # Dynamically create uno com.sun.star.sheet.ExternalReference using uno
         global ExternalReference
 
         def _set_attr(struct):
@@ -35,25 +36,20 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.ExternalReference'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.sheet import ExternalReference as UExternalReference
-                if isinstance(args[0], UExternalReference):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.sheet.ExternalReference', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Index = UNO_NONE, Reference = UNO_NONE):
+            ns = 'com.sun.star.sheet.ExternalReference'
+            if isinstance(Index, UExternalReference):
+                inst = uno.createUnoStruct(ns, Index)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Index', 'Reference')
-            struct = uno.createUnoStruct('com.sun.star.sheet.ExternalReference')
-            if arg_len > len(key_order):
-                raise ValueError("ExternalReference.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Index is UNO_NONE:
+                if getattr(struct, 'Index') != Index:
+                    setattr(struct, 'Index', Index)
+            if not Reference is UNO_NONE:
+                if getattr(struct, 'Reference') != Reference:
+                    setattr(struct, 'Reference', Reference)
             _set_attr(struct)
             return struct
         ExternalReference = _struct_init

@@ -40,5 +40,6 @@ class Query(DataSettings_a3000b0c, XQueryDefinition_d3bf0cb8, XColumnsSupplier_f
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Query']
 

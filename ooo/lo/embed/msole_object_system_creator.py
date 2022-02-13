@@ -37,5 +37,6 @@ class MSOLEObjectSystemCreator(XEmbedObjectClipboardCreator_a6dc11f1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MSOLEObjectSystemCreator']
 

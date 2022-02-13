@@ -45,5 +45,6 @@ class PopupMenuController(XDispatchProvider_fc690de6, XPopupMenuController_29740
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PopupMenuController']
 

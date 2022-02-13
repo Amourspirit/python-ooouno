@@ -82,6 +82,5 @@ class XTabControllerModel(XInterface_8f010a43):
         determines if the control models are grouped together.
         """
 
-
 __all__ = ['XTabControllerModel']
 

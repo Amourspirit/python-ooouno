@@ -34,5 +34,6 @@ class Scaling(XScaling_97500a65):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Scaling']
 

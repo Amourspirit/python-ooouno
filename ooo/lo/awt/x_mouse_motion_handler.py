@@ -49,6 +49,5 @@ class XMouseMotionHandler(XEventListener_c7230c4a):
         is invoked when the mouse button has been moved on a window (with no buttons down).
         """
 
-
 __all__ = ['XMouseMotionHandler']
 

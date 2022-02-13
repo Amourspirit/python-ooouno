@@ -59,5 +59,6 @@ class PackageManagerDialog(XAsynchronousExecutableDialog_255014ad):
         Create a default GUI.
         """
 
+
 __all__ = ['PackageManagerDialog']
 

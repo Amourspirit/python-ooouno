@@ -53,6 +53,5 @@ class XInsertListener(XEventListener_c7230c4a):
         is invoked when a database form starts inserting a record.
         """
 
-
 __all__ = ['XInsertListener']
 

@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sdb.application
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ...ui.dialogs.x_executable_dialog import XExecutableDialog as XExecutableDialog_450f0fa1
 if typing.TYPE_CHECKING:
     from .x_copy_table_listener import XCopyTableListener as XCopyTableListener_ad581224
@@ -54,53 +54,6 @@ class XCopyTableWizard(XExecutableDialog_450f0fa1):
         """
         removes a listener
         """
-    @abstractproperty
-    def CreatePrimaryKey(self) -> object:
-        """
-        specifies that a new primary key is to be created in the target database
-        
-        At initialization time, you can specify the initial settings for the primary key in the UI.
-        
-        You cannot use this attribute to determine the primary key, possibly created by the wizard, after it finished. The reason is that during the wizard run, the user can define an arbitrarily complex primary key, e.g. including multiple columns, which cannot be represented in this simple attribute anymore.
-        
-        This attribute is ignored if Operation is CopyTableOperation.AppendData.
-        
-        Changing this attribute while the dialog is running is not supported, the result of such an attempt is undefined.
-        
-        When a primary key is to be created by the wizard, it will be an auto-increment column, if possible.
-        """
-    @abstractproperty
-    def DestinationTableName(self) -> str:
-        """
-        specifies the name of the table in the destination database.
-        
-        At initialization time, you can use this attribute to control the initial table name as suggested to the user.
-        
-        After the wizard has finished, you can use this attribute to determine what table was actually created resp. to which existing table the source table's data was appended.
-        
-        Changing this attribute while the dialog is running is not supported, the result of such an attempt is undefined.
-        """
-    @abstractproperty
-    def Operation(self) -> int:
-        """
-        specifies the basic operation for the wizard to execute.
-        
-        This must be one of the CopyTableOperation constants.
-        
-        At initialization time, you can use this attribute to control the initial operation in the wizard.
-        
-        After the wizard has finished, you can use this attribute to determine what operation was actually executed.
-        
-        Changing this attribute while the dialog is running is not supported, the result of such an attempt is undefined.
-        """
-    @abstractproperty
-    def UseHeaderLineAsColumnNames(self) -> bool:
-        """
-        specifies that the first row should be used to identify column names.
-        
-        This attribute is ignored when the source defines the column names which isn't the case when only a part of a table should be copied e.g. in the RTF format or in the HTML format.
-        """
-
 
 __all__ = ['XCopyTableWizard']
 

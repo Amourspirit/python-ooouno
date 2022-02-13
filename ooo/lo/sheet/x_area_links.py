@@ -49,6 +49,5 @@ class XAreaLinks(XIndexAccess_f0910d6d):
         removes an area link from the collection.
         """
 
-
 __all__ = ['XAreaLinks']
 

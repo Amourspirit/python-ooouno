@@ -43,6 +43,5 @@ class XReplaceDescriptor(XSearchDescriptor_ef600d93):
         sets the string which replaces the found occurrences.
         """
 
-
 __all__ = ['XReplaceDescriptor']
 

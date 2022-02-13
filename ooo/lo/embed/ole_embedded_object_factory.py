@@ -37,5 +37,6 @@ class OLEEmbeddedObjectFactory(XEmbeddedObjectCreator_41d90f8e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OLEEmbeddedObjectFactory']
 

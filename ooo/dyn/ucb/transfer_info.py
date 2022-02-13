@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ucb import TransferInfo as UTransferInfo
+        # Dynamically create uno com.sun.star.ucb.TransferInfo using uno
         global TransferInfo
 
         def _set_attr(struct):
@@ -35,25 +36,26 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.TransferInfo'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ucb import TransferInfo as UTransferInfo
-                if isinstance(args[0], UTransferInfo):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ucb.TransferInfo', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(MoveData = UNO_NONE, SourceURL = UNO_NONE, NewTitle = UNO_NONE, NameClash = UNO_NONE):
+            ns = 'com.sun.star.ucb.TransferInfo'
+            if isinstance(MoveData, UTransferInfo):
+                inst = uno.createUnoStruct(ns, MoveData)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('MoveData', 'SourceURL', 'NewTitle', 'NameClash')
-            struct = uno.createUnoStruct('com.sun.star.ucb.TransferInfo')
-            if arg_len > len(key_order):
-                raise ValueError("TransferInfo.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not MoveData is UNO_NONE:
+                if getattr(struct, 'MoveData') != MoveData:
+                    setattr(struct, 'MoveData', MoveData)
+            if not SourceURL is UNO_NONE:
+                if getattr(struct, 'SourceURL') != SourceURL:
+                    setattr(struct, 'SourceURL', SourceURL)
+            if not NewTitle is UNO_NONE:
+                if getattr(struct, 'NewTitle') != NewTitle:
+                    setattr(struct, 'NewTitle', NewTitle)
+            if not NameClash is UNO_NONE:
+                if getattr(struct, 'NameClash') != NameClash:
+                    setattr(struct, 'NameClash', NameClash)
             _set_attr(struct)
             return struct
         TransferInfo = _struct_init

@@ -46,6 +46,5 @@ class XContainerApproveBroadcaster(ABC):
         removes a previously added listener
         """
 
-
 __all__ = ['XContainerApproveBroadcaster']
 

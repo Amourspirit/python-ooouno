@@ -41,11 +41,15 @@ class DeploymentException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.DeploymentException'
     """Literal Constant ``com.sun.star.deployment.DeploymentException``"""
 
-    Cause: object = None
-    """
-        reflects the cause of the error.
-        
-        Commonly an exception.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

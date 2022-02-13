@@ -42,6 +42,5 @@ class XCommandInfoChangeListener(XEventListener_c7230c4a):
         gets called whenever changes of a XCommandInfo shall be propagated.
         """
 
-
 __all__ = ['XCommandInfoChangeListener']
 

@@ -37,6 +37,5 @@ class XTabPage(ABC):
     __pyunointerface__: str = 'com.sun.star.awt.tab.XTabPage'
 
 
-
 __all__ = ['XTabPage']
 

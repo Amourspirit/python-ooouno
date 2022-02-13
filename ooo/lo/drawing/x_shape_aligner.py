@@ -46,6 +46,5 @@ class XShapeAligner(XInterface_8f010a43):
         aligns the specified Shapes.
         """
 
-
 __all__ = ['XShapeAligner']
 

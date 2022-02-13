@@ -70,6 +70,5 @@ class XInplaceObject(XInterface_8f010a43):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
 
-
 __all__ = ['XInplaceObject']
 

@@ -49,6 +49,5 @@ class X3DDisplay(XInterface_8f010a43):
         Note that this property is also valid for two-dimensional diagrams. There the properties returned here affect the background rectangle of the diagram.
         """
 
-
 __all__ = ['X3DDisplay']
 

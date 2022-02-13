@@ -77,6 +77,5 @@ class XFixedHyperlink(XInterface_8f010a43):
         sets the url of the control.
         """
 
-
 __all__ = ['XFixedHyperlink']
 

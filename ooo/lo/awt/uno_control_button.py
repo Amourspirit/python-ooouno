@@ -36,5 +36,6 @@ class UnoControlButton(UnoControl_8f2c0a67, XButton_71380928, XLayoutConstrains_
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlButton']
 

@@ -114,6 +114,5 @@ class XDatabaseRegistrations(ABC):
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
 
-
 __all__ = ['XDatabaseRegistrations']
 

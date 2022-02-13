@@ -41,14 +41,15 @@ class StratumCreationException(BackendSetupException_68ae15de):
     typeName: str = 'com.sun.star.configuration.backend.StratumCreationException'
     """Literal Constant ``com.sun.star.configuration.backend.StratumCreationException``"""
 
-    StratumData: str = None
-    """
-        Initialization data passed to the stratum instance.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    StratumService: str = None
-    """
-        Identifier of the stratum service that could not be created.
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

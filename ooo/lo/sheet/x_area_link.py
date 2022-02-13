@@ -61,6 +61,5 @@ class XAreaLink(XInterface_8f010a43):
         This can be the address of a cell or range in the form \"Sheet1.A1:C5\", or the name of a named range or database range.
         """
 
-
 __all__ = ['XAreaLink']
 

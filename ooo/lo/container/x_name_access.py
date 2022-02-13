@@ -55,6 +55,5 @@ class XNameAccess(XElementAccess_cd60e3f):
         In many cases the next call is XNameAccess.getByName(). You should optimize this case.
         """
 
-
 __all__ = ['XNameAccess']
 

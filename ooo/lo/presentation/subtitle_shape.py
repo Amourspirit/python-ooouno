@@ -37,5 +37,6 @@ class SubtitleShape(TextShape_b1b80b8a, Shape_c0c80c15):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SubtitleShape']
 

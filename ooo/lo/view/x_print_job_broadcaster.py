@@ -53,6 +53,5 @@ class XPrintJobBroadcaster(XInterface_8f010a43):
         removes an XPrintJobListener.
         """
 
-
 __all__ = ['XPrintJobBroadcaster']
 

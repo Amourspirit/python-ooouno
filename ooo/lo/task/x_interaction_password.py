@@ -48,6 +48,5 @@ class XInteractionPassword(XInteractionContinuation_5af0108e):
         Store result password to the continuation.
         """
 
-
 __all__ = ['XInteractionPassword']
 

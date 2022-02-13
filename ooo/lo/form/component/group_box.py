@@ -35,5 +35,6 @@ class GroupBox(UnoControlGroupBoxModel_3a380f8e, FormControlModel_e2990d22):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GroupBox']
 

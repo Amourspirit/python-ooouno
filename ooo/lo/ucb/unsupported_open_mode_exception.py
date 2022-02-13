@@ -39,9 +39,15 @@ class UnsupportedOpenModeException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.UnsupportedOpenModeException'
     """Literal Constant ``com.sun.star.ucb.UnsupportedOpenModeException``"""
 
-    Mode: int = None
-    """
-        contains the OpenMode that is not supported.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

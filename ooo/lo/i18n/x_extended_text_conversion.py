@@ -54,6 +54,5 @@ class XExtendedTextConversion(XTextConversion_cd640c6b):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
 
-
 __all__ = ['XExtendedTextConversion']
 

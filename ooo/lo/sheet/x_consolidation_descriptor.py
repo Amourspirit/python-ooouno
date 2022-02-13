@@ -103,6 +103,5 @@ class XConsolidationDescriptor(XInterface_8f010a43):
         specifies if row headers from the cell ranges are used to find matching data.
         """
 
-
 __all__ = ['XConsolidationDescriptor']
 

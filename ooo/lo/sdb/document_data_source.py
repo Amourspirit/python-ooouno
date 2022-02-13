@@ -35,5 +35,6 @@ class DocumentDataSource(DataSource_8d760a2c, XDocumentDataSource_fab40dc3):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DocumentDataSource']
 

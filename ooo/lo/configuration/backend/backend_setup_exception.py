@@ -43,11 +43,15 @@ class BackendSetupException(CannotLoadConfigurationException_b325176a):
     typeName: str = 'com.sun.star.configuration.backend.BackendSetupException'
     """Literal Constant ``com.sun.star.configuration.backend.BackendSetupException``"""
 
-    BackendException: object = None
-    """
-        The exception that is raised by the underlying backend implementation.
-        
-        May be a numeric error code, a message string or VOID, if the original exception is not represented as a com.sun.star.uno.Exception.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

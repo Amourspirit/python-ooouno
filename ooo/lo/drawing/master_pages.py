@@ -34,5 +34,6 @@ class MasterPages(XDrawPages_bc440bca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MasterPages']
 

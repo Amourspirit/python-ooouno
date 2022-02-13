@@ -35,6 +35,5 @@ class XTextAppendAndConvert(XTextAppend_a5a50b22, XTextContentAppend_ff310dfd, X
     __pyunointerface__: str = 'com.sun.star.text.XTextAppendAndConvert'
 
 
-
 __all__ = ['XTextAppendAndConvert']
 

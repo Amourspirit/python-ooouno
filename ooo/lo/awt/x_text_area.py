@@ -39,6 +39,5 @@ class XTextArea(XInterface_8f010a43):
         returns the text lines as a single string with line separators.
         """
 
-
 __all__ = ['XTextArea']
 

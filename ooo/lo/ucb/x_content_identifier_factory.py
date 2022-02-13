@@ -42,6 +42,5 @@ class XContentIdentifierFactory(XInterface_8f010a43):
         creates an identifier.
         """
 
-
 __all__ = ['XContentIdentifierFactory']
 

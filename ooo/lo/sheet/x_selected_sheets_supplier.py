@@ -45,6 +45,5 @@ class XSelectedSheetsSupplier(XInterface_8f010a43):
         Sheet indices are 0-based.
         """
 
-
 __all__ = ['XSelectedSheetsSupplier']
 

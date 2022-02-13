@@ -42,6 +42,5 @@ class XScenariosSupplier(XInterface_8f010a43):
         returns the collection of scenarios.
         """
 
-
 __all__ = ['XScenariosSupplier']
 

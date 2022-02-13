@@ -57,6 +57,5 @@ class XVclContainer(XInterface_8f010a43):
         removes the specified container listener so that it no longer receives container events from this container.
         """
 
-
 __all__ = ['XVclContainer']
 

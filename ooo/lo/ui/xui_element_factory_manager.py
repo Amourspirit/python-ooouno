@@ -38,6 +38,5 @@ class XUIElementFactoryManager(XUIElementFactory_d0280c7e, XUIElementFactoryRegi
     __pyunointerface__: str = 'com.sun.star.ui.XUIElementFactoryManager'
 
 
-
 __all__ = ['XUIElementFactoryManager']
 

@@ -35,5 +35,6 @@ class DatabaseCurrencyField(DataAwareControlModel_27110ef8, CurrencyField_4b4d0f
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DatabaseCurrencyField']
 

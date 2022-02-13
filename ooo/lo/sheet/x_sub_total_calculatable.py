@@ -54,6 +54,5 @@ class XSubTotalCalculatable(XInterface_8f010a43):
         removes the subtotals from the current object.
         """
 
-
 __all__ = ['XSubTotalCalculatable']
 

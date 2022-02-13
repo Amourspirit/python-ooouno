@@ -38,5 +38,6 @@ class TableChart(XNamed_a6520b08, XEmbeddedObjectSupplier_8b631174, XTableChart_
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TableChart']
 

@@ -48,6 +48,5 @@ class XScriptEventsAttacher(XInterface_8f010a43):
             com.sun.star.lang.ServiceNotRegisteredException: ``ServiceNotRegisteredException``
         """
 
-
 __all__ = ['XScriptEventsAttacher']
 

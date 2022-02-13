@@ -48,4 +48,15 @@ class JavaInitializationException(DeploymentException_ffd30e2a):
     typeName: str = 'com.sun.star.java.JavaInitializationException'
     """Literal Constant ``com.sun.star.java.JavaInitializationException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

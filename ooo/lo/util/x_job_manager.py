@@ -52,6 +52,5 @@ class XJobManager(XInterface_8f010a43):
         deregisters a cancelable jobs.
         """
 
-
 __all__ = ['XJobManager']
 

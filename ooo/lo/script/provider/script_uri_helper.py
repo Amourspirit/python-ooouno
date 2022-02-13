@@ -43,5 +43,6 @@ class ScriptURIHelper(XScriptURIHelper_8ee61153):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['ScriptURIHelper']
 

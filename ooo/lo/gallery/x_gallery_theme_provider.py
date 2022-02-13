@@ -57,6 +57,5 @@ class XGalleryThemeProvider(XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XGalleryThemeProvider']
 

@@ -34,5 +34,6 @@ class XMLSecurityContext(XXMLSecurityContext_681010ae):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['XMLSecurityContext']
 

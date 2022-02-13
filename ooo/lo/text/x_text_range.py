@@ -62,6 +62,5 @@ class XTextRange(XInterface_8f010a43):
         All styles are removed when applying this method.
         """
 
-
 __all__ = ['XTextRange']
 

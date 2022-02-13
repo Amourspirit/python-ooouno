@@ -34,5 +34,6 @@ class GraphicExportFilter(XGraphicExportFilter_49570ff2):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GraphicExportFilter']
 

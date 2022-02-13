@@ -50,6 +50,5 @@ class XMultiTextMarkup(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XMultiTextMarkup']
 

@@ -43,5 +43,6 @@ class AccessibleButton(XAccessibleAction_7ccc1114, XAccessibleContext_8eae119b, 
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleButton']
 

@@ -75,6 +75,5 @@ class XTreeDataModelListener(XEventListener_c7230c4a):
         Use TreeDataModelEvent.ParentNode to get the node which structure has changed. TreeDataModelEvent.Nodes is empty.
         """
 
-
 __all__ = ['XTreeDataModelListener']
 

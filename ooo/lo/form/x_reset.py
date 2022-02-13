@@ -54,6 +54,5 @@ class XReset(XInterface_8f010a43):
         resets a component to some default value.
         """
 
-
 __all__ = ['XReset']
 

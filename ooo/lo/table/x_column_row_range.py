@@ -48,6 +48,5 @@ class XColumnRowRange(XInterface_8f010a43):
         returns the collection of rows in the range.
         """
 
-
 __all__ = ['XColumnRowRange']
 

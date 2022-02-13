@@ -37,5 +37,6 @@ class BindableDatabaseNumericField(BindableDataAwareControlModel_47091512, Datab
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BindableDatabaseNumericField']
 

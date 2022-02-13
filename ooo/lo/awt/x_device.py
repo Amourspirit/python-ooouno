@@ -83,6 +83,5 @@ class XDevice(XInterface_8f010a43):
         returns information about the device.
         """
 
-
 __all__ = ['XDevice']
 

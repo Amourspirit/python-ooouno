@@ -36,5 +36,6 @@ class CharacterClassification(XCharacterClassification_4ac00fd9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CharacterClassification']
 

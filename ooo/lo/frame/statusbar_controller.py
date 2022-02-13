@@ -41,5 +41,6 @@ class StatusbarController(XStatusbarController_2a730f48):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['StatusbarController']
 

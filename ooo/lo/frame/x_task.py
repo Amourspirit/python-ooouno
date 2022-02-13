@@ -55,6 +55,5 @@ class XTask(XFrame_7a570956):
         """
         """
 
-
 __all__ = ['XTask']
 

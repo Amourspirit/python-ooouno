@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.chart2.data
 import typing
 
-DataSequenceRole = str
+DataSequenceRole = typing.NewType('DataSequenceRole', str)
 """
 TypeDef type alias
 

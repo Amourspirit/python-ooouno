@@ -40,5 +40,6 @@ class SmartTagRecognizer(XSmartTagRecognizer_5ccd1071):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SmartTagRecognizer']
 

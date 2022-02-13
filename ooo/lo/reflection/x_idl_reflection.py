@@ -51,6 +51,5 @@ class XIdlReflection(XInterface_8f010a43):
         This method takes the type of the object the any contains into account. If the any contains no object, then a null-reference is returned.
         """
 
-
 __all__ = ['XIdlReflection']
 

@@ -51,6 +51,5 @@ class XEventBroadcaster(XInterface_8f010a43):
         unregisters the given listener
         """
 
-
 __all__ = ['XEventBroadcaster']
 

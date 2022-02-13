@@ -42,5 +42,6 @@ class DefaultRegistry(XSimpleRegistry_10150e9c):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DefaultRegistry']
 

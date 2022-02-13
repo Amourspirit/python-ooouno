@@ -47,6 +47,5 @@ class XDrawView(XInterface_8f010a43):
         changes the current page.
         """
 
-
 __all__ = ['XDrawView']
 

@@ -36,5 +36,6 @@ class MediaTypeDetectionHelper(XStringMapping_c99c0c61):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MediaTypeDetectionHelper']
 

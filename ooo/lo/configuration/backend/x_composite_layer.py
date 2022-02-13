@@ -62,6 +62,5 @@ class XCompositeLayer(XLayer_4cd50fcb):
             MalformedDataException: ``MalformedDataException``
         """
 
-
 __all__ = ['XCompositeLayer']
 

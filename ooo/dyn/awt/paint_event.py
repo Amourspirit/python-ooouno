@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import PaintEvent as UPaintEvent
+        # Dynamically create uno com.sun.star.awt.PaintEvent using uno
         global PaintEvent
 
         def _set_attr(struct):
@@ -35,25 +36,25 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.PaintEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import PaintEvent as UPaintEvent
-                if isinstance(args[0], UPaintEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.PaintEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(UpdateRect = UNO_NONE, Count = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.awt.PaintEvent'
+            if isinstance(UpdateRect, UPaintEvent):
+                inst = uno.createUnoStruct(ns, UpdateRect)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('UpdateRect', 'Count')
-            struct = uno.createUnoStruct('com.sun.star.awt.PaintEvent')
-            if arg_len > len(key_order):
-                raise ValueError("PaintEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not UpdateRect is UNO_NONE:
+                if getattr(struct, 'UpdateRect') != UpdateRect:
+                    setattr(struct, 'UpdateRect', UpdateRect)
+            if not Count is UNO_NONE:
+                if getattr(struct, 'Count') != Count:
+                    setattr(struct, 'Count', Count)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         PaintEvent = _struct_init

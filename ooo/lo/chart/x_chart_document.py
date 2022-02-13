@@ -91,6 +91,5 @@ class XChartDocument(XModel_7a6e095c):
         Setting a new diagram implicitly disposes the previous diagram.
         """
 
-
 __all__ = ['XChartDocument']
 

@@ -70,6 +70,5 @@ class XIdlArray(XInterface_8f010a43):
             com.sun.star.lang.ArrayIndexOutOfBoundsException: ``ArrayIndexOutOfBoundsException``
         """
 
-
 __all__ = ['XIdlArray']
 

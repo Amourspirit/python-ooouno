@@ -38,5 +38,6 @@ class SpellChecker(XComponent_98dc0ab5, XInitialization_d46c0cca, XServiceDispla
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SpellChecker']
 

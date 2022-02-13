@@ -78,6 +78,5 @@ class XDesktop(XInterface_8f010a43):
         First, every terminate listener is called by his XTerminateListener.queryTermination() method. Throwing of a TerminationVetoException can break the termination process and the listener how has done that will be the new \"controller\" of the desktop lifetime. He should try to terminate it by himself after his own processes will be finished. If nobody disagree with the termination request, every listener will be called by his XTerminateListener.notifyTermination() method.
         """
 
-
 __all__ = ['XDesktop']
 

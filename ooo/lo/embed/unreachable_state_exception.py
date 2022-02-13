@@ -37,14 +37,15 @@ class UnreachableStateException(Exception_85530a09):
     typeName: str = 'com.sun.star.embed.UnreachableStateException'
     """Literal Constant ``com.sun.star.embed.UnreachableStateException``"""
 
-    CurrentState: int = None
-    """
-        The current state of the object.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
 
-    NextState: int = None
-    """
-        The state that could not be reached.
-    """
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

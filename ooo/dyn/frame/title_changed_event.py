@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.frame import TitleChangedEvent as UTitleChangedEvent
+        # Dynamically create uno com.sun.star.frame.TitleChangedEvent using uno
         global TitleChangedEvent
 
         def _set_attr(struct):
@@ -35,25 +36,22 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.TitleChangedEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.frame import TitleChangedEvent as UTitleChangedEvent
-                if isinstance(args[0], UTitleChangedEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.frame.TitleChangedEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Title = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.frame.TitleChangedEvent'
+            if isinstance(Title, UTitleChangedEvent):
+                inst = uno.createUnoStruct(ns, Title)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Title',)
-            struct = uno.createUnoStruct('com.sun.star.frame.TitleChangedEvent')
-            if arg_len > len(key_order):
-                raise ValueError("TitleChangedEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not Title is UNO_NONE:
+                if getattr(struct, 'Title') != Title:
+                    setattr(struct, 'Title', Title)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         TitleChangedEvent = _struct_init

@@ -67,6 +67,5 @@ class XBitmap(XInterface_8f010a43):
         The method checks, whether the bitmap contains any alpha information. The same information is also available at the XColorSpace associated with this bitmap, though much easier to access here (the color space then has a component flagged ColorComponentTag.ALPHA).
         """
 
-
 __all__ = ['XBitmap']
 

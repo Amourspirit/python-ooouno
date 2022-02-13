@@ -39,6 +39,5 @@ class XAnyCompare(XInterface_8f010a43):
         allows comparison of two anys.
         """
 
-
 __all__ = ['XAnyCompare']
 

@@ -62,6 +62,5 @@ class XBridgeFactory(XInterface_8f010a43):
         returns the sequence of all named and unnamed UNO interprocess bridges that are instantiated at the time the call is made.
         """
 
-
 __all__ = ['XBridgeFactory']
 

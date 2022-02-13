@@ -41,5 +41,6 @@ class ObjectInputStream(XActiveDataSink_b8d00ba3, XConnectable_980a0a96, XMarkab
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ObjectInputStream']
 

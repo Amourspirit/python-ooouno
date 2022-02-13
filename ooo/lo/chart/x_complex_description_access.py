@@ -61,6 +61,5 @@ class XComplexDescriptionAccess(XChartDataArray_df4c0cdd):
         sets the description texts for all rows.
         """
 
-
 __all__ = ['XComplexDescriptionAccess']
 

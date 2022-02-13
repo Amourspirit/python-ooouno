@@ -167,6 +167,5 @@ class XFrame(XComponent_98dc0ab5):
         Note: Special targets like \"_blank\", \"_self\" etc. are not allowed. That's why frame names shouldn't start with a sign \"_\".
         """
 
-
 __all__ = ['XFrame']
 

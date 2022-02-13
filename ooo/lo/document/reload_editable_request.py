@@ -41,9 +41,15 @@ class ReloadEditableRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.ReloadEditableRequest'
     """Literal Constant ``com.sun.star.document.ReloadEditableRequest``"""
 
-    DocumentURL: str = None
-    """
-        The URL of the document that is open but was made editable.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

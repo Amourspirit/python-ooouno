@@ -38,5 +38,6 @@ class OleDragSource(XDragSource_49900fb2, XComponent_98dc0ab5, XInitialization_d
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleDragSource']
 

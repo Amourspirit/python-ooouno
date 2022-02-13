@@ -50,6 +50,5 @@ class XConfigurationControllerRequestQueue(ABC):
         This method should not be called from outside the drawing framework. Other sub controllers of the drawing framework are typical callers. They can add change requests that can not be made with the requestResourceActivation() and requestResourceDeactivation() methods.
         """
 
-
 __all__ = ['XConfigurationControllerRequestQueue']
 

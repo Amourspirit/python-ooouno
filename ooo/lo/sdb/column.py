@@ -35,5 +35,6 @@ class Column(ColumnSettings_bbba0c00, Column_7b1d098a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Column']
 

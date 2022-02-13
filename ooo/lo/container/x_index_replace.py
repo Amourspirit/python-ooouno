@@ -44,6 +44,5 @@ class XIndexReplace(XIndexAccess_f0910d6d):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
-
 __all__ = ['XIndexReplace']
 

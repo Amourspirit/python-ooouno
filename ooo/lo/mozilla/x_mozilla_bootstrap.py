@@ -34,6 +34,5 @@ class XMozillaBootstrap(XProfileDiscover_e060e68, XProfileManager_ff500de4, XPro
     __pyunointerface__: str = 'com.sun.star.mozilla.XMozillaBootstrap'
 
 
-
 __all__ = ['XMozillaBootstrap']
 

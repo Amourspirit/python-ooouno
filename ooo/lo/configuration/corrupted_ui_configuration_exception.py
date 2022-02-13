@@ -41,4 +41,15 @@ class CorruptedUIConfigurationException(CorruptedConfigurationException_a229173f
     typeName: str = 'com.sun.star.configuration.CorruptedUIConfigurationException'
     """Literal Constant ``com.sun.star.configuration.CorruptedUIConfigurationException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

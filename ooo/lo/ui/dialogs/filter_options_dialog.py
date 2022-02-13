@@ -47,5 +47,6 @@ class FilterOptionsDialog(XPropertyAccess_e1d40d20, XExecutableDialog_450f0fa1):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FilterOptionsDialog']
 

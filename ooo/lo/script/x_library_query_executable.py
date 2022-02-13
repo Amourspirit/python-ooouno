@@ -37,6 +37,5 @@ class XLibraryQueryExecutable(XInterface_8f010a43):
         """
         """
 
-
 __all__ = ['XLibraryQueryExecutable']
 

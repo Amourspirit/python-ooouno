@@ -33,5 +33,6 @@ class FixedText(XFixedText_b1ad0b91):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FixedText']
 

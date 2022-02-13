@@ -45,6 +45,5 @@ class XLibraryContainer3(XLibraryContainer2_1c490e9f):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XLibraryContainer3']
 

@@ -63,6 +63,5 @@ class XKeyHandler(XEventListener_c7230c4a):
         Consume the event if the action performed by the implementation is mutually exclusive with the default action of the broadcaster or, when known, with that of other handlers.
         """
 
-
 __all__ = ['XKeyHandler']
 

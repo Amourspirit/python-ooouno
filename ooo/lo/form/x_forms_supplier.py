@@ -42,6 +42,5 @@ class XFormsSupplier(XInterface_8f010a43):
         accesses the forms.
         """
 
-
 __all__ = ['XFormsSupplier']
 

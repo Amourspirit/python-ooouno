@@ -50,6 +50,5 @@ class XLocaleData4(XLocaleData3_a7ad0a9d):
         Patterns with input combinations that are accepted as incomplete date input, such as M/D or D.M.
         """
 
-
 __all__ = ['XLocaleData4']
 

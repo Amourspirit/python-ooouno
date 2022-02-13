@@ -44,5 +44,6 @@ class OfficeInstallationDirectories(XOfficeInstallationDirectories_c38f12d9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OfficeInstallationDirectories']
 

@@ -19,16 +19,38 @@
 # Namespace: com.sun.star.xml.dom
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.dom import DOMException
-    setattr(DOMException, '__ooo_ns__', 'com.sun.star.xml.dom')
-    setattr(DOMException, '__ooo_full_ns__', 'com.sun.star.xml.dom.DOMException')
-    setattr(DOMException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.xml.dom.DOMException using uno
+        global DOMException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.xml.dom'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.xml.dom.DOMException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(Code = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.xml.dom.DOMException'
+            ex = uno.createUnoStruct(ns)
+            if not Code is UNO_NONE:
+                if getattr(ex, 'Code') != Code:
+                    setattr(ex, 'Code', Code)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        DOMException = _ex_init
+
+    _dynamic_ex()
 else:
     from ....lo.xml.dom.dom_exception import DOMException as DOMException
     

@@ -45,5 +45,6 @@ class ToolbarController(XStatusListener_e2740d35, XSubToolbarController_37b30f8c
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ToolbarController']
 

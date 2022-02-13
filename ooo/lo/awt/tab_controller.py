@@ -34,5 +34,6 @@ class TabController(XTabController_bacd0be7):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TabController']
 

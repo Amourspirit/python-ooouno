@@ -34,5 +34,6 @@ class DrawingDocument(GenericDrawingDocument_6a2d10bc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DrawingDocument']
 

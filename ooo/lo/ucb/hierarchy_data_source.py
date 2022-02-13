@@ -37,5 +37,6 @@ class HierarchyDataSource(XComponent_98dc0ab5, XMultiServiceFactory_191e0eb6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['HierarchyDataSource']
 

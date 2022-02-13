@@ -33,5 +33,6 @@ class FilterAdapter(XFilterAdapter_fe8f0de6):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FilterAdapter']
 

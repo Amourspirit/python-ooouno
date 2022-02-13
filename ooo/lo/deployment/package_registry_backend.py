@@ -51,5 +51,6 @@ class PackageRegistryBackend(XPackageRegistry_3be50fa6):
         Creates a transient registry.
         """
 
+
 __all__ = ['PackageRegistryBackend']
 

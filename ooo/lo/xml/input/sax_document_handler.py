@@ -37,5 +37,6 @@ class SaxDocumentHandler(XInitialization_d46c0cca, XDocumentHandler_9b90e28):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SaxDocumentHandler']
 

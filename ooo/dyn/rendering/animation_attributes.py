@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.rendering
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.rendering import AnimationAttributes as UAnimationAttributes
+        # Dynamically create uno com.sun.star.rendering.AnimationAttributes using uno
         global AnimationAttributes
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.AnimationAttributes'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.rendering import AnimationAttributes as UAnimationAttributes
-                if isinstance(args[0], UAnimationAttributes):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.rendering.AnimationAttributes', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Duration = UNO_NONE, RepeatMode = UNO_NONE, UntransformedSize = UNO_NONE):
+            ns = 'com.sun.star.rendering.AnimationAttributes'
+            if isinstance(Duration, UAnimationAttributes):
+                inst = uno.createUnoStruct(ns, Duration)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Duration', 'RepeatMode', 'UntransformedSize')
-            struct = uno.createUnoStruct('com.sun.star.rendering.AnimationAttributes')
-            if arg_len > len(key_order):
-                raise ValueError("AnimationAttributes.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Duration is UNO_NONE:
+                if getattr(struct, 'Duration') != Duration:
+                    setattr(struct, 'Duration', Duration)
+            if not RepeatMode is UNO_NONE:
+                if getattr(struct, 'RepeatMode') != RepeatMode:
+                    setattr(struct, 'RepeatMode', RepeatMode)
+            if not UntransformedSize is UNO_NONE:
+                if getattr(struct, 'UntransformedSize') != UntransformedSize:
+                    setattr(struct, 'UntransformedSize', UntransformedSize)
             _set_attr(struct)
             return struct
         AnimationAttributes = _struct_init

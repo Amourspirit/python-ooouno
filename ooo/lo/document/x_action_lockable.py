@@ -62,6 +62,5 @@ class XActionLockable(XInterface_8f010a43):
         This method is used for debugging purposes. The programming environment can restore the locking after a break of a debug session.
         """
 
-
 __all__ = ['XActionLockable']
 

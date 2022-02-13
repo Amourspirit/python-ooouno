@@ -56,6 +56,5 @@ class XFrameLoaderQuery(XInterface_8f010a43):
         use member com.sun.star.container.XContainerQuery provided by service FrameLoaderFactory instead of this
         """
 
-
 __all__ = ['XFrameLoaderQuery']
 

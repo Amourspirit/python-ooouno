@@ -59,6 +59,5 @@ class XServiceTypeDescription2(XServiceTypeDescription_b4481282):
         Returns whether this object reflects a single-interface–based service.
         """
 
-
 __all__ = ['XServiceTypeDescription2']
 

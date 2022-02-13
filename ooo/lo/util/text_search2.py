@@ -36,5 +36,6 @@ class TextSearch2(XTextSearch2_b0b50b4b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TextSearch2']
 

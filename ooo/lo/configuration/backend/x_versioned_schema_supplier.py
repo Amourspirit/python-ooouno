@@ -51,6 +51,5 @@ class XVersionedSchemaSupplier(XSchemaSupplier_eca11373):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
-
 __all__ = ['XVersionedSchemaSupplier']
 

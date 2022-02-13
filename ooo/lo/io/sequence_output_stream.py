@@ -34,5 +34,6 @@ class SequenceOutputStream(XSequenceOutputStream_bae0e6e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SequenceOutputStream']
 

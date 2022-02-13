@@ -37,5 +37,6 @@ class PatternField(UnoControlPatternField_2add0f29, XBoundControl_bba00bed):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['PatternField']
 

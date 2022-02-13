@@ -40,6 +40,5 @@ class XSystemClipboard(XClipboardEx_c626128a, XClipboardNotifier_3e4e150d, XFlus
     __pyunointerface__: str = 'com.sun.star.datatransfer.clipboard.XSystemClipboard'
 
 
-
 __all__ = ['XSystemClipboard']
 

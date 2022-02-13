@@ -36,5 +36,6 @@ class GlobalSheetSettings(XGlobalSheetSettings_27ef0f14):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GlobalSheetSettings']
 

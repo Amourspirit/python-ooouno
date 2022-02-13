@@ -48,6 +48,5 @@ class XIdentifierAccess(XElementAccess_cd60e3f):
         The order of the identifiers is not specified.
         """
 
-
 __all__ = ['XIdentifierAccess']
 

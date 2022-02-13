@@ -44,5 +44,6 @@ class UpdateRequiredDialog(XExecutableDialog_450f0fa1):
         Create a GUI using the specific parent window and focus on the given context.
         """
 
+
 __all__ = ['UpdateRequiredDialog']
 

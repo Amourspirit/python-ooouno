@@ -37,5 +37,6 @@ class OfficeFrameLoader(XSynchronousFrameLoader_5a8d1058):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OfficeFrameLoader']
 

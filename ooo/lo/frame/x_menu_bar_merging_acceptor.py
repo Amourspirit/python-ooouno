@@ -53,6 +53,5 @@ class XMenuBarMergingAcceptor(XInterface_8f010a43):
         This function is normally used to provide inplace editing where functions from two application parts, container application and embedded object, are available to the user simultaneously. A menu bar which is set by this method has a higher priority than others created by com.sun.star.frame.XLayoutManager interface. Settings of a merged menu bar cannot be retrieved.
         """
 
-
 __all__ = ['XMenuBarMergingAcceptor']
 

@@ -39,6 +39,5 @@ class XLoaderFactory(XContainerQuery_1cdd0edc, XNameAccess_e2ab0cf6, XMultiServi
     __pyunointerface__: str = 'com.sun.star.frame.XLoaderFactory'
 
 
-
 __all__ = ['XLoaderFactory']
 

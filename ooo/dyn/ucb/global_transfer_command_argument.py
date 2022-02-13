@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.ucb import GlobalTransferCommandArgument as UGlobalTransferCommandArgument
+        # Dynamically create uno com.sun.star.ucb.GlobalTransferCommandArgument using uno
         global GlobalTransferCommandArgument
 
         def _set_attr(struct):
@@ -35,25 +36,29 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.GlobalTransferCommandArgument'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.ucb import GlobalTransferCommandArgument as UGlobalTransferCommandArgument
-                if isinstance(args[0], UGlobalTransferCommandArgument):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.ucb.GlobalTransferCommandArgument', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Operation = UNO_NONE, SourceURL = UNO_NONE, TargetURL = UNO_NONE, NewTitle = UNO_NONE, NameClash = UNO_NONE):
+            ns = 'com.sun.star.ucb.GlobalTransferCommandArgument'
+            if isinstance(Operation, UGlobalTransferCommandArgument):
+                inst = uno.createUnoStruct(ns, Operation)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Operation', 'SourceURL', 'TargetURL', 'NewTitle', 'NameClash')
-            struct = uno.createUnoStruct('com.sun.star.ucb.GlobalTransferCommandArgument')
-            if arg_len > len(key_order):
-                raise ValueError("GlobalTransferCommandArgument.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Operation is UNO_NONE:
+                if getattr(struct, 'Operation') != Operation:
+                    setattr(struct, 'Operation', Operation)
+            if not SourceURL is UNO_NONE:
+                if getattr(struct, 'SourceURL') != SourceURL:
+                    setattr(struct, 'SourceURL', SourceURL)
+            if not TargetURL is UNO_NONE:
+                if getattr(struct, 'TargetURL') != TargetURL:
+                    setattr(struct, 'TargetURL', TargetURL)
+            if not NewTitle is UNO_NONE:
+                if getattr(struct, 'NewTitle') != NewTitle:
+                    setattr(struct, 'NewTitle', NewTitle)
+            if not NameClash is UNO_NONE:
+                if getattr(struct, 'NameClash') != NameClash:
+                    setattr(struct, 'NameClash', NameClash)
             _set_attr(struct)
             return struct
         GlobalTransferCommandArgument = _struct_init

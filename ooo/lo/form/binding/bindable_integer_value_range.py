@@ -36,5 +36,6 @@ class BindableIntegerValueRange(BindableControlModel_9a1111a8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BindableIntegerValueRange']
 

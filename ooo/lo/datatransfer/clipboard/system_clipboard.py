@@ -34,5 +34,6 @@ class SystemClipboard(XSystemClipboard_16621452):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SystemClipboard']
 

@@ -19,16 +19,41 @@
 # Namespace: com.sun.star.document
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import FilterOptionsRequest
-    setattr(FilterOptionsRequest, '__ooo_ns__', 'com.sun.star.document')
-    setattr(FilterOptionsRequest, '__ooo_full_ns__', 'com.sun.star.document.FilterOptionsRequest')
-    setattr(FilterOptionsRequest, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.document.FilterOptionsRequest using uno
+        global FilterOptionsRequest
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.document'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.document.FilterOptionsRequest'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(rProperties = UNO_NONE, rModel = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.document.FilterOptionsRequest'
+            ex = uno.createUnoStruct(ns)
+            if not rProperties is UNO_NONE:
+                if getattr(ex, 'rProperties') != rProperties:
+                    setattr(ex, 'rProperties', rProperties)
+            if not rModel is UNO_NONE:
+                if getattr(ex, 'rModel') != rModel:
+                    setattr(ex, 'rModel', rModel)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        FilterOptionsRequest = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.document.filter_options_request import FilterOptionsRequest as FilterOptionsRequest
     

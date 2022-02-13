@@ -39,4 +39,15 @@ class ArrayIndexOutOfBoundsException(IndexOutOfBoundsException_66d010a9):
     typeName: str = 'com.sun.star.lang.ArrayIndexOutOfBoundsException'
     """Literal Constant ``com.sun.star.lang.ArrayIndexOutOfBoundsException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

@@ -40,5 +40,6 @@ class BridgeSupplier(XBridgeSupplier2_fb800da0):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BridgeSupplier']
 

@@ -65,6 +65,5 @@ class XOutParameters(XInterface_8f010a43):
             SQLException: ``SQLException``
         """
 
-
 __all__ = ['XOutParameters']
 

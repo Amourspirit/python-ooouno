@@ -38,5 +38,6 @@ class OrdinalSuffix(XOrdinalSuffix_c03f0bde):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OrdinalSuffix']
 

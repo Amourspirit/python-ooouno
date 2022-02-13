@@ -45,6 +45,5 @@ class XTransferableTextSupplier(ABC):
         Provide access to a transferable representation of a given text range.
         """
 
-
 __all__ = ['XTransferableTextSupplier']
 

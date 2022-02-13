@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt.grid
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt.grid import GridColumnEvent as UGridColumnEvent
+        # Dynamically create uno com.sun.star.awt.grid.GridColumnEvent using uno
         global GridColumnEvent
 
         def _set_attr(struct):
@@ -35,25 +36,31 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.grid.GridColumnEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt.grid import GridColumnEvent as UGridColumnEvent
-                if isinstance(args[0], UGridColumnEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.grid.GridColumnEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(AttributeName = UNO_NONE, OldValue = UNO_NONE, NewValue = UNO_NONE, ColumnIndex = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.awt.grid.GridColumnEvent'
+            if isinstance(AttributeName, UGridColumnEvent):
+                inst = uno.createUnoStruct(ns, AttributeName)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('AttributeName', 'OldValue', 'NewValue', 'ColumnIndex')
-            struct = uno.createUnoStruct('com.sun.star.awt.grid.GridColumnEvent')
-            if arg_len > len(key_order):
-                raise ValueError("GridColumnEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not AttributeName is UNO_NONE:
+                if getattr(struct, 'AttributeName') != AttributeName:
+                    setattr(struct, 'AttributeName', AttributeName)
+            if not OldValue is UNO_NONE:
+                if getattr(struct, 'OldValue') != OldValue:
+                    setattr(struct, 'OldValue', OldValue)
+            if not NewValue is UNO_NONE:
+                if getattr(struct, 'NewValue') != NewValue:
+                    setattr(struct, 'NewValue', NewValue)
+            if not ColumnIndex is UNO_NONE:
+                if getattr(struct, 'ColumnIndex') != ColumnIndex:
+                    setattr(struct, 'ColumnIndex', ColumnIndex)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         GridColumnEvent = _struct_init

@@ -39,4 +39,15 @@ class NoRouteToHostException(SocketException_bb650bf8):
     typeName: str = 'com.sun.star.io.NoRouteToHostException'
     """Literal Constant ``com.sun.star.io.NoRouteToHostException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

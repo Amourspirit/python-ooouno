@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.drawing
 import typing
 
-CoordinateSequence = typing.Tuple[int, ...]
+CoordinateSequence = typing.NewType('CoordinateSequence', typing.Tuple[int, ...])
 """
 TypeDef type alias
 

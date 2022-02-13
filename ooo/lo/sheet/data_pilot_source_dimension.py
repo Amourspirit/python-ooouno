@@ -22,12 +22,12 @@ import typing
 from abc import abstractproperty
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ..container.x_named import XNamed as XNamed_a6520b08
-from .table_filter_field import TableFilterField as TableFilterField_ee760d53
 from .x_hierarchies_supplier import XHierarchiesSupplier as XHierarchiesSupplier_29a50f34
 from ..util.x_cloneable import XCloneable as XCloneable_99d00aa3
 if typing.TYPE_CHECKING:
     from .data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation_78701113
     from .general_function import GeneralFunction as GeneralFunction_e2280d25
+    from .table_filter_field import TableFilterField as TableFilterField_ee760d53
 
 class DataPilotSourceDimension(XPropertySet_bc180bfa, XNamed_a6520b08, XHierarchiesSupplier_29a50f34, XCloneable_99d00aa3):
     """
@@ -52,21 +52,24 @@ class DataPilotSourceDimension(XPropertySet_bc180bfa, XNamed_a6520b08, XHierarch
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotSourceDimension'
     __ooo_type_name__: str = 'service'
 
-    Filter: typing.TypeAlias = typing.Tuple[TableFilterField_ee760d53, ...]
-    """
-    specifies which values are used.
-    """
+    @abstractproperty
+    def Filter(self) -> 'typing.Tuple[TableFilterField_ee760d53, ...]':
+        """
+        specifies which values are used.
+        """
 
     @abstractproperty
     def Flags(self) -> int:
         """
         contains flags that control the usage of the dimension.
         """
+
     @abstractproperty
     def Function(self) -> 'GeneralFunction_e2280d25':
         """
         specifies how data are aggregated.
         """
+
     @abstractproperty
     def Function2(self) -> int:
         """
@@ -76,31 +79,38 @@ class DataPilotSourceDimension(XPropertySet_bc180bfa, XNamed_a6520b08, XHierarch
         
             LibreOffice 5.3
         """
+
     @abstractproperty
     def IsDataLayoutDimension(self) -> bool:
         """
         contains TRUE if this is the dimension used to layout the different data dimensions.
         """
+
     @abstractproperty
     def Orientation(self) -> 'DataPilotFieldOrientation_78701113':
         """
         specifies where the dimension is used.
         """
+
     @abstractproperty
     def Original(self) -> 'XNamed_a6520b08':
         """
         returns the name of the dimension from which this dimension was cloned, or NULL if it was not cloned.
         """
+
     @abstractproperty
     def Position(self) -> int:
         """
         specifies the position of the dimension within its orientation.
         """
+
     @abstractproperty
     def UsedHierarchy(self) -> int:
         """
         specifies which hierarchy of the dimension is used.
         """
+
+
 
 __all__ = ['DataPilotSourceDimension']
 

@@ -34,5 +34,6 @@ class MenuProxy(XMenuProxy_bdf90c0f):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MenuProxy']
 

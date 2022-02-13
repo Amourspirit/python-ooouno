@@ -48,6 +48,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         The status of this flag is not always clear if the graphic was not loaded at all, e.g. in case of just querying for the GraphicDescriptor
         """
+
     @abstractproperty
     def Animated(self) -> bool:
         """
@@ -55,6 +56,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         The status of this flag is not always clear if the graphic was not loaded at all, e.g. in case of just querying for the GraphicDescriptor
         """
+
     @abstractproperty
     def BitsPerPixel(self) -> int:
         """
@@ -62,11 +64,13 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         This property is not available for vector graphics and may not be available for some kinds of pixel graphics
         """
+
     @abstractproperty
     def GraphicType(self) -> int:
         """
         The type of the graphic.
         """
+
     @abstractproperty
     def Linked(self) -> bool:
         """
@@ -76,6 +80,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
             LibreOffice 6.1
         """
+
     @abstractproperty
     def MimeType(self) -> str:
         """
@@ -85,6 +90,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         Currently, the following mime types are supported for loaded graphics:
         """
+
     @abstractproperty
     def OriginURL(self) -> str:
         """
@@ -94,6 +100,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
             LibreOffice 6.1
         """
+
     @abstractproperty
     def Size100thMM(self) -> 'Size_576707ef':
         """
@@ -101,6 +108,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         This property may not be available in case of pixel graphics or if the logical size can not be determined correctly for some formats without loading the whole graphic
         """
+
     @abstractproperty
     def SizePixel(self) -> 'Size_576707ef':
         """
@@ -108,6 +116,7 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         This property may not be available in case of vector graphics or if the pixel size can not be determined correctly for some formats without loading the whole graphic
         """
+
     @abstractproperty
     def Transparent(self) -> bool:
         """
@@ -115,6 +124,8 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         
         This property is always TRUE for vector graphics. The status of this flag is not always clear if the graphic was not loaded at all, e.g. in case of just querying for the GraphicDescriptor.
         """
+
+
 
 __all__ = ['GraphicDescriptor']
 

@@ -35,5 +35,6 @@ class RemoteContentProviderAcceptor(XRemoteContentProviderAcceptor_af1b125d, XRe
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['RemoteContentProviderAcceptor']
 

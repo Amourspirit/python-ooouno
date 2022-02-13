@@ -54,6 +54,5 @@ class XViewCursor(XInterface_8f010a43):
         moves the cursor the specified number of lines up.
         """
 
-
 __all__ = ['XViewCursor']
 

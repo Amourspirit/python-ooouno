@@ -66,6 +66,5 @@ class XDocumentType(XNode_83fb09a5):
         The system identifier of the external subset.
         """
 
-
 __all__ = ['XDocumentType']
 

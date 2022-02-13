@@ -36,4 +36,15 @@ class SignatureException(CryptographyException_735a113b):
     typeName: str = 'com.sun.star.security.SignatureException'
     """Literal Constant ``com.sun.star.security.SignatureException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

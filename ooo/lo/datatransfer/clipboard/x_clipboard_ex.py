@@ -39,6 +39,5 @@ class XClipboardEx(XClipboard_a18a11cd):
         To determine the supported rendering capabilities of the clipboard instance.
         """
 
-
 __all__ = ['XClipboardEx']
 

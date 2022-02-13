@@ -21,7 +21,7 @@
 import typing
 from ..awt.point import Point
 
-PointSequence = typing.Tuple[Point, ...]
+PointSequence = typing.NewType('PointSequence', typing.Tuple[Point, ...])
 """
 TypeDef type alias
 

@@ -42,5 +42,6 @@ class UnoControlCurrencyField(UnoControlEdit_bc4e0bed, XCurrencyField_bbd10bdb, 
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlCurrencyField']
 

@@ -49,6 +49,5 @@ class XAsyncOutputMonitor(ABC):
             IOException: ``IOException``
         """
 
-
 __all__ = ['XAsyncOutputMonitor']
 

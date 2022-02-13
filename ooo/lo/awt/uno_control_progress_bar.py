@@ -35,5 +35,6 @@ class UnoControlProgressBar(UnoControl_8f2c0a67, XProgressBar_a4cb0b16):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlProgressBar']
 

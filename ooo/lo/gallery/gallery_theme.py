@@ -34,5 +34,6 @@ class GalleryTheme(XGalleryTheme_e28e0d13):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GalleryTheme']
 

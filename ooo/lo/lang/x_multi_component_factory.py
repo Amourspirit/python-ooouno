@@ -58,6 +58,5 @@ class XMultiComponentFactory(XInterface_8f010a43):
         Gets the names of all supported services.
         """
 
-
 __all__ = ['XMultiComponentFactory']
 

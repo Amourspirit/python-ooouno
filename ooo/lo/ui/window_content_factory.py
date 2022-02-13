@@ -42,5 +42,6 @@ class WindowContentFactory(XSingleComponentFactory_46cc0fef):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['WindowContentFactory']
 

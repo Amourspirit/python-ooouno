@@ -85,5 +85,6 @@ class CopyTableWizard(XCopyTableWizard_89b7114f):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
 
+
 __all__ = ['CopyTableWizard']
 

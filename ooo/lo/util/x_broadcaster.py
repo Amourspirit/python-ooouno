@@ -54,6 +54,5 @@ class XBroadcaster(XInterface_8f010a43):
         Pending broadcasts will be sent immediately after the last call to XBroadcaster.lockBroadcasts() is matched by a call to XBroadcaster.unlockBroadcasts(). An implementation can decide to broadcast all pending notification in order or batch them in single broadcasts.
         """
 
-
 __all__ = ['XBroadcaster']
 

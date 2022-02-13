@@ -62,6 +62,5 @@ class XRadioButton(XInterface_8f010a43):
         sets the state of the radio button.
         """
 
-
 __all__ = ['XRadioButton']
 

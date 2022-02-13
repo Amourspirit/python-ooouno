@@ -34,5 +34,6 @@ class UnoControlDialog(XUnoControlDialog_e1740d0f):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlDialog']
 

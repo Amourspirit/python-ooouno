@@ -20,7 +20,7 @@
 # Namespace: com.sun.star.rendering
 import typing
 
-ColorComponent = float
+ColorComponent = typing.NewType('ColorComponent', float)
 """
 TypeDef type alias
 

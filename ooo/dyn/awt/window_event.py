@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import WindowEvent as UWindowEvent
+        # Dynamically create uno com.sun.star.awt.WindowEvent using uno
         global WindowEvent
 
         def _set_attr(struct):
@@ -35,25 +36,43 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.WindowEvent'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import WindowEvent as UWindowEvent
-                if isinstance(args[0], UWindowEvent):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.WindowEvent', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(X = UNO_NONE, Y = UNO_NONE, Width = UNO_NONE, Height = UNO_NONE, LeftInset = UNO_NONE, TopInset = UNO_NONE, RightInset = UNO_NONE, BottomInset = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.awt.WindowEvent'
+            if isinstance(X, UWindowEvent):
+                inst = uno.createUnoStruct(ns, X)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('X', 'Y', 'Width', 'Height', 'LeftInset', 'TopInset', 'RightInset', 'BottomInset')
-            struct = uno.createUnoStruct('com.sun.star.awt.WindowEvent')
-            if arg_len > len(key_order):
-                raise ValueError("WindowEvent.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
+            if not X is UNO_NONE:
+                if getattr(struct, 'X') != X:
+                    setattr(struct, 'X', X)
+            if not Y is UNO_NONE:
+                if getattr(struct, 'Y') != Y:
+                    setattr(struct, 'Y', Y)
+            if not Width is UNO_NONE:
+                if getattr(struct, 'Width') != Width:
+                    setattr(struct, 'Width', Width)
+            if not Height is UNO_NONE:
+                if getattr(struct, 'Height') != Height:
+                    setattr(struct, 'Height', Height)
+            if not LeftInset is UNO_NONE:
+                if getattr(struct, 'LeftInset') != LeftInset:
+                    setattr(struct, 'LeftInset', LeftInset)
+            if not TopInset is UNO_NONE:
+                if getattr(struct, 'TopInset') != TopInset:
+                    setattr(struct, 'TopInset', TopInset)
+            if not RightInset is UNO_NONE:
+                if getattr(struct, 'RightInset') != RightInset:
+                    setattr(struct, 'RightInset', RightInset)
+            if not BottomInset is UNO_NONE:
+                if getattr(struct, 'BottomInset') != BottomInset:
+                    setattr(struct, 'BottomInset', BottomInset)
             for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
             _set_attr(struct)
             return struct
         WindowEvent = _struct_init

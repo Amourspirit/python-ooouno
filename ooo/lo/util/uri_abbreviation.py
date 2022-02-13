@@ -36,5 +36,6 @@ class UriAbbreviation(XStringAbbreviation_cf10e6b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UriAbbreviation']
 

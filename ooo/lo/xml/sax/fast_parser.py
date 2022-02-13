@@ -33,5 +33,6 @@ class FastParser(XFastParser_c6ba0c26):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FastParser']
 

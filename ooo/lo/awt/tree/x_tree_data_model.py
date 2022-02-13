@@ -59,6 +59,5 @@ class XTreeDataModel(XComponent_98dc0ab5):
         Removes a listener previously added with addTreeDataModelListener().
         """
 
-
 __all__ = ['XTreeDataModel']
 

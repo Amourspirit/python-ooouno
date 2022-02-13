@@ -33,6 +33,5 @@ class XDrawPage(XShapes_9a800ab0):
     __pyunointerface__: str = 'com.sun.star.drawing.XDrawPage'
 
 
-
 __all__ = ['XDrawPage']
 

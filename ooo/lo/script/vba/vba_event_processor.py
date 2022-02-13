@@ -33,5 +33,6 @@ class VBAEventProcessor(XVBAEventProcessor_52fa0ff7):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['VBAEventProcessor']
 

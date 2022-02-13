@@ -45,6 +45,5 @@ class XSubmissionVetoListener(XEventListener_c7230c4a):
             com.sun.star.util.VetoException: ``VetoException``
         """
 
-
 __all__ = ['XSubmissionVetoListener']
 

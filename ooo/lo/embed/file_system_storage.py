@@ -34,5 +34,6 @@ class FileSystemStorage(BaseStorage_ae680b55):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['FileSystemStorage']
 

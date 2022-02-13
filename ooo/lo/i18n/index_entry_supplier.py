@@ -34,5 +34,6 @@ class IndexEntrySupplier(XExtendedIndexEntrySupplier_7e70112f):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['IndexEntrySupplier']
 

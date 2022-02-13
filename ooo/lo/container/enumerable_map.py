@@ -61,5 +61,6 @@ class EnumerableMap(XEnumerableMap_dc50e41):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
 
+
 __all__ = ['EnumerableMap']
 

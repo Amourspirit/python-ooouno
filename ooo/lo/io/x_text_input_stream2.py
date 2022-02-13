@@ -38,6 +38,5 @@ class XTextInputStream2(XActiveDataSink_b8d00ba3, XTextInputStream_c7ae0c59):
     __pyunointerface__: str = 'com.sun.star.io.XTextInputStream2'
 
 
-
 __all__ = ['XTextInputStream2']
 

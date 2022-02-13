@@ -41,11 +41,15 @@ class UndoFailedException(Exception_85530a09):
     typeName: str = 'com.sun.star.document.UndoFailedException'
     """Literal Constant ``com.sun.star.document.UndoFailedException``"""
 
-    Reason: object = None
-    """
-        describes the reason why the operation failed.
-        
-        Usually, this member will carry an exception.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -49,6 +49,5 @@ class XCellSeries(XInterface_8f010a43):
         fills all cells in the range based on the specified settings.
         """
 
-
 __all__ = ['XCellSeries']
 

@@ -54,6 +54,5 @@ class XRecentFunctions(XInterface_8f010a43):
         The functions are represented by their identifiers.
         """
 
-
 __all__ = ['XRecentFunctions']
 

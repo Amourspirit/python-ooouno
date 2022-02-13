@@ -43,6 +43,5 @@ class XNotation(XNode_83fb09a5):
         The system identifier of this notation.
         """
 
-
 __all__ = ['XNotation']
 

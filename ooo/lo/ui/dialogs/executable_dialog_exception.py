@@ -37,4 +37,15 @@ class ExecutableDialogException(Exception_85530a09):
     typeName: str = 'com.sun.star.ui.dialogs.ExecutableDialogException'
     """Literal Constant ``com.sun.star.ui.dialogs.ExecutableDialogException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

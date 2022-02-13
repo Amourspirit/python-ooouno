@@ -36,5 +36,6 @@ class DynamicResultSet(XDynamicResultSet_e0360d0a):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DynamicResultSet']
 

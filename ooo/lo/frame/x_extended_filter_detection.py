@@ -46,6 +46,5 @@ class XExtendedFilterDetection(XInterface_8f010a43):
         use com.sun.star.document.XExtendedFilterDetection.detect() instead of this
         """
 
-
 __all__ = ['XExtendedFilterDetection']
 

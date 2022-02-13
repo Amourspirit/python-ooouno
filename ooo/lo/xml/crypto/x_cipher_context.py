@@ -62,6 +62,5 @@ class XCipherContext(XInterface_8f010a43):
             com.sun.star.lang.DisposedException: ``DisposedException``
         """
 
-
 __all__ = ['XCipherContext']
 

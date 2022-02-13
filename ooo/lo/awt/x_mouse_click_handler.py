@@ -51,6 +51,5 @@ class XMouseClickHandler(XEventListener_c7230c4a):
         is invoked when a mouse button has been released on a window.
         """
 
-
 __all__ = ['XMouseClickHandler']
 

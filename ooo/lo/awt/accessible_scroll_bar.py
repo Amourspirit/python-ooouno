@@ -42,5 +42,6 @@ class AccessibleScrollBar(XAccessibleAction_7ccc1114, XAccessibleContext_8eae119
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleScrollBar']
 

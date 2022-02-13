@@ -37,5 +37,6 @@ class Graphic(GraphicDescriptor_1a520ec3, XGraphic_a4da0afc):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Graphic']
 

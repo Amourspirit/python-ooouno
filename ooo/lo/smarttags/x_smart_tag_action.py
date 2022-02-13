@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.smarttags
 import typing
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from ..lang.x_initialization import XInitialization as XInitialization_d46c0cca
 if typing.TYPE_CHECKING:
     from ..container.x_string_key_map import XStringKeyMap as XStringKeyMap_ffc60de1
@@ -122,12 +122,6 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
-    @abstractproperty
-    def SmartTagCount(self) -> int:
-        """
-        the number of smart tag types supported by this action component.
-        """
-
 
 __all__ = ['XSmartTagAction']
 

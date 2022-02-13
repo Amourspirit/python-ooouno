@@ -70,6 +70,5 @@ class XUpdateInformationProvider(ABC):
         A default interaction handler is available as service com.sun.star.task.InteractionHandler. The documentation of this service also contains further information about the interaction handler concept.
         """
 
-
 __all__ = ['XUpdateInformationProvider']
 

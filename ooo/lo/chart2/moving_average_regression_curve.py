@@ -37,5 +37,6 @@ class MovingAverageRegressionCurve(XRegressionCurve_fa3c0dca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MovingAverageRegressionCurve']
 

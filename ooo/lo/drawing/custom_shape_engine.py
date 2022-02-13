@@ -35,5 +35,6 @@ class CustomShapeEngine(XCustomShapeEngine_2a880f0e, XInitialization_d46c0cca):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CustomShapeEngine']
 

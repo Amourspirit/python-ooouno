@@ -60,6 +60,5 @@ class XInterfaceMethodTypeDescription(XInterfaceMemberTypeDescription_52ea159a):
         Returns true, if this method is declared oneway.
         """
 
-
 __all__ = ['XInterfaceMethodTypeDescription']
 

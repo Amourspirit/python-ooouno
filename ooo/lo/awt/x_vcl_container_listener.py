@@ -53,6 +53,5 @@ class XVclContainerListener(XEventListener_c7230c4a):
         is invoked when a window has been removed from the VCL container window.
         """
 
-
 __all__ = ['XVclContainerListener']
 

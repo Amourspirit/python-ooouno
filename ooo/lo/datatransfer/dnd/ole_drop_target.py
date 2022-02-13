@@ -38,5 +38,6 @@ class OleDropTarget(XDropTarget_49e50fbf, XComponent_98dc0ab5, XInitialization_d
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['OleDropTarget']
 

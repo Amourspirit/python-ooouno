@@ -38,5 +38,6 @@ class GlobalAcceleratorConfiguration(XAcceleratorConfiguration_46580ffb):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GlobalAcceleratorConfiguration']
 

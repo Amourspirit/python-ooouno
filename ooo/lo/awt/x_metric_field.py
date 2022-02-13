@@ -124,6 +124,5 @@ class XMetricField(XInterface_8f010a43):
         sets the value which is displayed in the metric field.
         """
 
-
 __all__ = ['XMetricField']
 

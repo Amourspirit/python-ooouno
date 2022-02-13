@@ -71,6 +71,5 @@ class XAtomServer(XInterface_8f010a43):
         Hint to implementor: using ascending atoms is the easiest way to decide, which atoms are recent.
         """
 
-
 __all__ = ['XAtomServer']
 

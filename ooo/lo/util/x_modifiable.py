@@ -49,6 +49,5 @@ class XModifiable(XModifyBroadcaster_fd990df0):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
 
-
 __all__ = ['XModifiable']
 

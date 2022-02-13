@@ -43,6 +43,5 @@ class XMergeable(XInterface_8f010a43):
         merges/unmerges the area specified by this object.
         """
 
-
 __all__ = ['XMergeable']
 

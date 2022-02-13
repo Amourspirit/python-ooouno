@@ -146,6 +146,5 @@ class XGraphicDevice(XInterface_8f010a43):
         whether a window can cover the whole screen exclusively.
         """
 
-
 __all__ = ['XGraphicDevice']
 

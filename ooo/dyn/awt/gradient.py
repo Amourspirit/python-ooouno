@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.awt import Gradient as UGradient
+        # Dynamically create uno com.sun.star.awt.Gradient using uno
         global Gradient
 
         def _set_attr(struct):
@@ -35,25 +36,44 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.Gradient'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.awt import Gradient as UGradient
-                if isinstance(args[0], UGradient):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.awt.Gradient', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(Style = UNO_NONE, StartColor = UNO_NONE, EndColor = UNO_NONE, Angle = UNO_NONE, Border = UNO_NONE, XOffset = UNO_NONE, YOffset = UNO_NONE, StartIntensity = UNO_NONE, EndIntensity = UNO_NONE, StepCount = UNO_NONE):
+            ns = 'com.sun.star.awt.Gradient'
+            if isinstance(Style, UGradient):
+                inst = uno.createUnoStruct(ns, Style)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('Style', 'StartColor', 'EndColor', 'Angle', 'Border', 'XOffset', 'YOffset', 'StartIntensity', 'EndIntensity', 'StepCount')
-            struct = uno.createUnoStruct('com.sun.star.awt.Gradient')
-            if arg_len > len(key_order):
-                raise ValueError("Gradient.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not Style is UNO_NONE:
+                if getattr(struct, 'Style') != Style:
+                    setattr(struct, 'Style', Style)
+            if not StartColor is UNO_NONE:
+                if getattr(struct, 'StartColor') != StartColor:
+                    setattr(struct, 'StartColor', StartColor)
+            if not EndColor is UNO_NONE:
+                if getattr(struct, 'EndColor') != EndColor:
+                    setattr(struct, 'EndColor', EndColor)
+            if not Angle is UNO_NONE:
+                if getattr(struct, 'Angle') != Angle:
+                    setattr(struct, 'Angle', Angle)
+            if not Border is UNO_NONE:
+                if getattr(struct, 'Border') != Border:
+                    setattr(struct, 'Border', Border)
+            if not XOffset is UNO_NONE:
+                if getattr(struct, 'XOffset') != XOffset:
+                    setattr(struct, 'XOffset', XOffset)
+            if not YOffset is UNO_NONE:
+                if getattr(struct, 'YOffset') != YOffset:
+                    setattr(struct, 'YOffset', YOffset)
+            if not StartIntensity is UNO_NONE:
+                if getattr(struct, 'StartIntensity') != StartIntensity:
+                    setattr(struct, 'StartIntensity', StartIntensity)
+            if not EndIntensity is UNO_NONE:
+                if getattr(struct, 'EndIntensity') != EndIntensity:
+                    setattr(struct, 'EndIntensity', EndIntensity)
+            if not StepCount is UNO_NONE:
+                if getattr(struct, 'StepCount') != StepCount:
+                    setattr(struct, 'StepCount', StepCount)
             _set_attr(struct)
             return struct
         Gradient = _struct_init

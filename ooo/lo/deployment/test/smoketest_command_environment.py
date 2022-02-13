@@ -33,5 +33,6 @@ class SmoketestCommandEnvironment(XCommandEnvironment_fb330dee):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SmoketestCommandEnvironment']
 

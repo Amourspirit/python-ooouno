@@ -46,6 +46,5 @@ class XRowSetChangeListener(XEventListener_c7230c4a):
         notifies the listener that the RowSet associated with a XRowSetSupplier has changed.
         """
 
-
 __all__ = ['XRowSetChangeListener']
 

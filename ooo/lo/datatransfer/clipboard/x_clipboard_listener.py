@@ -42,6 +42,5 @@ class XClipboardListener(XEventListener_c7230c4a):
         The content of the clipboard has changed.
         """
 
-
 __all__ = ['XClipboardListener']
 

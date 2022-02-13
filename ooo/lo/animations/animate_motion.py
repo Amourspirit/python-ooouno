@@ -37,5 +37,6 @@ class AnimateMotion(XAnimationNode_1cf10eb9):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AnimateMotion']
 

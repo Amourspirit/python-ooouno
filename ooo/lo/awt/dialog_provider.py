@@ -49,5 +49,6 @@ class DialogProvider(XDialogProvider_c70f0c47):
         """
         """
 
+
 __all__ = ['DialogProvider']
 

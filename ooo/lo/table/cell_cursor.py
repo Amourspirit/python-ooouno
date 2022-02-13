@@ -36,5 +36,6 @@ class CellCursor(XCellCursor_ae900b66):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['CellCursor']
 

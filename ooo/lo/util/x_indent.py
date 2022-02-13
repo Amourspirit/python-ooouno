@@ -44,6 +44,5 @@ class XIndent(XInterface_8f010a43):
         shifts the indentation by one default step to the right.
         """
 
-
 __all__ = ['XIndent']
 

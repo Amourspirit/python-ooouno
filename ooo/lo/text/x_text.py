@@ -56,6 +56,5 @@ class XText(XSimpleText_a5ca0b34):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
 
-
 __all__ = ['XText']
 

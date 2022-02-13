@@ -56,6 +56,5 @@ class XMultiServiceFactory(XInterface_8f010a43):
         Provides the available names of the factory to be used to create instances.
         """
 
-
 __all__ = ['XMultiServiceFactory']
 

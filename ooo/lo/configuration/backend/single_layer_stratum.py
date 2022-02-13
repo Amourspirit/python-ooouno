@@ -35,5 +35,6 @@ class SingleLayerStratum(XBackendEntities_fecf13bb, XSingleLayerStratum_3e74151d
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SingleLayerStratum']
 

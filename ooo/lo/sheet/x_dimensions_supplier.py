@@ -42,6 +42,5 @@ class XDimensionsSupplier(XInterface_8f010a43):
         returns the collection of dimensions.
         """
 
-
 __all__ = ['XDimensionsSupplier']
 

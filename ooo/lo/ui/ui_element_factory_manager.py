@@ -42,5 +42,6 @@ class UIElementFactoryManager(XUIElementFactoryManager_32250f39):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UIElementFactoryManager']
 

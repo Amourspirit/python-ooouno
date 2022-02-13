@@ -44,5 +44,6 @@ class TypeDescriptionManager(XHierarchicalNameAccess_9e2611b5, XSet_90c40a4f, XC
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TypeDescriptionManager']
 

@@ -19,16 +19,41 @@
 # Namespace: com.sun.star.bridge
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.bridge import InvalidProtocolChangeException
-    setattr(InvalidProtocolChangeException, '__ooo_ns__', 'com.sun.star.bridge')
-    setattr(InvalidProtocolChangeException, '__ooo_full_ns__', 'com.sun.star.bridge.InvalidProtocolChangeException')
-    setattr(InvalidProtocolChangeException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.bridge.InvalidProtocolChangeException using uno
+        global InvalidProtocolChangeException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.bridge'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.bridge.InvalidProtocolChangeException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(invalidProperty = UNO_NONE, reason = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.bridge.InvalidProtocolChangeException'
+            ex = uno.createUnoStruct(ns)
+            if not invalidProperty is UNO_NONE:
+                if getattr(ex, 'invalidProperty') != invalidProperty:
+                    setattr(ex, 'invalidProperty', invalidProperty)
+            if not reason is UNO_NONE:
+                if getattr(ex, 'reason') != reason:
+                    setattr(ex, 'reason', reason)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        InvalidProtocolChangeException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.bridge.invalid_protocol_change_exception import InvalidProtocolChangeException as InvalidProtocolChangeException
     

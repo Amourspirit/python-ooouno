@@ -48,5 +48,6 @@ class ODMAContent(XPropertiesChangeNotifier_7a7b111c, XPropertyContainer_c600e71
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ODMAContent']
 

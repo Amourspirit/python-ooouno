@@ -50,6 +50,5 @@ class XLayerContentDescriber(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
         """
 
-
 __all__ = ['XLayerContentDescriber']
 

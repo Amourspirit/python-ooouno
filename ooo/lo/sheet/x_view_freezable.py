@@ -48,6 +48,5 @@ class XViewFreezable(XInterface_8f010a43):
         Only one of XViewSplitable.getIsWindowSplit() and XViewFreezable.hasFrozenPanes() can be TRUE.
         """
 
-
 __all__ = ['XViewFreezable']
 

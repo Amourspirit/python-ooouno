@@ -37,5 +37,6 @@ class DispatchProvider(XDispatchProvider_fc690de6, XDispatchProviderInterception
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['DispatchProvider']
 

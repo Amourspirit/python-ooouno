@@ -39,5 +39,6 @@ class UnoControlTabPageContainer(UnoControl_8f2c0a67, XTabPageContainer_137e0e48
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['UnoControlTabPageContainer']
 

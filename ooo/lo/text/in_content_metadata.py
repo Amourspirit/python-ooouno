@@ -41,5 +41,6 @@ class InContentMetadata(TextContent_a6810b4d, XChild_a6390b07, XEnumerationAcces
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['InContentMetadata']
 

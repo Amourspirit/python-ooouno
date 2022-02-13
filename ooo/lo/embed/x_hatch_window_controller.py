@@ -57,6 +57,5 @@ class XHatchWindowController(XInterface_8f010a43):
         requests window owner to resize/move the window.
         """
 
-
 __all__ = ['XHatchWindowController']
 

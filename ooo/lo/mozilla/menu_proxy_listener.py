@@ -34,5 +34,6 @@ class MenuProxyListener(XMenuProxyListener_2ccf0f55):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MenuProxyListener']
 

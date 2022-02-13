@@ -45,6 +45,5 @@ class XResultSetAccess(XInterface_8f010a43):
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
 
-
 __all__ = ['XResultSetAccess']
 

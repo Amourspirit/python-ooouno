@@ -49,5 +49,6 @@ class Paragraph(TextTable_90440a5a, TextContent_a6810b4d, CharacterProperties_1d
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Paragraph']
 

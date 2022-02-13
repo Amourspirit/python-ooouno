@@ -43,9 +43,15 @@ class InteractiveLockingException(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.InteractiveLockingException'
     """Literal Constant ``com.sun.star.ucb.InteractiveLockingException``"""
 
-    Url: str = None
-    """
-        The Url of the resource this exception is related to.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

@@ -37,5 +37,6 @@ class Command(XCommand_ca830c52):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Command']
 

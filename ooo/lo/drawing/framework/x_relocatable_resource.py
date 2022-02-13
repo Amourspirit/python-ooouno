@@ -41,6 +41,5 @@ class XRelocatableResource(ABC):
         Replace the current anchor of the called resource with the given one.
         """
 
-
 __all__ = ['XRelocatableResource']
 

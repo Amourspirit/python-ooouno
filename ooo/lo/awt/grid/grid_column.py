@@ -38,5 +38,6 @@ class GridColumn(XGridColumn_d2370c74):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['GridColumn']
 

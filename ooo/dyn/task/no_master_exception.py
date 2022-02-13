@@ -19,16 +19,38 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.task import NoMasterException
-    setattr(NoMasterException, '__ooo_ns__', 'com.sun.star.task')
-    setattr(NoMasterException, '__ooo_full_ns__', 'com.sun.star.task.NoMasterException')
-    setattr(NoMasterException, '__ooo_type_name__', 'exception')
+    def _dynamic_ex() -> None:
+        import uno
+        # Dynamically create uno com.sun.star.task.NoMasterException using uno
+        global NoMasterException
+
+        def _set_attr(ex):
+            ex.__dict__['__ooo_ns__'] = 'com.sun.star.task'
+            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.task.NoMasterException'
+            ex.__dict__['__ooo_type_name__'] = 'exception'
+
+        def _ex_init(Mode = UNO_NONE, **kwargs):
+            ns = 'com.sun.star.task.NoMasterException'
+            ex = uno.createUnoStruct(ns)
+            if not Mode is UNO_NONE:
+                if getattr(ex, 'Mode') != Mode:
+                    setattr(ex, 'Mode', Mode)
+            for k, v in kwargs.items():
+                if v is UNO_NONE:
+                    continue
+                else:
+                    setattr(ex, k, v)
+            _set_attr(ex)
+            return ex
+        NoMasterException = _ex_init
+
+    _dynamic_ex()
 else:
     from ...lo.task.no_master_exception import NoMasterException as NoMasterException
     

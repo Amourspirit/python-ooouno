@@ -21,7 +21,7 @@
 import typing
 from .coordinate_sequence import CoordinateSequence
 
-CoordinateSequenceSequence = typing.Tuple[CoordinateSequence, ...]
+CoordinateSequenceSequence = typing.NewType('CoordinateSequenceSequence', typing.Tuple[CoordinateSequence, ...])
 """
 TypeDef type alias
 

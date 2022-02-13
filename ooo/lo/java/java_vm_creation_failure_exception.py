@@ -43,11 +43,15 @@ class JavaVMCreationFailureException(JavaInitializationException_8b6211a3):
     typeName: str = 'com.sun.star.java.JavaVMCreationFailureException'
     """Literal Constant ``com.sun.star.java.JavaVMCreationFailureException``"""
 
-    ErrorCode: int = None
-    """
-        contains an error code that reflects the returned error code of JNI_CreateJavaVM or other errors.
-        
-        A negative value represents the returned error code of JNI_CreateJavaVM. All other values indicate a different cause.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

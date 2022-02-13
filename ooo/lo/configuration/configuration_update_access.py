@@ -43,5 +43,6 @@ class ConfigurationUpdateAccess(ConfigurationAccess_a5d4122a, GroupUpdate_20340e
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ConfigurationUpdateAccess']
 

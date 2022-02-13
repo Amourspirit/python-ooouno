@@ -46,6 +46,5 @@ class XAction(XInterface_8f010a43):
             com.sun.star.uno.Exception: ``Exception``
         """
 
-
 __all__ = ['XAction']
 

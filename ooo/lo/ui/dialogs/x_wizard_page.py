@@ -68,6 +68,7 @@ class XWizardPage(XComponent_98dc0ab5):
         
         Within a wizard, no two pages are allowed to have the same ID.
         """
+
     @abstractproperty
     def Window(self) -> 'XWindow_713b0924':
         """

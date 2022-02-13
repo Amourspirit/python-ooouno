@@ -36,5 +36,6 @@ class Manager(XManager_8daa0a1b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Manager']
 

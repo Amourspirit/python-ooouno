@@ -65,5 +65,6 @@ class ResourceId(XResourceId_5be3103d):
         This constructor can be used to create resources ids for views where the anchor is a pane.
         """
 
+
 __all__ = ['ResourceId']
 

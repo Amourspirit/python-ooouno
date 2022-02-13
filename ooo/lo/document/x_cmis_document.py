@@ -20,9 +20,9 @@
 # Namespace: com.sun.star.document
 import typing
 from abc import abstractmethod, abstractproperty
-from .cmis_property import CmisProperty as CmisProperty_e47d0d58
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
+    from .cmis_property import CmisProperty as CmisProperty_e47d0d58
     from .cmis_version import CmisVersion as CmisVersion_d71c0cd9
 
 class XCmisDocument(XInterface_8f010a43):
@@ -36,11 +36,6 @@ class XCmisDocument(XInterface_8f010a43):
     __ooo_full_ns__: str = 'com.sun.star.document.XCmisDocument'
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.document.XCmisDocument'
-
-    CmisProperties: typing.TypeAlias = 'typing.Tuple[CmisProperty_e47d0d58, ...]'
-    """
-    Contains the properties values named after their CMIS ID.
-    """
 
     @abstractmethod
     def canCancelCheckOut(self) -> bool:
@@ -81,6 +76,11 @@ class XCmisDocument(XInterface_8f010a43):
     @abstractmethod
     def updateCmisProperties(self, cmisProperties: 'typing.Tuple[CmisProperty_e47d0d58, ...]') -> None:
         """
+        """
+    @abstractproperty
+    def CmisProperties(self) -> 'typing.Tuple[CmisProperty_e47d0d58, ...]':
+        """
+        Contains the properties values named after their CMIS ID.
         """
 
 

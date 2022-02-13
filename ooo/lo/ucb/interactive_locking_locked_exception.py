@@ -41,11 +41,15 @@ class InteractiveLockingLockedException(InteractiveLockingException_7af31136):
     typeName: str = 'com.sun.star.ucb.InteractiveLockingLockedException'
     """Literal Constant ``com.sun.star.ucb.InteractiveLockingLockedException``"""
 
-    SelfOwned: bool = None
-    """
-        The owner of the lock.
-        
-        TRUE, the lock has been obtained by this OOo session. FALSE the lock has been obtained by another principal.
-    """
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
 
 

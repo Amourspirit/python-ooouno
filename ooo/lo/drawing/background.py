@@ -36,5 +36,6 @@ class Background(FillProperties_f1200da8):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['Background']
 

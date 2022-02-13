@@ -21,8 +21,8 @@
 import typing
 from abc import abstractproperty
 from .x_condition_entry import XConditionEntry as XConditionEntry_e2340d32
-from .x_data_bar_entry import XDataBarEntry as XDataBarEntry_c61d0c1a
 if typing.TYPE_CHECKING:
+    from .x_data_bar_entry import XDataBarEntry as XDataBarEntry_c61d0c1a
     from ..util.color import Color as Color_68e908c5
 
 class DataBar(XConditionEntry_e2340d32):
@@ -37,23 +37,27 @@ class DataBar(XConditionEntry_e2340d32):
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataBar'
     __ooo_type_name__: str = 'service'
 
-    DataBarEntries: typing.TypeAlias = typing.Tuple[XDataBarEntry_c61d0c1a, ...]
-    """
-    """
+    @abstractproperty
+    def DataBarEntries(self) -> 'typing.Tuple[XDataBarEntry_c61d0c1a, ...]':
+        """
+        """
 
     @abstractproperty
     def AxisColor(self) -> 'Color_68e908c5':
         """
         """
+
     @abstractproperty
     def AxisPosition(self) -> int:
         """
         See com.sun.star.sheet.DataBarAxis for possible values.
         """
+
     @abstractproperty
     def Color(self) -> 'Color_68e908c5':
         """
         """
+
     @abstractproperty
     def MaximumLength(self) -> float:
         """
@@ -61,6 +65,7 @@ class DataBar(XConditionEntry_e2340d32):
         
         Allowed values are (0, 1000) but larger than MinimumLength.
         """
+
     @abstractproperty
     def MinimumLength(self) -> float:
         """
@@ -68,22 +73,28 @@ class DataBar(XConditionEntry_e2340d32):
         
         Allowed values are [0, 100) but smaller than MaximumLength.
         """
+
     @abstractproperty
     def NegativeColor(self) -> 'Color_68e908c5':
         """
         """
+
     @abstractproperty
     def ShowValue(self) -> bool:
         """
         """
+
     @abstractproperty
     def UseGradient(self) -> bool:
         """
         """
+
     @abstractproperty
     def UseNegativeColor(self) -> bool:
         """
         """
+
+
 
 __all__ = ['DataBar']
 

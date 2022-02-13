@@ -41,5 +41,6 @@ class BrowseNode(XInvocation_be070c0f, XBrowseNode_1d000ead):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['BrowseNode']
 

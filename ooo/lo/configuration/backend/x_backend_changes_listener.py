@@ -42,6 +42,5 @@ class XBackendChangesListener(XEventListener_c7230c4a):
         is invoked when component data in backend source changes
         """
 
-
 __all__ = ['XBackendChangesListener']
 

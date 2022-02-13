@@ -58,6 +58,5 @@ class XImplementationRegistration(XInterface_8f010a43):
         revokes a component and all their provided implementations from the registry.
         """
 
-
 __all__ = ['XImplementationRegistration']
 

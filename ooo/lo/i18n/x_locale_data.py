@@ -106,6 +106,5 @@ class XLocaleData(XInterface_8f010a43):
         returns all LC_TRANSLITERATION transliterations for a locale.
         """
 
-
 __all__ = ['XLocaleData']
 

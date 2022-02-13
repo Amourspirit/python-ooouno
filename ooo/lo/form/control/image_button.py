@@ -39,5 +39,6 @@ class ImageButton(UnoControlImageControl_29c00f2b, XApproveActionBroadcaster_693
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ImageButton']
 

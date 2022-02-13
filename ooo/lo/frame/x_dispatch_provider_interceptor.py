@@ -56,6 +56,5 @@ class XDispatchProviderInterceptor(XDispatchProvider_fc690de6):
         sets the slave XDispatchProvider to which calls to XDispatchProvider.queryDispatch() can be forwarded under control of this dispatch provider.
         """
 
-
 __all__ = ['XDispatchProviderInterceptor']
 

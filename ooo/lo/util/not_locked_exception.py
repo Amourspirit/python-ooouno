@@ -37,4 +37,15 @@ class NotLockedException(InvalidStateException_2b290f3d):
     typeName: str = 'com.sun.star.util.NotLockedException'
     """Literal Constant ``com.sun.star.util.NotLockedException``"""
 
+    def __init__(self, **kwargs) -> None:
+        """
+        Constructor
+
+        Keyword Arguments:
+
+            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        """
+        super().__init__(**kwargs)
+
+
 

@@ -52,6 +52,5 @@ class XImageButton(XInterface_8f010a43):
         sets the action command string.
         """
 
-
 __all__ = ['XImageButton']
 

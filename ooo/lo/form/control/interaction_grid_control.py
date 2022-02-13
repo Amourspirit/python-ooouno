@@ -35,5 +35,6 @@ class InteractionGridControl(GridControl_c9d0e52, XDispatch_98ff0a9b):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['InteractionGridControl']
 

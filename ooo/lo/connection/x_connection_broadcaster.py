@@ -53,6 +53,5 @@ class XConnectionBroadcaster(XInterface_8f010a43):
         It is suggested to allow multiple registration of the same listener, thus for each time a listener is added, it has to be removed.
         """
 
-
 __all__ = ['XConnectionBroadcaster']
 

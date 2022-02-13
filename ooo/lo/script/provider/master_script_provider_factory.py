@@ -40,5 +40,6 @@ class MasterScriptProviderFactory(XScriptProviderFactory_3ce1426):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['MasterScriptProviderFactory']
 

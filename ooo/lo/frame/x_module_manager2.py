@@ -38,6 +38,5 @@ class XModuleManager2(XNameReplace_f0900d60, XModuleManager_d3920c8c):
     __pyunointerface__: str = 'com.sun.star.frame.XModuleManager2'
 
 
-
 __all__ = ['XModuleManager2']
 

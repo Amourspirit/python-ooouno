@@ -35,5 +35,6 @@ class TabControllerModel(XTabControllerModel_fbef0dd8, XPersistObject_af2f0b79):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TabControllerModel']
 

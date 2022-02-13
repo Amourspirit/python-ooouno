@@ -34,5 +34,6 @@ class TempFile(XTempFile_794e094e):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['TempFile']
 

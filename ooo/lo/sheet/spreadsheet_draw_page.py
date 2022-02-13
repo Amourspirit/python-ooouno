@@ -41,5 +41,6 @@ class SpreadsheetDrawPage(XDrawPage_b07a0b57, XShapeGrouper_e2a30d21):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SpreadsheetDrawPage']
 

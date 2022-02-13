@@ -41,5 +41,6 @@ class AccessibleFixedText(XAccessibleContext_8eae119b, XAccessibleEventBroadcast
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['AccessibleFixedText']
 

@@ -34,5 +34,6 @@ class LabeledDataSequence(XLabeledDataSequence2_8f1410fa):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['LabeledDataSequence']
 

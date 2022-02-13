@@ -20,10 +20,10 @@
 # Namespace: com.sun.star.frame
 import typing
 from abc import abstractmethod, abstractproperty
-from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from .x_controller import XController as XController_b00e0b8f
 if typing.TYPE_CHECKING:
     from ..awt.x_window import XWindow as XWindow_713b0924
+    from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
     from ..ui.x_sidebar_provider import XSidebarProvider as XSidebarProvider_c69c0c43
 
 class XController2(XController_b00e0b8f):
@@ -42,13 +42,6 @@ class XController2(XController_b00e0b8f):
     __ooo_type_name__: str = 'interface'
     __pyunointerface__: str = 'com.sun.star.frame.XController2'
 
-    CreationArguments: typing.TypeAlias = typing.Tuple[PropertyValue_c9610c73, ...]
-    """
-    denotes the arguments used to create the instance.
-    
-    Usually, controllers are created via XModel2.createViewController(), where the caller can pass not only a controller name, but also arguments parameterizing the to-be-created instance. Those arguments used at creation time can subsequently be retrieved using the CreationArguments member.
-    """
-
     @abstractmethod
     def getSidebar(self) -> 'XSidebarProvider_c69c0c43':
         """
@@ -59,12 +52,21 @@ class XController2(XController_b00e0b8f):
             LibreOffice 5.1
         """
     @abstractproperty
+    def CreationArguments(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
+        """
+        denotes the arguments used to create the instance.
+        
+        Usually, controllers are created via XModel2.createViewController(), where the caller can pass not only a controller name, but also arguments parameterizing the to-be-created instance. Those arguments used at creation time can subsequently be retrieved using the CreationArguments member.
+        """
+
+    @abstractproperty
     def ComponentWindow(self) -> 'XWindow_713b0924':
         """
         denotes the \"root window\" of the controller.
         
         If the controller is plugged into a frame, this window acts as the frame's ComponentWindow.
         """
+
     @abstractproperty
     def ViewControllerName(self) -> str:
         """

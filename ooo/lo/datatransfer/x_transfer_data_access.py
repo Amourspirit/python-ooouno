@@ -55,6 +55,5 @@ class XTransferDataAccess(XInterface_8f010a43):
         An unsupported DataFlavor will be ignored.
         """
 
-
 __all__ = ['XTransferDataAccess']
 

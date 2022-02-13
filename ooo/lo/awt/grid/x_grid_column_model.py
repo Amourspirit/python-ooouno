@@ -99,6 +99,5 @@ class XGridColumnModel(XContainer_d6fb0cc6, XComponent_98dc0ab5, XCloneable_99d0
         Existing columns will be removed before adding new columns. Listeners at the column model will be notified one com.sun.star.container.XContainerListener.elementRemoved() event for each removed column, and one com.sun.star.container.XContainerListener.elementInserted() event for each insertion.
         """
 
-
 __all__ = ['XGridColumnModel']
 

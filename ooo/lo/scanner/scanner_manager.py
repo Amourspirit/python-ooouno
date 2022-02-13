@@ -34,5 +34,6 @@ class ScannerManager(XScannerManager2_b740e01):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['ScannerManager']
 

@@ -19,15 +19,16 @@
 # Namespace: com.sun.star.mozilla
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct() -> None:
+    def _dynamic_struct():
         import uno
-        # Dynamically create uno struct using uno
+        from com.sun.star.mozilla import MenuSingleChange as UMenuSingleChange
+        # Dynamically create uno com.sun.star.mozilla.MenuSingleChange using uno
         global MenuSingleChange
 
         def _set_attr(struct):
@@ -35,25 +36,23 @@ if not TYPE_CHECKING and _DYNAMIC:
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.mozilla.MenuSingleChange'
             struct.__dict__['__ooo_type_name__'] = 'struct'
 
-        def _struct_init(*args, **kwargs):
-            arg_len = len(args)
-            if arg_len == 1:
-                from com.sun.star.mozilla import MenuSingleChange as UMenuSingleChange
-                if isinstance(args[0], UMenuSingleChange):
-                    struct = uno.createUnoStruct(
-                        'com.sun.star.mozilla.MenuSingleChange', args[0])
-                    _set_attr(struct)
-                    return struct
+        def _struct_init(ID = UNO_NONE, ChangeID = UNO_NONE, Change = UNO_NONE):
+            ns = 'com.sun.star.mozilla.MenuSingleChange'
+            if isinstance(ID, UMenuSingleChange):
+                inst = uno.createUnoStruct(ns, ID)
+                _set_attr(inst)
+                return inst
+            struct = uno.createUnoStruct(ns)
 
-            key_order = ('ID', 'ChangeID', 'Change')
-            struct = uno.createUnoStruct('com.sun.star.mozilla.MenuSingleChange')
-            if arg_len > len(key_order):
-                raise ValueError("MenuSingleChange.__init__() To many parameters")
-            for i, arg in enumerate(args):
-                setattr(struct, key_order[i], arg)
-            for k, v in kwargs.items():
-                if k in key_order:
-                    setattr(struct, k, v)
+            if not ID is UNO_NONE:
+                if getattr(struct, 'ID') != ID:
+                    setattr(struct, 'ID', ID)
+            if not ChangeID is UNO_NONE:
+                if getattr(struct, 'ChangeID') != ChangeID:
+                    setattr(struct, 'ChangeID', ChangeID)
+            if not Change is UNO_NONE:
+                if getattr(struct, 'Change') != Change:
+                    setattr(struct, 'Change', Change)
             _set_attr(struct)
             return struct
         MenuSingleChange = _struct_init

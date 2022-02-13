@@ -115,6 +115,5 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.canSetUserName() returned TRUE.
         """
 
-
 __all__ = ['XInteractionSupplyAuthentication']
 

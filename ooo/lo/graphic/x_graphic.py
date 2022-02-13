@@ -43,6 +43,5 @@ class XGraphic(XInterface_8f010a43):
         Get the type of the contained graphic.
         """
 
-
 __all__ = ['XGraphic']
 

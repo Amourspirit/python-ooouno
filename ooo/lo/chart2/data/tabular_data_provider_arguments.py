@@ -35,17 +35,6 @@ class TabularDataProviderArguments(ABC):
     __ooo_full_ns__: str = 'com.sun.star.chart2.data.TabularDataProviderArguments'
     __ooo_type_name__: str = 'service'
 
-    SequenceMapping: typing.TypeAlias = typing.Tuple[int, ...]
-    """
-    determines the order of the created labeled sequences
-    
-    For example a SequenceMapping of [3,0,2,1] indicates that the sequence from old position \"3\" should now be the first one. Then comes the sequence from old position \"0\". Then that one from old position \"2\" and then the sequence from old position \"1\".
-    
-    If the SequenceMapping contains invalid indexes just ignore those single indexes. For example if you only have three labeled sequences and a SequenceMapping [2,5,1,0], you should ignore the \"5\" and continue to place the sequence from old index \"1\" to the next new position and so on.
-    
-    If the given SequenceMapping does not cover all existing labeled sequences just put the remaining sequences in old order behind the others. For example you have 4 sequences and a SequenceMapping [3,1]. The result should be as if [3,1,0,2] was given.
-    """
-
     @abstractproperty
     def CellRangeRepresentation(self) -> str:
         """
@@ -59,6 +48,7 @@ class TabularDataProviderArguments(ABC):
         
         When used as output of XDataProvider.detectArguments() this is the range that spans the ranges of all given XDataSequences. If the result is ambiguous, i.e., a splitting of this range would not yield the same result, this property should be empty. The latter is the case, when ranges are overlapping, the lengths of sequences are not equal or even if the order of two sequences is swapped (e.g. data comes from column A, C, B).
         """
+
     @abstractproperty
     def DataRowSource(self) -> 'ChartDataRowSource_9a00e2f':
         """
@@ -66,6 +56,7 @@ class TabularDataProviderArguments(ABC):
         
         If this property is not given as argument it is assumed to com.sun.star.chart.ChartDataRowSource.COLUMNS, i.e., the default is \"take data from columns\".
         """
+
     @abstractproperty
     def FirstCellAsLabel(self) -> bool:
         """
@@ -75,6 +66,7 @@ class TabularDataProviderArguments(ABC):
         
         If this property is not given as argument it is assumed to be FALSE, i.e., the default is \"no labels\".
         """
+
     @abstractproperty
     def HasCategories(self) -> bool:
         """
@@ -86,6 +78,7 @@ class TabularDataProviderArguments(ABC):
         
         The generic category labeled sequence returned should be the first one in the returned XDataSource. It needs no label. The values should have their role set to \"categories\". The generic strings returned should also be localized.
         """
+
     @abstractproperty
     def TableNumberList(self) -> str:
         """
@@ -97,6 +90,8 @@ class TabularDataProviderArguments(ABC):
         
         .
         """
+
+
 
 __all__ = ['TabularDataProviderArguments']
 

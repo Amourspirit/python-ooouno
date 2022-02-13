@@ -36,5 +36,6 @@ class SystemShellExecute(XSystemShellExecute_2ebd0f55):
     __ooo_type_name__: str = 'service'
 
 
+
 __all__ = ['SystemShellExecute']
 

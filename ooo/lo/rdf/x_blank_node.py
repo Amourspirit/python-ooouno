@@ -39,6 +39,5 @@ class XBlankNode(XResource_842709e4):
     __pyunointerface__: str = 'com.sun.star.rdf.XBlankNode'
 
 
-
 __all__ = ['XBlankNode']
 

@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.script.ModuleInfo using uno
         global ModuleInfo
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.script.ModuleInfo'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.script'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.script.ModuleInfo'
@@ -51,7 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'ModuleType') != ModuleType:
                     setattr(struct, 'ModuleType', ModuleType)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         ModuleInfo = _struct_init
 
     _dynamic_struct()

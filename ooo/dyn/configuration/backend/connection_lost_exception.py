@@ -30,6 +30,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.configuration.backend.ConnectionLostException using uno
         global ConnectionLostException
 
+        def _set_fn_attr(ex):
+            type_name = 'com.sun.star.configuration.backend.ConnectionLostException'
+            ex.__dict__['typeName'] = type_name
+            ex.__dict__['__pyunointerface__'] = type_name
+            ex.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(ex):
             ex.__dict__['__ooo_ns__'] = 'com.sun.star.configuration.backend'
             ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.configuration.backend.ConnectionLostException'
@@ -45,6 +51,8 @@ if not TYPE_CHECKING and _DYNAMIC:
                     setattr(ex, k, v)
             _set_attr(ex)
             return ex
+        _set_attr(_ex_init)
+        _set_fn_attr(_ex_init)
         ConnectionLostException = _ex_init
 
     _dynamic_ex()

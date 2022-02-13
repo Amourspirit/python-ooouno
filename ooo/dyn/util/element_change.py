@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.util.ElementChange using uno
         global ElementChange
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.util.ElementChange'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.ElementChange'
@@ -54,7 +60,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'ReplacedElement') != ReplacedElement:
                     setattr(struct, 'ReplacedElement', ReplacedElement)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         ElementChange = _struct_init
 
     _dynamic_struct()

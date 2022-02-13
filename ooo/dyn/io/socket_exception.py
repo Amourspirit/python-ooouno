@@ -30,6 +30,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.io.SocketException using uno
         global SocketException
 
+        def _set_fn_attr(ex):
+            type_name = 'com.sun.star.io.SocketException'
+            ex.__dict__['typeName'] = type_name
+            ex.__dict__['__pyunointerface__'] = type_name
+            ex.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(ex):
             ex.__dict__['__ooo_ns__'] = 'com.sun.star.io'
             ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.io.SocketException'
@@ -45,6 +51,8 @@ if not TYPE_CHECKING and _DYNAMIC:
                     setattr(ex, k, v)
             _set_attr(ex)
             return ex
+        _set_attr(_ex_init)
+        _set_fn_attr(_ex_init)
         SocketException = _ex_init
 
     _dynamic_ex()

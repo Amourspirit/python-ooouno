@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.awt.DockingData using uno
         global DockingData
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.awt.DockingData'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.awt'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.DockingData'
@@ -51,7 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'bFloating') != bFloating:
                     setattr(struct, 'bFloating', bFloating)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         DockingData = _struct_init
 
     _dynamic_struct()

@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.i18n.Currency using uno
         global Currency
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.i18n.Currency'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.i18n'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.Currency'
@@ -66,7 +72,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'DecimalPlaces') != DecimalPlaces:
                     setattr(struct, 'DecimalPlaces', DecimalPlaces)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         Currency = _struct_init
 
     _dynamic_struct()

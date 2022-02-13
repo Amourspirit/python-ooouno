@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.ucb.RecipientInfo using uno
         global RecipientInfo
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.ucb.RecipientInfo'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.ucb'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.RecipientInfo'
@@ -84,7 +90,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'SendTries') != SendTries:
                     setattr(struct, 'SendTries', SendTries)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         RecipientInfo = _struct_init
 
     _dynamic_struct()

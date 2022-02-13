@@ -30,6 +30,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.awt.PrinterException using uno
         global PrinterException
 
+        def _set_fn_attr(ex):
+            type_name = 'com.sun.star.awt.PrinterException'
+            ex.__dict__['typeName'] = type_name
+            ex.__dict__['__pyunointerface__'] = type_name
+            ex.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(ex):
             ex.__dict__['__ooo_ns__'] = 'com.sun.star.awt'
             ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.PrinterException'
@@ -45,6 +51,8 @@ if not TYPE_CHECKING and _DYNAMIC:
                     setattr(ex, k, v)
             _set_attr(ex)
             return ex
+        _set_attr(_ex_init)
+        _set_fn_attr(_ex_init)
         PrinterException = _ex_init
 
     _dynamic_ex()

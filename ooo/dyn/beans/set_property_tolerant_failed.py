@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.beans.SetPropertyTolerantFailed using uno
         global SetPropertyTolerantFailed
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.beans.SetPropertyTolerantFailed'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.beans'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.beans.SetPropertyTolerantFailed'
@@ -51,7 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Result') != Result:
                     setattr(struct, 'Result', Result)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         SetPropertyTolerantFailed = _struct_init
 
     _dynamic_struct()

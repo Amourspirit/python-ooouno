@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.drawing.BezierPoint using uno
         global BezierPoint
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.drawing.BezierPoint'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.BezierPoint'
@@ -54,7 +60,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'ControlPoint2') != ControlPoint2:
                     setattr(struct, 'ControlPoint2', ControlPoint2)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         BezierPoint = _struct_init
 
     _dynamic_struct()

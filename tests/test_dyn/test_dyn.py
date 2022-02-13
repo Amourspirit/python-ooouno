@@ -54,8 +54,8 @@ def test_exception():
     assert id(ex) != id(Exception)
     ex.Message = "Hello World"
     assert ex.Message == 'Hello World'
-    # assert Exception.typeName == 'com.sun.star.uno.Exception'
-    # assert ex.__pyunointerface__ == Exception.typeName
+    assert Exception.typeName == 'com.sun.star.uno.Exception'
+    assert ex.__pyunointerface__ == Exception.typeName
     assert ex.__pyunostruct__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_ns__ == 'com.sun.star.uno'
     assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'

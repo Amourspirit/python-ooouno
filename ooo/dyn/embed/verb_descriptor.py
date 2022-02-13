@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.embed.VerbDescriptor using uno
         global VerbDescriptor
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.embed.VerbDescriptor'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.embed'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.embed.VerbDescriptor'
@@ -57,7 +63,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'VerbAttributes') != VerbAttributes:
                     setattr(struct, 'VerbAttributes', VerbAttributes)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         VerbDescriptor = _struct_init
 
     _dynamic_struct()

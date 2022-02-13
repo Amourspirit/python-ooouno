@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.drawing.GluePoint using uno
         global GluePoint
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.drawing.GluePoint'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.GluePoint'
@@ -57,7 +63,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Alignment') != Alignment:
                     setattr(struct, 'Alignment', Alignment)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         GluePoint = _struct_init
 
     _dynamic_struct()

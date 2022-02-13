@@ -31,6 +31,12 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create uno com.sun.star.geometry.RealRectangle2D using uno
         global RealRectangle2D
 
+        def _set_fn_attr(struct):
+            type_name = 'com.sun.star.geometry.RealRectangle2D'
+            struct.__dict__['typeName'] = type_name
+            struct.__dict__['__pyunointerface__'] = type_name
+            struct.__dict__['__pyunostruct__'] = type_name
+
         def _set_attr(struct):
             struct.__dict__['__ooo_ns__'] = 'com.sun.star.geometry'
             struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.RealRectangle2D'
@@ -57,7 +63,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Y2') != Y2:
                     setattr(struct, 'Y2', Y2)
             _set_attr(struct)
+            _set_fn_attr(struct)
             return struct
+        _set_attr(_struct_init)
         RealRectangle2D = _struct_init
 
     _dynamic_struct()

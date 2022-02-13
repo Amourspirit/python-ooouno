@@ -57,9 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Names') != Names:
                     setattr(struct, 'Names', Names)
             _set_attr(struct)
-            _set_fn_attr(struct)
             return struct
         _set_attr(_struct_init)
+        _set_fn_attr(_struct_init)
         ClipboardFormats = _struct_init
 
     _dynamic_struct()

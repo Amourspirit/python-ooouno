@@ -60,9 +60,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Year') != Year:
                     setattr(struct, 'Year', Year)
             _set_attr(struct)
-            _set_fn_attr(struct)
             return struct
         _set_attr(_struct_init)
+        _set_fn_attr(_struct_init)
         Date = _struct_init
 
     _dynamic_struct()

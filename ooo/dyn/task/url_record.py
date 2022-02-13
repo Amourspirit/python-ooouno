@@ -57,9 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'Url') != Url:
                     setattr(struct, 'Url', Url)
             _set_attr(struct)
-            _set_fn_attr(struct)
             return struct
         _set_attr(_struct_init)
+        _set_fn_attr(_struct_init)
         UrlRecord = _struct_init
 
     _dynamic_struct()

@@ -57,9 +57,9 @@ if not TYPE_CHECKING and _DYNAMIC:
                 if getattr(struct, 'max') != max:
                     setattr(struct, 'max', max)
             _set_attr(struct)
-            _set_fn_attr(struct)
             return struct
         _set_attr(_struct_init)
+        _set_fn_attr(_struct_init)
         BoundVolume = _struct_init
 
     _dynamic_struct()

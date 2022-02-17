@@ -2,7 +2,7 @@
 import pathlib
 import os
 from setuptools import setup
-from ooo_uno import __version__
+from ooo import __version__
 PKG_NAME = 'ooouno'
 VERSION = __version__
 PKG_MAIN = 'ooo_uno'
@@ -64,7 +64,7 @@ setup(
     name=PKG_NAME,
     version=VERSION,
     python_requires='>=3.6.0',
-    description="Interfaces and classes for LibraOffice (uno)",
+    description="Interfaces and classes for Libre Office (uno)",
     long_description_content_type="text/x-rst",
     long_description=README,
     url="https://github.com/Amourspirit/python-ooouno",

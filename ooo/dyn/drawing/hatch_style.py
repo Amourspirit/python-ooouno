@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global HatchStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.HatchStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.HatchStyle",
+            "__ooo_type_name__": "enum",
             "DOUBLE": DOUBLE,
             "SINGLE": SINGLE,
             "TRIPLE": TRIPLE,
         }
 
-        HatchStyle = type('HatchStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(HatchStyle, k, v)
-        setattr(HatchStyle, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(HatchStyle, '__ooo_full_ns__', 'com.sun.star.drawing.HatchStyle')
-        setattr(HatchStyle, '__ooo_type_name__', 'enum')
+        HatchStyle = type('HatchStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.hatch_style import HatchStyle as HatchStyle

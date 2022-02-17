@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global WrapTextMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.text.WrapTextMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.text",
+            "__ooo_full_ns__": "com.sun.star.text.WrapTextMode",
+            "__ooo_type_name__": "enum",
             "DYNAMIC": DYNAMIC,
             "LEFT": LEFT,
             "NONE": NONE,
@@ -42,15 +47,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "THROUGHT": THROUGHT,
         }
 
-        WrapTextMode = type('WrapTextMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(WrapTextMode, k, v)
-        setattr(WrapTextMode, '__ooo_ns__', 'com.sun.star.text')
-        setattr(WrapTextMode, '__ooo_full_ns__', 'com.sun.star.text.WrapTextMode')
-        setattr(WrapTextMode, '__ooo_type_name__', 'enum')
+        WrapTextMode = type('WrapTextMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.text.wrap_text_mode import WrapTextMode as WrapTextMode

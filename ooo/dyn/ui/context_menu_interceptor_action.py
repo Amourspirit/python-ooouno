@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ContextMenuInterceptorAction
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ui.ContextMenuInterceptorAction Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ui",
+            "__ooo_full_ns__": "com.sun.star.ui.ContextMenuInterceptorAction",
+            "__ooo_type_name__": "enum",
             "CANCELLED": CANCELLED,
             "CONTINUE_MODIFIED": CONTINUE_MODIFIED,
             "EXECUTE_MODIFIED": EXECUTE_MODIFIED,
             "IGNORED": IGNORED,
         }
 
-        ContextMenuInterceptorAction = type('ContextMenuInterceptorAction', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ContextMenuInterceptorAction, k, v)
-        setattr(ContextMenuInterceptorAction, '__ooo_ns__', 'com.sun.star.ui')
-        setattr(ContextMenuInterceptorAction, '__ooo_full_ns__', 'com.sun.star.ui.ContextMenuInterceptorAction')
-        setattr(ContextMenuInterceptorAction, '__ooo_type_name__', 'enum')
+        ContextMenuInterceptorAction = type('ContextMenuInterceptorAction', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ui.context_menu_interceptor_action import ContextMenuInterceptorAction as ContextMenuInterceptorAction

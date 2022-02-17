@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ChartAxisLabelPosition
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartAxisLabelPosition Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart",
+            "__ooo_full_ns__": "com.sun.star.chart.ChartAxisLabelPosition",
+            "__ooo_type_name__": "enum",
             "NEAR_AXIS": NEAR_AXIS,
             "NEAR_AXIS_OTHER_SIDE": NEAR_AXIS_OTHER_SIDE,
             "OUTSIDE_END": OUTSIDE_END,
             "OUTSIDE_START": OUTSIDE_START,
         }
 
-        ChartAxisLabelPosition = type('ChartAxisLabelPosition', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ChartAxisLabelPosition, k, v)
-        setattr(ChartAxisLabelPosition, '__ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartAxisLabelPosition, '__ooo_full_ns__', 'com.sun.star.chart.ChartAxisLabelPosition')
-        setattr(ChartAxisLabelPosition, '__ooo_type_name__', 'enum')
+        ChartAxisLabelPosition = type('ChartAxisLabelPosition', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart.chart_axis_label_position import ChartAxisLabelPosition as ChartAxisLabelPosition

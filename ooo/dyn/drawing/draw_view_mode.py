@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DrawViewMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.DrawViewMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.DrawViewMode",
+            "__ooo_type_name__": "enum",
             "DRAW": DRAW,
             "HANDOUT": HANDOUT,
             "NOTES": NOTES,
         }
 
-        DrawViewMode = type('DrawViewMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DrawViewMode, k, v)
-        setattr(DrawViewMode, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(DrawViewMode, '__ooo_full_ns__', 'com.sun.star.drawing.DrawViewMode')
-        setattr(DrawViewMode, '__ooo_type_name__', 'enum')
+        DrawViewMode = type('DrawViewMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.draw_view_mode import DrawViewMode as DrawViewMode

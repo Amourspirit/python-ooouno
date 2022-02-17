@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global EventType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.events.EventType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.dom.events",
+            "__ooo_full_ns__": "com.sun.star.xml.dom.events.EventType",
+            "__ooo_type_name__": "enum",
             "DOMActivate": DOMActivate,
             "DOMAttrModified": DOMAttrModified,
             "DOMCharacterDataModified": DOMCharacterDataModified,
@@ -51,15 +56,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "mouseup": mouseup,
         }
 
-        EventType = type('EventType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(EventType, k, v)
-        setattr(EventType, '__ooo_ns__', 'com.sun.star.xml.dom.events')
-        setattr(EventType, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.EventType')
-        setattr(EventType, '__ooo_type_name__', 'enum')
+        EventType = type('EventType', (object,), _dict)
     _dynamic_enum()
 else:
     from .....lo.xml.dom.events.event_type import EventType as EventType

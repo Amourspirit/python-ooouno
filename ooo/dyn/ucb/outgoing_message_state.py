@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global OutgoingMessageState
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.OutgoingMessageState Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.OutgoingMessageState",
+            "__ooo_type_name__": "enum",
             "COMPLETELY_LOCALLY_SENT": COMPLETELY_LOCALLY_SENT,
             "CONFIRMED": CONFIRMED,
             "EXTERNAL_ERROR": EXTERNAL_ERROR,
@@ -43,15 +48,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WRITTEN": WRITTEN,
         }
 
-        OutgoingMessageState = type('OutgoingMessageState', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(OutgoingMessageState, k, v)
-        setattr(OutgoingMessageState, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(OutgoingMessageState, '__ooo_full_ns__', 'com.sun.star.ucb.OutgoingMessageState')
-        setattr(OutgoingMessageState, '__ooo_type_name__', 'enum')
+        OutgoingMessageState = type('OutgoingMessageState', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.outgoing_message_state import OutgoingMessageState as OutgoingMessageState

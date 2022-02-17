@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SelectionType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.view.SelectionType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.view",
+            "__ooo_full_ns__": "com.sun.star.view.SelectionType",
+            "__ooo_type_name__": "enum",
             "MULTI": MULTI,
             "NONE": NONE,
             "RANGE": RANGE,
             "SINGLE": SINGLE,
         }
 
-        SelectionType = type('SelectionType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SelectionType, k, v)
-        setattr(SelectionType, '__ooo_ns__', 'com.sun.star.view')
-        setattr(SelectionType, '__ooo_full_ns__', 'com.sun.star.view.SelectionType')
-        setattr(SelectionType, '__ooo_type_name__', 'enum')
+        SelectionType = type('SelectionType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.view.selection_type import SelectionType as SelectionType

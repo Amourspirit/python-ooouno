@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global EnhancedCustomShapeTextPathMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.EnhancedCustomShapeTextPathMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.EnhancedCustomShapeTextPathMode",
+            "__ooo_type_name__": "enum",
             "NORMAL": NORMAL,
             "PATH": PATH,
             "SHAPE": SHAPE,
         }
 
-        EnhancedCustomShapeTextPathMode = type('EnhancedCustomShapeTextPathMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(EnhancedCustomShapeTextPathMode, k, v)
-        setattr(EnhancedCustomShapeTextPathMode, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(EnhancedCustomShapeTextPathMode, '__ooo_full_ns__', 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode')
-        setattr(EnhancedCustomShapeTextPathMode, '__ooo_type_name__', 'enum')
+        EnhancedCustomShapeTextPathMode = type('EnhancedCustomShapeTextPathMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.enhanced_custom_shape_text_path_mode import EnhancedCustomShapeTextPathMode as EnhancedCustomShapeTextPathMode

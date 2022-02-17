@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FolderListCommand
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.FolderListCommand Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.FolderListCommand",
+            "__ooo_type_name__": "enum",
             "GET": GET,
             "GET_SUBSCRIBED": GET_SUBSCRIBED,
             "SET": SET,
         }
 
-        FolderListCommand = type('FolderListCommand', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FolderListCommand, k, v)
-        setattr(FolderListCommand, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(FolderListCommand, '__ooo_full_ns__', 'com.sun.star.ucb.FolderListCommand')
-        setattr(FolderListCommand, '__ooo_type_name__', 'enum')
+        FolderListCommand = type('FolderListCommand', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.folder_list_command import FolderListCommand as FolderListCommand

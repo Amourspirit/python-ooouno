@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PasteOperation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.PasteOperation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.PasteOperation",
+            "__ooo_type_name__": "enum",
             "ADD": ADD,
             "DIVIDE": DIVIDE,
             "MULTIPLY": MULTIPLY,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SUBTRACT": SUBTRACT,
         }
 
-        PasteOperation = type('PasteOperation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PasteOperation, k, v)
-        setattr(PasteOperation, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(PasteOperation, '__ooo_full_ns__', 'com.sun.star.sheet.PasteOperation')
-        setattr(PasteOperation, '__ooo_type_name__', 'enum')
+        PasteOperation = type('PasteOperation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.paste_operation import PasteOperation as PasteOperation

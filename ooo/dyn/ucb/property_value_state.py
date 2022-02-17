@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PropertyValueState
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.PropertyValueState Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.PropertyValueState",
+            "__ooo_type_name__": "enum",
             "INVALID_NAME": INVALID_NAME,
             "INVALID_TYPE": INVALID_TYPE,
             "PROCESSED": PROCESSED,
             "UNPROCESSED": UNPROCESSED,
         }
 
-        PropertyValueState = type('PropertyValueState', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PropertyValueState, k, v)
-        setattr(PropertyValueState, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(PropertyValueState, '__ooo_full_ns__', 'com.sun.star.ucb.PropertyValueState')
-        setattr(PropertyValueState, '__ooo_type_name__', 'enum')
+        PropertyValueState = type('PropertyValueState', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.property_value_state import PropertyValueState as PropertyValueState

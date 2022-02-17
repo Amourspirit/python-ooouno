@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TextureProjectionMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextureProjectionMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.TextureProjectionMode",
+            "__ooo_type_name__": "enum",
             "OBJECTSPECIFIC": OBJECTSPECIFIC,
             "PARALLEL": PARALLEL,
             "SPHERE": SPHERE,
         }
 
-        TextureProjectionMode = type('TextureProjectionMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TextureProjectionMode, k, v)
-        setattr(TextureProjectionMode, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextureProjectionMode, '__ooo_full_ns__', 'com.sun.star.drawing.TextureProjectionMode')
-        setattr(TextureProjectionMode, '__ooo_type_name__', 'enum')
+        TextureProjectionMode = type('TextureProjectionMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.texture_projection_mode import TextureProjectionMode as TextureProjectionMode

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PaperFormat
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.view.PaperFormat Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.view",
+            "__ooo_full_ns__": "com.sun.star.view.PaperFormat",
+            "__ooo_type_name__": "enum",
             "A3": A3,
             "A4": A4,
             "A5": A5,
@@ -44,15 +49,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "USER": USER,
         }
 
-        PaperFormat = type('PaperFormat', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PaperFormat, k, v)
-        setattr(PaperFormat, '__ooo_ns__', 'com.sun.star.view')
-        setattr(PaperFormat, '__ooo_full_ns__', 'com.sun.star.view.PaperFormat')
-        setattr(PaperFormat, '__ooo_type_name__', 'enum')
+        PaperFormat = type('PaperFormat', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.view.paper_format import PaperFormat as PaperFormat

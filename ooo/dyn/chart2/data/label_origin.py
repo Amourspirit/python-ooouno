@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LabelOrigin
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.data.LabelOrigin Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2.data",
+            "__ooo_full_ns__": "com.sun.star.chart2.data.LabelOrigin",
+            "__ooo_type_name__": "enum",
             "COLUMN": COLUMN,
             "LONG_SIDE": LONG_SIDE,
             "ROW": ROW,
             "SHORT_SIDE": SHORT_SIDE,
         }
 
-        LabelOrigin = type('LabelOrigin', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LabelOrigin, k, v)
-        setattr(LabelOrigin, '__ooo_ns__', 'com.sun.star.chart2.data')
-        setattr(LabelOrigin, '__ooo_full_ns__', 'com.sun.star.chart2.data.LabelOrigin')
-        setattr(LabelOrigin, '__ooo_type_name__', 'enum')
+        LabelOrigin = type('LabelOrigin', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.chart2.data.label_origin import LabelOrigin as LabelOrigin

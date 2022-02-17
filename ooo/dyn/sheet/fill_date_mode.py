@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FillDateMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.FillDateMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.FillDateMode",
+            "__ooo_type_name__": "enum",
             "FILL_DATE_DAY": FILL_DATE_DAY,
             "FILL_DATE_MONTH": FILL_DATE_MONTH,
             "FILL_DATE_WEEKDAY": FILL_DATE_WEEKDAY,
             "FILL_DATE_YEAR": FILL_DATE_YEAR,
         }
 
-        FillDateMode = type('FillDateMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FillDateMode, k, v)
-        setattr(FillDateMode, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(FillDateMode, '__ooo_full_ns__', 'com.sun.star.sheet.FillDateMode')
-        setattr(FillDateMode, '__ooo_type_name__', 'enum')
+        FillDateMode = type('FillDateMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.fill_date_mode import FillDateMode as FillDateMode

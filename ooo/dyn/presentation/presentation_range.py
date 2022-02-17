@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PresentationRange
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.presentation.PresentationRange Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.presentation",
+            "__ooo_full_ns__": "com.sun.star.presentation.PresentationRange",
+            "__ooo_type_name__": "enum",
             "PRESENTATIONRANGE_ALL": PRESENTATIONRANGE_ALL,
             "PRESENTATIONRANGE_FROM_PAGE": PRESENTATIONRANGE_FROM_PAGE,
             "PRESENTATIONRANGE_INDIVIDUAL": PRESENTATIONRANGE_INDIVIDUAL,
         }
 
-        PresentationRange = type('PresentationRange', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PresentationRange, k, v)
-        setattr(PresentationRange, '__ooo_ns__', 'com.sun.star.presentation')
-        setattr(PresentationRange, '__ooo_full_ns__', 'com.sun.star.presentation.PresentationRange')
-        setattr(PresentationRange, '__ooo_type_name__', 'enum')
+        PresentationRange = type('PresentationRange', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.presentation.presentation_range import PresentationRange as PresentationRange

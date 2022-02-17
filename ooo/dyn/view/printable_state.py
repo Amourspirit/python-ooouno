@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PrintableState
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.view.PrintableState Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.view",
+            "__ooo_full_ns__": "com.sun.star.view.PrintableState",
+            "__ooo_type_name__": "enum",
             "JOB_ABORTED": JOB_ABORTED,
             "JOB_COMPLETED": JOB_COMPLETED,
             "JOB_FAILED": JOB_FAILED,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "JOB_STARTED": JOB_STARTED,
         }
 
-        PrintableState = type('PrintableState', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PrintableState, k, v)
-        setattr(PrintableState, '__ooo_ns__', 'com.sun.star.view')
-        setattr(PrintableState, '__ooo_full_ns__', 'com.sun.star.view.PrintableState')
-        setattr(PrintableState, '__ooo_type_name__', 'enum')
+        PrintableState = type('PrintableState', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.view.printable_state import PrintableState as PrintableState

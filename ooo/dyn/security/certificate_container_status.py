@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global CertificateContainerStatus
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.security.CertificateContainerStatus Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.security",
+            "__ooo_full_ns__": "com.sun.star.security.CertificateContainerStatus",
+            "__ooo_type_name__": "enum",
             "NOCERT": NOCERT,
             "TRUSTED": TRUSTED,
             "UNTRUSTED": UNTRUSTED,
         }
 
-        CertificateContainerStatus = type('CertificateContainerStatus', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(CertificateContainerStatus, k, v)
-        setattr(CertificateContainerStatus, '__ooo_ns__', 'com.sun.star.security')
-        setattr(CertificateContainerStatus, '__ooo_full_ns__', 'com.sun.star.security.CertificateContainerStatus')
-        setattr(CertificateContainerStatus, '__ooo_type_name__', 'enum')
+        CertificateContainerStatus = type('CertificateContainerStatus', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.security.certificate_container_status import CertificateContainerStatus as CertificateContainerStatus

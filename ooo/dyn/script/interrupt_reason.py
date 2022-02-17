@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global InterruptReason
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.script.InterruptReason Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.script",
+            "__ooo_full_ns__": "com.sun.star.script.InterruptReason",
+            "__ooo_type_name__": "enum",
             "BreakPoint": BreakPoint,
             "Cancel": Cancel,
             "CompileError": CompileError,
@@ -43,15 +48,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "StepStatement": StepStatement,
         }
 
-        InterruptReason = type('InterruptReason', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(InterruptReason, k, v)
-        setattr(InterruptReason, '__ooo_ns__', 'com.sun.star.script')
-        setattr(InterruptReason, '__ooo_full_ns__', 'com.sun.star.script.InterruptReason')
-        setattr(InterruptReason, '__ooo_type_name__', 'enum')
+        InterruptReason = type('InterruptReason', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.script.interrupt_reason import InterruptReason as InterruptReason

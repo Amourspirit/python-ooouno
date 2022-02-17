@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MailServiceType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.mail.MailServiceType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.mail",
+            "__ooo_full_ns__": "com.sun.star.mail.MailServiceType",
+            "__ooo_type_name__": "enum",
             "IMAP": IMAP,
             "POP3": POP3,
             "SMTP": SMTP,
         }
 
-        MailServiceType = type('MailServiceType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MailServiceType, k, v)
-        setattr(MailServiceType, '__ooo_ns__', 'com.sun.star.mail')
-        setattr(MailServiceType, '__ooo_full_ns__', 'com.sun.star.mail.MailServiceType')
-        setattr(MailServiceType, '__ooo_type_name__', 'enum')
+        MailServiceType = type('MailServiceType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.mail.mail_service_type import MailServiceType as MailServiceType

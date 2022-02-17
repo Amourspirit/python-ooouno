@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global Alignment
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.Alignment Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.Alignment",
+            "__ooo_type_name__": "enum",
             "BOTTOM": BOTTOM,
             "BOTTOM_LEFT": BOTTOM_LEFT,
             "BOTTOM_RIGHT": BOTTOM_RIGHT,
@@ -44,15 +49,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP_RIGHT": TOP_RIGHT,
         }
 
-        Alignment = type('Alignment', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(Alignment, k, v)
-        setattr(Alignment, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(Alignment, '__ooo_full_ns__', 'com.sun.star.drawing.Alignment')
-        setattr(Alignment, '__ooo_type_name__', 'enum')
+        Alignment = type('Alignment', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.alignment import Alignment as Alignment

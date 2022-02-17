@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LineStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.LineStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.LineStyle",
+            "__ooo_type_name__": "enum",
             "DASH": DASH,
             "NONE": NONE,
             "SOLID": SOLID,
         }
 
-        LineStyle = type('LineStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LineStyle, k, v)
-        setattr(LineStyle, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(LineStyle, '__ooo_full_ns__', 'com.sun.star.drawing.LineStyle')
-        setattr(LineStyle, '__ooo_type_name__', 'enum')
+        LineStyle = type('LineStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.line_style import LineStyle as LineStyle

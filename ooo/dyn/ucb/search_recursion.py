@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SearchRecursion
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.SearchRecursion Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.SearchRecursion",
+            "__ooo_type_name__": "enum",
             "DEEP": DEEP,
             "NONE": NONE,
             "ONE_LEVEL": ONE_LEVEL,
         }
 
-        SearchRecursion = type('SearchRecursion', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SearchRecursion, k, v)
-        setattr(SearchRecursion, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(SearchRecursion, '__ooo_full_ns__', 'com.sun.star.ucb.SearchRecursion')
-        setattr(SearchRecursion, '__ooo_type_name__', 'enum')
+        SearchRecursion = type('SearchRecursion', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.search_recursion import SearchRecursion as SearchRecursion

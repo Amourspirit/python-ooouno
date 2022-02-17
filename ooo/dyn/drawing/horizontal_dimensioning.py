@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global HorizontalDimensioning
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.HorizontalDimensioning Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.HorizontalDimensioning",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "CENTERED": CENTERED,
             "LEFT": LEFT,
             "RIGHT": RIGHT,
         }
 
-        HorizontalDimensioning = type('HorizontalDimensioning', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(HorizontalDimensioning, k, v)
-        setattr(HorizontalDimensioning, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(HorizontalDimensioning, '__ooo_full_ns__', 'com.sun.star.drawing.HorizontalDimensioning')
-        setattr(HorizontalDimensioning, '__ooo_type_name__', 'enum')
+        HorizontalDimensioning = type('HorizontalDimensioning', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.horizontal_dimensioning import HorizontalDimensioning as HorizontalDimensioning

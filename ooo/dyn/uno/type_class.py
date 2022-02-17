@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TypeClass
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.uno.TypeClass Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.uno",
+            "__ooo_full_ns__": "com.sun.star.uno.TypeClass",
+            "__ooo_type_name__": "enum",
             "ANY": ANY,
             "ARRAY": ARRAY,
             "BOOLEAN": BOOLEAN,
@@ -67,15 +72,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "VOID": VOID,
         }
 
-        TypeClass = type('TypeClass', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TypeClass, k, v)
-        setattr(TypeClass, '__ooo_ns__', 'com.sun.star.uno')
-        setattr(TypeClass, '__ooo_full_ns__', 'com.sun.star.uno.TypeClass')
-        setattr(TypeClass, '__ooo_type_name__', 'enum')
+        TypeClass = type('TypeClass', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.uno.type_class import TypeClass as TypeClass

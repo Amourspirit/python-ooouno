@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global InteractionClassification
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.task.InteractionClassification Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.task",
+            "__ooo_full_ns__": "com.sun.star.task.InteractionClassification",
+            "__ooo_type_name__": "enum",
             "ERROR": ERROR,
             "INFO": INFO,
             "QUERY": QUERY,
             "WARNING": WARNING,
         }
 
-        InteractionClassification = type('InteractionClassification', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(InteractionClassification, k, v)
-        setattr(InteractionClassification, '__ooo_ns__', 'com.sun.star.task')
-        setattr(InteractionClassification, '__ooo_full_ns__', 'com.sun.star.task.InteractionClassification')
-        setattr(InteractionClassification, '__ooo_type_name__', 'enum')
+        InteractionClassification = type('InteractionClassification', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.task.interaction_classification import InteractionClassification as InteractionClassification

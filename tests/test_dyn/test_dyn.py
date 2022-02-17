@@ -1,8 +1,11 @@
 # coding: utf-8
+import os
+import sys
 import pytest
-
 if __name__ == "__main__":
+    sys.path.insert(0, os.path.abspath('.'))
     pytest.main([__file__])
+from ooo.helper import uno_helper
 
 
 def test_service():
@@ -81,13 +84,21 @@ def test_exception_prop():
 
 def test_singleton():
     from ooo.dyn.beans.the_introspection import theIntrospection as theIntrospection
+    from ooo.lo.beans.introspection import Introspection as LoIntrospection
+    from ooo.dyn.beans.introspection import Introspection as DynIntrospection
     singleton = theIntrospection()
     assert type(singleton).__name__ == 'pyuno'
+    im_name = "com.sun.star.comp.stoc.Introspection"
+    assert singleton.getImplementationName() == im_name
+    assert uno_helper.supports_service(singleton, 'com.sun.star.beans.Introspection')
+    assert uno_helper.supports_service(singleton, LoIntrospection)
+    assert uno_helper.supports_service(singleton, DynIntrospection)
 
 def test_rectangle():
     # https://github.com/hanya/pyuno3/blob/master/test/test.py
     import uno
     from ooo.dyn.awt.rectangle import Rectangle
+    assert Rectangle.typeName == 'com.sun.star.awt.Rectangle'
     from com.sun.star.awt import Rectangle as URectangle
     rect1 = Rectangle()
     assert rect1.typeName == 'com.sun.star.awt.Rectangle'
@@ -116,17 +127,6 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
-
-def test_struct_accessible_relation():
-    import uno
-    from ooo.lo.accessibility.accessible_relation import AccessibleRelation
-    from ooo.dyn.accessibility.accessible_relation_type import AccessibleRelationType
-    bs = b"<html><body><p>Text from <b>HTML</b>.</p></body></html>"
-    rel:AccessibleRelation = uno.createUnoStruct("com.sun.star.accessibility.AccessibleRelation", 3)
-    assert rel.typeName == 'com.sun.star.accessibility.AccessibleRelation'
-    rel.RelationType = AccessibleRelationType.CONTROLLED_BY
-    rel.TargetSet = uno.ByteSequence(bs)
-    assert rel.RelationType == AccessibleRelationType.CONTROLLED_BY
 
 def test_excpetion_createUnoStruct():
     from ooo.dyn.ucb.missing_properties_exception import MissingPropertiesException

@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LayerType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.LayerType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.LayerType",
+            "__ooo_type_name__": "enum",
             "CONTROLSA": CONTROLSA,
             "DIMENSIONIANG_LINES": DIMENSIONIANG_LINES,
             "LAYOUT": LAYOUT,
             "USER_DEFINED": USER_DEFINED,
         }
 
-        LayerType = type('LayerType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LayerType, k, v)
-        setattr(LayerType, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(LayerType, '__ooo_full_ns__', 'com.sun.star.drawing.LayerType')
-        setattr(LayerType, '__ooo_type_name__', 'enum')
+        LayerType = type('LayerType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.layer_type import LayerType as LayerType

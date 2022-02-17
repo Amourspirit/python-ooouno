@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global VerticalAlignment
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.style.VerticalAlignment Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.style",
+            "__ooo_full_ns__": "com.sun.star.style.VerticalAlignment",
+            "__ooo_type_name__": "enum",
             "BOTTOM": BOTTOM,
             "MIDDLE": MIDDLE,
             "TOP": TOP,
         }
 
-        VerticalAlignment = type('VerticalAlignment', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(VerticalAlignment, k, v)
-        setattr(VerticalAlignment, '__ooo_ns__', 'com.sun.star.style')
-        setattr(VerticalAlignment, '__ooo_full_ns__', 'com.sun.star.style.VerticalAlignment')
-        setattr(VerticalAlignment, '__ooo_type_name__', 'enum')
+        VerticalAlignment = type('VerticalAlignment', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.style.vertical_alignment import VerticalAlignment as VerticalAlignment

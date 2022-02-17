@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TabulatorCycle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.form.TabulatorCycle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.form",
+            "__ooo_full_ns__": "com.sun.star.form.TabulatorCycle",
+            "__ooo_type_name__": "enum",
             "CURRENT": CURRENT,
             "NONE": NONE,
             "PARENT": PARENT,
         }
 
-        TabulatorCycle = type('TabulatorCycle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TabulatorCycle, k, v)
-        setattr(TabulatorCycle, '__ooo_ns__', 'com.sun.star.form')
-        setattr(TabulatorCycle, '__ooo_full_ns__', 'com.sun.star.form.TabulatorCycle')
-        setattr(TabulatorCycle, '__ooo_type_name__', 'enum')
+        TabulatorCycle = type('TabulatorCycle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.form.tabulator_cycle import TabulatorCycle as TabulatorCycle

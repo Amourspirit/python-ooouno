@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FillDirection
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.FillDirection Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.FillDirection",
+            "__ooo_type_name__": "enum",
             "TO_BOTTOM": TO_BOTTOM,
             "TO_LEFT": TO_LEFT,
             "TO_RIGHT": TO_RIGHT,
             "TO_TOP": TO_TOP,
         }
 
-        FillDirection = type('FillDirection', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FillDirection, k, v)
-        setattr(FillDirection, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(FillDirection, '__ooo_full_ns__', 'com.sun.star.sheet.FillDirection')
-        setattr(FillDirection, '__ooo_type_name__', 'enum')
+        FillDirection = type('FillDirection', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.fill_direction import FillDirection as FillDirection

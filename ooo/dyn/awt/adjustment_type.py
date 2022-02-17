@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global AdjustmentType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.awt.AdjustmentType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.awt",
+            "__ooo_full_ns__": "com.sun.star.awt.AdjustmentType",
+            "__ooo_type_name__": "enum",
             "ADJUST_ABS": ADJUST_ABS,
             "ADJUST_LINE": ADJUST_LINE,
             "ADJUST_PAGE": ADJUST_PAGE,
         }
 
-        AdjustmentType = type('AdjustmentType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(AdjustmentType, k, v)
-        setattr(AdjustmentType, '__ooo_ns__', 'com.sun.star.awt')
-        setattr(AdjustmentType, '__ooo_full_ns__', 'com.sun.star.awt.AdjustmentType')
-        setattr(AdjustmentType, '__ooo_type_name__', 'enum')
+        AdjustmentType = type('AdjustmentType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.awt.adjustment_type import AdjustmentType as AdjustmentType

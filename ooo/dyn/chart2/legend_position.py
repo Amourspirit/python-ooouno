@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LegendPosition
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.LegendPosition Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2",
+            "__ooo_full_ns__": "com.sun.star.chart2.LegendPosition",
+            "__ooo_type_name__": "enum",
             "CUSTOM": CUSTOM,
             "LINE_END": LINE_END,
             "LINE_START": LINE_START,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PAGE_START": PAGE_START,
         }
 
-        LegendPosition = type('LegendPosition', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LegendPosition, k, v)
-        setattr(LegendPosition, '__ooo_ns__', 'com.sun.star.chart2')
-        setattr(LegendPosition, '__ooo_full_ns__', 'com.sun.star.chart2.LegendPosition')
-        setattr(LegendPosition, '__ooo_type_name__', 'enum')
+        LegendPosition = type('LegendPosition', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart2.legend_position import LegendPosition as LegendPosition

@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ShadeMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.ShadeMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.ShadeMode",
+            "__ooo_type_name__": "enum",
             "DRAFT": DRAFT,
             "FLAT": FLAT,
             "PHONG": PHONG,
             "SMOOTH": SMOOTH,
         }
 
-        ShadeMode = type('ShadeMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ShadeMode, k, v)
-        setattr(ShadeMode, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(ShadeMode, '__ooo_full_ns__', 'com.sun.star.drawing.ShadeMode')
-        setattr(ShadeMode, '__ooo_type_name__', 'enum')
+        ShadeMode = type('ShadeMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.shade_mode import ShadeMode as ShadeMode

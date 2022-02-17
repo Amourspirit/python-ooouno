@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global XPathObjectType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.xpath.XPathObjectType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.xpath",
+            "__ooo_full_ns__": "com.sun.star.xml.xpath.XPathObjectType",
+            "__ooo_type_name__": "enum",
             "XPATH_BOOLEAN": XPATH_BOOLEAN,
             "XPATH_LOCATIONSET": XPATH_LOCATIONSET,
             "XPATH_NODESET": XPATH_NODESET,
@@ -45,15 +50,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "XPATH_XSLT_TREE": XPATH_XSLT_TREE,
         }
 
-        XPathObjectType = type('XPathObjectType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(XPathObjectType, k, v)
-        setattr(XPathObjectType, '__ooo_ns__', 'com.sun.star.xml.xpath')
-        setattr(XPathObjectType, '__ooo_full_ns__', 'com.sun.star.xml.xpath.XPathObjectType')
-        setattr(XPathObjectType, '__ooo_type_name__', 'enum')
+        XPathObjectType = type('XPathObjectType', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType

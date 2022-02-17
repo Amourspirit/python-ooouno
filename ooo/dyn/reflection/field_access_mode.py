@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FieldAccessMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.reflection.FieldAccessMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.reflection",
+            "__ooo_full_ns__": "com.sun.star.reflection.FieldAccessMode",
+            "__ooo_type_name__": "enum",
             "CONST": CONST,
             "READONLY": READONLY,
             "READWRITE": READWRITE,
             "WRITEONLY": WRITEONLY,
         }
 
-        FieldAccessMode = type('FieldAccessMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FieldAccessMode, k, v)
-        setattr(FieldAccessMode, '__ooo_ns__', 'com.sun.star.reflection')
-        setattr(FieldAccessMode, '__ooo_full_ns__', 'com.sun.star.reflection.FieldAccessMode')
-        setattr(FieldAccessMode, '__ooo_type_name__', 'enum')
+        FieldAccessMode = type('FieldAccessMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode

@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DataEditorEventType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.util.DataEditorEventType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.util",
+            "__ooo_full_ns__": "com.sun.star.util.DataEditorEventType",
+            "__ooo_type_name__": "enum",
             "CANCELED": CANCELED,
             "DONE": DONE,
         }
 
-        DataEditorEventType = type('DataEditorEventType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DataEditorEventType, k, v)
-        setattr(DataEditorEventType, '__ooo_ns__', 'com.sun.star.util')
-        setattr(DataEditorEventType, '__ooo_full_ns__', 'com.sun.star.util.DataEditorEventType')
-        setattr(DataEditorEventType, '__ooo_type_name__', 'enum')
+        DataEditorEventType = type('DataEditorEventType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.util.data_editor_event_type import DataEditorEventType as DataEditorEventType

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global RasterOperation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.awt.RasterOperation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.awt",
+            "__ooo_full_ns__": "com.sun.star.awt.RasterOperation",
+            "__ooo_type_name__": "enum",
             "ALLBITS": ALLBITS,
             "INVERT": INVERT,
             "OVERPAINT": OVERPAINT,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ZEROBITS": ZEROBITS,
         }
 
-        RasterOperation = type('RasterOperation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(RasterOperation, k, v)
-        setattr(RasterOperation, '__ooo_ns__', 'com.sun.star.awt')
-        setattr(RasterOperation, '__ooo_full_ns__', 'com.sun.star.awt.RasterOperation')
-        setattr(RasterOperation, '__ooo_type_name__', 'enum')
+        RasterOperation = type('RasterOperation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.awt.raster_operation import RasterOperation as RasterOperation

@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SynchronizePolicy
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.SynchronizePolicy Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.SynchronizePolicy",
+            "__ooo_type_name__": "enum",
             "CLIENT_IS_MASTER": CLIENT_IS_MASTER,
             "NONE_IS_MASTER": NONE_IS_MASTER,
             "SERVER_IS_MASTER": SERVER_IS_MASTER,
         }
 
-        SynchronizePolicy = type('SynchronizePolicy', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SynchronizePolicy, k, v)
-        setattr(SynchronizePolicy, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(SynchronizePolicy, '__ooo_full_ns__', 'com.sun.star.ucb.SynchronizePolicy')
-        setattr(SynchronizePolicy, '__ooo_type_name__', 'enum')
+        SynchronizePolicy = type('SynchronizePolicy', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.synchronize_policy import SynchronizePolicy as SynchronizePolicy

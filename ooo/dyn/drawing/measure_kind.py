@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MeasureKind
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.MeasureKind Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.MeasureKind",
+            "__ooo_type_name__": "enum",
             "RADIUS": RADIUS,
             "STANDARD": STANDARD,
         }
 
-        MeasureKind = type('MeasureKind', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MeasureKind, k, v)
-        setattr(MeasureKind, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureKind, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureKind')
-        setattr(MeasureKind, '__ooo_type_name__', 'enum')
+        MeasureKind = type('MeasureKind', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_kind import MeasureKind as MeasureKind

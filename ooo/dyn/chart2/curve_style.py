@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global CurveStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.CurveStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2",
+            "__ooo_full_ns__": "com.sun.star.chart2.CurveStyle",
+            "__ooo_type_name__": "enum",
             "B_SPLINES": B_SPLINES,
             "CUBIC_SPLINES": CUBIC_SPLINES,
             "LINES": LINES,
@@ -43,15 +48,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STEP_START": STEP_START,
         }
 
-        CurveStyle = type('CurveStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(CurveStyle, k, v)
-        setattr(CurveStyle, '__ooo_ns__', 'com.sun.star.chart2')
-        setattr(CurveStyle, '__ooo_full_ns__', 'com.sun.star.chart2.CurveStyle')
-        setattr(CurveStyle, '__ooo_type_name__', 'enum')
+        CurveStyle = type('CurveStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart2.curve_style import CurveStyle as CurveStyle

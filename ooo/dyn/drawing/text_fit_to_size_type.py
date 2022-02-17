@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TextFitToSizeType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextFitToSizeType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.TextFitToSizeType",
+            "__ooo_type_name__": "enum",
             "ALLLINES": ALLLINES,
             "AUTOFIT": AUTOFIT,
             "NONE": NONE,
             "PROPORTIONAL": PROPORTIONAL,
         }
 
-        TextFitToSizeType = type('TextFitToSizeType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TextFitToSizeType, k, v)
-        setattr(TextFitToSizeType, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextFitToSizeType, '__ooo_full_ns__', 'com.sun.star.drawing.TextFitToSizeType')
-        setattr(TextFitToSizeType, '__ooo_type_name__', 'enum')
+        TextFitToSizeType = type('TextFitToSizeType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.text_fit_to_size_type import TextFitToSizeType as TextFitToSizeType

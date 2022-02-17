@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SAXDocumentBuilderState
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.SAXDocumentBuilderState Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.dom",
+            "__ooo_full_ns__": "com.sun.star.xml.dom.SAXDocumentBuilderState",
+            "__ooo_type_name__": "enum",
             "BUILDING_DOCUMENT": BUILDING_DOCUMENT,
             "BUILDING_FRAGMENT": BUILDING_FRAGMENT,
             "DOCUMENT_FINISHED": DOCUMENT_FINISHED,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "READY": READY,
         }
 
-        SAXDocumentBuilderState = type('SAXDocumentBuilderState', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SAXDocumentBuilderState, k, v)
-        setattr(SAXDocumentBuilderState, '__ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(SAXDocumentBuilderState, '__ooo_full_ns__', 'com.sun.star.xml.dom.SAXDocumentBuilderState')
-        setattr(SAXDocumentBuilderState, '__ooo_type_name__', 'enum')
+        SAXDocumentBuilderState = type('SAXDocumentBuilderState', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState

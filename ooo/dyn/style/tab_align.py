@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TabAlign
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.style.TabAlign Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.style",
+            "__ooo_full_ns__": "com.sun.star.style.TabAlign",
+            "__ooo_type_name__": "enum",
             "CENTER": CENTER,
             "DECIMAL": DECIMAL,
             "DEFAULT": DEFAULT,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT": RIGHT,
         }
 
-        TabAlign = type('TabAlign', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TabAlign, k, v)
-        setattr(TabAlign, '__ooo_ns__', 'com.sun.star.style')
-        setattr(TabAlign, '__ooo_full_ns__', 'com.sun.star.style.TabAlign')
-        setattr(TabAlign, '__ooo_type_name__', 'enum')
+        TabAlign = type('TabAlign', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.style.tab_align import TabAlign as TabAlign

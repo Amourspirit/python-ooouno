@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ChartAxisPosition
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartAxisPosition Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart",
+            "__ooo_full_ns__": "com.sun.star.chart.ChartAxisPosition",
+            "__ooo_type_name__": "enum",
             "END": END,
             "START": START,
             "VALUE": VALUE,
             "ZERO": ZERO,
         }
 
-        ChartAxisPosition = type('ChartAxisPosition', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ChartAxisPosition, k, v)
-        setattr(ChartAxisPosition, '__ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartAxisPosition, '__ooo_full_ns__', 'com.sun.star.chart.ChartAxisPosition')
-        setattr(ChartAxisPosition, '__ooo_type_name__', 'enum')
+        ChartAxisPosition = type('ChartAxisPosition', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart.chart_axis_position import ChartAxisPosition as ChartAxisPosition

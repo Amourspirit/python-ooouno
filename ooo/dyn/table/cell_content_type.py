@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global CellContentType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.table.CellContentType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.table",
+            "__ooo_full_ns__": "com.sun.star.table.CellContentType",
+            "__ooo_type_name__": "enum",
             "EMPTY": EMPTY,
             "FORMULA": FORMULA,
             "TEXT": TEXT,
             "VALUE": VALUE,
         }
 
-        CellContentType = type('CellContentType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(CellContentType, k, v)
-        setattr(CellContentType, '__ooo_ns__', 'com.sun.star.table')
-        setattr(CellContentType, '__ooo_full_ns__', 'com.sun.star.table.CellContentType')
-        setattr(CellContentType, '__ooo_type_name__', 'enum')
+        CellContentType = type('CellContentType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.table.cell_content_type import CellContentType as CellContentType

@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ValidationAlertStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.ValidationAlertStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.ValidationAlertStyle",
+            "__ooo_type_name__": "enum",
             "INFO": INFO,
             "MACRO": MACRO,
             "STOP": STOP,
             "WARNING": WARNING,
         }
 
-        ValidationAlertStyle = type('ValidationAlertStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ValidationAlertStyle, k, v)
-        setattr(ValidationAlertStyle, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(ValidationAlertStyle, '__ooo_full_ns__', 'com.sun.star.sheet.ValidationAlertStyle')
-        setattr(ValidationAlertStyle, '__ooo_type_name__', 'enum')
+        ValidationAlertStyle = type('ValidationAlertStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.validation_alert_style import ValidationAlertStyle as ValidationAlertStyle

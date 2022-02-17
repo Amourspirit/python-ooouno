@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global WritingMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.text.WritingMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.text",
+            "__ooo_full_ns__": "com.sun.star.text.WritingMode",
+            "__ooo_type_name__": "enum",
             "LR_TB": LR_TB,
             "RL_TB": RL_TB,
             "TB_RL": TB_RL,
         }
 
-        WritingMode = type('WritingMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(WritingMode, k, v)
-        setattr(WritingMode, '__ooo_ns__', 'com.sun.star.text')
-        setattr(WritingMode, '__ooo_full_ns__', 'com.sun.star.text.WritingMode')
-        setattr(WritingMode, '__ooo_type_name__', 'enum')
+        WritingMode = type('WritingMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.text.writing_mode import WritingMode as WritingMode

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TextContentAnchorType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.text.TextContentAnchorType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.text",
+            "__ooo_full_ns__": "com.sun.star.text.TextContentAnchorType",
+            "__ooo_type_name__": "enum",
             "AS_CHARACTER": AS_CHARACTER,
             "AT_CHARACTER": AT_CHARACTER,
             "AT_FRAME": AT_FRAME,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "AT_PARAGRAPH": AT_PARAGRAPH,
         }
 
-        TextContentAnchorType = type('TextContentAnchorType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TextContentAnchorType, k, v)
-        setattr(TextContentAnchorType, '__ooo_ns__', 'com.sun.star.text')
-        setattr(TextContentAnchorType, '__ooo_full_ns__', 'com.sun.star.text.TextContentAnchorType')
-        setattr(TextContentAnchorType, '__ooo_type_name__', 'enum')
+        TextContentAnchorType = type('TextContentAnchorType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.text.text_content_anchor_type import TextContentAnchorType as TextContentAnchorType

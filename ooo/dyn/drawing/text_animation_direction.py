@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TextAnimationDirection
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextAnimationDirection Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.TextAnimationDirection",
+            "__ooo_type_name__": "enum",
             "DOWN": DOWN,
             "LEFT": LEFT,
             "RIGHT": RIGHT,
             "UP": UP,
         }
 
-        TextAnimationDirection = type('TextAnimationDirection', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TextAnimationDirection, k, v)
-        setattr(TextAnimationDirection, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextAnimationDirection, '__ooo_full_ns__', 'com.sun.star.drawing.TextAnimationDirection')
-        setattr(TextAnimationDirection, '__ooo_type_name__', 'enum')
+        TextAnimationDirection = type('TextAnimationDirection', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.text_animation_direction import TextAnimationDirection as TextAnimationDirection

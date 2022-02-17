@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global Arrangement
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.Arrangement Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.Arrangement",
+            "__ooo_type_name__": "enum",
             "BACK": BACK,
             "FRONT": FRONT,
             "MORE_BACK": MORE_BACK,
             "MORE_FRONT": MORE_FRONT,
         }
 
-        Arrangement = type('Arrangement', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(Arrangement, k, v)
-        setattr(Arrangement, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(Arrangement, '__ooo_full_ns__', 'com.sun.star.drawing.Arrangement')
-        setattr(Arrangement, '__ooo_type_name__', 'enum')
+        Arrangement = type('Arrangement', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.arrangement import Arrangement as Arrangement

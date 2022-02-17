@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TypeDescriptionSearchDepth
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.reflection.TypeDescriptionSearchDepth Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.reflection",
+            "__ooo_full_ns__": "com.sun.star.reflection.TypeDescriptionSearchDepth",
+            "__ooo_type_name__": "enum",
             "INFINITE": INFINITE,
             "ONE": ONE,
         }
 
-        TypeDescriptionSearchDepth = type('TypeDescriptionSearchDepth', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TypeDescriptionSearchDepth, k, v)
-        setattr(TypeDescriptionSearchDepth, '__ooo_ns__', 'com.sun.star.reflection')
-        setattr(TypeDescriptionSearchDepth, '__ooo_full_ns__', 'com.sun.star.reflection.TypeDescriptionSearchDepth')
-        setattr(TypeDescriptionSearchDepth, '__ooo_type_name__', 'enum')
+        TypeDescriptionSearchDepth = type('TypeDescriptionSearchDepth', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.reflection.type_description_search_depth import TypeDescriptionSearchDepth as TypeDescriptionSearchDepth

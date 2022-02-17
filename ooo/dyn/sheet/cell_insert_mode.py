@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global CellInsertMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.CellInsertMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.CellInsertMode",
+            "__ooo_type_name__": "enum",
             "COLUMNS": COLUMNS,
             "DOWN": DOWN,
             "NONE": NONE,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ROWS": ROWS,
         }
 
-        CellInsertMode = type('CellInsertMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(CellInsertMode, k, v)
-        setattr(CellInsertMode, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(CellInsertMode, '__ooo_full_ns__', 'com.sun.star.sheet.CellInsertMode')
-        setattr(CellInsertMode, '__ooo_type_name__', 'enum')
+        CellInsertMode = type('CellInsertMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.cell_insert_mode import CellInsertMode as CellInsertMode

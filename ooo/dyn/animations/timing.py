@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global Timing
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.animations.Timing Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.animations",
+            "__ooo_full_ns__": "com.sun.star.animations.Timing",
+            "__ooo_type_name__": "enum",
             "INDEFINITE": INDEFINITE,
             "MEDIA": MEDIA,
         }
 
-        Timing = type('Timing', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(Timing, k, v)
-        setattr(Timing, '__ooo_ns__', 'com.sun.star.animations')
-        setattr(Timing, '__ooo_full_ns__', 'com.sun.star.animations.Timing')
-        setattr(Timing, '__ooo_type_name__', 'enum')
+        Timing = type('Timing', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.animations.timing import Timing as Timing

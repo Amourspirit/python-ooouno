@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ShadowLocation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.table.ShadowLocation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.table",
+            "__ooo_full_ns__": "com.sun.star.table.ShadowLocation",
+            "__ooo_type_name__": "enum",
             "BOTTOM_LEFT": BOTTOM_LEFT,
             "BOTTOM_RIGHT": BOTTOM_RIGHT,
             "NONE": NONE,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP_RIGHT": TOP_RIGHT,
         }
 
-        ShadowLocation = type('ShadowLocation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ShadowLocation, k, v)
-        setattr(ShadowLocation, '__ooo_ns__', 'com.sun.star.table')
-        setattr(ShadowLocation, '__ooo_full_ns__', 'com.sun.star.table.ShadowLocation')
-        setattr(ShadowLocation, '__ooo_type_name__', 'enum')
+        ShadowLocation = type('ShadowLocation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.table.shadow_location import ShadowLocation as ShadowLocation

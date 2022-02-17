@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ElementMarkPriority
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.crypto.sax.ElementMarkPriority Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.crypto.sax",
+            "__ooo_full_ns__": "com.sun.star.xml.crypto.sax.ElementMarkPriority",
+            "__ooo_type_name__": "enum",
             "AFTERMODIFY": AFTERMODIFY,
             "BEFOREMODIFY": BEFOREMODIFY,
             "MINIMUM": MINIMUM,
         }
 
-        ElementMarkPriority = type('ElementMarkPriority', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ElementMarkPriority, k, v)
-        setattr(ElementMarkPriority, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
-        setattr(ElementMarkPriority, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.ElementMarkPriority')
-        setattr(ElementMarkPriority, '__ooo_type_name__', 'enum')
+        ElementMarkPriority = type('ElementMarkPriority', (object,), _dict)
     _dynamic_enum()
 else:
     from .....lo.xml.crypto.sax.element_mark_priority import ElementMarkPriority as ElementMarkPriority

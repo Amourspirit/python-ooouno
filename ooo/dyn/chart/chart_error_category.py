@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ChartErrorCategory
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartErrorCategory Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart",
+            "__ooo_full_ns__": "com.sun.star.chart.ChartErrorCategory",
+            "__ooo_type_name__": "enum",
             "CONSTANT_VALUE": CONSTANT_VALUE,
             "ERROR_MARGIN": ERROR_MARGIN,
             "NONE": NONE,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "VARIANCE": VARIANCE,
         }
 
-        ChartErrorCategory = type('ChartErrorCategory', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ChartErrorCategory, k, v)
-        setattr(ChartErrorCategory, '__ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartErrorCategory, '__ooo_full_ns__', 'com.sun.star.chart.ChartErrorCategory')
-        setattr(ChartErrorCategory, '__ooo_type_name__', 'enum')
+        ChartErrorCategory = type('ChartErrorCategory', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart.chart_error_category import ChartErrorCategory as ChartErrorCategory

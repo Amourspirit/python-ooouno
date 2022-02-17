@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TableOrientation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.table.TableOrientation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.table",
+            "__ooo_full_ns__": "com.sun.star.table.TableOrientation",
+            "__ooo_type_name__": "enum",
             "COLUMNS": COLUMNS,
             "ROWS": ROWS,
         }
 
-        TableOrientation = type('TableOrientation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TableOrientation, k, v)
-        setattr(TableOrientation, '__ooo_ns__', 'com.sun.star.table')
-        setattr(TableOrientation, '__ooo_full_ns__', 'com.sun.star.table.TableOrientation')
-        setattr(TableOrientation, '__ooo_type_name__', 'enum')
+        TableOrientation = type('TableOrientation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.table.table_orientation import TableOrientation as TableOrientation

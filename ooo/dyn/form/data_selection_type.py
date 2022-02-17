@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DataSelectionType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.form.DataSelectionType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.form",
+            "__ooo_full_ns__": "com.sun.star.form.DataSelectionType",
+            "__ooo_type_name__": "enum",
             "QUERY": QUERY,
             "SQL": SQL,
             "SQLPASSTHROUGH": SQLPASSTHROUGH,
             "TABLE": TABLE,
         }
 
-        DataSelectionType = type('DataSelectionType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DataSelectionType, k, v)
-        setattr(DataSelectionType, '__ooo_ns__', 'com.sun.star.form')
-        setattr(DataSelectionType, '__ooo_full_ns__', 'com.sun.star.form.DataSelectionType')
-        setattr(DataSelectionType, '__ooo_type_name__', 'enum')
+        DataSelectionType = type('DataSelectionType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.form.data_selection_type import DataSelectionType as DataSelectionType

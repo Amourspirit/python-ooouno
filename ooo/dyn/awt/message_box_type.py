@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MessageBoxType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.awt.MessageBoxType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.awt",
+            "__ooo_full_ns__": "com.sun.star.awt.MessageBoxType",
+            "__ooo_type_name__": "enum",
             "ERRORBOX": ERRORBOX,
             "INFOBOX": INFOBOX,
             "MESSAGEBOX": MESSAGEBOX,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WARNINGBOX": WARNINGBOX,
         }
 
-        MessageBoxType = type('MessageBoxType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MessageBoxType, k, v)
-        setattr(MessageBoxType, '__ooo_ns__', 'com.sun.star.awt')
-        setattr(MessageBoxType, '__ooo_full_ns__', 'com.sun.star.awt.MessageBoxType')
-        setattr(MessageBoxType, '__ooo_type_name__', 'enum')
+        MessageBoxType = type('MessageBoxType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.awt.message_box_type import MessageBoxType as MessageBoxType

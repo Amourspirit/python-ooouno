@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DocumentStoreMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.DocumentStoreMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.DocumentStoreMode",
+            "__ooo_type_name__": "enum",
             "LOCAL": LOCAL,
             "REMOTE": REMOTE,
         }
 
-        DocumentStoreMode = type('DocumentStoreMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DocumentStoreMode, k, v)
-        setattr(DocumentStoreMode, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(DocumentStoreMode, '__ooo_full_ns__', 'com.sun.star.ucb.DocumentStoreMode')
-        setattr(DocumentStoreMode, '__ooo_type_name__', 'enum')
+        DocumentStoreMode = type('DocumentStoreMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.document_store_mode import DocumentStoreMode as DocumentStoreMode

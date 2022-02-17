@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global StackingDirection
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.StackingDirection Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2",
+            "__ooo_full_ns__": "com.sun.star.chart2.StackingDirection",
+            "__ooo_type_name__": "enum",
             "NO_STACKING": NO_STACKING,
             "Y_STACKING": Y_STACKING,
             "Z_STACKING": Z_STACKING,
         }
 
-        StackingDirection = type('StackingDirection', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(StackingDirection, k, v)
-        setattr(StackingDirection, '__ooo_ns__', 'com.sun.star.chart2')
-        setattr(StackingDirection, '__ooo_full_ns__', 'com.sun.star.chart2.StackingDirection')
-        setattr(StackingDirection, '__ooo_type_name__', 'enum')
+        StackingDirection = type('StackingDirection', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart2.stacking_direction import StackingDirection as StackingDirection

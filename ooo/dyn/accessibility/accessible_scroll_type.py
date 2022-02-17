@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global AccessibleScrollType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.accessibility.AccessibleScrollType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.accessibility",
+            "__ooo_full_ns__": "com.sun.star.accessibility.AccessibleScrollType",
+            "__ooo_type_name__": "enum",
             "SCROLL_ANYWHERE": SCROLL_ANYWHERE,
             "SCROLL_BOTTOM_EDGE": SCROLL_BOTTOM_EDGE,
             "SCROLL_BOTTOM_RIGHT": SCROLL_BOTTOM_RIGHT,
@@ -42,15 +47,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SCROLL_TOP_LEFT": SCROLL_TOP_LEFT,
         }
 
-        AccessibleScrollType = type('AccessibleScrollType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(AccessibleScrollType, k, v)
-        setattr(AccessibleScrollType, '__ooo_ns__', 'com.sun.star.accessibility')
-        setattr(AccessibleScrollType, '__ooo_full_ns__', 'com.sun.star.accessibility.AccessibleScrollType')
-        setattr(AccessibleScrollType, '__ooo_type_name__', 'enum')
+        AccessibleScrollType = type('AccessibleScrollType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.accessibility.accessible_scroll_type import AccessibleScrollType as AccessibleScrollType

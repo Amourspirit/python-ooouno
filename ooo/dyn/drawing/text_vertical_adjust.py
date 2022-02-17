@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TextVerticalAdjust
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextVerticalAdjust Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.TextVerticalAdjust",
+            "__ooo_type_name__": "enum",
             "BLOCK": BLOCK,
             "BOTTOM": BOTTOM,
             "CENTER": CENTER,
             "TOP": TOP,
         }
 
-        TextVerticalAdjust = type('TextVerticalAdjust', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TextVerticalAdjust, k, v)
-        setattr(TextVerticalAdjust, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(TextVerticalAdjust, '__ooo_full_ns__', 'com.sun.star.drawing.TextVerticalAdjust')
-        setattr(TextVerticalAdjust, '__ooo_type_name__', 'enum')
+        TextVerticalAdjust = type('TextVerticalAdjust', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.text_vertical_adjust import TextVerticalAdjust as TextVerticalAdjust

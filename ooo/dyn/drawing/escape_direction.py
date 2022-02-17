@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global EscapeDirection
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.EscapeDirection Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.EscapeDirection",
+            "__ooo_type_name__": "enum",
             "DOWN": DOWN,
             "HORIZONTAL": HORIZONTAL,
             "LEFT": LEFT,
@@ -42,15 +47,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "VERTICAL": VERTICAL,
         }
 
-        EscapeDirection = type('EscapeDirection', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(EscapeDirection, k, v)
-        setattr(EscapeDirection, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(EscapeDirection, '__ooo_full_ns__', 'com.sun.star.drawing.EscapeDirection')
-        setattr(EscapeDirection, '__ooo_type_name__', 'enum')
+        EscapeDirection = type('EscapeDirection', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.escape_direction import EscapeDirection as EscapeDirection

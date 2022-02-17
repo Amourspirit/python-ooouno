@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ChartAxisArrangeOrderType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartAxisArrangeOrderType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart",
+            "__ooo_full_ns__": "com.sun.star.chart.ChartAxisArrangeOrderType",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "SIDE_BY_SIDE": SIDE_BY_SIDE,
             "STAGGER_EVEN": STAGGER_EVEN,
             "STAGGER_ODD": STAGGER_ODD,
         }
 
-        ChartAxisArrangeOrderType = type('ChartAxisArrangeOrderType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ChartAxisArrangeOrderType, k, v)
-        setattr(ChartAxisArrangeOrderType, '__ooo_ns__', 'com.sun.star.chart')
-        setattr(ChartAxisArrangeOrderType, '__ooo_full_ns__', 'com.sun.star.chart.ChartAxisArrangeOrderType')
-        setattr(ChartAxisArrangeOrderType, '__ooo_type_name__', 'enum')
+        ChartAxisArrangeOrderType = type('ChartAxisArrangeOrderType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart.chart_axis_arrange_order_type import ChartAxisArrangeOrderType as ChartAxisArrangeOrderType

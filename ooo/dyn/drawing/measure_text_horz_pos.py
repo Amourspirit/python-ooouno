@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MeasureTextHorzPos
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.MeasureTextHorzPos Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.MeasureTextHorzPos",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "INSIDE": INSIDE,
             "LEFTOUTSIDE": LEFTOUTSIDE,
             "RIGHTOUTSIDE": RIGHTOUTSIDE,
         }
 
-        MeasureTextHorzPos = type('MeasureTextHorzPos', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MeasureTextHorzPos, k, v)
-        setattr(MeasureTextHorzPos, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureTextHorzPos, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureTextHorzPos')
-        setattr(MeasureTextHorzPos, '__ooo_type_name__', 'enum')
+        MeasureTextHorzPos = type('MeasureTextHorzPos', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_text_horz_pos import MeasureTextHorzPos as MeasureTextHorzPos

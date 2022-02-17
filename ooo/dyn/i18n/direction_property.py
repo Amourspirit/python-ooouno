@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DirectionProperty
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.i18n.DirectionProperty Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.i18n",
+            "__ooo_full_ns__": "com.sun.star.i18n.DirectionProperty",
+            "__ooo_type_name__": "enum",
             "ARABIC_NUMBER": ARABIC_NUMBER,
             "BLOCK_SEPARATOR": BLOCK_SEPARATOR,
             "BOUNDARY_NEUTRAL": BOUNDARY_NEUTRAL,
@@ -54,15 +59,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WHITE_SPACE_NEUTRAL": WHITE_SPACE_NEUTRAL,
         }
 
-        DirectionProperty = type('DirectionProperty', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DirectionProperty, k, v)
-        setattr(DirectionProperty, '__ooo_ns__', 'com.sun.star.i18n')
-        setattr(DirectionProperty, '__ooo_full_ns__', 'com.sun.star.i18n.DirectionProperty')
-        setattr(DirectionProperty, '__ooo_type_name__', 'enum')
+        DirectionProperty = type('DirectionProperty', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.i18n.direction_property import DirectionProperty as DirectionProperty

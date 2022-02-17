@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FadeEffect
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.presentation.FadeEffect Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.presentation",
+            "__ooo_full_ns__": "com.sun.star.presentation.FadeEffect",
+            "__ooo_type_name__": "enum",
             "CLOCKWISE": CLOCKWISE,
             "CLOSE_HORIZONTAL": CLOSE_HORIZONTAL,
             "CLOSE_VERTICAL": CLOSE_VERTICAL,
@@ -92,15 +97,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WAVYLINE_FROM_TOP": WAVYLINE_FROM_TOP,
         }
 
-        FadeEffect = type('FadeEffect', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FadeEffect, k, v)
-        setattr(FadeEffect, '__ooo_ns__', 'com.sun.star.presentation')
-        setattr(FadeEffect, '__ooo_full_ns__', 'com.sun.star.presentation.FadeEffect')
-        setattr(FadeEffect, '__ooo_type_name__', 'enum')
+        FadeEffect = type('FadeEffect', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.presentation.fade_effect import FadeEffect as FadeEffect

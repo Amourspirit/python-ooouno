@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MeasureTextVertPos
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.MeasureTextVertPos Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.MeasureTextVertPos",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "BREAKEDLINE": BREAKEDLINE,
             "CENTERED": CENTERED,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WEST": WEST,
         }
 
-        MeasureTextVertPos = type('MeasureTextVertPos', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MeasureTextVertPos, k, v)
-        setattr(MeasureTextVertPos, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(MeasureTextVertPos, '__ooo_full_ns__', 'com.sun.star.drawing.MeasureTextVertPos')
-        setattr(MeasureTextVertPos, '__ooo_type_name__', 'enum')
+        MeasureTextVertPos = type('MeasureTextVertPos', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.measure_text_vert_pos import MeasureTextVertPos as MeasureTextVertPos

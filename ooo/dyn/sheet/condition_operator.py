@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ConditionOperator
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.ConditionOperator Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.ConditionOperator",
+            "__ooo_type_name__": "enum",
             "BETWEEN": BETWEEN,
             "EQUAL": EQUAL,
             "FORMULA": FORMULA,
@@ -45,15 +50,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NOT_EQUAL": NOT_EQUAL,
         }
 
-        ConditionOperator = type('ConditionOperator', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ConditionOperator, k, v)
-        setattr(ConditionOperator, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(ConditionOperator, '__ooo_full_ns__', 'com.sun.star.sheet.ConditionOperator')
-        setattr(ConditionOperator, '__ooo_type_name__', 'enum')
+        ConditionOperator = type('ConditionOperator', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.condition_operator import ConditionOperator as ConditionOperator

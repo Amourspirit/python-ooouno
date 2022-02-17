@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ExtAltNameType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.security.ExtAltNameType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.security",
+            "__ooo_full_ns__": "com.sun.star.security.ExtAltNameType",
+            "__ooo_type_name__": "enum",
             "DIRECTORY_NAME": DIRECTORY_NAME,
             "DNS_NAME": DNS_NAME,
             "EDI_PARTY_NAME": EDI_PARTY_NAME,
@@ -44,15 +49,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "X400_ADDRESS": X400_ADDRESS,
         }
 
-        ExtAltNameType = type('ExtAltNameType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ExtAltNameType, k, v)
-        setattr(ExtAltNameType, '__ooo_ns__', 'com.sun.star.security')
-        setattr(ExtAltNameType, '__ooo_full_ns__', 'com.sun.star.security.ExtAltNameType')
-        setattr(ExtAltNameType, '__ooo_type_name__', 'enum')
+        ExtAltNameType = type('ExtAltNameType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.security.ext_alt_name_type import ExtAltNameType as ExtAltNameType

@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global BitmapMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.BitmapMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.BitmapMode",
+            "__ooo_type_name__": "enum",
             "NO_REPEAT": NO_REPEAT,
             "REPEAT": REPEAT,
             "STRETCH": STRETCH,
         }
 
-        BitmapMode = type('BitmapMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(BitmapMode, k, v)
-        setattr(BitmapMode, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(BitmapMode, '__ooo_full_ns__', 'com.sun.star.drawing.BitmapMode')
-        setattr(BitmapMode, '__ooo_type_name__', 'enum')
+        BitmapMode = type('BitmapMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.bitmap_mode import BitmapMode as BitmapMode

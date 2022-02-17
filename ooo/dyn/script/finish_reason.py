@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FinishReason
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.script.FinishReason Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.script",
+            "__ooo_full_ns__": "com.sun.star.script.FinishReason",
+            "__ooo_type_name__": "enum",
             "Cancel": Cancel,
             "Error": Error,
             "OK": OK,
         }
 
-        FinishReason = type('FinishReason', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FinishReason, k, v)
-        setattr(FinishReason, '__ooo_ns__', 'com.sun.star.script')
-        setattr(FinishReason, '__ooo_full_ns__', 'com.sun.star.script.FinishReason')
-        setattr(FinishReason, '__ooo_type_name__', 'enum')
+        FinishReason = type('FinishReason', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.script.finish_reason import FinishReason as FinishReason

@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DashStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.DashStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.DashStyle",
+            "__ooo_type_name__": "enum",
             "RECT": RECT,
             "RECTRELATIVE": RECTRELATIVE,
             "ROUND": ROUND,
             "ROUNDRELATIVE": ROUNDRELATIVE,
         }
 
-        DashStyle = type('DashStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DashStyle, k, v)
-        setattr(DashStyle, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(DashStyle, '__ooo_full_ns__', 'com.sun.star.drawing.DashStyle')
-        setattr(DashStyle, '__ooo_type_name__', 'enum')
+        DashStyle = type('DashStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.dash_style import DashStyle as DashStyle

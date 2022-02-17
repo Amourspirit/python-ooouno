@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global VerificationMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.VerificationMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.VerificationMode",
+            "__ooo_type_name__": "enum",
             "ALWAYS": ALWAYS,
             "NEVER": NEVER,
             "ONCE": ONCE,
         }
 
-        VerificationMode = type('VerificationMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(VerificationMode, k, v)
-        setattr(VerificationMode, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(VerificationMode, '__ooo_full_ns__', 'com.sun.star.ucb.VerificationMode')
-        setattr(VerificationMode, '__ooo_type_name__', 'enum')
+        VerificationMode = type('VerificationMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.verification_mode import VerificationMode as VerificationMode

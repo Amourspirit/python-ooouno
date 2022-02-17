@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FillRule
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.rendering.FillRule Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.rendering",
+            "__ooo_full_ns__": "com.sun.star.rendering.FillRule",
+            "__ooo_type_name__": "enum",
             "EVEN_ODD": EVEN_ODD,
             "NON_ZERO": NON_ZERO,
         }
 
-        FillRule = type('FillRule', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FillRule, k, v)
-        setattr(FillRule, '__ooo_ns__', 'com.sun.star.rendering')
-        setattr(FillRule, '__ooo_full_ns__', 'com.sun.star.rendering.FillRule')
-        setattr(FillRule, '__ooo_type_name__', 'enum')
+        FillRule = type('FillRule', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.rendering.fill_rule import FillRule as FillRule

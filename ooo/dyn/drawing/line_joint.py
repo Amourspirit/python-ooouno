@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LineJoint
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.LineJoint Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.LineJoint",
+            "__ooo_type_name__": "enum",
             "BEVEL": BEVEL,
             "MIDDLE": MIDDLE,
             "MITER": MITER,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ROUND": ROUND,
         }
 
-        LineJoint = type('LineJoint', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LineJoint, k, v)
-        setattr(LineJoint, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(LineJoint, '__ooo_full_ns__', 'com.sun.star.drawing.LineJoint')
-        setattr(LineJoint, '__ooo_type_name__', 'enum')
+        LineJoint = type('LineJoint', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.line_joint import LineJoint as LineJoint

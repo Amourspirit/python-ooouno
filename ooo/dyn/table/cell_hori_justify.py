@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global CellHoriJustify
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.table.CellHoriJustify Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.table",
+            "__ooo_full_ns__": "com.sun.star.table.CellHoriJustify",
+            "__ooo_type_name__": "enum",
             "BLOCK": BLOCK,
             "CENTER": CENTER,
             "LEFT": LEFT,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STANDARD": STANDARD,
         }
 
-        CellHoriJustify = type('CellHoriJustify', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(CellHoriJustify, k, v)
-        setattr(CellHoriJustify, '__ooo_ns__', 'com.sun.star.table')
-        setattr(CellHoriJustify, '__ooo_full_ns__', 'com.sun.star.table.CellHoriJustify')
-        setattr(CellHoriJustify, '__ooo_type_name__', 'enum')
+        CellHoriJustify = type('CellHoriJustify', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.table.cell_hori_justify import CellHoriJustify as CellHoriJustify

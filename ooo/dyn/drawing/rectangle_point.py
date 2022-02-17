@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global RectanglePoint
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.RectanglePoint Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.RectanglePoint",
+            "__ooo_type_name__": "enum",
             "LEFT_BOTTOM": LEFT_BOTTOM,
             "LEFT_MIDDLE": LEFT_MIDDLE,
             "LEFT_TOP": LEFT_TOP,
@@ -44,15 +49,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT_TOP": RIGHT_TOP,
         }
 
-        RectanglePoint = type('RectanglePoint', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(RectanglePoint, k, v)
-        setattr(RectanglePoint, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(RectanglePoint, '__ooo_full_ns__', 'com.sun.star.drawing.RectanglePoint')
-        setattr(RectanglePoint, '__ooo_type_name__', 'enum')
+        RectanglePoint = type('RectanglePoint', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.rectangle_point import RectanglePoint as RectanglePoint

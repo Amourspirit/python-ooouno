@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TransparencyStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.TransparencyStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2",
+            "__ooo_full_ns__": "com.sun.star.chart2.TransparencyStyle",
+            "__ooo_type_name__": "enum",
             "GRADIENT": GRADIENT,
             "LINEAR": LINEAR,
             "NONE": NONE,
         }
 
-        TransparencyStyle = type('TransparencyStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TransparencyStyle, k, v)
-        setattr(TransparencyStyle, '__ooo_ns__', 'com.sun.star.chart2')
-        setattr(TransparencyStyle, '__ooo_full_ns__', 'com.sun.star.chart2.TransparencyStyle')
-        setattr(TransparencyStyle, '__ooo_type_name__', 'enum')
+        TransparencyStyle = type('TransparencyStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart2.transparency_style import TransparencyStyle as TransparencyStyle

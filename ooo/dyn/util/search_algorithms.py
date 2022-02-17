@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SearchAlgorithms
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.util.SearchAlgorithms Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.util",
+            "__ooo_full_ns__": "com.sun.star.util.SearchAlgorithms",
+            "__ooo_type_name__": "enum",
             "ABSOLUTE": ABSOLUTE,
             "APPROXIMATE": APPROXIMATE,
             "REGEXP": REGEXP,
         }
 
-        SearchAlgorithms = type('SearchAlgorithms', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SearchAlgorithms, k, v)
-        setattr(SearchAlgorithms, '__ooo_ns__', 'com.sun.star.util')
-        setattr(SearchAlgorithms, '__ooo_full_ns__', 'com.sun.star.util.SearchAlgorithms')
-        setattr(SearchAlgorithms, '__ooo_type_name__', 'enum')
+        SearchAlgorithms = type('SearchAlgorithms', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.util.search_algorithms import SearchAlgorithms as SearchAlgorithms

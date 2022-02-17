@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global GraphicLocation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.style.GraphicLocation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.style",
+            "__ooo_full_ns__": "com.sun.star.style.GraphicLocation",
+            "__ooo_type_name__": "enum",
             "AREA": AREA,
             "LEFT_BOTTOM": LEFT_BOTTOM,
             "LEFT_MIDDLE": LEFT_MIDDLE,
@@ -47,15 +52,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TILED": TILED,
         }
 
-        GraphicLocation = type('GraphicLocation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(GraphicLocation, k, v)
-        setattr(GraphicLocation, '__ooo_ns__', 'com.sun.star.style')
-        setattr(GraphicLocation, '__ooo_full_ns__', 'com.sun.star.style.GraphicLocation')
-        setattr(GraphicLocation, '__ooo_type_name__', 'enum')
+        GraphicLocation = type('GraphicLocation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.style.graphic_location import GraphicLocation as GraphicLocation

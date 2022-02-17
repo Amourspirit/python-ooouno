@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global InteractiveSelectionResult
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.inspection.InteractiveSelectionResult Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.inspection",
+            "__ooo_full_ns__": "com.sun.star.inspection.InteractiveSelectionResult",
+            "__ooo_type_name__": "enum",
             "Cancelled": Cancelled,
             "ObtainedValue": ObtainedValue,
             "Pending": Pending,
             "Success": Success,
         }
 
-        InteractiveSelectionResult = type('InteractiveSelectionResult', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(InteractiveSelectionResult, k, v)
-        setattr(InteractiveSelectionResult, '__ooo_ns__', 'com.sun.star.inspection')
-        setattr(InteractiveSelectionResult, '__ooo_full_ns__', 'com.sun.star.inspection.InteractiveSelectionResult')
-        setattr(InteractiveSelectionResult, '__ooo_type_name__', 'enum')
+        InteractiveSelectionResult = type('InteractiveSelectionResult', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult

@@ -2,16 +2,18 @@
 import uno
 import pyuno
 import typing
+from ..dyn.frame.the_desktop import theDesktop
+from ..dyn.reflection.the_core_reflection import theCoreReflection
 
 if typing.TYPE_CHECKING:
     from ..lo.beans.property_value import PropertyValue
     from ..lo.beans.property_state import PropertyState
-    # from ..uno_obj.frame.desktop import Desktop
     from ..lo.frame.the_desktop import theDesktop
     from ..lo.lang.service_manager import ServiceManager
-    from ..lo.reflection.core_reflection import CoreReflection
+    # from ..lo.reflection.core_reflection import CoreReflection
     from ..lo.uno.x_component_context import XComponentContext
     from ..lo.uno.x_interface import XInterface
+    from ..lo.lang.x_service_info import XServiceInfo
 
 
 
@@ -25,34 +27,34 @@ if typing.TYPE_CHECKING:
 #------------------------------------------------------------
 
 # region Cached Values
-# The StarDesktop object.  (global like in OOo Basic)
+# The _STAR_DESKTOP object.  (global like in OOo Basic)
 # It is cached in a global variable.
-StarDesktop: 'theDesktop' = None
+_STAR_DESKTOP: theDesktop = None
 # The ServiceManager of the running OOo.
 # It is cached in a global variable.
-# go_service_manager: Optional[XMultiComponentFactory] = None
-go_service_manager: 'CoreReflection' = None
+# _SERVICE_MGR: Optional[XMultiComponentFactory] = None
+_SERVICE_MGR: 'ServiceManager' = None
 
 # The CoreReflection object.
 # It is cached in a global variable.
-go_core_reflection = False
+_CORE_REFLECTION: theCoreReflection = False
 # endregion Cached Values
 
 def get_service_manager() -> 'ServiceManager':
     """
     Get the ServiceManager from the running OpenOffice.org. 
-    Then retain it in the global variable go_service_manager for future use. 
+    Then retain it in the global variable _SERVICE_MGR for future use. 
     This is similar to the GetProcessServiceManager() in OOo Basic. 
     
     Returns:
         XMultiComponentFactory: Service Manager
     """
-    global go_service_manager
-    if not go_service_manager:
+    global _SERVICE_MGR
+    if not _SERVICE_MGR:
         # Get the uno component context from the PyUNO runtime
         ctx: 'XComponentContext' = uno.getComponentContext()
-        go_service_manager = ctx.getServiceManager()
-    return go_service_manager
+        _SERVICE_MGR = ctx.getServiceManager()
+    return _SERVICE_MGR
 
 
 #------------------------------------------------------------
@@ -82,7 +84,6 @@ def create_uno_service(clazz: typing.Union[str, object], ctx: 'typing.Optional[X
     if isinstance(clazz, str):
         _cls = clazz
     elif hasattr(clazz, '__ooo_full_ns__'):
-        # _cls = 'com.sun.star.io.SequenceInputStream'
         _cls = clazz.__ooo_full_ns__
         is_class = True
     else:
@@ -94,7 +95,6 @@ def create_uno_service(clazz: typing.Union[str, object], ctx: 'typing.Optional[X
         srv.__dict__['__ooo_type_name__'] = clazz.__ooo_type_name__
     return srv
 
-# This is the same as ServiceManager.createInstance( ... )
 def _create_uno_service(clazz: str, ctx: 'typing.Optional[XComponentContext]' = None, args: typing.Optional[typing.Tuple[object]] = None) -> 'XInterface':
     """Creates a global objects within the running OOo. 
     Similar to the function of the same name in OOo Basic. 
@@ -127,7 +127,7 @@ def _create_uno_service(clazz: str, ctx: 'typing.Optional[XComponentContext]' = 
     return oObj
 
 
-def get_desktop() -> 'theDesktop':
+def get_desktop() -> theDesktop:
     """An easy way to obtain the Desktop object from a running OOo.
     
     Returns:
@@ -145,20 +145,20 @@ def get_desktop() -> 'theDesktop':
     Todo:
         Test if this method would work with 'theDesktop'
     """
-    global StarDesktop
-    if StarDesktop == None:
+    global _STAR_DESKTOP
+    if _STAR_DESKTOP == None:
         ctx: 'XComponentContext' = uno.getComponentContext()
-        StarDesktop = ctx.getValueByName(
-            '/singletons/com.sun.star.frame.theDesktop/service')
-        # StarDesktop = create_uno_service("com.sun.star.frame.Desktop")
-    return StarDesktop
+        # _STAR_DESKTOP = ctx.getValueByName('/singletons/com.sun.star.frame.theDesktop')
+        # _STAR_DESKTOP = create_uno_service("com.sun.star.frame.Desktop")
+        _STAR_DESKTOP = theDesktop()
+    return _STAR_DESKTOP
 
 
-# preload the StarDesktop variable.
+# preload the _STAR_DESKTOP variable.
 # get_desktop()
 
 
-def get_core_reflection() -> 'CoreReflection':
+def get_core_reflection() -> theCoreReflection:
     '''
     This service is the implementation of the reflection API.
     
@@ -178,11 +178,11 @@ def get_core_reflection() -> 'CoreReflection':
         Test if this method would work with 'theCoreReflection'
     '''
     # https://stackoverflow.com/questions/67527942/why-cant-an-annotated-variable-be-global
-    global go_core_reflection
-    if not go_core_reflection:
-        go_core_reflection = create_uno_service(
-            "com.sun.star.reflection.CoreReflection")
-    return go_core_reflection
+    global _CORE_REFLECTION
+    if not _CORE_REFLECTION:
+        # _CORE_REFLECTION = create_uno_service("com.sun.star.reflection.CoreReflection")
+        _CORE_REFLECTION = theCoreReflection()
+    return _CORE_REFLECTION
 
 
 def create_uno_struct(cTypeName: str) -> object:
@@ -192,12 +192,12 @@ def create_uno_struct(cTypeName: str) -> object:
     Returns:
         object: uno struct
     """
-    oCoreReflection = get_core_reflection()
+    core_reflection = get_core_reflection()
     # Get the IDL class for the type name
-    oXIdlClass = oCoreReflection.forName(cTypeName)
+    x_idl_class = core_reflection.forName(cTypeName)
     # Create the struct.
-    oReturnValue, oStruct = oXIdlClass.createObject(None)
-    return oStruct
+    _, struct = x_idl_class.createObject(None)
+    return struct
 
 
 
@@ -206,7 +206,7 @@ def create_uno_struct(cTypeName: str) -> object:
 #------------------------------------------------------------
 
 
-def make_property_value(cName: typing.Optional[str] = None, uValue: object = None, nHandle: typing.Optional[int] = None, nState: 'typing.Optional[PropertyState]' = None) -> 'PropertyValue':
+def make_property_value(name: typing.Optional[str] = None, value: object = None, handle: typing.Optional[int] = None, state: 'typing.Optional[PropertyState]' = None) -> 'PropertyValue':
     """
     Create a com.sun.star.beans.PropertyValue.
     
@@ -222,19 +222,19 @@ def make_property_value(cName: typing.Optional[str] = None, uValue: object = Non
     See Also:
         `LibreOffice API - PropertyValue Struct Reference <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1beans_1_1PropertyValue.html>`_
     """
-    oPropertyValue: 'PropertyValue' = create_uno_struct(
+    property_value: 'PropertyValue' = create_uno_struct(
         "com.sun.star.beans.PropertyValue")
 
-    if cName != None:
-        oPropertyValue.Name = cName
-    if uValue != None:
-        oPropertyValue.Value = uValue
-    if nHandle != None:
-        oPropertyValue.Handle = nHandle
-    if nState != None:
-        oPropertyValue.State = nState
+    if name != None:
+        property_value.Name = name
+    if value != None:
+        property_value.Value = value
+    if handle != None:
+        property_value.Handle = handle
+    if state != None:
+        property_value.State = state
 
-    return oPropertyValue
+    return property_value
 
 
 def unotype(name: str) -> uno.Type:
@@ -252,3 +252,58 @@ def unoclass(name: str) -> type:
     <class 'uno.com.sun.star.text.XText'>
     """
     return pyuno.getClass(name)
+
+@typing.overload
+def supports_service(si:'XServiceInfo', *services: str ) -> bool:
+    """
+    Tests whether the specified service is supported.
+
+    Args:
+        si (XServiceInfo): service that implements XServiceInfo
+    
+    Other Arguments:
+        services (str) comma seperated services to test
+
+    Raises:
+        TypeError: If ``si`` is does not implement XServiceInfo
+
+    Returns:
+        bool: ``True`` if ``si`` suppoorts service; Otherwise ``False``
+    """
+@typing.overload
+def supports_service(si:'XServiceInfo', *services: object ) -> bool:
+    """
+    Tests whether the specified service is supported.
+
+    Args:
+        si (XServiceInfo): service that implements XServiceInfo
+
+    Other Arguments:
+        services (object) comma seperated services to test
+
+    Raises:
+        TypeError: If ``si`` is does not implement XServiceInfo
+        ValueError: if a service object is invalid.
+
+    Returns:
+        bool: ``True`` if ``si`` suppoorts service; Otherwise ``False``
+    """
+
+def supports_service(si:'XServiceInfo', *services: typing.Union[str, object] ) -> bool:
+    if not hasattr(si, 'supportsService'):
+        raise TypeError("supports_service() 'si' does not contain attribute supportsService.")
+    if len(services) == 0:
+        return False
+    result = False
+    for srv in services:
+        if isinstance(srv, str):
+            ns = srv
+        elif hasattr(srv, '__ooo_full_ns__'):
+            ns = srv.__ooo_full_ns__
+        else:
+            raise ValueError(f"supports_service() Unable to obtain service name for type: {type(srv).__name__}")
+        if si.supportsService(ns):
+            result = True
+            break
+    return result
+

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ZoomLevel
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.media.ZoomLevel Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.media",
+            "__ooo_full_ns__": "com.sun.star.media.ZoomLevel",
+            "__ooo_type_name__": "enum",
             "FIT_TO_WINDOW": FIT_TO_WINDOW,
             "FIT_TO_WINDOW_FIXED_ASPECT": FIT_TO_WINDOW_FIXED_ASPECT,
             "FULLSCREEN": FULLSCREEN,
@@ -44,15 +49,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ZOOM_4_TO_1": ZOOM_4_TO_1,
         }
 
-        ZoomLevel = type('ZoomLevel', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ZoomLevel, k, v)
-        setattr(ZoomLevel, '__ooo_ns__', 'com.sun.star.media')
-        setattr(ZoomLevel, '__ooo_full_ns__', 'com.sun.star.media.ZoomLevel')
-        setattr(ZoomLevel, '__ooo_type_name__', 'enum')
+        ZoomLevel = type('ZoomLevel', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.media.zoom_level import ZoomLevel as ZoomLevel

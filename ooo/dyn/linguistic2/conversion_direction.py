@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ConversionDirection
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.linguistic2.ConversionDirection Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.linguistic2",
+            "__ooo_full_ns__": "com.sun.star.linguistic2.ConversionDirection",
+            "__ooo_type_name__": "enum",
             "FROM_LEFT": FROM_LEFT,
             "FROM_RIGHT": FROM_RIGHT,
         }
 
-        ConversionDirection = type('ConversionDirection', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ConversionDirection, k, v)
-        setattr(ConversionDirection, '__ooo_ns__', 'com.sun.star.linguistic2')
-        setattr(ConversionDirection, '__ooo_full_ns__', 'com.sun.star.linguistic2.ConversionDirection')
-        setattr(ConversionDirection, '__ooo_type_name__', 'enum')
+        ConversionDirection = type('ConversionDirection', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.linguistic2.conversion_direction import ConversionDirection as ConversionDirection

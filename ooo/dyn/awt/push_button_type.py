@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PushButtonType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.awt.PushButtonType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.awt",
+            "__ooo_full_ns__": "com.sun.star.awt.PushButtonType",
+            "__ooo_type_name__": "enum",
             "CANCEL": CANCEL,
             "HELP": HELP,
             "OK": OK,
             "STANDARD": STANDARD,
         }
 
-        PushButtonType = type('PushButtonType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PushButtonType, k, v)
-        setattr(PushButtonType, '__ooo_ns__', 'com.sun.star.awt')
-        setattr(PushButtonType, '__ooo_full_ns__', 'com.sun.star.awt.PushButtonType')
-        setattr(PushButtonType, '__ooo_type_name__', 'enum')
+        PushButtonType = type('PushButtonType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.awt.push_button_type import PushButtonType as PushButtonType

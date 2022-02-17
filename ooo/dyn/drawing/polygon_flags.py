@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PolygonFlags
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.PolygonFlags Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.PolygonFlags",
+            "__ooo_type_name__": "enum",
             "CONTROL": CONTROL,
             "NORMAL": NORMAL,
             "SMOOTH": SMOOTH,
             "SYMMETRIC": SYMMETRIC,
         }
 
-        PolygonFlags = type('PolygonFlags', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PolygonFlags, k, v)
-        setattr(PolygonFlags, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(PolygonFlags, '__ooo_full_ns__', 'com.sun.star.drawing.PolygonFlags')
-        setattr(PolygonFlags, '__ooo_type_name__', 'enum')
+        PolygonFlags = type('PolygonFlags', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.polygon_flags import PolygonFlags as PolygonFlags

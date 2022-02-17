@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global NodeType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.NodeType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.dom",
+            "__ooo_full_ns__": "com.sun.star.xml.dom.NodeType",
+            "__ooo_type_name__": "enum",
             "ATTRIBUTE_NODE": ATTRIBUTE_NODE,
             "CDATA_SECTION_NODE": CDATA_SECTION_NODE,
             "COMMENT_NODE": COMMENT_NODE,
@@ -47,15 +52,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TEXT_NODE": TEXT_NODE,
         }
 
-        NodeType = type('NodeType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(NodeType, k, v)
-        setattr(NodeType, '__ooo_ns__', 'com.sun.star.xml.dom')
-        setattr(NodeType, '__ooo_full_ns__', 'com.sun.star.xml.dom.NodeType')
-        setattr(NodeType, '__ooo_type_name__', 'enum')
+        NodeType = type('NodeType', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.xml.dom.node_type import NodeType as NodeType

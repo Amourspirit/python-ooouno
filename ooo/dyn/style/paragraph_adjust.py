@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ParagraphAdjust
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.style.ParagraphAdjust Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.style",
+            "__ooo_full_ns__": "com.sun.star.style.ParagraphAdjust",
+            "__ooo_type_name__": "enum",
             "BLOCK": BLOCK,
             "CENTER": CENTER,
             "LEFT": LEFT,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STRETCH": STRETCH,
         }
 
-        ParagraphAdjust = type('ParagraphAdjust', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ParagraphAdjust, k, v)
-        setattr(ParagraphAdjust, '__ooo_ns__', 'com.sun.star.style')
-        setattr(ParagraphAdjust, '__ooo_full_ns__', 'com.sun.star.style.ParagraphAdjust')
-        setattr(ParagraphAdjust, '__ooo_type_name__', 'enum')
+        ParagraphAdjust = type('ParagraphAdjust', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.style.paragraph_adjust import ParagraphAdjust as ParagraphAdjust

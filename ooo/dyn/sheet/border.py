@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global Border
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.Border Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.Border",
+            "__ooo_type_name__": "enum",
             "BOTTOM": BOTTOM,
             "LEFT": LEFT,
             "RIGHT": RIGHT,
             "TOP": TOP,
         }
 
-        Border = type('Border', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(Border, k, v)
-        setattr(Border, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(Border, '__ooo_full_ns__', 'com.sun.star.sheet.Border')
-        setattr(Border, '__ooo_type_name__', 'enum')
+        Border = type('Border', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.border import Border as Border

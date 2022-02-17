@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FrameAction
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.frame.FrameAction Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.frame",
+            "__ooo_full_ns__": "com.sun.star.frame.FrameAction",
+            "__ooo_type_name__": "enum",
             "COMPONENT_ATTACHED": COMPONENT_ATTACHED,
             "COMPONENT_DETACHING": COMPONENT_DETACHING,
             "COMPONENT_REATTACHED": COMPONENT_REATTACHED,
@@ -43,15 +48,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "FRAME_UI_DEACTIVATING": FRAME_UI_DEACTIVATING,
         }
 
-        FrameAction = type('FrameAction', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FrameAction, k, v)
-        setattr(FrameAction, '__ooo_ns__', 'com.sun.star.frame')
-        setattr(FrameAction, '__ooo_full_ns__', 'com.sun.star.frame.FrameAction')
-        setattr(FrameAction, '__ooo_type_name__', 'enum')
+        FrameAction = type('FrameAction', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.frame.frame_action import FrameAction as FrameAction

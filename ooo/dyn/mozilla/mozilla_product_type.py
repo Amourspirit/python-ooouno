@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global MozillaProductType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.mozilla.MozillaProductType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.mozilla",
+            "__ooo_full_ns__": "com.sun.star.mozilla.MozillaProductType",
+            "__ooo_type_name__": "enum",
             "Default": Default,
             "Firefox": Firefox,
             "Mozilla": Mozilla,
             "Thunderbird": Thunderbird,
         }
 
-        MozillaProductType = type('MozillaProductType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(MozillaProductType, k, v)
-        setattr(MozillaProductType, '__ooo_ns__', 'com.sun.star.mozilla')
-        setattr(MozillaProductType, '__ooo_full_ns__', 'com.sun.star.mozilla.MozillaProductType')
-        setattr(MozillaProductType, '__ooo_type_name__', 'enum')
+        MozillaProductType = type('MozillaProductType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.mozilla.mozilla_product_type import MozillaProductType as MozillaProductType

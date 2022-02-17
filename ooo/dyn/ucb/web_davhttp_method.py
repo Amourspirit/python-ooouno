@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global WebDAVHTTPMethod
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.WebDAVHTTPMethod Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.WebDAVHTTPMethod",
+            "__ooo_type_name__": "enum",
             "CONNECT": CONNECT,
             "COPY": COPY,
             "DELETE": DELETE,
@@ -51,15 +56,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "UNLOCK": UNLOCK,
         }
 
-        WebDAVHTTPMethod = type('WebDAVHTTPMethod', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(WebDAVHTTPMethod, k, v)
-        setattr(WebDAVHTTPMethod, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(WebDAVHTTPMethod, '__ooo_full_ns__', 'com.sun.star.ucb.WebDAVHTTPMethod')
-        setattr(WebDAVHTTPMethod, '__ooo_type_name__', 'enum')
+        WebDAVHTTPMethod = type('WebDAVHTTPMethod', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.web_davhttp_method import WebDAVHTTPMethod as WebDAVHTTPMethod

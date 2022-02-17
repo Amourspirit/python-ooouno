@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global RegistryKeyType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.registry.RegistryKeyType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.registry",
+            "__ooo_full_ns__": "com.sun.star.registry.RegistryKeyType",
+            "__ooo_type_name__": "enum",
             "KEY": KEY,
             "LINK": LINK,
         }
 
-        RegistryKeyType = type('RegistryKeyType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(RegistryKeyType, k, v)
-        setattr(RegistryKeyType, '__ooo_ns__', 'com.sun.star.registry')
-        setattr(RegistryKeyType, '__ooo_full_ns__', 'com.sun.star.registry.RegistryKeyType')
-        setattr(RegistryKeyType, '__ooo_type_name__', 'enum')
+        RegistryKeyType = type('RegistryKeyType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.registry.registry_key_type import RegistryKeyType as RegistryKeyType

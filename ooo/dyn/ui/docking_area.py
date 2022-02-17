@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global DockingArea
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ui.DockingArea Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ui",
+            "__ooo_full_ns__": "com.sun.star.ui.DockingArea",
+            "__ooo_type_name__": "enum",
             "DOCKINGAREA_BOTTOM": DOCKINGAREA_BOTTOM,
             "DOCKINGAREA_DEFAULT": DOCKINGAREA_DEFAULT,
             "DOCKINGAREA_LEFT": DOCKINGAREA_LEFT,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "DOCKINGAREA_TOP": DOCKINGAREA_TOP,
         }
 
-        DockingArea = type('DockingArea', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(DockingArea, k, v)
-        setattr(DockingArea, '__ooo_ns__', 'com.sun.star.ui')
-        setattr(DockingArea, '__ooo_full_ns__', 'com.sun.star.ui.DockingArea')
-        setattr(DockingArea, '__ooo_type_name__', 'enum')
+        DockingArea = type('DockingArea', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ui.docking_area import DockingArea as DockingArea

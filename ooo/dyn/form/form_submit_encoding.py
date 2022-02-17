@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global FormSubmitEncoding
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.form.FormSubmitEncoding Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.form",
+            "__ooo_full_ns__": "com.sun.star.form.FormSubmitEncoding",
+            "__ooo_type_name__": "enum",
             "MULTIPART": MULTIPART,
             "TEXT": TEXT,
             "URL": URL,
         }
 
-        FormSubmitEncoding = type('FormSubmitEncoding', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(FormSubmitEncoding, k, v)
-        setattr(FormSubmitEncoding, '__ooo_ns__', 'com.sun.star.form')
-        setattr(FormSubmitEncoding, '__ooo_full_ns__', 'com.sun.star.form.FormSubmitEncoding')
-        setattr(FormSubmitEncoding, '__ooo_type_name__', 'enum')
+        FormSubmitEncoding = type('FormSubmitEncoding', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.form.form_submit_encoding import FormSubmitEncoding as FormSubmitEncoding

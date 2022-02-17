@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ValidationType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.sheet.ValidationType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.sheet",
+            "__ooo_full_ns__": "com.sun.star.sheet.ValidationType",
+            "__ooo_type_name__": "enum",
             "ANY": ANY,
             "CUSTOM": CUSTOM,
             "DATE": DATE,
@@ -43,15 +48,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WHOLE": WHOLE,
         }
 
-        ValidationType = type('ValidationType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ValidationType, k, v)
-        setattr(ValidationType, '__ooo_ns__', 'com.sun.star.sheet')
-        setattr(ValidationType, '__ooo_full_ns__', 'com.sun.star.sheet.ValidationType')
-        setattr(ValidationType, '__ooo_type_name__', 'enum')
+        ValidationType = type('ValidationType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.sheet.validation_type import ValidationType as ValidationType

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ConnectionType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.ConnectionType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.ConnectionType",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "BOTTOM": BOTTOM,
             "LEFT": LEFT,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP": TOP,
         }
 
-        ConnectionType = type('ConnectionType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ConnectionType, k, v)
-        setattr(ConnectionType, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(ConnectionType, '__ooo_full_ns__', 'com.sun.star.drawing.ConnectionType')
-        setattr(ConnectionType, '__ooo_type_name__', 'enum')
+        ConnectionType = type('ConnectionType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.connection_type import ConnectionType as ConnectionType

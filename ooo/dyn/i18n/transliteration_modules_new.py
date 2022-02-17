@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global TransliterationModulesNew
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.i18n.TransliterationModulesNew Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.i18n",
+            "__ooo_full_ns__": "com.sun.star.i18n.TransliterationModulesNew",
+            "__ooo_type_name__": "enum",
             "CharToNumHangul_ko": CharToNumHangul_ko,
             "CharToNumLower_ko": CharToNumLower_ko,
             "CharToNumLower_zh_CN": CharToNumLower_zh_CN,
@@ -99,15 +104,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "smallToLarge_ja_JP": smallToLarge_ja_JP,
         }
 
-        TransliterationModulesNew = type('TransliterationModulesNew', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(TransliterationModulesNew, k, v)
-        setattr(TransliterationModulesNew, '__ooo_ns__', 'com.sun.star.i18n')
-        setattr(TransliterationModulesNew, '__ooo_full_ns__', 'com.sun.star.i18n.TransliterationModulesNew')
-        setattr(TransliterationModulesNew, '__ooo_type_name__', 'enum')
+        TransliterationModulesNew = type('TransliterationModulesNew', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.i18n.transliteration_modules_new import TransliterationModulesNew as TransliterationModulesNew

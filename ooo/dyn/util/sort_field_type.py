@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SortFieldType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.util.SortFieldType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.util",
+            "__ooo_full_ns__": "com.sun.star.util.SortFieldType",
+            "__ooo_type_name__": "enum",
             "ALPHANUMERIC": ALPHANUMERIC,
             "AUTOMATIC": AUTOMATIC,
             "NUMERIC": NUMERIC,
         }
 
-        SortFieldType = type('SortFieldType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SortFieldType, k, v)
-        setattr(SortFieldType, '__ooo_ns__', 'com.sun.star.util')
-        setattr(SortFieldType, '__ooo_full_ns__', 'com.sun.star.util.SortFieldType')
-        setattr(SortFieldType, '__ooo_type_name__', 'enum')
+        SortFieldType = type('SortFieldType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.util.sort_field_type import SortFieldType as SortFieldType

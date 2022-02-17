@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SnapObjectType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.SnapObjectType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing",
+            "__ooo_full_ns__": "com.sun.star.drawing.SnapObjectType",
+            "__ooo_type_name__": "enum",
             "HORIZONTAL": HORIZONTAL,
             "POINT": POINT,
             "VERTICAL": VERTICAL,
         }
 
-        SnapObjectType = type('SnapObjectType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SnapObjectType, k, v)
-        setattr(SnapObjectType, '__ooo_ns__', 'com.sun.star.drawing')
-        setattr(SnapObjectType, '__ooo_full_ns__', 'com.sun.star.drawing.SnapObjectType')
-        setattr(SnapObjectType, '__ooo_type_name__', 'enum')
+        SnapObjectType = type('SnapObjectType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.drawing.snap_object_type import SnapObjectType as SnapObjectType

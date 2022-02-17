@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ScanError
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.scanner.ScanError Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.scanner",
+            "__ooo_full_ns__": "com.sun.star.scanner.ScanError",
+            "__ooo_type_name__": "enum",
             "InvalidContext": InvalidContext,
             "ScanCanceled": ScanCanceled,
             "ScanErrorNone": ScanErrorNone,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ScannerNotAvailable": ScannerNotAvailable,
         }
 
-        ScanError = type('ScanError', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ScanError, k, v)
-        setattr(ScanError, '__ooo_ns__', 'com.sun.star.scanner')
-        setattr(ScanError, '__ooo_full_ns__', 'com.sun.star.scanner.ScanError')
-        setattr(ScanError, '__ooo_type_name__', 'enum')
+        ScanError = type('ScanError', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.scanner.scan_error import ScanError as ScanError

@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ResourceActivationMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.framework.ResourceActivationMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing.framework",
+            "__ooo_full_ns__": "com.sun.star.drawing.framework.ResourceActivationMode",
+            "__ooo_type_name__": "enum",
             "ADD": ADD,
             "REPLACE": REPLACE,
         }
 
-        ResourceActivationMode = type('ResourceActivationMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ResourceActivationMode, k, v)
-        setattr(ResourceActivationMode, '__ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(ResourceActivationMode, '__ooo_full_ns__', 'com.sun.star.drawing.framework.ResourceActivationMode')
-        setattr(ResourceActivationMode, '__ooo_type_name__', 'enum')
+        ResourceActivationMode = type('ResourceActivationMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode

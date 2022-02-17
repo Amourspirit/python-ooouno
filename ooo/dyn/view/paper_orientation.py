@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PaperOrientation
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.view.PaperOrientation Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.view",
+            "__ooo_full_ns__": "com.sun.star.view.PaperOrientation",
+            "__ooo_type_name__": "enum",
             "LANDSCAPE": LANDSCAPE,
             "PORTRAIT": PORTRAIT,
         }
 
-        PaperOrientation = type('PaperOrientation', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PaperOrientation, k, v)
-        setattr(PaperOrientation, '__ooo_ns__', 'com.sun.star.view')
-        setattr(PaperOrientation, '__ooo_full_ns__', 'com.sun.star.view.PaperOrientation')
-        setattr(PaperOrientation, '__ooo_type_name__', 'enum')
+        PaperOrientation = type('PaperOrientation', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.view.paper_orientation import PaperOrientation as PaperOrientation

@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global ListSourceType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.form.ListSourceType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.form",
+            "__ooo_full_ns__": "com.sun.star.form.ListSourceType",
+            "__ooo_type_name__": "enum",
             "QUERY": QUERY,
             "SQL": SQL,
             "SQLPASSTHROUGH": SQLPASSTHROUGH,
@@ -41,15 +46,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "VALUELIST": VALUELIST,
         }
 
-        ListSourceType = type('ListSourceType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(ListSourceType, k, v)
-        setattr(ListSourceType, '__ooo_ns__', 'com.sun.star.form')
-        setattr(ListSourceType, '__ooo_full_ns__', 'com.sun.star.form.ListSourceType')
-        setattr(ListSourceType, '__ooo_type_name__', 'enum')
+        ListSourceType = type('ListSourceType', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.form.list_source_type import ListSourceType as ListSourceType

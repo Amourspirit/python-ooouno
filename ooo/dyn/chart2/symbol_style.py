@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global SymbolStyle
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.chart2.SymbolStyle Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.chart2",
+            "__ooo_full_ns__": "com.sun.star.chart2.SymbolStyle",
+            "__ooo_type_name__": "enum",
             "AUTO": AUTO,
             "GRAPHIC": GRAPHIC,
             "NONE": NONE,
@@ -40,15 +45,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STANDARD": STANDARD,
         }
 
-        SymbolStyle = type('SymbolStyle', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(SymbolStyle, k, v)
-        setattr(SymbolStyle, '__ooo_ns__', 'com.sun.star.chart2')
-        setattr(SymbolStyle, '__ooo_full_ns__', 'com.sun.star.chart2.SymbolStyle')
-        setattr(SymbolStyle, '__ooo_type_name__', 'enum')
+        SymbolStyle = type('SymbolStyle', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.chart2.symbol_style import SymbolStyle as SymbolStyle

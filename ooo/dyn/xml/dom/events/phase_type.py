@@ -33,20 +33,17 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global PhaseType
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.events.PhaseType Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.xml.dom.events",
+            "__ooo_full_ns__": "com.sun.star.xml.dom.events.PhaseType",
+            "__ooo_type_name__": "enum",
             "AT_TARGET": AT_TARGET,
             "BUBBLING_PHASE": BUBBLING_PHASE,
             "CAPTURING_PHASE": CAPTURING_PHASE,
         }
 
-        PhaseType = type('PhaseType', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(PhaseType, k, v)
-        setattr(PhaseType, '__ooo_ns__', 'com.sun.star.xml.dom.events')
-        setattr(PhaseType, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.PhaseType')
-        setattr(PhaseType, '__ooo_type_name__', 'enum')
+        PhaseType = type('PhaseType', (object,), _dict)
     _dynamic_enum()
 else:
     from .....lo.xml.dom.events.phase_type import PhaseType as PhaseType

@@ -33,21 +33,18 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global NotePrintMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.text.NotePrintMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.text",
+            "__ooo_full_ns__": "com.sun.star.text.NotePrintMode",
+            "__ooo_type_name__": "enum",
             "DOC_END": DOC_END,
             "NOT": NOT,
             "ONLY": ONLY,
             "PAGE_END": PAGE_END,
         }
 
-        NotePrintMode = type('NotePrintMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(NotePrintMode, k, v)
-        setattr(NotePrintMode, '__ooo_ns__', 'com.sun.star.text')
-        setattr(NotePrintMode, '__ooo_full_ns__', 'com.sun.star.text.NotePrintMode')
-        setattr(NotePrintMode, '__ooo_type_name__', 'enum')
+        NotePrintMode = type('NotePrintMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.text.note_print_mode import NotePrintMode as NotePrintMode

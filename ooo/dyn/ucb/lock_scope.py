@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global LockScope
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.ucb.LockScope Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.ucb",
+            "__ooo_full_ns__": "com.sun.star.ucb.LockScope",
+            "__ooo_type_name__": "enum",
             "EXCLUSIVE": EXCLUSIVE,
             "SHARED": SHARED,
         }
 
-        LockScope = type('LockScope', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(LockScope, k, v)
-        setattr(LockScope, '__ooo_ns__', 'com.sun.star.ucb')
-        setattr(LockScope, '__ooo_full_ns__', 'com.sun.star.ucb.LockScope')
-        setattr(LockScope, '__ooo_type_name__', 'enum')
+        LockScope = type('LockScope', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.ucb.lock_scope import LockScope as LockScope

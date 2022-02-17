@@ -33,6 +33,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global UnicodeScript
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.i18n.UnicodeScript Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.i18n",
+            "__ooo_full_ns__": "com.sun.star.i18n.UnicodeScript",
+            "__ooo_type_name__": "enum",
             "kAlphabeticPresentation": kAlphabeticPresentation,
             "kArabic": kArabic,
             "kArabicPresentationA": kArabicPresentationA,
@@ -123,15 +128,7 @@ if not TYPE_CHECKING and _DYNAMIC:
             "k_CJKUnifiedIdeographsExtensionA": k_CJKUnifiedIdeographsExtensionA,
         }
 
-        UnicodeScript = type('UnicodeScript', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(UnicodeScript, k, v)
-        setattr(UnicodeScript, '__ooo_ns__', 'com.sun.star.i18n')
-        setattr(UnicodeScript, '__ooo_full_ns__', 'com.sun.star.i18n.UnicodeScript')
-        setattr(UnicodeScript, '__ooo_type_name__', 'enum')
+        UnicodeScript = type('UnicodeScript', (object,), _dict)
     _dynamic_enum()
 else:
     from ...lo.i18n.unicode_script import UnicodeScript as UnicodeScript

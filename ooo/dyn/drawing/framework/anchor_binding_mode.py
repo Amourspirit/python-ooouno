@@ -33,19 +33,16 @@ if not TYPE_CHECKING and _DYNAMIC:
         # Dynamically create class that actually contains UNO enum instances
         global AnchorBindingMode
         _dict = {
+            "__doc__": "Dynamically created class that represents com.sun.star.drawing.framework.AnchorBindingMode Enum. Class loosly mimics Enum",
+            "__new__": uno_enum_class_new,
+            "__ooo_ns__": "com.sun.star.drawing.framework",
+            "__ooo_full_ns__": "com.sun.star.drawing.framework.AnchorBindingMode",
+            "__ooo_type_name__": "enum",
             "DIRECT": DIRECT,
             "INDIRECT": INDIRECT,
         }
 
-        AnchorBindingMode = type('AnchorBindingMode', (object,), {
-            '__doc__': 'class created dynamically. Class loosly mimics Enum',
-            "__new__": uno_enum_class_new
-        })
-        for k, v in _dict.items():
-            setattr(AnchorBindingMode, k, v)
-        setattr(AnchorBindingMode, '__ooo_ns__', 'com.sun.star.drawing.framework')
-        setattr(AnchorBindingMode, '__ooo_full_ns__', 'com.sun.star.drawing.framework.AnchorBindingMode')
-        setattr(AnchorBindingMode, '__ooo_type_name__', 'enum')
+        AnchorBindingMode = type('AnchorBindingMode', (object,), _dict)
     _dynamic_enum()
 else:
     from ....lo.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode

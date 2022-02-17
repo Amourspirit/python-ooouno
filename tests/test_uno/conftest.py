@@ -1,15 +1,18 @@
+import os
+import sys
 import pytest
 import tempfile
 import time
 import shutil
-import os
 from pathlib import Path
 from .lo import LoSocketStart, LoPipeStart
 from unotools import Pipe, Socket, connect_with_pipe, connect_with_socket
 from unotools.unohelper import convert_path_to_url
 from unotools.component.writer import Writer
-from . import danny as d_lib
-from com.sun.star.connection import NoConnectException
+sys.path.insert(0, os.path.abspath('.'))
+from . import unohlp as d_lib
+from ooo.dyn.connection.no_connect_exception import NoConnectException
+# from com.sun.star.connection import NoConnectException
 
 _PIPE_NAME = None
 
@@ -106,7 +109,7 @@ def _writer_create_instance(start_soffice, file_path=None, set_lib=True):
             writer = Writer(connect_with_pipe(Pipe(start_soffice.pipe_name)))
     _wait_for_doc(writer)
     if set_lib == True:
-        d_lib.set_danny_global(desktop=writer.desktop,
+        d_lib.set_globals(desktop=writer.desktop,
                                 sm=writer.context.getServiceManager())
     return writer
 

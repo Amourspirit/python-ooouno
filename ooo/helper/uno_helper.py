@@ -15,17 +15,6 @@ if typing.TYPE_CHECKING:
     from ..lo.uno.x_interface import XInterface
     from ..lo.lang.x_service_info import XServiceInfo
 
-
-
-# OOo's libraries
-
-
-#------------------------------------------------------------
-#   Uno ServiceManager access
-#   A different version of this routine and global variable
-#    is needed for code running inside a component.
-#------------------------------------------------------------
-
 # region Cached Values
 # The _STAR_DESKTOP object.  (global like in OOo Basic)
 # It is cached in a global variable.
@@ -147,9 +136,6 @@ def get_desktop() -> theDesktop:
     """
     global _STAR_DESKTOP
     if _STAR_DESKTOP == None:
-        ctx: 'XComponentContext' = uno.getComponentContext()
-        # _STAR_DESKTOP = ctx.getValueByName('/singletons/com.sun.star.frame.theDesktop')
-        # _STAR_DESKTOP = create_uno_service("com.sun.star.frame.Desktop")
         _STAR_DESKTOP = theDesktop()
     return _STAR_DESKTOP
 
@@ -180,12 +166,11 @@ def get_core_reflection() -> theCoreReflection:
     # https://stackoverflow.com/questions/67527942/why-cant-an-annotated-variable-be-global
     global _CORE_REFLECTION
     if not _CORE_REFLECTION:
-        # _CORE_REFLECTION = create_uno_service("com.sun.star.reflection.CoreReflection")
         _CORE_REFLECTION = theCoreReflection()
     return _CORE_REFLECTION
 
 
-def create_uno_struct(cTypeName: str) -> object:
+def create_uno_struct(type_name: str) -> object:
     """Create a UNO struct and return it. 
     Similar to the function of the same name in OOo Basic. 
     
@@ -194,7 +179,7 @@ def create_uno_struct(cTypeName: str) -> object:
     """
     core_reflection = get_core_reflection()
     # Get the IDL class for the type name
-    x_idl_class = core_reflection.forName(cTypeName)
+    x_idl_class = core_reflection.forName(type_name)
     # Create the struct.
     _, struct = x_idl_class.createObject(None)
     return struct

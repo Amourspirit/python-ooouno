@@ -4,12 +4,15 @@
 #   to Libre Office. If you see com.sun.star.connection.NoConnectException error this is an indicator.
 
 import pytest
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from ooo.lo.frame.x_model import XModel
 
 if __name__ == "__main__":
     pytest.main([__file__])
 
 
-def test_sequence(get_document):
+def test_sequence(get_document: 'XModel'):
     import uno
     from ooo.lo.text.x_text import XText
     from ooo.lo.text.generic_text_document import GenericTextDocument

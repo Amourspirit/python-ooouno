@@ -39,7 +39,7 @@ class Optional(object):
     typeName: str = 'com.sun.star.beans.Optional'
     """Literal Constant ``com.sun.star.beans.Optional``"""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, IsPresent: bool = None, Value: object = None) -> None:
         """
         Constructor
 

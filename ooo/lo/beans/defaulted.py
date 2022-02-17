@@ -39,7 +39,7 @@ class Defaulted(object):
     typeName: str = 'com.sun.star.beans.Defaulted'
     """Literal Constant ``com.sun.star.beans.Defaulted``"""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, Value: object = None, IsDefaulted: bool = None) -> None:
         """
         Constructor
 

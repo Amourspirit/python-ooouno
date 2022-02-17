@@ -41,7 +41,7 @@ class NSSProfile(object):
     typeName: str = 'com.sun.star.xml.crypto.NSSProfile'
     """Literal Constant ``com.sun.star.xml.crypto.NSSProfile``"""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, Name: str = None, Path: str = None, Type: MozillaProductType_2e210f5b = None) -> None:
         """
         Constructor
 

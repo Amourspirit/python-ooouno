@@ -39,7 +39,7 @@ class Ambiguous(object):
     typeName: str = 'com.sun.star.beans.Ambiguous'
     """Literal Constant ``com.sun.star.beans.Ambiguous``"""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, Value: object = None, IsAmbiguous: bool = None) -> None:
         """
         Constructor
 

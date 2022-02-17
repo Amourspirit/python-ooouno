@@ -43,7 +43,7 @@ class Pair(object):
     typeName: str = 'com.sun.star.beans.Pair'
     """Literal Constant ``com.sun.star.beans.Pair``"""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, First: object = None, Second: object = None) -> None:
         """
         Constructor
 

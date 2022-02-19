@@ -1,9 +1,0 @@
-========
-provider
-========
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    *

@@ -1,9 +1,0 @@
-=========
-container
-=========
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    *

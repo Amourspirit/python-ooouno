@@ -10,16 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
+# import os
+# import sys
 # sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
 
-# environment runtime flag.
-# if ooouno_ignore_runtime flag == 'True' then
-# some modules such as Style.tab_stop.TabStop will ignore runtime
-# and return the default type. In this case a class instead of a namedtupple
-os.environ['ooouno_ignore_runtime'] = 'True'
+
 # -- Project information -----------------------------------------------------
 
 project = 'ooouno'
@@ -27,7 +22,7 @@ copyright = '2021, :Barry-Thomas-Paul: Moss'
 author = ':Barry-Thomas-Paul: Moss'
 
 # The full version, including alpha/beta/rc tags
-release = '1'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,10 +31,8 @@ release = '1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.todo'
+    'sphinx_rtd_theme',
+    'sphinx_rtd_dark_mode'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -59,29 +52,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 
-# https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
-html_theme_options = {
-    # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 6
-}
-
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_css_files = []
-
-if html_theme == 'sphinx_rtd_theme':
-    html_css_files.append('css/readthedocs_custom.css')
-
-# Napoleon settings
-# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
-napoleon_google_docstring = True
-napoleon_include_init_with_doc = True
-
-# Todo settings
-# https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
-todo_include_todos = True

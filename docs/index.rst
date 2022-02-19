@@ -1,7 +1,9 @@
 .. ooouno documentation master file, created by
-   sphinx-quickstart on Sat Nov 27 17:50:37 2021.
+   sphinx-quickstart on Sat Feb 19 11:44:01 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+
+.. include:: ../README.rst
 
 Welcome to ooouno's documentation!
 ==================================
@@ -10,7 +12,6 @@ Welcome to ooouno's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   ooo_uno/index   
 
 
 Indices and tables

@@ -1,9 +1,0 @@
-=====
-beans
-=====
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    *

@@ -27,51 +27,62 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import FontEmphasis as FontEmphasis
+    if hasattr(FontEmphasis, '_constants') and isinstance(FontEmphasis._constants, dict):
+        FontEmphasis._constants['__ooo_ns__'] = 'com.sun.star.text'
+        FontEmphasis._constants['__ooo_full_ns__'] = 'com.sun.star.text.FontEmphasis'
+        FontEmphasis._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontEmphasisEnum
+        ls = [f for f in dir(FontEmphasis) if not callable(getattr(FontEmphasis, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontEmphasis, name)
+        FontEmphasisEnum = IntEnum('FontEmphasisEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.font_emphasis import FontEmphasis as FontEmphasis
 
+    class FontEmphasisEnum(IntEnum):
+        """
+        Enum of Const Class FontEmphasis
 
-class FontEmphasisEnum(IntEnum):
-    """
-    Enum of Const Class FontEmphasis
-
-    Determines the type and position of an emphasis mark in Asian texts.
-    """
-    NONE = FontEmphasis.NONE
-    """
-    no emphasis mark is used.
-    """
-    DOT_ABOVE = FontEmphasis.DOT_ABOVE
-    """
-    a dot is set above (or right from vertical text) the text.
-    """
-    CIRCLE_ABOVE = FontEmphasis.CIRCLE_ABOVE
-    """
-    a circle is set above (or right from vertical text) the text.
-    """
-    DISK_ABOVE = FontEmphasis.DISK_ABOVE
-    """
-    a disc is set above (or right from vertical text) the text.
-    """
-    ACCENT_ABOVE = FontEmphasis.ACCENT_ABOVE
-    """
-    an accent is set above (or right from vertical text) the text.
-    """
-    DOT_BELOW = FontEmphasis.DOT_BELOW
-    """
-    a dot is set below (or left from vertical text) the text.
-    """
-    CIRCLE_BELOW = FontEmphasis.CIRCLE_BELOW
-    """
-    a circle is set below (or left from vertical text) the text.
-    """
-    DISK_BELOW = FontEmphasis.DISK_BELOW
-    """
-    a disk is set below (or left from vertical text) the text.
-    """
-    ACCENT_BELOW = FontEmphasis.ACCENT_BELOW
-    """
-    an accent is set below (or left from vertical text) the text.
-    """
+        Determines the type and position of an emphasis mark in Asian texts.
+        """
+        NONE = FontEmphasis.NONE
+        """
+        no emphasis mark is used.
+        """
+        DOT_ABOVE = FontEmphasis.DOT_ABOVE
+        """
+        a dot is set above (or right from vertical text) the text.
+        """
+        CIRCLE_ABOVE = FontEmphasis.CIRCLE_ABOVE
+        """
+        a circle is set above (or right from vertical text) the text.
+        """
+        DISK_ABOVE = FontEmphasis.DISK_ABOVE
+        """
+        a disc is set above (or right from vertical text) the text.
+        """
+        ACCENT_ABOVE = FontEmphasis.ACCENT_ABOVE
+        """
+        an accent is set above (or right from vertical text) the text.
+        """
+        DOT_BELOW = FontEmphasis.DOT_BELOW
+        """
+        a dot is set below (or left from vertical text) the text.
+        """
+        CIRCLE_BELOW = FontEmphasis.CIRCLE_BELOW
+        """
+        a circle is set below (or left from vertical text) the text.
+        """
+        DISK_BELOW = FontEmphasis.DISK_BELOW
+        """
+        a disk is set below (or left from vertical text) the text.
+        """
+        ACCENT_BELOW = FontEmphasis.ACCENT_BELOW
+        """
+        an accent is set below (or left from vertical text) the text.
+        """
 
 __all__ = ['FontEmphasis', 'FontEmphasisEnum']

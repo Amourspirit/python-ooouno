@@ -27,47 +27,58 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import RuleOperator as RuleOperator
+    if hasattr(RuleOperator, '_constants') and isinstance(RuleOperator._constants, dict):
+        RuleOperator._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        RuleOperator._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.RuleOperator'
+        RuleOperator._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RuleOperatorEnum
+        ls = [f for f in dir(RuleOperator) if not callable(getattr(RuleOperator, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RuleOperator, name)
+        RuleOperatorEnum = IntEnum('RuleOperatorEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.rule_operator import RuleOperator as RuleOperator
 
+    class RuleOperatorEnum(IntEnum):
+        """
+        Enum of Const Class RuleOperator
 
-class RuleOperatorEnum(IntEnum):
-    """
-    Enum of Const Class RuleOperator
-
-    These are the possible values for RuleTerm.RuleOperator.
-    """
-    CONTAINS = RuleOperator.CONTAINS
-    """
-    \"Contains\" - Object contains RuleTerm.Operand.
-    """
-    CONTAINSNOT = RuleOperator.CONTAINSNOT
-    """
-    \"ContainsNot\" - Object does not contain RuleTerm.Operand.
-    """
-    GREATEREQUAL = RuleOperator.GREATEREQUAL
-    """
-    \"GreaterEqual\" - Object is greater than or equal to RuleTerm.Operand.
-    """
-    LESSEQUAL = RuleOperator.LESSEQUAL
-    """
-    \"LessEqual\" - Object is less than or equal to RuleTerm.Operand.
-    """
-    EQUAL = RuleOperator.EQUAL
-    """
-    \"Equal\" - Object is equal to RuleTerm.Operand.
-    """
-    NOTEQUAL = RuleOperator.NOTEQUAL
-    """
-    \"NotEqual\" - Object is not equal to RuleTerm.Operand.
-    """
-    VALUE_TRUE = RuleOperator.VALUE_TRUE
-    """
-    \"True\" - Object has the value TRUE.
-    """
-    VALUE_FALSE = RuleOperator.VALUE_FALSE
-    """
-    \"False\" - Object has the value FALSE.
-    """
+        These are the possible values for RuleTerm.RuleOperator.
+        """
+        CONTAINS = RuleOperator.CONTAINS
+        """
+        \"Contains\" - Object contains RuleTerm.Operand.
+        """
+        CONTAINSNOT = RuleOperator.CONTAINSNOT
+        """
+        \"ContainsNot\" - Object does not contain RuleTerm.Operand.
+        """
+        GREATEREQUAL = RuleOperator.GREATEREQUAL
+        """
+        \"GreaterEqual\" - Object is greater than or equal to RuleTerm.Operand.
+        """
+        LESSEQUAL = RuleOperator.LESSEQUAL
+        """
+        \"LessEqual\" - Object is less than or equal to RuleTerm.Operand.
+        """
+        EQUAL = RuleOperator.EQUAL
+        """
+        \"Equal\" - Object is equal to RuleTerm.Operand.
+        """
+        NOTEQUAL = RuleOperator.NOTEQUAL
+        """
+        \"NotEqual\" - Object is not equal to RuleTerm.Operand.
+        """
+        VALUE_TRUE = RuleOperator.VALUE_TRUE
+        """
+        \"True\" - Object has the value TRUE.
+        """
+        VALUE_FALSE = RuleOperator.VALUE_FALSE
+        """
+        \"False\" - Object has the value FALSE.
+        """
 
 __all__ = ['RuleOperator', 'RuleOperatorEnum']

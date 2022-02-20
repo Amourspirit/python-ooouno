@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseStrokeVariation as PanoseStrokeVariation
+    if hasattr(PanoseStrokeVariation, '_constants') and isinstance(PanoseStrokeVariation._constants, dict):
+        PanoseStrokeVariation._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseStrokeVariation._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseStrokeVariation'
+        PanoseStrokeVariation._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseStrokeVariationEnum
+        ls = [f for f in dir(PanoseStrokeVariation) if not callable(getattr(PanoseStrokeVariation, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseStrokeVariation, name)
+        PanoseStrokeVariationEnum = IntEnum('PanoseStrokeVariationEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_stroke_variation import PanoseStrokeVariation as PanoseStrokeVariation
 
+    class PanoseStrokeVariationEnum(IntEnum):
+        """
+        Enum of Const Class PanoseStrokeVariation
 
-class PanoseStrokeVariationEnum(IntEnum):
-    """
-    Enum of Const Class PanoseStrokeVariation
-
-    """
-    ANYTHING = PanoseStrokeVariation.ANYTHING
-    NO_FIT = PanoseStrokeVariation.NO_FIT
-    GRADUAL_DIAGONAL = PanoseStrokeVariation.GRADUAL_DIAGONAL
-    GRADUAL_TRANSITIONAL = PanoseStrokeVariation.GRADUAL_TRANSITIONAL
-    GRADUAL_VERTICAL = PanoseStrokeVariation.GRADUAL_VERTICAL
-    GRADUAL_HORIZONTAL = PanoseStrokeVariation.GRADUAL_HORIZONTAL
-    RAPID_VERTICAL = PanoseStrokeVariation.RAPID_VERTICAL
-    RAPID_HORIZONTAL = PanoseStrokeVariation.RAPID_HORIZONTAL
-    INSTANT_VERTICAL = PanoseStrokeVariation.INSTANT_VERTICAL
+        """
+        ANYTHING = PanoseStrokeVariation.ANYTHING
+        NO_FIT = PanoseStrokeVariation.NO_FIT
+        GRADUAL_DIAGONAL = PanoseStrokeVariation.GRADUAL_DIAGONAL
+        GRADUAL_TRANSITIONAL = PanoseStrokeVariation.GRADUAL_TRANSITIONAL
+        GRADUAL_VERTICAL = PanoseStrokeVariation.GRADUAL_VERTICAL
+        GRADUAL_HORIZONTAL = PanoseStrokeVariation.GRADUAL_HORIZONTAL
+        RAPID_VERTICAL = PanoseStrokeVariation.RAPID_VERTICAL
+        RAPID_HORIZONTAL = PanoseStrokeVariation.RAPID_HORIZONTAL
+        INSTANT_VERTICAL = PanoseStrokeVariation.INSTANT_VERTICAL
 
 __all__ = ['PanoseStrokeVariation', 'PanoseStrokeVariationEnum']

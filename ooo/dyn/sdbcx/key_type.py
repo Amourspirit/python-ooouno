@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbcx import KeyType as KeyType
+    if hasattr(KeyType, '_constants') and isinstance(KeyType._constants, dict):
+        KeyType._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
+        KeyType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.KeyType'
+        KeyType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KeyTypeEnum
+        ls = [f for f in dir(KeyType) if not callable(getattr(KeyType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KeyType, name)
+        KeyTypeEnum = IntEnum('KeyTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbcx.key_type import KeyType as KeyType
 
+    class KeyTypeEnum(IntEnum):
+        """
+        Enum of Const Class KeyType
 
-class KeyTypeEnum(IntEnum):
-    """
-    Enum of Const Class KeyType
-
-    determines the type of a key.
-    """
-    PRIMARY = KeyType.PRIMARY
-    """
-    indicates that the key is the primary key of a table.
-    """
-    UNIQUE = KeyType.UNIQUE
-    """
-    indicates that the key is unique, NULL values are allowed.
-    """
-    FOREIGN = KeyType.FOREIGN
-    """
-    indicates that the key is a foreign key of a table.
-    """
+        determines the type of a key.
+        """
+        PRIMARY = KeyType.PRIMARY
+        """
+        indicates that the key is the primary key of a table.
+        """
+        UNIQUE = KeyType.UNIQUE
+        """
+        indicates that the key is unique, NULL values are allowed.
+        """
+        FOREIGN = KeyType.FOREIGN
+        """
+        indicates that the key is a foreign key of a table.
+        """
 
 __all__ = ['KeyType', 'KeyTypeEnum']

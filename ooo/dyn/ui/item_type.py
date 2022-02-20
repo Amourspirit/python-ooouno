@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui import ItemType as ItemType
+    if hasattr(ItemType, '_constants') and isinstance(ItemType._constants, dict):
+        ItemType._constants['__ooo_ns__'] = 'com.sun.star.ui'
+        ItemType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.ItemType'
+        ItemType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ItemTypeEnum
+        ls = [f for f in dir(ItemType) if not callable(getattr(ItemType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ItemType, name)
+        ItemTypeEnum = IntEnum('ItemTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ui.item_type import ItemType as ItemType
 
+    class ItemTypeEnum(IntEnum):
+        """
+        Enum of Const Class ItemType
 
-class ItemTypeEnum(IntEnum):
-    """
-    Enum of Const Class ItemType
-
-    Determines the type of an item.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    DEFAULT = ItemType.DEFAULT
-    """
-    a normal item
-    """
-    SEPARATOR_LINE = ItemType.SEPARATOR_LINE
-    """
-    a separator is inserted as a line.
-    """
-    SEPARATOR_SPACE = ItemType.SEPARATOR_SPACE
-    """
-    a separator is inserted as a space.
-    """
-    SEPARATOR_LINEBREAK = ItemType.SEPARATOR_LINEBREAK
-    """
-    a line break is inserted.
-    """
+        Determines the type of an item.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        DEFAULT = ItemType.DEFAULT
+        """
+        a normal item
+        """
+        SEPARATOR_LINE = ItemType.SEPARATOR_LINE
+        """
+        a separator is inserted as a line.
+        """
+        SEPARATOR_SPACE = ItemType.SEPARATOR_SPACE
+        """
+        a separator is inserted as a space.
+        """
+        SEPARATOR_LINEBREAK = ItemType.SEPARATOR_LINEBREAK
+        """
+        a line break is inserted.
+        """
 
 __all__ = ['ItemType', 'ItemTypeEnum']

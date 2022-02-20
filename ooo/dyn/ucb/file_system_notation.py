@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import FileSystemNotation as FileSystemNotation
+    if hasattr(FileSystemNotation, '_constants') and isinstance(FileSystemNotation._constants, dict):
+        FileSystemNotation._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        FileSystemNotation._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.FileSystemNotation'
+        FileSystemNotation._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FileSystemNotationEnum
+        ls = [f for f in dir(FileSystemNotation) if not callable(getattr(FileSystemNotation, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FileSystemNotation, name)
+        FileSystemNotationEnum = IntEnum('FileSystemNotationEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.file_system_notation import FileSystemNotation as FileSystemNotation
 
+    class FileSystemNotationEnum(IntEnum):
+        """
+        Enum of Const Class FileSystemNotation
 
-class FileSystemNotationEnum(IntEnum):
-    """
-    Enum of Const Class FileSystemNotation
-
-    The notational conventions used to denote file system paths on different file systems or operating systems.
-    """
-    UNKNOWN_NOTATION = FileSystemNotation.UNKNOWN_NOTATION
-    """
-    No information regarding any conventions is available.
-    """
-    UNIX_NOTATION = FileSystemNotation.UNIX_NOTATION
-    """
-    The conventions of Unix like file systems (e.g., /dir1/dir2/file).
-    """
-    DOS_NOTATION = FileSystemNotation.DOS_NOTATION
-    """
-    The conventions of DOS like file systems (e.g., a:\\dir1\\dir2\\file or UNC notation like \\\\host\\dir1\\dir2\\file).
-    """
-    MAC_NOTATION = FileSystemNotation.MAC_NOTATION
-    """
-    The conventions of Mac like file systems (e.g., volume:dir1:dir2:file).
-    """
+        The notational conventions used to denote file system paths on different file systems or operating systems.
+        """
+        UNKNOWN_NOTATION = FileSystemNotation.UNKNOWN_NOTATION
+        """
+        No information regarding any conventions is available.
+        """
+        UNIX_NOTATION = FileSystemNotation.UNIX_NOTATION
+        """
+        The conventions of Unix like file systems (e.g., /dir1/dir2/file).
+        """
+        DOS_NOTATION = FileSystemNotation.DOS_NOTATION
+        """
+        The conventions of DOS like file systems (e.g., a:\\dir1\\dir2\\file or UNC notation like \\\\host\\dir1\\dir2\\file).
+        """
+        MAC_NOTATION = FileSystemNotation.MAC_NOTATION
+        """
+        The conventions of Mac like file systems (e.g., volume:dir1:dir2:file).
+        """
 
 __all__ = ['FileSystemNotation', 'FileSystemNotationEnum']

@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import MessageBoxResults as MessageBoxResults
+    if hasattr(MessageBoxResults, '_constants') and isinstance(MessageBoxResults._constants, dict):
+        MessageBoxResults._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        MessageBoxResults._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MessageBoxResults'
+        MessageBoxResults._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MessageBoxResultsEnum
+        ls = [f for f in dir(MessageBoxResults) if not callable(getattr(MessageBoxResults, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MessageBoxResults, name)
+        MessageBoxResultsEnum = IntEnum('MessageBoxResultsEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.message_box_results import MessageBoxResults as MessageBoxResults
 
+    class MessageBoxResultsEnum(IntEnum):
+        """
+        Enum of Const Class MessageBoxResults
 
-class MessageBoxResultsEnum(IntEnum):
-    """
-    Enum of Const Class MessageBoxResults
-
-    These constants are used to specify a result of executing a XMessageBox.
-    
-    **since**
-    
-        LibreOffice 4.2
-    """
-    CANCEL = MessageBoxResults.CANCEL
-    """
-    The user canceled the XMessageBox, by pressing \"Cancel\" or \"Abort\" button.
-    """
-    OK = MessageBoxResults.OK
-    """
-    The user pressed the \"Ok\" button.
-    """
-    YES = MessageBoxResults.YES
-    """
-    The user pressed the \"Yes\" button.
-    """
-    NO = MessageBoxResults.NO
-    """
-    The user pressed the \"No\" button.
-    """
-    RETRY = MessageBoxResults.RETRY
-    """
-    The user pressed the \"Retry\" button.
-    """
-    IGNORE = MessageBoxResults.IGNORE
-    """
-    The user pressed the \"Ignore\" button.
-    """
+        These constants are used to specify a result of executing a XMessageBox.
+        
+        **since**
+        
+            LibreOffice 4.2
+        """
+        CANCEL = MessageBoxResults.CANCEL
+        """
+        The user canceled the XMessageBox, by pressing \"Cancel\" or \"Abort\" button.
+        """
+        OK = MessageBoxResults.OK
+        """
+        The user pressed the \"Ok\" button.
+        """
+        YES = MessageBoxResults.YES
+        """
+        The user pressed the \"Yes\" button.
+        """
+        NO = MessageBoxResults.NO
+        """
+        The user pressed the \"No\" button.
+        """
+        RETRY = MessageBoxResults.RETRY
+        """
+        The user pressed the \"Retry\" button.
+        """
+        IGNORE = MessageBoxResults.IGNORE
+        """
+        The user pressed the \"Ignore\" button.
+        """
 
 __all__ = ['MessageBoxResults', 'MessageBoxResultsEnum']

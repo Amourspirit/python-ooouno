@@ -27,83 +27,94 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.linguistic2 import ConversionPropertyType as ConversionPropertyType
+    if hasattr(ConversionPropertyType, '_constants') and isinstance(ConversionPropertyType._constants, dict):
+        ConversionPropertyType._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
+        ConversionPropertyType._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.ConversionPropertyType'
+        ConversionPropertyType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConversionPropertyTypeEnum
+        ls = [f for f in dir(ConversionPropertyType) if not callable(getattr(ConversionPropertyType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConversionPropertyType, name)
+        ConversionPropertyTypeEnum = IntEnum('ConversionPropertyTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.linguistic2.conversion_property_type import ConversionPropertyType as ConversionPropertyType
 
+    class ConversionPropertyTypeEnum(IntEnum):
+        """
+        Enum of Const Class ConversionPropertyType
 
-class ConversionPropertyTypeEnum(IntEnum):
-    """
-    Enum of Const Class ConversionPropertyType
-
-    specifies the property type of an entry in a conversion dictionary.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    NOT_DEFINED = ConversionPropertyType.NOT_DEFINED
-    """
-    There is no property type defined or available.
-    """
-    OTHER = ConversionPropertyType.OTHER
-    """
-    Any word that does not fit into any of the other properties.
-    """
-    FOREIGN = ConversionPropertyType.FOREIGN
-    """
-    A word or term that is transliterated or used from a non-Chinese language.
-    """
-    FIRST_NAME = ConversionPropertyType.FIRST_NAME
-    """
-    The first name (given name) of a person.
-    """
-    LAST_NAME = ConversionPropertyType.LAST_NAME
-    """
-    The last name (family name) of a person.
-    """
-    TITLE = ConversionPropertyType.TITLE
-    """
-    The academic or social title of a person.
-    """
-    STATUS = ConversionPropertyType.STATUS
-    """
-    The status of a situation.
-    """
-    PLACE_NAME = ConversionPropertyType.PLACE_NAME
-    """
-    The name of a location or place.
-    """
-    BUSINESS = ConversionPropertyType.BUSINESS
-    """
-    The description of a business.
-    """
-    ADJECTIVE = ConversionPropertyType.ADJECTIVE
-    """
-    An adjective.
-    """
-    IDIOM = ConversionPropertyType.IDIOM
-    """
-    A term that is used to literally describe a circumstance.
-    """
-    ABBREVIATION = ConversionPropertyType.ABBREVIATION
-    """
-    An abbreviation.
-    """
-    NUMERICAL = ConversionPropertyType.NUMERICAL
-    """
-    A numeric word.
-    """
-    NOUN = ConversionPropertyType.NOUN
-    """
-    A noun.
-    """
-    VERB = ConversionPropertyType.VERB
-    """
-    A verb.
-    """
-    BRAND_NAME = ConversionPropertyType.BRAND_NAME
-    """
-    The name of a product or a company.
-    """
+        specifies the property type of an entry in a conversion dictionary.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        NOT_DEFINED = ConversionPropertyType.NOT_DEFINED
+        """
+        There is no property type defined or available.
+        """
+        OTHER = ConversionPropertyType.OTHER
+        """
+        Any word that does not fit into any of the other properties.
+        """
+        FOREIGN = ConversionPropertyType.FOREIGN
+        """
+        A word or term that is transliterated or used from a non-Chinese language.
+        """
+        FIRST_NAME = ConversionPropertyType.FIRST_NAME
+        """
+        The first name (given name) of a person.
+        """
+        LAST_NAME = ConversionPropertyType.LAST_NAME
+        """
+        The last name (family name) of a person.
+        """
+        TITLE = ConversionPropertyType.TITLE
+        """
+        The academic or social title of a person.
+        """
+        STATUS = ConversionPropertyType.STATUS
+        """
+        The status of a situation.
+        """
+        PLACE_NAME = ConversionPropertyType.PLACE_NAME
+        """
+        The name of a location or place.
+        """
+        BUSINESS = ConversionPropertyType.BUSINESS
+        """
+        The description of a business.
+        """
+        ADJECTIVE = ConversionPropertyType.ADJECTIVE
+        """
+        An adjective.
+        """
+        IDIOM = ConversionPropertyType.IDIOM
+        """
+        A term that is used to literally describe a circumstance.
+        """
+        ABBREVIATION = ConversionPropertyType.ABBREVIATION
+        """
+        An abbreviation.
+        """
+        NUMERICAL = ConversionPropertyType.NUMERICAL
+        """
+        A numeric word.
+        """
+        NOUN = ConversionPropertyType.NOUN
+        """
+        A noun.
+        """
+        VERB = ConversionPropertyType.VERB
+        """
+        A verb.
+        """
+        BRAND_NAME = ConversionPropertyType.BRAND_NAME
+        """
+        The name of a product or a company.
+        """
 
 __all__ = ['ConversionPropertyType', 'ConversionPropertyTypeEnum']

@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdb import CommandType as CommandType
+    if hasattr(CommandType, '_constants') and isinstance(CommandType._constants, dict):
+        CommandType._constants['__ooo_ns__'] = 'com.sun.star.sdb'
+        CommandType._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.CommandType'
+        CommandType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CommandTypeEnum
+        ls = [f for f in dir(CommandType) if not callable(getattr(CommandType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CommandType, name)
+        CommandTypeEnum = IntEnum('CommandTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdb.command_type import CommandType as CommandType
 
+    class CommandTypeEnum(IntEnum):
+        """
+        Enum of Const Class CommandType
 
-class CommandTypeEnum(IntEnum):
-    """
-    Enum of Const Class CommandType
-
-    indicates the type of a command.
-    """
-    TABLE = CommandType.TABLE
-    """
-    indicates that a command contains a table name, which can be used to process a command like \"select * from tablename\".
-    """
-    QUERY = CommandType.QUERY
-    """
-    indicates that a command contains a name of a query component, which contains a certain statement.
-    """
-    COMMAND = CommandType.COMMAND
-    """
-    indicates that the command is an SQL-Statement.
-    """
+        indicates the type of a command.
+        """
+        TABLE = CommandType.TABLE
+        """
+        indicates that a command contains a table name, which can be used to process a command like \"select * from tablename\".
+        """
+        QUERY = CommandType.QUERY
+        """
+        indicates that a command contains a name of a query component, which contains a certain statement.
+        """
+        COMMAND = CommandType.COMMAND
+        """
+        indicates that the command is an SQL-Statement.
+        """
 
 __all__ = ['CommandType', 'CommandTypeEnum']

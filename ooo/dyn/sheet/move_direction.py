@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import MoveDirection as MoveDirection
+    if hasattr(MoveDirection, '_constants') and isinstance(MoveDirection._constants, dict):
+        MoveDirection._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        MoveDirection._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.MoveDirection'
+        MoveDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MoveDirectionEnum
+        ls = [f for f in dir(MoveDirection) if not callable(getattr(MoveDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MoveDirection, name)
+        MoveDirectionEnum = IntEnum('MoveDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.move_direction import MoveDirection as MoveDirection
 
+    class MoveDirectionEnum(IntEnum):
+        """
+        Enum of Const Class MoveDirection
 
-class MoveDirectionEnum(IntEnum):
-    """
-    Enum of Const Class MoveDirection
-
-    used to specify the direction of moving the current selection i.e.
-    
-    after a cell has been left with Enter.
-    """
-    DOWN = MoveDirection.DOWN
-    """
-    specifies that the selection moves one cell down.
-    """
-    RIGHT = MoveDirection.RIGHT
-    """
-    specifies that the selection moves one cell right.
-    """
-    UP = MoveDirection.UP
-    """
-    specifies that the selection moves one cell up.
-    """
-    LEFT = MoveDirection.LEFT
-    """
-    specifies that the selection moves one cell left.
-    """
+        used to specify the direction of moving the current selection i.e.
+        
+        after a cell has been left with Enter.
+        """
+        DOWN = MoveDirection.DOWN
+        """
+        specifies that the selection moves one cell down.
+        """
+        RIGHT = MoveDirection.RIGHT
+        """
+        specifies that the selection moves one cell right.
+        """
+        UP = MoveDirection.UP
+        """
+        specifies that the selection moves one cell up.
+        """
+        LEFT = MoveDirection.LEFT
+        """
+        specifies that the selection moves one cell left.
+        """
 
 __all__ = ['MoveDirection', 'MoveDirectionEnum']

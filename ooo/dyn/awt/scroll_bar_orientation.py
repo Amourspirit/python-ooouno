@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import ScrollBarOrientation as ScrollBarOrientation
+    if hasattr(ScrollBarOrientation, '_constants') and isinstance(ScrollBarOrientation._constants, dict):
+        ScrollBarOrientation._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        ScrollBarOrientation._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ScrollBarOrientation'
+        ScrollBarOrientation._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ScrollBarOrientationEnum
+        ls = [f for f in dir(ScrollBarOrientation) if not callable(getattr(ScrollBarOrientation, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ScrollBarOrientation, name)
+        ScrollBarOrientationEnum = IntEnum('ScrollBarOrientationEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.scroll_bar_orientation import ScrollBarOrientation as ScrollBarOrientation
 
+    class ScrollBarOrientationEnum(IntEnum):
+        """
+        Enum of Const Class ScrollBarOrientation
 
-class ScrollBarOrientationEnum(IntEnum):
-    """
-    Enum of Const Class ScrollBarOrientation
-
-    These constants are used to specify the orientation of a scroll bar.
-    """
-    HORIZONTAL = ScrollBarOrientation.HORIZONTAL
-    """
-    specifies a horizontal scroll bar.
-    """
-    VERTICAL = ScrollBarOrientation.VERTICAL
-    """
-    specifies a vertical scroll bar.
-    """
+        These constants are used to specify the orientation of a scroll bar.
+        """
+        HORIZONTAL = ScrollBarOrientation.HORIZONTAL
+        """
+        specifies a horizontal scroll bar.
+        """
+        VERTICAL = ScrollBarOrientation.VERTICAL
+        """
+        specifies a vertical scroll bar.
+        """
 
 __all__ = ['ScrollBarOrientation', 'ScrollBarOrientationEnum']

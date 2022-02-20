@@ -27,18 +27,29 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.style import FootnoteLineStyle as FootnoteLineStyle
+    if hasattr(FootnoteLineStyle, '_constants') and isinstance(FootnoteLineStyle._constants, dict):
+        FootnoteLineStyle._constants['__ooo_ns__'] = 'com.sun.star.style'
+        FootnoteLineStyle._constants['__ooo_full_ns__'] = 'com.sun.star.style.FootnoteLineStyle'
+        FootnoteLineStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FootnoteLineStyleEnum
+        ls = [f for f in dir(FootnoteLineStyle) if not callable(getattr(FootnoteLineStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FootnoteLineStyle, name)
+        FootnoteLineStyleEnum = IntEnum('FootnoteLineStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.style.footnote_line_style import FootnoteLineStyle as FootnoteLineStyle
 
+    class FootnoteLineStyleEnum(IntEnum):
+        """
+        Enum of Const Class FootnoteLineStyle
 
-class FootnoteLineStyleEnum(IntEnum):
-    """
-    Enum of Const Class FootnoteLineStyle
-
-    """
-    NONE = FootnoteLineStyle.NONE
-    SOLID = FootnoteLineStyle.SOLID
-    DOTTED = FootnoteLineStyle.DOTTED
-    DASHED = FootnoteLineStyle.DASHED
+        """
+        NONE = FootnoteLineStyle.NONE
+        SOLID = FootnoteLineStyle.SOLID
+        DOTTED = FootnoteLineStyle.DOTTED
+        DASHED = FootnoteLineStyle.DASHED
 
 __all__ = ['FootnoteLineStyle', 'FootnoteLineStyleEnum']

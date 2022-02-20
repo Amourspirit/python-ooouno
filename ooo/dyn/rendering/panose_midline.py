@@ -27,28 +27,39 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseMidline as PanoseMidline
+    if hasattr(PanoseMidline, '_constants') and isinstance(PanoseMidline._constants, dict):
+        PanoseMidline._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseMidline._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseMidline'
+        PanoseMidline._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseMidlineEnum
+        ls = [f for f in dir(PanoseMidline) if not callable(getattr(PanoseMidline, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseMidline, name)
+        PanoseMidlineEnum = IntEnum('PanoseMidlineEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_midline import PanoseMidline as PanoseMidline
 
+    class PanoseMidlineEnum(IntEnum):
+        """
+        Enum of Const Class PanoseMidline
 
-class PanoseMidlineEnum(IntEnum):
-    """
-    Enum of Const Class PanoseMidline
-
-    """
-    ANYTHING = PanoseMidline.ANYTHING
-    NO_FIT = PanoseMidline.NO_FIT
-    STANDARD_TRIMMED = PanoseMidline.STANDARD_TRIMMED
-    STANDARD_POINTED = PanoseMidline.STANDARD_POINTED
-    STANDARD_SERIFED = PanoseMidline.STANDARD_SERIFED
-    HIGH_TRIMMER = PanoseMidline.HIGH_TRIMMER
-    HIGH_POINTED = PanoseMidline.HIGH_POINTED
-    HIGH_SERIFED = PanoseMidline.HIGH_SERIFED
-    CONSTANT_TRIMMED = PanoseMidline.CONSTANT_TRIMMED
-    CONSTANT_POINTED = PanoseMidline.CONSTANT_POINTED
-    CONSTANT_SERIFED = PanoseMidline.CONSTANT_SERIFED
-    LOW_TRIMMED = PanoseMidline.LOW_TRIMMED
-    LOW_POINTED = PanoseMidline.LOW_POINTED
-    LOW_SERIFED = PanoseMidline.LOW_SERIFED
+        """
+        ANYTHING = PanoseMidline.ANYTHING
+        NO_FIT = PanoseMidline.NO_FIT
+        STANDARD_TRIMMED = PanoseMidline.STANDARD_TRIMMED
+        STANDARD_POINTED = PanoseMidline.STANDARD_POINTED
+        STANDARD_SERIFED = PanoseMidline.STANDARD_SERIFED
+        HIGH_TRIMMER = PanoseMidline.HIGH_TRIMMER
+        HIGH_POINTED = PanoseMidline.HIGH_POINTED
+        HIGH_SERIFED = PanoseMidline.HIGH_SERIFED
+        CONSTANT_TRIMMED = PanoseMidline.CONSTANT_TRIMMED
+        CONSTANT_POINTED = PanoseMidline.CONSTANT_POINTED
+        CONSTANT_SERIFED = PanoseMidline.CONSTANT_SERIFED
+        LOW_TRIMMED = PanoseMidline.LOW_TRIMMED
+        LOW_POINTED = PanoseMidline.LOW_POINTED
+        LOW_SERIFED = PanoseMidline.LOW_SERIFED
 
 __all__ = ['PanoseMidline', 'PanoseMidlineEnum']

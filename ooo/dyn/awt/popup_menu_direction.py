@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import PopupMenuDirection as PopupMenuDirection
+    if hasattr(PopupMenuDirection, '_constants') and isinstance(PopupMenuDirection._constants, dict):
+        PopupMenuDirection._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        PopupMenuDirection._constants['__ooo_full_ns__'] = 'com.sun.star.awt.PopupMenuDirection'
+        PopupMenuDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PopupMenuDirectionEnum
+        ls = [f for f in dir(PopupMenuDirection) if not callable(getattr(PopupMenuDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PopupMenuDirection, name)
+        PopupMenuDirectionEnum = IntFlag('PopupMenuDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.popup_menu_direction import PopupMenuDirection as PopupMenuDirection
 
+    class PopupMenuDirectionEnum(IntFlag):
+        """
+        Enum of Const Class PopupMenuDirection
 
-class PopupMenuDirectionEnum(IntFlag):
-    """
-    Enum of Const Class PopupMenuDirection
-
-    These values are used to specify the direction in which a pop-up menu will grow.
-    
-    They may be expanded in future versions.
-    """
-    EXECUTE_DEFAULT = PopupMenuDirection.EXECUTE_DEFAULT
-    """
-    opens on execute in a default direction.
-    """
-    EXECUTE_DOWN = PopupMenuDirection.EXECUTE_DOWN
-    """
-    opens on execute downwards.
-    """
-    EXECUTE_UP = PopupMenuDirection.EXECUTE_UP
-    """
-    opens on execute upwards.
-    """
-    EXECUTE_LEFT = PopupMenuDirection.EXECUTE_LEFT
-    """
-    opens on execute to the left.
-    """
-    EXECUTE_RIGHT = PopupMenuDirection.EXECUTE_RIGHT
-    """
-    opens on execute to the right.
-    """
+        These values are used to specify the direction in which a pop-up menu will grow.
+        
+        They may be expanded in future versions.
+        """
+        EXECUTE_DEFAULT = PopupMenuDirection.EXECUTE_DEFAULT
+        """
+        opens on execute in a default direction.
+        """
+        EXECUTE_DOWN = PopupMenuDirection.EXECUTE_DOWN
+        """
+        opens on execute downwards.
+        """
+        EXECUTE_UP = PopupMenuDirection.EXECUTE_UP
+        """
+        opens on execute upwards.
+        """
+        EXECUTE_LEFT = PopupMenuDirection.EXECUTE_LEFT
+        """
+        opens on execute to the left.
+        """
+        EXECUTE_RIGHT = PopupMenuDirection.EXECUTE_RIGHT
+        """
+        opens on execute to the right.
+        """
 
 __all__ = ['PopupMenuDirection', 'PopupMenuDirectionEnum']

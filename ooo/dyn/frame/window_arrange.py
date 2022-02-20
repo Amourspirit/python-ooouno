@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import WindowArrange as WindowArrange
+    if hasattr(WindowArrange, '_constants') and isinstance(WindowArrange._constants, dict):
+        WindowArrange._constants['__ooo_ns__'] = 'com.sun.star.frame'
+        WindowArrange._constants['__ooo_full_ns__'] = 'com.sun.star.frame.WindowArrange'
+        WindowArrange._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WindowArrangeEnum
+        ls = [f for f in dir(WindowArrange) if not callable(getattr(WindowArrange, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WindowArrange, name)
+        WindowArrangeEnum = IntEnum('WindowArrangeEnum', _dict)
+    build_enum()
 else:
     from ...lo.frame.window_arrange import WindowArrange as WindowArrange
 
+    class WindowArrangeEnum(IntEnum):
+        """
+        Enum of Const Class WindowArrange
 
-class WindowArrangeEnum(IntEnum):
-    """
-    Enum of Const Class WindowArrange
-
-    these constants are used to specify a style of window arrangement
-    """
-    TILE = WindowArrange.TILE
-    """
-    arranges the windows in tiles
-    """
-    VERTICAL = WindowArrange.VERTICAL
-    """
-    arranges the windows vertically
-    """
-    HORIZONTAL = WindowArrange.HORIZONTAL
-    """
-    arranges the windows horizontally
-    """
-    CASCADE = WindowArrange.CASCADE
-    """
-    cascades the windows
-    """
-    MAXIMIZE = WindowArrange.MAXIMIZE
-    """
-    maximizes all windows
-    """
-    MINIMIZE = WindowArrange.MINIMIZE
-    """
-    minimizes all windows
-    """
+        these constants are used to specify a style of window arrangement
+        """
+        TILE = WindowArrange.TILE
+        """
+        arranges the windows in tiles
+        """
+        VERTICAL = WindowArrange.VERTICAL
+        """
+        arranges the windows vertically
+        """
+        HORIZONTAL = WindowArrange.HORIZONTAL
+        """
+        arranges the windows horizontally
+        """
+        CASCADE = WindowArrange.CASCADE
+        """
+        cascades the windows
+        """
+        MAXIMIZE = WindowArrange.MAXIMIZE
+        """
+        maximizes all windows
+        """
+        MINIMIZE = WindowArrange.MINIMIZE
+        """
+        minimizes all windows
+        """
 
 __all__ = ['WindowArrange', 'WindowArrangeEnum']

@@ -27,53 +27,64 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbcx import Privilege as Privilege
+    if hasattr(Privilege, '_constants') and isinstance(Privilege._constants, dict):
+        Privilege._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
+        Privilege._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.Privilege'
+        Privilege._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PrivilegeEnum
+        ls = [f for f in dir(Privilege) if not callable(getattr(Privilege, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Privilege, name)
+        PrivilegeEnum = IntFlag('PrivilegeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbcx.privilege import Privilege as Privilege
 
+    class PrivilegeEnum(IntFlag):
+        """
+        Enum of Const Class Privilege
 
-class PrivilegeEnum(IntFlag):
-    """
-    Enum of Const Class Privilege
-
-    defines a list of flags (bitmaps) which determines the access rights of a user or a user group.
-    
-    This list may grow in the future.
-    """
-    SELECT = Privilege.SELECT
-    """
-    indicates that a user is allowed to read the data.
-    """
-    INSERT = Privilege.INSERT
-    """
-    indicates that a user is allowed to insert new data.
-    """
-    UPDATE = Privilege.UPDATE
-    """
-    indicates that a user is allowed to update data.
-    """
-    DELETE = Privilege.DELETE
-    """
-    indicates that a user is allowed to delete data.
-    """
-    READ = Privilege.READ
-    """
-    indicates that a user is allowed to read the structure of a definition object.
-    """
-    CREATE = Privilege.CREATE
-    """
-    indicates that a user is allowed to create a definition object.
-    """
-    ALTER = Privilege.ALTER
-    """
-    indicates that a user is allowed to alter an existing object.
-    """
-    REFERENCE = Privilege.REFERENCE
-    """
-    indicates that a user is allowed to set foreign keys for a table.
-    """
-    DROP = Privilege.DROP
-    """
-    indicates that a user is allowed to drop a definition object.
-    """
+        defines a list of flags (bitmaps) which determines the access rights of a user or a user group.
+        
+        This list may grow in the future.
+        """
+        SELECT = Privilege.SELECT
+        """
+        indicates that a user is allowed to read the data.
+        """
+        INSERT = Privilege.INSERT
+        """
+        indicates that a user is allowed to insert new data.
+        """
+        UPDATE = Privilege.UPDATE
+        """
+        indicates that a user is allowed to update data.
+        """
+        DELETE = Privilege.DELETE
+        """
+        indicates that a user is allowed to delete data.
+        """
+        READ = Privilege.READ
+        """
+        indicates that a user is allowed to read the structure of a definition object.
+        """
+        CREATE = Privilege.CREATE
+        """
+        indicates that a user is allowed to create a definition object.
+        """
+        ALTER = Privilege.ALTER
+        """
+        indicates that a user is allowed to alter an existing object.
+        """
+        REFERENCE = Privilege.REFERENCE
+        """
+        indicates that a user is allowed to set foreign keys for a table.
+        """
+        DROP = Privilege.DROP
+        """
+        indicates that a user is allowed to drop a definition object.
+        """
 
 __all__ = ['Privilege', 'PrivilegeEnum']

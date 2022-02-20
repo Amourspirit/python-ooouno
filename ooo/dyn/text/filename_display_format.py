@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import FilenameDisplayFormat as FilenameDisplayFormat
+    if hasattr(FilenameDisplayFormat, '_constants') and isinstance(FilenameDisplayFormat._constants, dict):
+        FilenameDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        FilenameDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.FilenameDisplayFormat'
+        FilenameDisplayFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FilenameDisplayFormatEnum
+        ls = [f for f in dir(FilenameDisplayFormat) if not callable(getattr(FilenameDisplayFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FilenameDisplayFormat, name)
+        FilenameDisplayFormatEnum = IntEnum('FilenameDisplayFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.filename_display_format import FilenameDisplayFormat as FilenameDisplayFormat
 
+    class FilenameDisplayFormatEnum(IntEnum):
+        """
+        Enum of Const Class FilenameDisplayFormat
 
-class FilenameDisplayFormatEnum(IntEnum):
-    """
-    Enum of Const Class FilenameDisplayFormat
-
-    These constants are used to specify which parts of a URL are displayed in a field.
-    """
-    FULL = FilenameDisplayFormat.FULL
-    """
-    The content of the URL is completely displayed.
-    """
-    PATH = FilenameDisplayFormat.PATH
-    """
-    Only the path of the file is displayed.
-    """
-    NAME = FilenameDisplayFormat.NAME
-    """
-    Only the name of the file without the file extension is displayed.
-    """
-    NAME_AND_EXT = FilenameDisplayFormat.NAME_AND_EXT
-    """
-    The file name including the file extension is displayed.
-    """
+        These constants are used to specify which parts of a URL are displayed in a field.
+        """
+        FULL = FilenameDisplayFormat.FULL
+        """
+        The content of the URL is completely displayed.
+        """
+        PATH = FilenameDisplayFormat.PATH
+        """
+        Only the path of the file is displayed.
+        """
+        NAME = FilenameDisplayFormat.NAME
+        """
+        Only the name of the file without the file extension is displayed.
+        """
+        NAME_AND_EXT = FilenameDisplayFormat.NAME_AND_EXT
+        """
+        The file name including the file extension is displayed.
+        """
 
 __all__ = ['FilenameDisplayFormat', 'FilenameDisplayFormatEnum']

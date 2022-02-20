@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import FormulaResult as FormulaResult
+    if hasattr(FormulaResult, '_constants') and isinstance(FormulaResult._constants, dict):
+        FormulaResult._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        FormulaResult._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaResult'
+        FormulaResult._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FormulaResultEnum
+        ls = [f for f in dir(FormulaResult) if not callable(getattr(FormulaResult, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FormulaResult, name)
+        FormulaResultEnum = IntFlag('FormulaResultEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.formula_result import FormulaResult as FormulaResult
 
+    class FormulaResultEnum(IntFlag):
+        """
+        Enum of Const Class FormulaResult
 
-class FormulaResultEnum(IntFlag):
-    """
-    Enum of Const Class FormulaResult
-
-    used to select different result types of cell formulas.
-    """
-    VALUE = FormulaResult.VALUE
-    """
-    selects numeric results.
-    """
-    STRING = FormulaResult.STRING
-    """
-    selects non-numeric results.
-    """
-    ERROR = FormulaResult.ERROR
-    """
-    selects errors.
-    """
+        used to select different result types of cell formulas.
+        """
+        VALUE = FormulaResult.VALUE
+        """
+        selects numeric results.
+        """
+        STRING = FormulaResult.STRING
+        """
+        selects non-numeric results.
+        """
+        ERROR = FormulaResult.ERROR
+        """
+        selects errors.
+        """
 
 __all__ = ['FormulaResult', 'FormulaResultEnum']

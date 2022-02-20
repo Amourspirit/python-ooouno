@@ -27,63 +27,74 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import Months as Months
+    if hasattr(Months, '_constants') and isinstance(Months._constants, dict):
+        Months._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        Months._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.Months'
+        Months._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MonthsEnum
+        ls = [f for f in dir(Months) if not callable(getattr(Months, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Months, name)
+        MonthsEnum = IntEnum('MonthsEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.months import Months as Months
 
+    class MonthsEnum(IntEnum):
+        """
+        Enum of Const Class Months
 
-class MonthsEnum(IntEnum):
-    """
-    Enum of Const Class Months
-
-    Constants for month names used in calls to XCalendar.getDisplayName().
-    """
-    JANUARY = Months.JANUARY
-    """
-    January.
-    """
-    FEBURARY = Months.FEBURARY
-    """
-    February.
-    """
-    MARCH = Months.MARCH
-    """
-    March.
-    """
-    APRIL = Months.APRIL
-    """
-    April.
-    """
-    MAY = Months.MAY
-    """
-    May.
-    """
-    JUNE = Months.JUNE
-    """
-    June.
-    """
-    JULY = Months.JULY
-    """
-    July.
-    """
-    AUGUST = Months.AUGUST
-    """
-    August.
-    """
-    SEPTEMBER = Months.SEPTEMBER
-    """
-    September.
-    """
-    OCTOBER = Months.OCTOBER
-    """
-    October.
-    """
-    NOVEMBER = Months.NOVEMBER
-    """
-    November.
-    """
-    DECEMBER = Months.DECEMBER
-    """
-    December.
-    """
+        Constants for month names used in calls to XCalendar.getDisplayName().
+        """
+        JANUARY = Months.JANUARY
+        """
+        January.
+        """
+        FEBURARY = Months.FEBURARY
+        """
+        February.
+        """
+        MARCH = Months.MARCH
+        """
+        March.
+        """
+        APRIL = Months.APRIL
+        """
+        April.
+        """
+        MAY = Months.MAY
+        """
+        May.
+        """
+        JUNE = Months.JUNE
+        """
+        June.
+        """
+        JULY = Months.JULY
+        """
+        July.
+        """
+        AUGUST = Months.AUGUST
+        """
+        August.
+        """
+        SEPTEMBER = Months.SEPTEMBER
+        """
+        September.
+        """
+        OCTOBER = Months.OCTOBER
+        """
+        October.
+        """
+        NOVEMBER = Months.NOVEMBER
+        """
+        November.
+        """
+        DECEMBER = Months.DECEMBER
+        """
+        December.
+        """
 
 __all__ = ['Months', 'MonthsEnum']

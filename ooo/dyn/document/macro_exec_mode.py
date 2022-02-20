@@ -27,77 +27,88 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import MacroExecMode as MacroExecMode
+    if hasattr(MacroExecMode, '_constants') and isinstance(MacroExecMode._constants, dict):
+        MacroExecMode._constants['__ooo_ns__'] = 'com.sun.star.document'
+        MacroExecMode._constants['__ooo_full_ns__'] = 'com.sun.star.document.MacroExecMode'
+        MacroExecMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MacroExecModeEnum
+        ls = [f for f in dir(MacroExecMode) if not callable(getattr(MacroExecMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MacroExecMode, name)
+        MacroExecModeEnum = IntEnum('MacroExecModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.document.macro_exec_mode import MacroExecMode as MacroExecMode
 
+    class MacroExecModeEnum(IntEnum):
+        """
+        Enum of Const Class MacroExecMode
 
-class MacroExecModeEnum(IntEnum):
-    """
-    Enum of Const Class MacroExecMode
-
-    Specify whether a macro can be executed.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    NEVER_EXECUTE = MacroExecMode.NEVER_EXECUTE
-    """
-    A macro should not be executed at all.
-    """
-    FROM_LIST = MacroExecMode.FROM_LIST
-    """
-    Execute macros from secure list quietly.
-    
-    If a macro is not in the list a confirmation for it executing will appear.
-    """
-    ALWAYS_EXECUTE = MacroExecMode.ALWAYS_EXECUTE
-    """
-    Execute any macro, macros signed with trusted certificates and macros from secure list are executed quietly.
-    
-    If the macro is neither in secure list nor signed a conformation will be requested.
-    """
-    USE_CONFIG = MacroExecMode.USE_CONFIG
-    """
-    Use configuration to retrieve macro settings.
-    
-    In case a user confirmation is required a dialog is output.
-    """
-    ALWAYS_EXECUTE_NO_WARN = MacroExecMode.ALWAYS_EXECUTE_NO_WARN
-    """
-    A macro should be executed always no conformation should be provided.
-    """
-    USE_CONFIG_REJECT_CONFIRMATION = MacroExecMode.USE_CONFIG_REJECT_CONFIRMATION
-    """
-    Use configuration to retrieve macro settings.
-    
-    Treat cases when user confirmation required as rejected.
-    """
-    USE_CONFIG_APPROVE_CONFIRMATION = MacroExecMode.USE_CONFIG_APPROVE_CONFIRMATION
-    """
-    Use configuration to retrieve macro settings.
-    
-    Treat cases when user confirmation required as approved.
-    """
-    FROM_LIST_NO_WARN = MacroExecMode.FROM_LIST_NO_WARN
-    """
-    Execute only macros from secure list.
-    
-    Macros that are not from the list are not executed.
-    """
-    FROM_LIST_AND_SIGNED_WARN = MacroExecMode.FROM_LIST_AND_SIGNED_WARN
-    """
-    Execute only macros from secure list or macros that are signed by trusted certificates.
-    
-    If the macro is neither in secure list nor signed it will not be executed.
-    
-    If the macro is signed with unknown certificate a warning will appear. The macro either will not be executed or if the warning allows conformation, it will be executed after user agrees.
-    """
-    FROM_LIST_AND_SIGNED_NO_WARN = MacroExecMode.FROM_LIST_AND_SIGNED_NO_WARN
-    """
-    Execute only macros from secure list or macros that are signed by trusted certificates.
-    
-    No warning/conformation should be shown.
-    """
+        Specify whether a macro can be executed.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        NEVER_EXECUTE = MacroExecMode.NEVER_EXECUTE
+        """
+        A macro should not be executed at all.
+        """
+        FROM_LIST = MacroExecMode.FROM_LIST
+        """
+        Execute macros from secure list quietly.
+        
+        If a macro is not in the list a confirmation for it executing will appear.
+        """
+        ALWAYS_EXECUTE = MacroExecMode.ALWAYS_EXECUTE
+        """
+        Execute any macro, macros signed with trusted certificates and macros from secure list are executed quietly.
+        
+        If the macro is neither in secure list nor signed a conformation will be requested.
+        """
+        USE_CONFIG = MacroExecMode.USE_CONFIG
+        """
+        Use configuration to retrieve macro settings.
+        
+        In case a user confirmation is required a dialog is output.
+        """
+        ALWAYS_EXECUTE_NO_WARN = MacroExecMode.ALWAYS_EXECUTE_NO_WARN
+        """
+        A macro should be executed always no conformation should be provided.
+        """
+        USE_CONFIG_REJECT_CONFIRMATION = MacroExecMode.USE_CONFIG_REJECT_CONFIRMATION
+        """
+        Use configuration to retrieve macro settings.
+        
+        Treat cases when user confirmation required as rejected.
+        """
+        USE_CONFIG_APPROVE_CONFIRMATION = MacroExecMode.USE_CONFIG_APPROVE_CONFIRMATION
+        """
+        Use configuration to retrieve macro settings.
+        
+        Treat cases when user confirmation required as approved.
+        """
+        FROM_LIST_NO_WARN = MacroExecMode.FROM_LIST_NO_WARN
+        """
+        Execute only macros from secure list.
+        
+        Macros that are not from the list are not executed.
+        """
+        FROM_LIST_AND_SIGNED_WARN = MacroExecMode.FROM_LIST_AND_SIGNED_WARN
+        """
+        Execute only macros from secure list or macros that are signed by trusted certificates.
+        
+        If the macro is neither in secure list nor signed it will not be executed.
+        
+        If the macro is signed with unknown certificate a warning will appear. The macro either will not be executed or if the warning allows conformation, it will be executed after user agrees.
+        """
+        FROM_LIST_AND_SIGNED_NO_WARN = MacroExecMode.FROM_LIST_AND_SIGNED_NO_WARN
+        """
+        Execute only macros from secure list or macros that are signed by trusted certificates.
+        
+        No warning/conformation should be shown.
+        """
 
 __all__ = ['MacroExecMode', 'MacroExecModeEnum']

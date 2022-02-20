@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import ChartAxisAssign as ChartAxisAssign
+    if hasattr(ChartAxisAssign, '_constants') and isinstance(ChartAxisAssign._constants, dict):
+        ChartAxisAssign._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        ChartAxisAssign._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartAxisAssign'
+        ChartAxisAssign._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChartAxisAssignEnum
+        ls = [f for f in dir(ChartAxisAssign) if not callable(getattr(ChartAxisAssign, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChartAxisAssign, name)
+        ChartAxisAssignEnum = IntFlag('ChartAxisAssignEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.chart_axis_assign import ChartAxisAssign as ChartAxisAssign
 
+    class ChartAxisAssignEnum(IntFlag):
+        """
+        Enum of Const Class ChartAxisAssign
 
-class ChartAxisAssignEnum(IntFlag):
-    """
-    Enum of Const Class ChartAxisAssign
-
-    These values specify to which y-axis a data row is assigned.
-    """
-    PRIMARY_Y = ChartAxisAssign.PRIMARY_Y
-    """
-    Assign row to primary y-axis.
-    """
-    SECONDARY_Y = ChartAxisAssign.SECONDARY_Y
-    """
-    Assign row to secondary y-axis.
-    """
+        These values specify to which y-axis a data row is assigned.
+        """
+        PRIMARY_Y = ChartAxisAssign.PRIMARY_Y
+        """
+        Assign row to primary y-axis.
+        """
+        SECONDARY_Y = ChartAxisAssign.SECONDARY_Y
+        """
+        Assign row to secondary y-axis.
+        """
 
 __all__ = ['ChartAxisAssign', 'ChartAxisAssignEnum']

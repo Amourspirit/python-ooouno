@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import FontRelief as FontRelief
+    if hasattr(FontRelief, '_constants') and isinstance(FontRelief._constants, dict):
+        FontRelief._constants['__ooo_ns__'] = 'com.sun.star.text'
+        FontRelief._constants['__ooo_full_ns__'] = 'com.sun.star.text.FontRelief'
+        FontRelief._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontReliefEnum
+        ls = [f for f in dir(FontRelief) if not callable(getattr(FontRelief, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontRelief, name)
+        FontReliefEnum = IntEnum('FontReliefEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.font_relief import FontRelief as FontRelief
 
+    class FontReliefEnum(IntEnum):
+        """
+        Enum of Const Class FontRelief
 
-class FontReliefEnum(IntEnum):
-    """
-    Enum of Const Class FontRelief
-
-    Determines the relief type of a font.
-    """
-    NONE = FontRelief.NONE
-    """
-    no relief is used.
-    """
-    EMBOSSED = FontRelief.EMBOSSED
-    """
-    the font relief is embossed.
-    """
-    ENGRAVED = FontRelief.ENGRAVED
-    """
-    the font relief is engraved.
-    """
+        Determines the relief type of a font.
+        """
+        NONE = FontRelief.NONE
+        """
+        no relief is used.
+        """
+        EMBOSSED = FontRelief.EMBOSSED
+        """
+        the font relief is embossed.
+        """
+        ENGRAVED = FontRelief.ENGRAVED
+        """
+        the font relief is engraved.
+        """
 
 __all__ = ['FontRelief', 'FontReliefEnum']

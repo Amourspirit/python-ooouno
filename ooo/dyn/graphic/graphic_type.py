@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.graphic import GraphicType as GraphicType
+    if hasattr(GraphicType, '_constants') and isinstance(GraphicType._constants, dict):
+        GraphicType._constants['__ooo_ns__'] = 'com.sun.star.graphic'
+        GraphicType._constants['__ooo_full_ns__'] = 'com.sun.star.graphic.GraphicType'
+        GraphicType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global GraphicTypeEnum
+        ls = [f for f in dir(GraphicType) if not callable(getattr(GraphicType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(GraphicType, name)
+        GraphicTypeEnum = IntEnum('GraphicTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.graphic.graphic_type import GraphicType as GraphicType
 
+    class GraphicTypeEnum(IntEnum):
+        """
+        Enum of Const Class GraphicType
 
-class GraphicTypeEnum(IntEnum):
-    """
-    Enum of Const Class GraphicType
-
-    Constants that describe the type of graphic.
-    """
-    EMPTY = GraphicType.EMPTY
-    """
-    Graphic is empty.
-    """
-    PIXEL = GraphicType.PIXEL
-    """
-    Graphic is represented through single pixels.
-    """
-    VECTOR = GraphicType.VECTOR
-    """
-    Graphic is represented through vectors.
-    """
+        Constants that describe the type of graphic.
+        """
+        EMPTY = GraphicType.EMPTY
+        """
+        Graphic is empty.
+        """
+        PIXEL = GraphicType.PIXEL
+        """
+        Graphic is represented through single pixels.
+        """
+        VECTOR = GraphicType.VECTOR
+        """
+        Graphic is represented through vectors.
+        """
 
 __all__ = ['GraphicType', 'GraphicTypeEnum']

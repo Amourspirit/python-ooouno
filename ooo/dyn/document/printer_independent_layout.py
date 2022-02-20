@@ -27,32 +27,43 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import PrinterIndependentLayout as PrinterIndependentLayout
+    if hasattr(PrinterIndependentLayout, '_constants') and isinstance(PrinterIndependentLayout._constants, dict):
+        PrinterIndependentLayout._constants['__ooo_ns__'] = 'com.sun.star.document'
+        PrinterIndependentLayout._constants['__ooo_full_ns__'] = 'com.sun.star.document.PrinterIndependentLayout'
+        PrinterIndependentLayout._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PrinterIndependentLayoutEnum
+        ls = [f for f in dir(PrinterIndependentLayout) if not callable(getattr(PrinterIndependentLayout, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PrinterIndependentLayout, name)
+        PrinterIndependentLayoutEnum = IntEnum('PrinterIndependentLayoutEnum', _dict)
+    build_enum()
 else:
     from ...lo.document.printer_independent_layout import PrinterIndependentLayout as PrinterIndependentLayout
 
+    class PrinterIndependentLayoutEnum(IntEnum):
+        """
+        Enum of Const Class PrinterIndependentLayout
 
-class PrinterIndependentLayoutEnum(IntEnum):
-    """
-    Enum of Const Class PrinterIndependentLayout
-
-    specifies whether the document printer metric is used.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    DISABLED = PrinterIndependentLayout.DISABLED
-    """
-    use printer-dependent metrics for layout
-    """
-    LOW_RESOLUTION = PrinterIndependentLayout.LOW_RESOLUTION
-    """
-    use printer-independent metrics for layout, assuming a generic 600dpi printer
-    """
-    ENABLED = PrinterIndependentLayout.ENABLED
-    HIGH_RESOLUTION = PrinterIndependentLayout.HIGH_RESOLUTION
-    """
-    use printer-independent metrics for layout, assuming a generic high-resolution printer (4800dpi)
-    """
+        specifies whether the document printer metric is used.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        DISABLED = PrinterIndependentLayout.DISABLED
+        """
+        use printer-dependent metrics for layout
+        """
+        LOW_RESOLUTION = PrinterIndependentLayout.LOW_RESOLUTION
+        """
+        use printer-independent metrics for layout, assuming a generic 600dpi printer
+        """
+        ENABLED = PrinterIndependentLayout.ENABLED
+        HIGH_RESOLUTION = PrinterIndependentLayout.HIGH_RESOLUTION
+        """
+        use printer-independent metrics for layout, assuming a generic high-resolution printer (4800dpi)
+        """
 
 __all__ = ['PrinterIndependentLayout', 'PrinterIndependentLayoutEnum']

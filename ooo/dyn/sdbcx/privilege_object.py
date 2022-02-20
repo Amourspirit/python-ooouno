@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbcx import PrivilegeObject as PrivilegeObject
+    if hasattr(PrivilegeObject, '_constants') and isinstance(PrivilegeObject._constants, dict):
+        PrivilegeObject._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
+        PrivilegeObject._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.PrivilegeObject'
+        PrivilegeObject._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PrivilegeObjectEnum
+        ls = [f for f in dir(PrivilegeObject) if not callable(getattr(PrivilegeObject, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PrivilegeObject, name)
+        PrivilegeObjectEnum = IntEnum('PrivilegeObjectEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
 
+    class PrivilegeObjectEnum(IntEnum):
+        """
+        Enum of Const Class PrivilegeObject
 
-class PrivilegeObjectEnum(IntEnum):
-    """
-    Enum of Const Class PrivilegeObject
-
-    defines the list of objects for which a user may have access rights or not.
-    
-    This list may grow in the future.
-    """
-    TABLE = PrivilegeObject.TABLE
-    """
-    indicates a table.
-    """
-    VIEW = PrivilegeObject.VIEW
-    """
-    indicates a view.
-    """
-    COLUMN = PrivilegeObject.COLUMN
-    """
-    indicates a column of a table.
-    """
+        defines the list of objects for which a user may have access rights or not.
+        
+        This list may grow in the future.
+        """
+        TABLE = PrivilegeObject.TABLE
+        """
+        indicates a table.
+        """
+        VIEW = PrivilegeObject.VIEW
+        """
+        indicates a view.
+        """
+        COLUMN = PrivilegeObject.COLUMN
+        """
+        indicates a column of a table.
+        """
 
 __all__ = ['PrivilegeObject', 'PrivilegeObjectEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import WizardTravelType as WizardTravelType
+    if hasattr(WizardTravelType, '_constants') and isinstance(WizardTravelType._constants, dict):
+        WizardTravelType._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        WizardTravelType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.WizardTravelType'
+        WizardTravelType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WizardTravelTypeEnum
+        ls = [f for f in dir(WizardTravelType) if not callable(getattr(WizardTravelType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WizardTravelType, name)
+        WizardTravelTypeEnum = IntEnum('WizardTravelTypeEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.wizard_travel_type import WizardTravelType as WizardTravelType
 
+    class WizardTravelTypeEnum(IntEnum):
+        """
+        Enum of Const Class WizardTravelType
 
-class WizardTravelTypeEnum(IntEnum):
-    """
-    Enum of Const Class WizardTravelType
-
-    denotes ways to leave a Wizard's page
-    
-    **since**
-    
-        OOo 3.3
-    """
-    FORWARD = WizardTravelType.FORWARD
-    """
-    indicates the wizard page is left due to forward traveling through the wizard
-    """
-    BACKWARD = WizardTravelType.BACKWARD
-    """
-    indicates the wizard page is left due to backward traveling through the wizard
-    """
-    FINISH = WizardTravelType.FINISH
-    """
-    indicates the wizard page is left since the wizard is about to be finished
-    """
+        denotes ways to leave a Wizard's page
+        
+        **since**
+        
+            OOo 3.3
+        """
+        FORWARD = WizardTravelType.FORWARD
+        """
+        indicates the wizard page is left due to forward traveling through the wizard
+        """
+        BACKWARD = WizardTravelType.BACKWARD
+        """
+        indicates the wizard page is left due to backward traveling through the wizard
+        """
+        FINISH = WizardTravelType.FINISH
+        """
+        indicates the wizard page is left since the wizard is about to be finished
+        """
 
 __all__ = ['WizardTravelType', 'WizardTravelTypeEnum']

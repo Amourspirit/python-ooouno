@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontStrikeout as FontStrikeout
+    if hasattr(FontStrikeout, '_constants') and isinstance(FontStrikeout._constants, dict):
+        FontStrikeout._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontStrikeout._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontStrikeout'
+        FontStrikeout._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontStrikeoutEnum
+        ls = [f for f in dir(FontStrikeout) if not callable(getattr(FontStrikeout, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontStrikeout, name)
+        FontStrikeoutEnum = IntEnum('FontStrikeoutEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_strikeout import FontStrikeout as FontStrikeout
 
+    class FontStrikeoutEnum(IntEnum):
+        """
+        Enum of Const Class FontStrikeout
 
-class FontStrikeoutEnum(IntEnum):
-    """
-    Enum of Const Class FontStrikeout
-
-    These values are used to specify the kind of strikeout.
-    
-    They may be expanded in future versions.
-    """
-    NONE = FontStrikeout.NONE
-    """
-    specifies not to strike out the characters.
-    """
-    SINGLE = FontStrikeout.SINGLE
-    """
-    specifies to strike out the characters with a single line.
-    """
-    DOUBLE = FontStrikeout.DOUBLE
-    """
-    specifies to strike out the characters with a double line.
-    """
-    DONTKNOW = FontStrikeout.DONTKNOW
-    """
-    The strikeout mode is not specified.
-    """
-    BOLD = FontStrikeout.BOLD
-    """
-    specifies to strike out the characters with a bold line.
-    """
-    SLASH = FontStrikeout.SLASH
-    """
-    specifies to strike out the characters with slashes.
-    """
-    X = FontStrikeout.X
-    """
-    specifies to strike out the characters with X's.
-    """
+        These values are used to specify the kind of strikeout.
+        
+        They may be expanded in future versions.
+        """
+        NONE = FontStrikeout.NONE
+        """
+        specifies not to strike out the characters.
+        """
+        SINGLE = FontStrikeout.SINGLE
+        """
+        specifies to strike out the characters with a single line.
+        """
+        DOUBLE = FontStrikeout.DOUBLE
+        """
+        specifies to strike out the characters with a double line.
+        """
+        DONTKNOW = FontStrikeout.DONTKNOW
+        """
+        The strikeout mode is not specified.
+        """
+        BOLD = FontStrikeout.BOLD
+        """
+        specifies to strike out the characters with a bold line.
+        """
+        SLASH = FontStrikeout.SLASH
+        """
+        specifies to strike out the characters with slashes.
+        """
+        X = FontStrikeout.X
+        """
+        specifies to strike out the characters with X's.
+        """
 
 __all__ = ['FontStrikeout', 'FontStrikeoutEnum']

@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import PlaceholderType as PlaceholderType
+    if hasattr(PlaceholderType, '_constants') and isinstance(PlaceholderType._constants, dict):
+        PlaceholderType._constants['__ooo_ns__'] = 'com.sun.star.text'
+        PlaceholderType._constants['__ooo_full_ns__'] = 'com.sun.star.text.PlaceholderType'
+        PlaceholderType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PlaceholderTypeEnum
+        ls = [f for f in dir(PlaceholderType) if not callable(getattr(PlaceholderType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PlaceholderType, name)
+        PlaceholderTypeEnum = IntEnum('PlaceholderTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.placeholder_type import PlaceholderType as PlaceholderType
 
+    class PlaceholderTypeEnum(IntEnum):
+        """
+        Enum of Const Class PlaceholderType
 
-class PlaceholderTypeEnum(IntEnum):
-    """
-    Enum of Const Class PlaceholderType
-
-    These constants define how the place-holder text fields act in a document.
-    """
-    TEXT = PlaceholderType.TEXT
-    """
-    The field represents a piece of text.
-    """
-    TABLE = PlaceholderType.TABLE
-    """
-    The field initiates the insertion of a text table.
-    """
-    TEXTFRAME = PlaceholderType.TEXTFRAME
-    """
-    The field initiates the insertion of a text frame.
-    """
-    GRAPHIC = PlaceholderType.GRAPHIC
-    """
-    The field initiates the insertion of a graphic object.
-    """
-    OBJECT = PlaceholderType.OBJECT
-    """
-    The field initiates the insertion of an embedded object.
-    """
+        These constants define how the place-holder text fields act in a document.
+        """
+        TEXT = PlaceholderType.TEXT
+        """
+        The field represents a piece of text.
+        """
+        TABLE = PlaceholderType.TABLE
+        """
+        The field initiates the insertion of a text table.
+        """
+        TEXTFRAME = PlaceholderType.TEXTFRAME
+        """
+        The field initiates the insertion of a text frame.
+        """
+        GRAPHIC = PlaceholderType.GRAPHIC
+        """
+        The field initiates the insertion of a graphic object.
+        """
+        OBJECT = PlaceholderType.OBJECT
+        """
+        The field initiates the insertion of an embedded object.
+        """
 
 __all__ = ['PlaceholderType', 'PlaceholderTypeEnum']

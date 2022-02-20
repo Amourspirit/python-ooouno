@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import CommandInfoChange as CommandInfoChange
+    if hasattr(CommandInfoChange, '_constants') and isinstance(CommandInfoChange._constants, dict):
+        CommandInfoChange._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        CommandInfoChange._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.CommandInfoChange'
+        CommandInfoChange._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CommandInfoChangeEnum
+        ls = [f for f in dir(CommandInfoChange) if not callable(getattr(CommandInfoChange, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CommandInfoChange, name)
+        CommandInfoChangeEnum = IntEnum('CommandInfoChangeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.command_info_change import CommandInfoChange as CommandInfoChange
 
+    class CommandInfoChangeEnum(IntEnum):
+        """
+        Enum of Const Class CommandInfoChange
 
-class CommandInfoChangeEnum(IntEnum):
-    """
-    Enum of Const Class CommandInfoChange
-
-    specifies reasons for sending CommandInfoChangeEvents.
-    """
-    COMMAND_INSERTED = CommandInfoChange.COMMAND_INSERTED
-    """
-    A command was inserted into a XCommandInfo.
-    """
-    COMMAND_REMOVED = CommandInfoChange.COMMAND_REMOVED
-    """
-    A command was removed from a XCommandInfo.
-    """
+        specifies reasons for sending CommandInfoChangeEvents.
+        """
+        COMMAND_INSERTED = CommandInfoChange.COMMAND_INSERTED
+        """
+        A command was inserted into a XCommandInfo.
+        """
+        COMMAND_REMOVED = CommandInfoChange.COMMAND_REMOVED
+        """
+        A command was removed from a XCommandInfo.
+        """
 
 __all__ = ['CommandInfoChange', 'CommandInfoChangeEnum']

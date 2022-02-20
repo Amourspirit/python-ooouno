@@ -27,73 +27,84 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import WindowAttribute as WindowAttribute
+    if hasattr(WindowAttribute, '_constants') and isinstance(WindowAttribute._constants, dict):
+        WindowAttribute._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        WindowAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.awt.WindowAttribute'
+        WindowAttribute._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WindowAttributeEnum
+        ls = [f for f in dir(WindowAttribute) if not callable(getattr(WindowAttribute, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WindowAttribute, name)
+        WindowAttributeEnum = IntFlag('WindowAttributeEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.window_attribute import WindowAttribute as WindowAttribute
 
+    class WindowAttributeEnum(IntFlag):
+        """
+        Enum of Const Class WindowAttribute
 
-class WindowAttributeEnum(IntFlag):
-    """
-    Enum of Const Class WindowAttribute
-
-    These values are used to specify the decorations of a window.
-    
-    IMPORTANT: These constants have to be disjunct with constants in VclWindowPeerAttribute.
-    """
-    SHOW = WindowAttribute.SHOW
-    """
-    specifies that the window is initially visible.
-    """
-    FULLSIZE = WindowAttribute.FULLSIZE
-    """
-    specifies that the window fills the complete desktop area.
-    
-    This applies only to top windows.
-    """
-    OPTIMUMSIZE = WindowAttribute.OPTIMUMSIZE
-    """
-    specifies that the window is optimum size.
-    
-    This applies only to top windows.
-    """
-    MINSIZE = WindowAttribute.MINSIZE
-    """
-    specifies that the window is minimum size.
-    
-    This applies only to top windows.
-    """
-    BORDER = WindowAttribute.BORDER
-    """
-    specifies that the window has visible borders.
-    
-    This applies only to top windows.
-    """
-    SIZEABLE = WindowAttribute.SIZEABLE
-    """
-    specifies that the size of the window can be changed by the user.
-    
-    This applies only to top windows.
-    """
-    MOVEABLE = WindowAttribute.MOVEABLE
-    """
-    specifies that the window can be moved by the user.
-    
-    This applies only to top windows.
-    """
-    CLOSEABLE = WindowAttribute.CLOSEABLE
-    """
-    specifies that the window can be closed by the user.
-    
-    This applies only to top windows.
-    """
-    SYSTEMDEPENDENT = WindowAttribute.SYSTEMDEPENDENT
-    """
-    specifies that the window should support the com.sun.star.awt.XSystemDependentWindowPeer interface.
-    
-    This flag may be ignored, but in this case no system-dependent extension works.
-    """
-    NODECORATION = WindowAttribute.NODECORATION
-    """
-    specifies that the window should have no decoration.
-    """
+        These values are used to specify the decorations of a window.
+        
+        IMPORTANT: These constants have to be disjunct with constants in VclWindowPeerAttribute.
+        """
+        SHOW = WindowAttribute.SHOW
+        """
+        specifies that the window is initially visible.
+        """
+        FULLSIZE = WindowAttribute.FULLSIZE
+        """
+        specifies that the window fills the complete desktop area.
+        
+        This applies only to top windows.
+        """
+        OPTIMUMSIZE = WindowAttribute.OPTIMUMSIZE
+        """
+        specifies that the window is optimum size.
+        
+        This applies only to top windows.
+        """
+        MINSIZE = WindowAttribute.MINSIZE
+        """
+        specifies that the window is minimum size.
+        
+        This applies only to top windows.
+        """
+        BORDER = WindowAttribute.BORDER
+        """
+        specifies that the window has visible borders.
+        
+        This applies only to top windows.
+        """
+        SIZEABLE = WindowAttribute.SIZEABLE
+        """
+        specifies that the size of the window can be changed by the user.
+        
+        This applies only to top windows.
+        """
+        MOVEABLE = WindowAttribute.MOVEABLE
+        """
+        specifies that the window can be moved by the user.
+        
+        This applies only to top windows.
+        """
+        CLOSEABLE = WindowAttribute.CLOSEABLE
+        """
+        specifies that the window can be closed by the user.
+        
+        This applies only to top windows.
+        """
+        SYSTEMDEPENDENT = WindowAttribute.SYSTEMDEPENDENT
+        """
+        specifies that the window should support the com.sun.star.awt.XSystemDependentWindowPeer interface.
+        
+        This flag may be ignored, but in this case no system-dependent extension works.
+        """
+        NODECORATION = WindowAttribute.NODECORATION
+        """
+        specifies that the window should have no decoration.
+        """
 
 __all__ = ['WindowAttribute', 'WindowAttributeEnum']

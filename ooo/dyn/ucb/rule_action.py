@@ -27,63 +27,74 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import RuleAction as RuleAction
+    if hasattr(RuleAction, '_constants') and isinstance(RuleAction._constants, dict):
+        RuleAction._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        RuleAction._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.RuleAction'
+        RuleAction._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RuleActionEnum
+        ls = [f for f in dir(RuleAction) if not callable(getattr(RuleAction, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RuleAction, name)
+        RuleActionEnum = IntEnum('RuleActionEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.rule_action import RuleAction as RuleAction
 
+    class RuleActionEnum(IntEnum):
+        """
+        Enum of Const Class RuleAction
 
-class RuleActionEnum(IntEnum):
-    """
-    Enum of Const Class RuleAction
-
-    These are the possible values for Rule.Action.
-    """
-    NONE = RuleAction.NONE
-    """
-    \"None\" - Do nothing.
-    """
-    SHOW = RuleAction.SHOW
-    """
-    \"Show\" - Shows object when term matches.
-    """
-    HIDE = RuleAction.HIDE
-    """
-    \"Hide\" - Hides object when term matches.
-    """
-    MARK = RuleAction.MARK
-    """
-    \"Mark\" - Marks object when term matches.
-    """
-    UNMARK = RuleAction.UNMARK
-    """
-    \"UnMark\" - Removes mark from object when term matches.
-    """
-    MARKREAD = RuleAction.MARKREAD
-    """
-    \"MarkRead\" - Marks object as read when term matches.
-    """
-    MARKUNREAD = RuleAction.MARKUNREAD
-    """
-    \"MarkUnRead\" - Marks object as not read when term matches.
-    """
-    MOVE = RuleAction.MOVE
-    """
-    \"Move\" - Moves object to Rule.Parameter when term matches.
-    """
-    COPY = RuleAction.COPY
-    """
-    \"Copy\" - Copies object to Rule.Parameter when term matches.
-    """
-    DELETE = RuleAction.DELETE
-    """
-    \"Delete\" - Deletes object when term matches.
-    """
-    LINK = RuleAction.LINK
-    """
-    \"Link\" - Creates a link to Rule.Parameter when term matches.
-    """
-    FORWARD = RuleAction.FORWARD
-    """
-    \"Forward\" - Forwards object to Rule.Parameter when term matches.
-    """
+        These are the possible values for Rule.Action.
+        """
+        NONE = RuleAction.NONE
+        """
+        \"None\" - Do nothing.
+        """
+        SHOW = RuleAction.SHOW
+        """
+        \"Show\" - Shows object when term matches.
+        """
+        HIDE = RuleAction.HIDE
+        """
+        \"Hide\" - Hides object when term matches.
+        """
+        MARK = RuleAction.MARK
+        """
+        \"Mark\" - Marks object when term matches.
+        """
+        UNMARK = RuleAction.UNMARK
+        """
+        \"UnMark\" - Removes mark from object when term matches.
+        """
+        MARKREAD = RuleAction.MARKREAD
+        """
+        \"MarkRead\" - Marks object as read when term matches.
+        """
+        MARKUNREAD = RuleAction.MARKUNREAD
+        """
+        \"MarkUnRead\" - Marks object as not read when term matches.
+        """
+        MOVE = RuleAction.MOVE
+        """
+        \"Move\" - Moves object to Rule.Parameter when term matches.
+        """
+        COPY = RuleAction.COPY
+        """
+        \"Copy\" - Copies object to Rule.Parameter when term matches.
+        """
+        DELETE = RuleAction.DELETE
+        """
+        \"Delete\" - Deletes object when term matches.
+        """
+        LINK = RuleAction.LINK
+        """
+        \"Link\" - Creates a link to Rule.Parameter when term matches.
+        """
+        FORWARD = RuleAction.FORWARD
+        """
+        \"Forward\" - Forwards object to Rule.Parameter when term matches.
+        """
 
 __all__ = ['RuleAction', 'RuleActionEnum']

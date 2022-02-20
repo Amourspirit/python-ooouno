@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import MouseButton as MouseButton
+    if hasattr(MouseButton, '_constants') and isinstance(MouseButton._constants, dict):
+        MouseButton._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        MouseButton._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MouseButton'
+        MouseButton._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MouseButtonEnum
+        ls = [f for f in dir(MouseButton) if not callable(getattr(MouseButton, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MouseButton, name)
+        MouseButtonEnum = IntFlag('MouseButtonEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.mouse_button import MouseButton as MouseButton
 
+    class MouseButtonEnum(IntFlag):
+        """
+        Enum of Const Class MouseButton
 
-class MouseButtonEnum(IntFlag):
-    """
-    Enum of Const Class MouseButton
-
-    These values are used to specify which keys on the mouse are pressed.
-    """
-    LEFT = MouseButton.LEFT
-    """
-    specifies the left mouse button as being pressed.
-    """
-    RIGHT = MouseButton.RIGHT
-    """
-    specifies the right mouse button as being pressed.
-    """
-    MIDDLE = MouseButton.MIDDLE
-    """
-    specifies the middle mouse button as being pressed.
-    """
+        These values are used to specify which keys on the mouse are pressed.
+        """
+        LEFT = MouseButton.LEFT
+        """
+        specifies the left mouse button as being pressed.
+        """
+        RIGHT = MouseButton.RIGHT
+        """
+        specifies the right mouse button as being pressed.
+        """
+        MIDDLE = MouseButton.MIDDLE
+        """
+        specifies the middle mouse button as being pressed.
+        """
 
 __all__ = ['MouseButton', 'MouseButtonEnum']

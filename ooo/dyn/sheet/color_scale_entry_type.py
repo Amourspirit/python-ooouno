@@ -27,20 +27,31 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ColorScaleEntryType as ColorScaleEntryType
+    if hasattr(ColorScaleEntryType, '_constants') and isinstance(ColorScaleEntryType._constants, dict):
+        ColorScaleEntryType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ColorScaleEntryType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ColorScaleEntryType'
+        ColorScaleEntryType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColorScaleEntryTypeEnum
+        ls = [f for f in dir(ColorScaleEntryType) if not callable(getattr(ColorScaleEntryType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColorScaleEntryType, name)
+        ColorScaleEntryTypeEnum = IntEnum('ColorScaleEntryTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.color_scale_entry_type import ColorScaleEntryType as ColorScaleEntryType
 
+    class ColorScaleEntryTypeEnum(IntEnum):
+        """
+        Enum of Const Class ColorScaleEntryType
 
-class ColorScaleEntryTypeEnum(IntEnum):
-    """
-    Enum of Const Class ColorScaleEntryType
-
-    """
-    COLORSCALE_MIN = ColorScaleEntryType.COLORSCALE_MIN
-    COLORSCALE_MAX = ColorScaleEntryType.COLORSCALE_MAX
-    COLORSCALE_PERCENTILE = ColorScaleEntryType.COLORSCALE_PERCENTILE
-    COLORSCALE_VALUE = ColorScaleEntryType.COLORSCALE_VALUE
-    COLORSCALE_PERCENT = ColorScaleEntryType.COLORSCALE_PERCENT
-    COLORSCALE_FORMULA = ColorScaleEntryType.COLORSCALE_FORMULA
+        """
+        COLORSCALE_MIN = ColorScaleEntryType.COLORSCALE_MIN
+        COLORSCALE_MAX = ColorScaleEntryType.COLORSCALE_MAX
+        COLORSCALE_PERCENTILE = ColorScaleEntryType.COLORSCALE_PERCENTILE
+        COLORSCALE_VALUE = ColorScaleEntryType.COLORSCALE_VALUE
+        COLORSCALE_PERCENT = ColorScaleEntryType.COLORSCALE_PERCENT
+        COLORSCALE_FORMULA = ColorScaleEntryType.COLORSCALE_FORMULA
 
 __all__ = ['ColorScaleEntryType', 'ColorScaleEntryTypeEnum']

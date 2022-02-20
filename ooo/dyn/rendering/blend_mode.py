@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import BlendMode as BlendMode
+    if hasattr(BlendMode, '_constants') and isinstance(BlendMode._constants, dict):
+        BlendMode._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        BlendMode._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.BlendMode'
+        BlendMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BlendModeEnum
+        ls = [f for f in dir(BlendMode) if not callable(getattr(BlendMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BlendMode, name)
+        BlendModeEnum = IntEnum('BlendModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.blend_mode import BlendMode as BlendMode
 
+    class BlendModeEnum(IntEnum):
+        """
+        Enum of Const Class BlendMode
 
-class BlendModeEnum(IntEnum):
-    """
-    Enum of Const Class BlendMode
-
-    These constants determine some extra ways how the primitive color is combined with the background.
-    
-    Please refer to the PDF specification for explanations of this constants.
-    """
-    NORMAL = BlendMode.NORMAL
-    MULTIPLY = BlendMode.MULTIPLY
-    SCREEN = BlendMode.SCREEN
-    OVERLAY = BlendMode.OVERLAY
-    DARKEN = BlendMode.DARKEN
-    LIGHTEN = BlendMode.LIGHTEN
-    COLOR_DODGE = BlendMode.COLOR_DODGE
-    COLOR_BURN = BlendMode.COLOR_BURN
-    HARD_LIGHT = BlendMode.HARD_LIGHT
-    SOFT_LIGHT = BlendMode.SOFT_LIGHT
-    DIFFERENCE = BlendMode.DIFFERENCE
-    EXCLUSION = BlendMode.EXCLUSION
-    HUE = BlendMode.HUE
-    SATURATION = BlendMode.SATURATION
-    COLOR = BlendMode.COLOR
-    LUMINOSITY = BlendMode.LUMINOSITY
+        These constants determine some extra ways how the primitive color is combined with the background.
+        
+        Please refer to the PDF specification for explanations of this constants.
+        """
+        NORMAL = BlendMode.NORMAL
+        MULTIPLY = BlendMode.MULTIPLY
+        SCREEN = BlendMode.SCREEN
+        OVERLAY = BlendMode.OVERLAY
+        DARKEN = BlendMode.DARKEN
+        LIGHTEN = BlendMode.LIGHTEN
+        COLOR_DODGE = BlendMode.COLOR_DODGE
+        COLOR_BURN = BlendMode.COLOR_BURN
+        HARD_LIGHT = BlendMode.HARD_LIGHT
+        SOFT_LIGHT = BlendMode.SOFT_LIGHT
+        DIFFERENCE = BlendMode.DIFFERENCE
+        EXCLUSION = BlendMode.EXCLUSION
+        HUE = BlendMode.HUE
+        SATURATION = BlendMode.SATURATION
+        COLOR = BlendMode.COLOR
+        LUMINOSITY = BlendMode.LUMINOSITY
 
 __all__ = ['BlendMode', 'BlendModeEnum']

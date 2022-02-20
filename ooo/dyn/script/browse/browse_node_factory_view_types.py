@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script.browse import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
+    if hasattr(BrowseNodeFactoryViewTypes, '_constants') and isinstance(BrowseNodeFactoryViewTypes._constants, dict):
+        BrowseNodeFactoryViewTypes._constants['__ooo_ns__'] = 'com.sun.star.script.browse'
+        BrowseNodeFactoryViewTypes._constants['__ooo_full_ns__'] = 'com.sun.star.script.browse.BrowseNodeFactoryViewTypes'
+        BrowseNodeFactoryViewTypes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BrowseNodeFactoryViewTypesEnum
+        ls = [f for f in dir(BrowseNodeFactoryViewTypes) if not callable(getattr(BrowseNodeFactoryViewTypes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BrowseNodeFactoryViewTypes, name)
+        BrowseNodeFactoryViewTypesEnum = IntEnum('BrowseNodeFactoryViewTypesEnum', _dict)
+    build_enum()
 else:
     from ....lo.script.browse.browse_node_factory_view_types import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
 
+    class BrowseNodeFactoryViewTypesEnum(IntEnum):
+        """
+        Enum of Const Class BrowseNodeFactoryViewTypes
 
-class BrowseNodeFactoryViewTypesEnum(IntEnum):
-    """
-    Enum of Const Class BrowseNodeFactoryViewTypes
-
-    These constants define the three different types of views available from BrowseNodeFactory.
-    """
-    MACROSELECTOR = BrowseNodeFactoryViewTypes.MACROSELECTOR
-    """
-    Indicates view is a script selector.
-    """
-    MACROORGANIZER = BrowseNodeFactoryViewTypes.MACROORGANIZER
-    """
-    Indicates view is script organizer.
-    """
+        These constants define the three different types of views available from BrowseNodeFactory.
+        """
+        MACROSELECTOR = BrowseNodeFactoryViewTypes.MACROSELECTOR
+        """
+        Indicates view is a script selector.
+        """
+        MACROORGANIZER = BrowseNodeFactoryViewTypes.MACROORGANIZER
+        """
+        Indicates view is script organizer.
+        """
 
 __all__ = ['BrowseNodeFactoryViewTypes', 'BrowseNodeFactoryViewTypesEnum']

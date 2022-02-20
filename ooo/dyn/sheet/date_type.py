@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DateType as DateType
+    if hasattr(DateType, '_constants') and isinstance(DateType._constants, dict):
+        DateType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DateType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DateType'
+        DateType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DateTypeEnum
+        ls = [f for f in dir(DateType) if not callable(getattr(DateType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DateType, name)
+        DateTypeEnum = IntEnum('DateTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.date_type import DateType as DateType
 
+    class DateTypeEnum(IntEnum):
+        """
+        Enum of Const Class DateType
 
-class DateTypeEnum(IntEnum):
-    """
-    Enum of Const Class DateType
-
-    """
-    TODAY = DateType.TODAY
-    YESTERDAY = DateType.YESTERDAY
-    TOMORROW = DateType.TOMORROW
-    LAST7DAYS = DateType.LAST7DAYS
-    THISWEEK = DateType.THISWEEK
-    LASTWEEK = DateType.LASTWEEK
-    NEXTWEEK = DateType.NEXTWEEK
-    THISMONTH = DateType.THISMONTH
-    LASTMONTH = DateType.LASTMONTH
-    NEXTMONTH = DateType.NEXTMONTH
-    THISYEAR = DateType.THISYEAR
-    LASTYEAR = DateType.LASTYEAR
-    NEXTYEAR = DateType.NEXTYEAR
+        """
+        TODAY = DateType.TODAY
+        YESTERDAY = DateType.YESTERDAY
+        TOMORROW = DateType.TOMORROW
+        LAST7DAYS = DateType.LAST7DAYS
+        THISWEEK = DateType.THISWEEK
+        LASTWEEK = DateType.LASTWEEK
+        NEXTWEEK = DateType.NEXTWEEK
+        THISMONTH = DateType.THISMONTH
+        LASTMONTH = DateType.LASTMONTH
+        NEXTMONTH = DateType.NEXTMONTH
+        THISYEAR = DateType.THISYEAR
+        LASTYEAR = DateType.LASTYEAR
+        NEXTYEAR = DateType.NEXTYEAR
 
 __all__ = ['DateType', 'DateTypeEnum']

@@ -27,91 +27,102 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.xsd import DataTypeClass as DataTypeClass
+    if hasattr(DataTypeClass, '_constants') and isinstance(DataTypeClass._constants, dict):
+        DataTypeClass._constants['__ooo_ns__'] = 'com.sun.star.xsd'
+        DataTypeClass._constants['__ooo_full_ns__'] = 'com.sun.star.xsd.DataTypeClass'
+        DataTypeClass._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataTypeClassEnum
+        ls = [f for f in dir(DataTypeClass) if not callable(getattr(DataTypeClass, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataTypeClass, name)
+        DataTypeClassEnum = IntEnum('DataTypeClassEnum', _dict)
+    build_enum()
 else:
     from ...lo.xsd.data_type_class import DataTypeClass as DataTypeClass
 
+    class DataTypeClassEnum(IntEnum):
+        """
+        Enum of Const Class DataTypeClass
 
-class DataTypeClassEnum(IntEnum):
-    """
-    Enum of Const Class DataTypeClass
-
-    These constants specify the class used of an XDataType.
-    """
-    STRING = DataTypeClass.STRING
-    """
-    specifies an XSD compliant string type
-    """
-    BOOLEAN = DataTypeClass.BOOLEAN
-    """
-    specifies an XSD compliant boolean type
-    """
-    DECIMAL = DataTypeClass.DECIMAL
-    """
-    specifies an XSD compliant decimal type
-    """
-    FLOAT = DataTypeClass.FLOAT
-    """
-    specifies an XSD compliant float type
-    """
-    DOUBLE = DataTypeClass.DOUBLE
-    """
-    specifies an XSD compliant double type
-    """
-    DURATION = DataTypeClass.DURATION
-    """
-    specifies an XSD compliant duration type
-    """
-    DATETIME = DataTypeClass.DATETIME
-    """
-    specifies an XSD compliant datetime type
-    """
-    TIME = DataTypeClass.TIME
-    """
-    specifies an XSD compliant time type
-    """
-    DATE = DataTypeClass.DATE
-    """
-    specifies an XSD compliant date type
-    """
-    gYearMonth = DataTypeClass.gYearMonth
-    """
-    specifies an XSD compliant gYearMonth type
-    """
-    gYear = DataTypeClass.gYear
-    """
-    specifies an XSD compliant gYear type
-    """
-    gMonthDay = DataTypeClass.gMonthDay
-    """
-    specifies an XSD compliant gMonthDay type
-    """
-    gDay = DataTypeClass.gDay
-    """
-    specifies an XSD compliant gDay type
-    """
-    gMonth = DataTypeClass.gMonth
-    """
-    specifies an XSD compliant gMonth type
-    """
-    hexBinary = DataTypeClass.hexBinary
-    """
-    specifies an XSD compliant hexBinary type
-    """
-    base64Binary = DataTypeClass.base64Binary
-    """
-    specifies an XSD compliant base64Binary type
-    """
-    anyURI = DataTypeClass.anyURI
-    """
-    specifies an XSD compliant anyURI type
-    """
-    QName = DataTypeClass.QName
-    """
-    specifies an XSD compliant QName type
-    """
-    NOTATION = DataTypeClass.NOTATION
-    """
-    specifies an XSD compliant NOTATION type
-    """
+        These constants specify the class used of an XDataType.
+        """
+        STRING = DataTypeClass.STRING
+        """
+        specifies an XSD compliant string type
+        """
+        BOOLEAN = DataTypeClass.BOOLEAN
+        """
+        specifies an XSD compliant boolean type
+        """
+        DECIMAL = DataTypeClass.DECIMAL
+        """
+        specifies an XSD compliant decimal type
+        """
+        FLOAT = DataTypeClass.FLOAT
+        """
+        specifies an XSD compliant float type
+        """
+        DOUBLE = DataTypeClass.DOUBLE
+        """
+        specifies an XSD compliant double type
+        """
+        DURATION = DataTypeClass.DURATION
+        """
+        specifies an XSD compliant duration type
+        """
+        DATETIME = DataTypeClass.DATETIME
+        """
+        specifies an XSD compliant datetime type
+        """
+        TIME = DataTypeClass.TIME
+        """
+        specifies an XSD compliant time type
+        """
+        DATE = DataTypeClass.DATE
+        """
+        specifies an XSD compliant date type
+        """
+        gYearMonth = DataTypeClass.gYearMonth
+        """
+        specifies an XSD compliant gYearMonth type
+        """
+        gYear = DataTypeClass.gYear
+        """
+        specifies an XSD compliant gYear type
+        """
+        gMonthDay = DataTypeClass.gMonthDay
+        """
+        specifies an XSD compliant gMonthDay type
+        """
+        gDay = DataTypeClass.gDay
+        """
+        specifies an XSD compliant gDay type
+        """
+        gMonth = DataTypeClass.gMonth
+        """
+        specifies an XSD compliant gMonth type
+        """
+        hexBinary = DataTypeClass.hexBinary
+        """
+        specifies an XSD compliant hexBinary type
+        """
+        base64Binary = DataTypeClass.base64Binary
+        """
+        specifies an XSD compliant base64Binary type
+        """
+        anyURI = DataTypeClass.anyURI
+        """
+        specifies an XSD compliant anyURI type
+        """
+        QName = DataTypeClass.QName
+        """
+        specifies an XSD compliant QName type
+        """
+        NOTATION = DataTypeClass.NOTATION
+        """
+        specifies an XSD compliant NOTATION type
+        """
 
 __all__ = ['DataTypeClass', 'DataTypeClassEnum']

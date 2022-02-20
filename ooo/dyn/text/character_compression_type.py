@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import CharacterCompressionType as CharacterCompressionType
+    if hasattr(CharacterCompressionType, '_constants') and isinstance(CharacterCompressionType._constants, dict):
+        CharacterCompressionType._constants['__ooo_ns__'] = 'com.sun.star.text'
+        CharacterCompressionType._constants['__ooo_full_ns__'] = 'com.sun.star.text.CharacterCompressionType'
+        CharacterCompressionType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CharacterCompressionTypeEnum
+        ls = [f for f in dir(CharacterCompressionType) if not callable(getattr(CharacterCompressionType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CharacterCompressionType, name)
+        CharacterCompressionTypeEnum = IntEnum('CharacterCompressionTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.character_compression_type import CharacterCompressionType as CharacterCompressionType
 
+    class CharacterCompressionTypeEnum(IntEnum):
+        """
+        Enum of Const Class CharacterCompressionType
 
-class CharacterCompressionTypeEnum(IntEnum):
-    """
-    Enum of Const Class CharacterCompressionType
-
-    These constants define character compression in Asian text.
-    """
-    NONE = CharacterCompressionType.NONE
-    """
-    the characters are uncompressed.
-    """
-    PUNCTUATION_ONLY = CharacterCompressionType.PUNCTUATION_ONLY
-    """
-    only punctuation is compressed.
-    """
-    PUNCTUATION_AND_KANA = CharacterCompressionType.PUNCTUATION_AND_KANA
-    """
-    punctuation and Japanese Kana are compressed.
-    """
+        These constants define character compression in Asian text.
+        """
+        NONE = CharacterCompressionType.NONE
+        """
+        the characters are uncompressed.
+        """
+        PUNCTUATION_ONLY = CharacterCompressionType.PUNCTUATION_ONLY
+        """
+        only punctuation is compressed.
+        """
+        PUNCTUATION_AND_KANA = CharacterCompressionType.PUNCTUATION_AND_KANA
+        """
+        punctuation and Japanese Kana are compressed.
+        """
 
 __all__ = ['CharacterCompressionType', 'CharacterCompressionTypeEnum']

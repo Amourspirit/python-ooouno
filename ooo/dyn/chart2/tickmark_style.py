@@ -27,26 +27,37 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart2 import TickmarkStyle as TickmarkStyle
+    if hasattr(TickmarkStyle, '_constants') and isinstance(TickmarkStyle._constants, dict):
+        TickmarkStyle._constants['__ooo_ns__'] = 'com.sun.star.chart2'
+        TickmarkStyle._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.TickmarkStyle'
+        TickmarkStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TickmarkStyleEnum
+        ls = [f for f in dir(TickmarkStyle) if not callable(getattr(TickmarkStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TickmarkStyle, name)
+        TickmarkStyleEnum = IntEnum('TickmarkStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart2.tickmark_style import TickmarkStyle as TickmarkStyle
 
+    class TickmarkStyleEnum(IntEnum):
+        """
+        Enum of Const Class TickmarkStyle
 
-class TickmarkStyleEnum(IntEnum):
-    """
-    Enum of Const Class TickmarkStyle
-
-    """
-    NONE = TickmarkStyle.NONE
-    """
-    Do not display any marks.
-    """
-    INNER = TickmarkStyle.INNER
-    """
-    Display marks that point into the diagram area.
-    """
-    OUTER = TickmarkStyle.OUTER
-    """
-    Display marks that point out of the diagram area.
-    """
+        """
+        NONE = TickmarkStyle.NONE
+        """
+        Do not display any marks.
+        """
+        INNER = TickmarkStyle.INNER
+        """
+        Display marks that point into the diagram area.
+        """
+        OUTER = TickmarkStyle.OUTER
+        """
+        Display marks that point out of the diagram area.
+        """
 
 __all__ = ['TickmarkStyle', 'TickmarkStyleEnum']

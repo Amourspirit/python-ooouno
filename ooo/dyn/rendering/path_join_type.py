@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PathJoinType as PathJoinType
+    if hasattr(PathJoinType, '_constants') and isinstance(PathJoinType._constants, dict):
+        PathJoinType._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PathJoinType._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PathJoinType'
+        PathJoinType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PathJoinTypeEnum
+        ls = [f for f in dir(PathJoinType) if not callable(getattr(PathJoinType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PathJoinType, name)
+        PathJoinTypeEnum = IntEnum('PathJoinTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.path_join_type import PathJoinType as PathJoinType
 
+    class PathJoinTypeEnum(IntEnum):
+        """
+        Enum of Const Class PathJoinType
 
-class PathJoinTypeEnum(IntEnum):
-    """
-    Enum of Const Class PathJoinType
-
-    Determines which shape to use when joining path segments.
-    
-    The joins between different paths segments can be formed out of several different shapes (which are of course only visible for strokes wider than one device pixel).
-    
-    **since**
-    
-        OOo 2.0
-    """
-    NONE = PathJoinType.NONE
-    """
-    Do not join the path segments at all.
-    
-    This join type might lead, depending on the angle between the segments, to visible cracks at the meeting points.
-    """
-    MITER = PathJoinType.MITER
-    """
-    Join the path segment by extending the outer border until they intersect.
-    """
-    ROUND = PathJoinType.ROUND
-    """
-    Join the path segment with a pie-like patch, such that the outer line of the meeting point is round.
-    """
-    BEVEL = PathJoinType.BEVEL
-    """
-    Join the path segment by connecting the outer ends of the abutting segments with a straight line.
-    """
+        Determines which shape to use when joining path segments.
+        
+        The joins between different paths segments can be formed out of several different shapes (which are of course only visible for strokes wider than one device pixel).
+        
+        **since**
+        
+            OOo 2.0
+        """
+        NONE = PathJoinType.NONE
+        """
+        Do not join the path segments at all.
+        
+        This join type might lead, depending on the angle between the segments, to visible cracks at the meeting points.
+        """
+        MITER = PathJoinType.MITER
+        """
+        Join the path segment by extending the outer border until they intersect.
+        """
+        ROUND = PathJoinType.ROUND
+        """
+        Join the path segment with a pie-like patch, such that the outer line of the meeting point is round.
+        """
+        BEVEL = PathJoinType.BEVEL
+        """
+        Join the path segment by connecting the outer ends of the abutting segments with a straight line.
+        """
 
 __all__ = ['PathJoinType', 'PathJoinTypeEnum']

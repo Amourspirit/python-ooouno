@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import ChartAxisMarks as ChartAxisMarks
+    if hasattr(ChartAxisMarks, '_constants') and isinstance(ChartAxisMarks._constants, dict):
+        ChartAxisMarks._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        ChartAxisMarks._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartAxisMarks'
+        ChartAxisMarks._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChartAxisMarksEnum
+        ls = [f for f in dir(ChartAxisMarks) if not callable(getattr(ChartAxisMarks, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChartAxisMarks, name)
+        ChartAxisMarksEnum = IntEnum('ChartAxisMarksEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.chart_axis_marks import ChartAxisMarks as ChartAxisMarks
 
+    class ChartAxisMarksEnum(IntEnum):
+        """
+        Enum of Const Class ChartAxisMarks
 
-class ChartAxisMarksEnum(IntEnum):
-    """
-    Enum of Const Class ChartAxisMarks
-
-    With these constants you can specify how the tick-marks of an axis are displayed.
-    
-    You can combine INNER and OUTER with an arithmetical or-operation to get tick-marks that extend in both directions.
-    """
-    NONE = ChartAxisMarks.NONE
-    """
-    Do not display any marks.
-    """
-    INNER = ChartAxisMarks.INNER
-    """
-    Display marks that point into the diagram area.
-    """
-    OUTER = ChartAxisMarks.OUTER
-    """
-    Display marks that point out of the diagram area.
-    """
+        With these constants you can specify how the tick-marks of an axis are displayed.
+        
+        You can combine INNER and OUTER with an arithmetical or-operation to get tick-marks that extend in both directions.
+        """
+        NONE = ChartAxisMarks.NONE
+        """
+        Do not display any marks.
+        """
+        INNER = ChartAxisMarks.INNER
+        """
+        Display marks that point into the diagram area.
+        """
+        OUTER = ChartAxisMarks.OUTER
+        """
+        Display marks that point out of the diagram area.
+        """
 
 __all__ = ['ChartAxisMarks', 'ChartAxisMarksEnum']

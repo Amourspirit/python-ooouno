@@ -27,38 +27,49 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationEndSync as AnimationEndSync
+    if hasattr(AnimationEndSync, '_constants') and isinstance(AnimationEndSync._constants, dict):
+        AnimationEndSync._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationEndSync._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationEndSync'
+        AnimationEndSync._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationEndSyncEnum
+        ls = [f for f in dir(AnimationEndSync) if not callable(getattr(AnimationEndSync, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationEndSync, name)
+        AnimationEndSyncEnum = IntEnum('AnimationEndSyncEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_end_sync import AnimationEndSync as AnimationEndSync
 
+    class AnimationEndSyncEnum(IntEnum):
+        """
+        Enum of Const Class AnimationEndSync
 
-class AnimationEndSyncEnum(IntEnum):
-    """
-    Enum of Const Class AnimationEndSync
-
-    """
-    FIRST = AnimationEndSync.FIRST
-    """
-    The par, excl, or media element's implicit duration ends with the earliest active end of all the child elements.
-    
-    This does not refer to the lexical first child, or to the first child to start, but rather refers to the first child to end its (first) active duration.
-    """
-    LAST = AnimationEndSync.LAST
-    """
-    The par, excl, or media element's implicit duration ends with the last active end of the child elements.
-    
-    This does not refer to the lexical last child, or to the last child to start, but rather refers to the last active end of all children that have a resolved, definite begin time. If the time container has no children with a resolved begin time, the time container ends immediately. If child elements have multiple begin times, or otherwise restart, the child elements must complete all instances of active durations for resolved begin times. This is the default value for par and excl elements.
-    """
-    ALL = AnimationEndSync.ALL
-    """
-    The par, excl, or media element's implicit duration ends when all of the child elements have ended their respective active durations.
-    
-    Elements with indefinite or unresolved begin times will keep the simple duration of the time container from ending. When all elements have completed the active duration one or more times, the parent time container can end.
-    """
-    MEDIA = AnimationEndSync.MEDIA
-    """
-    The time container element's implicit duration ends when the intrinsic media duration of the element ends.
-    
-    This must be defined by a host language. If the time container element does not define an intrinsic media duration, the host language must define the simple duration for the element. This is the default value for media time container elements.
-    """
+        """
+        FIRST = AnimationEndSync.FIRST
+        """
+        The par, excl, or media element's implicit duration ends with the earliest active end of all the child elements.
+        
+        This does not refer to the lexical first child, or to the first child to start, but rather refers to the first child to end its (first) active duration.
+        """
+        LAST = AnimationEndSync.LAST
+        """
+        The par, excl, or media element's implicit duration ends with the last active end of the child elements.
+        
+        This does not refer to the lexical last child, or to the last child to start, but rather refers to the last active end of all children that have a resolved, definite begin time. If the time container has no children with a resolved begin time, the time container ends immediately. If child elements have multiple begin times, or otherwise restart, the child elements must complete all instances of active durations for resolved begin times. This is the default value for par and excl elements.
+        """
+        ALL = AnimationEndSync.ALL
+        """
+        The par, excl, or media element's implicit duration ends when all of the child elements have ended their respective active durations.
+        
+        Elements with indefinite or unresolved begin times will keep the simple duration of the time container from ending. When all elements have completed the active duration one or more times, the parent time container can end.
+        """
+        MEDIA = AnimationEndSync.MEDIA
+        """
+        The time container element's implicit duration ends when the intrinsic media duration of the element ends.
+        
+        This must be defined by a host language. If the time container element does not define an intrinsic media duration, the host language must define the simple duration for the element. This is the default value for media time container elements.
+        """
 
 __all__ = ['AnimationEndSync', 'AnimationEndSyncEnum']

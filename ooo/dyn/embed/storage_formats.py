@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import StorageFormats as StorageFormats
+    if hasattr(StorageFormats, '_constants') and isinstance(StorageFormats._constants, dict):
+        StorageFormats._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        StorageFormats._constants['__ooo_full_ns__'] = 'com.sun.star.embed.StorageFormats'
+        StorageFormats._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global StorageFormatsEnum
+        ls = [f for f in dir(StorageFormats) if not callable(getattr(StorageFormats, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(StorageFormats, name)
+        StorageFormatsEnum = IntEnum('StorageFormatsEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.storage_formats import StorageFormats as StorageFormats
 
+    class StorageFormatsEnum(IntEnum):
+        """
+        Enum of Const Class StorageFormats
 
-class StorageFormatsEnum(IntEnum):
-    """
-    Enum of Const Class StorageFormats
-
-    The constant set contains IDs of formats that are supported by StorageFactory.
-    
-    **since**
-    
-        OOo 3.3
-    """
-    PACKAGE = StorageFormats.PACKAGE
-    """
-    specifies package format
-    """
-    ZIP = StorageFormats.ZIP
-    """
-    specifies zip format
-    """
-    OFOPXML = StorageFormats.OFOPXML
-    """
-    specifies Office Open XML format
-    """
+        The constant set contains IDs of formats that are supported by StorageFactory.
+        
+        **since**
+        
+            OOo 3.3
+        """
+        PACKAGE = StorageFormats.PACKAGE
+        """
+        specifies package format
+        """
+        ZIP = StorageFormats.ZIP
+        """
+        specifies zip format
+        """
+        OFOPXML = StorageFormats.OFOPXML
+        """
+        specifies Office Open XML format
+        """
 
 __all__ = ['StorageFormats', 'StorageFormatsEnum']

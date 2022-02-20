@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.style import LineSpacingMode as LineSpacingMode
+    if hasattr(LineSpacingMode, '_constants') and isinstance(LineSpacingMode._constants, dict):
+        LineSpacingMode._constants['__ooo_ns__'] = 'com.sun.star.style'
+        LineSpacingMode._constants['__ooo_full_ns__'] = 'com.sun.star.style.LineSpacingMode'
+        LineSpacingMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LineSpacingModeEnum
+        ls = [f for f in dir(LineSpacingMode) if not callable(getattr(LineSpacingMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LineSpacingMode, name)
+        LineSpacingModeEnum = IntEnum('LineSpacingModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.style.line_spacing_mode import LineSpacingMode as LineSpacingMode
 
+    class LineSpacingModeEnum(IntEnum):
+        """
+        Enum of Const Class LineSpacingMode
 
-class LineSpacingModeEnum(IntEnum):
-    """
-    Enum of Const Class LineSpacingMode
-
-    These constants specify the interpretation of LineHeight.
-    """
-    PROP = LineSpacingMode.PROP
-    """
-    This constant specifies the height value as a proportional value.
-    """
-    MINIMUM = LineSpacingMode.MINIMUM
-    """
-    This constant specifies the height as the minimum line height.
-    """
-    LEADING = LineSpacingMode.LEADING
-    """
-    This constant specifies the height value as the distance to the previous line.
-    """
-    FIX = LineSpacingMode.FIX
-    """
-    This constant specifies the height value as a fixed line height.
-    """
+        These constants specify the interpretation of LineHeight.
+        """
+        PROP = LineSpacingMode.PROP
+        """
+        This constant specifies the height value as a proportional value.
+        """
+        MINIMUM = LineSpacingMode.MINIMUM
+        """
+        This constant specifies the height as the minimum line height.
+        """
+        LEADING = LineSpacingMode.LEADING
+        """
+        This constant specifies the height value as the distance to the previous line.
+        """
+        FIX = LineSpacingMode.FIX
+        """
+        This constant specifies the height value as a fixed line height.
+        """
 
 __all__ = ['LineSpacingMode', 'LineSpacingModeEnum']

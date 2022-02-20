@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.linguistic2 import DictionaryEventFlags as DictionaryEventFlags
+    if hasattr(DictionaryEventFlags, '_constants') and isinstance(DictionaryEventFlags._constants, dict):
+        DictionaryEventFlags._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
+        DictionaryEventFlags._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.DictionaryEventFlags'
+        DictionaryEventFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DictionaryEventFlagsEnum
+        ls = [f for f in dir(DictionaryEventFlags) if not callable(getattr(DictionaryEventFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DictionaryEventFlags, name)
+        DictionaryEventFlagsEnum = IntFlag('DictionaryEventFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.linguistic2.dictionary_event_flags import DictionaryEventFlags as DictionaryEventFlags
 
+    class DictionaryEventFlagsEnum(IntFlag):
+        """
+        Enum of Const Class DictionaryEventFlags
 
-class DictionaryEventFlagsEnum(IntFlag):
-    """
-    Enum of Const Class DictionaryEventFlags
-
-    flags used for the event type in dictionary events.
-    
-    These flags represent the type of events that a dictionary may broadcast.
-    """
-    ADD_ENTRY = DictionaryEventFlags.ADD_ENTRY
-    """
-    indicates that at least one entry has been added.
-    """
-    DEL_ENTRY = DictionaryEventFlags.DEL_ENTRY
-    """
-    indicates that at least one entry has been deleted.
-    """
-    CHG_NAME = DictionaryEventFlags.CHG_NAME
-    """
-    the dictionary's name has changed.
-    """
-    CHG_LANGUAGE = DictionaryEventFlags.CHG_LANGUAGE
-    """
-    the dictionary's language has changed.
-    """
-    ENTRIES_CLEARED = DictionaryEventFlags.ENTRIES_CLEARED
-    """
-    all entries have been removed.
-    """
-    ACTIVATE_DIC = DictionaryEventFlags.ACTIVATE_DIC
-    """
-    used when the dictionary was activated.
-    """
-    DEACTIVATE_DIC = DictionaryEventFlags.DEACTIVATE_DIC
-    """
-    used when the dictionary was deactivated.
-    """
+        flags used for the event type in dictionary events.
+        
+        These flags represent the type of events that a dictionary may broadcast.
+        """
+        ADD_ENTRY = DictionaryEventFlags.ADD_ENTRY
+        """
+        indicates that at least one entry has been added.
+        """
+        DEL_ENTRY = DictionaryEventFlags.DEL_ENTRY
+        """
+        indicates that at least one entry has been deleted.
+        """
+        CHG_NAME = DictionaryEventFlags.CHG_NAME
+        """
+        the dictionary's name has changed.
+        """
+        CHG_LANGUAGE = DictionaryEventFlags.CHG_LANGUAGE
+        """
+        the dictionary's language has changed.
+        """
+        ENTRIES_CLEARED = DictionaryEventFlags.ENTRIES_CLEARED
+        """
+        all entries have been removed.
+        """
+        ACTIVATE_DIC = DictionaryEventFlags.ACTIVATE_DIC
+        """
+        used when the dictionary was activated.
+        """
+        DEACTIVATE_DIC = DictionaryEventFlags.DEACTIVATE_DIC
+        """
+        used when the dictionary was deactivated.
+        """
 
 __all__ = ['DictionaryEventFlags', 'DictionaryEventFlagsEnum']

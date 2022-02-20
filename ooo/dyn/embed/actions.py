@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import Actions as Actions
+    if hasattr(Actions, '_constants') and isinstance(Actions._constants, dict):
+        Actions._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        Actions._constants['__ooo_full_ns__'] = 'com.sun.star.embed.Actions'
+        Actions._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ActionsEnum
+        ls = [f for f in dir(Actions) if not callable(getattr(Actions, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Actions, name)
+        ActionsEnum = IntFlag('ActionsEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.actions import Actions as Actions
 
+    class ActionsEnum(IntFlag):
+        """
+        Enum of Const Class Actions
 
-class ActionsEnum(IntFlag):
-    """
-    Enum of Const Class Actions
-
-    This constant set contains possible actions that could be approved by ActionsApproval implementation.
-    """
-    PREVENT_CLOSE = Actions.PREVENT_CLOSE
-    """
-    \"Prevent Close\" - throws veto exception if target object is going to close.
-    
-    Usually a com.sun.star.util.XCloseListener implementation could use this constant to request approval to throw veto exception.
-    """
-    PREVENT_TERMINATION = Actions.PREVENT_TERMINATION
-    """
-    \"Prevent Termination\" - throws veto exception if target object is going to terminate.
-    
-    Usually a com.sun.star.frame.XTerminateListener implementation could use this constant to request approval to throw veto exception.
-    """
+        This constant set contains possible actions that could be approved by ActionsApproval implementation.
+        """
+        PREVENT_CLOSE = Actions.PREVENT_CLOSE
+        """
+        \"Prevent Close\" - throws veto exception if target object is going to close.
+        
+        Usually a com.sun.star.util.XCloseListener implementation could use this constant to request approval to throw veto exception.
+        """
+        PREVENT_TERMINATION = Actions.PREVENT_TERMINATION
+        """
+        \"Prevent Termination\" - throws veto exception if target object is going to terminate.
+        
+        Usually a com.sun.star.frame.XTerminateListener implementation could use this constant to request approval to throw veto exception.
+        """
 
 __all__ = ['Actions', 'ActionsEnum']

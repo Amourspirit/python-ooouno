@@ -27,21 +27,32 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataBarEntryType as DataBarEntryType
+    if hasattr(DataBarEntryType, '_constants') and isinstance(DataBarEntryType._constants, dict):
+        DataBarEntryType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataBarEntryType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataBarEntryType'
+        DataBarEntryType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataBarEntryTypeEnum
+        ls = [f for f in dir(DataBarEntryType) if not callable(getattr(DataBarEntryType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataBarEntryType, name)
+        DataBarEntryTypeEnum = IntEnum('DataBarEntryTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_bar_entry_type import DataBarEntryType as DataBarEntryType
 
+    class DataBarEntryTypeEnum(IntEnum):
+        """
+        Enum of Const Class DataBarEntryType
 
-class DataBarEntryTypeEnum(IntEnum):
-    """
-    Enum of Const Class DataBarEntryType
-
-    """
-    DATABAR_AUTO = DataBarEntryType.DATABAR_AUTO
-    DATABAR_MIN = DataBarEntryType.DATABAR_MIN
-    DATABAR_MAX = DataBarEntryType.DATABAR_MAX
-    DATABAR_PERCENTILE = DataBarEntryType.DATABAR_PERCENTILE
-    DATABAR_VALUE = DataBarEntryType.DATABAR_VALUE
-    DATABAR_PERCENT = DataBarEntryType.DATABAR_PERCENT
-    DATABAR_FORMULA = DataBarEntryType.DATABAR_FORMULA
+        """
+        DATABAR_AUTO = DataBarEntryType.DATABAR_AUTO
+        DATABAR_MIN = DataBarEntryType.DATABAR_MIN
+        DATABAR_MAX = DataBarEntryType.DATABAR_MAX
+        DATABAR_PERCENTILE = DataBarEntryType.DATABAR_PERCENTILE
+        DATABAR_VALUE = DataBarEntryType.DATABAR_VALUE
+        DATABAR_PERCENT = DataBarEntryType.DATABAR_PERCENT
+        DATABAR_FORMULA = DataBarEntryType.DATABAR_FORMULA
 
 __all__ = ['DataBarEntryType', 'DataBarEntryTypeEnum']

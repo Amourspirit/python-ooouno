@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import SpreadsheetViewObjectsMode as SpreadsheetViewObjectsMode
+    if hasattr(SpreadsheetViewObjectsMode, '_constants') and isinstance(SpreadsheetViewObjectsMode._constants, dict):
+        SpreadsheetViewObjectsMode._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        SpreadsheetViewObjectsMode._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.SpreadsheetViewObjectsMode'
+        SpreadsheetViewObjectsMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SpreadsheetViewObjectsModeEnum
+        ls = [f for f in dir(SpreadsheetViewObjectsMode) if not callable(getattr(SpreadsheetViewObjectsMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SpreadsheetViewObjectsMode, name)
+        SpreadsheetViewObjectsModeEnum = IntEnum('SpreadsheetViewObjectsModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.spreadsheet_view_objects_mode import SpreadsheetViewObjectsMode as SpreadsheetViewObjectsMode
 
+    class SpreadsheetViewObjectsModeEnum(IntEnum):
+        """
+        Enum of Const Class SpreadsheetViewObjectsMode
 
-class SpreadsheetViewObjectsModeEnum(IntEnum):
-    """
-    Enum of Const Class SpreadsheetViewObjectsMode
-
-    Constants that control how embedded objects are shown in the view.
-    """
-    SHOW = SpreadsheetViewObjectsMode.SHOW
-    """
-    Specifies to display a specific set of objects in the spreadsheet view.
-    """
-    HIDE = SpreadsheetViewObjectsMode.HIDE
-    """
-    Specifies to hide a specific set of objects from the spreadsheet view.
-    """
+        Constants that control how embedded objects are shown in the view.
+        """
+        SHOW = SpreadsheetViewObjectsMode.SHOW
+        """
+        Specifies to display a specific set of objects in the spreadsheet view.
+        """
+        HIDE = SpreadsheetViewObjectsMode.HIDE
+        """
+        Specifies to hide a specific set of objects from the spreadsheet view.
+        """
 
 __all__ = ['SpreadsheetViewObjectsMode', 'SpreadsheetViewObjectsModeEnum']

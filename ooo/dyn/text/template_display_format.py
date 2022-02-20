@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import TemplateDisplayFormat as TemplateDisplayFormat
+    if hasattr(TemplateDisplayFormat, '_constants') and isinstance(TemplateDisplayFormat._constants, dict):
+        TemplateDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        TemplateDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.TemplateDisplayFormat'
+        TemplateDisplayFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TemplateDisplayFormatEnum
+        ls = [f for f in dir(TemplateDisplayFormat) if not callable(getattr(TemplateDisplayFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TemplateDisplayFormat, name)
+        TemplateDisplayFormatEnum = IntEnum('TemplateDisplayFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.template_display_format import TemplateDisplayFormat as TemplateDisplayFormat
 
+    class TemplateDisplayFormatEnum(IntEnum):
+        """
+        Enum of Const Class TemplateDisplayFormat
 
-class TemplateDisplayFormatEnum(IntEnum):
-    """
-    Enum of Const Class TemplateDisplayFormat
-
-    These constants are used to specify which information about a template is displayed in a field.
-    """
-    FULL = TemplateDisplayFormat.FULL
-    PATH = TemplateDisplayFormat.PATH
-    NAME = TemplateDisplayFormat.NAME
-    """
-    Only the file name, without file extension, of the template file will be displayed.
-    """
-    NAME_AND_EXT = TemplateDisplayFormat.NAME_AND_EXT
-    """
-    The file name and the file extension of the template file will be displayed.
-    """
-    AREA = TemplateDisplayFormat.AREA
-    """
-    The name of the template area is displayed.
-    """
-    TITLE = TemplateDisplayFormat.TITLE
-    """
-    The title of the template file is displayed.
-    """
+        These constants are used to specify which information about a template is displayed in a field.
+        """
+        FULL = TemplateDisplayFormat.FULL
+        PATH = TemplateDisplayFormat.PATH
+        NAME = TemplateDisplayFormat.NAME
+        """
+        Only the file name, without file extension, of the template file will be displayed.
+        """
+        NAME_AND_EXT = TemplateDisplayFormat.NAME_AND_EXT
+        """
+        The file name and the file extension of the template file will be displayed.
+        """
+        AREA = TemplateDisplayFormat.AREA
+        """
+        The name of the template area is displayed.
+        """
+        TITLE = TemplateDisplayFormat.TITLE
+        """
+        The title of the template file is displayed.
+        """
 
 __all__ = ['TemplateDisplayFormat', 'TemplateDisplayFormatEnum']

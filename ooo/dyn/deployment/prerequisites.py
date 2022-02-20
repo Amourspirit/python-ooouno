@@ -27,17 +27,28 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.deployment import Prerequisites as Prerequisites
+    if hasattr(Prerequisites, '_constants') and isinstance(Prerequisites._constants, dict):
+        Prerequisites._constants['__ooo_ns__'] = 'com.sun.star.deployment'
+        Prerequisites._constants['__ooo_full_ns__'] = 'com.sun.star.deployment.Prerequisites'
+        Prerequisites._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PrerequisitesEnum
+        ls = [f for f in dir(Prerequisites) if not callable(getattr(Prerequisites, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Prerequisites, name)
+        PrerequisitesEnum = IntFlag('PrerequisitesEnum', _dict)
+    build_enum()
 else:
     from ...lo.deployment.prerequisites import Prerequisites as Prerequisites
 
+    class PrerequisitesEnum(IntFlag):
+        """
+        Enum of Const Class Prerequisites
 
-class PrerequisitesEnum(IntFlag):
-    """
-    Enum of Const Class Prerequisites
-
-    """
-    PLATFORM = Prerequisites.PLATFORM
-    DEPENDENCIES = Prerequisites.DEPENDENCIES
-    LICENSE = Prerequisites.LICENSE
+        """
+        PLATFORM = Prerequisites.PLATFORM
+        DEPENDENCIES = Prerequisites.DEPENDENCIES
+        LICENSE = Prerequisites.LICENSE
 
 __all__ = ['Prerequisites', 'PrerequisitesEnum']

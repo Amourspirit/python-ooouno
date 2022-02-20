@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import CharacterIteratorMode as CharacterIteratorMode
+    if hasattr(CharacterIteratorMode, '_constants') and isinstance(CharacterIteratorMode._constants, dict):
+        CharacterIteratorMode._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        CharacterIteratorMode._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.CharacterIteratorMode'
+        CharacterIteratorMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CharacterIteratorModeEnum
+        ls = [f for f in dir(CharacterIteratorMode) if not callable(getattr(CharacterIteratorMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CharacterIteratorMode, name)
+        CharacterIteratorModeEnum = IntEnum('CharacterIteratorModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.character_iterator_mode import CharacterIteratorMode as CharacterIteratorMode
 
+    class CharacterIteratorModeEnum(IntEnum):
+        """
+        Enum of Const Class CharacterIteratorMode
 
-class CharacterIteratorModeEnum(IntEnum):
-    """
-    Enum of Const Class CharacterIteratorMode
-
-    Constants to specify the type of character iteration.
-    
-    Used with XBreakIterator.nextCharacters() and XBreakIterator.previousCharacters()
-    """
-    SKIPCHARACTER = CharacterIteratorMode.SKIPCHARACTER
-    """
-    skip characters
-    """
-    SKIPCELL = CharacterIteratorMode.SKIPCELL
-    """
-    skip cells
-    """
-    SKIPCONTROLCHARACTER = CharacterIteratorMode.SKIPCONTROLCHARACTER
-    """
-    skip control characters
-    """
+        Constants to specify the type of character iteration.
+        
+        Used with XBreakIterator.nextCharacters() and XBreakIterator.previousCharacters()
+        """
+        SKIPCHARACTER = CharacterIteratorMode.SKIPCHARACTER
+        """
+        skip characters
+        """
+        SKIPCELL = CharacterIteratorMode.SKIPCELL
+        """
+        skip cells
+        """
+        SKIPCONTROLCHARACTER = CharacterIteratorMode.SKIPCONTROLCHARACTER
+        """
+        skip control characters
+        """
 
 __all__ = ['CharacterIteratorMode', 'CharacterIteratorModeEnum']

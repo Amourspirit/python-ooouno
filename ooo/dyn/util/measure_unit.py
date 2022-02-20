@@ -27,93 +27,104 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import MeasureUnit as MeasureUnit
+    if hasattr(MeasureUnit, '_constants') and isinstance(MeasureUnit._constants, dict):
+        MeasureUnit._constants['__ooo_ns__'] = 'com.sun.star.util'
+        MeasureUnit._constants['__ooo_full_ns__'] = 'com.sun.star.util.MeasureUnit'
+        MeasureUnit._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MeasureUnitEnum
+        ls = [f for f in dir(MeasureUnit) if not callable(getattr(MeasureUnit, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MeasureUnit, name)
+        MeasureUnitEnum = IntEnum('MeasureUnitEnum', _dict)
+    build_enum()
 else:
     from ...lo.util.measure_unit import MeasureUnit as MeasureUnit
 
+    class MeasureUnitEnum(IntEnum):
+        """
+        Enum of Const Class MeasureUnit
 
-class MeasureUnitEnum(IntEnum):
-    """
-    Enum of Const Class MeasureUnit
-
-    These constants are used to specify a measure.
-    
-    A component using these constants may not support all units.
-    """
-    MM_100TH = MeasureUnit.MM_100TH
-    """
-    all measures for this component are in 100th millimeter
-    """
-    MM_10TH = MeasureUnit.MM_10TH
-    """
-    all measures for this component are in 10th millimeter
-    """
-    MM = MeasureUnit.MM
-    """
-    all measures for this component are in millimeter
-    """
-    CM = MeasureUnit.CM
-    """
-    all measures for this component are in centimeters
-    """
-    INCH_1000TH = MeasureUnit.INCH_1000TH
-    """
-    all measures for this component are in 1000th inch
-    """
-    INCH_100TH = MeasureUnit.INCH_100TH
-    """
-    all measures for this component are in 100th inch
-    """
-    INCH_10TH = MeasureUnit.INCH_10TH
-    """
-    all measures for this component are in 10th inch
-    """
-    INCH = MeasureUnit.INCH
-    """
-    all measures for this component are in inch
-    """
-    POINT = MeasureUnit.POINT
-    """
-    all measures for this component are in points
-    """
-    TWIP = MeasureUnit.TWIP
-    """
-    all measures for this component are in twips
-    """
-    M = MeasureUnit.M
-    """
-    all measures for this component are in meters
-    """
-    KM = MeasureUnit.KM
-    """
-    all measures for this component are in kilometers
-    """
-    PICA = MeasureUnit.PICA
-    """
-    all measures for this component are in pica
-    """
-    FOOT = MeasureUnit.FOOT
-    """
-    all measures for this component are in foot
-    """
-    MILE = MeasureUnit.MILE
-    """
-    all measures for this component are in miles
-    """
-    PERCENT = MeasureUnit.PERCENT
-    """
-    all measures for this component are in percentage
-    """
-    PIXEL = MeasureUnit.PIXEL
-    """
-    all measures for this component are in pixel
-    """
-    APPFONT = MeasureUnit.APPFONT
-    """
-    all measures for this component are in APPFONT
-    """
-    SYSFONT = MeasureUnit.SYSFONT
-    """
-    all measures for this component are in SYSFONT
-    """
+        These constants are used to specify a measure.
+        
+        A component using these constants may not support all units.
+        """
+        MM_100TH = MeasureUnit.MM_100TH
+        """
+        all measures for this component are in 100th millimeter
+        """
+        MM_10TH = MeasureUnit.MM_10TH
+        """
+        all measures for this component are in 10th millimeter
+        """
+        MM = MeasureUnit.MM
+        """
+        all measures for this component are in millimeter
+        """
+        CM = MeasureUnit.CM
+        """
+        all measures for this component are in centimeters
+        """
+        INCH_1000TH = MeasureUnit.INCH_1000TH
+        """
+        all measures for this component are in 1000th inch
+        """
+        INCH_100TH = MeasureUnit.INCH_100TH
+        """
+        all measures for this component are in 100th inch
+        """
+        INCH_10TH = MeasureUnit.INCH_10TH
+        """
+        all measures for this component are in 10th inch
+        """
+        INCH = MeasureUnit.INCH
+        """
+        all measures for this component are in inch
+        """
+        POINT = MeasureUnit.POINT
+        """
+        all measures for this component are in points
+        """
+        TWIP = MeasureUnit.TWIP
+        """
+        all measures for this component are in twips
+        """
+        M = MeasureUnit.M
+        """
+        all measures for this component are in meters
+        """
+        KM = MeasureUnit.KM
+        """
+        all measures for this component are in kilometers
+        """
+        PICA = MeasureUnit.PICA
+        """
+        all measures for this component are in pica
+        """
+        FOOT = MeasureUnit.FOOT
+        """
+        all measures for this component are in foot
+        """
+        MILE = MeasureUnit.MILE
+        """
+        all measures for this component are in miles
+        """
+        PERCENT = MeasureUnit.PERCENT
+        """
+        all measures for this component are in percentage
+        """
+        PIXEL = MeasureUnit.PIXEL
+        """
+        all measures for this component are in pixel
+        """
+        APPFONT = MeasureUnit.APPFONT
+        """
+        all measures for this component are in APPFONT
+        """
+        SYSFONT = MeasureUnit.SYSFONT
+        """
+        all measures for this component are in SYSFONT
+        """
 
 __all__ = ['MeasureUnit', 'MeasureUnitEnum']

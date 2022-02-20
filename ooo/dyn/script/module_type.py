@@ -27,19 +27,30 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script import ModuleType as ModuleType
+    if hasattr(ModuleType, '_constants') and isinstance(ModuleType._constants, dict):
+        ModuleType._constants['__ooo_ns__'] = 'com.sun.star.script'
+        ModuleType._constants['__ooo_full_ns__'] = 'com.sun.star.script.ModuleType'
+        ModuleType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ModuleTypeEnum
+        ls = [f for f in dir(ModuleType) if not callable(getattr(ModuleType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ModuleType, name)
+        ModuleTypeEnum = IntEnum('ModuleTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.script.module_type import ModuleType as ModuleType
 
+    class ModuleTypeEnum(IntEnum):
+        """
+        Enum of Const Class ModuleType
 
-class ModuleTypeEnum(IntEnum):
-    """
-    Enum of Const Class ModuleType
-
-    """
-    UNKNOWN = ModuleType.UNKNOWN
-    NORMAL = ModuleType.NORMAL
-    CLASS = ModuleType.CLASS
-    FORM = ModuleType.FORM
-    DOCUMENT = ModuleType.DOCUMENT
+        """
+        UNKNOWN = ModuleType.UNKNOWN
+        NORMAL = ModuleType.NORMAL
+        CLASS = ModuleType.CLASS
+        FORM = ModuleType.FORM
+        DOCUMENT = ModuleType.DOCUMENT
 
 __all__ = ['ModuleType', 'ModuleTypeEnum']

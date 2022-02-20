@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import BestRowType as BestRowType
+    if hasattr(BestRowType, '_constants') and isinstance(BestRowType._constants, dict):
+        BestRowType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        BestRowType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.BestRowType'
+        BestRowType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BestRowTypeEnum
+        ls = [f for f in dir(BestRowType) if not callable(getattr(BestRowType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BestRowType, name)
+        BestRowTypeEnum = IntEnum('BestRowTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.best_row_type import BestRowType as BestRowType
 
+    class BestRowTypeEnum(IntEnum):
+        """
+        Enum of Const Class BestRowType
 
-class BestRowTypeEnum(IntEnum):
-    """
-    Enum of Const Class BestRowType
-
-    determines the type of the best row identifier.
-    """
-    UNKNOWN = BestRowType.UNKNOWN
-    """
-    indicates that the best row identifier may or may not be a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
-    """
-    NOT_PSEUDO = BestRowType.NOT_PSEUDO
-    """
-    indicates that the best row identifier is NOT a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
-    """
-    PSEUDO = BestRowType.PSEUDO
-    """
-    indicates that the best row identifier is a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
-    """
+        determines the type of the best row identifier.
+        """
+        UNKNOWN = BestRowType.UNKNOWN
+        """
+        indicates that the best row identifier may or may not be a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
+        """
+        NOT_PSEUDO = BestRowType.NOT_PSEUDO
+        """
+        indicates that the best row identifier is NOT a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
+        """
+        PSEUDO = BestRowType.PSEUDO
+        """
+        indicates that the best row identifier is a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method XDatabaseMetaData.getBestRowIdentifier().
+        """
 
 __all__ = ['BestRowType', 'BestRowTypeEnum']

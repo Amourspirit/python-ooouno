@@ -27,75 +27,86 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
+    if hasattr(EnhancedCustomShapeParameterType, '_constants') and isinstance(EnhancedCustomShapeParameterType._constants, dict):
+        EnhancedCustomShapeParameterType._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        EnhancedCustomShapeParameterType._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.EnhancedCustomShapeParameterType'
+        EnhancedCustomShapeParameterType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EnhancedCustomShapeParameterTypeEnum
+        ls = [f for f in dir(EnhancedCustomShapeParameterType) if not callable(getattr(EnhancedCustomShapeParameterType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EnhancedCustomShapeParameterType, name)
+        EnhancedCustomShapeParameterTypeEnum = IntEnum('EnhancedCustomShapeParameterTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.enhanced_custom_shape_parameter_type import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
 
+    class EnhancedCustomShapeParameterTypeEnum(IntEnum):
+        """
+        Enum of Const Class EnhancedCustomShapeParameterType
 
-class EnhancedCustomShapeParameterTypeEnum(IntEnum):
-    """
-    Enum of Const Class EnhancedCustomShapeParameterType
-
-    defines how an EnhancedCustomShapeParameter has to be interpreted
-    """
-    NORMAL = EnhancedCustomShapeParameterType.NORMAL
-    """
-    the value of the point component is normal, the Coordinate is taken as it is
-    """
-    EQUATION = EnhancedCustomShapeParameterType.EQUATION
-    """
-    the value of the point component has to be interpreted as index to an Equation
-    """
-    ADJUSTMENT = EnhancedCustomShapeParameterType.ADJUSTMENT
-    """
-    the value of the point component has to be interpreted as index into the list of AdjustmentValues
-    """
-    LEFT = EnhancedCustomShapeParameterType.LEFT
-    """
-    the logical left border of the CustomShape is used
-    """
-    TOP = EnhancedCustomShapeParameterType.TOP
-    """
-    the logical top border of the CustomShape is used
-    """
-    RIGHT = EnhancedCustomShapeParameterType.RIGHT
-    """
-    the logical right border of the CustomShape is used
-    """
-    BOTTOM = EnhancedCustomShapeParameterType.BOTTOM
-    """
-    the logical bottom border of the CustomShape is used
-    """
-    XSTRETCH = EnhancedCustomShapeParameterType.XSTRETCH
-    """
-    the x value of the stretch point is used
-    """
-    YSTRETCH = EnhancedCustomShapeParameterType.YSTRETCH
-    """
-    the y value of the stretch point is used
-    """
-    HASSTROKE = EnhancedCustomShapeParameterType.HASSTROKE
-    """
-    If the shape has a line style, a value of 1 is used.
-    """
-    HASFILL = EnhancedCustomShapeParameterType.HASFILL
-    """
-    If the shape has a fill style, a value of 1 is used.
-    """
-    WIDTH = EnhancedCustomShapeParameterType.WIDTH
-    """
-    The width of the svg:viewBox is used.
-    """
-    HEIGHT = EnhancedCustomShapeParameterType.HEIGHT
-    """
-    The height of the svg:viewBox is used.
-    """
-    LOGWIDTH = EnhancedCustomShapeParameterType.LOGWIDTH
-    """
-    The logical width of the shape is used.
-    """
-    LOGHEIGHT = EnhancedCustomShapeParameterType.LOGHEIGHT
-    """
-    The logical height of the shape is used.
-    """
+        defines how an EnhancedCustomShapeParameter has to be interpreted
+        """
+        NORMAL = EnhancedCustomShapeParameterType.NORMAL
+        """
+        the value of the point component is normal, the Coordinate is taken as it is
+        """
+        EQUATION = EnhancedCustomShapeParameterType.EQUATION
+        """
+        the value of the point component has to be interpreted as index to an Equation
+        """
+        ADJUSTMENT = EnhancedCustomShapeParameterType.ADJUSTMENT
+        """
+        the value of the point component has to be interpreted as index into the list of AdjustmentValues
+        """
+        LEFT = EnhancedCustomShapeParameterType.LEFT
+        """
+        the logical left border of the CustomShape is used
+        """
+        TOP = EnhancedCustomShapeParameterType.TOP
+        """
+        the logical top border of the CustomShape is used
+        """
+        RIGHT = EnhancedCustomShapeParameterType.RIGHT
+        """
+        the logical right border of the CustomShape is used
+        """
+        BOTTOM = EnhancedCustomShapeParameterType.BOTTOM
+        """
+        the logical bottom border of the CustomShape is used
+        """
+        XSTRETCH = EnhancedCustomShapeParameterType.XSTRETCH
+        """
+        the x value of the stretch point is used
+        """
+        YSTRETCH = EnhancedCustomShapeParameterType.YSTRETCH
+        """
+        the y value of the stretch point is used
+        """
+        HASSTROKE = EnhancedCustomShapeParameterType.HASSTROKE
+        """
+        If the shape has a line style, a value of 1 is used.
+        """
+        HASFILL = EnhancedCustomShapeParameterType.HASFILL
+        """
+        If the shape has a fill style, a value of 1 is used.
+        """
+        WIDTH = EnhancedCustomShapeParameterType.WIDTH
+        """
+        The width of the svg:viewBox is used.
+        """
+        HEIGHT = EnhancedCustomShapeParameterType.HEIGHT
+        """
+        The height of the svg:viewBox is used.
+        """
+        LOGWIDTH = EnhancedCustomShapeParameterType.LOGWIDTH
+        """
+        The logical width of the shape is used.
+        """
+        LOGHEIGHT = EnhancedCustomShapeParameterType.LOGHEIGHT
+        """
+        The logical height of the shape is used.
+        """
 
 __all__ = ['EnhancedCustomShapeParameterType', 'EnhancedCustomShapeParameterTypeEnum']

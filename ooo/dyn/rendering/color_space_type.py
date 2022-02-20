@@ -27,83 +27,94 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import ColorSpaceType as ColorSpaceType
+    if hasattr(ColorSpaceType, '_constants') and isinstance(ColorSpaceType._constants, dict):
+        ColorSpaceType._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        ColorSpaceType._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.ColorSpaceType'
+        ColorSpaceType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColorSpaceTypeEnum
+        ls = [f for f in dir(ColorSpaceType) if not callable(getattr(ColorSpaceType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColorSpaceType, name)
+        ColorSpaceTypeEnum = IntEnum('ColorSpaceTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.color_space_type import ColorSpaceType as ColorSpaceType
 
+    class ColorSpaceTypeEnum(IntEnum):
+        """
+        Enum of Const Class ColorSpaceType
 
-class ColorSpaceTypeEnum(IntEnum):
-    """
-    Enum of Const Class ColorSpaceType
-
-    Categories for color spaces.
-    """
-    DEVICE_COLOR = ColorSpaceType.DEVICE_COLOR
-    """
-    Unspecified device color space - use conversion functions to convert to standard color spaces.
-    """
-    GREY = ColorSpaceType.GREY
-    """
-    Grey-value color space.
-    
-    Use this for monochrome images.
-    """
-    RGB = ColorSpaceType.RGB
-    """
-    RGB color space.
-    """
-    CMYK = ColorSpaceType.CMYK
-    """
-    CMYK color space.
-    
-    See Wikipedia for a thorough explanation.
-    """
-    CMYKOG = ColorSpaceType.CMYKOG
-    """
-    CMYKOG color space.
-    
-    See Wikipedia for a thorough explanation.
-    """
-    CIEXYZ = ColorSpaceType.CIEXYZ
-    """
-    Standard CieXYZ color space.
-    
-    See Wikipedia for a thorough explanation.
-    """
-    CIELAB = ColorSpaceType.CIELAB
-    """
-    Standard CieLab color space.
-    
-    See Wikipedia for a thorough explanation. Preferable over CIEXYZ if perceptual uniformity is an issue.
-    """
-    SRGB = ColorSpaceType.SRGB
-    """
-    Standard sRGB color space.
-    
-    See Wikipedia for a thorough explanation.
-    """
-    HSV = ColorSpaceType.HSV
-    """
-    HSV color space.
-    
-    Hue saturation value. See Wikipedia for a thorough explanation.
-    """
-    HSL = ColorSpaceType.HSL
-    """
-    HSL color space.
-    
-    Hue saturation lightness. See Wikipedia for a thorough explanation
-    """
-    YCBCR = ColorSpaceType.YCBCR
-    """
-    YCbCr color space.
-    
-    See Wikipedia for a thorough explanation. This color space is common for digital video.
-    """
-    INDEXED = ColorSpaceType.INDEXED
-    """
-    Indexed color space.
-    
-    The color components of this color space are in fact indices into a color map.
-    """
+        Categories for color spaces.
+        """
+        DEVICE_COLOR = ColorSpaceType.DEVICE_COLOR
+        """
+        Unspecified device color space - use conversion functions to convert to standard color spaces.
+        """
+        GREY = ColorSpaceType.GREY
+        """
+        Grey-value color space.
+        
+        Use this for monochrome images.
+        """
+        RGB = ColorSpaceType.RGB
+        """
+        RGB color space.
+        """
+        CMYK = ColorSpaceType.CMYK
+        """
+        CMYK color space.
+        
+        See Wikipedia for a thorough explanation.
+        """
+        CMYKOG = ColorSpaceType.CMYKOG
+        """
+        CMYKOG color space.
+        
+        See Wikipedia for a thorough explanation.
+        """
+        CIEXYZ = ColorSpaceType.CIEXYZ
+        """
+        Standard CieXYZ color space.
+        
+        See Wikipedia for a thorough explanation.
+        """
+        CIELAB = ColorSpaceType.CIELAB
+        """
+        Standard CieLab color space.
+        
+        See Wikipedia for a thorough explanation. Preferable over CIEXYZ if perceptual uniformity is an issue.
+        """
+        SRGB = ColorSpaceType.SRGB
+        """
+        Standard sRGB color space.
+        
+        See Wikipedia for a thorough explanation.
+        """
+        HSV = ColorSpaceType.HSV
+        """
+        HSV color space.
+        
+        Hue saturation value. See Wikipedia for a thorough explanation.
+        """
+        HSL = ColorSpaceType.HSL
+        """
+        HSL color space.
+        
+        Hue saturation lightness. See Wikipedia for a thorough explanation
+        """
+        YCBCR = ColorSpaceType.YCBCR
+        """
+        YCbCr color space.
+        
+        See Wikipedia for a thorough explanation. This color space is common for digital video.
+        """
+        INDEXED = ColorSpaceType.INDEXED
+        """
+        Indexed color space.
+        
+        The color components of this color space are in fact indices into a color map.
+        """
 
 __all__ = ['ColorSpaceType', 'ColorSpaceTypeEnum']

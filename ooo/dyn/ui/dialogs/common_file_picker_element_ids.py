@@ -27,57 +27,68 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import CommonFilePickerElementIds as CommonFilePickerElementIds
+    if hasattr(CommonFilePickerElementIds, '_constants') and isinstance(CommonFilePickerElementIds._constants, dict):
+        CommonFilePickerElementIds._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        CommonFilePickerElementIds._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.CommonFilePickerElementIds'
+        CommonFilePickerElementIds._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CommonFilePickerElementIdsEnum
+        ls = [f for f in dir(CommonFilePickerElementIds) if not callable(getattr(CommonFilePickerElementIds, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CommonFilePickerElementIds, name)
+        CommonFilePickerElementIdsEnum = IntEnum('CommonFilePickerElementIdsEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.common_file_picker_element_ids import CommonFilePickerElementIds as CommonFilePickerElementIds
 
+    class CommonFilePickerElementIdsEnum(IntEnum):
+        """
+        Enum of Const Class CommonFilePickerElementIds
 
-class CommonFilePickerElementIdsEnum(IntEnum):
-    """
-    Enum of Const Class CommonFilePickerElementIds
-
-    These constants are used to specify common controls of a FilePicker dialog.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    PUSHBUTTON_OK = CommonFilePickerElementIds.PUSHBUTTON_OK
-    """
-    The control id of the OK button.
-    """
-    PUSHBUTTON_CANCEL = CommonFilePickerElementIds.PUSHBUTTON_CANCEL
-    """
-    The control id of the Cancel button.
-    """
-    LISTBOX_FILTER = CommonFilePickerElementIds.LISTBOX_FILTER
-    """
-    The filter listbox of a FilePicker dialog.
-    """
-    CONTROL_FILEVIEW = CommonFilePickerElementIds.CONTROL_FILEVIEW
-    """
-    Is used to refer to the file view of the file picker.
-    
-    This view shows the list of all files/folders in the currently selected folder.
-    """
-    EDIT_FILEURL = CommonFilePickerElementIds.EDIT_FILEURL
-    """
-    Is used to refer to the edit line where a file or path can be entered by the user.
-    """
-    LISTBOX_FILTER_LABEL = CommonFilePickerElementIds.LISTBOX_FILTER_LABEL
-    """
-    The label of the filter listbox of a FilePicker dialog.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    EDIT_FILEURL_LABEL = CommonFilePickerElementIds.EDIT_FILEURL_LABEL
-    """
-    The label of the file name listbox of a FilePicker dialog.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
+        These constants are used to specify common controls of a FilePicker dialog.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        PUSHBUTTON_OK = CommonFilePickerElementIds.PUSHBUTTON_OK
+        """
+        The control id of the OK button.
+        """
+        PUSHBUTTON_CANCEL = CommonFilePickerElementIds.PUSHBUTTON_CANCEL
+        """
+        The control id of the Cancel button.
+        """
+        LISTBOX_FILTER = CommonFilePickerElementIds.LISTBOX_FILTER
+        """
+        The filter listbox of a FilePicker dialog.
+        """
+        CONTROL_FILEVIEW = CommonFilePickerElementIds.CONTROL_FILEVIEW
+        """
+        Is used to refer to the file view of the file picker.
+        
+        This view shows the list of all files/folders in the currently selected folder.
+        """
+        EDIT_FILEURL = CommonFilePickerElementIds.EDIT_FILEURL
+        """
+        Is used to refer to the edit line where a file or path can be entered by the user.
+        """
+        LISTBOX_FILTER_LABEL = CommonFilePickerElementIds.LISTBOX_FILTER_LABEL
+        """
+        The label of the filter listbox of a FilePicker dialog.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        EDIT_FILEURL_LABEL = CommonFilePickerElementIds.EDIT_FILEURL_LABEL
+        """
+        The label of the file name listbox of a FilePicker dialog.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
 
 __all__ = ['CommonFilePickerElementIds', 'CommonFilePickerElementIdsEnum']

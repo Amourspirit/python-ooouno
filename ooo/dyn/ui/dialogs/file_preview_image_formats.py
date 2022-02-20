@@ -27,21 +27,32 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import FilePreviewImageFormats as FilePreviewImageFormats
+    if hasattr(FilePreviewImageFormats, '_constants') and isinstance(FilePreviewImageFormats._constants, dict):
+        FilePreviewImageFormats._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        FilePreviewImageFormats._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.FilePreviewImageFormats'
+        FilePreviewImageFormats._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FilePreviewImageFormatsEnum
+        ls = [f for f in dir(FilePreviewImageFormats) if not callable(getattr(FilePreviewImageFormats, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FilePreviewImageFormats, name)
+        FilePreviewImageFormatsEnum = IntEnum('FilePreviewImageFormatsEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.file_preview_image_formats import FilePreviewImageFormats as FilePreviewImageFormats
 
+    class FilePreviewImageFormatsEnum(IntEnum):
+        """
+        Enum of Const Class FilePreviewImageFormats
 
-class FilePreviewImageFormatsEnum(IntEnum):
-    """
-    Enum of Const Class FilePreviewImageFormats
-
-    These constants are used to specify image formats supported by an implementation of the interface com.sun.star.ui.dialogs.XFilePreview.
-    """
-    BITMAP = FilePreviewImageFormats.BITMAP
-    """
-    A LibreOffice bitmap which is similar to the device independent bitmap (DIB) format on windows.
-    
-    The bitmap data should be provided as a sequence of sal_Int8.
-    """
+        These constants are used to specify image formats supported by an implementation of the interface com.sun.star.ui.dialogs.XFilePreview.
+        """
+        BITMAP = FilePreviewImageFormats.BITMAP
+        """
+        A LibreOffice bitmap which is similar to the device independent bitmap (DIB) format on windows.
+        
+        The bitmap data should be provided as a sequence of sal_Int8.
+        """
 
 __all__ = ['FilePreviewImageFormats', 'FilePreviewImageFormatsEnum']

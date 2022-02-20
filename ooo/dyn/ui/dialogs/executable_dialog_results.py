@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import ExecutableDialogResults as ExecutableDialogResults
+    if hasattr(ExecutableDialogResults, '_constants') and isinstance(ExecutableDialogResults._constants, dict):
+        ExecutableDialogResults._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        ExecutableDialogResults._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.ExecutableDialogResults'
+        ExecutableDialogResults._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ExecutableDialogResultsEnum
+        ls = [f for f in dir(ExecutableDialogResults) if not callable(getattr(ExecutableDialogResults, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ExecutableDialogResults, name)
+        ExecutableDialogResultsEnum = IntEnum('ExecutableDialogResultsEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.executable_dialog_results import ExecutableDialogResults as ExecutableDialogResults
 
+    class ExecutableDialogResultsEnum(IntEnum):
+        """
+        Enum of Const Class ExecutableDialogResults
 
-class ExecutableDialogResultsEnum(IntEnum):
-    """
-    Enum of Const Class ExecutableDialogResults
-
-    These constants are used to specify a result of executing a XExecutableDialog.
-    """
-    CANCEL = ExecutableDialogResults.CANCEL
-    """
-    The user canceled the dialog.
-    """
-    OK = ExecutableDialogResults.OK
-    """
-    The user acknowledged the dialog.
-    """
+        These constants are used to specify a result of executing a XExecutableDialog.
+        """
+        CANCEL = ExecutableDialogResults.CANCEL
+        """
+        The user canceled the dialog.
+        """
+        OK = ExecutableDialogResults.OK
+        """
+        The user acknowledged the dialog.
+        """
 
 __all__ = ['ExecutableDialogResults', 'ExecutableDialogResultsEnum']

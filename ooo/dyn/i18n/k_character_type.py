@@ -27,55 +27,66 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import KCharacterType as KCharacterType
+    if hasattr(KCharacterType, '_constants') and isinstance(KCharacterType._constants, dict):
+        KCharacterType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        KCharacterType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.KCharacterType'
+        KCharacterType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KCharacterTypeEnum
+        ls = [f for f in dir(KCharacterType) if not callable(getattr(KCharacterType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KCharacterType, name)
+        KCharacterTypeEnum = IntEnum('KCharacterTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.k_character_type import KCharacterType as KCharacterType
 
+    class KCharacterTypeEnum(IntEnum):
+        """
+        Enum of Const Class KCharacterType
 
-class KCharacterTypeEnum(IntEnum):
-    """
-    Enum of Const Class KCharacterType
-
-    Constants to identify the character type.
-    
-    Returned by XCharacterClassification.getCharacterType() and XCharacterClassification.getStringType()
-    """
-    DIGIT = KCharacterType.DIGIT
-    """
-    digit
-    """
-    UPPER = KCharacterType.UPPER
-    """
-    upper case alpha letter
-    """
-    LOWER = KCharacterType.LOWER
-    """
-    lower case alpha letter
-    """
-    TITLE_CASE = KCharacterType.TITLE_CASE
-    """
-    title case alpha letter
-    """
-    ALPHA = KCharacterType.ALPHA
-    """
-    any alpha, ALPHA = UPPER | LOWER | TITLE_CASE
-    """
-    CONTROL = KCharacterType.CONTROL
-    """
-    control character
-    """
-    PRINTABLE = KCharacterType.PRINTABLE
-    """
-    printable character
-    """
-    BASE_FORM = KCharacterType.BASE_FORM
-    """
-    base form
-    """
-    LETTER = KCharacterType.LETTER
-    """
-    any UnicodeType...._LETTER.
-    
-    Note that a LETTER must not necessarily be ALPHA
-    """
+        Constants to identify the character type.
+        
+        Returned by XCharacterClassification.getCharacterType() and XCharacterClassification.getStringType()
+        """
+        DIGIT = KCharacterType.DIGIT
+        """
+        digit
+        """
+        UPPER = KCharacterType.UPPER
+        """
+        upper case alpha letter
+        """
+        LOWER = KCharacterType.LOWER
+        """
+        lower case alpha letter
+        """
+        TITLE_CASE = KCharacterType.TITLE_CASE
+        """
+        title case alpha letter
+        """
+        ALPHA = KCharacterType.ALPHA
+        """
+        any alpha, ALPHA = UPPER | LOWER | TITLE_CASE
+        """
+        CONTROL = KCharacterType.CONTROL
+        """
+        control character
+        """
+        PRINTABLE = KCharacterType.PRINTABLE
+        """
+        printable character
+        """
+        BASE_FORM = KCharacterType.BASE_FORM
+        """
+        base form
+        """
+        LETTER = KCharacterType.LETTER
+        """
+        any UnicodeType...._LETTER.
+        
+        Note that a LETTER must not necessarily be ALPHA
+        """
 
 __all__ = ['KCharacterType', 'KCharacterTypeEnum']

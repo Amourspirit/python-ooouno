@@ -27,93 +27,104 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontUnderline as FontUnderline
+    if hasattr(FontUnderline, '_constants') and isinstance(FontUnderline._constants, dict):
+        FontUnderline._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontUnderline._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontUnderline'
+        FontUnderline._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontUnderlineEnum
+        ls = [f for f in dir(FontUnderline) if not callable(getattr(FontUnderline, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontUnderline, name)
+        FontUnderlineEnum = IntEnum('FontUnderlineEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_underline import FontUnderline as FontUnderline
 
+    class FontUnderlineEnum(IntEnum):
+        """
+        Enum of Const Class FontUnderline
 
-class FontUnderlineEnum(IntEnum):
-    """
-    Enum of Const Class FontUnderline
-
-    These values are used to specify the kind of underlining.
-    
-    They may be expanded in future versions.
-    """
-    NONE = FontUnderline.NONE
-    """
-    specifies no underlining.
-    """
-    SINGLE = FontUnderline.SINGLE
-    """
-    specifies underlining with a single line.
-    """
-    DOUBLE = FontUnderline.DOUBLE
-    """
-    specifies underlining with a double line.
-    """
-    DOTTED = FontUnderline.DOTTED
-    """
-    specifies underlining with a dotted line.
-    """
-    DONTKNOW = FontUnderline.DONTKNOW
-    """
-    The kind of underlining is not known.
-    """
-    DASH = FontUnderline.DASH
-    """
-    specifies underlining with a dashed line.
-    """
-    LONGDASH = FontUnderline.LONGDASH
-    """
-    specifies underlining with long dashes.
-    """
-    DASHDOT = FontUnderline.DASHDOT
-    """
-    specifies underlining with a dash and dot sequence.
-    """
-    DASHDOTDOT = FontUnderline.DASHDOTDOT
-    """
-    specifies underlining with a dash, dot, dot sequence.
-    """
-    SMALLWAVE = FontUnderline.SMALLWAVE
-    """
-    specifies underlining with a small wave.
-    """
-    WAVE = FontUnderline.WAVE
-    """
-    specifies underlining with a wave.
-    """
-    DOUBLEWAVE = FontUnderline.DOUBLEWAVE
-    """
-    specifies underlining with a double wave.
-    """
-    BOLD = FontUnderline.BOLD
-    """
-    specifies underlining with a bold line.
-    """
-    BOLDDOTTED = FontUnderline.BOLDDOTTED
-    """
-    specifies underlining with bold dots.
-    """
-    BOLDDASH = FontUnderline.BOLDDASH
-    """
-    specifies underlining with bold dashes.
-    """
-    BOLDLONGDASH = FontUnderline.BOLDLONGDASH
-    """
-    specifies underlining with long bold dashes.
-    """
-    BOLDDASHDOT = FontUnderline.BOLDDASHDOT
-    """
-    specifies underlining with a dash and dot sequence in bold.
-    """
-    BOLDDASHDOTDOT = FontUnderline.BOLDDASHDOTDOT
-    """
-    specifies underlining with a dash, dot, dot sequence in bold.
-    """
-    BOLDWAVE = FontUnderline.BOLDWAVE
-    """
-    specifies underlining with a bold wave.
-    """
+        These values are used to specify the kind of underlining.
+        
+        They may be expanded in future versions.
+        """
+        NONE = FontUnderline.NONE
+        """
+        specifies no underlining.
+        """
+        SINGLE = FontUnderline.SINGLE
+        """
+        specifies underlining with a single line.
+        """
+        DOUBLE = FontUnderline.DOUBLE
+        """
+        specifies underlining with a double line.
+        """
+        DOTTED = FontUnderline.DOTTED
+        """
+        specifies underlining with a dotted line.
+        """
+        DONTKNOW = FontUnderline.DONTKNOW
+        """
+        The kind of underlining is not known.
+        """
+        DASH = FontUnderline.DASH
+        """
+        specifies underlining with a dashed line.
+        """
+        LONGDASH = FontUnderline.LONGDASH
+        """
+        specifies underlining with long dashes.
+        """
+        DASHDOT = FontUnderline.DASHDOT
+        """
+        specifies underlining with a dash and dot sequence.
+        """
+        DASHDOTDOT = FontUnderline.DASHDOTDOT
+        """
+        specifies underlining with a dash, dot, dot sequence.
+        """
+        SMALLWAVE = FontUnderline.SMALLWAVE
+        """
+        specifies underlining with a small wave.
+        """
+        WAVE = FontUnderline.WAVE
+        """
+        specifies underlining with a wave.
+        """
+        DOUBLEWAVE = FontUnderline.DOUBLEWAVE
+        """
+        specifies underlining with a double wave.
+        """
+        BOLD = FontUnderline.BOLD
+        """
+        specifies underlining with a bold line.
+        """
+        BOLDDOTTED = FontUnderline.BOLDDOTTED
+        """
+        specifies underlining with bold dots.
+        """
+        BOLDDASH = FontUnderline.BOLDDASH
+        """
+        specifies underlining with bold dashes.
+        """
+        BOLDLONGDASH = FontUnderline.BOLDLONGDASH
+        """
+        specifies underlining with long bold dashes.
+        """
+        BOLDDASHDOT = FontUnderline.BOLDDASHDOT
+        """
+        specifies underlining with a dash and dot sequence in bold.
+        """
+        BOLDDASHDOTDOT = FontUnderline.BOLDDASHDOTDOT
+        """
+        specifies underlining with a dash, dot, dot sequence in bold.
+        """
+        BOLDWAVE = FontUnderline.BOLDWAVE
+        """
+        specifies underlining with a bold wave.
+        """
 
 __all__ = ['FontUnderline', 'FontUnderlineEnum']

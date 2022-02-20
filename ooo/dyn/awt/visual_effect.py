@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import VisualEffect as VisualEffect
+    if hasattr(VisualEffect, '_constants') and isinstance(VisualEffect._constants, dict):
+        VisualEffect._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        VisualEffect._constants['__ooo_full_ns__'] = 'com.sun.star.awt.VisualEffect'
+        VisualEffect._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global VisualEffectEnum
+        ls = [f for f in dir(VisualEffect) if not callable(getattr(VisualEffect, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(VisualEffect, name)
+        VisualEffectEnum = IntEnum('VisualEffectEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.visual_effect import VisualEffect as VisualEffect
 
+    class VisualEffectEnum(IntEnum):
+        """
+        Enum of Const Class VisualEffect
 
-class VisualEffectEnum(IntEnum):
-    """
-    Enum of Const Class VisualEffect
-
-    These values are used to specify the visual effect of controls.
-    
-    The list may grow in future versions.
-    """
-    NONE = VisualEffect.NONE
-    """
-    specifies that no visual effect is to be applied
-    """
-    LOOK3D = VisualEffect.LOOK3D
-    """
-    specifies a 3D-like look
-    """
-    FLAT = VisualEffect.FLAT
-    """
-    specifies a \"flat\" look
-    """
+        These values are used to specify the visual effect of controls.
+        
+        The list may grow in future versions.
+        """
+        NONE = VisualEffect.NONE
+        """
+        specifies that no visual effect is to be applied
+        """
+        LOOK3D = VisualEffect.LOOK3D
+        """
+        specifies a 3D-like look
+        """
+        FLAT = VisualEffect.FLAT
+        """
+        specifies a \"flat\" look
+        """
 
 __all__ = ['VisualEffect', 'VisualEffectEnum']

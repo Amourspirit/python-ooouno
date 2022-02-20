@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import PosSize as PosSize
+    if hasattr(PosSize, '_constants') and isinstance(PosSize._constants, dict):
+        PosSize._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        PosSize._constants['__ooo_full_ns__'] = 'com.sun.star.awt.PosSize'
+        PosSize._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PosSizeEnum
+        ls = [f for f in dir(PosSize) if not callable(getattr(PosSize, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PosSize, name)
+        PosSizeEnum = IntEnum('PosSizeEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.pos_size import PosSize as PosSize
 
+    class PosSizeEnum(IntEnum):
+        """
+        Enum of Const Class PosSize
 
-class PosSizeEnum(IntEnum):
-    """
-    Enum of Const Class PosSize
-
-    These constants are used to flag the parameters of a rectangle.
-    """
-    X = PosSize.X
-    """
-    flags the x-coordinate.
-    """
-    Y = PosSize.Y
-    """
-    flags the y-coordinate.
-    """
-    WIDTH = PosSize.WIDTH
-    """
-    flags the width.
-    """
-    HEIGHT = PosSize.HEIGHT
-    """
-    flags the height.
-    """
-    POS = PosSize.POS
-    """
-    flags the x- and y-coordinate.
-    """
-    SIZE = PosSize.SIZE
-    """
-    flags the width and height.
-    """
-    POSSIZE = PosSize.POSSIZE
-    """
-    flags the x- and y-coordinate, width and height.
-    """
+        These constants are used to flag the parameters of a rectangle.
+        """
+        X = PosSize.X
+        """
+        flags the x-coordinate.
+        """
+        Y = PosSize.Y
+        """
+        flags the y-coordinate.
+        """
+        WIDTH = PosSize.WIDTH
+        """
+        flags the width.
+        """
+        HEIGHT = PosSize.HEIGHT
+        """
+        flags the height.
+        """
+        POS = PosSize.POS
+        """
+        flags the x- and y-coordinate.
+        """
+        SIZE = PosSize.SIZE
+        """
+        flags the width and height.
+        """
+        POSSIZE = PosSize.POSSIZE
+        """
+        flags the x- and y-coordinate, width and height.
+        """
 
 __all__ = ['PosSize', 'PosSizeEnum']

@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import ScriptType as ScriptType
+    if hasattr(ScriptType, '_constants') and isinstance(ScriptType._constants, dict):
+        ScriptType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        ScriptType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.ScriptType'
+        ScriptType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ScriptTypeEnum
+        ls = [f for f in dir(ScriptType) if not callable(getattr(ScriptType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ScriptType, name)
+        ScriptTypeEnum = IntEnum('ScriptTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.script_type import ScriptType as ScriptType
 
+    class ScriptTypeEnum(IntEnum):
+        """
+        Enum of Const Class ScriptType
 
-class ScriptTypeEnum(IntEnum):
-    """
-    Enum of Const Class ScriptType
-
-    Constants to specify the script type.
-    
-    Used with XBreakIterator.beginOfScript(), XBreakIterator.endOfScript(), XBreakIterator.nextScript(), XBreakIterator.previousScript()
-    """
-    LATIN = ScriptType.LATIN
-    """
-    Latin characters (English, ...)
-    """
-    ASIAN = ScriptType.ASIAN
-    """
-    Asian characters (Japanese, ...)
-    """
-    COMPLEX = ScriptType.COMPLEX
-    """
-    Complex characters (Arabic, ...)
-    """
-    WEAK = ScriptType.WEAK
-    """
-    undefined characters (punctuation, ...)
-    """
+        Constants to specify the script type.
+        
+        Used with XBreakIterator.beginOfScript(), XBreakIterator.endOfScript(), XBreakIterator.nextScript(), XBreakIterator.previousScript()
+        """
+        LATIN = ScriptType.LATIN
+        """
+        Latin characters (English, ...)
+        """
+        ASIAN = ScriptType.ASIAN
+        """
+        Asian characters (Japanese, ...)
+        """
+        COMPLEX = ScriptType.COMPLEX
+        """
+        Complex characters (Arabic, ...)
+        """
+        WEAK = ScriptType.WEAK
+        """
+        undefined characters (punctuation, ...)
+        """
 
 __all__ = ['ScriptType', 'ScriptTypeEnum']

@@ -27,34 +27,45 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import KeyFunction as KeyFunction
+    if hasattr(KeyFunction, '_constants') and isinstance(KeyFunction._constants, dict):
+        KeyFunction._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        KeyFunction._constants['__ooo_full_ns__'] = 'com.sun.star.awt.KeyFunction'
+        KeyFunction._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KeyFunctionEnum
+        ls = [f for f in dir(KeyFunction) if not callable(getattr(KeyFunction, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KeyFunction, name)
+        KeyFunctionEnum = IntEnum('KeyFunctionEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.key_function import KeyFunction as KeyFunction
 
+    class KeyFunctionEnum(IntEnum):
+        """
+        Enum of Const Class KeyFunction
 
-class KeyFunctionEnum(IntEnum):
-    """
-    Enum of Const Class KeyFunction
-
-    These values are used to specify logical key functions.
-    """
-    DONTKNOW = KeyFunction.DONTKNOW
-    NEW = KeyFunction.NEW
-    OPEN = KeyFunction.OPEN
-    SAVE = KeyFunction.SAVE
-    SAVEAS = KeyFunction.SAVEAS
-    PRINT = KeyFunction.PRINT
-    CLOSE = KeyFunction.CLOSE
-    QUIT = KeyFunction.QUIT
-    CUT = KeyFunction.CUT
-    COPY = KeyFunction.COPY
-    PASTE = KeyFunction.PASTE
-    UNDO = KeyFunction.UNDO
-    REDO = KeyFunction.REDO
-    DELETE = KeyFunction.DELETE
-    REPEAT = KeyFunction.REPEAT
-    FIND = KeyFunction.FIND
-    FINDBACKWARD = KeyFunction.FINDBACKWARD
-    PROPERTIES = KeyFunction.PROPERTIES
-    FRONT = KeyFunction.FRONT
+        These values are used to specify logical key functions.
+        """
+        DONTKNOW = KeyFunction.DONTKNOW
+        NEW = KeyFunction.NEW
+        OPEN = KeyFunction.OPEN
+        SAVE = KeyFunction.SAVE
+        SAVEAS = KeyFunction.SAVEAS
+        PRINT = KeyFunction.PRINT
+        CLOSE = KeyFunction.CLOSE
+        QUIT = KeyFunction.QUIT
+        CUT = KeyFunction.CUT
+        COPY = KeyFunction.COPY
+        PASTE = KeyFunction.PASTE
+        UNDO = KeyFunction.UNDO
+        REDO = KeyFunction.REDO
+        DELETE = KeyFunction.DELETE
+        REPEAT = KeyFunction.REPEAT
+        FIND = KeyFunction.FIND
+        FINDBACKWARD = KeyFunction.FINDBACKWARD
+        PROPERTIES = KeyFunction.PROPERTIES
+        FRONT = KeyFunction.FRONT
 
 __all__ = ['KeyFunction', 'KeyFunctionEnum']

@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.xsd import WhiteSpaceTreatment as WhiteSpaceTreatment
+    if hasattr(WhiteSpaceTreatment, '_constants') and isinstance(WhiteSpaceTreatment._constants, dict):
+        WhiteSpaceTreatment._constants['__ooo_ns__'] = 'com.sun.star.xsd'
+        WhiteSpaceTreatment._constants['__ooo_full_ns__'] = 'com.sun.star.xsd.WhiteSpaceTreatment'
+        WhiteSpaceTreatment._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WhiteSpaceTreatmentEnum
+        ls = [f for f in dir(WhiteSpaceTreatment) if not callable(getattr(WhiteSpaceTreatment, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WhiteSpaceTreatment, name)
+        WhiteSpaceTreatmentEnum = IntEnum('WhiteSpaceTreatmentEnum', _dict)
+    build_enum()
 else:
     from ...lo.xsd.white_space_treatment import WhiteSpaceTreatment as WhiteSpaceTreatment
 
+    class WhiteSpaceTreatmentEnum(IntEnum):
+        """
+        Enum of Const Class WhiteSpaceTreatment
 
-class WhiteSpaceTreatmentEnum(IntEnum):
-    """
-    Enum of Const Class WhiteSpaceTreatment
-
-    specifies possibilities how to treat whitespace in strings
-    """
-    Preserve = WhiteSpaceTreatment.Preserve
-    """
-    White spaces should be preserved when processing the string.
-    """
-    Replace = WhiteSpaceTreatment.Replace
-    """
-    White spaces should be replaced with TODO when processing the string.
-    """
-    Collapse = WhiteSpaceTreatment.Collapse
-    """
-    Multiple successive white spaces should be collapsed to a single white space when processing the string.
-    """
+        specifies possibilities how to treat whitespace in strings
+        """
+        Preserve = WhiteSpaceTreatment.Preserve
+        """
+        White spaces should be preserved when processing the string.
+        """
+        Replace = WhiteSpaceTreatment.Replace
+        """
+        White spaces should be replaced with TODO when processing the string.
+        """
+        Collapse = WhiteSpaceTreatment.Collapse
+        """
+        Multiple successive white spaces should be collapsed to a single white space when processing the string.
+        """
 
 __all__ = ['WhiteSpaceTreatment', 'WhiteSpaceTreatmentEnum']

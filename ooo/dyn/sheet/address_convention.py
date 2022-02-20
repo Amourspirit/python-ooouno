@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import AddressConvention as AddressConvention
+    if hasattr(AddressConvention, '_constants') and isinstance(AddressConvention._constants, dict):
+        AddressConvention._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        AddressConvention._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.AddressConvention'
+        AddressConvention._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AddressConventionEnum
+        ls = [f for f in dir(AddressConvention) if not callable(getattr(AddressConvention, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AddressConvention, name)
+        AddressConventionEnum = IntEnum('AddressConventionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.address_convention import AddressConvention as AddressConvention
 
+    class AddressConventionEnum(IntEnum):
+        """
+        Enum of Const Class AddressConvention
 
-class AddressConventionEnum(IntEnum):
-    """
-    Enum of Const Class AddressConvention
-
-    These constants specify which address convention to use in the formula parser.
-    
-    Each variation specifies a different cell and cell range address syntax.
-    """
-    UNSPECIFIED = AddressConvention.UNSPECIFIED
-    OOO = AddressConvention.OOO
-    XL_A1 = AddressConvention.XL_A1
-    XL_R1C1 = AddressConvention.XL_R1C1
-    XL_OOX = AddressConvention.XL_OOX
-    LOTUS_A1 = AddressConvention.LOTUS_A1
+        These constants specify which address convention to use in the formula parser.
+        
+        Each variation specifies a different cell and cell range address syntax.
+        """
+        UNSPECIFIED = AddressConvention.UNSPECIFIED
+        OOO = AddressConvention.OOO
+        XL_A1 = AddressConvention.XL_A1
+        XL_R1C1 = AddressConvention.XL_R1C1
+        XL_OOX = AddressConvention.XL_OOX
+        LOTUS_A1 = AddressConvention.LOTUS_A1
 
 __all__ = ['AddressConvention', 'AddressConventionEnum']

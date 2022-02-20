@@ -27,17 +27,28 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataBarAxis as DataBarAxis
+    if hasattr(DataBarAxis, '_constants') and isinstance(DataBarAxis._constants, dict):
+        DataBarAxis._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataBarAxis._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataBarAxis'
+        DataBarAxis._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataBarAxisEnum
+        ls = [f for f in dir(DataBarAxis) if not callable(getattr(DataBarAxis, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataBarAxis, name)
+        DataBarAxisEnum = IntEnum('DataBarAxisEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_bar_axis import DataBarAxis as DataBarAxis
 
+    class DataBarAxisEnum(IntEnum):
+        """
+        Enum of Const Class DataBarAxis
 
-class DataBarAxisEnum(IntEnum):
-    """
-    Enum of Const Class DataBarAxis
-
-    """
-    AXIS_NONE = DataBarAxis.AXIS_NONE
-    AXIS_MIDDLE = DataBarAxis.AXIS_MIDDLE
-    AXIS_AUTOMATIC = DataBarAxis.AXIS_AUTOMATIC
+        """
+        AXIS_NONE = DataBarAxis.AXIS_NONE
+        AXIS_MIDDLE = DataBarAxis.AXIS_MIDDLE
+        AXIS_AUTOMATIC = DataBarAxis.AXIS_AUTOMATIC
 
 __all__ = ['DataBarAxis', 'DataBarAxisEnum']

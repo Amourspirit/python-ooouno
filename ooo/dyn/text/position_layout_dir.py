@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import PositionLayoutDir as PositionLayoutDir
+    if hasattr(PositionLayoutDir, '_constants') and isinstance(PositionLayoutDir._constants, dict):
+        PositionLayoutDir._constants['__ooo_ns__'] = 'com.sun.star.text'
+        PositionLayoutDir._constants['__ooo_full_ns__'] = 'com.sun.star.text.PositionLayoutDir'
+        PositionLayoutDir._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PositionLayoutDirEnum
+        ls = [f for f in dir(PositionLayoutDir) if not callable(getattr(PositionLayoutDir, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PositionLayoutDir, name)
+        PositionLayoutDirEnum = IntFlag('PositionLayoutDirEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.position_layout_dir import PositionLayoutDir as PositionLayoutDir
 
+    class PositionLayoutDirEnum(IntFlag):
+        """
+        Enum of Const Class PositionLayoutDir
 
-class PositionLayoutDirEnum(IntFlag):
-    """
-    Enum of Const Class PositionLayoutDir
-
-    These values specify the layout direction, in which the position attributes of a shape are given.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    PositionInHoriL2R = PositionLayoutDir.PositionInHoriL2R
-    """
-    position attributes are given in horizontal left-to-right direction
-    """
-    PositionInLayoutDirOfAnchor = PositionLayoutDir.PositionInLayoutDirOfAnchor
-    """
-    position attributes are given in layout direction of the drawing objects anchor
-    """
+        These values specify the layout direction, in which the position attributes of a shape are given.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        PositionInHoriL2R = PositionLayoutDir.PositionInHoriL2R
+        """
+        position attributes are given in horizontal left-to-right direction
+        """
+        PositionInLayoutDirOfAnchor = PositionLayoutDir.PositionInLayoutDirOfAnchor
+        """
+        position attributes are given in layout direction of the drawing objects anchor
+        """
 
 __all__ = ['PositionLayoutDir', 'PositionLayoutDirEnum']

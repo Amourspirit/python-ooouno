@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart2 import DataPointGeometry3D as DataPointGeometry3D
+    if hasattr(DataPointGeometry3D, '_constants') and isinstance(DataPointGeometry3D._constants, dict):
+        DataPointGeometry3D._constants['__ooo_ns__'] = 'com.sun.star.chart2'
+        DataPointGeometry3D._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.DataPointGeometry3D'
+        DataPointGeometry3D._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPointGeometry3DEnum
+        ls = [f for f in dir(DataPointGeometry3D) if not callable(getattr(DataPointGeometry3D, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPointGeometry3D, name)
+        DataPointGeometry3DEnum = IntEnum('DataPointGeometry3DEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart2.data_point_geometry3_d import DataPointGeometry3D as DataPointGeometry3D
 
+    class DataPointGeometry3DEnum(IntEnum):
+        """
+        Enum of Const Class DataPointGeometry3D
 
-class DataPointGeometry3DEnum(IntEnum):
-    """
-    Enum of Const Class DataPointGeometry3D
-
-    These values specify the geometry of data points in 3D bar charts.
-    """
-    CUBOID = DataPointGeometry3D.CUBOID
-    """
-    a cuboid
-    """
-    CYLINDER = DataPointGeometry3D.CYLINDER
-    """
-    a cylinder with a circle as base
-    """
-    CONE = DataPointGeometry3D.CONE
-    """
-    a cone with a circle as base
-    """
-    PYRAMID = DataPointGeometry3D.PYRAMID
-    """
-    a pyramid with a square as base
-    """
+        These values specify the geometry of data points in 3D bar charts.
+        """
+        CUBOID = DataPointGeometry3D.CUBOID
+        """
+        a cuboid
+        """
+        CYLINDER = DataPointGeometry3D.CYLINDER
+        """
+        a cylinder with a circle as base
+        """
+        CONE = DataPointGeometry3D.CONE
+        """
+        a cone with a circle as base
+        """
+        PYRAMID = DataPointGeometry3D.PYRAMID
+        """
+        a pyramid with a square as base
+        """
 
 __all__ = ['DataPointGeometry3D', 'DataPointGeometry3DEnum']

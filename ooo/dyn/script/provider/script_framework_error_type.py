@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script.provider import ScriptFrameworkErrorType as ScriptFrameworkErrorType
+    if hasattr(ScriptFrameworkErrorType, '_constants') and isinstance(ScriptFrameworkErrorType._constants, dict):
+        ScriptFrameworkErrorType._constants['__ooo_ns__'] = 'com.sun.star.script.provider'
+        ScriptFrameworkErrorType._constants['__ooo_full_ns__'] = 'com.sun.star.script.provider.ScriptFrameworkErrorType'
+        ScriptFrameworkErrorType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ScriptFrameworkErrorTypeEnum
+        ls = [f for f in dir(ScriptFrameworkErrorType) if not callable(getattr(ScriptFrameworkErrorType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ScriptFrameworkErrorType, name)
+        ScriptFrameworkErrorTypeEnum = IntEnum('ScriptFrameworkErrorTypeEnum', _dict)
+    build_enum()
 else:
     from ....lo.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
 
+    class ScriptFrameworkErrorTypeEnum(IntEnum):
+        """
+        Enum of Const Class ScriptFrameworkErrorType
 
-class ScriptFrameworkErrorTypeEnum(IntEnum):
-    """
-    Enum of Const Class ScriptFrameworkErrorType
-
-    is a checked exception that represents an error encountered by the Scripting Framework whilst executing a script
-    """
-    UNKNOWN = ScriptFrameworkErrorType.UNKNOWN
-    """
-    Unknown.
-    """
-    NOTSUPPORTED = ScriptFrameworkErrorType.NOTSUPPORTED
-    """
-    ProviderNotSupported.
-    """
-    NO_SUCH_SCRIPT = ScriptFrameworkErrorType.NO_SUCH_SCRIPT
-    """
-    the requested method, and/or with the requested signature, does not exist
-    """
-    MALFORMED_URL = ScriptFrameworkErrorType.MALFORMED_URL
-    """
-    the requested method, with the requested signature, does not exist
-    """
+        is a checked exception that represents an error encountered by the Scripting Framework whilst executing a script
+        """
+        UNKNOWN = ScriptFrameworkErrorType.UNKNOWN
+        """
+        Unknown.
+        """
+        NOTSUPPORTED = ScriptFrameworkErrorType.NOTSUPPORTED
+        """
+        ProviderNotSupported.
+        """
+        NO_SUCH_SCRIPT = ScriptFrameworkErrorType.NO_SUCH_SCRIPT
+        """
+        the requested method, and/or with the requested signature, does not exist
+        """
+        MALFORMED_URL = ScriptFrameworkErrorType.MALFORMED_URL
+        """
+        the requested method, with the requested signature, does not exist
+        """
 
 __all__ = ['ScriptFrameworkErrorType', 'ScriptFrameworkErrorTypeEnum']

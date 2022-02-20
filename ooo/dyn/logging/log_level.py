@@ -27,59 +27,70 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.logging import LogLevel as LogLevel
+    if hasattr(LogLevel, '_constants') and isinstance(LogLevel._constants, dict):
+        LogLevel._constants['__ooo_ns__'] = 'com.sun.star.logging'
+        LogLevel._constants['__ooo_full_ns__'] = 'com.sun.star.logging.LogLevel'
+        LogLevel._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LogLevelEnum
+        ls = [f for f in dir(LogLevel) if not callable(getattr(LogLevel, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LogLevel, name)
+        LogLevelEnum = IntEnum('LogLevelEnum', _dict)
+    build_enum()
 else:
     from ...lo.logging.log_level import LogLevel as LogLevel
 
+    class LogLevelEnum(IntEnum):
+        """
+        Enum of Const Class LogLevel
 
-class LogLevelEnum(IntEnum):
-    """
-    Enum of Const Class LogLevel
-
-    specifies levels to distinguish between severities of logged events
-    
-    **since**
-    
-        OOo 2.3
-    """
-    OFF = LogLevel.OFF
-    """
-    specifies that no messages are to be logged at all
-    
-    This level can be set at an XLogger to completely prevent logging. You will usually not use it with a concrete log event.
-    """
-    SEVERE = LogLevel.SEVERE
-    """
-    denotes a serious failure to be logged
-    """
-    WARNING = LogLevel.WARNING
-    """
-    denotes a potential problem to be logged
-    """
-    INFO = LogLevel.INFO
-    """
-    denotes an informational message to be logged
-    """
-    CONFIG = LogLevel.CONFIG
-    """
-    denotes a static configuration message to be logged
-    """
-    FINE = LogLevel.FINE
-    """
-    denotes basic tracing information to be logged
-    """
-    FINER = LogLevel.FINER
-    """
-    denotes more fine-grained tracing information to be logged
-    """
-    FINEST = LogLevel.FINEST
-    """
-    denotes highly detailed tracing information to be logged
-    """
-    ALL = LogLevel.ALL
-    """
-    specifies that all messages should be logged
-    
-    This level can be set at an XLogger to enable logging of absolutely all events. You will usually not use it with a concrete log event.
-    """
+        specifies levels to distinguish between severities of logged events
+        
+        **since**
+        
+            OOo 2.3
+        """
+        OFF = LogLevel.OFF
+        """
+        specifies that no messages are to be logged at all
+        
+        This level can be set at an XLogger to completely prevent logging. You will usually not use it with a concrete log event.
+        """
+        SEVERE = LogLevel.SEVERE
+        """
+        denotes a serious failure to be logged
+        """
+        WARNING = LogLevel.WARNING
+        """
+        denotes a potential problem to be logged
+        """
+        INFO = LogLevel.INFO
+        """
+        denotes an informational message to be logged
+        """
+        CONFIG = LogLevel.CONFIG
+        """
+        denotes a static configuration message to be logged
+        """
+        FINE = LogLevel.FINE
+        """
+        denotes basic tracing information to be logged
+        """
+        FINER = LogLevel.FINER
+        """
+        denotes more fine-grained tracing information to be logged
+        """
+        FINEST = LogLevel.FINEST
+        """
+        denotes highly detailed tracing information to be logged
+        """
+        ALL = LogLevel.ALL
+        """
+        specifies that all messages should be logged
+        
+        This level can be set at an XLogger to enable logging of absolutely all events. You will usually not use it with a concrete log event.
+        """
 
 __all__ = ['LogLevel', 'LogLevelEnum']

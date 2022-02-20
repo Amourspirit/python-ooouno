@@ -27,42 +27,53 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.presentation import EffectCommands as EffectCommands
+    if hasattr(EffectCommands, '_constants') and isinstance(EffectCommands._constants, dict):
+        EffectCommands._constants['__ooo_ns__'] = 'com.sun.star.presentation'
+        EffectCommands._constants['__ooo_full_ns__'] = 'com.sun.star.presentation.EffectCommands'
+        EffectCommands._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EffectCommandsEnum
+        ls = [f for f in dir(EffectCommands) if not callable(getattr(EffectCommands, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EffectCommands, name)
+        EffectCommandsEnum = IntEnum('EffectCommandsEnum', _dict)
+    build_enum()
 else:
     from ...lo.presentation.effect_commands import EffectCommands as EffectCommands
 
+    class EffectCommandsEnum(IntEnum):
+        """
+        Enum of Const Class EffectCommands
 
-class EffectCommandsEnum(IntEnum):
-    """
-    Enum of Const Class EffectCommands
-
-    """
-    CUSTOM = EffectCommands.CUSTOM
-    """
-    the command is user defined
-    """
-    VERB = EffectCommands.VERB
-    """
-    the command is an OLE verb.
-    
-    Required parameters are \"Verb\" of type long that specifies the verb to execute.
-    """
-    PLAY = EffectCommands.PLAY
-    """
-    the command starts playing on a media object.
-    
-    Optional parameters are \"MediaTime\" of type double that specifies the start time in milliseconds. If not given, play continues at last position known.
-    """
-    TOGGLEPAUSE = EffectCommands.TOGGLEPAUSE
-    """
-    the command toggles the pause status on a media object.
-    """
-    STOP = EffectCommands.STOP
-    """
-    the command stops the animation on a media object
-    """
-    STOPAUDIO = EffectCommands.STOPAUDIO
-    """
-    the command stops all currently running sound effects.
-    """
+        """
+        CUSTOM = EffectCommands.CUSTOM
+        """
+        the command is user defined
+        """
+        VERB = EffectCommands.VERB
+        """
+        the command is an OLE verb.
+        
+        Required parameters are \"Verb\" of type long that specifies the verb to execute.
+        """
+        PLAY = EffectCommands.PLAY
+        """
+        the command starts playing on a media object.
+        
+        Optional parameters are \"MediaTime\" of type double that specifies the start time in milliseconds. If not given, play continues at last position known.
+        """
+        TOGGLEPAUSE = EffectCommands.TOGGLEPAUSE
+        """
+        the command toggles the pause status on a media object.
+        """
+        STOP = EffectCommands.STOP
+        """
+        the command stops the animation on a media object
+        """
+        STOPAUDIO = EffectCommands.STOPAUDIO
+        """
+        the command stops all currently running sound effects.
+        """
 
 __all__ = ['EffectCommands', 'EffectCommandsEnum']

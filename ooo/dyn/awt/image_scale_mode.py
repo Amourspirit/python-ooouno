@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import ImageScaleMode as ImageScaleMode
+    if hasattr(ImageScaleMode, '_constants') and isinstance(ImageScaleMode._constants, dict):
+        ImageScaleMode._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        ImageScaleMode._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ImageScaleMode'
+        ImageScaleMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ImageScaleModeEnum
+        ls = [f for f in dir(ImageScaleMode) if not callable(getattr(ImageScaleMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ImageScaleMode, name)
+        ImageScaleModeEnum = IntEnum('ImageScaleModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.image_scale_mode import ImageScaleMode as ImageScaleMode
 
+    class ImageScaleModeEnum(IntEnum):
+        """
+        Enum of Const Class ImageScaleMode
 
-class ImageScaleModeEnum(IntEnum):
-    """
-    Enum of Const Class ImageScaleMode
-
-    defines modes how an image displayed in a given area should be scaled to fit this area
-    """
-    NONE = ImageScaleMode.NONE
-    """
-    specifies that no scaling should happen at all
-    """
-    ISOTROPIC = ImageScaleMode.ISOTROPIC
-    """
-    specifies that the image should be scaled up or down to the size of the surrounding area isotropically, i.e.
-    
-    by keeping its aspect ratio.
-    """
-    ANISOTROPIC = ImageScaleMode.ANISOTROPIC
-    """
-    specifies that the image should be scaled up or down to the size of the surrounding area anisotropically.
-    
-    The image will finally cover all of the surrounding area, but its dimensions might be distorted.
-    """
+        defines modes how an image displayed in a given area should be scaled to fit this area
+        """
+        NONE = ImageScaleMode.NONE
+        """
+        specifies that no scaling should happen at all
+        """
+        ISOTROPIC = ImageScaleMode.ISOTROPIC
+        """
+        specifies that the image should be scaled up or down to the size of the surrounding area isotropically, i.e.
+        
+        by keeping its aspect ratio.
+        """
+        ANISOTROPIC = ImageScaleMode.ANISOTROPIC
+        """
+        specifies that the image should be scaled up or down to the size of the surrounding area anisotropically.
+        
+        The image will finally cover all of the surrounding area, but its dimensions might be distorted.
+        """
 
 __all__ = ['ImageScaleMode', 'ImageScaleModeEnum']

@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontPitch as FontPitch
+    if hasattr(FontPitch, '_constants') and isinstance(FontPitch._constants, dict):
+        FontPitch._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontPitch._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontPitch'
+        FontPitch._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontPitchEnum
+        ls = [f for f in dir(FontPitch) if not callable(getattr(FontPitch, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontPitch, name)
+        FontPitchEnum = IntEnum('FontPitchEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_pitch import FontPitch as FontPitch
 
+    class FontPitchEnum(IntEnum):
+        """
+        Enum of Const Class FontPitch
 
-class FontPitchEnum(IntEnum):
-    """
-    Enum of Const Class FontPitch
-
-    These values are used to specify whether the width of a character is fixed or variable.
-    
-    They may be expanded in future versions.
-    """
-    DONTKNOW = FontPitch.DONTKNOW
-    """
-    specifies that the pitch for this font is unknown.
-    """
-    FIXED = FontPitch.FIXED
-    """
-    specifies a font with a fixed character width.
-    """
-    VARIABLE = FontPitch.VARIABLE
-    """
-    specifies a font with a variable character width.
-    """
+        These values are used to specify whether the width of a character is fixed or variable.
+        
+        They may be expanded in future versions.
+        """
+        DONTKNOW = FontPitch.DONTKNOW
+        """
+        specifies that the pitch for this font is unknown.
+        """
+        FIXED = FontPitch.FIXED
+        """
+        specifies a font with a fixed character width.
+        """
+        VARIABLE = FontPitch.VARIABLE
+        """
+        specifies a font with a variable character width.
+        """
 
 __all__ = ['FontPitch', 'FontPitchEnum']

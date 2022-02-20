@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import BreakType as BreakType
+    if hasattr(BreakType, '_constants') and isinstance(BreakType._constants, dict):
+        BreakType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        BreakType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.BreakType'
+        BreakType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BreakTypeEnum
+        ls = [f for f in dir(BreakType) if not callable(getattr(BreakType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BreakType, name)
+        BreakTypeEnum = IntEnum('BreakTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.break_type import BreakType as BreakType
 
+    class BreakTypeEnum(IntEnum):
+        """
+        Enum of Const Class BreakType
 
-class BreakTypeEnum(IntEnum):
-    """
-    Enum of Const Class BreakType
-
-    Constants to specify the type of a line break, used with LineBreakResults.breakType().
-    """
-    WORDBOUNDARY = BreakType.WORDBOUNDARY
-    """
-    Line break is a word break.
-    """
-    HYPHENATION = BreakType.HYPHENATION
-    """
-    Line break is a result of hyphenation.
-    """
-    HANGINGPUNCTUATION = BreakType.HANGINGPUNCTUATION
-    """
-    Line break - hanging punctuation recognized.
-    """
+        Constants to specify the type of a line break, used with LineBreakResults.breakType().
+        """
+        WORDBOUNDARY = BreakType.WORDBOUNDARY
+        """
+        Line break is a word break.
+        """
+        HYPHENATION = BreakType.HYPHENATION
+        """
+        Line break is a result of hyphenation.
+        """
+        HANGINGPUNCTUATION = BreakType.HANGINGPUNCTUATION
+        """
+        Line break - hanging punctuation recognized.
+        """
 
 __all__ = ['BreakType', 'BreakTypeEnum']

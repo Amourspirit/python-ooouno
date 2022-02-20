@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FieldUnit as FieldUnit
+    if hasattr(FieldUnit, '_constants') and isinstance(FieldUnit._constants, dict):
+        FieldUnit._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FieldUnit._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FieldUnit'
+        FieldUnit._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FieldUnitEnum
+        ls = [f for f in dir(FieldUnit) if not callable(getattr(FieldUnit, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FieldUnit, name)
+        FieldUnitEnum = IntEnum('FieldUnitEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.field_unit import FieldUnit as FieldUnit
 
+    class FieldUnitEnum(IntEnum):
+        """
+        Enum of Const Class FieldUnit
 
-class FieldUnitEnum(IntEnum):
-    """
-    Enum of Const Class FieldUnit
-
-    specifies attributes for the MetricField map units.
-    
-    IMPORTANT: These constants have to be disjunct with constants in util/MeasureUnit.
-    """
-    FUNIT_NONE = FieldUnit.FUNIT_NONE
-    FUNIT_MM = FieldUnit.FUNIT_MM
-    FUNIT_CM = FieldUnit.FUNIT_CM
-    FUNIT_M = FieldUnit.FUNIT_M
-    FUNIT_KM = FieldUnit.FUNIT_KM
-    FUNIT_TWIP = FieldUnit.FUNIT_TWIP
-    FUNIT_POINT = FieldUnit.FUNIT_POINT
-    FUNIT_PICA = FieldUnit.FUNIT_PICA
-    FUNIT_INCH = FieldUnit.FUNIT_INCH
-    FUNIT_FOOT = FieldUnit.FUNIT_FOOT
-    FUNIT_MILE = FieldUnit.FUNIT_MILE
-    FUNIT_CUSTOM = FieldUnit.FUNIT_CUSTOM
-    FUNIT_PERCENT = FieldUnit.FUNIT_PERCENT
-    FUNIT_100TH_MM = FieldUnit.FUNIT_100TH_MM
+        specifies attributes for the MetricField map units.
+        
+        IMPORTANT: These constants have to be disjunct with constants in util/MeasureUnit.
+        """
+        FUNIT_NONE = FieldUnit.FUNIT_NONE
+        FUNIT_MM = FieldUnit.FUNIT_MM
+        FUNIT_CM = FieldUnit.FUNIT_CM
+        FUNIT_M = FieldUnit.FUNIT_M
+        FUNIT_KM = FieldUnit.FUNIT_KM
+        FUNIT_TWIP = FieldUnit.FUNIT_TWIP
+        FUNIT_POINT = FieldUnit.FUNIT_POINT
+        FUNIT_PICA = FieldUnit.FUNIT_PICA
+        FUNIT_INCH = FieldUnit.FUNIT_INCH
+        FUNIT_FOOT = FieldUnit.FUNIT_FOOT
+        FUNIT_MILE = FieldUnit.FUNIT_MILE
+        FUNIT_CUSTOM = FieldUnit.FUNIT_CUSTOM
+        FUNIT_PERCENT = FieldUnit.FUNIT_PERCENT
+        FUNIT_100TH_MM = FieldUnit.FUNIT_100TH_MM
 
 __all__ = ['FieldUnit', 'FieldUnitEnum']

@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import PropertySetInfoChange as PropertySetInfoChange
+    if hasattr(PropertySetInfoChange, '_constants') and isinstance(PropertySetInfoChange._constants, dict):
+        PropertySetInfoChange._constants['__ooo_ns__'] = 'com.sun.star.beans'
+        PropertySetInfoChange._constants['__ooo_full_ns__'] = 'com.sun.star.beans.PropertySetInfoChange'
+        PropertySetInfoChange._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PropertySetInfoChangeEnum
+        ls = [f for f in dir(PropertySetInfoChange) if not callable(getattr(PropertySetInfoChange, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PropertySetInfoChange, name)
+        PropertySetInfoChangeEnum = IntEnum('PropertySetInfoChangeEnum', _dict)
+    build_enum()
 else:
     from ...lo.beans.property_set_info_change import PropertySetInfoChange as PropertySetInfoChange
 
+    class PropertySetInfoChangeEnum(IntEnum):
+        """
+        Enum of Const Class PropertySetInfoChange
 
-class PropertySetInfoChangeEnum(IntEnum):
-    """
-    Enum of Const Class PropertySetInfoChange
-
-    specifies reasons for sending PropertySetInfoChangeEvents.
-    """
-    PROPERTY_INSERTED = PropertySetInfoChange.PROPERTY_INSERTED
-    """
-    A property was inserted into a XPropertySetInfo.
-    """
-    PROPERTY_REMOVED = PropertySetInfoChange.PROPERTY_REMOVED
-    """
-    A property was removed from a XPropertySetInfo.
-    """
+        specifies reasons for sending PropertySetInfoChangeEvents.
+        """
+        PROPERTY_INSERTED = PropertySetInfoChange.PROPERTY_INSERTED
+        """
+        A property was inserted into a XPropertySetInfo.
+        """
+        PROPERTY_REMOVED = PropertySetInfoChange.PROPERTY_REMOVED
+        """
+        A property was removed from a XPropertySetInfo.
+        """
 
 __all__ = ['PropertySetInfoChange', 'PropertySetInfoChangeEnum']

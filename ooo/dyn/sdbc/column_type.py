@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ColumnType as ColumnType
+    if hasattr(ColumnType, '_constants') and isinstance(ColumnType._constants, dict):
+        ColumnType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ColumnType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ColumnType'
+        ColumnType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColumnTypeEnum
+        ls = [f for f in dir(ColumnType) if not callable(getattr(ColumnType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColumnType, name)
+        ColumnTypeEnum = IntEnum('ColumnTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.column_type import ColumnType as ColumnType
 
+    class ColumnTypeEnum(IntEnum):
+        """
+        Enum of Const Class ColumnType
 
-class ColumnTypeEnum(IntEnum):
-    """
-    Enum of Const Class ColumnType
-
-    determines the type of a version column.
-    """
-    UNKNOWN = ColumnType.UNKNOWN
-    """
-    indicates that this column may or may not be a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
-    """
-    NOT_PSEUDO = ColumnType.NOT_PSEUDO
-    """
-    indicates that this column is NOT a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
-    """
-    PSEUDO = ColumnType.PSEUDO
-    """
-    indicates that this column is a pseudo-column.
-    
-    A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
-    """
+        determines the type of a version column.
+        """
+        UNKNOWN = ColumnType.UNKNOWN
+        """
+        indicates that this column may or may not be a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
+        """
+        NOT_PSEUDO = ColumnType.NOT_PSEUDO
+        """
+        indicates that this column is NOT a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
+        """
+        PSEUDO = ColumnType.PSEUDO
+        """
+        indicates that this column is a pseudo-column.
+        
+        A possible value for the column PSEUDO_COLUMN in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getVersionColumns().
+        """
 
 __all__ = ['ColumnType', 'ColumnTypeEnum']

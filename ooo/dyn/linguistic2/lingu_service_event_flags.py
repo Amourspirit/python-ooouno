@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.linguistic2 import LinguServiceEventFlags as LinguServiceEventFlags
+    if hasattr(LinguServiceEventFlags, '_constants') and isinstance(LinguServiceEventFlags._constants, dict):
+        LinguServiceEventFlags._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
+        LinguServiceEventFlags._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.LinguServiceEventFlags'
+        LinguServiceEventFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LinguServiceEventFlagsEnum
+        ls = [f for f in dir(LinguServiceEventFlags) if not callable(getattr(LinguServiceEventFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LinguServiceEventFlags, name)
+        LinguServiceEventFlagsEnum = IntFlag('LinguServiceEventFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.linguistic2.lingu_service_event_flags import LinguServiceEventFlags as LinguServiceEventFlags
 
+    class LinguServiceEventFlagsEnum(IntFlag):
+        """
+        Enum of Const Class LinguServiceEventFlags
 
-class LinguServiceEventFlagsEnum(IntFlag):
-    """
-    Enum of Const Class LinguServiceEventFlags
-
-    to be used in lingu-service events.
-    
-    These values define the flags which may be logically combined to build the event type of a com.sun.star.linguistic2.LinguServiceEvent
-    
-    **since**
-    
-        OOo 3.0.1
-    """
-    SPELL_CORRECT_WORDS_AGAIN = LinguServiceEventFlags.SPELL_CORRECT_WORDS_AGAIN
-    """
-    The spelling of previously correct words should be checked again.
-    """
-    SPELL_WRONG_WORDS_AGAIN = LinguServiceEventFlags.SPELL_WRONG_WORDS_AGAIN
-    """
-    The spelling of previously misspelled words should be checked again.
-    """
-    HYPHENATE_AGAIN = LinguServiceEventFlags.HYPHENATE_AGAIN
-    """
-    The hyphenation of words may have changed.
-    """
-    PROOFREAD_AGAIN = LinguServiceEventFlags.PROOFREAD_AGAIN
-    """
-    Request new proofreading of the document.
-    
-    **since**
-    
-        OOo 3.0.1
-    """
+        to be used in lingu-service events.
+        
+        These values define the flags which may be logically combined to build the event type of a com.sun.star.linguistic2.LinguServiceEvent
+        
+        **since**
+        
+            OOo 3.0.1
+        """
+        SPELL_CORRECT_WORDS_AGAIN = LinguServiceEventFlags.SPELL_CORRECT_WORDS_AGAIN
+        """
+        The spelling of previously correct words should be checked again.
+        """
+        SPELL_WRONG_WORDS_AGAIN = LinguServiceEventFlags.SPELL_WRONG_WORDS_AGAIN
+        """
+        The spelling of previously misspelled words should be checked again.
+        """
+        HYPHENATE_AGAIN = LinguServiceEventFlags.HYPHENATE_AGAIN
+        """
+        The hyphenation of words may have changed.
+        """
+        PROOFREAD_AGAIN = LinguServiceEventFlags.PROOFREAD_AGAIN
+        """
+        Request new proofreading of the document.
+        
+        **since**
+        
+            OOo 3.0.1
+        """
 
 __all__ = ['LinguServiceEventFlags', 'LinguServiceEventFlagsEnum']

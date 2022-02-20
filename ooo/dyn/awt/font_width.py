@@ -27,57 +27,68 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontWidth as FontWidth
+    if hasattr(FontWidth, '_constants') and isinstance(FontWidth._constants, dict):
+        FontWidth._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontWidth._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontWidth'
+        FontWidth._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontWidthEnum
+        ls = [f for f in dir(FontWidth) if not callable(getattr(FontWidth, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontWidth, name)
+        FontWidthEnum = IntEnum('FontWidthEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_width import FontWidth as FontWidth
 
+    class FontWidthEnum(IntEnum):
+        """
+        Enum of Const Class FontWidth
 
-class FontWidthEnum(IntEnum):
-    """
-    Enum of Const Class FontWidth
-
-    These values are used to specify the width of the characters of a font.
-    
-    They may be expanded in future versions.
-    """
-    DONTKNOW = FontWidth.DONTKNOW
-    """
-    The width of the font is not specified/known.
-    """
-    ULTRACONDENSED = FontWidth.ULTRACONDENSED
-    """
-    The width of the font is condensed to 50%.
-    """
-    EXTRACONDENSED = FontWidth.EXTRACONDENSED
-    """
-    The width of the font is condensed to 60%.
-    """
-    CONDENSED = FontWidth.CONDENSED
-    """
-    The width of the font is condensed to 75%.
-    """
-    SEMICONDENSED = FontWidth.SEMICONDENSED
-    """
-    The width of the font is condensed to 90%.
-    """
-    NORMAL = FontWidth.NORMAL
-    """
-    The width of the font is normal.
-    """
-    SEMIEXPANDED = FontWidth.SEMIEXPANDED
-    """
-    The width of the font is expanded to 110%.
-    """
-    EXPANDED = FontWidth.EXPANDED
-    """
-    The width of the font is expanded to 150%.
-    """
-    EXTRAEXPANDED = FontWidth.EXTRAEXPANDED
-    """
-    The width of the font is expanded to 175%.
-    """
-    ULTRAEXPANDED = FontWidth.ULTRAEXPANDED
-    """
-    The width of the font is expanded to 200%.
-    """
+        These values are used to specify the width of the characters of a font.
+        
+        They may be expanded in future versions.
+        """
+        DONTKNOW = FontWidth.DONTKNOW
+        """
+        The width of the font is not specified/known.
+        """
+        ULTRACONDENSED = FontWidth.ULTRACONDENSED
+        """
+        The width of the font is condensed to 50%.
+        """
+        EXTRACONDENSED = FontWidth.EXTRACONDENSED
+        """
+        The width of the font is condensed to 60%.
+        """
+        CONDENSED = FontWidth.CONDENSED
+        """
+        The width of the font is condensed to 75%.
+        """
+        SEMICONDENSED = FontWidth.SEMICONDENSED
+        """
+        The width of the font is condensed to 90%.
+        """
+        NORMAL = FontWidth.NORMAL
+        """
+        The width of the font is normal.
+        """
+        SEMIEXPANDED = FontWidth.SEMIEXPANDED
+        """
+        The width of the font is expanded to 110%.
+        """
+        EXPANDED = FontWidth.EXPANDED
+        """
+        The width of the font is expanded to 150%.
+        """
+        EXTRAEXPANDED = FontWidth.EXTRAEXPANDED
+        """
+        The width of the font is expanded to 175%.
+        """
+        ULTRAEXPANDED = FontWidth.ULTRAEXPANDED
+        """
+        The width of the font is expanded to 200%.
+        """
 
 __all__ = ['FontWidth', 'FontWidthEnum']

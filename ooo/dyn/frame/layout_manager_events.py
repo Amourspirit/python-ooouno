@@ -27,69 +27,80 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import LayoutManagerEvents as LayoutManagerEvents
+    if hasattr(LayoutManagerEvents, '_constants') and isinstance(LayoutManagerEvents._constants, dict):
+        LayoutManagerEvents._constants['__ooo_ns__'] = 'com.sun.star.frame'
+        LayoutManagerEvents._constants['__ooo_full_ns__'] = 'com.sun.star.frame.LayoutManagerEvents'
+        LayoutManagerEvents._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LayoutManagerEventsEnum
+        ls = [f for f in dir(LayoutManagerEvents) if not callable(getattr(LayoutManagerEvents, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LayoutManagerEvents, name)
+        LayoutManagerEventsEnum = IntEnum('LayoutManagerEventsEnum', _dict)
+    build_enum()
 else:
     from ...lo.frame.layout_manager_events import LayoutManagerEvents as LayoutManagerEvents
 
+    class LayoutManagerEventsEnum(IntEnum):
+        """
+        Enum of Const Class LayoutManagerEvents
 
-class LayoutManagerEventsEnum(IntEnum):
-    """
-    Enum of Const Class LayoutManagerEvents
-
-    provides information about layout manager events
-    
-    Events are provided only for notification purposes only.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    LOCK = LayoutManagerEvents.LOCK
-    """
-    specifies that the layout manager processed a lock call, which prevents it from doing layouts.
-    
-    This event sends the current lock count as additional information.
-    """
-    UNLOCK = LayoutManagerEvents.UNLOCK
-    """
-    specifies that the layout manager processed an unlock call, which admit layouts when the lock count is zero.
-    
-    This event sends the current lock count as additional information.
-    """
-    LAYOUT = LayoutManagerEvents.LAYOUT
-    """
-    specifies that the layout manager refreshed the layout of the frame.
-    
-    This event sends no additional information.
-    """
-    VISIBLE = LayoutManagerEvents.VISIBLE
-    """
-    specifies that the layout manager container frame window becomes visible.
-    
-    This event sends no additional information.
-    """
-    INVISIBLE = LayoutManagerEvents.INVISIBLE
-    """
-    specifies that the layout manager container frame window becomes invisible.
-    
-    This event sends no additional information.
-    """
-    MERGEDMENUBAR = LayoutManagerEvents.MERGEDMENUBAR
-    """
-    A merged menu bar has been set at the layout manager.
-    
-    This event sends no additional information.
-    """
-    UIELEMENT_VISIBLE = LayoutManagerEvents.UIELEMENT_VISIBLE
-    """
-    specifies that a certain user interface element has been made visible
-    
-    This event sends the resource url of the newly visible user interface element.
-    """
-    UIELEMENT_INVISIBLE = LayoutManagerEvents.UIELEMENT_INVISIBLE
-    """
-    specifies that a certain user interface element has been made invisible
-    
-    This event sends the resource url of the invisible user interface element.
-    """
+        provides information about layout manager events
+        
+        Events are provided only for notification purposes only.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        LOCK = LayoutManagerEvents.LOCK
+        """
+        specifies that the layout manager processed a lock call, which prevents it from doing layouts.
+        
+        This event sends the current lock count as additional information.
+        """
+        UNLOCK = LayoutManagerEvents.UNLOCK
+        """
+        specifies that the layout manager processed an unlock call, which admit layouts when the lock count is zero.
+        
+        This event sends the current lock count as additional information.
+        """
+        LAYOUT = LayoutManagerEvents.LAYOUT
+        """
+        specifies that the layout manager refreshed the layout of the frame.
+        
+        This event sends no additional information.
+        """
+        VISIBLE = LayoutManagerEvents.VISIBLE
+        """
+        specifies that the layout manager container frame window becomes visible.
+        
+        This event sends no additional information.
+        """
+        INVISIBLE = LayoutManagerEvents.INVISIBLE
+        """
+        specifies that the layout manager container frame window becomes invisible.
+        
+        This event sends no additional information.
+        """
+        MERGEDMENUBAR = LayoutManagerEvents.MERGEDMENUBAR
+        """
+        A merged menu bar has been set at the layout manager.
+        
+        This event sends no additional information.
+        """
+        UIELEMENT_VISIBLE = LayoutManagerEvents.UIELEMENT_VISIBLE
+        """
+        specifies that a certain user interface element has been made visible
+        
+        This event sends the resource url of the newly visible user interface element.
+        """
+        UIELEMENT_INVISIBLE = LayoutManagerEvents.UIELEMENT_INVISIBLE
+        """
+        specifies that a certain user interface element has been made invisible
+        
+        This event sends the resource url of the invisible user interface element.
+        """
 
 __all__ = ['LayoutManagerEvents', 'LayoutManagerEventsEnum']

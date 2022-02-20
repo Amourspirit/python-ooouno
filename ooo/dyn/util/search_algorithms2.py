@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import SearchAlgorithms2 as SearchAlgorithms2
+    if hasattr(SearchAlgorithms2, '_constants') and isinstance(SearchAlgorithms2._constants, dict):
+        SearchAlgorithms2._constants['__ooo_ns__'] = 'com.sun.star.util'
+        SearchAlgorithms2._constants['__ooo_full_ns__'] = 'com.sun.star.util.SearchAlgorithms2'
+        SearchAlgorithms2._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SearchAlgorithms2Enum
+        ls = [f for f in dir(SearchAlgorithms2) if not callable(getattr(SearchAlgorithms2, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SearchAlgorithms2, name)
+        SearchAlgorithms2Enum = IntEnum('SearchAlgorithms2Enum', _dict)
+    build_enum()
 else:
     from ...lo.util.search_algorithms2 import SearchAlgorithms2 as SearchAlgorithms2
 
+    class SearchAlgorithms2Enum(IntEnum):
+        """
+        Enum of Const Class SearchAlgorithms2
 
-class SearchAlgorithms2Enum(IntEnum):
-    """
-    Enum of Const Class SearchAlgorithms2
-
-    Constants that define the search algorithm to be used with com.sun.star.util.SearchOptions2.SearchAlgorithms2.
-    
-    **since**
-    
-        LibreOffice 5.2
-    """
-    ABSOLUTE = SearchAlgorithms2.ABSOLUTE
-    """
-    Literal.
-    """
-    REGEXP = SearchAlgorithms2.REGEXP
-    """
-    Regular expression.
-    """
-    APPROXIMATE = SearchAlgorithms2.APPROXIMATE
-    """
-    Weighted Levenshtein Distance.
-    """
-    WILDCARD = SearchAlgorithms2.WILDCARD
-    """
-    Wildcards '*' and '?' An escape character is defined by setting com.sun.star.util.SearchOptions2.WildcardEscapeCharacter.
-    """
+        Constants that define the search algorithm to be used with com.sun.star.util.SearchOptions2.SearchAlgorithms2.
+        
+        **since**
+        
+            LibreOffice 5.2
+        """
+        ABSOLUTE = SearchAlgorithms2.ABSOLUTE
+        """
+        Literal.
+        """
+        REGEXP = SearchAlgorithms2.REGEXP
+        """
+        Regular expression.
+        """
+        APPROXIMATE = SearchAlgorithms2.APPROXIMATE
+        """
+        Weighted Levenshtein Distance.
+        """
+        WILDCARD = SearchAlgorithms2.WILDCARD
+        """
+        Wildcards '*' and '?' An escape character is defined by setting com.sun.star.util.SearchOptions2.WildcardEscapeCharacter.
+        """
 
 __all__ = ['SearchAlgorithms2', 'SearchAlgorithms2Enum']

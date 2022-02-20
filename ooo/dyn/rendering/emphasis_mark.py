@@ -27,57 +27,68 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import EmphasisMark as EmphasisMark
+    if hasattr(EmphasisMark, '_constants') and isinstance(EmphasisMark._constants, dict):
+        EmphasisMark._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        EmphasisMark._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.EmphasisMark'
+        EmphasisMark._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EmphasisMarkEnum
+        ls = [f for f in dir(EmphasisMark) if not callable(getattr(EmphasisMark, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EmphasisMark, name)
+        EmphasisMarkEnum = IntEnum('EmphasisMarkEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.emphasis_mark import EmphasisMark as EmphasisMark
 
+    class EmphasisMarkEnum(IntEnum):
+        """
+        Enum of Const Class EmphasisMark
 
-class EmphasisMarkEnum(IntEnum):
-    """
-    Enum of Const Class EmphasisMark
-
-    These constants control the automatic rendering of emphasis marks.
-    
-    These constants control the automatic rendering of emphasis marks for a given font.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    NONE = EmphasisMark.NONE
-    """
-    No automatic emphasis marks.
-    """
-    DOT_ABOVE = EmphasisMark.DOT_ABOVE
-    """
-    Automatic emphasis marks as dots above the glyphs.
-    """
-    DOT_BELOW = EmphasisMark.DOT_BELOW
-    """
-    Automatic emphasis marks as dots below the glyphs.
-    """
-    CIRCLE_ABOVE = EmphasisMark.CIRCLE_ABOVE
-    """
-    Automatic emphasis marks as circles (unfilled outlines) above the glyphs.
-    """
-    CIRCLE_BELOW = EmphasisMark.CIRCLE_BELOW
-    """
-    Automatic emphasis marks as circles (unfilled outlines) below the glyphs.
-    """
-    DISC_ABOVE = EmphasisMark.DISC_ABOVE
-    """
-    Automatic emphasis marks as discs (filled circles) above the glyphs.
-    """
-    DISC_BELOW = EmphasisMark.DISC_BELOW
-    """
-    Automatic emphasis marks as discs (filled circles) below the glyphs.
-    """
-    ACCENT_ABOVE = EmphasisMark.ACCENT_ABOVE
-    """
-    Automatic emphasis marks as accent marks above the glyphs.
-    """
-    ACCENT_BELOW = EmphasisMark.ACCENT_BELOW
-    """
-    Automatic emphasis marks as accent marks below the glyphs.
-    """
+        These constants control the automatic rendering of emphasis marks.
+        
+        These constants control the automatic rendering of emphasis marks for a given font.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        NONE = EmphasisMark.NONE
+        """
+        No automatic emphasis marks.
+        """
+        DOT_ABOVE = EmphasisMark.DOT_ABOVE
+        """
+        Automatic emphasis marks as dots above the glyphs.
+        """
+        DOT_BELOW = EmphasisMark.DOT_BELOW
+        """
+        Automatic emphasis marks as dots below the glyphs.
+        """
+        CIRCLE_ABOVE = EmphasisMark.CIRCLE_ABOVE
+        """
+        Automatic emphasis marks as circles (unfilled outlines) above the glyphs.
+        """
+        CIRCLE_BELOW = EmphasisMark.CIRCLE_BELOW
+        """
+        Automatic emphasis marks as circles (unfilled outlines) below the glyphs.
+        """
+        DISC_ABOVE = EmphasisMark.DISC_ABOVE
+        """
+        Automatic emphasis marks as discs (filled circles) above the glyphs.
+        """
+        DISC_BELOW = EmphasisMark.DISC_BELOW
+        """
+        Automatic emphasis marks as discs (filled circles) below the glyphs.
+        """
+        ACCENT_ABOVE = EmphasisMark.ACCENT_ABOVE
+        """
+        Automatic emphasis marks as accent marks above the glyphs.
+        """
+        ACCENT_BELOW = EmphasisMark.ACCENT_BELOW
+        """
+        Automatic emphasis marks as accent marks below the glyphs.
+        """
 
 __all__ = ['EmphasisMark', 'EmphasisMarkEnum']

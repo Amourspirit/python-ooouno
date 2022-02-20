@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.datatransfer.clipboard import RenderingCapabilities as RenderingCapabilities
+    if hasattr(RenderingCapabilities, '_constants') and isinstance(RenderingCapabilities._constants, dict):
+        RenderingCapabilities._constants['__ooo_ns__'] = 'com.sun.star.datatransfer.clipboard'
+        RenderingCapabilities._constants['__ooo_full_ns__'] = 'com.sun.star.datatransfer.clipboard.RenderingCapabilities'
+        RenderingCapabilities._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RenderingCapabilitiesEnum
+        ls = [f for f in dir(RenderingCapabilities) if not callable(getattr(RenderingCapabilities, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RenderingCapabilities, name)
+        RenderingCapabilitiesEnum = IntEnum('RenderingCapabilitiesEnum', _dict)
+    build_enum()
 else:
     from ....lo.datatransfer.clipboard.rendering_capabilities import RenderingCapabilities as RenderingCapabilities
 
+    class RenderingCapabilitiesEnum(IntEnum):
+        """
+        Enum of Const Class RenderingCapabilities
 
-class RenderingCapabilitiesEnum(IntEnum):
-    """
-    Enum of Const Class RenderingCapabilities
-
-    These flags describe the capabilities a system clipboard has to transfer data to other applications via the OS.
-    """
-    Delayed = RenderingCapabilities.Delayed
-    """
-    The implementation supports delayed rendering.
-    """
-    Persistant = RenderingCapabilities.Persistant
-    """
-    The implementation is able to store the data persistent in the system so that it does not get lost when the source application no longer exist.
-    """
-    Persistent = RenderingCapabilities.Persistent
-    """
-    The implementation is able to store the data persistent in the system so that it does not get lost when the source application no longer exist.
-    """
+        These flags describe the capabilities a system clipboard has to transfer data to other applications via the OS.
+        """
+        Delayed = RenderingCapabilities.Delayed
+        """
+        The implementation supports delayed rendering.
+        """
+        Persistant = RenderingCapabilities.Persistant
+        """
+        The implementation is able to store the data persistent in the system so that it does not get lost when the source application no longer exist.
+        """
+        Persistent = RenderingCapabilities.Persistent
+        """
+        The implementation is able to store the data persistent in the system so that it does not get lost when the source application no longer exist.
+        """
 
 __all__ = ['RenderingCapabilities', 'RenderingCapabilitiesEnum']

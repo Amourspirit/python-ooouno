@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdb import RowChangeAction as RowChangeAction
+    if hasattr(RowChangeAction, '_constants') and isinstance(RowChangeAction._constants, dict):
+        RowChangeAction._constants['__ooo_ns__'] = 'com.sun.star.sdb'
+        RowChangeAction._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.RowChangeAction'
+        RowChangeAction._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RowChangeActionEnum
+        ls = [f for f in dir(RowChangeAction) if not callable(getattr(RowChangeAction, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RowChangeAction, name)
+        RowChangeActionEnum = IntEnum('RowChangeActionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdb.row_change_action import RowChangeAction as RowChangeAction
 
+    class RowChangeActionEnum(IntEnum):
+        """
+        Enum of Const Class RowChangeAction
 
-class RowChangeActionEnum(IntEnum):
-    """
-    Enum of Const Class RowChangeAction
-
-    determines the type of change which is going to be performed.
-    """
-    INSERT = RowChangeAction.INSERT
-    """
-    indicates that an insert will be performed.
-    """
-    UPDATE = RowChangeAction.UPDATE
-    """
-    indicates that an update will be performed.
-    """
-    DELETE = RowChangeAction.DELETE
-    """
-    indicates that a delete will be performed.
-    """
+        determines the type of change which is going to be performed.
+        """
+        INSERT = RowChangeAction.INSERT
+        """
+        indicates that an insert will be performed.
+        """
+        UPDATE = RowChangeAction.UPDATE
+        """
+        indicates that an update will be performed.
+        """
+        DELETE = RowChangeAction.DELETE
+        """
+        indicates that a delete will be performed.
+        """
 
 __all__ = ['RowChangeAction', 'RowChangeActionEnum']

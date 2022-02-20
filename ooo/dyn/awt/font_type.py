@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontType as FontType
+    if hasattr(FontType, '_constants') and isinstance(FontType._constants, dict):
+        FontType._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontType._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontType'
+        FontType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontTypeEnum
+        ls = [f for f in dir(FontType) if not callable(getattr(FontType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontType, name)
+        FontTypeEnum = IntFlag('FontTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_type import FontType as FontType
 
+    class FontTypeEnum(IntFlag):
+        """
+        Enum of Const Class FontType
 
-class FontTypeEnum(IntFlag):
-    """
-    Enum of Const Class FontType
-
-    These values are used to specify the technology of the font representation.
-    
-    They may be expanded in future versions.
-    """
-    DONTKNOW = FontType.DONTKNOW
-    """
-    The type of the font is not known.
-    """
-    RASTER = FontType.RASTER
-    """
-    specifies a raster font.
-    """
-    DEVICE = FontType.DEVICE
-    """
-    specifies a device font.
-    """
-    SCALABLE = FontType.SCALABLE
-    """
-    specifies a scalable font.
-    """
+        These values are used to specify the technology of the font representation.
+        
+        They may be expanded in future versions.
+        """
+        DONTKNOW = FontType.DONTKNOW
+        """
+        The type of the font is not known.
+        """
+        RASTER = FontType.RASTER
+        """
+        specifies a raster font.
+        """
+        DEVICE = FontType.DEVICE
+        """
+        specifies a device font.
+        """
+        SCALABLE = FontType.SCALABLE
+        """
+        specifies a scalable font.
+        """
 
 __all__ = ['FontType', 'FontTypeEnum']

@@ -27,59 +27,70 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import EmbedMapUnits as EmbedMapUnits
+    if hasattr(EmbedMapUnits, '_constants') and isinstance(EmbedMapUnits._constants, dict):
+        EmbedMapUnits._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        EmbedMapUnits._constants['__ooo_full_ns__'] = 'com.sun.star.embed.EmbedMapUnits'
+        EmbedMapUnits._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EmbedMapUnitsEnum
+        ls = [f for f in dir(EmbedMapUnits) if not callable(getattr(EmbedMapUnits, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EmbedMapUnits, name)
+        EmbedMapUnitsEnum = IntEnum('EmbedMapUnitsEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.embed_map_units import EmbedMapUnits as EmbedMapUnits
 
+    class EmbedMapUnitsEnum(IntEnum):
+        """
+        Enum of Const Class EmbedMapUnits
 
-class EmbedMapUnitsEnum(IntEnum):
-    """
-    Enum of Const Class EmbedMapUnits
-
-    contains list of possible map modes supported by embedded object.
-    """
-    ONE_100TH_MM = EmbedMapUnits.ONE_100TH_MM
-    """
-    In this type of map mode one logical point is equal to one-hundredth of millimeter.
-    """
-    ONE_10TH_MM = EmbedMapUnits.ONE_10TH_MM
-    """
-    In this type of map mode one logical point is equal to one-tenth of millimeter.
-    """
-    ONE_MM = EmbedMapUnits.ONE_MM
-    """
-    In this type of map mode one logical point is equal to one millimeter.
-    """
-    ONE_CM = EmbedMapUnits.ONE_CM
-    """
-    In this type of map mode one logical point is equal to one centimeter.
-    """
-    ONE_1000TH_INCH = EmbedMapUnits.ONE_1000TH_INCH
-    """
-    In this type of map mode one logical point is equal to one-thousandth of inch.
-    """
-    ONE_100TH_INCH = EmbedMapUnits.ONE_100TH_INCH
-    """
-    In this type of map mode one logical point is equal to one-hundredth of inch.
-    """
-    ONE_10TH_INCH = EmbedMapUnits.ONE_10TH_INCH
-    """
-    In this type of map mode one logical point is equal to one-tenth of inch.
-    """
-    ONE_INCH = EmbedMapUnits.ONE_INCH
-    """
-    In this type of map mode one logical point is equal to one inch.
-    """
-    POINT = EmbedMapUnits.POINT
-    """
-    In this type of map mode one logical point is equal to one typographical point.
-    """
-    TWIP = EmbedMapUnits.TWIP
-    """
-    In this type of map mode one logical point is equal to one twentieth of typographical point.
-    """
-    PIXEL = EmbedMapUnits.PIXEL
-    """
-    In this type of map mode one logical point is equal to one pixel.
-    """
+        contains list of possible map modes supported by embedded object.
+        """
+        ONE_100TH_MM = EmbedMapUnits.ONE_100TH_MM
+        """
+        In this type of map mode one logical point is equal to one-hundredth of millimeter.
+        """
+        ONE_10TH_MM = EmbedMapUnits.ONE_10TH_MM
+        """
+        In this type of map mode one logical point is equal to one-tenth of millimeter.
+        """
+        ONE_MM = EmbedMapUnits.ONE_MM
+        """
+        In this type of map mode one logical point is equal to one millimeter.
+        """
+        ONE_CM = EmbedMapUnits.ONE_CM
+        """
+        In this type of map mode one logical point is equal to one centimeter.
+        """
+        ONE_1000TH_INCH = EmbedMapUnits.ONE_1000TH_INCH
+        """
+        In this type of map mode one logical point is equal to one-thousandth of inch.
+        """
+        ONE_100TH_INCH = EmbedMapUnits.ONE_100TH_INCH
+        """
+        In this type of map mode one logical point is equal to one-hundredth of inch.
+        """
+        ONE_10TH_INCH = EmbedMapUnits.ONE_10TH_INCH
+        """
+        In this type of map mode one logical point is equal to one-tenth of inch.
+        """
+        ONE_INCH = EmbedMapUnits.ONE_INCH
+        """
+        In this type of map mode one logical point is equal to one inch.
+        """
+        POINT = EmbedMapUnits.POINT
+        """
+        In this type of map mode one logical point is equal to one typographical point.
+        """
+        TWIP = EmbedMapUnits.TWIP
+        """
+        In this type of map mode one logical point is equal to one twentieth of typographical point.
+        """
+        PIXEL = EmbedMapUnits.PIXEL
+        """
+        In this type of map mode one logical point is equal to one pixel.
+        """
 
 __all__ = ['EmbedMapUnits', 'EmbedMapUnitsEnum']

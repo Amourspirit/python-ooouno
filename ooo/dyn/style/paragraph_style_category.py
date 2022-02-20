@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.style import ParagraphStyleCategory as ParagraphStyleCategory
+    if hasattr(ParagraphStyleCategory, '_constants') and isinstance(ParagraphStyleCategory._constants, dict):
+        ParagraphStyleCategory._constants['__ooo_ns__'] = 'com.sun.star.style'
+        ParagraphStyleCategory._constants['__ooo_full_ns__'] = 'com.sun.star.style.ParagraphStyleCategory'
+        ParagraphStyleCategory._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ParagraphStyleCategoryEnum
+        ls = [f for f in dir(ParagraphStyleCategory) if not callable(getattr(ParagraphStyleCategory, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ParagraphStyleCategory, name)
+        ParagraphStyleCategoryEnum = IntEnum('ParagraphStyleCategoryEnum', _dict)
+    build_enum()
 else:
     from ...lo.style.paragraph_style_category import ParagraphStyleCategory as ParagraphStyleCategory
 
+    class ParagraphStyleCategoryEnum(IntEnum):
+        """
+        Enum of Const Class ParagraphStyleCategory
 
-class ParagraphStyleCategoryEnum(IntEnum):
-    """
-    Enum of Const Class ParagraphStyleCategory
-
-    These constants are used to specify the category of paragraph styles in text documents.
-    """
-    TEXT = ParagraphStyleCategory.TEXT
-    """
-    is applied to styles that are used for common text.
-    """
-    CHAPTER = ParagraphStyleCategory.CHAPTER
-    """
-    is applied to styles that are used as headings.
-    """
-    LIST = ParagraphStyleCategory.LIST
-    """
-    is applied to styles that used in numberings and lists.
-    """
-    INDEX = ParagraphStyleCategory.INDEX
-    """
-    is applied to styles that are used in indexes.
-    """
-    EXTRA = ParagraphStyleCategory.EXTRA
-    """
-    is applied to styles that are used in special regions like headers, footers, and footnote text.
-    """
-    HTML = ParagraphStyleCategory.HTML
-    """
-    is applied to styles that are used to support HTML.
-    """
+        These constants are used to specify the category of paragraph styles in text documents.
+        """
+        TEXT = ParagraphStyleCategory.TEXT
+        """
+        is applied to styles that are used for common text.
+        """
+        CHAPTER = ParagraphStyleCategory.CHAPTER
+        """
+        is applied to styles that are used as headings.
+        """
+        LIST = ParagraphStyleCategory.LIST
+        """
+        is applied to styles that used in numberings and lists.
+        """
+        INDEX = ParagraphStyleCategory.INDEX
+        """
+        is applied to styles that are used in indexes.
+        """
+        EXTRA = ParagraphStyleCategory.EXTRA
+        """
+        is applied to styles that are used in special regions like headers, footers, and footnote text.
+        """
+        HTML = ParagraphStyleCategory.HTML
+        """
+        is applied to styles that are used to support HTML.
+        """
 
 __all__ = ['ParagraphStyleCategory', 'ParagraphStyleCategoryEnum']

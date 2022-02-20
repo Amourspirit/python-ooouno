@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import KeyGroup as KeyGroup
+    if hasattr(KeyGroup, '_constants') and isinstance(KeyGroup._constants, dict):
+        KeyGroup._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        KeyGroup._constants['__ooo_full_ns__'] = 'com.sun.star.awt.KeyGroup'
+        KeyGroup._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KeyGroupEnum
+        ls = [f for f in dir(KeyGroup) if not callable(getattr(KeyGroup, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KeyGroup, name)
+        KeyGroupEnum = IntEnum('KeyGroupEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.key_group import KeyGroup as KeyGroup
 
+    class KeyGroupEnum(IntEnum):
+        """
+        Enum of Const Class KeyGroup
 
-class KeyGroupEnum(IntEnum):
-    """
-    Enum of Const Class KeyGroup
-
-    These values are used to specify functional groups of keys.
-    
-    .. deprecated::
-    
-        Class is deprecated.
-    """
-    NUM = KeyGroup.NUM
-    """
-    specifies a numeric key.
-    """
-    ALPHA = KeyGroup.ALPHA
-    """
-    specifies an alphabetic key.
-    """
-    FKEYS = KeyGroup.FKEYS
-    """
-    specifies a function key.
-    """
-    CURSOR = KeyGroup.CURSOR
-    """
-    specifies a cursor key.
-    """
-    MISC = KeyGroup.MISC
-    """
-    specifies other keys.
-    """
-    TYPE = KeyGroup.TYPE
-    """
-    specifies the group mask.
-    """
+        These values are used to specify functional groups of keys.
+        
+        .. deprecated::
+        
+            Class is deprecated.
+        """
+        NUM = KeyGroup.NUM
+        """
+        specifies a numeric key.
+        """
+        ALPHA = KeyGroup.ALPHA
+        """
+        specifies an alphabetic key.
+        """
+        FKEYS = KeyGroup.FKEYS
+        """
+        specifies a function key.
+        """
+        CURSOR = KeyGroup.CURSOR
+        """
+        specifies a cursor key.
+        """
+        MISC = KeyGroup.MISC
+        """
+        specifies other keys.
+        """
+        TYPE = KeyGroup.TYPE
+        """
+        specifies the group mask.
+        """
 
 __all__ = ['KeyGroup', 'KeyGroupEnum']

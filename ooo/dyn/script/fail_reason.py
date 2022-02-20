@@ -27,59 +27,70 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script import FailReason as FailReason
+    if hasattr(FailReason, '_constants') and isinstance(FailReason._constants, dict):
+        FailReason._constants['__ooo_ns__'] = 'com.sun.star.script'
+        FailReason._constants['__ooo_full_ns__'] = 'com.sun.star.script.FailReason'
+        FailReason._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FailReasonEnum
+        ls = [f for f in dir(FailReason) if not callable(getattr(FailReason, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FailReason, name)
+        FailReasonEnum = IntEnum('FailReasonEnum', _dict)
+    build_enum()
 else:
     from ...lo.script.fail_reason import FailReason as FailReason
 
+    class FailReasonEnum(IntEnum):
+        """
+        Enum of Const Class FailReason
 
-class FailReasonEnum(IntEnum):
-    """
-    Enum of Const Class FailReason
-
-    These values specify the reason why a type conversion failed.
-    """
-    OUT_OF_RANGE = FailReason.OUT_OF_RANGE
-    """
-    The given value does not fit in the range of the destination type.
-    """
-    IS_NOT_NUMBER = FailReason.IS_NOT_NUMBER
-    """
-    The given value cannot be converted to a number.
-    """
-    IS_NOT_ENUM = FailReason.IS_NOT_ENUM
-    """
-    The given value cannot be converted to an enumeration.
-    """
-    IS_NOT_BOOL = FailReason.IS_NOT_BOOL
-    """
-    The given value cannot be converted to a boolean.
-    """
-    NO_SUCH_INTERFACE = FailReason.NO_SUCH_INTERFACE
-    """
-    The given value is not an interface or cannot queried to the right interface.
-    """
-    SOURCE_IS_NO_DERIVED_TYPE = FailReason.SOURCE_IS_NO_DERIVED_TYPE
-    """
-    The given value cannot be converted to right structure or exception type.
-    """
-    TYPE_NOT_SUPPORTED = FailReason.TYPE_NOT_SUPPORTED
-    """
-    The type class of the given value is not supported.
-    """
-    INVALID = FailReason.INVALID
-    """
-    The given value cannot be converted and none of the other reasons match.
-    """
-    NO_DEFAULT_AVAILABLE = FailReason.NO_DEFAULT_AVAILABLE
-    """
-    This value is deprecated.
-    
-    Do not use.
-    """
-    UNKNOWN = FailReason.UNKNOWN
-    """
-    This value is deprecated.
-    
-    Do not use.
-    """
+        These values specify the reason why a type conversion failed.
+        """
+        OUT_OF_RANGE = FailReason.OUT_OF_RANGE
+        """
+        The given value does not fit in the range of the destination type.
+        """
+        IS_NOT_NUMBER = FailReason.IS_NOT_NUMBER
+        """
+        The given value cannot be converted to a number.
+        """
+        IS_NOT_ENUM = FailReason.IS_NOT_ENUM
+        """
+        The given value cannot be converted to an enumeration.
+        """
+        IS_NOT_BOOL = FailReason.IS_NOT_BOOL
+        """
+        The given value cannot be converted to a boolean.
+        """
+        NO_SUCH_INTERFACE = FailReason.NO_SUCH_INTERFACE
+        """
+        The given value is not an interface or cannot queried to the right interface.
+        """
+        SOURCE_IS_NO_DERIVED_TYPE = FailReason.SOURCE_IS_NO_DERIVED_TYPE
+        """
+        The given value cannot be converted to right structure or exception type.
+        """
+        TYPE_NOT_SUPPORTED = FailReason.TYPE_NOT_SUPPORTED
+        """
+        The type class of the given value is not supported.
+        """
+        INVALID = FailReason.INVALID
+        """
+        The given value cannot be converted and none of the other reasons match.
+        """
+        NO_DEFAULT_AVAILABLE = FailReason.NO_DEFAULT_AVAILABLE
+        """
+        This value is deprecated.
+        
+        Do not use.
+        """
+        UNKNOWN = FailReason.UNKNOWN
+        """
+        This value is deprecated.
+        
+        Do not use.
+        """
 
 __all__ = ['FailReason', 'FailReasonEnum']

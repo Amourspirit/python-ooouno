@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import EntryInitModes as EntryInitModes
+    if hasattr(EntryInitModes, '_constants') and isinstance(EntryInitModes._constants, dict):
+        EntryInitModes._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        EntryInitModes._constants['__ooo_full_ns__'] = 'com.sun.star.embed.EntryInitModes'
+        EntryInitModes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EntryInitModesEnum
+        ls = [f for f in dir(EntryInitModes) if not callable(getattr(EntryInitModes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EntryInitModes, name)
+        EntryInitModesEnum = IntEnum('EntryInitModesEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.entry_init_modes import EntryInitModes as EntryInitModes
 
+    class EntryInitModesEnum(IntEnum):
+        """
+        Enum of Const Class EntryInitModes
 
-class EntryInitModesEnum(IntEnum):
-    """
-    Enum of Const Class EntryInitModes
-
-    This constant set contains possible modes to initialize object persistence.
-    """
-    DEFAULT_INIT = EntryInitModes.DEFAULT_INIT
-    """
-    In case object persistence is created based on existing entry, the object should be initialized from this entry.
-    
-    Otherwise the object should be initialized as a new one.
-    """
-    TRUNCATE_INIT = EntryInitModes.TRUNCATE_INIT
-    """
-    The object should be initialized as a new empty one.
-    """
-    NO_INIT = EntryInitModes.NO_INIT
-    """
-    The object should be initialized as a new one only in case it still was not initialized.
-    
-    If the object initialized already do not reinitialize it.
-    """
-    MEDIA_DESCRIPTOR_INIT = EntryInitModes.MEDIA_DESCRIPTOR_INIT
-    """
-    The object should be initialized using additional arguments from provided com.sun.star.document.MediaDescriptor.
-    """
-    URL_LINK_INIT = EntryInitModes.URL_LINK_INIT
-    """
-    The object should be initialized as a link using URL provided in additional arguments.
-    """
+        This constant set contains possible modes to initialize object persistence.
+        """
+        DEFAULT_INIT = EntryInitModes.DEFAULT_INIT
+        """
+        In case object persistence is created based on existing entry, the object should be initialized from this entry.
+        
+        Otherwise the object should be initialized as a new one.
+        """
+        TRUNCATE_INIT = EntryInitModes.TRUNCATE_INIT
+        """
+        The object should be initialized as a new empty one.
+        """
+        NO_INIT = EntryInitModes.NO_INIT
+        """
+        The object should be initialized as a new one only in case it still was not initialized.
+        
+        If the object initialized already do not reinitialize it.
+        """
+        MEDIA_DESCRIPTOR_INIT = EntryInitModes.MEDIA_DESCRIPTOR_INIT
+        """
+        The object should be initialized using additional arguments from provided com.sun.star.document.MediaDescriptor.
+        """
+        URL_LINK_INIT = EntryInitModes.URL_LINK_INIT
+        """
+        The object should be initialized as a link using URL provided in additional arguments.
+        """
 
 __all__ = ['EntryInitModes', 'EntryInitModesEnum']

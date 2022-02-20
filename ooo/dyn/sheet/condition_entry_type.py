@@ -27,19 +27,30 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ConditionEntryType as ConditionEntryType
+    if hasattr(ConditionEntryType, '_constants') and isinstance(ConditionEntryType._constants, dict):
+        ConditionEntryType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ConditionEntryType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ConditionEntryType'
+        ConditionEntryType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConditionEntryTypeEnum
+        ls = [f for f in dir(ConditionEntryType) if not callable(getattr(ConditionEntryType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConditionEntryType, name)
+        ConditionEntryTypeEnum = IntEnum('ConditionEntryTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.condition_entry_type import ConditionEntryType as ConditionEntryType
 
+    class ConditionEntryTypeEnum(IntEnum):
+        """
+        Enum of Const Class ConditionEntryType
 
-class ConditionEntryTypeEnum(IntEnum):
-    """
-    Enum of Const Class ConditionEntryType
-
-    """
-    CONDITION = ConditionEntryType.CONDITION
-    COLORSCALE = ConditionEntryType.COLORSCALE
-    DATABAR = ConditionEntryType.DATABAR
-    ICONSET = ConditionEntryType.ICONSET
-    DATE = ConditionEntryType.DATE
+        """
+        CONDITION = ConditionEntryType.CONDITION
+        COLORSCALE = ConditionEntryType.COLORSCALE
+        DATABAR = ConditionEntryType.DATABAR
+        ICONSET = ConditionEntryType.ICONSET
+        DATE = ConditionEntryType.DATE
 
 __all__ = ['ConditionEntryType', 'ConditionEntryTypeEnum']

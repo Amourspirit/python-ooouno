@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataResultFlags as DataResultFlags
+    if hasattr(DataResultFlags, '_constants') and isinstance(DataResultFlags._constants, dict):
+        DataResultFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataResultFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataResultFlags'
+        DataResultFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataResultFlagsEnum
+        ls = [f for f in dir(DataResultFlags) if not callable(getattr(DataResultFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataResultFlags, name)
+        DataResultFlagsEnum = IntFlag('DataResultFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_result_flags import DataResultFlags as DataResultFlags
 
+    class DataResultFlagsEnum(IntFlag):
+        """
+        Enum of Const Class DataResultFlags
 
-class DataResultFlagsEnum(IntFlag):
-    """
-    Enum of Const Class DataResultFlags
-
-    used to specify the result type of one element in the data pilot data array.
-    """
-    HASDATA = DataResultFlags.HASDATA
-    """
-    The element contains data.
-    """
-    SUBTOTAL = DataResultFlags.SUBTOTAL
-    """
-    The element contains a subtotal.
-    """
-    ERROR = DataResultFlags.ERROR
-    """
-    The element has an error.
-    """
+        used to specify the result type of one element in the data pilot data array.
+        """
+        HASDATA = DataResultFlags.HASDATA
+        """
+        The element contains data.
+        """
+        SUBTOTAL = DataResultFlags.SUBTOTAL
+        """
+        The element contains a subtotal.
+        """
+        ERROR = DataResultFlags.ERROR
+        """
+        The element has an error.
+        """
 
 __all__ = ['DataResultFlags', 'DataResultFlagsEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.linguistic2 import ConversionDictionaryType as ConversionDictionaryType
+    if hasattr(ConversionDictionaryType, '_constants') and isinstance(ConversionDictionaryType._constants, dict):
+        ConversionDictionaryType._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
+        ConversionDictionaryType._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.ConversionDictionaryType'
+        ConversionDictionaryType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConversionDictionaryTypeEnum
+        ls = [f for f in dir(ConversionDictionaryType) if not callable(getattr(ConversionDictionaryType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConversionDictionaryType, name)
+        ConversionDictionaryTypeEnum = IntFlag('ConversionDictionaryTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.linguistic2.conversion_dictionary_type import ConversionDictionaryType as ConversionDictionaryType
 
+    class ConversionDictionaryTypeEnum(IntFlag):
+        """
+        Enum of Const Class ConversionDictionaryType
 
-class ConversionDictionaryTypeEnum(IntFlag):
-    """
-    Enum of Const Class ConversionDictionaryType
-
-    specifies the conversion dictionary type to be used with XConversionDictionary.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    HANGUL_HANJA = ConversionDictionaryType.HANGUL_HANJA
-    """
-    Dictionary type for the conversion between Hangul and Hanja.
-    """
-    SCHINESE_TCHINESE = ConversionDictionaryType.SCHINESE_TCHINESE
-    """
-    Dictionary type for the conversion between Simplified and Traditional Chinese.
-    
-    **since**
-    
-        OOo 2.0
-    """
+        specifies the conversion dictionary type to be used with XConversionDictionary.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        HANGUL_HANJA = ConversionDictionaryType.HANGUL_HANJA
+        """
+        Dictionary type for the conversion between Hangul and Hanja.
+        """
+        SCHINESE_TCHINESE = ConversionDictionaryType.SCHINESE_TCHINESE
+        """
+        Dictionary type for the conversion between Simplified and Traditional Chinese.
+        
+        **since**
+        
+            OOo 2.0
+        """
 
 __all__ = ['ConversionDictionaryType', 'ConversionDictionaryTypeEnum']

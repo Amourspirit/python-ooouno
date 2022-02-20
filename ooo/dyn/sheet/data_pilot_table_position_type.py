@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataPilotTablePositionType as DataPilotTablePositionType
+    if hasattr(DataPilotTablePositionType, '_constants') and isinstance(DataPilotTablePositionType._constants, dict):
+        DataPilotTablePositionType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataPilotTablePositionType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotTablePositionType'
+        DataPilotTablePositionType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPilotTablePositionTypeEnum
+        ls = [f for f in dir(DataPilotTablePositionType) if not callable(getattr(DataPilotTablePositionType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPilotTablePositionType, name)
+        DataPilotTablePositionTypeEnum = IntEnum('DataPilotTablePositionTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_pilot_table_position_type import DataPilotTablePositionType as DataPilotTablePositionType
 
+    class DataPilotTablePositionTypeEnum(IntEnum):
+        """
+        Enum of Const Class DataPilotTablePositionType
 
-class DataPilotTablePositionTypeEnum(IntEnum):
-    """
-    Enum of Const Class DataPilotTablePositionType
-
-    specifies in which sub-area a cell is positioned within a DataPilot table.
-    
-    **since**
-    
-        OOo 3.0
-    """
-    NOT_IN_TABLE = DataPilotTablePositionType.NOT_IN_TABLE
-    """
-    indicates that the specified cell is not in the DataPilot table.
-    """
-    RESULT = DataPilotTablePositionType.RESULT
-    """
-    indicates that the specified cell is within the result area.
-    """
-    ROW_HEADER = DataPilotTablePositionType.ROW_HEADER
-    """
-    indicates that the specified cell is within the row header area.
-    """
-    COLUMN_HEADER = DataPilotTablePositionType.COLUMN_HEADER
-    """
-    indicates that the specified cell is within the column header area.
-    """
-    OTHER = DataPilotTablePositionType.OTHER
-    """
-    indicates that the specified cell is within the table but in areas other than the result or header areas.
-    """
+        specifies in which sub-area a cell is positioned within a DataPilot table.
+        
+        **since**
+        
+            OOo 3.0
+        """
+        NOT_IN_TABLE = DataPilotTablePositionType.NOT_IN_TABLE
+        """
+        indicates that the specified cell is not in the DataPilot table.
+        """
+        RESULT = DataPilotTablePositionType.RESULT
+        """
+        indicates that the specified cell is within the result area.
+        """
+        ROW_HEADER = DataPilotTablePositionType.ROW_HEADER
+        """
+        indicates that the specified cell is within the row header area.
+        """
+        COLUMN_HEADER = DataPilotTablePositionType.COLUMN_HEADER
+        """
+        indicates that the specified cell is within the column header area.
+        """
+        OTHER = DataPilotTablePositionType.OTHER
+        """
+        indicates that the specified cell is within the table but in areas other than the result or header areas.
+        """
 
 __all__ = ['DataPilotTablePositionType', 'DataPilotTablePositionTypeEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import LabelFollow as LabelFollow
+    if hasattr(LabelFollow, '_constants') and isinstance(LabelFollow._constants, dict):
+        LabelFollow._constants['__ooo_ns__'] = 'com.sun.star.text'
+        LabelFollow._constants['__ooo_full_ns__'] = 'com.sun.star.text.LabelFollow'
+        LabelFollow._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LabelFollowEnum
+        ls = [f for f in dir(LabelFollow) if not callable(getattr(LabelFollow, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LabelFollow, name)
+        LabelFollowEnum = IntEnum('LabelFollowEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.label_follow import LabelFollow as LabelFollow
 
+    class LabelFollowEnum(IntEnum):
+        """
+        Enum of Const Class LabelFollow
 
-class LabelFollowEnum(IntEnum):
-    """
-    Enum of Const Class LabelFollow
-
-    These enumeration values specify character following the list label.
-    """
-    LISTTAB = LabelFollow.LISTTAB
-    """
-    list tab stop
-    """
-    SPACE = LabelFollow.SPACE
-    """
-    space
-    """
-    NOTHING = LabelFollow.NOTHING
-    """
-    nothing
-    """
-    NEWLINE = LabelFollow.NEWLINE
-    """
-    new line
-    """
+        These enumeration values specify character following the list label.
+        """
+        LISTTAB = LabelFollow.LISTTAB
+        """
+        list tab stop
+        """
+        SPACE = LabelFollow.SPACE
+        """
+        space
+        """
+        NOTHING = LabelFollow.NOTHING
+        """
+        nothing
+        """
+        NEWLINE = LabelFollow.NEWLINE
+        """
+        new line
+        """
 
 __all__ = ['LabelFollow', 'LabelFollowEnum']

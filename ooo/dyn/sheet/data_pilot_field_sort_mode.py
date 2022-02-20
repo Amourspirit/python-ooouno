@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataPilotFieldSortMode as DataPilotFieldSortMode
+    if hasattr(DataPilotFieldSortMode, '_constants') and isinstance(DataPilotFieldSortMode._constants, dict):
+        DataPilotFieldSortMode._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataPilotFieldSortMode._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldSortMode'
+        DataPilotFieldSortMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPilotFieldSortModeEnum
+        ls = [f for f in dir(DataPilotFieldSortMode) if not callable(getattr(DataPilotFieldSortMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPilotFieldSortMode, name)
+        DataPilotFieldSortModeEnum = IntEnum('DataPilotFieldSortModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_pilot_field_sort_mode import DataPilotFieldSortMode as DataPilotFieldSortMode
 
+    class DataPilotFieldSortModeEnum(IntEnum):
+        """
+        Enum of Const Class DataPilotFieldSortMode
 
-class DataPilotFieldSortModeEnum(IntEnum):
-    """
-    Enum of Const Class DataPilotFieldSortMode
-
-    describes the sort mode of the data field
-    """
-    NONE = DataPilotFieldSortMode.NONE
-    """
-    the data are taken as they come from the DataPilotSource.
-    """
-    MANUAL = DataPilotFieldSortMode.MANUAL
-    """
-    the user can sort the fields
-    """
-    NAME = DataPilotFieldSortMode.NAME
-    """
-    the field is sorted by its names
-    """
-    DATA = DataPilotFieldSortMode.DATA
-    """
-    the field is sorted by the data in the given field
-    """
+        describes the sort mode of the data field
+        """
+        NONE = DataPilotFieldSortMode.NONE
+        """
+        the data are taken as they come from the DataPilotSource.
+        """
+        MANUAL = DataPilotFieldSortMode.MANUAL
+        """
+        the user can sort the fields
+        """
+        NAME = DataPilotFieldSortMode.NAME
+        """
+        the field is sorted by its names
+        """
+        DATA = DataPilotFieldSortMode.DATA
+        """
+        the field is sorted by the data in the given field
+        """
 
 __all__ = ['DataPilotFieldSortMode', 'DataPilotFieldSortModeEnum']

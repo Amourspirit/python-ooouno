@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import IndexType as IndexType
+    if hasattr(IndexType, '_constants') and isinstance(IndexType._constants, dict):
+        IndexType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        IndexType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.IndexType'
+        IndexType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global IndexTypeEnum
+        ls = [f for f in dir(IndexType) if not callable(getattr(IndexType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(IndexType, name)
+        IndexTypeEnum = IntEnum('IndexTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.index_type import IndexType as IndexType
 
+    class IndexTypeEnum(IntEnum):
+        """
+        Enum of Const Class IndexType
 
-class IndexTypeEnum(IntEnum):
-    """
-    Enum of Const Class IndexType
-
-    indicates the type of index.
-    """
-    STATISTIC = IndexType.STATISTIC
-    """
-    A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
-    
-    Identifies table statistics that are returned in conjunction with a table's index description.
-    """
-    CLUSTERED = IndexType.CLUSTERED
-    """
-    A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
-    
-    Indicates that this table index is a clustered index.
-    """
-    HASHED = IndexType.HASHED
-    """
-    A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
-    
-    Indicates that this table index is a hashed index.
-    """
-    OTHER = IndexType.OTHER
-    """
-    A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
-    
-    Indicates that this table index is not a clustered index, a hashed index, or table statistics; it is something other than these.
-    """
+        indicates the type of index.
+        """
+        STATISTIC = IndexType.STATISTIC
+        """
+        A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
+        
+        Identifies table statistics that are returned in conjunction with a table's index description.
+        """
+        CLUSTERED = IndexType.CLUSTERED
+        """
+        A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
+        
+        Indicates that this table index is a clustered index.
+        """
+        HASHED = IndexType.HASHED
+        """
+        A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
+        
+        Indicates that this table index is a hashed index.
+        """
+        OTHER = IndexType.OTHER
+        """
+        A possible value for column TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getIndexInfo().
+        
+        Indicates that this table index is not a clustered index, a hashed index, or table statistics; it is something other than these.
+        """
 
 __all__ = ['IndexType', 'IndexTypeEnum']

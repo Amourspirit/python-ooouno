@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import Aspects as Aspects
+    if hasattr(Aspects, '_constants') and isinstance(Aspects._constants, dict):
+        Aspects._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        Aspects._constants['__ooo_full_ns__'] = 'com.sun.star.embed.Aspects'
+        Aspects._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AspectsEnum
+        ls = [f for f in dir(Aspects) if not callable(getattr(Aspects, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Aspects, name)
+        AspectsEnum = IntFlag('AspectsEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.aspects import Aspects as Aspects
 
+    class AspectsEnum(IntFlag):
+        """
+        Enum of Const Class Aspects
 
-class AspectsEnum(IntFlag):
-    """
-    Enum of Const Class Aspects
-
-    The constant set contains possible aspects for an embedded object.
-    
-    This constant set provides a set of values that can be used to specify the kind of object view. It can be used for example by container to request view representation of a certain kind from XEmbeddedObject.
-    
-    The first 32 bits are reserved for MS OLE aspects.
-    """
-    MSOLE_CONTENT = Aspects.MSOLE_CONTENT
-    """
-    specifies view of the object to be displayed as an embedded object inside a container.
-    """
-    MSOLE_THUMBNAIL = Aspects.MSOLE_THUMBNAIL
-    """
-    specifies view of the object to be displayed in a browsing tool.
-    """
-    MSOLE_ICON = Aspects.MSOLE_ICON
-    """
-    specifies view of the object when object is represented by Icon.
-    """
-    MSOLE_DOCPRINT = Aspects.MSOLE_DOCPRINT
-    """
-    specifies view of the object for print preview.
-    """
+        The constant set contains possible aspects for an embedded object.
+        
+        This constant set provides a set of values that can be used to specify the kind of object view. It can be used for example by container to request view representation of a certain kind from XEmbeddedObject.
+        
+        The first 32 bits are reserved for MS OLE aspects.
+        """
+        MSOLE_CONTENT = Aspects.MSOLE_CONTENT
+        """
+        specifies view of the object to be displayed as an embedded object inside a container.
+        """
+        MSOLE_THUMBNAIL = Aspects.MSOLE_THUMBNAIL
+        """
+        specifies view of the object to be displayed in a browsing tool.
+        """
+        MSOLE_ICON = Aspects.MSOLE_ICON
+        """
+        specifies view of the object when object is represented by Icon.
+        """
+        MSOLE_DOCPRINT = Aspects.MSOLE_DOCPRINT
+        """
+        specifies view of the object for print preview.
+        """
 
 __all__ = ['Aspects', 'AspectsEnum']

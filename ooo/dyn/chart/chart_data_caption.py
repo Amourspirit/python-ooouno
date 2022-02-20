@@ -27,63 +27,74 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import ChartDataCaption as ChartDataCaption
+    if hasattr(ChartDataCaption, '_constants') and isinstance(ChartDataCaption._constants, dict):
+        ChartDataCaption._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        ChartDataCaption._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartDataCaption'
+        ChartDataCaption._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChartDataCaptionEnum
+        ls = [f for f in dir(ChartDataCaption) if not callable(getattr(ChartDataCaption, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChartDataCaption, name)
+        ChartDataCaptionEnum = IntFlag('ChartDataCaptionEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.chart_data_caption import ChartDataCaption as ChartDataCaption
 
+    class ChartDataCaptionEnum(IntFlag):
+        """
+        Enum of Const Class ChartDataCaption
 
-class ChartDataCaptionEnum(IntFlag):
-    """
-    Enum of Const Class ChartDataCaption
-
-    These values specify how the captions of data points are displayed.
-    
-    **since**
-    
-        LibreOffice 7.1
-    """
-    NONE = ChartDataCaption.NONE
-    """
-    No captions are displayed.
-    """
-    VALUE = ChartDataCaption.VALUE
-    """
-    The caption contains the value of the data point in the number format of the axis that is attached to the respective data series.
-    """
-    PERCENT = ChartDataCaption.PERCENT
-    """
-    The caption contains the value of the data point in percent of all data points of one category.
-    
-    That means, if a data point is the first one of a series, the percentage is calculated by using the first data points of all available series.
-    """
-    TEXT = ChartDataCaption.TEXT
-    """
-    The caption contains the category name of the category to which a data point belongs.
-    """
-    FORMAT = ChartDataCaption.FORMAT
-    """
-    The number formatter is always used for displaying the value as value.
-    
-    So this setting is deprecated.
-    """
-    SYMBOL = ChartDataCaption.SYMBOL
-    """
-    The symbol of data column/row is additionally displayed in the caption.
-    """
-    CUSTOM = ChartDataCaption.CUSTOM
-    """
-    The caption contains a custom text, which belongs to a data point label.
-    
-    **since**
-    
-        LibreOffice 7.1
-    """
-    DATA_SERIES = ChartDataCaption.DATA_SERIES
-    """
-    The name of the data series is additionally displayed in the caption.
-    
-    **since**
-    
-        LibreOffice 7.2
-    """
+        These values specify how the captions of data points are displayed.
+        
+        **since**
+        
+            LibreOffice 7.1
+        """
+        NONE = ChartDataCaption.NONE
+        """
+        No captions are displayed.
+        """
+        VALUE = ChartDataCaption.VALUE
+        """
+        The caption contains the value of the data point in the number format of the axis that is attached to the respective data series.
+        """
+        PERCENT = ChartDataCaption.PERCENT
+        """
+        The caption contains the value of the data point in percent of all data points of one category.
+        
+        That means, if a data point is the first one of a series, the percentage is calculated by using the first data points of all available series.
+        """
+        TEXT = ChartDataCaption.TEXT
+        """
+        The caption contains the category name of the category to which a data point belongs.
+        """
+        FORMAT = ChartDataCaption.FORMAT
+        """
+        The number formatter is always used for displaying the value as value.
+        
+        So this setting is deprecated.
+        """
+        SYMBOL = ChartDataCaption.SYMBOL
+        """
+        The symbol of data column/row is additionally displayed in the caption.
+        """
+        CUSTOM = ChartDataCaption.CUSTOM
+        """
+        The caption contains a custom text, which belongs to a data point label.
+        
+        **since**
+        
+            LibreOffice 7.1
+        """
+        DATA_SERIES = ChartDataCaption.DATA_SERIES
+        """
+        The name of the data series is additionally displayed in the caption.
+        
+        **since**
+        
+            LibreOffice 7.2
+        """
 
 __all__ = ['ChartDataCaption', 'ChartDataCaptionEnum']

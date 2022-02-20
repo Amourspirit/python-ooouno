@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import EmbedVerbs as EmbedVerbs
+    if hasattr(EmbedVerbs, '_constants') and isinstance(EmbedVerbs._constants, dict):
+        EmbedVerbs._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        EmbedVerbs._constants['__ooo_full_ns__'] = 'com.sun.star.embed.EmbedVerbs'
+        EmbedVerbs._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EmbedVerbsEnum
+        ls = [f for f in dir(EmbedVerbs) if not callable(getattr(EmbedVerbs, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EmbedVerbs, name)
+        EmbedVerbsEnum = IntEnum('EmbedVerbsEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.embed_verbs import EmbedVerbs as EmbedVerbs
 
+    class EmbedVerbsEnum(IntEnum):
+        """
+        Enum of Const Class EmbedVerbs
 
-class EmbedVerbsEnum(IntEnum):
-    """
-    Enum of Const Class EmbedVerbs
-
-    This constants set contains possible verbs for a contained object.
-    """
-    MS_OLEVERB_PRIMARY = EmbedVerbs.MS_OLEVERB_PRIMARY
-    """
-    lets the object do default activation, as by double-click.
-    """
-    MS_OLEVERB_SHOW = EmbedVerbs.MS_OLEVERB_SHOW
-    """
-    lets the object open itself for editing of viewing.
-    """
-    MS_OLEVERB_OPEN = EmbedVerbs.MS_OLEVERB_OPEN
-    """
-    lets the object activate itself outplace.
-    """
-    MS_OLEVERB_HIDE = EmbedVerbs.MS_OLEVERB_HIDE
-    """
-    lets the inplace object remove its UI from container.
-    """
-    MS_OLEVERB_UIACTIVATE = EmbedVerbs.MS_OLEVERB_UIACTIVATE
-    """
-    lets the object proceed with UI activation.
-    """
-    MS_OLEVERB_IPACTIVATE = EmbedVerbs.MS_OLEVERB_IPACTIVATE
-    """
-    lets the object activate itself inplace.
-    """
-    MS_OLEVERB_DISCARDUNDOSTATE = EmbedVerbs.MS_OLEVERB_DISCARDUNDOSTATE
-    """
-    lets the object forget any undo state.
-    """
+        This constants set contains possible verbs for a contained object.
+        """
+        MS_OLEVERB_PRIMARY = EmbedVerbs.MS_OLEVERB_PRIMARY
+        """
+        lets the object do default activation, as by double-click.
+        """
+        MS_OLEVERB_SHOW = EmbedVerbs.MS_OLEVERB_SHOW
+        """
+        lets the object open itself for editing of viewing.
+        """
+        MS_OLEVERB_OPEN = EmbedVerbs.MS_OLEVERB_OPEN
+        """
+        lets the object activate itself outplace.
+        """
+        MS_OLEVERB_HIDE = EmbedVerbs.MS_OLEVERB_HIDE
+        """
+        lets the inplace object remove its UI from container.
+        """
+        MS_OLEVERB_UIACTIVATE = EmbedVerbs.MS_OLEVERB_UIACTIVATE
+        """
+        lets the object proceed with UI activation.
+        """
+        MS_OLEVERB_IPACTIVATE = EmbedVerbs.MS_OLEVERB_IPACTIVATE
+        """
+        lets the object activate itself inplace.
+        """
+        MS_OLEVERB_DISCARDUNDOSTATE = EmbedVerbs.MS_OLEVERB_DISCARDUNDOSTATE
+        """
+        lets the object forget any undo state.
+        """
 
 __all__ = ['EmbedVerbs', 'EmbedVerbsEnum']

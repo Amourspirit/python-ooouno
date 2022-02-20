@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataPilotFieldShowItemsMode as DataPilotFieldShowItemsMode
+    if hasattr(DataPilotFieldShowItemsMode, '_constants') and isinstance(DataPilotFieldShowItemsMode._constants, dict):
+        DataPilotFieldShowItemsMode._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataPilotFieldShowItemsMode._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldShowItemsMode'
+        DataPilotFieldShowItemsMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPilotFieldShowItemsModeEnum
+        ls = [f for f in dir(DataPilotFieldShowItemsMode) if not callable(getattr(DataPilotFieldShowItemsMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPilotFieldShowItemsMode, name)
+        DataPilotFieldShowItemsModeEnum = IntEnum('DataPilotFieldShowItemsModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_pilot_field_show_items_mode import DataPilotFieldShowItemsMode as DataPilotFieldShowItemsMode
 
+    class DataPilotFieldShowItemsModeEnum(IntEnum):
+        """
+        Enum of Const Class DataPilotFieldShowItemsMode
 
-class DataPilotFieldShowItemsModeEnum(IntEnum):
-    """
-    Enum of Const Class DataPilotFieldShowItemsMode
-
-    These constants select different types of showing a selection of items.
-    """
-    FROM_TOP = DataPilotFieldShowItemsMode.FROM_TOP
-    """
-    The first items are shown.
-    """
-    FROM_BOTTOM = DataPilotFieldShowItemsMode.FROM_BOTTOM
-    """
-    The last items are shown.
-    """
+        These constants select different types of showing a selection of items.
+        """
+        FROM_TOP = DataPilotFieldShowItemsMode.FROM_TOP
+        """
+        The first items are shown.
+        """
+        FROM_BOTTOM = DataPilotFieldShowItemsMode.FROM_BOTTOM
+        """
+        The last items are shown.
+        """
 
 __all__ = ['DataPilotFieldShowItemsMode', 'DataPilotFieldShowItemsModeEnum']

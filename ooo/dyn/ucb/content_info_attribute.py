@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import ContentInfoAttribute as ContentInfoAttribute
+    if hasattr(ContentInfoAttribute, '_constants') and isinstance(ContentInfoAttribute._constants, dict):
+        ContentInfoAttribute._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        ContentInfoAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.ContentInfoAttribute'
+        ContentInfoAttribute._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ContentInfoAttributeEnum
+        ls = [f for f in dir(ContentInfoAttribute) if not callable(getattr(ContentInfoAttribute, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ContentInfoAttribute, name)
+        ContentInfoAttributeEnum = IntFlag('ContentInfoAttributeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.content_info_attribute import ContentInfoAttribute as ContentInfoAttribute
 
+    class ContentInfoAttributeEnum(IntFlag):
+        """
+        Enum of Const Class ContentInfoAttribute
 
-class ContentInfoAttributeEnum(IntFlag):
-    """
-    Enum of Const Class ContentInfoAttribute
-
-    These are the possible values for ContentInfo.Attributes.
-    """
-    NONE = ContentInfoAttribute.NONE
-    """
-    No extra attributes.
-    """
-    INSERT_WITH_INPUTSTREAM = ContentInfoAttribute.INSERT_WITH_INPUTSTREAM
-    """
-    Supply an input stream with the InsertCommandArgument, when committing the new content by executing the command \"insert\" at it.
-    """
-    KIND_DOCUMENT = ContentInfoAttribute.KIND_DOCUMENT
-    """
-    The new content is of kind document.
-    
-    It's value for the property \"IsDocument\" will be true.
-    """
-    KIND_FOLDER = ContentInfoAttribute.KIND_FOLDER
-    """
-    The new content is of kind folder.
-    
-    It's value for the property \"IsFolder\" will be true.
-    """
-    KIND_LINK = ContentInfoAttribute.KIND_LINK
-    """
-    The new content is of kind link.
-    
-    It will support the property \"TargetURL\" ( which identifies it as a link ).
-    """
+        These are the possible values for ContentInfo.Attributes.
+        """
+        NONE = ContentInfoAttribute.NONE
+        """
+        No extra attributes.
+        """
+        INSERT_WITH_INPUTSTREAM = ContentInfoAttribute.INSERT_WITH_INPUTSTREAM
+        """
+        Supply an input stream with the InsertCommandArgument, when committing the new content by executing the command \"insert\" at it.
+        """
+        KIND_DOCUMENT = ContentInfoAttribute.KIND_DOCUMENT
+        """
+        The new content is of kind document.
+        
+        It's value for the property \"IsDocument\" will be true.
+        """
+        KIND_FOLDER = ContentInfoAttribute.KIND_FOLDER
+        """
+        The new content is of kind folder.
+        
+        It's value for the property \"IsFolder\" will be true.
+        """
+        KIND_LINK = ContentInfoAttribute.KIND_LINK
+        """
+        The new content is of kind link.
+        
+        It will support the property \"TargetURL\" ( which identifies it as a link ).
+        """
 
 __all__ = ['ContentInfoAttribute', 'ContentInfoAttributeEnum']

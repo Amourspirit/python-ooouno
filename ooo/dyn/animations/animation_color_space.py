@@ -27,25 +27,36 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationColorSpace as AnimationColorSpace
+    if hasattr(AnimationColorSpace, '_constants') and isinstance(AnimationColorSpace._constants, dict):
+        AnimationColorSpace._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationColorSpace._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationColorSpace'
+        AnimationColorSpace._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationColorSpaceEnum
+        ls = [f for f in dir(AnimationColorSpace) if not callable(getattr(AnimationColorSpace, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationColorSpace, name)
+        AnimationColorSpaceEnum = IntEnum('AnimationColorSpaceEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_color_space import AnimationColorSpace as AnimationColorSpace
 
+    class AnimationColorSpaceEnum(IntEnum):
+        """
+        Enum of Const Class AnimationColorSpace
 
-class AnimationColorSpaceEnum(IntEnum):
-    """
-    Enum of Const Class AnimationColorSpace
-
-    defines the color space that is used for interpolation.
-    
-    This does not change how colors are interpreted but how to interpolate from one color to another.
-    """
-    RGB = AnimationColorSpace.RGB
-    """
-    defines that the RGB color space is used for interpolation.
-    """
-    HSL = AnimationColorSpace.HSL
-    """
-    defines that the HSL color space is used for interpolation.
-    """
+        defines the color space that is used for interpolation.
+        
+        This does not change how colors are interpreted but how to interpolate from one color to another.
+        """
+        RGB = AnimationColorSpace.RGB
+        """
+        defines that the RGB color space is used for interpolation.
+        """
+        HSL = AnimationColorSpace.HSL
+        """
+        defines that the HSL color space is used for interpolation.
+        """
 
 __all__ = ['AnimationColorSpace', 'AnimationColorSpaceEnum']

@@ -27,49 +27,60 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ReferenceFlags as ReferenceFlags
+    if hasattr(ReferenceFlags, '_constants') and isinstance(ReferenceFlags._constants, dict):
+        ReferenceFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ReferenceFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ReferenceFlags'
+        ReferenceFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ReferenceFlagsEnum
+        ls = [f for f in dir(ReferenceFlags) if not callable(getattr(ReferenceFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ReferenceFlags, name)
+        ReferenceFlagsEnum = IntFlag('ReferenceFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.reference_flags import ReferenceFlags as ReferenceFlags
 
+    class ReferenceFlagsEnum(IntFlag):
+        """
+        Enum of Const Class ReferenceFlags
 
-class ReferenceFlagsEnum(IntFlag):
-    """
-    Enum of Const Class ReferenceFlags
-
-    defines flags for references.
-    
-    The values can be combined.
-    """
-    COLUMN_RELATIVE = ReferenceFlags.COLUMN_RELATIVE
-    """
-    selects a relative column reference.
-    """
-    COLUMN_DELETED = ReferenceFlags.COLUMN_DELETED
-    """
-    marks a deleted column reference.
-    """
-    ROW_RELATIVE = ReferenceFlags.ROW_RELATIVE
-    """
-    selects a relative row reference.
-    """
-    ROW_DELETED = ReferenceFlags.ROW_DELETED
-    """
-    marks a deleted row reference.
-    """
-    SHEET_RELATIVE = ReferenceFlags.SHEET_RELATIVE
-    """
-    selects a relative sheet reference.
-    """
-    SHEET_DELETED = ReferenceFlags.SHEET_DELETED
-    """
-    marks a deleted sheet reference.
-    """
-    SHEET_3D = ReferenceFlags.SHEET_3D
-    """
-    selects a 3D sheet reference.
-    """
-    RELATIVE_NAME = ReferenceFlags.RELATIVE_NAME
-    """
-    marks a reference from a relative range name.
-    """
+        defines flags for references.
+        
+        The values can be combined.
+        """
+        COLUMN_RELATIVE = ReferenceFlags.COLUMN_RELATIVE
+        """
+        selects a relative column reference.
+        """
+        COLUMN_DELETED = ReferenceFlags.COLUMN_DELETED
+        """
+        marks a deleted column reference.
+        """
+        ROW_RELATIVE = ReferenceFlags.ROW_RELATIVE
+        """
+        selects a relative row reference.
+        """
+        ROW_DELETED = ReferenceFlags.ROW_DELETED
+        """
+        marks a deleted row reference.
+        """
+        SHEET_RELATIVE = ReferenceFlags.SHEET_RELATIVE
+        """
+        selects a relative sheet reference.
+        """
+        SHEET_DELETED = ReferenceFlags.SHEET_DELETED
+        """
+        marks a deleted sheet reference.
+        """
+        SHEET_3D = ReferenceFlags.SHEET_3D
+        """
+        selects a 3D sheet reference.
+        """
+        RELATIVE_NAME = ReferenceFlags.RELATIVE_NAME
+        """
+        marks a reference from a relative range name.
+        """
 
 __all__ = ['ReferenceFlags', 'ReferenceFlagsEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import RepaintResult as RepaintResult
+    if hasattr(RepaintResult, '_constants') and isinstance(RepaintResult._constants, dict):
+        RepaintResult._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        RepaintResult._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.RepaintResult'
+        RepaintResult._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RepaintResultEnum
+        ls = [f for f in dir(RepaintResult) if not callable(getattr(RepaintResult, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RepaintResult, name)
+        RepaintResultEnum = IntEnum('RepaintResultEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.repaint_result import RepaintResult as RepaintResult
 
+    class RepaintResultEnum(IntEnum):
+        """
+        Enum of Const Class RepaintResult
 
-class RepaintResultEnum(IntEnum):
-    """
-    Enum of Const Class RepaintResult
-
-    These constants specify the result of the XCachedPrimitive render operation.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    REDRAWN = RepaintResult.REDRAWN
-    """
-    Repaint succeeded, primitive has been exactly reproduced.
-    """
-    DRAFTED = RepaintResult.DRAFTED
-    """
-    Repaint succeeded, primitive has been reproduced in preview quality.
-    """
-    FAILED = RepaintResult.FAILED
-    """
-    Repaint failed altogether.
-    """
+        These constants specify the result of the XCachedPrimitive render operation.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        REDRAWN = RepaintResult.REDRAWN
+        """
+        Repaint succeeded, primitive has been exactly reproduced.
+        """
+        DRAFTED = RepaintResult.DRAFTED
+        """
+        Repaint succeeded, primitive has been reproduced in preview quality.
+        """
+        FAILED = RepaintResult.FAILED
+        """
+        Repaint failed altogether.
+        """
 
 __all__ = ['RepaintResult', 'RepaintResultEnum']

@@ -27,82 +27,93 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import CertificateValidity as CertificateValidity
+    if hasattr(CertificateValidity, '_constants') and isinstance(CertificateValidity._constants, dict):
+        CertificateValidity._constants['__ooo_ns__'] = 'com.sun.star.security'
+        CertificateValidity._constants['__ooo_full_ns__'] = 'com.sun.star.security.CertificateValidity'
+        CertificateValidity._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CertificateValidityEnum
+        ls = [f for f in dir(CertificateValidity) if not callable(getattr(CertificateValidity, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CertificateValidity, name)
+        CertificateValidityEnum = IntFlag('CertificateValidityEnum', _dict)
+    build_enum()
 else:
     from ...lo.security.certificate_validity import CertificateValidity as CertificateValidity
 
+    class CertificateValidityEnum(IntFlag):
+        """
+        Enum of Const Class CertificateValidity
 
-class CertificateValidityEnum(IntFlag):
-    """
-    Enum of Const Class CertificateValidity
-
-    Constant definition of a certificate characters.
-    
-    The certificate characters will be defined as bit-wise constants.
-    """
-    VALID = CertificateValidity.VALID
-    INVALID = CertificateValidity.INVALID
-    """
-    The certificate is invalid.
-    """
-    UNTRUSTED = CertificateValidity.UNTRUSTED
-    """
-    The certificate itself is untrusted.
-    """
-    TIME_INVALID = CertificateValidity.TIME_INVALID
-    """
-    The current time is not in the range of time for which the certificate is valid.
-    """
-    NOT_TIME_NESTED = CertificateValidity.NOT_TIME_NESTED
-    """
-    The time range of a certificate does not fall within the time range of the issuing certificate.
-    """
-    REVOKED = CertificateValidity.REVOKED
-    """
-    It is a revoked certificate.
-    """
-    UNKNOWN_REVOKATION = CertificateValidity.UNKNOWN_REVOKATION
-    """
-    The certificate revocation status is unknown.
-    """
-    SIGNATURE_INVALID = CertificateValidity.SIGNATURE_INVALID
-    """
-    The certificate signature is invalid.
-    """
-    EXTENSION_INVALID = CertificateValidity.EXTENSION_INVALID
-    """
-    The certificate has invalid extensions.
-    """
-    EXTENSION_UNKNOWN = CertificateValidity.EXTENSION_UNKNOWN
-    """
-    The certificate has critical unknown extensions.
-    """
-    ISSUER_UNKNOWN = CertificateValidity.ISSUER_UNKNOWN
-    """
-    The certificate issuer is unknown.
-    """
-    ISSUER_UNTRUSTED = CertificateValidity.ISSUER_UNTRUSTED
-    """
-    The certificate issuer is untrusted.
-    """
-    ISSUER_INVALID = CertificateValidity.ISSUER_INVALID
-    """
-    The certificate issuer is invalid.
-    """
-    ROOT_UNKNOWN = CertificateValidity.ROOT_UNKNOWN
-    """
-    The root certificate is unknown.
-    """
-    ROOT_UNTRUSTED = CertificateValidity.ROOT_UNTRUSTED
-    """
-    The root certificate is untrusted.
-    """
-    ROOT_INVALID = CertificateValidity.ROOT_INVALID
-    """
-    The root certificate is invalid.
-    """
-    CHAIN_INCOMPLETE = CertificateValidity.CHAIN_INCOMPLETE
-    """
-    The certificate chain is incomplete.
-    """
+        Constant definition of a certificate characters.
+        
+        The certificate characters will be defined as bit-wise constants.
+        """
+        VALID = CertificateValidity.VALID
+        INVALID = CertificateValidity.INVALID
+        """
+        The certificate is invalid.
+        """
+        UNTRUSTED = CertificateValidity.UNTRUSTED
+        """
+        The certificate itself is untrusted.
+        """
+        TIME_INVALID = CertificateValidity.TIME_INVALID
+        """
+        The current time is not in the range of time for which the certificate is valid.
+        """
+        NOT_TIME_NESTED = CertificateValidity.NOT_TIME_NESTED
+        """
+        The time range of a certificate does not fall within the time range of the issuing certificate.
+        """
+        REVOKED = CertificateValidity.REVOKED
+        """
+        It is a revoked certificate.
+        """
+        UNKNOWN_REVOKATION = CertificateValidity.UNKNOWN_REVOKATION
+        """
+        The certificate revocation status is unknown.
+        """
+        SIGNATURE_INVALID = CertificateValidity.SIGNATURE_INVALID
+        """
+        The certificate signature is invalid.
+        """
+        EXTENSION_INVALID = CertificateValidity.EXTENSION_INVALID
+        """
+        The certificate has invalid extensions.
+        """
+        EXTENSION_UNKNOWN = CertificateValidity.EXTENSION_UNKNOWN
+        """
+        The certificate has critical unknown extensions.
+        """
+        ISSUER_UNKNOWN = CertificateValidity.ISSUER_UNKNOWN
+        """
+        The certificate issuer is unknown.
+        """
+        ISSUER_UNTRUSTED = CertificateValidity.ISSUER_UNTRUSTED
+        """
+        The certificate issuer is untrusted.
+        """
+        ISSUER_INVALID = CertificateValidity.ISSUER_INVALID
+        """
+        The certificate issuer is invalid.
+        """
+        ROOT_UNKNOWN = CertificateValidity.ROOT_UNKNOWN
+        """
+        The root certificate is unknown.
+        """
+        ROOT_UNTRUSTED = CertificateValidity.ROOT_UNTRUSTED
+        """
+        The root certificate is untrusted.
+        """
+        ROOT_INVALID = CertificateValidity.ROOT_INVALID
+        """
+        The root certificate is invalid.
+        """
+        CHAIN_INCOMPLETE = CertificateValidity.CHAIN_INCOMPLETE
+        """
+        The certificate chain is incomplete.
+        """
 
 __all__ = ['CertificateValidity', 'CertificateValidityEnum']

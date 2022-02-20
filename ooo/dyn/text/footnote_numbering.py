@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import FootnoteNumbering as FootnoteNumbering
+    if hasattr(FootnoteNumbering, '_constants') and isinstance(FootnoteNumbering._constants, dict):
+        FootnoteNumbering._constants['__ooo_ns__'] = 'com.sun.star.text'
+        FootnoteNumbering._constants['__ooo_full_ns__'] = 'com.sun.star.text.FootnoteNumbering'
+        FootnoteNumbering._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FootnoteNumberingEnum
+        ls = [f for f in dir(FootnoteNumbering) if not callable(getattr(FootnoteNumbering, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FootnoteNumbering, name)
+        FootnoteNumberingEnum = IntEnum('FootnoteNumberingEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.footnote_numbering import FootnoteNumbering as FootnoteNumbering
 
+    class FootnoteNumberingEnum(IntEnum):
+        """
+        Enum of Const Class FootnoteNumbering
 
-class FootnoteNumberingEnum(IntEnum):
-    """
-    Enum of Const Class FootnoteNumbering
-
-    These constants are used to specify the footnote numbering.
-    """
-    PER_PAGE = FootnoteNumbering.PER_PAGE
-    """
-    The counter of the automatic footnote numbering restarts each page.
-    """
-    PER_CHAPTER = FootnoteNumbering.PER_CHAPTER
-    """
-    The counter of the automatic footnote numbering restarts each chapter.
-    """
-    PER_DOCUMENT = FootnoteNumbering.PER_DOCUMENT
-    """
-    The counter of the automatic footnote numbering does not restart.
-    """
+        These constants are used to specify the footnote numbering.
+        """
+        PER_PAGE = FootnoteNumbering.PER_PAGE
+        """
+        The counter of the automatic footnote numbering restarts each page.
+        """
+        PER_CHAPTER = FootnoteNumbering.PER_CHAPTER
+        """
+        The counter of the automatic footnote numbering restarts each chapter.
+        """
+        PER_DOCUMENT = FootnoteNumbering.PER_DOCUMENT
+        """
+        The counter of the automatic footnote numbering does not restart.
+        """
 
 __all__ = ['FootnoteNumbering', 'FootnoteNumberingEnum']

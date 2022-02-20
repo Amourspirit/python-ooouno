@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ColumnSearch as ColumnSearch
+    if hasattr(ColumnSearch, '_constants') and isinstance(ColumnSearch._constants, dict):
+        ColumnSearch._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ColumnSearch._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ColumnSearch'
+        ColumnSearch._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColumnSearchEnum
+        ls = [f for f in dir(ColumnSearch) if not callable(getattr(ColumnSearch, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColumnSearch, name)
+        ColumnSearchEnum = IntEnum('ColumnSearchEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.column_search import ColumnSearch as ColumnSearch
 
+    class ColumnSearchEnum(IntEnum):
+        """
+        Enum of Const Class ColumnSearch
 
-class ColumnSearchEnum(IntEnum):
-    """
-    Enum of Const Class ColumnSearch
-
-    indicates in which way a column can be used in the WHERE search.
-    """
-    NONE = ColumnSearch.NONE
-    """
-    A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo().
-    
-    Indicates that WHERE search clauses are not supported for this type.
-    """
-    CHAR = ColumnSearch.CHAR
-    """
-    A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo().
-    
-    Indicates that the only WHERE search clause that can be based on this type is WHERE...LIKE.
-    """
-    BASIC = ColumnSearch.BASIC
-    """
-    A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc\">XDatabaseMetaData.getTypeInfo().
-    
-    Indicates that one can base all WHERE search clauses except WHERE...LIKE on this data type.
-    """
-    FULL = ColumnSearch.FULL
-    """
-    A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc\">XDatabaseMetaData.getTypeInfo().
-    
-    Indicates that all WHERE search clauses can be based on this type.
-    """
+        indicates in which way a column can be used in the WHERE search.
+        """
+        NONE = ColumnSearch.NONE
+        """
+        A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo().
+        
+        Indicates that WHERE search clauses are not supported for this type.
+        """
+        CHAR = ColumnSearch.CHAR
+        """
+        A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo().
+        
+        Indicates that the only WHERE search clause that can be based on this type is WHERE...LIKE.
+        """
+        BASIC = ColumnSearch.BASIC
+        """
+        A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc\">XDatabaseMetaData.getTypeInfo().
+        
+        Indicates that one can base all WHERE search clauses except WHERE...LIKE on this data type.
+        """
+        FULL = ColumnSearch.FULL
+        """
+        A possible value for column SEARCHABLE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc\">XDatabaseMetaData.getTypeInfo().
+        
+        Indicates that all WHERE search clauses can be based on this type.
+        """
 
 __all__ = ['ColumnSearch', 'ColumnSearchEnum']

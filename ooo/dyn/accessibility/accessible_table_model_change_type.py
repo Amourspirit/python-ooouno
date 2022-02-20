@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.accessibility import AccessibleTableModelChangeType as AccessibleTableModelChangeType
+    if hasattr(AccessibleTableModelChangeType, '_constants') and isinstance(AccessibleTableModelChangeType._constants, dict):
+        AccessibleTableModelChangeType._constants['__ooo_ns__'] = 'com.sun.star.accessibility'
+        AccessibleTableModelChangeType._constants['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleTableModelChangeType'
+        AccessibleTableModelChangeType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AccessibleTableModelChangeTypeEnum
+        ls = [f for f in dir(AccessibleTableModelChangeType) if not callable(getattr(AccessibleTableModelChangeType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AccessibleTableModelChangeType, name)
+        AccessibleTableModelChangeTypeEnum = IntEnum('AccessibleTableModelChangeTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.accessibility.accessible_table_model_change_type import AccessibleTableModelChangeType as AccessibleTableModelChangeType
 
+    class AccessibleTableModelChangeTypeEnum(IntEnum):
+        """
+        Enum of Const Class AccessibleTableModelChangeType
 
-class AccessibleTableModelChangeTypeEnum(IntEnum):
-    """
-    Enum of Const Class AccessibleTableModelChangeType
-
-    Type of a change made to a table model.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    INSERT = AccessibleTableModelChangeType.INSERT
-    """
-    One or more rows and/or columns have been inserted.
-    
-    Use the fields of the AccessibleTableModelChange structure to determine the indices of the rows and/or columns that have been inserted.
-    """
-    DELETE = AccessibleTableModelChangeType.DELETE
-    """
-    One or more rows and/or columns have been deleted.
-    
-    The affected area of the table is stored in the fields of the AccessibleTableModelChange structure.
-    """
-    UPDATE = AccessibleTableModelChangeType.UPDATE
-    """
-    Some of the table data has changed.
-    
-    The number of rows and columns remains unchanged. Only (some of) the content of the cells in the range that is specified by the fields of the AccessibleTableModelChange structure have been changed.
-    """
+        Type of a change made to a table model.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        INSERT = AccessibleTableModelChangeType.INSERT
+        """
+        One or more rows and/or columns have been inserted.
+        
+        Use the fields of the AccessibleTableModelChange structure to determine the indices of the rows and/or columns that have been inserted.
+        """
+        DELETE = AccessibleTableModelChangeType.DELETE
+        """
+        One or more rows and/or columns have been deleted.
+        
+        The affected area of the table is stored in the fields of the AccessibleTableModelChange structure.
+        """
+        UPDATE = AccessibleTableModelChangeType.UPDATE
+        """
+        Some of the table data has changed.
+        
+        The number of rows and columns remains unchanged. Only (some of) the content of the cells in the range that is specified by the fields of the AccessibleTableModelChange structure have been changed.
+        """
 
 __all__ = ['AccessibleTableModelChangeType', 'AccessibleTableModelChangeTypeEnum']

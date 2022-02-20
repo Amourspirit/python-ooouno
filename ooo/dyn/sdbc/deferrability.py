@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import Deferrability as Deferrability
+    if hasattr(Deferrability, '_constants') and isinstance(Deferrability._constants, dict):
+        Deferrability._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        Deferrability._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.Deferrability'
+        Deferrability._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DeferrabilityEnum
+        ls = [f for f in dir(Deferrability) if not callable(getattr(Deferrability, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Deferrability, name)
+        DeferrabilityEnum = IntEnum('DeferrabilityEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.deferrability import Deferrability as Deferrability
 
+    class DeferrabilityEnum(IntEnum):
+        """
+        Enum of Const Class Deferrability
 
-class DeferrabilityEnum(IntEnum):
-    """
-    Enum of Const Class Deferrability
-
-    indicates the Deferrability of key constraints.
-    """
-    INITIALLY_DEFERRED = Deferrability.INITIALLY_DEFERRED
-    """
-    A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
-    
-    Indicates deferrability. See SQL-92 for a definition.
-    """
-    INITIALLY_IMMEDIATE = Deferrability.INITIALLY_IMMEDIATE
-    """
-    A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
-    
-    Indicates deferrability. See SQL-92 for a definition.
-    """
-    NONE = Deferrability.NONE
-    """
-    A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
-    
-    Indicates deferrability. See SQL-92 for a definition.
-    """
+        indicates the Deferrability of key constraints.
+        """
+        INITIALLY_DEFERRED = Deferrability.INITIALLY_DEFERRED
+        """
+        A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
+        
+        Indicates deferrability. See SQL-92 for a definition.
+        """
+        INITIALLY_IMMEDIATE = Deferrability.INITIALLY_IMMEDIATE
+        """
+        A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
+        
+        Indicates deferrability. See SQL-92 for a definition.
+        """
+        NONE = Deferrability.NONE
+        """
+        A possible value for the column DEFERRABILITY in the XResultSet objects returned by the methods getImportedKeys, getExportedKeys, and getCrossReference.
+        
+        Indicates deferrability. See SQL-92 for a definition.
+        """
 
 __all__ = ['Deferrability', 'DeferrabilityEnum']

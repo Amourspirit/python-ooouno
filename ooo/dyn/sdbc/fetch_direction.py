@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import FetchDirection as FetchDirection
+    if hasattr(FetchDirection, '_constants') and isinstance(FetchDirection._constants, dict):
+        FetchDirection._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        FetchDirection._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.FetchDirection'
+        FetchDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FetchDirectionEnum
+        ls = [f for f in dir(FetchDirection) if not callable(getattr(FetchDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FetchDirection, name)
+        FetchDirectionEnum = IntEnum('FetchDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.fetch_direction import FetchDirection as FetchDirection
 
+    class FetchDirectionEnum(IntEnum):
+        """
+        Enum of Const Class FetchDirection
 
-class FetchDirectionEnum(IntEnum):
-    """
-    Enum of Const Class FetchDirection
-
-    indicates in which direction a result set should fetch next, just for optimization.
-    """
-    FORWARD = FetchDirection.FORWARD
-    """
-    The rows in a result set will be processed in a forward direction; first-to-last.
-    """
-    REVERSE = FetchDirection.REVERSE
-    """
-    The rows in a result set will be processed in a reverse direction; last-to-first.
-    """
-    UNKNOWN = FetchDirection.UNKNOWN
-    """
-    The order in which rows in a result set will be processed is unknown:
-    """
+        indicates in which direction a result set should fetch next, just for optimization.
+        """
+        FORWARD = FetchDirection.FORWARD
+        """
+        The rows in a result set will be processed in a forward direction; first-to-last.
+        """
+        REVERSE = FetchDirection.REVERSE
+        """
+        The rows in a result set will be processed in a reverse direction; last-to-first.
+        """
+        UNKNOWN = FetchDirection.UNKNOWN
+        """
+        The order in which rows in a result set will be processed is unknown:
+        """
 
 __all__ = ['FetchDirection', 'FetchDirectionEnum']

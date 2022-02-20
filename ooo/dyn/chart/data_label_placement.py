@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import DataLabelPlacement as DataLabelPlacement
+    if hasattr(DataLabelPlacement, '_constants') and isinstance(DataLabelPlacement._constants, dict):
+        DataLabelPlacement._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        DataLabelPlacement._constants['__ooo_full_ns__'] = 'com.sun.star.chart.DataLabelPlacement'
+        DataLabelPlacement._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataLabelPlacementEnum
+        ls = [f for f in dir(DataLabelPlacement) if not callable(getattr(DataLabelPlacement, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataLabelPlacement, name)
+        DataLabelPlacementEnum = IntEnum('DataLabelPlacementEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.data_label_placement import DataLabelPlacement as DataLabelPlacement
 
+    class DataLabelPlacementEnum(IntEnum):
+        """
+        Enum of Const Class DataLabelPlacement
 
-class DataLabelPlacementEnum(IntEnum):
-    """
-    Enum of Const Class DataLabelPlacement
-
-    These values specify where the captions/labels of data points are displayed.
-    
-    **since**
-    
-        LibreOffice 7.0
-    """
-    AVOID_OVERLAP = DataLabelPlacement.AVOID_OVERLAP
-    CENTER = DataLabelPlacement.CENTER
-    TOP = DataLabelPlacement.TOP
-    TOP_LEFT = DataLabelPlacement.TOP_LEFT
-    LEFT = DataLabelPlacement.LEFT
-    BOTTOM_LEFT = DataLabelPlacement.BOTTOM_LEFT
-    BOTTOM = DataLabelPlacement.BOTTOM
-    BOTTOM_RIGHT = DataLabelPlacement.BOTTOM_RIGHT
-    RIGHT = DataLabelPlacement.RIGHT
-    TOP_RIGHT = DataLabelPlacement.TOP_RIGHT
-    INSIDE = DataLabelPlacement.INSIDE
-    OUTSIDE = DataLabelPlacement.OUTSIDE
-    NEAR_ORIGIN = DataLabelPlacement.NEAR_ORIGIN
-    CUSTOM = DataLabelPlacement.CUSTOM
+        These values specify where the captions/labels of data points are displayed.
+        
+        **since**
+        
+            LibreOffice 7.0
+        """
+        AVOID_OVERLAP = DataLabelPlacement.AVOID_OVERLAP
+        CENTER = DataLabelPlacement.CENTER
+        TOP = DataLabelPlacement.TOP
+        TOP_LEFT = DataLabelPlacement.TOP_LEFT
+        LEFT = DataLabelPlacement.LEFT
+        BOTTOM_LEFT = DataLabelPlacement.BOTTOM_LEFT
+        BOTTOM = DataLabelPlacement.BOTTOM
+        BOTTOM_RIGHT = DataLabelPlacement.BOTTOM_RIGHT
+        RIGHT = DataLabelPlacement.RIGHT
+        TOP_RIGHT = DataLabelPlacement.TOP_RIGHT
+        INSIDE = DataLabelPlacement.INSIDE
+        OUTSIDE = DataLabelPlacement.OUTSIDE
+        NEAR_ORIGIN = DataLabelPlacement.NEAR_ORIGIN
+        CUSTOM = DataLabelPlacement.CUSTOM
 
 __all__ = ['DataLabelPlacement', 'DataLabelPlacementEnum']

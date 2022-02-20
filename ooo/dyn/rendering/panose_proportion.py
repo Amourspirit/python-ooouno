@@ -27,24 +27,35 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseProportion as PanoseProportion
+    if hasattr(PanoseProportion, '_constants') and isinstance(PanoseProportion._constants, dict):
+        PanoseProportion._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseProportion._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseProportion'
+        PanoseProportion._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseProportionEnum
+        ls = [f for f in dir(PanoseProportion) if not callable(getattr(PanoseProportion, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseProportion, name)
+        PanoseProportionEnum = IntEnum('PanoseProportionEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_proportion import PanoseProportion as PanoseProportion
 
+    class PanoseProportionEnum(IntEnum):
+        """
+        Enum of Const Class PanoseProportion
 
-class PanoseProportionEnum(IntEnum):
-    """
-    Enum of Const Class PanoseProportion
-
-    """
-    ANYTHING = PanoseProportion.ANYTHING
-    NO_FIT = PanoseProportion.NO_FIT
-    OLD_SKOOL = PanoseProportion.OLD_SKOOL
-    MODERN = PanoseProportion.MODERN
-    EVEN_WIDTH = PanoseProportion.EVEN_WIDTH
-    EXPANDED = PanoseProportion.EXPANDED
-    CONDENSED = PanoseProportion.CONDENSED
-    VERY_EXPANDED = PanoseProportion.VERY_EXPANDED
-    VERY_CONDENSED = PanoseProportion.VERY_CONDENSED
-    MONO_SPACED = PanoseProportion.MONO_SPACED
+        """
+        ANYTHING = PanoseProportion.ANYTHING
+        NO_FIT = PanoseProportion.NO_FIT
+        OLD_SKOOL = PanoseProportion.OLD_SKOOL
+        MODERN = PanoseProportion.MODERN
+        EVEN_WIDTH = PanoseProportion.EVEN_WIDTH
+        EXPANDED = PanoseProportion.EXPANDED
+        CONDENSED = PanoseProportion.CONDENSED
+        VERY_EXPANDED = PanoseProportion.VERY_EXPANDED
+        VERY_CONDENSED = PanoseProportion.VERY_CONDENSED
+        MONO_SPACED = PanoseProportion.MONO_SPACED
 
 __all__ = ['PanoseProportion', 'PanoseProportionEnum']

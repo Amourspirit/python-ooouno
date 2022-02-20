@@ -27,18 +27,29 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import MissingValueTreatment as MissingValueTreatment
+    if hasattr(MissingValueTreatment, '_constants') and isinstance(MissingValueTreatment._constants, dict):
+        MissingValueTreatment._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        MissingValueTreatment._constants['__ooo_full_ns__'] = 'com.sun.star.chart.MissingValueTreatment'
+        MissingValueTreatment._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MissingValueTreatmentEnum
+        ls = [f for f in dir(MissingValueTreatment) if not callable(getattr(MissingValueTreatment, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MissingValueTreatment, name)
+        MissingValueTreatmentEnum = IntEnum('MissingValueTreatmentEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.missing_value_treatment import MissingValueTreatment as MissingValueTreatment
 
+    class MissingValueTreatmentEnum(IntEnum):
+        """
+        Enum of Const Class MissingValueTreatment
 
-class MissingValueTreatmentEnum(IntEnum):
-    """
-    Enum of Const Class MissingValueTreatment
-
-    This specifies how empty or invalid cells in the provided data should be handled when plotted.
-    """
-    LEAVE_GAP = MissingValueTreatment.LEAVE_GAP
-    USE_ZERO = MissingValueTreatment.USE_ZERO
-    CONTINUE = MissingValueTreatment.CONTINUE
+        This specifies how empty or invalid cells in the provided data should be handled when plotted.
+        """
+        LEAVE_GAP = MissingValueTreatment.LEAVE_GAP
+        USE_ZERO = MissingValueTreatment.USE_ZERO
+        CONTINUE = MissingValueTreatment.CONTINUE
 
 __all__ = ['MissingValueTreatment', 'MissingValueTreatmentEnum']

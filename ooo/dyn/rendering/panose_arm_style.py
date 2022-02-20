@@ -27,26 +27,37 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseArmStyle as PanoseArmStyle
+    if hasattr(PanoseArmStyle, '_constants') and isinstance(PanoseArmStyle._constants, dict):
+        PanoseArmStyle._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseArmStyle._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseArmStyle'
+        PanoseArmStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseArmStyleEnum
+        ls = [f for f in dir(PanoseArmStyle) if not callable(getattr(PanoseArmStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseArmStyle, name)
+        PanoseArmStyleEnum = IntEnum('PanoseArmStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_arm_style import PanoseArmStyle as PanoseArmStyle
 
+    class PanoseArmStyleEnum(IntEnum):
+        """
+        Enum of Const Class PanoseArmStyle
 
-class PanoseArmStyleEnum(IntEnum):
-    """
-    Enum of Const Class PanoseArmStyle
-
-    """
-    ANYTHING = PanoseArmStyle.ANYTHING
-    NO_FIT = PanoseArmStyle.NO_FIT
-    STRAIGHT_HORIZONTAL = PanoseArmStyle.STRAIGHT_HORIZONTAL
-    STRAIGHT_WEDGE = PanoseArmStyle.STRAIGHT_WEDGE
-    STRAIGHT_VERTICAL = PanoseArmStyle.STRAIGHT_VERTICAL
-    STRAIGHT_SINGLE_SERIF = PanoseArmStyle.STRAIGHT_SINGLE_SERIF
-    STRAIGHT_DOUBLE_SERIF = PanoseArmStyle.STRAIGHT_DOUBLE_SERIF
-    BENT_HORIZONTAL = PanoseArmStyle.BENT_HORIZONTAL
-    BENT_WEDGE = PanoseArmStyle.BENT_WEDGE
-    BENT_VERTICAL = PanoseArmStyle.BENT_VERTICAL
-    BENT_SINGLE_SERIF = PanoseArmStyle.BENT_SINGLE_SERIF
-    BENT_DOUBLE_SERIF = PanoseArmStyle.BENT_DOUBLE_SERIF
+        """
+        ANYTHING = PanoseArmStyle.ANYTHING
+        NO_FIT = PanoseArmStyle.NO_FIT
+        STRAIGHT_HORIZONTAL = PanoseArmStyle.STRAIGHT_HORIZONTAL
+        STRAIGHT_WEDGE = PanoseArmStyle.STRAIGHT_WEDGE
+        STRAIGHT_VERTICAL = PanoseArmStyle.STRAIGHT_VERTICAL
+        STRAIGHT_SINGLE_SERIF = PanoseArmStyle.STRAIGHT_SINGLE_SERIF
+        STRAIGHT_DOUBLE_SERIF = PanoseArmStyle.STRAIGHT_DOUBLE_SERIF
+        BENT_HORIZONTAL = PanoseArmStyle.BENT_HORIZONTAL
+        BENT_WEDGE = PanoseArmStyle.BENT_WEDGE
+        BENT_VERTICAL = PanoseArmStyle.BENT_VERTICAL
+        BENT_SINGLE_SERIF = PanoseArmStyle.BENT_SINGLE_SERIF
+        BENT_DOUBLE_SERIF = PanoseArmStyle.BENT_DOUBLE_SERIF
 
 __all__ = ['PanoseArmStyle', 'PanoseArmStyleEnum']

@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.system import SystemShellExecuteFlags as SystemShellExecuteFlags
+    if hasattr(SystemShellExecuteFlags, '_constants') and isinstance(SystemShellExecuteFlags._constants, dict):
+        SystemShellExecuteFlags._constants['__ooo_ns__'] = 'com.sun.star.system'
+        SystemShellExecuteFlags._constants['__ooo_full_ns__'] = 'com.sun.star.system.SystemShellExecuteFlags'
+        SystemShellExecuteFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SystemShellExecuteFlagsEnum
+        ls = [f for f in dir(SystemShellExecuteFlags) if not callable(getattr(SystemShellExecuteFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SystemShellExecuteFlags, name)
+        SystemShellExecuteFlagsEnum = IntEnum('SystemShellExecuteFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.system.system_shell_execute_flags import SystemShellExecuteFlags as SystemShellExecuteFlags
 
+    class SystemShellExecuteFlagsEnum(IntEnum):
+        """
+        Enum of Const Class SystemShellExecuteFlags
 
-class SystemShellExecuteFlagsEnum(IntEnum):
-    """
-    Enum of Const Class SystemShellExecuteFlags
-
-    Different settings for the SystemShellExecute service.
-    
-    **since**
-    
-        LibreOffice 3.6
-    """
-    DEFAULTS = SystemShellExecuteFlags.DEFAULTS
-    """
-    Uses the default settings for executing commands.
-    """
-    NO_SYSTEM_ERROR_MESSAGE = SystemShellExecuteFlags.NO_SYSTEM_ERROR_MESSAGE
-    """
-    Prevents the display of system error message boxes if the method com.sun.star.system.XSystemShellExecute.execute() fails.
-    """
-    URIS_ONLY = SystemShellExecuteFlags.URIS_ONLY
-    """
-    Only allows opening of absolute URI references.
-    
-    **since**
-    
-        LibreOffice 3.6
-    """
+        Different settings for the SystemShellExecute service.
+        
+        **since**
+        
+            LibreOffice 3.6
+        """
+        DEFAULTS = SystemShellExecuteFlags.DEFAULTS
+        """
+        Uses the default settings for executing commands.
+        """
+        NO_SYSTEM_ERROR_MESSAGE = SystemShellExecuteFlags.NO_SYSTEM_ERROR_MESSAGE
+        """
+        Prevents the display of system error message boxes if the method com.sun.star.system.XSystemShellExecute.execute() fails.
+        """
+        URIS_ONLY = SystemShellExecuteFlags.URIS_ONLY
+        """
+        Only allows opening of absolute URI references.
+        
+        **since**
+        
+            LibreOffice 3.6
+        """
 
 __all__ = ['SystemShellExecuteFlags', 'SystemShellExecuteFlagsEnum']

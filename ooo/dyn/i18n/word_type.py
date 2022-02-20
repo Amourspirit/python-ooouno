@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import WordType as WordType
+    if hasattr(WordType, '_constants') and isinstance(WordType._constants, dict):
+        WordType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        WordType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.WordType'
+        WordType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WordTypeEnum
+        ls = [f for f in dir(WordType) if not callable(getattr(WordType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WordType, name)
+        WordTypeEnum = IntEnum('WordTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.word_type import WordType as WordType
 
+    class WordTypeEnum(IntEnum):
+        """
+        Enum of Const Class WordType
 
-class WordTypeEnum(IntEnum):
-    """
-    Enum of Const Class WordType
-
-    Constants to specify the type of words.
-    
-    Used with XBreakIterator.nextWord(), XBreakIterator.previousWord(), XBreakIterator.getWordBoundary(), XBreakIterator.getWordType(), XBreakIterator.isBeginWord(), XBreakIterator.isEndWord()
-    """
-    ANY_WORD = WordType.ANY_WORD
-    """
-    Any \"words\" - words in the meaning of same character types, collection of alphanumeric characters, or collection of non-alphanumeric characters.
-    """
-    ANYWORD_IGNOREWHITESPACES = WordType.ANYWORD_IGNOREWHITESPACES
-    """
-    Any \"words\" - words in the meaning of same character types, collection of alphanumeric characters, or collection of non-alphanumeric characters except blanks.
-    """
-    DICTIONARY_WORD = WordType.DICTIONARY_WORD
-    """
-    \"words\" - in the meaning of a collection of alphanumeric characters and some punctuations, like dot for abbreviation.
-    """
-    WORD_COUNT = WordType.WORD_COUNT
-    """
-    The mode for counting words, it will combine punctuations and spaces as word trail.
-    """
+        Constants to specify the type of words.
+        
+        Used with XBreakIterator.nextWord(), XBreakIterator.previousWord(), XBreakIterator.getWordBoundary(), XBreakIterator.getWordType(), XBreakIterator.isBeginWord(), XBreakIterator.isEndWord()
+        """
+        ANY_WORD = WordType.ANY_WORD
+        """
+        Any \"words\" - words in the meaning of same character types, collection of alphanumeric characters, or collection of non-alphanumeric characters.
+        """
+        ANYWORD_IGNOREWHITESPACES = WordType.ANYWORD_IGNOREWHITESPACES
+        """
+        Any \"words\" - words in the meaning of same character types, collection of alphanumeric characters, or collection of non-alphanumeric characters except blanks.
+        """
+        DICTIONARY_WORD = WordType.DICTIONARY_WORD
+        """
+        \"words\" - in the meaning of a collection of alphanumeric characters and some punctuations, like dot for abbreviation.
+        """
+        WORD_COUNT = WordType.WORD_COUNT
+        """
+        The mode for counting words, it will combine punctuations and spaces as word trail.
+        """
 
 __all__ = ['WordType', 'WordTypeEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import ChartSolidType as ChartSolidType
+    if hasattr(ChartSolidType, '_constants') and isinstance(ChartSolidType._constants, dict):
+        ChartSolidType._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        ChartSolidType._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartSolidType'
+        ChartSolidType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChartSolidTypeEnum
+        ls = [f for f in dir(ChartSolidType) if not callable(getattr(ChartSolidType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChartSolidType, name)
+        ChartSolidTypeEnum = IntEnum('ChartSolidTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.chart_solid_type import ChartSolidType as ChartSolidType
 
+    class ChartSolidTypeEnum(IntEnum):
+        """
+        Enum of Const Class ChartSolidType
 
-class ChartSolidTypeEnum(IntEnum):
-    """
-    Enum of Const Class ChartSolidType
-
-    These values specify the type of solid shapes for data points of 3D bar charts.
-    """
-    RECTANGULAR_SOLID = ChartSolidType.RECTANGULAR_SOLID
-    """
-    extruded rectangle, i.e., a cuboid
-    """
-    CYLINDER = ChartSolidType.CYLINDER
-    """
-    cylinder with a circle as base
-    """
-    CONE = ChartSolidType.CONE
-    """
-    cone with a circle as base
-    """
-    PYRAMID = ChartSolidType.PYRAMID
-    """
-    pyramidal with a square as base
-    """
+        These values specify the type of solid shapes for data points of 3D bar charts.
+        """
+        RECTANGULAR_SOLID = ChartSolidType.RECTANGULAR_SOLID
+        """
+        extruded rectangle, i.e., a cuboid
+        """
+        CYLINDER = ChartSolidType.CYLINDER
+        """
+        cylinder with a circle as base
+        """
+        CONE = ChartSolidType.CONE
+        """
+        cone with a circle as base
+        """
+        PYRAMID = ChartSolidType.PYRAMID
+        """
+        pyramidal with a square as base
+        """
 
 __all__ = ['ChartSolidType', 'ChartSolidTypeEnum']

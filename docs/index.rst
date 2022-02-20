@@ -5,9 +5,6 @@
 
 .. include:: ../README.rst
 
-Welcome to ooouno's documentation!
-==================================
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

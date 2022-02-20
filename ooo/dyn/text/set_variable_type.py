@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import SetVariableType as SetVariableType
+    if hasattr(SetVariableType, '_constants') and isinstance(SetVariableType._constants, dict):
+        SetVariableType._constants['__ooo_ns__'] = 'com.sun.star.text'
+        SetVariableType._constants['__ooo_full_ns__'] = 'com.sun.star.text.SetVariableType'
+        SetVariableType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SetVariableTypeEnum
+        ls = [f for f in dir(SetVariableType) if not callable(getattr(SetVariableType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SetVariableType, name)
+        SetVariableTypeEnum = IntEnum('SetVariableTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.set_variable_type import SetVariableType as SetVariableType
 
+    class SetVariableTypeEnum(IntEnum):
+        """
+        Enum of Const Class SetVariableType
 
-class SetVariableTypeEnum(IntEnum):
-    """
-    Enum of Const Class SetVariableType
-
-    These constants define the type of a variable text field.
-    """
-    VAR = SetVariableType.VAR
-    """
-    specifies a simple variable.
-    """
-    SEQUENCE = SetVariableType.SEQUENCE
-    """
-    specifies a number sequence field.
-    """
-    FORMULA = SetVariableType.FORMULA
-    """
-    specifies a formula field.
-    """
-    STRING = SetVariableType.STRING
-    """
-    specifies a string field.
-    """
+        These constants define the type of a variable text field.
+        """
+        VAR = SetVariableType.VAR
+        """
+        specifies a simple variable.
+        """
+        SEQUENCE = SetVariableType.SEQUENCE
+        """
+        specifies a number sequence field.
+        """
+        FORMULA = SetVariableType.FORMULA
+        """
+        specifies a formula field.
+        """
+        STRING = SetVariableType.STRING
+        """
+        specifies a string field.
+        """
 
 __all__ = ['SetVariableType', 'SetVariableTypeEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.report import ReportPrintOption as ReportPrintOption
+    if hasattr(ReportPrintOption, '_constants') and isinstance(ReportPrintOption._constants, dict):
+        ReportPrintOption._constants['__ooo_ns__'] = 'com.sun.star.report'
+        ReportPrintOption._constants['__ooo_full_ns__'] = 'com.sun.star.report.ReportPrintOption'
+        ReportPrintOption._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ReportPrintOptionEnum
+        ls = [f for f in dir(ReportPrintOption) if not callable(getattr(ReportPrintOption, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ReportPrintOption, name)
+        ReportPrintOptionEnum = IntEnum('ReportPrintOptionEnum', _dict)
+    build_enum()
 else:
     from ...lo.report.report_print_option import ReportPrintOption as ReportPrintOption
 
+    class ReportPrintOptionEnum(IntEnum):
+        """
+        Enum of Const Class ReportPrintOption
 
-class ReportPrintOptionEnum(IntEnum):
-    """
-    Enum of Const Class ReportPrintOption
-
-    Specifies whether a page header or footer is printed on the same page as the report header or report footer.
-    """
-    ALL_PAGES = ReportPrintOption.ALL_PAGES
-    """
-    The page header/footer is printed on all pages.
-    """
-    NOT_WITH_REPORT_HEADER = ReportPrintOption.NOT_WITH_REPORT_HEADER
-    """
-    The page header/footer is not printed on the same page as the report header.
-    """
-    NOT_WITH_REPORT_FOOTER = ReportPrintOption.NOT_WITH_REPORT_FOOTER
-    """
-    The page header/footer is not printed on the same page as the report footer.
-    """
-    NOT_WITH_REPORT_HEADER_FOOTER = ReportPrintOption.NOT_WITH_REPORT_HEADER_FOOTER
-    """
-    The page header/footer is not printed on the same page as the report header or footer.
-    """
+        Specifies whether a page header or footer is printed on the same page as the report header or report footer.
+        """
+        ALL_PAGES = ReportPrintOption.ALL_PAGES
+        """
+        The page header/footer is printed on all pages.
+        """
+        NOT_WITH_REPORT_HEADER = ReportPrintOption.NOT_WITH_REPORT_HEADER
+        """
+        The page header/footer is not printed on the same page as the report header.
+        """
+        NOT_WITH_REPORT_FOOTER = ReportPrintOption.NOT_WITH_REPORT_FOOTER
+        """
+        The page header/footer is not printed on the same page as the report footer.
+        """
+        NOT_WITH_REPORT_HEADER_FOOTER = ReportPrintOption.NOT_WITH_REPORT_HEADER_FOOTER
+        """
+        The page header/footer is not printed on the same page as the report header or footer.
+        """
 
 __all__ = ['ReportPrintOption', 'ReportPrintOptionEnum']

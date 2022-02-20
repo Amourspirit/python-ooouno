@@ -27,46 +27,57 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import UnicodeType as UnicodeType
+    if hasattr(UnicodeType, '_constants') and isinstance(UnicodeType._constants, dict):
+        UnicodeType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        UnicodeType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.UnicodeType'
+        UnicodeType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global UnicodeTypeEnum
+        ls = [f for f in dir(UnicodeType) if not callable(getattr(UnicodeType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(UnicodeType, name)
+        UnicodeTypeEnum = IntEnum('UnicodeTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.unicode_type import UnicodeType as UnicodeType
 
+    class UnicodeTypeEnum(IntEnum):
+        """
+        Enum of Const Class UnicodeType
 
-class UnicodeTypeEnum(IntEnum):
-    """
-    Enum of Const Class UnicodeType
-
-    Constants to classify Unicode characters, returned by XCharacterClassification.getType()
-    """
-    UNASSIGNED = UnicodeType.UNASSIGNED
-    UPPERCASE_LETTER = UnicodeType.UPPERCASE_LETTER
-    LOWERCASE_LETTER = UnicodeType.LOWERCASE_LETTER
-    TITLECASE_LETTER = UnicodeType.TITLECASE_LETTER
-    MODIFIER_LETTER = UnicodeType.MODIFIER_LETTER
-    OTHER_LETTER = UnicodeType.OTHER_LETTER
-    NON_SPACING_MARK = UnicodeType.NON_SPACING_MARK
-    ENCLOSING_MARK = UnicodeType.ENCLOSING_MARK
-    COMBINING_SPACING_MARK = UnicodeType.COMBINING_SPACING_MARK
-    DECIMAL_DIGIT_NUMBER = UnicodeType.DECIMAL_DIGIT_NUMBER
-    LETTER_NUMBER = UnicodeType.LETTER_NUMBER
-    OTHER_NUMBER = UnicodeType.OTHER_NUMBER
-    SPACE_SEPARATOR = UnicodeType.SPACE_SEPARATOR
-    LINE_SEPARATOR = UnicodeType.LINE_SEPARATOR
-    PARAGRAPH_SEPARATOR = UnicodeType.PARAGRAPH_SEPARATOR
-    CONTROL = UnicodeType.CONTROL
-    FORMAT = UnicodeType.FORMAT
-    PRIVATE_USE = UnicodeType.PRIVATE_USE
-    SURROGATE = UnicodeType.SURROGATE
-    DASH_PUNCTUATION = UnicodeType.DASH_PUNCTUATION
-    INITIAL_PUNCTUATION = UnicodeType.INITIAL_PUNCTUATION
-    FINAL_PUNCTUATION = UnicodeType.FINAL_PUNCTUATION
-    CONNECTOR_PUNCTUATION = UnicodeType.CONNECTOR_PUNCTUATION
-    OTHER_PUNCTUATION = UnicodeType.OTHER_PUNCTUATION
-    MATH_SYMBOL = UnicodeType.MATH_SYMBOL
-    CURRENCY_SYMBOL = UnicodeType.CURRENCY_SYMBOL
-    MODIFIER_SYMBOL = UnicodeType.MODIFIER_SYMBOL
-    OTHER_SYMBOL = UnicodeType.OTHER_SYMBOL
-    START_PUNCTUATION = UnicodeType.START_PUNCTUATION
-    END_PUNCTUATION = UnicodeType.END_PUNCTUATION
-    GENERAL_TYPES_COUNT = UnicodeType.GENERAL_TYPES_COUNT
+        Constants to classify Unicode characters, returned by XCharacterClassification.getType()
+        """
+        UNASSIGNED = UnicodeType.UNASSIGNED
+        UPPERCASE_LETTER = UnicodeType.UPPERCASE_LETTER
+        LOWERCASE_LETTER = UnicodeType.LOWERCASE_LETTER
+        TITLECASE_LETTER = UnicodeType.TITLECASE_LETTER
+        MODIFIER_LETTER = UnicodeType.MODIFIER_LETTER
+        OTHER_LETTER = UnicodeType.OTHER_LETTER
+        NON_SPACING_MARK = UnicodeType.NON_SPACING_MARK
+        ENCLOSING_MARK = UnicodeType.ENCLOSING_MARK
+        COMBINING_SPACING_MARK = UnicodeType.COMBINING_SPACING_MARK
+        DECIMAL_DIGIT_NUMBER = UnicodeType.DECIMAL_DIGIT_NUMBER
+        LETTER_NUMBER = UnicodeType.LETTER_NUMBER
+        OTHER_NUMBER = UnicodeType.OTHER_NUMBER
+        SPACE_SEPARATOR = UnicodeType.SPACE_SEPARATOR
+        LINE_SEPARATOR = UnicodeType.LINE_SEPARATOR
+        PARAGRAPH_SEPARATOR = UnicodeType.PARAGRAPH_SEPARATOR
+        CONTROL = UnicodeType.CONTROL
+        FORMAT = UnicodeType.FORMAT
+        PRIVATE_USE = UnicodeType.PRIVATE_USE
+        SURROGATE = UnicodeType.SURROGATE
+        DASH_PUNCTUATION = UnicodeType.DASH_PUNCTUATION
+        INITIAL_PUNCTUATION = UnicodeType.INITIAL_PUNCTUATION
+        FINAL_PUNCTUATION = UnicodeType.FINAL_PUNCTUATION
+        CONNECTOR_PUNCTUATION = UnicodeType.CONNECTOR_PUNCTUATION
+        OTHER_PUNCTUATION = UnicodeType.OTHER_PUNCTUATION
+        MATH_SYMBOL = UnicodeType.MATH_SYMBOL
+        CURRENCY_SYMBOL = UnicodeType.CURRENCY_SYMBOL
+        MODIFIER_SYMBOL = UnicodeType.MODIFIER_SYMBOL
+        OTHER_SYMBOL = UnicodeType.OTHER_SYMBOL
+        START_PUNCTUATION = UnicodeType.START_PUNCTUATION
+        END_PUNCTUATION = UnicodeType.END_PUNCTUATION
+        GENERAL_TYPES_COUNT = UnicodeType.GENERAL_TYPES_COUNT
 
 __all__ = ['UnicodeType', 'UnicodeTypeEnum']

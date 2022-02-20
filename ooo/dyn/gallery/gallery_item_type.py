@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.gallery import GalleryItemType as GalleryItemType
+    if hasattr(GalleryItemType, '_constants') and isinstance(GalleryItemType._constants, dict):
+        GalleryItemType._constants['__ooo_ns__'] = 'com.sun.star.gallery'
+        GalleryItemType._constants['__ooo_full_ns__'] = 'com.sun.star.gallery.GalleryItemType'
+        GalleryItemType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global GalleryItemTypeEnum
+        ls = [f for f in dir(GalleryItemType) if not callable(getattr(GalleryItemType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(GalleryItemType, name)
+        GalleryItemTypeEnum = IntEnum('GalleryItemTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.gallery.gallery_item_type import GalleryItemType as GalleryItemType
 
+    class GalleryItemTypeEnum(IntEnum):
+        """
+        Enum of Const Class GalleryItemType
 
-class GalleryItemTypeEnum(IntEnum):
-    """
-    Enum of Const Class GalleryItemType
-
-    Constants that describe the type of graphic.
-    """
-    EMPTY = GalleryItemType.EMPTY
-    """
-    Item is empty.
-    """
-    GRAPHIC = GalleryItemType.GRAPHIC
-    """
-    Item represents a graphic.
-    """
-    MEDIA = GalleryItemType.MEDIA
-    """
-    Item represents a media file.
-    """
-    DRAWING = GalleryItemType.DRAWING
-    """
-    Item represents a drawing.
-    """
+        Constants that describe the type of graphic.
+        """
+        EMPTY = GalleryItemType.EMPTY
+        """
+        Item is empty.
+        """
+        GRAPHIC = GalleryItemType.GRAPHIC
+        """
+        Item represents a graphic.
+        """
+        MEDIA = GalleryItemType.MEDIA
+        """
+        Item represents a media file.
+        """
+        DRAWING = GalleryItemType.DRAWING
+        """
+        Item represents a drawing.
+        """
 
 __all__ = ['GalleryItemType', 'GalleryItemTypeEnum']

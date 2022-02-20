@@ -27,47 +27,58 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rdf import FileFormat as FileFormat
+    if hasattr(FileFormat, '_constants') and isinstance(FileFormat._constants, dict):
+        FileFormat._constants['__ooo_ns__'] = 'com.sun.star.rdf'
+        FileFormat._constants['__ooo_full_ns__'] = 'com.sun.star.rdf.FileFormat'
+        FileFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FileFormatEnum
+        ls = [f for f in dir(FileFormat) if not callable(getattr(FileFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FileFormat, name)
+        FileFormatEnum = IntEnum('FileFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.rdf.file_format import FileFormat as FileFormat
 
+    class FileFormatEnum(IntEnum):
+        """
+        Enum of Const Class FileFormat
 
-class FileFormatEnum(IntEnum):
-    """
-    Enum of Const Class FileFormat
-
-    Constants to specify RDF file formats.
-    
-    These constants are mainly for use with XRepository.importGraph() and XRepository.exportGraph().
-    
-    Note that these are integers because UNO IDL does not permit string constants.
-    
-    **since**
-    
-        OOo 3.0
-    """
-    RDF_XML = FileFormat.RDF_XML
-    """
-    RDF/XML
-    """
-    N3 = FileFormat.N3
-    """
-    N3 (Notation-3)
-    """
-    NTRIPLES = FileFormat.NTRIPLES
-    """
-    N-Triples
-    """
-    TRIG = FileFormat.TRIG
-    """
-    TriG
-    """
-    TRIX = FileFormat.TRIX
-    """
-    TriX
-    """
-    TURTLE = FileFormat.TURTLE
-    """
-    Turtle
-    """
+        Constants to specify RDF file formats.
+        
+        These constants are mainly for use with XRepository.importGraph() and XRepository.exportGraph().
+        
+        Note that these are integers because UNO IDL does not permit string constants.
+        
+        **since**
+        
+            OOo 3.0
+        """
+        RDF_XML = FileFormat.RDF_XML
+        """
+        RDF/XML
+        """
+        N3 = FileFormat.N3
+        """
+        N3 (Notation-3)
+        """
+        NTRIPLES = FileFormat.NTRIPLES
+        """
+        N-Triples
+        """
+        TRIG = FileFormat.TRIG
+        """
+        TriG
+        """
+        TRIX = FileFormat.TRIX
+        """
+        TriX
+        """
+        TURTLE = FileFormat.TURTLE
+        """
+        Turtle
+        """
 
 __all__ = ['FileFormat', 'FileFormatEnum']

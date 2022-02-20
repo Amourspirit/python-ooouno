@@ -27,59 +27,70 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui import UIElementType as UIElementType
+    if hasattr(UIElementType, '_constants') and isinstance(UIElementType._constants, dict):
+        UIElementType._constants['__ooo_ns__'] = 'com.sun.star.ui'
+        UIElementType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.UIElementType'
+        UIElementType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global UIElementTypeEnum
+        ls = [f for f in dir(UIElementType) if not callable(getattr(UIElementType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(UIElementType, name)
+        UIElementTypeEnum = IntEnum('UIElementTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ui.ui_element_type import UIElementType as UIElementType
 
+    class UIElementTypeEnum(IntEnum):
+        """
+        Enum of Const Class UIElementType
 
-class UIElementTypeEnum(IntEnum):
-    """
-    Enum of Const Class UIElementType
-
-    determine the type of a user interface element which is controlled by a layout manager.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    UNKNOWN = UIElementType.UNKNOWN
-    """
-    unknown user interface element type, which can be used as a wildcard to specify all types.
-    """
-    MENUBAR = UIElementType.MENUBAR
-    """
-    specifies a menu bar.
-    """
-    POPUPMENU = UIElementType.POPUPMENU
-    """
-    specifies a pop-up menu.
-    """
-    TOOLBAR = UIElementType.TOOLBAR
-    """
-    specifies a toolbar.
-    """
-    STATUSBAR = UIElementType.STATUSBAR
-    """
-    specifies a statusbar.
-    """
-    FLOATINGWINDOW = UIElementType.FLOATINGWINDOW
-    """
-    specifies a floating window, which can also be docked.
-    """
-    PROGRESSBAR = UIElementType.PROGRESSBAR
-    """
-    specifies a floating window, which can also be docked.
-    """
-    TOOLPANEL = UIElementType.TOOLPANEL
-    """
-    specifies a tool panel
-    """
-    DOCKINGWINDOW = UIElementType.DOCKINGWINDOW
-    """
-    specifies a window that can be docked.
-    """
-    COUNT = UIElementType.COUNT
-    """
-    specifies the number of constants.
-    """
+        determine the type of a user interface element which is controlled by a layout manager.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        UNKNOWN = UIElementType.UNKNOWN
+        """
+        unknown user interface element type, which can be used as a wildcard to specify all types.
+        """
+        MENUBAR = UIElementType.MENUBAR
+        """
+        specifies a menu bar.
+        """
+        POPUPMENU = UIElementType.POPUPMENU
+        """
+        specifies a pop-up menu.
+        """
+        TOOLBAR = UIElementType.TOOLBAR
+        """
+        specifies a toolbar.
+        """
+        STATUSBAR = UIElementType.STATUSBAR
+        """
+        specifies a statusbar.
+        """
+        FLOATINGWINDOW = UIElementType.FLOATINGWINDOW
+        """
+        specifies a floating window, which can also be docked.
+        """
+        PROGRESSBAR = UIElementType.PROGRESSBAR
+        """
+        specifies a floating window, which can also be docked.
+        """
+        TOOLPANEL = UIElementType.TOOLPANEL
+        """
+        specifies a tool panel
+        """
+        DOCKINGWINDOW = UIElementType.DOCKINGWINDOW
+        """
+        specifies a window that can be docked.
+        """
+        COUNT = UIElementType.COUNT
+        """
+        specifies the number of constants.
+        """
 
 __all__ = ['UIElementType', 'UIElementTypeEnum']

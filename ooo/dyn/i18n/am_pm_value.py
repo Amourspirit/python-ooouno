@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import AmPmValue as AmPmValue
+    if hasattr(AmPmValue, '_constants') and isinstance(AmPmValue._constants, dict):
+        AmPmValue._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        AmPmValue._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.AmPmValue'
+        AmPmValue._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AmPmValueEnum
+        ls = [f for f in dir(AmPmValue) if not callable(getattr(AmPmValue, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AmPmValue, name)
+        AmPmValueEnum = IntEnum('AmPmValueEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.am_pm_value import AmPmValue as AmPmValue
 
+    class AmPmValueEnum(IntEnum):
+        """
+        Enum of Const Class AmPmValue
 
-class AmPmValueEnum(IntEnum):
-    """
-    Enum of Const Class AmPmValue
-
-    Constants for AM/PM used in calls to XCalendar.getDisplayName().
-    """
-    AM = AmPmValue.AM
-    """
-    get display name string for AM
-    """
-    PM = AmPmValue.PM
-    """
-    get display name string for PM
-    """
+        Constants for AM/PM used in calls to XCalendar.getDisplayName().
+        """
+        AM = AmPmValue.AM
+        """
+        get display name string for AM
+        """
+        PM = AmPmValue.PM
+        """
+        get display name string for PM
+        """
 
 __all__ = ['AmPmValue', 'AmPmValueEnum']

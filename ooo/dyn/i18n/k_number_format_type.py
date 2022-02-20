@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import KNumberFormatType as KNumberFormatType
+    if hasattr(KNumberFormatType, '_constants') and isinstance(KNumberFormatType._constants, dict):
+        KNumberFormatType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        KNumberFormatType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.KNumberFormatType'
+        KNumberFormatType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KNumberFormatTypeEnum
+        ls = [f for f in dir(KNumberFormatType) if not callable(getattr(KNumberFormatType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KNumberFormatType, name)
+        KNumberFormatTypeEnum = IntEnum('KNumberFormatTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.k_number_format_type import KNumberFormatType as KNumberFormatType
 
+    class KNumberFormatTypeEnum(IntEnum):
+        """
+        Enum of Const Class KNumberFormatType
 
-class KNumberFormatTypeEnum(IntEnum):
-    """
-    Enum of Const Class KNumberFormatType
-
-    Attribute of number format, classifies the length of the formatted display string.
-    """
-    SHORT = KNumberFormatType.SHORT
-    """
-    Short display string.
-    """
-    MEDIUM = KNumberFormatType.MEDIUM
-    """
-    Medium length display string.
-    """
-    LONG = KNumberFormatType.LONG
-    """
-    Long display string.
-    """
+        Attribute of number format, classifies the length of the formatted display string.
+        """
+        SHORT = KNumberFormatType.SHORT
+        """
+        Short display string.
+        """
+        MEDIUM = KNumberFormatType.MEDIUM
+        """
+        Medium length display string.
+        """
+        LONG = KNumberFormatType.LONG
+        """
+        Long display string.
+        """
 
 __all__ = ['KNumberFormatType', 'KNumberFormatTypeEnum']

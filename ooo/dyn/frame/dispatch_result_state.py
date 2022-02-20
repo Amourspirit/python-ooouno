@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import DispatchResultState as DispatchResultState
+    if hasattr(DispatchResultState, '_constants') and isinstance(DispatchResultState._constants, dict):
+        DispatchResultState._constants['__ooo_ns__'] = 'com.sun.star.frame'
+        DispatchResultState._constants['__ooo_full_ns__'] = 'com.sun.star.frame.DispatchResultState'
+        DispatchResultState._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DispatchResultStateEnum
+        ls = [f for f in dir(DispatchResultState) if not callable(getattr(DispatchResultState, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DispatchResultState, name)
+        DispatchResultStateEnum = IntEnum('DispatchResultStateEnum', _dict)
+    build_enum()
 else:
     from ...lo.frame.dispatch_result_state import DispatchResultState as DispatchResultState
 
+    class DispatchResultStateEnum(IntEnum):
+        """
+        Enum of Const Class DispatchResultState
 
-class DispatchResultStateEnum(IntEnum):
-    """
-    Enum of Const Class DispatchResultState
-
-    possible values for DispatchResultEvent
-    """
-    FAILURE = DispatchResultState.FAILURE
-    """
-    indicates: dispatch failed
-    """
-    SUCCESS = DispatchResultState.SUCCESS
-    """
-    indicates: dispatch was successful
-    """
-    DONTKNOW = DispatchResultState.DONTKNOW
-    """
-    indicates: result isn't defined
-    """
+        possible values for DispatchResultEvent
+        """
+        FAILURE = DispatchResultState.FAILURE
+        """
+        indicates: dispatch failed
+        """
+        SUCCESS = DispatchResultState.SUCCESS
+        """
+        indicates: dispatch was successful
+        """
+        DONTKNOW = DispatchResultState.DONTKNOW
+        """
+        indicates: result isn't defined
+        """
 
 __all__ = ['DispatchResultState', 'DispatchResultStateEnum']

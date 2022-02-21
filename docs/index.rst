@@ -9,6 +9,8 @@
    :maxdepth: 2
    :caption: Contents:
 
+   src/main/types/index
+   src/helper/index
 
 
 Indices and tables

@@ -10,20 +10,20 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
-
+sys.path.insert(0, os.path.abspath('..'))
+from ooo import __version__
+os.environ['ooouno_ignore_runtime'] = 'True'
 # -- Project information -----------------------------------------------------
 
 project = 'ooouno'
 copyright = '2021, :Barry-Thomas-Paul: Moss'
 author = ':Barry-Thomas-Paul: Moss'
-
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
-
+release = __version__
+lo_ver = '7.2' # Libre Office Version
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,7 +32,10 @@ release = '0.1.0'
 # ones.
 extensions = [
     'sphinx_rtd_theme',
-    'sphinx_rtd_dark_mode'
+    'sphinx_rtd_dark_mode',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autodoc',
+    'sphinxcontrib.globalsubs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,3 +63,13 @@ html_static_path = ['_static']
 html_css_files = []
 if html_theme == 'sphinx_rtd_theme':
     html_css_files.append('css/readthedocs_custom.css')
+
+# Napoleon settings
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
+napoleon_google_docstring = True
+napoleon_include_init_with_doc = True
+
+# https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
+global_substitutions = {
+    'lo_version': lo_ver
+}

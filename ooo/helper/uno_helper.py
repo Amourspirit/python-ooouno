@@ -57,15 +57,14 @@ def create_uno_service(clazz: typing.Union[str, object], ctx: 'typing.Optional[X
     Similar to the function of the same name in OOo Basic. 
     
     Args:
-        clazz (str, object): name of the service to be instanciated or object that contains __ooo_full_ns__ attribute.
-            If ``clazz`` is class then return service has ``__ooo_ns__``, ``__ooo_full_ns__`` and ``__ooo_type_name__`` atribute values set.
+        clazz (str, object): name of the service or a service class to create an instance of.
         ctx (XComponentContext, optional): the context if required.
         args (Typle[object], optional): the arguments when needed.
     
     Returns:
         object: component instance
 
-    Notes:
+    Note:
         A service signals that it expects parameters during instantiation by supporting the com.sun.star.lang.XInitialization interface.
         There maybe services which can only be instantiated with parameters
     """
@@ -76,7 +75,7 @@ def create_uno_service(clazz: typing.Union[str, object], ctx: 'typing.Optional[X
         _cls = clazz.__ooo_full_ns__
         is_class = True
     else:
-        raise TypeError('create_uno_service() cClass incorrect type')
+        raise TypeError('create_uno_service() clazz incorrect type')
     srv = _create_uno_service(clazz=_cls, ctx=ctx,args=args)
     if is_class:
         srv.__dict__['__ooo_ns__'] = clazz.__ooo_ns__
@@ -123,16 +122,7 @@ def get_desktop() -> theDesktop:
         object: com.sun.star.frame.Desktop
     
     See Also:
-        `LibreOffice 7.2 SDK API Desktop Reference <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1frame_1_1Desktop.html>`_
-    
-    Warning:
-        Method uses "com.sun.star.frame.Desktop" and the
-        `Desktop API <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1frame_1_1Desktop.html>`_
-        states that it is deprecated.
-        The api suggest; Rather use the 'theDesktop' singleton.
-    
-    Todo:
-        Test if this method would work with 'theDesktop'
+        `LibreOffice 7.2 SDK API theDesktop Reference <https://api.libreoffice.org/docs/idl/ref/singletoncom_1_1sun_1_1star_1_1frame_1_1theDesktop.html>`_
     """
     global _STAR_DESKTOP
     if _STAR_DESKTOP == None:
@@ -152,16 +142,7 @@ def get_core_reflection() -> theCoreReflection:
         object: com.sun.star.reflection.CoreReflection
     
     See Also:
-        `LibreOffice 7.2 SDK CoreReflection API Reference <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1reflection_1_1CoreReflection.html>`_
-    
-    Warning:
-        Method uses "com.sun.star.reflection.CoreReflection" and the
-        `CoreReflection API <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1reflection_1_1CoreReflection.html>`_
-        states that it is deprecated.
-        The api suggest; Rather use the 'theCoreReflection' singleton.
-    
-    Todo:
-        Test if this method would work with 'theCoreReflection'
+        `LibreOffice 7.2 SDK theCoreReflection API Reference <https://api.libreoffice.org/docs/idl/ref/singletoncom_1_1sun_1_1star_1_1reflection_1_1theCoreReflection.html>`_
     '''
     # https://stackoverflow.com/questions/67527942/why-cant-an-annotated-variable-be-global
     global _CORE_REFLECTION
@@ -196,16 +177,29 @@ def make_property_value(name: typing.Optional[str] = None, value: object = None,
     Create a com.sun.star.beans.PropertyValue.
     
     Args:
-        cName (:obj:`str`, optional): Specifies the name of the property.
-        uValue (:obj:`any`, optional): Contains the value of the property or ``None``, if no value is available.
-        nHandle (:obj:`int`, optional): Contains an implementation-specific handle for the property.
-        nState (:obj:`com::sun::star::beans::PropertyState`, optional): Determines if the value comes from the object itself or from a default and if the value cannot be determined exactly.
+        name (:obj:`str`, optional): Specifies the name of the property.
+        value (:obj:`any`, optional): Contains the value of the property or ``None``, if no value is available.
+        handle (:obj:`int`, optional): Contains an implementation-specific handle for the property.
+        state (:obj:`com::sun::star::beans::PropertyState`, optional): Determines if the value comes from the object itself or from a default and if the value cannot be determined exactly.
     
     Returns:
-        object: ``com.sun.star.beans.PropertyValue`` struct.
+        PropertyValue: ``com.sun.star.beans.PropertyValue`` struct.
     
     See Also:
         `LibreOffice API - PropertyValue Struct Reference <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1beans_1_1PropertyValue.html>`_
+    
+    Note:
+        This method is for convienence. Properties can also be created from dynamic PropertyValues
+        
+        Example:
+        
+        .. code-block:: python
+        
+            from ooo.dyn.beans.property_value import PropertyValue
+            p = PropertyValue(Name='MyProperty', Value=101)
+            assert p.Name == 'MyProperty'
+            assert p.Value == 101
+            assert type(p).__name__ == 'com.sun.star.beans.PropertyValue'
     """
     property_value: 'PropertyValue' = create_uno_struct(
         "com.sun.star.beans.PropertyValue")

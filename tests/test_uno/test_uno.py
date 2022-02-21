@@ -5,6 +5,7 @@
 
 import pytest
 from typing import TYPE_CHECKING
+from pathlib import Path
 if TYPE_CHECKING:
     from ooo.lo.frame.x_model import XModel
 
@@ -50,3 +51,14 @@ def test_sequence(get_document: 'XModel'):
 
     text.getEnd().insertDocumentFromURL("", (arg1, arg2))
     sequence.closeInput()
+
+def test_simple_file_access(get_document, fixture_dir):
+    from ooo.helper import uno_helper
+    from ooo.csslo.ucb import SimpleFileAccess
+    doc = Path(fixture_dir) / 'docs' / 'hello_world.odt'
+    file_access: SimpleFileAccess = uno_helper.create_uno_service('com.sun.star.ucb.SimpleFileAccess')
+    # s = file_access.getContentType('https://raw.githubusercontent.com/Amourspirit/python-ooouno/main/README.rst')
+    s = file_access.getContentType('file://' + str(doc))
+    assert len(s) > 0
+    # assert s == 'application/http-content'
+    assert s == 'application/vnd.sun.staroffice.fsys-file'

@@ -111,6 +111,13 @@ def test_rectangle():
     rect4 = Rectangle(rect2)
     assert rect4.X == 100
 
+def test_property_value():
+    from ooo.dyn.beans.property_value import PropertyValue
+    p = PropertyValue(Name='MyProperty', Value=101)
+    assert p.Name == 'MyProperty'
+    assert p.Value == 101
+    assert type(p).__name__ == 'com.sun.star.beans.PropertyValue'
+    
 def test_uno_obj_rectangle():
     from ooo.lo.awt.rectangle import Rectangle
     rect1 = Rectangle()
@@ -127,6 +134,7 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
+    assert DeviceCapability.__module__ == 'uno'
 
 def test_excpetion_createUnoStruct():
     from ooo.dyn.ucb.missing_properties_exception import MissingPropertiesException

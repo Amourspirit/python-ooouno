@@ -8,8 +8,6 @@ ooouno
 
 **ooouno** is a library of all *(more than 4300)* classes, typings and types for the Libre Office `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
 
-
-
 Docs
 ====
 
@@ -111,3 +109,12 @@ Under some circumstances this may not be desired. Such as packaging with `sticky
     >>> ls = CssLineSpacing()
     >>> type(ls).__name__
     'com.sun.star.style.LineSpacing'
+
+
+Generally speaking
+------------------
+
+When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
+
+When using ooo interactivly such as creating structs, enums, singletons, const classes then
+import from ``ooo.dyn`` or ```ooo.cssdyn``.

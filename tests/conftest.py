@@ -30,3 +30,7 @@ def clear_lru_cache_cache():
 @pytest.fixture(scope='session')
 def project_root() -> str:
     return str(Path(__file__).parent.parent)
+
+@pytest.fixture(scope='session')
+def fixture_dir(project_root) -> str:
+    return str(Path(project_root, 'tests', 'fixture'))

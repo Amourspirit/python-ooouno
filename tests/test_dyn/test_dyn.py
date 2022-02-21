@@ -154,3 +154,12 @@ def test_excpetion_createUnoStruct():
     prop = ("hello", "world")
     ex: MissingPropertiesException = MissingPropertiesException(Properties=prop)
     assert ex.Properties == ("hello", "world")
+
+def test_color():
+    from ooo.dyn.util.color import Color
+    c1 = Color(234)
+    c2 = Color(6)
+    assert isinstance(c1, int)
+    result = c1 + c2
+    assert result == 240
+    

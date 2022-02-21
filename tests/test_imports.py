@@ -67,3 +67,12 @@ def test_awt_rectangle_uno():
     assert same == True
     same = LoRectangle is CssRectangle
     assert same == False
+
+def test_util_color():
+    from ooo.dyn.util.color import Color as DynColor
+    from ooo.csslo.util import Color as CssLoColor
+    from ooo.cssdyn.util import Color as CssDynColor
+    from ooo.lo.util.color import Color as LoColor
+    assert (True if LoColor is DynColor else False)
+    assert (True if LoColor is CssLoColor else False)
+    assert (True if LoColor is CssDynColor else False)

@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.form.submission.x_submission import XSubmission as XSubmission
-from ....dyn.form.submission.x_submission_supplier import XSubmissionSupplier as XSubmissionSupplier
-from ....dyn.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.form.submission.x_submission import XSubmission as XSubmission
+except ImportError:
+    pass
+try:
+    from ....dyn.form.submission.x_submission_supplier import XSubmissionSupplier as XSubmissionSupplier
+except ImportError:
+    pass
+try:
+    from ....dyn.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener
+except ImportError:
+    pass

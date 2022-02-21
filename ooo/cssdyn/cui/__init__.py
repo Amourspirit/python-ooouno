@@ -14,4 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.cui.color_picker import ColorPicker as ColorPicker
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.cui.color_picker import ColorPicker as ColorPicker
+except ImportError:
+    pass

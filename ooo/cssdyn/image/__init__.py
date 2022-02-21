@@ -14,8 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.image.image_map import ImageMap as ImageMap
-from ...dyn.image.image_map_circle_object import ImageMapCircleObject as ImageMapCircleObject
-from ...dyn.image.image_map_object import ImageMapObject as ImageMapObject
-from ...dyn.image.image_map_polygon_object import ImageMapPolygonObject as ImageMapPolygonObject
-from ...dyn.image.image_map_rectangle_object import ImageMapRectangleObject as ImageMapRectangleObject
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.image.image_map import ImageMap as ImageMap
+except ImportError:
+    pass
+try:
+    from ...dyn.image.image_map_circle_object import ImageMapCircleObject as ImageMapCircleObject
+except ImportError:
+    pass
+try:
+    from ...dyn.image.image_map_object import ImageMapObject as ImageMapObject
+except ImportError:
+    pass
+try:
+    from ...dyn.image.image_map_polygon_object import ImageMapPolygonObject as ImageMapPolygonObject
+except ImportError:
+    pass
+try:
+    from ...dyn.image.image_map_rectangle_object import ImageMapRectangleObject as ImageMapRectangleObject
+except ImportError:
+    pass

@@ -14,4 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.deployment.test.smoketest_command_environment import SmoketestCommandEnvironment as SmoketestCommandEnvironment
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.deployment.test.smoketest_command_environment import SmoketestCommandEnvironment as SmoketestCommandEnvironment
+except ImportError:
+    pass

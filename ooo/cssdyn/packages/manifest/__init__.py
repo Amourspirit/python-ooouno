@@ -14,7 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.packages.manifest.manifest_reader import ManifestReader as ManifestReader
-from ....dyn.packages.manifest.manifest_writer import ManifestWriter as ManifestWriter
-from ....dyn.packages.manifest.x_manifest_reader import XManifestReader as XManifestReader
-from ....dyn.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.packages.manifest.manifest_reader import ManifestReader as ManifestReader
+except ImportError:
+    pass
+try:
+    from ....dyn.packages.manifest.manifest_writer import ManifestWriter as ManifestWriter
+except ImportError:
+    pass
+try:
+    from ....dyn.packages.manifest.x_manifest_reader import XManifestReader as XManifestReader
+except ImportError:
+    pass
+try:
+    from ....dyn.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter
+except ImportError:
+    pass

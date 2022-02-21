@@ -14,17 +14,61 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.script.vba.vba_event_id import VBAEventId as VBAEventId
-from ....dyn.script.vba.vba_event_id import VBAEventIdEnum as VBAEventIdEnum
-from ....dyn.script.vba.vba_event_processor import VBAEventProcessor as VBAEventProcessor
-from ....dyn.script.vba.vba_macro_resolver import VBAMacroResolver as VBAMacroResolver
-from ....dyn.script.vba.vba_script_event import VBAScriptEvent as VBAScriptEvent
-from ....dyn.script.vba.vba_script_event_id import VBAScriptEventId as VBAScriptEventId
-from ....dyn.script.vba.vba_script_event_id import VBAScriptEventIdEnum as VBAScriptEventIdEnum
-from ....dyn.script.vba.vba_spreadsheet_event_processor import VBASpreadsheetEventProcessor as VBASpreadsheetEventProcessor
-from ....dyn.script.vba.vba_text_event_processor import VBATextEventProcessor as VBATextEventProcessor
-from ....dyn.script.vba.xvba_compatibility import XVBACompatibility as XVBACompatibility
-from ....dyn.script.vba.xvba_event_processor import XVBAEventProcessor as XVBAEventProcessor
-from ....dyn.script.vba.xvba_macro_resolver import XVBAMacroResolver as XVBAMacroResolver
-from ....dyn.script.vba.xvba_module_info import XVBAModuleInfo as XVBAModuleInfo
-from ....dyn.script.vba.xvba_script_listener import XVBAScriptListener as XVBAScriptListener
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.script.vba.vba_event_id import VBAEventId as VBAEventId
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_event_id import VBAEventIdEnum as VBAEventIdEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_event_processor import VBAEventProcessor as VBAEventProcessor
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_macro_resolver import VBAMacroResolver as VBAMacroResolver
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_script_event import VBAScriptEvent as VBAScriptEvent
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_script_event_id import VBAScriptEventId as VBAScriptEventId
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_script_event_id import VBAScriptEventIdEnum as VBAScriptEventIdEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_spreadsheet_event_processor import VBASpreadsheetEventProcessor as VBASpreadsheetEventProcessor
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.vba_text_event_processor import VBATextEventProcessor as VBATextEventProcessor
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.xvba_compatibility import XVBACompatibility as XVBACompatibility
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.xvba_event_processor import XVBAEventProcessor as XVBAEventProcessor
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.xvba_macro_resolver import XVBAMacroResolver as XVBAMacroResolver
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.xvba_module_info import XVBAModuleInfo as XVBAModuleInfo
+except ImportError:
+    pass
+try:
+    from ....dyn.script.vba.xvba_script_listener import XVBAScriptListener as XVBAScriptListener
+except ImportError:
+    pass

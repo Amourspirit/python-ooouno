@@ -14,15 +14,53 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.frame.status.clipboard_formats import ClipboardFormats as ClipboardFormats
-from ....dyn.frame.status.font_height import FontHeight as FontHeight
-from ....dyn.frame.status.item_state import ItemState as ItemState
-from ....dyn.frame.status.item_state import ItemStateEnum as ItemStateEnum
-from ....dyn.frame.status.item_status import ItemStatus as ItemStatus
-from ....dyn.frame.status.left_right_margin import LeftRightMargin as LeftRightMargin
-from ....dyn.frame.status.left_right_margin_scale import LeftRightMarginScale as LeftRightMarginScale
-from ....dyn.frame.status.template import Template as Template
-from ....dyn.frame.status.upper_lower_margin import UpperLowerMargin as UpperLowerMargin
-from ....dyn.frame.status.upper_lower_margin_scale import UpperLowerMarginScale as UpperLowerMarginScale
-from ....dyn.frame.status.verb import Verb as Verb
-from ....dyn.frame.status.visibility import Visibility as Visibility
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.frame.status.clipboard_formats import ClipboardFormats as ClipboardFormats
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.font_height import FontHeight as FontHeight
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.item_state import ItemState as ItemState
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.item_state import ItemStateEnum as ItemStateEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.item_status import ItemStatus as ItemStatus
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.left_right_margin import LeftRightMargin as LeftRightMargin
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.left_right_margin_scale import LeftRightMarginScale as LeftRightMarginScale
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.template import Template as Template
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.upper_lower_margin import UpperLowerMargin as UpperLowerMargin
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.upper_lower_margin_scale import UpperLowerMarginScale as UpperLowerMarginScale
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.verb import Verb as Verb
+except ImportError:
+    pass
+try:
+    from ....dyn.frame.status.visibility import Visibility as Visibility
+except ImportError:
+    pass

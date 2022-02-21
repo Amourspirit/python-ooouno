@@ -14,17 +14,61 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.mail.mail_attachment import MailAttachment as MailAttachment
-from ...dyn.mail.mail_exception import MailException as MailException
-from ...dyn.mail.mail_message import MailMessage as MailMessage
-from ...dyn.mail.mail_service_provider import MailServiceProvider as MailServiceProvider
-from ...dyn.mail.mail_service_type import MailServiceType as MailServiceType
-from ...dyn.mail.no_mail_service_provider_exception import NoMailServiceProviderException as NoMailServiceProviderException
-from ...dyn.mail.no_mail_transport_provider_exception import NoMailTransportProviderException as NoMailTransportProviderException
-from ...dyn.mail.send_mail_message_failed_exception import SendMailMessageFailedException as SendMailMessageFailedException
-from ...dyn.mail.x_authenticator import XAuthenticator as XAuthenticator
-from ...dyn.mail.x_connection_listener import XConnectionListener as XConnectionListener
-from ...dyn.mail.x_mail_message import XMailMessage as XMailMessage
-from ...dyn.mail.x_mail_service import XMailService as XMailService
-from ...dyn.mail.x_mail_service_provider import XMailServiceProvider as XMailServiceProvider
-from ...dyn.mail.x_smtp_service import XSmtpService as XSmtpService
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.mail.mail_attachment import MailAttachment as MailAttachment
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.mail_exception import MailException as MailException
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.mail_message import MailMessage as MailMessage
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.mail_service_provider import MailServiceProvider as MailServiceProvider
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.mail_service_type import MailServiceType as MailServiceType
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.no_mail_service_provider_exception import NoMailServiceProviderException as NoMailServiceProviderException
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.no_mail_transport_provider_exception import NoMailTransportProviderException as NoMailTransportProviderException
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.send_mail_message_failed_exception import SendMailMessageFailedException as SendMailMessageFailedException
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_authenticator import XAuthenticator as XAuthenticator
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_connection_listener import XConnectionListener as XConnectionListener
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_mail_message import XMailMessage as XMailMessage
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_mail_service import XMailService as XMailService
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_mail_service_provider import XMailServiceProvider as XMailServiceProvider
+except ImportError:
+    pass
+try:
+    from ...dyn.mail.x_smtp_service import XSmtpService as XSmtpService
+except ImportError:
+    pass

@@ -14,10 +14,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.form.validation.validatable_bindable_control_model import ValidatableBindableControlModel as ValidatableBindableControlModel
-from ....dyn.form.validation.validatable_control_model import ValidatableControlModel as ValidatableControlModel
-from ....dyn.form.validation.x_form_component_validity_listener import XFormComponentValidityListener as XFormComponentValidityListener
-from ....dyn.form.validation.x_validatable import XValidatable as XValidatable
-from ....dyn.form.validation.x_validatable_form_component import XValidatableFormComponent as XValidatableFormComponent
-from ....dyn.form.validation.x_validator import XValidator as XValidator
-from ....dyn.form.validation.x_validity_constraint_listener import XValidityConstraintListener as XValidityConstraintListener
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.form.validation.validatable_bindable_control_model import ValidatableBindableControlModel as ValidatableBindableControlModel
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.validatable_control_model import ValidatableControlModel as ValidatableControlModel
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.x_form_component_validity_listener import XFormComponentValidityListener as XFormComponentValidityListener
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.x_validatable import XValidatable as XValidatable
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.x_validatable_form_component import XValidatableFormComponent as XValidatableFormComponent
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.x_validator import XValidator as XValidator
+except ImportError:
+    pass
+try:
+    from ....dyn.form.validation.x_validity_constraint_listener import XValidityConstraintListener as XValidityConstraintListener
+except ImportError:
+    pass

@@ -14,5 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
-from ...dyn.svg.xsvg_writer import XSVGWriter as XSVGWriter
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
+except ImportError:
+    pass
+try:
+    from ...dyn.svg.xsvg_writer import XSVGWriter as XSVGWriter
+except ImportError:
+    pass

@@ -14,5 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.setup.update_check import UpdateCheck as UpdateCheck
-from ...dyn.setup.update_check_config import UpdateCheckConfig as UpdateCheckConfig
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.setup.update_check import UpdateCheck as UpdateCheck
+except ImportError:
+    pass
+try:
+    from ...dyn.setup.update_check_config import UpdateCheckConfig as UpdateCheckConfig
+except ImportError:
+    pass

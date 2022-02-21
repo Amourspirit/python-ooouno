@@ -14,4 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.tiledrendering.x_tiled_renderable import XTiledRenderable as XTiledRenderable
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.tiledrendering.x_tiled_renderable import XTiledRenderable as XTiledRenderable
+except ImportError:
+    pass

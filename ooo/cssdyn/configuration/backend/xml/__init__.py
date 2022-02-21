@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.configuration.backend.xml.layer_parser import LayerParser as LayerParser
-from .....dyn.configuration.backend.xml.layer_writer import LayerWriter as LayerWriter
-from .....dyn.configuration.backend.xml.schema_parser import SchemaParser as SchemaParser
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from .....dyn.configuration.backend.xml.layer_parser import LayerParser as LayerParser
+except ImportError:
+    pass
+try:
+    from .....dyn.configuration.backend.xml.layer_writer import LayerWriter as LayerWriter
+except ImportError:
+    pass
+try:
+    from .....dyn.configuration.backend.xml.schema_parser import SchemaParser as SchemaParser
+except ImportError:
+    pass

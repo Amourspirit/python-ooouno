@@ -14,16 +14,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.text.textfield.docinfo.change_author import ChangeAuthor as ChangeAuthor
-from .....dyn.text.textfield.docinfo.change_date_time import ChangeDateTime as ChangeDateTime
-from .....dyn.text.textfield.docinfo.create_author import CreateAuthor as CreateAuthor
-from .....dyn.text.textfield.docinfo.create_date_time import CreateDateTime as CreateDateTime
-from .....dyn.text.textfield.docinfo.custom import Custom as Custom
-from .....dyn.text.textfield.docinfo.description import Description as Description
-from .....dyn.text.textfield.docinfo.edit_time import EditTime as EditTime
-from .....dyn.text.textfield.docinfo.keywords import Keywords as Keywords
-from .....dyn.text.textfield.docinfo.print_author import PrintAuthor as PrintAuthor
-from .....dyn.text.textfield.docinfo.print_date_time import PrintDateTime as PrintDateTime
-from .....dyn.text.textfield.docinfo.revision import Revision as Revision
-from .....dyn.text.textfield.docinfo.subject import Subject as Subject
-from .....dyn.text.textfield.docinfo.title import Title as Title
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from .....dyn.text.textfield.docinfo.change_author import ChangeAuthor as ChangeAuthor
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.change_date_time import ChangeDateTime as ChangeDateTime
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.create_author import CreateAuthor as CreateAuthor
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.create_date_time import CreateDateTime as CreateDateTime
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.custom import Custom as Custom
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.description import Description as Description
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.edit_time import EditTime as EditTime
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.keywords import Keywords as Keywords
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.print_author import PrintAuthor as PrintAuthor
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.print_date_time import PrintDateTime as PrintDateTime
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.revision import Revision as Revision
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.subject import Subject as Subject
+except ImportError:
+    pass
+try:
+    from .....dyn.text.textfield.docinfo.title import Title as Title
+except ImportError:
+    pass

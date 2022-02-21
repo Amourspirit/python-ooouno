@@ -14,13 +14,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.bridge.oleautomation.application_registration import ApplicationRegistration as ApplicationRegistration
-from ....dyn.bridge.oleautomation.bridge_supplier import BridgeSupplier as BridgeSupplier
-from ....dyn.bridge.oleautomation.currency import Currency as Currency
-from ....dyn.bridge.oleautomation.date import Date as Date
-from ....dyn.bridge.oleautomation.decimal import Decimal as Decimal
-from ....dyn.bridge.oleautomation.factory import Factory as Factory
-from ....dyn.bridge.oleautomation.named_argument import NamedArgument as NamedArgument
-from ....dyn.bridge.oleautomation.property_put_argument import PropertyPutArgument as PropertyPutArgument
-from ....dyn.bridge.oleautomation.s_code import SCode as SCode
-from ....dyn.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.bridge.oleautomation.application_registration import ApplicationRegistration as ApplicationRegistration
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.bridge_supplier import BridgeSupplier as BridgeSupplier
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.currency import Currency as Currency
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.date import Date as Date
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.decimal import Decimal as Decimal
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.factory import Factory as Factory
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.named_argument import NamedArgument as NamedArgument
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.property_put_argument import PropertyPutArgument as PropertyPutArgument
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.s_code import SCode as SCode
+except ImportError:
+    pass
+try:
+    from ....dyn.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject
+except ImportError:
+    pass

@@ -14,7 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.wrapper.xml_document_wrapper import XMLDocumentWrapper as XMLDocumentWrapper
-from ....dyn.xml.wrapper.xml_element_wrapper import XMLElementWrapper as XMLElementWrapper
-from ....dyn.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
-from ....dyn.xml.wrapper.xxml_element_wrapper import XXMLElementWrapper as XXMLElementWrapper
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.xml.wrapper.xml_document_wrapper import XMLDocumentWrapper as XMLDocumentWrapper
+except ImportError:
+    pass
+try:
+    from ....dyn.xml.wrapper.xml_element_wrapper import XMLElementWrapper as XMLElementWrapper
+except ImportError:
+    pass
+try:
+    from ....dyn.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
+except ImportError:
+    pass
+try:
+    from ....dyn.xml.wrapper.xxml_element_wrapper import XXMLElementWrapper as XXMLElementWrapper
+except ImportError:
+    pass

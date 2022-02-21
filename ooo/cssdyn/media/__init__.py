@@ -14,9 +14,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.media.manager import Manager as Manager
-from ...dyn.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
-from ...dyn.media.x_manager import XManager as XManager
-from ...dyn.media.x_player import XPlayer as XPlayer
-from ...dyn.media.x_player_window import XPlayerWindow as XPlayerWindow
-from ...dyn.media.zoom_level import ZoomLevel as ZoomLevel
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.media.manager import Manager as Manager
+except ImportError:
+    pass
+try:
+    from ...dyn.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
+except ImportError:
+    pass
+try:
+    from ...dyn.media.x_manager import XManager as XManager
+except ImportError:
+    pass
+try:
+    from ...dyn.media.x_player import XPlayer as XPlayer
+except ImportError:
+    pass
+try:
+    from ...dyn.media.x_player_window import XPlayerWindow as XPlayerWindow
+except ImportError:
+    pass
+try:
+    from ...dyn.media.zoom_level import ZoomLevel as ZoomLevel
+except ImportError:
+    pass

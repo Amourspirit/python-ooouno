@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import LineEndFormat as LineEndFormat
+    if hasattr(LineEndFormat, '_constants') and isinstance(LineEndFormat._constants, dict):
+        LineEndFormat._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        LineEndFormat._constants['__ooo_full_ns__'] = 'com.sun.star.awt.LineEndFormat'
+        LineEndFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LineEndFormatEnum
+        ls = [f for f in dir(LineEndFormat) if not callable(getattr(LineEndFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LineEndFormat, name)
+        LineEndFormatEnum = IntEnum('LineEndFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.line_end_format import LineEndFormat as LineEndFormat
 
+    class LineEndFormatEnum(IntEnum):
+        """
+        Enum of Const Class LineEndFormat
 
-class LineEndFormatEnum(IntEnum):
-    """
-    Enum of Const Class LineEndFormat
-
-    These values are used to specify which line end format should be used in strings.
-    """
-    CARRIAGE_RETURN = LineEndFormat.CARRIAGE_RETURN
-    """
-    specifies that line ends are to be represented by a carriage return character (\\\\\r)
-    """
-    LINE_FEED = LineEndFormat.LINE_FEED
-    """
-    specifies that line ends are to be represented by a line feed character (\\\\\n)
-    """
-    CARRIAGE_RETURN_LINE_FEED = LineEndFormat.CARRIAGE_RETURN_LINE_FEED
-    """
-    specifies that line ends are to be represented by a line feed character (\\\\\n), followed by a carriage return character (\\\\\r).
-    """
+        These values are used to specify which line end format should be used in strings.
+        """
+        CARRIAGE_RETURN = LineEndFormat.CARRIAGE_RETURN
+        """
+        specifies that line ends are to be represented by a carriage return character (\\\\\r)
+        """
+        LINE_FEED = LineEndFormat.LINE_FEED
+        """
+        specifies that line ends are to be represented by a line feed character (\\\\\n)
+        """
+        CARRIAGE_RETURN_LINE_FEED = LineEndFormat.CARRIAGE_RETURN_LINE_FEED
+        """
+        specifies that line ends are to be represented by a line feed character (\\\\\n), followed by a carriage return character (\\\\\r).
+        """
 
 __all__ = ['LineEndFormat', 'LineEndFormatEnum']

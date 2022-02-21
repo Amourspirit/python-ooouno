@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import ExtendedFilePickerElementIds as ExtendedFilePickerElementIds
+    if hasattr(ExtendedFilePickerElementIds, '_constants') and isinstance(ExtendedFilePickerElementIds._constants, dict):
+        ExtendedFilePickerElementIds._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        ExtendedFilePickerElementIds._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.ExtendedFilePickerElementIds'
+        ExtendedFilePickerElementIds._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ExtendedFilePickerElementIdsEnum
+        ls = [f for f in dir(ExtendedFilePickerElementIds) if not callable(getattr(ExtendedFilePickerElementIds, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ExtendedFilePickerElementIds, name)
+        ExtendedFilePickerElementIdsEnum = IntEnum('ExtendedFilePickerElementIdsEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.extended_file_picker_element_ids import ExtendedFilePickerElementIds as ExtendedFilePickerElementIds
 
+    class ExtendedFilePickerElementIdsEnum(IntEnum):
+        """
+        Enum of Const Class ExtendedFilePickerElementIds
 
-class ExtendedFilePickerElementIdsEnum(IntEnum):
-    """
-    Enum of Const Class ExtendedFilePickerElementIds
-
-    These constants are used to specify extended controls of a FilePicker dialog. A FilePicker service may be initialized so that it has additional controls extending the set of common controls a FilePicker usually supports.
-    
-    **since**
-    
-        LibreOffice 6.0
-    """
-    CHECKBOX_AUTOEXTENSION = ExtendedFilePickerElementIds.CHECKBOX_AUTOEXTENSION
-    CHECKBOX_PASSWORD = ExtendedFilePickerElementIds.CHECKBOX_PASSWORD
-    CHECKBOX_FILTEROPTIONS = ExtendedFilePickerElementIds.CHECKBOX_FILTEROPTIONS
-    CHECKBOX_READONLY = ExtendedFilePickerElementIds.CHECKBOX_READONLY
-    CHECKBOX_LINK = ExtendedFilePickerElementIds.CHECKBOX_LINK
-    CHECKBOX_PREVIEW = ExtendedFilePickerElementIds.CHECKBOX_PREVIEW
-    PUSHBUTTON_PLAY = ExtendedFilePickerElementIds.PUSHBUTTON_PLAY
-    LISTBOX_VERSION = ExtendedFilePickerElementIds.LISTBOX_VERSION
-    LISTBOX_TEMPLATE = ExtendedFilePickerElementIds.LISTBOX_TEMPLATE
-    LISTBOX_IMAGE_TEMPLATE = ExtendedFilePickerElementIds.LISTBOX_IMAGE_TEMPLATE
-    CHECKBOX_SELECTION = ExtendedFilePickerElementIds.CHECKBOX_SELECTION
-    LISTBOX_VERSION_LABEL = ExtendedFilePickerElementIds.LISTBOX_VERSION_LABEL
-    LISTBOX_TEMPLATE_LABEL = ExtendedFilePickerElementIds.LISTBOX_TEMPLATE_LABEL
-    LISTBOX_IMAGE_TEMPLATE_LABEL = ExtendedFilePickerElementIds.LISTBOX_IMAGE_TEMPLATE_LABEL
-    LISTBOX_FILTER_SELECTOR = ExtendedFilePickerElementIds.LISTBOX_FILTER_SELECTOR
-    CHECKBOX_GPGENCRYPTION = ExtendedFilePickerElementIds.CHECKBOX_GPGENCRYPTION
-    LISTBOX_IMAGE_ANCHOR = ExtendedFilePickerElementIds.LISTBOX_IMAGE_ANCHOR
-    LISTBOX_IMAGE_ANCHOR_LABEL = ExtendedFilePickerElementIds.LISTBOX_IMAGE_ANCHOR_LABEL
+        These constants are used to specify extended controls of a FilePicker dialog. A FilePicker service may be initialized so that it has additional controls extending the set of common controls a FilePicker usually supports.
+        
+        **since**
+        
+            LibreOffice 6.0
+        """
+        CHECKBOX_AUTOEXTENSION = ExtendedFilePickerElementIds.CHECKBOX_AUTOEXTENSION
+        CHECKBOX_PASSWORD = ExtendedFilePickerElementIds.CHECKBOX_PASSWORD
+        CHECKBOX_FILTEROPTIONS = ExtendedFilePickerElementIds.CHECKBOX_FILTEROPTIONS
+        CHECKBOX_READONLY = ExtendedFilePickerElementIds.CHECKBOX_READONLY
+        CHECKBOX_LINK = ExtendedFilePickerElementIds.CHECKBOX_LINK
+        CHECKBOX_PREVIEW = ExtendedFilePickerElementIds.CHECKBOX_PREVIEW
+        PUSHBUTTON_PLAY = ExtendedFilePickerElementIds.PUSHBUTTON_PLAY
+        LISTBOX_VERSION = ExtendedFilePickerElementIds.LISTBOX_VERSION
+        LISTBOX_TEMPLATE = ExtendedFilePickerElementIds.LISTBOX_TEMPLATE
+        LISTBOX_IMAGE_TEMPLATE = ExtendedFilePickerElementIds.LISTBOX_IMAGE_TEMPLATE
+        CHECKBOX_SELECTION = ExtendedFilePickerElementIds.CHECKBOX_SELECTION
+        LISTBOX_VERSION_LABEL = ExtendedFilePickerElementIds.LISTBOX_VERSION_LABEL
+        LISTBOX_TEMPLATE_LABEL = ExtendedFilePickerElementIds.LISTBOX_TEMPLATE_LABEL
+        LISTBOX_IMAGE_TEMPLATE_LABEL = ExtendedFilePickerElementIds.LISTBOX_IMAGE_TEMPLATE_LABEL
+        LISTBOX_FILTER_SELECTOR = ExtendedFilePickerElementIds.LISTBOX_FILTER_SELECTOR
+        CHECKBOX_GPGENCRYPTION = ExtendedFilePickerElementIds.CHECKBOX_GPGENCRYPTION
+        LISTBOX_IMAGE_ANCHOR = ExtendedFilePickerElementIds.LISTBOX_IMAGE_ANCHOR
+        LISTBOX_IMAGE_ANCHOR_LABEL = ExtendedFilePickerElementIds.LISTBOX_IMAGE_ANCHOR_LABEL
 
 __all__ = ['ExtendedFilePickerElementIds', 'ExtendedFilePickerElementIdsEnum']

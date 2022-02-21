@@ -27,24 +27,35 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseContrast as PanoseContrast
+    if hasattr(PanoseContrast, '_constants') and isinstance(PanoseContrast._constants, dict):
+        PanoseContrast._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseContrast._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseContrast'
+        PanoseContrast._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseContrastEnum
+        ls = [f for f in dir(PanoseContrast) if not callable(getattr(PanoseContrast, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseContrast, name)
+        PanoseContrastEnum = IntEnum('PanoseContrastEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_contrast import PanoseContrast as PanoseContrast
 
+    class PanoseContrastEnum(IntEnum):
+        """
+        Enum of Const Class PanoseContrast
 
-class PanoseContrastEnum(IntEnum):
-    """
-    Enum of Const Class PanoseContrast
-
-    """
-    ANYTHING = PanoseContrast.ANYTHING
-    NO_FIT = PanoseContrast.NO_FIT
-    NONE = PanoseContrast.NONE
-    VERY_LOW = PanoseContrast.VERY_LOW
-    LOW = PanoseContrast.LOW
-    MEDIUM_LOW = PanoseContrast.MEDIUM_LOW
-    MEDIUM = PanoseContrast.MEDIUM
-    MEDIUM_HIGH = PanoseContrast.MEDIUM_HIGH
-    HIGH = PanoseContrast.HIGH
-    VERY_HIGH = PanoseContrast.VERY_HIGH
+        """
+        ANYTHING = PanoseContrast.ANYTHING
+        NO_FIT = PanoseContrast.NO_FIT
+        NONE = PanoseContrast.NONE
+        VERY_LOW = PanoseContrast.VERY_LOW
+        LOW = PanoseContrast.LOW
+        MEDIUM_LOW = PanoseContrast.MEDIUM_LOW
+        MEDIUM = PanoseContrast.MEDIUM
+        MEDIUM_HIGH = PanoseContrast.MEDIUM_HIGH
+        HIGH = PanoseContrast.HIGH
+        VERY_HIGH = PanoseContrast.VERY_HIGH
 
 __all__ = ['PanoseContrast', 'PanoseContrastEnum']

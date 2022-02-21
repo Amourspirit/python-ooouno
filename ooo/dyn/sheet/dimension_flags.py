@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DimensionFlags as DimensionFlags
+    if hasattr(DimensionFlags, '_constants') and isinstance(DimensionFlags._constants, dict):
+        DimensionFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DimensionFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DimensionFlags'
+        DimensionFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DimensionFlagsEnum
+        ls = [f for f in dir(DimensionFlags) if not callable(getattr(DimensionFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DimensionFlags, name)
+        DimensionFlagsEnum = IntFlag('DimensionFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.dimension_flags import DimensionFlags as DimensionFlags
 
+    class DimensionFlagsEnum(IntFlag):
+        """
+        Enum of Const Class DimensionFlags
 
-class DimensionFlagsEnum(IntFlag):
-    """
-    Enum of Const Class DimensionFlags
-
-    used to specify flags for a dimension in a data pilot source.
-    """
-    NO_COLUMN_ORIENTATION = DimensionFlags.NO_COLUMN_ORIENTATION
-    """
-    The dimension cannot be used in column orientation.
-    """
-    NO_ROW_ORIENTATION = DimensionFlags.NO_ROW_ORIENTATION
-    """
-    The dimension cannot be used in row orientation.
-    """
-    NO_PAGE_ORIENTATION = DimensionFlags.NO_PAGE_ORIENTATION
-    """
-    The dimension cannot be used in page orientation.
-    """
-    NO_DATA_ORIENTATION = DimensionFlags.NO_DATA_ORIENTATION
-    """
-    The dimension cannot be used in data orientation.
-    """
+        used to specify flags for a dimension in a data pilot source.
+        """
+        NO_COLUMN_ORIENTATION = DimensionFlags.NO_COLUMN_ORIENTATION
+        """
+        The dimension cannot be used in column orientation.
+        """
+        NO_ROW_ORIENTATION = DimensionFlags.NO_ROW_ORIENTATION
+        """
+        The dimension cannot be used in row orientation.
+        """
+        NO_PAGE_ORIENTATION = DimensionFlags.NO_PAGE_ORIENTATION
+        """
+        The dimension cannot be used in page orientation.
+        """
+        NO_DATA_ORIENTATION = DimensionFlags.NO_DATA_ORIENTATION
+        """
+        The dimension cannot be used in data orientation.
+        """
 
 __all__ = ['DimensionFlags', 'DimensionFlagsEnum']

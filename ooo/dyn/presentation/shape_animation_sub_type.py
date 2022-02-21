@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.presentation import ShapeAnimationSubType as ShapeAnimationSubType
+    if hasattr(ShapeAnimationSubType, '_constants') and isinstance(ShapeAnimationSubType._constants, dict):
+        ShapeAnimationSubType._constants['__ooo_ns__'] = 'com.sun.star.presentation'
+        ShapeAnimationSubType._constants['__ooo_full_ns__'] = 'com.sun.star.presentation.ShapeAnimationSubType'
+        ShapeAnimationSubType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ShapeAnimationSubTypeEnum
+        ls = [f for f in dir(ShapeAnimationSubType) if not callable(getattr(ShapeAnimationSubType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ShapeAnimationSubType, name)
+        ShapeAnimationSubTypeEnum = IntEnum('ShapeAnimationSubTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.presentation.shape_animation_sub_type import ShapeAnimationSubType as ShapeAnimationSubType
 
+    class ShapeAnimationSubTypeEnum(IntEnum):
+        """
+        Enum of Const Class ShapeAnimationSubType
 
-class ShapeAnimationSubTypeEnum(IntEnum):
-    """
-    Enum of Const Class ShapeAnimationSubType
-
-    Defines the whole shape or a subitem as a target for an effect.
-    """
-    AS_WHOLE = ShapeAnimationSubType.AS_WHOLE
-    """
-    the whole shape is a target
-    """
-    ONLY_BACKGROUND = ShapeAnimationSubType.ONLY_BACKGROUND
-    """
-    only the background is a target.
-    
-    The Background of a shape is the whole shape except all visible elements that are part of the shapes text.
-    """
-    ONLY_TEXT = ShapeAnimationSubType.ONLY_TEXT
-    """
-    only the text is a target.
-    
-    This includes all glyphs, font decorations and bullets.
-    """
+        Defines the whole shape or a subitem as a target for an effect.
+        """
+        AS_WHOLE = ShapeAnimationSubType.AS_WHOLE
+        """
+        the whole shape is a target
+        """
+        ONLY_BACKGROUND = ShapeAnimationSubType.ONLY_BACKGROUND
+        """
+        only the background is a target.
+        
+        The Background of a shape is the whole shape except all visible elements that are part of the shapes text.
+        """
+        ONLY_TEXT = ShapeAnimationSubType.ONLY_TEXT
+        """
+        only the text is a target.
+        
+        This includes all glyphs, font decorations and bullets.
+        """
 
 __all__ = ['ShapeAnimationSubType', 'ShapeAnimationSubTypeEnum']

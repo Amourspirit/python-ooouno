@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import ConnectionMode as ConnectionMode
+    if hasattr(ConnectionMode, '_constants') and isinstance(ConnectionMode._constants, dict):
+        ConnectionMode._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        ConnectionMode._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.ConnectionMode'
+        ConnectionMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConnectionModeEnum
+        ls = [f for f in dir(ConnectionMode) if not callable(getattr(ConnectionMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConnectionMode, name)
+        ConnectionModeEnum = IntEnum('ConnectionModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.connection_mode import ConnectionMode as ConnectionMode
 
+    class ConnectionModeEnum(IntEnum):
+        """
+        Enum of Const Class ConnectionMode
 
-class ConnectionModeEnum(IntEnum):
-    """
-    Enum of Const Class ConnectionMode
-
-    These are the possible values for the property \"ConnectionMode\".
-    """
-    ONLINE = ConnectionMode.ONLINE
-    """
-    \"Online\" - Network access is allowed.
-    """
-    OFFLINE = ConnectionMode.OFFLINE
-    """
-    \"Offline\" - Network access is not allowed.
-    """
+        These are the possible values for the property \"ConnectionMode\".
+        """
+        ONLINE = ConnectionMode.ONLINE
+        """
+        \"Online\" - Network access is allowed.
+        """
+        OFFLINE = ConnectionMode.OFFLINE
+        """
+        \"Offline\" - Network access is not allowed.
+        """
 
 __all__ = ['ConnectionMode', 'ConnectionModeEnum']

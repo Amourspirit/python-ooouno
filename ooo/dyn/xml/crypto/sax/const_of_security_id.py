@@ -27,16 +27,27 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.xml.crypto.sax import ConstOfSecurityId as ConstOfSecurityId
+    if hasattr(ConstOfSecurityId, '_constants') and isinstance(ConstOfSecurityId._constants, dict):
+        ConstOfSecurityId._constants['__ooo_ns__'] = 'com.sun.star.xml.crypto.sax'
+        ConstOfSecurityId._constants['__ooo_full_ns__'] = 'com.sun.star.xml.crypto.sax.ConstOfSecurityId'
+        ConstOfSecurityId._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConstOfSecurityIdEnum
+        ls = [f for f in dir(ConstOfSecurityId) if not callable(getattr(ConstOfSecurityId, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConstOfSecurityId, name)
+        ConstOfSecurityIdEnum = IntEnum('ConstOfSecurityIdEnum', _dict)
+    build_enum()
 else:
     from .....lo.xml.crypto.sax.const_of_security_id import ConstOfSecurityId as ConstOfSecurityId
 
+    class ConstOfSecurityIdEnum(IntEnum):
+        """
+        Enum of Const Class ConstOfSecurityId
 
-class ConstOfSecurityIdEnum(IntEnum):
-    """
-    Enum of Const Class ConstOfSecurityId
-
-    Represents the undefined security id.
-    """
-    UNDEFINEDSECURITYID = ConstOfSecurityId.UNDEFINEDSECURITYID
+        Represents the undefined security id.
+        """
+        UNDEFINEDSECURITYID = ConstOfSecurityId.UNDEFINEDSECURITYID
 
 __all__ = ['ConstOfSecurityId', 'ConstOfSecurityIdEnum']

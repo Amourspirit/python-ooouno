@@ -27,20 +27,31 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseFamilyTypes as PanoseFamilyTypes
+    if hasattr(PanoseFamilyTypes, '_constants') and isinstance(PanoseFamilyTypes._constants, dict):
+        PanoseFamilyTypes._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseFamilyTypes._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseFamilyTypes'
+        PanoseFamilyTypes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseFamilyTypesEnum
+        ls = [f for f in dir(PanoseFamilyTypes) if not callable(getattr(PanoseFamilyTypes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseFamilyTypes, name)
+        PanoseFamilyTypesEnum = IntEnum('PanoseFamilyTypesEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_family_types import PanoseFamilyTypes as PanoseFamilyTypes
 
+    class PanoseFamilyTypesEnum(IntEnum):
+        """
+        Enum of Const Class PanoseFamilyTypes
 
-class PanoseFamilyTypesEnum(IntEnum):
-    """
-    Enum of Const Class PanoseFamilyTypes
-
-    """
-    ANYTHING = PanoseFamilyTypes.ANYTHING
-    NO_FIT = PanoseFamilyTypes.NO_FIT
-    TEXT_DISPLAY = PanoseFamilyTypes.TEXT_DISPLAY
-    SCRIPT = PanoseFamilyTypes.SCRIPT
-    DECORATIVE = PanoseFamilyTypes.DECORATIVE
-    PICTORIAL = PanoseFamilyTypes.PICTORIAL
+        """
+        ANYTHING = PanoseFamilyTypes.ANYTHING
+        NO_FIT = PanoseFamilyTypes.NO_FIT
+        TEXT_DISPLAY = PanoseFamilyTypes.TEXT_DISPLAY
+        SCRIPT = PanoseFamilyTypes.SCRIPT
+        DECORATIVE = PanoseFamilyTypes.DECORATIVE
+        PICTORIAL = PanoseFamilyTypes.PICTORIAL
 
 __all__ = ['PanoseFamilyTypes', 'PanoseFamilyTypesEnum']

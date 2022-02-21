@@ -27,57 +27,68 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import CellFlags as CellFlags
+    if hasattr(CellFlags, '_constants') and isinstance(CellFlags._constants, dict):
+        CellFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        CellFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.CellFlags'
+        CellFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CellFlagsEnum
+        ls = [f for f in dir(CellFlags) if not callable(getattr(CellFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CellFlags, name)
+        CellFlagsEnum = IntFlag('CellFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.cell_flags import CellFlags as CellFlags
 
+    class CellFlagsEnum(IntFlag):
+        """
+        Enum of Const Class CellFlags
 
-class CellFlagsEnum(IntFlag):
-    """
-    Enum of Const Class CellFlags
-
-    These constants select different types of cell contents.
-    
-    The values can be combined. They are used to insert, copy, or delete contents.
-    """
-    VALUE = CellFlags.VALUE
-    """
-    selects constant numeric values that are not formatted as dates or times.
-    """
-    DATETIME = CellFlags.DATETIME
-    """
-    selects constant numeric values that have a date or time number format.
-    """
-    STRING = CellFlags.STRING
-    """
-    selects constant strings.
-    """
-    ANNOTATION = CellFlags.ANNOTATION
-    """
-    selects cell annotations.
-    """
-    FORMULA = CellFlags.FORMULA
-    """
-    selects formulas.
-    """
-    HARDATTR = CellFlags.HARDATTR
-    """
-    selects all explicit formatting, but not the formatting which is applied implicitly through style sheets.
-    """
-    STYLES = CellFlags.STYLES
-    """
-    selects cell styles.
-    """
-    OBJECTS = CellFlags.OBJECTS
-    """
-    selects drawing objects.
-    """
-    EDITATTR = CellFlags.EDITATTR
-    """
-    selects formatting within parts of the cell contents.
-    """
-    FORMATTED = CellFlags.FORMATTED
-    """
-    selects cells with formatting within the cells or cells with more than one paragraph within the cells.
-    """
+        These constants select different types of cell contents.
+        
+        The values can be combined. They are used to insert, copy, or delete contents.
+        """
+        VALUE = CellFlags.VALUE
+        """
+        selects constant numeric values that are not formatted as dates or times.
+        """
+        DATETIME = CellFlags.DATETIME
+        """
+        selects constant numeric values that have a date or time number format.
+        """
+        STRING = CellFlags.STRING
+        """
+        selects constant strings.
+        """
+        ANNOTATION = CellFlags.ANNOTATION
+        """
+        selects cell annotations.
+        """
+        FORMULA = CellFlags.FORMULA
+        """
+        selects formulas.
+        """
+        HARDATTR = CellFlags.HARDATTR
+        """
+        selects all explicit formatting, but not the formatting which is applied implicitly through style sheets.
+        """
+        STYLES = CellFlags.STYLES
+        """
+        selects cell styles.
+        """
+        OBJECTS = CellFlags.OBJECTS
+        """
+        selects drawing objects.
+        """
+        EDITATTR = CellFlags.EDITATTR
+        """
+        selects formatting within parts of the cell contents.
+        """
+        FORMATTED = CellFlags.FORMATTED
+        """
+        selects cells with formatting within the cells or cells with more than one paragraph within the cells.
+        """
 
 __all__ = ['CellFlags', 'CellFlagsEnum']

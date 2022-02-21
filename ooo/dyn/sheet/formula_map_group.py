@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import FormulaMapGroup as FormulaMapGroup
+    if hasattr(FormulaMapGroup, '_constants') and isinstance(FormulaMapGroup._constants, dict):
+        FormulaMapGroup._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        FormulaMapGroup._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaMapGroup'
+        FormulaMapGroup._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FormulaMapGroupEnum
+        ls = [f for f in dir(FormulaMapGroup) if not callable(getattr(FormulaMapGroup, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FormulaMapGroup, name)
+        FormulaMapGroupEnum = IntEnum('FormulaMapGroupEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.formula_map_group import FormulaMapGroup as FormulaMapGroup
 
+    class FormulaMapGroupEnum(IntEnum):
+        """
+        Enum of Const Class FormulaMapGroup
 
-class FormulaMapGroupEnum(IntEnum):
-    """
-    Enum of Const Class FormulaMapGroup
-
-    Constants of bit masks used with XFormulaOpCodeMapper.getAvailableMappings() to specify for which group of symbols the mappings are to be obtained.
-    
-    If no bit is set, a sequence of special mappings is returned in the order that is defined by FormulaMapGroupSpecialOffset. Note that the special group and other groups are mutual exclusive.
-    """
-    SPECIAL = FormulaMapGroup.SPECIAL
-    """
-    Group of op-codes without a string symbol.
-    """
-    SEPARATORS = FormulaMapGroup.SEPARATORS
-    """
-    Separators and parentheses.
-    """
-    ARRAY_SEPARATORS = FormulaMapGroup.ARRAY_SEPARATORS
-    """
-    Separators and parentheses for constant arrays.
-    """
-    UNARY_OPERATORS = FormulaMapGroup.UNARY_OPERATORS
-    """
-    Unary operators.
-    """
-    BINARY_OPERATORS = FormulaMapGroup.BINARY_OPERATORS
-    """
-    Binary operators.
-    """
-    FUNCTIONS = FormulaMapGroup.FUNCTIONS
-    """
-    Functions.
-    """
-    ALL_EXCEPT_SPECIAL = FormulaMapGroup.ALL_EXCEPT_SPECIAL
-    """
-    All groups except SPECIAL.
-    """
+        Constants of bit masks used with XFormulaOpCodeMapper.getAvailableMappings() to specify for which group of symbols the mappings are to be obtained.
+        
+        If no bit is set, a sequence of special mappings is returned in the order that is defined by FormulaMapGroupSpecialOffset. Note that the special group and other groups are mutual exclusive.
+        """
+        SPECIAL = FormulaMapGroup.SPECIAL
+        """
+        Group of op-codes without a string symbol.
+        """
+        SEPARATORS = FormulaMapGroup.SEPARATORS
+        """
+        Separators and parentheses.
+        """
+        ARRAY_SEPARATORS = FormulaMapGroup.ARRAY_SEPARATORS
+        """
+        Separators and parentheses for constant arrays.
+        """
+        UNARY_OPERATORS = FormulaMapGroup.UNARY_OPERATORS
+        """
+        Unary operators.
+        """
+        BINARY_OPERATORS = FormulaMapGroup.BINARY_OPERATORS
+        """
+        Binary operators.
+        """
+        FUNCTIONS = FormulaMapGroup.FUNCTIONS
+        """
+        Functions.
+        """
+        ALL_EXCEPT_SPECIAL = FormulaMapGroup.ALL_EXCEPT_SPECIAL
+        """
+        All groups except SPECIAL.
+        """
 
 __all__ = ['FormulaMapGroup', 'FormulaMapGroupEnum']

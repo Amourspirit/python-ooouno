@@ -27,49 +27,60 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame.status import ItemState as ItemState
+    if hasattr(ItemState, '_constants') and isinstance(ItemState._constants, dict):
+        ItemState._constants['__ooo_ns__'] = 'com.sun.star.frame.status'
+        ItemState._constants['__ooo_full_ns__'] = 'com.sun.star.frame.status.ItemState'
+        ItemState._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ItemStateEnum
+        ls = [f for f in dir(ItemState) if not callable(getattr(ItemState, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ItemState, name)
+        ItemStateEnum = IntFlag('ItemStateEnum', _dict)
+    build_enum()
 else:
     from ....lo.frame.status.item_state import ItemState as ItemState
 
+    class ItemStateEnum(IntFlag):
+        """
+        Enum of Const Class ItemState
 
-class ItemStateEnum(IntFlag):
-    """
-    Enum of Const Class ItemState
-
-    these constants describe a state of an ItemStatus.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    UNKNOWN = ItemState.UNKNOWN
-    """
-    specifies an unknown state.
-    """
-    DISABLED = ItemState.DISABLED
-    """
-    specifies that the property is currently disabled.
-    """
-    READ_ONLY = ItemState.READ_ONLY
-    """
-    specifies that the property is currently read-only.
-    
-    Deprecated: There is no equivalent in SfxItemState anymore due to not being used, so remove for simplification reasons and to prepare rework of Item/ItemSet/ItemPool stuff.
-    
-    There are only three usages of .ItemState in the code which all set the internal SfxItem to SfxVoidItem when triggered, which is equivalent to state SfxItemState.DISABLED (see e.g. SfxItemSet.GetItemState), so READ_ONLY gets not used in internal handling, even when eventually existing UNO API usages hand it over the office.
-    """
-    DONT_CARE = ItemState.DONT_CARE
-    """
-    specifies that the property is currently in a don't care state.
-    
-    This is normally used if a selection provides more than one state for a property at the same time.
-    """
-    DEFAULT_VALUE = ItemState.DEFAULT_VALUE
-    """
-    specifies that the property is currently in a default state.
-    """
-    SET = ItemState.SET
-    """
-    specifies that the property is currently in a set state.
-    """
+        these constants describe a state of an ItemStatus.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        UNKNOWN = ItemState.UNKNOWN
+        """
+        specifies an unknown state.
+        """
+        DISABLED = ItemState.DISABLED
+        """
+        specifies that the property is currently disabled.
+        """
+        READ_ONLY = ItemState.READ_ONLY
+        """
+        specifies that the property is currently read-only.
+        
+        Deprecated: There is no equivalent in SfxItemState anymore due to not being used, so remove for simplification reasons and to prepare rework of Item/ItemSet/ItemPool stuff.
+        
+        There are only three usages of .ItemState in the code which all set the internal SfxItem to SfxVoidItem when triggered, which is equivalent to state SfxItemState.DISABLED (see e.g. SfxItemSet.GetItemState), so READ_ONLY gets not used in internal handling, even when eventually existing UNO API usages hand it over the office.
+        """
+        DONT_CARE = ItemState.DONT_CARE
+        """
+        specifies that the property is currently in a don't care state.
+        
+        This is normally used if a selection provides more than one state for a property at the same time.
+        """
+        DEFAULT_VALUE = ItemState.DEFAULT_VALUE
+        """
+        specifies that the property is currently in a default state.
+        """
+        SET = ItemState.SET
+        """
+        specifies that the property is currently in a set state.
+        """
 
 __all__ = ['ItemState', 'ItemStateEnum']

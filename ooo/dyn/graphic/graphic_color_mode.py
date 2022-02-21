@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.graphic import GraphicColorMode as GraphicColorMode
+    if hasattr(GraphicColorMode, '_constants') and isinstance(GraphicColorMode._constants, dict):
+        GraphicColorMode._constants['__ooo_ns__'] = 'com.sun.star.graphic'
+        GraphicColorMode._constants['__ooo_full_ns__'] = 'com.sun.star.graphic.GraphicColorMode'
+        GraphicColorMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global GraphicColorModeEnum
+        ls = [f for f in dir(GraphicColorMode) if not callable(getattr(GraphicColorMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(GraphicColorMode, name)
+        GraphicColorModeEnum = IntEnum('GraphicColorModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.graphic.graphic_color_mode import GraphicColorMode as GraphicColorMode
 
+    class GraphicColorModeEnum(IntEnum):
+        """
+        Enum of Const Class GraphicColorMode
 
-class GraphicColorModeEnum(IntEnum):
-    """
-    Enum of Const Class GraphicColorMode
-
-    describes different color modes which can be specified when requesting a graphic.
-    """
-    NORMAL = GraphicColorMode.NORMAL
-    """
-    describes normal graphic colors, no particular color transformation is applied to the graphics.
-    """
-    HIGH_CONTRAST = GraphicColorMode.HIGH_CONTRAST
-    """
-    used when requesting graphics which are suitable for a high-contrast environment.
-    """
+        describes different color modes which can be specified when requesting a graphic.
+        """
+        NORMAL = GraphicColorMode.NORMAL
+        """
+        describes normal graphic colors, no particular color transformation is applied to the graphics.
+        """
+        HIGH_CONTRAST = GraphicColorMode.HIGH_CONTRAST
+        """
+        used when requesting graphics which are suitable for a high-contrast environment.
+        """
 
 __all__ = ['GraphicColorMode', 'GraphicColorModeEnum']

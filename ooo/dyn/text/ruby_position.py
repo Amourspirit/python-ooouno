@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import RubyPosition as RubyPosition
+    if hasattr(RubyPosition, '_constants') and isinstance(RubyPosition._constants, dict):
+        RubyPosition._constants['__ooo_ns__'] = 'com.sun.star.text'
+        RubyPosition._constants['__ooo_full_ns__'] = 'com.sun.star.text.RubyPosition'
+        RubyPosition._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RubyPositionEnum
+        ls = [f for f in dir(RubyPosition) if not callable(getattr(RubyPosition, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RubyPosition, name)
+        RubyPositionEnum = IntEnum('RubyPositionEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.ruby_position import RubyPosition as RubyPosition
 
+    class RubyPositionEnum(IntEnum):
+        """
+        Enum of Const Class RubyPosition
 
-class RubyPositionEnum(IntEnum):
-    """
-    Enum of Const Class RubyPosition
-
-    These constants define the position of ruby text.
-    
-    **since**
-    
-        LibreOffice 6.1
-    """
-    ABOVE = RubyPosition.ABOVE
-    """
-    ruby text should be above or on the right side of base text.
-    """
-    BELOW = RubyPosition.BELOW
-    """
-    ruby text should be below or on the left side of base text.
-    """
-    INTER_CHARACTER = RubyPosition.INTER_CHARACTER
-    """
-    Vertically aligned on right side of the base text in horizontal mode.
-    
-    This is the same as ABOVE in vertical writing mode.
-    """
+        These constants define the position of ruby text.
+        
+        **since**
+        
+            LibreOffice 6.1
+        """
+        ABOVE = RubyPosition.ABOVE
+        """
+        ruby text should be above or on the right side of base text.
+        """
+        BELOW = RubyPosition.BELOW
+        """
+        ruby text should be below or on the left side of base text.
+        """
+        INTER_CHARACTER = RubyPosition.INTER_CHARACTER
+        """
+        Vertically aligned on right side of the base text in horizontal mode.
+        
+        This is the same as ABOVE in vertical writing mode.
+        """
 
 __all__ = ['RubyPosition', 'RubyPositionEnum']

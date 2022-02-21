@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import ScriptDirection as ScriptDirection
+    if hasattr(ScriptDirection, '_constants') and isinstance(ScriptDirection._constants, dict):
+        ScriptDirection._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        ScriptDirection._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.ScriptDirection'
+        ScriptDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ScriptDirectionEnum
+        ls = [f for f in dir(ScriptDirection) if not callable(getattr(ScriptDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ScriptDirection, name)
+        ScriptDirectionEnum = IntEnum('ScriptDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.script_direction import ScriptDirection as ScriptDirection
 
+    class ScriptDirectionEnum(IntEnum):
+        """
+        Enum of Const Class ScriptDirection
 
-class ScriptDirectionEnum(IntEnum):
-    """
-    Enum of Const Class ScriptDirection
-
-    Script direction constants to use with XScriptTypeDetector methods.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    NEUTRAL = ScriptDirection.NEUTRAL
-    """
-    Script direction is neutral.
-    """
-    LEFT_TO_RIGHT = ScriptDirection.LEFT_TO_RIGHT
-    """
-    Script direction is left to right.
-    """
-    RIGHT_TO_LEFT = ScriptDirection.RIGHT_TO_LEFT
-    """
-    Script direction is right to left.
-    """
+        Script direction constants to use with XScriptTypeDetector methods.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        NEUTRAL = ScriptDirection.NEUTRAL
+        """
+        Script direction is neutral.
+        """
+        LEFT_TO_RIGHT = ScriptDirection.LEFT_TO_RIGHT
+        """
+        Script direction is left to right.
+        """
+        RIGHT_TO_LEFT = ScriptDirection.RIGHT_TO_LEFT
+        """
+        Script direction is right to left.
+        """
 
 __all__ = ['ScriptDirection', 'ScriptDirectionEnum']

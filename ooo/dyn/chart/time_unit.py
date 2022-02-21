@@ -27,22 +27,33 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import TimeUnit as TimeUnit
+    if hasattr(TimeUnit, '_constants') and isinstance(TimeUnit._constants, dict):
+        TimeUnit._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        TimeUnit._constants['__ooo_full_ns__'] = 'com.sun.star.chart.TimeUnit'
+        TimeUnit._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TimeUnitEnum
+        ls = [f for f in dir(TimeUnit) if not callable(getattr(TimeUnit, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TimeUnit, name)
+        TimeUnitEnum = IntEnum('TimeUnitEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.time_unit import TimeUnit as TimeUnit
 
+    class TimeUnitEnum(IntEnum):
+        """
+        Enum of Const Class TimeUnit
 
-class TimeUnitEnum(IntEnum):
-    """
-    Enum of Const Class TimeUnit
-
-    Specifies a unit for intervals on a date-time axis.
-    
-    **since**
-    
-        OOo 3.4
-    """
-    DAY = TimeUnit.DAY
-    MONTH = TimeUnit.MONTH
-    YEAR = TimeUnit.YEAR
+        Specifies a unit for intervals on a date-time axis.
+        
+        **since**
+        
+            OOo 3.4
+        """
+        DAY = TimeUnit.DAY
+        MONTH = TimeUnit.MONTH
+        YEAR = TimeUnit.YEAR
 
 __all__ = ['TimeUnit', 'TimeUnitEnum']

@@ -27,73 +27,84 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import WritingMode2 as WritingMode2
+    if hasattr(WritingMode2, '_constants') and isinstance(WritingMode2._constants, dict):
+        WritingMode2._constants['__ooo_ns__'] = 'com.sun.star.text'
+        WritingMode2._constants['__ooo_full_ns__'] = 'com.sun.star.text.WritingMode2'
+        WritingMode2._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WritingMode2Enum
+        ls = [f for f in dir(WritingMode2) if not callable(getattr(WritingMode2, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WritingMode2, name)
+        WritingMode2Enum = IntEnum('WritingMode2Enum', _dict)
+    build_enum()
 else:
     from ...lo.text.writing_mode2 import WritingMode2 as WritingMode2
 
+    class WritingMode2Enum(IntEnum):
+        """
+        Enum of Const Class WritingMode2
 
-class WritingMode2Enum(IntEnum):
-    """
-    Enum of Const Class WritingMode2
-
-    this set of constants describes different writing directions
-    
-    In addition to numerous explicit writing directions, it allows to specify to take the writing direction from the object's context.
-    
-    **since**
-    
-        LibreOffice 6.3
-    """
-    LR_TB = WritingMode2.LR_TB
-    """
-    text within lines is written left-to-right.
-    
-    Lines and blocks are placed top-to-bottom.
-    
-    Typically, this is the writing mode for normal \"alphabetic\" text.
-    """
-    RL_TB = WritingMode2.RL_TB
-    """
-    text within a line are written right-to-left.
-    
-    Lines and blocks are placed top-to-bottom.
-    
-    Typically, this writing mode is used in Arabic and Hebrew text.
-    """
-    TB_RL = WritingMode2.TB_RL
-    """
-    text within a line is written top-to-bottom.
-    
-    Lines and blocks are placed right-to-left.
-    
-    Typically, this writing mode is used in Chinese and Japanese text.
-    """
-    TB_LR = WritingMode2.TB_LR
-    """
-    text within a line is written top-to-bottom.
-    
-    Lines and blocks are placed left-to-right.
-    
-    Typically, this writing mode is used in Mongolian text.
-    """
-    PAGE = WritingMode2.PAGE
-    """
-    obtain writing mode from the current page.
-    
-    May not be used in page styles.
-    """
-    CONTEXT = WritingMode2.CONTEXT
-    """
-    obtain actual writing mode from the context of the object.
-    """
-    BT_LR = WritingMode2.BT_LR
-    """
-    text within a line is written bottom-to-top.
-    
-    Lines and blocks are placed left-to-right.
-    
-    **since**
-    
-        LibreOffice 6.3
-    """
+        this set of constants describes different writing directions
+        
+        In addition to numerous explicit writing directions, it allows to specify to take the writing direction from the object's context.
+        
+        **since**
+        
+            LibreOffice 6.3
+        """
+        LR_TB = WritingMode2.LR_TB
+        """
+        text within lines is written left-to-right.
+        
+        Lines and blocks are placed top-to-bottom.
+        
+        Typically, this is the writing mode for normal \"alphabetic\" text.
+        """
+        RL_TB = WritingMode2.RL_TB
+        """
+        text within a line are written right-to-left.
+        
+        Lines and blocks are placed top-to-bottom.
+        
+        Typically, this writing mode is used in Arabic and Hebrew text.
+        """
+        TB_RL = WritingMode2.TB_RL
+        """
+        text within a line is written top-to-bottom.
+        
+        Lines and blocks are placed right-to-left.
+        
+        Typically, this writing mode is used in Chinese and Japanese text.
+        """
+        TB_LR = WritingMode2.TB_LR
+        """
+        text within a line is written top-to-bottom.
+        
+        Lines and blocks are placed left-to-right.
+        
+        Typically, this writing mode is used in Mongolian text.
+        """
+        PAGE = WritingMode2.PAGE
+        """
+        obtain writing mode from the current page.
+        
+        May not be used in page styles.
+        """
+        CONTEXT = WritingMode2.CONTEXT
+        """
+        obtain actual writing mode from the context of the object.
+        """
+        BT_LR = WritingMode2.BT_LR
+        """
+        text within a line is written bottom-to-top.
+        
+        Lines and blocks are placed left-to-right.
+        
+        **since**
+        
+            LibreOffice 6.3
+        """
 
 __all__ = ['WritingMode2', 'WritingMode2Enum']

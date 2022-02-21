@@ -27,30 +27,41 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart import ChartAxisType as ChartAxisType
+    if hasattr(ChartAxisType, '_constants') and isinstance(ChartAxisType._constants, dict):
+        ChartAxisType._constants['__ooo_ns__'] = 'com.sun.star.chart'
+        ChartAxisType._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartAxisType'
+        ChartAxisType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChartAxisTypeEnum
+        ls = [f for f in dir(ChartAxisType) if not callable(getattr(ChartAxisType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChartAxisType, name)
+        ChartAxisTypeEnum = IntEnum('ChartAxisTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart.chart_axis_type import ChartAxisType as ChartAxisType
 
+    class ChartAxisTypeEnum(IntEnum):
+        """
+        Enum of Const Class ChartAxisType
 
-class ChartAxisTypeEnum(IntEnum):
-    """
-    Enum of Const Class ChartAxisType
-
-    
-    **since**
-    
-        OOo 3.4
-    """
-    AUTOMATIC = ChartAxisType.AUTOMATIC
-    """
-    the type of the axis is chosen automatically dependent on the chart type, the dimension and the underlying data
-    """
-    CATEGORY = ChartAxisType.CATEGORY
-    """
-    the axis represent discrete category texts if chart type and the dimension allows
-    """
-    DATE = ChartAxisType.DATE
-    """
-    the axis shows dates if the given data and chart type and the dimension allows
-    """
+        
+        **since**
+        
+            OOo 3.4
+        """
+        AUTOMATIC = ChartAxisType.AUTOMATIC
+        """
+        the type of the axis is chosen automatically dependent on the chart type, the dimension and the underlying data
+        """
+        CATEGORY = ChartAxisType.CATEGORY
+        """
+        the axis represent discrete category texts if chart type and the dimension allows
+        """
+        DATE = ChartAxisType.DATE
+        """
+        the axis shows dates if the given data and chart type and the dimension allows
+        """
 
 __all__ = ['ChartAxisType', 'ChartAxisTypeEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import ImageAlign as ImageAlign
+    if hasattr(ImageAlign, '_constants') and isinstance(ImageAlign._constants, dict):
+        ImageAlign._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        ImageAlign._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ImageAlign'
+        ImageAlign._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ImageAlignEnum
+        ls = [f for f in dir(ImageAlign) if not callable(getattr(ImageAlign, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ImageAlign, name)
+        ImageAlignEnum = IntEnum('ImageAlignEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.image_align import ImageAlign as ImageAlign
 
+    class ImageAlignEnum(IntEnum):
+        """
+        Enum of Const Class ImageAlign
 
-class ImageAlignEnum(IntEnum):
-    """
-    Enum of Const Class ImageAlign
-
-    specifies the alignment of an image.
-    """
-    LEFT = ImageAlign.LEFT
-    """
-    specifies to align left.
-    """
-    TOP = ImageAlign.TOP
-    """
-    specifies to align top.
-    """
-    RIGHT = ImageAlign.RIGHT
-    """
-    specifies to align right.
-    """
-    BOTTOM = ImageAlign.BOTTOM
-    """
-    specifies to align bottom.
-    """
+        specifies the alignment of an image.
+        """
+        LEFT = ImageAlign.LEFT
+        """
+        specifies to align left.
+        """
+        TOP = ImageAlign.TOP
+        """
+        specifies to align top.
+        """
+        RIGHT = ImageAlign.RIGHT
+        """
+        specifies to align right.
+        """
+        BOTTOM = ImageAlign.BOTTOM
+        """
+        specifies to align bottom.
+        """
 
 __all__ = ['ImageAlign', 'ImageAlignEnum']

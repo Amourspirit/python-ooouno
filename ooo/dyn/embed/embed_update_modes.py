@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.embed import EmbedUpdateModes as EmbedUpdateModes
+    if hasattr(EmbedUpdateModes, '_constants') and isinstance(EmbedUpdateModes._constants, dict):
+        EmbedUpdateModes._constants['__ooo_ns__'] = 'com.sun.star.embed'
+        EmbedUpdateModes._constants['__ooo_full_ns__'] = 'com.sun.star.embed.EmbedUpdateModes'
+        EmbedUpdateModes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EmbedUpdateModesEnum
+        ls = [f for f in dir(EmbedUpdateModes) if not callable(getattr(EmbedUpdateModes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EmbedUpdateModes, name)
+        EmbedUpdateModesEnum = IntEnum('EmbedUpdateModesEnum', _dict)
+    build_enum()
 else:
     from ...lo.embed.embed_update_modes import EmbedUpdateModes as EmbedUpdateModes
 
+    class EmbedUpdateModesEnum(IntEnum):
+        """
+        Enum of Const Class EmbedUpdateModes
 
-class EmbedUpdateModesEnum(IntEnum):
-    """
-    Enum of Const Class EmbedUpdateModes
-
-    The constant set specifies possible modes of object update.
-    """
-    ALWAYS_UPDATE = EmbedUpdateModes.ALWAYS_UPDATE
-    """
-    An object representation should be updated as often as possible.
-    
-    Any time object detects that it is changed the representation of the object is updated.
-    """
-    EXPLICIT_UPDATE = EmbedUpdateModes.EXPLICIT_UPDATE
-    """
-    An object representation should be updated only in case of request.
-    
-    The representation of the object is updated only by explicit request.
-    """
+        The constant set specifies possible modes of object update.
+        """
+        ALWAYS_UPDATE = EmbedUpdateModes.ALWAYS_UPDATE
+        """
+        An object representation should be updated as often as possible.
+        
+        Any time object detects that it is changed the representation of the object is updated.
+        """
+        EXPLICIT_UPDATE = EmbedUpdateModes.EXPLICIT_UPDATE
+        """
+        An object representation should be updated only in case of request.
+        
+        The representation of the object is updated only by explicit request.
+        """
 
 __all__ = ['EmbedUpdateModes', 'EmbedUpdateModesEnum']

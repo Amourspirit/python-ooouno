@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ColumnValue as ColumnValue
+    if hasattr(ColumnValue, '_constants') and isinstance(ColumnValue._constants, dict):
+        ColumnValue._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ColumnValue._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ColumnValue'
+        ColumnValue._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColumnValueEnum
+        ls = [f for f in dir(ColumnValue) if not callable(getattr(ColumnValue, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColumnValue, name)
+        ColumnValueEnum = IntEnum('ColumnValueEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.column_value import ColumnValue as ColumnValue
 
+    class ColumnValueEnum(IntEnum):
+        """
+        Enum of Const Class ColumnValue
 
-class ColumnValueEnum(IntEnum):
-    """
-    Enum of Const Class ColumnValue
-
-    determines whether a column allows SQL NULL values or not.
-    """
-    NO_NULLS = ColumnValue.NO_NULLS
-    """
-    indicates that a column does not allow NULL values.
-    """
-    NULLABLE = ColumnValue.NULLABLE
-    """
-    indicates that a column does allow NULL values.
-    """
-    NULLABLE_UNKNOWN = ColumnValue.NULLABLE_UNKNOWN
-    """
-    indicates that the nullability of the column is unknown.
-    """
+        determines whether a column allows SQL NULL values or not.
+        """
+        NO_NULLS = ColumnValue.NO_NULLS
+        """
+        indicates that a column does not allow NULL values.
+        """
+        NULLABLE = ColumnValue.NULLABLE
+        """
+        indicates that a column does allow NULL values.
+        """
+        NULLABLE_UNKNOWN = ColumnValue.NULLABLE_UNKNOWN
+        """
+        indicates that the nullability of the column is unknown.
+        """
 
 __all__ = ['ColumnValue', 'ColumnValueEnum']

@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import ParagraphVertAlign as ParagraphVertAlign
+    if hasattr(ParagraphVertAlign, '_constants') and isinstance(ParagraphVertAlign._constants, dict):
+        ParagraphVertAlign._constants['__ooo_ns__'] = 'com.sun.star.text'
+        ParagraphVertAlign._constants['__ooo_full_ns__'] = 'com.sun.star.text.ParagraphVertAlign'
+        ParagraphVertAlign._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ParagraphVertAlignEnum
+        ls = [f for f in dir(ParagraphVertAlign) if not callable(getattr(ParagraphVertAlign, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ParagraphVertAlign, name)
+        ParagraphVertAlignEnum = IntEnum('ParagraphVertAlignEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.paragraph_vert_align import ParagraphVertAlign as ParagraphVertAlign
 
+    class ParagraphVertAlignEnum(IntEnum):
+        """
+        Enum of Const Class ParagraphVertAlign
 
-class ParagraphVertAlignEnum(IntEnum):
-    """
-    Enum of Const Class ParagraphVertAlign
-
-    These enumeration values are used to specify the vertical alignment of paragraphs.
-    """
-    AUTOMATIC = ParagraphVertAlign.AUTOMATIC
-    """
-    In automatic mode, horizontal text is aligned to the baseline.
-    
-    The same applies to text that is rotated 90°. Text that is rotated 270 ° is aligned to the center.
-    """
-    BASELINE = ParagraphVertAlign.BASELINE
-    """
-    The text is aligned to the baseline.
-    """
-    TOP = ParagraphVertAlign.TOP
-    """
-    The text is aligned to the top.
-    """
-    CENTER = ParagraphVertAlign.CENTER
-    """
-    The text is aligned to the center.
-    """
-    BOTTOM = ParagraphVertAlign.BOTTOM
-    """
-    The text is aligned to bottom.
-    """
+        These enumeration values are used to specify the vertical alignment of paragraphs.
+        """
+        AUTOMATIC = ParagraphVertAlign.AUTOMATIC
+        """
+        In automatic mode, horizontal text is aligned to the baseline.
+        
+        The same applies to text that is rotated 90°. Text that is rotated 270 ° is aligned to the center.
+        """
+        BASELINE = ParagraphVertAlign.BASELINE
+        """
+        The text is aligned to the baseline.
+        """
+        TOP = ParagraphVertAlign.TOP
+        """
+        The text is aligned to the top.
+        """
+        CENTER = ParagraphVertAlign.CENTER
+        """
+        The text is aligned to the center.
+        """
+        BOTTOM = ParagraphVertAlign.BOTTOM
+        """
+        The text is aligned to bottom.
+        """
 
 __all__ = ['ParagraphVertAlign', 'ParagraphVertAlignEnum']

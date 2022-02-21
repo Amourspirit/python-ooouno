@@ -27,107 +27,118 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.inspection import PropertyControlType as PropertyControlType
+    if hasattr(PropertyControlType, '_constants') and isinstance(PropertyControlType._constants, dict):
+        PropertyControlType._constants['__ooo_ns__'] = 'com.sun.star.inspection'
+        PropertyControlType._constants['__ooo_full_ns__'] = 'com.sun.star.inspection.PropertyControlType'
+        PropertyControlType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PropertyControlTypeEnum
+        ls = [f for f in dir(PropertyControlType) if not callable(getattr(PropertyControlType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PropertyControlType, name)
+        PropertyControlTypeEnum = IntEnum('PropertyControlTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.inspection.property_control_type import PropertyControlType as PropertyControlType
 
+    class PropertyControlTypeEnum(IntEnum):
+        """
+        Enum of Const Class PropertyControlType
 
-class PropertyControlTypeEnum(IntEnum):
-    """
-    Enum of Const Class PropertyControlType
-
-    describes pre-defined possible control types to be used to display and enter property values within an ObjectInspector.
-    
-    The type of a control determines its visual appearance, its behavior, and - important for property handlers using a control - the expected type when reading and writing the control's value.
-    
-    **since**
-    
-        OOo 2.0.3
-    """
-    ListBox = PropertyControlType.ListBox
-    """
-    denotes a control which allows the user to choose from a list of possible property values
-    
-    Controls of type ListBox exchange their values as string.
-    
-    Additionally, those controls support the XStringListControl interface.
-    """
-    ComboBox = PropertyControlType.ComboBox
-    """
-    denotes a control which allows the user to choose from a list of possible property values, combined with the possibility to enter a new property value.
-    
-    Controls of type ComboBox exchange their values as string.
-    
-    Additionally, those controls support the XStringListControl interface.
-    """
-    TextField = PropertyControlType.TextField
-    """
-    denotes a control which allows the user to enter property values consisting of a single line of text
-    
-    Controls of type TextField exchange their values as string.
-    """
-    MultiLineTextField = PropertyControlType.MultiLineTextField
-    """
-    denotes a control which allows the user to enter pure text, including line breaks
-    
-    Controls of type MultiLineTextField exchange their values as string.
-    """
-    CharacterField = PropertyControlType.CharacterField
-    """
-    denotes a control which allows the user to enter a single character
-    
-    Controls of type CharacterField exchange their values as short, being a single UTF-16 character.
-    """
-    StringListField = PropertyControlType.StringListField
-    """
-    denotes a control which allows the user to enter a list of single-line strings
-    
-    Controls of type StringListField exchange their values as sequence< string >.
-    """
-    ColorListBox = PropertyControlType.ColorListBox
-    """
-    denotes a control which allows the user to choose from a list of colors.
-    
-    Controls of type ColorListBox usually exchange their values as com.sun.star.util.Color.
-    
-    Additionally, those controls support the XStringListControl interface. If you use this interface to add additional entries to the list box, which have no color associated with it, then you can also exchange values as string. That is, if you write a string into XPropertyControl.Value, and if this string has previously been added to the list using the XStringListControl interface, this string is selected. Vice versa, if the user selects one of those non-color strings in the list, then reading XPropertyControl.Value will retrieve you this string.
-    """
-    NumericField = PropertyControlType.NumericField
-    """
-    denotes a control which allows the user to enter a numerical value
-    
-    Controls of type NumericField exchange their values as double.
-    
-    Additionally, those controls support the XNumericControl interface.
-    """
-    DateField = PropertyControlType.DateField
-    """
-    denotes a control which allows the user to enter a date value
-    
-    Controls of type DateField exchange their values as com.sun.star.util.Date.
-    """
-    TimeField = PropertyControlType.TimeField
-    """
-    denotes a control which allows the user to enter a time value
-    
-    Controls of type TimeField exchange their values as com.sun.star.util.Time.
-    """
-    DateTimeField = PropertyControlType.DateTimeField
-    """
-    denotes a control which allows the user to enter a combined date/time value
-    
-    Controls of type DateTimeField exchange their values as com.sun.star.util.DateTime.
-    """
-    HyperlinkField = PropertyControlType.HyperlinkField
-    """
-    denotes a control which displays a string in a hyperlink-like appearance
-    
-    Controls of type HyperlinkField exchange their values as string.
-    
-    Additionally, those controls support the XHyperlinkControl interface.
-    """
-    Unknown = PropertyControlType.Unknown
-    """
-    denotes a non-standard property control, which is usually provided by an XPropertyHandler
-    """
+        describes pre-defined possible control types to be used to display and enter property values within an ObjectInspector.
+        
+        The type of a control determines its visual appearance, its behavior, and - important for property handlers using a control - the expected type when reading and writing the control's value.
+        
+        **since**
+        
+            OOo 2.0.3
+        """
+        ListBox = PropertyControlType.ListBox
+        """
+        denotes a control which allows the user to choose from a list of possible property values
+        
+        Controls of type ListBox exchange their values as string.
+        
+        Additionally, those controls support the XStringListControl interface.
+        """
+        ComboBox = PropertyControlType.ComboBox
+        """
+        denotes a control which allows the user to choose from a list of possible property values, combined with the possibility to enter a new property value.
+        
+        Controls of type ComboBox exchange their values as string.
+        
+        Additionally, those controls support the XStringListControl interface.
+        """
+        TextField = PropertyControlType.TextField
+        """
+        denotes a control which allows the user to enter property values consisting of a single line of text
+        
+        Controls of type TextField exchange their values as string.
+        """
+        MultiLineTextField = PropertyControlType.MultiLineTextField
+        """
+        denotes a control which allows the user to enter pure text, including line breaks
+        
+        Controls of type MultiLineTextField exchange their values as string.
+        """
+        CharacterField = PropertyControlType.CharacterField
+        """
+        denotes a control which allows the user to enter a single character
+        
+        Controls of type CharacterField exchange their values as short, being a single UTF-16 character.
+        """
+        StringListField = PropertyControlType.StringListField
+        """
+        denotes a control which allows the user to enter a list of single-line strings
+        
+        Controls of type StringListField exchange their values as sequence< string >.
+        """
+        ColorListBox = PropertyControlType.ColorListBox
+        """
+        denotes a control which allows the user to choose from a list of colors.
+        
+        Controls of type ColorListBox usually exchange their values as com.sun.star.util.Color.
+        
+        Additionally, those controls support the XStringListControl interface. If you use this interface to add additional entries to the list box, which have no color associated with it, then you can also exchange values as string. That is, if you write a string into XPropertyControl.Value, and if this string has previously been added to the list using the XStringListControl interface, this string is selected. Vice versa, if the user selects one of those non-color strings in the list, then reading XPropertyControl.Value will retrieve you this string.
+        """
+        NumericField = PropertyControlType.NumericField
+        """
+        denotes a control which allows the user to enter a numerical value
+        
+        Controls of type NumericField exchange their values as double.
+        
+        Additionally, those controls support the XNumericControl interface.
+        """
+        DateField = PropertyControlType.DateField
+        """
+        denotes a control which allows the user to enter a date value
+        
+        Controls of type DateField exchange their values as com.sun.star.util.Date.
+        """
+        TimeField = PropertyControlType.TimeField
+        """
+        denotes a control which allows the user to enter a time value
+        
+        Controls of type TimeField exchange their values as com.sun.star.util.Time.
+        """
+        DateTimeField = PropertyControlType.DateTimeField
+        """
+        denotes a control which allows the user to enter a combined date/time value
+        
+        Controls of type DateTimeField exchange their values as com.sun.star.util.DateTime.
+        """
+        HyperlinkField = PropertyControlType.HyperlinkField
+        """
+        denotes a control which displays a string in a hyperlink-like appearance
+        
+        Controls of type HyperlinkField exchange their values as string.
+        
+        Additionally, those controls support the XHyperlinkControl interface.
+        """
+        Unknown = PropertyControlType.Unknown
+        """
+        denotes a non-standard property control, which is usually provided by an XPropertyHandler
+        """
 
 __all__ = ['PropertyControlType', 'PropertyControlTypeEnum']

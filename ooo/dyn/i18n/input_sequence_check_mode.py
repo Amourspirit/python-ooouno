@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import InputSequenceCheckMode as InputSequenceCheckMode
+    if hasattr(InputSequenceCheckMode, '_constants') and isinstance(InputSequenceCheckMode._constants, dict):
+        InputSequenceCheckMode._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        InputSequenceCheckMode._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.InputSequenceCheckMode'
+        InputSequenceCheckMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global InputSequenceCheckModeEnum
+        ls = [f for f in dir(InputSequenceCheckMode) if not callable(getattr(InputSequenceCheckMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(InputSequenceCheckMode, name)
+        InputSequenceCheckModeEnum = IntEnum('InputSequenceCheckModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.input_sequence_check_mode import InputSequenceCheckMode as InputSequenceCheckMode
 
+    class InputSequenceCheckModeEnum(IntEnum):
+        """
+        Enum of Const Class InputSequenceCheckMode
 
-class InputSequenceCheckModeEnum(IntEnum):
-    """
-    Enum of Const Class InputSequenceCheckMode
-
-    Input check mode constants to use with XInputSequenceChecker.checkInputSequence()
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    PASSTHROUGH = InputSequenceCheckMode.PASSTHROUGH
-    """
-    Pass through mode (no checking)
-    """
-    BASIC = InputSequenceCheckMode.BASIC
-    """
-    Basic checking mode.
-    """
-    STRICT = InputSequenceCheckMode.STRICT
-    """
-    Strict checking mode.
-    """
+        Input check mode constants to use with XInputSequenceChecker.checkInputSequence()
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        PASSTHROUGH = InputSequenceCheckMode.PASSTHROUGH
+        """
+        Pass through mode (no checking)
+        """
+        BASIC = InputSequenceCheckMode.BASIC
+        """
+        Basic checking mode.
+        """
+        STRICT = InputSequenceCheckMode.STRICT
+        """
+        Strict checking mode.
+        """
 
 __all__ = ['InputSequenceCheckMode', 'InputSequenceCheckModeEnum']

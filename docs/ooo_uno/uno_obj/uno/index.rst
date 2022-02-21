@@ -1,9 +1,0 @@
-===
-uno
-===
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    *

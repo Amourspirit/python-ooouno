@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ExternalLinkType as ExternalLinkType
+    if hasattr(ExternalLinkType, '_constants') and isinstance(ExternalLinkType._constants, dict):
+        ExternalLinkType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ExternalLinkType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ExternalLinkType'
+        ExternalLinkType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ExternalLinkTypeEnum
+        ls = [f for f in dir(ExternalLinkType) if not callable(getattr(ExternalLinkType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ExternalLinkType, name)
+        ExternalLinkTypeEnum = IntEnum('ExternalLinkTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.external_link_type import ExternalLinkType as ExternalLinkType
 
+    class ExternalLinkTypeEnum(IntEnum):
+        """
+        Enum of Const Class ExternalLinkType
 
-class ExternalLinkTypeEnum(IntEnum):
-    """
-    Enum of Const Class ExternalLinkType
-
-    Constants designating the link type in ExternalLinkInfo, used with FormulaParser.ExternalLinks.
-    
-    **since**
-    
-        OOo 3.1
-    """
-    UNKNOWN = ExternalLinkType.UNKNOWN
-    """
-    Unknown element type.
-    """
-    DOCUMENT = ExternalLinkType.DOCUMENT
-    """
-    URL of an external document.
-    """
-    DDE = ExternalLinkType.DDE
-    """
-    DDE link.
-    """
-    SELF = ExternalLinkType.SELF
-    """
-    Reference to the own document.
-    """
-    SPECIAL = ExternalLinkType.SPECIAL
-    """
-    For special use cases.
-    
-    Behaviour is dependent on the implementation of the formula parser.
-    """
+        Constants designating the link type in ExternalLinkInfo, used with FormulaParser.ExternalLinks.
+        
+        **since**
+        
+            OOo 3.1
+        """
+        UNKNOWN = ExternalLinkType.UNKNOWN
+        """
+        Unknown element type.
+        """
+        DOCUMENT = ExternalLinkType.DOCUMENT
+        """
+        URL of an external document.
+        """
+        DDE = ExternalLinkType.DDE
+        """
+        DDE link.
+        """
+        SELF = ExternalLinkType.SELF
+        """
+        Reference to the own document.
+        """
+        SPECIAL = ExternalLinkType.SPECIAL
+        """
+        For special use cases.
+        
+        Behaviour is dependent on the implementation of the formula parser.
+        """
 
 __all__ = ['ExternalLinkType', 'ExternalLinkTypeEnum']

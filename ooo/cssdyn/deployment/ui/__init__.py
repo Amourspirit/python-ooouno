@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.deployment.ui.license_dialog import LicenseDialog as LicenseDialog
-from ....dyn.deployment.ui.package_manager_dialog import PackageManagerDialog as PackageManagerDialog
-from ....dyn.deployment.ui.update_required_dialog import UpdateRequiredDialog as UpdateRequiredDialog
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.deployment.ui.license_dialog import LicenseDialog as LicenseDialog
+except ImportError:
+    pass
+try:
+    from ....dyn.deployment.ui.package_manager_dialog import PackageManagerDialog as PackageManagerDialog
+except ImportError:
+    pass
+try:
+    from ....dyn.deployment.ui.update_required_dialog import UpdateRequiredDialog as UpdateRequiredDialog
+except ImportError:
+    pass

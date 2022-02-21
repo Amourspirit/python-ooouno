@@ -27,51 +27,62 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import DateDisplayFormat as DateDisplayFormat
+    if hasattr(DateDisplayFormat, '_constants') and isinstance(DateDisplayFormat._constants, dict):
+        DateDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        DateDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.DateDisplayFormat'
+        DateDisplayFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DateDisplayFormatEnum
+        ls = [f for f in dir(DateDisplayFormat) if not callable(getattr(DateDisplayFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DateDisplayFormat, name)
+        DateDisplayFormatEnum = IntEnum('DateDisplayFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.date_display_format import DateDisplayFormat as DateDisplayFormat
 
+    class DateDisplayFormatEnum(IntEnum):
+        """
+        Enum of Const Class DateDisplayFormat
 
-class DateDisplayFormatEnum(IntEnum):
-    """
-    Enum of Const Class DateDisplayFormat
-
-    This constants define how a date field is formatted before it is displayed.
-    
-    The format may also depend on the system or document locale. The samples are in German.
-    
-    .. deprecated::
-    
-        Class is deprecated.
-    """
-    STANDARD_SHORT = DateDisplayFormat.STANDARD_SHORT
-    """
-    the shortest system standard
-    """
-    STANDARD_LONG = DateDisplayFormat.STANDARD_LONG
-    """
-    the longest system standard
-    """
-    MMDDYY = DateDisplayFormat.MMDDYY
-    """
-    22.11.73
-    """
-    MMDDYYYY = DateDisplayFormat.MMDDYYYY
-    """
-    22.11.1973
-    """
-    DDMMMYYYY = DateDisplayFormat.DDMMMYYYY
-    DDMMMMYYYY = DateDisplayFormat.DDMMMMYYYY
-    NNDDMMMMYYYY = DateDisplayFormat.NNDDMMMMYYYY
-    """
-    Do, 22.
-    
-    November 1973
-    """
-    NNNNDDMMMMYYYY = DateDisplayFormat.NNNNDDMMMMYYYY
-    """
-    Donnerstag, 22.
-    
-    November 1973
-    """
+        This constants define how a date field is formatted before it is displayed.
+        
+        The format may also depend on the system or document locale. The samples are in German.
+        
+        .. deprecated::
+        
+            Class is deprecated.
+        """
+        STANDARD_SHORT = DateDisplayFormat.STANDARD_SHORT
+        """
+        the shortest system standard
+        """
+        STANDARD_LONG = DateDisplayFormat.STANDARD_LONG
+        """
+        the longest system standard
+        """
+        MMDDYY = DateDisplayFormat.MMDDYY
+        """
+        22.11.73
+        """
+        MMDDYYYY = DateDisplayFormat.MMDDYYYY
+        """
+        22.11.1973
+        """
+        DDMMMYYYY = DateDisplayFormat.DDMMMYYYY
+        DDMMMMYYYY = DateDisplayFormat.DDMMMMYYYY
+        NNDDMMMMYYYY = DateDisplayFormat.NNDDMMMMYYYY
+        """
+        Do, 22.
+        
+        November 1973
+        """
+        NNNNDDMMMMYYYY = DateDisplayFormat.NNNNDDMMMMYYYY
+        """
+        Donnerstag, 22.
+        
+        November 1973
+        """
 
 __all__ = ['DateDisplayFormat', 'DateDisplayFormatEnum']

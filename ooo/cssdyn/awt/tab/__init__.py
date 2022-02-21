@@ -14,13 +14,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.awt.tab.tab_page_activated_event import TabPageActivatedEvent as TabPageActivatedEvent
-from ....dyn.awt.tab.uno_control_tab_page import UnoControlTabPage as UnoControlTabPage
-from ....dyn.awt.tab.uno_control_tab_page_container import UnoControlTabPageContainer as UnoControlTabPageContainer
-from ....dyn.awt.tab.uno_control_tab_page_container_model import UnoControlTabPageContainerModel as UnoControlTabPageContainerModel
-from ....dyn.awt.tab.uno_control_tab_page_model import UnoControlTabPageModel as UnoControlTabPageModel
-from ....dyn.awt.tab.x_tab_page import XTabPage as XTabPage
-from ....dyn.awt.tab.x_tab_page_container import XTabPageContainer as XTabPageContainer
-from ....dyn.awt.tab.x_tab_page_container_listener import XTabPageContainerListener as XTabPageContainerListener
-from ....dyn.awt.tab.x_tab_page_container_model import XTabPageContainerModel as XTabPageContainerModel
-from ....dyn.awt.tab.x_tab_page_model import XTabPageModel as XTabPageModel
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.awt.tab.tab_page_activated_event import TabPageActivatedEvent as TabPageActivatedEvent
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.uno_control_tab_page import UnoControlTabPage as UnoControlTabPage
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.uno_control_tab_page_container import UnoControlTabPageContainer as UnoControlTabPageContainer
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.uno_control_tab_page_container_model import UnoControlTabPageContainerModel as UnoControlTabPageContainerModel
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.uno_control_tab_page_model import UnoControlTabPageModel as UnoControlTabPageModel
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.x_tab_page import XTabPage as XTabPage
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.x_tab_page_container import XTabPageContainer as XTabPageContainer
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.x_tab_page_container_listener import XTabPageContainerListener as XTabPageContainerListener
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.x_tab_page_container_model import XTabPageContainerModel as XTabPageContainerModel
+except ImportError:
+    pass
+try:
+    from ....dyn.awt.tab.x_tab_page_model import XTabPageModel as XTabPageModel
+except ImportError:
+    pass

@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import InfobarType as InfobarType
+    if hasattr(InfobarType, '_constants') and isinstance(InfobarType._constants, dict):
+        InfobarType._constants['__ooo_ns__'] = 'com.sun.star.frame'
+        InfobarType._constants['__ooo_full_ns__'] = 'com.sun.star.frame.InfobarType'
+        InfobarType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global InfobarTypeEnum
+        ls = [f for f in dir(InfobarType) if not callable(getattr(InfobarType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(InfobarType, name)
+        InfobarTypeEnum = IntEnum('InfobarTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.frame.infobar_type import InfobarType as InfobarType
 
+    class InfobarTypeEnum(IntEnum):
+        """
+        Enum of Const Class InfobarType
 
-class InfobarTypeEnum(IntEnum):
-    """
-    Enum of Const Class InfobarType
-
-    Infobar types.
-    
-    **since**
-    
-        LibreOffice 6.4
-    """
-    INFO = InfobarType.INFO
-    """
-    For information messages (color: light blue).
-    """
-    SUCCESS = InfobarType.SUCCESS
-    """
-    For success notifications (color: light green).
-    """
-    WARNING = InfobarType.WARNING
-    """
-    For warning messages (color: orange).
-    """
-    DANGER = InfobarType.DANGER
-    """
-    For critical errors (color: red).
-    """
+        Infobar types.
+        
+        **since**
+        
+            LibreOffice 6.4
+        """
+        INFO = InfobarType.INFO
+        """
+        For information messages (color: light blue).
+        """
+        SUCCESS = InfobarType.SUCCESS
+        """
+        For success notifications (color: light green).
+        """
+        WARNING = InfobarType.WARNING
+        """
+        For warning messages (color: orange).
+        """
+        DANGER = InfobarType.DANGER
+        """
+        For critical errors (color: red).
+        """
 
 __all__ = ['InfobarType', 'InfobarTypeEnum']

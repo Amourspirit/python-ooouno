@@ -14,26 +14,97 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.form.binding.bindable_control_model import BindableControlModel as BindableControlModel
-from ....dyn.form.binding.bindable_data_aware_control_model import BindableDataAwareControlModel as BindableDataAwareControlModel
-from ....dyn.form.binding.bindable_database_check_box import BindableDatabaseCheckBox as BindableDatabaseCheckBox
-from ....dyn.form.binding.bindable_database_combo_box import BindableDatabaseComboBox as BindableDatabaseComboBox
-from ....dyn.form.binding.bindable_database_date_field import BindableDatabaseDateField as BindableDatabaseDateField
-from ....dyn.form.binding.bindable_database_formatted_field import BindableDatabaseFormattedField as BindableDatabaseFormattedField
-from ....dyn.form.binding.bindable_database_list_box import BindableDatabaseListBox as BindableDatabaseListBox
-from ....dyn.form.binding.bindable_database_numeric_field import BindableDatabaseNumericField as BindableDatabaseNumericField
-from ....dyn.form.binding.bindable_database_radio_button import BindableDatabaseRadioButton as BindableDatabaseRadioButton
-from ....dyn.form.binding.bindable_database_text_field import BindableDatabaseTextField as BindableDatabaseTextField
-from ....dyn.form.binding.bindable_database_time_field import BindableDatabaseTimeField as BindableDatabaseTimeField
-from ....dyn.form.binding.bindable_integer_value_range import BindableIntegerValueRange as BindableIntegerValueRange
-from ....dyn.form.binding.incompatible_types_exception import IncompatibleTypesException as IncompatibleTypesException
-from ....dyn.form.binding.invalid_binding_state_exception import InvalidBindingStateException as InvalidBindingStateException
-from ....dyn.form.binding.list_entry_event import ListEntryEvent as ListEntryEvent
-from ....dyn.form.binding.list_entry_source import ListEntrySource as ListEntrySource
-from ....dyn.form.binding.value_binding import ValueBinding as ValueBinding
-from ....dyn.form.binding.x_bindable_value import XBindableValue as XBindableValue
-from ....dyn.form.binding.x_list_entry_listener import XListEntryListener as XListEntryListener
-from ....dyn.form.binding.x_list_entry_sink import XListEntrySink as XListEntrySink
-from ....dyn.form.binding.x_list_entry_source import XListEntrySource as XListEntrySource
-from ....dyn.form.binding.x_list_entry_typed_source import XListEntryTypedSource as XListEntryTypedSource
-from ....dyn.form.binding.x_value_binding import XValueBinding as XValueBinding
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.form.binding.bindable_control_model import BindableControlModel as BindableControlModel
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_data_aware_control_model import BindableDataAwareControlModel as BindableDataAwareControlModel
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_check_box import BindableDatabaseCheckBox as BindableDatabaseCheckBox
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_combo_box import BindableDatabaseComboBox as BindableDatabaseComboBox
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_date_field import BindableDatabaseDateField as BindableDatabaseDateField
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_formatted_field import BindableDatabaseFormattedField as BindableDatabaseFormattedField
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_list_box import BindableDatabaseListBox as BindableDatabaseListBox
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_numeric_field import BindableDatabaseNumericField as BindableDatabaseNumericField
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_radio_button import BindableDatabaseRadioButton as BindableDatabaseRadioButton
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_text_field import BindableDatabaseTextField as BindableDatabaseTextField
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_database_time_field import BindableDatabaseTimeField as BindableDatabaseTimeField
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.bindable_integer_value_range import BindableIntegerValueRange as BindableIntegerValueRange
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.incompatible_types_exception import IncompatibleTypesException as IncompatibleTypesException
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.invalid_binding_state_exception import InvalidBindingStateException as InvalidBindingStateException
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.list_entry_event import ListEntryEvent as ListEntryEvent
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.list_entry_source import ListEntrySource as ListEntrySource
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.value_binding import ValueBinding as ValueBinding
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_bindable_value import XBindableValue as XBindableValue
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_list_entry_listener import XListEntryListener as XListEntryListener
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_list_entry_sink import XListEntrySink as XListEntrySink
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_list_entry_source import XListEntrySource as XListEntrySource
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_list_entry_typed_source import XListEntryTypedSource as XListEntryTypedSource
+except ImportError:
+    pass
+try:
+    from ....dyn.form.binding.x_value_binding import XValueBinding as XValueBinding
+except ImportError:
+    pass

@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationRestart as AnimationRestart
+    if hasattr(AnimationRestart, '_constants') and isinstance(AnimationRestart._constants, dict):
+        AnimationRestart._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationRestart._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationRestart'
+        AnimationRestart._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationRestartEnum
+        ls = [f for f in dir(AnimationRestart) if not callable(getattr(AnimationRestart, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationRestart, name)
+        AnimationRestartEnum = IntEnum('AnimationRestartEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_restart import AnimationRestart as AnimationRestart
 
+    class AnimationRestartEnum(IntEnum):
+        """
+        Enum of Const Class AnimationRestart
 
-class AnimationRestartEnum(IntEnum):
-    """
-    Enum of Const Class AnimationRestart
-
-    defines the restart behavior
-    """
-    DEFAULT = AnimationRestart.DEFAULT
-    """
-    The restart behavior for the element is determined by the value of the XTiming.RestartDefault attribute.
-    
-    This is the default value for the XTiming.Restart attribute.
-    """
-    INHERIT = AnimationRestart.INHERIT
-    """
-    Specifies that the value of this attribute (and of the restart behavior) are inherited from the XTiming.RestartDefault value of the parent element.
-    
-    If there is no parent element, the value is AnimationRestart.ALWAYS. This is the default value for the XTiming.RestartDefault attribute.
-    """
-    ALWAYS = AnimationRestart.ALWAYS
-    """
-    The element can be restarted at any time.
-    """
-    WHEN_NOT_ACTIVE = AnimationRestart.WHEN_NOT_ACTIVE
-    """
-    The element can only be restarted when it is not active (i.e.
-    
-    it can be restarted after the active end). Attempts to restart the element during its active duration are ignored.
-    """
-    NEVER = AnimationRestart.NEVER
-    """
-    The element cannot be restarted for the remainder of the current simple duration of the parent time container.
-    """
+        defines the restart behavior
+        """
+        DEFAULT = AnimationRestart.DEFAULT
+        """
+        The restart behavior for the element is determined by the value of the XTiming.RestartDefault attribute.
+        
+        This is the default value for the XTiming.Restart attribute.
+        """
+        INHERIT = AnimationRestart.INHERIT
+        """
+        Specifies that the value of this attribute (and of the restart behavior) are inherited from the XTiming.RestartDefault value of the parent element.
+        
+        If there is no parent element, the value is AnimationRestart.ALWAYS. This is the default value for the XTiming.RestartDefault attribute.
+        """
+        ALWAYS = AnimationRestart.ALWAYS
+        """
+        The element can be restarted at any time.
+        """
+        WHEN_NOT_ACTIVE = AnimationRestart.WHEN_NOT_ACTIVE
+        """
+        The element can only be restarted when it is not active (i.e.
+        
+        it can be restarted after the active end). Attempts to restart the element during its active duration are ignored.
+        """
+        NEVER = AnimationRestart.NEVER
+        """
+        The element cannot be restarted for the remainder of the current simple duration of the parent time container.
+        """
 
 __all__ = ['AnimationRestart', 'AnimationRestartEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import RedlineDisplayType as RedlineDisplayType
+    if hasattr(RedlineDisplayType, '_constants') and isinstance(RedlineDisplayType._constants, dict):
+        RedlineDisplayType._constants['__ooo_ns__'] = 'com.sun.star.document'
+        RedlineDisplayType._constants['__ooo_full_ns__'] = 'com.sun.star.document.RedlineDisplayType'
+        RedlineDisplayType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RedlineDisplayTypeEnum
+        ls = [f for f in dir(RedlineDisplayType) if not callable(getattr(RedlineDisplayType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RedlineDisplayType, name)
+        RedlineDisplayTypeEnum = IntEnum('RedlineDisplayTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.document.redline_display_type import RedlineDisplayType as RedlineDisplayType
 
+    class RedlineDisplayTypeEnum(IntEnum):
+        """
+        Enum of Const Class RedlineDisplayType
 
-class RedlineDisplayTypeEnum(IntEnum):
-    """
-    Enum of Const Class RedlineDisplayType
-
-    specifies which changes in a document are displayed.
-    """
-    NONE = RedlineDisplayType.NONE
-    """
-    no changes are displayed.
-    """
-    INSERTED = RedlineDisplayType.INSERTED
-    """
-    only inserted parts are displayed and attributed.
-    """
-    INSERTED_AND_REMOVED = RedlineDisplayType.INSERTED_AND_REMOVED
-    """
-    only inserted parts are displayed and attributed.
-    """
-    REMOVED = RedlineDisplayType.REMOVED
-    """
-    only removed parts are displayed and attributed.
-    """
+        specifies which changes in a document are displayed.
+        """
+        NONE = RedlineDisplayType.NONE
+        """
+        no changes are displayed.
+        """
+        INSERTED = RedlineDisplayType.INSERTED
+        """
+        only inserted parts are displayed and attributed.
+        """
+        INSERTED_AND_REMOVED = RedlineDisplayType.INSERTED_AND_REMOVED
+        """
+        only inserted parts are displayed and attributed.
+        """
+        REMOVED = RedlineDisplayType.REMOVED
+        """
+        only removed parts are displayed and attributed.
+        """
 
 __all__ = ['RedlineDisplayType', 'RedlineDisplayTypeEnum']

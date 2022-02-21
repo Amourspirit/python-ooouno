@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.view import DuplexMode as DuplexMode
+    if hasattr(DuplexMode, '_constants') and isinstance(DuplexMode._constants, dict):
+        DuplexMode._constants['__ooo_ns__'] = 'com.sun.star.view'
+        DuplexMode._constants['__ooo_full_ns__'] = 'com.sun.star.view.DuplexMode'
+        DuplexMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DuplexModeEnum
+        ls = [f for f in dir(DuplexMode) if not callable(getattr(DuplexMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DuplexMode, name)
+        DuplexModeEnum = IntEnum('DuplexModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.view.duplex_mode import DuplexMode as DuplexMode
 
+    class DuplexModeEnum(IntEnum):
+        """
+        Enum of Const Class DuplexMode
 
-class DuplexModeEnum(IntEnum):
-    """
-    Enum of Const Class DuplexMode
-
-    These constants specify available duplex modes.
-    """
-    UNKNOWN = DuplexMode.UNKNOWN
-    """
-    specifies an unknown duplex mode.
-    """
-    OFF = DuplexMode.OFF
-    """
-    specifies that there is no duplex mode enabled
-    """
-    LONGEDGE = DuplexMode.LONGEDGE
-    """
-    specifies a long edge duplex mode
-    """
-    SHORTEDGE = DuplexMode.SHORTEDGE
-    """
-    specifies a short edge duplex mode
-    """
+        These constants specify available duplex modes.
+        """
+        UNKNOWN = DuplexMode.UNKNOWN
+        """
+        specifies an unknown duplex mode.
+        """
+        OFF = DuplexMode.OFF
+        """
+        specifies that there is no duplex mode enabled
+        """
+        LONGEDGE = DuplexMode.LONGEDGE
+        """
+        specifies a long edge duplex mode
+        """
+        SHORTEDGE = DuplexMode.SHORTEDGE
+        """
+        specifies a short edge duplex mode
+        """
 
 __all__ = ['DuplexMode', 'DuplexModeEnum']

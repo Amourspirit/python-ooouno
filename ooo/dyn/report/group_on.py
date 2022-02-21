@@ -27,55 +27,66 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.report import GroupOn as GroupOn
+    if hasattr(GroupOn, '_constants') and isinstance(GroupOn._constants, dict):
+        GroupOn._constants['__ooo_ns__'] = 'com.sun.star.report'
+        GroupOn._constants['__ooo_full_ns__'] = 'com.sun.star.report.GroupOn'
+        GroupOn._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global GroupOnEnum
+        ls = [f for f in dir(GroupOn) if not callable(getattr(GroupOn, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(GroupOn, name)
+        GroupOnEnum = IntEnum('GroupOnEnum', _dict)
+    build_enum()
 else:
     from ...lo.report.group_on import GroupOn as GroupOn
 
+    class GroupOnEnum(IntEnum):
+        """
+        Enum of Const Class GroupOn
 
-class GroupOnEnum(IntEnum):
-    """
-    Enum of Const Class GroupOn
-
-    Specifies how to group data.
-    """
-    DEFAULT = GroupOn.DEFAULT
-    """
-    The same value in the column value or expression.
-    """
-    PREFIX_CHARACTERS = GroupOn.PREFIX_CHARACTERS
-    """
-    The same first nth of characters in the column value or expression.
-    """
-    YEAR = GroupOn.YEAR
-    """
-    Dates in the same calendar year.
-    """
-    QUARTAL = GroupOn.QUARTAL
-    """
-    Dates in the same calendar quarter.
-    """
-    MONTH = GroupOn.MONTH
-    """
-    Dates in the same month.
-    """
-    WEEK = GroupOn.WEEK
-    """
-    Dates in the same week.
-    """
-    DAY = GroupOn.DAY
-    """
-    Dates on the same date.
-    """
-    HOUR = GroupOn.HOUR
-    """
-    Times in the same hour.
-    """
-    MINUTE = GroupOn.MINUTE
-    """
-    Times in the same minute.
-    """
-    INTERVAL = GroupOn.INTERVAL
-    """
-    Values within an interval you specify.
-    """
+        Specifies how to group data.
+        """
+        DEFAULT = GroupOn.DEFAULT
+        """
+        The same value in the column value or expression.
+        """
+        PREFIX_CHARACTERS = GroupOn.PREFIX_CHARACTERS
+        """
+        The same first nth of characters in the column value or expression.
+        """
+        YEAR = GroupOn.YEAR
+        """
+        Dates in the same calendar year.
+        """
+        QUARTAL = GroupOn.QUARTAL
+        """
+        Dates in the same calendar quarter.
+        """
+        MONTH = GroupOn.MONTH
+        """
+        Dates in the same month.
+        """
+        WEEK = GroupOn.WEEK
+        """
+        Dates in the same week.
+        """
+        DAY = GroupOn.DAY
+        """
+        Dates on the same date.
+        """
+        HOUR = GroupOn.HOUR
+        """
+        Times in the same hour.
+        """
+        MINUTE = GroupOn.MINUTE
+        """
+        Times in the same minute.
+        """
+        INTERVAL = GroupOn.INTERVAL
+        """
+        Values within an interval you specify.
+        """
 
 __all__ = ['GroupOn', 'GroupOnEnum']

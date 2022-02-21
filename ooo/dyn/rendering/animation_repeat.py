@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import AnimationRepeat as AnimationRepeat
+    if hasattr(AnimationRepeat, '_constants') and isinstance(AnimationRepeat._constants, dict):
+        AnimationRepeat._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        AnimationRepeat._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.AnimationRepeat'
+        AnimationRepeat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationRepeatEnum
+        ls = [f for f in dir(AnimationRepeat) if not callable(getattr(AnimationRepeat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationRepeat, name)
+        AnimationRepeatEnum = IntEnum('AnimationRepeatEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.animation_repeat import AnimationRepeat as AnimationRepeat
 
+    class AnimationRepeatEnum(IntEnum):
+        """
+        Enum of Const Class AnimationRepeat
 
-class AnimationRepeatEnum(IntEnum):
-    """
-    Enum of Const Class AnimationRepeat
-
-    This are the possible repeat modes for animations.
-    
-    These constants determine how the [0,1] parameter range of the animation is driven through, thus defining the possible repeat modes.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    ONE_SHOT = AnimationRepeat.ONE_SHOT
-    """
-    The [0,1] parameter range is swept through exactly once.
-    
-    The [0,1] parameter range is swept through exactly once, starting with 0 and ending with 1.
-    """
-    ONE_SHOT_PINGPONG = AnimationRepeat.ONE_SHOT_PINGPONG
-    """
-    The [0,1] parameter range is swept through exactly twice.
-    
-    The [0,1] parameter range is swept through exactly twice, starting with 0, going to 1, and going back to 0. When plotting the value over time, this yields a triangle curve.
-    """
-    PINGPONG = AnimationRepeat.PINGPONG
-    """
-    The [0,1] parameter range is swept through infinitely.
-    
-    The [0,1] parameter range is swept through infinitely, starting with 0, going to 1, and going back to 0, and then starting again. When plotting the value over time, this yields a repeated triangle curve.
-    """
-    REPEAT = AnimationRepeat.REPEAT
-    """
-    The [0,1] parameter range is swept through infinitely.
-    
-    The [0,1] parameter range is swept through infinitely, starting with 0, going to 1, and starting with 0 again. When plotting the value over time, this yields a repeated saw-tooth curve.
-    """
+        This are the possible repeat modes for animations.
+        
+        These constants determine how the [0,1] parameter range of the animation is driven through, thus defining the possible repeat modes.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        ONE_SHOT = AnimationRepeat.ONE_SHOT
+        """
+        The [0,1] parameter range is swept through exactly once.
+        
+        The [0,1] parameter range is swept through exactly once, starting with 0 and ending with 1.
+        """
+        ONE_SHOT_PINGPONG = AnimationRepeat.ONE_SHOT_PINGPONG
+        """
+        The [0,1] parameter range is swept through exactly twice.
+        
+        The [0,1] parameter range is swept through exactly twice, starting with 0, going to 1, and going back to 0. When plotting the value over time, this yields a triangle curve.
+        """
+        PINGPONG = AnimationRepeat.PINGPONG
+        """
+        The [0,1] parameter range is swept through infinitely.
+        
+        The [0,1] parameter range is swept through infinitely, starting with 0, going to 1, and going back to 0, and then starting again. When plotting the value over time, this yields a repeated triangle curve.
+        """
+        REPEAT = AnimationRepeat.REPEAT
+        """
+        The [0,1] parameter range is swept through infinitely.
+        
+        The [0,1] parameter range is swept through infinitely, starting with 0, going to 1, and starting with 0 again. When plotting the value over time, this yields a repeated saw-tooth curve.
+        """
 
 __all__ = ['AnimationRepeat', 'AnimationRepeatEnum']

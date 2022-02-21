@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ResultSetConcurrency as ResultSetConcurrency
+    if hasattr(ResultSetConcurrency, '_constants') and isinstance(ResultSetConcurrency._constants, dict):
+        ResultSetConcurrency._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ResultSetConcurrency._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ResultSetConcurrency'
+        ResultSetConcurrency._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ResultSetConcurrencyEnum
+        ls = [f for f in dir(ResultSetConcurrency) if not callable(getattr(ResultSetConcurrency, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ResultSetConcurrency, name)
+        ResultSetConcurrencyEnum = IntEnum('ResultSetConcurrencyEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.result_set_concurrency import ResultSetConcurrency as ResultSetConcurrency
 
+    class ResultSetConcurrencyEnum(IntEnum):
+        """
+        Enum of Const Class ResultSetConcurrency
 
-class ResultSetConcurrencyEnum(IntEnum):
-    """
-    Enum of Const Class ResultSetConcurrency
-
-    describes the different scroll capabilities of a result set.
-    """
-    READ_ONLY = ResultSetConcurrency.READ_ONLY
-    """
-    is the concurrency mode for a com.sun.star.sdb.ResultSet object that may NOT be updated.
-    """
-    UPDATABLE = ResultSetConcurrency.UPDATABLE
-    """
-    is the concurrency mode for a com.sun.star.sdb.ResultSet object that may be updated.
-    """
+        describes the different scroll capabilities of a result set.
+        """
+        READ_ONLY = ResultSetConcurrency.READ_ONLY
+        """
+        is the concurrency mode for a com.sun.star.sdb.ResultSet object that may NOT be updated.
+        """
+        UPDATABLE = ResultSetConcurrency.UPDATABLE
+        """
+        is the concurrency mode for a com.sun.star.sdb.ResultSet object that may be updated.
+        """
 
 __all__ = ['ResultSetConcurrency', 'ResultSetConcurrencyEnum']

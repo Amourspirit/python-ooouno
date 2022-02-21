@@ -14,7 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.office.quickstart import Quickstart as Quickstart
-from ...dyn.office.x_annotation import XAnnotation as XAnnotation
-from ...dyn.office.x_annotation_access import XAnnotationAccess as XAnnotationAccess
-from ...dyn.office.x_annotation_enumeration import XAnnotationEnumeration as XAnnotationEnumeration
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.office.quickstart import Quickstart as Quickstart
+except ImportError:
+    pass
+try:
+    from ...dyn.office.x_annotation import XAnnotation as XAnnotation
+except ImportError:
+    pass
+try:
+    from ...dyn.office.x_annotation_access import XAnnotationAccess as XAnnotationAccess
+except ImportError:
+    pass
+try:
+    from ...dyn.office.x_annotation_enumeration import XAnnotationEnumeration as XAnnotationEnumeration
+except ImportError:
+    pass

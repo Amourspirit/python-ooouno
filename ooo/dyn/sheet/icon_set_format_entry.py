@@ -27,22 +27,33 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import IconSetFormatEntry as IconSetFormatEntry
+    if hasattr(IconSetFormatEntry, '_constants') and isinstance(IconSetFormatEntry._constants, dict):
+        IconSetFormatEntry._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        IconSetFormatEntry._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.IconSetFormatEntry'
+        IconSetFormatEntry._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global IconSetFormatEntryEnum
+        ls = [f for f in dir(IconSetFormatEntry) if not callable(getattr(IconSetFormatEntry, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(IconSetFormatEntry, name)
+        IconSetFormatEntryEnum = IntEnum('IconSetFormatEntryEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.icon_set_format_entry import IconSetFormatEntry as IconSetFormatEntry
 
+    class IconSetFormatEntryEnum(IntEnum):
+        """
+        Enum of Const Class IconSetFormatEntry
 
-class IconSetFormatEntryEnum(IntEnum):
-    """
-    Enum of Const Class IconSetFormatEntry
-
-    """
-    ICONSET_MIN = IconSetFormatEntry.ICONSET_MIN
-    """
-    Can not be set! Will always be the type of the first entry.
-    """
-    ICONSET_PERCENTILE = IconSetFormatEntry.ICONSET_PERCENTILE
-    ICONSET_VALUE = IconSetFormatEntry.ICONSET_VALUE
-    ICONSET_PERCENT = IconSetFormatEntry.ICONSET_PERCENT
-    ICONSET_FORMULA = IconSetFormatEntry.ICONSET_FORMULA
+        """
+        ICONSET_MIN = IconSetFormatEntry.ICONSET_MIN
+        """
+        Can not be set! Will always be the type of the first entry.
+        """
+        ICONSET_PERCENTILE = IconSetFormatEntry.ICONSET_PERCENTILE
+        ICONSET_VALUE = IconSetFormatEntry.ICONSET_VALUE
+        ICONSET_PERCENT = IconSetFormatEntry.ICONSET_PERCENT
+        ICONSET_FORMULA = IconSetFormatEntry.ICONSET_FORMULA
 
 __all__ = ['IconSetFormatEntry', 'IconSetFormatEntryEnum']

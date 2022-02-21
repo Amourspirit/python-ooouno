@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import CaptionEscapeDirection as CaptionEscapeDirection
+    if hasattr(CaptionEscapeDirection, '_constants') and isinstance(CaptionEscapeDirection._constants, dict):
+        CaptionEscapeDirection._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        CaptionEscapeDirection._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.CaptionEscapeDirection'
+        CaptionEscapeDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CaptionEscapeDirectionEnum
+        ls = [f for f in dir(CaptionEscapeDirection) if not callable(getattr(CaptionEscapeDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CaptionEscapeDirection, name)
+        CaptionEscapeDirectionEnum = IntEnum('CaptionEscapeDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.caption_escape_direction import CaptionEscapeDirection as CaptionEscapeDirection
 
+    class CaptionEscapeDirectionEnum(IntEnum):
+        """
+        Enum of Const Class CaptionEscapeDirection
 
-class CaptionEscapeDirectionEnum(IntEnum):
-    """
-    Enum of Const Class CaptionEscapeDirection
-
-    this flags describe escape direction for the line of a CaptionShape.
-    """
-    horizontal = CaptionEscapeDirection.horizontal
-    """
-    the caption line leaves the caption area at the horizontal edge that is nearest to the caption point.
-    """
-    vertical = CaptionEscapeDirection.vertical
-    """
-    the caption line leaves the caption area at the vertical edge that is nearest to the caption point.
-    """
-    auto = CaptionEscapeDirection.auto
-    """
-    the caption line leaves the caption area at the edge that is nearest to the caption point.
-    """
+        this flags describe escape direction for the line of a CaptionShape.
+        """
+        horizontal = CaptionEscapeDirection.horizontal
+        """
+        the caption line leaves the caption area at the horizontal edge that is nearest to the caption point.
+        """
+        vertical = CaptionEscapeDirection.vertical
+        """
+        the caption line leaves the caption area at the vertical edge that is nearest to the caption point.
+        """
+        auto = CaptionEscapeDirection.auto
+        """
+        the caption line leaves the caption area at the edge that is nearest to the caption point.
+        """
 
 __all__ = ['CaptionEscapeDirection', 'CaptionEscapeDirectionEnum']

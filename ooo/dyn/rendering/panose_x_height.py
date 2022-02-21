@@ -27,22 +27,33 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseXHeight as PanoseXHeight
+    if hasattr(PanoseXHeight, '_constants') and isinstance(PanoseXHeight._constants, dict):
+        PanoseXHeight._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseXHeight._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseXHeight'
+        PanoseXHeight._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseXHeightEnum
+        ls = [f for f in dir(PanoseXHeight) if not callable(getattr(PanoseXHeight, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseXHeight, name)
+        PanoseXHeightEnum = IntEnum('PanoseXHeightEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_x_height import PanoseXHeight as PanoseXHeight
 
+    class PanoseXHeightEnum(IntEnum):
+        """
+        Enum of Const Class PanoseXHeight
 
-class PanoseXHeightEnum(IntEnum):
-    """
-    Enum of Const Class PanoseXHeight
-
-    """
-    ANYTHING = PanoseXHeight.ANYTHING
-    NO_FIT = PanoseXHeight.NO_FIT
-    CONSTANT_SMALL = PanoseXHeight.CONSTANT_SMALL
-    CONSTANT_STANDARD = PanoseXHeight.CONSTANT_STANDARD
-    CONSTANT_LARGE = PanoseXHeight.CONSTANT_LARGE
-    DUCKING_SMALL = PanoseXHeight.DUCKING_SMALL
-    DUCKING_STANDARD = PanoseXHeight.DUCKING_STANDARD
-    DUCKING_LARGE = PanoseXHeight.DUCKING_LARGE
+        """
+        ANYTHING = PanoseXHeight.ANYTHING
+        NO_FIT = PanoseXHeight.NO_FIT
+        CONSTANT_SMALL = PanoseXHeight.CONSTANT_SMALL
+        CONSTANT_STANDARD = PanoseXHeight.CONSTANT_STANDARD
+        CONSTANT_LARGE = PanoseXHeight.CONSTANT_LARGE
+        DUCKING_SMALL = PanoseXHeight.DUCKING_SMALL
+        DUCKING_STANDARD = PanoseXHeight.DUCKING_STANDARD
+        DUCKING_LARGE = PanoseXHeight.DUCKING_LARGE
 
 __all__ = ['PanoseXHeight', 'PanoseXHeightEnum']

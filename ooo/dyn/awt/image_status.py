@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import ImageStatus as ImageStatus
+    if hasattr(ImageStatus, '_constants') and isinstance(ImageStatus._constants, dict):
+        ImageStatus._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        ImageStatus._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ImageStatus'
+        ImageStatus._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ImageStatusEnum
+        ls = [f for f in dir(ImageStatus) if not callable(getattr(ImageStatus, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ImageStatus, name)
+        ImageStatusEnum = IntEnum('ImageStatusEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.image_status import ImageStatus as ImageStatus
 
+    class ImageStatusEnum(IntEnum):
+        """
+        Enum of Const Class ImageStatus
 
-class ImageStatusEnum(IntEnum):
-    """
-    Enum of Const Class ImageStatus
-
-    These values are used to specify to which degree an image is available.
-    """
-    IMAGESTATUS_ERROR = ImageStatus.IMAGESTATUS_ERROR
-    """
-    This conveys that an error was encountered while producing the image.
-    """
-    IMAGESTATUS_SINGLEFRAMEDONE = ImageStatus.IMAGESTATUS_SINGLEFRAMEDONE
-    """
-    This conveys that one frame of the image is complete but there are more frames to be delivered.
-    """
-    IMAGESTATUS_STATICIMAGEDONE = ImageStatus.IMAGESTATUS_STATICIMAGEDONE
-    """
-    This conveys that the image is complete and there are no more pixels or frames to be delivered.
-    """
-    IMAGESTATUS_ABORTED = ImageStatus.IMAGESTATUS_ABORTED
-    """
-    This conveys that the image creation process was deliberately aborted.
-    """
+        These values are used to specify to which degree an image is available.
+        """
+        IMAGESTATUS_ERROR = ImageStatus.IMAGESTATUS_ERROR
+        """
+        This conveys that an error was encountered while producing the image.
+        """
+        IMAGESTATUS_SINGLEFRAMEDONE = ImageStatus.IMAGESTATUS_SINGLEFRAMEDONE
+        """
+        This conveys that one frame of the image is complete but there are more frames to be delivered.
+        """
+        IMAGESTATUS_STATICIMAGEDONE = ImageStatus.IMAGESTATUS_STATICIMAGEDONE
+        """
+        This conveys that the image is complete and there are no more pixels or frames to be delivered.
+        """
+        IMAGESTATUS_ABORTED = ImageStatus.IMAGESTATUS_ABORTED
+        """
+        This conveys that the image creation process was deliberately aborted.
+        """
 
 __all__ = ['ImageStatus', 'ImageStatusEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import CollatorOptions as CollatorOptions
+    if hasattr(CollatorOptions, '_constants') and isinstance(CollatorOptions._constants, dict):
+        CollatorOptions._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        CollatorOptions._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.CollatorOptions'
+        CollatorOptions._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CollatorOptionsEnum
+        ls = [f for f in dir(CollatorOptions) if not callable(getattr(CollatorOptions, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CollatorOptions, name)
+        CollatorOptionsEnum = IntFlag('CollatorOptionsEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.collator_options import CollatorOptions as CollatorOptions
 
+    class CollatorOptionsEnum(IntFlag):
+        """
+        Enum of Const Class CollatorOptions
 
-class CollatorOptionsEnum(IntFlag):
-    """
-    Enum of Const Class CollatorOptions
-
-    Options to be used with XCollator methods.
-    """
-    CollatorOptions_IGNORE_CASE = CollatorOptions.CollatorOptions_IGNORE_CASE
-    """
-    Ignore case.
-    """
-    CollatorOptions_IGNORE_KANA = CollatorOptions.CollatorOptions_IGNORE_KANA
-    """
-    Ignore Kana.
-    """
-    CollatorOptions_IGNORE_WIDTH = CollatorOptions.CollatorOptions_IGNORE_WIDTH
-    """
-    Ignore width.
-    """
-    CollatorOptions_IGNORE_CASE_ACCENT = CollatorOptions.CollatorOptions_IGNORE_CASE_ACCENT
-    """
-    Ignore case and accent.
-    """
+        Options to be used with XCollator methods.
+        """
+        CollatorOptions_IGNORE_CASE = CollatorOptions.CollatorOptions_IGNORE_CASE
+        """
+        Ignore case.
+        """
+        CollatorOptions_IGNORE_KANA = CollatorOptions.CollatorOptions_IGNORE_KANA
+        """
+        Ignore Kana.
+        """
+        CollatorOptions_IGNORE_WIDTH = CollatorOptions.CollatorOptions_IGNORE_WIDTH
+        """
+        Ignore width.
+        """
+        CollatorOptions_IGNORE_CASE_ACCENT = CollatorOptions.CollatorOptions_IGNORE_CASE_ACCENT
+        """
+        Ignore case and accent.
+        """
 
 __all__ = ['CollatorOptions', 'CollatorOptionsEnum']

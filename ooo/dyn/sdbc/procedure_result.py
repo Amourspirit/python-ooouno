@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ProcedureResult as ProcedureResult
+    if hasattr(ProcedureResult, '_constants') and isinstance(ProcedureResult._constants, dict):
+        ProcedureResult._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ProcedureResult._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ProcedureResult'
+        ProcedureResult._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ProcedureResultEnum
+        ls = [f for f in dir(ProcedureResult) if not callable(getattr(ProcedureResult, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ProcedureResult, name)
+        ProcedureResultEnum = IntEnum('ProcedureResultEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.procedure_result import ProcedureResult as ProcedureResult
 
+    class ProcedureResultEnum(IntEnum):
+        """
+        Enum of Const Class ProcedureResult
 
-class ProcedureResultEnum(IntEnum):
-    """
-    Enum of Const Class ProcedureResult
-
-    determines whether a procedure returns a result or not.
-    """
-    UNKNOWN = ProcedureResult.UNKNOWN
-    """
-    A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
-    
-    Indicates that it is not known whether the procedure returns a result.
-    """
-    NONE = ProcedureResult.NONE
-    """
-    A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
-    
-    Indicates that the procedure does not return a result.
-    """
-    RETURN = ProcedureResult.RETURN
-    """
-    A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
-    
-    Indicates that the procedure returns a result.
-    """
+        determines whether a procedure returns a result or not.
+        """
+        UNKNOWN = ProcedureResult.UNKNOWN
+        """
+        A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
+        
+        Indicates that it is not known whether the procedure returns a result.
+        """
+        NONE = ProcedureResult.NONE
+        """
+        A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
+        
+        Indicates that the procedure does not return a result.
+        """
+        RETURN = ProcedureResult.RETURN
+        """
+        A possible value for column PROCEDURE_TYPE in the com.sun.star.sdbc.XResultSet object returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedures().
+        
+        Indicates that the procedure returns a result.
+        """
 
 __all__ = ['ProcedureResult', 'ProcedureResultEnum']

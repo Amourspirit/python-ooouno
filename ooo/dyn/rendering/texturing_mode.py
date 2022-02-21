@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import TexturingMode as TexturingMode
+    if hasattr(TexturingMode, '_constants') and isinstance(TexturingMode._constants, dict):
+        TexturingMode._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        TexturingMode._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.TexturingMode'
+        TexturingMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TexturingModeEnum
+        ls = [f for f in dir(TexturingMode) if not callable(getattr(TexturingMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TexturingMode, name)
+        TexturingModeEnum = IntEnum('TexturingModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.texturing_mode import TexturingMode as TexturingMode
 
+    class TexturingModeEnum(IntEnum):
+        """
+        Enum of Const Class TexturingMode
 
-class TexturingModeEnum(IntEnum):
-    """
-    Enum of Const Class TexturingMode
-
-    Enumeration of possible values to spread a texture across a primitive.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    NONE = TexturingMode.NONE
-    """
-    Pixel outside the texture area are fully transparent.
-    
-    This completely switches off pixel generation outside the texture coordinate range [0,1]. This results in only one instance of the texture generated per textured primitive.
-    """
-    CLAMP = TexturingMode.CLAMP
-    """
-    Clamp texture coordinate.
-    
-    This value clamps the texture coordinates to the range [0,1]. This results in only one instance of the texture generated per textured primitive, with the remaining area filled with the color of the outermost texels
-    """
-    REPEAT = TexturingMode.REPEAT
-    """
-    Repeat the texture.
-    
-    This value repeats the texture over the textured primitive, for the given texture coordinate.
-    """
+        Enumeration of possible values to spread a texture across a primitive.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        NONE = TexturingMode.NONE
+        """
+        Pixel outside the texture area are fully transparent.
+        
+        This completely switches off pixel generation outside the texture coordinate range [0,1]. This results in only one instance of the texture generated per textured primitive.
+        """
+        CLAMP = TexturingMode.CLAMP
+        """
+        Clamp texture coordinate.
+        
+        This value clamps the texture coordinates to the range [0,1]. This results in only one instance of the texture generated per textured primitive, with the remaining area filled with the color of the outermost texels
+        """
+        REPEAT = TexturingMode.REPEAT
+        """
+        Repeat the texture.
+        
+        This value repeats the texture over the textured primitive, for the given texture coordinate.
+        """
 
 __all__ = ['TexturingMode', 'TexturingModeEnum']

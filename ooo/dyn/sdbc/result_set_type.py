@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ResultSetType as ResultSetType
+    if hasattr(ResultSetType, '_constants') and isinstance(ResultSetType._constants, dict):
+        ResultSetType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ResultSetType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ResultSetType'
+        ResultSetType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ResultSetTypeEnum
+        ls = [f for f in dir(ResultSetType) if not callable(getattr(ResultSetType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ResultSetType, name)
+        ResultSetTypeEnum = IntEnum('ResultSetTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.result_set_type import ResultSetType as ResultSetType
 
+    class ResultSetTypeEnum(IntEnum):
+        """
+        Enum of Const Class ResultSetType
 
-class ResultSetTypeEnum(IntEnum):
-    """
-    Enum of Const Class ResultSetType
-
-    describes the different scroll capabilities of a result set.
-    """
-    FORWARD_ONLY = ResultSetType.FORWARD_ONLY
-    """
-    is the type for a com.sun.star.sdb.ResultSet object whose cursor may move only forward.
-    """
-    SCROLL_INSENSITIVE = ResultSetType.SCROLL_INSENSITIVE
-    """
-    is the type for a com.sun.star.sdb.ResultSet object that is scrollable but generally not sensitive to changes made by others.
-    """
-    SCROLL_SENSITIVE = ResultSetType.SCROLL_SENSITIVE
-    """
-    is the type for a com.sun.star.sdb.ResultSet object that is scrollable and generally sensitive to changes made by others.
-    """
+        describes the different scroll capabilities of a result set.
+        """
+        FORWARD_ONLY = ResultSetType.FORWARD_ONLY
+        """
+        is the type for a com.sun.star.sdb.ResultSet object whose cursor may move only forward.
+        """
+        SCROLL_INSENSITIVE = ResultSetType.SCROLL_INSENSITIVE
+        """
+        is the type for a com.sun.star.sdb.ResultSet object that is scrollable but generally not sensitive to changes made by others.
+        """
+        SCROLL_SENSITIVE = ResultSetType.SCROLL_SENSITIVE
+        """
+        is the type for a com.sun.star.sdb.ResultSet object that is scrollable and generally sensitive to changes made by others.
+        """
 
 __all__ = ['ResultSetType', 'ResultSetTypeEnum']

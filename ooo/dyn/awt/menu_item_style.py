@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import MenuItemStyle as MenuItemStyle
+    if hasattr(MenuItemStyle, '_constants') and isinstance(MenuItemStyle._constants, dict):
+        MenuItemStyle._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        MenuItemStyle._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MenuItemStyle'
+        MenuItemStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MenuItemStyleEnum
+        ls = [f for f in dir(MenuItemStyle) if not callable(getattr(MenuItemStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MenuItemStyle, name)
+        MenuItemStyleEnum = IntFlag('MenuItemStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.menu_item_style import MenuItemStyle as MenuItemStyle
 
+    class MenuItemStyleEnum(IntFlag):
+        """
+        Enum of Const Class MenuItemStyle
 
-class MenuItemStyleEnum(IntFlag):
-    """
-    Enum of Const Class MenuItemStyle
-
-    These values are used to specify the properties of a menu item.
-    """
-    CHECKABLE = MenuItemStyle.CHECKABLE
-    """
-    specifies an item which can be checked independently.
-    """
-    RADIOCHECK = MenuItemStyle.RADIOCHECK
-    """
-    specifies an item which can be checked dependent on the neighbouring items.
-    """
-    AUTOCHECK = MenuItemStyle.AUTOCHECK
-    """
-    specifies to check this item automatically on select.
-    """
+        These values are used to specify the properties of a menu item.
+        """
+        CHECKABLE = MenuItemStyle.CHECKABLE
+        """
+        specifies an item which can be checked independently.
+        """
+        RADIOCHECK = MenuItemStyle.RADIOCHECK
+        """
+        specifies an item which can be checked dependent on the neighbouring items.
+        """
+        AUTOCHECK = MenuItemStyle.AUTOCHECK
+        """
+        specifies to check this item automatically on select.
+        """
 
 __all__ = ['MenuItemStyle', 'MenuItemStyleEnum']

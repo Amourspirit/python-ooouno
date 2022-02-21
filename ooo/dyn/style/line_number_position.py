@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.style import LineNumberPosition as LineNumberPosition
+    if hasattr(LineNumberPosition, '_constants') and isinstance(LineNumberPosition._constants, dict):
+        LineNumberPosition._constants['__ooo_ns__'] = 'com.sun.star.style'
+        LineNumberPosition._constants['__ooo_full_ns__'] = 'com.sun.star.style.LineNumberPosition'
+        LineNumberPosition._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LineNumberPositionEnum
+        ls = [f for f in dir(LineNumberPosition) if not callable(getattr(LineNumberPosition, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LineNumberPosition, name)
+        LineNumberPositionEnum = IntEnum('LineNumberPositionEnum', _dict)
+    build_enum()
 else:
     from ...lo.style.line_number_position import LineNumberPosition as LineNumberPosition
 
+    class LineNumberPositionEnum(IntEnum):
+        """
+        Enum of Const Class LineNumberPosition
 
-class LineNumberPositionEnum(IntEnum):
-    """
-    Enum of Const Class LineNumberPosition
-
-    These constants are used to specify the position of the numbering of lines.
-    """
-    LEFT = LineNumberPosition.LEFT
-    """
-    the number occurs on the left side of the pages.
-    """
-    RIGHT = LineNumberPosition.RIGHT
-    """
-    the number occurs on the right side of the pages.
-    """
-    INSIDE = LineNumberPosition.INSIDE
-    """
-    the number occurs alternating on the inner side of the pages.
-    """
-    OUTSIDE = LineNumberPosition.OUTSIDE
-    """
-    the number occurs alternating on the outside side of the pages.
-    """
+        These constants are used to specify the position of the numbering of lines.
+        """
+        LEFT = LineNumberPosition.LEFT
+        """
+        the number occurs on the left side of the pages.
+        """
+        RIGHT = LineNumberPosition.RIGHT
+        """
+        the number occurs on the right side of the pages.
+        """
+        INSIDE = LineNumberPosition.INSIDE
+        """
+        the number occurs alternating on the inner side of the pages.
+        """
+        OUTSIDE = LineNumberPosition.OUTSIDE
+        """
+        the number occurs alternating on the outside side of the pages.
+        """
 
 __all__ = ['LineNumberPosition', 'LineNumberPositionEnum']

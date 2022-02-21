@@ -1,9 +1,0 @@
-====
-lang
-====
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    *

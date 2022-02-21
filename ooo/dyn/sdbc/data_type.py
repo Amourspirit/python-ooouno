@@ -27,89 +27,100 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import DataType as DataType
+    if hasattr(DataType, '_constants') and isinstance(DataType._constants, dict):
+        DataType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        DataType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.DataType'
+        DataType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataTypeEnum
+        ls = [f for f in dir(DataType) if not callable(getattr(DataType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataType, name)
+        DataTypeEnum = IntEnum('DataTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.data_type import DataType as DataType
 
+    class DataTypeEnum(IntEnum):
+        """
+        Enum of Const Class DataType
 
-class DataTypeEnum(IntEnum):
-    """
-    Enum of Const Class DataType
-
-    These constants are used to specify database data types which are used to identify the generic SQL types.
-    
-    The definition is based on JDBC 3.0.
-    
-    The actual type constant values are equivalent to those in the X/Open CLI.
-    
-    Precise information about the specific types can be got from XDatabaseMetaData.getTypeInfo().
-    
-    **since**
-    
-        OOo 2.0
-    """
-    BIT = DataType.BIT
-    TINYINT = DataType.TINYINT
-    SMALLINT = DataType.SMALLINT
-    INTEGER = DataType.INTEGER
-    BIGINT = DataType.BIGINT
-    FLOAT = DataType.FLOAT
-    REAL = DataType.REAL
-    DOUBLE = DataType.DOUBLE
-    NUMERIC = DataType.NUMERIC
-    DECIMAL = DataType.DECIMAL
-    CHAR = DataType.CHAR
-    VARCHAR = DataType.VARCHAR
-    LONGVARCHAR = DataType.LONGVARCHAR
-    DATE = DataType.DATE
-    TIME = DataType.TIME
-    TIMESTAMP = DataType.TIMESTAMP
-    BINARY = DataType.BINARY
-    VARBINARY = DataType.VARBINARY
-    LONGVARBINARY = DataType.LONGVARBINARY
-    SQLNULL = DataType.SQLNULL
-    OTHER = DataType.OTHER
-    """
-    indicates that the SQL type is database-specific and gets mapped to an object that can be accessed via the method com.sun.star.sdbc.XRow.getObject().
-    """
-    OBJECT = DataType.OBJECT
-    """
-    indicates a type which is represented by an object which implements this type.
-    """
-    DISTINCT = DataType.DISTINCT
-    """
-    describes a type based on a built-in type.
-    
-    It is a user-defined data type (UDT).
-    """
-    STRUCT = DataType.STRUCT
-    """
-    indicates a type consisting of attributes that may be any type.
-    
-    It is a user-defined data type (UDT).
-    """
-    ARRAY = DataType.ARRAY
-    """
-    indicates a type representing an SQL ARRAY.
-    """
-    BLOB = DataType.BLOB
-    """
-    indicates a type representing an SQL Binary Large Object.
-    """
-    CLOB = DataType.CLOB
-    """
-    indicates a type representing an SQL Character Large Object.
-    """
-    REF = DataType.REF
-    """
-    indicates a type representing an SQL REF, a referencing type.
-    """
-    BOOLEAN = DataType.BOOLEAN
-    """
-    identifies the generic SQL type BOOLEAN.
-    
-    **since**
-    
-        OOo 2.0
-    """
+        These constants are used to specify database data types which are used to identify the generic SQL types.
+        
+        The definition is based on JDBC 3.0.
+        
+        The actual type constant values are equivalent to those in the X/Open CLI.
+        
+        Precise information about the specific types can be got from XDatabaseMetaData.getTypeInfo().
+        
+        **since**
+        
+            OOo 2.0
+        """
+        BIT = DataType.BIT
+        TINYINT = DataType.TINYINT
+        SMALLINT = DataType.SMALLINT
+        INTEGER = DataType.INTEGER
+        BIGINT = DataType.BIGINT
+        FLOAT = DataType.FLOAT
+        REAL = DataType.REAL
+        DOUBLE = DataType.DOUBLE
+        NUMERIC = DataType.NUMERIC
+        DECIMAL = DataType.DECIMAL
+        CHAR = DataType.CHAR
+        VARCHAR = DataType.VARCHAR
+        LONGVARCHAR = DataType.LONGVARCHAR
+        DATE = DataType.DATE
+        TIME = DataType.TIME
+        TIMESTAMP = DataType.TIMESTAMP
+        BINARY = DataType.BINARY
+        VARBINARY = DataType.VARBINARY
+        LONGVARBINARY = DataType.LONGVARBINARY
+        SQLNULL = DataType.SQLNULL
+        OTHER = DataType.OTHER
+        """
+        indicates that the SQL type is database-specific and gets mapped to an object that can be accessed via the method com.sun.star.sdbc.XRow.getObject().
+        """
+        OBJECT = DataType.OBJECT
+        """
+        indicates a type which is represented by an object which implements this type.
+        """
+        DISTINCT = DataType.DISTINCT
+        """
+        describes a type based on a built-in type.
+        
+        It is a user-defined data type (UDT).
+        """
+        STRUCT = DataType.STRUCT
+        """
+        indicates a type consisting of attributes that may be any type.
+        
+        It is a user-defined data type (UDT).
+        """
+        ARRAY = DataType.ARRAY
+        """
+        indicates a type representing an SQL ARRAY.
+        """
+        BLOB = DataType.BLOB
+        """
+        indicates a type representing an SQL Binary Large Object.
+        """
+        CLOB = DataType.CLOB
+        """
+        indicates a type representing an SQL Character Large Object.
+        """
+        REF = DataType.REF
+        """
+        indicates a type representing an SQL REF, a referencing type.
+        """
+        BOOLEAN = DataType.BOOLEAN
+        """
+        identifies the generic SQL type BOOLEAN.
+        
+        **since**
+        
+            OOo 2.0
+        """
 
 __all__ = ['DataType', 'DataTypeEnum']

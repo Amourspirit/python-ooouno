@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import TableValidationVisibility as TableValidationVisibility
+    if hasattr(TableValidationVisibility, '_constants') and isinstance(TableValidationVisibility._constants, dict):
+        TableValidationVisibility._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        TableValidationVisibility._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.TableValidationVisibility'
+        TableValidationVisibility._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TableValidationVisibilityEnum
+        ls = [f for f in dir(TableValidationVisibility) if not callable(getattr(TableValidationVisibility, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TableValidationVisibility, name)
+        TableValidationVisibilityEnum = IntEnum('TableValidationVisibilityEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.table_validation_visibility import TableValidationVisibility as TableValidationVisibility
 
+    class TableValidationVisibilityEnum(IntEnum):
+        """
+        Enum of Const Class TableValidationVisibility
 
-class TableValidationVisibilityEnum(IntEnum):
-    """
-    Enum of Const Class TableValidationVisibility
-
-    These constants specify whether and how a list of possible values of a cell should be shown.
-    """
-    INVISIBLE = TableValidationVisibility.INVISIBLE
-    """
-    The List is not shown.
-    """
-    UNSORTED = TableValidationVisibility.UNSORTED
-    """
-    The List is shown unsorted.
-    """
-    SORTEDASCENDING = TableValidationVisibility.SORTEDASCENDING
-    """
-    The List is shown sorted ascending.
-    """
+        These constants specify whether and how a list of possible values of a cell should be shown.
+        """
+        INVISIBLE = TableValidationVisibility.INVISIBLE
+        """
+        The List is not shown.
+        """
+        UNSORTED = TableValidationVisibility.UNSORTED
+        """
+        The List is shown unsorted.
+        """
+        SORTEDASCENDING = TableValidationVisibility.SORTEDASCENDING
+        """
+        The List is shown sorted ascending.
+        """
 
 __all__ = ['TableValidationVisibility', 'TableValidationVisibilityEnum']

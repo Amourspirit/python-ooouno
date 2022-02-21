@@ -14,4 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.qa.x_dumper import XDumper as XDumper
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.qa.x_dumper import XDumper as XDumper
+except ImportError:
+    pass

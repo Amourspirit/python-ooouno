@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import Endianness as Endianness
+    if hasattr(Endianness, '_constants') and isinstance(Endianness._constants, dict):
+        Endianness._constants['__ooo_ns__'] = 'com.sun.star.util'
+        Endianness._constants['__ooo_full_ns__'] = 'com.sun.star.util.Endianness'
+        Endianness._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EndiannessEnum
+        ls = [f for f in dir(Endianness) if not callable(getattr(Endianness, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Endianness, name)
+        EndiannessEnum = IntEnum('EndiannessEnum', _dict)
+    build_enum()
 else:
     from ...lo.util.endianness import Endianness as Endianness
 
+    class EndiannessEnum(IntEnum):
+        """
+        Enum of Const Class Endianness
 
-class EndiannessEnum(IntEnum):
-    """
-    Enum of Const Class Endianness
-
-    These constants describe the endianness of data structures.
-    
-    The endianness specifies the order in which the bytes of larger types are laid out in memory.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    LITTLE = Endianness.LITTLE
-    """
-    Little endian.
-    
-    The values are stored in little endian format, i.e. the bytes of the long word 0xAABBCCDD are laid out like 0xDD, 0xCC, 0xBB, 0xAA in memory. That is, data of arbitrary machine word lengths always starts with the least significant byte, and ends with the most significant one.
-    """
-    BIG = Endianness.BIG
-    """
-    Big endian.
-    
-    The values are stored in big endian format, i.e. the bytes of the long word 0xAABBCCDD are laid out like 0xAA, 0xBB, 0xCC, 0xDD in memory. That is, data of arbitrary machine word lengths always start with the most significant byte, and ends with the least significant one.
-    """
+        These constants describe the endianness of data structures.
+        
+        The endianness specifies the order in which the bytes of larger types are laid out in memory.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        LITTLE = Endianness.LITTLE
+        """
+        Little endian.
+        
+        The values are stored in little endian format, i.e. the bytes of the long word 0xAABBCCDD are laid out like 0xDD, 0xCC, 0xBB, 0xAA in memory. That is, data of arbitrary machine word lengths always starts with the least significant byte, and ends with the most significant one.
+        """
+        BIG = Endianness.BIG
+        """
+        Big endian.
+        
+        The values are stored in big endian format, i.e. the bytes of the long word 0xAABBCCDD are laid out like 0xAA, 0xBB, 0xCC, 0xDD in memory. That is, data of arbitrary machine word lengths always start with the most significant byte, and ends with the least significant one.
+        """
 
 __all__ = ['Endianness', 'EndiannessEnum']

@@ -14,8 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.text.fieldmaster.bibliography import Bibliography as Bibliography
-from ....dyn.text.fieldmaster.dde import DDE as DDE
-from ....dyn.text.fieldmaster.database import Database as Database
-from ....dyn.text.fieldmaster.set_expression import SetExpression as SetExpression
-from ....dyn.text.fieldmaster.user import User as User
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.text.fieldmaster.bibliography import Bibliography as Bibliography
+except ImportError:
+    pass
+try:
+    from ....dyn.text.fieldmaster.dde import DDE as DDE
+except ImportError:
+    pass
+try:
+    from ....dyn.text.fieldmaster.database import Database as Database
+except ImportError:
+    pass
+try:
+    from ....dyn.text.fieldmaster.set_expression import SetExpression as SetExpression
+except ImportError:
+    pass
+try:
+    from ....dyn.text.fieldmaster.user import User as User
+except ImportError:
+    pass

@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import ControlCharacter as ControlCharacter
+    if hasattr(ControlCharacter, '_constants') and isinstance(ControlCharacter._constants, dict):
+        ControlCharacter._constants['__ooo_ns__'] = 'com.sun.star.text'
+        ControlCharacter._constants['__ooo_full_ns__'] = 'com.sun.star.text.ControlCharacter'
+        ControlCharacter._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ControlCharacterEnum
+        ls = [f for f in dir(ControlCharacter) if not callable(getattr(ControlCharacter, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ControlCharacter, name)
+        ControlCharacterEnum = IntEnum('ControlCharacterEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.control_character import ControlCharacter as ControlCharacter
 
+    class ControlCharacterEnum(IntEnum):
+        """
+        Enum of Const Class ControlCharacter
 
-class ControlCharacterEnum(IntEnum):
-    """
-    Enum of Const Class ControlCharacter
-
-    These constants are the codes for inserting control characters using XSimpleText.insertControlCharacter() interface.
-    """
-    PARAGRAPH_BREAK = ControlCharacter.PARAGRAPH_BREAK
-    """
-    This control character starts a new paragraph.
-    """
-    LINE_BREAK = ControlCharacter.LINE_BREAK
-    """
-    This control character starts a new line in a paragraph.
-    """
-    HARD_HYPHEN = ControlCharacter.HARD_HYPHEN
-    """
-    This control character equals a dash but prevents this position from being hyphenated.
-    """
-    SOFT_HYPHEN = ControlCharacter.SOFT_HYPHEN
-    """
-    This control character defines a special position as a hyphenation point.
-    
-    If a word containing a soft hyphen must be split at the end of a line, then this position is preferred.
-    """
-    HARD_SPACE = ControlCharacter.HARD_SPACE
-    """
-    This control character is used to link two words and prevents this concatenation from being hyphenated.
-    
-    It is printed as a space.
-    """
-    APPEND_PARAGRAPH = ControlCharacter.APPEND_PARAGRAPH
-    """
-    This control character appends a new paragraph.
-    """
+        These constants are the codes for inserting control characters using XSimpleText.insertControlCharacter() interface.
+        """
+        PARAGRAPH_BREAK = ControlCharacter.PARAGRAPH_BREAK
+        """
+        This control character starts a new paragraph.
+        """
+        LINE_BREAK = ControlCharacter.LINE_BREAK
+        """
+        This control character starts a new line in a paragraph.
+        """
+        HARD_HYPHEN = ControlCharacter.HARD_HYPHEN
+        """
+        This control character equals a dash but prevents this position from being hyphenated.
+        """
+        SOFT_HYPHEN = ControlCharacter.SOFT_HYPHEN
+        """
+        This control character defines a special position as a hyphenation point.
+        
+        If a word containing a soft hyphen must be split at the end of a line, then this position is preferred.
+        """
+        HARD_SPACE = ControlCharacter.HARD_SPACE
+        """
+        This control character is used to link two words and prevents this concatenation from being hyphenated.
+        
+        It is printed as a space.
+        """
+        APPEND_PARAGRAPH = ControlCharacter.APPEND_PARAGRAPH
+        """
+        This control character appends a new paragraph.
+        """
 
 __all__ = ['ControlCharacter', 'ControlCharacterEnum']

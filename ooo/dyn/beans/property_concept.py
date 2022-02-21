@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import PropertyConcept as PropertyConcept
+    if hasattr(PropertyConcept, '_constants') and isinstance(PropertyConcept._constants, dict):
+        PropertyConcept._constants['__ooo_ns__'] = 'com.sun.star.beans'
+        PropertyConcept._constants['__ooo_full_ns__'] = 'com.sun.star.beans.PropertyConcept'
+        PropertyConcept._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PropertyConceptEnum
+        ls = [f for f in dir(PropertyConcept) if not callable(getattr(PropertyConcept, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PropertyConcept, name)
+        PropertyConceptEnum = IntEnum('PropertyConceptEnum', _dict)
+    build_enum()
 else:
     from ...lo.beans.property_concept import PropertyConcept as PropertyConcept
 
+    class PropertyConceptEnum(IntEnum):
+        """
+        Enum of Const Class PropertyConcept
 
-class PropertyConceptEnum(IntEnum):
-    """
-    Enum of Const Class PropertyConcept
-
-    These constants are used to specify concepts of the introspection which apply to properties and to the methods which represent attributes.
-    
-    This list is not necessarily complete; new constants may be added.
-    """
-    ALL = PropertyConcept.ALL
-    """
-    This value is used to query for all properties.
-    
-    See XIntrospectionAccess.getProperty() and XIntrospectionAccess.getProperties()
-    """
-    DANGEROUS = PropertyConcept.DANGEROUS
-    """
-    specifies that the change or retrieval of this property directly by the user can result in an unstable state (deadlock, application crash, security hole, etc.)
-    """
-    PROPERTYSET = PropertyConcept.PROPERTYSET
-    """
-    specifies all properties which are reachable by XPropertySet, XFastPropertySet or XMultiPropertySet.
-    """
-    ATTRIBUTES = PropertyConcept.ATTRIBUTES
-    """
-    specifies all properties which are actually attributes of interfaces.
-    """
-    METHODS = PropertyConcept.METHODS
-    """
-    specifies all properties which are represented by getter or setter methods.
-    
-    These methods have the signature type get...(), void set...() or boolean is...().
-    """
+        These constants are used to specify concepts of the introspection which apply to properties and to the methods which represent attributes.
+        
+        This list is not necessarily complete; new constants may be added.
+        """
+        ALL = PropertyConcept.ALL
+        """
+        This value is used to query for all properties.
+        
+        See XIntrospectionAccess.getProperty() and XIntrospectionAccess.getProperties()
+        """
+        DANGEROUS = PropertyConcept.DANGEROUS
+        """
+        specifies that the change or retrieval of this property directly by the user can result in an unstable state (deadlock, application crash, security hole, etc.)
+        """
+        PROPERTYSET = PropertyConcept.PROPERTYSET
+        """
+        specifies all properties which are reachable by XPropertySet, XFastPropertySet or XMultiPropertySet.
+        """
+        ATTRIBUTES = PropertyConcept.ATTRIBUTES
+        """
+        specifies all properties which are actually attributes of interfaces.
+        """
+        METHODS = PropertyConcept.METHODS
+        """
+        specifies all properties which are represented by getter or setter methods.
+        
+        These methods have the signature type get...(), void set...() or boolean is...().
+        """
 
 __all__ = ['PropertyConcept', 'PropertyConceptEnum']

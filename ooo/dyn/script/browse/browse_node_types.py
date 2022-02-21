@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.script.browse import BrowseNodeTypes as BrowseNodeTypes
+    if hasattr(BrowseNodeTypes, '_constants') and isinstance(BrowseNodeTypes._constants, dict):
+        BrowseNodeTypes._constants['__ooo_ns__'] = 'com.sun.star.script.browse'
+        BrowseNodeTypes._constants['__ooo_full_ns__'] = 'com.sun.star.script.browse.BrowseNodeTypes'
+        BrowseNodeTypes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BrowseNodeTypesEnum
+        ls = [f for f in dir(BrowseNodeTypes) if not callable(getattr(BrowseNodeTypes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BrowseNodeTypes, name)
+        BrowseNodeTypesEnum = IntEnum('BrowseNodeTypesEnum', _dict)
+    build_enum()
 else:
     from ....lo.script.browse.browse_node_types import BrowseNodeTypes as BrowseNodeTypes
 
+    class BrowseNodeTypesEnum(IntEnum):
+        """
+        Enum of Const Class BrowseNodeTypes
 
-class BrowseNodeTypesEnum(IntEnum):
-    """
-    Enum of Const Class BrowseNodeTypes
-
-    These constants define the three different types of nodes in the BrowseNode hierarchy.
-    """
-    SCRIPT = BrowseNodeTypes.SCRIPT
-    """
-    Indicates node is a script.
-    """
-    CONTAINER = BrowseNodeTypes.CONTAINER
-    """
-    Indicates node is a container.
-    """
-    ROOT = BrowseNodeTypes.ROOT
-    """
-    Indicates node is root of the tree.
-    """
+        These constants define the three different types of nodes in the BrowseNode hierarchy.
+        """
+        SCRIPT = BrowseNodeTypes.SCRIPT
+        """
+        Indicates node is a script.
+        """
+        CONTAINER = BrowseNodeTypes.CONTAINER
+        """
+        Indicates node is a container.
+        """
+        ROOT = BrowseNodeTypes.ROOT
+        """
+        Indicates node is root of the tree.
+        """
 
 __all__ = ['BrowseNodeTypes', 'BrowseNodeTypesEnum']

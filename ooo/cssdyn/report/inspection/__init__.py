@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.report.inspection.data_provider_handler import DataProviderHandler as DataProviderHandler
-from ....dyn.report.inspection.default_component_inspector_model import DefaultComponentInspectorModel as DefaultComponentInspectorModel
-from ....dyn.report.inspection.report_component_handler import ReportComponentHandler as ReportComponentHandler
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.report.inspection.data_provider_handler import DataProviderHandler as DataProviderHandler
+except ImportError:
+    pass
+try:
+    from ....dyn.report.inspection.default_component_inspector_model import DefaultComponentInspectorModel as DefaultComponentInspectorModel
+except ImportError:
+    pass
+try:
+    from ....dyn.report.inspection.report_component_handler import ReportComponentHandler as ReportComponentHandler
+except ImportError:
+    pass

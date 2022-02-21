@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PathCapType as PathCapType
+    if hasattr(PathCapType, '_constants') and isinstance(PathCapType._constants, dict):
+        PathCapType._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PathCapType._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PathCapType'
+        PathCapType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PathCapTypeEnum
+        ls = [f for f in dir(PathCapType) if not callable(getattr(PathCapType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PathCapType, name)
+        PathCapTypeEnum = IntEnum('PathCapTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.path_cap_type import PathCapType as PathCapType
 
+    class PathCapTypeEnum(IntEnum):
+        """
+        Enum of Const Class PathCapType
 
-class PathCapTypeEnum(IntEnum):
-    """
-    Enum of Const Class PathCapType
-
-    These constants determine which shape to use for start or end of a stroked path.
-    
-    The start and end of stroked paths can have one out of several different shapes (which are, of course, only visible for strokes wider than one device pixel).
-    
-    **since**
-    
-        OOo 2.0
-    """
-    BUTT = PathCapType.BUTT
-    """
-    End the path at its start or end point, without any cap.
-    """
-    ROUND = PathCapType.ROUND
-    """
-    Extend the path with a half circle cap, diameter is the line width.
-    """
-    SQUARE = PathCapType.SQUARE
-    """
-    Extend the path with a rectangular cap, half the line width long.
-    """
+        These constants determine which shape to use for start or end of a stroked path.
+        
+        The start and end of stroked paths can have one out of several different shapes (which are, of course, only visible for strokes wider than one device pixel).
+        
+        **since**
+        
+            OOo 2.0
+        """
+        BUTT = PathCapType.BUTT
+        """
+        End the path at its start or end point, without any cap.
+        """
+        ROUND = PathCapType.ROUND
+        """
+        Extend the path with a half circle cap, diameter is the line width.
+        """
+        SQUARE = PathCapType.SQUARE
+        """
+        Extend the path with a rectangular cap, half the line width long.
+        """
 
 __all__ = ['PathCapType', 'PathCapTypeEnum']

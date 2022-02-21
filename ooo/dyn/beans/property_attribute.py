@@ -27,64 +27,75 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import PropertyAttribute as PropertyAttribute
+    if hasattr(PropertyAttribute, '_constants') and isinstance(PropertyAttribute._constants, dict):
+        PropertyAttribute._constants['__ooo_ns__'] = 'com.sun.star.beans'
+        PropertyAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.beans.PropertyAttribute'
+        PropertyAttribute._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PropertyAttributeEnum
+        ls = [f for f in dir(PropertyAttribute) if not callable(getattr(PropertyAttribute, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PropertyAttribute, name)
+        PropertyAttributeEnum = IntFlag('PropertyAttributeEnum', _dict)
+    build_enum()
 else:
     from ...lo.beans.property_attribute import PropertyAttribute as PropertyAttribute
 
+    class PropertyAttributeEnum(IntFlag):
+        """
+        Enum of Const Class PropertyAttribute
 
-class PropertyAttributeEnum(IntFlag):
-    """
-    Enum of Const Class PropertyAttribute
-
-    These values are used to specify the behavior of a Property.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    MAYBEVOID = PropertyAttribute.MAYBEVOID
-    """
-    indicates that a property value can be void.
-    
-    It does not mean that the type of the property is void!
-    """
-    BOUND = PropertyAttribute.BOUND
-    """
-    indicates that a PropertyChangeEvent will be fired to all registered XPropertyChangeListeners whenever the value of this property changes.
-    """
-    CONSTRAINED = PropertyAttribute.CONSTRAINED
-    """
-    indicates that a PropertyChangeEvent will be fired to all registered XVetoableChangeListeners whenever the value of this property is about to change.
-    """
-    TRANSIENT = PropertyAttribute.TRANSIENT
-    """
-    indicates that the value of the property is not persistent.
-    """
-    READONLY = PropertyAttribute.READONLY
-    """
-    indicates that the value of the property is read-only.
-    """
-    MAYBEAMBIGUOUS = PropertyAttribute.MAYBEAMBIGUOUS
-    """
-    indicates that the value of the property can be ambiguous.
-    """
-    MAYBEDEFAULT = PropertyAttribute.MAYBEDEFAULT
-    """
-    indicates that the property can be set to default.
-    """
-    REMOVABLE = PropertyAttribute.REMOVABLE
-    """
-    indicates that the property can be removed (i.e., by calling XPropertyContainer.removeProperty()).
-    """
-    REMOVEABLE = PropertyAttribute.REMOVEABLE
-    OPTIONAL = PropertyAttribute.OPTIONAL
-    """
-    indicates that a property is optional.
-    
-    This attribute is not of interest for concrete property implementations. It's needed for property specifications inside service specifications in UNOIDL.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
+        These values are used to specify the behavior of a Property.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        MAYBEVOID = PropertyAttribute.MAYBEVOID
+        """
+        indicates that a property value can be void.
+        
+        It does not mean that the type of the property is void!
+        """
+        BOUND = PropertyAttribute.BOUND
+        """
+        indicates that a PropertyChangeEvent will be fired to all registered XPropertyChangeListeners whenever the value of this property changes.
+        """
+        CONSTRAINED = PropertyAttribute.CONSTRAINED
+        """
+        indicates that a PropertyChangeEvent will be fired to all registered XVetoableChangeListeners whenever the value of this property is about to change.
+        """
+        TRANSIENT = PropertyAttribute.TRANSIENT
+        """
+        indicates that the value of the property is not persistent.
+        """
+        READONLY = PropertyAttribute.READONLY
+        """
+        indicates that the value of the property is read-only.
+        """
+        MAYBEAMBIGUOUS = PropertyAttribute.MAYBEAMBIGUOUS
+        """
+        indicates that the value of the property can be ambiguous.
+        """
+        MAYBEDEFAULT = PropertyAttribute.MAYBEDEFAULT
+        """
+        indicates that the property can be set to default.
+        """
+        REMOVABLE = PropertyAttribute.REMOVABLE
+        """
+        indicates that the property can be removed (i.e., by calling XPropertyContainer.removeProperty()).
+        """
+        REMOVEABLE = PropertyAttribute.REMOVEABLE
+        OPTIONAL = PropertyAttribute.OPTIONAL
+        """
+        indicates that a property is optional.
+        
+        This attribute is not of interest for concrete property implementations. It's needed for property specifications inside service specifications in UNOIDL.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
 
 __all__ = ['PropertyAttribute', 'PropertyAttributeEnum']

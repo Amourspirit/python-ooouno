@@ -27,44 +27,55 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import TransliterationModulesExtra as TransliterationModulesExtra
+    if hasattr(TransliterationModulesExtra, '_constants') and isinstance(TransliterationModulesExtra._constants, dict):
+        TransliterationModulesExtra._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        TransliterationModulesExtra._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.TransliterationModulesExtra'
+        TransliterationModulesExtra._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TransliterationModulesExtraEnum
+        ls = [f for f in dir(TransliterationModulesExtra) if not callable(getattr(TransliterationModulesExtra, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TransliterationModulesExtra, name)
+        TransliterationModulesExtraEnum = IntEnum('TransliterationModulesExtraEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.transliteration_modules_extra import TransliterationModulesExtra as TransliterationModulesExtra
 
+    class TransliterationModulesExtraEnum(IntEnum):
+        """
+        Enum of Const Class TransliterationModulesExtra
 
-class TransliterationModulesExtraEnum(IntEnum):
-    """
-    Enum of Const Class TransliterationModulesExtra
-
-    Extra transliteration module enumeration to use with XTransliteration.loadModule()
-    
-    The values used in this group need to be different from the ones in TransliterationModules and TransliterationModulesNew!
-    """
-    SENTENCE_CASE = TransliterationModulesExtra.SENTENCE_CASE
-    """
-    The first character of the sentence is put in upper case.
-    """
-    TITLE_CASE = TransliterationModulesExtra.TITLE_CASE
-    """
-    The first character of the word is put in upper case.
-    
-    This one is part
-    """
-    TOGGLE_CASE = TransliterationModulesExtra.TOGGLE_CASE
-    """
-    All characters of the word are to change their case from small letters to capital letters and vice versa.
-    """
-    IGNORE_DIACRITICS_CTL = TransliterationModulesExtra.IGNORE_DIACRITICS_CTL
-    """
-    Ignore diacritics.
-    
-    Despite the _CTL name suffix this is not only about CTL/Arabic diacritic characters, though these are handled as well, but the transliteration decomposes and removes any diacritic from characters.
-    
-    Because we cannot extend the TransliterationModules enum we use TransliterationModulesExtra and it will act the same way.
-    """
-    IGNORE_KASHIDA_CTL = TransliterationModulesExtra.IGNORE_KASHIDA_CTL
-    """
-    Ignore Kashida mark.
-    """
-    END_OF_MODULE = TransliterationModulesExtra.END_OF_MODULE
+        Extra transliteration module enumeration to use with XTransliteration.loadModule()
+        
+        The values used in this group need to be different from the ones in TransliterationModules and TransliterationModulesNew!
+        """
+        SENTENCE_CASE = TransliterationModulesExtra.SENTENCE_CASE
+        """
+        The first character of the sentence is put in upper case.
+        """
+        TITLE_CASE = TransliterationModulesExtra.TITLE_CASE
+        """
+        The first character of the word is put in upper case.
+        
+        This one is part
+        """
+        TOGGLE_CASE = TransliterationModulesExtra.TOGGLE_CASE
+        """
+        All characters of the word are to change their case from small letters to capital letters and vice versa.
+        """
+        IGNORE_DIACRITICS_CTL = TransliterationModulesExtra.IGNORE_DIACRITICS_CTL
+        """
+        Ignore diacritics.
+        
+        Despite the _CTL name suffix this is not only about CTL/Arabic diacritic characters, though these are handled as well, but the transliteration decomposes and removes any diacritic from characters.
+        
+        Because we cannot extend the TransliterationModules enum we use TransliterationModulesExtra and it will act the same way.
+        """
+        IGNORE_KASHIDA_CTL = TransliterationModulesExtra.IGNORE_KASHIDA_CTL
+        """
+        Ignore Kashida mark.
+        """
+        END_OF_MODULE = TransliterationModulesExtra.END_OF_MODULE
 
 __all__ = ['TransliterationModulesExtra', 'TransliterationModulesExtraEnum']

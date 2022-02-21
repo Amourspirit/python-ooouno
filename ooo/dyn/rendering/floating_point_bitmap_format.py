@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import FloatingPointBitmapFormat as FloatingPointBitmapFormat
+    if hasattr(FloatingPointBitmapFormat, '_constants') and isinstance(FloatingPointBitmapFormat._constants, dict):
+        FloatingPointBitmapFormat._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        FloatingPointBitmapFormat._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.FloatingPointBitmapFormat'
+        FloatingPointBitmapFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FloatingPointBitmapFormatEnum
+        ls = [f for f in dir(FloatingPointBitmapFormat) if not callable(getattr(FloatingPointBitmapFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FloatingPointBitmapFormat, name)
+        FloatingPointBitmapFormatEnum = IntEnum('FloatingPointBitmapFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.floating_point_bitmap_format import FloatingPointBitmapFormat as FloatingPointBitmapFormat
 
+    class FloatingPointBitmapFormatEnum(IntEnum):
+        """
+        Enum of Const Class FloatingPointBitmapFormat
 
-class FloatingPointBitmapFormatEnum(IntEnum):
-    """
-    Enum of Const Class FloatingPointBitmapFormat
-
-    This structure describes format of a floating point bitmap.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    HALFFLOAT = FloatingPointBitmapFormat.HALFFLOAT
-    """
-    Half-float format.
-    
-    The color components are stored in the half-float format, i.e. in a 16 bit value, with 5 bit exponent, 10 bit mantissa and a sign bit. See also OpenEXR for a format employing half-floats.
-    """
-    FLOAT = FloatingPointBitmapFormat.FLOAT
-    """
-    IEEE float format.
-    
-    The color components are stored in the IEEE single-precision floating point format, i.e. in a 32 bit value, with 8 bit exponent, 23 bit mantissa and a sign bit.
-    """
-    DOUBLE = FloatingPointBitmapFormat.DOUBLE
-    """
-    IEEE double format.
-    
-    The color components are stored in the IEEE double-precision floating point format, i.e. in a 64 bit value, with 16 bit exponent, 47 bit mantissa and a sign bit.
-    """
+        This structure describes format of a floating point bitmap.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        HALFFLOAT = FloatingPointBitmapFormat.HALFFLOAT
+        """
+        Half-float format.
+        
+        The color components are stored in the half-float format, i.e. in a 16 bit value, with 5 bit exponent, 10 bit mantissa and a sign bit. See also OpenEXR for a format employing half-floats.
+        """
+        FLOAT = FloatingPointBitmapFormat.FLOAT
+        """
+        IEEE float format.
+        
+        The color components are stored in the IEEE single-precision floating point format, i.e. in a 32 bit value, with 8 bit exponent, 23 bit mantissa and a sign bit.
+        """
+        DOUBLE = FloatingPointBitmapFormat.DOUBLE
+        """
+        IEEE double format.
+        
+        The color components are stored in the IEEE double-precision floating point format, i.e. in a 64 bit value, with 16 bit exponent, 47 bit mantissa and a sign bit.
+        """
 
 __all__ = ['FloatingPointBitmapFormat', 'FloatingPointBitmapFormatEnum']

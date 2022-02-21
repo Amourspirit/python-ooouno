@@ -27,15 +27,26 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.frame import UntitledNumbersConst as UntitledNumbersConst
+    if hasattr(UntitledNumbersConst, '_constants') and isinstance(UntitledNumbersConst._constants, dict):
+        UntitledNumbersConst._constants['__ooo_ns__'] = 'com.sun.star.frame'
+        UntitledNumbersConst._constants['__ooo_full_ns__'] = 'com.sun.star.frame.UntitledNumbersConst'
+        UntitledNumbersConst._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global UntitledNumbersConstEnum
+        ls = [f for f in dir(UntitledNumbersConst) if not callable(getattr(UntitledNumbersConst, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(UntitledNumbersConst, name)
+        UntitledNumbersConstEnum = IntEnum('UntitledNumbersConstEnum', _dict)
+    build_enum()
 else:
     from ...lo.frame.untitled_numbers_const import UntitledNumbersConst as UntitledNumbersConst
 
+    class UntitledNumbersConstEnum(IntEnum):
+        """
+        Enum of Const Class UntitledNumbersConst
 
-class UntitledNumbersConstEnum(IntEnum):
-    """
-    Enum of Const Class UntitledNumbersConst
-
-    """
-    INVALID_NUMBER = UntitledNumbersConst.INVALID_NUMBER
+        """
+        INVALID_NUMBER = UntitledNumbersConst.INVALID_NUMBER
 
 __all__ = ['UntitledNumbersConst', 'UntitledNumbersConstEnum']

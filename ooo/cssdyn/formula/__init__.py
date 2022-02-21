@@ -14,7 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.formula.accessible_formula_text import AccessibleFormulaText as AccessibleFormulaText
-from ...dyn.formula.accessible_formula_view import AccessibleFormulaView as AccessibleFormulaView
-from ...dyn.formula.formula_properties import FormulaProperties as FormulaProperties
-from ...dyn.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.formula.accessible_formula_text import AccessibleFormulaText as AccessibleFormulaText
+except ImportError:
+    pass
+try:
+    from ...dyn.formula.accessible_formula_view import AccessibleFormulaView as AccessibleFormulaView
+except ImportError:
+    pass
+try:
+    from ...dyn.formula.formula_properties import FormulaProperties as FormulaProperties
+except ImportError:
+    pass
+try:
+    from ...dyn.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor
+except ImportError:
+    pass

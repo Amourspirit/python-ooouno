@@ -27,89 +27,100 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import TemplateDescription as TemplateDescription
+    if hasattr(TemplateDescription, '_constants') and isinstance(TemplateDescription._constants, dict):
+        TemplateDescription._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        TemplateDescription._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.TemplateDescription'
+        TemplateDescription._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TemplateDescriptionEnum
+        ls = [f for f in dir(TemplateDescription) if not callable(getattr(TemplateDescription, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TemplateDescription, name)
+        TemplateDescriptionEnum = IntEnum('TemplateDescriptionEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.template_description import TemplateDescription as TemplateDescription
 
+    class TemplateDescriptionEnum(IntEnum):
+        """
+        Enum of Const Class TemplateDescription
 
-class TemplateDescriptionEnum(IntEnum):
-    """
-    Enum of Const Class TemplateDescription
-
-    The implementation of a FilePicker service may support the usage of different templates.
-    
-    The following constants define the currently specified templates.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
-    FILEOPEN_SIMPLE = TemplateDescription.FILEOPEN_SIMPLE
-    """
-    A FileOpen dialog without any additional controls.
-    """
-    FILESAVE_SIMPLE = TemplateDescription.FILESAVE_SIMPLE
-    """
-    A FileSave dialog without any additional controls.
-    """
-    FILESAVE_AUTOEXTENSION_PASSWORD = TemplateDescription.FILESAVE_AUTOEXTENSION_PASSWORD
-    """
-    A FileSave dialog with additional controls.
-    """
-    FILESAVE_AUTOEXTENSION_PASSWORD_FILTEROPTIONS = TemplateDescription.FILESAVE_AUTOEXTENSION_PASSWORD_FILTEROPTIONS
-    """
-    A FileSave dialog with additional controls.
-    """
-    FILESAVE_AUTOEXTENSION_SELECTION = TemplateDescription.FILESAVE_AUTOEXTENSION_SELECTION
-    """
-    A FileSave dialog with additional controls.
-    """
-    FILESAVE_AUTOEXTENSION_TEMPLATE = TemplateDescription.FILESAVE_AUTOEXTENSION_TEMPLATE
-    """
-    A FileSave dialog with additional controls.
-    """
-    FILEOPEN_LINK_PREVIEW_IMAGE_TEMPLATE = TemplateDescription.FILEOPEN_LINK_PREVIEW_IMAGE_TEMPLATE
-    """
-    A FileOpen dialog with additional controls.
-    """
-    FILEOPEN_PLAY = TemplateDescription.FILEOPEN_PLAY
-    """
-    A FileOpen dialog with additional controls.
-    """
-    FILEOPEN_READONLY_VERSION = TemplateDescription.FILEOPEN_READONLY_VERSION
-    """
-    A FileOpen dialog with additional controls.
-    """
-    FILEOPEN_LINK_PREVIEW = TemplateDescription.FILEOPEN_LINK_PREVIEW
-    """
-    A FileOpen dialog with additional controls.
-    """
-    FILESAVE_AUTOEXTENSION = TemplateDescription.FILESAVE_AUTOEXTENSION
-    """
-    A FileSave dialog with additional controls.
-    """
-    FILEOPEN_PREVIEW = TemplateDescription.FILEOPEN_PREVIEW
-    """
-    A FileOpen dialog with additional controls.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
-    FILEOPEN_LINK_PLAY = TemplateDescription.FILEOPEN_LINK_PLAY
-    """
-    A FileOpen dialog with additional controls.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
-    FILEOPEN_LINK_PREVIEW_IMAGE_ANCHOR = TemplateDescription.FILEOPEN_LINK_PREVIEW_IMAGE_ANCHOR
-    """
-    A FileOpen dialog with additional controls.
-    
-    **since**
-    
-        LibreOffice 6.1
-    """
+        The implementation of a FilePicker service may support the usage of different templates.
+        
+        The following constants define the currently specified templates.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
+        FILEOPEN_SIMPLE = TemplateDescription.FILEOPEN_SIMPLE
+        """
+        A FileOpen dialog without any additional controls.
+        """
+        FILESAVE_SIMPLE = TemplateDescription.FILESAVE_SIMPLE
+        """
+        A FileSave dialog without any additional controls.
+        """
+        FILESAVE_AUTOEXTENSION_PASSWORD = TemplateDescription.FILESAVE_AUTOEXTENSION_PASSWORD
+        """
+        A FileSave dialog with additional controls.
+        """
+        FILESAVE_AUTOEXTENSION_PASSWORD_FILTEROPTIONS = TemplateDescription.FILESAVE_AUTOEXTENSION_PASSWORD_FILTEROPTIONS
+        """
+        A FileSave dialog with additional controls.
+        """
+        FILESAVE_AUTOEXTENSION_SELECTION = TemplateDescription.FILESAVE_AUTOEXTENSION_SELECTION
+        """
+        A FileSave dialog with additional controls.
+        """
+        FILESAVE_AUTOEXTENSION_TEMPLATE = TemplateDescription.FILESAVE_AUTOEXTENSION_TEMPLATE
+        """
+        A FileSave dialog with additional controls.
+        """
+        FILEOPEN_LINK_PREVIEW_IMAGE_TEMPLATE = TemplateDescription.FILEOPEN_LINK_PREVIEW_IMAGE_TEMPLATE
+        """
+        A FileOpen dialog with additional controls.
+        """
+        FILEOPEN_PLAY = TemplateDescription.FILEOPEN_PLAY
+        """
+        A FileOpen dialog with additional controls.
+        """
+        FILEOPEN_READONLY_VERSION = TemplateDescription.FILEOPEN_READONLY_VERSION
+        """
+        A FileOpen dialog with additional controls.
+        """
+        FILEOPEN_LINK_PREVIEW = TemplateDescription.FILEOPEN_LINK_PREVIEW
+        """
+        A FileOpen dialog with additional controls.
+        """
+        FILESAVE_AUTOEXTENSION = TemplateDescription.FILESAVE_AUTOEXTENSION
+        """
+        A FileSave dialog with additional controls.
+        """
+        FILEOPEN_PREVIEW = TemplateDescription.FILEOPEN_PREVIEW
+        """
+        A FileOpen dialog with additional controls.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
+        FILEOPEN_LINK_PLAY = TemplateDescription.FILEOPEN_LINK_PLAY
+        """
+        A FileOpen dialog with additional controls.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
+        FILEOPEN_LINK_PREVIEW_IMAGE_ANCHOR = TemplateDescription.FILEOPEN_LINK_PREVIEW_IMAGE_ANCHOR
+        """
+        A FileOpen dialog with additional controls.
+        
+        **since**
+        
+            LibreOffice 6.1
+        """
 
 __all__ = ['TemplateDescription', 'TemplateDescriptionEnum']

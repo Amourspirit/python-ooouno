@@ -51,7 +51,7 @@ def test_interface():
     assert XAccessibleAction.__ooo_type_name__ == 'interface'
 
 
-def test_exception():
+def test_exception_uno():
     from ooo.dyn.uno.exception import Exception
     ex = Exception()
     assert id(ex) != id(Exception)
@@ -63,6 +63,19 @@ def test_exception():
     assert ex.__ooo_ns__ == 'com.sun.star.uno'
     assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_type_name__ == 'exception'
+    assert type(ex).__name__ == 'com.sun.star.uno.Exception'
+    assert ex.__module__ == 'uno'
+    ex = Exception(Message="I made an error")
+    assert ex.Message == 'I made an error'
+
+def test_exception():
+    from ooo.lo.uno.exception import Exception
+    ex = Exception()
+    assert id(ex) != id(Exception)
+    ex.Message = "Hello World"
+    assert ex.Message == 'Hello World'
+    assert type(ex).__name__ == 'Exception'
+    assert ex.__module__ == 'ooo.lo.uno.exception'
     
 
 
@@ -111,6 +124,13 @@ def test_rectangle():
     rect4 = Rectangle(rect2)
     assert rect4.X == 100
 
+def test_property_value():
+    from ooo.dyn.beans.property_value import PropertyValue
+    p = PropertyValue(Name='MyProperty', Value=101)
+    assert p.Name == 'MyProperty'
+    assert p.Value == 101
+    assert type(p).__name__ == 'com.sun.star.beans.PropertyValue'
+    
 def test_uno_obj_rectangle():
     from ooo.lo.awt.rectangle import Rectangle
     rect1 = Rectangle()
@@ -127,9 +147,19 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
+    assert DeviceCapability.__module__ == 'uno'
 
 def test_excpetion_createUnoStruct():
     from ooo.dyn.ucb.missing_properties_exception import MissingPropertiesException
     prop = ("hello", "world")
     ex: MissingPropertiesException = MissingPropertiesException(Properties=prop)
     assert ex.Properties == ("hello", "world")
+
+def test_color():
+    from ooo.dyn.util.color import Color
+    c1 = Color(234)
+    c2 = Color(6)
+    assert isinstance(c1, int)
+    result = c1 + c2
+    assert result == 240
+    

@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontEmphasisMark as FontEmphasisMark
+    if hasattr(FontEmphasisMark, '_constants') and isinstance(FontEmphasisMark._constants, dict):
+        FontEmphasisMark._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontEmphasisMark._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontEmphasisMark'
+        FontEmphasisMark._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontEmphasisMarkEnum
+        ls = [f for f in dir(FontEmphasisMark) if not callable(getattr(FontEmphasisMark, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontEmphasisMark, name)
+        FontEmphasisMarkEnum = IntEnum('FontEmphasisMarkEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_emphasis_mark import FontEmphasisMark as FontEmphasisMark
 
+    class FontEmphasisMarkEnum(IntEnum):
+        """
+        Enum of Const Class FontEmphasisMark
 
-class FontEmphasisMarkEnum(IntEnum):
-    """
-    Enum of Const Class FontEmphasisMark
-
-    These values are used to specify the kind of emphasis mark.
-    
-    They may be expanded in future versions.
-    """
-    NONE = FontEmphasisMark.NONE
-    """
-    specifies no emphasis mark.
-    """
-    DOT = FontEmphasisMark.DOT
-    """
-    specifies emphasis mark dot.
-    """
-    CIRCLE = FontEmphasisMark.CIRCLE
-    """
-    specifies emphasis mark circle.
-    """
-    DISC = FontEmphasisMark.DISC
-    """
-    specifies emphasis mark disc.
-    """
-    ACCENT = FontEmphasisMark.ACCENT
-    """
-    specifies emphasis mark accent.
-    """
-    ABOVE = FontEmphasisMark.ABOVE
-    """
-    specifies that the emphasis mark should be positioned above the characters.
-    """
-    BELOW = FontEmphasisMark.BELOW
-    """
-    specifies that the emphasis mark should be positioned below the characters.
-    """
+        These values are used to specify the kind of emphasis mark.
+        
+        They may be expanded in future versions.
+        """
+        NONE = FontEmphasisMark.NONE
+        """
+        specifies no emphasis mark.
+        """
+        DOT = FontEmphasisMark.DOT
+        """
+        specifies emphasis mark dot.
+        """
+        CIRCLE = FontEmphasisMark.CIRCLE
+        """
+        specifies emphasis mark circle.
+        """
+        DISC = FontEmphasisMark.DISC
+        """
+        specifies emphasis mark disc.
+        """
+        ACCENT = FontEmphasisMark.ACCENT
+        """
+        specifies emphasis mark accent.
+        """
+        ABOVE = FontEmphasisMark.ABOVE
+        """
+        specifies that the emphasis mark should be positioned above the characters.
+        """
+        BELOW = FontEmphasisMark.BELOW
+        """
+        specifies that the emphasis mark should be positioned below the characters.
+        """
 
 __all__ = ['FontEmphasisMark', 'FontEmphasisMarkEnum']

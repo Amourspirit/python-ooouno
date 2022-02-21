@@ -27,41 +27,52 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import MailMergeType as MailMergeType
+    if hasattr(MailMergeType, '_constants') and isinstance(MailMergeType._constants, dict):
+        MailMergeType._constants['__ooo_ns__'] = 'com.sun.star.text'
+        MailMergeType._constants['__ooo_full_ns__'] = 'com.sun.star.text.MailMergeType'
+        MailMergeType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MailMergeTypeEnum
+        ls = [f for f in dir(MailMergeType) if not callable(getattr(MailMergeType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MailMergeType, name)
+        MailMergeTypeEnum = IntEnum('MailMergeTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.mail_merge_type import MailMergeType as MailMergeType
 
+    class MailMergeTypeEnum(IntEnum):
+        """
+        Enum of Const Class MailMergeType
 
-class MailMergeTypeEnum(IntEnum):
-    """
-    Enum of Const Class MailMergeType
-
-    Defines the possible output types/devices for mail merge.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    PRINTER = MailMergeType.PRINTER
-    """
-    The output device is a printer.
-    """
-    FILE = MailMergeType.FILE
-    """
-    The output device is a file.
-    """
-    MAIL = MailMergeType.MAIL
-    """
-    The output is sent as e-Mail.
-    """
-    SHELL = MailMergeType.SHELL
-    """
-    The output is a document shell.
-    
-    The successful mail merge returns a XTextDocument based component.
-    
-    **since**
-    
-        LibreOffice 4.4
-    """
+        Defines the possible output types/devices for mail merge.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        PRINTER = MailMergeType.PRINTER
+        """
+        The output device is a printer.
+        """
+        FILE = MailMergeType.FILE
+        """
+        The output device is a file.
+        """
+        MAIL = MailMergeType.MAIL
+        """
+        The output is sent as e-Mail.
+        """
+        SHELL = MailMergeType.SHELL
+        """
+        The output is a document shell.
+        
+        The successful mail merge returns a XTextDocument based component.
+        
+        **since**
+        
+            LibreOffice 4.4
+        """
 
 __all__ = ['MailMergeType', 'MailMergeTypeEnum']

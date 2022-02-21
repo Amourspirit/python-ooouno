@@ -27,63 +27,74 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ConditionOperator2 as ConditionOperator2
+    if hasattr(ConditionOperator2, '_constants') and isinstance(ConditionOperator2._constants, dict):
+        ConditionOperator2._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ConditionOperator2._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ConditionOperator2'
+        ConditionOperator2._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConditionOperator2Enum
+        ls = [f for f in dir(ConditionOperator2) if not callable(getattr(ConditionOperator2, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConditionOperator2, name)
+        ConditionOperator2Enum = IntEnum('ConditionOperator2Enum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.condition_operator2 import ConditionOperator2 as ConditionOperator2
 
+    class ConditionOperator2Enum(IntEnum):
+        """
+        Enum of Const Class ConditionOperator2
 
-class ConditionOperator2Enum(IntEnum):
-    """
-    Enum of Const Class ConditionOperator2
-
-    is used to specify the type of XSheetCondition2.
-    """
-    NONE = ConditionOperator2.NONE
-    """
-    no condition is specified.
-    """
-    EQUAL = ConditionOperator2.EQUAL
-    """
-    value has to be equal to the specified value.
-    """
-    NOT_EQUAL = ConditionOperator2.NOT_EQUAL
-    """
-    the value must not be equal to the specified value.
-    """
-    GREATER = ConditionOperator2.GREATER
-    """
-    the value has to be greater than the specified value.
-    """
-    GREATER_EQUAL = ConditionOperator2.GREATER_EQUAL
-    """
-    the value has to be greater than or equal to the specified value.
-    """
-    LESS = ConditionOperator2.LESS
-    """
-    the value has to be less than the specified value.
-    """
-    LESS_EQUAL = ConditionOperator2.LESS_EQUAL
-    """
-    the value has to be less than or equal to the specified value.
-    """
-    BETWEEN = ConditionOperator2.BETWEEN
-    """
-    the value has to be between the two specified values.
-    """
-    NOT_BETWEEN = ConditionOperator2.NOT_BETWEEN
-    """
-    the value has to be outside of the two specified values.
-    """
-    FORMULA = ConditionOperator2.FORMULA
-    """
-    the specified formula has to give a non-zero result.
-    """
-    DUPLICATE = ConditionOperator2.DUPLICATE
-    """
-    Conditionally format duplicate values.
-    """
-    NOT_DUPLICATE = ConditionOperator2.NOT_DUPLICATE
-    """
-    Conditionally format non-duplicate values.
-    """
+        is used to specify the type of XSheetCondition2.
+        """
+        NONE = ConditionOperator2.NONE
+        """
+        no condition is specified.
+        """
+        EQUAL = ConditionOperator2.EQUAL
+        """
+        value has to be equal to the specified value.
+        """
+        NOT_EQUAL = ConditionOperator2.NOT_EQUAL
+        """
+        the value must not be equal to the specified value.
+        """
+        GREATER = ConditionOperator2.GREATER
+        """
+        the value has to be greater than the specified value.
+        """
+        GREATER_EQUAL = ConditionOperator2.GREATER_EQUAL
+        """
+        the value has to be greater than or equal to the specified value.
+        """
+        LESS = ConditionOperator2.LESS
+        """
+        the value has to be less than the specified value.
+        """
+        LESS_EQUAL = ConditionOperator2.LESS_EQUAL
+        """
+        the value has to be less than or equal to the specified value.
+        """
+        BETWEEN = ConditionOperator2.BETWEEN
+        """
+        the value has to be between the two specified values.
+        """
+        NOT_BETWEEN = ConditionOperator2.NOT_BETWEEN
+        """
+        the value has to be outside of the two specified values.
+        """
+        FORMULA = ConditionOperator2.FORMULA
+        """
+        the specified formula has to give a non-zero result.
+        """
+        DUPLICATE = ConditionOperator2.DUPLICATE
+        """
+        Conditionally format duplicate values.
+        """
+        NOT_DUPLICATE = ConditionOperator2.NOT_DUPLICATE
+        """
+        Conditionally format non-duplicate values.
+        """
 
 __all__ = ['ConditionOperator2', 'ConditionOperator2Enum']

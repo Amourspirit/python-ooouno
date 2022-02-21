@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import DeviceCapability as DeviceCapability
+    if hasattr(DeviceCapability, '_constants') and isinstance(DeviceCapability._constants, dict):
+        DeviceCapability._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        DeviceCapability._constants['__ooo_full_ns__'] = 'com.sun.star.awt.DeviceCapability'
+        DeviceCapability._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DeviceCapabilityEnum
+        ls = [f for f in dir(DeviceCapability) if not callable(getattr(DeviceCapability, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DeviceCapability, name)
+        DeviceCapabilityEnum = IntFlag('DeviceCapabilityEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.device_capability import DeviceCapability as DeviceCapability
 
+    class DeviceCapabilityEnum(IntFlag):
+        """
+        Enum of Const Class DeviceCapability
 
-class DeviceCapabilityEnum(IntFlag):
-    """
-    Enum of Const Class DeviceCapability
-
-    defines which capabilities a device supports.
-    """
-    RASTEROPERATIONS = DeviceCapability.RASTEROPERATIONS
-    """
-    supports the device raster operations.
-    """
-    GETBITS = DeviceCapability.GETBITS
-    """
-    supports the XDevice.createBitmap(), the XDevice.createDevice() and the XGraphics.copy() methods.
-    """
+        defines which capabilities a device supports.
+        """
+        RASTEROPERATIONS = DeviceCapability.RASTEROPERATIONS
+        """
+        supports the device raster operations.
+        """
+        GETBITS = DeviceCapability.GETBITS
+        """
+        supports the XDevice.createBitmap(), the XDevice.createDevice() and the XGraphics.copy() methods.
+        """
 
 __all__ = ['DeviceCapability', 'DeviceCapabilityEnum']

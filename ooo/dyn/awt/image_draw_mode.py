@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import ImageDrawMode as ImageDrawMode
+    if hasattr(ImageDrawMode, '_constants') and isinstance(ImageDrawMode._constants, dict):
+        ImageDrawMode._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        ImageDrawMode._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ImageDrawMode'
+        ImageDrawMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ImageDrawModeEnum
+        ls = [f for f in dir(ImageDrawMode) if not callable(getattr(ImageDrawMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ImageDrawMode, name)
+        ImageDrawModeEnum = IntFlag('ImageDrawModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.image_draw_mode import ImageDrawMode as ImageDrawMode
 
+    class ImageDrawModeEnum(IntFlag):
+        """
+        Enum of Const Class ImageDrawMode
 
-class ImageDrawModeEnum(IntFlag):
-    """
-    Enum of Const Class ImageDrawMode
-
-    defines modes how an image is drawn onto a device
-    
-    **since**
-    
-        LibreOffice 4.1
-    """
-    NONE = ImageDrawMode.NONE
-    """
-    the image is drawn as is, without any color transformation.
-    """
-    DISABLE = ImageDrawMode.DISABLE
-    """
-    the image is drawn as if it represented a feature whose state is disabled.
-    """
-    HIGHLIGHT = ImageDrawMode.HIGHLIGHT
-    """
-    the image is drawn as being highlighted.
-    
-    See com.sun.star.awt.XStyleSettings.HighlightColor.
-    """
-    DEACTIVE = ImageDrawMode.DEACTIVE
-    """
-    the image is drawn as being deactivated.
-    
-    See com.sun.star.awt.XStyleSettings.DeactiveColor.
-    """
-    SEMITRANSPARENT = ImageDrawMode.SEMITRANSPARENT
-    """
-    the image is drawn semi-transparent.
-    """
+        defines modes how an image is drawn onto a device
+        
+        **since**
+        
+            LibreOffice 4.1
+        """
+        NONE = ImageDrawMode.NONE
+        """
+        the image is drawn as is, without any color transformation.
+        """
+        DISABLE = ImageDrawMode.DISABLE
+        """
+        the image is drawn as if it represented a feature whose state is disabled.
+        """
+        HIGHLIGHT = ImageDrawMode.HIGHLIGHT
+        """
+        the image is drawn as being highlighted.
+        
+        See com.sun.star.awt.XStyleSettings.HighlightColor.
+        """
+        DEACTIVE = ImageDrawMode.DEACTIVE
+        """
+        the image is drawn as being deactivated.
+        
+        See com.sun.star.awt.XStyleSettings.DeactiveColor.
+        """
+        SEMITRANSPARENT = ImageDrawMode.SEMITRANSPARENT
+        """
+        the image is drawn semi-transparent.
+        """
 
 __all__ = ['ImageDrawMode', 'ImageDrawModeEnum']

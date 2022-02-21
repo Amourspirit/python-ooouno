@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import ConditionFormatOperator as ConditionFormatOperator
+    if hasattr(ConditionFormatOperator, '_constants') and isinstance(ConditionFormatOperator._constants, dict):
+        ConditionFormatOperator._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        ConditionFormatOperator._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ConditionFormatOperator'
+        ConditionFormatOperator._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ConditionFormatOperatorEnum
+        ls = [f for f in dir(ConditionFormatOperator) if not callable(getattr(ConditionFormatOperator, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ConditionFormatOperator, name)
+        ConditionFormatOperatorEnum = IntEnum('ConditionFormatOperatorEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.condition_format_operator import ConditionFormatOperator as ConditionFormatOperator
 
+    class ConditionFormatOperatorEnum(IntEnum):
+        """
+        Enum of Const Class ConditionFormatOperator
 
-class ConditionFormatOperatorEnum(IntEnum):
-    """
-    Enum of Const Class ConditionFormatOperator
-
-    """
-    EQUAL = ConditionFormatOperator.EQUAL
-    LESS = ConditionFormatOperator.LESS
-    GREATER = ConditionFormatOperator.GREATER
-    LESS_EQUAL = ConditionFormatOperator.LESS_EQUAL
-    GREATER_EQUAL = ConditionFormatOperator.GREATER_EQUAL
-    NOT_EQUAL = ConditionFormatOperator.NOT_EQUAL
-    BETWEEN = ConditionFormatOperator.BETWEEN
-    NOT_BETWEEN = ConditionFormatOperator.NOT_BETWEEN
-    DUPLICATE = ConditionFormatOperator.DUPLICATE
-    UNIQUE = ConditionFormatOperator.UNIQUE
-    TOP_N_ELEMENTS = ConditionFormatOperator.TOP_N_ELEMENTS
-    BOTTOM_N_ELEMENTS = ConditionFormatOperator.BOTTOM_N_ELEMENTS
-    TOP_N_PERCENT = ConditionFormatOperator.TOP_N_PERCENT
-    BOTTOM_N_PERCENT = ConditionFormatOperator.BOTTOM_N_PERCENT
-    ABOVE_AVERAGE = ConditionFormatOperator.ABOVE_AVERAGE
-    BELOW_AVERAGE = ConditionFormatOperator.BELOW_AVERAGE
-    ABOVE_EQUAL_AVERAGE = ConditionFormatOperator.ABOVE_EQUAL_AVERAGE
-    BELOW_EQUAL_AVERAGE = ConditionFormatOperator.BELOW_EQUAL_AVERAGE
-    ERROR = ConditionFormatOperator.ERROR
-    NO_ERROR = ConditionFormatOperator.NO_ERROR
-    BEGINS_WITH = ConditionFormatOperator.BEGINS_WITH
-    ENDS_WITH = ConditionFormatOperator.ENDS_WITH
-    CONTAINS = ConditionFormatOperator.CONTAINS
-    NOT_CONTAINS = ConditionFormatOperator.NOT_CONTAINS
-    EXPRESSION = ConditionFormatOperator.EXPRESSION
+        """
+        EQUAL = ConditionFormatOperator.EQUAL
+        LESS = ConditionFormatOperator.LESS
+        GREATER = ConditionFormatOperator.GREATER
+        LESS_EQUAL = ConditionFormatOperator.LESS_EQUAL
+        GREATER_EQUAL = ConditionFormatOperator.GREATER_EQUAL
+        NOT_EQUAL = ConditionFormatOperator.NOT_EQUAL
+        BETWEEN = ConditionFormatOperator.BETWEEN
+        NOT_BETWEEN = ConditionFormatOperator.NOT_BETWEEN
+        DUPLICATE = ConditionFormatOperator.DUPLICATE
+        UNIQUE = ConditionFormatOperator.UNIQUE
+        TOP_N_ELEMENTS = ConditionFormatOperator.TOP_N_ELEMENTS
+        BOTTOM_N_ELEMENTS = ConditionFormatOperator.BOTTOM_N_ELEMENTS
+        TOP_N_PERCENT = ConditionFormatOperator.TOP_N_PERCENT
+        BOTTOM_N_PERCENT = ConditionFormatOperator.BOTTOM_N_PERCENT
+        ABOVE_AVERAGE = ConditionFormatOperator.ABOVE_AVERAGE
+        BELOW_AVERAGE = ConditionFormatOperator.BELOW_AVERAGE
+        ABOVE_EQUAL_AVERAGE = ConditionFormatOperator.ABOVE_EQUAL_AVERAGE
+        BELOW_EQUAL_AVERAGE = ConditionFormatOperator.BELOW_EQUAL_AVERAGE
+        ERROR = ConditionFormatOperator.ERROR
+        NO_ERROR = ConditionFormatOperator.NO_ERROR
+        BEGINS_WITH = ConditionFormatOperator.BEGINS_WITH
+        ENDS_WITH = ConditionFormatOperator.ENDS_WITH
+        CONTAINS = ConditionFormatOperator.CONTAINS
+        NOT_CONTAINS = ConditionFormatOperator.NOT_CONTAINS
+        EXPRESSION = ConditionFormatOperator.EXPRESSION
 
 __all__ = ['ConditionFormatOperator', 'ConditionFormatOperatorEnum']

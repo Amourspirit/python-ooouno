@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import PositionAndSpaceMode as PositionAndSpaceMode
+    if hasattr(PositionAndSpaceMode, '_constants') and isinstance(PositionAndSpaceMode._constants, dict):
+        PositionAndSpaceMode._constants['__ooo_ns__'] = 'com.sun.star.text'
+        PositionAndSpaceMode._constants['__ooo_full_ns__'] = 'com.sun.star.text.PositionAndSpaceMode'
+        PositionAndSpaceMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PositionAndSpaceModeEnum
+        ls = [f for f in dir(PositionAndSpaceMode) if not callable(getattr(PositionAndSpaceMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PositionAndSpaceMode, name)
+        PositionAndSpaceModeEnum = IntEnum('PositionAndSpaceModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.position_and_space_mode import PositionAndSpaceMode as PositionAndSpaceMode
 
+    class PositionAndSpaceModeEnum(IntEnum):
+        """
+        Enum of Const Class PositionAndSpaceMode
 
-class PositionAndSpaceModeEnum(IntEnum):
-    """
-    Enum of Const Class PositionAndSpaceMode
-
-    These enumeration values specify the position and space mode for a numbering level.
-    """
-    LABEL_WIDTH_AND_POSITION = PositionAndSpaceMode.LABEL_WIDTH_AND_POSITION
-    """
-    positioning and spacing of list label via label width and position
-    """
-    LABEL_ALIGNMENT = PositionAndSpaceMode.LABEL_ALIGNMENT
-    """
-    positioning and spacing of list label via label alignment
-    """
+        These enumeration values specify the position and space mode for a numbering level.
+        """
+        LABEL_WIDTH_AND_POSITION = PositionAndSpaceMode.LABEL_WIDTH_AND_POSITION
+        """
+        positioning and spacing of list label via label width and position
+        """
+        LABEL_ALIGNMENT = PositionAndSpaceMode.LABEL_ALIGNMENT
+        """
+        positioning and spacing of list label via label alignment
+        """
 
 __all__ = ['PositionAndSpaceMode', 'PositionAndSpaceModeEnum']

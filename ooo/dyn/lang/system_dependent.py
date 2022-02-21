@@ -27,63 +27,74 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.lang import SystemDependent as SystemDependent
+    if hasattr(SystemDependent, '_constants') and isinstance(SystemDependent._constants, dict):
+        SystemDependent._constants['__ooo_ns__'] = 'com.sun.star.lang'
+        SystemDependent._constants['__ooo_full_ns__'] = 'com.sun.star.lang.SystemDependent'
+        SystemDependent._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SystemDependentEnum
+        ls = [f for f in dir(SystemDependent) if not callable(getattr(SystemDependent, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SystemDependent, name)
+        SystemDependentEnum = IntEnum('SystemDependentEnum', _dict)
+    build_enum()
 else:
     from ...lo.lang.system_dependent import SystemDependent as SystemDependent
 
+    class SystemDependentEnum(IntEnum):
+        """
+        Enum of Const Class SystemDependent
 
-class SystemDependentEnum(IntEnum):
-    """
-    Enum of Const Class SystemDependent
-
-    These constants are used to specify systems which depend on return values.
-    
-    You should avoid system-dependent methods if possible.
-    
-    The Symbols are now prepended with SYSTEM_ thus we avoid collisions with system headers.
-    
-    .. deprecated::
-    
-        Class is deprecated.
-    """
-    SYSTEM_WIN32 = SystemDependent.SYSTEM_WIN32
-    """
-    The called interface method returns a value specified for Windows.
-    
-    These are Windows XP or higher.
-    """
-    SYSTEM_WIN16 = SystemDependent.SYSTEM_WIN16
-    """
-    The called interface method returns a value specified for 16-bit Windows.
-    
-    This is Windows 3.11.
-    """
-    SYSTEM_JAVA = SystemDependent.SYSTEM_JAVA
-    """
-    The called interface method returns a value specified for Java.
-    
-    These are JRE 1.1, JRE 1.2, JDK 1.1, JDK 1.2 or higher.
-    
-    The return should be a handle to a Java object locked with the call JavaEnvironment->NewGlobalRef( ... ) by the callee.
-    """
-    SYSTEM_OS2 = SystemDependent.SYSTEM_OS2
-    """
-    The called interface method returns a value specified for OS/2.
-    """
-    SYSTEM_MAC = SystemDependent.SYSTEM_MAC
-    """
-    The called interface method returns a value specified for macOS.
-    """
-    SYSTEM_XWINDOW = SystemDependent.SYSTEM_XWINDOW
-    """
-    The called interface method returns a value specified for the X Window System.
-    """
-    SYSTEM_IOS = SystemDependent.SYSTEM_IOS
-    """
-    The called interface method returns a value specified for iOS.
-    """
-    SYSTEM_ANDROID = SystemDependent.SYSTEM_ANDROID
-    """
-    The called interface method returns a value specified for Android.
-    """
+        These constants are used to specify systems which depend on return values.
+        
+        You should avoid system-dependent methods if possible.
+        
+        The Symbols are now prepended with SYSTEM_ thus we avoid collisions with system headers.
+        
+        .. deprecated::
+        
+            Class is deprecated.
+        """
+        SYSTEM_WIN32 = SystemDependent.SYSTEM_WIN32
+        """
+        The called interface method returns a value specified for Windows.
+        
+        These are Windows XP or higher.
+        """
+        SYSTEM_WIN16 = SystemDependent.SYSTEM_WIN16
+        """
+        The called interface method returns a value specified for 16-bit Windows.
+        
+        This is Windows 3.11.
+        """
+        SYSTEM_JAVA = SystemDependent.SYSTEM_JAVA
+        """
+        The called interface method returns a value specified for Java.
+        
+        These are JRE 1.1, JRE 1.2, JDK 1.1, JDK 1.2 or higher.
+        
+        The return should be a handle to a Java object locked with the call JavaEnvironment->NewGlobalRef( ... ) by the callee.
+        """
+        SYSTEM_OS2 = SystemDependent.SYSTEM_OS2
+        """
+        The called interface method returns a value specified for OS/2.
+        """
+        SYSTEM_MAC = SystemDependent.SYSTEM_MAC
+        """
+        The called interface method returns a value specified for macOS.
+        """
+        SYSTEM_XWINDOW = SystemDependent.SYSTEM_XWINDOW
+        """
+        The called interface method returns a value specified for the X Window System.
+        """
+        SYSTEM_IOS = SystemDependent.SYSTEM_IOS
+        """
+        The called interface method returns a value specified for iOS.
+        """
+        SYSTEM_ANDROID = SystemDependent.SYSTEM_ANDROID
+        """
+        The called interface method returns a value specified for Android.
+        """
 
 __all__ = ['SystemDependent', 'SystemDependentEnum']

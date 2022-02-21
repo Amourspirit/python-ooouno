@@ -27,32 +27,43 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.document import LinkUpdateModes as LinkUpdateModes
+    if hasattr(LinkUpdateModes, '_constants') and isinstance(LinkUpdateModes._constants, dict):
+        LinkUpdateModes._constants['__ooo_ns__'] = 'com.sun.star.document'
+        LinkUpdateModes._constants['__ooo_full_ns__'] = 'com.sun.star.document.LinkUpdateModes'
+        LinkUpdateModes._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global LinkUpdateModesEnum
+        ls = [f for f in dir(LinkUpdateModes) if not callable(getattr(LinkUpdateModes, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(LinkUpdateModes, name)
+        LinkUpdateModesEnum = IntEnum('LinkUpdateModesEnum', _dict)
+    build_enum()
 else:
     from ...lo.document.link_update_modes import LinkUpdateModes as LinkUpdateModes
 
+    class LinkUpdateModesEnum(IntEnum):
+        """
+        Enum of Const Class LinkUpdateModes
 
-class LinkUpdateModesEnum(IntEnum):
-    """
-    Enum of Const Class LinkUpdateModes
-
-    """
-    NEVER = LinkUpdateModes.NEVER
-    """
-    never update links
-    """
-    MANUAL = LinkUpdateModes.MANUAL
-    """
-    update links when confirmed on request during loading the document
-    """
-    AUTO = LinkUpdateModes.AUTO
-    """
-    automatic update on load
-    """
-    GLOBAL_SETTING = LinkUpdateModes.GLOBAL_SETTING
-    """
-    use the setting that is configured in your installed application.
-    
-    This may be one of the above behaviors.
-    """
+        """
+        NEVER = LinkUpdateModes.NEVER
+        """
+        never update links
+        """
+        MANUAL = LinkUpdateModes.MANUAL
+        """
+        update links when confirmed on request during loading the document
+        """
+        AUTO = LinkUpdateModes.AUTO
+        """
+        automatic update on load
+        """
+        GLOBAL_SETTING = LinkUpdateModes.GLOBAL_SETTING
+        """
+        use the setting that is configured in your installed application.
+        
+        This may be one of the above behaviors.
+        """
 
 __all__ = ['LinkUpdateModes', 'LinkUpdateModesEnum']

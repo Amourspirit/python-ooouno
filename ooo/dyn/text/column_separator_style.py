@@ -27,18 +27,29 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import ColumnSeparatorStyle as ColumnSeparatorStyle
+    if hasattr(ColumnSeparatorStyle, '_constants') and isinstance(ColumnSeparatorStyle._constants, dict):
+        ColumnSeparatorStyle._constants['__ooo_ns__'] = 'com.sun.star.text'
+        ColumnSeparatorStyle._constants['__ooo_full_ns__'] = 'com.sun.star.text.ColumnSeparatorStyle'
+        ColumnSeparatorStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColumnSeparatorStyleEnum
+        ls = [f for f in dir(ColumnSeparatorStyle) if not callable(getattr(ColumnSeparatorStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColumnSeparatorStyle, name)
+        ColumnSeparatorStyleEnum = IntEnum('ColumnSeparatorStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.column_separator_style import ColumnSeparatorStyle as ColumnSeparatorStyle
 
+    class ColumnSeparatorStyleEnum(IntEnum):
+        """
+        Enum of Const Class ColumnSeparatorStyle
 
-class ColumnSeparatorStyleEnum(IntEnum):
-    """
-    Enum of Const Class ColumnSeparatorStyle
-
-    """
-    NONE = ColumnSeparatorStyle.NONE
-    SOLID = ColumnSeparatorStyle.SOLID
-    DOTTED = ColumnSeparatorStyle.DOTTED
-    DASHED = ColumnSeparatorStyle.DASHED
+        """
+        NONE = ColumnSeparatorStyle.NONE
+        SOLID = ColumnSeparatorStyle.SOLID
+        DOTTED = ColumnSeparatorStyle.DOTTED
+        DASHED = ColumnSeparatorStyle.DASHED
 
 __all__ = ['ColumnSeparatorStyle', 'ColumnSeparatorStyleEnum']

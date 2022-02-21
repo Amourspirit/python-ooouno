@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataPilotOutputRangeType as DataPilotOutputRangeType
+    if hasattr(DataPilotOutputRangeType, '_constants') and isinstance(DataPilotOutputRangeType._constants, dict):
+        DataPilotOutputRangeType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataPilotOutputRangeType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotOutputRangeType'
+        DataPilotOutputRangeType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPilotOutputRangeTypeEnum
+        ls = [f for f in dir(DataPilotOutputRangeType) if not callable(getattr(DataPilotOutputRangeType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPilotOutputRangeType, name)
+        DataPilotOutputRangeTypeEnum = IntEnum('DataPilotOutputRangeTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_pilot_output_range_type import DataPilotOutputRangeType as DataPilotOutputRangeType
 
+    class DataPilotOutputRangeTypeEnum(IntEnum):
+        """
+        Enum of Const Class DataPilotOutputRangeType
 
-class DataPilotOutputRangeTypeEnum(IntEnum):
-    """
-    Enum of Const Class DataPilotOutputRangeType
-
-    specifies region type of DataPilot table range
-    
-    This constant set is used to indicate the type of output range desired when XDataPilotTable2.getOutputRangeByType() is called, which returns a different cell range depending upon the value passed to it as the argument.
-    
-    **since**
-    
-        OOo 3.0
-    """
-    WHOLE = DataPilotOutputRangeType.WHOLE
-    """
-    whole DataPilot output range including the header area above the table where the filter and page field buttons are located.
-    """
-    TABLE = DataPilotOutputRangeType.TABLE
-    """
-    whole table but without the header area where the filter and page field buttons are located.
-    """
-    RESULT = DataPilotOutputRangeType.RESULT
-    """
-    result area where the result values are displayed.
-    
-    This also includes the column and row subtotal areas when they are displayed.
-    """
+        specifies region type of DataPilot table range
+        
+        This constant set is used to indicate the type of output range desired when XDataPilotTable2.getOutputRangeByType() is called, which returns a different cell range depending upon the value passed to it as the argument.
+        
+        **since**
+        
+            OOo 3.0
+        """
+        WHOLE = DataPilotOutputRangeType.WHOLE
+        """
+        whole DataPilot output range including the header area above the table where the filter and page field buttons are located.
+        """
+        TABLE = DataPilotOutputRangeType.TABLE
+        """
+        whole table but without the header area where the filter and page field buttons are located.
+        """
+        RESULT = DataPilotOutputRangeType.RESULT
+        """
+        result area where the result values are displayed.
+        
+        This also includes the column and row subtotal areas when they are displayed.
+        """
 
 __all__ = ['DataPilotOutputRangeType', 'DataPilotOutputRangeTypeEnum']

@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import NamedRangeFlag as NamedRangeFlag
+    if hasattr(NamedRangeFlag, '_constants') and isinstance(NamedRangeFlag._constants, dict):
+        NamedRangeFlag._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        NamedRangeFlag._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.NamedRangeFlag'
+        NamedRangeFlag._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global NamedRangeFlagEnum
+        ls = [f for f in dir(NamedRangeFlag) if not callable(getattr(NamedRangeFlag, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(NamedRangeFlag, name)
+        NamedRangeFlagEnum = IntFlag('NamedRangeFlagEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.named_range_flag import NamedRangeFlag as NamedRangeFlag
 
+    class NamedRangeFlagEnum(IntFlag):
+        """
+        Enum of Const Class NamedRangeFlag
 
-class NamedRangeFlagEnum(IntFlag):
-    """
-    Enum of Const Class NamedRangeFlag
-
-    used to specify the purpose of a named range.
-    """
-    FILTER_CRITERIA = NamedRangeFlag.FILTER_CRITERIA
-    """
-    The range contains filter criteria.
-    """
-    PRINT_AREA = NamedRangeFlag.PRINT_AREA
-    """
-    The range can be used as a print range.
-    """
-    COLUMN_HEADER = NamedRangeFlag.COLUMN_HEADER
-    """
-    The range can be used as column headers for printing.
-    """
-    ROW_HEADER = NamedRangeFlag.ROW_HEADER
-    """
-    The range can be used as row headers for printing.
-    """
+        used to specify the purpose of a named range.
+        """
+        FILTER_CRITERIA = NamedRangeFlag.FILTER_CRITERIA
+        """
+        The range contains filter criteria.
+        """
+        PRINT_AREA = NamedRangeFlag.PRINT_AREA
+        """
+        The range can be used as a print range.
+        """
+        COLUMN_HEADER = NamedRangeFlag.COLUMN_HEADER
+        """
+        The range can be used as column headers for printing.
+        """
+        ROW_HEADER = NamedRangeFlag.ROW_HEADER
+        """
+        The range can be used as row headers for printing.
+        """
 
 __all__ = ['NamedRangeFlag', 'NamedRangeFlagEnum']

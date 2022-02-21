@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import Style as Style
+    if hasattr(Style, '_constants') and isinstance(Style._constants, dict):
+        Style._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        Style._constants['__ooo_full_ns__'] = 'com.sun.star.awt.Style'
+        Style._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global StyleEnum
+        ls = [f for f in dir(Style) if not callable(getattr(Style, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Style, name)
+        StyleEnum = IntEnum('StyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.style import Style as Style
 
+    class StyleEnum(IntEnum):
+        """
+        Enum of Const Class Style
 
-class StyleEnum(IntEnum):
-    """
-    Enum of Const Class Style
-
-    specifies the style of a window.
-    """
-    FRAME = Style.FRAME
-    """
-    specifies a frame.
-    """
-    DIALOG = Style.DIALOG
-    """
-    specifies a dialog.
-    """
+        specifies the style of a window.
+        """
+        FRAME = Style.FRAME
+        """
+        specifies a frame.
+        """
+        DIALOG = Style.DIALOG
+        """
+        specifies a dialog.
+        """
 
 __all__ = ['Style', 'StyleEnum']

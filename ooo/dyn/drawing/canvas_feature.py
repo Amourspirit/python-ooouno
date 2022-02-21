@@ -27,16 +27,27 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import CanvasFeature as CanvasFeature
+    if hasattr(CanvasFeature, '_constants') and isinstance(CanvasFeature._constants, dict):
+        CanvasFeature._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        CanvasFeature._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.CanvasFeature'
+        CanvasFeature._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CanvasFeatureEnum
+        ls = [f for f in dir(CanvasFeature) if not callable(getattr(CanvasFeature, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CanvasFeature, name)
+        CanvasFeatureEnum = IntEnum('CanvasFeatureEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.canvas_feature import CanvasFeature as CanvasFeature
 
+    class CanvasFeatureEnum(IntEnum):
+        """
+        Enum of Const Class CanvasFeature
 
-class CanvasFeatureEnum(IntEnum):
-    """
-    Enum of Const Class CanvasFeature
-
-    """
-    None_ = CanvasFeature.None_
-    SpriteCanvas = CanvasFeature.SpriteCanvas
+        """
+        None_ = CanvasFeature.None_
+        SpriteCanvas = CanvasFeature.SpriteCanvas
 
 __all__ = ['CanvasFeature', 'CanvasFeatureEnum']

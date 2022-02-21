@@ -27,57 +27,68 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import TransitionType as TransitionType
+    if hasattr(TransitionType, '_constants') and isinstance(TransitionType._constants, dict):
+        TransitionType._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        TransitionType._constants['__ooo_full_ns__'] = 'com.sun.star.animations.TransitionType'
+        TransitionType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TransitionTypeEnum
+        ls = [f for f in dir(TransitionType) if not callable(getattr(TransitionType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TransitionType, name)
+        TransitionTypeEnum = IntEnum('TransitionTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.transition_type import TransitionType as TransitionType
 
+    class TransitionTypeEnum(IntEnum):
+        """
+        Enum of Const Class TransitionType
 
-class TransitionTypeEnum(IntEnum):
-    """
-    Enum of Const Class TransitionType
-
-    """
-    BARWIPE = TransitionType.BARWIPE
-    BOXWIPE = TransitionType.BOXWIPE
-    FOURBOXWIPE = TransitionType.FOURBOXWIPE
-    BARNDOORWIPE = TransitionType.BARNDOORWIPE
-    DIAGONALWIPE = TransitionType.DIAGONALWIPE
-    BOWTIEWIPE = TransitionType.BOWTIEWIPE
-    MISCDIAGONALWIPE = TransitionType.MISCDIAGONALWIPE
-    VEEWIPE = TransitionType.VEEWIPE
-    BARNVEEWIPE = TransitionType.BARNVEEWIPE
-    ZIGZAGWIPE = TransitionType.ZIGZAGWIPE
-    BARNZIGZAGWIPE = TransitionType.BARNZIGZAGWIPE
-    IRISWIPE = TransitionType.IRISWIPE
-    TRIANGLEWIPE = TransitionType.TRIANGLEWIPE
-    ARROWHEADWIPE = TransitionType.ARROWHEADWIPE
-    PENTAGONWIPE = TransitionType.PENTAGONWIPE
-    HEXAGONWIPE = TransitionType.HEXAGONWIPE
-    ELLIPSEWIPE = TransitionType.ELLIPSEWIPE
-    EYEWIPE = TransitionType.EYEWIPE
-    ROUNDRECTWIPE = TransitionType.ROUNDRECTWIPE
-    STARWIPE = TransitionType.STARWIPE
-    MISCSHAPEWIPE = TransitionType.MISCSHAPEWIPE
-    CLOCKWIPE = TransitionType.CLOCKWIPE
-    PINWHEELWIPE = TransitionType.PINWHEELWIPE
-    SINGLESWEEPWIPE = TransitionType.SINGLESWEEPWIPE
-    FANWIPE = TransitionType.FANWIPE
-    DOUBLEFANWIPE = TransitionType.DOUBLEFANWIPE
-    DOUBLESWEEPWIPE = TransitionType.DOUBLESWEEPWIPE
-    SALOONDOORWIPE = TransitionType.SALOONDOORWIPE
-    WINDSHIELDWIPE = TransitionType.WINDSHIELDWIPE
-    SNAKEWIPE = TransitionType.SNAKEWIPE
-    SPIRALWIPE = TransitionType.SPIRALWIPE
-    PARALLELSNAKESWIPE = TransitionType.PARALLELSNAKESWIPE
-    BOXSNAKESWIPE = TransitionType.BOXSNAKESWIPE
-    WATERFALLWIPE = TransitionType.WATERFALLWIPE
-    PUSHWIPE = TransitionType.PUSHWIPE
-    SLIDEWIPE = TransitionType.SLIDEWIPE
-    FADE = TransitionType.FADE
-    RANDOMBARWIPE = TransitionType.RANDOMBARWIPE
-    CHECKERBOARDWIPE = TransitionType.CHECKERBOARDWIPE
-    DISSOLVE = TransitionType.DISSOLVE
-    BLINDSWIPE = TransitionType.BLINDSWIPE
-    RANDOM = TransitionType.RANDOM
-    ZOOM = TransitionType.ZOOM
+        """
+        BARWIPE = TransitionType.BARWIPE
+        BOXWIPE = TransitionType.BOXWIPE
+        FOURBOXWIPE = TransitionType.FOURBOXWIPE
+        BARNDOORWIPE = TransitionType.BARNDOORWIPE
+        DIAGONALWIPE = TransitionType.DIAGONALWIPE
+        BOWTIEWIPE = TransitionType.BOWTIEWIPE
+        MISCDIAGONALWIPE = TransitionType.MISCDIAGONALWIPE
+        VEEWIPE = TransitionType.VEEWIPE
+        BARNVEEWIPE = TransitionType.BARNVEEWIPE
+        ZIGZAGWIPE = TransitionType.ZIGZAGWIPE
+        BARNZIGZAGWIPE = TransitionType.BARNZIGZAGWIPE
+        IRISWIPE = TransitionType.IRISWIPE
+        TRIANGLEWIPE = TransitionType.TRIANGLEWIPE
+        ARROWHEADWIPE = TransitionType.ARROWHEADWIPE
+        PENTAGONWIPE = TransitionType.PENTAGONWIPE
+        HEXAGONWIPE = TransitionType.HEXAGONWIPE
+        ELLIPSEWIPE = TransitionType.ELLIPSEWIPE
+        EYEWIPE = TransitionType.EYEWIPE
+        ROUNDRECTWIPE = TransitionType.ROUNDRECTWIPE
+        STARWIPE = TransitionType.STARWIPE
+        MISCSHAPEWIPE = TransitionType.MISCSHAPEWIPE
+        CLOCKWIPE = TransitionType.CLOCKWIPE
+        PINWHEELWIPE = TransitionType.PINWHEELWIPE
+        SINGLESWEEPWIPE = TransitionType.SINGLESWEEPWIPE
+        FANWIPE = TransitionType.FANWIPE
+        DOUBLEFANWIPE = TransitionType.DOUBLEFANWIPE
+        DOUBLESWEEPWIPE = TransitionType.DOUBLESWEEPWIPE
+        SALOONDOORWIPE = TransitionType.SALOONDOORWIPE
+        WINDSHIELDWIPE = TransitionType.WINDSHIELDWIPE
+        SNAKEWIPE = TransitionType.SNAKEWIPE
+        SPIRALWIPE = TransitionType.SPIRALWIPE
+        PARALLELSNAKESWIPE = TransitionType.PARALLELSNAKESWIPE
+        BOXSNAKESWIPE = TransitionType.BOXSNAKESWIPE
+        WATERFALLWIPE = TransitionType.WATERFALLWIPE
+        PUSHWIPE = TransitionType.PUSHWIPE
+        SLIDEWIPE = TransitionType.SLIDEWIPE
+        FADE = TransitionType.FADE
+        RANDOMBARWIPE = TransitionType.RANDOMBARWIPE
+        CHECKERBOARDWIPE = TransitionType.CHECKERBOARDWIPE
+        DISSOLVE = TransitionType.DISSOLVE
+        BLINDSWIPE = TransitionType.BLINDSWIPE
+        RANDOM = TransitionType.RANDOM
+        ZOOM = TransitionType.ZOOM
 
 __all__ = ['TransitionType', 'TransitionTypeEnum']

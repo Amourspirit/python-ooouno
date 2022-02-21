@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import CTLScriptType as CTLScriptType
+    if hasattr(CTLScriptType, '_constants') and isinstance(CTLScriptType._constants, dict):
+        CTLScriptType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        CTLScriptType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.CTLScriptType'
+        CTLScriptType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CTLScriptTypeEnum
+        ls = [f for f in dir(CTLScriptType) if not callable(getattr(CTLScriptType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CTLScriptType, name)
+        CTLScriptTypeEnum = IntEnum('CTLScriptTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.ctl_script_type import CTLScriptType as CTLScriptType
 
+    class CTLScriptTypeEnum(IntEnum):
+        """
+        Enum of Const Class CTLScriptType
 
-class CTLScriptTypeEnum(IntEnum):
-    """
-    Enum of Const Class CTLScriptType
-
-    CTL script type constants for layout engine, returned by XScriptTypeDetector.getCTLScriptType()
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    CTL_UNKNOWN = CTLScriptType.CTL_UNKNOWN
-    """
-    For CTL scripts OOo currently does not support or could not handle.
-    """
-    CTL_HEBREW = CTLScriptType.CTL_HEBREW
-    """
-    For Hebrew script.
-    """
-    CTL_ARABIC = CTLScriptType.CTL_ARABIC
-    """
-    For Arabic script.
-    """
-    CTL_THAI = CTLScriptType.CTL_THAI
-    """
-    For Thai script.
-    """
-    CTL_INDIC = CTLScriptType.CTL_INDIC
-    """
-    For Indic script (including Devanagari, Tamil, Telugu and Gujarati script)
-    """
+        CTL script type constants for layout engine, returned by XScriptTypeDetector.getCTLScriptType()
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        CTL_UNKNOWN = CTLScriptType.CTL_UNKNOWN
+        """
+        For CTL scripts OOo currently does not support or could not handle.
+        """
+        CTL_HEBREW = CTLScriptType.CTL_HEBREW
+        """
+        For Hebrew script.
+        """
+        CTL_ARABIC = CTLScriptType.CTL_ARABIC
+        """
+        For Arabic script.
+        """
+        CTL_THAI = CTLScriptType.CTL_THAI
+        """
+        For Thai script.
+        """
+        CTL_INDIC = CTLScriptType.CTL_INDIC
+        """
+        For Indic script (including Devanagari, Tamil, Telugu and Gujarati script)
+        """
 
 __all__ = ['CTLScriptType', 'CTLScriptTypeEnum']

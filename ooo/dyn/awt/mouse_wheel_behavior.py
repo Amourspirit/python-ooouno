@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import MouseWheelBehavior as MouseWheelBehavior
+    if hasattr(MouseWheelBehavior, '_constants') and isinstance(MouseWheelBehavior._constants, dict):
+        MouseWheelBehavior._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        MouseWheelBehavior._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MouseWheelBehavior'
+        MouseWheelBehavior._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MouseWheelBehaviorEnum
+        ls = [f for f in dir(MouseWheelBehavior) if not callable(getattr(MouseWheelBehavior, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MouseWheelBehavior, name)
+        MouseWheelBehaviorEnum = IntEnum('MouseWheelBehaviorEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.mouse_wheel_behavior import MouseWheelBehavior as MouseWheelBehavior
 
+    class MouseWheelBehaviorEnum(IntEnum):
+        """
+        Enum of Const Class MouseWheelBehavior
 
-class MouseWheelBehaviorEnum(IntEnum):
-    """
-    Enum of Const Class MouseWheelBehavior
-
-    describes the scroll behavior of the mouse wheel for a control
-    
-    **since**
-    
-        OOo 3.2
-    """
-    SCROLL_DISABLED = MouseWheelBehavior.SCROLL_DISABLED
-    """
-    defines that the mouse wheel cannot be used to scroll through the control's content
-    """
-    SCROLL_FOCUS_ONLY = MouseWheelBehavior.SCROLL_FOCUS_ONLY
-    """
-    defines that the mouse can only be used to scroll through the control's content if it currently has the focus.
-    """
-    SCROLL_ALWAYS = MouseWheelBehavior.SCROLL_ALWAYS
-    """
-    defines that the mouse can be used to scroll through the control's content, no matter whether or not it has the focus, as long as the mouse pointer is over the control.
-    """
+        describes the scroll behavior of the mouse wheel for a control
+        
+        **since**
+        
+            OOo 3.2
+        """
+        SCROLL_DISABLED = MouseWheelBehavior.SCROLL_DISABLED
+        """
+        defines that the mouse wheel cannot be used to scroll through the control's content
+        """
+        SCROLL_FOCUS_ONLY = MouseWheelBehavior.SCROLL_FOCUS_ONLY
+        """
+        defines that the mouse can only be used to scroll through the control's content if it currently has the focus.
+        """
+        SCROLL_ALWAYS = MouseWheelBehavior.SCROLL_ALWAYS
+        """
+        defines that the mouse can be used to scroll through the control's content, no matter whether or not it has the focus, as long as the mouse pointer is over the control.
+        """
 
 __all__ = ['MouseWheelBehavior', 'MouseWheelBehaviorEnum']

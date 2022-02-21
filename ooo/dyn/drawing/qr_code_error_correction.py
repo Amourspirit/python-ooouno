@@ -27,29 +27,40 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import QRCodeErrorCorrection as QRCodeErrorCorrection
+    if hasattr(QRCodeErrorCorrection, '_constants') and isinstance(QRCodeErrorCorrection._constants, dict):
+        QRCodeErrorCorrection._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        QRCodeErrorCorrection._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.QRCodeErrorCorrection'
+        QRCodeErrorCorrection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global QRCodeErrorCorrectionEnum
+        ls = [f for f in dir(QRCodeErrorCorrection) if not callable(getattr(QRCodeErrorCorrection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(QRCodeErrorCorrection, name)
+        QRCodeErrorCorrectionEnum = IntEnum('QRCodeErrorCorrectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.qr_code_error_correction import QRCodeErrorCorrection as QRCodeErrorCorrection
 
+    class QRCodeErrorCorrectionEnum(IntEnum):
+        """
+        Enum of Const Class QRCodeErrorCorrection
 
-class QRCodeErrorCorrectionEnum(IntEnum):
-    """
-    Enum of Const Class QRCodeErrorCorrection
-
-    These constants identify the type of Error Correction for a QR Code.
-    
-    The Error Correction for a QR code is a measure that helps a QR code to recover, if it is destroyed.
-    
-    Level L (Low) 7% of codewords can be restored. Level M (Medium) 15% of codewords can be restored. Level Q (Quartile) 25% of codewords can be restored. Level H (High) 30% of codewords can be restored.
-    
-    More Info - here
-    
-    **since**
-    
-        LibreOffice 6.4
-    """
-    LOW = QRCodeErrorCorrection.LOW
-    MEDIUM = QRCodeErrorCorrection.MEDIUM
-    QUARTILE = QRCodeErrorCorrection.QUARTILE
-    HIGH = QRCodeErrorCorrection.HIGH
+        These constants identify the type of Error Correction for a QR Code.
+        
+        The Error Correction for a QR code is a measure that helps a QR code to recover, if it is destroyed.
+        
+        Level L (Low) 7% of codewords can be restored. Level M (Medium) 15% of codewords can be restored. Level Q (Quartile) 25% of codewords can be restored. Level H (High) 30% of codewords can be restored.
+        
+        More Info - here
+        
+        **since**
+        
+            LibreOffice 6.4
+        """
+        LOW = QRCodeErrorCorrection.LOW
+        MEDIUM = QRCodeErrorCorrection.MEDIUM
+        QUARTILE = QRCodeErrorCorrection.QUARTILE
+        HIGH = QRCodeErrorCorrection.HIGH
 
 __all__ = ['QRCodeErrorCorrection', 'QRCodeErrorCorrectionEnum']

@@ -27,20 +27,31 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationAdditiveMode as AnimationAdditiveMode
+    if hasattr(AnimationAdditiveMode, '_constants') and isinstance(AnimationAdditiveMode._constants, dict):
+        AnimationAdditiveMode._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationAdditiveMode._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationAdditiveMode'
+        AnimationAdditiveMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationAdditiveModeEnum
+        ls = [f for f in dir(AnimationAdditiveMode) if not callable(getattr(AnimationAdditiveMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationAdditiveMode, name)
+        AnimationAdditiveModeEnum = IntEnum('AnimationAdditiveModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_additive_mode import AnimationAdditiveMode as AnimationAdditiveMode
 
+    class AnimationAdditiveModeEnum(IntEnum):
+        """
+        Enum of Const Class AnimationAdditiveMode
 
-class AnimationAdditiveModeEnum(IntEnum):
-    """
-    Enum of Const Class AnimationAdditiveMode
-
-    Specifies the additive mode for the animation.
-    """
-    BASE = AnimationAdditiveMode.BASE
-    SUM = AnimationAdditiveMode.SUM
-    REPLACE = AnimationAdditiveMode.REPLACE
-    MULTIPLY = AnimationAdditiveMode.MULTIPLY
-    NONE = AnimationAdditiveMode.NONE
+        Specifies the additive mode for the animation.
+        """
+        BASE = AnimationAdditiveMode.BASE
+        SUM = AnimationAdditiveMode.SUM
+        REPLACE = AnimationAdditiveMode.REPLACE
+        MULTIPLY = AnimationAdditiveMode.MULTIPLY
+        NONE = AnimationAdditiveMode.NONE
 
 __all__ = ['AnimationAdditiveMode', 'AnimationAdditiveModeEnum']

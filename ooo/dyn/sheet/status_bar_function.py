@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import StatusBarFunction as StatusBarFunction
+    if hasattr(StatusBarFunction, '_constants') and isinstance(StatusBarFunction._constants, dict):
+        StatusBarFunction._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        StatusBarFunction._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.StatusBarFunction'
+        StatusBarFunction._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global StatusBarFunctionEnum
+        ls = [f for f in dir(StatusBarFunction) if not callable(getattr(StatusBarFunction, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(StatusBarFunction, name)
+        StatusBarFunctionEnum = IntEnum('StatusBarFunctionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.status_bar_function import StatusBarFunction as StatusBarFunction
 
+    class StatusBarFunctionEnum(IntEnum):
+        """
+        Enum of Const Class StatusBarFunction
 
-class StatusBarFunctionEnum(IntEnum):
-    """
-    Enum of Const Class StatusBarFunction
-
-    used to specify the function used to calculate a result in the spreadsheet's status bar.
-    """
-    NONE = StatusBarFunction.NONE
-    """
-    nothing is calculated.
-    """
-    AVERAGE = StatusBarFunction.AVERAGE
-    """
-    average of all numerical values is calculated.
-    """
-    COUNTNUMS = StatusBarFunction.COUNTNUMS
-    """
-    all values, including non-numerical values, are counted.
-    """
-    COUNT = StatusBarFunction.COUNT
-    """
-    numerical values are counted.
-    """
-    MAX = StatusBarFunction.MAX
-    """
-    maximum value of all numerical values is calculated.
-    """
-    MIN = StatusBarFunction.MIN
-    """
-    minimum value of all numerical values is calculated.
-    """
-    SUM = StatusBarFunction.SUM
-    """
-    sum of all numerical values is calculated.
-    """
+        used to specify the function used to calculate a result in the spreadsheet's status bar.
+        """
+        NONE = StatusBarFunction.NONE
+        """
+        nothing is calculated.
+        """
+        AVERAGE = StatusBarFunction.AVERAGE
+        """
+        average of all numerical values is calculated.
+        """
+        COUNTNUMS = StatusBarFunction.COUNTNUMS
+        """
+        all values, including non-numerical values, are counted.
+        """
+        COUNT = StatusBarFunction.COUNT
+        """
+        numerical values are counted.
+        """
+        MAX = StatusBarFunction.MAX
+        """
+        maximum value of all numerical values is calculated.
+        """
+        MIN = StatusBarFunction.MIN
+        """
+        minimum value of all numerical values is calculated.
+        """
+        SUM = StatusBarFunction.SUM
+        """
+        sum of all numerical values is calculated.
+        """
 
 __all__ = ['StatusBarFunction', 'StatusBarFunctionEnum']

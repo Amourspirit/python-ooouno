@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import InvalidateStyle as InvalidateStyle
+    if hasattr(InvalidateStyle, '_constants') and isinstance(InvalidateStyle._constants, dict):
+        InvalidateStyle._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        InvalidateStyle._constants['__ooo_full_ns__'] = 'com.sun.star.awt.InvalidateStyle'
+        InvalidateStyle._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global InvalidateStyleEnum
+        ls = [f for f in dir(InvalidateStyle) if not callable(getattr(InvalidateStyle, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(InvalidateStyle, name)
+        InvalidateStyleEnum = IntFlag('InvalidateStyleEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.invalidate_style import InvalidateStyle as InvalidateStyle
 
+    class InvalidateStyleEnum(IntFlag):
+        """
+        Enum of Const Class InvalidateStyle
 
-class InvalidateStyleEnum(IntFlag):
-    """
-    Enum of Const Class InvalidateStyle
-
-    specifies how to invalidate windows.
-    """
-    CHILDREN = InvalidateStyle.CHILDREN
-    """
-    The child windows are invalidated, too.
-    """
-    NOCHILDREN = InvalidateStyle.NOCHILDREN
-    """
-    The child windows are not invalidated.
-    """
-    NOERASE = InvalidateStyle.NOERASE
-    """
-    The invalidated area is painted with the background color/pattern.
-    """
-    UPDATE = InvalidateStyle.UPDATE
-    """
-    The invalidated area is updated immediately.
-    """
-    TRANSPARENT = InvalidateStyle.TRANSPARENT
-    """
-    The parent window is invalidated, too.
-    """
-    NOTRANSPARENT = InvalidateStyle.NOTRANSPARENT
-    """
-    The parent window is not invalidated.
-    """
-    NOCLIPCHILDREN = InvalidateStyle.NOCLIPCHILDREN
-    """
-    The area is invalidated regardless of overlapping child windows.
-    """
+        specifies how to invalidate windows.
+        """
+        CHILDREN = InvalidateStyle.CHILDREN
+        """
+        The child windows are invalidated, too.
+        """
+        NOCHILDREN = InvalidateStyle.NOCHILDREN
+        """
+        The child windows are not invalidated.
+        """
+        NOERASE = InvalidateStyle.NOERASE
+        """
+        The invalidated area is painted with the background color/pattern.
+        """
+        UPDATE = InvalidateStyle.UPDATE
+        """
+        The invalidated area is updated immediately.
+        """
+        TRANSPARENT = InvalidateStyle.TRANSPARENT
+        """
+        The parent window is invalidated, too.
+        """
+        NOTRANSPARENT = InvalidateStyle.NOTRANSPARENT
+        """
+        The parent window is not invalidated.
+        """
+        NOCLIPCHILDREN = InvalidateStyle.NOCLIPCHILDREN
+        """
+        The area is invalidated regardless of overlapping child windows.
+        """
 
 __all__ = ['InvalidateStyle', 'InvalidateStyleEnum']

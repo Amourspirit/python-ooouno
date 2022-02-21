@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FontFamily as FontFamily
+    if hasattr(FontFamily, '_constants') and isinstance(FontFamily._constants, dict):
+        FontFamily._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FontFamily._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontFamily'
+        FontFamily._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FontFamilyEnum
+        ls = [f for f in dir(FontFamily) if not callable(getattr(FontFamily, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FontFamily, name)
+        FontFamilyEnum = IntEnum('FontFamilyEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.font_family import FontFamily as FontFamily
 
+    class FontFamilyEnum(IntEnum):
+        """
+        Enum of Const Class FontFamily
 
-class FontFamilyEnum(IntEnum):
-    """
-    Enum of Const Class FontFamily
-
-    These values are used to specify the general kind of font.
-    
-    They may be expanded in future versions.
-    """
-    DONTKNOW = FontFamily.DONTKNOW
-    """
-    specifies an unknown font family.
-    """
-    DECORATIVE = FontFamily.DECORATIVE
-    """
-    specifies the family of decorative fonts.
-    """
-    MODERN = FontFamily.MODERN
-    """
-    specifies the family of modern fonts.
-    """
-    ROMAN = FontFamily.ROMAN
-    """
-    specifies the family roman fonts (with serifs).
-    """
-    SCRIPT = FontFamily.SCRIPT
-    """
-    specifies the family of script fonts.
-    """
-    SWISS = FontFamily.SWISS
-    """
-    specifies the family roman fonts (without serifs).
-    """
-    SYSTEM = FontFamily.SYSTEM
-    """
-    specifies the family system fonts.
-    """
+        These values are used to specify the general kind of font.
+        
+        They may be expanded in future versions.
+        """
+        DONTKNOW = FontFamily.DONTKNOW
+        """
+        specifies an unknown font family.
+        """
+        DECORATIVE = FontFamily.DECORATIVE
+        """
+        specifies the family of decorative fonts.
+        """
+        MODERN = FontFamily.MODERN
+        """
+        specifies the family of modern fonts.
+        """
+        ROMAN = FontFamily.ROMAN
+        """
+        specifies the family roman fonts (with serifs).
+        """
+        SCRIPT = FontFamily.SCRIPT
+        """
+        specifies the family of script fonts.
+        """
+        SWISS = FontFamily.SWISS
+        """
+        specifies the family roman fonts (without serifs).
+        """
+        SYSTEM = FontFamily.SYSTEM
+        """
+        specifies the family system fonts.
+        """
 
 __all__ = ['FontFamily', 'FontFamilyEnum']

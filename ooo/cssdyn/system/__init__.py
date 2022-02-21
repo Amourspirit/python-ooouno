@@ -14,16 +14,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.system.simple_command_mail import SimpleCommandMail as SimpleCommandMail
-from ...dyn.system.simple_mail_client_flags import SimpleMailClientFlags as SimpleMailClientFlags
-from ...dyn.system.simple_mail_client_flags import SimpleMailClientFlagsEnum as SimpleMailClientFlagsEnum
-from ...dyn.system.simple_system_mail import SimpleSystemMail as SimpleSystemMail
-from ...dyn.system.system_shell_execute import SystemShellExecute as SystemShellExecute
-from ...dyn.system.system_shell_execute_exception import SystemShellExecuteException as SystemShellExecuteException
-from ...dyn.system.system_shell_execute_flags import SystemShellExecuteFlags as SystemShellExecuteFlags
-from ...dyn.system.system_shell_execute_flags import SystemShellExecuteFlagsEnum as SystemShellExecuteFlagsEnum
-from ...dyn.system.x_simple_mail_client import XSimpleMailClient as XSimpleMailClient
-from ...dyn.system.x_simple_mail_client_supplier import XSimpleMailClientSupplier as XSimpleMailClientSupplier
-from ...dyn.system.x_simple_mail_message import XSimpleMailMessage as XSimpleMailMessage
-from ...dyn.system.x_simple_mail_message2 import XSimpleMailMessage2 as XSimpleMailMessage2
-from ...dyn.system.x_system_shell_execute import XSystemShellExecute as XSystemShellExecute
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.system.simple_command_mail import SimpleCommandMail as SimpleCommandMail
+except ImportError:
+    pass
+try:
+    from ...dyn.system.simple_mail_client_flags import SimpleMailClientFlags as SimpleMailClientFlags
+except ImportError:
+    pass
+try:
+    from ...dyn.system.simple_mail_client_flags import SimpleMailClientFlagsEnum as SimpleMailClientFlagsEnum
+except ImportError:
+    pass
+try:
+    from ...dyn.system.simple_system_mail import SimpleSystemMail as SimpleSystemMail
+except ImportError:
+    pass
+try:
+    from ...dyn.system.system_shell_execute import SystemShellExecute as SystemShellExecute
+except ImportError:
+    pass
+try:
+    from ...dyn.system.system_shell_execute_exception import SystemShellExecuteException as SystemShellExecuteException
+except ImportError:
+    pass
+try:
+    from ...dyn.system.system_shell_execute_flags import SystemShellExecuteFlags as SystemShellExecuteFlags
+except ImportError:
+    pass
+try:
+    from ...dyn.system.system_shell_execute_flags import SystemShellExecuteFlagsEnum as SystemShellExecuteFlagsEnum
+except ImportError:
+    pass
+try:
+    from ...dyn.system.x_simple_mail_client import XSimpleMailClient as XSimpleMailClient
+except ImportError:
+    pass
+try:
+    from ...dyn.system.x_simple_mail_client_supplier import XSimpleMailClientSupplier as XSimpleMailClientSupplier
+except ImportError:
+    pass
+try:
+    from ...dyn.system.x_simple_mail_message import XSimpleMailMessage as XSimpleMailMessage
+except ImportError:
+    pass
+try:
+    from ...dyn.system.x_simple_mail_message2 import XSimpleMailMessage2 as XSimpleMailMessage2
+except ImportError:
+    pass
+try:
+    from ...dyn.system.x_system_shell_execute import XSystemShellExecute as XSystemShellExecute
+except ImportError:
+    pass

@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationTransformType as AnimationTransformType
+    if hasattr(AnimationTransformType, '_constants') and isinstance(AnimationTransformType._constants, dict):
+        AnimationTransformType._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationTransformType._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationTransformType'
+        AnimationTransformType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationTransformTypeEnum
+        ls = [f for f in dir(AnimationTransformType) if not callable(getattr(AnimationTransformType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationTransformType, name)
+        AnimationTransformTypeEnum = IntEnum('AnimationTransformTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_transform_type import AnimationTransformType as AnimationTransformType
 
+    class AnimationTransformTypeEnum(IntEnum):
+        """
+        Enum of Const Class AnimationTransformType
 
-class AnimationTransformTypeEnum(IntEnum):
-    """
-    Enum of Const Class AnimationTransformType
-
-    Specifies the transformation type for an XAnimateTransform.
-    """
-    TRANSLATE = AnimationTransformType.TRANSLATE
-    """
-    defines a translation
-    """
-    SCALE = AnimationTransformType.SCALE
-    """
-    defines a scale
-    """
-    ROTATE = AnimationTransformType.ROTATE
-    """
-    defines a rotation
-    """
-    SKEWX = AnimationTransformType.SKEWX
-    """
-    defines a skew transformation for x-axis
-    """
-    SKEWY = AnimationTransformType.SKEWY
-    """
-    defines a skew transformation for y-axis
-    """
+        Specifies the transformation type for an XAnimateTransform.
+        """
+        TRANSLATE = AnimationTransformType.TRANSLATE
+        """
+        defines a translation
+        """
+        SCALE = AnimationTransformType.SCALE
+        """
+        defines a scale
+        """
+        ROTATE = AnimationTransformType.ROTATE
+        """
+        defines a rotation
+        """
+        SKEWX = AnimationTransformType.SKEWX
+        """
+        defines a skew transformation for x-axis
+        """
+        SKEWY = AnimationTransformType.SKEWY
+        """
+        defines a skew transformation for y-axis
+        """
 
 __all__ = ['AnimationTransformType', 'AnimationTransformTypeEnum']

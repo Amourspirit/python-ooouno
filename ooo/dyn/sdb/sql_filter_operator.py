@@ -27,55 +27,66 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdb import SQLFilterOperator as SQLFilterOperator
+    if hasattr(SQLFilterOperator, '_constants') and isinstance(SQLFilterOperator._constants, dict):
+        SQLFilterOperator._constants['__ooo_ns__'] = 'com.sun.star.sdb'
+        SQLFilterOperator._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.SQLFilterOperator'
+        SQLFilterOperator._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SQLFilterOperatorEnum
+        ls = [f for f in dir(SQLFilterOperator) if not callable(getattr(SQLFilterOperator, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SQLFilterOperator, name)
+        SQLFilterOperatorEnum = IntEnum('SQLFilterOperatorEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdb.sql_filter_operator import SQLFilterOperator as SQLFilterOperator
 
+    class SQLFilterOperatorEnum(IntEnum):
+        """
+        Enum of Const Class SQLFilterOperator
 
-class SQLFilterOperatorEnum(IntEnum):
-    """
-    Enum of Const Class SQLFilterOperator
-
-    These constants are used to specify the filter operator which should be applied when creating a filter with the method XSingleSelectQueryComposer.setStructuredFilter().
-    """
-    EQUAL = SQLFilterOperator.EQUAL
-    """
-    equal to
-    """
-    NOT_EQUAL = SQLFilterOperator.NOT_EQUAL
-    """
-    not equal to
-    """
-    LESS = SQLFilterOperator.LESS
-    """
-    less than
-    """
-    GREATER = SQLFilterOperator.GREATER
-    """
-    greater than
-    """
-    LESS_EQUAL = SQLFilterOperator.LESS_EQUAL
-    """
-    less or equal than
-    """
-    GREATER_EQUAL = SQLFilterOperator.GREATER_EQUAL
-    """
-    greater or equal than
-    """
-    LIKE = SQLFilterOperator.LIKE
-    """
-    like
-    """
-    NOT_LIKE = SQLFilterOperator.NOT_LIKE
-    """
-    not like
-    """
-    SQLNULL = SQLFilterOperator.SQLNULL
-    """
-    is null
-    """
-    NOT_SQLNULL = SQLFilterOperator.NOT_SQLNULL
-    """
-    is not null
-    """
+        These constants are used to specify the filter operator which should be applied when creating a filter with the method XSingleSelectQueryComposer.setStructuredFilter().
+        """
+        EQUAL = SQLFilterOperator.EQUAL
+        """
+        equal to
+        """
+        NOT_EQUAL = SQLFilterOperator.NOT_EQUAL
+        """
+        not equal to
+        """
+        LESS = SQLFilterOperator.LESS
+        """
+        less than
+        """
+        GREATER = SQLFilterOperator.GREATER
+        """
+        greater than
+        """
+        LESS_EQUAL = SQLFilterOperator.LESS_EQUAL
+        """
+        less or equal than
+        """
+        GREATER_EQUAL = SQLFilterOperator.GREATER_EQUAL
+        """
+        greater or equal than
+        """
+        LIKE = SQLFilterOperator.LIKE
+        """
+        like
+        """
+        NOT_LIKE = SQLFilterOperator.NOT_LIKE
+        """
+        not like
+        """
+        SQLNULL = SQLFilterOperator.SQLNULL
+        """
+        is null
+        """
+        NOT_SQLNULL = SQLFilterOperator.NOT_SQLNULL
+        """
+        is not null
+        """
 
 __all__ = ['SQLFilterOperator', 'SQLFilterOperatorEnum']

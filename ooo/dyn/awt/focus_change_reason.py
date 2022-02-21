@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import FocusChangeReason as FocusChangeReason
+    if hasattr(FocusChangeReason, '_constants') and isinstance(FocusChangeReason._constants, dict):
+        FocusChangeReason._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        FocusChangeReason._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FocusChangeReason'
+        FocusChangeReason._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FocusChangeReasonEnum
+        ls = [f for f in dir(FocusChangeReason) if not callable(getattr(FocusChangeReason, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FocusChangeReason, name)
+        FocusChangeReasonEnum = IntFlag('FocusChangeReasonEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.focus_change_reason import FocusChangeReason as FocusChangeReason
 
+    class FocusChangeReasonEnum(IntFlag):
+        """
+        Enum of Const Class FocusChangeReason
 
-class FocusChangeReasonEnum(IntFlag):
-    """
-    Enum of Const Class FocusChangeReason
-
-    A combination of these values can be used to specify the reason for a focus change.
-    """
-    TAB = FocusChangeReason.TAB
-    """
-    Focus changed because TAB was pressed.
-    """
-    CURSOR = FocusChangeReason.CURSOR
-    """
-    Focus changed because Key Left/Right/Up/Down was pressed.
-    """
-    MNEMONIC = FocusChangeReason.MNEMONIC
-    """
-    Focus changed because mnemonic key was pressed.
-    """
-    FORWARD = FocusChangeReason.FORWARD
-    """
-    Changed Focus to the next control.
-    """
-    BACKWARD = FocusChangeReason.BACKWARD
-    """
-    Changed Focus to the previous control.
-    """
-    AROUND = FocusChangeReason.AROUND
-    """
-    Changed Focus forward from last to first or backward from first to last.
-    """
-    UNIQUEMNEMONIC = FocusChangeReason.UNIQUEMNEMONIC
-    """
-    Focus changed because mnemonic key was pressed and this mnemonic is unique.
-    """
+        A combination of these values can be used to specify the reason for a focus change.
+        """
+        TAB = FocusChangeReason.TAB
+        """
+        Focus changed because TAB was pressed.
+        """
+        CURSOR = FocusChangeReason.CURSOR
+        """
+        Focus changed because Key Left/Right/Up/Down was pressed.
+        """
+        MNEMONIC = FocusChangeReason.MNEMONIC
+        """
+        Focus changed because mnemonic key was pressed.
+        """
+        FORWARD = FocusChangeReason.FORWARD
+        """
+        Changed Focus to the next control.
+        """
+        BACKWARD = FocusChangeReason.BACKWARD
+        """
+        Changed Focus to the previous control.
+        """
+        AROUND = FocusChangeReason.AROUND
+        """
+        Changed Focus forward from last to first or backward from first to last.
+        """
+        UNIQUEMNEMONIC = FocusChangeReason.UNIQUEMNEMONIC
+        """
+        Focus changed because mnemonic key was pressed and this mnemonic is unique.
+        """
 
 __all__ = ['FocusChangeReason', 'FocusChangeReasonEnum']

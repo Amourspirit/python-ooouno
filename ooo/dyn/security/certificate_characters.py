@@ -27,25 +27,36 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import CertificateCharacters as CertificateCharacters
+    if hasattr(CertificateCharacters, '_constants') and isinstance(CertificateCharacters._constants, dict):
+        CertificateCharacters._constants['__ooo_ns__'] = 'com.sun.star.security'
+        CertificateCharacters._constants['__ooo_full_ns__'] = 'com.sun.star.security.CertificateCharacters'
+        CertificateCharacters._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CertificateCharactersEnum
+        ls = [f for f in dir(CertificateCharacters) if not callable(getattr(CertificateCharacters, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CertificateCharacters, name)
+        CertificateCharactersEnum = IntFlag('CertificateCharactersEnum', _dict)
+    build_enum()
 else:
     from ...lo.security.certificate_characters import CertificateCharacters as CertificateCharacters
 
+    class CertificateCharactersEnum(IntFlag):
+        """
+        Enum of Const Class CertificateCharacters
 
-class CertificateCharactersEnum(IntFlag):
-    """
-    Enum of Const Class CertificateCharacters
-
-    Constant definition of a certificate characters.
-    
-    The certificate characters will be defined as bit-wise constants.
-    """
-    SELF_SIGNED = CertificateCharacters.SELF_SIGNED
-    """
-    It is a self-signed certificate.
-    """
-    HAS_PRIVATE_KEY = CertificateCharacters.HAS_PRIVATE_KEY
-    """
-    A private key binding with the certificate is in user's profile.
-    """
+        Constant definition of a certificate characters.
+        
+        The certificate characters will be defined as bit-wise constants.
+        """
+        SELF_SIGNED = CertificateCharacters.SELF_SIGNED
+        """
+        It is a self-signed certificate.
+        """
+        HAS_PRIVATE_KEY = CertificateCharacters.HAS_PRIVATE_KEY
+        """
+        A private key binding with the certificate is in user's profile.
+        """
 
 __all__ = ['CertificateCharacters', 'CertificateCharactersEnum']

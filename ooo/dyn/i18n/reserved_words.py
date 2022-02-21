@@ -27,67 +27,78 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import reservedWords as reservedWords
+    if hasattr(reservedWords, '_constants') and isinstance(reservedWords._constants, dict):
+        reservedWords._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        reservedWords._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.reservedWords'
+        reservedWords._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global reservedWordsEnum
+        ls = [f for f in dir(reservedWords) if not callable(getattr(reservedWords, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(reservedWords, name)
+        reservedWordsEnum = IntEnum('reservedWordsEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.reserved_words import reservedWords as reservedWords
 
+    class reservedWordsEnum(IntEnum):
+        """
+        Enum of Const Class reservedWords
 
-class reservedWordsEnum(IntEnum):
-    """
-    Enum of Const Class reservedWords
-
-    Offsets into the sequence of strings returned by XLocaleData.getReservedWord().
-    """
-    TRUE_WORD = reservedWords.TRUE_WORD
-    """
-    \"true\"
-    """
-    FALSE_WORD = reservedWords.FALSE_WORD
-    """
-    \"false\"
-    """
-    QUARTER1_WORD = reservedWords.QUARTER1_WORD
-    """
-    \"1st quarter\"
-    """
-    QUARTER2_WORD = reservedWords.QUARTER2_WORD
-    """
-    \"2nd quarter\"
-    """
-    QUARTER3_WORD = reservedWords.QUARTER3_WORD
-    """
-    \"3rd quarter\"
-    """
-    QUARTER4_WORD = reservedWords.QUARTER4_WORD
-    """
-    \"4th quarter\"
-    """
-    ABOVE_WORD = reservedWords.ABOVE_WORD
-    """
-    \"above\"
-    """
-    BELOW_WORD = reservedWords.BELOW_WORD
-    """
-    \"below\"
-    """
-    QUARTER1_ABBREVIATION = reservedWords.QUARTER1_ABBREVIATION
-    """
-    \"Q1\"
-    """
-    QUARTER2_ABBREVIATION = reservedWords.QUARTER2_ABBREVIATION
-    """
-    \"Q2\"
-    """
-    QUARTER3_ABBREVIATION = reservedWords.QUARTER3_ABBREVIATION
-    """
-    \"Q3\"
-    """
-    QUARTER4_ABBREVIATION = reservedWords.QUARTER4_ABBREVIATION
-    """
-    \"Q4\"
-    """
-    COUNT = reservedWords.COUNT
-    """
-    Yes, this must be the count of known reserved words and one more than the maximum number used above! Count of known reserved words.
-    """
+        Offsets into the sequence of strings returned by XLocaleData.getReservedWord().
+        """
+        TRUE_WORD = reservedWords.TRUE_WORD
+        """
+        \"true\"
+        """
+        FALSE_WORD = reservedWords.FALSE_WORD
+        """
+        \"false\"
+        """
+        QUARTER1_WORD = reservedWords.QUARTER1_WORD
+        """
+        \"1st quarter\"
+        """
+        QUARTER2_WORD = reservedWords.QUARTER2_WORD
+        """
+        \"2nd quarter\"
+        """
+        QUARTER3_WORD = reservedWords.QUARTER3_WORD
+        """
+        \"3rd quarter\"
+        """
+        QUARTER4_WORD = reservedWords.QUARTER4_WORD
+        """
+        \"4th quarter\"
+        """
+        ABOVE_WORD = reservedWords.ABOVE_WORD
+        """
+        \"above\"
+        """
+        BELOW_WORD = reservedWords.BELOW_WORD
+        """
+        \"below\"
+        """
+        QUARTER1_ABBREVIATION = reservedWords.QUARTER1_ABBREVIATION
+        """
+        \"Q1\"
+        """
+        QUARTER2_ABBREVIATION = reservedWords.QUARTER2_ABBREVIATION
+        """
+        \"Q2\"
+        """
+        QUARTER3_ABBREVIATION = reservedWords.QUARTER3_ABBREVIATION
+        """
+        \"Q3\"
+        """
+        QUARTER4_ABBREVIATION = reservedWords.QUARTER4_ABBREVIATION
+        """
+        \"Q4\"
+        """
+        COUNT = reservedWords.COUNT
+        """
+        Yes, this must be the count of known reserved words and one more than the maximum number used above! Count of known reserved words.
+        """
 
 __all__ = ['reservedWords', 'reservedWordsEnum']

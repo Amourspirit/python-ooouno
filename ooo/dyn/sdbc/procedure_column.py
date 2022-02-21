@@ -27,51 +27,62 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ProcedureColumn as ProcedureColumn
+    if hasattr(ProcedureColumn, '_constants') and isinstance(ProcedureColumn._constants, dict):
+        ProcedureColumn._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ProcedureColumn._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ProcedureColumn'
+        ProcedureColumn._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ProcedureColumnEnum
+        ls = [f for f in dir(ProcedureColumn) if not callable(getattr(ProcedureColumn, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ProcedureColumn, name)
+        ProcedureColumnEnum = IntEnum('ProcedureColumnEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.procedure_column import ProcedureColumn as ProcedureColumn
 
+    class ProcedureColumnEnum(IntEnum):
+        """
+        Enum of Const Class ProcedureColumn
 
-class ProcedureColumnEnum(IntEnum):
-    """
-    Enum of Const Class ProcedureColumn
-
-    indicates the type of a procedure column.
-    """
-    UNKNOWN = ProcedureColumn.UNKNOWN
-    """
-    indicates that the type of the column is unknown.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
-    IN = ProcedureColumn.IN
-    """
-    indicates that the column stores IN parameters.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
-    INOUT = ProcedureColumn.INOUT
-    """
-    indicates that the column stores INOUT parameters.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
-    RESULT = ProcedureColumn.RESULT
-    """
-    indicates that the column stores results.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
-    OUT = ProcedureColumn.OUT
-    """
-    indicates that the column stores OUT parameters.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
-    RETURN = ProcedureColumn.RETURN
-    """
-    Indicates that the column stores return values.
-    
-    A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
-    """
+        indicates the type of a procedure column.
+        """
+        UNKNOWN = ProcedureColumn.UNKNOWN
+        """
+        indicates that the type of the column is unknown.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
+        IN = ProcedureColumn.IN
+        """
+        indicates that the column stores IN parameters.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
+        INOUT = ProcedureColumn.INOUT
+        """
+        indicates that the column stores INOUT parameters.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
+        RESULT = ProcedureColumn.RESULT
+        """
+        indicates that the column stores results.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
+        OUT = ProcedureColumn.OUT
+        """
+        indicates that the column stores OUT parameters.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
+        RETURN = ProcedureColumn.RETURN
+        """
+        Indicates that the column stores return values.
+        
+        A possible value for the column COLUMN_TYPE in the com.sun.star.sdbc.XResultSet returned by the method com.sun.star.sdbc.XDatabaseMetaData.getProcedureColumns().
+        """
 
 __all__ = ['ProcedureColumn', 'ProcedureColumnEnum']

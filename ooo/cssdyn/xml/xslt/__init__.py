@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
-from ....dyn.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
-from ....dyn.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
+except ImportError:
+    pass
+try:
+    from ....dyn.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
+except ImportError:
+    pass
+try:
+    from ....dyn.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer
+except ImportError:
+    pass

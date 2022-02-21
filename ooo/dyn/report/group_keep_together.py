@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.report import GroupKeepTogether as GroupKeepTogether
+    if hasattr(GroupKeepTogether, '_constants') and isinstance(GroupKeepTogether._constants, dict):
+        GroupKeepTogether._constants['__ooo_ns__'] = 'com.sun.star.report'
+        GroupKeepTogether._constants['__ooo_full_ns__'] = 'com.sun.star.report.GroupKeepTogether'
+        GroupKeepTogether._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global GroupKeepTogetherEnum
+        ls = [f for f in dir(GroupKeepTogether) if not callable(getattr(GroupKeepTogether, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(GroupKeepTogether, name)
+        GroupKeepTogetherEnum = IntEnum('GroupKeepTogetherEnum', _dict)
+    build_enum()
 else:
     from ...lo.report.group_keep_together import GroupKeepTogether as GroupKeepTogether
 
+    class GroupKeepTogetherEnum(IntEnum):
+        """
+        Enum of Const Class GroupKeepTogether
 
-class GroupKeepTogetherEnum(IntEnum):
-    """
-    Enum of Const Class GroupKeepTogether
-
-    Specifies if groups in a multi column report where the group has the property XGroup.KeepTogether set to WHOLE_GROUP or WITH_FIRST_DETAIL will keep together by page or column.
-    """
-    PER_PAGE = GroupKeepTogether.PER_PAGE
-    """
-    Groups are kept together by page.
-    """
-    PER_COLUMN = GroupKeepTogether.PER_COLUMN
-    """
-    Groups are kept together by column.
-    """
+        Specifies if groups in a multi column report where the group has the property XGroup.KeepTogether set to WHOLE_GROUP or WITH_FIRST_DETAIL will keep together by page or column.
+        """
+        PER_PAGE = GroupKeepTogether.PER_PAGE
+        """
+        Groups are kept together by page.
+        """
+        PER_COLUMN = GroupKeepTogether.PER_COLUMN
+        """
+        Groups are kept together by column.
+        """
 
 __all__ = ['GroupKeepTogether', 'GroupKeepTogetherEnum']

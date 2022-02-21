@@ -27,23 +27,34 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import SizeType as SizeType
+    if hasattr(SizeType, '_constants') and isinstance(SizeType._constants, dict):
+        SizeType._constants['__ooo_ns__'] = 'com.sun.star.text'
+        SizeType._constants['__ooo_full_ns__'] = 'com.sun.star.text.SizeType'
+        SizeType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SizeTypeEnum
+        ls = [f for f in dir(SizeType) if not callable(getattr(SizeType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SizeType, name)
+        SizeTypeEnum = IntEnum('SizeTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.size_type import SizeType as SizeType
 
+    class SizeTypeEnum(IntEnum):
+        """
+        Enum of Const Class SizeType
 
-class SizeTypeEnum(IntEnum):
-    """
-    Enum of Const Class SizeType
-
-    The height value of objects like text frames or table rows may be interpreted in different ways.
-    
-    The values may specify the absolute height (SIZETYPE_FIX), the minimum height (SIZETYPE_MIN), or they are ignored (SIZETYPE_VAR), in which case the real height depends on the content. This information is contained in a property called \"SizeType\".
-    """
-    VARIABLE = SizeType.VARIABLE
-    FIX = SizeType.FIX
-    MIN = SizeType.MIN
-    """
-    The height property determines the minimum height of the object, but the actual height will be increased if the content demands it.
-    """
+        The height value of objects like text frames or table rows may be interpreted in different ways.
+        
+        The values may specify the absolute height (SIZETYPE_FIX), the minimum height (SIZETYPE_MIN), or they are ignored (SIZETYPE_VAR), in which case the real height depends on the content. This information is contained in a property called \"SizeType\".
+        """
+        VARIABLE = SizeType.VARIABLE
+        FIX = SizeType.FIX
+        MIN = SizeType.MIN
+        """
+        The height property determines the minimum height of the object, but the actual height will be increased if the content demands it.
+        """
 
 __all__ = ['SizeType', 'SizeTypeEnum']

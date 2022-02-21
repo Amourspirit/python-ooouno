@@ -27,69 +27,80 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.util import NumberFormat as NumberFormat
+    if hasattr(NumberFormat, '_constants') and isinstance(NumberFormat._constants, dict):
+        NumberFormat._constants['__ooo_ns__'] = 'com.sun.star.util'
+        NumberFormat._constants['__ooo_full_ns__'] = 'com.sun.star.util.NumberFormat'
+        NumberFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global NumberFormatEnum
+        ls = [f for f in dir(NumberFormat) if not callable(getattr(NumberFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(NumberFormat, name)
+        NumberFormatEnum = IntEnum('NumberFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.util.number_format import NumberFormat as NumberFormat
 
+    class NumberFormatEnum(IntEnum):
+        """
+        Enum of Const Class NumberFormat
 
-class NumberFormatEnum(IntEnum):
-    """
-    Enum of Const Class NumberFormat
-
-    contains constants that are used to specify the type of a number format.
-    """
-    ALL = NumberFormat.ALL
-    """
-    selects all number formats.
-    """
-    DEFINED = NumberFormat.DEFINED
-    """
-    selects only user-defined number formats.
-    """
-    DATE = NumberFormat.DATE
-    """
-    selects date formats.
-    """
-    TIME = NumberFormat.TIME
-    """
-    selects time formats.
-    """
-    CURRENCY = NumberFormat.CURRENCY
-    """
-    selects currency formats.
-    """
-    NUMBER = NumberFormat.NUMBER
-    """
-    selects decimal number formats.
-    """
-    SCIENTIFIC = NumberFormat.SCIENTIFIC
-    """
-    selects scientific number formats.
-    """
-    FRACTION = NumberFormat.FRACTION
-    """
-    selects number formats for fractions.
-    """
-    PERCENT = NumberFormat.PERCENT
-    """
-    selects percentage number formats.
-    """
-    TEXT = NumberFormat.TEXT
-    """
-    selects text number formats.
-    """
-    DATETIME = NumberFormat.DATETIME
-    """
-    selects number formats which contain date and time.
-    """
-    LOGICAL = NumberFormat.LOGICAL
-    """
-    selects boolean number formats.
-    """
-    UNDEFINED = NumberFormat.UNDEFINED
-    """
-    is used as a return value if no format exists.
-    """
-    EMPTY = NumberFormat.EMPTY
-    DURATION = NumberFormat.DURATION
+        contains constants that are used to specify the type of a number format.
+        """
+        ALL = NumberFormat.ALL
+        """
+        selects all number formats.
+        """
+        DEFINED = NumberFormat.DEFINED
+        """
+        selects only user-defined number formats.
+        """
+        DATE = NumberFormat.DATE
+        """
+        selects date formats.
+        """
+        TIME = NumberFormat.TIME
+        """
+        selects time formats.
+        """
+        CURRENCY = NumberFormat.CURRENCY
+        """
+        selects currency formats.
+        """
+        NUMBER = NumberFormat.NUMBER
+        """
+        selects decimal number formats.
+        """
+        SCIENTIFIC = NumberFormat.SCIENTIFIC
+        """
+        selects scientific number formats.
+        """
+        FRACTION = NumberFormat.FRACTION
+        """
+        selects number formats for fractions.
+        """
+        PERCENT = NumberFormat.PERCENT
+        """
+        selects percentage number formats.
+        """
+        TEXT = NumberFormat.TEXT
+        """
+        selects text number formats.
+        """
+        DATETIME = NumberFormat.DATETIME
+        """
+        selects number formats which contain date and time.
+        """
+        LOGICAL = NumberFormat.LOGICAL
+        """
+        selects boolean number formats.
+        """
+        UNDEFINED = NumberFormat.UNDEFINED
+        """
+        is used as a return value if no format exists.
+        """
+        EMPTY = NumberFormat.EMPTY
+        DURATION = NumberFormat.DURATION
 
 __all__ = ['NumberFormat', 'NumberFormatEnum']

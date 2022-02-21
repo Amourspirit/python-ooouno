@@ -27,75 +27,86 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import UserDataPart as UserDataPart
+    if hasattr(UserDataPart, '_constants') and isinstance(UserDataPart._constants, dict):
+        UserDataPart._constants['__ooo_ns__'] = 'com.sun.star.text'
+        UserDataPart._constants['__ooo_full_ns__'] = 'com.sun.star.text.UserDataPart'
+        UserDataPart._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global UserDataPartEnum
+        ls = [f for f in dir(UserDataPart) if not callable(getattr(UserDataPart, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(UserDataPart, name)
+        UserDataPartEnum = IntEnum('UserDataPartEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.user_data_part import UserDataPart as UserDataPart
 
+    class UserDataPartEnum(IntEnum):
+        """
+        Enum of Const Class UserDataPart
 
-class UserDataPartEnum(IntEnum):
-    """
-    Enum of Const Class UserDataPart
-
-    These constants define which part of the user data is displayed in a user data text field (service \"sun.one.text.TextField.ExtendedUser\")
-    """
-    COMPANY = UserDataPart.COMPANY
-    """
-    The field shows the company name.
-    """
-    FIRSTNAME = UserDataPart.FIRSTNAME
-    """
-    The field shows the first name.
-    """
-    NAME = UserDataPart.NAME
-    """
-    The field shows the name.
-    """
-    SHORTCUT = UserDataPart.SHORTCUT
-    """
-    The field shows the initials.
-    """
-    STREET = UserDataPart.STREET
-    """
-    The field shows the street.
-    """
-    COUNTRY = UserDataPart.COUNTRY
-    """
-    The field shows the country.
-    """
-    ZIP = UserDataPart.ZIP
-    """
-    The field shows the zip code.
-    """
-    CITY = UserDataPart.CITY
-    """
-    The field shows the city.
-    """
-    TITLE = UserDataPart.TITLE
-    """
-    The field shows the title.
-    """
-    POSITION = UserDataPart.POSITION
-    """
-    The field shows the position.
-    """
-    PHONE_PRIVATE = UserDataPart.PHONE_PRIVATE
-    """
-    The field shows the no of the private phone.
-    """
-    PHONE_COMPANY = UserDataPart.PHONE_COMPANY
-    """
-    The field shows the number of the business phone.
-    """
-    FAX = UserDataPart.FAX
-    """
-    The field shows the fax no.
-    """
-    EMAIL = UserDataPart.EMAIL
-    """
-    The field shows the e-Mail.
-    """
-    STATE = UserDataPart.STATE
-    """
-    The field shows the state.
-    """
+        These constants define which part of the user data is displayed in a user data text field (service \"sun.one.text.TextField.ExtendedUser\")
+        """
+        COMPANY = UserDataPart.COMPANY
+        """
+        The field shows the company name.
+        """
+        FIRSTNAME = UserDataPart.FIRSTNAME
+        """
+        The field shows the first name.
+        """
+        NAME = UserDataPart.NAME
+        """
+        The field shows the name.
+        """
+        SHORTCUT = UserDataPart.SHORTCUT
+        """
+        The field shows the initials.
+        """
+        STREET = UserDataPart.STREET
+        """
+        The field shows the street.
+        """
+        COUNTRY = UserDataPart.COUNTRY
+        """
+        The field shows the country.
+        """
+        ZIP = UserDataPart.ZIP
+        """
+        The field shows the zip code.
+        """
+        CITY = UserDataPart.CITY
+        """
+        The field shows the city.
+        """
+        TITLE = UserDataPart.TITLE
+        """
+        The field shows the title.
+        """
+        POSITION = UserDataPart.POSITION
+        """
+        The field shows the position.
+        """
+        PHONE_PRIVATE = UserDataPart.PHONE_PRIVATE
+        """
+        The field shows the no of the private phone.
+        """
+        PHONE_COMPANY = UserDataPart.PHONE_COMPANY
+        """
+        The field shows the number of the business phone.
+        """
+        FAX = UserDataPart.FAX
+        """
+        The field shows the fax no.
+        """
+        EMAIL = UserDataPart.EMAIL
+        """
+        The field shows the e-Mail.
+        """
+        STATE = UserDataPart.STATE
+        """
+        The field shows the state.
+        """
 
 __all__ = ['UserDataPart', 'UserDataPartEnum']

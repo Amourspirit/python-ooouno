@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import UserFieldFormat as UserFieldFormat
+    if hasattr(UserFieldFormat, '_constants') and isinstance(UserFieldFormat._constants, dict):
+        UserFieldFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        UserFieldFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.UserFieldFormat'
+        UserFieldFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global UserFieldFormatEnum
+        ls = [f for f in dir(UserFieldFormat) if not callable(getattr(UserFieldFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(UserFieldFormat, name)
+        UserFieldFormatEnum = IntEnum('UserFieldFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.user_field_format import UserFieldFormat as UserFieldFormat
 
+    class UserFieldFormatEnum(IntEnum):
+        """
+        Enum of Const Class UserFieldFormat
 
-class UserFieldFormatEnum(IntEnum):
-    """
-    Enum of Const Class UserFieldFormat
-
-    These constants describe how the content of a user text field is formatted.
-    """
-    SYSTEM = UserFieldFormat.SYSTEM
-    """
-    The number format of the operating system is used.
-    """
-    TEXT = UserFieldFormat.TEXT
-    """
-    The content is formatted as text.
-    """
-    NUM = UserFieldFormat.NUM
-    """
-    The number format of the property \"NumberFormat\" is used.
-    """
+        These constants describe how the content of a user text field is formatted.
+        """
+        SYSTEM = UserFieldFormat.SYSTEM
+        """
+        The number format of the operating system is used.
+        """
+        TEXT = UserFieldFormat.TEXT
+        """
+        The content is formatted as text.
+        """
+        NUM = UserFieldFormat.NUM
+        """
+        The number format of the property \"NumberFormat\" is used.
+        """
 
 __all__ = ['UserFieldFormat', 'UserFieldFormatEnum']

@@ -27,30 +27,41 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import PanoseLetterForm as PanoseLetterForm
+    if hasattr(PanoseLetterForm, '_constants') and isinstance(PanoseLetterForm._constants, dict):
+        PanoseLetterForm._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        PanoseLetterForm._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseLetterForm'
+        PanoseLetterForm._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PanoseLetterFormEnum
+        ls = [f for f in dir(PanoseLetterForm) if not callable(getattr(PanoseLetterForm, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PanoseLetterForm, name)
+        PanoseLetterFormEnum = IntEnum('PanoseLetterFormEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.panose_letter_form import PanoseLetterForm as PanoseLetterForm
 
+    class PanoseLetterFormEnum(IntEnum):
+        """
+        Enum of Const Class PanoseLetterForm
 
-class PanoseLetterFormEnum(IntEnum):
-    """
-    Enum of Const Class PanoseLetterForm
-
-    """
-    ANYTHING = PanoseLetterForm.ANYTHING
-    NO_FIT = PanoseLetterForm.NO_FIT
-    NORMAL_CONTACT = PanoseLetterForm.NORMAL_CONTACT
-    NORMAL_WEIGHTED = PanoseLetterForm.NORMAL_WEIGHTED
-    NORMAL_BOXED = PanoseLetterForm.NORMAL_BOXED
-    NORMAL_FLATTENED = PanoseLetterForm.NORMAL_FLATTENED
-    NORMAL_ROUNDED = PanoseLetterForm.NORMAL_ROUNDED
-    NORMAL_OFF_CENTER = PanoseLetterForm.NORMAL_OFF_CENTER
-    NORMAL_SQUARE = PanoseLetterForm.NORMAL_SQUARE
-    OBLIQUE_CONTACT = PanoseLetterForm.OBLIQUE_CONTACT
-    OBLIQUE_WEIGHTED = PanoseLetterForm.OBLIQUE_WEIGHTED
-    OBLIQUE_BOXED = PanoseLetterForm.OBLIQUE_BOXED
-    OBLIQUE_FLATTENED = PanoseLetterForm.OBLIQUE_FLATTENED
-    OBLIQUE_ROUNDED = PanoseLetterForm.OBLIQUE_ROUNDED
-    OBLIQUE_OFF_CENTER = PanoseLetterForm.OBLIQUE_OFF_CENTER
-    OBLIQUE_SQUARE = PanoseLetterForm.OBLIQUE_SQUARE
+        """
+        ANYTHING = PanoseLetterForm.ANYTHING
+        NO_FIT = PanoseLetterForm.NO_FIT
+        NORMAL_CONTACT = PanoseLetterForm.NORMAL_CONTACT
+        NORMAL_WEIGHTED = PanoseLetterForm.NORMAL_WEIGHTED
+        NORMAL_BOXED = PanoseLetterForm.NORMAL_BOXED
+        NORMAL_FLATTENED = PanoseLetterForm.NORMAL_FLATTENED
+        NORMAL_ROUNDED = PanoseLetterForm.NORMAL_ROUNDED
+        NORMAL_OFF_CENTER = PanoseLetterForm.NORMAL_OFF_CENTER
+        NORMAL_SQUARE = PanoseLetterForm.NORMAL_SQUARE
+        OBLIQUE_CONTACT = PanoseLetterForm.OBLIQUE_CONTACT
+        OBLIQUE_WEIGHTED = PanoseLetterForm.OBLIQUE_WEIGHTED
+        OBLIQUE_BOXED = PanoseLetterForm.OBLIQUE_BOXED
+        OBLIQUE_FLATTENED = PanoseLetterForm.OBLIQUE_FLATTENED
+        OBLIQUE_ROUNDED = PanoseLetterForm.OBLIQUE_ROUNDED
+        OBLIQUE_OFF_CENTER = PanoseLetterForm.OBLIQUE_OFF_CENTER
+        OBLIQUE_SQUARE = PanoseLetterForm.OBLIQUE_SQUARE
 
 __all__ = ['PanoseLetterForm', 'PanoseLetterFormEnum']

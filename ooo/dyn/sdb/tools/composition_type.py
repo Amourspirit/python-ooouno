@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdb.tools import CompositionType as CompositionType
+    if hasattr(CompositionType, '_constants') and isinstance(CompositionType._constants, dict):
+        CompositionType._constants['__ooo_ns__'] = 'com.sun.star.sdb.tools'
+        CompositionType._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.tools.CompositionType'
+        CompositionType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CompositionTypeEnum
+        ls = [f for f in dir(CompositionType) if not callable(getattr(CompositionType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CompositionType, name)
+        CompositionTypeEnum = IntEnum('CompositionTypeEnum', _dict)
+    build_enum()
 else:
     from ....lo.sdb.tools.composition_type import CompositionType as CompositionType
 
+    class CompositionTypeEnum(IntEnum):
+        """
+        Enum of Const Class CompositionType
 
-class CompositionTypeEnum(IntEnum):
-    """
-    Enum of Const Class CompositionType
-
-    specifies which composition should be used when composing a table name.
-    
-    **since**
-    
-        OOo 2.0.4
-    """
-    ForTableDefinitions = CompositionType.ForTableDefinitions
-    """
-    specifies composition of a name to be used in table definitions
-    """
-    ForIndexDefinitions = CompositionType.ForIndexDefinitions
-    """
-    specifies composition of a name to be used in index definitions
-    """
-    ForDataManipulation = CompositionType.ForDataManipulation
-    """
-    specifies composition of a name to be used in data manipulation
-    """
-    ForProcedureCalls = CompositionType.ForProcedureCalls
-    """
-    specifies composition of a name to be used in procedure calls
-    """
-    ForPrivilegeDefinitions = CompositionType.ForPrivilegeDefinitions
-    """
-    specifies composition of a name to be used in privilege definitions
-    """
-    Complete = CompositionType.Complete
-    """
-    specifies complete composition of a table name, including catalog and schema (if present), disregarding any database support for catalog and schema in any particular statements
-    """
+        specifies which composition should be used when composing a table name.
+        
+        **since**
+        
+            OOo 2.0.4
+        """
+        ForTableDefinitions = CompositionType.ForTableDefinitions
+        """
+        specifies composition of a name to be used in table definitions
+        """
+        ForIndexDefinitions = CompositionType.ForIndexDefinitions
+        """
+        specifies composition of a name to be used in index definitions
+        """
+        ForDataManipulation = CompositionType.ForDataManipulation
+        """
+        specifies composition of a name to be used in data manipulation
+        """
+        ForProcedureCalls = CompositionType.ForProcedureCalls
+        """
+        specifies composition of a name to be used in procedure calls
+        """
+        ForPrivilegeDefinitions = CompositionType.ForPrivilegeDefinitions
+        """
+        specifies composition of a name to be used in privilege definitions
+        """
+        Complete = CompositionType.Complete
+        """
+        specifies complete composition of a table name, including catalog and schema (if present), disregarding any database support for catalog and schema in any particular statements
+        """
 
 __all__ = ['CompositionType', 'CompositionTypeEnum']

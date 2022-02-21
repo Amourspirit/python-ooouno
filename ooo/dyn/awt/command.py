@@ -27,75 +27,86 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import Command as Command
+    if hasattr(Command, '_constants') and isinstance(Command._constants, dict):
+        Command._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        Command._constants['__ooo_full_ns__'] = 'com.sun.star.awt.Command'
+        Command._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CommandEnum
+        ls = [f for f in dir(Command) if not callable(getattr(Command, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Command, name)
+        CommandEnum = IntEnum('CommandEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.command import Command as Command
 
+    class CommandEnum(IntEnum):
+        """
+        Enum of Const Class Command
 
-class CommandEnum(IntEnum):
-    """
-    Enum of Const Class Command
-
-    these values specify the different command types available.
-    """
-    CONTEXTMENU = Command.CONTEXTMENU
-    """
-    specifies a requests for a context menu.
-    """
-    STARTDRAG = Command.STARTDRAG
-    """
-    specifies the beginning of a drag operation.
-    """
-    WHEEL = Command.WHEEL
-    """
-    specifies a mouse wheel operation.
-    """
-    STARTAUTOSCROLL = Command.STARTAUTOSCROLL
-    """
-    specifies the beginning of an auto scroll operation.
-    """
-    AUTOSCROLL = Command.AUTOSCROLL
-    """
-    specifies an auto scroll operation.
-    """
-    VOICE = Command.VOICE
-    """
-    specifies a request for a voice operation.
-    """
-    STARTEXTTEXTINPUT = Command.STARTEXTTEXTINPUT
-    """
-    specifies the beginning of an extended text input operation.
-    """
-    EXTTEXTINPUT = Command.EXTTEXTINPUT
-    """
-    specifies an extended text input operation.
-    """
-    ENDEXTTEXTINPUT = Command.ENDEXTTEXTINPUT
-    """
-    specifies the end of an extended text input operation.
-    """
-    INPUTCONTEXTCHANGE = Command.INPUTCONTEXTCHANGE
-    """
-    specifies that the input context has been changed.
-    """
-    CURSORPOS = Command.CURSORPOS
-    """
-    specifies the cursor position.
-    """
-    PASTESELECTION = Command.PASTESELECTION
-    """
-    specifies a paste selection command.
-    """
-    MODKEYCHANGE = Command.MODKEYCHANGE
-    """
-    specifies that the state of a key modifier has changed.
-    """
-    HANGUL_HANJA_CONVERSION = Command.HANGUL_HANJA_CONVERSION
-    """
-    specifies a Hangul hanja conversion command.
-    """
-    USER = Command.USER
-    """
-    specifies a user-defined command.
-    """
+        these values specify the different command types available.
+        """
+        CONTEXTMENU = Command.CONTEXTMENU
+        """
+        specifies a requests for a context menu.
+        """
+        STARTDRAG = Command.STARTDRAG
+        """
+        specifies the beginning of a drag operation.
+        """
+        WHEEL = Command.WHEEL
+        """
+        specifies a mouse wheel operation.
+        """
+        STARTAUTOSCROLL = Command.STARTAUTOSCROLL
+        """
+        specifies the beginning of an auto scroll operation.
+        """
+        AUTOSCROLL = Command.AUTOSCROLL
+        """
+        specifies an auto scroll operation.
+        """
+        VOICE = Command.VOICE
+        """
+        specifies a request for a voice operation.
+        """
+        STARTEXTTEXTINPUT = Command.STARTEXTTEXTINPUT
+        """
+        specifies the beginning of an extended text input operation.
+        """
+        EXTTEXTINPUT = Command.EXTTEXTINPUT
+        """
+        specifies an extended text input operation.
+        """
+        ENDEXTTEXTINPUT = Command.ENDEXTTEXTINPUT
+        """
+        specifies the end of an extended text input operation.
+        """
+        INPUTCONTEXTCHANGE = Command.INPUTCONTEXTCHANGE
+        """
+        specifies that the input context has been changed.
+        """
+        CURSORPOS = Command.CURSORPOS
+        """
+        specifies the cursor position.
+        """
+        PASTESELECTION = Command.PASTESELECTION
+        """
+        specifies a paste selection command.
+        """
+        MODKEYCHANGE = Command.MODKEYCHANGE
+        """
+        specifies that the state of a key modifier has changed.
+        """
+        HANGUL_HANJA_CONVERSION = Command.HANGUL_HANJA_CONVERSION
+        """
+        specifies a Hangul hanja conversion command.
+        """
+        USER = Command.USER
+        """
+        specifies a user-defined command.
+        """
 
 __all__ = ['Command', 'CommandEnum']

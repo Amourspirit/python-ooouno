@@ -1,12 +1,17 @@
-html.writer-html4 .rst-content dl:not(.docutils) .property,
-html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .property {
-    display: inline;
+.highlight .vm {
+    color: #605dc9;
 }
-
-table.indextable {
-    word-break: break-all;
+.highlight .gp {
+    color: #5e5e9d;
 }
-
-table.indextable ul a:hover {
-    background: #e3e8e9;
+.highlight .nf {
+    color: #5151f5;
+}
+html.writer-html4 .rst-content dl:not(.docutils) .descclassname,
+html.writer-html4 .rst-content dl:not(.docutils) .descname,
+html.writer-html4 .rst-content dl:not(.docutils) .sig-name,
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .descclassname,
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .descname,
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .sig-name {
+    color: #098f0d;
 }

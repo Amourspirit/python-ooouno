@@ -27,145 +27,156 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import BibliographyDataField as BibliographyDataField
+    if hasattr(BibliographyDataField, '_constants') and isinstance(BibliographyDataField._constants, dict):
+        BibliographyDataField._constants['__ooo_ns__'] = 'com.sun.star.text'
+        BibliographyDataField._constants['__ooo_full_ns__'] = 'com.sun.star.text.BibliographyDataField'
+        BibliographyDataField._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global BibliographyDataFieldEnum
+        ls = [f for f in dir(BibliographyDataField) if not callable(getattr(BibliographyDataField, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(BibliographyDataField, name)
+        BibliographyDataFieldEnum = IntEnum('BibliographyDataFieldEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.bibliography_data_field import BibliographyDataField as BibliographyDataField
 
+    class BibliographyDataFieldEnum(IntEnum):
+        """
+        Enum of Const Class BibliographyDataField
 
-class BibliographyDataFieldEnum(IntEnum):
-    """
-    Enum of Const Class BibliographyDataField
-
-    These values define parts of bibliographic data.
-    
-    They are used to create a bibliography in a text document.
-    
-    Depending on the type of the data some of the fields will usually be left empty.
-    """
-    IDENTIFIER = BibliographyDataField.IDENTIFIER
-    """
-    This field contains a unique identifier for the bibliographic data.
-    """
-    BIBILIOGRAPHIC_TYPE = BibliographyDataField.BIBILIOGRAPHIC_TYPE
-    """
-    This field contains the type of the bibliographic reference.
-    
-    It is of the type BibliographyDataType.
-    """
-    ADDRESS = BibliographyDataField.ADDRESS
-    """
-    This field contains the address of the publisher.
-    """
-    ANNOTE = BibliographyDataField.ANNOTE
-    """
-    This field contains an annotation.
-    """
-    AUTHOR = BibliographyDataField.AUTHOR
-    """
-    This field contains the name(s) of the author(s)
-    """
-    BOOKTITLE = BibliographyDataField.BOOKTITLE
-    """
-    This field contains the title of the book.
-    """
-    CHAPTER = BibliographyDataField.CHAPTER
-    """
-    This field contains the name or number of the chapter.
-    """
-    EDITION = BibliographyDataField.EDITION
-    """
-    This field contains the number or name of the edition.
-    """
-    EDITOR = BibliographyDataField.EDITOR
-    """
-    This field contains the name(s) of the editor(s)
-    """
-    HOWPUBLISHED = BibliographyDataField.HOWPUBLISHED
-    """
-    This field contains a description of the type of the publishing.
-    """
-    INSTITUTION = BibliographyDataField.INSTITUTION
-    """
-    This field contains the name of the institution where the publishing was created.
-    """
-    JOURNAL = BibliographyDataField.JOURNAL
-    """
-    This field contains the name of the journal.
-    """
-    MONTH = BibliographyDataField.MONTH
-    """
-    This field contains number or name of the month of the publishing.
-    """
-    NOTE = BibliographyDataField.NOTE
-    """
-    This field contains a note.
-    """
-    NUMBER = BibliographyDataField.NUMBER
-    """
-    This field contains the number of the publishing.
-    """
-    ORGANIZATIONS = BibliographyDataField.ORGANIZATIONS
-    """
-    This field contains the name of the organizations where the publishing was created.
-    """
-    PAGES = BibliographyDataField.PAGES
-    """
-    This field contains the number(s) of the page(s) of the reference into a publishing.
-    """
-    PUBLISHER = BibliographyDataField.PUBLISHER
-    """
-    This field contains the name of the publisher.
-    """
-    SCHOOL = BibliographyDataField.SCHOOL
-    """
-    This field contains the name of the university or school where the publishing was created.
-    """
-    SERIES = BibliographyDataField.SERIES
-    """
-    This field contains the series of the publishing.
-    """
-    TITLE = BibliographyDataField.TITLE
-    """
-    This field contains the title of the publishing.
-    """
-    REPORT_TYPE = BibliographyDataField.REPORT_TYPE
-    """
-    This field contains a description of the type of the report.
-    """
-    VOLUME = BibliographyDataField.VOLUME
-    """
-    This field contains the volume of the publishing.
-    """
-    YEAR = BibliographyDataField.YEAR
-    """
-    This field contains the year when the publishing was created.
-    """
-    URL = BibliographyDataField.URL
-    """
-    This field contains URL of the publishing.
-    """
-    CUSTOM1 = BibliographyDataField.CUSTOM1
-    """
-    This field contains user defined data.
-    """
-    CUSTOM2 = BibliographyDataField.CUSTOM2
-    """
-    This field contains user defined data.
-    """
-    CUSTOM3 = BibliographyDataField.CUSTOM3
-    """
-    This field contains user defined data.
-    """
-    CUSTOM4 = BibliographyDataField.CUSTOM4
-    """
-    This field contains user defined data.
-    """
-    CUSTOM5 = BibliographyDataField.CUSTOM5
-    """
-    This field contains user defined data.
-    """
-    ISBN = BibliographyDataField.ISBN
-    """
-    This field contains the ISBN data of the publishing.
-    """
+        These values define parts of bibliographic data.
+        
+        They are used to create a bibliography in a text document.
+        
+        Depending on the type of the data some of the fields will usually be left empty.
+        """
+        IDENTIFIER = BibliographyDataField.IDENTIFIER
+        """
+        This field contains a unique identifier for the bibliographic data.
+        """
+        BIBILIOGRAPHIC_TYPE = BibliographyDataField.BIBILIOGRAPHIC_TYPE
+        """
+        This field contains the type of the bibliographic reference.
+        
+        It is of the type BibliographyDataType.
+        """
+        ADDRESS = BibliographyDataField.ADDRESS
+        """
+        This field contains the address of the publisher.
+        """
+        ANNOTE = BibliographyDataField.ANNOTE
+        """
+        This field contains an annotation.
+        """
+        AUTHOR = BibliographyDataField.AUTHOR
+        """
+        This field contains the name(s) of the author(s)
+        """
+        BOOKTITLE = BibliographyDataField.BOOKTITLE
+        """
+        This field contains the title of the book.
+        """
+        CHAPTER = BibliographyDataField.CHAPTER
+        """
+        This field contains the name or number of the chapter.
+        """
+        EDITION = BibliographyDataField.EDITION
+        """
+        This field contains the number or name of the edition.
+        """
+        EDITOR = BibliographyDataField.EDITOR
+        """
+        This field contains the name(s) of the editor(s)
+        """
+        HOWPUBLISHED = BibliographyDataField.HOWPUBLISHED
+        """
+        This field contains a description of the type of the publishing.
+        """
+        INSTITUTION = BibliographyDataField.INSTITUTION
+        """
+        This field contains the name of the institution where the publishing was created.
+        """
+        JOURNAL = BibliographyDataField.JOURNAL
+        """
+        This field contains the name of the journal.
+        """
+        MONTH = BibliographyDataField.MONTH
+        """
+        This field contains number or name of the month of the publishing.
+        """
+        NOTE = BibliographyDataField.NOTE
+        """
+        This field contains a note.
+        """
+        NUMBER = BibliographyDataField.NUMBER
+        """
+        This field contains the number of the publishing.
+        """
+        ORGANIZATIONS = BibliographyDataField.ORGANIZATIONS
+        """
+        This field contains the name of the organizations where the publishing was created.
+        """
+        PAGES = BibliographyDataField.PAGES
+        """
+        This field contains the number(s) of the page(s) of the reference into a publishing.
+        """
+        PUBLISHER = BibliographyDataField.PUBLISHER
+        """
+        This field contains the name of the publisher.
+        """
+        SCHOOL = BibliographyDataField.SCHOOL
+        """
+        This field contains the name of the university or school where the publishing was created.
+        """
+        SERIES = BibliographyDataField.SERIES
+        """
+        This field contains the series of the publishing.
+        """
+        TITLE = BibliographyDataField.TITLE
+        """
+        This field contains the title of the publishing.
+        """
+        REPORT_TYPE = BibliographyDataField.REPORT_TYPE
+        """
+        This field contains a description of the type of the report.
+        """
+        VOLUME = BibliographyDataField.VOLUME
+        """
+        This field contains the volume of the publishing.
+        """
+        YEAR = BibliographyDataField.YEAR
+        """
+        This field contains the year when the publishing was created.
+        """
+        URL = BibliographyDataField.URL
+        """
+        This field contains URL of the publishing.
+        """
+        CUSTOM1 = BibliographyDataField.CUSTOM1
+        """
+        This field contains user defined data.
+        """
+        CUSTOM2 = BibliographyDataField.CUSTOM2
+        """
+        This field contains user defined data.
+        """
+        CUSTOM3 = BibliographyDataField.CUSTOM3
+        """
+        This field contains user defined data.
+        """
+        CUSTOM4 = BibliographyDataField.CUSTOM4
+        """
+        This field contains user defined data.
+        """
+        CUSTOM5 = BibliographyDataField.CUSTOM5
+        """
+        This field contains user defined data.
+        """
+        ISBN = BibliographyDataField.ISBN
+        """
+        This field contains the ISBN data of the publishing.
+        """
 
 __all__ = ['BibliographyDataField', 'BibliographyDataFieldEnum']

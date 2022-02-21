@@ -27,47 +27,58 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.beans import TolerantPropertySetResultType as TolerantPropertySetResultType
+    if hasattr(TolerantPropertySetResultType, '_constants') and isinstance(TolerantPropertySetResultType._constants, dict):
+        TolerantPropertySetResultType._constants['__ooo_ns__'] = 'com.sun.star.beans'
+        TolerantPropertySetResultType._constants['__ooo_full_ns__'] = 'com.sun.star.beans.TolerantPropertySetResultType'
+        TolerantPropertySetResultType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TolerantPropertySetResultTypeEnum
+        ls = [f for f in dir(TolerantPropertySetResultType) if not callable(getattr(TolerantPropertySetResultType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TolerantPropertySetResultType, name)
+        TolerantPropertySetResultTypeEnum = IntEnum('TolerantPropertySetResultTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.beans.tolerant_property_set_result_type import TolerantPropertySetResultType as TolerantPropertySetResultType
 
+    class TolerantPropertySetResultTypeEnum(IntEnum):
+        """
+        Enum of Const Class TolerantPropertySetResultType
 
-class TolerantPropertySetResultTypeEnum(IntEnum):
-    """
-    Enum of Const Class TolerantPropertySetResultType
-
-    specifies the possible failure types when using the com.sun.star.beans.XTolerantMultiPropertySet interface.
-    
-    It usually matches one of the exception types that may occur when using the com.sun.star.beans.XPropertySet or com.sun.star.beans.XMultiPropertySet interfaces.
-    """
-    SUCCESS = TolerantPropertySetResultType.SUCCESS
-    """
-    the property has been successfully set or retrieved.
-    """
-    UNKNOWN_PROPERTY = TolerantPropertySetResultType.UNKNOWN_PROPERTY
-    """
-    the property is not available.
-    
-    For example if a com.sun.star.beans.UnknownPropertyException was caught.
-    """
-    ILLEGAL_ARGUMENT = TolerantPropertySetResultType.ILLEGAL_ARGUMENT
-    """
-    the value used with the property is not valid.
-    
-    For example if a com.sun.star.lang.IllegalArgumentException was caught.
-    """
-    PROPERTY_VETO = TolerantPropertySetResultType.PROPERTY_VETO
-    """
-    the property could not be changed at that time.
-    
-    For example if a com.sun.star.beans.PropertyVetoException was caught.
-    """
-    WRAPPED_TARGET = TolerantPropertySetResultType.WRAPPED_TARGET
-    """
-    a com.sun.star.lang.WrappedTargetException did occur.
-    """
-    UNKNOWN_FAILURE = TolerantPropertySetResultType.UNKNOWN_FAILURE
-    """
-    the operation failed and the reason is not known.
-    """
+        specifies the possible failure types when using the com.sun.star.beans.XTolerantMultiPropertySet interface.
+        
+        It usually matches one of the exception types that may occur when using the com.sun.star.beans.XPropertySet or com.sun.star.beans.XMultiPropertySet interfaces.
+        """
+        SUCCESS = TolerantPropertySetResultType.SUCCESS
+        """
+        the property has been successfully set or retrieved.
+        """
+        UNKNOWN_PROPERTY = TolerantPropertySetResultType.UNKNOWN_PROPERTY
+        """
+        the property is not available.
+        
+        For example if a com.sun.star.beans.UnknownPropertyException was caught.
+        """
+        ILLEGAL_ARGUMENT = TolerantPropertySetResultType.ILLEGAL_ARGUMENT
+        """
+        the value used with the property is not valid.
+        
+        For example if a com.sun.star.lang.IllegalArgumentException was caught.
+        """
+        PROPERTY_VETO = TolerantPropertySetResultType.PROPERTY_VETO
+        """
+        the property could not be changed at that time.
+        
+        For example if a com.sun.star.beans.PropertyVetoException was caught.
+        """
+        WRAPPED_TARGET = TolerantPropertySetResultType.WRAPPED_TARGET
+        """
+        a com.sun.star.lang.WrappedTargetException did occur.
+        """
+        UNKNOWN_FAILURE = TolerantPropertySetResultType.UNKNOWN_FAILURE
+        """
+        the operation failed and the reason is not known.
+        """
 
 __all__ = ['TolerantPropertySetResultType', 'TolerantPropertySetResultTypeEnum']

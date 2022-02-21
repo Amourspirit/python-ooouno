@@ -27,21 +27,32 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.security import KeyUsage as KeyUsage
+    if hasattr(KeyUsage, '_constants') and isinstance(KeyUsage._constants, dict):
+        KeyUsage._constants['__ooo_ns__'] = 'com.sun.star.security'
+        KeyUsage._constants['__ooo_full_ns__'] = 'com.sun.star.security.KeyUsage'
+        KeyUsage._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KeyUsageEnum
+        ls = [f for f in dir(KeyUsage) if not callable(getattr(KeyUsage, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KeyUsage, name)
+        KeyUsageEnum = IntFlag('KeyUsageEnum', _dict)
+    build_enum()
 else:
     from ...lo.security.key_usage import KeyUsage as KeyUsage
 
+    class KeyUsageEnum(IntFlag):
+        """
+        Enum of Const Class KeyUsage
 
-class KeyUsageEnum(IntFlag):
-    """
-    Enum of Const Class KeyUsage
-
-    """
-    DIGITAL_SIGNATURE = KeyUsage.DIGITAL_SIGNATURE
-    NON_REPUDIATION = KeyUsage.NON_REPUDIATION
-    KEY_ENCIPHERMENT = KeyUsage.KEY_ENCIPHERMENT
-    DATA_ENCIPHERMENT = KeyUsage.DATA_ENCIPHERMENT
-    KEY_AGREEMENT = KeyUsage.KEY_AGREEMENT
-    KEY_CERT_SIGN = KeyUsage.KEY_CERT_SIGN
-    CRL_SIGN = KeyUsage.CRL_SIGN
+        """
+        DIGITAL_SIGNATURE = KeyUsage.DIGITAL_SIGNATURE
+        NON_REPUDIATION = KeyUsage.NON_REPUDIATION
+        KEY_ENCIPHERMENT = KeyUsage.KEY_ENCIPHERMENT
+        DATA_ENCIPHERMENT = KeyUsage.DATA_ENCIPHERMENT
+        KEY_AGREEMENT = KeyUsage.KEY_AGREEMENT
+        KEY_CERT_SIGN = KeyUsage.KEY_CERT_SIGN
+        CRL_SIGN = KeyUsage.CRL_SIGN
 
 __all__ = ['KeyUsage', 'KeyUsageEnum']

@@ -27,143 +27,154 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import ColorComponentTag as ColorComponentTag
+    if hasattr(ColorComponentTag, '_constants') and isinstance(ColorComponentTag._constants, dict):
+        ColorComponentTag._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        ColorComponentTag._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.ColorComponentTag'
+        ColorComponentTag._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ColorComponentTagEnum
+        ls = [f for f in dir(ColorComponentTag) if not callable(getattr(ColorComponentTag, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ColorComponentTag, name)
+        ColorComponentTagEnum = IntEnum('ColorComponentTagEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.color_component_tag import ColorComponentTag as ColorComponentTag
 
+    class ColorComponentTagEnum(IntEnum):
+        """
+        Enum of Const Class ColorComponentTag
 
-class ColorComponentTagEnum(IntEnum):
-    """
-    Enum of Const Class ColorComponentTag
-
-    A collection of tags for the individual components of a color.
-    
-    Color components usually correspond to physical attributes like the amount of red colorant contained in an output color. This constant field enumerates the most common ones.
-    
-    **since**
-    
-        OOo 2.3
-    """
-    DEVICE = ColorComponentTag.DEVICE
-    """
-    Unspecified device color value.
-    """
-    RGB_RED = ColorComponentTag.RGB_RED
-    """
-    Red colorant from RGB color space.
-    """
-    RGB_GREEN = ColorComponentTag.RGB_GREEN
-    """
-    Green colorant from RGB color space.
-    """
-    RGB_BLUE = ColorComponentTag.RGB_BLUE
-    """
-    Blue colorant from RGB color space.
-    """
-    CMYK_CYAN = ColorComponentTag.CMYK_CYAN
-    """
-    Cyan colorant from CMYK color space.
-    """
-    CMYK_MAGENTA = ColorComponentTag.CMYK_MAGENTA
-    """
-    Magenta colorant from CMYK color space.
-    """
-    CMYK_YELLOW = ColorComponentTag.CMYK_YELLOW
-    """
-    Yellow colorant from CMYK color space.
-    """
-    CMYK_BLACK = ColorComponentTag.CMYK_BLACK
-    """
-    Black colorant from CMYK color space.
-    """
-    CMYKOG_ORANGE = ColorComponentTag.CMYKOG_ORANGE
-    """
-    Orange colorant from hexachrome color space.
-    """
-    CMYKOG_GREEN = ColorComponentTag.CMYKOG_GREEN
-    """
-    Green colorant from hexachrome color space.
-    """
-    SPOT = ColorComponentTag.SPOT
-    """
-    Arbitrary extra spot color, e.g. Pantone.
-    """
-    INDEX = ColorComponentTag.INDEX
-    """
-    Index into palette.
-    """
-    ALPHA = ColorComponentTag.ALPHA
-    """
-    Alpha channel.
-    """
-    GREY = ColorComponentTag.GREY
-    """
-    Grey value. Used for monochrome color spaces.
-    """
-    PREMULTIPLIED_ALPHA = ColorComponentTag.PREMULTIPLIED_ALPHA
-    """
-    Premultiplied alpha channel.
-    
-    Note that this alpha format actually influences the other color components, in that their values are pre-multiplied with the alpha value.
-    """
-    CIEXYZ_X = ColorComponentTag.CIEXYZ_X
-    """
-    CieXYZ X value.
-    """
-    CIEXYZ_Y = ColorComponentTag.CIEXYZ_Y
-    """
-    CieXYZ Y value.
-    """
-    CIEXYZ_Z = ColorComponentTag.CIEXYZ_Z
-    """
-    CieXYZ Z value.
-    """
-    CIELAB_L = ColorComponentTag.CIELAB_L
-    """
-    CieLab L value.
-    """
-    CIELAB_A = ColorComponentTag.CIELAB_A
-    """
-    CieLab a value.
-    """
-    CIELAB_B = ColorComponentTag.CIELAB_B
-    """
-    CieLab b value.
-    """
-    HSV_H = ColorComponentTag.HSV_H
-    """
-    HSV H value.
-    """
-    HSV_S = ColorComponentTag.HSV_S
-    """
-    HSV S value.
-    """
-    HSV_V = ColorComponentTag.HSV_V
-    """
-    HSV V value.
-    """
-    HSL_H = ColorComponentTag.HSL_H
-    """
-    HSL H value.
-    """
-    HSL_S = ColorComponentTag.HSL_S
-    """
-    HSL S value.
-    """
-    HSL_L = ColorComponentTag.HSL_L
-    """
-    HSL L value.
-    """
-    YCBCR_Y = ColorComponentTag.YCBCR_Y
-    """
-    YCbCr Y value.
-    """
-    YCBCR_CB = ColorComponentTag.YCBCR_CB
-    """
-    YCbCr Cb value.
-    """
-    YCBCR_CR = ColorComponentTag.YCBCR_CR
-    """
-    YCbCr Cr value.
-    """
+        A collection of tags for the individual components of a color.
+        
+        Color components usually correspond to physical attributes like the amount of red colorant contained in an output color. This constant field enumerates the most common ones.
+        
+        **since**
+        
+            OOo 2.3
+        """
+        DEVICE = ColorComponentTag.DEVICE
+        """
+        Unspecified device color value.
+        """
+        RGB_RED = ColorComponentTag.RGB_RED
+        """
+        Red colorant from RGB color space.
+        """
+        RGB_GREEN = ColorComponentTag.RGB_GREEN
+        """
+        Green colorant from RGB color space.
+        """
+        RGB_BLUE = ColorComponentTag.RGB_BLUE
+        """
+        Blue colorant from RGB color space.
+        """
+        CMYK_CYAN = ColorComponentTag.CMYK_CYAN
+        """
+        Cyan colorant from CMYK color space.
+        """
+        CMYK_MAGENTA = ColorComponentTag.CMYK_MAGENTA
+        """
+        Magenta colorant from CMYK color space.
+        """
+        CMYK_YELLOW = ColorComponentTag.CMYK_YELLOW
+        """
+        Yellow colorant from CMYK color space.
+        """
+        CMYK_BLACK = ColorComponentTag.CMYK_BLACK
+        """
+        Black colorant from CMYK color space.
+        """
+        CMYKOG_ORANGE = ColorComponentTag.CMYKOG_ORANGE
+        """
+        Orange colorant from hexachrome color space.
+        """
+        CMYKOG_GREEN = ColorComponentTag.CMYKOG_GREEN
+        """
+        Green colorant from hexachrome color space.
+        """
+        SPOT = ColorComponentTag.SPOT
+        """
+        Arbitrary extra spot color, e.g. Pantone.
+        """
+        INDEX = ColorComponentTag.INDEX
+        """
+        Index into palette.
+        """
+        ALPHA = ColorComponentTag.ALPHA
+        """
+        Alpha channel.
+        """
+        GREY = ColorComponentTag.GREY
+        """
+        Grey value. Used for monochrome color spaces.
+        """
+        PREMULTIPLIED_ALPHA = ColorComponentTag.PREMULTIPLIED_ALPHA
+        """
+        Premultiplied alpha channel.
+        
+        Note that this alpha format actually influences the other color components, in that their values are pre-multiplied with the alpha value.
+        """
+        CIEXYZ_X = ColorComponentTag.CIEXYZ_X
+        """
+        CieXYZ X value.
+        """
+        CIEXYZ_Y = ColorComponentTag.CIEXYZ_Y
+        """
+        CieXYZ Y value.
+        """
+        CIEXYZ_Z = ColorComponentTag.CIEXYZ_Z
+        """
+        CieXYZ Z value.
+        """
+        CIELAB_L = ColorComponentTag.CIELAB_L
+        """
+        CieLab L value.
+        """
+        CIELAB_A = ColorComponentTag.CIELAB_A
+        """
+        CieLab a value.
+        """
+        CIELAB_B = ColorComponentTag.CIELAB_B
+        """
+        CieLab b value.
+        """
+        HSV_H = ColorComponentTag.HSV_H
+        """
+        HSV H value.
+        """
+        HSV_S = ColorComponentTag.HSV_S
+        """
+        HSV S value.
+        """
+        HSV_V = ColorComponentTag.HSV_V
+        """
+        HSV V value.
+        """
+        HSL_H = ColorComponentTag.HSL_H
+        """
+        HSL H value.
+        """
+        HSL_S = ColorComponentTag.HSL_S
+        """
+        HSL S value.
+        """
+        HSL_L = ColorComponentTag.HSL_L
+        """
+        HSL L value.
+        """
+        YCBCR_Y = ColorComponentTag.YCBCR_Y
+        """
+        YCbCr Y value.
+        """
+        YCBCR_CB = ColorComponentTag.YCBCR_CB
+        """
+        YCbCr Cb value.
+        """
+        YCBCR_CR = ColorComponentTag.YCBCR_CR
+        """
+        YCbCr Cr value.
+        """
 
 __all__ = ['ColorComponentTag', 'ColorComponentTagEnum']

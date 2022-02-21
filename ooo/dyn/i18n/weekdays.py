@@ -27,45 +27,56 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import Weekdays as Weekdays
+    if hasattr(Weekdays, '_constants') and isinstance(Weekdays._constants, dict):
+        Weekdays._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        Weekdays._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.Weekdays'
+        Weekdays._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WeekdaysEnum
+        ls = [f for f in dir(Weekdays) if not callable(getattr(Weekdays, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(Weekdays, name)
+        WeekdaysEnum = IntEnum('WeekdaysEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.weekdays import Weekdays as Weekdays
 
+    class WeekdaysEnum(IntEnum):
+        """
+        Enum of Const Class Weekdays
 
-class WeekdaysEnum(IntEnum):
-    """
-    Enum of Const Class Weekdays
-
-    Constants for days of a week.
-    
-    used with XCalendar.getFirstDayOfWeek(), XCalendar.setFirstDayOfWeek() and XCalendar.getDisplayName()
-    """
-    SUNDAY = Weekdays.SUNDAY
-    """
-    Sunday.
-    """
-    MONDAY = Weekdays.MONDAY
-    """
-    Monday.
-    """
-    TUESDAY = Weekdays.TUESDAY
-    """
-    Tuesday.
-    """
-    WEDNESDAY = Weekdays.WEDNESDAY
-    """
-    Wednesday.
-    """
-    THURSDAY = Weekdays.THURSDAY
-    """
-    Thursday.
-    """
-    FRIDAY = Weekdays.FRIDAY
-    """
-    Friday.
-    """
-    SATURDAY = Weekdays.SATURDAY
-    """
-    Saturday.
-    """
+        Constants for days of a week.
+        
+        used with XCalendar.getFirstDayOfWeek(), XCalendar.setFirstDayOfWeek() and XCalendar.getDisplayName()
+        """
+        SUNDAY = Weekdays.SUNDAY
+        """
+        Sunday.
+        """
+        MONDAY = Weekdays.MONDAY
+        """
+        Monday.
+        """
+        TUESDAY = Weekdays.TUESDAY
+        """
+        Tuesday.
+        """
+        WEDNESDAY = Weekdays.WEDNESDAY
+        """
+        Wednesday.
+        """
+        THURSDAY = Weekdays.THURSDAY
+        """
+        Thursday.
+        """
+        FRIDAY = Weekdays.FRIDAY
+        """
+        Friday.
+        """
+        SATURDAY = Weekdays.SATURDAY
+        """
+        Saturday.
+        """
 
 __all__ = ['Weekdays', 'WeekdaysEnum']

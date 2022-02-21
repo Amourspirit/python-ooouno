@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.i18n import TransliterationType as TransliterationType
+    if hasattr(TransliterationType, '_constants') and isinstance(TransliterationType._constants, dict):
+        TransliterationType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
+        TransliterationType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.TransliterationType'
+        TransliterationType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TransliterationTypeEnum
+        ls = [f for f in dir(TransliterationType) if not callable(getattr(TransliterationType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TransliterationType, name)
+        TransliterationTypeEnum = IntEnum('TransliterationTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.i18n.transliteration_type import TransliterationType as TransliterationType
 
+    class TransliterationTypeEnum(IntEnum):
+        """
+        Enum of Const Class TransliterationType
 
-class TransliterationTypeEnum(IntEnum):
-    """
-    Enum of Const Class TransliterationType
-
-    Bitmask transliteration types used with XTransliteration.getType() and XTransliteration.getAvailableModules() methods.
-    
-    Non-IGNORE type modules provide XTransliteration.transliterate().
-    IGNORE type modules provide XTransliteration.equals() and XTransliteration.transliterateRange().
-    """
-    NONE = TransliterationType.NONE
-    ONE_TO_ONE = TransliterationType.ONE_TO_ONE
-    """
-    A transliteration module is ONE_TO_ONE if and only if it's mapping between characters is one to one like a-z to A-Z.
-    
-    Transliteration modules of this type can be used as choice in regular expressions based search/replace.
-    """
-    NUMERIC = TransliterationType.NUMERIC
-    """
-    A transliteration module can have attribute NUMERIC if it transliterates numbers in different languages like Chinese numbers to Arabic numbers and vice versa.
-    
-    This mapping need not be one to one, it should be primarily used by number formatting and parsing methods.
-    """
-    ONE_TO_ONE_NUMERIC = TransliterationType.ONE_TO_ONE_NUMERIC
-    """
-    A transliteration module is ONE_TO_ONE_NUMERIC if it offers both one to one mapping and handles number also.
-    """
-    IGNORE = TransliterationType.IGNORE
-    """
-    With a transliteration IGNORE case, the regular expression A-Z can be transformed to a-z, for example.
-    """
-    CASCADE = TransliterationType.CASCADE
-    """
-    If the transliteration is cascaded (uses more than one algorithm).
-    """
+        Bitmask transliteration types used with XTransliteration.getType() and XTransliteration.getAvailableModules() methods.
+        
+        Non-IGNORE type modules provide XTransliteration.transliterate().
+        IGNORE type modules provide XTransliteration.equals() and XTransliteration.transliterateRange().
+        """
+        NONE = TransliterationType.NONE
+        ONE_TO_ONE = TransliterationType.ONE_TO_ONE
+        """
+        A transliteration module is ONE_TO_ONE if and only if it's mapping between characters is one to one like a-z to A-Z.
+        
+        Transliteration modules of this type can be used as choice in regular expressions based search/replace.
+        """
+        NUMERIC = TransliterationType.NUMERIC
+        """
+        A transliteration module can have attribute NUMERIC if it transliterates numbers in different languages like Chinese numbers to Arabic numbers and vice versa.
+        
+        This mapping need not be one to one, it should be primarily used by number formatting and parsing methods.
+        """
+        ONE_TO_ONE_NUMERIC = TransliterationType.ONE_TO_ONE_NUMERIC
+        """
+        A transliteration module is ONE_TO_ONE_NUMERIC if it offers both one to one mapping and handles number also.
+        """
+        IGNORE = TransliterationType.IGNORE
+        """
+        With a transliteration IGNORE case, the regular expression A-Z can be transformed to a-z, for example.
+        """
+        CASCADE = TransliterationType.CASCADE
+        """
+        If the transliteration is cascaded (uses more than one algorithm).
+        """
 
 __all__ = ['TransliterationType', 'TransliterationTypeEnum']

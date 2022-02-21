@@ -27,34 +27,45 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart2 import AxisType as AxisType
+    if hasattr(AxisType, '_constants') and isinstance(AxisType._constants, dict):
+        AxisType._constants['__ooo_ns__'] = 'com.sun.star.chart2'
+        AxisType._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.AxisType'
+        AxisType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AxisTypeEnum
+        ls = [f for f in dir(AxisType) if not callable(getattr(AxisType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AxisType, name)
+        AxisTypeEnum = IntEnum('AxisTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart2.axis_type import AxisType as AxisType
 
+    class AxisTypeEnum(IntEnum):
+        """
+        Enum of Const Class AxisType
 
-class AxisTypeEnum(IntEnum):
-    """
-    Enum of Const Class AxisType
-
-    """
-    REALNUMBER = AxisType.REALNUMBER
-    """
-    the axis represent real numbers
-    """
-    PERCENT = AxisType.PERCENT
-    """
-    the axis represent real numbers in percent
-    """
-    CATEGORY = AxisType.CATEGORY
-    """
-    the axis represent discrete categories
-    """
-    SERIES = AxisType.SERIES
-    """
-    the axis shows the series names (z axis)
-    """
-    DATE = AxisType.DATE
-    """
-    the axis shows dates
-    """
+        """
+        REALNUMBER = AxisType.REALNUMBER
+        """
+        the axis represent real numbers
+        """
+        PERCENT = AxisType.PERCENT
+        """
+        the axis represent real numbers in percent
+        """
+        CATEGORY = AxisType.CATEGORY
+        """
+        the axis represent discrete categories
+        """
+        SERIES = AxisType.SERIES
+        """
+        the axis shows the series names (z axis)
+        """
+        DATE = AxisType.DATE
+        """
+        the axis shows dates
+        """
 
 __all__ = ['AxisType', 'AxisTypeEnum']

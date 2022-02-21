@@ -27,49 +27,60 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import TimeDisplayFormat as TimeDisplayFormat
+    if hasattr(TimeDisplayFormat, '_constants') and isinstance(TimeDisplayFormat._constants, dict):
+        TimeDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        TimeDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.TimeDisplayFormat'
+        TimeDisplayFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TimeDisplayFormatEnum
+        ls = [f for f in dir(TimeDisplayFormat) if not callable(getattr(TimeDisplayFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TimeDisplayFormat, name)
+        TimeDisplayFormatEnum = IntEnum('TimeDisplayFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.time_display_format import TimeDisplayFormat as TimeDisplayFormat
 
+    class TimeDisplayFormatEnum(IntEnum):
+        """
+        Enum of Const Class TimeDisplayFormat
 
-class TimeDisplayFormatEnum(IntEnum):
-    """
-    Enum of Const Class TimeDisplayFormat
-
-    These constants define how a time field is formatted before it is displayed.
-    
-    The format may also depend on the system or document locale.
-    
-    .. deprecated::
-    
-        Class is deprecated.
-    """
-    STANDARD = TimeDisplayFormat.STANDARD
-    """
-    the system standard
-    """
-    HHMM = TimeDisplayFormat.HHMM
-    """
-    13:49
-    """
-    HHMMSS = TimeDisplayFormat.HHMMSS
-    """
-    13:49:20
-    """
-    HHMMSS00 = TimeDisplayFormat.HHMMSS00
-    """
-    13:49:20.30
-    """
-    HHMMAMPM = TimeDisplayFormat.HHMMAMPM
-    """
-    01:49
-    """
-    HHMMSSAMPM = TimeDisplayFormat.HHMMSSAMPM
-    """
-    01:49:20
-    """
-    HHMMSS00AMPM = TimeDisplayFormat.HHMMSS00AMPM
-    """
-    01:49:20.30
-    """
+        These constants define how a time field is formatted before it is displayed.
+        
+        The format may also depend on the system or document locale.
+        
+        .. deprecated::
+        
+            Class is deprecated.
+        """
+        STANDARD = TimeDisplayFormat.STANDARD
+        """
+        the system standard
+        """
+        HHMM = TimeDisplayFormat.HHMM
+        """
+        13:49
+        """
+        HHMMSS = TimeDisplayFormat.HHMMSS
+        """
+        13:49:20
+        """
+        HHMMSS00 = TimeDisplayFormat.HHMMSS00
+        """
+        13:49:20.30
+        """
+        HHMMAMPM = TimeDisplayFormat.HHMMAMPM
+        """
+        01:49
+        """
+        HHMMSSAMPM = TimeDisplayFormat.HHMMSSAMPM
+        """
+        01:49:20
+        """
+        HHMMSS00AMPM = TimeDisplayFormat.HHMMSS00AMPM
+        """
+        01:49:20.30
+        """
 
 __all__ = ['TimeDisplayFormat', 'TimeDisplayFormatEnum']

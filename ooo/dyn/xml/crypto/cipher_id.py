@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.xml.crypto import CipherID as CipherID
+    if hasattr(CipherID, '_constants') and isinstance(CipherID._constants, dict):
+        CipherID._constants['__ooo_ns__'] = 'com.sun.star.xml.crypto'
+        CipherID._constants['__ooo_full_ns__'] = 'com.sun.star.xml.crypto.CipherID'
+        CipherID._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CipherIDEnum
+        ls = [f for f in dir(CipherID) if not callable(getattr(CipherID, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CipherID, name)
+        CipherIDEnum = IntFlag('CipherIDEnum', _dict)
+    build_enum()
 else:
     from ....lo.xml.crypto.cipher_id import CipherID as CipherID
 
+    class CipherIDEnum(IntFlag):
+        """
+        Enum of Const Class CipherID
 
-class CipherIDEnum(IntFlag):
-    """
-    Enum of Const Class CipherID
-
-    The constant set contains identifiers of supported cipher-creation algorithms.
-    
-    **since**
-    
-        OOo 3.4
-    """
-    AES_CBC_W3C_PADDING = CipherID.AES_CBC_W3C_PADDING
-    """
-    identifier of AES algorithm in CBC mode with W3C padding
-    """
-    BLOWFISH_CFB_8 = CipherID.BLOWFISH_CFB_8
-    """
-    identifier of the Blowfish algorithm in 8-bit CFB mode
-    """
+        The constant set contains identifiers of supported cipher-creation algorithms.
+        
+        **since**
+        
+            OOo 3.4
+        """
+        AES_CBC_W3C_PADDING = CipherID.AES_CBC_W3C_PADDING
+        """
+        identifier of AES algorithm in CBC mode with W3C padding
+        """
+        BLOWFISH_CFB_8 = CipherID.BLOWFISH_CFB_8
+        """
+        identifier of the Blowfish algorithm in 8-bit CFB mode
+        """
 
 __all__ = ['CipherID', 'CipherIDEnum']

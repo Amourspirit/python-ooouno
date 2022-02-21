@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import MemberResultFlags as MemberResultFlags
+    if hasattr(MemberResultFlags, '_constants') and isinstance(MemberResultFlags._constants, dict):
+        MemberResultFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        MemberResultFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.MemberResultFlags'
+        MemberResultFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MemberResultFlagsEnum
+        ls = [f for f in dir(MemberResultFlags) if not callable(getattr(MemberResultFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MemberResultFlags, name)
+        MemberResultFlagsEnum = IntFlag('MemberResultFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.member_result_flags import MemberResultFlags as MemberResultFlags
 
+    class MemberResultFlagsEnum(IntFlag):
+        """
+        Enum of Const Class MemberResultFlags
 
-class MemberResultFlagsEnum(IntFlag):
-    """
-    Enum of Const Class MemberResultFlags
-
-    used to give information about elements in data pilot member results.
-    """
-    HASMEMBER = MemberResultFlags.HASMEMBER
-    """
-    The element contains a member.
-    """
-    SUBTOTAL = MemberResultFlags.SUBTOTAL
-    """
-    The element contains a subtotal.
-    """
-    CONTINUE = MemberResultFlags.CONTINUE
-    """
-    The element is a continuation of the previous one.
-    """
-    GRANDTOTAL = MemberResultFlags.GRANDTOTAL
-    """
-    The element contains a grand total.
-    """
-    NUMERIC = MemberResultFlags.NUMERIC
-    """
-    The element is a numeric value.
-    """
+        used to give information about elements in data pilot member results.
+        """
+        HASMEMBER = MemberResultFlags.HASMEMBER
+        """
+        The element contains a member.
+        """
+        SUBTOTAL = MemberResultFlags.SUBTOTAL
+        """
+        The element contains a subtotal.
+        """
+        CONTINUE = MemberResultFlags.CONTINUE
+        """
+        The element is a continuation of the previous one.
+        """
+        GRANDTOTAL = MemberResultFlags.GRANDTOTAL
+        """
+        The element contains a grand total.
+        """
+        NUMERIC = MemberResultFlags.NUMERIC
+        """
+        The element is a numeric value.
+        """
 
 __all__ = ['MemberResultFlags', 'MemberResultFlagsEnum']

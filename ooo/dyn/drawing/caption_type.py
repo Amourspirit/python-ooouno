@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import CaptionType as CaptionType
+    if hasattr(CaptionType, '_constants') and isinstance(CaptionType._constants, dict):
+        CaptionType._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        CaptionType._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.CaptionType'
+        CaptionType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CaptionTypeEnum
+        ls = [f for f in dir(CaptionType) if not callable(getattr(CaptionType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CaptionType, name)
+        CaptionTypeEnum = IntEnum('CaptionTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.caption_type import CaptionType as CaptionType
 
+    class CaptionTypeEnum(IntEnum):
+        """
+        Enum of Const Class CaptionType
 
-class CaptionTypeEnum(IntEnum):
-    """
-    Enum of Const Class CaptionType
-
-    This constants specifies the geometry of the line of a CaptionShape.
-    """
-    straight = CaptionType.straight
-    """
-    the caption line is a straight line from a caption area edge to the caption point.
-    """
-    angled = CaptionType.angled
-    """
-    the caption line is the shortest line from the caption area edge to the caption point.
-    """
-    connector = CaptionType.connector
-    """
-    the caption line is build up with a straight line from the caption area edge, followed by the shortest line to the caption area point.
-    """
+        This constants specifies the geometry of the line of a CaptionShape.
+        """
+        straight = CaptionType.straight
+        """
+        the caption line is a straight line from a caption area edge to the caption point.
+        """
+        angled = CaptionType.angled
+        """
+        the caption line is the shortest line from the caption area edge to the caption point.
+        """
+        connector = CaptionType.connector
+        """
+        the caption line is build up with a straight line from the caption area edge, followed by the shortest line to the caption area point.
+        """
 
 __all__ = ['CaptionType', 'CaptionTypeEnum']

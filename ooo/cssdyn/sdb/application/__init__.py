@@ -14,19 +14,69 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.sdb.application.copy_table_continuation import CopyTableContinuation as CopyTableContinuation
-from ....dyn.sdb.application.copy_table_continuation import CopyTableContinuationEnum as CopyTableContinuationEnum
-from ....dyn.sdb.application.copy_table_operation import CopyTableOperation as CopyTableOperation
-from ....dyn.sdb.application.copy_table_operation import CopyTableOperationEnum as CopyTableOperationEnum
-from ....dyn.sdb.application.copy_table_row_event import CopyTableRowEvent as CopyTableRowEvent
-from ....dyn.sdb.application.copy_table_wizard import CopyTableWizard as CopyTableWizard
-from ....dyn.sdb.application.database_object import DatabaseObject as DatabaseObject
-from ....dyn.sdb.application.database_object import DatabaseObjectEnum as DatabaseObjectEnum
-from ....dyn.sdb.application.database_object_container import DatabaseObjectContainer as DatabaseObjectContainer
-from ....dyn.sdb.application.database_object_container import DatabaseObjectContainerEnum as DatabaseObjectContainerEnum
-from ....dyn.sdb.application.default_view_controller import DefaultViewController as DefaultViewController
-from ....dyn.sdb.application.named_database_object import NamedDatabaseObject as NamedDatabaseObject
-from ....dyn.sdb.application.x_copy_table_listener import XCopyTableListener as XCopyTableListener
-from ....dyn.sdb.application.x_copy_table_wizard import XCopyTableWizard as XCopyTableWizard
-from ....dyn.sdb.application.x_database_document_ui import XDatabaseDocumentUI as XDatabaseDocumentUI
-from ....dyn.sdb.application.x_table_ui_provider import XTableUIProvider as XTableUIProvider
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.sdb.application.copy_table_continuation import CopyTableContinuation as CopyTableContinuation
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.copy_table_continuation import CopyTableContinuationEnum as CopyTableContinuationEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.copy_table_operation import CopyTableOperation as CopyTableOperation
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.copy_table_operation import CopyTableOperationEnum as CopyTableOperationEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.copy_table_row_event import CopyTableRowEvent as CopyTableRowEvent
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.copy_table_wizard import CopyTableWizard as CopyTableWizard
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.database_object import DatabaseObject as DatabaseObject
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.database_object import DatabaseObjectEnum as DatabaseObjectEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.database_object_container import DatabaseObjectContainer as DatabaseObjectContainer
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.database_object_container import DatabaseObjectContainerEnum as DatabaseObjectContainerEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.default_view_controller import DefaultViewController as DefaultViewController
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.named_database_object import NamedDatabaseObject as NamedDatabaseObject
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.x_copy_table_listener import XCopyTableListener as XCopyTableListener
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.x_copy_table_wizard import XCopyTableWizard as XCopyTableWizard
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.x_database_document_ui import XDatabaseDocumentUI as XDatabaseDocumentUI
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.application.x_table_ui_provider import XTableUIProvider as XTableUIProvider
+except ImportError:
+    pass

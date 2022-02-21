@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.inspection import PropertyLineElement as PropertyLineElement
+    if hasattr(PropertyLineElement, '_constants') and isinstance(PropertyLineElement._constants, dict):
+        PropertyLineElement._constants['__ooo_ns__'] = 'com.sun.star.inspection'
+        PropertyLineElement._constants['__ooo_full_ns__'] = 'com.sun.star.inspection.PropertyLineElement'
+        PropertyLineElement._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global PropertyLineElementEnum
+        ls = [f for f in dir(PropertyLineElement) if not callable(getattr(PropertyLineElement, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(PropertyLineElement, name)
+        PropertyLineElementEnum = IntEnum('PropertyLineElementEnum', _dict)
+    build_enum()
 else:
     from ...lo.inspection.property_line_element import PropertyLineElement as PropertyLineElement
 
+    class PropertyLineElementEnum(IntEnum):
+        """
+        Enum of Const Class PropertyLineElement
 
-class PropertyLineElementEnum(IntEnum):
-    """
-    Enum of Const Class PropertyLineElement
-
-    describes elements of a single line in an object inspector, used to represent a single property
-    
-    **since**
-    
-        OOo 2.0.3
-    """
-    InputControl = PropertyLineElement.InputControl
-    """
-    specifies the input control in a group of controls related to a single property
-    """
-    PrimaryButton = PropertyLineElement.PrimaryButton
-    """
-    specifies the primary button (if present) in a group of controls related to a single property
-    """
-    SecondaryButton = PropertyLineElement.SecondaryButton
-    """
-    specifies the secondary button (if present) in a group of controls related to a single property
-    """
-    All = PropertyLineElement.All
-    """
-    specifies all elements
-    """
+        describes elements of a single line in an object inspector, used to represent a single property
+        
+        **since**
+        
+            OOo 2.0.3
+        """
+        InputControl = PropertyLineElement.InputControl
+        """
+        specifies the input control in a group of controls related to a single property
+        """
+        PrimaryButton = PropertyLineElement.PrimaryButton
+        """
+        specifies the primary button (if present) in a group of controls related to a single property
+        """
+        SecondaryButton = PropertyLineElement.SecondaryButton
+        """
+        specifies the secondary button (if present) in a group of controls related to a single property
+        """
+        All = PropertyLineElement.All
+        """
+        specifies all elements
+        """
 
 __all__ = ['PropertyLineElement', 'PropertyLineElementEnum']

@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import RenderingIntent as RenderingIntent
+    if hasattr(RenderingIntent, '_constants') and isinstance(RenderingIntent._constants, dict):
+        RenderingIntent._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        RenderingIntent._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.RenderingIntent'
+        RenderingIntent._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global RenderingIntentEnum
+        ls = [f for f in dir(RenderingIntent) if not callable(getattr(RenderingIntent, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(RenderingIntent, name)
+        RenderingIntentEnum = IntEnum('RenderingIntentEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.rendering_intent import RenderingIntent as RenderingIntent
 
+    class RenderingIntentEnum(IntEnum):
+        """
+        Enum of Const Class RenderingIntent
 
-class RenderingIntentEnum(IntEnum):
-    """
-    Enum of Const Class RenderingIntent
-
-    The rendering intent for a color space.
-    
-    The rendering intent for a color space mostly determines how out-of-gamut color is treated. See Wikipedia for a thorough explanation.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    PERCEPTUAL = RenderingIntent.PERCEPTUAL
-    """
-    Also known as the image intent, this rendering intent aims to preserve the visual relationship between colors in a way that is perceived as natural to the human eye, although the color values themselves may change.
-    
-    This intent is most suitable for photographic images.
-    """
-    SATURATION = RenderingIntent.SATURATION
-    """
-    The rendering intent for business graphics that maintains vivid color at the expense of accurate color.
-    
-    It scales the source gamut to the destination gamut but preserves relative saturation instead of hue, so when scaling to a smaller gamut, hues may shift. This rendering intent is primarily designed for business graphics, where bright saturated colors are more important than the exact relationship between colors (such as in a photographic image).
-    """
-    RELATIVE_COLORIMETRIC = RenderingIntent.RELATIVE_COLORIMETRIC
-    """
-    The rendering intent almost identical to Absolute Colorimetric except for the following difference: Relative Colorimetric compares the white point (extreme highlight) of the source color space to that of the destination color space and shifts all colors accordingly.
-    """
-    ABSOLUTE_COLORIMETRIC = RenderingIntent.ABSOLUTE_COLORIMETRIC
-    """
-    The rendering intent that leaves colors that fall inside the destination gamut unchanged.
-    
-    Out of gamut colors are clipped. No scaling of colors to destination white point is performed. This intent aims to maintain color accuracy at the expense of preserving relationships between colors, and is useful for seeing how output will look on a non-neutral substrate.
-    """
+        The rendering intent for a color space.
+        
+        The rendering intent for a color space mostly determines how out-of-gamut color is treated. See Wikipedia for a thorough explanation.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        PERCEPTUAL = RenderingIntent.PERCEPTUAL
+        """
+        Also known as the image intent, this rendering intent aims to preserve the visual relationship between colors in a way that is perceived as natural to the human eye, although the color values themselves may change.
+        
+        This intent is most suitable for photographic images.
+        """
+        SATURATION = RenderingIntent.SATURATION
+        """
+        The rendering intent for business graphics that maintains vivid color at the expense of accurate color.
+        
+        It scales the source gamut to the destination gamut but preserves relative saturation instead of hue, so when scaling to a smaller gamut, hues may shift. This rendering intent is primarily designed for business graphics, where bright saturated colors are more important than the exact relationship between colors (such as in a photographic image).
+        """
+        RELATIVE_COLORIMETRIC = RenderingIntent.RELATIVE_COLORIMETRIC
+        """
+        The rendering intent almost identical to Absolute Colorimetric except for the following difference: Relative Colorimetric compares the white point (extreme highlight) of the source color space to that of the destination color space and shifts all colors accordingly.
+        """
+        ABSOLUTE_COLORIMETRIC = RenderingIntent.ABSOLUTE_COLORIMETRIC
+        """
+        The rendering intent that leaves colors that fall inside the destination gamut unchanged.
+        
+        Out of gamut colors are clipped. No scaling of colors to destination white point is performed. This intent aims to maintain color accuracy at the expense of preserving relationships between colors, and is useful for seeing how output will look on a non-neutral substrate.
+        """
 
 __all__ = ['RenderingIntent', 'RenderingIntentEnum']

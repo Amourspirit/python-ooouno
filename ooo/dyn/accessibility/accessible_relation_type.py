@@ -27,97 +27,108 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.accessibility import AccessibleRelationType as AccessibleRelationType
+    if hasattr(AccessibleRelationType, '_constants') and isinstance(AccessibleRelationType._constants, dict):
+        AccessibleRelationType._constants['__ooo_ns__'] = 'com.sun.star.accessibility'
+        AccessibleRelationType._constants['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleRelationType'
+        AccessibleRelationType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AccessibleRelationTypeEnum
+        ls = [f for f in dir(AccessibleRelationType) if not callable(getattr(AccessibleRelationType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AccessibleRelationType, name)
+        AccessibleRelationTypeEnum = IntEnum('AccessibleRelationTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.accessibility.accessible_relation_type import AccessibleRelationType as AccessibleRelationType
 
+    class AccessibleRelationTypeEnum(IntEnum):
+        """
+        Enum of Const Class AccessibleRelationType
 
-class AccessibleRelationTypeEnum(IntEnum):
-    """
-    Enum of Const Class AccessibleRelationType
-
-    Collection of relation types.
-    
-    This list of constants defines the available types of relations that are usable by AccessibleRelation.
-    
-    We are using constants instead of a more typesafe enum. The reason for this is that IDL enums may not be extended. Therefore, in order to include future extensions to the set of roles we have to use constants here.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    INVALID = AccessibleRelationType.INVALID
-    """
-    Invalid relation type.
-    
-    Indicates an invalid relation type. This is used to indicate that a retrieval method could not find a requested relation.
-    """
-    CONTENT_FLOWS_FROM = AccessibleRelationType.CONTENT_FLOWS_FROM
-    """
-    Content-flows-from relation.
-    
-    Indicates a content flow between the related objects.
-    """
-    CONTENT_FLOWS_TO = AccessibleRelationType.CONTENT_FLOWS_TO
-    """
-    Content-flows-to relation.
-    
-    Indicates a content flow between the related objects.
-    """
-    CONTROLLED_BY = AccessibleRelationType.CONTROLLED_BY
-    """
-    Controlled-by relation type.
-    
-    Indicates an object is controlled by one or more target objects.
-    """
-    CONTROLLER_FOR = AccessibleRelationType.CONTROLLER_FOR
-    """
-    Controller-for relation type.
-    
-    Indicates an object is a controller for one or more target objects.
-    """
-    LABEL_FOR = AccessibleRelationType.LABEL_FOR
-    """
-    Label-for relation type.
-    
-    Indicates an object is a label for one or more target objects.
-    """
-    LABELED_BY = AccessibleRelationType.LABELED_BY
-    """
-    Labeled-by relation type.
-    
-    Indicates an object is labeled by one or more target objects.
-    """
-    MEMBER_OF = AccessibleRelationType.MEMBER_OF
-    """
-    Member-of relation type.
-    
-    Indicates an object is a member of a group of one or more target objects.
-    """
-    SUB_WINDOW_OF = AccessibleRelationType.SUB_WINDOW_OF
-    """
-    Sub-Window-of relation type.
-    
-    With this relation you can realize an alternative parent-child relationship. The target of the relation contains the parent window. Note that there is no relation that points the other way, from the parent window to the child window.
-    """
-    NODE_CHILD_OF = AccessibleRelationType.NODE_CHILD_OF
-    """
-    Node-Child-of relation type.
-    
-    Indicates an object is a cell in a tree or tree table which is displayed because a cell in the same column is expanded and identifies that cell.
-    
-    **since**
-    
-        OOo 3.0
-    """
-    DESCRIBED_BY = AccessibleRelationType.DESCRIBED_BY
-    """
-    Described-by relation type.
-    
-    Indicates an object is described by the target object.
-    
-    **since**
-    
-        OOo 3.5
-    """
+        Collection of relation types.
+        
+        This list of constants defines the available types of relations that are usable by AccessibleRelation.
+        
+        We are using constants instead of a more typesafe enum. The reason for this is that IDL enums may not be extended. Therefore, in order to include future extensions to the set of roles we have to use constants here.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        INVALID = AccessibleRelationType.INVALID
+        """
+        Invalid relation type.
+        
+        Indicates an invalid relation type. This is used to indicate that a retrieval method could not find a requested relation.
+        """
+        CONTENT_FLOWS_FROM = AccessibleRelationType.CONTENT_FLOWS_FROM
+        """
+        Content-flows-from relation.
+        
+        Indicates a content flow between the related objects.
+        """
+        CONTENT_FLOWS_TO = AccessibleRelationType.CONTENT_FLOWS_TO
+        """
+        Content-flows-to relation.
+        
+        Indicates a content flow between the related objects.
+        """
+        CONTROLLED_BY = AccessibleRelationType.CONTROLLED_BY
+        """
+        Controlled-by relation type.
+        
+        Indicates an object is controlled by one or more target objects.
+        """
+        CONTROLLER_FOR = AccessibleRelationType.CONTROLLER_FOR
+        """
+        Controller-for relation type.
+        
+        Indicates an object is a controller for one or more target objects.
+        """
+        LABEL_FOR = AccessibleRelationType.LABEL_FOR
+        """
+        Label-for relation type.
+        
+        Indicates an object is a label for one or more target objects.
+        """
+        LABELED_BY = AccessibleRelationType.LABELED_BY
+        """
+        Labeled-by relation type.
+        
+        Indicates an object is labeled by one or more target objects.
+        """
+        MEMBER_OF = AccessibleRelationType.MEMBER_OF
+        """
+        Member-of relation type.
+        
+        Indicates an object is a member of a group of one or more target objects.
+        """
+        SUB_WINDOW_OF = AccessibleRelationType.SUB_WINDOW_OF
+        """
+        Sub-Window-of relation type.
+        
+        With this relation you can realize an alternative parent-child relationship. The target of the relation contains the parent window. Note that there is no relation that points the other way, from the parent window to the child window.
+        """
+        NODE_CHILD_OF = AccessibleRelationType.NODE_CHILD_OF
+        """
+        Node-Child-of relation type.
+        
+        Indicates an object is a cell in a tree or tree table which is displayed because a cell in the same column is expanded and identifies that cell.
+        
+        **since**
+        
+            OOo 3.0
+        """
+        DESCRIBED_BY = AccessibleRelationType.DESCRIBED_BY
+        """
+        Described-by relation type.
+        
+        Indicates an object is described by the target object.
+        
+        **since**
+        
+            OOo 3.5
+        """
 
 __all__ = ['AccessibleRelationType', 'AccessibleRelationTypeEnum']

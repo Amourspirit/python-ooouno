@@ -27,38 +27,49 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import FilterFieldType as FilterFieldType
+    if hasattr(FilterFieldType, '_constants') and isinstance(FilterFieldType._constants, dict):
+        FilterFieldType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        FilterFieldType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FilterFieldType'
+        FilterFieldType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FilterFieldTypeEnum
+        ls = [f for f in dir(FilterFieldType) if not callable(getattr(FilterFieldType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FilterFieldType, name)
+        FilterFieldTypeEnum = IntEnum('FilterFieldTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.filter_field_type import FilterFieldType as FilterFieldType
 
+    class FilterFieldTypeEnum(IntEnum):
+        """
+        Enum of Const Class FilterFieldType
 
-class FilterFieldTypeEnum(IntEnum):
-    """
-    Enum of Const Class FilterFieldType
-
-    
-    **since**
-    
-        LibreOffice 7.2
-    """
-    NUMERIC = FilterFieldType.NUMERIC
-    """
-    Filter by numeric value.
-    """
-    STRING = FilterFieldType.STRING
-    """
-    Filter by string value.
-    """
-    DATE = FilterFieldType.DATE
-    """
-    Filter by date.
-    """
-    TEXT_COLOR = FilterFieldType.TEXT_COLOR
-    """
-    Filter by text color.
-    """
-    BACKGROUND_COLOR = FilterFieldType.BACKGROUND_COLOR
-    """
-    Filter by background color.
-    """
+        
+        **since**
+        
+            LibreOffice 7.2
+        """
+        NUMERIC = FilterFieldType.NUMERIC
+        """
+        Filter by numeric value.
+        """
+        STRING = FilterFieldType.STRING
+        """
+        Filter by string value.
+        """
+        DATE = FilterFieldType.DATE
+        """
+        Filter by date.
+        """
+        TEXT_COLOR = FilterFieldType.TEXT_COLOR
+        """
+        Filter by text color.
+        """
+        BACKGROUND_COLOR = FilterFieldType.BACKGROUND_COLOR
+        """
+        Filter by background color.
+        """
 
 __all__ = ['FilterFieldType', 'FilterFieldTypeEnum']

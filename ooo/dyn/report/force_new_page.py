@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.report import ForceNewPage as ForceNewPage
+    if hasattr(ForceNewPage, '_constants') and isinstance(ForceNewPage._constants, dict):
+        ForceNewPage._constants['__ooo_ns__'] = 'com.sun.star.report'
+        ForceNewPage._constants['__ooo_full_ns__'] = 'com.sun.star.report.ForceNewPage'
+        ForceNewPage._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ForceNewPageEnum
+        ls = [f for f in dir(ForceNewPage) if not callable(getattr(ForceNewPage, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ForceNewPage, name)
+        ForceNewPageEnum = IntEnum('ForceNewPageEnum', _dict)
+    build_enum()
 else:
     from ...lo.report.force_new_page import ForceNewPage as ForceNewPage
 
+    class ForceNewPageEnum(IntEnum):
+        """
+        Enum of Const Class ForceNewPage
 
-class ForceNewPageEnum(IntEnum):
-    """
-    Enum of Const Class ForceNewPage
-
-    Specifies if the section will be printed on a separate page.
-    
-    This does not apply to page header or page footer.
-    """
-    NONE = ForceNewPage.NONE
-    """
-    The current section is printed on the current page.
-    """
-    BEFORE_SECTION = ForceNewPage.BEFORE_SECTION
-    """
-    The current section is printed at the top of a new page.
-    """
-    AFTER_SECTION = ForceNewPage.AFTER_SECTION
-    """
-    The next section following the current section is printed at the top of a new page.
-    """
-    BEFORE_AFTER_SECTION = ForceNewPage.BEFORE_AFTER_SECTION
-    """
-    The current section is printed at the top of a new page as well as the next section.
-    """
+        Specifies if the section will be printed on a separate page.
+        
+        This does not apply to page header or page footer.
+        """
+        NONE = ForceNewPage.NONE
+        """
+        The current section is printed on the current page.
+        """
+        BEFORE_SECTION = ForceNewPage.BEFORE_SECTION
+        """
+        The current section is printed at the top of a new page.
+        """
+        AFTER_SECTION = ForceNewPage.AFTER_SECTION
+        """
+        The next section following the current section is printed at the top of a new page.
+        """
+        BEFORE_AFTER_SECTION = ForceNewPage.BEFORE_AFTER_SECTION
+        """
+        The current section is printed at the top of a new page as well as the next section.
+        """
 
 __all__ = ['ForceNewPage', 'ForceNewPageEnum']

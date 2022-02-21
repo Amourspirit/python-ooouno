@@ -27,33 +27,44 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
+    if hasattr(DataPilotFieldLayoutMode, '_constants') and isinstance(DataPilotFieldLayoutMode._constants, dict):
+        DataPilotFieldLayoutMode._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        DataPilotFieldLayoutMode._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldLayoutMode'
+        DataPilotFieldLayoutMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DataPilotFieldLayoutModeEnum
+        ls = [f for f in dir(DataPilotFieldLayoutMode) if not callable(getattr(DataPilotFieldLayoutMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DataPilotFieldLayoutMode, name)
+        DataPilotFieldLayoutModeEnum = IntEnum('DataPilotFieldLayoutModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.data_pilot_field_layout_mode import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
 
+    class DataPilotFieldLayoutModeEnum(IntEnum):
+        """
+        Enum of Const Class DataPilotFieldLayoutMode
 
-class DataPilotFieldLayoutModeEnum(IntEnum):
-    """
-    Enum of Const Class DataPilotFieldLayoutMode
-
-    describes the layout mode of the data field
-    """
-    TABULAR_LAYOUT = DataPilotFieldLayoutMode.TABULAR_LAYOUT
-    """
-    Tabular layout mode is the layout, where each item's name is on the same row as the first item from the following field.
-    
-    Subtotals are always shown below an item's data in this mode.
-    """
-    OUTLINE_SUBTOTALS_TOP = DataPilotFieldLayoutMode.OUTLINE_SUBTOTALS_TOP
-    """
-    In outline layout mode, the items from the following field start in the row below an item's name, like in traditional database reports.
-    
-    Subtotals are shown at the top (on the same row as the item's name). When the subtotals take up more than one row (manually selected, or because there are several data fields), they are always shown below the item's data, regardless of the setting.
-    """
-    OUTLINE_SUBTOTALS_BOTTOM = DataPilotFieldLayoutMode.OUTLINE_SUBTOTALS_BOTTOM
-    """
-    In outline layout mode, the items from the following field start in the row below an item's name, like in traditional database reports.
-    
-    Subtotals are shown at the bottom (below the item's data, as in tabular layout mode). When the subtotals take up more than one row (manually selected, or because there are several data fields), they are always shown below the item's data, regardless of the setting.
-    """
+        describes the layout mode of the data field
+        """
+        TABULAR_LAYOUT = DataPilotFieldLayoutMode.TABULAR_LAYOUT
+        """
+        Tabular layout mode is the layout, where each item's name is on the same row as the first item from the following field.
+        
+        Subtotals are always shown below an item's data in this mode.
+        """
+        OUTLINE_SUBTOTALS_TOP = DataPilotFieldLayoutMode.OUTLINE_SUBTOTALS_TOP
+        """
+        In outline layout mode, the items from the following field start in the row below an item's name, like in traditional database reports.
+        
+        Subtotals are shown at the top (on the same row as the item's name). When the subtotals take up more than one row (manually selected, or because there are several data fields), they are always shown below the item's data, regardless of the setting.
+        """
+        OUTLINE_SUBTOTALS_BOTTOM = DataPilotFieldLayoutMode.OUTLINE_SUBTOTALS_BOTTOM
+        """
+        In outline layout mode, the items from the following field start in the row below an item's name, like in traditional database reports.
+        
+        Subtotals are shown at the bottom (below the item's data, as in tabular layout mode). When the subtotals take up more than one row (manually selected, or because there are several data fields), they are always shown below the item's data, regardless of the setting.
+        """
 
 __all__ = ['DataPilotFieldLayoutMode', 'DataPilotFieldLayoutModeEnum']

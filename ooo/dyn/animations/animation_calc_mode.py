@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.animations import AnimationCalcMode as AnimationCalcMode
+    if hasattr(AnimationCalcMode, '_constants') and isinstance(AnimationCalcMode._constants, dict):
+        AnimationCalcMode._constants['__ooo_ns__'] = 'com.sun.star.animations'
+        AnimationCalcMode._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationCalcMode'
+        AnimationCalcMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AnimationCalcModeEnum
+        ls = [f for f in dir(AnimationCalcMode) if not callable(getattr(AnimationCalcMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AnimationCalcMode, name)
+        AnimationCalcModeEnum = IntEnum('AnimationCalcModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.animations.animation_calc_mode import AnimationCalcMode as AnimationCalcMode
 
+    class AnimationCalcModeEnum(IntEnum):
+        """
+        Enum of Const Class AnimationCalcMode
 
-class AnimationCalcModeEnum(IntEnum):
-    """
-    Enum of Const Class AnimationCalcMode
-
-    Specifies the interpolation mode for the animation.
-    """
-    DISCRETE = AnimationCalcMode.DISCRETE
-    """
-    This specifies that the animation function will jump from one value to the next without any interpolation.
-    """
-    LINEAR = AnimationCalcMode.LINEAR
-    """
-    Simple linear interpolation between values is used to calculate the animation function.
-    
-    This is the default.
-    """
-    PACED = AnimationCalcMode.PACED
-    """
-    Defines interpolation to produce an even pace of change across the animation.
-    
-    This is only supported for values that define a linear numeric range, and for which some notion of \"distance\" between points can be calculated (e.g. position, width, height, etc.).
-    """
-    SPLINE = AnimationCalcMode.SPLINE
-    """
-    Interpolates from one value in the values list to the next according to a time function defined by a cubic Bezier spline.
-    
-    The points of the spline are defined in the XAnimate.KeyTimes attribute, and the control points for each interval are defined in the XAnimate.TimeFilter attribute.
-    """
+        Specifies the interpolation mode for the animation.
+        """
+        DISCRETE = AnimationCalcMode.DISCRETE
+        """
+        This specifies that the animation function will jump from one value to the next without any interpolation.
+        """
+        LINEAR = AnimationCalcMode.LINEAR
+        """
+        Simple linear interpolation between values is used to calculate the animation function.
+        
+        This is the default.
+        """
+        PACED = AnimationCalcMode.PACED
+        """
+        Defines interpolation to produce an even pace of change across the animation.
+        
+        This is only supported for values that define a linear numeric range, and for which some notion of \"distance\" between points can be calculated (e.g. position, width, height, etc.).
+        """
+        SPLINE = AnimationCalcMode.SPLINE
+        """
+        Interpolates from one value in the values list to the next according to a time function defined by a cubic Bezier spline.
+        
+        The points of the spline are defined in the XAnimate.KeyTimes attribute, and the control points for each interval are defined in the XAnimate.TimeFilter attribute.
+        """
 
 __all__ = ['AnimationCalcMode', 'AnimationCalcModeEnum']

@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import TextGridMode as TextGridMode
+    if hasattr(TextGridMode, '_constants') and isinstance(TextGridMode._constants, dict):
+        TextGridMode._constants['__ooo_ns__'] = 'com.sun.star.text'
+        TextGridMode._constants['__ooo_full_ns__'] = 'com.sun.star.text.TextGridMode'
+        TextGridMode._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TextGridModeEnum
+        ls = [f for f in dir(TextGridMode) if not callable(getattr(TextGridMode, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TextGridMode, name)
+        TextGridModeEnum = IntEnum('TextGridModeEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.text_grid_mode import TextGridMode as TextGridMode
 
+    class TextGridModeEnum(IntEnum):
+        """
+        Enum of Const Class TextGridMode
 
-class TextGridModeEnum(IntEnum):
-    """
-    Enum of Const Class TextGridMode
-
-    this set of constants describes different modes for text grids
-    """
-    NONE = TextGridMode.NONE
-    """
-    no text grid
-    """
-    LINES = TextGridMode.LINES
-    """
-    line positions will be determined by the grid
-    """
-    LINES_AND_CHARS = TextGridMode.LINES_AND_CHARS
-    """
-    character and line positions will be determined by the grid
-    """
+        this set of constants describes different modes for text grids
+        """
+        NONE = TextGridMode.NONE
+        """
+        no text grid
+        """
+        LINES = TextGridMode.LINES
+        """
+        line positions will be determined by the grid
+        """
+        LINES_AND_CHARS = TextGridMode.LINES_AND_CHARS
+        """
+        character and line positions will be determined by the grid
+        """
 
 __all__ = ['TextGridMode', 'TextGridModeEnum']

@@ -14,11 +14,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.gallery.gallery_item import GalleryItem as GalleryItem
-from ...dyn.gallery.gallery_item_type import GalleryItemType as GalleryItemType
-from ...dyn.gallery.gallery_item_type import GalleryItemTypeEnum as GalleryItemTypeEnum
-from ...dyn.gallery.gallery_theme import GalleryTheme as GalleryTheme
-from ...dyn.gallery.gallery_theme_provider import GalleryThemeProvider as GalleryThemeProvider
-from ...dyn.gallery.x_gallery_item import XGalleryItem as XGalleryItem
-from ...dyn.gallery.x_gallery_theme import XGalleryTheme as XGalleryTheme
-from ...dyn.gallery.x_gallery_theme_provider import XGalleryThemeProvider as XGalleryThemeProvider
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.gallery.gallery_item import GalleryItem as GalleryItem
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.gallery_item_type import GalleryItemType as GalleryItemType
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.gallery_item_type import GalleryItemTypeEnum as GalleryItemTypeEnum
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.gallery_theme import GalleryTheme as GalleryTheme
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.gallery_theme_provider import GalleryThemeProvider as GalleryThemeProvider
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.x_gallery_item import XGalleryItem as XGalleryItem
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.x_gallery_theme import XGalleryTheme as XGalleryTheme
+except ImportError:
+    pass
+try:
+    from ...dyn.gallery.x_gallery_theme_provider import XGalleryThemeProvider as XGalleryThemeProvider
+except ImportError:
+    pass

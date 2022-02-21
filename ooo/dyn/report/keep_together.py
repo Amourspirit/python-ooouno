@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.report import KeepTogether as KeepTogether
+    if hasattr(KeepTogether, '_constants') and isinstance(KeepTogether._constants, dict):
+        KeepTogether._constants['__ooo_ns__'] = 'com.sun.star.report'
+        KeepTogether._constants['__ooo_full_ns__'] = 'com.sun.star.report.KeepTogether'
+        KeepTogether._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global KeepTogetherEnum
+        ls = [f for f in dir(KeepTogether) if not callable(getattr(KeepTogether, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(KeepTogether, name)
+        KeepTogetherEnum = IntEnum('KeepTogetherEnum', _dict)
+    build_enum()
 else:
     from ...lo.report.keep_together import KeepTogether as KeepTogether
 
+    class KeepTogetherEnum(IntEnum):
+        """
+        Enum of Const Class KeepTogether
 
-class KeepTogetherEnum(IntEnum):
-    """
-    Enum of Const Class KeepTogether
-
-    Specifies that a group header, detail, and footer section is printed on the same page.
-    """
-    NO = KeepTogether.NO
-    """
-    Prints the group without keeping the header, detail, and footer together on the same page.
-    """
-    WHOLE_GROUP = KeepTogether.WHOLE_GROUP
-    """
-    Prints the group header, detail, and footer together on the same page.
-    """
-    WITH_FIRST_DETAIL = KeepTogether.WITH_FIRST_DETAIL
-    """
-    Prints the group header on a page when the first detail record can fit on the same page.
-    """
+        Specifies that a group header, detail, and footer section is printed on the same page.
+        """
+        NO = KeepTogether.NO
+        """
+        Prints the group without keeping the header, detail, and footer together on the same page.
+        """
+        WHOLE_GROUP = KeepTogether.WHOLE_GROUP
+        """
+        Prints the group header, detail, and footer together on the same page.
+        """
+        WITH_FIRST_DETAIL = KeepTogether.WITH_FIRST_DETAIL
+        """
+        Prints the group header on a page when the first detail record can fit on the same page.
+        """
 
 __all__ = ['KeepTogether', 'KeepTogetherEnum']

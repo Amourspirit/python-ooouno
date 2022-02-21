@@ -27,39 +27,50 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ucb import NameClash as NameClash
+    if hasattr(NameClash, '_constants') and isinstance(NameClash._constants, dict):
+        NameClash._constants['__ooo_ns__'] = 'com.sun.star.ucb'
+        NameClash._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.NameClash'
+        NameClash._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global NameClashEnum
+        ls = [f for f in dir(NameClash) if not callable(getattr(NameClash, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(NameClash, name)
+        NameClashEnum = IntEnum('NameClashEnum', _dict)
+    build_enum()
 else:
     from ...lo.ucb.name_clash import NameClash as NameClash
 
+    class NameClashEnum(IntEnum):
+        """
+        Enum of Const Class NameClash
 
-class NameClashEnum(IntEnum):
-    """
-    Enum of Const Class NameClash
-
-    These are the possible values for TransferInfo.NameClash.
-    """
-    ERROR = NameClash.ERROR
-    """
-    Means to set an error and cancel the operation.
-    """
-    OVERWRITE = NameClash.OVERWRITE
-    """
-    Means to overwrite the object in the target folder with the object to transfer.
-    """
-    RENAME = NameClash.RENAME
-    """
-    Means to rename the object to transfer to solve the clash.
-    
-    The implementation needs to supply and set a suitable new name.
-    """
-    KEEP = NameClash.KEEP
-    """
-    Deprecated.
-    
-    Do not use!
-    """
-    ASK = NameClash.ASK
-    """
-    Means to use a NameClashResolveRequest in order to solve the name clash.
-    """
+        These are the possible values for TransferInfo.NameClash.
+        """
+        ERROR = NameClash.ERROR
+        """
+        Means to set an error and cancel the operation.
+        """
+        OVERWRITE = NameClash.OVERWRITE
+        """
+        Means to overwrite the object in the target folder with the object to transfer.
+        """
+        RENAME = NameClash.RENAME
+        """
+        Means to rename the object to transfer to solve the clash.
+        
+        The implementation needs to supply and set a suitable new name.
+        """
+        KEEP = NameClash.KEEP
+        """
+        Deprecated.
+        
+        Do not use!
+        """
+        ASK = NameClash.ASK
+        """
+        Means to use a NameClashResolveRequest in order to solve the name clash.
+        """
 
 __all__ = ['NameClash', 'NameClashEnum']

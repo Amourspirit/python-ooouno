@@ -27,34 +27,45 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbc import ChangeAction as ChangeAction
+    if hasattr(ChangeAction, '_constants') and isinstance(ChangeAction._constants, dict):
+        ChangeAction._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
+        ChangeAction._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ChangeAction'
+        ChangeAction._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ChangeActionEnum
+        ls = [f for f in dir(ChangeAction) if not callable(getattr(ChangeAction, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ChangeAction, name)
+        ChangeActionEnum = IntEnum('ChangeActionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbc.change_action import ChangeAction as ChangeAction
 
+    class ChangeActionEnum(IntEnum):
+        """
+        Enum of Const Class ChangeAction
 
-class ChangeActionEnum(IntEnum):
-    """
-    Enum of Const Class ChangeAction
-
-    
-    .. deprecated::
-    
-        Class is deprecated.
-    """
-    INSERT = ChangeAction.INSERT
-    """
-    indicates that an insert will be performed.
-    """
-    UPDATE = ChangeAction.UPDATE
-    """
-    indicates that an update will be performed.
-    """
-    DELETE = ChangeAction.DELETE
-    """
-    indicates that a delete will be performed.
-    """
-    UNDO = ChangeAction.UNDO
-    """
-    indicates that an undo will be performed.
-    """
+        
+        .. deprecated::
+        
+            Class is deprecated.
+        """
+        INSERT = ChangeAction.INSERT
+        """
+        indicates that an insert will be performed.
+        """
+        UPDATE = ChangeAction.UPDATE
+        """
+        indicates that an update will be performed.
+        """
+        DELETE = ChangeAction.DELETE
+        """
+        indicates that a delete will be performed.
+        """
+        UNDO = ChangeAction.UNDO
+        """
+        indicates that an undo will be performed.
+        """
 
 __all__ = ['ChangeAction', 'ChangeActionEnum']

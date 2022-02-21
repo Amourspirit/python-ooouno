@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.awt import TextAlign as TextAlign
+    if hasattr(TextAlign, '_constants') and isinstance(TextAlign._constants, dict):
+        TextAlign._constants['__ooo_ns__'] = 'com.sun.star.awt'
+        TextAlign._constants['__ooo_full_ns__'] = 'com.sun.star.awt.TextAlign'
+        TextAlign._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TextAlignEnum
+        ls = [f for f in dir(TextAlign) if not callable(getattr(TextAlign, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TextAlign, name)
+        TextAlignEnum = IntEnum('TextAlignEnum', _dict)
+    build_enum()
 else:
     from ...lo.awt.text_align import TextAlign as TextAlign
 
+    class TextAlignEnum(IntEnum):
+        """
+        Enum of Const Class TextAlign
 
-class TextAlignEnum(IntEnum):
-    """
-    Enum of Const Class TextAlign
-
-    specifies the alignment of text.
-    """
-    LEFT = TextAlign.LEFT
-    """
-    specifies to left align text.
-    """
-    CENTER = TextAlign.CENTER
-    """
-    specifies to center text.
-    """
-    RIGHT = TextAlign.RIGHT
-    """
-    specifies to right align text.
-    """
+        specifies the alignment of text.
+        """
+        LEFT = TextAlign.LEFT
+        """
+        specifies to left align text.
+        """
+        CENTER = TextAlign.CENTER
+        """
+        specifies to center text.
+        """
+        RIGHT = TextAlign.RIGHT
+        """
+        specifies to right align text.
+        """
 
 __all__ = ['TextAlign', 'TextAlignEnum']

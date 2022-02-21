@@ -27,35 +27,46 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.configuration.backend import SchemaAttribute as SchemaAttribute
+    if hasattr(SchemaAttribute, '_constants') and isinstance(SchemaAttribute._constants, dict):
+        SchemaAttribute._constants['__ooo_ns__'] = 'com.sun.star.configuration.backend'
+        SchemaAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.configuration.backend.SchemaAttribute'
+        SchemaAttribute._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global SchemaAttributeEnum
+        ls = [f for f in dir(SchemaAttribute) if not callable(getattr(SchemaAttribute, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(SchemaAttribute, name)
+        SchemaAttributeEnum = IntEnum('SchemaAttributeEnum', _dict)
+    build_enum()
 else:
     from ....lo.configuration.backend.schema_attribute import SchemaAttribute as SchemaAttribute
 
+    class SchemaAttributeEnum(IntEnum):
+        """
+        Enum of Const Class SchemaAttribute
 
-class SchemaAttributeEnum(IntEnum):
-    """
-    Enum of Const Class SchemaAttribute
-
-    These values are used to specify the behavior of a node or property in the schema.
-    
-    **since**
-    
-        OOo 1.1.2
-    """
-    REQUIRED = SchemaAttribute.REQUIRED
-    """
-    indicates that a property value can't be null.
-    """
-    LOCALIZED = SchemaAttribute.LOCALIZED
-    """
-    indicates that the content of the node or the value of the property may depend on the locale.
-    """
-    EXTENSIBLE = SchemaAttribute.EXTENSIBLE
-    """
-    indicates that properties can be added to the node at runtime
-    """
-    MASK = SchemaAttribute.MASK
-    """
-    can be used to mask the schema attributes from merged attributes
-    """
+        These values are used to specify the behavior of a node or property in the schema.
+        
+        **since**
+        
+            OOo 1.1.2
+        """
+        REQUIRED = SchemaAttribute.REQUIRED
+        """
+        indicates that a property value can't be null.
+        """
+        LOCALIZED = SchemaAttribute.LOCALIZED
+        """
+        indicates that the content of the node or the value of the property may depend on the locale.
+        """
+        EXTENSIBLE = SchemaAttribute.EXTENSIBLE
+        """
+        indicates that properties can be added to the node at runtime
+        """
+        MASK = SchemaAttribute.MASK
+        """
+        can be used to mask the schema attributes from merged attributes
+        """
 
 __all__ = ['SchemaAttribute', 'SchemaAttributeEnum']

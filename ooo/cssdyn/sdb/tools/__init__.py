@@ -14,16 +14,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.sdb.tools.composition_type import CompositionType as CompositionType
-from ....dyn.sdb.tools.composition_type import CompositionTypeEnum as CompositionTypeEnum
-from ....dyn.sdb.tools.connection_tools import ConnectionTools as ConnectionTools
-from ....dyn.sdb.tools.x_connection_supplier import XConnectionSupplier as XConnectionSupplier
-from ....dyn.sdb.tools.x_connection_tools import XConnectionTools as XConnectionTools
-from ....dyn.sdb.tools.x_data_source_meta_data import XDataSourceMetaData as XDataSourceMetaData
-from ....dyn.sdb.tools.x_index_alteration import XIndexAlteration as XIndexAlteration
-from ....dyn.sdb.tools.x_key_alteration import XKeyAlteration as XKeyAlteration
-from ....dyn.sdb.tools.x_object_names import XObjectNames as XObjectNames
-from ....dyn.sdb.tools.x_table_alteration import XTableAlteration as XTableAlteration
-from ....dyn.sdb.tools.x_table_name import XTableName as XTableName
-from ....dyn.sdb.tools.x_table_rename import XTableRename as XTableRename
-from ....dyn.sdb.tools.x_view_access import XViewAccess as XViewAccess
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ....dyn.sdb.tools.composition_type import CompositionType as CompositionType
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.composition_type import CompositionTypeEnum as CompositionTypeEnum
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.connection_tools import ConnectionTools as ConnectionTools
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_connection_supplier import XConnectionSupplier as XConnectionSupplier
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_connection_tools import XConnectionTools as XConnectionTools
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_data_source_meta_data import XDataSourceMetaData as XDataSourceMetaData
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_index_alteration import XIndexAlteration as XIndexAlteration
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_key_alteration import XKeyAlteration as XKeyAlteration
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_object_names import XObjectNames as XObjectNames
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_table_alteration import XTableAlteration as XTableAlteration
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_table_name import XTableName as XTableName
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_table_rename import XTableRename as XTableRename
+except ImportError:
+    pass
+try:
+    from ....dyn.sdb.tools.x_view_access import XViewAccess as XViewAccess
+except ImportError:
+    pass

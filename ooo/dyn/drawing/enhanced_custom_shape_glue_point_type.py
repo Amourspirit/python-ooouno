@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.drawing import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
+    if hasattr(EnhancedCustomShapeGluePointType, '_constants') and isinstance(EnhancedCustomShapeGluePointType._constants, dict):
+        EnhancedCustomShapeGluePointType._constants['__ooo_ns__'] = 'com.sun.star.drawing'
+        EnhancedCustomShapeGluePointType._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.EnhancedCustomShapeGluePointType'
+        EnhancedCustomShapeGluePointType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global EnhancedCustomShapeGluePointTypeEnum
+        ls = [f for f in dir(EnhancedCustomShapeGluePointType) if not callable(getattr(EnhancedCustomShapeGluePointType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(EnhancedCustomShapeGluePointType, name)
+        EnhancedCustomShapeGluePointTypeEnum = IntEnum('EnhancedCustomShapeGluePointTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 
+    class EnhancedCustomShapeGluePointTypeEnum(IntEnum):
+        """
+        Enum of Const Class EnhancedCustomShapeGluePointType
 
-class EnhancedCustomShapeGluePointTypeEnum(IntEnum):
-    """
-    Enum of Const Class EnhancedCustomShapeGluePointType
-
-    defines which glue points are being offered by the EnhancedCustomShape
-    """
-    NONE = EnhancedCustomShapeGluePointType.NONE
-    """
-    no glue points are offered
-    """
-    SEGMENTS = EnhancedCustomShapeGluePointType.SEGMENTS
-    """
-    glue points are offered for each segment
-    """
-    CUSTOM = EnhancedCustomShapeGluePointType.CUSTOM
-    """
-    only glue points of the GluePoints property from the com.sun:star.drawing.EnhancedCustomShapePath are offered
-    """
-    RECT = EnhancedCustomShapeGluePointType.RECT
-    """
-    standard top, left, right, bottom glue points are offered
-    """
+        defines which glue points are being offered by the EnhancedCustomShape
+        """
+        NONE = EnhancedCustomShapeGluePointType.NONE
+        """
+        no glue points are offered
+        """
+        SEGMENTS = EnhancedCustomShapeGluePointType.SEGMENTS
+        """
+        glue points are offered for each segment
+        """
+        CUSTOM = EnhancedCustomShapeGluePointType.CUSTOM
+        """
+        only glue points of the GluePoints property from the com.sun:star.drawing.EnhancedCustomShapePath are offered
+        """
+        RECT = EnhancedCustomShapeGluePointType.RECT
+        """
+        standard top, left, right, bottom glue points are offered
+        """
 
 __all__ = ['EnhancedCustomShapeGluePointType', 'EnhancedCustomShapeGluePointTypeEnum']

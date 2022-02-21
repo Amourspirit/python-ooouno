@@ -27,31 +27,42 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import AuthorDisplayFormat as AuthorDisplayFormat
+    if hasattr(AuthorDisplayFormat, '_constants') and isinstance(AuthorDisplayFormat._constants, dict):
+        AuthorDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
+        AuthorDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.AuthorDisplayFormat'
+        AuthorDisplayFormat._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global AuthorDisplayFormatEnum
+        ls = [f for f in dir(AuthorDisplayFormat) if not callable(getattr(AuthorDisplayFormat, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(AuthorDisplayFormat, name)
+        AuthorDisplayFormatEnum = IntEnum('AuthorDisplayFormatEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.author_display_format import AuthorDisplayFormat as AuthorDisplayFormat
 
+    class AuthorDisplayFormatEnum(IntEnum):
+        """
+        Enum of Const Class AuthorDisplayFormat
 
-class AuthorDisplayFormatEnum(IntEnum):
-    """
-    Enum of Const Class AuthorDisplayFormat
-
-    These constants are used to specify which parts of an author name are displayed in a field.
-    """
-    FULL = AuthorDisplayFormat.FULL
-    """
-    The full name of the author is displayed.
-    """
-    LAST_NAME = AuthorDisplayFormat.LAST_NAME
-    """
-    Only the last name of the author is displayed.
-    """
-    FIRST_NAME = AuthorDisplayFormat.FIRST_NAME
-    """
-    Only the first name of the author is displayed.
-    """
-    INITIALS = AuthorDisplayFormat.INITIALS
-    """
-    The initials of the author are displayed.
-    """
+        These constants are used to specify which parts of an author name are displayed in a field.
+        """
+        FULL = AuthorDisplayFormat.FULL
+        """
+        The full name of the author is displayed.
+        """
+        LAST_NAME = AuthorDisplayFormat.LAST_NAME
+        """
+        Only the last name of the author is displayed.
+        """
+        FIRST_NAME = AuthorDisplayFormat.FIRST_NAME
+        """
+        Only the first name of the author is displayed.
+        """
+        INITIALS = AuthorDisplayFormat.INITIALS
+        """
+        The initials of the author are displayed.
+        """
 
 __all__ = ['AuthorDisplayFormat', 'AuthorDisplayFormatEnum']

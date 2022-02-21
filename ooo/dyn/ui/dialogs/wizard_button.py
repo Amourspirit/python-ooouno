@@ -27,43 +27,54 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui.dialogs import WizardButton as WizardButton
+    if hasattr(WizardButton, '_constants') and isinstance(WizardButton._constants, dict):
+        WizardButton._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
+        WizardButton._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.WizardButton'
+        WizardButton._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global WizardButtonEnum
+        ls = [f for f in dir(WizardButton) if not callable(getattr(WizardButton, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(WizardButton, name)
+        WizardButtonEnum = IntEnum('WizardButtonEnum', _dict)
+    build_enum()
 else:
     from ....lo.ui.dialogs.wizard_button import WizardButton as WizardButton
 
+    class WizardButtonEnum(IntEnum):
+        """
+        Enum of Const Class WizardButton
 
-class WizardButtonEnum(IntEnum):
-    """
-    Enum of Const Class WizardButton
-
-    denotes the buttons found in a Wizard
-    
-    **since**
-    
-        OOo 3.3
-    """
-    NONE = WizardButton.NONE
-    """
-    denotes none of the buttons in the wizard
-    """
-    NEXT = WizardButton.NEXT
-    """
-    denotes the button used to travel forward through the wizard
-    """
-    PREVIOUS = WizardButton.PREVIOUS
-    """
-    denotes the button used to travel backward through the wizard
-    """
-    FINISH = WizardButton.FINISH
-    """
-    denotes the button used to finish the wizard
-    """
-    CANCEL = WizardButton.CANCEL
-    """
-    denotes the button used to cancel the wizard
-    """
-    HELP = WizardButton.HELP
-    """
-    denotes the button used to request help
-    """
+        denotes the buttons found in a Wizard
+        
+        **since**
+        
+            OOo 3.3
+        """
+        NONE = WizardButton.NONE
+        """
+        denotes none of the buttons in the wizard
+        """
+        NEXT = WizardButton.NEXT
+        """
+        denotes the button used to travel forward through the wizard
+        """
+        PREVIOUS = WizardButton.PREVIOUS
+        """
+        denotes the button used to travel backward through the wizard
+        """
+        FINISH = WizardButton.FINISH
+        """
+        denotes the button used to finish the wizard
+        """
+        CANCEL = WizardButton.CANCEL
+        """
+        denotes the button used to cancel the wizard
+        """
+        HELP = WizardButton.HELP
+        """
+        denotes the button used to request help
+        """
 
 __all__ = ['WizardButton', 'WizardButtonEnum']

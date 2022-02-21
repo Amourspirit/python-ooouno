@@ -27,49 +27,60 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import HoriOrientation as HoriOrientation
+    if hasattr(HoriOrientation, '_constants') and isinstance(HoriOrientation._constants, dict):
+        HoriOrientation._constants['__ooo_ns__'] = 'com.sun.star.text'
+        HoriOrientation._constants['__ooo_full_ns__'] = 'com.sun.star.text.HoriOrientation'
+        HoriOrientation._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global HoriOrientationEnum
+        ls = [f for f in dir(HoriOrientation) if not callable(getattr(HoriOrientation, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(HoriOrientation, name)
+        HoriOrientationEnum = IntEnum('HoriOrientationEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.hori_orientation import HoriOrientation as HoriOrientation
 
+    class HoriOrientationEnum(IntEnum):
+        """
+        Enum of Const Class HoriOrientation
 
-class HoriOrientationEnum(IntEnum):
-    """
-    Enum of Const Class HoriOrientation
-
-    These enumeration values specify the horizontal orientation.
-    """
-    NONE = HoriOrientation.NONE
-    """
-    no hard alignment is applied.
-    """
-    RIGHT = HoriOrientation.RIGHT
-    """
-    The object is aligned at the right side.
-    """
-    CENTER = HoriOrientation.CENTER
-    """
-    The object is aligned at the middle.
-    """
-    LEFT = HoriOrientation.LEFT
-    """
-    The object is aligned at the left side.
-    """
-    INSIDE = HoriOrientation.INSIDE
-    """
-    TODO.
-    """
-    OUTSIDE = HoriOrientation.OUTSIDE
-    """
-    TODO.
-    """
-    FULL = HoriOrientation.FULL
-    """
-    The object uses the full space (for text tables only).
-    """
-    LEFT_AND_WIDTH = HoriOrientation.LEFT_AND_WIDTH
-    """
-    The left offset and the width of the object are defined.
-    
-    For text tables this means that the tables position is defined by the left margin and the width.
-    """
+        These enumeration values specify the horizontal orientation.
+        """
+        NONE = HoriOrientation.NONE
+        """
+        no hard alignment is applied.
+        """
+        RIGHT = HoriOrientation.RIGHT
+        """
+        The object is aligned at the right side.
+        """
+        CENTER = HoriOrientation.CENTER
+        """
+        The object is aligned at the middle.
+        """
+        LEFT = HoriOrientation.LEFT
+        """
+        The object is aligned at the left side.
+        """
+        INSIDE = HoriOrientation.INSIDE
+        """
+        TODO.
+        """
+        OUTSIDE = HoriOrientation.OUTSIDE
+        """
+        TODO.
+        """
+        FULL = HoriOrientation.FULL
+        """
+        The object uses the full space (for text tables only).
+        """
+        LEFT_AND_WIDTH = HoriOrientation.LEFT_AND_WIDTH
+        """
+        The left offset and the width of the object are defined.
+        
+        For text tables this means that the tables position is defined by the left margin and the width.
+        """
 
 __all__ = ['HoriOrientation', 'HoriOrientationEnum']

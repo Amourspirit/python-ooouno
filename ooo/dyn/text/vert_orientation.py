@@ -27,55 +27,66 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.text import VertOrientation as VertOrientation
+    if hasattr(VertOrientation, '_constants') and isinstance(VertOrientation._constants, dict):
+        VertOrientation._constants['__ooo_ns__'] = 'com.sun.star.text'
+        VertOrientation._constants['__ooo_full_ns__'] = 'com.sun.star.text.VertOrientation'
+        VertOrientation._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global VertOrientationEnum
+        ls = [f for f in dir(VertOrientation) if not callable(getattr(VertOrientation, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(VertOrientation, name)
+        VertOrientationEnum = IntEnum('VertOrientationEnum', _dict)
+    build_enum()
 else:
     from ...lo.text.vert_orientation import VertOrientation as VertOrientation
 
+    class VertOrientationEnum(IntEnum):
+        """
+        Enum of Const Class VertOrientation
 
-class VertOrientationEnum(IntEnum):
-    """
-    Enum of Const Class VertOrientation
-
-    These enumeration values are used to specify the vertical orientation.
-    """
-    NONE = VertOrientation.NONE
-    """
-    no hard alignment
-    """
-    TOP = VertOrientation.TOP
-    """
-    aligned at the top
-    """
-    CENTER = VertOrientation.CENTER
-    """
-    aligned at the center
-    """
-    BOTTOM = VertOrientation.BOTTOM
-    """
-    aligned at the bottom
-    """
-    CHAR_TOP = VertOrientation.CHAR_TOP
-    """
-    aligned at the top of a character (anchored to character)
-    """
-    CHAR_CENTER = VertOrientation.CHAR_CENTER
-    """
-    aligned at the center of a character (anchored to character )
-    """
-    CHAR_BOTTOM = VertOrientation.CHAR_BOTTOM
-    """
-    aligned at the bottom of a character (anchored to character )
-    """
-    LINE_TOP = VertOrientation.LINE_TOP
-    """
-    aligned at the top of the line (anchored to character )
-    """
-    LINE_CENTER = VertOrientation.LINE_CENTER
-    """
-    aligned at the center of the line (anchored to character )
-    """
-    LINE_BOTTOM = VertOrientation.LINE_BOTTOM
-    """
-    aligned at the bottom of the line (anchored to character )
-    """
+        These enumeration values are used to specify the vertical orientation.
+        """
+        NONE = VertOrientation.NONE
+        """
+        no hard alignment
+        """
+        TOP = VertOrientation.TOP
+        """
+        aligned at the top
+        """
+        CENTER = VertOrientation.CENTER
+        """
+        aligned at the center
+        """
+        BOTTOM = VertOrientation.BOTTOM
+        """
+        aligned at the bottom
+        """
+        CHAR_TOP = VertOrientation.CHAR_TOP
+        """
+        aligned at the top of a character (anchored to character)
+        """
+        CHAR_CENTER = VertOrientation.CHAR_CENTER
+        """
+        aligned at the center of a character (anchored to character )
+        """
+        CHAR_BOTTOM = VertOrientation.CHAR_BOTTOM
+        """
+        aligned at the bottom of a character (anchored to character )
+        """
+        LINE_TOP = VertOrientation.LINE_TOP
+        """
+        aligned at the top of the line (anchored to character )
+        """
+        LINE_CENTER = VertOrientation.LINE_CENTER
+        """
+        aligned at the center of the line (anchored to character )
+        """
+        LINE_BOTTOM = VertOrientation.LINE_BOTTOM
+        """
+        aligned at the bottom of the line (anchored to character )
+        """
 
 __all__ = ['VertOrientation', 'VertOrientationEnum']

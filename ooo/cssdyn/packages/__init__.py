@@ -14,14 +14,49 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
-from ...dyn.packages.no_encryption_exception import NoEncryptionException as NoEncryptionException
-from ...dyn.packages.no_raw_format_exception import NoRawFormatException as NoRawFormatException
-from ...dyn.packages.package import Package as Package
-from ...dyn.packages.package_encryption import PackageEncryption as PackageEncryption
-from ...dyn.packages.package_folder import PackageFolder as PackageFolder
-from ...dyn.packages.package_folder_enumeration import PackageFolderEnumeration as PackageFolderEnumeration
-from ...dyn.packages.package_stream import PackageStream as PackageStream
-from ...dyn.packages.wrong_password_exception import WrongPasswordException as WrongPasswordException
-from ...dyn.packages.x_data_sink_encr_support import XDataSinkEncrSupport as XDataSinkEncrSupport
-from ...dyn.packages.x_package_encryption import XPackageEncryption as XPackageEncryption
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from ...dyn.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.no_encryption_exception import NoEncryptionException as NoEncryptionException
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.no_raw_format_exception import NoRawFormatException as NoRawFormatException
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.package import Package as Package
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.package_encryption import PackageEncryption as PackageEncryption
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.package_folder import PackageFolder as PackageFolder
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.package_folder_enumeration import PackageFolderEnumeration as PackageFolderEnumeration
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.package_stream import PackageStream as PackageStream
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.wrong_password_exception import WrongPasswordException as WrongPasswordException
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.x_data_sink_encr_support import XDataSinkEncrSupport as XDataSinkEncrSupport
+except ImportError:
+    pass
+try:
+    from ...dyn.packages.x_package_encryption import XPackageEncryption as XPackageEncryption
+except ImportError:
+    pass

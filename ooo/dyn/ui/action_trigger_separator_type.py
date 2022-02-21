@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.ui import ActionTriggerSeparatorType as ActionTriggerSeparatorType
+    if hasattr(ActionTriggerSeparatorType, '_constants') and isinstance(ActionTriggerSeparatorType._constants, dict):
+        ActionTriggerSeparatorType._constants['__ooo_ns__'] = 'com.sun.star.ui'
+        ActionTriggerSeparatorType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.ActionTriggerSeparatorType'
+        ActionTriggerSeparatorType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ActionTriggerSeparatorTypeEnum
+        ls = [f for f in dir(ActionTriggerSeparatorType) if not callable(getattr(ActionTriggerSeparatorType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ActionTriggerSeparatorType, name)
+        ActionTriggerSeparatorTypeEnum = IntEnum('ActionTriggerSeparatorTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.ui.action_trigger_separator_type import ActionTriggerSeparatorType as ActionTriggerSeparatorType
 
+    class ActionTriggerSeparatorTypeEnum(IntEnum):
+        """
+        Enum of Const Class ActionTriggerSeparatorType
 
-class ActionTriggerSeparatorTypeEnum(IntEnum):
-    """
-    Enum of Const Class ActionTriggerSeparatorType
-
-    Determines the type of a separator in an ActionTriggerContainer.
-    """
-    LINE = ActionTriggerSeparatorType.LINE
-    """
-    a separator is inserted as a line.
-    """
-    SPACE = ActionTriggerSeparatorType.SPACE
-    """
-    a separator is inserted as a space.
-    """
-    LINEBREAK = ActionTriggerSeparatorType.LINEBREAK
-    """
-    a line break is inserted.
-    """
+        Determines the type of a separator in an ActionTriggerContainer.
+        """
+        LINE = ActionTriggerSeparatorType.LINE
+        """
+        a separator is inserted as a line.
+        """
+        SPACE = ActionTriggerSeparatorType.SPACE
+        """
+        a separator is inserted as a space.
+        """
+        LINEBREAK = ActionTriggerSeparatorType.LINEBREAK
+        """
+        a line break is inserted.
+        """
 
 __all__ = ['ActionTriggerSeparatorType', 'ActionTriggerSeparatorTypeEnum']

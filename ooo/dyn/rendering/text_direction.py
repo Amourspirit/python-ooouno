@@ -27,37 +27,48 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.rendering import TextDirection as TextDirection
+    if hasattr(TextDirection, '_constants') and isinstance(TextDirection._constants, dict):
+        TextDirection._constants['__ooo_ns__'] = 'com.sun.star.rendering'
+        TextDirection._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.TextDirection'
+        TextDirection._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global TextDirectionEnum
+        ls = [f for f in dir(TextDirection) if not callable(getattr(TextDirection, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(TextDirection, name)
+        TextDirectionEnum = IntEnum('TextDirectionEnum', _dict)
+    build_enum()
 else:
     from ...lo.rendering.text_direction import TextDirection as TextDirection
 
+    class TextDirectionEnum(IntEnum):
+        """
+        Enum of Const Class TextDirection
 
-class TextDirectionEnum(IntEnum):
-    """
-    Enum of Const Class TextDirection
-
-    Specifies main text direction in a text portion.
-    
-    This also changes the interpretation of the start point.
-    
-    **since**
-    
-        OOo 2.0
-    """
-    WEAK_LEFT_TO_RIGHT = TextDirection.WEAK_LEFT_TO_RIGHT
-    """
-    Reference point is left, main direction is from left to right.
-    """
-    STRONG_LEFT_TO_RIGHT = TextDirection.STRONG_LEFT_TO_RIGHT
-    """
-    Reference point is left, main direction is from left to right.
-    """
-    WEAK_RIGHT_TO_LEFT = TextDirection.WEAK_RIGHT_TO_LEFT
-    """
-    Reference point is right, main direction is from right to left.
-    """
-    STRONG_RIGHT_TO_LEFT = TextDirection.STRONG_RIGHT_TO_LEFT
-    """
-    Reference point is right, main direction is from right to left.
-    """
+        Specifies main text direction in a text portion.
+        
+        This also changes the interpretation of the start point.
+        
+        **since**
+        
+            OOo 2.0
+        """
+        WEAK_LEFT_TO_RIGHT = TextDirection.WEAK_LEFT_TO_RIGHT
+        """
+        Reference point is left, main direction is from left to right.
+        """
+        STRONG_LEFT_TO_RIGHT = TextDirection.STRONG_LEFT_TO_RIGHT
+        """
+        Reference point is left, main direction is from left to right.
+        """
+        WEAK_RIGHT_TO_LEFT = TextDirection.WEAK_RIGHT_TO_LEFT
+        """
+        Reference point is right, main direction is from right to left.
+        """
+        STRONG_RIGHT_TO_LEFT = TextDirection.STRONG_RIGHT_TO_LEFT
+        """
+        Reference point is right, main direction is from right to left.
+        """
 
 __all__ = ['TextDirection', 'TextDirectionEnum']

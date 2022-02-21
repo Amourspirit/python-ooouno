@@ -27,17 +27,28 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.chart2 import MovingAverageType as MovingAverageType
+    if hasattr(MovingAverageType, '_constants') and isinstance(MovingAverageType._constants, dict):
+        MovingAverageType._constants['__ooo_ns__'] = 'com.sun.star.chart2'
+        MovingAverageType._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.MovingAverageType'
+        MovingAverageType._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global MovingAverageTypeEnum
+        ls = [f for f in dir(MovingAverageType) if not callable(getattr(MovingAverageType, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(MovingAverageType, name)
+        MovingAverageTypeEnum = IntEnum('MovingAverageTypeEnum', _dict)
+    build_enum()
 else:
     from ...lo.chart2.moving_average_type import MovingAverageType as MovingAverageType
 
+    class MovingAverageTypeEnum(IntEnum):
+        """
+        Enum of Const Class MovingAverageType
 
-class MovingAverageTypeEnum(IntEnum):
-    """
-    Enum of Const Class MovingAverageType
-
-    """
-    Prior = MovingAverageType.Prior
-    Central = MovingAverageType.Central
-    AveragedAbscissa = MovingAverageType.AveragedAbscissa
+        """
+        Prior = MovingAverageType.Prior
+        Central = MovingAverageType.Central
+        AveragedAbscissa = MovingAverageType.AveragedAbscissa
 
 __all__ = ['MovingAverageType', 'MovingAverageTypeEnum']

@@ -27,27 +27,38 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sdbcx import CheckOption as CheckOption
+    if hasattr(CheckOption, '_constants') and isinstance(CheckOption._constants, dict):
+        CheckOption._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
+        CheckOption._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.CheckOption'
+        CheckOption._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global CheckOptionEnum
+        ls = [f for f in dir(CheckOption) if not callable(getattr(CheckOption, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(CheckOption, name)
+        CheckOptionEnum = IntEnum('CheckOptionEnum', _dict)
+    build_enum()
 else:
     from ...lo.sdbcx.check_option import CheckOption as CheckOption
 
+    class CheckOptionEnum(IntEnum):
+        """
+        Enum of Const Class CheckOption
 
-class CheckOptionEnum(IntEnum):
-    """
-    Enum of Const Class CheckOption
-
-    determines the check option for a view.
-    """
-    NONE = CheckOption.NONE
-    """
-    indicates that no value checking is applied during updates of view data.
-    """
-    CASCADE = CheckOption.CASCADE
-    """
-    indicates that the value checking is applied for the view and all base views.
-    """
-    LOCAL = CheckOption.LOCAL
-    """
-    indicates that the value checking is applied only for the view.
-    """
+        determines the check option for a view.
+        """
+        NONE = CheckOption.NONE
+        """
+        indicates that no value checking is applied during updates of view data.
+        """
+        CASCADE = CheckOption.CASCADE
+        """
+        indicates that the value checking is applied for the view and all base views.
+        """
+        LOCAL = CheckOption.LOCAL
+        """
+        indicates that the value checking is applied only for the view.
+        """
 
 __all__ = ['CheckOption', 'CheckOptionEnum']

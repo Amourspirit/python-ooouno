@@ -27,49 +27,60 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.linguistic2 import DictionaryListEventFlags as DictionaryListEventFlags
+    if hasattr(DictionaryListEventFlags, '_constants') and isinstance(DictionaryListEventFlags._constants, dict):
+        DictionaryListEventFlags._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
+        DictionaryListEventFlags._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.DictionaryListEventFlags'
+        DictionaryListEventFlags._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global DictionaryListEventFlagsEnum
+        ls = [f for f in dir(DictionaryListEventFlags) if not callable(getattr(DictionaryListEventFlags, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(DictionaryListEventFlags, name)
+        DictionaryListEventFlagsEnum = IntFlag('DictionaryListEventFlagsEnum', _dict)
+    build_enum()
 else:
     from ...lo.linguistic2.dictionary_list_event_flags import DictionaryListEventFlags as DictionaryListEventFlags
 
+    class DictionaryListEventFlagsEnum(IntFlag):
+        """
+        Enum of Const Class DictionaryListEventFlags
 
-class DictionaryListEventFlagsEnum(IntFlag):
-    """
-    Enum of Const Class DictionaryListEventFlags
-
-    constants representing a single dictionary-list event.
-    
-    These flags define the possible types for a dictionary-list event.
-    """
-    ADD_POS_ENTRY = DictionaryListEventFlags.ADD_POS_ENTRY
-    """
-    A positive entry was added to a dictionary from the dictionary list.
-    """
-    DEL_POS_ENTRY = DictionaryListEventFlags.DEL_POS_ENTRY
-    """
-    A positive entry was deleted from a dictionary of the dictionary-list or a dictionary with positive entries was cleared.
-    """
-    ADD_NEG_ENTRY = DictionaryListEventFlags.ADD_NEG_ENTRY
-    """
-    A negative entry was added to a dictionary from the dictionary-list.
-    """
-    DEL_NEG_ENTRY = DictionaryListEventFlags.DEL_NEG_ENTRY
-    """
-    A negative entry was deleted from a dictionary of the dictionary-list or a dictionary with negative entries was cleared.
-    """
-    ACTIVATE_POS_DIC = DictionaryListEventFlags.ACTIVATE_POS_DIC
-    """
-    A dictionary with positive entries was activated or has changed its language.
-    """
-    DEACTIVATE_POS_DIC = DictionaryListEventFlags.DEACTIVATE_POS_DIC
-    """
-    A dictionary with positive entries was deactivated or has changed its language.
-    """
-    ACTIVATE_NEG_DIC = DictionaryListEventFlags.ACTIVATE_NEG_DIC
-    """
-    A dictionary with negative entries was activated or has changed its language.
-    """
-    DEACTIVATE_NEG_DIC = DictionaryListEventFlags.DEACTIVATE_NEG_DIC
-    """
-    A dictionary with negative entries was deactivated or has changed its language.
-    """
+        constants representing a single dictionary-list event.
+        
+        These flags define the possible types for a dictionary-list event.
+        """
+        ADD_POS_ENTRY = DictionaryListEventFlags.ADD_POS_ENTRY
+        """
+        A positive entry was added to a dictionary from the dictionary list.
+        """
+        DEL_POS_ENTRY = DictionaryListEventFlags.DEL_POS_ENTRY
+        """
+        A positive entry was deleted from a dictionary of the dictionary-list or a dictionary with positive entries was cleared.
+        """
+        ADD_NEG_ENTRY = DictionaryListEventFlags.ADD_NEG_ENTRY
+        """
+        A negative entry was added to a dictionary from the dictionary-list.
+        """
+        DEL_NEG_ENTRY = DictionaryListEventFlags.DEL_NEG_ENTRY
+        """
+        A negative entry was deleted from a dictionary of the dictionary-list or a dictionary with negative entries was cleared.
+        """
+        ACTIVATE_POS_DIC = DictionaryListEventFlags.ACTIVATE_POS_DIC
+        """
+        A dictionary with positive entries was activated or has changed its language.
+        """
+        DEACTIVATE_POS_DIC = DictionaryListEventFlags.DEACTIVATE_POS_DIC
+        """
+        A dictionary with positive entries was deactivated or has changed its language.
+        """
+        ACTIVATE_NEG_DIC = DictionaryListEventFlags.ACTIVATE_NEG_DIC
+        """
+        A dictionary with negative entries was activated or has changed its language.
+        """
+        DEACTIVATE_NEG_DIC = DictionaryListEventFlags.DEACTIVATE_NEG_DIC
+        """
+        A dictionary with negative entries was deactivated or has changed its language.
+        """
 
 __all__ = ['DictionaryListEventFlags', 'DictionaryListEventFlagsEnum']

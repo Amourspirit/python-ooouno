@@ -14,5 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.xml.dom.views.x_abstract_view import XAbstractView as XAbstractView
-from .....dyn.xml.dom.views.x_document_view import XDocumentView as XDocumentView
+# all imports are wrapped in try blocks for allowing of backwards compatibility.
+
+try:
+    from .....dyn.xml.dom.views.x_abstract_view import XAbstractView as XAbstractView
+except ImportError:
+    pass
+try:
+    from .....dyn.xml.dom.views.x_document_view import XDocumentView as XDocumentView
+except ImportError:
+    pass

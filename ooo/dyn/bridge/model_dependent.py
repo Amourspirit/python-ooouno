@@ -27,21 +27,32 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.bridge import ModelDependent as ModelDependent
+    if hasattr(ModelDependent, '_constants') and isinstance(ModelDependent._constants, dict):
+        ModelDependent._constants['__ooo_ns__'] = 'com.sun.star.bridge'
+        ModelDependent._constants['__ooo_full_ns__'] = 'com.sun.star.bridge.ModelDependent'
+        ModelDependent._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global ModelDependentEnum
+        ls = [f for f in dir(ModelDependent) if not callable(getattr(ModelDependent, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(ModelDependent, name)
+        ModelDependentEnum = IntEnum('ModelDependentEnum', _dict)
+    build_enum()
 else:
     from ...lo.bridge.model_dependent import ModelDependent as ModelDependent
 
+    class ModelDependentEnum(IntEnum):
+        """
+        Enum of Const Class ModelDependent
 
-class ModelDependentEnum(IntEnum):
-    """
-    Enum of Const Class ModelDependent
-
-    These constants are used to specify model-dependent representations.
-    
-    They are only used for creating bridges to other component models.
-    """
-    UNO = ModelDependent.UNO
-    OLE = ModelDependent.OLE
-    JAVA = ModelDependent.JAVA
-    CORBA = ModelDependent.CORBA
+        These constants are used to specify model-dependent representations.
+        
+        They are only used for creating bridges to other component models.
+        """
+        UNO = ModelDependent.UNO
+        OLE = ModelDependent.OLE
+        JAVA = ModelDependent.JAVA
+        CORBA = ModelDependent.CORBA
 
 __all__ = ['ModelDependent', 'ModelDependentEnum']

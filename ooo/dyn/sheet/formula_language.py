@@ -27,59 +27,70 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from com.sun.star.sheet import FormulaLanguage as FormulaLanguage
+    if hasattr(FormulaLanguage, '_constants') and isinstance(FormulaLanguage._constants, dict):
+        FormulaLanguage._constants['__ooo_ns__'] = 'com.sun.star.sheet'
+        FormulaLanguage._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaLanguage'
+        FormulaLanguage._constants['__ooo_type_name__'] = 'const'
+    def build_enum():
+        global FormulaLanguageEnum
+        ls = [f for f in dir(FormulaLanguage) if not callable(getattr(FormulaLanguage, f)) and not f.startswith('__')]
+        _dict = {}
+        for name in ls:
+            _dict[name] = getattr(FormulaLanguage, name)
+        FormulaLanguageEnum = IntEnum('FormulaLanguageEnum', _dict)
+    build_enum()
 else:
     from ...lo.sheet.formula_language import FormulaLanguage as FormulaLanguage
 
+    class FormulaLanguageEnum(IntEnum):
+        """
+        Enum of Const Class FormulaLanguage
 
-class FormulaLanguageEnum(IntEnum):
-    """
-    Enum of Const Class FormulaLanguage
-
-    Constants designating the formula language used with XFormulaOpCodeMapper methods.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
-    ODFF = FormulaLanguage.ODFF
-    """
-    Function names and operators as defined by the OASIS OpenDocument Format (ODF) Formula specification (ODFF aka OpenFormula).
-    """
-    ODF_11 = FormulaLanguage.ODF_11
-    """
-    Function names and operators as used in ODF documents prior to the ODFF specification, up to ODF v1.1.
-    """
-    ENGLISH = FormulaLanguage.ENGLISH
-    """
-    Function names and operators as used in the English language user interface.
-    """
-    NATIVE = FormulaLanguage.NATIVE
-    """
-    Function names and operators as used in the current native language user interface.
-    """
-    XL_ENGLISH = FormulaLanguage.XL_ENGLISH
-    """
-    Function names and operators as used in the English version of Excel.
-    
-    This formula language is also used in VBA formulas.
-    """
-    OOXML = FormulaLanguage.OOXML
-    """
-    Function names and operators as used in OOXML.
-    
-    **since**
-    
-        LibreOffice 4.2
-    """
-    API = FormulaLanguage.API
-    """
-    Function names and operators as used with XFunctionAccess and other API context.
-    
-    Names are mostly identical to ENGLISH and ODF_11, but while ENGLISH names can be adapted to UI needs and ODF_11 has to stay error compatible, the API names strive to stay compatible but may get corrected in case of errors. Earlier versions than LibreOffice 5.3 always used ODF_11 in API context.
-    
-    **since**
-    
-        LibreOffice 5.3
-    """
+        Constants designating the formula language used with XFormulaOpCodeMapper methods.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
+        ODFF = FormulaLanguage.ODFF
+        """
+        Function names and operators as defined by the OASIS OpenDocument Format (ODF) Formula specification (ODFF aka OpenFormula).
+        """
+        ODF_11 = FormulaLanguage.ODF_11
+        """
+        Function names and operators as used in ODF documents prior to the ODFF specification, up to ODF v1.1.
+        """
+        ENGLISH = FormulaLanguage.ENGLISH
+        """
+        Function names and operators as used in the English language user interface.
+        """
+        NATIVE = FormulaLanguage.NATIVE
+        """
+        Function names and operators as used in the current native language user interface.
+        """
+        XL_ENGLISH = FormulaLanguage.XL_ENGLISH
+        """
+        Function names and operators as used in the English version of Excel.
+        
+        This formula language is also used in VBA formulas.
+        """
+        OOXML = FormulaLanguage.OOXML
+        """
+        Function names and operators as used in OOXML.
+        
+        **since**
+        
+            LibreOffice 4.2
+        """
+        API = FormulaLanguage.API
+        """
+        Function names and operators as used with XFunctionAccess and other API context.
+        
+        Names are mostly identical to ENGLISH and ODF_11, but while ENGLISH names can be adapted to UI needs and ODF_11 has to stay error compatible, the API names strive to stay compatible but may get corrected in case of errors. Earlier versions than LibreOffice 5.3 always used ODF_11 in API context.
+        
+        **since**
+        
+            LibreOffice 5.3
+        """
 
 __all__ = ['FormulaLanguage', 'FormulaLanguageEnum']

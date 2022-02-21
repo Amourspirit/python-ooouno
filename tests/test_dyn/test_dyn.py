@@ -51,7 +51,7 @@ def test_interface():
     assert XAccessibleAction.__ooo_type_name__ == 'interface'
 
 
-def test_exception():
+def test_exception_uno():
     from ooo.dyn.uno.exception import Exception
     ex = Exception()
     assert id(ex) != id(Exception)
@@ -63,6 +63,19 @@ def test_exception():
     assert ex.__ooo_ns__ == 'com.sun.star.uno'
     assert ex.__ooo_full_ns__ == 'com.sun.star.uno.Exception'
     assert ex.__ooo_type_name__ == 'exception'
+    assert type(ex).__name__ == 'com.sun.star.uno.Exception'
+    assert ex.__module__ == 'uno'
+    ex = Exception(Message="I made an error")
+    assert ex.Message == 'I made an error'
+
+def test_exception():
+    from ooo.lo.uno.exception import Exception
+    ex = Exception()
+    assert id(ex) != id(Exception)
+    ex.Message = "Hello World"
+    assert ex.Message == 'Hello World'
+    assert type(ex).__name__ == 'Exception'
+    assert ex.__module__ == 'ooo.lo.uno.exception'
     
 
 

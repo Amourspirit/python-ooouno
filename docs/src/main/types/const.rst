@@ -67,7 +67,7 @@ Example:
         assert same == False
 
 .. note::
-    This library is for Libre Office |lo_version|; However is somewhat backwards compatable.
+    This library is for Libre Office |lo_version|; However, it is somewhat backwards compatable.
 
     For instance ``ooo.cssdyn.style.NumberingType`` had the attributes
     **ARABIC_ZERO3**, **ARABIC_ZERO4**, **ARABIC_ZERO5**, **SZEKELY_ROVAS** added in LO 7.x.

@@ -63,13 +63,9 @@ Example dynamic:
 
 Struct classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are the same classes.
 
-Example:
-    .. code-block:: python
+.. note::
 
-        from ooo.dyn.awt.rectangle import Rectangle as LoRectangle
-        from ooo.cssdyn.awt import Rectangle as DynRectangle
-        from ooo.csslo.awt import Rectangle as CssRectangle
-        same = LoRectangle is DynRectangle
-        assert same == True
-        same = LoRectangle is CssRectangle
-        assert same == False
+    Dynamic struct classes have a dynamic constructor.
+
+    | This means ``ooo.cssdyn.awt.Rectangle`` is a function at runtime
+    | whereas ``rect = Rectangle()`` is an instance of a class.

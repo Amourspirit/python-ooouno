@@ -73,3 +73,5 @@ napoleon_include_init_with_doc = True
 global_substitutions = {
     'lo_version': lo_ver
 }
+
+html_title = 'ooouno'

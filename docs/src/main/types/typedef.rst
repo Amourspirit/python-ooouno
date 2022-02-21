@@ -1,5 +1,5 @@
 =======
-typedef
+Typedef
 =======
 
 typedef objects define a type using `NewType <https://docs.python.org/3.7/library/typing.html#newtype>`_ similar to type alias.
@@ -33,7 +33,8 @@ Typedef's in ``ooo`` are the same accross all namespaces and do not have any dyn
     >>> LoColor is CssDynColor
     True
 
-Note:
+.. note::
+
     Checks for **NewType** are enforced only by the static type checker.
     At runtime the statement Color = NewType('Color', int) will make Color a function that
     immediately returns whatever parameter you pass it.

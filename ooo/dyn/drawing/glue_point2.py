@@ -20,58 +20,45 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.drawing import GluePoint2 as UGluePoint2
-        # Dynamically create uno com.sun.star.drawing.GluePoint2 using uno
-        global GluePoint2
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.drawing.GluePoint2'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.GluePoint2'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Position = UNO_NONE, IsRelative = UNO_NONE, PositionAlignment = UNO_NONE, Escape = UNO_NONE, IsUserDefined = UNO_NONE):
-            ns = 'com.sun.star.drawing.GluePoint2'
-            if isinstance(Position, UGluePoint2):
-                inst = uno.createUnoStruct(ns, Position)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Position = UNO_NONE, IsRelative = UNO_NONE, PositionAlignment = UNO_NONE, Escape = UNO_NONE, IsUserDefined = UNO_NONE):
+            if getattr(Position, "__class__", None) == self.__class__:
+                orig_init(self, Position)
+                return
+            else:
+                orig_init(self)
             if not Position is UNO_NONE:
-                if getattr(struct, 'Position') != Position:
-                    setattr(struct, 'Position', Position)
+                if getattr(self, 'Position') != Position:
+                    setattr(self, 'Position', Position)
             if not IsRelative is UNO_NONE:
-                if getattr(struct, 'IsRelative') != IsRelative:
-                    setattr(struct, 'IsRelative', IsRelative)
+                if getattr(self, 'IsRelative') != IsRelative:
+                    setattr(self, 'IsRelative', IsRelative)
             if not PositionAlignment is UNO_NONE:
-                if getattr(struct, 'PositionAlignment') != PositionAlignment:
-                    setattr(struct, 'PositionAlignment', PositionAlignment)
+                if getattr(self, 'PositionAlignment') != PositionAlignment:
+                    setattr(self, 'PositionAlignment', PositionAlignment)
             if not Escape is UNO_NONE:
-                if getattr(struct, 'Escape') != Escape:
-                    setattr(struct, 'Escape', Escape)
+                if getattr(self, 'Escape') != Escape:
+                    setattr(self, 'Escape', Escape)
             if not IsUserDefined is UNO_NONE:
-                if getattr(struct, 'IsUserDefined') != IsUserDefined:
-                    setattr(struct, 'IsUserDefined', IsUserDefined)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        GluePoint2 = _struct_init
+                if getattr(self, 'IsUserDefined') != IsUserDefined:
+                    setattr(self, 'IsUserDefined', IsUserDefined)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.drawing.GluePoint2'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.drawing'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    GluePoint2 = _get_class()
+
+
 else:
     from ...lo.drawing.glue_point2 import GluePoint2 as GluePoint2
 

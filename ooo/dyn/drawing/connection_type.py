@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.ConnectionType import (AUTO, BOTTOM, LEFT, RIGHT, SPECIAL, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ConnectionType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.ConnectionType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -45,9 +44,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SPECIAL": SPECIAL,
             "TOP": TOP,
         }
+        result = type('ConnectionType', (object,), _dict)
+        return result
 
-        ConnectionType = type('ConnectionType', (object,), _dict)
-    _dynamic_enum()
+    ConnectionType = _get_enum()
 else:
     from ...lo.drawing.connection_type import ConnectionType as ConnectionType
 

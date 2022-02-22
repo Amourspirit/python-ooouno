@@ -20,47 +20,40 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
+
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_ex() -> None:
-        import uno
-        # Dynamically create uno com.sun.star.text.InvalidTextContentException using uno
-        global InvalidTextContentException
-
-        def _set_fn_attr(ex):
-            type_name = 'com.sun.star.text.InvalidTextContentException'
-            ex.__dict__['typeName'] = type_name
-            ex.__dict__['__pyunointerface__'] = type_name
-            ex.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(ex):
-            ex.__dict__['__ooo_ns__'] = 'com.sun.star.text'
-            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.InvalidTextContentException'
-            ex.__dict__['__ooo_type_name__'] = 'exception'
-
-        def _ex_init(TextContent = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.text.InvalidTextContentException'
-            ex = uno.createUnoStruct(ns)
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, TextContent = UNO_NONE, **kwargs):
+            if getattr(TextContent, "__class__", None) == self.__class__:
+                orig_init(self, TextContent)
+                return
+            else:
+                orig_init(self)
             if not TextContent is UNO_NONE:
-                if getattr(ex, 'TextContent') != TextContent:
-                    setattr(ex, 'TextContent', TextContent)
+                if getattr(self, 'TextContent') != TextContent:
+                    setattr(self, 'TextContent', TextContent)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(ex)
-            return ex
-        _set_attr(_ex_init)
-        _set_fn_attr(_ex_init)
-        InvalidTextContentException = _ex_init
+                    setattr(self, k, v)
 
-    _dynamic_ex()
+        type_name = 'com.sun.star.text.InvalidTextContentException'
+        ex = uno.getClass(type_name)
+        ex.__ooo_ns__ = 'com.sun.star.text'
+        ex.__ooo_full_ns__= type_name
+        ex.__ooo_type_name__ = 'exception'
+        orig_init = ex.__init__
+        ex.__init__ = init
+        return ex
+
+    InvalidTextContentException = _get_class()
+
 else:
     from ...lo.text.invalid_text_content_exception import InvalidTextContentException as InvalidTextContentException
-    
+
 __all__ = ['InvalidTextContentException']
 

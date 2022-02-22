@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.geometry import RealRectangle3D as URealRectangle3D
-        # Dynamically create uno com.sun.star.geometry.RealRectangle3D using uno
-        global RealRectangle3D
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.geometry.RealRectangle3D'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.geometry'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.RealRectangle3D'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(X1 = UNO_NONE, Y1 = UNO_NONE, Z1 = UNO_NONE, X2 = UNO_NONE, Y2 = UNO_NONE, Z2 = UNO_NONE):
-            ns = 'com.sun.star.geometry.RealRectangle3D'
-            if isinstance(X1, URealRectangle3D):
-                inst = uno.createUnoStruct(ns, X1)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, X1 = UNO_NONE, Y1 = UNO_NONE, Z1 = UNO_NONE, X2 = UNO_NONE, Y2 = UNO_NONE, Z2 = UNO_NONE):
+            if getattr(X1, "__class__", None) == self.__class__:
+                orig_init(self, X1)
+                return
+            else:
+                orig_init(self)
             if not X1 is UNO_NONE:
-                if getattr(struct, 'X1') != X1:
-                    setattr(struct, 'X1', X1)
+                if getattr(self, 'X1') != X1:
+                    setattr(self, 'X1', X1)
             if not Y1 is UNO_NONE:
-                if getattr(struct, 'Y1') != Y1:
-                    setattr(struct, 'Y1', Y1)
+                if getattr(self, 'Y1') != Y1:
+                    setattr(self, 'Y1', Y1)
             if not Z1 is UNO_NONE:
-                if getattr(struct, 'Z1') != Z1:
-                    setattr(struct, 'Z1', Z1)
+                if getattr(self, 'Z1') != Z1:
+                    setattr(self, 'Z1', Z1)
             if not X2 is UNO_NONE:
-                if getattr(struct, 'X2') != X2:
-                    setattr(struct, 'X2', X2)
+                if getattr(self, 'X2') != X2:
+                    setattr(self, 'X2', X2)
             if not Y2 is UNO_NONE:
-                if getattr(struct, 'Y2') != Y2:
-                    setattr(struct, 'Y2', Y2)
+                if getattr(self, 'Y2') != Y2:
+                    setattr(self, 'Y2', Y2)
             if not Z2 is UNO_NONE:
-                if getattr(struct, 'Z2') != Z2:
-                    setattr(struct, 'Z2', Z2)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        RealRectangle3D = _struct_init
+                if getattr(self, 'Z2') != Z2:
+                    setattr(self, 'Z2', Z2)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.geometry.RealRectangle3D'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.geometry'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    RealRectangle3D = _get_class()
+
+
 else:
     from ...lo.geometry.real_rectangle3_d import RealRectangle3D as RealRectangle3D
 

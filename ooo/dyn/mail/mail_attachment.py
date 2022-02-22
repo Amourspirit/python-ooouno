@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.mail import MailAttachment as UMailAttachment
-        # Dynamically create uno com.sun.star.mail.MailAttachment using uno
-        global MailAttachment
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.mail.MailAttachment'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.mail'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.mail.MailAttachment'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Data = UNO_NONE, ReadableName = UNO_NONE):
-            ns = 'com.sun.star.mail.MailAttachment'
-            if isinstance(Data, UMailAttachment):
-                inst = uno.createUnoStruct(ns, Data)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Data = UNO_NONE, ReadableName = UNO_NONE):
+            if getattr(Data, "__class__", None) == self.__class__:
+                orig_init(self, Data)
+                return
+            else:
+                orig_init(self)
             if not Data is UNO_NONE:
-                if getattr(struct, 'Data') != Data:
-                    setattr(struct, 'Data', Data)
+                if getattr(self, 'Data') != Data:
+                    setattr(self, 'Data', Data)
             if not ReadableName is UNO_NONE:
-                if getattr(struct, 'ReadableName') != ReadableName:
-                    setattr(struct, 'ReadableName', ReadableName)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        MailAttachment = _struct_init
+                if getattr(self, 'ReadableName') != ReadableName:
+                    setattr(self, 'ReadableName', ReadableName)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.mail.MailAttachment'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.mail'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    MailAttachment = _get_class()
+
+
 else:
     from ...lo.mail.mail_attachment import MailAttachment as MailAttachment
 

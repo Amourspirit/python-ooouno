@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.DrawViewMode import (DRAW, HANDOUT, NOTES)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DrawViewMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.DrawViewMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "HANDOUT": HANDOUT,
             "NOTES": NOTES,
         }
+        result = type('DrawViewMode', (object,), _dict)
+        return result
 
-        DrawViewMode = type('DrawViewMode', (object,), _dict)
-    _dynamic_enum()
+    DrawViewMode = _get_enum()
 else:
     from ...lo.drawing.draw_view_mode import DrawViewMode as DrawViewMode
 

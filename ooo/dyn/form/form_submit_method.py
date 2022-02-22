@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.form.FormSubmitMethod import (GET, POST)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FormSubmitMethod
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.form.FormSubmitMethod Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "GET": GET,
             "POST": POST,
         }
+        result = type('FormSubmitMethod', (object,), _dict)
+        return result
 
-        FormSubmitMethod = type('FormSubmitMethod', (object,), _dict)
-    _dynamic_enum()
+    FormSubmitMethod = _get_enum()
 else:
     from ...lo.form.form_submit_method import FormSubmitMethod as FormSubmitMethod
 

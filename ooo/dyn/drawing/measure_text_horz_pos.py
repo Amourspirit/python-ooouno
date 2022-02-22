@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.MeasureTextHorzPos import (AUTO, INSIDE, LEFTOUTSIDE, RIGHTOUTSIDE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MeasureTextHorzPos
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.MeasureTextHorzPos Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LEFTOUTSIDE": LEFTOUTSIDE,
             "RIGHTOUTSIDE": RIGHTOUTSIDE,
         }
+        result = type('MeasureTextHorzPos', (object,), _dict)
+        return result
 
-        MeasureTextHorzPos = type('MeasureTextHorzPos', (object,), _dict)
-    _dynamic_enum()
+    MeasureTextHorzPos = _get_enum()
 else:
     from ...lo.drawing.measure_text_horz_pos import MeasureTextHorzPos as MeasureTextHorzPos
 

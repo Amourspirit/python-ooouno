@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.IOErrorCode import (ABORT, ACCESS_DENIED, ALREADY_EXISTING, BAD_CRC, CANT_CREATE, CANT_READ, CANT_SEEK, CANT_TELL, CANT_WRITE, CURRENT_DIRECTORY, DEVICE_NOT_READY, DIFFERENT_DEVICES, GENERAL, INVALID_ACCESS, INVALID_CHARACTER, INVALID_DEVICE, INVALID_LENGTH, INVALID_PARAMETER, IS_WILDCARD, LOCKING_VIOLATION, MISPLACED_CHARACTER, NAME_TOO_LONG, NOT_EXISTING, NOT_EXISTING_PATH, NOT_SUPPORTED, NO_DIRECTORY, NO_FILE, OUT_OF_DISK_SPACE, OUT_OF_FILE_HANDLES, OUT_OF_MEMORY, PENDING, RECURSIVE, UNKNOWN, WRITE_PROTECTED, WRONG_FORMAT, WRONG_VERSION)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global IOErrorCode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.IOErrorCode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -75,9 +74,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WRONG_FORMAT": WRONG_FORMAT,
             "WRONG_VERSION": WRONG_VERSION,
         }
+        result = type('IOErrorCode', (object,), _dict)
+        return result
 
-        IOErrorCode = type('IOErrorCode', (object,), _dict)
-    _dynamic_enum()
+    IOErrorCode = _get_enum()
 else:
     from ...lo.ucb.io_error_code import IOErrorCode as IOErrorCode
 

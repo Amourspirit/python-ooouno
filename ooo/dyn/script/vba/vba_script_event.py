@@ -20,54 +20,41 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.script.vba import VBAScriptEvent as UVBAScriptEvent
-        # Dynamically create uno com.sun.star.script.vba.VBAScriptEvent using uno
-        global VBAScriptEvent
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.script.vba.VBAScriptEvent'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.script.vba'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.script.vba.VBAScriptEvent'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Identifier = UNO_NONE, ModuleName = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.script.vba.VBAScriptEvent'
-            if isinstance(Identifier, UVBAScriptEvent):
-                inst = uno.createUnoStruct(ns, Identifier)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Identifier = UNO_NONE, ModuleName = UNO_NONE, **kwargs):
+            if getattr(Identifier, "__class__", None) == self.__class__:
+                orig_init(self, Identifier)
+                return
+            else:
+                orig_init(self)
             if not Identifier is UNO_NONE:
-                if getattr(struct, 'Identifier') != Identifier:
-                    setattr(struct, 'Identifier', Identifier)
+                if getattr(self, 'Identifier') != Identifier:
+                    setattr(self, 'Identifier', Identifier)
             if not ModuleName is UNO_NONE:
-                if getattr(struct, 'ModuleName') != ModuleName:
-                    setattr(struct, 'ModuleName', ModuleName)
+                if getattr(self, 'ModuleName') != ModuleName:
+                    setattr(self, 'ModuleName', ModuleName)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        VBAScriptEvent = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.script.vba.VBAScriptEvent'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.script.vba'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    VBAScriptEvent = _get_class()
+
+
 else:
     from ....lo.script.vba.vba_script_event import VBAScriptEvent as VBAScriptEvent
 

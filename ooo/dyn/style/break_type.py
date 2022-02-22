@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.style.BreakType import (COLUMN_AFTER, COLUMN_BEFORE, COLUMN_BOTH, NONE, PAGE_AFTER, PAGE_BEFORE, PAGE_BOTH)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global BreakType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.style.BreakType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -46,9 +45,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PAGE_BEFORE": PAGE_BEFORE,
             "PAGE_BOTH": PAGE_BOTH,
         }
+        result = type('BreakType', (object,), _dict)
+        return result
 
-        BreakType = type('BreakType', (object,), _dict)
-    _dynamic_enum()
+    BreakType = _get_enum()
 else:
     from ...lo.style.break_type import BreakType as BreakType
 

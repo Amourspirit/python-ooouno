@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.mozilla.MozillaProductType import (Default, Firefox, Mozilla, Thunderbird)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MozillaProductType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.mozilla.MozillaProductType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "Mozilla": Mozilla,
             "Thunderbird": Thunderbird,
         }
+        result = type('MozillaProductType', (object,), _dict)
+        return result
 
-        MozillaProductType = type('MozillaProductType', (object,), _dict)
-    _dynamic_enum()
+    MozillaProductType = _get_enum()
 else:
     from ...lo.mozilla.mozilla_product_type import MozillaProductType as MozillaProductType
 

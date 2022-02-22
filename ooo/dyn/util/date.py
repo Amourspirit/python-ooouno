@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.util import Date as UDate
-        # Dynamically create uno com.sun.star.util.Date using uno
-        global Date
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.util.Date'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.Date'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Day = UNO_NONE, Month = UNO_NONE, Year = UNO_NONE):
-            ns = 'com.sun.star.util.Date'
-            if isinstance(Day, UDate):
-                inst = uno.createUnoStruct(ns, Day)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Day = UNO_NONE, Month = UNO_NONE, Year = UNO_NONE):
+            if getattr(Day, "__class__", None) == self.__class__:
+                orig_init(self, Day)
+                return
+            else:
+                orig_init(self)
             if not Day is UNO_NONE:
-                if getattr(struct, 'Day') != Day:
-                    setattr(struct, 'Day', Day)
+                if getattr(self, 'Day') != Day:
+                    setattr(self, 'Day', Day)
             if not Month is UNO_NONE:
-                if getattr(struct, 'Month') != Month:
-                    setattr(struct, 'Month', Month)
+                if getattr(self, 'Month') != Month:
+                    setattr(self, 'Month', Month)
             if not Year is UNO_NONE:
-                if getattr(struct, 'Year') != Year:
-                    setattr(struct, 'Year', Year)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Date = _struct_init
+                if getattr(self, 'Year') != Year:
+                    setattr(self, 'Year', Year)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.util.Date'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.util'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Date = _get_class()
+
+
 else:
     from ...lo.util.date import Date as Date
 

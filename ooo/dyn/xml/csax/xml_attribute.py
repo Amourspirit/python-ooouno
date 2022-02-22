@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.xml.csax import XMLAttribute as UXMLAttribute
-        # Dynamically create uno com.sun.star.xml.csax.XMLAttribute using uno
-        global XMLAttribute
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.xml.csax.XMLAttribute'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.xml.csax'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.xml.csax.XMLAttribute'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(sName = UNO_NONE, sValue = UNO_NONE):
-            ns = 'com.sun.star.xml.csax.XMLAttribute'
-            if isinstance(sName, UXMLAttribute):
-                inst = uno.createUnoStruct(ns, sName)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, sName = UNO_NONE, sValue = UNO_NONE):
+            if getattr(sName, "__class__", None) == self.__class__:
+                orig_init(self, sName)
+                return
+            else:
+                orig_init(self)
             if not sName is UNO_NONE:
-                if getattr(struct, 'sName') != sName:
-                    setattr(struct, 'sName', sName)
+                if getattr(self, 'sName') != sName:
+                    setattr(self, 'sName', sName)
             if not sValue is UNO_NONE:
-                if getattr(struct, 'sValue') != sValue:
-                    setattr(struct, 'sValue', sValue)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        XMLAttribute = _struct_init
+                if getattr(self, 'sValue') != sValue:
+                    setattr(self, 'sValue', sValue)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.xml.csax.XMLAttribute'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.xml.csax'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    XMLAttribute = _get_class()
+
+
 else:
     from ....lo.xml.csax.xml_attribute import XMLAttribute as XMLAttribute
 

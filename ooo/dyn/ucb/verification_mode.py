@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.VerificationMode import (ALWAYS, NEVER, ONCE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global VerificationMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.VerificationMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NEVER": NEVER,
             "ONCE": ONCE,
         }
+        result = type('VerificationMode', (object,), _dict)
+        return result
 
-        VerificationMode = type('VerificationMode', (object,), _dict)
-    _dynamic_enum()
+    VerificationMode = _get_enum()
 else:
     from ...lo.ucb.verification_mode import VerificationMode as VerificationMode
 

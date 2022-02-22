@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.TextVerticalAdjust import (BLOCK, BOTTOM, CENTER, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TextVerticalAdjust
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextVerticalAdjust Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "CENTER": CENTER,
             "TOP": TOP,
         }
+        result = type('TextVerticalAdjust', (object,), _dict)
+        return result
 
-        TextVerticalAdjust = type('TextVerticalAdjust', (object,), _dict)
-    _dynamic_enum()
+    TextVerticalAdjust = _get_enum()
 else:
     from ...lo.drawing.text_vertical_adjust import TextVerticalAdjust as TextVerticalAdjust
 

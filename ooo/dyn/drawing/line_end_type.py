@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.LineEndType import (ARROW, CIRCLE, NONE, SPECIAL, SQUARE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LineEndType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.LineEndType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SPECIAL": SPECIAL,
             "SQUARE": SQUARE,
         }
+        result = type('LineEndType', (object,), _dict)
+        return result
 
-        LineEndType = type('LineEndType', (object,), _dict)
-    _dynamic_enum()
+    LineEndType = _get_enum()
 else:
     from ...lo.drawing.line_end_type import LineEndType as LineEndType
 

@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart2 import Symbol as USymbol
-        # Dynamically create uno com.sun.star.chart2.Symbol using uno
-        global Symbol
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart2.Symbol'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.Symbol'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Style = UNO_NONE, PolygonCoords = UNO_NONE, StandardSymbol = UNO_NONE, Graphic = UNO_NONE, Size = UNO_NONE, BorderColor = UNO_NONE, FillColor = UNO_NONE):
-            ns = 'com.sun.star.chart2.Symbol'
-            if isinstance(Style, USymbol):
-                inst = uno.createUnoStruct(ns, Style)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Style = UNO_NONE, PolygonCoords = UNO_NONE, StandardSymbol = UNO_NONE, Graphic = UNO_NONE, Size = UNO_NONE, BorderColor = UNO_NONE, FillColor = UNO_NONE):
+            if getattr(Style, "__class__", None) == self.__class__:
+                orig_init(self, Style)
+                return
+            else:
+                orig_init(self)
             if not Style is UNO_NONE:
-                if getattr(struct, 'Style') != Style:
-                    setattr(struct, 'Style', Style)
+                if getattr(self, 'Style') != Style:
+                    setattr(self, 'Style', Style)
             if not PolygonCoords is UNO_NONE:
-                if getattr(struct, 'PolygonCoords') != PolygonCoords:
-                    setattr(struct, 'PolygonCoords', PolygonCoords)
+                if getattr(self, 'PolygonCoords') != PolygonCoords:
+                    setattr(self, 'PolygonCoords', PolygonCoords)
             if not StandardSymbol is UNO_NONE:
-                if getattr(struct, 'StandardSymbol') != StandardSymbol:
-                    setattr(struct, 'StandardSymbol', StandardSymbol)
+                if getattr(self, 'StandardSymbol') != StandardSymbol:
+                    setattr(self, 'StandardSymbol', StandardSymbol)
             if not Graphic is UNO_NONE:
-                if getattr(struct, 'Graphic') != Graphic:
-                    setattr(struct, 'Graphic', Graphic)
+                if getattr(self, 'Graphic') != Graphic:
+                    setattr(self, 'Graphic', Graphic)
             if not Size is UNO_NONE:
-                if getattr(struct, 'Size') != Size:
-                    setattr(struct, 'Size', Size)
+                if getattr(self, 'Size') != Size:
+                    setattr(self, 'Size', Size)
             if not BorderColor is UNO_NONE:
-                if getattr(struct, 'BorderColor') != BorderColor:
-                    setattr(struct, 'BorderColor', BorderColor)
+                if getattr(self, 'BorderColor') != BorderColor:
+                    setattr(self, 'BorderColor', BorderColor)
             if not FillColor is UNO_NONE:
-                if getattr(struct, 'FillColor') != FillColor:
-                    setattr(struct, 'FillColor', FillColor)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Symbol = _struct_init
+                if getattr(self, 'FillColor') != FillColor:
+                    setattr(self, 'FillColor', FillColor)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart2.Symbol'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Symbol = _get_class()
+
+
 else:
     from ...lo.chart2.symbol import Symbol as Symbol
 

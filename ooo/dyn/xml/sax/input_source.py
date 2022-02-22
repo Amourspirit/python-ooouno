@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.xml.sax import InputSource as UInputSource
-        # Dynamically create uno com.sun.star.xml.sax.InputSource using uno
-        global InputSource
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.xml.sax.InputSource'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.xml.sax'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.xml.sax.InputSource'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aInputStream = UNO_NONE, sEncoding = UNO_NONE, sPublicId = UNO_NONE, sSystemId = UNO_NONE):
-            ns = 'com.sun.star.xml.sax.InputSource'
-            if isinstance(aInputStream, UInputSource):
-                inst = uno.createUnoStruct(ns, aInputStream)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aInputStream = UNO_NONE, sEncoding = UNO_NONE, sPublicId = UNO_NONE, sSystemId = UNO_NONE):
+            if getattr(aInputStream, "__class__", None) == self.__class__:
+                orig_init(self, aInputStream)
+                return
+            else:
+                orig_init(self)
             if not aInputStream is UNO_NONE:
-                if getattr(struct, 'aInputStream') != aInputStream:
-                    setattr(struct, 'aInputStream', aInputStream)
+                if getattr(self, 'aInputStream') != aInputStream:
+                    setattr(self, 'aInputStream', aInputStream)
             if not sEncoding is UNO_NONE:
-                if getattr(struct, 'sEncoding') != sEncoding:
-                    setattr(struct, 'sEncoding', sEncoding)
+                if getattr(self, 'sEncoding') != sEncoding:
+                    setattr(self, 'sEncoding', sEncoding)
             if not sPublicId is UNO_NONE:
-                if getattr(struct, 'sPublicId') != sPublicId:
-                    setattr(struct, 'sPublicId', sPublicId)
+                if getattr(self, 'sPublicId') != sPublicId:
+                    setattr(self, 'sPublicId', sPublicId)
             if not sSystemId is UNO_NONE:
-                if getattr(struct, 'sSystemId') != sSystemId:
-                    setattr(struct, 'sSystemId', sSystemId)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        InputSource = _struct_init
+                if getattr(self, 'sSystemId') != sSystemId:
+                    setattr(self, 'sSystemId', sSystemId)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.xml.sax.InputSource'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.xml.sax'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    InputSource = _get_class()
+
+
 else:
     from ....lo.xml.sax.input_source import InputSource as InputSource
 

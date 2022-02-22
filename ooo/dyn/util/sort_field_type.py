@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.util.SortFieldType import (ALPHANUMERIC, AUTOMATIC, NUMERIC)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global SortFieldType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.util.SortFieldType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "AUTOMATIC": AUTOMATIC,
             "NUMERIC": NUMERIC,
         }
+        result = type('SortFieldType', (object,), _dict)
+        return result
 
-        SortFieldType = type('SortFieldType', (object,), _dict)
-    _dynamic_enum()
+    SortFieldType = _get_enum()
 else:
     from ...lo.util.sort_field_type import SortFieldType as SortFieldType
 

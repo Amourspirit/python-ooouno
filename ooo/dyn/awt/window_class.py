@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.awt.WindowClass import (CONTAINER, MODALTOP, SIMPLE, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global WindowClass
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.awt.WindowClass Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SIMPLE": SIMPLE,
             "TOP": TOP,
         }
+        result = type('WindowClass', (object,), _dict)
+        return result
 
-        WindowClass = type('WindowClass', (object,), _dict)
-    _dynamic_enum()
+    WindowClass = _get_enum()
 else:
     from ...lo.awt.window_class import WindowClass as WindowClass
 

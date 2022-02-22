@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart2.CurveStyle import (B_SPLINES, CUBIC_SPLINES, LINES, NURBS, STEP_CENTER_X, STEP_CENTER_Y, STEP_END, STEP_START)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CurveStyle
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart2.CurveStyle Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -47,9 +46,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STEP_END": STEP_END,
             "STEP_START": STEP_START,
         }
+        result = type('CurveStyle', (object,), _dict)
+        return result
 
-        CurveStyle = type('CurveStyle', (object,), _dict)
-    _dynamic_enum()
+    CurveStyle = _get_enum()
 else:
     from ...lo.chart2.curve_style import CurveStyle as CurveStyle
 

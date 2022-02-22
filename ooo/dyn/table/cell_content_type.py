@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.table.CellContentType import (EMPTY, FORMULA, TEXT, VALUE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CellContentType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.table.CellContentType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TEXT": TEXT,
             "VALUE": VALUE,
         }
+        result = type('CellContentType', (object,), _dict)
+        return result
 
-        CellContentType = type('CellContentType', (object,), _dict)
-    _dynamic_enum()
+    CellContentType = _get_enum()
 else:
     from ...lo.table.cell_content_type import CellContentType as CellContentType
 

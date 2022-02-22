@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.table.CellOrientation import (BOTTOMTOP, STACKED, STANDARD, TOPBOTTOM)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CellOrientation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.table.CellOrientation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STANDARD": STANDARD,
             "TOPBOTTOM": TOPBOTTOM,
         }
+        result = type('CellOrientation', (object,), _dict)
+        return result
 
-        CellOrientation = type('CellOrientation', (object,), _dict)
-    _dynamic_enum()
+    CellOrientation = _get_enum()
 else:
     from ...lo.table.cell_orientation import CellOrientation as CellOrientation
 

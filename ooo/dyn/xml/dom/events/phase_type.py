@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.dom.events.PhaseType import (AT_TARGET, BUBBLING_PHASE, CAPTURING_PHASE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PhaseType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.events.PhaseType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "BUBBLING_PHASE": BUBBLING_PHASE,
             "CAPTURING_PHASE": CAPTURING_PHASE,
         }
+        result = type('PhaseType', (object,), _dict)
+        return result
 
-        PhaseType = type('PhaseType', (object,), _dict)
-    _dynamic_enum()
+    PhaseType = _get_enum()
 else:
     from .....lo.xml.dom.events.phase_type import PhaseType as PhaseType
 

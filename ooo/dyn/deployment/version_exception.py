@@ -20,53 +20,46 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
+
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_ex() -> None:
-        import uno
-        # Dynamically create uno com.sun.star.deployment.VersionException using uno
-        global VersionException
-
-        def _set_fn_attr(ex):
-            type_name = 'com.sun.star.deployment.VersionException'
-            ex.__dict__['typeName'] = type_name
-            ex.__dict__['__pyunointerface__'] = type_name
-            ex.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(ex):
-            ex.__dict__['__ooo_ns__'] = 'com.sun.star.deployment'
-            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.deployment.VersionException'
-            ex.__dict__['__ooo_type_name__'] = 'exception'
-
-        def _ex_init(NewVersion = UNO_NONE, NewDisplayName = UNO_NONE, Deployed = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.deployment.VersionException'
-            ex = uno.createUnoStruct(ns)
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, NewVersion = UNO_NONE, NewDisplayName = UNO_NONE, Deployed = UNO_NONE, **kwargs):
+            if getattr(NewVersion, "__class__", None) == self.__class__:
+                orig_init(self, NewVersion)
+                return
+            else:
+                orig_init(self)
             if not NewVersion is UNO_NONE:
-                if getattr(ex, 'NewVersion') != NewVersion:
-                    setattr(ex, 'NewVersion', NewVersion)
+                if getattr(self, 'NewVersion') != NewVersion:
+                    setattr(self, 'NewVersion', NewVersion)
             if not NewDisplayName is UNO_NONE:
-                if getattr(ex, 'NewDisplayName') != NewDisplayName:
-                    setattr(ex, 'NewDisplayName', NewDisplayName)
+                if getattr(self, 'NewDisplayName') != NewDisplayName:
+                    setattr(self, 'NewDisplayName', NewDisplayName)
             if not Deployed is UNO_NONE:
-                if getattr(ex, 'Deployed') != Deployed:
-                    setattr(ex, 'Deployed', Deployed)
+                if getattr(self, 'Deployed') != Deployed:
+                    setattr(self, 'Deployed', Deployed)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(ex)
-            return ex
-        _set_attr(_ex_init)
-        _set_fn_attr(_ex_init)
-        VersionException = _ex_init
+                    setattr(self, k, v)
 
-    _dynamic_ex()
+        type_name = 'com.sun.star.deployment.VersionException'
+        ex = uno.getClass(type_name)
+        ex.__ooo_ns__ = 'com.sun.star.deployment'
+        ex.__ooo_full_ns__= type_name
+        ex.__ooo_type_name__ = 'exception'
+        orig_init = ex.__init__
+        ex.__init__ = init
+        return ex
+
+    VersionException = _get_class()
+
 else:
     from ...lo.deployment.version_exception import VersionException as VersionException
-    
+
 __all__ = ['VersionException']
 

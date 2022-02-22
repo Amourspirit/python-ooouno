@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.embed import VerbDescriptor as UVerbDescriptor
-        # Dynamically create uno com.sun.star.embed.VerbDescriptor using uno
-        global VerbDescriptor
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.embed.VerbDescriptor'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.embed'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.embed.VerbDescriptor'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(VerbID = UNO_NONE, VerbName = UNO_NONE, VerbFlags = UNO_NONE, VerbAttributes = UNO_NONE):
-            ns = 'com.sun.star.embed.VerbDescriptor'
-            if isinstance(VerbID, UVerbDescriptor):
-                inst = uno.createUnoStruct(ns, VerbID)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, VerbID = UNO_NONE, VerbName = UNO_NONE, VerbFlags = UNO_NONE, VerbAttributes = UNO_NONE):
+            if getattr(VerbID, "__class__", None) == self.__class__:
+                orig_init(self, VerbID)
+                return
+            else:
+                orig_init(self)
             if not VerbID is UNO_NONE:
-                if getattr(struct, 'VerbID') != VerbID:
-                    setattr(struct, 'VerbID', VerbID)
+                if getattr(self, 'VerbID') != VerbID:
+                    setattr(self, 'VerbID', VerbID)
             if not VerbName is UNO_NONE:
-                if getattr(struct, 'VerbName') != VerbName:
-                    setattr(struct, 'VerbName', VerbName)
+                if getattr(self, 'VerbName') != VerbName:
+                    setattr(self, 'VerbName', VerbName)
             if not VerbFlags is UNO_NONE:
-                if getattr(struct, 'VerbFlags') != VerbFlags:
-                    setattr(struct, 'VerbFlags', VerbFlags)
+                if getattr(self, 'VerbFlags') != VerbFlags:
+                    setattr(self, 'VerbFlags', VerbFlags)
             if not VerbAttributes is UNO_NONE:
-                if getattr(struct, 'VerbAttributes') != VerbAttributes:
-                    setattr(struct, 'VerbAttributes', VerbAttributes)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        VerbDescriptor = _struct_init
+                if getattr(self, 'VerbAttributes') != VerbAttributes:
+                    setattr(self, 'VerbAttributes', VerbAttributes)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.embed.VerbDescriptor'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.embed'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    VerbDescriptor = _get_class()
+
+
 else:
     from ...lo.embed.verb_descriptor import VerbDescriptor as VerbDescriptor
 

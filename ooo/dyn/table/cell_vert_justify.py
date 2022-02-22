@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.table.CellVertJustify import (BOTTOM, CENTER, STANDARD, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CellVertJustify
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.table.CellVertJustify Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STANDARD": STANDARD,
             "TOP": TOP,
         }
+        result = type('CellVertJustify', (object,), _dict)
+        return result
 
-        CellVertJustify = type('CellVertJustify', (object,), _dict)
-    _dynamic_enum()
+    CellVertJustify = _get_enum()
 else:
     from ...lo.table.cell_vert_justify import CellVertJustify as CellVertJustify
 

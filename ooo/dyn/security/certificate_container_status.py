@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.security.CertificateContainerStatus import (NOCERT, TRUSTED, UNTRUSTED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CertificateContainerStatus
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.security.CertificateContainerStatus Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TRUSTED": TRUSTED,
             "UNTRUSTED": UNTRUSTED,
         }
+        result = type('CertificateContainerStatus', (object,), _dict)
+        return result
 
-        CertificateContainerStatus = type('CertificateContainerStatus', (object,), _dict)
-    _dynamic_enum()
+    CertificateContainerStatus = _get_enum()
 else:
     from ...lo.security.certificate_container_status import CertificateContainerStatus as CertificateContainerStatus
 

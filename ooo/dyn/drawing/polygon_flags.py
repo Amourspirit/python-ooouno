@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.PolygonFlags import (CONTROL, NORMAL, SMOOTH, SYMMETRIC)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PolygonFlags
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.PolygonFlags Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SMOOTH": SMOOTH,
             "SYMMETRIC": SYMMETRIC,
         }
+        result = type('PolygonFlags', (object,), _dict)
+        return result
 
-        PolygonFlags = type('PolygonFlags', (object,), _dict)
-    _dynamic_enum()
+    PolygonFlags = _get_enum()
 else:
     from ...lo.drawing.polygon_flags import PolygonFlags as PolygonFlags
 

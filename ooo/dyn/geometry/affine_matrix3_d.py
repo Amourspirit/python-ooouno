@@ -20,79 +20,66 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.geometry import AffineMatrix3D as UAffineMatrix3D
-        # Dynamically create uno com.sun.star.geometry.AffineMatrix3D using uno
-        global AffineMatrix3D
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.geometry.AffineMatrix3D'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.geometry'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.AffineMatrix3D'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(m00 = UNO_NONE, m01 = UNO_NONE, m02 = UNO_NONE, m03 = UNO_NONE, m10 = UNO_NONE, m11 = UNO_NONE, m12 = UNO_NONE, m13 = UNO_NONE, m20 = UNO_NONE, m21 = UNO_NONE, m22 = UNO_NONE, m23 = UNO_NONE):
-            ns = 'com.sun.star.geometry.AffineMatrix3D'
-            if isinstance(m00, UAffineMatrix3D):
-                inst = uno.createUnoStruct(ns, m00)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, m00 = UNO_NONE, m01 = UNO_NONE, m02 = UNO_NONE, m03 = UNO_NONE, m10 = UNO_NONE, m11 = UNO_NONE, m12 = UNO_NONE, m13 = UNO_NONE, m20 = UNO_NONE, m21 = UNO_NONE, m22 = UNO_NONE, m23 = UNO_NONE):
+            if getattr(m00, "__class__", None) == self.__class__:
+                orig_init(self, m00)
+                return
+            else:
+                orig_init(self)
             if not m00 is UNO_NONE:
-                if getattr(struct, 'm00') != m00:
-                    setattr(struct, 'm00', m00)
+                if getattr(self, 'm00') != m00:
+                    setattr(self, 'm00', m00)
             if not m01 is UNO_NONE:
-                if getattr(struct, 'm01') != m01:
-                    setattr(struct, 'm01', m01)
+                if getattr(self, 'm01') != m01:
+                    setattr(self, 'm01', m01)
             if not m02 is UNO_NONE:
-                if getattr(struct, 'm02') != m02:
-                    setattr(struct, 'm02', m02)
+                if getattr(self, 'm02') != m02:
+                    setattr(self, 'm02', m02)
             if not m03 is UNO_NONE:
-                if getattr(struct, 'm03') != m03:
-                    setattr(struct, 'm03', m03)
+                if getattr(self, 'm03') != m03:
+                    setattr(self, 'm03', m03)
             if not m10 is UNO_NONE:
-                if getattr(struct, 'm10') != m10:
-                    setattr(struct, 'm10', m10)
+                if getattr(self, 'm10') != m10:
+                    setattr(self, 'm10', m10)
             if not m11 is UNO_NONE:
-                if getattr(struct, 'm11') != m11:
-                    setattr(struct, 'm11', m11)
+                if getattr(self, 'm11') != m11:
+                    setattr(self, 'm11', m11)
             if not m12 is UNO_NONE:
-                if getattr(struct, 'm12') != m12:
-                    setattr(struct, 'm12', m12)
+                if getattr(self, 'm12') != m12:
+                    setattr(self, 'm12', m12)
             if not m13 is UNO_NONE:
-                if getattr(struct, 'm13') != m13:
-                    setattr(struct, 'm13', m13)
+                if getattr(self, 'm13') != m13:
+                    setattr(self, 'm13', m13)
             if not m20 is UNO_NONE:
-                if getattr(struct, 'm20') != m20:
-                    setattr(struct, 'm20', m20)
+                if getattr(self, 'm20') != m20:
+                    setattr(self, 'm20', m20)
             if not m21 is UNO_NONE:
-                if getattr(struct, 'm21') != m21:
-                    setattr(struct, 'm21', m21)
+                if getattr(self, 'm21') != m21:
+                    setattr(self, 'm21', m21)
             if not m22 is UNO_NONE:
-                if getattr(struct, 'm22') != m22:
-                    setattr(struct, 'm22', m22)
+                if getattr(self, 'm22') != m22:
+                    setattr(self, 'm22', m22)
             if not m23 is UNO_NONE:
-                if getattr(struct, 'm23') != m23:
-                    setattr(struct, 'm23', m23)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        AffineMatrix3D = _struct_init
+                if getattr(self, 'm23') != m23:
+                    setattr(self, 'm23', m23)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.geometry.AffineMatrix3D'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.geometry'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    AffineMatrix3D = _get_class()
+
+
 else:
     from ...lo.geometry.affine_matrix3_d import AffineMatrix3D as AffineMatrix3D
 

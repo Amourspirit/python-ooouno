@@ -20,54 +20,41 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.ucb import RemoteContentProviderChangeEvent as URemoteContentProviderChangeEvent
-        # Dynamically create uno com.sun.star.ucb.RemoteContentProviderChangeEvent using uno
-        global RemoteContentProviderChangeEvent
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.ucb.RemoteContentProviderChangeEvent'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.ucb'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.RemoteContentProviderChangeEvent'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Identifier = UNO_NONE, Action = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.ucb.RemoteContentProviderChangeEvent'
-            if isinstance(Identifier, URemoteContentProviderChangeEvent):
-                inst = uno.createUnoStruct(ns, Identifier)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Identifier = UNO_NONE, Action = UNO_NONE, **kwargs):
+            if getattr(Identifier, "__class__", None) == self.__class__:
+                orig_init(self, Identifier)
+                return
+            else:
+                orig_init(self)
             if not Identifier is UNO_NONE:
-                if getattr(struct, 'Identifier') != Identifier:
-                    setattr(struct, 'Identifier', Identifier)
+                if getattr(self, 'Identifier') != Identifier:
+                    setattr(self, 'Identifier', Identifier)
             if not Action is UNO_NONE:
-                if getattr(struct, 'Action') != Action:
-                    setattr(struct, 'Action', Action)
+                if getattr(self, 'Action') != Action:
+                    setattr(self, 'Action', Action)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        RemoteContentProviderChangeEvent = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.ucb.RemoteContentProviderChangeEvent'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.ucb'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    RemoteContentProviderChangeEvent = _get_class()
+
+
 else:
     from ...lo.ucb.remote_content_provider_change_event import RemoteContentProviderChangeEvent as RemoteContentProviderChangeEvent
 

@@ -20,70 +20,57 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import FontInfo as UFontInfo
-        # Dynamically create uno com.sun.star.rendering.FontInfo using uno
-        global FontInfo
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.FontInfo'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.FontInfo'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(FontDescription = UNO_NONE, FamilyName = UNO_NONE, StyleName = UNO_NONE, UnicodeRanges0 = UNO_NONE, UnicodeRanges1 = UNO_NONE, UnicodeRanges2 = UNO_NONE, UnicodeRanges3 = UNO_NONE, IsSymbolFont = UNO_NONE, IsVertical = UNO_NONE):
-            ns = 'com.sun.star.rendering.FontInfo'
-            if isinstance(FontDescription, UFontInfo):
-                inst = uno.createUnoStruct(ns, FontDescription)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, FontDescription = UNO_NONE, FamilyName = UNO_NONE, StyleName = UNO_NONE, UnicodeRanges0 = UNO_NONE, UnicodeRanges1 = UNO_NONE, UnicodeRanges2 = UNO_NONE, UnicodeRanges3 = UNO_NONE, IsSymbolFont = UNO_NONE, IsVertical = UNO_NONE):
+            if getattr(FontDescription, "__class__", None) == self.__class__:
+                orig_init(self, FontDescription)
+                return
+            else:
+                orig_init(self)
             if not FontDescription is UNO_NONE:
-                if getattr(struct, 'FontDescription') != FontDescription:
-                    setattr(struct, 'FontDescription', FontDescription)
+                if getattr(self, 'FontDescription') != FontDescription:
+                    setattr(self, 'FontDescription', FontDescription)
             if not FamilyName is UNO_NONE:
-                if getattr(struct, 'FamilyName') != FamilyName:
-                    setattr(struct, 'FamilyName', FamilyName)
+                if getattr(self, 'FamilyName') != FamilyName:
+                    setattr(self, 'FamilyName', FamilyName)
             if not StyleName is UNO_NONE:
-                if getattr(struct, 'StyleName') != StyleName:
-                    setattr(struct, 'StyleName', StyleName)
+                if getattr(self, 'StyleName') != StyleName:
+                    setattr(self, 'StyleName', StyleName)
             if not UnicodeRanges0 is UNO_NONE:
-                if getattr(struct, 'UnicodeRanges0') != UnicodeRanges0:
-                    setattr(struct, 'UnicodeRanges0', UnicodeRanges0)
+                if getattr(self, 'UnicodeRanges0') != UnicodeRanges0:
+                    setattr(self, 'UnicodeRanges0', UnicodeRanges0)
             if not UnicodeRanges1 is UNO_NONE:
-                if getattr(struct, 'UnicodeRanges1') != UnicodeRanges1:
-                    setattr(struct, 'UnicodeRanges1', UnicodeRanges1)
+                if getattr(self, 'UnicodeRanges1') != UnicodeRanges1:
+                    setattr(self, 'UnicodeRanges1', UnicodeRanges1)
             if not UnicodeRanges2 is UNO_NONE:
-                if getattr(struct, 'UnicodeRanges2') != UnicodeRanges2:
-                    setattr(struct, 'UnicodeRanges2', UnicodeRanges2)
+                if getattr(self, 'UnicodeRanges2') != UnicodeRanges2:
+                    setattr(self, 'UnicodeRanges2', UnicodeRanges2)
             if not UnicodeRanges3 is UNO_NONE:
-                if getattr(struct, 'UnicodeRanges3') != UnicodeRanges3:
-                    setattr(struct, 'UnicodeRanges3', UnicodeRanges3)
+                if getattr(self, 'UnicodeRanges3') != UnicodeRanges3:
+                    setattr(self, 'UnicodeRanges3', UnicodeRanges3)
             if not IsSymbolFont is UNO_NONE:
-                if getattr(struct, 'IsSymbolFont') != IsSymbolFont:
-                    setattr(struct, 'IsSymbolFont', IsSymbolFont)
+                if getattr(self, 'IsSymbolFont') != IsSymbolFont:
+                    setattr(self, 'IsSymbolFont', IsSymbolFont)
             if not IsVertical is UNO_NONE:
-                if getattr(struct, 'IsVertical') != IsVertical:
-                    setattr(struct, 'IsVertical', IsVertical)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FontInfo = _struct_init
+                if getattr(self, 'IsVertical') != IsVertical:
+                    setattr(self, 'IsVertical', IsVertical)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.FontInfo'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FontInfo = _get_class()
+
+
 else:
     from ...lo.rendering.font_info import FontInfo as FontInfo
 

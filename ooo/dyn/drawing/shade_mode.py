@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.ShadeMode import (DRAFT, FLAT, PHONG, SMOOTH)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ShadeMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.ShadeMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PHONG": PHONG,
             "SMOOTH": SMOOTH,
         }
+        result = type('ShadeMode', (object,), _dict)
+        return result
 
-        ShadeMode = type('ShadeMode', (object,), _dict)
-    _dynamic_enum()
+    ShadeMode = _get_enum()
 else:
     from ...lo.drawing.shade_mode import ShadeMode as ShadeMode
 

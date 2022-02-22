@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.util.SearchAlgorithms import (ABSOLUTE, APPROXIMATE, REGEXP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global SearchAlgorithms
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.util.SearchAlgorithms Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "APPROXIMATE": APPROXIMATE,
             "REGEXP": REGEXP,
         }
+        result = type('SearchAlgorithms', (object,), _dict)
+        return result
 
-        SearchAlgorithms = type('SearchAlgorithms', (object,), _dict)
-    _dynamic_enum()
+    SearchAlgorithms = _get_enum()
 else:
     from ...lo.util.search_algorithms import SearchAlgorithms as SearchAlgorithms
 

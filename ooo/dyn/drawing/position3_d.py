@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.drawing import Position3D as UPosition3D
-        # Dynamically create uno com.sun.star.drawing.Position3D using uno
-        global Position3D
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.drawing.Position3D'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.Position3D'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(PositionX = UNO_NONE, PositionY = UNO_NONE, PositionZ = UNO_NONE):
-            ns = 'com.sun.star.drawing.Position3D'
-            if isinstance(PositionX, UPosition3D):
-                inst = uno.createUnoStruct(ns, PositionX)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, PositionX = UNO_NONE, PositionY = UNO_NONE, PositionZ = UNO_NONE):
+            if getattr(PositionX, "__class__", None) == self.__class__:
+                orig_init(self, PositionX)
+                return
+            else:
+                orig_init(self)
             if not PositionX is UNO_NONE:
-                if getattr(struct, 'PositionX') != PositionX:
-                    setattr(struct, 'PositionX', PositionX)
+                if getattr(self, 'PositionX') != PositionX:
+                    setattr(self, 'PositionX', PositionX)
             if not PositionY is UNO_NONE:
-                if getattr(struct, 'PositionY') != PositionY:
-                    setattr(struct, 'PositionY', PositionY)
+                if getattr(self, 'PositionY') != PositionY:
+                    setattr(self, 'PositionY', PositionY)
             if not PositionZ is UNO_NONE:
-                if getattr(struct, 'PositionZ') != PositionZ:
-                    setattr(struct, 'PositionZ', PositionZ)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Position3D = _struct_init
+                if getattr(self, 'PositionZ') != PositionZ:
+                    setattr(self, 'PositionZ', PositionZ)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.drawing.Position3D'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.drawing'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Position3D = _get_class()
+
+
 else:
     from ...lo.drawing.position3_d import Position3D as Position3D
 

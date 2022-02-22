@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.table.ShadowLocation import (BOTTOM_LEFT, BOTTOM_RIGHT, NONE, TOP_LEFT, TOP_RIGHT)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ShadowLocation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.table.ShadowLocation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP_LEFT": TOP_LEFT,
             "TOP_RIGHT": TOP_RIGHT,
         }
+        result = type('ShadowLocation', (object,), _dict)
+        return result
 
-        ShadowLocation = type('ShadowLocation', (object,), _dict)
-    _dynamic_enum()
+    ShadowLocation = _get_enum()
 else:
     from ...lo.table.shadow_location import ShadowLocation as ShadowLocation
 

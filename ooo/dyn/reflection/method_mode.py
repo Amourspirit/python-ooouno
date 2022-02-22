@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.reflection.MethodMode import (ONEWAY, TWOWAY)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MethodMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.reflection.MethodMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ONEWAY": ONEWAY,
             "TWOWAY": TWOWAY,
         }
+        result = type('MethodMode', (object,), _dict)
+        return result
 
-        MethodMode = type('MethodMode', (object,), _dict)
-    _dynamic_enum()
+    MethodMode = _get_enum()
 else:
     from ...lo.reflection.method_mode import MethodMode as MethodMode
 

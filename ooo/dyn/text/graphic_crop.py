@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.text import GraphicCrop as UGraphicCrop
-        # Dynamically create uno com.sun.star.text.GraphicCrop using uno
-        global GraphicCrop
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.text.GraphicCrop'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.text'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.GraphicCrop'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Top = UNO_NONE, Bottom = UNO_NONE, Left = UNO_NONE, Right = UNO_NONE):
-            ns = 'com.sun.star.text.GraphicCrop'
-            if isinstance(Top, UGraphicCrop):
-                inst = uno.createUnoStruct(ns, Top)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Top = UNO_NONE, Bottom = UNO_NONE, Left = UNO_NONE, Right = UNO_NONE):
+            if getattr(Top, "__class__", None) == self.__class__:
+                orig_init(self, Top)
+                return
+            else:
+                orig_init(self)
             if not Top is UNO_NONE:
-                if getattr(struct, 'Top') != Top:
-                    setattr(struct, 'Top', Top)
+                if getattr(self, 'Top') != Top:
+                    setattr(self, 'Top', Top)
             if not Bottom is UNO_NONE:
-                if getattr(struct, 'Bottom') != Bottom:
-                    setattr(struct, 'Bottom', Bottom)
+                if getattr(self, 'Bottom') != Bottom:
+                    setattr(self, 'Bottom', Bottom)
             if not Left is UNO_NONE:
-                if getattr(struct, 'Left') != Left:
-                    setattr(struct, 'Left', Left)
+                if getattr(self, 'Left') != Left:
+                    setattr(self, 'Left', Left)
             if not Right is UNO_NONE:
-                if getattr(struct, 'Right') != Right:
-                    setattr(struct, 'Right', Right)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        GraphicCrop = _struct_init
+                if getattr(self, 'Right') != Right:
+                    setattr(self, 'Right', Right)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.text.GraphicCrop'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.text'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    GraphicCrop = _get_class()
+
+
 else:
     from ...lo.text.graphic_crop import GraphicCrop as GraphicCrop
 

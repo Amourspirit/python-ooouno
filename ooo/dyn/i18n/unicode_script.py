@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.i18n.UnicodeScript import (kAlphabeticPresentation, kArabic, kArabicPresentationA, kArabicPresentationB, kArmenian, kArrow, kBasicLatin, kBengali, kBlockElement, kBopomofo, kBopomofoExtended, kBoxDrawing, kBraillePatterns, kCJKCompatibility, kCJKCompatibilityForm, kCJKCompatibilityIdeograph, kCJKRadicalsSupplement, kCJKSymbolPunctuation, kCJKUnifiedIdeograph, kCherokee, kCombiningDiacritical, kCombiningHalfMark, kControlPicture, kCurrencySymbolScript, kCyrillic, kDevanagari, kDingbat, kEnclosedAlphanumeric, kEnclosedCJKLetterMonth, kEthiopic, kGeneralPunctuation, kGeometricShape, kGeorgian, kGreek, kGreekExtended, kGujarati, kGurmukhi, kHalfwidthFullwidthForm, kHangulCompatibilityJamo, kHangulJamo, kHangulSyllable, kHebrew, kHighPrivateUseSurrogate, kHighSurrogate, kHiragana, kIPAExtension, kIdeographicDescriptionCharacters, kKanbun, kKangxiRadicals, kKannada, kKatakana, kKhmer, kLao, kLatin1Supplement, kLatinExtendedA, kLatinExtendedAdditional, kLatinExtendedB, kLetterlikeSymbol, kLowSurrogate, kMalayalam, kMathOperator, kMiscSymbol, kMiscTechnical, kMongolian, kMyanmar, kNoScript, kNumberForm, kOgham, kOpticalCharacter, kOriya, kPrivateUse, kRunic, kScriptCount, kSinhala, kSmallFormVariant, kSpacingModifier, kSuperSubScript, kSymbolCombiningMark, kSyriac, kTamil, kTelugu, kThaana, kThai, kTibetan, kUnifiedCanadianAboriginalSyllabics, kYiRadicals, kYiSyllables, k_CJKUnifiedIdeographsExtensionA)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global UnicodeScript
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.i18n.UnicodeScript Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -127,9 +126,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "kYiSyllables": kYiSyllables,
             "k_CJKUnifiedIdeographsExtensionA": k_CJKUnifiedIdeographsExtensionA,
         }
+        result = type('UnicodeScript', (object,), _dict)
+        return result
 
-        UnicodeScript = type('UnicodeScript', (object,), _dict)
-    _dynamic_enum()
+    UnicodeScript = _get_enum()
 else:
     from ...lo.i18n.unicode_script import UnicodeScript as UnicodeScript
 

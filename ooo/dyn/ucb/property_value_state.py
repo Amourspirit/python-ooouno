@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.PropertyValueState import (INVALID_NAME, INVALID_TYPE, PROCESSED, UNPROCESSED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PropertyValueState
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.PropertyValueState Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PROCESSED": PROCESSED,
             "UNPROCESSED": UNPROCESSED,
         }
+        result = type('PropertyValueState', (object,), _dict)
+        return result
 
-        PropertyValueState = type('PropertyValueState', (object,), _dict)
-    _dynamic_enum()
+    PropertyValueState = _get_enum()
 else:
     from ...lo.ucb.property_value_state import PropertyValueState as PropertyValueState
 

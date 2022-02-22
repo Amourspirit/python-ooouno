@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.dom.NodeType import (ATTRIBUTE_NODE, CDATA_SECTION_NODE, COMMENT_NODE, DOCUMENT_FRAGMENT_NODE, DOCUMENT_NODE, DOCUMENT_TYPE_NODE, ELEMENT_NODE, ENTITY_NODE, ENTITY_REFERENCE_NODE, NOTATION_NODE, PROCESSING_INSTRUCTION_NODE, TEXT_NODE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global NodeType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.NodeType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -51,9 +50,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PROCESSING_INSTRUCTION_NODE": PROCESSING_INSTRUCTION_NODE,
             "TEXT_NODE": TEXT_NODE,
         }
+        result = type('NodeType', (object,), _dict)
+        return result
 
-        NodeType = type('NodeType', (object,), _dict)
-    _dynamic_enum()
+    NodeType = _get_enum()
 else:
     from ....lo.xml.dom.node_type import NodeType as NodeType
 

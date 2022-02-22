@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.util.TriState import (INDETERMINATE, NO, YES)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TriState
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.util.TriState Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NO": NO,
             "YES": YES,
         }
+        result = type('TriState', (object,), _dict)
+        return result
 
-        TriState = type('TriState', (object,), _dict)
-    _dynamic_enum()
+    TriState = _get_enum()
 else:
     from ...lo.util.tri_state import TriState as TriState
 

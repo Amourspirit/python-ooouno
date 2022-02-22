@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.DataPilotFieldOrientation import (COLUMN, DATA, HIDDEN, PAGE, ROW)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DataPilotFieldOrientation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.DataPilotFieldOrientation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PAGE": PAGE,
             "ROW": ROW,
         }
+        result = type('DataPilotFieldOrientation', (object,), _dict)
+        return result
 
-        DataPilotFieldOrientation = type('DataPilotFieldOrientation', (object,), _dict)
-    _dynamic_enum()
+    DataPilotFieldOrientation = _get_enum()
 else:
     from ...lo.sheet.data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation
 

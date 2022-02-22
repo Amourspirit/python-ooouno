@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.framework.BorderType import (INNER_BORDER, OUTER_BORDER, TOTAL_BORDER)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global BorderType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.framework.BorderType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "OUTER_BORDER": OUTER_BORDER,
             "TOTAL_BORDER": TOTAL_BORDER,
         }
+        result = type('BorderType', (object,), _dict)
+        return result
 
-        BorderType = type('BorderType', (object,), _dict)
-    _dynamic_enum()
+    BorderType = _get_enum()
 else:
     from ....lo.drawing.framework.border_type import BorderType as BorderType
 

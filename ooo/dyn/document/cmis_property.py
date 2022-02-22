@@ -20,70 +20,57 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.document import CmisProperty as UCmisProperty
-        # Dynamically create uno com.sun.star.document.CmisProperty using uno
-        global CmisProperty
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.document.CmisProperty'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.document'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.document.CmisProperty'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Id = UNO_NONE, Name = UNO_NONE, Type = UNO_NONE, Updatable = UNO_NONE, Required = UNO_NONE, MultiValued = UNO_NONE, OpenChoice = UNO_NONE, Choices = UNO_NONE, Value = UNO_NONE):
-            ns = 'com.sun.star.document.CmisProperty'
-            if isinstance(Id, UCmisProperty):
-                inst = uno.createUnoStruct(ns, Id)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Id = UNO_NONE, Name = UNO_NONE, Type = UNO_NONE, Updatable = UNO_NONE, Required = UNO_NONE, MultiValued = UNO_NONE, OpenChoice = UNO_NONE, Choices = UNO_NONE, Value = UNO_NONE):
+            if getattr(Id, "__class__", None) == self.__class__:
+                orig_init(self, Id)
+                return
+            else:
+                orig_init(self)
             if not Id is UNO_NONE:
-                if getattr(struct, 'Id') != Id:
-                    setattr(struct, 'Id', Id)
+                if getattr(self, 'Id') != Id:
+                    setattr(self, 'Id', Id)
             if not Name is UNO_NONE:
-                if getattr(struct, 'Name') != Name:
-                    setattr(struct, 'Name', Name)
+                if getattr(self, 'Name') != Name:
+                    setattr(self, 'Name', Name)
             if not Type is UNO_NONE:
-                if getattr(struct, 'Type') != Type:
-                    setattr(struct, 'Type', Type)
+                if getattr(self, 'Type') != Type:
+                    setattr(self, 'Type', Type)
             if not Updatable is UNO_NONE:
-                if getattr(struct, 'Updatable') != Updatable:
-                    setattr(struct, 'Updatable', Updatable)
+                if getattr(self, 'Updatable') != Updatable:
+                    setattr(self, 'Updatable', Updatable)
             if not Required is UNO_NONE:
-                if getattr(struct, 'Required') != Required:
-                    setattr(struct, 'Required', Required)
+                if getattr(self, 'Required') != Required:
+                    setattr(self, 'Required', Required)
             if not MultiValued is UNO_NONE:
-                if getattr(struct, 'MultiValued') != MultiValued:
-                    setattr(struct, 'MultiValued', MultiValued)
+                if getattr(self, 'MultiValued') != MultiValued:
+                    setattr(self, 'MultiValued', MultiValued)
             if not OpenChoice is UNO_NONE:
-                if getattr(struct, 'OpenChoice') != OpenChoice:
-                    setattr(struct, 'OpenChoice', OpenChoice)
+                if getattr(self, 'OpenChoice') != OpenChoice:
+                    setattr(self, 'OpenChoice', OpenChoice)
             if not Choices is UNO_NONE:
-                if getattr(struct, 'Choices') != Choices:
-                    setattr(struct, 'Choices', Choices)
+                if getattr(self, 'Choices') != Choices:
+                    setattr(self, 'Choices', Choices)
             if not Value is UNO_NONE:
-                if getattr(struct, 'Value') != Value:
-                    setattr(struct, 'Value', Value)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        CmisProperty = _struct_init
+                if getattr(self, 'Value') != Value:
+                    setattr(self, 'Value', Value)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.document.CmisProperty'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.document'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    CmisProperty = _get_class()
+
+
 else:
     from ...lo.document.cmis_property import CmisProperty as CmisProperty
 

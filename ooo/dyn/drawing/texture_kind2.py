@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.TextureKind2 import (COLOR, INTENSITY, LUMINANCE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TextureKind2
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextureKind2 Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "INTENSITY": INTENSITY,
             "LUMINANCE": LUMINANCE,
         }
+        result = type('TextureKind2', (object,), _dict)
+        return result
 
-        TextureKind2 = type('TextureKind2', (object,), _dict)
-    _dynamic_enum()
+    TextureKind2 = _get_enum()
 else:
     from ...lo.drawing.texture_kind2 import TextureKind2 as TextureKind2
 

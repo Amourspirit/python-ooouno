@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.TextAdjust import (BLOCK, CENTER, LEFT, RIGHT, STRETCH)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TextAdjust
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextAdjust Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT": RIGHT,
             "STRETCH": STRETCH,
         }
+        result = type('TextAdjust', (object,), _dict)
+        return result
 
-        TextAdjust = type('TextAdjust', (object,), _dict)
-    _dynamic_enum()
+    TextAdjust = _get_enum()
 else:
     from ...lo.drawing.text_adjust import TextAdjust as TextAdjust
 

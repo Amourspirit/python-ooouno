@@ -20,58 +20,45 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.accessibility import AccessibleTableModelChange as UAccessibleTableModelChange
-        # Dynamically create uno com.sun.star.accessibility.AccessibleTableModelChange using uno
-        global AccessibleTableModelChange
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.accessibility.AccessibleTableModelChange'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.accessibility'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleTableModelChange'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Type = UNO_NONE, FirstRow = UNO_NONE, LastRow = UNO_NONE, FirstColumn = UNO_NONE, LastColumn = UNO_NONE):
-            ns = 'com.sun.star.accessibility.AccessibleTableModelChange'
-            if isinstance(Type, UAccessibleTableModelChange):
-                inst = uno.createUnoStruct(ns, Type)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Type = UNO_NONE, FirstRow = UNO_NONE, LastRow = UNO_NONE, FirstColumn = UNO_NONE, LastColumn = UNO_NONE):
+            if getattr(Type, "__class__", None) == self.__class__:
+                orig_init(self, Type)
+                return
+            else:
+                orig_init(self)
             if not Type is UNO_NONE:
-                if getattr(struct, 'Type') != Type:
-                    setattr(struct, 'Type', Type)
+                if getattr(self, 'Type') != Type:
+                    setattr(self, 'Type', Type)
             if not FirstRow is UNO_NONE:
-                if getattr(struct, 'FirstRow') != FirstRow:
-                    setattr(struct, 'FirstRow', FirstRow)
+                if getattr(self, 'FirstRow') != FirstRow:
+                    setattr(self, 'FirstRow', FirstRow)
             if not LastRow is UNO_NONE:
-                if getattr(struct, 'LastRow') != LastRow:
-                    setattr(struct, 'LastRow', LastRow)
+                if getattr(self, 'LastRow') != LastRow:
+                    setattr(self, 'LastRow', LastRow)
             if not FirstColumn is UNO_NONE:
-                if getattr(struct, 'FirstColumn') != FirstColumn:
-                    setattr(struct, 'FirstColumn', FirstColumn)
+                if getattr(self, 'FirstColumn') != FirstColumn:
+                    setattr(self, 'FirstColumn', FirstColumn)
             if not LastColumn is UNO_NONE:
-                if getattr(struct, 'LastColumn') != LastColumn:
-                    setattr(struct, 'LastColumn', LastColumn)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        AccessibleTableModelChange = _struct_init
+                if getattr(self, 'LastColumn') != LastColumn:
+                    setattr(self, 'LastColumn', LastColumn)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.accessibility.AccessibleTableModelChange'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.accessibility'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    AccessibleTableModelChange = _get_class()
+
+
 else:
     from ...lo.accessibility.accessible_table_model_change import AccessibleTableModelChange as AccessibleTableModelChange
 

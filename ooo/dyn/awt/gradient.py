@@ -20,73 +20,60 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.awt import Gradient as UGradient
-        # Dynamically create uno com.sun.star.awt.Gradient using uno
-        global Gradient
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.awt.Gradient'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.awt'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.Gradient'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Style = UNO_NONE, StartColor = UNO_NONE, EndColor = UNO_NONE, Angle = UNO_NONE, Border = UNO_NONE, XOffset = UNO_NONE, YOffset = UNO_NONE, StartIntensity = UNO_NONE, EndIntensity = UNO_NONE, StepCount = UNO_NONE):
-            ns = 'com.sun.star.awt.Gradient'
-            if isinstance(Style, UGradient):
-                inst = uno.createUnoStruct(ns, Style)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Style = UNO_NONE, StartColor = UNO_NONE, EndColor = UNO_NONE, Angle = UNO_NONE, Border = UNO_NONE, XOffset = UNO_NONE, YOffset = UNO_NONE, StartIntensity = UNO_NONE, EndIntensity = UNO_NONE, StepCount = UNO_NONE):
+            if getattr(Style, "__class__", None) == self.__class__:
+                orig_init(self, Style)
+                return
+            else:
+                orig_init(self)
             if not Style is UNO_NONE:
-                if getattr(struct, 'Style') != Style:
-                    setattr(struct, 'Style', Style)
+                if getattr(self, 'Style') != Style:
+                    setattr(self, 'Style', Style)
             if not StartColor is UNO_NONE:
-                if getattr(struct, 'StartColor') != StartColor:
-                    setattr(struct, 'StartColor', StartColor)
+                if getattr(self, 'StartColor') != StartColor:
+                    setattr(self, 'StartColor', StartColor)
             if not EndColor is UNO_NONE:
-                if getattr(struct, 'EndColor') != EndColor:
-                    setattr(struct, 'EndColor', EndColor)
+                if getattr(self, 'EndColor') != EndColor:
+                    setattr(self, 'EndColor', EndColor)
             if not Angle is UNO_NONE:
-                if getattr(struct, 'Angle') != Angle:
-                    setattr(struct, 'Angle', Angle)
+                if getattr(self, 'Angle') != Angle:
+                    setattr(self, 'Angle', Angle)
             if not Border is UNO_NONE:
-                if getattr(struct, 'Border') != Border:
-                    setattr(struct, 'Border', Border)
+                if getattr(self, 'Border') != Border:
+                    setattr(self, 'Border', Border)
             if not XOffset is UNO_NONE:
-                if getattr(struct, 'XOffset') != XOffset:
-                    setattr(struct, 'XOffset', XOffset)
+                if getattr(self, 'XOffset') != XOffset:
+                    setattr(self, 'XOffset', XOffset)
             if not YOffset is UNO_NONE:
-                if getattr(struct, 'YOffset') != YOffset:
-                    setattr(struct, 'YOffset', YOffset)
+                if getattr(self, 'YOffset') != YOffset:
+                    setattr(self, 'YOffset', YOffset)
             if not StartIntensity is UNO_NONE:
-                if getattr(struct, 'StartIntensity') != StartIntensity:
-                    setattr(struct, 'StartIntensity', StartIntensity)
+                if getattr(self, 'StartIntensity') != StartIntensity:
+                    setattr(self, 'StartIntensity', StartIntensity)
             if not EndIntensity is UNO_NONE:
-                if getattr(struct, 'EndIntensity') != EndIntensity:
-                    setattr(struct, 'EndIntensity', EndIntensity)
+                if getattr(self, 'EndIntensity') != EndIntensity:
+                    setattr(self, 'EndIntensity', EndIntensity)
             if not StepCount is UNO_NONE:
-                if getattr(struct, 'StepCount') != StepCount:
-                    setattr(struct, 'StepCount', StepCount)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Gradient = _struct_init
+                if getattr(self, 'StepCount') != StepCount:
+                    setattr(self, 'StepCount', StepCount)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.awt.Gradient'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.awt'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Gradient = _get_class()
+
+
 else:
     from ...lo.awt.gradient import Gradient as Gradient
 

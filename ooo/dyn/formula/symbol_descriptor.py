@@ -20,73 +20,60 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.formula import SymbolDescriptor as USymbolDescriptor
-        # Dynamically create uno com.sun.star.formula.SymbolDescriptor using uno
-        global SymbolDescriptor
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.formula.SymbolDescriptor'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.formula'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.formula.SymbolDescriptor'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(sName = UNO_NONE, sExportName = UNO_NONE, sSymbolSet = UNO_NONE, nCharacter = UNO_NONE, sFontName = UNO_NONE, nCharSet = UNO_NONE, nFamily = UNO_NONE, nPitch = UNO_NONE, nWeight = UNO_NONE, nItalic = UNO_NONE):
-            ns = 'com.sun.star.formula.SymbolDescriptor'
-            if isinstance(sName, USymbolDescriptor):
-                inst = uno.createUnoStruct(ns, sName)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, sName = UNO_NONE, sExportName = UNO_NONE, sSymbolSet = UNO_NONE, nCharacter = UNO_NONE, sFontName = UNO_NONE, nCharSet = UNO_NONE, nFamily = UNO_NONE, nPitch = UNO_NONE, nWeight = UNO_NONE, nItalic = UNO_NONE):
+            if getattr(sName, "__class__", None) == self.__class__:
+                orig_init(self, sName)
+                return
+            else:
+                orig_init(self)
             if not sName is UNO_NONE:
-                if getattr(struct, 'sName') != sName:
-                    setattr(struct, 'sName', sName)
+                if getattr(self, 'sName') != sName:
+                    setattr(self, 'sName', sName)
             if not sExportName is UNO_NONE:
-                if getattr(struct, 'sExportName') != sExportName:
-                    setattr(struct, 'sExportName', sExportName)
+                if getattr(self, 'sExportName') != sExportName:
+                    setattr(self, 'sExportName', sExportName)
             if not sSymbolSet is UNO_NONE:
-                if getattr(struct, 'sSymbolSet') != sSymbolSet:
-                    setattr(struct, 'sSymbolSet', sSymbolSet)
+                if getattr(self, 'sSymbolSet') != sSymbolSet:
+                    setattr(self, 'sSymbolSet', sSymbolSet)
             if not nCharacter is UNO_NONE:
-                if getattr(struct, 'nCharacter') != nCharacter:
-                    setattr(struct, 'nCharacter', nCharacter)
+                if getattr(self, 'nCharacter') != nCharacter:
+                    setattr(self, 'nCharacter', nCharacter)
             if not sFontName is UNO_NONE:
-                if getattr(struct, 'sFontName') != sFontName:
-                    setattr(struct, 'sFontName', sFontName)
+                if getattr(self, 'sFontName') != sFontName:
+                    setattr(self, 'sFontName', sFontName)
             if not nCharSet is UNO_NONE:
-                if getattr(struct, 'nCharSet') != nCharSet:
-                    setattr(struct, 'nCharSet', nCharSet)
+                if getattr(self, 'nCharSet') != nCharSet:
+                    setattr(self, 'nCharSet', nCharSet)
             if not nFamily is UNO_NONE:
-                if getattr(struct, 'nFamily') != nFamily:
-                    setattr(struct, 'nFamily', nFamily)
+                if getattr(self, 'nFamily') != nFamily:
+                    setattr(self, 'nFamily', nFamily)
             if not nPitch is UNO_NONE:
-                if getattr(struct, 'nPitch') != nPitch:
-                    setattr(struct, 'nPitch', nPitch)
+                if getattr(self, 'nPitch') != nPitch:
+                    setattr(self, 'nPitch', nPitch)
             if not nWeight is UNO_NONE:
-                if getattr(struct, 'nWeight') != nWeight:
-                    setattr(struct, 'nWeight', nWeight)
+                if getattr(self, 'nWeight') != nWeight:
+                    setattr(self, 'nWeight', nWeight)
             if not nItalic is UNO_NONE:
-                if getattr(struct, 'nItalic') != nItalic:
-                    setattr(struct, 'nItalic', nItalic)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        SymbolDescriptor = _struct_init
+                if getattr(self, 'nItalic') != nItalic:
+                    setattr(self, 'nItalic', nItalic)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.formula.SymbolDescriptor'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.formula'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    SymbolDescriptor = _get_class()
+
+
 else:
     from ...lo.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor
 

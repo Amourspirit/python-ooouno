@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.script.MemberType import (METHOD, PROPERTY, UNKNOWN)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MemberType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.script.MemberType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PROPERTY": PROPERTY,
             "UNKNOWN": UNKNOWN,
         }
+        result = type('MemberType', (object,), _dict)
+        return result
 
-        MemberType = type('MemberType', (object,), _dict)
-    _dynamic_enum()
+    MemberType = _get_enum()
 else:
     from ...lo.script.member_type import MemberType as MemberType
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.LineJoint import (BEVEL, MIDDLE, MITER, NONE, ROUND)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LineJoint
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.LineJoint Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NONE": NONE,
             "ROUND": ROUND,
         }
+        result = type('LineJoint', (object,), _dict)
+        return result
 
-        LineJoint = type('LineJoint', (object,), _dict)
-    _dynamic_enum()
+    LineJoint = _get_enum()
 else:
     from ...lo.drawing.line_joint import LineJoint as LineJoint
 

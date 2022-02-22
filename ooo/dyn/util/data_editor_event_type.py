@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.util.DataEditorEventType import (CANCELED, DONE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DataEditorEventType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.util.DataEditorEventType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "CANCELED": CANCELED,
             "DONE": DONE,
         }
+        result = type('DataEditorEventType', (object,), _dict)
+        return result
 
-        DataEditorEventType = type('DataEditorEventType', (object,), _dict)
-    _dynamic_enum()
+    DataEditorEventType = _get_enum()
 else:
     from ...lo.util.data_editor_event_type import DataEditorEventType as DataEditorEventType
 

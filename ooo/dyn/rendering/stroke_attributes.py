@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import StrokeAttributes as UStrokeAttributes
-        # Dynamically create uno com.sun.star.rendering.StrokeAttributes using uno
-        global StrokeAttributes
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.StrokeAttributes'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.StrokeAttributes'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(DashArray = UNO_NONE, LineArray = UNO_NONE, StrokeWidth = UNO_NONE, MiterLimit = UNO_NONE, StartCapType = UNO_NONE, EndCapType = UNO_NONE, JoinType = UNO_NONE):
-            ns = 'com.sun.star.rendering.StrokeAttributes'
-            if isinstance(DashArray, UStrokeAttributes):
-                inst = uno.createUnoStruct(ns, DashArray)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, DashArray = UNO_NONE, LineArray = UNO_NONE, StrokeWidth = UNO_NONE, MiterLimit = UNO_NONE, StartCapType = UNO_NONE, EndCapType = UNO_NONE, JoinType = UNO_NONE):
+            if getattr(DashArray, "__class__", None) == self.__class__:
+                orig_init(self, DashArray)
+                return
+            else:
+                orig_init(self)
             if not DashArray is UNO_NONE:
-                if getattr(struct, 'DashArray') != DashArray:
-                    setattr(struct, 'DashArray', DashArray)
+                if getattr(self, 'DashArray') != DashArray:
+                    setattr(self, 'DashArray', DashArray)
             if not LineArray is UNO_NONE:
-                if getattr(struct, 'LineArray') != LineArray:
-                    setattr(struct, 'LineArray', LineArray)
+                if getattr(self, 'LineArray') != LineArray:
+                    setattr(self, 'LineArray', LineArray)
             if not StrokeWidth is UNO_NONE:
-                if getattr(struct, 'StrokeWidth') != StrokeWidth:
-                    setattr(struct, 'StrokeWidth', StrokeWidth)
+                if getattr(self, 'StrokeWidth') != StrokeWidth:
+                    setattr(self, 'StrokeWidth', StrokeWidth)
             if not MiterLimit is UNO_NONE:
-                if getattr(struct, 'MiterLimit') != MiterLimit:
-                    setattr(struct, 'MiterLimit', MiterLimit)
+                if getattr(self, 'MiterLimit') != MiterLimit:
+                    setattr(self, 'MiterLimit', MiterLimit)
             if not StartCapType is UNO_NONE:
-                if getattr(struct, 'StartCapType') != StartCapType:
-                    setattr(struct, 'StartCapType', StartCapType)
+                if getattr(self, 'StartCapType') != StartCapType:
+                    setattr(self, 'StartCapType', StartCapType)
             if not EndCapType is UNO_NONE:
-                if getattr(struct, 'EndCapType') != EndCapType:
-                    setattr(struct, 'EndCapType', EndCapType)
+                if getattr(self, 'EndCapType') != EndCapType:
+                    setattr(self, 'EndCapType', EndCapType)
             if not JoinType is UNO_NONE:
-                if getattr(struct, 'JoinType') != JoinType:
-                    setattr(struct, 'JoinType', JoinType)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        StrokeAttributes = _struct_init
+                if getattr(self, 'JoinType') != JoinType:
+                    setattr(self, 'JoinType', JoinType)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.StrokeAttributes'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    StrokeAttributes = _get_class()
+
+
 else:
     from ...lo.rendering.stroke_attributes import StrokeAttributes as StrokeAttributes
 

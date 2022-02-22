@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.i18n import FormatElement as UFormatElement
-        # Dynamically create uno com.sun.star.i18n.FormatElement using uno
-        global FormatElement
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.i18n.FormatElement'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.i18n'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.FormatElement'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(formatCode = UNO_NONE, formatName = UNO_NONE, formatKey = UNO_NONE, formatType = UNO_NONE, formatUsage = UNO_NONE, formatIndex = UNO_NONE, isDefault = UNO_NONE):
-            ns = 'com.sun.star.i18n.FormatElement'
-            if isinstance(formatCode, UFormatElement):
-                inst = uno.createUnoStruct(ns, formatCode)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, formatCode = UNO_NONE, formatName = UNO_NONE, formatKey = UNO_NONE, formatType = UNO_NONE, formatUsage = UNO_NONE, formatIndex = UNO_NONE, isDefault = UNO_NONE):
+            if getattr(formatCode, "__class__", None) == self.__class__:
+                orig_init(self, formatCode)
+                return
+            else:
+                orig_init(self)
             if not formatCode is UNO_NONE:
-                if getattr(struct, 'formatCode') != formatCode:
-                    setattr(struct, 'formatCode', formatCode)
+                if getattr(self, 'formatCode') != formatCode:
+                    setattr(self, 'formatCode', formatCode)
             if not formatName is UNO_NONE:
-                if getattr(struct, 'formatName') != formatName:
-                    setattr(struct, 'formatName', formatName)
+                if getattr(self, 'formatName') != formatName:
+                    setattr(self, 'formatName', formatName)
             if not formatKey is UNO_NONE:
-                if getattr(struct, 'formatKey') != formatKey:
-                    setattr(struct, 'formatKey', formatKey)
+                if getattr(self, 'formatKey') != formatKey:
+                    setattr(self, 'formatKey', formatKey)
             if not formatType is UNO_NONE:
-                if getattr(struct, 'formatType') != formatType:
-                    setattr(struct, 'formatType', formatType)
+                if getattr(self, 'formatType') != formatType:
+                    setattr(self, 'formatType', formatType)
             if not formatUsage is UNO_NONE:
-                if getattr(struct, 'formatUsage') != formatUsage:
-                    setattr(struct, 'formatUsage', formatUsage)
+                if getattr(self, 'formatUsage') != formatUsage:
+                    setattr(self, 'formatUsage', formatUsage)
             if not formatIndex is UNO_NONE:
-                if getattr(struct, 'formatIndex') != formatIndex:
-                    setattr(struct, 'formatIndex', formatIndex)
+                if getattr(self, 'formatIndex') != formatIndex:
+                    setattr(self, 'formatIndex', formatIndex)
             if not isDefault is UNO_NONE:
-                if getattr(struct, 'isDefault') != isDefault:
-                    setattr(struct, 'isDefault', isDefault)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FormatElement = _struct_init
+                if getattr(self, 'isDefault') != isDefault:
+                    setattr(self, 'isDefault', isDefault)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.i18n.FormatElement'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.i18n'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FormatElement = _get_class()
+
+
 else:
     from ...lo.i18n.format_element import FormatElement as FormatElement
 

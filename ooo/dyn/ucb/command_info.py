@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.ucb import CommandInfo as UCommandInfo
-        # Dynamically create uno com.sun.star.ucb.CommandInfo using uno
-        global CommandInfo
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.ucb.CommandInfo'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.ucb'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.CommandInfo'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Name = UNO_NONE, Handle = UNO_NONE, ArgType = UNO_NONE):
-            ns = 'com.sun.star.ucb.CommandInfo'
-            if isinstance(Name, UCommandInfo):
-                inst = uno.createUnoStruct(ns, Name)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Name = UNO_NONE, Handle = UNO_NONE, ArgType = UNO_NONE):
+            if getattr(Name, "__class__", None) == self.__class__:
+                orig_init(self, Name)
+                return
+            else:
+                orig_init(self)
             if not Name is UNO_NONE:
-                if getattr(struct, 'Name') != Name:
-                    setattr(struct, 'Name', Name)
+                if getattr(self, 'Name') != Name:
+                    setattr(self, 'Name', Name)
             if not Handle is UNO_NONE:
-                if getattr(struct, 'Handle') != Handle:
-                    setattr(struct, 'Handle', Handle)
+                if getattr(self, 'Handle') != Handle:
+                    setattr(self, 'Handle', Handle)
             if not ArgType is UNO_NONE:
-                if getattr(struct, 'ArgType') != ArgType:
-                    setattr(struct, 'ArgType', ArgType)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        CommandInfo = _struct_init
+                if getattr(self, 'ArgType') != ArgType:
+                    setattr(self, 'ArgType', ArgType)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.ucb.CommandInfo'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.ucb'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    CommandInfo = _get_class()
+
+
 else:
     from ...lo.ucb.command_info import CommandInfo as CommandInfo
 

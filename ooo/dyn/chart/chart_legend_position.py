@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart.ChartLegendPosition import (BOTTOM, LEFT, NONE, RIGHT, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ChartLegendPosition
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartLegendPosition Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT": RIGHT,
             "TOP": TOP,
         }
+        result = type('ChartLegendPosition', (object,), _dict)
+        return result
 
-        ChartLegendPosition = type('ChartLegendPosition', (object,), _dict)
-    _dynamic_enum()
+    ChartLegendPosition = _get_enum()
 else:
     from ...lo.chart.chart_legend_position import ChartLegendPosition as ChartLegendPosition
 

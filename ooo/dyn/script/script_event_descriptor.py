@@ -20,58 +20,45 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.script import ScriptEventDescriptor as UScriptEventDescriptor
-        # Dynamically create uno com.sun.star.script.ScriptEventDescriptor using uno
-        global ScriptEventDescriptor
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.script.ScriptEventDescriptor'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.script'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.script.ScriptEventDescriptor'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(ListenerType = UNO_NONE, EventMethod = UNO_NONE, AddListenerParam = UNO_NONE, ScriptType = UNO_NONE, ScriptCode = UNO_NONE):
-            ns = 'com.sun.star.script.ScriptEventDescriptor'
-            if isinstance(ListenerType, UScriptEventDescriptor):
-                inst = uno.createUnoStruct(ns, ListenerType)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, ListenerType = UNO_NONE, EventMethod = UNO_NONE, AddListenerParam = UNO_NONE, ScriptType = UNO_NONE, ScriptCode = UNO_NONE):
+            if getattr(ListenerType, "__class__", None) == self.__class__:
+                orig_init(self, ListenerType)
+                return
+            else:
+                orig_init(self)
             if not ListenerType is UNO_NONE:
-                if getattr(struct, 'ListenerType') != ListenerType:
-                    setattr(struct, 'ListenerType', ListenerType)
+                if getattr(self, 'ListenerType') != ListenerType:
+                    setattr(self, 'ListenerType', ListenerType)
             if not EventMethod is UNO_NONE:
-                if getattr(struct, 'EventMethod') != EventMethod:
-                    setattr(struct, 'EventMethod', EventMethod)
+                if getattr(self, 'EventMethod') != EventMethod:
+                    setattr(self, 'EventMethod', EventMethod)
             if not AddListenerParam is UNO_NONE:
-                if getattr(struct, 'AddListenerParam') != AddListenerParam:
-                    setattr(struct, 'AddListenerParam', AddListenerParam)
+                if getattr(self, 'AddListenerParam') != AddListenerParam:
+                    setattr(self, 'AddListenerParam', AddListenerParam)
             if not ScriptType is UNO_NONE:
-                if getattr(struct, 'ScriptType') != ScriptType:
-                    setattr(struct, 'ScriptType', ScriptType)
+                if getattr(self, 'ScriptType') != ScriptType:
+                    setattr(self, 'ScriptType', ScriptType)
             if not ScriptCode is UNO_NONE:
-                if getattr(struct, 'ScriptCode') != ScriptCode:
-                    setattr(struct, 'ScriptCode', ScriptCode)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ScriptEventDescriptor = _struct_init
+                if getattr(self, 'ScriptCode') != ScriptCode:
+                    setattr(self, 'ScriptCode', ScriptCode)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.script.ScriptEventDescriptor'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.script'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ScriptEventDescriptor = _get_class()
+
+
 else:
     from ...lo.script.script_event_descriptor import ScriptEventDescriptor as ScriptEventDescriptor
 

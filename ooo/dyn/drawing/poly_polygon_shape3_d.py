@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.drawing import PolyPolygonShape3D as UPolyPolygonShape3D
-        # Dynamically create uno com.sun.star.drawing.PolyPolygonShape3D using uno
-        global PolyPolygonShape3D
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.drawing.PolyPolygonShape3D'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.PolyPolygonShape3D'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(SequenceX = UNO_NONE, SequenceY = UNO_NONE, SequenceZ = UNO_NONE):
-            ns = 'com.sun.star.drawing.PolyPolygonShape3D'
-            if isinstance(SequenceX, UPolyPolygonShape3D):
-                inst = uno.createUnoStruct(ns, SequenceX)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, SequenceX = UNO_NONE, SequenceY = UNO_NONE, SequenceZ = UNO_NONE):
+            if getattr(SequenceX, "__class__", None) == self.__class__:
+                orig_init(self, SequenceX)
+                return
+            else:
+                orig_init(self)
             if not SequenceX is UNO_NONE:
-                if getattr(struct, 'SequenceX') != SequenceX:
-                    setattr(struct, 'SequenceX', SequenceX)
+                if getattr(self, 'SequenceX') != SequenceX:
+                    setattr(self, 'SequenceX', SequenceX)
             if not SequenceY is UNO_NONE:
-                if getattr(struct, 'SequenceY') != SequenceY:
-                    setattr(struct, 'SequenceY', SequenceY)
+                if getattr(self, 'SequenceY') != SequenceY:
+                    setattr(self, 'SequenceY', SequenceY)
             if not SequenceZ is UNO_NONE:
-                if getattr(struct, 'SequenceZ') != SequenceZ:
-                    setattr(struct, 'SequenceZ', SequenceZ)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        PolyPolygonShape3D = _struct_init
+                if getattr(self, 'SequenceZ') != SequenceZ:
+                    setattr(self, 'SequenceZ', SequenceZ)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.drawing.PolyPolygonShape3D'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.drawing'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    PolyPolygonShape3D = _get_class()
+
+
 else:
     from ...lo.drawing.poly_polygon_shape3_d import PolyPolygonShape3D as PolyPolygonShape3D
 

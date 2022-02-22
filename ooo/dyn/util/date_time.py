@@ -20,67 +20,54 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.util import DateTime as UDateTime
-        # Dynamically create uno com.sun.star.util.DateTime using uno
-        global DateTime
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.util.DateTime'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.DateTime'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(NanoSeconds = UNO_NONE, Seconds = UNO_NONE, Minutes = UNO_NONE, Hours = UNO_NONE, Day = UNO_NONE, Month = UNO_NONE, Year = UNO_NONE, IsUTC = UNO_NONE):
-            ns = 'com.sun.star.util.DateTime'
-            if isinstance(NanoSeconds, UDateTime):
-                inst = uno.createUnoStruct(ns, NanoSeconds)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, NanoSeconds = UNO_NONE, Seconds = UNO_NONE, Minutes = UNO_NONE, Hours = UNO_NONE, Day = UNO_NONE, Month = UNO_NONE, Year = UNO_NONE, IsUTC = UNO_NONE):
+            if getattr(NanoSeconds, "__class__", None) == self.__class__:
+                orig_init(self, NanoSeconds)
+                return
+            else:
+                orig_init(self)
             if not NanoSeconds is UNO_NONE:
-                if getattr(struct, 'NanoSeconds') != NanoSeconds:
-                    setattr(struct, 'NanoSeconds', NanoSeconds)
+                if getattr(self, 'NanoSeconds') != NanoSeconds:
+                    setattr(self, 'NanoSeconds', NanoSeconds)
             if not Seconds is UNO_NONE:
-                if getattr(struct, 'Seconds') != Seconds:
-                    setattr(struct, 'Seconds', Seconds)
+                if getattr(self, 'Seconds') != Seconds:
+                    setattr(self, 'Seconds', Seconds)
             if not Minutes is UNO_NONE:
-                if getattr(struct, 'Minutes') != Minutes:
-                    setattr(struct, 'Minutes', Minutes)
+                if getattr(self, 'Minutes') != Minutes:
+                    setattr(self, 'Minutes', Minutes)
             if not Hours is UNO_NONE:
-                if getattr(struct, 'Hours') != Hours:
-                    setattr(struct, 'Hours', Hours)
+                if getattr(self, 'Hours') != Hours:
+                    setattr(self, 'Hours', Hours)
             if not Day is UNO_NONE:
-                if getattr(struct, 'Day') != Day:
-                    setattr(struct, 'Day', Day)
+                if getattr(self, 'Day') != Day:
+                    setattr(self, 'Day', Day)
             if not Month is UNO_NONE:
-                if getattr(struct, 'Month') != Month:
-                    setattr(struct, 'Month', Month)
+                if getattr(self, 'Month') != Month:
+                    setattr(self, 'Month', Month)
             if not Year is UNO_NONE:
-                if getattr(struct, 'Year') != Year:
-                    setattr(struct, 'Year', Year)
+                if getattr(self, 'Year') != Year:
+                    setattr(self, 'Year', Year)
             if not IsUTC is UNO_NONE:
-                if getattr(struct, 'IsUTC') != IsUTC:
-                    setattr(struct, 'IsUTC', IsUTC)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DateTime = _struct_init
+                if getattr(self, 'IsUTC') != IsUTC:
+                    setattr(self, 'IsUTC', IsUTC)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.util.DateTime'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.util'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DateTime = _get_class()
+
+
 else:
     from ...lo.util.date_time import DateTime as DateTime
 

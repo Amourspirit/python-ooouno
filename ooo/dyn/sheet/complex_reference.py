@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.sheet import ComplexReference as UComplexReference
-        # Dynamically create uno com.sun.star.sheet.ComplexReference using uno
-        global ComplexReference
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.sheet.ComplexReference'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.sheet'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.ComplexReference'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Reference1 = UNO_NONE, Reference2 = UNO_NONE):
-            ns = 'com.sun.star.sheet.ComplexReference'
-            if isinstance(Reference1, UComplexReference):
-                inst = uno.createUnoStruct(ns, Reference1)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Reference1 = UNO_NONE, Reference2 = UNO_NONE):
+            if getattr(Reference1, "__class__", None) == self.__class__:
+                orig_init(self, Reference1)
+                return
+            else:
+                orig_init(self)
             if not Reference1 is UNO_NONE:
-                if getattr(struct, 'Reference1') != Reference1:
-                    setattr(struct, 'Reference1', Reference1)
+                if getattr(self, 'Reference1') != Reference1:
+                    setattr(self, 'Reference1', Reference1)
             if not Reference2 is UNO_NONE:
-                if getattr(struct, 'Reference2') != Reference2:
-                    setattr(struct, 'Reference2', Reference2)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ComplexReference = _struct_init
+                if getattr(self, 'Reference2') != Reference2:
+                    setattr(self, 'Reference2', Reference2)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.sheet.ComplexReference'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.sheet'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ComplexReference = _get_class()
+
+
 else:
     from ...lo.sheet.complex_reference import ComplexReference as ComplexReference
 

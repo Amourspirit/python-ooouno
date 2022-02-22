@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.crypto.sax.ElementMarkType import (ELEMENTCOLLECTOR, ELEMENTMARK)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ElementMarkType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.crypto.sax.ElementMarkType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ELEMENTCOLLECTOR": ELEMENTCOLLECTOR,
             "ELEMENTMARK": ELEMENTMARK,
         }
+        result = type('ElementMarkType', (object,), _dict)
+        return result
 
-        ElementMarkType = type('ElementMarkType', (object,), _dict)
-    _dynamic_enum()
+    ElementMarkType = _get_enum()
 else:
     from .....lo.xml.crypto.sax.element_mark_type import ElementMarkType as ElementMarkType
 

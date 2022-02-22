@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.form.TabulatorCycle import (CURRENT, NONE, PARENT)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TabulatorCycle
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.form.TabulatorCycle Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NONE": NONE,
             "PARENT": PARENT,
         }
+        result = type('TabulatorCycle', (object,), _dict)
+        return result
 
-        TabulatorCycle = type('TabulatorCycle', (object,), _dict)
-    _dynamic_enum()
+    TabulatorCycle = _get_enum()
 else:
     from ...lo.form.tabulator_cycle import TabulatorCycle as TabulatorCycle
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.LayerType import (CONTROLSA, DIMENSIONIANG_LINES, LAYOUT, USER_DEFINED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LayerType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.LayerType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LAYOUT": LAYOUT,
             "USER_DEFINED": USER_DEFINED,
         }
+        result = type('LayerType', (object,), _dict)
+        return result
 
-        LayerType = type('LayerType', (object,), _dict)
-    _dynamic_enum()
+    LayerType = _get_enum()
 else:
     from ...lo.drawing.layer_type import LayerType as LayerType
 

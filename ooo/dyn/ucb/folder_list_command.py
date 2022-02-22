@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.FolderListCommand import (GET, GET_SUBSCRIBED, SET)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FolderListCommand
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.FolderListCommand Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "GET_SUBSCRIBED": GET_SUBSCRIBED,
             "SET": SET,
         }
+        result = type('FolderListCommand', (object,), _dict)
+        return result
 
-        FolderListCommand = type('FolderListCommand', (object,), _dict)
-    _dynamic_enum()
+    FolderListCommand = _get_enum()
 else:
     from ...lo.ucb.folder_list_command import FolderListCommand as FolderListCommand
 

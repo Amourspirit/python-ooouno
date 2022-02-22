@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.style import LineSpacing as ULineSpacing
-        # Dynamically create uno com.sun.star.style.LineSpacing using uno
-        global LineSpacing
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.style.LineSpacing'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.style'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.style.LineSpacing'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Mode = UNO_NONE, Height = UNO_NONE):
-            ns = 'com.sun.star.style.LineSpacing'
-            if isinstance(Mode, ULineSpacing):
-                inst = uno.createUnoStruct(ns, Mode)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Mode = UNO_NONE, Height = UNO_NONE):
+            if getattr(Mode, "__class__", None) == self.__class__:
+                orig_init(self, Mode)
+                return
+            else:
+                orig_init(self)
             if not Mode is UNO_NONE:
-                if getattr(struct, 'Mode') != Mode:
-                    setattr(struct, 'Mode', Mode)
+                if getattr(self, 'Mode') != Mode:
+                    setattr(self, 'Mode', Mode)
             if not Height is UNO_NONE:
-                if getattr(struct, 'Height') != Height:
-                    setattr(struct, 'Height', Height)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        LineSpacing = _struct_init
+                if getattr(self, 'Height') != Height:
+                    setattr(self, 'Height', Height)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.style.LineSpacing'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.style'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    LineSpacing = _get_class()
+
+
 else:
     from ...lo.style.line_spacing import LineSpacing as LineSpacing
 

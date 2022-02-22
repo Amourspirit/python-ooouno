@@ -20,58 +20,45 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.frame import DispatchStatement as UDispatchStatement
-        # Dynamically create uno com.sun.star.frame.DispatchStatement using uno
-        global DispatchStatement
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.frame.DispatchStatement'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.frame'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.DispatchStatement'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aArgs = UNO_NONE, aCommand = UNO_NONE, aTarget = UNO_NONE, nFlags = UNO_NONE, bIsComment = UNO_NONE):
-            ns = 'com.sun.star.frame.DispatchStatement'
-            if isinstance(aArgs, UDispatchStatement):
-                inst = uno.createUnoStruct(ns, aArgs)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aArgs = UNO_NONE, aCommand = UNO_NONE, aTarget = UNO_NONE, nFlags = UNO_NONE, bIsComment = UNO_NONE):
+            if getattr(aArgs, "__class__", None) == self.__class__:
+                orig_init(self, aArgs)
+                return
+            else:
+                orig_init(self)
             if not aArgs is UNO_NONE:
-                if getattr(struct, 'aArgs') != aArgs:
-                    setattr(struct, 'aArgs', aArgs)
+                if getattr(self, 'aArgs') != aArgs:
+                    setattr(self, 'aArgs', aArgs)
             if not aCommand is UNO_NONE:
-                if getattr(struct, 'aCommand') != aCommand:
-                    setattr(struct, 'aCommand', aCommand)
+                if getattr(self, 'aCommand') != aCommand:
+                    setattr(self, 'aCommand', aCommand)
             if not aTarget is UNO_NONE:
-                if getattr(struct, 'aTarget') != aTarget:
-                    setattr(struct, 'aTarget', aTarget)
+                if getattr(self, 'aTarget') != aTarget:
+                    setattr(self, 'aTarget', aTarget)
             if not nFlags is UNO_NONE:
-                if getattr(struct, 'nFlags') != nFlags:
-                    setattr(struct, 'nFlags', nFlags)
+                if getattr(self, 'nFlags') != nFlags:
+                    setattr(self, 'nFlags', nFlags)
             if not bIsComment is UNO_NONE:
-                if getattr(struct, 'bIsComment') != bIsComment:
-                    setattr(struct, 'bIsComment', bIsComment)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DispatchStatement = _struct_init
+                if getattr(self, 'bIsComment') != bIsComment:
+                    setattr(self, 'bIsComment', bIsComment)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.frame.DispatchStatement'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.frame'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DispatchStatement = _get_class()
+
+
 else:
     from ...lo.frame.dispatch_statement import DispatchStatement as DispatchStatement
 

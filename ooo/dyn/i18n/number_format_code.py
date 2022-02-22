@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.i18n import NumberFormatCode as UNumberFormatCode
-        # Dynamically create uno com.sun.star.i18n.NumberFormatCode using uno
-        global NumberFormatCode
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.i18n.NumberFormatCode'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.i18n'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.i18n.NumberFormatCode'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Type = UNO_NONE, Usage = UNO_NONE, Code = UNO_NONE, DefaultName = UNO_NONE, NameID = UNO_NONE, Index = UNO_NONE, Default = UNO_NONE):
-            ns = 'com.sun.star.i18n.NumberFormatCode'
-            if isinstance(Type, UNumberFormatCode):
-                inst = uno.createUnoStruct(ns, Type)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Type = UNO_NONE, Usage = UNO_NONE, Code = UNO_NONE, DefaultName = UNO_NONE, NameID = UNO_NONE, Index = UNO_NONE, Default = UNO_NONE):
+            if getattr(Type, "__class__", None) == self.__class__:
+                orig_init(self, Type)
+                return
+            else:
+                orig_init(self)
             if not Type is UNO_NONE:
-                if getattr(struct, 'Type') != Type:
-                    setattr(struct, 'Type', Type)
+                if getattr(self, 'Type') != Type:
+                    setattr(self, 'Type', Type)
             if not Usage is UNO_NONE:
-                if getattr(struct, 'Usage') != Usage:
-                    setattr(struct, 'Usage', Usage)
+                if getattr(self, 'Usage') != Usage:
+                    setattr(self, 'Usage', Usage)
             if not Code is UNO_NONE:
-                if getattr(struct, 'Code') != Code:
-                    setattr(struct, 'Code', Code)
+                if getattr(self, 'Code') != Code:
+                    setattr(self, 'Code', Code)
             if not DefaultName is UNO_NONE:
-                if getattr(struct, 'DefaultName') != DefaultName:
-                    setattr(struct, 'DefaultName', DefaultName)
+                if getattr(self, 'DefaultName') != DefaultName:
+                    setattr(self, 'DefaultName', DefaultName)
             if not NameID is UNO_NONE:
-                if getattr(struct, 'NameID') != NameID:
-                    setattr(struct, 'NameID', NameID)
+                if getattr(self, 'NameID') != NameID:
+                    setattr(self, 'NameID', NameID)
             if not Index is UNO_NONE:
-                if getattr(struct, 'Index') != Index:
-                    setattr(struct, 'Index', Index)
+                if getattr(self, 'Index') != Index:
+                    setattr(self, 'Index', Index)
             if not Default is UNO_NONE:
-                if getattr(struct, 'Default') != Default:
-                    setattr(struct, 'Default', Default)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        NumberFormatCode = _struct_init
+                if getattr(self, 'Default') != Default:
+                    setattr(self, 'Default', Default)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.i18n.NumberFormatCode'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.i18n'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    NumberFormatCode = _get_class()
+
+
 else:
     from ...lo.i18n.number_format_code import NumberFormatCode as NumberFormatCode
 

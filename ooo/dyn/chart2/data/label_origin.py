@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart2.data.LabelOrigin import (COLUMN, LONG_SIDE, ROW, SHORT_SIDE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LabelOrigin
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart2.data.LabelOrigin Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ROW": ROW,
             "SHORT_SIDE": SHORT_SIDE,
         }
+        result = type('LabelOrigin', (object,), _dict)
+        return result
 
-        LabelOrigin = type('LabelOrigin', (object,), _dict)
-    _dynamic_enum()
+    LabelOrigin = _get_enum()
 else:
     from ....lo.chart2.data.label_origin import LabelOrigin as LabelOrigin
 

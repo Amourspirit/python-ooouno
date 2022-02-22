@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.task.PasswordRequestMode import (PASSWORD_CREATE, PASSWORD_ENTER, PASSWORD_REENTER)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PasswordRequestMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.task.PasswordRequestMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PASSWORD_ENTER": PASSWORD_ENTER,
             "PASSWORD_REENTER": PASSWORD_REENTER,
         }
+        result = type('PasswordRequestMode', (object,), _dict)
+        return result
 
-        PasswordRequestMode = type('PasswordRequestMode', (object,), _dict)
-    _dynamic_enum()
+    PasswordRequestMode = _get_enum()
 else:
     from ...lo.task.password_request_mode import PasswordRequestMode as PasswordRequestMode
 

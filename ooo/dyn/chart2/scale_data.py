@@ -20,76 +20,63 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart2 import ScaleData as UScaleData
-        # Dynamically create uno com.sun.star.chart2.ScaleData using uno
-        global ScaleData
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart2.ScaleData'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.ScaleData'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Minimum = UNO_NONE, Maximum = UNO_NONE, Origin = UNO_NONE, Orientation = UNO_NONE, Scaling = UNO_NONE, Categories = UNO_NONE, AxisType = UNO_NONE, AutoDateAxis = UNO_NONE, ShiftedCategoryPosition = UNO_NONE, IncrementData = UNO_NONE, TimeIncrement = UNO_NONE):
-            ns = 'com.sun.star.chart2.ScaleData'
-            if isinstance(Minimum, UScaleData):
-                inst = uno.createUnoStruct(ns, Minimum)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Minimum = UNO_NONE, Maximum = UNO_NONE, Origin = UNO_NONE, Orientation = UNO_NONE, Scaling = UNO_NONE, Categories = UNO_NONE, AxisType = UNO_NONE, AutoDateAxis = UNO_NONE, ShiftedCategoryPosition = UNO_NONE, IncrementData = UNO_NONE, TimeIncrement = UNO_NONE):
+            if getattr(Minimum, "__class__", None) == self.__class__:
+                orig_init(self, Minimum)
+                return
+            else:
+                orig_init(self)
             if not Minimum is UNO_NONE:
-                if getattr(struct, 'Minimum') != Minimum:
-                    setattr(struct, 'Minimum', Minimum)
+                if getattr(self, 'Minimum') != Minimum:
+                    setattr(self, 'Minimum', Minimum)
             if not Maximum is UNO_NONE:
-                if getattr(struct, 'Maximum') != Maximum:
-                    setattr(struct, 'Maximum', Maximum)
+                if getattr(self, 'Maximum') != Maximum:
+                    setattr(self, 'Maximum', Maximum)
             if not Origin is UNO_NONE:
-                if getattr(struct, 'Origin') != Origin:
-                    setattr(struct, 'Origin', Origin)
+                if getattr(self, 'Origin') != Origin:
+                    setattr(self, 'Origin', Origin)
             if not Orientation is UNO_NONE:
-                if getattr(struct, 'Orientation') != Orientation:
-                    setattr(struct, 'Orientation', Orientation)
+                if getattr(self, 'Orientation') != Orientation:
+                    setattr(self, 'Orientation', Orientation)
             if not Scaling is UNO_NONE:
-                if getattr(struct, 'Scaling') != Scaling:
-                    setattr(struct, 'Scaling', Scaling)
+                if getattr(self, 'Scaling') != Scaling:
+                    setattr(self, 'Scaling', Scaling)
             if not Categories is UNO_NONE:
-                if getattr(struct, 'Categories') != Categories:
-                    setattr(struct, 'Categories', Categories)
+                if getattr(self, 'Categories') != Categories:
+                    setattr(self, 'Categories', Categories)
             if not AxisType is UNO_NONE:
-                if getattr(struct, 'AxisType') != AxisType:
-                    setattr(struct, 'AxisType', AxisType)
+                if getattr(self, 'AxisType') != AxisType:
+                    setattr(self, 'AxisType', AxisType)
             if not AutoDateAxis is UNO_NONE:
-                if getattr(struct, 'AutoDateAxis') != AutoDateAxis:
-                    setattr(struct, 'AutoDateAxis', AutoDateAxis)
+                if getattr(self, 'AutoDateAxis') != AutoDateAxis:
+                    setattr(self, 'AutoDateAxis', AutoDateAxis)
             if not ShiftedCategoryPosition is UNO_NONE:
-                if getattr(struct, 'ShiftedCategoryPosition') != ShiftedCategoryPosition:
-                    setattr(struct, 'ShiftedCategoryPosition', ShiftedCategoryPosition)
+                if getattr(self, 'ShiftedCategoryPosition') != ShiftedCategoryPosition:
+                    setattr(self, 'ShiftedCategoryPosition', ShiftedCategoryPosition)
             if not IncrementData is UNO_NONE:
-                if getattr(struct, 'IncrementData') != IncrementData:
-                    setattr(struct, 'IncrementData', IncrementData)
+                if getattr(self, 'IncrementData') != IncrementData:
+                    setattr(self, 'IncrementData', IncrementData)
             if not TimeIncrement is UNO_NONE:
-                if getattr(struct, 'TimeIncrement') != TimeIncrement:
-                    setattr(struct, 'TimeIncrement', TimeIncrement)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ScaleData = _struct_init
+                if getattr(self, 'TimeIncrement') != TimeIncrement:
+                    setattr(self, 'TimeIncrement', TimeIncrement)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart2.ScaleData'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ScaleData = _get_class()
+
+
 else:
     from ...lo.chart2.scale_data import ScaleData as ScaleData
 

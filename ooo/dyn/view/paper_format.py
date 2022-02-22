@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.view.PaperFormat import (A3, A4, A5, B4, B5, LEGAL, LETTER, TABLOID, USER)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PaperFormat
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.view.PaperFormat Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -48,9 +47,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TABLOID": TABLOID,
             "USER": USER,
         }
+        result = type('PaperFormat', (object,), _dict)
+        return result
 
-        PaperFormat = type('PaperFormat', (object,), _dict)
-    _dynamic_enum()
+    PaperFormat = _get_enum()
 else:
     from ...lo.view.paper_format import PaperFormat as PaperFormat
 

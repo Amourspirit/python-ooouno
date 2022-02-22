@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.LockScope import (EXCLUSIVE, SHARED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LockScope
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.LockScope Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "EXCLUSIVE": EXCLUSIVE,
             "SHARED": SHARED,
         }
+        result = type('LockScope', (object,), _dict)
+        return result
 
-        LockScope = type('LockScope', (object,), _dict)
-    _dynamic_enum()
+    LockScope = _get_enum()
 else:
     from ...lo.ucb.lock_scope import LockScope as LockScope
 

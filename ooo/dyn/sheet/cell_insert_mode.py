@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.CellInsertMode import (COLUMNS, DOWN, NONE, RIGHT, ROWS)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CellInsertMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.CellInsertMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT": RIGHT,
             "ROWS": ROWS,
         }
+        result = type('CellInsertMode', (object,), _dict)
+        return result
 
-        CellInsertMode = type('CellInsertMode', (object,), _dict)
-    _dynamic_enum()
+    CellInsertMode = _get_enum()
 else:
     from ...lo.sheet.cell_insert_mode import CellInsertMode as CellInsertMode
 

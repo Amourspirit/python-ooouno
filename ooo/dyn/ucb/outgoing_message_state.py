@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.OutgoingMessageState import (COMPLETELY_LOCALLY_SENT, CONFIRMED, EXTERNAL_ERROR, NONRECOVERABLE_LOCAL_ERROR, PARTIALLY_LOCALLY_SENT, RECOVERABLE_LOCAL_ERROR, WAITING_CONFIRMATION, WRITTEN)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global OutgoingMessageState
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.OutgoingMessageState Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -47,9 +46,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WAITING_CONFIRMATION": WAITING_CONFIRMATION,
             "WRITTEN": WRITTEN,
         }
+        result = type('OutgoingMessageState', (object,), _dict)
+        return result
 
-        OutgoingMessageState = type('OutgoingMessageState', (object,), _dict)
-    _dynamic_enum()
+    OutgoingMessageState = _get_enum()
 else:
     from ...lo.ucb.outgoing_message_state import OutgoingMessageState as OutgoingMessageState
 

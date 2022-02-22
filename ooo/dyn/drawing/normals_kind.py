@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.NormalsKind import (FLAT, SPECIFIC, SPHERE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global NormalsKind
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.NormalsKind Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SPECIFIC": SPECIFIC,
             "SPHERE": SPHERE,
         }
+        result = type('NormalsKind', (object,), _dict)
+        return result
 
-        NormalsKind = type('NormalsKind', (object,), _dict)
-    _dynamic_enum()
+    NormalsKind = _get_enum()
 else:
     from ...lo.drawing.normals_kind import NormalsKind as NormalsKind
 

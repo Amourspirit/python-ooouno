@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.Priority import (HIGH, HIGHEST, LOW, LOWEST, NORMAL)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global Priority
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.Priority Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LOWEST": LOWEST,
             "NORMAL": NORMAL,
         }
+        result = type('Priority', (object,), _dict)
+        return result
 
-        Priority = type('Priority', (object,), _dict)
-    _dynamic_enum()
+    Priority = _get_enum()
 else:
     from ...lo.ucb.priority import Priority as Priority
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.rendering.FillRule import (EVEN_ODD, NON_ZERO)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FillRule
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.rendering.FillRule Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "EVEN_ODD": EVEN_ODD,
             "NON_ZERO": NON_ZERO,
         }
+        result = type('FillRule', (object,), _dict)
+        return result
 
-        FillRule = type('FillRule', (object,), _dict)
-    _dynamic_enum()
+    FillRule = _get_enum()
 else:
     from ...lo.rendering.fill_rule import FillRule as FillRule
 

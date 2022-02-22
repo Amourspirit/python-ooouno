@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.table import TableSortField as UTableSortField
-        # Dynamically create uno com.sun.star.table.TableSortField using uno
-        global TableSortField
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.table.TableSortField'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.table'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.table.TableSortField'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Field = UNO_NONE, IsAscending = UNO_NONE, IsCaseSensitive = UNO_NONE, FieldType = UNO_NONE, CollatorLocale = UNO_NONE, CollatorAlgorithm = UNO_NONE):
-            ns = 'com.sun.star.table.TableSortField'
-            if isinstance(Field, UTableSortField):
-                inst = uno.createUnoStruct(ns, Field)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Field = UNO_NONE, IsAscending = UNO_NONE, IsCaseSensitive = UNO_NONE, FieldType = UNO_NONE, CollatorLocale = UNO_NONE, CollatorAlgorithm = UNO_NONE):
+            if getattr(Field, "__class__", None) == self.__class__:
+                orig_init(self, Field)
+                return
+            else:
+                orig_init(self)
             if not Field is UNO_NONE:
-                if getattr(struct, 'Field') != Field:
-                    setattr(struct, 'Field', Field)
+                if getattr(self, 'Field') != Field:
+                    setattr(self, 'Field', Field)
             if not IsAscending is UNO_NONE:
-                if getattr(struct, 'IsAscending') != IsAscending:
-                    setattr(struct, 'IsAscending', IsAscending)
+                if getattr(self, 'IsAscending') != IsAscending:
+                    setattr(self, 'IsAscending', IsAscending)
             if not IsCaseSensitive is UNO_NONE:
-                if getattr(struct, 'IsCaseSensitive') != IsCaseSensitive:
-                    setattr(struct, 'IsCaseSensitive', IsCaseSensitive)
+                if getattr(self, 'IsCaseSensitive') != IsCaseSensitive:
+                    setattr(self, 'IsCaseSensitive', IsCaseSensitive)
             if not FieldType is UNO_NONE:
-                if getattr(struct, 'FieldType') != FieldType:
-                    setattr(struct, 'FieldType', FieldType)
+                if getattr(self, 'FieldType') != FieldType:
+                    setattr(self, 'FieldType', FieldType)
             if not CollatorLocale is UNO_NONE:
-                if getattr(struct, 'CollatorLocale') != CollatorLocale:
-                    setattr(struct, 'CollatorLocale', CollatorLocale)
+                if getattr(self, 'CollatorLocale') != CollatorLocale:
+                    setattr(self, 'CollatorLocale', CollatorLocale)
             if not CollatorAlgorithm is UNO_NONE:
-                if getattr(struct, 'CollatorAlgorithm') != CollatorAlgorithm:
-                    setattr(struct, 'CollatorAlgorithm', CollatorAlgorithm)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        TableSortField = _struct_init
+                if getattr(self, 'CollatorAlgorithm') != CollatorAlgorithm:
+                    setattr(self, 'CollatorAlgorithm', CollatorAlgorithm)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.table.TableSortField'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.table'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    TableSortField = _get_class()
+
+
 else:
     from ...lo.table.table_sort_field import TableSortField as TableSortField
 

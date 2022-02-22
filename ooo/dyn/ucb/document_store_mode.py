@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.DocumentStoreMode import (LOCAL, REMOTE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DocumentStoreMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.DocumentStoreMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LOCAL": LOCAL,
             "REMOTE": REMOTE,
         }
+        result = type('DocumentStoreMode', (object,), _dict)
+        return result
 
-        DocumentStoreMode = type('DocumentStoreMode', (object,), _dict)
-    _dynamic_enum()
+    DocumentStoreMode = _get_enum()
 else:
     from ...lo.ucb.document_store_mode import DocumentStoreMode as DocumentStoreMode
 

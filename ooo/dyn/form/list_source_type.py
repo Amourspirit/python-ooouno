@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.form.ListSourceType import (QUERY, SQL, SQLPASSTHROUGH, TABLE, TABLEFIELDS, VALUELIST)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ListSourceType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.form.ListSourceType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -45,9 +44,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TABLEFIELDS": TABLEFIELDS,
             "VALUELIST": VALUELIST,
         }
+        result = type('ListSourceType', (object,), _dict)
+        return result
 
-        ListSourceType = type('ListSourceType', (object,), _dict)
-    _dynamic_enum()
+    ListSourceType = _get_enum()
 else:
     from ...lo.form.list_source_type import ListSourceType as ListSourceType
 

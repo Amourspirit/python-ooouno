@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.linguistic2.ConversionDirection import (FROM_LEFT, FROM_RIGHT)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ConversionDirection
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.linguistic2.ConversionDirection Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "FROM_LEFT": FROM_LEFT,
             "FROM_RIGHT": FROM_RIGHT,
         }
+        result = type('ConversionDirection', (object,), _dict)
+        return result
 
-        ConversionDirection = type('ConversionDirection', (object,), _dict)
-    _dynamic_enum()
+    ConversionDirection = _get_enum()
 else:
     from ...lo.linguistic2.conversion_direction import ConversionDirection as ConversionDirection
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.HatchStyle import (DOUBLE, SINGLE, TRIPLE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global HatchStyle
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.HatchStyle Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SINGLE": SINGLE,
             "TRIPLE": TRIPLE,
         }
+        result = type('HatchStyle', (object,), _dict)
+        return result
 
-        HatchStyle = type('HatchStyle', (object,), _dict)
-    _dynamic_enum()
+    HatchStyle = _get_enum()
 else:
     from ...lo.drawing.hatch_style import HatchStyle as HatchStyle
 

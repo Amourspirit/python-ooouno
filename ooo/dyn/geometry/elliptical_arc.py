@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.geometry import EllipticalArc as UEllipticalArc
-        # Dynamically create uno com.sun.star.geometry.EllipticalArc using uno
-        global EllipticalArc
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.geometry.EllipticalArc'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.geometry'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.geometry.EllipticalArc'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(StartPosition = UNO_NONE, EndPosition = UNO_NONE, RadiusX = UNO_NONE, RadiusY = UNO_NONE, XAxisRotation = UNO_NONE, IsLargeArc = UNO_NONE, IsClockwiseSweep = UNO_NONE):
-            ns = 'com.sun.star.geometry.EllipticalArc'
-            if isinstance(StartPosition, UEllipticalArc):
-                inst = uno.createUnoStruct(ns, StartPosition)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, StartPosition = UNO_NONE, EndPosition = UNO_NONE, RadiusX = UNO_NONE, RadiusY = UNO_NONE, XAxisRotation = UNO_NONE, IsLargeArc = UNO_NONE, IsClockwiseSweep = UNO_NONE):
+            if getattr(StartPosition, "__class__", None) == self.__class__:
+                orig_init(self, StartPosition)
+                return
+            else:
+                orig_init(self)
             if not StartPosition is UNO_NONE:
-                if getattr(struct, 'StartPosition') != StartPosition:
-                    setattr(struct, 'StartPosition', StartPosition)
+                if getattr(self, 'StartPosition') != StartPosition:
+                    setattr(self, 'StartPosition', StartPosition)
             if not EndPosition is UNO_NONE:
-                if getattr(struct, 'EndPosition') != EndPosition:
-                    setattr(struct, 'EndPosition', EndPosition)
+                if getattr(self, 'EndPosition') != EndPosition:
+                    setattr(self, 'EndPosition', EndPosition)
             if not RadiusX is UNO_NONE:
-                if getattr(struct, 'RadiusX') != RadiusX:
-                    setattr(struct, 'RadiusX', RadiusX)
+                if getattr(self, 'RadiusX') != RadiusX:
+                    setattr(self, 'RadiusX', RadiusX)
             if not RadiusY is UNO_NONE:
-                if getattr(struct, 'RadiusY') != RadiusY:
-                    setattr(struct, 'RadiusY', RadiusY)
+                if getattr(self, 'RadiusY') != RadiusY:
+                    setattr(self, 'RadiusY', RadiusY)
             if not XAxisRotation is UNO_NONE:
-                if getattr(struct, 'XAxisRotation') != XAxisRotation:
-                    setattr(struct, 'XAxisRotation', XAxisRotation)
+                if getattr(self, 'XAxisRotation') != XAxisRotation:
+                    setattr(self, 'XAxisRotation', XAxisRotation)
             if not IsLargeArc is UNO_NONE:
-                if getattr(struct, 'IsLargeArc') != IsLargeArc:
-                    setattr(struct, 'IsLargeArc', IsLargeArc)
+                if getattr(self, 'IsLargeArc') != IsLargeArc:
+                    setattr(self, 'IsLargeArc', IsLargeArc)
             if not IsClockwiseSweep is UNO_NONE:
-                if getattr(struct, 'IsClockwiseSweep') != IsClockwiseSweep:
-                    setattr(struct, 'IsClockwiseSweep', IsClockwiseSweep)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        EllipticalArc = _struct_init
+                if getattr(self, 'IsClockwiseSweep') != IsClockwiseSweep:
+                    setattr(self, 'IsClockwiseSweep', IsClockwiseSweep)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.geometry.EllipticalArc'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.geometry'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    EllipticalArc = _get_class()
+
+
 else:
     from ...lo.geometry.elliptical_arc import EllipticalArc as EllipticalArc
 

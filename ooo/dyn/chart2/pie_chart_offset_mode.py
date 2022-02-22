@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart2.PieChartOffsetMode import (ALL_EXPLODED, NONE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PieChartOffsetMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart2.PieChartOffsetMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ALL_EXPLODED": ALL_EXPLODED,
             "NONE": NONE,
         }
+        result = type('PieChartOffsetMode', (object,), _dict)
+        return result
 
-        PieChartOffsetMode = type('PieChartOffsetMode', (object,), _dict)
-    _dynamic_enum()
+    PieChartOffsetMode = _get_enum()
 else:
     from ...lo.chart2.pie_chart_offset_mode import PieChartOffsetMode as PieChartOffsetMode
 

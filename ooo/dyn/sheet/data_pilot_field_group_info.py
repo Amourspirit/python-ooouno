@@ -20,70 +20,57 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.sheet import DataPilotFieldGroupInfo as UDataPilotFieldGroupInfo
-        # Dynamically create uno com.sun.star.sheet.DataPilotFieldGroupInfo using uno
-        global DataPilotFieldGroupInfo
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.sheet'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(HasAutoStart = UNO_NONE, HasAutoEnd = UNO_NONE, HasDateValues = UNO_NONE, Start = UNO_NONE, End = UNO_NONE, Step = UNO_NONE, GroupBy = UNO_NONE, SourceField = UNO_NONE, Groups = UNO_NONE):
-            ns = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
-            if isinstance(HasAutoStart, UDataPilotFieldGroupInfo):
-                inst = uno.createUnoStruct(ns, HasAutoStart)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, HasAutoStart = UNO_NONE, HasAutoEnd = UNO_NONE, HasDateValues = UNO_NONE, Start = UNO_NONE, End = UNO_NONE, Step = UNO_NONE, GroupBy = UNO_NONE, SourceField = UNO_NONE, Groups = UNO_NONE):
+            if getattr(HasAutoStart, "__class__", None) == self.__class__:
+                orig_init(self, HasAutoStart)
+                return
+            else:
+                orig_init(self)
             if not HasAutoStart is UNO_NONE:
-                if getattr(struct, 'HasAutoStart') != HasAutoStart:
-                    setattr(struct, 'HasAutoStart', HasAutoStart)
+                if getattr(self, 'HasAutoStart') != HasAutoStart:
+                    setattr(self, 'HasAutoStart', HasAutoStart)
             if not HasAutoEnd is UNO_NONE:
-                if getattr(struct, 'HasAutoEnd') != HasAutoEnd:
-                    setattr(struct, 'HasAutoEnd', HasAutoEnd)
+                if getattr(self, 'HasAutoEnd') != HasAutoEnd:
+                    setattr(self, 'HasAutoEnd', HasAutoEnd)
             if not HasDateValues is UNO_NONE:
-                if getattr(struct, 'HasDateValues') != HasDateValues:
-                    setattr(struct, 'HasDateValues', HasDateValues)
+                if getattr(self, 'HasDateValues') != HasDateValues:
+                    setattr(self, 'HasDateValues', HasDateValues)
             if not Start is UNO_NONE:
-                if getattr(struct, 'Start') != Start:
-                    setattr(struct, 'Start', Start)
+                if getattr(self, 'Start') != Start:
+                    setattr(self, 'Start', Start)
             if not End is UNO_NONE:
-                if getattr(struct, 'End') != End:
-                    setattr(struct, 'End', End)
+                if getattr(self, 'End') != End:
+                    setattr(self, 'End', End)
             if not Step is UNO_NONE:
-                if getattr(struct, 'Step') != Step:
-                    setattr(struct, 'Step', Step)
+                if getattr(self, 'Step') != Step:
+                    setattr(self, 'Step', Step)
             if not GroupBy is UNO_NONE:
-                if getattr(struct, 'GroupBy') != GroupBy:
-                    setattr(struct, 'GroupBy', GroupBy)
+                if getattr(self, 'GroupBy') != GroupBy:
+                    setattr(self, 'GroupBy', GroupBy)
             if not SourceField is UNO_NONE:
-                if getattr(struct, 'SourceField') != SourceField:
-                    setattr(struct, 'SourceField', SourceField)
+                if getattr(self, 'SourceField') != SourceField:
+                    setattr(self, 'SourceField', SourceField)
             if not Groups is UNO_NONE:
-                if getattr(struct, 'Groups') != Groups:
-                    setattr(struct, 'Groups', Groups)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DataPilotFieldGroupInfo = _struct_init
+                if getattr(self, 'Groups') != Groups:
+                    setattr(self, 'Groups', Groups)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.sheet'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DataPilotFieldGroupInfo = _get_class()
+
+
 else:
     from ...lo.sheet.data_pilot_field_group_info import DataPilotFieldGroupInfo as DataPilotFieldGroupInfo
 

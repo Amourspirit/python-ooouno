@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.reflection.ParamMode import (IN, INOUT, OUT)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ParamMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.reflection.ParamMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "INOUT": INOUT,
             "OUT": OUT,
         }
+        result = type('ParamMode', (object,), _dict)
+        return result
 
-        ParamMode = type('ParamMode', (object,), _dict)
-    _dynamic_enum()
+    ParamMode = _get_enum()
 else:
     from ...lo.reflection.param_mode import ParamMode as ParamMode
 

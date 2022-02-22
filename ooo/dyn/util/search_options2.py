@@ -20,54 +20,41 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.util import SearchOptions2 as USearchOptions2
-        # Dynamically create uno com.sun.star.util.SearchOptions2 using uno
-        global SearchOptions2
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.util.SearchOptions2'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.SearchOptions2'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(AlgorithmType2 = UNO_NONE, WildcardEscapeCharacter = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.util.SearchOptions2'
-            if isinstance(AlgorithmType2, USearchOptions2):
-                inst = uno.createUnoStruct(ns, AlgorithmType2)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, AlgorithmType2 = UNO_NONE, WildcardEscapeCharacter = UNO_NONE, **kwargs):
+            if getattr(AlgorithmType2, "__class__", None) == self.__class__:
+                orig_init(self, AlgorithmType2)
+                return
+            else:
+                orig_init(self)
             if not AlgorithmType2 is UNO_NONE:
-                if getattr(struct, 'AlgorithmType2') != AlgorithmType2:
-                    setattr(struct, 'AlgorithmType2', AlgorithmType2)
+                if getattr(self, 'AlgorithmType2') != AlgorithmType2:
+                    setattr(self, 'AlgorithmType2', AlgorithmType2)
             if not WildcardEscapeCharacter is UNO_NONE:
-                if getattr(struct, 'WildcardEscapeCharacter') != WildcardEscapeCharacter:
-                    setattr(struct, 'WildcardEscapeCharacter', WildcardEscapeCharacter)
+                if getattr(self, 'WildcardEscapeCharacter') != WildcardEscapeCharacter:
+                    setattr(self, 'WildcardEscapeCharacter', WildcardEscapeCharacter)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        SearchOptions2 = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.util.SearchOptions2'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.util'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    SearchOptions2 = _get_class()
+
+
 else:
     from ...lo.util.search_options2 import SearchOptions2 as SearchOptions2
 

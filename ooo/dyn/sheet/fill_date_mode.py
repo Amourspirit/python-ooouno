@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.FillDateMode import (FILL_DATE_DAY, FILL_DATE_MONTH, FILL_DATE_WEEKDAY, FILL_DATE_YEAR)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FillDateMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.FillDateMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "FILL_DATE_WEEKDAY": FILL_DATE_WEEKDAY,
             "FILL_DATE_YEAR": FILL_DATE_YEAR,
         }
+        result = type('FillDateMode', (object,), _dict)
+        return result
 
-        FillDateMode = type('FillDateMode', (object,), _dict)
-    _dynamic_enum()
+    FillDateMode = _get_enum()
 else:
     from ...lo.sheet.fill_date_mode import FillDateMode as FillDateMode
 

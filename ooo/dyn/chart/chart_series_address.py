@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart import ChartSeriesAddress as UChartSeriesAddress
-        # Dynamically create uno com.sun.star.chart.ChartSeriesAddress using uno
-        global ChartSeriesAddress
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart.ChartSeriesAddress'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart.ChartSeriesAddress'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(DomainRangeAddresses = UNO_NONE, DataRangeAddress = UNO_NONE, LabelAddress = UNO_NONE):
-            ns = 'com.sun.star.chart.ChartSeriesAddress'
-            if isinstance(DomainRangeAddresses, UChartSeriesAddress):
-                inst = uno.createUnoStruct(ns, DomainRangeAddresses)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, DomainRangeAddresses = UNO_NONE, DataRangeAddress = UNO_NONE, LabelAddress = UNO_NONE):
+            if getattr(DomainRangeAddresses, "__class__", None) == self.__class__:
+                orig_init(self, DomainRangeAddresses)
+                return
+            else:
+                orig_init(self)
             if not DomainRangeAddresses is UNO_NONE:
-                if getattr(struct, 'DomainRangeAddresses') != DomainRangeAddresses:
-                    setattr(struct, 'DomainRangeAddresses', DomainRangeAddresses)
+                if getattr(self, 'DomainRangeAddresses') != DomainRangeAddresses:
+                    setattr(self, 'DomainRangeAddresses', DomainRangeAddresses)
             if not DataRangeAddress is UNO_NONE:
-                if getattr(struct, 'DataRangeAddress') != DataRangeAddress:
-                    setattr(struct, 'DataRangeAddress', DataRangeAddress)
+                if getattr(self, 'DataRangeAddress') != DataRangeAddress:
+                    setattr(self, 'DataRangeAddress', DataRangeAddress)
             if not LabelAddress is UNO_NONE:
-                if getattr(struct, 'LabelAddress') != LabelAddress:
-                    setattr(struct, 'LabelAddress', LabelAddress)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ChartSeriesAddress = _struct_init
+                if getattr(self, 'LabelAddress') != LabelAddress:
+                    setattr(self, 'LabelAddress', LabelAddress)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart.ChartSeriesAddress'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ChartSeriesAddress = _get_class()
+
+
 else:
     from ...lo.chart.chart_series_address import ChartSeriesAddress as ChartSeriesAddress
 

@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.sheet import DataPilotFieldReference as UDataPilotFieldReference
-        # Dynamically create uno com.sun.star.sheet.DataPilotFieldReference using uno
-        global DataPilotFieldReference
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.sheet.DataPilotFieldReference'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.sheet'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldReference'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(ReferenceType = UNO_NONE, ReferenceField = UNO_NONE, ReferenceItemType = UNO_NONE, ReferenceItemName = UNO_NONE):
-            ns = 'com.sun.star.sheet.DataPilotFieldReference'
-            if isinstance(ReferenceType, UDataPilotFieldReference):
-                inst = uno.createUnoStruct(ns, ReferenceType)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, ReferenceType = UNO_NONE, ReferenceField = UNO_NONE, ReferenceItemType = UNO_NONE, ReferenceItemName = UNO_NONE):
+            if getattr(ReferenceType, "__class__", None) == self.__class__:
+                orig_init(self, ReferenceType)
+                return
+            else:
+                orig_init(self)
             if not ReferenceType is UNO_NONE:
-                if getattr(struct, 'ReferenceType') != ReferenceType:
-                    setattr(struct, 'ReferenceType', ReferenceType)
+                if getattr(self, 'ReferenceType') != ReferenceType:
+                    setattr(self, 'ReferenceType', ReferenceType)
             if not ReferenceField is UNO_NONE:
-                if getattr(struct, 'ReferenceField') != ReferenceField:
-                    setattr(struct, 'ReferenceField', ReferenceField)
+                if getattr(self, 'ReferenceField') != ReferenceField:
+                    setattr(self, 'ReferenceField', ReferenceField)
             if not ReferenceItemType is UNO_NONE:
-                if getattr(struct, 'ReferenceItemType') != ReferenceItemType:
-                    setattr(struct, 'ReferenceItemType', ReferenceItemType)
+                if getattr(self, 'ReferenceItemType') != ReferenceItemType:
+                    setattr(self, 'ReferenceItemType', ReferenceItemType)
             if not ReferenceItemName is UNO_NONE:
-                if getattr(struct, 'ReferenceItemName') != ReferenceItemName:
-                    setattr(struct, 'ReferenceItemName', ReferenceItemName)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DataPilotFieldReference = _struct_init
+                if getattr(self, 'ReferenceItemName') != ReferenceItemName:
+                    setattr(self, 'ReferenceItemName', ReferenceItemName)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.sheet.DataPilotFieldReference'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.sheet'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DataPilotFieldReference = _get_class()
+
+
 else:
     from ...lo.sheet.data_pilot_field_reference import DataPilotFieldReference as DataPilotFieldReference
 

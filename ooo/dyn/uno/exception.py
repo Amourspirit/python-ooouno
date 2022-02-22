@@ -20,45 +20,38 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
+
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_ex() -> None:
-        import uno
-        # Dynamically create uno com.sun.star.uno.Exception using uno
-        global Exception
-
-        def _set_fn_attr(ex):
-            type_name = 'com.sun.star.uno.Exception'
-            ex.__dict__['typeName'] = type_name
-            ex.__dict__['__pyunointerface__'] = type_name
-            ex.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(ex):
-            ex.__dict__['__ooo_ns__'] = 'com.sun.star.uno'
-            ex.__dict__['__ooo_full_ns__'] = 'com.sun.star.uno.Exception'
-            ex.__dict__['__ooo_type_name__'] = 'exception'
-
-        def _ex_init(Message = UNO_NONE, Context = UNO_NONE):
-            ns = 'com.sun.star.uno.Exception'
-            ex = uno.createUnoStruct(ns)
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Message = UNO_NONE, Context = UNO_NONE):
+            if getattr(Message, "__class__", None) == self.__class__:
+                orig_init(self, Message)
+                return
+            else:
+                orig_init(self)
             if not Message is UNO_NONE:
-                if getattr(ex, 'Message') != Message:
-                    setattr(ex, 'Message', Message)
+                if getattr(self, 'Message') != Message:
+                    setattr(self, 'Message', Message)
             if not Context is UNO_NONE:
-                if getattr(ex, 'Context') != Context:
-                    setattr(ex, 'Context', Context)
-            _set_attr(ex)
-            return ex
-        _set_attr(_ex_init)
-        _set_fn_attr(_ex_init)
-        Exception = _ex_init
+                if getattr(self, 'Context') != Context:
+                    setattr(self, 'Context', Context)
 
-    _dynamic_ex()
+        type_name = 'com.sun.star.uno.Exception'
+        ex = uno.getClass(type_name)
+        ex.__ooo_ns__ = 'com.sun.star.uno'
+        ex.__ooo_full_ns__= type_name
+        ex.__ooo_type_name__ = 'exception'
+        orig_init = ex.__init__
+        ex.__init__ = init
+        return ex
+
+    Exception = _get_class()
+
 else:
     from ...lo.uno.exception import Exception as Exception
-    
+
 __all__ = ['Exception']
 

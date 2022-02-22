@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart.ChartErrorIndicatorType import (LOWER, NONE, TOP_AND_BOTTOM, UPPER)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ChartErrorIndicatorType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartErrorIndicatorType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP_AND_BOTTOM": TOP_AND_BOTTOM,
             "UPPER": UPPER,
         }
+        result = type('ChartErrorIndicatorType', (object,), _dict)
+        return result
 
-        ChartErrorIndicatorType = type('ChartErrorIndicatorType', (object,), _dict)
-    _dynamic_enum()
+    ChartErrorIndicatorType = _get_enum()
 else:
     from ...lo.chart.chart_error_indicator_type import ChartErrorIndicatorType as ChartErrorIndicatorType
 

@@ -20,67 +20,54 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.linguistic2 import SingleProofreadingError as USingleProofreadingError
-        # Dynamically create uno com.sun.star.linguistic2.SingleProofreadingError using uno
-        global SingleProofreadingError
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.linguistic2.SingleProofreadingError'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.linguistic2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.linguistic2.SingleProofreadingError'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aSuggestions = UNO_NONE, aProperties = UNO_NONE, nErrorStart = UNO_NONE, nErrorLength = UNO_NONE, nErrorType = UNO_NONE, aRuleIdentifier = UNO_NONE, aShortComment = UNO_NONE, aFullComment = UNO_NONE):
-            ns = 'com.sun.star.linguistic2.SingleProofreadingError'
-            if isinstance(aSuggestions, USingleProofreadingError):
-                inst = uno.createUnoStruct(ns, aSuggestions)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aSuggestions = UNO_NONE, aProperties = UNO_NONE, nErrorStart = UNO_NONE, nErrorLength = UNO_NONE, nErrorType = UNO_NONE, aRuleIdentifier = UNO_NONE, aShortComment = UNO_NONE, aFullComment = UNO_NONE):
+            if getattr(aSuggestions, "__class__", None) == self.__class__:
+                orig_init(self, aSuggestions)
+                return
+            else:
+                orig_init(self)
             if not aSuggestions is UNO_NONE:
-                if getattr(struct, 'aSuggestions') != aSuggestions:
-                    setattr(struct, 'aSuggestions', aSuggestions)
+                if getattr(self, 'aSuggestions') != aSuggestions:
+                    setattr(self, 'aSuggestions', aSuggestions)
             if not aProperties is UNO_NONE:
-                if getattr(struct, 'aProperties') != aProperties:
-                    setattr(struct, 'aProperties', aProperties)
+                if getattr(self, 'aProperties') != aProperties:
+                    setattr(self, 'aProperties', aProperties)
             if not nErrorStart is UNO_NONE:
-                if getattr(struct, 'nErrorStart') != nErrorStart:
-                    setattr(struct, 'nErrorStart', nErrorStart)
+                if getattr(self, 'nErrorStart') != nErrorStart:
+                    setattr(self, 'nErrorStart', nErrorStart)
             if not nErrorLength is UNO_NONE:
-                if getattr(struct, 'nErrorLength') != nErrorLength:
-                    setattr(struct, 'nErrorLength', nErrorLength)
+                if getattr(self, 'nErrorLength') != nErrorLength:
+                    setattr(self, 'nErrorLength', nErrorLength)
             if not nErrorType is UNO_NONE:
-                if getattr(struct, 'nErrorType') != nErrorType:
-                    setattr(struct, 'nErrorType', nErrorType)
+                if getattr(self, 'nErrorType') != nErrorType:
+                    setattr(self, 'nErrorType', nErrorType)
             if not aRuleIdentifier is UNO_NONE:
-                if getattr(struct, 'aRuleIdentifier') != aRuleIdentifier:
-                    setattr(struct, 'aRuleIdentifier', aRuleIdentifier)
+                if getattr(self, 'aRuleIdentifier') != aRuleIdentifier:
+                    setattr(self, 'aRuleIdentifier', aRuleIdentifier)
             if not aShortComment is UNO_NONE:
-                if getattr(struct, 'aShortComment') != aShortComment:
-                    setattr(struct, 'aShortComment', aShortComment)
+                if getattr(self, 'aShortComment') != aShortComment:
+                    setattr(self, 'aShortComment', aShortComment)
             if not aFullComment is UNO_NONE:
-                if getattr(struct, 'aFullComment') != aFullComment:
-                    setattr(struct, 'aFullComment', aFullComment)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        SingleProofreadingError = _struct_init
+                if getattr(self, 'aFullComment') != aFullComment:
+                    setattr(self, 'aFullComment', aFullComment)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.linguistic2.SingleProofreadingError'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.linguistic2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    SingleProofreadingError = _get_class()
+
+
 else:
     from ...lo.linguistic2.single_proofreading_error import SingleProofreadingError as SingleProofreadingError
 

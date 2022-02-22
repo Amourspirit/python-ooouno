@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.i18n.DirectionProperty import (ARABIC_NUMBER, BLOCK_SEPARATOR, BOUNDARY_NEUTRAL, COMMON_NUMBER_SEPARATOR, DIR_NON_SPACING_MARK, EUROPEAN_NUMBER, EUROPEAN_NUMBER_SEPARATOR, EUROPEAN_NUMBER_TERMINATOR, LEFT_TO_RIGHT, LEFT_TO_RIGHT_EMBEDDING, LEFT_TO_RIGHT_OVERRIDE, OTHER_NEUTRAL, POP_DIRECTIONAL_FORMAT, RIGHT_TO_LEFT, RIGHT_TO_LEFT_ARABIC, RIGHT_TO_LEFT_EMBEDDING, RIGHT_TO_LEFT_OVERRIDE, SEGMENT_SEPARATOR, WHITE_SPACE_NEUTRAL)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DirectionProperty
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.i18n.DirectionProperty Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -58,9 +57,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SEGMENT_SEPARATOR": SEGMENT_SEPARATOR,
             "WHITE_SPACE_NEUTRAL": WHITE_SPACE_NEUTRAL,
         }
+        result = type('DirectionProperty', (object,), _dict)
+        return result
 
-        DirectionProperty = type('DirectionProperty', (object,), _dict)
-    _dynamic_enum()
+    DirectionProperty = _get_enum()
 else:
     from ...lo.i18n.direction_property import DirectionProperty as DirectionProperty
 

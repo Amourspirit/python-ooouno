@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.ConditionOperator import (BETWEEN, EQUAL, FORMULA, GREATER, GREATER_EQUAL, LESS, LESS_EQUAL, NONE, NOT_BETWEEN, NOT_EQUAL)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ConditionOperator
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.ConditionOperator Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -49,9 +48,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NOT_BETWEEN": NOT_BETWEEN,
             "NOT_EQUAL": NOT_EQUAL,
         }
+        result = type('ConditionOperator', (object,), _dict)
+        return result
 
-        ConditionOperator = type('ConditionOperator', (object,), _dict)
-    _dynamic_enum()
+    ConditionOperator = _get_enum()
 else:
     from ...lo.sheet.condition_operator import ConditionOperator as ConditionOperator
 

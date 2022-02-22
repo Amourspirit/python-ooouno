@@ -5,11 +5,15 @@ if __name__ == "__main__":
     import os
     sys.path.append(os.path.realpath('.'))
     pytest.main([__file__])
-import uno
 
 
 from enum import Enum
 
+def test_TabStop_is_uno():
+    import uno
+    from ooo.dyn.style.tab_stop import TabStop
+    UnoTabStop = uno.getClass(TabStop.__ooo_full_ns__)
+    assert (True if TabStop is UnoTabStop else False)
 
 def test_TabStop():
     from ooo.dyn.style.tab_stop import TabStop
@@ -75,6 +79,9 @@ def test_LineSpacing():
     lns.Mode = 12
     assert lns.Height == 34
     assert lns.Mode == 12
+    assert LineSpacing.__ooo_ns__ == 'com.sun.star.style'
+    assert LineSpacing.__ooo_full_ns__ == 'com.sun.star.style.LineSpacing'
+    assert LineSpacing.__ooo_type_name__ == 'struct'
     assert lns.__ooo_ns__ == 'com.sun.star.style'
     assert lns.__ooo_full_ns__ == 'com.sun.star.style.LineSpacing'
     assert lns.__ooo_type_name__ == 'struct'

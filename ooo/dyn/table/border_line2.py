@@ -20,54 +20,41 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.table import BorderLine2 as UBorderLine2
-        # Dynamically create uno com.sun.star.table.BorderLine2 using uno
-        global BorderLine2
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.table.BorderLine2'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.table'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.table.BorderLine2'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(LineStyle = UNO_NONE, LineWidth = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.table.BorderLine2'
-            if isinstance(LineStyle, UBorderLine2):
-                inst = uno.createUnoStruct(ns, LineStyle)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, LineStyle = UNO_NONE, LineWidth = UNO_NONE, **kwargs):
+            if getattr(LineStyle, "__class__", None) == self.__class__:
+                orig_init(self, LineStyle)
+                return
+            else:
+                orig_init(self)
             if not LineStyle is UNO_NONE:
-                if getattr(struct, 'LineStyle') != LineStyle:
-                    setattr(struct, 'LineStyle', LineStyle)
+                if getattr(self, 'LineStyle') != LineStyle:
+                    setattr(self, 'LineStyle', LineStyle)
             if not LineWidth is UNO_NONE:
-                if getattr(struct, 'LineWidth') != LineWidth:
-                    setattr(struct, 'LineWidth', LineWidth)
+                if getattr(self, 'LineWidth') != LineWidth:
+                    setattr(self, 'LineWidth', LineWidth)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        BorderLine2 = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.table.BorderLine2'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.table'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    BorderLine2 = _get_class()
+
+
 else:
     from ...lo.table.border_line2 import BorderLine2 as BorderLine2
 

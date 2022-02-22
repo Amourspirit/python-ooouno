@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.drawing import LineDash as ULineDash
-        # Dynamically create uno com.sun.star.drawing.LineDash using uno
-        global LineDash
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.drawing.LineDash'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.LineDash'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Style = UNO_NONE, Dots = UNO_NONE, DotLen = UNO_NONE, Dashes = UNO_NONE, DashLen = UNO_NONE, Distance = UNO_NONE):
-            ns = 'com.sun.star.drawing.LineDash'
-            if isinstance(Style, ULineDash):
-                inst = uno.createUnoStruct(ns, Style)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Style = UNO_NONE, Dots = UNO_NONE, DotLen = UNO_NONE, Dashes = UNO_NONE, DashLen = UNO_NONE, Distance = UNO_NONE):
+            if getattr(Style, "__class__", None) == self.__class__:
+                orig_init(self, Style)
+                return
+            else:
+                orig_init(self)
             if not Style is UNO_NONE:
-                if getattr(struct, 'Style') != Style:
-                    setattr(struct, 'Style', Style)
+                if getattr(self, 'Style') != Style:
+                    setattr(self, 'Style', Style)
             if not Dots is UNO_NONE:
-                if getattr(struct, 'Dots') != Dots:
-                    setattr(struct, 'Dots', Dots)
+                if getattr(self, 'Dots') != Dots:
+                    setattr(self, 'Dots', Dots)
             if not DotLen is UNO_NONE:
-                if getattr(struct, 'DotLen') != DotLen:
-                    setattr(struct, 'DotLen', DotLen)
+                if getattr(self, 'DotLen') != DotLen:
+                    setattr(self, 'DotLen', DotLen)
             if not Dashes is UNO_NONE:
-                if getattr(struct, 'Dashes') != Dashes:
-                    setattr(struct, 'Dashes', Dashes)
+                if getattr(self, 'Dashes') != Dashes:
+                    setattr(self, 'Dashes', Dashes)
             if not DashLen is UNO_NONE:
-                if getattr(struct, 'DashLen') != DashLen:
-                    setattr(struct, 'DashLen', DashLen)
+                if getattr(self, 'DashLen') != DashLen:
+                    setattr(self, 'DashLen', DashLen)
             if not Distance is UNO_NONE:
-                if getattr(struct, 'Distance') != Distance:
-                    setattr(struct, 'Distance', Distance)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        LineDash = _struct_init
+                if getattr(self, 'Distance') != Distance:
+                    setattr(self, 'Distance', Distance)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.drawing.LineDash'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.drawing'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    LineDash = _get_class()
+
+
 else:
     from ...lo.drawing.line_dash import LineDash as LineDash
 

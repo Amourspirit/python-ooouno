@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.ucb import CheckinArgument as UCheckinArgument
-        # Dynamically create uno com.sun.star.ucb.CheckinArgument using uno
-        global CheckinArgument
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.ucb.CheckinArgument'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.ucb'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ucb.CheckinArgument'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(MajorVersion = UNO_NONE, VersionComment = UNO_NONE, SourceURL = UNO_NONE, TargetURL = UNO_NONE, NewTitle = UNO_NONE, MimeType = UNO_NONE):
-            ns = 'com.sun.star.ucb.CheckinArgument'
-            if isinstance(MajorVersion, UCheckinArgument):
-                inst = uno.createUnoStruct(ns, MajorVersion)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, MajorVersion = UNO_NONE, VersionComment = UNO_NONE, SourceURL = UNO_NONE, TargetURL = UNO_NONE, NewTitle = UNO_NONE, MimeType = UNO_NONE):
+            if getattr(MajorVersion, "__class__", None) == self.__class__:
+                orig_init(self, MajorVersion)
+                return
+            else:
+                orig_init(self)
             if not MajorVersion is UNO_NONE:
-                if getattr(struct, 'MajorVersion') != MajorVersion:
-                    setattr(struct, 'MajorVersion', MajorVersion)
+                if getattr(self, 'MajorVersion') != MajorVersion:
+                    setattr(self, 'MajorVersion', MajorVersion)
             if not VersionComment is UNO_NONE:
-                if getattr(struct, 'VersionComment') != VersionComment:
-                    setattr(struct, 'VersionComment', VersionComment)
+                if getattr(self, 'VersionComment') != VersionComment:
+                    setattr(self, 'VersionComment', VersionComment)
             if not SourceURL is UNO_NONE:
-                if getattr(struct, 'SourceURL') != SourceURL:
-                    setattr(struct, 'SourceURL', SourceURL)
+                if getattr(self, 'SourceURL') != SourceURL:
+                    setattr(self, 'SourceURL', SourceURL)
             if not TargetURL is UNO_NONE:
-                if getattr(struct, 'TargetURL') != TargetURL:
-                    setattr(struct, 'TargetURL', TargetURL)
+                if getattr(self, 'TargetURL') != TargetURL:
+                    setattr(self, 'TargetURL', TargetURL)
             if not NewTitle is UNO_NONE:
-                if getattr(struct, 'NewTitle') != NewTitle:
-                    setattr(struct, 'NewTitle', NewTitle)
+                if getattr(self, 'NewTitle') != NewTitle:
+                    setattr(self, 'NewTitle', NewTitle)
             if not MimeType is UNO_NONE:
-                if getattr(struct, 'MimeType') != MimeType:
-                    setattr(struct, 'MimeType', MimeType)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        CheckinArgument = _struct_init
+                if getattr(self, 'MimeType') != MimeType:
+                    setattr(self, 'MimeType', MimeType)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.ucb.CheckinArgument'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.ucb'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    CheckinArgument = _get_class()
+
+
 else:
     from ...lo.ucb.checkin_argument import CheckinArgument as CheckinArgument
 

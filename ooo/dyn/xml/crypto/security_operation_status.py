@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.crypto.SecurityOperationStatus import (ASSERTION, CERT_HAS_EXPIRED, CERT_ISSUER_FAILED, CERT_NOT_FOUND, CERT_NOT_YET_VALID, CERT_REVOKED, CERT_VERIFY_FAILED, CRYPTO_FAILED, DATA_NOT_MATCH, DISABLED, DSIG_INVALID_REFERENCE, DSIG_NO_REFERENCES, ENGINE_FAILED, INVALID_DATA, INVALID_FORMAT, INVALID_KEY_DATA, INVALID_KEY_DATA_SIZE, INVALID_NODE, INVALID_NODE_ATTRIBUTE, INVALID_NODE_CONTENT, INVALID_OPERATION, INVALID_RESULT, INVALID_SIZE, INVALID_STATUS, INVALID_TRANSFORM, INVALID_TRANSFORM_KEY, INVALID_TYPE, INVALID_URI_TYPE, IO_FAILED, KEYDATA_DISABLED, KEY_DATA_ALREADY_EXIST, KEY_DATA_NOT_FOUND, KEY_NOT_FOUND, MALLOC_FAILED, MAX_ENCKEY_LEVEL, MAX_RETRIEVALS_LEVEL, MAX_RETRIEVAL_TYPE_MISMATCH, MISSING_NODE_ATTRIBUTE, NODE_ALREADY_PRESENT, NODE_NOT_FOUND, NOT_IMPLEMENTED, OPERATION_SUCCEEDED, RUNTIMEERROR_FAILED, STRDUP_FAILED, TRANSFORM_DISABLED, TRANSFORM_SAME_DOCUMENT_REQUIRED, UNEXPECTED_NODE, UNKNOWN, XML_FAILED, XSLT_FAILED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global SecurityOperationStatus
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.crypto.SecurityOperationStatus Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -89,9 +88,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "XML_FAILED": XML_FAILED,
             "XSLT_FAILED": XSLT_FAILED,
         }
+        result = type('SecurityOperationStatus', (object,), _dict)
+        return result
 
-        SecurityOperationStatus = type('SecurityOperationStatus', (object,), _dict)
-    _dynamic_enum()
+    SecurityOperationStatus = _get_enum()
 else:
     from ....lo.xml.crypto.security_operation_status import SecurityOperationStatus as SecurityOperationStatus
 

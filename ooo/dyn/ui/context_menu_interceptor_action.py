@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ui.ContextMenuInterceptorAction import (CANCELLED, CONTINUE_MODIFIED, EXECUTE_MODIFIED, IGNORED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ContextMenuInterceptorAction
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ui.ContextMenuInterceptorAction Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "EXECUTE_MODIFIED": EXECUTE_MODIFIED,
             "IGNORED": IGNORED,
         }
+        result = type('ContextMenuInterceptorAction', (object,), _dict)
+        return result
 
-        ContextMenuInterceptorAction = type('ContextMenuInterceptorAction', (object,), _dict)
-    _dynamic_enum()
+    ContextMenuInterceptorAction = _get_enum()
 else:
     from ...lo.ui.context_menu_interceptor_action import ContextMenuInterceptorAction as ContextMenuInterceptorAction
 

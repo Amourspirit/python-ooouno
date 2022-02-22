@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.awt import KeyStroke as UKeyStroke
-        # Dynamically create uno com.sun.star.awt.KeyStroke using uno
-        global KeyStroke
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.awt.KeyStroke'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.awt'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.awt.KeyStroke'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Modifiers = UNO_NONE, KeyCode = UNO_NONE, KeyChar = UNO_NONE, KeyFunc = UNO_NONE):
-            ns = 'com.sun.star.awt.KeyStroke'
-            if isinstance(Modifiers, UKeyStroke):
-                inst = uno.createUnoStruct(ns, Modifiers)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Modifiers = UNO_NONE, KeyCode = UNO_NONE, KeyChar = UNO_NONE, KeyFunc = UNO_NONE):
+            if getattr(Modifiers, "__class__", None) == self.__class__:
+                orig_init(self, Modifiers)
+                return
+            else:
+                orig_init(self)
             if not Modifiers is UNO_NONE:
-                if getattr(struct, 'Modifiers') != Modifiers:
-                    setattr(struct, 'Modifiers', Modifiers)
+                if getattr(self, 'Modifiers') != Modifiers:
+                    setattr(self, 'Modifiers', Modifiers)
             if not KeyCode is UNO_NONE:
-                if getattr(struct, 'KeyCode') != KeyCode:
-                    setattr(struct, 'KeyCode', KeyCode)
+                if getattr(self, 'KeyCode') != KeyCode:
+                    setattr(self, 'KeyCode', KeyCode)
             if not KeyChar is UNO_NONE:
-                if getattr(struct, 'KeyChar') != KeyChar:
-                    setattr(struct, 'KeyChar', KeyChar)
+                if getattr(self, 'KeyChar') != KeyChar:
+                    setattr(self, 'KeyChar', KeyChar)
             if not KeyFunc is UNO_NONE:
-                if getattr(struct, 'KeyFunc') != KeyFunc:
-                    setattr(struct, 'KeyFunc', KeyFunc)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        KeyStroke = _struct_init
+                if getattr(self, 'KeyFunc') != KeyFunc:
+                    setattr(self, 'KeyFunc', KeyFunc)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.awt.KeyStroke'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.awt'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    KeyStroke = _get_class()
+
+
 else:
     from ...lo.awt.key_stroke import KeyStroke as KeyStroke
 

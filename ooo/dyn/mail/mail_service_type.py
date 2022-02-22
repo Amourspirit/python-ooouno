@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.mail.MailServiceType import (IMAP, POP3, SMTP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MailServiceType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.mail.MailServiceType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "POP3": POP3,
             "SMTP": SMTP,
         }
+        result = type('MailServiceType', (object,), _dict)
+        return result
 
-        MailServiceType = type('MailServiceType', (object,), _dict)
-    _dynamic_enum()
+    MailServiceType = _get_enum()
 else:
     from ...lo.mail.mail_service_type import MailServiceType as MailServiceType
 

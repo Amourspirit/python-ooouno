@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.text.WritingMode import (LR_TB, RL_TB, TB_RL)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global WritingMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.text.WritingMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RL_TB": RL_TB,
             "TB_RL": TB_RL,
         }
+        result = type('WritingMode', (object,), _dict)
+        return result
 
-        WritingMode = type('WritingMode', (object,), _dict)
-    _dynamic_enum()
+    WritingMode = _get_enum()
 else:
     from ...lo.text.writing_mode import WritingMode as WritingMode
 

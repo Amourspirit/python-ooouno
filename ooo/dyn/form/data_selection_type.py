@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.form.DataSelectionType import (QUERY, SQL, SQLPASSTHROUGH, TABLE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DataSelectionType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.form.DataSelectionType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SQLPASSTHROUGH": SQLPASSTHROUGH,
             "TABLE": TABLE,
         }
+        result = type('DataSelectionType', (object,), _dict)
+        return result
 
-        DataSelectionType = type('DataSelectionType', (object,), _dict)
-    _dynamic_enum()
+    DataSelectionType = _get_enum()
 else:
     from ...lo.form.data_selection_type import DataSelectionType as DataSelectionType
 

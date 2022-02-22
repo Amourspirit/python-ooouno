@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.script import InvocationInfo as UInvocationInfo
-        # Dynamically create uno com.sun.star.script.InvocationInfo using uno
-        global InvocationInfo
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.script.InvocationInfo'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.script'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.script.InvocationInfo'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aParamTypes = UNO_NONE, aParamModes = UNO_NONE, aName = UNO_NONE, eMemberType = UNO_NONE, PropertyAttribute = UNO_NONE, aType = UNO_NONE):
-            ns = 'com.sun.star.script.InvocationInfo'
-            if isinstance(aParamTypes, UInvocationInfo):
-                inst = uno.createUnoStruct(ns, aParamTypes)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aParamTypes = UNO_NONE, aParamModes = UNO_NONE, aName = UNO_NONE, eMemberType = UNO_NONE, PropertyAttribute = UNO_NONE, aType = UNO_NONE):
+            if getattr(aParamTypes, "__class__", None) == self.__class__:
+                orig_init(self, aParamTypes)
+                return
+            else:
+                orig_init(self)
             if not aParamTypes is UNO_NONE:
-                if getattr(struct, 'aParamTypes') != aParamTypes:
-                    setattr(struct, 'aParamTypes', aParamTypes)
+                if getattr(self, 'aParamTypes') != aParamTypes:
+                    setattr(self, 'aParamTypes', aParamTypes)
             if not aParamModes is UNO_NONE:
-                if getattr(struct, 'aParamModes') != aParamModes:
-                    setattr(struct, 'aParamModes', aParamModes)
+                if getattr(self, 'aParamModes') != aParamModes:
+                    setattr(self, 'aParamModes', aParamModes)
             if not aName is UNO_NONE:
-                if getattr(struct, 'aName') != aName:
-                    setattr(struct, 'aName', aName)
+                if getattr(self, 'aName') != aName:
+                    setattr(self, 'aName', aName)
             if not eMemberType is UNO_NONE:
-                if getattr(struct, 'eMemberType') != eMemberType:
-                    setattr(struct, 'eMemberType', eMemberType)
+                if getattr(self, 'eMemberType') != eMemberType:
+                    setattr(self, 'eMemberType', eMemberType)
             if not PropertyAttribute is UNO_NONE:
-                if getattr(struct, 'PropertyAttribute') != PropertyAttribute:
-                    setattr(struct, 'PropertyAttribute', PropertyAttribute)
+                if getattr(self, 'PropertyAttribute') != PropertyAttribute:
+                    setattr(self, 'PropertyAttribute', PropertyAttribute)
             if not aType is UNO_NONE:
-                if getattr(struct, 'aType') != aType:
-                    setattr(struct, 'aType', aType)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        InvocationInfo = _struct_init
+                if getattr(self, 'aType') != aType:
+                    setattr(self, 'aType', aType)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.script.InvocationInfo'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.script'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    InvocationInfo = _get_class()
+
+
 else:
     from ...lo.script.invocation_info import InvocationInfo as InvocationInfo
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.dom.events.EventType import (DOMActivate, DOMAttrModified, DOMCharacterDataModified, DOMFocusIn, DOMFocusOut, DOMNodeInserted, DOMNodeInsertedIntoDocument, DOMNodeRemoved, DOMNodeRemovedFromDocument, DOMSubtreeModified, click, mousedown, mousemove, mouseout, mouseover, mouseup)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global EventType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.events.EventType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -55,9 +54,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "mouseover": mouseover,
             "mouseup": mouseup,
         }
+        result = type('EventType', (object,), _dict)
+        return result
 
-        EventType = type('EventType', (object,), _dict)
-    _dynamic_enum()
+    EventType = _get_enum()
 else:
     from .....lo.xml.dom.events.event_type import EventType as EventType
 

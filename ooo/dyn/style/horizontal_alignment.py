@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.style.HorizontalAlignment import (CENTER, LEFT, RIGHT)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global HorizontalAlignment
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.style.HorizontalAlignment Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LEFT": LEFT,
             "RIGHT": RIGHT,
         }
+        result = type('HorizontalAlignment', (object,), _dict)
+        return result
 
-        HorizontalAlignment = type('HorizontalAlignment', (object,), _dict)
-    _dynamic_enum()
+    HorizontalAlignment = _get_enum()
 else:
     from ...lo.style.horizontal_alignment import HorizontalAlignment as HorizontalAlignment
 

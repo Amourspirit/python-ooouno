@@ -20,58 +20,45 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.text import TextMarkupDescriptor as UTextMarkupDescriptor
-        # Dynamically create uno com.sun.star.text.TextMarkupDescriptor using uno
-        global TextMarkupDescriptor
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.text.TextMarkupDescriptor'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.text'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.TextMarkupDescriptor'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(nType = UNO_NONE, aIdentifier = UNO_NONE, nOffset = UNO_NONE, nLength = UNO_NONE, xMarkupInfoContainer = UNO_NONE):
-            ns = 'com.sun.star.text.TextMarkupDescriptor'
-            if isinstance(nType, UTextMarkupDescriptor):
-                inst = uno.createUnoStruct(ns, nType)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, nType = UNO_NONE, aIdentifier = UNO_NONE, nOffset = UNO_NONE, nLength = UNO_NONE, xMarkupInfoContainer = UNO_NONE):
+            if getattr(nType, "__class__", None) == self.__class__:
+                orig_init(self, nType)
+                return
+            else:
+                orig_init(self)
             if not nType is UNO_NONE:
-                if getattr(struct, 'nType') != nType:
-                    setattr(struct, 'nType', nType)
+                if getattr(self, 'nType') != nType:
+                    setattr(self, 'nType', nType)
             if not aIdentifier is UNO_NONE:
-                if getattr(struct, 'aIdentifier') != aIdentifier:
-                    setattr(struct, 'aIdentifier', aIdentifier)
+                if getattr(self, 'aIdentifier') != aIdentifier:
+                    setattr(self, 'aIdentifier', aIdentifier)
             if not nOffset is UNO_NONE:
-                if getattr(struct, 'nOffset') != nOffset:
-                    setattr(struct, 'nOffset', nOffset)
+                if getattr(self, 'nOffset') != nOffset:
+                    setattr(self, 'nOffset', nOffset)
             if not nLength is UNO_NONE:
-                if getattr(struct, 'nLength') != nLength:
-                    setattr(struct, 'nLength', nLength)
+                if getattr(self, 'nLength') != nLength:
+                    setattr(self, 'nLength', nLength)
             if not xMarkupInfoContainer is UNO_NONE:
-                if getattr(struct, 'xMarkupInfoContainer') != xMarkupInfoContainer:
-                    setattr(struct, 'xMarkupInfoContainer', xMarkupInfoContainer)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        TextMarkupDescriptor = _struct_init
+                if getattr(self, 'xMarkupInfoContainer') != xMarkupInfoContainer:
+                    setattr(self, 'xMarkupInfoContainer', xMarkupInfoContainer)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.text.TextMarkupDescriptor'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.text'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    TextMarkupDescriptor = _get_class()
+
+
 else:
     from ...lo.text.text_markup_descriptor import TextMarkupDescriptor as TextMarkupDescriptor
 

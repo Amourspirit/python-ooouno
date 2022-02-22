@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.animations.Timing import (INDEFINITE, MEDIA)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global Timing
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.animations.Timing Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "INDEFINITE": INDEFINITE,
             "MEDIA": MEDIA,
         }
+        result = type('Timing', (object,), _dict)
+        return result
 
-        Timing = type('Timing', (object,), _dict)
-    _dynamic_enum()
+    Timing = _get_enum()
 else:
     from ...lo.animations.timing import Timing as Timing
 

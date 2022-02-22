@@ -20,54 +20,41 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.frame import FrameActionEvent as UFrameActionEvent
-        # Dynamically create uno com.sun.star.frame.FrameActionEvent using uno
-        global FrameActionEvent
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.frame.FrameActionEvent'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.frame'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.FrameActionEvent'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Frame = UNO_NONE, Action = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.frame.FrameActionEvent'
-            if isinstance(Frame, UFrameActionEvent):
-                inst = uno.createUnoStruct(ns, Frame)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Frame = UNO_NONE, Action = UNO_NONE, **kwargs):
+            if getattr(Frame, "__class__", None) == self.__class__:
+                orig_init(self, Frame)
+                return
+            else:
+                orig_init(self)
             if not Frame is UNO_NONE:
-                if getattr(struct, 'Frame') != Frame:
-                    setattr(struct, 'Frame', Frame)
+                if getattr(self, 'Frame') != Frame:
+                    setattr(self, 'Frame', Frame)
             if not Action is UNO_NONE:
-                if getattr(struct, 'Action') != Action:
-                    setattr(struct, 'Action', Action)
+                if getattr(self, 'Action') != Action:
+                    setattr(self, 'Action', Action)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FrameActionEvent = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.frame.FrameActionEvent'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.frame'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FrameActionEvent = _get_class()
+
+
 else:
     from ...lo.frame.frame_action_event import FrameActionEvent as FrameActionEvent
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.Border import (BOTTOM, LEFT, RIGHT, TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global Border
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.Border Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT": RIGHT,
             "TOP": TOP,
         }
+        result = type('Border', (object,), _dict)
+        return result
 
-        Border = type('Border', (object,), _dict)
-    _dynamic_enum()
+    Border = _get_enum()
 else:
     from ...lo.sheet.border import Border as Border
 

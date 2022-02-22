@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.DataImportMode import (NONE, QUERY, SQL, TABLE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DataImportMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.DataImportMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SQL": SQL,
             "TABLE": TABLE,
         }
+        result = type('DataImportMode', (object,), _dict)
+        return result
 
-        DataImportMode = type('DataImportMode', (object,), _dict)
-    _dynamic_enum()
+    DataImportMode = _get_enum()
 else:
     from ...lo.sheet.data_import_mode import DataImportMode as DataImportMode
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.presentation.FadeEffect import (CLOCKWISE, CLOSE_HORIZONTAL, CLOSE_VERTICAL, COUNTERCLOCKWISE, DISSOLVE, FADE_FROM_BOTTOM, FADE_FROM_CENTER, FADE_FROM_LEFT, FADE_FROM_LOWERLEFT, FADE_FROM_LOWERRIGHT, FADE_FROM_RIGHT, FADE_FROM_TOP, FADE_FROM_UPPERLEFT, FADE_FROM_UPPERRIGHT, FADE_TO_CENTER, HORIZONTAL_CHECKERBOARD, HORIZONTAL_LINES, HORIZONTAL_STRIPES, MOVE_FROM_BOTTOM, MOVE_FROM_LEFT, MOVE_FROM_LOWERLEFT, MOVE_FROM_LOWERRIGHT, MOVE_FROM_RIGHT, MOVE_FROM_TOP, MOVE_FROM_UPPERLEFT, MOVE_FROM_UPPERRIGHT, NONE, OPEN_HORIZONTAL, OPEN_VERTICAL, RANDOM, ROLL_FROM_BOTTOM, ROLL_FROM_LEFT, ROLL_FROM_RIGHT, ROLL_FROM_TOP, SPIRALIN_LEFT, SPIRALIN_RIGHT, SPIRALOUT_LEFT, SPIRALOUT_RIGHT, STRETCH_FROM_BOTTOM, STRETCH_FROM_LEFT, STRETCH_FROM_RIGHT, STRETCH_FROM_TOP, UNCOVER_TO_BOTTOM, UNCOVER_TO_LEFT, UNCOVER_TO_LOWERLEFT, UNCOVER_TO_LOWERRIGHT, UNCOVER_TO_RIGHT, UNCOVER_TO_TOP, UNCOVER_TO_UPPERLEFT, UNCOVER_TO_UPPERRIGHT, VERTICAL_CHECKERBOARD, VERTICAL_LINES, VERTICAL_STRIPES, WAVYLINE_FROM_BOTTOM, WAVYLINE_FROM_LEFT, WAVYLINE_FROM_RIGHT, WAVYLINE_FROM_TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FadeEffect
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.presentation.FadeEffect Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -96,9 +95,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "WAVYLINE_FROM_RIGHT": WAVYLINE_FROM_RIGHT,
             "WAVYLINE_FROM_TOP": WAVYLINE_FROM_TOP,
         }
+        result = type('FadeEffect', (object,), _dict)
+        return result
 
-        FadeEffect = type('FadeEffect', (object,), _dict)
-    _dynamic_enum()
+    FadeEffect = _get_enum()
 else:
     from ...lo.presentation.fade_effect import FadeEffect as FadeEffect
 

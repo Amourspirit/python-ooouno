@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.presentation import ParagraphTarget as UParagraphTarget
-        # Dynamically create uno com.sun.star.presentation.ParagraphTarget using uno
-        global ParagraphTarget
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.presentation.ParagraphTarget'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.presentation'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.presentation.ParagraphTarget'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Shape = UNO_NONE, Paragraph = UNO_NONE):
-            ns = 'com.sun.star.presentation.ParagraphTarget'
-            if isinstance(Shape, UParagraphTarget):
-                inst = uno.createUnoStruct(ns, Shape)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Shape = UNO_NONE, Paragraph = UNO_NONE):
+            if getattr(Shape, "__class__", None) == self.__class__:
+                orig_init(self, Shape)
+                return
+            else:
+                orig_init(self)
             if not Shape is UNO_NONE:
-                if getattr(struct, 'Shape') != Shape:
-                    setattr(struct, 'Shape', Shape)
+                if getattr(self, 'Shape') != Shape:
+                    setattr(self, 'Shape', Shape)
             if not Paragraph is UNO_NONE:
-                if getattr(struct, 'Paragraph') != Paragraph:
-                    setattr(struct, 'Paragraph', Paragraph)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ParagraphTarget = _struct_init
+                if getattr(self, 'Paragraph') != Paragraph:
+                    setattr(self, 'Paragraph', Paragraph)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.presentation.ParagraphTarget'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.presentation'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ParagraphTarget = _get_class()
+
+
 else:
     from ...lo.presentation.paragraph_target import ParagraphTarget as ParagraphTarget
 

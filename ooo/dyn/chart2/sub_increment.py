@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart2 import SubIncrement as USubIncrement
-        # Dynamically create uno com.sun.star.chart2.SubIncrement using uno
-        global SubIncrement
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart2.SubIncrement'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.SubIncrement'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(IntervalCount = UNO_NONE, PostEquidistant = UNO_NONE):
-            ns = 'com.sun.star.chart2.SubIncrement'
-            if isinstance(IntervalCount, USubIncrement):
-                inst = uno.createUnoStruct(ns, IntervalCount)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, IntervalCount = UNO_NONE, PostEquidistant = UNO_NONE):
+            if getattr(IntervalCount, "__class__", None) == self.__class__:
+                orig_init(self, IntervalCount)
+                return
+            else:
+                orig_init(self)
             if not IntervalCount is UNO_NONE:
-                if getattr(struct, 'IntervalCount') != IntervalCount:
-                    setattr(struct, 'IntervalCount', IntervalCount)
+                if getattr(self, 'IntervalCount') != IntervalCount:
+                    setattr(self, 'IntervalCount', IntervalCount)
             if not PostEquidistant is UNO_NONE:
-                if getattr(struct, 'PostEquidistant') != PostEquidistant:
-                    setattr(struct, 'PostEquidistant', PostEquidistant)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        SubIncrement = _struct_init
+                if getattr(self, 'PostEquidistant') != PostEquidistant:
+                    setattr(self, 'PostEquidistant', PostEquidistant)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart2.SubIncrement'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    SubIncrement = _get_class()
+
+
 else:
     from ...lo.chart2.sub_increment import SubIncrement as SubIncrement
 

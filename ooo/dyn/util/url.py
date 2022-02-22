@@ -20,76 +20,63 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.util import URL as UURL
-        # Dynamically create uno com.sun.star.util.URL using uno
-        global URL
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.util.URL'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.URL'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Complete = UNO_NONE, Main = UNO_NONE, Protocol = UNO_NONE, User = UNO_NONE, Password = UNO_NONE, Server = UNO_NONE, Port = UNO_NONE, Path = UNO_NONE, Name = UNO_NONE, Arguments = UNO_NONE, Mark = UNO_NONE):
-            ns = 'com.sun.star.util.URL'
-            if isinstance(Complete, UURL):
-                inst = uno.createUnoStruct(ns, Complete)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Complete = UNO_NONE, Main = UNO_NONE, Protocol = UNO_NONE, User = UNO_NONE, Password = UNO_NONE, Server = UNO_NONE, Port = UNO_NONE, Path = UNO_NONE, Name = UNO_NONE, Arguments = UNO_NONE, Mark = UNO_NONE):
+            if getattr(Complete, "__class__", None) == self.__class__:
+                orig_init(self, Complete)
+                return
+            else:
+                orig_init(self)
             if not Complete is UNO_NONE:
-                if getattr(struct, 'Complete') != Complete:
-                    setattr(struct, 'Complete', Complete)
+                if getattr(self, 'Complete') != Complete:
+                    setattr(self, 'Complete', Complete)
             if not Main is UNO_NONE:
-                if getattr(struct, 'Main') != Main:
-                    setattr(struct, 'Main', Main)
+                if getattr(self, 'Main') != Main:
+                    setattr(self, 'Main', Main)
             if not Protocol is UNO_NONE:
-                if getattr(struct, 'Protocol') != Protocol:
-                    setattr(struct, 'Protocol', Protocol)
+                if getattr(self, 'Protocol') != Protocol:
+                    setattr(self, 'Protocol', Protocol)
             if not User is UNO_NONE:
-                if getattr(struct, 'User') != User:
-                    setattr(struct, 'User', User)
+                if getattr(self, 'User') != User:
+                    setattr(self, 'User', User)
             if not Password is UNO_NONE:
-                if getattr(struct, 'Password') != Password:
-                    setattr(struct, 'Password', Password)
+                if getattr(self, 'Password') != Password:
+                    setattr(self, 'Password', Password)
             if not Server is UNO_NONE:
-                if getattr(struct, 'Server') != Server:
-                    setattr(struct, 'Server', Server)
+                if getattr(self, 'Server') != Server:
+                    setattr(self, 'Server', Server)
             if not Port is UNO_NONE:
-                if getattr(struct, 'Port') != Port:
-                    setattr(struct, 'Port', Port)
+                if getattr(self, 'Port') != Port:
+                    setattr(self, 'Port', Port)
             if not Path is UNO_NONE:
-                if getattr(struct, 'Path') != Path:
-                    setattr(struct, 'Path', Path)
+                if getattr(self, 'Path') != Path:
+                    setattr(self, 'Path', Path)
             if not Name is UNO_NONE:
-                if getattr(struct, 'Name') != Name:
-                    setattr(struct, 'Name', Name)
+                if getattr(self, 'Name') != Name:
+                    setattr(self, 'Name', Name)
             if not Arguments is UNO_NONE:
-                if getattr(struct, 'Arguments') != Arguments:
-                    setattr(struct, 'Arguments', Arguments)
+                if getattr(self, 'Arguments') != Arguments:
+                    setattr(self, 'Arguments', Arguments)
             if not Mark is UNO_NONE:
-                if getattr(struct, 'Mark') != Mark:
-                    setattr(struct, 'Mark', Mark)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        URL = _struct_init
+                if getattr(self, 'Mark') != Mark:
+                    setattr(self, 'Mark', Mark)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.util.URL'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.util'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    URL = _get_class()
+
+
 else:
     from ...lo.util.url import URL as URL
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.WebDAVHTTPMethod import (CONNECT, COPY, DELETE, GET, HEAD, LOCK, MKCOL, MOVE, OPTIONS, PATCH, POST, PROPFIND, PROPPATCH, PUT, TRACE, UNLOCK)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global WebDAVHTTPMethod
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.WebDAVHTTPMethod Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -55,9 +54,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TRACE": TRACE,
             "UNLOCK": UNLOCK,
         }
+        result = type('WebDAVHTTPMethod', (object,), _dict)
+        return result
 
-        WebDAVHTTPMethod = type('WebDAVHTTPMethod', (object,), _dict)
-    _dynamic_enum()
+    WebDAVHTTPMethod = _get_enum()
 else:
     from ...lo.ucb.web_davhttp_method import WebDAVHTTPMethod as WebDAVHTTPMethod
 

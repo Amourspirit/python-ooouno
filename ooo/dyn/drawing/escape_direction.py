@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.EscapeDirection import (DOWN, HORIZONTAL, LEFT, RIGHT, SMART, UP, VERTICAL)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global EscapeDirection
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.EscapeDirection Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -46,9 +45,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "UP": UP,
             "VERTICAL": VERTICAL,
         }
+        result = type('EscapeDirection', (object,), _dict)
+        return result
 
-        EscapeDirection = type('EscapeDirection', (object,), _dict)
-    _dynamic_enum()
+    EscapeDirection = _get_enum()
 else:
     from ...lo.drawing.escape_direction import EscapeDirection as EscapeDirection
 

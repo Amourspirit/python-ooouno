@@ -20,70 +20,57 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.security import DocumentSignatureInformation as UDocumentSignatureInformation
-        # Dynamically create uno com.sun.star.security.DocumentSignatureInformation using uno
-        global DocumentSignatureInformation
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.security.DocumentSignatureInformation'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.security'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.security.DocumentSignatureInformation'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Signer = UNO_NONE, SignatureDate = UNO_NONE, SignatureTime = UNO_NONE, SignatureIsValid = UNO_NONE, CertificateStatus = UNO_NONE, PartialDocumentSignature = UNO_NONE, SignatureLineId = UNO_NONE, ValidSignatureLineImage = UNO_NONE, InvalidSignatureLineImage = UNO_NONE):
-            ns = 'com.sun.star.security.DocumentSignatureInformation'
-            if isinstance(Signer, UDocumentSignatureInformation):
-                inst = uno.createUnoStruct(ns, Signer)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Signer = UNO_NONE, SignatureDate = UNO_NONE, SignatureTime = UNO_NONE, SignatureIsValid = UNO_NONE, CertificateStatus = UNO_NONE, PartialDocumentSignature = UNO_NONE, SignatureLineId = UNO_NONE, ValidSignatureLineImage = UNO_NONE, InvalidSignatureLineImage = UNO_NONE):
+            if getattr(Signer, "__class__", None) == self.__class__:
+                orig_init(self, Signer)
+                return
+            else:
+                orig_init(self)
             if not Signer is UNO_NONE:
-                if getattr(struct, 'Signer') != Signer:
-                    setattr(struct, 'Signer', Signer)
+                if getattr(self, 'Signer') != Signer:
+                    setattr(self, 'Signer', Signer)
             if not SignatureDate is UNO_NONE:
-                if getattr(struct, 'SignatureDate') != SignatureDate:
-                    setattr(struct, 'SignatureDate', SignatureDate)
+                if getattr(self, 'SignatureDate') != SignatureDate:
+                    setattr(self, 'SignatureDate', SignatureDate)
             if not SignatureTime is UNO_NONE:
-                if getattr(struct, 'SignatureTime') != SignatureTime:
-                    setattr(struct, 'SignatureTime', SignatureTime)
+                if getattr(self, 'SignatureTime') != SignatureTime:
+                    setattr(self, 'SignatureTime', SignatureTime)
             if not SignatureIsValid is UNO_NONE:
-                if getattr(struct, 'SignatureIsValid') != SignatureIsValid:
-                    setattr(struct, 'SignatureIsValid', SignatureIsValid)
+                if getattr(self, 'SignatureIsValid') != SignatureIsValid:
+                    setattr(self, 'SignatureIsValid', SignatureIsValid)
             if not CertificateStatus is UNO_NONE:
-                if getattr(struct, 'CertificateStatus') != CertificateStatus:
-                    setattr(struct, 'CertificateStatus', CertificateStatus)
+                if getattr(self, 'CertificateStatus') != CertificateStatus:
+                    setattr(self, 'CertificateStatus', CertificateStatus)
             if not PartialDocumentSignature is UNO_NONE:
-                if getattr(struct, 'PartialDocumentSignature') != PartialDocumentSignature:
-                    setattr(struct, 'PartialDocumentSignature', PartialDocumentSignature)
+                if getattr(self, 'PartialDocumentSignature') != PartialDocumentSignature:
+                    setattr(self, 'PartialDocumentSignature', PartialDocumentSignature)
             if not SignatureLineId is UNO_NONE:
-                if getattr(struct, 'SignatureLineId') != SignatureLineId:
-                    setattr(struct, 'SignatureLineId', SignatureLineId)
+                if getattr(self, 'SignatureLineId') != SignatureLineId:
+                    setattr(self, 'SignatureLineId', SignatureLineId)
             if not ValidSignatureLineImage is UNO_NONE:
-                if getattr(struct, 'ValidSignatureLineImage') != ValidSignatureLineImage:
-                    setattr(struct, 'ValidSignatureLineImage', ValidSignatureLineImage)
+                if getattr(self, 'ValidSignatureLineImage') != ValidSignatureLineImage:
+                    setattr(self, 'ValidSignatureLineImage', ValidSignatureLineImage)
             if not InvalidSignatureLineImage is UNO_NONE:
-                if getattr(struct, 'InvalidSignatureLineImage') != InvalidSignatureLineImage:
-                    setattr(struct, 'InvalidSignatureLineImage', InvalidSignatureLineImage)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DocumentSignatureInformation = _struct_init
+                if getattr(self, 'InvalidSignatureLineImage') != InvalidSignatureLineImage:
+                    setattr(self, 'InvalidSignatureLineImage', InvalidSignatureLineImage)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.security.DocumentSignatureInformation'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.security'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DocumentSignatureInformation = _get_class()
+
+
 else:
     from ...lo.security.document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation
 

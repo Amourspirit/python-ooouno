@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.scanner.ScanError import (InvalidContext, ScanCanceled, ScanErrorNone, ScanFailed, ScanInProgress, ScannerNotAvailable)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ScanError
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.scanner.ScanError Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -45,9 +44,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "ScanInProgress": ScanInProgress,
             "ScannerNotAvailable": ScannerNotAvailable,
         }
+        result = type('ScanError', (object,), _dict)
+        return result
 
-        ScanError = type('ScanError', (object,), _dict)
-    _dynamic_enum()
+    ScanError = _get_enum()
 else:
     from ...lo.scanner.scan_error import ScanError as ScanError
 

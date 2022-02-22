@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.text import VertOrientationFormat as UVertOrientationFormat
-        # Dynamically create uno com.sun.star.text.VertOrientationFormat using uno
-        global VertOrientationFormat
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.text.VertOrientationFormat'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.text'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.text.VertOrientationFormat'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(YPos = UNO_NONE, VerticalOrientation = UNO_NONE, VerticalRelation = UNO_NONE):
-            ns = 'com.sun.star.text.VertOrientationFormat'
-            if isinstance(YPos, UVertOrientationFormat):
-                inst = uno.createUnoStruct(ns, YPos)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, YPos = UNO_NONE, VerticalOrientation = UNO_NONE, VerticalRelation = UNO_NONE):
+            if getattr(YPos, "__class__", None) == self.__class__:
+                orig_init(self, YPos)
+                return
+            else:
+                orig_init(self)
             if not YPos is UNO_NONE:
-                if getattr(struct, 'YPos') != YPos:
-                    setattr(struct, 'YPos', YPos)
+                if getattr(self, 'YPos') != YPos:
+                    setattr(self, 'YPos', YPos)
             if not VerticalOrientation is UNO_NONE:
-                if getattr(struct, 'VerticalOrientation') != VerticalOrientation:
-                    setattr(struct, 'VerticalOrientation', VerticalOrientation)
+                if getattr(self, 'VerticalOrientation') != VerticalOrientation:
+                    setattr(self, 'VerticalOrientation', VerticalOrientation)
             if not VerticalRelation is UNO_NONE:
-                if getattr(struct, 'VerticalRelation') != VerticalRelation:
-                    setattr(struct, 'VerticalRelation', VerticalRelation)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        VertOrientationFormat = _struct_init
+                if getattr(self, 'VerticalRelation') != VerticalRelation:
+                    setattr(self, 'VerticalRelation', VerticalRelation)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.text.VertOrientationFormat'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.text'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    VertOrientationFormat = _get_class()
+
+
 else:
     from ...lo.text.vert_orientation_format import VertOrientationFormat as VertOrientationFormat
 

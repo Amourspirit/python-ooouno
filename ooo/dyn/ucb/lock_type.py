@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.LockType import (WRITE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global LockType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.LockType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -40,9 +39,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "__ooo_type_name__": "enum",
             "WRITE": WRITE,
         }
+        result = type('LockType', (object,), _dict)
+        return result
 
-        LockType = type('LockType', (object,), _dict)
-    _dynamic_enum()
+    LockType = _get_enum()
 else:
     from ...lo.ucb.lock_type import LockType as LockType
 

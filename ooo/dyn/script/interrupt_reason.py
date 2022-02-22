@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.script.InterruptReason import (BreakPoint, Cancel, CompileError, RuntimeError, Step, StepOut, StepOver, StepStatement)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global InterruptReason
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.script.InterruptReason Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -47,9 +46,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "StepOver": StepOver,
             "StepStatement": StepStatement,
         }
+        result = type('InterruptReason', (object,), _dict)
+        return result
 
-        InterruptReason = type('InterruptReason', (object,), _dict)
-    _dynamic_enum()
+    InterruptReason = _get_enum()
 else:
     from ...lo.script.interrupt_reason import InterruptReason as InterruptReason
 

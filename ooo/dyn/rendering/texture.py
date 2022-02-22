@@ -20,70 +20,57 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import Texture as UTexture
-        # Dynamically create uno com.sun.star.rendering.Texture using uno
-        global Texture
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.Texture'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.Texture'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(AffineTransform = UNO_NONE, Alpha = UNO_NONE, NumberOfHatchPolygons = UNO_NONE, Bitmap = UNO_NONE, Gradient = UNO_NONE, Hatching = UNO_NONE, HatchAttributes = UNO_NONE, RepeatModeX = UNO_NONE, RepeatModeY = UNO_NONE):
-            ns = 'com.sun.star.rendering.Texture'
-            if isinstance(AffineTransform, UTexture):
-                inst = uno.createUnoStruct(ns, AffineTransform)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, AffineTransform = UNO_NONE, Alpha = UNO_NONE, NumberOfHatchPolygons = UNO_NONE, Bitmap = UNO_NONE, Gradient = UNO_NONE, Hatching = UNO_NONE, HatchAttributes = UNO_NONE, RepeatModeX = UNO_NONE, RepeatModeY = UNO_NONE):
+            if getattr(AffineTransform, "__class__", None) == self.__class__:
+                orig_init(self, AffineTransform)
+                return
+            else:
+                orig_init(self)
             if not AffineTransform is UNO_NONE:
-                if getattr(struct, 'AffineTransform') != AffineTransform:
-                    setattr(struct, 'AffineTransform', AffineTransform)
+                if getattr(self, 'AffineTransform') != AffineTransform:
+                    setattr(self, 'AffineTransform', AffineTransform)
             if not Alpha is UNO_NONE:
-                if getattr(struct, 'Alpha') != Alpha:
-                    setattr(struct, 'Alpha', Alpha)
+                if getattr(self, 'Alpha') != Alpha:
+                    setattr(self, 'Alpha', Alpha)
             if not NumberOfHatchPolygons is UNO_NONE:
-                if getattr(struct, 'NumberOfHatchPolygons') != NumberOfHatchPolygons:
-                    setattr(struct, 'NumberOfHatchPolygons', NumberOfHatchPolygons)
+                if getattr(self, 'NumberOfHatchPolygons') != NumberOfHatchPolygons:
+                    setattr(self, 'NumberOfHatchPolygons', NumberOfHatchPolygons)
             if not Bitmap is UNO_NONE:
-                if getattr(struct, 'Bitmap') != Bitmap:
-                    setattr(struct, 'Bitmap', Bitmap)
+                if getattr(self, 'Bitmap') != Bitmap:
+                    setattr(self, 'Bitmap', Bitmap)
             if not Gradient is UNO_NONE:
-                if getattr(struct, 'Gradient') != Gradient:
-                    setattr(struct, 'Gradient', Gradient)
+                if getattr(self, 'Gradient') != Gradient:
+                    setattr(self, 'Gradient', Gradient)
             if not Hatching is UNO_NONE:
-                if getattr(struct, 'Hatching') != Hatching:
-                    setattr(struct, 'Hatching', Hatching)
+                if getattr(self, 'Hatching') != Hatching:
+                    setattr(self, 'Hatching', Hatching)
             if not HatchAttributes is UNO_NONE:
-                if getattr(struct, 'HatchAttributes') != HatchAttributes:
-                    setattr(struct, 'HatchAttributes', HatchAttributes)
+                if getattr(self, 'HatchAttributes') != HatchAttributes:
+                    setattr(self, 'HatchAttributes', HatchAttributes)
             if not RepeatModeX is UNO_NONE:
-                if getattr(struct, 'RepeatModeX') != RepeatModeX:
-                    setattr(struct, 'RepeatModeX', RepeatModeX)
+                if getattr(self, 'RepeatModeX') != RepeatModeX:
+                    setattr(self, 'RepeatModeX', RepeatModeX)
             if not RepeatModeY is UNO_NONE:
-                if getattr(struct, 'RepeatModeY') != RepeatModeY:
-                    setattr(struct, 'RepeatModeY', RepeatModeY)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Texture = _struct_init
+                if getattr(self, 'RepeatModeY') != RepeatModeY:
+                    setattr(self, 'RepeatModeY', RepeatModeY)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.Texture'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Texture = _get_class()
+
+
 else:
     from ...lo.rendering.texture import Texture as Texture
 

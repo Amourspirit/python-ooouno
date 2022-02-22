@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ui.DockingArea import (DOCKINGAREA_BOTTOM, DOCKINGAREA_DEFAULT, DOCKINGAREA_LEFT, DOCKINGAREA_RIGHT, DOCKINGAREA_TOP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DockingArea
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ui.DockingArea Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "DOCKINGAREA_RIGHT": DOCKINGAREA_RIGHT,
             "DOCKINGAREA_TOP": DOCKINGAREA_TOP,
         }
+        result = type('DockingArea', (object,), _dict)
+        return result
 
-        DockingArea = type('DockingArea', (object,), _dict)
-    _dynamic_enum()
+    DockingArea = _get_enum()
 else:
     from ...lo.ui.docking_area import DockingArea as DockingArea
 

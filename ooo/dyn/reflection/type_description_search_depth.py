@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.reflection.TypeDescriptionSearchDepth import (INFINITE, ONE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TypeDescriptionSearchDepth
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.reflection.TypeDescriptionSearchDepth Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "INFINITE": INFINITE,
             "ONE": ONE,
         }
+        result = type('TypeDescriptionSearchDepth', (object,), _dict)
+        return result
 
-        TypeDescriptionSearchDepth = type('TypeDescriptionSearchDepth', (object,), _dict)
-    _dynamic_enum()
+    TypeDescriptionSearchDepth = _get_enum()
 else:
     from ...lo.reflection.type_description_search_depth import TypeDescriptionSearchDepth as TypeDescriptionSearchDepth
 

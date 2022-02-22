@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.smarttags.SmartTagRecognizerMode import (CELL, CHAR, PARAGRAPH, SINGLE_WORD)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global SmartTagRecognizerMode
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.smarttags.SmartTagRecognizerMode Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "PARAGRAPH": PARAGRAPH,
             "SINGLE_WORD": SINGLE_WORD,
         }
+        result = type('SmartTagRecognizerMode', (object,), _dict)
+        return result
 
-        SmartTagRecognizerMode = type('SmartTagRecognizerMode', (object,), _dict)
-    _dynamic_enum()
+    SmartTagRecognizerMode = _get_enum()
 else:
     from ...lo.smarttags.smart_tag_recognizer_mode import SmartTagRecognizerMode as SmartTagRecognizerMode
 

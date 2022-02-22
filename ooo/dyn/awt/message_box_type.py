@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.awt.MessageBoxType import (ERRORBOX, INFOBOX, MESSAGEBOX, QUERYBOX, WARNINGBOX)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global MessageBoxType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.awt.MessageBoxType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -44,9 +43,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "QUERYBOX": QUERYBOX,
             "WARNINGBOX": WARNINGBOX,
         }
+        result = type('MessageBoxType', (object,), _dict)
+        return result
 
-        MessageBoxType = type('MessageBoxType', (object,), _dict)
-    _dynamic_enum()
+    MessageBoxType = _get_enum()
 else:
     from ...lo.awt.message_box_type import MessageBoxType as MessageBoxType
 

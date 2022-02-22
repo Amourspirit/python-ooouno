@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.FilterConnection import (AND, OR)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FilterConnection
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.FilterConnection Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "AND": AND,
             "OR": OR,
         }
+        result = type('FilterConnection', (object,), _dict)
+        return result
 
-        FilterConnection = type('FilterConnection', (object,), _dict)
-    _dynamic_enum()
+    FilterConnection = _get_enum()
 else:
     from ...lo.sheet.filter_connection import FilterConnection as FilterConnection
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.text.PageNumberType import (CURRENT, NEXT, PREV)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global PageNumberType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.text.PageNumberType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "NEXT": NEXT,
             "PREV": PREV,
         }
+        result = type('PageNumberType', (object,), _dict)
+        return result
 
-        PageNumberType = type('PageNumberType', (object,), _dict)
-    _dynamic_enum()
+    PageNumberType = _get_enum()
 else:
     from ...lo.text.page_number_type import PageNumberType as PageNumberType
 

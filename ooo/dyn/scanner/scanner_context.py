@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.scanner import ScannerContext as UScannerContext
-        # Dynamically create uno com.sun.star.scanner.ScannerContext using uno
-        global ScannerContext
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.scanner.ScannerContext'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.scanner'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.scanner.ScannerContext'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(ScannerName = UNO_NONE, InternalData = UNO_NONE):
-            ns = 'com.sun.star.scanner.ScannerContext'
-            if isinstance(ScannerName, UScannerContext):
-                inst = uno.createUnoStruct(ns, ScannerName)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, ScannerName = UNO_NONE, InternalData = UNO_NONE):
+            if getattr(ScannerName, "__class__", None) == self.__class__:
+                orig_init(self, ScannerName)
+                return
+            else:
+                orig_init(self)
             if not ScannerName is UNO_NONE:
-                if getattr(struct, 'ScannerName') != ScannerName:
-                    setattr(struct, 'ScannerName', ScannerName)
+                if getattr(self, 'ScannerName') != ScannerName:
+                    setattr(self, 'ScannerName', ScannerName)
             if not InternalData is UNO_NONE:
-                if getattr(struct, 'InternalData') != InternalData:
-                    setattr(struct, 'InternalData', InternalData)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ScannerContext = _struct_init
+                if getattr(self, 'InternalData') != InternalData:
+                    setattr(self, 'InternalData', InternalData)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.scanner.ScannerContext'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.scanner'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ScannerContext = _get_class()
+
+
 else:
     from ...lo.scanner.scanner_context import ScannerContext as ScannerContext
 

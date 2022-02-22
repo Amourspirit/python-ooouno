@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.registry.RegistryValueType import (ASCII, ASCIILIST, BINARY, LONG, LONGLIST, NOT_DEFINED, STRING, STRINGLIST)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global RegistryValueType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.registry.RegistryValueType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -47,9 +46,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "STRING": STRING,
             "STRINGLIST": STRINGLIST,
         }
+        result = type('RegistryValueType', (object,), _dict)
+        return result
 
-        RegistryValueType = type('RegistryValueType', (object,), _dict)
-    _dynamic_enum()
+    RegistryValueType = _get_enum()
 else:
     from ...lo.registry.registry_value_type import RegistryValueType as RegistryValueType
 

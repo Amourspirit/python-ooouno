@@ -20,49 +20,36 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.util import AtomDescription as UAtomDescription
-        # Dynamically create uno com.sun.star.util.AtomDescription using uno
-        global AtomDescription
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.util.AtomDescription'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.util'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.util.AtomDescription'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(atom = UNO_NONE, description = UNO_NONE):
-            ns = 'com.sun.star.util.AtomDescription'
-            if isinstance(atom, UAtomDescription):
-                inst = uno.createUnoStruct(ns, atom)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, atom = UNO_NONE, description = UNO_NONE):
+            if getattr(atom, "__class__", None) == self.__class__:
+                orig_init(self, atom)
+                return
+            else:
+                orig_init(self)
             if not atom is UNO_NONE:
-                if getattr(struct, 'atom') != atom:
-                    setattr(struct, 'atom', atom)
+                if getattr(self, 'atom') != atom:
+                    setattr(self, 'atom', atom)
             if not description is UNO_NONE:
-                if getattr(struct, 'description') != description:
-                    setattr(struct, 'description', description)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        AtomDescription = _struct_init
+                if getattr(self, 'description') != description:
+                    setattr(self, 'description', description)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.util.AtomDescription'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.util'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    AtomDescription = _get_class()
+
+
 else:
     from ...lo.util.atom_description import AtomDescription as AtomDescription
 

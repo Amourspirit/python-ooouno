@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.uri.RelativeUriExcessParentSegments import (ERROR, REMOVE, RETAIN)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global RelativeUriExcessParentSegments
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.uri.RelativeUriExcessParentSegments Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "REMOVE": REMOVE,
             "RETAIN": RETAIN,
         }
+        result = type('RelativeUriExcessParentSegments', (object,), _dict)
+        return result
 
-        RelativeUriExcessParentSegments = type('RelativeUriExcessParentSegments', (object,), _dict)
-    _dynamic_enum()
+    RelativeUriExcessParentSegments = _get_enum()
 else:
     from ...lo.uri.relative_uri_excess_parent_segments import RelativeUriExcessParentSegments as RelativeUriExcessParentSegments
 

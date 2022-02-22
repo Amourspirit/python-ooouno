@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.ui import LayoutSize as ULayoutSize
-        # Dynamically create uno com.sun.star.ui.LayoutSize using uno
-        global LayoutSize
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.ui.LayoutSize'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.ui'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ui.LayoutSize'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Minimum = UNO_NONE, Maximum = UNO_NONE, Preferred = UNO_NONE):
-            ns = 'com.sun.star.ui.LayoutSize'
-            if isinstance(Minimum, ULayoutSize):
-                inst = uno.createUnoStruct(ns, Minimum)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Minimum = UNO_NONE, Maximum = UNO_NONE, Preferred = UNO_NONE):
+            if getattr(Minimum, "__class__", None) == self.__class__:
+                orig_init(self, Minimum)
+                return
+            else:
+                orig_init(self)
             if not Minimum is UNO_NONE:
-                if getattr(struct, 'Minimum') != Minimum:
-                    setattr(struct, 'Minimum', Minimum)
+                if getattr(self, 'Minimum') != Minimum:
+                    setattr(self, 'Minimum', Minimum)
             if not Maximum is UNO_NONE:
-                if getattr(struct, 'Maximum') != Maximum:
-                    setattr(struct, 'Maximum', Maximum)
+                if getattr(self, 'Maximum') != Maximum:
+                    setattr(self, 'Maximum', Maximum)
             if not Preferred is UNO_NONE:
-                if getattr(struct, 'Preferred') != Preferred:
-                    setattr(struct, 'Preferred', Preferred)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        LayoutSize = _struct_init
+                if getattr(self, 'Preferred') != Preferred:
+                    setattr(self, 'Preferred', Preferred)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.ui.LayoutSize'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.ui'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    LayoutSize = _get_class()
+
+
 else:
     from ...lo.ui.layout_size import LayoutSize as LayoutSize
 

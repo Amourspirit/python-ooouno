@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.ucb.TransferCommandOperation import (COPY, LINK, MOVE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TransferCommandOperation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.ucb.TransferCommandOperation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "LINK": LINK,
             "MOVE": MOVE,
         }
+        result = type('TransferCommandOperation', (object,), _dict)
+        return result
 
-        TransferCommandOperation = type('TransferCommandOperation', (object,), _dict)
-    _dynamic_enum()
+    TransferCommandOperation = _get_enum()
 else:
     from ...lo.ucb.transfer_command_operation import TransferCommandOperation as TransferCommandOperation
 

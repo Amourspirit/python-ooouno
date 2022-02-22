@@ -20,73 +20,60 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.linguistic2 import ProofreadingResult as UProofreadingResult
-        # Dynamically create uno com.sun.star.linguistic2.ProofreadingResult using uno
-        global ProofreadingResult
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.linguistic2.ProofreadingResult'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.linguistic2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.linguistic2.ProofreadingResult'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aErrors = UNO_NONE, aProperties = UNO_NONE, aDocumentIdentifier = UNO_NONE, xFlatParagraph = UNO_NONE, aText = UNO_NONE, aLocale = UNO_NONE, nStartOfSentencePosition = UNO_NONE, nBehindEndOfSentencePosition = UNO_NONE, nStartOfNextSentencePosition = UNO_NONE, xProofreader = UNO_NONE):
-            ns = 'com.sun.star.linguistic2.ProofreadingResult'
-            if isinstance(aErrors, UProofreadingResult):
-                inst = uno.createUnoStruct(ns, aErrors)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aErrors = UNO_NONE, aProperties = UNO_NONE, aDocumentIdentifier = UNO_NONE, xFlatParagraph = UNO_NONE, aText = UNO_NONE, aLocale = UNO_NONE, nStartOfSentencePosition = UNO_NONE, nBehindEndOfSentencePosition = UNO_NONE, nStartOfNextSentencePosition = UNO_NONE, xProofreader = UNO_NONE):
+            if getattr(aErrors, "__class__", None) == self.__class__:
+                orig_init(self, aErrors)
+                return
+            else:
+                orig_init(self)
             if not aErrors is UNO_NONE:
-                if getattr(struct, 'aErrors') != aErrors:
-                    setattr(struct, 'aErrors', aErrors)
+                if getattr(self, 'aErrors') != aErrors:
+                    setattr(self, 'aErrors', aErrors)
             if not aProperties is UNO_NONE:
-                if getattr(struct, 'aProperties') != aProperties:
-                    setattr(struct, 'aProperties', aProperties)
+                if getattr(self, 'aProperties') != aProperties:
+                    setattr(self, 'aProperties', aProperties)
             if not aDocumentIdentifier is UNO_NONE:
-                if getattr(struct, 'aDocumentIdentifier') != aDocumentIdentifier:
-                    setattr(struct, 'aDocumentIdentifier', aDocumentIdentifier)
+                if getattr(self, 'aDocumentIdentifier') != aDocumentIdentifier:
+                    setattr(self, 'aDocumentIdentifier', aDocumentIdentifier)
             if not xFlatParagraph is UNO_NONE:
-                if getattr(struct, 'xFlatParagraph') != xFlatParagraph:
-                    setattr(struct, 'xFlatParagraph', xFlatParagraph)
+                if getattr(self, 'xFlatParagraph') != xFlatParagraph:
+                    setattr(self, 'xFlatParagraph', xFlatParagraph)
             if not aText is UNO_NONE:
-                if getattr(struct, 'aText') != aText:
-                    setattr(struct, 'aText', aText)
+                if getattr(self, 'aText') != aText:
+                    setattr(self, 'aText', aText)
             if not aLocale is UNO_NONE:
-                if getattr(struct, 'aLocale') != aLocale:
-                    setattr(struct, 'aLocale', aLocale)
+                if getattr(self, 'aLocale') != aLocale:
+                    setattr(self, 'aLocale', aLocale)
             if not nStartOfSentencePosition is UNO_NONE:
-                if getattr(struct, 'nStartOfSentencePosition') != nStartOfSentencePosition:
-                    setattr(struct, 'nStartOfSentencePosition', nStartOfSentencePosition)
+                if getattr(self, 'nStartOfSentencePosition') != nStartOfSentencePosition:
+                    setattr(self, 'nStartOfSentencePosition', nStartOfSentencePosition)
             if not nBehindEndOfSentencePosition is UNO_NONE:
-                if getattr(struct, 'nBehindEndOfSentencePosition') != nBehindEndOfSentencePosition:
-                    setattr(struct, 'nBehindEndOfSentencePosition', nBehindEndOfSentencePosition)
+                if getattr(self, 'nBehindEndOfSentencePosition') != nBehindEndOfSentencePosition:
+                    setattr(self, 'nBehindEndOfSentencePosition', nBehindEndOfSentencePosition)
             if not nStartOfNextSentencePosition is UNO_NONE:
-                if getattr(struct, 'nStartOfNextSentencePosition') != nStartOfNextSentencePosition:
-                    setattr(struct, 'nStartOfNextSentencePosition', nStartOfNextSentencePosition)
+                if getattr(self, 'nStartOfNextSentencePosition') != nStartOfNextSentencePosition:
+                    setattr(self, 'nStartOfNextSentencePosition', nStartOfNextSentencePosition)
             if not xProofreader is UNO_NONE:
-                if getattr(struct, 'xProofreader') != xProofreader:
-                    setattr(struct, 'xProofreader', xProofreader)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ProofreadingResult = _struct_init
+                if getattr(self, 'xProofreader') != xProofreader:
+                    setattr(self, 'xProofreader', xProofreader)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.linguistic2.ProofreadingResult'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.linguistic2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ProofreadingResult = _get_class()
+
+
 else:
     from ...lo.linguistic2.proofreading_result import ProofreadingResult as ProofreadingResult
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.style.GraphicLocation import (AREA, LEFT_BOTTOM, LEFT_MIDDLE, LEFT_TOP, MIDDLE_BOTTOM, MIDDLE_MIDDLE, MIDDLE_TOP, NONE, RIGHT_BOTTOM, RIGHT_MIDDLE, RIGHT_TOP, TILED)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global GraphicLocation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.style.GraphicLocation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -51,9 +50,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "RIGHT_TOP": RIGHT_TOP,
             "TILED": TILED,
         }
+        result = type('GraphicLocation', (object,), _dict)
+        return result
 
-        GraphicLocation = type('GraphicLocation', (object,), _dict)
-    _dynamic_enum()
+    GraphicLocation = _get_enum()
 else:
     from ...lo.style.graphic_location import GraphicLocation as GraphicLocation
 

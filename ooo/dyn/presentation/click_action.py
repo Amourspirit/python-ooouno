@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.presentation.ClickAction import (BOOKMARK, DOCUMENT, FIRSTPAGE, INVISIBLE, LASTPAGE, MACRO, NEXTPAGE, NONE, PREVPAGE, PROGRAM, SOUND, STOPPRESENTATION, VANISH, VERB)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global ClickAction
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.presentation.ClickAction Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -53,9 +52,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "VANISH": VANISH,
             "VERB": VERB,
         }
+        result = type('ClickAction', (object,), _dict)
+        return result
 
-        ClickAction = type('ClickAction', (object,), _dict)
-    _dynamic_enum()
+    ClickAction = _get_enum()
 else:
     from ...lo.presentation.click_action import ClickAction as ClickAction
 

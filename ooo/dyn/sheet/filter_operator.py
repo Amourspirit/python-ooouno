@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.sheet.FilterOperator import (BOTTOM_PERCENT, BOTTOM_VALUES, EMPTY, EQUAL, GREATER, GREATER_EQUAL, LESS, LESS_EQUAL, NOT_EMPTY, NOT_EQUAL, TOP_PERCENT, TOP_VALUES)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FilterOperator
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.sheet.FilterOperator Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -51,9 +50,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "TOP_PERCENT": TOP_PERCENT,
             "TOP_VALUES": TOP_VALUES,
         }
+        result = type('FilterOperator', (object,), _dict)
+        return result
 
-        FilterOperator = type('FilterOperator', (object,), _dict)
-    _dynamic_enum()
+    FilterOperator = _get_enum()
 else:
     from ...lo.sheet.filter_operator import FilterOperator as FilterOperator
 

@@ -20,63 +20,50 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.frame import FeatureStateEvent as UFeatureStateEvent
-        # Dynamically create uno com.sun.star.frame.FeatureStateEvent using uno
-        global FeatureStateEvent
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.frame.FeatureStateEvent'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.frame'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.FeatureStateEvent'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(FeatureURL = UNO_NONE, FeatureDescriptor = UNO_NONE, IsEnabled = UNO_NONE, Requery = UNO_NONE, State = UNO_NONE, **kwargs):
-            ns = 'com.sun.star.frame.FeatureStateEvent'
-            if isinstance(FeatureURL, UFeatureStateEvent):
-                inst = uno.createUnoStruct(ns, FeatureURL)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, FeatureURL = UNO_NONE, FeatureDescriptor = UNO_NONE, IsEnabled = UNO_NONE, Requery = UNO_NONE, State = UNO_NONE, **kwargs):
+            if getattr(FeatureURL, "__class__", None) == self.__class__:
+                orig_init(self, FeatureURL)
+                return
+            else:
+                orig_init(self)
             if not FeatureURL is UNO_NONE:
-                if getattr(struct, 'FeatureURL') != FeatureURL:
-                    setattr(struct, 'FeatureURL', FeatureURL)
+                if getattr(self, 'FeatureURL') != FeatureURL:
+                    setattr(self, 'FeatureURL', FeatureURL)
             if not FeatureDescriptor is UNO_NONE:
-                if getattr(struct, 'FeatureDescriptor') != FeatureDescriptor:
-                    setattr(struct, 'FeatureDescriptor', FeatureDescriptor)
+                if getattr(self, 'FeatureDescriptor') != FeatureDescriptor:
+                    setattr(self, 'FeatureDescriptor', FeatureDescriptor)
             if not IsEnabled is UNO_NONE:
-                if getattr(struct, 'IsEnabled') != IsEnabled:
-                    setattr(struct, 'IsEnabled', IsEnabled)
+                if getattr(self, 'IsEnabled') != IsEnabled:
+                    setattr(self, 'IsEnabled', IsEnabled)
             if not Requery is UNO_NONE:
-                if getattr(struct, 'Requery') != Requery:
-                    setattr(struct, 'Requery', Requery)
+                if getattr(self, 'Requery') != Requery:
+                    setattr(self, 'Requery', Requery)
             if not State is UNO_NONE:
-                if getattr(struct, 'State') != State:
-                    setattr(struct, 'State', State)
+                if getattr(self, 'State') != State:
+                    setattr(self, 'State', State)
             for k, v in kwargs.items():
                 if v is UNO_NONE:
                     continue
                 else:
-                    setattr(ex, k, v)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FeatureStateEvent = _struct_init
+                    setattr(self, k, v)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.frame.FeatureStateEvent'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.frame'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FeatureStateEvent = _get_class()
+
+
 else:
     from ...lo.frame.feature_state_event import FeatureStateEvent as FeatureStateEvent
 

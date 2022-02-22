@@ -20,61 +20,48 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart2 import DataPointLabel as UDataPointLabel
-        # Dynamically create uno com.sun.star.chart2.DataPointLabel using uno
-        global DataPointLabel
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart2.DataPointLabel'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.DataPointLabel'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(ShowNumber = UNO_NONE, ShowNumberInPercent = UNO_NONE, ShowCategoryName = UNO_NONE, ShowLegendSymbol = UNO_NONE, ShowCustomLabel = UNO_NONE, ShowSeriesName = UNO_NONE):
-            ns = 'com.sun.star.chart2.DataPointLabel'
-            if isinstance(ShowNumber, UDataPointLabel):
-                inst = uno.createUnoStruct(ns, ShowNumber)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, ShowNumber = UNO_NONE, ShowNumberInPercent = UNO_NONE, ShowCategoryName = UNO_NONE, ShowLegendSymbol = UNO_NONE, ShowCustomLabel = UNO_NONE, ShowSeriesName = UNO_NONE):
+            if getattr(ShowNumber, "__class__", None) == self.__class__:
+                orig_init(self, ShowNumber)
+                return
+            else:
+                orig_init(self)
             if not ShowNumber is UNO_NONE:
-                if getattr(struct, 'ShowNumber') != ShowNumber:
-                    setattr(struct, 'ShowNumber', ShowNumber)
+                if getattr(self, 'ShowNumber') != ShowNumber:
+                    setattr(self, 'ShowNumber', ShowNumber)
             if not ShowNumberInPercent is UNO_NONE:
-                if getattr(struct, 'ShowNumberInPercent') != ShowNumberInPercent:
-                    setattr(struct, 'ShowNumberInPercent', ShowNumberInPercent)
+                if getattr(self, 'ShowNumberInPercent') != ShowNumberInPercent:
+                    setattr(self, 'ShowNumberInPercent', ShowNumberInPercent)
             if not ShowCategoryName is UNO_NONE:
-                if getattr(struct, 'ShowCategoryName') != ShowCategoryName:
-                    setattr(struct, 'ShowCategoryName', ShowCategoryName)
+                if getattr(self, 'ShowCategoryName') != ShowCategoryName:
+                    setattr(self, 'ShowCategoryName', ShowCategoryName)
             if not ShowLegendSymbol is UNO_NONE:
-                if getattr(struct, 'ShowLegendSymbol') != ShowLegendSymbol:
-                    setattr(struct, 'ShowLegendSymbol', ShowLegendSymbol)
+                if getattr(self, 'ShowLegendSymbol') != ShowLegendSymbol:
+                    setattr(self, 'ShowLegendSymbol', ShowLegendSymbol)
             if not ShowCustomLabel is UNO_NONE:
-                if getattr(struct, 'ShowCustomLabel') != ShowCustomLabel:
-                    setattr(struct, 'ShowCustomLabel', ShowCustomLabel)
+                if getattr(self, 'ShowCustomLabel') != ShowCustomLabel:
+                    setattr(self, 'ShowCustomLabel', ShowCustomLabel)
             if not ShowSeriesName is UNO_NONE:
-                if getattr(struct, 'ShowSeriesName') != ShowSeriesName:
-                    setattr(struct, 'ShowSeriesName', ShowSeriesName)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        DataPointLabel = _struct_init
+                if getattr(self, 'ShowSeriesName') != ShowSeriesName:
+                    setattr(self, 'ShowSeriesName', ShowSeriesName)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart2.DataPointLabel'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    DataPointLabel = _get_class()
+
+
 else:
     from ...lo.chart2.data_point_label import DataPointLabel as DataPointLabel
 

@@ -20,73 +20,60 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import Panose as UPanose
-        # Dynamically create uno com.sun.star.rendering.Panose using uno
-        global Panose
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.Panose'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.Panose'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(FamilyType = UNO_NONE, SerifStyle = UNO_NONE, Weight = UNO_NONE, Proportion = UNO_NONE, Contrast = UNO_NONE, StrokeVariation = UNO_NONE, ArmStyle = UNO_NONE, Letterform = UNO_NONE, Midline = UNO_NONE, XHeight = UNO_NONE):
-            ns = 'com.sun.star.rendering.Panose'
-            if isinstance(FamilyType, UPanose):
-                inst = uno.createUnoStruct(ns, FamilyType)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, FamilyType = UNO_NONE, SerifStyle = UNO_NONE, Weight = UNO_NONE, Proportion = UNO_NONE, Contrast = UNO_NONE, StrokeVariation = UNO_NONE, ArmStyle = UNO_NONE, Letterform = UNO_NONE, Midline = UNO_NONE, XHeight = UNO_NONE):
+            if getattr(FamilyType, "__class__", None) == self.__class__:
+                orig_init(self, FamilyType)
+                return
+            else:
+                orig_init(self)
             if not FamilyType is UNO_NONE:
-                if getattr(struct, 'FamilyType') != FamilyType:
-                    setattr(struct, 'FamilyType', FamilyType)
+                if getattr(self, 'FamilyType') != FamilyType:
+                    setattr(self, 'FamilyType', FamilyType)
             if not SerifStyle is UNO_NONE:
-                if getattr(struct, 'SerifStyle') != SerifStyle:
-                    setattr(struct, 'SerifStyle', SerifStyle)
+                if getattr(self, 'SerifStyle') != SerifStyle:
+                    setattr(self, 'SerifStyle', SerifStyle)
             if not Weight is UNO_NONE:
-                if getattr(struct, 'Weight') != Weight:
-                    setattr(struct, 'Weight', Weight)
+                if getattr(self, 'Weight') != Weight:
+                    setattr(self, 'Weight', Weight)
             if not Proportion is UNO_NONE:
-                if getattr(struct, 'Proportion') != Proportion:
-                    setattr(struct, 'Proportion', Proportion)
+                if getattr(self, 'Proportion') != Proportion:
+                    setattr(self, 'Proportion', Proportion)
             if not Contrast is UNO_NONE:
-                if getattr(struct, 'Contrast') != Contrast:
-                    setattr(struct, 'Contrast', Contrast)
+                if getattr(self, 'Contrast') != Contrast:
+                    setattr(self, 'Contrast', Contrast)
             if not StrokeVariation is UNO_NONE:
-                if getattr(struct, 'StrokeVariation') != StrokeVariation:
-                    setattr(struct, 'StrokeVariation', StrokeVariation)
+                if getattr(self, 'StrokeVariation') != StrokeVariation:
+                    setattr(self, 'StrokeVariation', StrokeVariation)
             if not ArmStyle is UNO_NONE:
-                if getattr(struct, 'ArmStyle') != ArmStyle:
-                    setattr(struct, 'ArmStyle', ArmStyle)
+                if getattr(self, 'ArmStyle') != ArmStyle:
+                    setattr(self, 'ArmStyle', ArmStyle)
             if not Letterform is UNO_NONE:
-                if getattr(struct, 'Letterform') != Letterform:
-                    setattr(struct, 'Letterform', Letterform)
+                if getattr(self, 'Letterform') != Letterform:
+                    setattr(self, 'Letterform', Letterform)
             if not Midline is UNO_NONE:
-                if getattr(struct, 'Midline') != Midline:
-                    setattr(struct, 'Midline', Midline)
+                if getattr(self, 'Midline') != Midline:
+                    setattr(self, 'Midline', Midline)
             if not XHeight is UNO_NONE:
-                if getattr(struct, 'XHeight') != XHeight:
-                    setattr(struct, 'XHeight', XHeight)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        Panose = _struct_init
+                if getattr(self, 'XHeight') != XHeight:
+                    setattr(self, 'XHeight', XHeight)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.Panose'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    Panose = _get_class()
+
+
 else:
     from ...lo.rendering.panose import Panose as Panose
 

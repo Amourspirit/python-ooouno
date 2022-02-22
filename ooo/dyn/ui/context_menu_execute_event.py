@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.ui import ContextMenuExecuteEvent as UContextMenuExecuteEvent
-        # Dynamically create uno com.sun.star.ui.ContextMenuExecuteEvent using uno
-        global ContextMenuExecuteEvent
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.ui.ContextMenuExecuteEvent'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.ui'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.ui.ContextMenuExecuteEvent'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(SourceWindow = UNO_NONE, ExecutePosition = UNO_NONE, ActionTriggerContainer = UNO_NONE, Selection = UNO_NONE):
-            ns = 'com.sun.star.ui.ContextMenuExecuteEvent'
-            if isinstance(SourceWindow, UContextMenuExecuteEvent):
-                inst = uno.createUnoStruct(ns, SourceWindow)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, SourceWindow = UNO_NONE, ExecutePosition = UNO_NONE, ActionTriggerContainer = UNO_NONE, Selection = UNO_NONE):
+            if getattr(SourceWindow, "__class__", None) == self.__class__:
+                orig_init(self, SourceWindow)
+                return
+            else:
+                orig_init(self)
             if not SourceWindow is UNO_NONE:
-                if getattr(struct, 'SourceWindow') != SourceWindow:
-                    setattr(struct, 'SourceWindow', SourceWindow)
+                if getattr(self, 'SourceWindow') != SourceWindow:
+                    setattr(self, 'SourceWindow', SourceWindow)
             if not ExecutePosition is UNO_NONE:
-                if getattr(struct, 'ExecutePosition') != ExecutePosition:
-                    setattr(struct, 'ExecutePosition', ExecutePosition)
+                if getattr(self, 'ExecutePosition') != ExecutePosition:
+                    setattr(self, 'ExecutePosition', ExecutePosition)
             if not ActionTriggerContainer is UNO_NONE:
-                if getattr(struct, 'ActionTriggerContainer') != ActionTriggerContainer:
-                    setattr(struct, 'ActionTriggerContainer', ActionTriggerContainer)
+                if getattr(self, 'ActionTriggerContainer') != ActionTriggerContainer:
+                    setattr(self, 'ActionTriggerContainer', ActionTriggerContainer)
             if not Selection is UNO_NONE:
-                if getattr(struct, 'Selection') != Selection:
-                    setattr(struct, 'Selection', Selection)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        ContextMenuExecuteEvent = _struct_init
+                if getattr(self, 'Selection') != Selection:
+                    setattr(self, 'Selection', Selection)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.ui.ContextMenuExecuteEvent'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.ui'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    ContextMenuExecuteEvent = _get_class()
+
+
 else:
     from ...lo.ui.context_menu_execute_event import ContextMenuExecuteEvent as ContextMenuExecuteEvent
 

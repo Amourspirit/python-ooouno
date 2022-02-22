@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.drawing import HomogenMatrixLine3 as UHomogenMatrixLine3
-        # Dynamically create uno com.sun.star.drawing.HomogenMatrixLine3 using uno
-        global HomogenMatrixLine3
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.drawing.HomogenMatrixLine3'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.drawing'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.drawing.HomogenMatrixLine3'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Column1 = UNO_NONE, Column2 = UNO_NONE, Column3 = UNO_NONE):
-            ns = 'com.sun.star.drawing.HomogenMatrixLine3'
-            if isinstance(Column1, UHomogenMatrixLine3):
-                inst = uno.createUnoStruct(ns, Column1)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Column1 = UNO_NONE, Column2 = UNO_NONE, Column3 = UNO_NONE):
+            if getattr(Column1, "__class__", None) == self.__class__:
+                orig_init(self, Column1)
+                return
+            else:
+                orig_init(self)
             if not Column1 is UNO_NONE:
-                if getattr(struct, 'Column1') != Column1:
-                    setattr(struct, 'Column1', Column1)
+                if getattr(self, 'Column1') != Column1:
+                    setattr(self, 'Column1', Column1)
             if not Column2 is UNO_NONE:
-                if getattr(struct, 'Column2') != Column2:
-                    setattr(struct, 'Column2', Column2)
+                if getattr(self, 'Column2') != Column2:
+                    setattr(self, 'Column2', Column2)
             if not Column3 is UNO_NONE:
-                if getattr(struct, 'Column3') != Column3:
-                    setattr(struct, 'Column3', Column3)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        HomogenMatrixLine3 = _struct_init
+                if getattr(self, 'Column3') != Column3:
+                    setattr(self, 'Column3', Column3)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.drawing.HomogenMatrixLine3'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.drawing'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    HomogenMatrixLine3 = _get_class()
+
+
 else:
     from ...lo.drawing.homogen_matrix_line3 import HomogenMatrixLine3 as HomogenMatrixLine3
 

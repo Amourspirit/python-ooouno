@@ -20,55 +20,42 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import RenderState as URenderState
-        # Dynamically create uno com.sun.star.rendering.RenderState using uno
-        global RenderState
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.RenderState'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.RenderState'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(DeviceColor = UNO_NONE, AffineTransform = UNO_NONE, Clip = UNO_NONE, CompositeOperation = UNO_NONE):
-            ns = 'com.sun.star.rendering.RenderState'
-            if isinstance(DeviceColor, URenderState):
-                inst = uno.createUnoStruct(ns, DeviceColor)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, DeviceColor = UNO_NONE, AffineTransform = UNO_NONE, Clip = UNO_NONE, CompositeOperation = UNO_NONE):
+            if getattr(DeviceColor, "__class__", None) == self.__class__:
+                orig_init(self, DeviceColor)
+                return
+            else:
+                orig_init(self)
             if not DeviceColor is UNO_NONE:
-                if getattr(struct, 'DeviceColor') != DeviceColor:
-                    setattr(struct, 'DeviceColor', DeviceColor)
+                if getattr(self, 'DeviceColor') != DeviceColor:
+                    setattr(self, 'DeviceColor', DeviceColor)
             if not AffineTransform is UNO_NONE:
-                if getattr(struct, 'AffineTransform') != AffineTransform:
-                    setattr(struct, 'AffineTransform', AffineTransform)
+                if getattr(self, 'AffineTransform') != AffineTransform:
+                    setattr(self, 'AffineTransform', AffineTransform)
             if not Clip is UNO_NONE:
-                if getattr(struct, 'Clip') != Clip:
-                    setattr(struct, 'Clip', Clip)
+                if getattr(self, 'Clip') != Clip:
+                    setattr(self, 'Clip', Clip)
             if not CompositeOperation is UNO_NONE:
-                if getattr(struct, 'CompositeOperation') != CompositeOperation:
-                    setattr(struct, 'CompositeOperation', CompositeOperation)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        RenderState = _struct_init
+                if getattr(self, 'CompositeOperation') != CompositeOperation:
+                    setattr(self, 'CompositeOperation', CompositeOperation)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.RenderState'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    RenderState = _get_class()
+
+
 else:
     from ...lo.rendering.render_state import RenderState as RenderState
 

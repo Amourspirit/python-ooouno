@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.drawing.CircleKind import (ARC, CUT, FULL, SECTION)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global CircleKind
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.drawing.CircleKind Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -43,9 +42,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "FULL": FULL,
             "SECTION": SECTION,
         }
+        result = type('CircleKind', (object,), _dict)
+        return result
 
-        CircleKind = type('CircleKind', (object,), _dict)
-    _dynamic_enum()
+    CircleKind = _get_enum()
 else:
     from ...lo.drawing.circle_kind import CircleKind as CircleKind
 

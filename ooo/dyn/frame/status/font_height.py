@@ -20,52 +20,39 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.frame.status import FontHeight as UFontHeight
-        # Dynamically create uno com.sun.star.frame.status.FontHeight using uno
-        global FontHeight
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.frame.status.FontHeight'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.frame.status'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.frame.status.FontHeight'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Height = UNO_NONE, Prop = UNO_NONE, Diff = UNO_NONE):
-            ns = 'com.sun.star.frame.status.FontHeight'
-            if isinstance(Height, UFontHeight):
-                inst = uno.createUnoStruct(ns, Height)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Height = UNO_NONE, Prop = UNO_NONE, Diff = UNO_NONE):
+            if getattr(Height, "__class__", None) == self.__class__:
+                orig_init(self, Height)
+                return
+            else:
+                orig_init(self)
             if not Height is UNO_NONE:
-                if getattr(struct, 'Height') != Height:
-                    setattr(struct, 'Height', Height)
+                if getattr(self, 'Height') != Height:
+                    setattr(self, 'Height', Height)
             if not Prop is UNO_NONE:
-                if getattr(struct, 'Prop') != Prop:
-                    setattr(struct, 'Prop', Prop)
+                if getattr(self, 'Prop') != Prop:
+                    setattr(self, 'Prop', Prop)
             if not Diff is UNO_NONE:
-                if getattr(struct, 'Diff') != Diff:
-                    setattr(struct, 'Diff', Diff)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FontHeight = _struct_init
+                if getattr(self, 'Diff') != Diff:
+                    setattr(self, 'Diff', Diff)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.frame.status.FontHeight'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.frame.status'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FontHeight = _get_class()
+
+
 else:
     from ....lo.frame.status.font_height import FontHeight as FontHeight
 

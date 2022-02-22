@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.xml.dom.DOMExceptionType import (DOMSTRING_SIZE_ERR, HIERARCHY_REQUEST_ERR, INDEX_SIZE_ERR, INUSE_ATTRIBUTE_ERR, INVALID_ACCESS_ERR, INVALID_CHARACTER_ERR, INVALID_MODIFICATION_ERR, INVALID_STATE_ERR, NAMESPACE_ERR, NOT_FOUND_ERR, NOT_SUPPORTED_ERR, NO_DATA_ALLOWED_ERR, NO_MODIFICATION_ALLOWED_ERR, SYNTAX_ERR, WRONG_DOCUMENT_ERR)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global DOMExceptionType
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.DOMExceptionType Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -54,9 +53,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "SYNTAX_ERR": SYNTAX_ERR,
             "WRONG_DOCUMENT_ERR": WRONG_DOCUMENT_ERR,
         }
+        result = type('DOMExceptionType', (object,), _dict)
+        return result
 
-        DOMExceptionType = type('DOMExceptionType', (object,), _dict)
-    _dynamic_enum()
+    DOMExceptionType = _get_enum()
 else:
     from ....lo.xml.dom.dom_exception_type import DOMExceptionType as DOMExceptionType
 

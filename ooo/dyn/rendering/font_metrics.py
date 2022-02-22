@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.rendering import FontMetrics as UFontMetrics
-        # Dynamically create uno com.sun.star.rendering.FontMetrics using uno
-        global FontMetrics
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.rendering.FontMetrics'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.rendering'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.rendering.FontMetrics'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Ascent = UNO_NONE, Descent = UNO_NONE, InternalLeading = UNO_NONE, ExternalLeading = UNO_NONE, ReferenceCharSize = UNO_NONE, UnderlineOffset = UNO_NONE, StrikeThroughOffset = UNO_NONE):
-            ns = 'com.sun.star.rendering.FontMetrics'
-            if isinstance(Ascent, UFontMetrics):
-                inst = uno.createUnoStruct(ns, Ascent)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Ascent = UNO_NONE, Descent = UNO_NONE, InternalLeading = UNO_NONE, ExternalLeading = UNO_NONE, ReferenceCharSize = UNO_NONE, UnderlineOffset = UNO_NONE, StrikeThroughOffset = UNO_NONE):
+            if getattr(Ascent, "__class__", None) == self.__class__:
+                orig_init(self, Ascent)
+                return
+            else:
+                orig_init(self)
             if not Ascent is UNO_NONE:
-                if getattr(struct, 'Ascent') != Ascent:
-                    setattr(struct, 'Ascent', Ascent)
+                if getattr(self, 'Ascent') != Ascent:
+                    setattr(self, 'Ascent', Ascent)
             if not Descent is UNO_NONE:
-                if getattr(struct, 'Descent') != Descent:
-                    setattr(struct, 'Descent', Descent)
+                if getattr(self, 'Descent') != Descent:
+                    setattr(self, 'Descent', Descent)
             if not InternalLeading is UNO_NONE:
-                if getattr(struct, 'InternalLeading') != InternalLeading:
-                    setattr(struct, 'InternalLeading', InternalLeading)
+                if getattr(self, 'InternalLeading') != InternalLeading:
+                    setattr(self, 'InternalLeading', InternalLeading)
             if not ExternalLeading is UNO_NONE:
-                if getattr(struct, 'ExternalLeading') != ExternalLeading:
-                    setattr(struct, 'ExternalLeading', ExternalLeading)
+                if getattr(self, 'ExternalLeading') != ExternalLeading:
+                    setattr(self, 'ExternalLeading', ExternalLeading)
             if not ReferenceCharSize is UNO_NONE:
-                if getattr(struct, 'ReferenceCharSize') != ReferenceCharSize:
-                    setattr(struct, 'ReferenceCharSize', ReferenceCharSize)
+                if getattr(self, 'ReferenceCharSize') != ReferenceCharSize:
+                    setattr(self, 'ReferenceCharSize', ReferenceCharSize)
             if not UnderlineOffset is UNO_NONE:
-                if getattr(struct, 'UnderlineOffset') != UnderlineOffset:
-                    setattr(struct, 'UnderlineOffset', UnderlineOffset)
+                if getattr(self, 'UnderlineOffset') != UnderlineOffset:
+                    setattr(self, 'UnderlineOffset', UnderlineOffset)
             if not StrikeThroughOffset is UNO_NONE:
-                if getattr(struct, 'StrikeThroughOffset') != StrikeThroughOffset:
-                    setattr(struct, 'StrikeThroughOffset', StrikeThroughOffset)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FontMetrics = _struct_init
+                if getattr(self, 'StrikeThroughOffset') != StrikeThroughOffset:
+                    setattr(self, 'StrikeThroughOffset', StrikeThroughOffset)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.rendering.FontMetrics'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.rendering'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FontMetrics = _get_class()
+
+
 else:
     from ...lo.rendering.font_metrics import FontMetrics as FontMetrics
 

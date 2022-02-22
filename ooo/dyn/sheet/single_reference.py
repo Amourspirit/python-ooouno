@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.sheet import SingleReference as USingleReference
-        # Dynamically create uno com.sun.star.sheet.SingleReference using uno
-        global SingleReference
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.sheet.SingleReference'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.sheet'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.sheet.SingleReference'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(Column = UNO_NONE, RelativeColumn = UNO_NONE, Row = UNO_NONE, RelativeRow = UNO_NONE, Sheet = UNO_NONE, RelativeSheet = UNO_NONE, Flags = UNO_NONE):
-            ns = 'com.sun.star.sheet.SingleReference'
-            if isinstance(Column, USingleReference):
-                inst = uno.createUnoStruct(ns, Column)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, Column = UNO_NONE, RelativeColumn = UNO_NONE, Row = UNO_NONE, RelativeRow = UNO_NONE, Sheet = UNO_NONE, RelativeSheet = UNO_NONE, Flags = UNO_NONE):
+            if getattr(Column, "__class__", None) == self.__class__:
+                orig_init(self, Column)
+                return
+            else:
+                orig_init(self)
             if not Column is UNO_NONE:
-                if getattr(struct, 'Column') != Column:
-                    setattr(struct, 'Column', Column)
+                if getattr(self, 'Column') != Column:
+                    setattr(self, 'Column', Column)
             if not RelativeColumn is UNO_NONE:
-                if getattr(struct, 'RelativeColumn') != RelativeColumn:
-                    setattr(struct, 'RelativeColumn', RelativeColumn)
+                if getattr(self, 'RelativeColumn') != RelativeColumn:
+                    setattr(self, 'RelativeColumn', RelativeColumn)
             if not Row is UNO_NONE:
-                if getattr(struct, 'Row') != Row:
-                    setattr(struct, 'Row', Row)
+                if getattr(self, 'Row') != Row:
+                    setattr(self, 'Row', Row)
             if not RelativeRow is UNO_NONE:
-                if getattr(struct, 'RelativeRow') != RelativeRow:
-                    setattr(struct, 'RelativeRow', RelativeRow)
+                if getattr(self, 'RelativeRow') != RelativeRow:
+                    setattr(self, 'RelativeRow', RelativeRow)
             if not Sheet is UNO_NONE:
-                if getattr(struct, 'Sheet') != Sheet:
-                    setattr(struct, 'Sheet', Sheet)
+                if getattr(self, 'Sheet') != Sheet:
+                    setattr(self, 'Sheet', Sheet)
             if not RelativeSheet is UNO_NONE:
-                if getattr(struct, 'RelativeSheet') != RelativeSheet:
-                    setattr(struct, 'RelativeSheet', RelativeSheet)
+                if getattr(self, 'RelativeSheet') != RelativeSheet:
+                    setattr(self, 'RelativeSheet', RelativeSheet)
             if not Flags is UNO_NONE:
-                if getattr(struct, 'Flags') != Flags:
-                    setattr(struct, 'Flags', Flags)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        SingleReference = _struct_init
+                if getattr(self, 'Flags') != Flags:
+                    setattr(self, 'Flags', Flags)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.sheet.SingleReference'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.sheet'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    SingleReference = _get_class()
+
+
 else:
     from ...lo.sheet.single_reference import SingleReference as SingleReference
 

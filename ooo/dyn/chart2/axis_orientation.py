@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.chart2.AxisOrientation import (MATHEMATICAL, REVERSE)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global AxisOrientation
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.chart2.AxisOrientation Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -41,9 +40,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "MATHEMATICAL": MATHEMATICAL,
             "REVERSE": REVERSE,
         }
+        result = type('AxisOrientation', (object,), _dict)
+        return result
 
-        AxisOrientation = type('AxisOrientation', (object,), _dict)
-    _dynamic_enum()
+    AxisOrientation = _get_enum()
 else:
     from ...lo.chart2.axis_orientation import AxisOrientation as AxisOrientation
 

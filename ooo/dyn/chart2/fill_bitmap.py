@@ -20,64 +20,51 @@
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
-_DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-    _DYNAMIC = True
-
-if not TYPE_CHECKING and _DYNAMIC:
-    def _dynamic_struct():
-        import uno
-        from com.sun.star.chart2 import FillBitmap as UFillBitmap
-        # Dynamically create uno com.sun.star.chart2.FillBitmap using uno
-        global FillBitmap
-
-        def _set_fn_attr(struct):
-            type_name = 'com.sun.star.chart2.FillBitmap'
-            struct.__dict__['typeName'] = type_name
-            struct.__dict__['__pyunointerface__'] = type_name
-            struct.__dict__['__pyunostruct__'] = type_name
-
-        def _set_attr(struct):
-            struct.__dict__['__ooo_ns__'] = 'com.sun.star.chart2'
-            struct.__dict__['__ooo_full_ns__'] = 'com.sun.star.chart2.FillBitmap'
-            struct.__dict__['__ooo_type_name__'] = 'struct'
-
-        def _struct_init(aURL = UNO_NONE, aOffset = UNO_NONE, aPositionOffset = UNO_NONE, aRectanglePoint = UNO_NONE, bLogicalSize = UNO_NONE, aSize = UNO_NONE, aBitmapMode = UNO_NONE):
-            ns = 'com.sun.star.chart2.FillBitmap'
-            if isinstance(aURL, UFillBitmap):
-                inst = uno.createUnoStruct(ns, aURL)
-                _set_attr(inst)
-                return inst
-            struct = uno.createUnoStruct(ns)
-
+    import uno
+ 
+    def _get_class():
+        orig_init = None
+        def init(self, aURL = UNO_NONE, aOffset = UNO_NONE, aPositionOffset = UNO_NONE, aRectanglePoint = UNO_NONE, bLogicalSize = UNO_NONE, aSize = UNO_NONE, aBitmapMode = UNO_NONE):
+            if getattr(aURL, "__class__", None) == self.__class__:
+                orig_init(self, aURL)
+                return
+            else:
+                orig_init(self)
             if not aURL is UNO_NONE:
-                if getattr(struct, 'aURL') != aURL:
-                    setattr(struct, 'aURL', aURL)
+                if getattr(self, 'aURL') != aURL:
+                    setattr(self, 'aURL', aURL)
             if not aOffset is UNO_NONE:
-                if getattr(struct, 'aOffset') != aOffset:
-                    setattr(struct, 'aOffset', aOffset)
+                if getattr(self, 'aOffset') != aOffset:
+                    setattr(self, 'aOffset', aOffset)
             if not aPositionOffset is UNO_NONE:
-                if getattr(struct, 'aPositionOffset') != aPositionOffset:
-                    setattr(struct, 'aPositionOffset', aPositionOffset)
+                if getattr(self, 'aPositionOffset') != aPositionOffset:
+                    setattr(self, 'aPositionOffset', aPositionOffset)
             if not aRectanglePoint is UNO_NONE:
-                if getattr(struct, 'aRectanglePoint') != aRectanglePoint:
-                    setattr(struct, 'aRectanglePoint', aRectanglePoint)
+                if getattr(self, 'aRectanglePoint') != aRectanglePoint:
+                    setattr(self, 'aRectanglePoint', aRectanglePoint)
             if not bLogicalSize is UNO_NONE:
-                if getattr(struct, 'bLogicalSize') != bLogicalSize:
-                    setattr(struct, 'bLogicalSize', bLogicalSize)
+                if getattr(self, 'bLogicalSize') != bLogicalSize:
+                    setattr(self, 'bLogicalSize', bLogicalSize)
             if not aSize is UNO_NONE:
-                if getattr(struct, 'aSize') != aSize:
-                    setattr(struct, 'aSize', aSize)
+                if getattr(self, 'aSize') != aSize:
+                    setattr(self, 'aSize', aSize)
             if not aBitmapMode is UNO_NONE:
-                if getattr(struct, 'aBitmapMode') != aBitmapMode:
-                    setattr(struct, 'aBitmapMode', aBitmapMode)
-            _set_attr(struct)
-            return struct
-        _set_attr(_struct_init)
-        _set_fn_attr(_struct_init)
-        FillBitmap = _struct_init
+                if getattr(self, 'aBitmapMode') != aBitmapMode:
+                    setattr(self, 'aBitmapMode', aBitmapMode)
 
-    _dynamic_struct()
+        type_name = 'com.sun.star.chart2.FillBitmap'
+        struct = uno.getClass(type_name)
+        struct.__ooo_ns__ = 'com.sun.star.chart2'
+        struct.__ooo_full_ns__= type_name
+        struct.__ooo_type_name__ = 'struct'
+        orig_init = struct.__init__
+        struct.__init__ = init
+        return struct
+
+    FillBitmap = _get_class()
+
+
 else:
     from ...lo.chart2.fill_bitmap import FillBitmap as FillBitmap
 

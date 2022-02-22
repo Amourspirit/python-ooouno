@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.script.FinishReason import (Cancel, Error, OK)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global FinishReason
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.script.FinishReason Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -42,9 +41,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "Error": Error,
             "OK": OK,
         }
+        result = type('FinishReason', (object,), _dict)
+        return result
 
-        FinishReason = type('FinishReason', (object,), _dict)
-    _dynamic_enum()
+    FinishReason = _get_enum()
 else:
     from ...lo.script.finish_reason import FinishReason as FinishReason
 

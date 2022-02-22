@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.i18n.TransliterationModulesNew import (CharToNumHangul_ko, CharToNumLower_ko, CharToNumLower_zh_CN, CharToNumLower_zh_TW, CharToNumUpper_ko, CharToNumUpper_zh_CN, CharToNumUpper_zh_TW, END_OF_MODULE, FULLWIDTH_HALFWIDTH, HALFWIDTH_FULLWIDTH, HIRAGANA_KATAKANA, IGNORE_CASE, IGNORE_KANA, IGNORE_WIDTH, KATAKANA_HIRAGANA, LOWERCASE_UPPERCASE, NumToCharFullwidth, NumToCharHangul_ko, NumToCharKanjiShort_ja_JP, NumToCharLower_ko, NumToCharLower_zh_CN, NumToCharLower_zh_TW, NumToCharUpper_ko, NumToCharUpper_zh_CN, NumToCharUpper_zh_TW, NumToTextFormalHangul_ko, NumToTextFormalLower_ko, NumToTextFormalUpper_ko, NumToTextInformalHangul_ko, NumToTextInformalLower_ko, NumToTextInformalUpper_ko, NumToTextLower_zh_CN, NumToTextLower_zh_TW, NumToTextUpper_zh_CN, NumToTextUpper_zh_TW, TextToNumFormalHangul_ko, TextToNumFormalLower_ko, TextToNumFormalUpper_ko, TextToNumInformalHangul_ko, TextToNumInformalLower_ko, TextToNumInformalUpper_ko, TextToNumLower_zh_CN, TextToNumLower_zh_TW, TextToNumUpper_zh_CN, TextToNumUpper_zh_TW, UPPERCASE_LOWERCASE, ignoreBaFa_ja_JP, ignoreHyuByu_ja_JP, ignoreIandEfollowedByYa_ja_JP, ignoreIterationMark_ja_JP, ignoreKiKuFollowedBySa_ja_JP, ignoreMiddleDot_ja_JP, ignoreMinusSign_ja_JP, ignoreProlongedSoundMark_ja_JP, ignoreSeZe_ja_JP, ignoreSeparator_ja_JP, ignoreSize_ja_JP, ignoreSpace_ja_JP, ignoreTiJi_ja_JP, ignoreTraditionalKana_ja_JP, ignoreTraditionalKanji_ja_JP, ignoreZiZu_ja_JP, largeToSmall_ja_JP, smallToLarge_ja_JP)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TransliterationModulesNew
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.i18n.TransliterationModulesNew Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -103,9 +102,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "largeToSmall_ja_JP": largeToSmall_ja_JP,
             "smallToLarge_ja_JP": smallToLarge_ja_JP,
         }
+        result = type('TransliterationModulesNew', (object,), _dict)
+        return result
 
-        TransliterationModulesNew = type('TransliterationModulesNew', (object,), _dict)
-    _dynamic_enum()
+    TransliterationModulesNew = _get_enum()
 else:
     from ...lo.i18n.transliteration_modules_new import TransliterationModulesNew as TransliterationModulesNew
 

@@ -29,9 +29,8 @@ if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
     from com.sun.star.uno.TypeClass import (ANY, ARRAY, BOOLEAN, BYTE, CHAR, CONSTANT, CONSTANTS, DOUBLE, ENUM, EXCEPTION, FLOAT, HYPER, INTERFACE, INTERFACE_ATTRIBUTE, INTERFACE_METHOD, LONG, MODULE, PROPERTY, SEQUENCE, SERVICE, SHORT, SINGLETON, STRING, STRUCT, TYPE, TYPEDEF, UNION, UNKNOWN, UNSIGNED_HYPER, UNSIGNED_LONG, UNSIGNED_SHORT, VOID)
 
-    def _dynamic_enum():
+    def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
-        global TypeClass
         _dict = {
             "__doc__": "Dynamically created class that represents com.sun.star.uno.TypeClass Enum. Class loosly mimics Enum",
             "__new__": uno_enum_class_new,
@@ -71,9 +70,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "UNSIGNED_SHORT": UNSIGNED_SHORT,
             "VOID": VOID,
         }
+        result = type('TypeClass', (object,), _dict)
+        return result
 
-        TypeClass = type('TypeClass', (object,), _dict)
-    _dynamic_enum()
+    TypeClass = _get_enum()
 else:
     from ...lo.uno.type_class import TypeClass as TypeClass
 

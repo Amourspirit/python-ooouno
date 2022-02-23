@@ -48,18 +48,22 @@ Example dynamic:
     .. code-block:: python
 
         from ooo.cssdyn.awt import FontSlant
-        from com.sun.star.awt.FontSlant import ITALIC, NONE
-        assert FontSlant.ITALIC.__module__ == 'uno'
-        assert FontSlant.NONE.__module__ == 'uno'
-        assert FontSlant.ITALIC == ITALIC
-        assert FontSlant.NONE == NONE
+
         e = FontSlant('OBLIQUE')
         assert e == FontSlant.OBLIQUE
         assert e.value == FontSlant.OBLIQUE.value
-        assert e.__module__ == 'uno'
+
         e = FontSlant(FontSlant.OBLIQUE)
         assert e == FontSlant.OBLIQUE
-        assert e.__module__ == 'uno'
+
+At runtime dynamic enum are the same as UNO enum.
+
+.. code-block:: python
+
+    from ooo.cssdyn.awt import FontSlant
+    from com.sun.star.awt.FontSlant import ITALIC
+    same = FontSlant.ITALIC is ITALIC
+    assert same
 
 Enum classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are the same classes.
 

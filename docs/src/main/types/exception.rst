@@ -43,12 +43,48 @@ Example dynamic:
         assert ex.Message == 'I made an error'
         assert type(ex).__name__ == 'com.sun.star.uno.Exception'
         assert ex.__module__ == 'uno'
+    
+Dynamic exceptions can be used in try block to catch UNO exceptions.
+
+.. code-block:: python
+
+    from ooo.dyn.uno.runtime_exception import RuntimeException
+
+    def foo():
+        try:
+            # some uno operation
+            ...
+        except RuntimeException as e:
+            # handle com.sun.star.uno.RuntimeException errors
+            print(e)
+
+Dynamic exception can be used to raise UNO exceptions.
+
+.. code-block:: python
+
+    from ooo.dyn.uno.exception import Exception as UnoException
+
+    def foo(x):
+        if not x:
+            raise UnoException(Message='Expected x to be something?')
+        # some amazing stuff
+    
+    def bar(y):
+        if not y:
+            ex = UnoException()
+            ex.Message='Expected y to be something?'
+            raise ex
+        # some amazing stuff
+    
+    def foobar(z):
+        if not z:
+            raise UnoException
+        # some amazing stuff
 
 Exception classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are the same classes.
 
 .. note::
 
-    Dynamic exception classes have a dynamic constructor.
+    Dynamic exception classes return equivalent UNO classes
 
-    | This means ``ooo.cssdyn.uno.Exception`` is a function at runtime
-    | whereas ``ex = Exception()`` is an instance of a class.
+    This means dynamic exceptions are interchangable with UNO classes.

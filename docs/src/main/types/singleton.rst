@@ -43,4 +43,4 @@ and are changed during runtime
     Dynamic singleton classes have a dynamic constructor.
 
     | This means ``ooo.cssdyn.beans.theIntrospection`` is a function at runtime
-    | whereas ``singleton = theIntrospection()`` is an instance of a class.
+    | whereas ``singleton = theIntrospection()`` is an instance of a UNO class.

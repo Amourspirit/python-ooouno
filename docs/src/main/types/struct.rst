@@ -42,7 +42,7 @@ Dynamic
 
 
 Struct classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic classes
-and are changed during runtime.
+and are changed to UNO classes at runtime.
 
 Example dynamic:
     .. code-block:: python
@@ -62,10 +62,3 @@ Example dynamic:
         assert rect2.Y == 240
 
 Struct classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are the same classes.
-
-.. note::
-
-    Dynamic struct classes have a dynamic constructor.
-
-    | This means ``ooo.cssdyn.awt.Rectangle`` is a function at runtime
-    | whereas ``rect = Rectangle()`` is an instance of a class.

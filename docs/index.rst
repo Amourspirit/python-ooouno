@@ -12,6 +12,7 @@
 
    src/main/types/index
    src/helper/index
+   src/templates
 
 
 Indices and tables

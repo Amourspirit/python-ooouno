@@ -2,11 +2,17 @@
 Welcome to ooouno's docs!
 =========================
 
+|lic| |pver| |pwheel| |github|
 
 ooouno
 ======
 
-**ooouno** is a library of all *(more than 4300)* classes, typings and types for the Libre Office `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
+**ooouno** is a library of all *(more than 4300)* classes, typings and types for the LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
+
+**ooouno** is for version 6.4 to 7.2 of LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
+**ooouno** may work in older versions of API but has not been tested.
+
+More about `LibreOffice <https://www.libreoffice.org/>`_.
 
 Docs
 ====
@@ -16,11 +22,27 @@ Read the docs `here <https://python-ooouno.readthedocs.io/>`_
 Installation
 ============
 
-You can install the Version Class from `PyPI <https://pypi.org/project/ooouno/>`_
+CONDA
+-----
+
+OOOUNO on `Anaconda <https://anaconda.org/conda-forge/ooouno>`_
 
 .. code-block:: bash
 
-    pip install ooouno
+    $ conda install -c conda-forge ooouno
+
+
+PIP
+---
+
+**ooouno** `PyPI <https://pypi.org/project/ooouno/>`_
+
+.. code-block:: bash
+
+    $ pip install ooouno
+
+
+
 
 Usage
 =====
@@ -118,3 +140,17 @@ When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
 
 When using ooo interactivly such as creating structs, enums, singletons, const classes then
 import from ``ooo.dyn`` or ```ooo.cssdyn``.
+
+
+.. |lic| image:: https://img.shields.io/github/license/Amourspirit/python-ooouno
+    :alt: License Apache
+
+.. |pver| image:: https://img.shields.io/pypi/pyversions/ooouno
+    :alt: PyPI - Python Version
+
+.. |pwheel| image:: https://img.shields.io/pypi/wheel/ooouno
+    :alt: PyPI - Wheel
+
+.. |github| image:: https://img.shields.io/badge/GitHub-100000?style=plastic&logo=github&logoColor=white
+    :target: https://github.com/Amourspirit/python-ooouno
+    :alt: Github

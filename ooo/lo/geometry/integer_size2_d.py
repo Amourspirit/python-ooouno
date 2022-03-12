@@ -43,27 +43,24 @@ class IntegerSize2D(object):
     typeName: str = 'com.sun.star.geometry.IntegerSize2D'
     """Literal Constant ``com.sun.star.geometry.IntegerSize2D``"""
 
-    def __init__(self, Width: int = 0, Height: int = 0) -> None:
+    def __init__(self, Width: typing.Optional[int] = 0, Height: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Width`` can be another ``IntegerSize2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Width (int, optional): Width value
-            Height (int, optional): Height value
+            Width (int, optional): Width value.
+            Height (int, optional): Height value.
         """
-        if isinstance(Width, IntegerSize2D):
-            oth: IntegerSize2D = Width
-            self._width = oth.Width
-            self._height = oth.Height
-            return
-        else:
-            self._width = Width
-            self._height = Height
+        super().__init__()
+        kargs = {
+            "Width": Width,
+            "Height": Height,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._width = kwargs["Width"]
+        self._height = kwargs["Height"]
 
 
     @property

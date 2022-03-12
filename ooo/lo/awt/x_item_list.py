@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt
 import typing
-from abc import abstractmethod, ABC
+from abc import abstractmethod, abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from .x_item_list_listener import XItemListListener as XItemListListener_e1020d1d
 
@@ -153,6 +153,12 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+    @abstractproperty
+    def ItemCount(self) -> int:
+        """
+        is the number of items in the list
+        """
+
 
 __all__ = ['XItemList']
 

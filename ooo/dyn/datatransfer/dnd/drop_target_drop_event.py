@@ -22,38 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Context = UNO_NONE, DropAction = UNO_NONE, LocationX = UNO_NONE, LocationY = UNO_NONE, SourceActions = UNO_NONE, Transferable = UNO_NONE, **kwargs):
-            if getattr(Context, "__class__", None) == self.__class__:
-                orig_init(self, Context)
+        ordered_keys = ('Source', 'Dummy', 'Context', 'DropAction', 'LocationX', 'LocationY', 'SourceActions', 'Transferable')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Context is UNO_NONE:
-                if getattr(self, 'Context') != Context:
-                    setattr(self, 'Context', Context)
-            if not DropAction is UNO_NONE:
-                if getattr(self, 'DropAction') != DropAction:
-                    setattr(self, 'DropAction', DropAction)
-            if not LocationX is UNO_NONE:
-                if getattr(self, 'LocationX') != LocationX:
-                    setattr(self, 'LocationX', LocationX)
-            if not LocationY is UNO_NONE:
-                if getattr(self, 'LocationY') != LocationY:
-                    setattr(self, 'LocationY', LocationY)
-            if not SourceActions is UNO_NONE:
-                if getattr(self, 'SourceActions') != SourceActions:
-                    setattr(self, 'SourceActions', SourceActions)
-            if not Transferable is UNO_NONE:
-                if getattr(self, 'Transferable') != Transferable:
-                    setattr(self, 'Transferable', Transferable)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.datatransfer.dnd.DropTargetDropEvent'
         struct = uno.getClass(type_name)
@@ -65,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DropTargetDropEvent = _get_class()
-
 
 else:
     from ....lo.datatransfer.dnd.drop_target_drop_event import DropTargetDropEvent as DropTargetDropEvent

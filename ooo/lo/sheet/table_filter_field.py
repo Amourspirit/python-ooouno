@@ -39,39 +39,36 @@ class TableFilterField(object):
     typeName: str = 'com.sun.star.sheet.TableFilterField'
     """Literal Constant ``com.sun.star.sheet.TableFilterField``"""
 
-    def __init__(self, Connection: FilterConnection_f01f0d97 = FilterConnection_f01f0d97.AND, Field: int = 0, Operator: FilterOperator_d5c60cd3 = FilterOperator_d5c60cd3.EMPTY, IsNumeric: bool = False, NumericValue: float = 0.0, StringValue: str = '') -> None:
+    def __init__(self, Connection: typing.Optional[FilterConnection_f01f0d97] = FilterConnection_f01f0d97.AND, Field: typing.Optional[int] = 0, Operator: typing.Optional[FilterOperator_d5c60cd3] = FilterOperator_d5c60cd3.EMPTY, IsNumeric: typing.Optional[bool] = False, NumericValue: typing.Optional[float] = 0.0, StringValue: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Connection`` can be another ``TableFilterField`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Connection (FilterConnection, optional): Connection value
-            Field (int, optional): Field value
-            Operator (FilterOperator, optional): Operator value
-            IsNumeric (bool, optional): IsNumeric value
-            NumericValue (float, optional): NumericValue value
-            StringValue (str, optional): StringValue value
+            Connection (FilterConnection, optional): Connection value.
+            Field (int, optional): Field value.
+            Operator (FilterOperator, optional): Operator value.
+            IsNumeric (bool, optional): IsNumeric value.
+            NumericValue (float, optional): NumericValue value.
+            StringValue (str, optional): StringValue value.
         """
-        if isinstance(Connection, TableFilterField):
-            oth: TableFilterField = Connection
-            self._connection = oth.Connection
-            self._field = oth.Field
-            self._operator = oth.Operator
-            self._is_numeric = oth.IsNumeric
-            self._numeric_value = oth.NumericValue
-            self._string_value = oth.StringValue
-            return
-        else:
-            self._connection = Connection
-            self._field = Field
-            self._operator = Operator
-            self._is_numeric = IsNumeric
-            self._numeric_value = NumericValue
-            self._string_value = StringValue
+        super().__init__()
+        kargs = {
+            "Connection": Connection,
+            "Field": Field,
+            "Operator": Operator,
+            "IsNumeric": IsNumeric,
+            "NumericValue": NumericValue,
+            "StringValue": StringValue,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._connection = kwargs["Connection"]
+        self._field = kwargs["Field"]
+        self._operator = kwargs["Operator"]
+        self._is_numeric = kwargs["IsNumeric"]
+        self._numeric_value = kwargs["NumericValue"]
+        self._string_value = kwargs["StringValue"]
 
 
     @property

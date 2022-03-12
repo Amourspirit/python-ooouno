@@ -36,30 +36,26 @@ class UserRecord(object):
     typeName: str = 'com.sun.star.task.UserRecord'
     """Literal Constant ``com.sun.star.task.UserRecord``"""
 
-    def __init__(self, Passwords: typing.Tuple[str, ...] = UNO_NONE, UserName: str = '') -> None:
+    def __init__(self, Passwords: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, UserName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Passwords`` can be another ``UserRecord`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Passwords (Tuple[str, ...], optional): Passwords value
-            UserName (str, optional): UserName value
+            Passwords (typing.Tuple[str, ...], optional): Passwords value.
+            UserName (str, optional): UserName value.
         """
-        if isinstance(Passwords, UserRecord):
-            oth: UserRecord = Passwords
-            self._passwords = oth.Passwords
-            self._user_name = oth.UserName
-            return
-        else:
-            if Passwords is UNO_NONE:
-                self._passwords = None
-            else:
-                self._passwords = Passwords
-            self._user_name = UserName
+        super().__init__()
+        kargs = {
+            "Passwords": Passwords,
+            "UserName": UserName,
+        }
+        if kargs["Passwords"] is UNO_NONE:
+            kargs["Passwords"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._passwords = kwargs["Passwords"]
+        self._user_name = kwargs["UserName"]
 
 
     @property

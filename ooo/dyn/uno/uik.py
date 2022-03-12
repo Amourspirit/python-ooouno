@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Data1 = UNO_NONE, Data2 = UNO_NONE, Data3 = UNO_NONE, Data4 = UNO_NONE, Data5 = UNO_NONE):
-            if getattr(Data1, "__class__", None) == self.__class__:
-                orig_init(self, Data1)
+        ordered_keys = ('Data1', 'Data2', 'Data3', 'Data4', 'Data5')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Data1 is UNO_NONE:
-                if getattr(self, 'Data1') != Data1:
-                    setattr(self, 'Data1', Data1)
-            if not Data2 is UNO_NONE:
-                if getattr(self, 'Data2') != Data2:
-                    setattr(self, 'Data2', Data2)
-            if not Data3 is UNO_NONE:
-                if getattr(self, 'Data3') != Data3:
-                    setattr(self, 'Data3', Data3)
-            if not Data4 is UNO_NONE:
-                if getattr(self, 'Data4') != Data4:
-                    setattr(self, 'Data4', Data4)
-            if not Data5 is UNO_NONE:
-                if getattr(self, 'Data5') != Data5:
-                    setattr(self, 'Data5', Data5)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.uno.Uik'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Uik = _get_class()
-
 
 else:
     from ...lo.uno.uik import Uik as Uik

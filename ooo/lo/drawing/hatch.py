@@ -41,33 +41,30 @@ class Hatch(object):
     typeName: str = 'com.sun.star.drawing.Hatch'
     """Literal Constant ``com.sun.star.drawing.Hatch``"""
 
-    def __init__(self, Style: HatchStyle_bcfe0bed = HatchStyle_bcfe0bed.SINGLE, Color: Color_68e908c5 = Color_68e908c5(0), Distance: int = 0, Angle: int = 0) -> None:
+    def __init__(self, Style: typing.Optional[HatchStyle_bcfe0bed] = HatchStyle_bcfe0bed.SINGLE, Color: typing.Optional[Color_68e908c5] = Color_68e908c5(0), Distance: typing.Optional[int] = 0, Angle: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Style`` can be another ``Hatch`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Style (HatchStyle, optional): Style value
-            Color (Color, optional): Color value
-            Distance (int, optional): Distance value
-            Angle (int, optional): Angle value
+            Style (HatchStyle, optional): Style value.
+            Color (Color, optional): Color value.
+            Distance (int, optional): Distance value.
+            Angle (int, optional): Angle value.
         """
-        if isinstance(Style, Hatch):
-            oth: Hatch = Style
-            self._style = oth.Style
-            self._color = oth.Color
-            self._distance = oth.Distance
-            self._angle = oth.Angle
-            return
-        else:
-            self._style = Style
-            self._color = Color
-            self._distance = Distance
-            self._angle = Angle
+        super().__init__()
+        kargs = {
+            "Style": Style,
+            "Color": Color,
+            "Distance": Distance,
+            "Angle": Angle,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._style = kwargs["Style"]
+        self._color = kwargs["Color"]
+        self._distance = kwargs["Distance"]
+        self._angle = kwargs["Angle"]
 
 
     @property

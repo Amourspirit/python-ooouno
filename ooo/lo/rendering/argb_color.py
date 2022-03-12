@@ -38,33 +38,30 @@ class ARGBColor(object):
     typeName: str = 'com.sun.star.rendering.ARGBColor'
     """Literal Constant ``com.sun.star.rendering.ARGBColor``"""
 
-    def __init__(self, Alpha: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0), Red: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0), Green: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0), Blue: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0)) -> None:
+    def __init__(self, Alpha: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0), Red: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0), Green: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0), Blue: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0)) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Alpha`` can be another ``ARGBColor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Alpha (ColorComponent, optional): Alpha value
-            Red (ColorComponent, optional): Red value
-            Green (ColorComponent, optional): Green value
-            Blue (ColorComponent, optional): Blue value
+            Alpha (ColorComponent, optional): Alpha value.
+            Red (ColorComponent, optional): Red value.
+            Green (ColorComponent, optional): Green value.
+            Blue (ColorComponent, optional): Blue value.
         """
-        if isinstance(Alpha, ARGBColor):
-            oth: ARGBColor = Alpha
-            self._alpha = oth.Alpha
-            self._red = oth.Red
-            self._green = oth.Green
-            self._blue = oth.Blue
-            return
-        else:
-            self._alpha = Alpha
-            self._red = Red
-            self._green = Green
-            self._blue = Blue
+        super().__init__()
+        kargs = {
+            "Alpha": Alpha,
+            "Red": Red,
+            "Green": Green,
+            "Blue": Blue,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._alpha = kwargs["Alpha"]
+        self._red = kwargs["Red"]
+        self._green = kwargs["Green"]
+        self._blue = kwargs["Blue"]
 
 
     @property

@@ -38,27 +38,24 @@ class CertAltNameEntry(object):
     typeName: str = 'com.sun.star.security.CertAltNameEntry'
     """Literal Constant ``com.sun.star.security.CertAltNameEntry``"""
 
-    def __init__(self, Type: ExtAltNameType_8c0df5 = ExtAltNameType_8c0df5.OTHER_NAME, Value: object = None) -> None:
+    def __init__(self, Type: typing.Optional[ExtAltNameType_8c0df5] = ExtAltNameType_8c0df5.OTHER_NAME, Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``CertAltNameEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (ExtAltNameType, optional): Type value
-            Value (object, optional): Value value
+            Type (ExtAltNameType, optional): Type value.
+            Value (object, optional): Value value.
         """
-        if isinstance(Type, CertAltNameEntry):
-            oth: CertAltNameEntry = Type
-            self._type = oth.Type
-            self._value = oth.Value
-            return
-        else:
-            self._type = Type
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Type": Type,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._value = kwargs["Value"]
 
 
     @property

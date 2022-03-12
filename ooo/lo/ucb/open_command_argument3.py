@@ -20,6 +20,9 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .open_command_argument2 import OpenCommandArgument2 as OpenCommandArgument2_9210e08
+from ..beans.property import Property as Property_8f4e0a76
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from .numbered_sorting_info import NumberedSortingInfo as NumberedSortingInfo_fd0e0de6
 import typing
 from ..beans.named_value import NamedValue as NamedValue_a37a0af3
 
@@ -41,29 +44,41 @@ class OpenCommandArgument3(OpenCommandArgument2_9210e08):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument3'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument3``"""
 
-    def __init__(self, OpeningFlags: typing.Tuple[NamedValue_a37a0af3, ...] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None, SortingInfo: typing.Optional[typing.Tuple[NumberedSortingInfo_fd0e0de6, ...]] = UNO_NONE, OpeningFlags: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``OpeningFlags`` can be another ``OpenCommandArgument3`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            OpeningFlags (Tuple[NamedValue, ...], optional): OpeningFlags value
+            Properties (typing.Tuple[Property, ...], optional): Properties value.
+            Mode (int, optional): Mode value.
+            Priority (int, optional): Priority value.
+            Sink (XInterface, optional): Sink value.
+            SortingInfo (typing.Tuple[NumberedSortingInfo, ...], optional): SortingInfo value.
+            OpeningFlags (typing.Tuple[NamedValue, ...], optional): OpeningFlags value.
         """
-        super().__init__(**kwargs)
-        if isinstance(OpeningFlags, OpenCommandArgument3):
-            oth: OpenCommandArgument3 = OpeningFlags
-            self._opening_flags = oth.OpeningFlags
-            return
-        else:
-            if OpeningFlags is UNO_NONE:
-                self._opening_flags = None
-            else:
-                self._opening_flags = OpeningFlags
+        kargs = {
+            "Properties": Properties,
+            "Mode": Mode,
+            "Priority": Priority,
+            "Sink": Sink,
+            "SortingInfo": SortingInfo,
+            "OpeningFlags": OpeningFlags,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        if kargs["SortingInfo"] is UNO_NONE:
+            kargs["SortingInfo"] = None
+        if kargs["OpeningFlags"] is UNO_NONE:
+            kargs["OpeningFlags"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._opening_flags = kwargs["OpeningFlags"]
+        inst_keys = ('OpeningFlags',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

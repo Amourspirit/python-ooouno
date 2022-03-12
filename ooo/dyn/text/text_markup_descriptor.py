@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, nType = UNO_NONE, aIdentifier = UNO_NONE, nOffset = UNO_NONE, nLength = UNO_NONE, xMarkupInfoContainer = UNO_NONE):
-            if getattr(nType, "__class__", None) == self.__class__:
-                orig_init(self, nType)
+        ordered_keys = ('nType', 'aIdentifier', 'nOffset', 'nLength', 'xMarkupInfoContainer')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not nType is UNO_NONE:
-                if getattr(self, 'nType') != nType:
-                    setattr(self, 'nType', nType)
-            if not aIdentifier is UNO_NONE:
-                if getattr(self, 'aIdentifier') != aIdentifier:
-                    setattr(self, 'aIdentifier', aIdentifier)
-            if not nOffset is UNO_NONE:
-                if getattr(self, 'nOffset') != nOffset:
-                    setattr(self, 'nOffset', nOffset)
-            if not nLength is UNO_NONE:
-                if getattr(self, 'nLength') != nLength:
-                    setattr(self, 'nLength', nLength)
-            if not xMarkupInfoContainer is UNO_NONE:
-                if getattr(self, 'xMarkupInfoContainer') != xMarkupInfoContainer:
-                    setattr(self, 'xMarkupInfoContainer', xMarkupInfoContainer)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.text.TextMarkupDescriptor'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TextMarkupDescriptor = _get_class()
-
 
 else:
     from ...lo.text.text_markup_descriptor import TextMarkupDescriptor as TextMarkupDescriptor

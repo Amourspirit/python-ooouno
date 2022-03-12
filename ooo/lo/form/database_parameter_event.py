@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..container.x_index_access import XIndexAccess as XIndexAccess_f0910d6d
 
@@ -39,26 +40,27 @@ class DatabaseParameterEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.DatabaseParameterEvent'
     """Literal Constant ``com.sun.star.form.DatabaseParameterEvent``"""
 
-    def __init__(self, Parameters: XIndexAccess_f0910d6d = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Parameters: typing.Optional[XIndexAccess_f0910d6d] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Parameters`` can be another ``DatabaseParameterEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Parameters (XIndexAccess, optional): Parameters value
+            Source (XInterface, optional): Source value.
+            Parameters (XIndexAccess, optional): Parameters value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Parameters, DatabaseParameterEvent):
-            oth: DatabaseParameterEvent = Parameters
-            self._parameters = oth.Parameters
-            return
-        else:
-            self._parameters = Parameters
+        kargs = {
+            "Source": Source,
+            "Parameters": Parameters,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._parameters = kwargs["Parameters"]
+        inst_keys = ('Parameters',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -38,33 +38,30 @@ class TabStop(object):
     typeName: str = 'com.sun.star.style.TabStop'
     """Literal Constant ``com.sun.star.style.TabStop``"""
 
-    def __init__(self, Position: int = 0, Alignment: TabAlign_8fc90a3b = TabAlign_8fc90a3b.LEFT, DecimalChar: str = '\u0000', FillChar: str = '\u0000') -> None:
+    def __init__(self, Position: typing.Optional[int] = 0, Alignment: typing.Optional[TabAlign_8fc90a3b] = TabAlign_8fc90a3b.LEFT, DecimalChar: typing.Optional[str] = '\u0000', FillChar: typing.Optional[str] = '\u0000') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``TabStop`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (int, optional): Position value
-            Alignment (TabAlign, optional): Alignment value
-            DecimalChar (str, optional): DecimalChar value
-            FillChar (str, optional): FillChar value
+            Position (int, optional): Position value.
+            Alignment (TabAlign, optional): Alignment value.
+            DecimalChar (str, optional): DecimalChar value.
+            FillChar (str, optional): FillChar value.
         """
-        if isinstance(Position, TabStop):
-            oth: TabStop = Position
-            self._position = oth.Position
-            self._alignment = oth.Alignment
-            self._decimal_char = oth.DecimalChar
-            self._fill_char = oth.FillChar
-            return
-        else:
-            self._position = Position
-            self._alignment = Alignment
-            self._decimal_char = DecimalChar
-            self._fill_char = FillChar
+        super().__init__()
+        kargs = {
+            "Position": Position,
+            "Alignment": Alignment,
+            "DecimalChar": DecimalChar,
+            "FillChar": FillChar,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._alignment = kwargs["Alignment"]
+        self._decimal_char = kwargs["DecimalChar"]
+        self._fill_char = kwargs["FillChar"]
 
 
     @property

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .property_state import PropertyState as PropertyState_c97b0c77
 
@@ -45,35 +46,36 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.beans.PropertyStateChangeEvent'
     """Literal Constant ``com.sun.star.beans.PropertyStateChangeEvent``"""
 
-    def __init__(self, PropertyName: str = '', PropertyHandle: int = 0, OldValue: PropertyState_c97b0c77 = PropertyState_c97b0c77.DIRECT_VALUE, NewValue: PropertyState_c97b0c77 = PropertyState_c97b0c77.DIRECT_VALUE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, PropertyName: typing.Optional[str] = '', PropertyHandle: typing.Optional[int] = 0, OldValue: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE, NewValue: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``PropertyName`` can be another ``PropertyStateChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            PropertyName (str, optional): PropertyName value
-            PropertyHandle (int, optional): PropertyHandle value
-            OldValue (PropertyState, optional): OldValue value
-            NewValue (PropertyState, optional): NewValue value
+            Source (XInterface, optional): Source value.
+            PropertyName (str, optional): PropertyName value.
+            PropertyHandle (int, optional): PropertyHandle value.
+            OldValue (PropertyState, optional): OldValue value.
+            NewValue (PropertyState, optional): NewValue value.
         """
-        super().__init__(**kwargs)
-        if isinstance(PropertyName, PropertyStateChangeEvent):
-            oth: PropertyStateChangeEvent = PropertyName
-            self._property_name = oth.PropertyName
-            self._property_handle = oth.PropertyHandle
-            self._old_value = oth.OldValue
-            self._new_value = oth.NewValue
-            return
-        else:
-            self._property_name = PropertyName
-            self._property_handle = PropertyHandle
-            self._old_value = OldValue
-            self._new_value = NewValue
+        kargs = {
+            "Source": Source,
+            "PropertyName": PropertyName,
+            "PropertyHandle": PropertyHandle,
+            "OldValue": OldValue,
+            "NewValue": NewValue,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._property_name = kwargs["PropertyName"]
+        self._property_handle = kwargs["PropertyHandle"]
+        self._old_value = kwargs["OldValue"]
+        self._new_value = kwargs["NewValue"]
+        inst_keys = ('PropertyName', 'PropertyHandle', 'OldValue', 'NewValue')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -51,57 +51,54 @@ class AffineMatrix3D(object):
     typeName: str = 'com.sun.star.geometry.AffineMatrix3D'
     """Literal Constant ``com.sun.star.geometry.AffineMatrix3D``"""
 
-    def __init__(self, m00: float = 0.0, m01: float = 0.0, m02: float = 0.0, m03: float = 0.0, m10: float = 0.0, m11: float = 0.0, m12: float = 0.0, m13: float = 0.0, m20: float = 0.0, m21: float = 0.0, m22: float = 0.0, m23: float = 0.0) -> None:
+    def __init__(self, m00: typing.Optional[float] = 0.0, m01: typing.Optional[float] = 0.0, m02: typing.Optional[float] = 0.0, m03: typing.Optional[float] = 0.0, m10: typing.Optional[float] = 0.0, m11: typing.Optional[float] = 0.0, m12: typing.Optional[float] = 0.0, m13: typing.Optional[float] = 0.0, m20: typing.Optional[float] = 0.0, m21: typing.Optional[float] = 0.0, m22: typing.Optional[float] = 0.0, m23: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``m00`` can be another ``AffineMatrix3D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            m00 (float, optional): m00 value
-            m01 (float, optional): m01 value
-            m02 (float, optional): m02 value
-            m03 (float, optional): m03 value
-            m10 (float, optional): m10 value
-            m11 (float, optional): m11 value
-            m12 (float, optional): m12 value
-            m13 (float, optional): m13 value
-            m20 (float, optional): m20 value
-            m21 (float, optional): m21 value
-            m22 (float, optional): m22 value
-            m23 (float, optional): m23 value
+            m00 (float, optional): m00 value.
+            m01 (float, optional): m01 value.
+            m02 (float, optional): m02 value.
+            m03 (float, optional): m03 value.
+            m10 (float, optional): m10 value.
+            m11 (float, optional): m11 value.
+            m12 (float, optional): m12 value.
+            m13 (float, optional): m13 value.
+            m20 (float, optional): m20 value.
+            m21 (float, optional): m21 value.
+            m22 (float, optional): m22 value.
+            m23 (float, optional): m23 value.
         """
-        if isinstance(m00, AffineMatrix3D):
-            oth: AffineMatrix3D = m00
-            self._m00 = oth.m00
-            self._m01 = oth.m01
-            self._m02 = oth.m02
-            self._m03 = oth.m03
-            self._m10 = oth.m10
-            self._m11 = oth.m11
-            self._m12 = oth.m12
-            self._m13 = oth.m13
-            self._m20 = oth.m20
-            self._m21 = oth.m21
-            self._m22 = oth.m22
-            self._m23 = oth.m23
-            return
-        else:
-            self._m00 = m00
-            self._m01 = m01
-            self._m02 = m02
-            self._m03 = m03
-            self._m10 = m10
-            self._m11 = m11
-            self._m12 = m12
-            self._m13 = m13
-            self._m20 = m20
-            self._m21 = m21
-            self._m22 = m22
-            self._m23 = m23
+        super().__init__()
+        kargs = {
+            "m00": m00,
+            "m01": m01,
+            "m02": m02,
+            "m03": m03,
+            "m10": m10,
+            "m11": m11,
+            "m12": m12,
+            "m13": m13,
+            "m20": m20,
+            "m21": m21,
+            "m22": m22,
+            "m23": m23,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._m00 = kwargs["m00"]
+        self._m01 = kwargs["m01"]
+        self._m02 = kwargs["m02"]
+        self._m03 = kwargs["m03"]
+        self._m10 = kwargs["m10"]
+        self._m11 = kwargs["m11"]
+        self._m12 = kwargs["m12"]
+        self._m13 = kwargs["m13"]
+        self._m20 = kwargs["m20"]
+        self._m21 = kwargs["m21"]
+        self._m22 = kwargs["m22"]
+        self._m23 = kwargs["m23"]
 
 
     @property

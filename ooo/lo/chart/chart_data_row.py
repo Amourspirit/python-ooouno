@@ -44,30 +44,26 @@ class ChartDataRow(object):
     typeName: str = 'com.sun.star.chart.ChartDataRow'
     """Literal Constant ``com.sun.star.chart.ChartDataRow``"""
 
-    def __init__(self, Points: typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...] = UNO_NONE, Name: str = '') -> None:
+    def __init__(self, Points: typing.Optional[typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...]] = UNO_NONE, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Points`` can be another ``ChartDataRow`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Points (Tuple[typing.Tuple[ChartDataValue, ...], ...], optional): Points value
-            Name (str, optional): Name value
+            Points (typing.Tuple[typing.Tuple[ChartDataValue, ...], ...], optional): Points value.
+            Name (str, optional): Name value.
         """
-        if isinstance(Points, ChartDataRow):
-            oth: ChartDataRow = Points
-            self._points = oth.Points
-            self._name = oth.Name
-            return
-        else:
-            if Points is UNO_NONE:
-                self._points = None
-            else:
-                self._points = Points
-            self._name = Name
+        super().__init__()
+        kargs = {
+            "Points": Points,
+            "Name": Name,
+        }
+        if kargs["Points"] is UNO_NONE:
+            kargs["Points"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._points = kwargs["Points"]
+        self._name = kwargs["Name"]
 
 
     @property

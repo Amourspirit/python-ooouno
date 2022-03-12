@@ -39,48 +39,43 @@ class StrokeAttributes(object):
     typeName: str = 'com.sun.star.rendering.StrokeAttributes'
     """Literal Constant ``com.sun.star.rendering.StrokeAttributes``"""
 
-    def __init__(self, DashArray: typing.Tuple[float, ...] = UNO_NONE, LineArray: typing.Tuple[float, ...] = UNO_NONE, StrokeWidth: float = 0.0, MiterLimit: float = 0.0, StartCapType: int = 0, EndCapType: int = 0, JoinType: int = 0) -> None:
+    def __init__(self, DashArray: typing.Optional[typing.Tuple[float, ...]] = UNO_NONE, LineArray: typing.Optional[typing.Tuple[float, ...]] = UNO_NONE, StrokeWidth: typing.Optional[float] = 0.0, MiterLimit: typing.Optional[float] = 0.0, StartCapType: typing.Optional[int] = 0, EndCapType: typing.Optional[int] = 0, JoinType: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DashArray`` can be another ``StrokeAttributes`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DashArray (Tuple[float, ...], optional): DashArray value
-            LineArray (Tuple[float, ...], optional): LineArray value
-            StrokeWidth (float, optional): StrokeWidth value
-            MiterLimit (float, optional): MiterLimit value
-            StartCapType (int, optional): StartCapType value
-            EndCapType (int, optional): EndCapType value
-            JoinType (int, optional): JoinType value
+            DashArray (typing.Tuple[float, ...], optional): DashArray value.
+            LineArray (typing.Tuple[float, ...], optional): LineArray value.
+            StrokeWidth (float, optional): StrokeWidth value.
+            MiterLimit (float, optional): MiterLimit value.
+            StartCapType (int, optional): StartCapType value.
+            EndCapType (int, optional): EndCapType value.
+            JoinType (int, optional): JoinType value.
         """
-        if isinstance(DashArray, StrokeAttributes):
-            oth: StrokeAttributes = DashArray
-            self._dash_array = oth.DashArray
-            self._line_array = oth.LineArray
-            self._stroke_width = oth.StrokeWidth
-            self._miter_limit = oth.MiterLimit
-            self._start_cap_type = oth.StartCapType
-            self._end_cap_type = oth.EndCapType
-            self._join_type = oth.JoinType
-            return
-        else:
-            if DashArray is UNO_NONE:
-                self._dash_array = None
-            else:
-                self._dash_array = DashArray
-            if LineArray is UNO_NONE:
-                self._line_array = None
-            else:
-                self._line_array = LineArray
-            self._stroke_width = StrokeWidth
-            self._miter_limit = MiterLimit
-            self._start_cap_type = StartCapType
-            self._end_cap_type = EndCapType
-            self._join_type = JoinType
+        super().__init__()
+        kargs = {
+            "DashArray": DashArray,
+            "LineArray": LineArray,
+            "StrokeWidth": StrokeWidth,
+            "MiterLimit": MiterLimit,
+            "StartCapType": StartCapType,
+            "EndCapType": EndCapType,
+            "JoinType": JoinType,
+        }
+        if kargs["DashArray"] is UNO_NONE:
+            kargs["DashArray"] = None
+        if kargs["LineArray"] is UNO_NONE:
+            kargs["LineArray"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._dash_array = kwargs["DashArray"]
+        self._line_array = kwargs["LineArray"]
+        self._stroke_width = kwargs["StrokeWidth"]
+        self._miter_limit = kwargs["MiterLimit"]
+        self._start_cap_type = kwargs["StartCapType"]
+        self._end_cap_type = kwargs["EndCapType"]
+        self._join_type = kwargs["JoinType"]
 
 
     @property

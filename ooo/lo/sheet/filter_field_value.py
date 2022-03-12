@@ -41,36 +41,33 @@ class FilterFieldValue(object):
     typeName: str = 'com.sun.star.sheet.FilterFieldValue'
     """Literal Constant ``com.sun.star.sheet.FilterFieldValue``"""
 
-    def __init__(self, IsNumeric: bool = False, NumericValue: float = 0.0, StringValue: str = '', FilterType: int = None, ColorValue: Color_68e908c5 = None) -> None:
+    def __init__(self, IsNumeric: typing.Optional[bool] = False, NumericValue: typing.Optional[float] = 0.0, StringValue: typing.Optional[str] = '', FilterType: typing.Optional[int] = None, ColorValue: typing.Optional[Color_68e908c5] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IsNumeric`` can be another ``FilterFieldValue`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IsNumeric (bool, optional): IsNumeric value
-            NumericValue (float, optional): NumericValue value
-            StringValue (str, optional): StringValue value
-            FilterType (int, optional): FilterType value
-            ColorValue (Color, optional): ColorValue value
+            IsNumeric (bool, optional): IsNumeric value.
+            NumericValue (float, optional): NumericValue value.
+            StringValue (str, optional): StringValue value.
+            FilterType (int, optional): FilterType value.
+            ColorValue (Color, optional): ColorValue value.
         """
-        if isinstance(IsNumeric, FilterFieldValue):
-            oth: FilterFieldValue = IsNumeric
-            self._is_numeric = oth.IsNumeric
-            self._numeric_value = oth.NumericValue
-            self._string_value = oth.StringValue
-            self._filter_type = oth.FilterType
-            self._color_value = oth.ColorValue
-            return
-        else:
-            self._is_numeric = IsNumeric
-            self._numeric_value = NumericValue
-            self._string_value = StringValue
-            self._filter_type = FilterType
-            self._color_value = ColorValue
+        super().__init__()
+        kargs = {
+            "IsNumeric": IsNumeric,
+            "NumericValue": NumericValue,
+            "StringValue": StringValue,
+            "FilterType": FilterType,
+            "ColorValue": ColorValue,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._is_numeric = kwargs["IsNumeric"]
+        self._numeric_value = kwargs["NumericValue"]
+        self._string_value = kwargs["StringValue"]
+        self._filter_type = kwargs["FilterType"]
+        self._color_value = kwargs["ColorValue"]
 
 
     @property

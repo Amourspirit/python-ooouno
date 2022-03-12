@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Style = UNO_NONE, PolygonCoords = UNO_NONE, StandardSymbol = UNO_NONE, Graphic = UNO_NONE, Size = UNO_NONE, BorderColor = UNO_NONE, FillColor = UNO_NONE):
-            if getattr(Style, "__class__", None) == self.__class__:
-                orig_init(self, Style)
+        ordered_keys = ('Style', 'PolygonCoords', 'StandardSymbol', 'Graphic', 'Size', 'BorderColor', 'FillColor')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Style is UNO_NONE:
-                if getattr(self, 'Style') != Style:
-                    setattr(self, 'Style', Style)
-            if not PolygonCoords is UNO_NONE:
-                if getattr(self, 'PolygonCoords') != PolygonCoords:
-                    setattr(self, 'PolygonCoords', PolygonCoords)
-            if not StandardSymbol is UNO_NONE:
-                if getattr(self, 'StandardSymbol') != StandardSymbol:
-                    setattr(self, 'StandardSymbol', StandardSymbol)
-            if not Graphic is UNO_NONE:
-                if getattr(self, 'Graphic') != Graphic:
-                    setattr(self, 'Graphic', Graphic)
-            if not Size is UNO_NONE:
-                if getattr(self, 'Size') != Size:
-                    setattr(self, 'Size', Size)
-            if not BorderColor is UNO_NONE:
-                if getattr(self, 'BorderColor') != BorderColor:
-                    setattr(self, 'BorderColor', BorderColor)
-            if not FillColor is UNO_NONE:
-                if getattr(self, 'FillColor') != FillColor:
-                    setattr(self, 'FillColor', FillColor)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.Symbol'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Symbol = _get_class()
-
 
 else:
     from ...lo.chart2.symbol import Symbol as Symbol

@@ -41,30 +41,27 @@ class TimeIncrement(object):
     typeName: str = 'com.sun.star.chart.TimeIncrement'
     """Literal Constant ``com.sun.star.chart.TimeIncrement``"""
 
-    def __init__(self, MajorTimeInterval: object = None, MinorTimeInterval: object = None, TimeResolution: object = None) -> None:
+    def __init__(self, MajorTimeInterval: typing.Optional[object] = None, MinorTimeInterval: typing.Optional[object] = None, TimeResolution: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MajorTimeInterval`` can be another ``TimeIncrement`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            MajorTimeInterval (object, optional): MajorTimeInterval value
-            MinorTimeInterval (object, optional): MinorTimeInterval value
-            TimeResolution (object, optional): TimeResolution value
+            MajorTimeInterval (object, optional): MajorTimeInterval value.
+            MinorTimeInterval (object, optional): MinorTimeInterval value.
+            TimeResolution (object, optional): TimeResolution value.
         """
-        if isinstance(MajorTimeInterval, TimeIncrement):
-            oth: TimeIncrement = MajorTimeInterval
-            self._major_time_interval = oth.MajorTimeInterval
-            self._minor_time_interval = oth.MinorTimeInterval
-            self._time_resolution = oth.TimeResolution
-            return
-        else:
-            self._major_time_interval = MajorTimeInterval
-            self._minor_time_interval = MinorTimeInterval
-            self._time_resolution = TimeResolution
+        super().__init__()
+        kargs = {
+            "MajorTimeInterval": MajorTimeInterval,
+            "MinorTimeInterval": MinorTimeInterval,
+            "TimeResolution": TimeResolution,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._major_time_interval = kwargs["MajorTimeInterval"]
+        self._minor_time_interval = kwargs["MinorTimeInterval"]
+        self._time_resolution = kwargs["TimeResolution"]
 
 
     @property

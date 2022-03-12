@@ -37,27 +37,24 @@ class LineSpacing(object):
     typeName: str = 'com.sun.star.style.LineSpacing'
     """Literal Constant ``com.sun.star.style.LineSpacing``"""
 
-    def __init__(self, Mode: int = 0, Height: int = 0) -> None:
+    def __init__(self, Mode: typing.Optional[int] = 0, Height: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Mode`` can be another ``LineSpacing`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Mode (int, optional): Mode value
-            Height (int, optional): Height value
+            Mode (int, optional): Mode value.
+            Height (int, optional): Height value.
         """
-        if isinstance(Mode, LineSpacing):
-            oth: LineSpacing = Mode
-            self._mode = oth.Mode
-            self._height = oth.Height
-            return
-        else:
-            self._mode = Mode
-            self._height = Height
+        super().__init__()
+        kargs = {
+            "Mode": Mode,
+            "Height": Height,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._mode = kwargs["Mode"]
+        self._height = kwargs["Height"]
 
 
     @property

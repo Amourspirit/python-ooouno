@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from ..uno.type_class import TypeClass as TypeClass_853109f2
 
 class CannotConvertException(Exception_85530a09):
     """
+    Exception Class
+
     This exception is thrown to indicate that a type conversion can not be performed.
 
     See Also:
@@ -40,22 +43,35 @@ class CannotConvertException(Exception_85530a09):
     typeName: str = 'com.sun.star.script.CannotConvertException'
     """Literal Constant ``com.sun.star.script.CannotConvertException``"""
 
-    def __init__(self, DestinationTypeClass: typing.Optional[TypeClass_853109f2] = TypeClass_853109f2.VOID, Reason: typing.Optional[int] = 0, ArgumentIndex: typing.Optional[int] = 0, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, DestinationTypeClass: typing.Optional[TypeClass_853109f2] = TypeClass_853109f2.VOID, Reason: typing.Optional[int] = 0, ArgumentIndex: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             DestinationTypeClass (TypeClass, optional): DestinationTypeClass value.
             Reason (int, optional): Reason value.
             ArgumentIndex (int, optional): ArgumentIndex value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "DestinationTypeClass": DestinationTypeClass,
+            "Reason": Reason,
+            "ArgumentIndex": ArgumentIndex,
+        }
+        self._init(**kargs)
 
-        self._destination_type_class = DestinationTypeClass
-        self._reason = Reason
-        self._argument_index = ArgumentIndex
+    def _init(self, **kwargs) -> None:
+        self._destination_type_class = kwargs["DestinationTypeClass"]
+        self._reason = kwargs["Reason"]
+        self._argument_index = kwargs["ArgumentIndex"]
+        inst_keys = ('DestinationTypeClass', 'Reason', 'ArgumentIndex')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def DestinationTypeClass(self) -> TypeClass_853109f2:

@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Payload = UNO_NONE, ErrorCorrection = UNO_NONE, Border = UNO_NONE):
-            if getattr(Payload, "__class__", None) == self.__class__:
-                orig_init(self, Payload)
+        ordered_keys = ('Payload', 'ErrorCorrection', 'Border')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Payload is UNO_NONE:
-                if getattr(self, 'Payload') != Payload:
-                    setattr(self, 'Payload', Payload)
-            if not ErrorCorrection is UNO_NONE:
-                if getattr(self, 'ErrorCorrection') != ErrorCorrection:
-                    setattr(self, 'ErrorCorrection', ErrorCorrection)
-            if not Border is UNO_NONE:
-                if getattr(self, 'Border') != Border:
-                    setattr(self, 'Border', Border)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.QRCode'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     QRCode = _get_class()
-
 
 else:
     from ...lo.drawing.qr_code import QRCode as QRCode

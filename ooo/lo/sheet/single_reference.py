@@ -37,42 +37,39 @@ class SingleReference(object):
     typeName: str = 'com.sun.star.sheet.SingleReference'
     """Literal Constant ``com.sun.star.sheet.SingleReference``"""
 
-    def __init__(self, Column: int = 0, RelativeColumn: int = 0, Row: int = 0, RelativeRow: int = 0, Sheet: int = 0, RelativeSheet: int = 0, Flags: int = 0) -> None:
+    def __init__(self, Column: typing.Optional[int] = 0, RelativeColumn: typing.Optional[int] = 0, Row: typing.Optional[int] = 0, RelativeRow: typing.Optional[int] = 0, Sheet: typing.Optional[int] = 0, RelativeSheet: typing.Optional[int] = 0, Flags: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Column`` can be another ``SingleReference`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Column (int, optional): Column value
-            RelativeColumn (int, optional): RelativeColumn value
-            Row (int, optional): Row value
-            RelativeRow (int, optional): RelativeRow value
-            Sheet (int, optional): Sheet value
-            RelativeSheet (int, optional): RelativeSheet value
-            Flags (int, optional): Flags value
+            Column (int, optional): Column value.
+            RelativeColumn (int, optional): RelativeColumn value.
+            Row (int, optional): Row value.
+            RelativeRow (int, optional): RelativeRow value.
+            Sheet (int, optional): Sheet value.
+            RelativeSheet (int, optional): RelativeSheet value.
+            Flags (int, optional): Flags value.
         """
-        if isinstance(Column, SingleReference):
-            oth: SingleReference = Column
-            self._column = oth.Column
-            self._relative_column = oth.RelativeColumn
-            self._row = oth.Row
-            self._relative_row = oth.RelativeRow
-            self._sheet = oth.Sheet
-            self._relative_sheet = oth.RelativeSheet
-            self._flags = oth.Flags
-            return
-        else:
-            self._column = Column
-            self._relative_column = RelativeColumn
-            self._row = Row
-            self._relative_row = RelativeRow
-            self._sheet = Sheet
-            self._relative_sheet = RelativeSheet
-            self._flags = Flags
+        super().__init__()
+        kargs = {
+            "Column": Column,
+            "RelativeColumn": RelativeColumn,
+            "Row": Row,
+            "RelativeRow": RelativeRow,
+            "Sheet": Sheet,
+            "RelativeSheet": RelativeSheet,
+            "Flags": Flags,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._column = kwargs["Column"]
+        self._relative_column = kwargs["RelativeColumn"]
+        self._row = kwargs["Row"]
+        self._relative_row = kwargs["RelativeRow"]
+        self._sheet = kwargs["Sheet"]
+        self._relative_sheet = kwargs["RelativeSheet"]
+        self._flags = kwargs["Flags"]
 
 
     @property

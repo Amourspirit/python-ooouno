@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Name = UNO_NONE, DimensionIndex = UNO_NONE, DimensionPositionIndex = UNO_NONE, HasHiddenMembers = UNO_NONE):
-            if getattr(Name, "__class__", None) == self.__class__:
-                orig_init(self, Name)
+        ordered_keys = ('Name', 'DimensionIndex', 'DimensionPositionIndex', 'HasHiddenMembers')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not DimensionIndex is UNO_NONE:
-                if getattr(self, 'DimensionIndex') != DimensionIndex:
-                    setattr(self, 'DimensionIndex', DimensionIndex)
-            if not DimensionPositionIndex is UNO_NONE:
-                if getattr(self, 'DimensionPositionIndex') != DimensionPositionIndex:
-                    setattr(self, 'DimensionPositionIndex', DimensionPositionIndex)
-            if not HasHiddenMembers is UNO_NONE:
-                if getattr(self, 'HasHiddenMembers') != HasHiddenMembers:
-                    setattr(self, 'HasHiddenMembers', HasHiddenMembers)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.data.PivotTableFieldEntry'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     PivotTableFieldEntry = _get_class()
-
 
 else:
     from ....lo.chart2.data.pivot_table_field_entry import PivotTableFieldEntry as PivotTableFieldEntry

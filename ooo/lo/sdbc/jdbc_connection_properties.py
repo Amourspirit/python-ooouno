@@ -62,6 +62,38 @@ class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         COLUMN(X) defines the column which will be compared and the column which will be replaced. In the example above column 2 will be compared with the value -5. If this is true than column 6 will now return the value PRECISION.
         """
 
+    @abstractproperty
+    def AutoRetrievingStatement(self) -> str:
+        """
+        specifies the statement which should be executed when asking an \"INSERT\" statement for the XGeneratedResultSet (future concept) interface.
+        """
+
+    @abstractproperty
+    def IsAutoRetrievingEnabled(self) -> bool:
+        """
+        specifies if retrieving of auto generated values should be enabled or not.
+        
+        If TRUE than the statement will support the XGeneratedResultSet (future concept) interface, otherwise not.
+        """
+
+    @abstractproperty
+    def JavaDriverClass(self) -> str:
+        """
+        which JDBC driver class should be loaded to create the connection.
+        """
+
+    @abstractproperty
+    def JavaDriverClassPath(self) -> str:
+        """
+        an optional class path to locate the com.sun.star.sdbc.JDBCConnectionProperties.JavaDriverClass
+        
+        The class path is a list of zero or more internal (see the com.sun.star.uri.ExternalUriReferenceTranslator service) URI references, where any space characters (U+0020) are ignored (and, in particular, separate adjacent URI references). Any “vnd.sun.star.expand” URL references in the list are expanded using the com.sun.star.util.theMacroExpander singleton.
+        
+        **since**
+        
+            OOo 2.3
+        """
+
 
 
 __all__ = ['JDBCConnectionProperties']

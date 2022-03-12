@@ -39,33 +39,29 @@ class SolverConstraint(object):
     typeName: str = 'com.sun.star.sheet.SolverConstraint'
     """Literal Constant ``com.sun.star.sheet.SolverConstraint``"""
 
-    def __init__(self, Left: CellAddress_ae5f0b56 = UNO_NONE, Operator: SolverConstraintOperator_6e4a110d = SolverConstraintOperator_6e4a110d.LESS_EQUAL, Right: object = None) -> None:
+    def __init__(self, Left: typing.Optional[CellAddress_ae5f0b56] = UNO_NONE, Operator: typing.Optional[SolverConstraintOperator_6e4a110d] = SolverConstraintOperator_6e4a110d.LESS_EQUAL, Right: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Left`` can be another ``SolverConstraint`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Left (CellAddress, optional): Left value
-            Operator (SolverConstraintOperator, optional): Operator value
-            Right (object, optional): Right value
+            Left (CellAddress, optional): Left value.
+            Operator (SolverConstraintOperator, optional): Operator value.
+            Right (object, optional): Right value.
         """
-        if isinstance(Left, SolverConstraint):
-            oth: SolverConstraint = Left
-            self._left = oth.Left
-            self._operator = oth.Operator
-            self._right = oth.Right
-            return
-        else:
-            if Left is UNO_NONE:
-                self._left = CellAddress_ae5f0b56()
-            else:
-                self._left = Left
-            self._operator = Operator
-            self._right = Right
+        super().__init__()
+        kargs = {
+            "Left": Left,
+            "Operator": Operator,
+            "Right": Right,
+        }
+        if kargs["Left"] is UNO_NONE:
+            kargs["Left"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._left = kwargs["Left"]
+        self._operator = kwargs["Operator"]
+        self._right = kwargs["Right"]
 
 
     @property

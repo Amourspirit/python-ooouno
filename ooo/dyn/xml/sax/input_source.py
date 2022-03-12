@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, aInputStream = UNO_NONE, sEncoding = UNO_NONE, sPublicId = UNO_NONE, sSystemId = UNO_NONE):
-            if getattr(aInputStream, "__class__", None) == self.__class__:
-                orig_init(self, aInputStream)
+        ordered_keys = ('aInputStream', 'sEncoding', 'sPublicId', 'sSystemId')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not aInputStream is UNO_NONE:
-                if getattr(self, 'aInputStream') != aInputStream:
-                    setattr(self, 'aInputStream', aInputStream)
-            if not sEncoding is UNO_NONE:
-                if getattr(self, 'sEncoding') != sEncoding:
-                    setattr(self, 'sEncoding', sEncoding)
-            if not sPublicId is UNO_NONE:
-                if getattr(self, 'sPublicId') != sPublicId:
-                    setattr(self, 'sPublicId', sPublicId)
-            if not sSystemId is UNO_NONE:
-                if getattr(self, 'sSystemId') != sSystemId:
-                    setattr(self, 'sSystemId', sSystemId)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.xml.sax.InputSource'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     InputSource = _get_class()
-
 
 else:
     from ....lo.xml.sax.input_source import InputSource as InputSource

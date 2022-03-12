@@ -38,27 +38,24 @@ class InsertCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.InsertCommandArgument'
     """Literal Constant ``com.sun.star.ucb.InsertCommandArgument``"""
 
-    def __init__(self, Data: XInputStream_98d40ab4 = None, ReplaceExisting: bool = False) -> None:
+    def __init__(self, Data: typing.Optional[XInputStream_98d40ab4] = None, ReplaceExisting: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Data`` can be another ``InsertCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Data (XInputStream, optional): Data value
-            ReplaceExisting (bool, optional): ReplaceExisting value
+            Data (XInputStream, optional): Data value.
+            ReplaceExisting (bool, optional): ReplaceExisting value.
         """
-        if isinstance(Data, InsertCommandArgument):
-            oth: InsertCommandArgument = Data
-            self._data = oth.Data
-            self._replace_existing = oth.ReplaceExisting
-            return
-        else:
-            self._data = Data
-            self._replace_existing = ReplaceExisting
+        super().__init__()
+        kargs = {
+            "Data": Data,
+            "ReplaceExisting": ReplaceExisting,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._data = kwargs["Data"]
+        self._replace_existing = kwargs["ReplaceExisting"]
 
 
     @property

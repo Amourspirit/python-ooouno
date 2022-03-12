@@ -37,36 +37,33 @@ class ScriptEventDescriptor(object):
     typeName: str = 'com.sun.star.script.ScriptEventDescriptor'
     """Literal Constant ``com.sun.star.script.ScriptEventDescriptor``"""
 
-    def __init__(self, ListenerType: str = '', EventMethod: str = '', AddListenerParam: str = '', ScriptType: str = '', ScriptCode: str = '') -> None:
+    def __init__(self, ListenerType: typing.Optional[str] = '', EventMethod: typing.Optional[str] = '', AddListenerParam: typing.Optional[str] = '', ScriptType: typing.Optional[str] = '', ScriptCode: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ListenerType`` can be another ``ScriptEventDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ListenerType (str, optional): ListenerType value
-            EventMethod (str, optional): EventMethod value
-            AddListenerParam (str, optional): AddListenerParam value
-            ScriptType (str, optional): ScriptType value
-            ScriptCode (str, optional): ScriptCode value
+            ListenerType (str, optional): ListenerType value.
+            EventMethod (str, optional): EventMethod value.
+            AddListenerParam (str, optional): AddListenerParam value.
+            ScriptType (str, optional): ScriptType value.
+            ScriptCode (str, optional): ScriptCode value.
         """
-        if isinstance(ListenerType, ScriptEventDescriptor):
-            oth: ScriptEventDescriptor = ListenerType
-            self._listener_type = oth.ListenerType
-            self._event_method = oth.EventMethod
-            self._add_listener_param = oth.AddListenerParam
-            self._script_type = oth.ScriptType
-            self._script_code = oth.ScriptCode
-            return
-        else:
-            self._listener_type = ListenerType
-            self._event_method = EventMethod
-            self._add_listener_param = AddListenerParam
-            self._script_type = ScriptType
-            self._script_code = ScriptCode
+        super().__init__()
+        kargs = {
+            "ListenerType": ListenerType,
+            "EventMethod": EventMethod,
+            "AddListenerParam": AddListenerParam,
+            "ScriptType": ScriptType,
+            "ScriptCode": ScriptCode,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._listener_type = kwargs["ListenerType"]
+        self._event_method = kwargs["EventMethod"]
+        self._add_listener_param = kwargs["AddListenerParam"]
+        self._script_type = kwargs["ScriptType"]
+        self._script_code = kwargs["ScriptCode"]
 
 
     @property

@@ -39,60 +39,56 @@ class ZipEntry(object):
     typeName: str = 'com.sun.star.packages.zip.ZipEntry'
     """Literal Constant ``com.sun.star.packages.zip.ZipEntry``"""
 
-    def __init__(self, extra: typing.Tuple[int, ...] = UNO_NONE, nVersion: int = 0, nFlag: int = 0, nMethod: int = 0, nTime: int = 0, nCrc: int = 0, nCompressedSize: int = 0, nSize: int = 0, nOffset: int = 0, nDiskNumber: int = 0, sName: str = '', sComment: str = '') -> None:
+    def __init__(self, extra: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, nVersion: typing.Optional[int] = 0, nFlag: typing.Optional[int] = 0, nMethod: typing.Optional[int] = 0, nTime: typing.Optional[int] = 0, nCrc: typing.Optional[int] = 0, nCompressedSize: typing.Optional[int] = 0, nSize: typing.Optional[int] = 0, nOffset: typing.Optional[int] = 0, nDiskNumber: typing.Optional[int] = 0, sName: typing.Optional[str] = '', sComment: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``extra`` can be another ``ZipEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            extra (Tuple[int, ...], optional): extra value
-            nVersion (int, optional): nVersion value
-            nFlag (int, optional): nFlag value
-            nMethod (int, optional): nMethod value
-            nTime (int, optional): nTime value
-            nCrc (int, optional): nCrc value
-            nCompressedSize (int, optional): nCompressedSize value
-            nSize (int, optional): nSize value
-            nOffset (int, optional): nOffset value
-            nDiskNumber (int, optional): nDiskNumber value
-            sName (str, optional): sName value
-            sComment (str, optional): sComment value
+            extra (typing.Tuple[int, ...], optional): extra value.
+            nVersion (int, optional): nVersion value.
+            nFlag (int, optional): nFlag value.
+            nMethod (int, optional): nMethod value.
+            nTime (int, optional): nTime value.
+            nCrc (int, optional): nCrc value.
+            nCompressedSize (int, optional): nCompressedSize value.
+            nSize (int, optional): nSize value.
+            nOffset (int, optional): nOffset value.
+            nDiskNumber (int, optional): nDiskNumber value.
+            sName (str, optional): sName value.
+            sComment (str, optional): sComment value.
         """
-        if isinstance(extra, ZipEntry):
-            oth: ZipEntry = extra
-            self._extra = oth.extra
-            self._n_version = oth.nVersion
-            self._n_flag = oth.nFlag
-            self._n_method = oth.nMethod
-            self._n_time = oth.nTime
-            self._n_crc = oth.nCrc
-            self._n_compressed_size = oth.nCompressedSize
-            self._n_size = oth.nSize
-            self._n_offset = oth.nOffset
-            self._n_disk_number = oth.nDiskNumber
-            self._s_name = oth.sName
-            self._s_comment = oth.sComment
-            return
-        else:
-            if extra is UNO_NONE:
-                self._extra = None
-            else:
-                self._extra = extra
-            self._n_version = nVersion
-            self._n_flag = nFlag
-            self._n_method = nMethod
-            self._n_time = nTime
-            self._n_crc = nCrc
-            self._n_compressed_size = nCompressedSize
-            self._n_size = nSize
-            self._n_offset = nOffset
-            self._n_disk_number = nDiskNumber
-            self._s_name = sName
-            self._s_comment = sComment
+        super().__init__()
+        kargs = {
+            "extra": extra,
+            "nVersion": nVersion,
+            "nFlag": nFlag,
+            "nMethod": nMethod,
+            "nTime": nTime,
+            "nCrc": nCrc,
+            "nCompressedSize": nCompressedSize,
+            "nSize": nSize,
+            "nOffset": nOffset,
+            "nDiskNumber": nDiskNumber,
+            "sName": sName,
+            "sComment": sComment,
+        }
+        if kargs["extra"] is UNO_NONE:
+            kargs["extra"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._extra = kwargs["extra"]
+        self._n_version = kwargs["nVersion"]
+        self._n_flag = kwargs["nFlag"]
+        self._n_method = kwargs["nMethod"]
+        self._n_time = kwargs["nTime"]
+        self._n_crc = kwargs["nCrc"]
+        self._n_compressed_size = kwargs["nCompressedSize"]
+        self._n_size = kwargs["nSize"]
+        self._n_offset = kwargs["nOffset"]
+        self._n_disk_number = kwargs["nDiskNumber"]
+        self._s_name = kwargs["sName"]
+        self._s_comment = kwargs["sComment"]
 
 
     @property

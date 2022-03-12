@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, IsEnabled = UNO_NONE, ShowItemsMode = UNO_NONE, ItemCount = UNO_NONE, DataField = UNO_NONE):
-            if getattr(IsEnabled, "__class__", None) == self.__class__:
-                orig_init(self, IsEnabled)
+        ordered_keys = ('IsEnabled', 'ShowItemsMode', 'ItemCount', 'DataField')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not IsEnabled is UNO_NONE:
-                if getattr(self, 'IsEnabled') != IsEnabled:
-                    setattr(self, 'IsEnabled', IsEnabled)
-            if not ShowItemsMode is UNO_NONE:
-                if getattr(self, 'ShowItemsMode') != ShowItemsMode:
-                    setattr(self, 'ShowItemsMode', ShowItemsMode)
-            if not ItemCount is UNO_NONE:
-                if getattr(self, 'ItemCount') != ItemCount:
-                    setattr(self, 'ItemCount', ItemCount)
-            if not DataField is UNO_NONE:
-                if getattr(self, 'DataField') != DataField:
-                    setattr(self, 'DataField', DataField)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.DataPilotFieldAutoShowInfo'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPilotFieldAutoShowInfo = _get_class()
-
 
 else:
     from ...lo.sheet.data_pilot_field_auto_show_info import DataPilotFieldAutoShowInfo as DataPilotFieldAutoShowInfo

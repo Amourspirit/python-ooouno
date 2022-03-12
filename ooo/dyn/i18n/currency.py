@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ID = UNO_NONE, Symbol = UNO_NONE, BankSymbol = UNO_NONE, Name = UNO_NONE, Default = UNO_NONE, UsedInCompatibleFormatCodes = UNO_NONE, DecimalPlaces = UNO_NONE):
-            if getattr(ID, "__class__", None) == self.__class__:
-                orig_init(self, ID)
+        ordered_keys = ('ID', 'Symbol', 'BankSymbol', 'Name', 'Default', 'UsedInCompatibleFormatCodes', 'DecimalPlaces')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ID is UNO_NONE:
-                if getattr(self, 'ID') != ID:
-                    setattr(self, 'ID', ID)
-            if not Symbol is UNO_NONE:
-                if getattr(self, 'Symbol') != Symbol:
-                    setattr(self, 'Symbol', Symbol)
-            if not BankSymbol is UNO_NONE:
-                if getattr(self, 'BankSymbol') != BankSymbol:
-                    setattr(self, 'BankSymbol', BankSymbol)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not Default is UNO_NONE:
-                if getattr(self, 'Default') != Default:
-                    setattr(self, 'Default', Default)
-            if not UsedInCompatibleFormatCodes is UNO_NONE:
-                if getattr(self, 'UsedInCompatibleFormatCodes') != UsedInCompatibleFormatCodes:
-                    setattr(self, 'UsedInCompatibleFormatCodes', UsedInCompatibleFormatCodes)
-            if not DecimalPlaces is UNO_NONE:
-                if getattr(self, 'DecimalPlaces') != DecimalPlaces:
-                    setattr(self, 'DecimalPlaces', DecimalPlaces)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.Currency'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Currency = _get_class()
-
 
 else:
     from ...lo.i18n.currency import Currency as Currency

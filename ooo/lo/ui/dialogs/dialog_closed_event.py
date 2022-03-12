@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,26 +41,27 @@ class DialogClosedEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.dialogs.DialogClosedEvent'
     """Literal Constant ``com.sun.star.ui.dialogs.DialogClosedEvent``"""
 
-    def __init__(self, DialogResult: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, DialogResult: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DialogResult`` can be another ``DialogClosedEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            DialogResult (int, optional): DialogResult value
+            Source (XInterface, optional): Source value.
+            DialogResult (int, optional): DialogResult value.
         """
-        super().__init__(**kwargs)
-        if isinstance(DialogResult, DialogClosedEvent):
-            oth: DialogClosedEvent = DialogResult
-            self._dialog_result = oth.DialogResult
-            return
-        else:
-            self._dialog_result = DialogResult
+        kargs = {
+            "Source": Source,
+            "DialogResult": DialogResult,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._dialog_result = kwargs["DialogResult"]
+        inst_keys = ('DialogResult',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

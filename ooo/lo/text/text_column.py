@@ -37,30 +37,27 @@ class TextColumn(object):
     typeName: str = 'com.sun.star.text.TextColumn'
     """Literal Constant ``com.sun.star.text.TextColumn``"""
 
-    def __init__(self, Width: int = 0, LeftMargin: int = 0, RightMargin: int = 0) -> None:
+    def __init__(self, Width: typing.Optional[int] = 0, LeftMargin: typing.Optional[int] = 0, RightMargin: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Width`` can be another ``TextColumn`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Width (int, optional): Width value
-            LeftMargin (int, optional): LeftMargin value
-            RightMargin (int, optional): RightMargin value
+            Width (int, optional): Width value.
+            LeftMargin (int, optional): LeftMargin value.
+            RightMargin (int, optional): RightMargin value.
         """
-        if isinstance(Width, TextColumn):
-            oth: TextColumn = Width
-            self._width = oth.Width
-            self._left_margin = oth.LeftMargin
-            self._right_margin = oth.RightMargin
-            return
-        else:
-            self._width = Width
-            self._left_margin = LeftMargin
-            self._right_margin = RightMargin
+        super().__init__()
+        kargs = {
+            "Width": Width,
+            "LeftMargin": LeftMargin,
+            "RightMargin": RightMargin,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._width = kwargs["Width"]
+        self._left_margin = kwargs["LeftMargin"]
+        self._right_margin = kwargs["RightMargin"]
 
 
     @property

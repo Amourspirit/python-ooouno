@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,26 +39,27 @@ class RangeSelectionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sheet.RangeSelectionEvent'
     """Literal Constant ``com.sun.star.sheet.RangeSelectionEvent``"""
 
-    def __init__(self, RangeDescriptor: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, RangeDescriptor: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``RangeDescriptor`` can be another ``RangeSelectionEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            RangeDescriptor (str, optional): RangeDescriptor value
+            Source (XInterface, optional): Source value.
+            RangeDescriptor (str, optional): RangeDescriptor value.
         """
-        super().__init__(**kwargs)
-        if isinstance(RangeDescriptor, RangeSelectionEvent):
-            oth: RangeSelectionEvent = RangeDescriptor
-            self._range_descriptor = oth.RangeDescriptor
-            return
-        else:
-            self._range_descriptor = RangeDescriptor
+        kargs = {
+            "Source": Source,
+            "RangeDescriptor": RangeDescriptor,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._range_descriptor = kwargs["RangeDescriptor"]
+        inst_keys = ('RangeDescriptor',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

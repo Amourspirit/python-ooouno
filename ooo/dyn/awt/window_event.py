@@ -22,44 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, X = UNO_NONE, Y = UNO_NONE, Width = UNO_NONE, Height = UNO_NONE, LeftInset = UNO_NONE, TopInset = UNO_NONE, RightInset = UNO_NONE, BottomInset = UNO_NONE, **kwargs):
-            if getattr(X, "__class__", None) == self.__class__:
-                orig_init(self, X)
+        ordered_keys = ('Source', 'X', 'Y', 'Width', 'Height', 'LeftInset', 'TopInset', 'RightInset', 'BottomInset')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not X is UNO_NONE:
-                if getattr(self, 'X') != X:
-                    setattr(self, 'X', X)
-            if not Y is UNO_NONE:
-                if getattr(self, 'Y') != Y:
-                    setattr(self, 'Y', Y)
-            if not Width is UNO_NONE:
-                if getattr(self, 'Width') != Width:
-                    setattr(self, 'Width', Width)
-            if not Height is UNO_NONE:
-                if getattr(self, 'Height') != Height:
-                    setattr(self, 'Height', Height)
-            if not LeftInset is UNO_NONE:
-                if getattr(self, 'LeftInset') != LeftInset:
-                    setattr(self, 'LeftInset', LeftInset)
-            if not TopInset is UNO_NONE:
-                if getattr(self, 'TopInset') != TopInset:
-                    setattr(self, 'TopInset', TopInset)
-            if not RightInset is UNO_NONE:
-                if getattr(self, 'RightInset') != RightInset:
-                    setattr(self, 'RightInset', RightInset)
-            if not BottomInset is UNO_NONE:
-                if getattr(self, 'BottomInset') != BottomInset:
-                    setattr(self, 'BottomInset', BottomInset)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.WindowEvent'
         struct = uno.getClass(type_name)
@@ -71,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     WindowEvent = _get_class()
-
 
 else:
     from ...lo.awt.window_event import WindowEvent as WindowEvent

@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ShowNumber = UNO_NONE, ShowNumberInPercent = UNO_NONE, ShowCategoryName = UNO_NONE, ShowLegendSymbol = UNO_NONE, ShowCustomLabel = UNO_NONE, ShowSeriesName = UNO_NONE):
-            if getattr(ShowNumber, "__class__", None) == self.__class__:
-                orig_init(self, ShowNumber)
+        ordered_keys = ('ShowNumber', 'ShowNumberInPercent', 'ShowCategoryName', 'ShowLegendSymbol', 'ShowCustomLabel', 'ShowSeriesName')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ShowNumber is UNO_NONE:
-                if getattr(self, 'ShowNumber') != ShowNumber:
-                    setattr(self, 'ShowNumber', ShowNumber)
-            if not ShowNumberInPercent is UNO_NONE:
-                if getattr(self, 'ShowNumberInPercent') != ShowNumberInPercent:
-                    setattr(self, 'ShowNumberInPercent', ShowNumberInPercent)
-            if not ShowCategoryName is UNO_NONE:
-                if getattr(self, 'ShowCategoryName') != ShowCategoryName:
-                    setattr(self, 'ShowCategoryName', ShowCategoryName)
-            if not ShowLegendSymbol is UNO_NONE:
-                if getattr(self, 'ShowLegendSymbol') != ShowLegendSymbol:
-                    setattr(self, 'ShowLegendSymbol', ShowLegendSymbol)
-            if not ShowCustomLabel is UNO_NONE:
-                if getattr(self, 'ShowCustomLabel') != ShowCustomLabel:
-                    setattr(self, 'ShowCustomLabel', ShowCustomLabel)
-            if not ShowSeriesName is UNO_NONE:
-                if getattr(self, 'ShowSeriesName') != ShowSeriesName:
-                    setattr(self, 'ShowSeriesName', ShowSeriesName)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.DataPointLabel'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPointLabel = _get_class()
-
 
 else:
     from ...lo.chart2.data_point_label import DataPointLabel as DataPointLabel

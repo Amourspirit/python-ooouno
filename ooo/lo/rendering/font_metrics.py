@@ -45,42 +45,39 @@ class FontMetrics(object):
     typeName: str = 'com.sun.star.rendering.FontMetrics'
     """Literal Constant ``com.sun.star.rendering.FontMetrics``"""
 
-    def __init__(self, Ascent: float = 0.0, Descent: float = 0.0, InternalLeading: float = 0.0, ExternalLeading: float = 0.0, ReferenceCharSize: float = 0.0, UnderlineOffset: float = 0.0, StrikeThroughOffset: float = 0.0) -> None:
+    def __init__(self, Ascent: typing.Optional[float] = 0.0, Descent: typing.Optional[float] = 0.0, InternalLeading: typing.Optional[float] = 0.0, ExternalLeading: typing.Optional[float] = 0.0, ReferenceCharSize: typing.Optional[float] = 0.0, UnderlineOffset: typing.Optional[float] = 0.0, StrikeThroughOffset: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Ascent`` can be another ``FontMetrics`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Ascent (float, optional): Ascent value
-            Descent (float, optional): Descent value
-            InternalLeading (float, optional): InternalLeading value
-            ExternalLeading (float, optional): ExternalLeading value
-            ReferenceCharSize (float, optional): ReferenceCharSize value
-            UnderlineOffset (float, optional): UnderlineOffset value
-            StrikeThroughOffset (float, optional): StrikeThroughOffset value
+            Ascent (float, optional): Ascent value.
+            Descent (float, optional): Descent value.
+            InternalLeading (float, optional): InternalLeading value.
+            ExternalLeading (float, optional): ExternalLeading value.
+            ReferenceCharSize (float, optional): ReferenceCharSize value.
+            UnderlineOffset (float, optional): UnderlineOffset value.
+            StrikeThroughOffset (float, optional): StrikeThroughOffset value.
         """
-        if isinstance(Ascent, FontMetrics):
-            oth: FontMetrics = Ascent
-            self._ascent = oth.Ascent
-            self._descent = oth.Descent
-            self._internal_leading = oth.InternalLeading
-            self._external_leading = oth.ExternalLeading
-            self._reference_char_size = oth.ReferenceCharSize
-            self._underline_offset = oth.UnderlineOffset
-            self._strike_through_offset = oth.StrikeThroughOffset
-            return
-        else:
-            self._ascent = Ascent
-            self._descent = Descent
-            self._internal_leading = InternalLeading
-            self._external_leading = ExternalLeading
-            self._reference_char_size = ReferenceCharSize
-            self._underline_offset = UnderlineOffset
-            self._strike_through_offset = StrikeThroughOffset
+        super().__init__()
+        kargs = {
+            "Ascent": Ascent,
+            "Descent": Descent,
+            "InternalLeading": InternalLeading,
+            "ExternalLeading": ExternalLeading,
+            "ReferenceCharSize": ReferenceCharSize,
+            "UnderlineOffset": UnderlineOffset,
+            "StrikeThroughOffset": StrikeThroughOffset,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._ascent = kwargs["Ascent"]
+        self._descent = kwargs["Descent"]
+        self._internal_leading = kwargs["InternalLeading"]
+        self._external_leading = kwargs["ExternalLeading"]
+        self._reference_char_size = kwargs["ReferenceCharSize"]
+        self._underline_offset = kwargs["UnderlineOffset"]
+        self._strike_through_offset = kwargs["StrikeThroughOffset"]
 
 
     @property

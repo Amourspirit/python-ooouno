@@ -41,30 +41,27 @@ class QRCode(object):
     typeName: str = 'com.sun.star.drawing.QRCode'
     """Literal Constant ``com.sun.star.drawing.QRCode``"""
 
-    def __init__(self, Payload: str = '', ErrorCorrection: int = 0, Border: int = 0) -> None:
+    def __init__(self, Payload: typing.Optional[str] = '', ErrorCorrection: typing.Optional[int] = 0, Border: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Payload`` can be another ``QRCode`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Payload (str, optional): Payload value
-            ErrorCorrection (int, optional): ErrorCorrection value
-            Border (int, optional): Border value
+            Payload (str, optional): Payload value.
+            ErrorCorrection (int, optional): ErrorCorrection value.
+            Border (int, optional): Border value.
         """
-        if isinstance(Payload, QRCode):
-            oth: QRCode = Payload
-            self._payload = oth.Payload
-            self._error_correction = oth.ErrorCorrection
-            self._border = oth.Border
-            return
-        else:
-            self._payload = Payload
-            self._error_correction = ErrorCorrection
-            self._border = Border
+        super().__init__()
+        kargs = {
+            "Payload": Payload,
+            "ErrorCorrection": ErrorCorrection,
+            "Border": Border,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._payload = kwargs["Payload"]
+        self._error_correction = kwargs["ErrorCorrection"]
+        self._border = kwargs["Border"]
 
 
     @property

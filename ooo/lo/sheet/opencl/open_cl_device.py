@@ -36,30 +36,27 @@ class OpenCLDevice(object):
     typeName: str = 'com.sun.star.sheet.opencl.OpenCLDevice'
     """Literal Constant ``com.sun.star.sheet.opencl.OpenCLDevice``"""
 
-    def __init__(self, Name: str = '', Vendor: str = '', Driver: str = '') -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Vendor: typing.Optional[str] = '', Driver: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``OpenCLDevice`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Vendor (str, optional): Vendor value
-            Driver (str, optional): Driver value
+            Name (str, optional): Name value.
+            Vendor (str, optional): Vendor value.
+            Driver (str, optional): Driver value.
         """
-        if isinstance(Name, OpenCLDevice):
-            oth: OpenCLDevice = Name
-            self._name = oth.Name
-            self._vendor = oth.Vendor
-            self._driver = oth.Driver
-            return
-        else:
-            self._name = Name
-            self._vendor = Vendor
-            self._driver = Driver
+        super().__init__()
+        kargs = {
+            "Name": Name,
+            "Vendor": Vendor,
+            "Driver": Driver,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._vendor = kwargs["Vendor"]
+        self._driver = kwargs["Driver"]
 
 
     @property

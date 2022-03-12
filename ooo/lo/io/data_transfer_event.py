@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,26 +39,27 @@ class DataTransferEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.io.DataTransferEvent'
     """Literal Constant ``com.sun.star.io.DataTransferEvent``"""
 
-    def __init__(self, aException: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, aException: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aException`` can be another ``DataTransferEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            aException (object, optional): aException value
+            Source (XInterface, optional): Source value.
+            aException (object, optional): aException value.
         """
-        super().__init__(**kwargs)
-        if isinstance(aException, DataTransferEvent):
-            oth: DataTransferEvent = aException
-            self._a_exception = oth.aException
-            return
-        else:
-            self._a_exception = aException
+        kargs = {
+            "Source": Source,
+            "aException": aException,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._a_exception = kwargs["aException"]
+        inst_keys = ('aException',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Negative = UNO_NONE, Years = UNO_NONE, Months = UNO_NONE, Days = UNO_NONE, Hours = UNO_NONE, Minutes = UNO_NONE, Seconds = UNO_NONE, NanoSeconds = UNO_NONE):
-            if getattr(Negative, "__class__", None) == self.__class__:
-                orig_init(self, Negative)
+        ordered_keys = ('Negative', 'Years', 'Months', 'Days', 'Hours', 'Minutes', 'Seconds', 'NanoSeconds')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Negative is UNO_NONE:
-                if getattr(self, 'Negative') != Negative:
-                    setattr(self, 'Negative', Negative)
-            if not Years is UNO_NONE:
-                if getattr(self, 'Years') != Years:
-                    setattr(self, 'Years', Years)
-            if not Months is UNO_NONE:
-                if getattr(self, 'Months') != Months:
-                    setattr(self, 'Months', Months)
-            if not Days is UNO_NONE:
-                if getattr(self, 'Days') != Days:
-                    setattr(self, 'Days', Days)
-            if not Hours is UNO_NONE:
-                if getattr(self, 'Hours') != Hours:
-                    setattr(self, 'Hours', Hours)
-            if not Minutes is UNO_NONE:
-                if getattr(self, 'Minutes') != Minutes:
-                    setattr(self, 'Minutes', Minutes)
-            if not Seconds is UNO_NONE:
-                if getattr(self, 'Seconds') != Seconds:
-                    setattr(self, 'Seconds', Seconds)
-            if not NanoSeconds is UNO_NONE:
-                if getattr(self, 'NanoSeconds') != NanoSeconds:
-                    setattr(self, 'NanoSeconds', NanoSeconds)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.Duration'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Duration = _get_class()
-
 
 else:
     from ...lo.util.duration import Duration as Duration

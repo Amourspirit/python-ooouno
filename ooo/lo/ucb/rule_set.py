@@ -40,30 +40,26 @@ class RuleSet(object):
     typeName: str = 'com.sun.star.ucb.RuleSet'
     """Literal Constant ``com.sun.star.ucb.RuleSet``"""
 
-    def __init__(self, Rules: typing.Tuple[Rule_571307da, ...] = UNO_NONE, HandleFolder: bool = False) -> None:
+    def __init__(self, Rules: typing.Optional[typing.Tuple[Rule_571307da, ...]] = UNO_NONE, HandleFolder: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Rules`` can be another ``RuleSet`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Rules (Tuple[Rule, ...], optional): Rules value
-            HandleFolder (bool, optional): HandleFolder value
+            Rules (typing.Tuple[Rule, ...], optional): Rules value.
+            HandleFolder (bool, optional): HandleFolder value.
         """
-        if isinstance(Rules, RuleSet):
-            oth: RuleSet = Rules
-            self._rules = oth.Rules
-            self._handle_folder = oth.HandleFolder
-            return
-        else:
-            if Rules is UNO_NONE:
-                self._rules = None
-            else:
-                self._rules = Rules
-            self._handle_folder = HandleFolder
+        super().__init__()
+        kargs = {
+            "Rules": Rules,
+            "HandleFolder": HandleFolder,
+        }
+        if kargs["Rules"] is UNO_NONE:
+            kargs["Rules"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._rules = kwargs["Rules"]
+        self._handle_folder = kwargs["HandleFolder"]
 
 
     @property

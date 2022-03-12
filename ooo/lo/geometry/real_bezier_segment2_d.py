@@ -43,39 +43,36 @@ class RealBezierSegment2D(object):
     typeName: str = 'com.sun.star.geometry.RealBezierSegment2D'
     """Literal Constant ``com.sun.star.geometry.RealBezierSegment2D``"""
 
-    def __init__(self, Px: float = 0.0, Py: float = 0.0, C1x: float = 0.0, C1y: float = 0.0, C2x: float = 0.0, C2y: float = 0.0) -> None:
+    def __init__(self, Px: typing.Optional[float] = 0.0, Py: typing.Optional[float] = 0.0, C1x: typing.Optional[float] = 0.0, C1y: typing.Optional[float] = 0.0, C2x: typing.Optional[float] = 0.0, C2y: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Px`` can be another ``RealBezierSegment2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Px (float, optional): Px value
-            Py (float, optional): Py value
-            C1x (float, optional): C1x value
-            C1y (float, optional): C1y value
-            C2x (float, optional): C2x value
-            C2y (float, optional): C2y value
+            Px (float, optional): Px value.
+            Py (float, optional): Py value.
+            C1x (float, optional): C1x value.
+            C1y (float, optional): C1y value.
+            C2x (float, optional): C2x value.
+            C2y (float, optional): C2y value.
         """
-        if isinstance(Px, RealBezierSegment2D):
-            oth: RealBezierSegment2D = Px
-            self._px = oth.Px
-            self._py = oth.Py
-            self._c1x = oth.C1x
-            self._c1y = oth.C1y
-            self._c2x = oth.C2x
-            self._c2y = oth.C2y
-            return
-        else:
-            self._px = Px
-            self._py = Py
-            self._c1x = C1x
-            self._c1y = C1y
-            self._c2x = C2x
-            self._c2y = C2y
+        super().__init__()
+        kargs = {
+            "Px": Px,
+            "Py": Py,
+            "C1x": C1x,
+            "C1y": C1y,
+            "C2x": C2x,
+            "C2y": C2y,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._px = kwargs["Px"]
+        self._py = kwargs["Py"]
+        self._c1x = kwargs["C1x"]
+        self._c1y = kwargs["C1y"]
+        self._c2x = kwargs["C2x"]
+        self._c2y = kwargs["C2y"]
 
 
     @property

@@ -37,27 +37,24 @@ class Point(object):
     typeName: str = 'com.sun.star.awt.Point'
     """Literal Constant ``com.sun.star.awt.Point``"""
 
-    def __init__(self, X: int = 0, Y: int = 0) -> None:
+    def __init__(self, X: typing.Optional[int] = 0, Y: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``X`` can be another ``Point`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            X (int, optional): X value
-            Y (int, optional): Y value
+            X (int, optional): X value.
+            Y (int, optional): Y value.
         """
-        if isinstance(X, Point):
-            oth: Point = X
-            self._x = oth.X
-            self._y = oth.Y
-            return
-        else:
-            self._x = X
-            self._y = Y
+        super().__init__()
+        kargs = {
+            "X": X,
+            "Y": Y,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._x = kwargs["X"]
+        self._y = kwargs["Y"]
 
 
     @property

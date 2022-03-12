@@ -39,27 +39,24 @@ class PostCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.PostCommandArgument'
     """Literal Constant ``com.sun.star.ucb.PostCommandArgument``"""
 
-    def __init__(self, Source: XInputStream_98d40ab4 = None, Sink: XInterface_8f010a43 = None) -> None:
+    def __init__(self, Source: typing.Optional[XInputStream_98d40ab4] = None, Sink: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Source`` can be another ``PostCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Source (XInputStream, optional): Source value
-            Sink (XInterface, optional): Sink value
+            Source (XInputStream, optional): Source value.
+            Sink (XInterface, optional): Sink value.
         """
-        if isinstance(Source, PostCommandArgument):
-            oth: PostCommandArgument = Source
-            self._source = oth.Source
-            self._sink = oth.Sink
-            return
-        else:
-            self._source = Source
-            self._sink = Sink
+        super().__init__()
+        kargs = {
+            "Source": Source,
+            "Sink": Sink,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._source = kwargs["Source"]
+        self._sink = kwargs["Sink"]
 
 
     @property

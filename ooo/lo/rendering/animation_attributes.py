@@ -42,33 +42,29 @@ class AnimationAttributes(object):
     typeName: str = 'com.sun.star.rendering.AnimationAttributes'
     """Literal Constant ``com.sun.star.rendering.AnimationAttributes``"""
 
-    def __init__(self, Duration: float = 0.0, RepeatMode: int = 0, UntransformedSize: RealSize2D_ca1a0c09 = UNO_NONE) -> None:
+    def __init__(self, Duration: typing.Optional[float] = 0.0, RepeatMode: typing.Optional[int] = 0, UntransformedSize: typing.Optional[RealSize2D_ca1a0c09] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Duration`` can be another ``AnimationAttributes`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Duration (float, optional): Duration value
-            RepeatMode (int, optional): RepeatMode value
-            UntransformedSize (RealSize2D, optional): UntransformedSize value
+            Duration (float, optional): Duration value.
+            RepeatMode (int, optional): RepeatMode value.
+            UntransformedSize (RealSize2D, optional): UntransformedSize value.
         """
-        if isinstance(Duration, AnimationAttributes):
-            oth: AnimationAttributes = Duration
-            self._duration = oth.Duration
-            self._repeat_mode = oth.RepeatMode
-            self._untransformed_size = oth.UntransformedSize
-            return
-        else:
-            self._duration = Duration
-            self._repeat_mode = RepeatMode
-            if UntransformedSize is UNO_NONE:
-                self._untransformed_size = RealSize2D_ca1a0c09()
-            else:
-                self._untransformed_size = UntransformedSize
+        super().__init__()
+        kargs = {
+            "Duration": Duration,
+            "RepeatMode": RepeatMode,
+            "UntransformedSize": UntransformedSize,
+        }
+        if kargs["UntransformedSize"] is UNO_NONE:
+            kargs["UntransformedSize"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._duration = kwargs["Duration"]
+        self._repeat_mode = kwargs["RepeatMode"]
+        self._untransformed_size = kwargs["UntransformedSize"]
 
 
     @property

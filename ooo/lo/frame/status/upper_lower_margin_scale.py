@@ -41,33 +41,30 @@ class UpperLowerMarginScale(object):
     typeName: str = 'com.sun.star.frame.status.UpperLowerMarginScale'
     """Literal Constant ``com.sun.star.frame.status.UpperLowerMarginScale``"""
 
-    def __init__(self, Upper: int = 0, Lower: int = 0, ScaleUpper: int = 0, ScaleLower: int = 0) -> None:
+    def __init__(self, Upper: typing.Optional[int] = 0, Lower: typing.Optional[int] = 0, ScaleUpper: typing.Optional[int] = 0, ScaleLower: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Upper`` can be another ``UpperLowerMarginScale`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Upper (int, optional): Upper value
-            Lower (int, optional): Lower value
-            ScaleUpper (int, optional): ScaleUpper value
-            ScaleLower (int, optional): ScaleLower value
+            Upper (int, optional): Upper value.
+            Lower (int, optional): Lower value.
+            ScaleUpper (int, optional): ScaleUpper value.
+            ScaleLower (int, optional): ScaleLower value.
         """
-        if isinstance(Upper, UpperLowerMarginScale):
-            oth: UpperLowerMarginScale = Upper
-            self._upper = oth.Upper
-            self._lower = oth.Lower
-            self._scale_upper = oth.ScaleUpper
-            self._scale_lower = oth.ScaleLower
-            return
-        else:
-            self._upper = Upper
-            self._lower = Lower
-            self._scale_upper = ScaleUpper
-            self._scale_lower = ScaleLower
+        super().__init__()
+        kargs = {
+            "Upper": Upper,
+            "Lower": Lower,
+            "ScaleUpper": ScaleUpper,
+            "ScaleLower": ScaleLower,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._upper = kwargs["Upper"]
+        self._lower = kwargs["Lower"]
+        self._scale_upper = kwargs["ScaleUpper"]
+        self._scale_lower = kwargs["ScaleLower"]
 
 
     @property

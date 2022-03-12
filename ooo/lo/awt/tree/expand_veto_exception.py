@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ...util.veto_exception import VetoException as VetoException_bdad0c13
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 from .tree_expansion_event import TreeExpansionEvent as TreeExpansionEvent_378b0f79
 
 class ExpandVetoException(VetoException_bdad0c13):
     """
+    Exception Class
+
     Exception used to stop an expand/collapse from happening.
 
     See Also:
@@ -40,21 +43,31 @@ class ExpandVetoException(VetoException_bdad0c13):
     typeName: str = 'com.sun.star.awt.tree.ExpandVetoException'
     """Literal Constant ``com.sun.star.awt.tree.ExpandVetoException``"""
 
-    def __init__(self, Event: typing.Optional[TreeExpansionEvent_378b0f79] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Event: typing.Optional[TreeExpansionEvent_378b0f79] = UNO_NONE) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Event (TreeExpansionEvent, optional): Event value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Event": Event,
+        }
+        if kargs["Event"] is UNO_NONE:
+            kargs["Event"] = None
+        self._init(**kargs)
 
-        if Event is UNO_NONE:
-            self._event = TreeExpansionEvent_378b0f79()
-        else:
-            self._event = Event
+    def _init(self, **kwargs) -> None:
+        self._event = kwargs["Event"]
+        inst_keys = ('Event',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Event(self) -> TreeExpansionEvent_378b0f79:

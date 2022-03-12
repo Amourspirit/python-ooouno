@@ -37,33 +37,30 @@ class Rectangle(object):
     typeName: str = 'com.sun.star.awt.Rectangle'
     """Literal Constant ``com.sun.star.awt.Rectangle``"""
 
-    def __init__(self, X: int = 0, Y: int = 0, Width: int = 0, Height: int = 0) -> None:
+    def __init__(self, X: typing.Optional[int] = 0, Y: typing.Optional[int] = 0, Width: typing.Optional[int] = 0, Height: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``X`` can be another ``Rectangle`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            X (int, optional): X value
-            Y (int, optional): Y value
-            Width (int, optional): Width value
-            Height (int, optional): Height value
+            X (int, optional): X value.
+            Y (int, optional): Y value.
+            Width (int, optional): Width value.
+            Height (int, optional): Height value.
         """
-        if isinstance(X, Rectangle):
-            oth: Rectangle = X
-            self._x = oth.X
-            self._y = oth.Y
-            self._width = oth.Width
-            self._height = oth.Height
-            return
-        else:
-            self._x = X
-            self._y = Y
-            self._width = Width
-            self._height = Height
+        super().__init__()
+        kargs = {
+            "X": X,
+            "Y": Y,
+            "Width": Width,
+            "Height": Height,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._x = kwargs["X"]
+        self._y = kwargs["Y"]
+        self._width = kwargs["Width"]
+        self._height = kwargs["Height"]
 
 
     @property

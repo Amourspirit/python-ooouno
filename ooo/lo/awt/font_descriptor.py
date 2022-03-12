@@ -40,69 +40,66 @@ class FontDescriptor(object):
     typeName: str = 'com.sun.star.awt.FontDescriptor'
     """Literal Constant ``com.sun.star.awt.FontDescriptor``"""
 
-    def __init__(self, Name: str = '', Height: int = 0, Width: int = 0, StyleName: str = '', Family: int = 0, CharSet: int = 0, Pitch: int = 0, CharacterWidth: float = 0.0, Weight: float = 0.0, Slant: FontSlant_849509ed = FontSlant_849509ed.NONE, Underline: int = 0, Strikeout: int = 0, Orientation: float = 0.0, Kerning: bool = False, WordLineMode: bool = False, Type: int = 0) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Height: typing.Optional[int] = 0, Width: typing.Optional[int] = 0, StyleName: typing.Optional[str] = '', Family: typing.Optional[int] = 0, CharSet: typing.Optional[int] = 0, Pitch: typing.Optional[int] = 0, CharacterWidth: typing.Optional[float] = 0.0, Weight: typing.Optional[float] = 0.0, Slant: typing.Optional[FontSlant_849509ed] = FontSlant_849509ed.NONE, Underline: typing.Optional[int] = 0, Strikeout: typing.Optional[int] = 0, Orientation: typing.Optional[float] = 0.0, Kerning: typing.Optional[bool] = False, WordLineMode: typing.Optional[bool] = False, Type: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``FontDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Height (int, optional): Height value
-            Width (int, optional): Width value
-            StyleName (str, optional): StyleName value
-            Family (int, optional): Family value
-            CharSet (int, optional): CharSet value
-            Pitch (int, optional): Pitch value
-            CharacterWidth (float, optional): CharacterWidth value
-            Weight (float, optional): Weight value
-            Slant (FontSlant, optional): Slant value
-            Underline (int, optional): Underline value
-            Strikeout (int, optional): Strikeout value
-            Orientation (float, optional): Orientation value
-            Kerning (bool, optional): Kerning value
-            WordLineMode (bool, optional): WordLineMode value
-            Type (int, optional): Type value
+            Name (str, optional): Name value.
+            Height (int, optional): Height value.
+            Width (int, optional): Width value.
+            StyleName (str, optional): StyleName value.
+            Family (int, optional): Family value.
+            CharSet (int, optional): CharSet value.
+            Pitch (int, optional): Pitch value.
+            CharacterWidth (float, optional): CharacterWidth value.
+            Weight (float, optional): Weight value.
+            Slant (FontSlant, optional): Slant value.
+            Underline (int, optional): Underline value.
+            Strikeout (int, optional): Strikeout value.
+            Orientation (float, optional): Orientation value.
+            Kerning (bool, optional): Kerning value.
+            WordLineMode (bool, optional): WordLineMode value.
+            Type (int, optional): Type value.
         """
-        if isinstance(Name, FontDescriptor):
-            oth: FontDescriptor = Name
-            self._name = oth.Name
-            self._height = oth.Height
-            self._width = oth.Width
-            self._style_name = oth.StyleName
-            self._family = oth.Family
-            self._char_set = oth.CharSet
-            self._pitch = oth.Pitch
-            self._character_width = oth.CharacterWidth
-            self._weight = oth.Weight
-            self._slant = oth.Slant
-            self._underline = oth.Underline
-            self._strikeout = oth.Strikeout
-            self._orientation = oth.Orientation
-            self._kerning = oth.Kerning
-            self._word_line_mode = oth.WordLineMode
-            self._type = oth.Type
-            return
-        else:
-            self._name = Name
-            self._height = Height
-            self._width = Width
-            self._style_name = StyleName
-            self._family = Family
-            self._char_set = CharSet
-            self._pitch = Pitch
-            self._character_width = CharacterWidth
-            self._weight = Weight
-            self._slant = Slant
-            self._underline = Underline
-            self._strikeout = Strikeout
-            self._orientation = Orientation
-            self._kerning = Kerning
-            self._word_line_mode = WordLineMode
-            self._type = Type
+        super().__init__()
+        kargs = {
+            "Name": Name,
+            "Height": Height,
+            "Width": Width,
+            "StyleName": StyleName,
+            "Family": Family,
+            "CharSet": CharSet,
+            "Pitch": Pitch,
+            "CharacterWidth": CharacterWidth,
+            "Weight": Weight,
+            "Slant": Slant,
+            "Underline": Underline,
+            "Strikeout": Strikeout,
+            "Orientation": Orientation,
+            "Kerning": Kerning,
+            "WordLineMode": WordLineMode,
+            "Type": Type,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._height = kwargs["Height"]
+        self._width = kwargs["Width"]
+        self._style_name = kwargs["StyleName"]
+        self._family = kwargs["Family"]
+        self._char_set = kwargs["CharSet"]
+        self._pitch = kwargs["Pitch"]
+        self._character_width = kwargs["CharacterWidth"]
+        self._weight = kwargs["Weight"]
+        self._slant = kwargs["Slant"]
+        self._underline = kwargs["Underline"]
+        self._strikeout = kwargs["Strikeout"]
+        self._orientation = kwargs["Orientation"]
+        self._kerning = kwargs["Kerning"]
+        self._word_line_mode = kwargs["WordLineMode"]
+        self._type = kwargs["Type"]
 
 
     @property

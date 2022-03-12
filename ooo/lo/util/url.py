@@ -40,54 +40,51 @@ class URL(object):
     typeName: str = 'com.sun.star.util.URL'
     """Literal Constant ``com.sun.star.util.URL``"""
 
-    def __init__(self, Complete: str = '', Main: str = '', Protocol: str = '', User: str = '', Password: str = '', Server: str = '', Port: int = 0, Path: str = '', Name: str = '', Arguments: str = '', Mark: str = '') -> None:
+    def __init__(self, Complete: typing.Optional[str] = '', Main: typing.Optional[str] = '', Protocol: typing.Optional[str] = '', User: typing.Optional[str] = '', Password: typing.Optional[str] = '', Server: typing.Optional[str] = '', Port: typing.Optional[int] = 0, Path: typing.Optional[str] = '', Name: typing.Optional[str] = '', Arguments: typing.Optional[str] = '', Mark: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Complete`` can be another ``URL`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Complete (str, optional): Complete value
-            Main (str, optional): Main value
-            Protocol (str, optional): Protocol value
-            User (str, optional): User value
-            Password (str, optional): Password value
-            Server (str, optional): Server value
-            Port (int, optional): Port value
-            Path (str, optional): Path value
-            Name (str, optional): Name value
-            Arguments (str, optional): Arguments value
-            Mark (str, optional): Mark value
+            Complete (str, optional): Complete value.
+            Main (str, optional): Main value.
+            Protocol (str, optional): Protocol value.
+            User (str, optional): User value.
+            Password (str, optional): Password value.
+            Server (str, optional): Server value.
+            Port (int, optional): Port value.
+            Path (str, optional): Path value.
+            Name (str, optional): Name value.
+            Arguments (str, optional): Arguments value.
+            Mark (str, optional): Mark value.
         """
-        if isinstance(Complete, URL):
-            oth: URL = Complete
-            self._complete = oth.Complete
-            self._main = oth.Main
-            self._protocol = oth.Protocol
-            self._user = oth.User
-            self._password = oth.Password
-            self._server = oth.Server
-            self._port = oth.Port
-            self._path = oth.Path
-            self._name = oth.Name
-            self._arguments = oth.Arguments
-            self._mark = oth.Mark
-            return
-        else:
-            self._complete = Complete
-            self._main = Main
-            self._protocol = Protocol
-            self._user = User
-            self._password = Password
-            self._server = Server
-            self._port = Port
-            self._path = Path
-            self._name = Name
-            self._arguments = Arguments
-            self._mark = Mark
+        super().__init__()
+        kargs = {
+            "Complete": Complete,
+            "Main": Main,
+            "Protocol": Protocol,
+            "User": User,
+            "Password": Password,
+            "Server": Server,
+            "Port": Port,
+            "Path": Path,
+            "Name": Name,
+            "Arguments": Arguments,
+            "Mark": Mark,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._complete = kwargs["Complete"]
+        self._main = kwargs["Main"]
+        self._protocol = kwargs["Protocol"]
+        self._user = kwargs["User"]
+        self._password = kwargs["Password"]
+        self._server = kwargs["Server"]
+        self._port = kwargs["Port"]
+        self._path = kwargs["Path"]
+        self._name = kwargs["Name"]
+        self._arguments = kwargs["Arguments"]
+        self._mark = kwargs["Mark"]
 
 
     @property

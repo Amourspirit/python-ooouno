@@ -38,30 +38,26 @@ class LocalizedName(object):
     typeName: str = 'com.sun.star.sheet.LocalizedName'
     """Literal Constant ``com.sun.star.sheet.LocalizedName``"""
 
-    def __init__(self, Locale: Locale_70d308fa = UNO_NONE, Name: str = '') -> None:
+    def __init__(self, Locale: typing.Optional[Locale_70d308fa] = UNO_NONE, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Locale`` can be another ``LocalizedName`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Locale (Locale, optional): Locale value
-            Name (str, optional): Name value
+            Locale (Locale, optional): Locale value.
+            Name (str, optional): Name value.
         """
-        if isinstance(Locale, LocalizedName):
-            oth: LocalizedName = Locale
-            self._locale = oth.Locale
-            self._name = oth.Name
-            return
-        else:
-            if Locale is UNO_NONE:
-                self._locale = Locale_70d308fa()
-            else:
-                self._locale = Locale
-            self._name = Name
+        super().__init__()
+        kargs = {
+            "Locale": Locale,
+            "Name": Name,
+        }
+        if kargs["Locale"] is UNO_NONE:
+            kargs["Locale"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._locale = kwargs["Locale"]
+        self._name = kwargs["Name"]
 
 
     @property

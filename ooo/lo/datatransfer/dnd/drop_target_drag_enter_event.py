@@ -20,6 +20,8 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .drop_target_drag_event import DropTargetDragEvent as DropTargetDragEvent_d60612e7
+from ...uno.x_interface import XInterface as XInterface_8f010a43
+from .x_drop_target_drag_context import XDropTargetDragContext as XDropTargetDragContext_10221422
 import typing
 from ..data_flavor import DataFlavor as DataFlavor_ffd30deb
 
@@ -41,29 +43,41 @@ class DropTargetDragEnterEvent(DropTargetDragEvent_d60612e7):
     typeName: str = 'com.sun.star.datatransfer.dnd.DropTargetDragEnterEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DropTargetDragEnterEvent``"""
 
-    def __init__(self, SupportedDataFlavors: typing.Tuple[DataFlavor_ffd30deb, ...] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0, Context: typing.Optional[XDropTargetDragContext_10221422] = None, DropAction: typing.Optional[int] = 0, LocationX: typing.Optional[int] = 0, LocationY: typing.Optional[int] = 0, SourceActions: typing.Optional[int] = 0, SupportedDataFlavors: typing.Optional[typing.Tuple[DataFlavor_ffd30deb, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SupportedDataFlavors`` can be another ``DropTargetDragEnterEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            SupportedDataFlavors (Tuple[DataFlavor, ...], optional): SupportedDataFlavors value
+            Source (XInterface, optional): Source value.
+            Dummy (int, optional): Dummy value.
+            Context (XDropTargetDragContext, optional): Context value.
+            DropAction (int, optional): DropAction value.
+            LocationX (int, optional): LocationX value.
+            LocationY (int, optional): LocationY value.
+            SourceActions (int, optional): SourceActions value.
+            SupportedDataFlavors (typing.Tuple[DataFlavor, ...], optional): SupportedDataFlavors value.
         """
-        super().__init__(**kwargs)
-        if isinstance(SupportedDataFlavors, DropTargetDragEnterEvent):
-            oth: DropTargetDragEnterEvent = SupportedDataFlavors
-            self._supported_data_flavors = oth.SupportedDataFlavors
-            return
-        else:
-            if SupportedDataFlavors is UNO_NONE:
-                self._supported_data_flavors = None
-            else:
-                self._supported_data_flavors = SupportedDataFlavors
+        kargs = {
+            "Source": Source,
+            "Dummy": Dummy,
+            "Context": Context,
+            "DropAction": DropAction,
+            "LocationX": LocationX,
+            "LocationY": LocationY,
+            "SourceActions": SourceActions,
+            "SupportedDataFlavors": SupportedDataFlavors,
+        }
+        if kargs["SupportedDataFlavors"] is UNO_NONE:
+            kargs["SupportedDataFlavors"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._supported_data_flavors = kwargs["SupportedDataFlavors"]
+        inst_keys = ('SupportedDataFlavors',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

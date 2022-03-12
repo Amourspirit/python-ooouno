@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, X1 = UNO_NONE, Y1 = UNO_NONE, Z1 = UNO_NONE, X2 = UNO_NONE, Y2 = UNO_NONE, Z2 = UNO_NONE):
-            if getattr(X1, "__class__", None) == self.__class__:
-                orig_init(self, X1)
+        ordered_keys = ('X1', 'Y1', 'Z1', 'X2', 'Y2', 'Z2')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not X1 is UNO_NONE:
-                if getattr(self, 'X1') != X1:
-                    setattr(self, 'X1', X1)
-            if not Y1 is UNO_NONE:
-                if getattr(self, 'Y1') != Y1:
-                    setattr(self, 'Y1', Y1)
-            if not Z1 is UNO_NONE:
-                if getattr(self, 'Z1') != Z1:
-                    setattr(self, 'Z1', Z1)
-            if not X2 is UNO_NONE:
-                if getattr(self, 'X2') != X2:
-                    setattr(self, 'X2', X2)
-            if not Y2 is UNO_NONE:
-                if getattr(self, 'Y2') != Y2:
-                    setattr(self, 'Y2', Y2)
-            if not Z2 is UNO_NONE:
-                if getattr(self, 'Z2') != Z2:
-                    setattr(self, 'Z2', Z2)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.geometry.RealRectangle3D'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RealRectangle3D = _get_class()
-
 
 else:
     from ...lo.geometry.real_rectangle3_d import RealRectangle3D as RealRectangle3D

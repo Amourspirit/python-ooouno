@@ -42,30 +42,27 @@ class SortField(object):
     typeName: str = 'com.sun.star.util.SortField'
     """Literal Constant ``com.sun.star.util.SortField``"""
 
-    def __init__(self, Field: int = 0, SortAscending: bool = False, FieldType: SortFieldType_bd500bf4 = SortFieldType_bd500bf4.AUTOMATIC) -> None:
+    def __init__(self, Field: typing.Optional[int] = 0, SortAscending: typing.Optional[bool] = False, FieldType: typing.Optional[SortFieldType_bd500bf4] = SortFieldType_bd500bf4.AUTOMATIC) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Field`` can be another ``SortField`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Field (int, optional): Field value
-            SortAscending (bool, optional): SortAscending value
-            FieldType (SortFieldType, optional): FieldType value
+            Field (int, optional): Field value.
+            SortAscending (bool, optional): SortAscending value.
+            FieldType (SortFieldType, optional): FieldType value.
         """
-        if isinstance(Field, SortField):
-            oth: SortField = Field
-            self._field = oth.Field
-            self._sort_ascending = oth.SortAscending
-            self._field_type = oth.FieldType
-            return
-        else:
-            self._field = Field
-            self._sort_ascending = SortAscending
-            self._field_type = FieldType
+        super().__init__()
+        kargs = {
+            "Field": Field,
+            "SortAscending": SortAscending,
+            "FieldType": FieldType,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._field = kwargs["Field"]
+        self._sort_ascending = kwargs["SortAscending"]
+        self._field_type = kwargs["FieldType"]
 
 
     @property

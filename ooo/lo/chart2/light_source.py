@@ -37,36 +37,32 @@ class LightSource(object):
     typeName: str = 'com.sun.star.chart2.LightSource'
     """Literal Constant ``com.sun.star.chart2.LightSource``"""
 
-    def __init__(self, nDiffuseColor: int = 0, aDirection: Direction3D_c9370c0c = UNO_NONE, bIsEnabled: bool = False, bSpecular: bool = False) -> None:
+    def __init__(self, nDiffuseColor: typing.Optional[int] = 0, aDirection: typing.Optional[Direction3D_c9370c0c] = UNO_NONE, bIsEnabled: typing.Optional[bool] = False, bSpecular: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``nDiffuseColor`` can be another ``LightSource`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            nDiffuseColor (int, optional): nDiffuseColor value
-            aDirection (Direction3D, optional): aDirection value
-            bIsEnabled (bool, optional): bIsEnabled value
-            bSpecular (bool, optional): bSpecular value
+            nDiffuseColor (int, optional): nDiffuseColor value.
+            aDirection (Direction3D, optional): aDirection value.
+            bIsEnabled (bool, optional): bIsEnabled value.
+            bSpecular (bool, optional): bSpecular value.
         """
-        if isinstance(nDiffuseColor, LightSource):
-            oth: LightSource = nDiffuseColor
-            self._n_diffuse_color = oth.nDiffuseColor
-            self._a_direction = oth.aDirection
-            self._b_is_enabled = oth.bIsEnabled
-            self._b_specular = oth.bSpecular
-            return
-        else:
-            self._n_diffuse_color = nDiffuseColor
-            if aDirection is UNO_NONE:
-                self._a_direction = Direction3D_c9370c0c()
-            else:
-                self._a_direction = aDirection
-            self._b_is_enabled = bIsEnabled
-            self._b_specular = bSpecular
+        super().__init__()
+        kargs = {
+            "nDiffuseColor": nDiffuseColor,
+            "aDirection": aDirection,
+            "bIsEnabled": bIsEnabled,
+            "bSpecular": bSpecular,
+        }
+        if kargs["aDirection"] is UNO_NONE:
+            kargs["aDirection"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._n_diffuse_color = kwargs["nDiffuseColor"]
+        self._a_direction = kwargs["aDirection"]
+        self._b_is_enabled = kwargs["bIsEnabled"]
+        self._b_specular = kwargs["bSpecular"]
 
 
     @property

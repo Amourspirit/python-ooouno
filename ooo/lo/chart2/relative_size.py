@@ -39,27 +39,24 @@ class RelativeSize(object):
     typeName: str = 'com.sun.star.chart2.RelativeSize'
     """Literal Constant ``com.sun.star.chart2.RelativeSize``"""
 
-    def __init__(self, Primary: float = 0.0, Secondary: float = 0.0) -> None:
+    def __init__(self, Primary: typing.Optional[float] = 0.0, Secondary: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Primary`` can be another ``RelativeSize`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Primary (float, optional): Primary value
-            Secondary (float, optional): Secondary value
+            Primary (float, optional): Primary value.
+            Secondary (float, optional): Secondary value.
         """
-        if isinstance(Primary, RelativeSize):
-            oth: RelativeSize = Primary
-            self._primary = oth.Primary
-            self._secondary = oth.Secondary
-            return
-        else:
-            self._primary = Primary
-            self._secondary = Secondary
+        super().__init__()
+        kargs = {
+            "Primary": Primary,
+            "Secondary": Secondary,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._primary = kwargs["Primary"]
+        self._secondary = kwargs["Secondary"]
 
 
     @property

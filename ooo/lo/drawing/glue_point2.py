@@ -42,39 +42,35 @@ class GluePoint2(object):
     typeName: str = 'com.sun.star.drawing.GluePoint2'
     """Literal Constant ``com.sun.star.drawing.GluePoint2``"""
 
-    def __init__(self, Position: Point_5fb2085e = UNO_NONE, IsRelative: bool = False, PositionAlignment: Alignment_b1400b93 = Alignment_b1400b93.TOP_LEFT, Escape: EscapeDirection_fdc50de6 = EscapeDirection_fdc50de6.SMART, IsUserDefined: bool = False) -> None:
+    def __init__(self, Position: typing.Optional[Point_5fb2085e] = UNO_NONE, IsRelative: typing.Optional[bool] = False, PositionAlignment: typing.Optional[Alignment_b1400b93] = Alignment_b1400b93.TOP_LEFT, Escape: typing.Optional[EscapeDirection_fdc50de6] = EscapeDirection_fdc50de6.SMART, IsUserDefined: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``GluePoint2`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (Point, optional): Position value
-            IsRelative (bool, optional): IsRelative value
-            PositionAlignment (Alignment, optional): PositionAlignment value
-            Escape (EscapeDirection, optional): Escape value
-            IsUserDefined (bool, optional): IsUserDefined value
+            Position (Point, optional): Position value.
+            IsRelative (bool, optional): IsRelative value.
+            PositionAlignment (Alignment, optional): PositionAlignment value.
+            Escape (EscapeDirection, optional): Escape value.
+            IsUserDefined (bool, optional): IsUserDefined value.
         """
-        if isinstance(Position, GluePoint2):
-            oth: GluePoint2 = Position
-            self._position = oth.Position
-            self._is_relative = oth.IsRelative
-            self._position_alignment = oth.PositionAlignment
-            self._escape = oth.Escape
-            self._is_user_defined = oth.IsUserDefined
-            return
-        else:
-            if Position is UNO_NONE:
-                self._position = Point_5fb2085e()
-            else:
-                self._position = Position
-            self._is_relative = IsRelative
-            self._position_alignment = PositionAlignment
-            self._escape = Escape
-            self._is_user_defined = IsUserDefined
+        super().__init__()
+        kargs = {
+            "Position": Position,
+            "IsRelative": IsRelative,
+            "PositionAlignment": PositionAlignment,
+            "Escape": Escape,
+            "IsUserDefined": IsUserDefined,
+        }
+        if kargs["Position"] is UNO_NONE:
+            kargs["Position"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._is_relative = kwargs["IsRelative"]
+        self._position_alignment = kwargs["PositionAlignment"]
+        self._escape = kwargs["Escape"]
+        self._is_user_defined = kwargs["IsUserDefined"]
 
 
     @property

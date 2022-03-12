@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Criteria = UNO_NONE, Recursion = UNO_NONE, IncludeBase = UNO_NONE, RespectFolderViewRestrictions = UNO_NONE, RespectDocViewRestrictions = UNO_NONE, FollowIndirections = UNO_NONE):
-            if getattr(Criteria, "__class__", None) == self.__class__:
-                orig_init(self, Criteria)
+        ordered_keys = ('Criteria', 'Recursion', 'IncludeBase', 'RespectFolderViewRestrictions', 'RespectDocViewRestrictions', 'FollowIndirections')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Criteria is UNO_NONE:
-                if getattr(self, 'Criteria') != Criteria:
-                    setattr(self, 'Criteria', Criteria)
-            if not Recursion is UNO_NONE:
-                if getattr(self, 'Recursion') != Recursion:
-                    setattr(self, 'Recursion', Recursion)
-            if not IncludeBase is UNO_NONE:
-                if getattr(self, 'IncludeBase') != IncludeBase:
-                    setattr(self, 'IncludeBase', IncludeBase)
-            if not RespectFolderViewRestrictions is UNO_NONE:
-                if getattr(self, 'RespectFolderViewRestrictions') != RespectFolderViewRestrictions:
-                    setattr(self, 'RespectFolderViewRestrictions', RespectFolderViewRestrictions)
-            if not RespectDocViewRestrictions is UNO_NONE:
-                if getattr(self, 'RespectDocViewRestrictions') != RespectDocViewRestrictions:
-                    setattr(self, 'RespectDocViewRestrictions', RespectDocViewRestrictions)
-            if not FollowIndirections is UNO_NONE:
-                if getattr(self, 'FollowIndirections') != FollowIndirections:
-                    setattr(self, 'FollowIndirections', FollowIndirections)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.SearchInfo'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SearchInfo = _get_class()
-
 
 else:
     from ...lo.ucb.search_info import SearchInfo as SearchInfo

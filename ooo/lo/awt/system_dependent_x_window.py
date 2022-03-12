@@ -43,27 +43,24 @@ class SystemDependentXWindow(object):
     typeName: str = 'com.sun.star.awt.SystemDependentXWindow'
     """Literal Constant ``com.sun.star.awt.SystemDependentXWindow``"""
 
-    def __init__(self, WindowHandle: int = 0, DisplayPointer: int = 0) -> None:
+    def __init__(self, WindowHandle: typing.Optional[int] = 0, DisplayPointer: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``WindowHandle`` can be another ``SystemDependentXWindow`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            WindowHandle (int, optional): WindowHandle value
-            DisplayPointer (int, optional): DisplayPointer value
+            WindowHandle (int, optional): WindowHandle value.
+            DisplayPointer (int, optional): DisplayPointer value.
         """
-        if isinstance(WindowHandle, SystemDependentXWindow):
-            oth: SystemDependentXWindow = WindowHandle
-            self._window_handle = oth.WindowHandle
-            self._display_pointer = oth.DisplayPointer
-            return
-        else:
-            self._window_handle = WindowHandle
-            self._display_pointer = DisplayPointer
+        super().__init__()
+        kargs = {
+            "WindowHandle": WindowHandle,
+            "DisplayPointer": DisplayPointer,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._window_handle = kwargs["WindowHandle"]
+        self._display_pointer = kwargs["DisplayPointer"]
 
 
     @property

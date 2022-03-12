@@ -38,26 +38,33 @@ class TransferInfo2(TransferInfo_a4600b13):
     typeName: str = 'com.sun.star.ucb.TransferInfo2'
     """Literal Constant ``com.sun.star.ucb.TransferInfo2``"""
 
-    def __init__(self, MimeType: str = '', **kwargs) -> None:
+    def __init__(self, MoveData: typing.Optional[bool] = False, SourceURL: typing.Optional[str] = '', NewTitle: typing.Optional[str] = '', NameClash: typing.Optional[int] = 0, MimeType: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MimeType`` can be another ``TransferInfo2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            MimeType (str, optional): MimeType value
+            MoveData (bool, optional): MoveData value.
+            SourceURL (str, optional): SourceURL value.
+            NewTitle (str, optional): NewTitle value.
+            NameClash (int, optional): NameClash value.
+            MimeType (str, optional): MimeType value.
         """
-        super().__init__(**kwargs)
-        if isinstance(MimeType, TransferInfo2):
-            oth: TransferInfo2 = MimeType
-            self._mime_type = oth.MimeType
-            return
-        else:
-            self._mime_type = MimeType
+        kargs = {
+            "MoveData": MoveData,
+            "SourceURL": SourceURL,
+            "NewTitle": NewTitle,
+            "NameClash": NameClash,
+            "MimeType": MimeType,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._mime_type = kwargs["MimeType"]
+        inst_keys = ('MimeType',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

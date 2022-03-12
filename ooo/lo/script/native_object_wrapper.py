@@ -36,24 +36,21 @@ class NativeObjectWrapper(object):
     typeName: str = 'com.sun.star.script.NativeObjectWrapper'
     """Literal Constant ``com.sun.star.script.NativeObjectWrapper``"""
 
-    def __init__(self, ObjectId: object = None) -> None:
+    def __init__(self, ObjectId: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ObjectId`` can be another ``NativeObjectWrapper`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ObjectId (object, optional): ObjectId value
+            ObjectId (object, optional): ObjectId value.
         """
-        if isinstance(ObjectId, NativeObjectWrapper):
-            oth: NativeObjectWrapper = ObjectId
-            self._object_id = oth.ObjectId
-            return
-        else:
-            self._object_id = ObjectId
+        super().__init__()
+        kargs = {
+            "ObjectId": ObjectId,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._object_id = kwargs["ObjectId"]
 
 
     @property

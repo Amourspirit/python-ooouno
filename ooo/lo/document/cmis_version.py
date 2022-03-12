@@ -37,36 +37,32 @@ class CmisVersion(object):
     typeName: str = 'com.sun.star.document.CmisVersion'
     """Literal Constant ``com.sun.star.document.CmisVersion``"""
 
-    def __init__(self, Id: str = '', TimeStamp: object = UNO_NONE, Author: str = '', Comment: str = '') -> None:
+    def __init__(self, Id: typing.Optional[str] = '', TimeStamp: typing.Optional[object] = UNO_NONE, Author: typing.Optional[str] = '', Comment: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Id`` can be another ``CmisVersion`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Id (str, optional): Id value
-            TimeStamp (object, optional): TimeStamp value
-            Author (str, optional): Author value
-            Comment (str, optional): Comment value
+            Id (str, optional): Id value.
+            TimeStamp (object, optional): TimeStamp value.
+            Author (str, optional): Author value.
+            Comment (str, optional): Comment value.
         """
-        if isinstance(Id, CmisVersion):
-            oth: CmisVersion = Id
-            self._id = oth.Id
-            self._time_stamp = oth.TimeStamp
-            self._author = oth.Author
-            self._comment = oth.Comment
-            return
-        else:
-            self._id = Id
-            if TimeStamp is UNO_NONE:
-                self._time_stamp = None
-            else:
-                self._time_stamp = TimeStamp
-            self._author = Author
-            self._comment = Comment
+        super().__init__()
+        kargs = {
+            "Id": Id,
+            "TimeStamp": TimeStamp,
+            "Author": Author,
+            "Comment": Comment,
+        }
+        if kargs["TimeStamp"] is UNO_NONE:
+            kargs["TimeStamp"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._id = kwargs["Id"]
+        self._time_stamp = kwargs["TimeStamp"]
+        self._author = kwargs["Author"]
+        self._comment = kwargs["Comment"]
 
 
     @property

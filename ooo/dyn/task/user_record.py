@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Passwords = UNO_NONE, UserName = UNO_NONE):
-            if getattr(Passwords, "__class__", None) == self.__class__:
-                orig_init(self, Passwords)
+        ordered_keys = ('Passwords', 'UserName')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Passwords is UNO_NONE:
-                if getattr(self, 'Passwords') != Passwords:
-                    setattr(self, 'Passwords', Passwords)
-            if not UserName is UNO_NONE:
-                if getattr(self, 'UserName') != UserName:
-                    setattr(self, 'UserName', UserName)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.task.UserRecord'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     UserRecord = _get_class()
-
 
 else:
     from ...lo.task.user_record import UserRecord as UserRecord

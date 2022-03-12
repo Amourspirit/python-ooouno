@@ -43,6 +43,20 @@ class TextFieldMaster(XPropertySet_bc180bfa):
         contains a sequence of all fields that depend on this master.
         """
 
+    @abstractproperty
+    def InstanceName(self) -> str:
+        """
+        contains the instance name as it is used in the com.sun.star.text.XTextFieldsSupplier.
+        """
+
+    @abstractproperty
+    def Name(self) -> str:
+        """
+        determines the name of the field master.
+        
+        The name is void as long as the instance is not member of the document structure. When the value is being set the instance is inserted into the document and the name cannot be changed afterwards. That does not apply to the Database text field master.
+        """
+
 
 
 __all__ = ['TextFieldMaster']

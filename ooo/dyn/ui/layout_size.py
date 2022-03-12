@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Minimum = UNO_NONE, Maximum = UNO_NONE, Preferred = UNO_NONE):
-            if getattr(Minimum, "__class__", None) == self.__class__:
-                orig_init(self, Minimum)
+        ordered_keys = ('Minimum', 'Maximum', 'Preferred')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Minimum is UNO_NONE:
-                if getattr(self, 'Minimum') != Minimum:
-                    setattr(self, 'Minimum', Minimum)
-            if not Maximum is UNO_NONE:
-                if getattr(self, 'Maximum') != Maximum:
-                    setattr(self, 'Maximum', Maximum)
-            if not Preferred is UNO_NONE:
-                if getattr(self, 'Preferred') != Preferred:
-                    setattr(self, 'Preferred', Preferred)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ui.LayoutSize'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LayoutSize = _get_class()
-
 
 else:
     from ...lo.ui.layout_size import LayoutSize as LayoutSize

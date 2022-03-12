@@ -64,6 +64,12 @@ class DataPilotSourceLevel(XPropertySet_bc180bfa, XNamed_a6520b08, XDataPilotMem
             LibreOffice 5.3
         """
 
+    @abstractproperty
+    def ShowEmpty(self) -> bool:
+        """
+        specifies whether empty members are shown.
+        """
+
 
 
 __all__ = ['DataPilotSourceLevel']

@@ -41,33 +41,30 @@ class PivotTableFieldEntry(object):
     typeName: str = 'com.sun.star.chart2.data.PivotTableFieldEntry'
     """Literal Constant ``com.sun.star.chart2.data.PivotTableFieldEntry``"""
 
-    def __init__(self, Name: str = '', DimensionIndex: int = 0, DimensionPositionIndex: int = 0, HasHiddenMembers: bool = False) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', DimensionIndex: typing.Optional[int] = 0, DimensionPositionIndex: typing.Optional[int] = 0, HasHiddenMembers: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``PivotTableFieldEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            DimensionIndex (int, optional): DimensionIndex value
-            DimensionPositionIndex (int, optional): DimensionPositionIndex value
-            HasHiddenMembers (bool, optional): HasHiddenMembers value
+            Name (str, optional): Name value.
+            DimensionIndex (int, optional): DimensionIndex value.
+            DimensionPositionIndex (int, optional): DimensionPositionIndex value.
+            HasHiddenMembers (bool, optional): HasHiddenMembers value.
         """
-        if isinstance(Name, PivotTableFieldEntry):
-            oth: PivotTableFieldEntry = Name
-            self._name = oth.Name
-            self._dimension_index = oth.DimensionIndex
-            self._dimension_position_index = oth.DimensionPositionIndex
-            self._has_hidden_members = oth.HasHiddenMembers
-            return
-        else:
-            self._name = Name
-            self._dimension_index = DimensionIndex
-            self._dimension_position_index = DimensionPositionIndex
-            self._has_hidden_members = HasHiddenMembers
+        super().__init__()
+        kargs = {
+            "Name": Name,
+            "DimensionIndex": DimensionIndex,
+            "DimensionPositionIndex": DimensionPositionIndex,
+            "HasHiddenMembers": HasHiddenMembers,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._dimension_index = kwargs["DimensionIndex"]
+        self._dimension_position_index = kwargs["DimensionPositionIndex"]
+        self._has_hidden_members = kwargs["HasHiddenMembers"]
 
 
     @property

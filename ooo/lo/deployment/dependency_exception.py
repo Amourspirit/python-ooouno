@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from ..xml.dom.x_element import XElement as XElement_a33d0ae9
 
 class DependencyException(Exception_85530a09):
     """
+    Exception Class
+
     describes unsatisfied dependencies a deployment unit has on its target environment.
     
     This exception is intended to be used with an com.sun.star.task.XInteractionHandler.
@@ -46,21 +49,31 @@ class DependencyException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.DependencyException'
     """Literal Constant ``com.sun.star.deployment.DependencyException``"""
 
-    def __init__(self, UnsatisfiedDependencies: typing.Optional[typing.Tuple[XElement_a33d0ae9, ...]] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, UnsatisfiedDependencies: typing.Optional[typing.Tuple[XElement_a33d0ae9, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Keyword Arguments:
-            UnsatisfiedDependencies (Tuple[XElement, ...], optional): UnsatisfiedDependencies value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            UnsatisfiedDependencies (typing.Tuple[XElement, ...], optional): UnsatisfiedDependencies value.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "UnsatisfiedDependencies": UnsatisfiedDependencies,
+        }
+        if kargs["UnsatisfiedDependencies"] is UNO_NONE:
+            kargs["UnsatisfiedDependencies"] = None
+        self._init(**kargs)
 
-        if UnsatisfiedDependencies is UNO_NONE:
-            self._unsatisfied_dependencies = None
-        else:
-            self._unsatisfied_dependencies = UnsatisfiedDependencies
+    def _init(self, **kwargs) -> None:
+        self._unsatisfied_dependencies = kwargs["UnsatisfiedDependencies"]
+        inst_keys = ('UnsatisfiedDependencies',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def UnsatisfiedDependencies(self) -> typing.Tuple[XElement_a33d0ae9, ...]:

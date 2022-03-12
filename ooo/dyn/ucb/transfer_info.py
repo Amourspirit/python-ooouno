@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, MoveData = UNO_NONE, SourceURL = UNO_NONE, NewTitle = UNO_NONE, NameClash = UNO_NONE):
-            if getattr(MoveData, "__class__", None) == self.__class__:
-                orig_init(self, MoveData)
+        ordered_keys = ('MoveData', 'SourceURL', 'NewTitle', 'NameClash')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not MoveData is UNO_NONE:
-                if getattr(self, 'MoveData') != MoveData:
-                    setattr(self, 'MoveData', MoveData)
-            if not SourceURL is UNO_NONE:
-                if getattr(self, 'SourceURL') != SourceURL:
-                    setattr(self, 'SourceURL', SourceURL)
-            if not NewTitle is UNO_NONE:
-                if getattr(self, 'NewTitle') != NewTitle:
-                    setattr(self, 'NewTitle', NewTitle)
-            if not NameClash is UNO_NONE:
-                if getattr(self, 'NameClash') != NameClash:
-                    setattr(self, 'NameClash', NameClash)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.TransferInfo'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TransferInfo = _get_class()
-
 
 else:
     from ...lo.ucb.transfer_info import TransferInfo as TransferInfo

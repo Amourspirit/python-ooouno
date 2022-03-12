@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Duration = UNO_NONE, RepeatMode = UNO_NONE, UntransformedSize = UNO_NONE):
-            if getattr(Duration, "__class__", None) == self.__class__:
-                orig_init(self, Duration)
+        ordered_keys = ('Duration', 'RepeatMode', 'UntransformedSize')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Duration is UNO_NONE:
-                if getattr(self, 'Duration') != Duration:
-                    setattr(self, 'Duration', Duration)
-            if not RepeatMode is UNO_NONE:
-                if getattr(self, 'RepeatMode') != RepeatMode:
-                    setattr(self, 'RepeatMode', RepeatMode)
-            if not UntransformedSize is UNO_NONE:
-                if getattr(self, 'UntransformedSize') != UntransformedSize:
-                    setattr(self, 'UntransformedSize', UntransformedSize)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.AnimationAttributes'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     AnimationAttributes = _get_class()
-
 
 else:
     from ...lo.rendering.animation_attributes import AnimationAttributes as AnimationAttributes

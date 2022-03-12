@@ -46,39 +46,34 @@ class RenderState(object):
     typeName: str = 'com.sun.star.rendering.RenderState'
     """Literal Constant ``com.sun.star.rendering.RenderState``"""
 
-    def __init__(self, DeviceColor: typing.Tuple[ColorComponent_e4c0e78, ...] = UNO_NONE, AffineTransform: AffineMatrix2D_ff040da8 = UNO_NONE, Clip: XPolyPolygon2D_e1b0e20 = None, CompositeOperation: int = 0) -> None:
+    def __init__(self, DeviceColor: typing.Optional[typing.Tuple[ColorComponent_e4c0e78, ...]] = UNO_NONE, AffineTransform: typing.Optional[AffineMatrix2D_ff040da8] = UNO_NONE, Clip: typing.Optional[XPolyPolygon2D_e1b0e20] = None, CompositeOperation: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DeviceColor`` can be another ``RenderState`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DeviceColor (Tuple[ColorComponent, ...], optional): DeviceColor value
-            AffineTransform (AffineMatrix2D, optional): AffineTransform value
-            Clip (XPolyPolygon2D, optional): Clip value
-            CompositeOperation (int, optional): CompositeOperation value
+            DeviceColor (typing.Tuple[ColorComponent, ...], optional): DeviceColor value.
+            AffineTransform (AffineMatrix2D, optional): AffineTransform value.
+            Clip (XPolyPolygon2D, optional): Clip value.
+            CompositeOperation (int, optional): CompositeOperation value.
         """
-        if isinstance(DeviceColor, RenderState):
-            oth: RenderState = DeviceColor
-            self._device_color = oth.DeviceColor
-            self._affine_transform = oth.AffineTransform
-            self._clip = oth.Clip
-            self._composite_operation = oth.CompositeOperation
-            return
-        else:
-            if DeviceColor is UNO_NONE:
-                self._device_color = None
-            else:
-                self._device_color = DeviceColor
-            if AffineTransform is UNO_NONE:
-                self._affine_transform = AffineMatrix2D_ff040da8()
-            else:
-                self._affine_transform = AffineTransform
-            self._clip = Clip
-            self._composite_operation = CompositeOperation
+        super().__init__()
+        kargs = {
+            "DeviceColor": DeviceColor,
+            "AffineTransform": AffineTransform,
+            "Clip": Clip,
+            "CompositeOperation": CompositeOperation,
+        }
+        if kargs["DeviceColor"] is UNO_NONE:
+            kargs["DeviceColor"] = None
+        if kargs["AffineTransform"] is UNO_NONE:
+            kargs["AffineTransform"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._device_color = kwargs["DeviceColor"]
+        self._affine_transform = kwargs["AffineTransform"]
+        self._clip = kwargs["Clip"]
+        self._composite_operation = kwargs["CompositeOperation"]
 
 
     @property

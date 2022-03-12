@@ -36,27 +36,24 @@ class ValuePair(object):
     typeName: str = 'com.sun.star.animations.ValuePair'
     """Literal Constant ``com.sun.star.animations.ValuePair``"""
 
-    def __init__(self, First: object = None, Second: object = None) -> None:
+    def __init__(self, First: typing.Optional[object] = None, Second: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``First`` can be another ``ValuePair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            First (object, optional): First value
-            Second (object, optional): Second value
+            First (object, optional): First value.
+            Second (object, optional): Second value.
         """
-        if isinstance(First, ValuePair):
-            oth: ValuePair = First
-            self._first = oth.First
-            self._second = oth.Second
-            return
-        else:
-            self._first = First
-            self._second = Second
+        super().__init__()
+        kargs = {
+            "First": First,
+            "Second": Second,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._first = kwargs["First"]
+        self._second = kwargs["Second"]
 
 
     @property

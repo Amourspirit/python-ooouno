@@ -46,33 +46,29 @@ class DDELinkInfo(object):
     typeName: str = 'com.sun.star.sheet.DDELinkInfo'
     """Literal Constant ``com.sun.star.sheet.DDELinkInfo``"""
 
-    def __init__(self, Items: typing.Tuple[DDEItemInfo_ac870b09, ...] = UNO_NONE, Service: str = '', Topic: str = '') -> None:
+    def __init__(self, Items: typing.Optional[typing.Tuple[DDEItemInfo_ac870b09, ...]] = UNO_NONE, Service: typing.Optional[str] = '', Topic: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Items`` can be another ``DDELinkInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Items (Tuple[DDEItemInfo, ...], optional): Items value
-            Service (str, optional): Service value
-            Topic (str, optional): Topic value
+            Items (typing.Tuple[DDEItemInfo, ...], optional): Items value.
+            Service (str, optional): Service value.
+            Topic (str, optional): Topic value.
         """
-        if isinstance(Items, DDELinkInfo):
-            oth: DDELinkInfo = Items
-            self._items = oth.Items
-            self._service = oth.Service
-            self._topic = oth.Topic
-            return
-        else:
-            if Items is UNO_NONE:
-                self._items = None
-            else:
-                self._items = Items
-            self._service = Service
-            self._topic = Topic
+        super().__init__()
+        kargs = {
+            "Items": Items,
+            "Service": Service,
+            "Topic": Topic,
+        }
+        if kargs["Items"] is UNO_NONE:
+            kargs["Items"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._items = kwargs["Items"]
+        self._service = kwargs["Service"]
+        self._topic = kwargs["Topic"]
 
 
     @property

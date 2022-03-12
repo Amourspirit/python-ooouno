@@ -22,54 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, DisplayName = UNO_NONE, Control = UNO_NONE, HelpURL = UNO_NONE, HasPrimaryButton = UNO_NONE, PrimaryButtonId = UNO_NONE, PrimaryButtonImageURL = UNO_NONE, PrimaryButtonImage = UNO_NONE, HasSecondaryButton = UNO_NONE, SecondaryButtonId = UNO_NONE, SecondaryButtonImageURL = UNO_NONE, SecondaryButtonImage = UNO_NONE, IndentLevel = UNO_NONE, Category = UNO_NONE):
-            if getattr(DisplayName, "__class__", None) == self.__class__:
-                orig_init(self, DisplayName)
+        ordered_keys = ('DisplayName', 'Control', 'HelpURL', 'HasPrimaryButton', 'PrimaryButtonId', 'PrimaryButtonImageURL', 'PrimaryButtonImage', 'HasSecondaryButton', 'SecondaryButtonId', 'SecondaryButtonImageURL', 'SecondaryButtonImage', 'IndentLevel', 'Category')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not DisplayName is UNO_NONE:
-                if getattr(self, 'DisplayName') != DisplayName:
-                    setattr(self, 'DisplayName', DisplayName)
-            if not Control is UNO_NONE:
-                if getattr(self, 'Control') != Control:
-                    setattr(self, 'Control', Control)
-            if not HelpURL is UNO_NONE:
-                if getattr(self, 'HelpURL') != HelpURL:
-                    setattr(self, 'HelpURL', HelpURL)
-            if not HasPrimaryButton is UNO_NONE:
-                if getattr(self, 'HasPrimaryButton') != HasPrimaryButton:
-                    setattr(self, 'HasPrimaryButton', HasPrimaryButton)
-            if not PrimaryButtonId is UNO_NONE:
-                if getattr(self, 'PrimaryButtonId') != PrimaryButtonId:
-                    setattr(self, 'PrimaryButtonId', PrimaryButtonId)
-            if not PrimaryButtonImageURL is UNO_NONE:
-                if getattr(self, 'PrimaryButtonImageURL') != PrimaryButtonImageURL:
-                    setattr(self, 'PrimaryButtonImageURL', PrimaryButtonImageURL)
-            if not PrimaryButtonImage is UNO_NONE:
-                if getattr(self, 'PrimaryButtonImage') != PrimaryButtonImage:
-                    setattr(self, 'PrimaryButtonImage', PrimaryButtonImage)
-            if not HasSecondaryButton is UNO_NONE:
-                if getattr(self, 'HasSecondaryButton') != HasSecondaryButton:
-                    setattr(self, 'HasSecondaryButton', HasSecondaryButton)
-            if not SecondaryButtonId is UNO_NONE:
-                if getattr(self, 'SecondaryButtonId') != SecondaryButtonId:
-                    setattr(self, 'SecondaryButtonId', SecondaryButtonId)
-            if not SecondaryButtonImageURL is UNO_NONE:
-                if getattr(self, 'SecondaryButtonImageURL') != SecondaryButtonImageURL:
-                    setattr(self, 'SecondaryButtonImageURL', SecondaryButtonImageURL)
-            if not SecondaryButtonImage is UNO_NONE:
-                if getattr(self, 'SecondaryButtonImage') != SecondaryButtonImage:
-                    setattr(self, 'SecondaryButtonImage', SecondaryButtonImage)
-            if not IndentLevel is UNO_NONE:
-                if getattr(self, 'IndentLevel') != IndentLevel:
-                    setattr(self, 'IndentLevel', IndentLevel)
-            if not Category is UNO_NONE:
-                if getattr(self, 'Category') != Category:
-                    setattr(self, 'Category', Category)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.inspection.LineDescriptor'
         struct = uno.getClass(type_name)
@@ -81,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LineDescriptor = _get_class()
-
 
 else:
     from ...lo.inspection.line_descriptor import LineDescriptor as LineDescriptor

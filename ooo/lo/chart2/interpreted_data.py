@@ -39,30 +39,26 @@ class InterpretedData(object):
     typeName: str = 'com.sun.star.chart2.InterpretedData'
     """Literal Constant ``com.sun.star.chart2.InterpretedData``"""
 
-    def __init__(self, Series: typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...], ...] = UNO_NONE, Categories: XLabeledDataSequence_7e1a10c8 = None) -> None:
+    def __init__(self, Series: typing.Optional[typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...], ...]] = UNO_NONE, Categories: typing.Optional[XLabeledDataSequence_7e1a10c8] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Series`` can be another ``InterpretedData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Series (Tuple[typing.Tuple[XDataSeries, ...], ...], optional): Series value
-            Categories (XLabeledDataSequence, optional): Categories value
+            Series (typing.Tuple[typing.Tuple[XDataSeries, ...], ...], optional): Series value.
+            Categories (XLabeledDataSequence, optional): Categories value.
         """
-        if isinstance(Series, InterpretedData):
-            oth: InterpretedData = Series
-            self._series = oth.Series
-            self._categories = oth.Categories
-            return
-        else:
-            if Series is UNO_NONE:
-                self._series = None
-            else:
-                self._series = Series
-            self._categories = Categories
+        super().__init__()
+        kargs = {
+            "Series": Series,
+            "Categories": Categories,
+        }
+        if kargs["Series"] is UNO_NONE:
+            kargs["Series"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._series = kwargs["Series"]
+        self._categories = kwargs["Categories"]
 
 
     @property

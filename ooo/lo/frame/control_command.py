@@ -42,30 +42,26 @@ class ControlCommand(object):
     typeName: str = 'com.sun.star.frame.ControlCommand'
     """Literal Constant ``com.sun.star.frame.ControlCommand``"""
 
-    def __init__(self, Arguments: typing.Tuple[NamedValue_a37a0af3, ...] = UNO_NONE, Command: str = '') -> None:
+    def __init__(self, Arguments: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, Command: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Arguments`` can be another ``ControlCommand`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Arguments (Tuple[NamedValue, ...], optional): Arguments value
-            Command (str, optional): Command value
+            Arguments (typing.Tuple[NamedValue, ...], optional): Arguments value.
+            Command (str, optional): Command value.
         """
-        if isinstance(Arguments, ControlCommand):
-            oth: ControlCommand = Arguments
-            self._arguments = oth.Arguments
-            self._command = oth.Command
-            return
-        else:
-            if Arguments is UNO_NONE:
-                self._arguments = None
-            else:
-                self._arguments = Arguments
-            self._command = Command
+        super().__init__()
+        kargs = {
+            "Arguments": Arguments,
+            "Command": Command,
+        }
+        if kargs["Arguments"] is UNO_NONE:
+            kargs["Arguments"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._arguments = kwargs["Arguments"]
+        self._command = kwargs["Command"]
 
 
     @property

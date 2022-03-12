@@ -41,27 +41,24 @@ class UpperLowerMargin(object):
     typeName: str = 'com.sun.star.frame.status.UpperLowerMargin'
     """Literal Constant ``com.sun.star.frame.status.UpperLowerMargin``"""
 
-    def __init__(self, Upper: int = 0, Lower: int = 0) -> None:
+    def __init__(self, Upper: typing.Optional[int] = 0, Lower: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Upper`` can be another ``UpperLowerMargin`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Upper (int, optional): Upper value
-            Lower (int, optional): Lower value
+            Upper (int, optional): Upper value.
+            Lower (int, optional): Lower value.
         """
-        if isinstance(Upper, UpperLowerMargin):
-            oth: UpperLowerMargin = Upper
-            self._upper = oth.Upper
-            self._lower = oth.Lower
-            return
-        else:
-            self._upper = Upper
-            self._lower = Lower
+        super().__init__()
+        kargs = {
+            "Upper": Upper,
+            "Lower": Lower,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._upper = kwargs["Upper"]
+        self._lower = kwargs["Lower"]
 
 
     @property

@@ -45,45 +45,42 @@ class Duration(object):
     typeName: str = 'com.sun.star.util.Duration'
     """Literal Constant ``com.sun.star.util.Duration``"""
 
-    def __init__(self, Negative: bool = False, Years: int = 0, Months: int = 0, Days: int = 0, Hours: int = 0, Minutes: int = 0, Seconds: int = 0, NanoSeconds: int = 0) -> None:
+    def __init__(self, Negative: typing.Optional[bool] = False, Years: typing.Optional[int] = 0, Months: typing.Optional[int] = 0, Days: typing.Optional[int] = 0, Hours: typing.Optional[int] = 0, Minutes: typing.Optional[int] = 0, Seconds: typing.Optional[int] = 0, NanoSeconds: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Negative`` can be another ``Duration`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Negative (bool, optional): Negative value
-            Years (int, optional): Years value
-            Months (int, optional): Months value
-            Days (int, optional): Days value
-            Hours (int, optional): Hours value
-            Minutes (int, optional): Minutes value
-            Seconds (int, optional): Seconds value
-            NanoSeconds (int, optional): NanoSeconds value
+            Negative (bool, optional): Negative value.
+            Years (int, optional): Years value.
+            Months (int, optional): Months value.
+            Days (int, optional): Days value.
+            Hours (int, optional): Hours value.
+            Minutes (int, optional): Minutes value.
+            Seconds (int, optional): Seconds value.
+            NanoSeconds (int, optional): NanoSeconds value.
         """
-        if isinstance(Negative, Duration):
-            oth: Duration = Negative
-            self._negative = oth.Negative
-            self._years = oth.Years
-            self._months = oth.Months
-            self._days = oth.Days
-            self._hours = oth.Hours
-            self._minutes = oth.Minutes
-            self._seconds = oth.Seconds
-            self._nano_seconds = oth.NanoSeconds
-            return
-        else:
-            self._negative = Negative
-            self._years = Years
-            self._months = Months
-            self._days = Days
-            self._hours = Hours
-            self._minutes = Minutes
-            self._seconds = Seconds
-            self._nano_seconds = NanoSeconds
+        super().__init__()
+        kargs = {
+            "Negative": Negative,
+            "Years": Years,
+            "Months": Months,
+            "Days": Days,
+            "Hours": Hours,
+            "Minutes": Minutes,
+            "Seconds": Seconds,
+            "NanoSeconds": NanoSeconds,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._negative = kwargs["Negative"]
+        self._years = kwargs["Years"]
+        self._months = kwargs["Months"]
+        self._days = kwargs["Days"]
+        self._hours = kwargs["Hours"]
+        self._minutes = kwargs["Minutes"]
+        self._seconds = kwargs["Seconds"]
+        self._nano_seconds = kwargs["NanoSeconds"]
 
 
     @property

@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ScannerName = UNO_NONE, InternalData = UNO_NONE):
-            if getattr(ScannerName, "__class__", None) == self.__class__:
-                orig_init(self, ScannerName)
+        ordered_keys = ('ScannerName', 'InternalData')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ScannerName is UNO_NONE:
-                if getattr(self, 'ScannerName') != ScannerName:
-                    setattr(self, 'ScannerName', ScannerName)
-            if not InternalData is UNO_NONE:
-                if getattr(self, 'InternalData') != InternalData:
-                    setattr(self, 'InternalData', InternalData)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.scanner.ScannerContext'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ScannerContext = _get_class()
-
 
 else:
     from ...lo.scanner.scanner_context import ScannerContext as ScannerContext

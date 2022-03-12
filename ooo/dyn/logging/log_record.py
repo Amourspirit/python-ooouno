@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, LoggerName = UNO_NONE, SourceClassName = UNO_NONE, SourceMethodName = UNO_NONE, Message = UNO_NONE, LogTime = UNO_NONE, SequenceNumber = UNO_NONE, ThreadID = UNO_NONE, Level = UNO_NONE):
-            if getattr(LoggerName, "__class__", None) == self.__class__:
-                orig_init(self, LoggerName)
+        ordered_keys = ('LoggerName', 'SourceClassName', 'SourceMethodName', 'Message', 'LogTime', 'SequenceNumber', 'ThreadID', 'Level')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not LoggerName is UNO_NONE:
-                if getattr(self, 'LoggerName') != LoggerName:
-                    setattr(self, 'LoggerName', LoggerName)
-            if not SourceClassName is UNO_NONE:
-                if getattr(self, 'SourceClassName') != SourceClassName:
-                    setattr(self, 'SourceClassName', SourceClassName)
-            if not SourceMethodName is UNO_NONE:
-                if getattr(self, 'SourceMethodName') != SourceMethodName:
-                    setattr(self, 'SourceMethodName', SourceMethodName)
-            if not Message is UNO_NONE:
-                if getattr(self, 'Message') != Message:
-                    setattr(self, 'Message', Message)
-            if not LogTime is UNO_NONE:
-                if getattr(self, 'LogTime') != LogTime:
-                    setattr(self, 'LogTime', LogTime)
-            if not SequenceNumber is UNO_NONE:
-                if getattr(self, 'SequenceNumber') != SequenceNumber:
-                    setattr(self, 'SequenceNumber', SequenceNumber)
-            if not ThreadID is UNO_NONE:
-                if getattr(self, 'ThreadID') != ThreadID:
-                    setattr(self, 'ThreadID', ThreadID)
-            if not Level is UNO_NONE:
-                if getattr(self, 'Level') != Level:
-                    setattr(self, 'Level', Level)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.logging.LogRecord'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LogRecord = _get_class()
-
 
 else:
     from ...lo.logging.log_record import LogRecord as LogRecord

@@ -22,45 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, sName = UNO_NONE, sExportName = UNO_NONE, sSymbolSet = UNO_NONE, nCharacter = UNO_NONE, sFontName = UNO_NONE, nCharSet = UNO_NONE, nFamily = UNO_NONE, nPitch = UNO_NONE, nWeight = UNO_NONE, nItalic = UNO_NONE):
-            if getattr(sName, "__class__", None) == self.__class__:
-                orig_init(self, sName)
+        ordered_keys = ('sName', 'sExportName', 'sSymbolSet', 'nCharacter', 'sFontName', 'nCharSet', 'nFamily', 'nPitch', 'nWeight', 'nItalic')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not sName is UNO_NONE:
-                if getattr(self, 'sName') != sName:
-                    setattr(self, 'sName', sName)
-            if not sExportName is UNO_NONE:
-                if getattr(self, 'sExportName') != sExportName:
-                    setattr(self, 'sExportName', sExportName)
-            if not sSymbolSet is UNO_NONE:
-                if getattr(self, 'sSymbolSet') != sSymbolSet:
-                    setattr(self, 'sSymbolSet', sSymbolSet)
-            if not nCharacter is UNO_NONE:
-                if getattr(self, 'nCharacter') != nCharacter:
-                    setattr(self, 'nCharacter', nCharacter)
-            if not sFontName is UNO_NONE:
-                if getattr(self, 'sFontName') != sFontName:
-                    setattr(self, 'sFontName', sFontName)
-            if not nCharSet is UNO_NONE:
-                if getattr(self, 'nCharSet') != nCharSet:
-                    setattr(self, 'nCharSet', nCharSet)
-            if not nFamily is UNO_NONE:
-                if getattr(self, 'nFamily') != nFamily:
-                    setattr(self, 'nFamily', nFamily)
-            if not nPitch is UNO_NONE:
-                if getattr(self, 'nPitch') != nPitch:
-                    setattr(self, 'nPitch', nPitch)
-            if not nWeight is UNO_NONE:
-                if getattr(self, 'nWeight') != nWeight:
-                    setattr(self, 'nWeight', nWeight)
-            if not nItalic is UNO_NONE:
-                if getattr(self, 'nItalic') != nItalic:
-                    setattr(self, 'nItalic', nItalic)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.formula.SymbolDescriptor'
         struct = uno.getClass(type_name)
@@ -72,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SymbolDescriptor = _get_class()
-
 
 else:
     from ...lo.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor

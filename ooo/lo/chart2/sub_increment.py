@@ -36,27 +36,24 @@ class SubIncrement(object):
     typeName: str = 'com.sun.star.chart2.SubIncrement'
     """Literal Constant ``com.sun.star.chart2.SubIncrement``"""
 
-    def __init__(self, IntervalCount: object = None, PostEquidistant: object = None) -> None:
+    def __init__(self, IntervalCount: typing.Optional[object] = None, PostEquidistant: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IntervalCount`` can be another ``SubIncrement`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IntervalCount (object, optional): IntervalCount value
-            PostEquidistant (object, optional): PostEquidistant value
+            IntervalCount (object, optional): IntervalCount value.
+            PostEquidistant (object, optional): PostEquidistant value.
         """
-        if isinstance(IntervalCount, SubIncrement):
-            oth: SubIncrement = IntervalCount
-            self._interval_count = oth.IntervalCount
-            self._post_equidistant = oth.PostEquidistant
-            return
-        else:
-            self._interval_count = IntervalCount
-            self._post_equidistant = PostEquidistant
+        super().__init__()
+        kargs = {
+            "IntervalCount": IntervalCount,
+            "PostEquidistant": PostEquidistant,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._interval_count = kwargs["IntervalCount"]
+        self._post_equidistant = kwargs["PostEquidistant"]
 
 
     @property

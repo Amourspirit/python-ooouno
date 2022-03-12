@@ -44,6 +44,14 @@ class Settings(XPropertySet_bc180bfa):
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
+    def PrinterSetup(self) -> 'typing.Tuple[int, ...]':
+        """
+        platform and driver dependent printer setup data.
+        
+        This property serves to capture the current printer setup settings, such as paper tray, printer options, etc. The data can typically be interpreted only by the system that generated it. The PrinterSetup property may be used to save and restore the user's printer settings.
+        """
+
+    @abstractproperty
     def AddExternalLeading(self) -> bool:
         """
         layout engine should add value of a Font's \"external leading\" attribute to the line spacing.

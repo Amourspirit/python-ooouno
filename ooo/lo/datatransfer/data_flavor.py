@@ -37,30 +37,27 @@ class DataFlavor(object):
     typeName: str = 'com.sun.star.datatransfer.DataFlavor'
     """Literal Constant ``com.sun.star.datatransfer.DataFlavor``"""
 
-    def __init__(self, MimeType: str = '', HumanPresentableName: str = '', DataType: object = None) -> None:
+    def __init__(self, MimeType: typing.Optional[str] = '', HumanPresentableName: typing.Optional[str] = '', DataType: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MimeType`` can be another ``DataFlavor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            MimeType (str, optional): MimeType value
-            HumanPresentableName (str, optional): HumanPresentableName value
-            DataType (object, optional): DataType value
+            MimeType (str, optional): MimeType value.
+            HumanPresentableName (str, optional): HumanPresentableName value.
+            DataType (object, optional): DataType value.
         """
-        if isinstance(MimeType, DataFlavor):
-            oth: DataFlavor = MimeType
-            self._mime_type = oth.MimeType
-            self._human_presentable_name = oth.HumanPresentableName
-            self._data_type = oth.DataType
-            return
-        else:
-            self._mime_type = MimeType
-            self._human_presentable_name = HumanPresentableName
-            self._data_type = DataType
+        super().__init__()
+        kargs = {
+            "MimeType": MimeType,
+            "HumanPresentableName": HumanPresentableName,
+            "DataType": DataType,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._mime_type = kwargs["MimeType"]
+        self._human_presentable_name = kwargs["HumanPresentableName"]
+        self._data_type = kwargs["DataType"]
 
 
     @property

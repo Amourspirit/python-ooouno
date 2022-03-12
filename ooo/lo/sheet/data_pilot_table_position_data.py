@@ -43,27 +43,24 @@ class DataPilotTablePositionData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTablePositionData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTablePositionData``"""
 
-    def __init__(self, PositionType: int = 0, PositionData: object = None) -> None:
+    def __init__(self, PositionType: typing.Optional[int] = 0, PositionData: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``PositionType`` can be another ``DataPilotTablePositionData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            PositionType (int, optional): PositionType value
-            PositionData (object, optional): PositionData value
+            PositionType (int, optional): PositionType value.
+            PositionData (object, optional): PositionData value.
         """
-        if isinstance(PositionType, DataPilotTablePositionData):
-            oth: DataPilotTablePositionData = PositionType
-            self._position_type = oth.PositionType
-            self._position_data = oth.PositionData
-            return
-        else:
-            self._position_type = PositionType
-            self._position_data = PositionData
+        super().__init__()
+        kargs = {
+            "PositionType": PositionType,
+            "PositionData": PositionData,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position_type = kwargs["PositionType"]
+        self._position_data = kwargs["PositionData"]
 
 
     @property

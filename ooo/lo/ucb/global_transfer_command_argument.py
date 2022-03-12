@@ -38,36 +38,33 @@ class GlobalTransferCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.GlobalTransferCommandArgument'
     """Literal Constant ``com.sun.star.ucb.GlobalTransferCommandArgument``"""
 
-    def __init__(self, Operation: TransferCommandOperation_486a0ff7 = TransferCommandOperation_486a0ff7.COPY, SourceURL: str = '', TargetURL: str = '', NewTitle: str = '', NameClash: int = 0) -> None:
+    def __init__(self, Operation: typing.Optional[TransferCommandOperation_486a0ff7] = TransferCommandOperation_486a0ff7.COPY, SourceURL: typing.Optional[str] = '', TargetURL: typing.Optional[str] = '', NewTitle: typing.Optional[str] = '', NameClash: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Operation`` can be another ``GlobalTransferCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Operation (TransferCommandOperation, optional): Operation value
-            SourceURL (str, optional): SourceURL value
-            TargetURL (str, optional): TargetURL value
-            NewTitle (str, optional): NewTitle value
-            NameClash (int, optional): NameClash value
+            Operation (TransferCommandOperation, optional): Operation value.
+            SourceURL (str, optional): SourceURL value.
+            TargetURL (str, optional): TargetURL value.
+            NewTitle (str, optional): NewTitle value.
+            NameClash (int, optional): NameClash value.
         """
-        if isinstance(Operation, GlobalTransferCommandArgument):
-            oth: GlobalTransferCommandArgument = Operation
-            self._operation = oth.Operation
-            self._source_url = oth.SourceURL
-            self._target_url = oth.TargetURL
-            self._new_title = oth.NewTitle
-            self._name_clash = oth.NameClash
-            return
-        else:
-            self._operation = Operation
-            self._source_url = SourceURL
-            self._target_url = TargetURL
-            self._new_title = NewTitle
-            self._name_clash = NameClash
+        super().__init__()
+        kargs = {
+            "Operation": Operation,
+            "SourceURL": SourceURL,
+            "TargetURL": TargetURL,
+            "NewTitle": NewTitle,
+            "NameClash": NameClash,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._operation = kwargs["Operation"]
+        self._source_url = kwargs["SourceURL"]
+        self._target_url = kwargs["TargetURL"]
+        self._new_title = kwargs["NewTitle"]
+        self._name_clash = kwargs["NameClash"]
 
 
     @property

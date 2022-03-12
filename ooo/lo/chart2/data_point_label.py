@@ -40,39 +40,36 @@ class DataPointLabel(object):
     typeName: str = 'com.sun.star.chart2.DataPointLabel'
     """Literal Constant ``com.sun.star.chart2.DataPointLabel``"""
 
-    def __init__(self, ShowNumber: bool = False, ShowNumberInPercent: bool = False, ShowCategoryName: bool = False, ShowLegendSymbol: bool = False, ShowCustomLabel: bool = None, ShowSeriesName: bool = None) -> None:
+    def __init__(self, ShowNumber: typing.Optional[bool] = False, ShowNumberInPercent: typing.Optional[bool] = False, ShowCategoryName: typing.Optional[bool] = False, ShowLegendSymbol: typing.Optional[bool] = False, ShowCustomLabel: typing.Optional[bool] = None, ShowSeriesName: typing.Optional[bool] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ShowNumber`` can be another ``DataPointLabel`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ShowNumber (bool, optional): ShowNumber value
-            ShowNumberInPercent (bool, optional): ShowNumberInPercent value
-            ShowCategoryName (bool, optional): ShowCategoryName value
-            ShowLegendSymbol (bool, optional): ShowLegendSymbol value
-            ShowCustomLabel (bool, optional): ShowCustomLabel value
-            ShowSeriesName (bool, optional): ShowSeriesName value
+            ShowNumber (bool, optional): ShowNumber value.
+            ShowNumberInPercent (bool, optional): ShowNumberInPercent value.
+            ShowCategoryName (bool, optional): ShowCategoryName value.
+            ShowLegendSymbol (bool, optional): ShowLegendSymbol value.
+            ShowCustomLabel (bool, optional): ShowCustomLabel value.
+            ShowSeriesName (bool, optional): ShowSeriesName value.
         """
-        if isinstance(ShowNumber, DataPointLabel):
-            oth: DataPointLabel = ShowNumber
-            self._show_number = oth.ShowNumber
-            self._show_number_in_percent = oth.ShowNumberInPercent
-            self._show_category_name = oth.ShowCategoryName
-            self._show_legend_symbol = oth.ShowLegendSymbol
-            self._show_custom_label = oth.ShowCustomLabel
-            self._show_series_name = oth.ShowSeriesName
-            return
-        else:
-            self._show_number = ShowNumber
-            self._show_number_in_percent = ShowNumberInPercent
-            self._show_category_name = ShowCategoryName
-            self._show_legend_symbol = ShowLegendSymbol
-            self._show_custom_label = ShowCustomLabel
-            self._show_series_name = ShowSeriesName
+        super().__init__()
+        kargs = {
+            "ShowNumber": ShowNumber,
+            "ShowNumberInPercent": ShowNumberInPercent,
+            "ShowCategoryName": ShowCategoryName,
+            "ShowLegendSymbol": ShowLegendSymbol,
+            "ShowCustomLabel": ShowCustomLabel,
+            "ShowSeriesName": ShowSeriesName,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._show_number = kwargs["ShowNumber"]
+        self._show_number_in_percent = kwargs["ShowNumberInPercent"]
+        self._show_category_name = kwargs["ShowCategoryName"]
+        self._show_legend_symbol = kwargs["ShowLegendSymbol"]
+        self._show_custom_label = kwargs["ShowCustomLabel"]
+        self._show_series_name = kwargs["ShowSeriesName"]
 
 
     @property

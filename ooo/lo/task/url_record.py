@@ -37,30 +37,26 @@ class UrlRecord(object):
     typeName: str = 'com.sun.star.task.UrlRecord'
     """Literal Constant ``com.sun.star.task.UrlRecord``"""
 
-    def __init__(self, UserList: typing.Tuple[UserRecord_9a2e0ab9, ...] = UNO_NONE, Url: str = '') -> None:
+    def __init__(self, UserList: typing.Optional[typing.Tuple[UserRecord_9a2e0ab9, ...]] = UNO_NONE, Url: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``UserList`` can be another ``UrlRecord`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            UserList (Tuple[UserRecord, ...], optional): UserList value
-            Url (str, optional): Url value
+            UserList (typing.Tuple[UserRecord, ...], optional): UserList value.
+            Url (str, optional): Url value.
         """
-        if isinstance(UserList, UrlRecord):
-            oth: UrlRecord = UserList
-            self._user_list = oth.UserList
-            self._url = oth.Url
-            return
-        else:
-            if UserList is UNO_NONE:
-                self._user_list = None
-            else:
-                self._user_list = UserList
-            self._url = Url
+        super().__init__()
+        kargs = {
+            "UserList": UserList,
+            "Url": Url,
+        }
+        if kargs["UserList"] is UNO_NONE:
+            kargs["UserList"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._user_list = kwargs["UserList"]
+        self._url = kwargs["Url"]
 
 
     @property

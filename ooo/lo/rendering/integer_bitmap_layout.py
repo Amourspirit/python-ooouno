@@ -45,42 +45,39 @@ class IntegerBitmapLayout(object):
     typeName: str = 'com.sun.star.rendering.IntegerBitmapLayout'
     """Literal Constant ``com.sun.star.rendering.IntegerBitmapLayout``"""
 
-    def __init__(self, ScanLines: int = 0, ScanLineBytes: int = 0, ScanLineStride: int = 0, PlaneStride: int = 0, ColorSpace: XIntegerBitmapColorSpace_b1691234 = None, Palette: XBitmapPalette_cf20e4a = None, IsMsbFirst: bool = False) -> None:
+    def __init__(self, ScanLines: typing.Optional[int] = 0, ScanLineBytes: typing.Optional[int] = 0, ScanLineStride: typing.Optional[int] = 0, PlaneStride: typing.Optional[int] = 0, ColorSpace: typing.Optional[XIntegerBitmapColorSpace_b1691234] = None, Palette: typing.Optional[XBitmapPalette_cf20e4a] = None, IsMsbFirst: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ScanLines`` can be another ``IntegerBitmapLayout`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ScanLines (int, optional): ScanLines value
-            ScanLineBytes (int, optional): ScanLineBytes value
-            ScanLineStride (int, optional): ScanLineStride value
-            PlaneStride (int, optional): PlaneStride value
-            ColorSpace (XIntegerBitmapColorSpace, optional): ColorSpace value
-            Palette (XBitmapPalette, optional): Palette value
-            IsMsbFirst (bool, optional): IsMsbFirst value
+            ScanLines (int, optional): ScanLines value.
+            ScanLineBytes (int, optional): ScanLineBytes value.
+            ScanLineStride (int, optional): ScanLineStride value.
+            PlaneStride (int, optional): PlaneStride value.
+            ColorSpace (XIntegerBitmapColorSpace, optional): ColorSpace value.
+            Palette (XBitmapPalette, optional): Palette value.
+            IsMsbFirst (bool, optional): IsMsbFirst value.
         """
-        if isinstance(ScanLines, IntegerBitmapLayout):
-            oth: IntegerBitmapLayout = ScanLines
-            self._scan_lines = oth.ScanLines
-            self._scan_line_bytes = oth.ScanLineBytes
-            self._scan_line_stride = oth.ScanLineStride
-            self._plane_stride = oth.PlaneStride
-            self._color_space = oth.ColorSpace
-            self._palette = oth.Palette
-            self._is_msb_first = oth.IsMsbFirst
-            return
-        else:
-            self._scan_lines = ScanLines
-            self._scan_line_bytes = ScanLineBytes
-            self._scan_line_stride = ScanLineStride
-            self._plane_stride = PlaneStride
-            self._color_space = ColorSpace
-            self._palette = Palette
-            self._is_msb_first = IsMsbFirst
+        super().__init__()
+        kargs = {
+            "ScanLines": ScanLines,
+            "ScanLineBytes": ScanLineBytes,
+            "ScanLineStride": ScanLineStride,
+            "PlaneStride": PlaneStride,
+            "ColorSpace": ColorSpace,
+            "Palette": Palette,
+            "IsMsbFirst": IsMsbFirst,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._scan_lines = kwargs["ScanLines"]
+        self._scan_line_bytes = kwargs["ScanLineBytes"]
+        self._scan_line_stride = kwargs["ScanLineStride"]
+        self._plane_stride = kwargs["PlaneStride"]
+        self._color_space = kwargs["ColorSpace"]
+        self._palette = kwargs["Palette"]
+        self._is_msb_first = kwargs["IsMsbFirst"]
 
 
     @property

@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Signer = UNO_NONE, SignatureDate = UNO_NONE, SignatureTime = UNO_NONE, SignatureIsValid = UNO_NONE, CertificateStatus = UNO_NONE, PartialDocumentSignature = UNO_NONE, SignatureLineId = UNO_NONE, ValidSignatureLineImage = UNO_NONE, InvalidSignatureLineImage = UNO_NONE):
-            if getattr(Signer, "__class__", None) == self.__class__:
-                orig_init(self, Signer)
+        ordered_keys = ('Signer', 'SignatureDate', 'SignatureTime', 'SignatureIsValid', 'CertificateStatus', 'PartialDocumentSignature', 'SignatureLineId', 'ValidSignatureLineImage', 'InvalidSignatureLineImage')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Signer is UNO_NONE:
-                if getattr(self, 'Signer') != Signer:
-                    setattr(self, 'Signer', Signer)
-            if not SignatureDate is UNO_NONE:
-                if getattr(self, 'SignatureDate') != SignatureDate:
-                    setattr(self, 'SignatureDate', SignatureDate)
-            if not SignatureTime is UNO_NONE:
-                if getattr(self, 'SignatureTime') != SignatureTime:
-                    setattr(self, 'SignatureTime', SignatureTime)
-            if not SignatureIsValid is UNO_NONE:
-                if getattr(self, 'SignatureIsValid') != SignatureIsValid:
-                    setattr(self, 'SignatureIsValid', SignatureIsValid)
-            if not CertificateStatus is UNO_NONE:
-                if getattr(self, 'CertificateStatus') != CertificateStatus:
-                    setattr(self, 'CertificateStatus', CertificateStatus)
-            if not PartialDocumentSignature is UNO_NONE:
-                if getattr(self, 'PartialDocumentSignature') != PartialDocumentSignature:
-                    setattr(self, 'PartialDocumentSignature', PartialDocumentSignature)
-            if not SignatureLineId is UNO_NONE:
-                if getattr(self, 'SignatureLineId') != SignatureLineId:
-                    setattr(self, 'SignatureLineId', SignatureLineId)
-            if not ValidSignatureLineImage is UNO_NONE:
-                if getattr(self, 'ValidSignatureLineImage') != ValidSignatureLineImage:
-                    setattr(self, 'ValidSignatureLineImage', ValidSignatureLineImage)
-            if not InvalidSignatureLineImage is UNO_NONE:
-                if getattr(self, 'InvalidSignatureLineImage') != InvalidSignatureLineImage:
-                    setattr(self, 'InvalidSignatureLineImage', InvalidSignatureLineImage)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.security.DocumentSignatureInformation'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DocumentSignatureInformation = _get_class()
-
 
 else:
     from ...lo.security.document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation

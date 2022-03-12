@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .input_event import InputEvent as InputEvent_8f520a66
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,32 +39,35 @@ class KeyEvent(InputEvent_8f520a66):
     typeName: str = 'com.sun.star.awt.KeyEvent'
     """Literal Constant ``com.sun.star.awt.KeyEvent``"""
 
-    def __init__(self, KeyCode: int = 0, KeyChar: str = '\u0000', KeyFunc: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Modifiers: typing.Optional[int] = 0, KeyCode: typing.Optional[int] = 0, KeyChar: typing.Optional[str] = '\u0000', KeyFunc: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``KeyCode`` can be another ``KeyEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            KeyCode (int, optional): KeyCode value
-            KeyChar (str, optional): KeyChar value
-            KeyFunc (int, optional): KeyFunc value
+            Source (XInterface, optional): Source value.
+            Modifiers (int, optional): Modifiers value.
+            KeyCode (int, optional): KeyCode value.
+            KeyChar (str, optional): KeyChar value.
+            KeyFunc (int, optional): KeyFunc value.
         """
-        super().__init__(**kwargs)
-        if isinstance(KeyCode, KeyEvent):
-            oth: KeyEvent = KeyCode
-            self._key_code = oth.KeyCode
-            self._key_char = oth.KeyChar
-            self._key_func = oth.KeyFunc
-            return
-        else:
-            self._key_code = KeyCode
-            self._key_char = KeyChar
-            self._key_func = KeyFunc
+        kargs = {
+            "Source": Source,
+            "Modifiers": Modifiers,
+            "KeyCode": KeyCode,
+            "KeyChar": KeyChar,
+            "KeyFunc": KeyFunc,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._key_code = kwargs["KeyCode"]
+        self._key_char = kwargs["KeyChar"]
+        self._key_func = kwargs["KeyFunc"]
+        inst_keys = ('KeyCode', 'KeyChar', 'KeyFunc')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

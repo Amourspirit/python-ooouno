@@ -19,30 +19,22 @@
 # Namespace: com.sun.star.sdb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
 
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Parameters = UNO_NONE, Connection = UNO_NONE, **kwargs):
-            if getattr(Parameters, "__class__", None) == self.__class__:
-                orig_init(self, Parameters)
+        ordered_keys = ('Message', 'Context', 'Classification', 'Parameters', 'Connection')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Parameters is UNO_NONE:
-                if getattr(self, 'Parameters') != Parameters:
-                    setattr(self, 'Parameters', Parameters)
-            if not Connection is UNO_NONE:
-                if getattr(self, 'Connection') != Connection:
-                    setattr(self, 'Connection', Connection)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sdb.ParametersRequest'
         ex = uno.getClass(type_name)

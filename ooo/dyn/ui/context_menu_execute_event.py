@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, SourceWindow = UNO_NONE, ExecutePosition = UNO_NONE, ActionTriggerContainer = UNO_NONE, Selection = UNO_NONE):
-            if getattr(SourceWindow, "__class__", None) == self.__class__:
-                orig_init(self, SourceWindow)
+        ordered_keys = ('SourceWindow', 'ExecutePosition', 'ActionTriggerContainer', 'Selection')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not SourceWindow is UNO_NONE:
-                if getattr(self, 'SourceWindow') != SourceWindow:
-                    setattr(self, 'SourceWindow', SourceWindow)
-            if not ExecutePosition is UNO_NONE:
-                if getattr(self, 'ExecutePosition') != ExecutePosition:
-                    setattr(self, 'ExecutePosition', ExecutePosition)
-            if not ActionTriggerContainer is UNO_NONE:
-                if getattr(self, 'ActionTriggerContainer') != ActionTriggerContainer:
-                    setattr(self, 'ActionTriggerContainer', ActionTriggerContainer)
-            if not Selection is UNO_NONE:
-                if getattr(self, 'Selection') != Selection:
-                    setattr(self, 'Selection', Selection)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ui.ContextMenuExecuteEvent'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ContextMenuExecuteEvent = _get_class()
-
 
 else:
     from ...lo.ui.context_menu_execute_event import ContextMenuExecuteEvent as ContextMenuExecuteEvent

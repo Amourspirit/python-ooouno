@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, aSuggestions = UNO_NONE, aProperties = UNO_NONE, nErrorStart = UNO_NONE, nErrorLength = UNO_NONE, nErrorType = UNO_NONE, aRuleIdentifier = UNO_NONE, aShortComment = UNO_NONE, aFullComment = UNO_NONE):
-            if getattr(aSuggestions, "__class__", None) == self.__class__:
-                orig_init(self, aSuggestions)
+        ordered_keys = ('aSuggestions', 'aProperties', 'nErrorStart', 'nErrorLength', 'nErrorType', 'aRuleIdentifier', 'aShortComment', 'aFullComment')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not aSuggestions is UNO_NONE:
-                if getattr(self, 'aSuggestions') != aSuggestions:
-                    setattr(self, 'aSuggestions', aSuggestions)
-            if not aProperties is UNO_NONE:
-                if getattr(self, 'aProperties') != aProperties:
-                    setattr(self, 'aProperties', aProperties)
-            if not nErrorStart is UNO_NONE:
-                if getattr(self, 'nErrorStart') != nErrorStart:
-                    setattr(self, 'nErrorStart', nErrorStart)
-            if not nErrorLength is UNO_NONE:
-                if getattr(self, 'nErrorLength') != nErrorLength:
-                    setattr(self, 'nErrorLength', nErrorLength)
-            if not nErrorType is UNO_NONE:
-                if getattr(self, 'nErrorType') != nErrorType:
-                    setattr(self, 'nErrorType', nErrorType)
-            if not aRuleIdentifier is UNO_NONE:
-                if getattr(self, 'aRuleIdentifier') != aRuleIdentifier:
-                    setattr(self, 'aRuleIdentifier', aRuleIdentifier)
-            if not aShortComment is UNO_NONE:
-                if getattr(self, 'aShortComment') != aShortComment:
-                    setattr(self, 'aShortComment', aShortComment)
-            if not aFullComment is UNO_NONE:
-                if getattr(self, 'aFullComment') != aFullComment:
-                    setattr(self, 'aFullComment', aFullComment)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.linguistic2.SingleProofreadingError'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SingleProofreadingError = _get_class()
-
 
 else:
     from ...lo.linguistic2.single_proofreading_error import SingleProofreadingError as SingleProofreadingError

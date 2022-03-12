@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .changes_set import ChangesSet as ChangesSet_99de0aab
 
@@ -39,32 +40,32 @@ class ChangesEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.util.ChangesEvent'
     """Literal Constant ``com.sun.star.util.ChangesEvent``"""
 
-    def __init__(self, Base: object = None, Changes: ChangesSet_99de0aab = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Base: typing.Optional[object] = None, Changes: typing.Optional[ChangesSet_99de0aab] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Base`` can be another ``ChangesEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Base (object, optional): Base value
-            Changes (ChangesSet, optional): Changes value
+            Source (XInterface, optional): Source value.
+            Base (object, optional): Base value.
+            Changes (ChangesSet, optional): Changes value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Base, ChangesEvent):
-            oth: ChangesEvent = Base
-            self._base = oth.Base
-            self._changes = oth.Changes
-            return
-        else:
-            self._base = Base
-            if Changes is UNO_NONE:
-                self._changes = None
-            else:
-                self._changes = Changes
+        kargs = {
+            "Source": Source,
+            "Base": Base,
+            "Changes": Changes,
+        }
+        if kargs["Changes"] is UNO_NONE:
+            kargs["Changes"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._base = kwargs["Base"]
+        self._changes = kwargs["Changes"]
+        inst_keys = ('Base', 'Changes')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

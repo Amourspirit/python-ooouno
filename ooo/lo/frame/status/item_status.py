@@ -41,27 +41,24 @@ class ItemStatus(object):
     typeName: str = 'com.sun.star.frame.status.ItemStatus'
     """Literal Constant ``com.sun.star.frame.status.ItemStatus``"""
 
-    def __init__(self, State: int = 0, aStateData: object = None) -> None:
+    def __init__(self, State: typing.Optional[int] = 0, aStateData: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``State`` can be another ``ItemStatus`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            State (int, optional): State value
-            aStateData (object, optional): aStateData value
+            State (int, optional): State value.
+            aStateData (object, optional): aStateData value.
         """
-        if isinstance(State, ItemStatus):
-            oth: ItemStatus = State
-            self._state = oth.State
-            self._a_state_data = oth.aStateData
-            return
-        else:
-            self._state = State
-            self._a_state_data = aStateData
+        super().__init__()
+        kargs = {
+            "State": State,
+            "aStateData": aStateData,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._state = kwargs["State"]
+        self._a_state_data = kwargs["aStateData"]
 
 
     @property

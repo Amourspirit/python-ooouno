@@ -38,33 +38,30 @@ class BorderLine(object):
     typeName: str = 'com.sun.star.table.BorderLine'
     """Literal Constant ``com.sun.star.table.BorderLine``"""
 
-    def __init__(self, Color: Color_68e908c5 = Color_68e908c5(0), InnerLineWidth: int = 0, OuterLineWidth: int = 0, LineDistance: int = 0) -> None:
+    def __init__(self, Color: typing.Optional[Color_68e908c5] = Color_68e908c5(0), InnerLineWidth: typing.Optional[int] = 0, OuterLineWidth: typing.Optional[int] = 0, LineDistance: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Color`` can be another ``BorderLine`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Color (Color, optional): Color value
-            InnerLineWidth (int, optional): InnerLineWidth value
-            OuterLineWidth (int, optional): OuterLineWidth value
-            LineDistance (int, optional): LineDistance value
+            Color (Color, optional): Color value.
+            InnerLineWidth (int, optional): InnerLineWidth value.
+            OuterLineWidth (int, optional): OuterLineWidth value.
+            LineDistance (int, optional): LineDistance value.
         """
-        if isinstance(Color, BorderLine):
-            oth: BorderLine = Color
-            self._color = oth.Color
-            self._inner_line_width = oth.InnerLineWidth
-            self._outer_line_width = oth.OuterLineWidth
-            self._line_distance = oth.LineDistance
-            return
-        else:
-            self._color = Color
-            self._inner_line_width = InnerLineWidth
-            self._outer_line_width = OuterLineWidth
-            self._line_distance = LineDistance
+        super().__init__()
+        kargs = {
+            "Color": Color,
+            "InnerLineWidth": InnerLineWidth,
+            "OuterLineWidth": OuterLineWidth,
+            "LineDistance": LineDistance,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._color = kwargs["Color"]
+        self._inner_line_width = kwargs["InnerLineWidth"]
+        self._outer_line_width = kwargs["OuterLineWidth"]
+        self._line_distance = kwargs["LineDistance"]
 
 
     @property

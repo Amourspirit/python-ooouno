@@ -39,27 +39,24 @@ class CrossReference(object):
     typeName: str = 'com.sun.star.ucb.CrossReference'
     """Literal Constant ``com.sun.star.ucb.CrossReference``"""
 
-    def __init__(self, Group: str = '', Id: int = 0) -> None:
+    def __init__(self, Group: typing.Optional[str] = '', Id: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Group`` can be another ``CrossReference`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Group (str, optional): Group value
-            Id (int, optional): Id value
+            Group (str, optional): Group value.
+            Id (int, optional): Id value.
         """
-        if isinstance(Group, CrossReference):
-            oth: CrossReference = Group
-            self._group = oth.Group
-            self._id = oth.Id
-            return
-        else:
-            self._group = Group
-            self._id = Id
+        super().__init__()
+        kargs = {
+            "Group": Group,
+            "Id": Id,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._group = kwargs["Group"]
+        self._id = kwargs["Id"]
 
 
     @property

@@ -41,36 +41,33 @@ class Decimal(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.Decimal'
     """Literal Constant ``com.sun.star.bridge.oleautomation.Decimal``"""
 
-    def __init__(self, Scale: int = 0, Sign: int = 0, LowValue: int = 0, MiddleValue: int = 0, HighValue: int = 0) -> None:
+    def __init__(self, Scale: typing.Optional[int] = 0, Sign: typing.Optional[int] = 0, LowValue: typing.Optional[int] = 0, MiddleValue: typing.Optional[int] = 0, HighValue: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Scale`` can be another ``Decimal`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Scale (int, optional): Scale value
-            Sign (int, optional): Sign value
-            LowValue (int, optional): LowValue value
-            MiddleValue (int, optional): MiddleValue value
-            HighValue (int, optional): HighValue value
+            Scale (int, optional): Scale value.
+            Sign (int, optional): Sign value.
+            LowValue (int, optional): LowValue value.
+            MiddleValue (int, optional): MiddleValue value.
+            HighValue (int, optional): HighValue value.
         """
-        if isinstance(Scale, Decimal):
-            oth: Decimal = Scale
-            self._scale = oth.Scale
-            self._sign = oth.Sign
-            self._low_value = oth.LowValue
-            self._middle_value = oth.MiddleValue
-            self._high_value = oth.HighValue
-            return
-        else:
-            self._scale = Scale
-            self._sign = Sign
-            self._low_value = LowValue
-            self._middle_value = MiddleValue
-            self._high_value = HighValue
+        super().__init__()
+        kargs = {
+            "Scale": Scale,
+            "Sign": Sign,
+            "LowValue": LowValue,
+            "MiddleValue": MiddleValue,
+            "HighValue": HighValue,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._scale = kwargs["Scale"]
+        self._sign = kwargs["Sign"]
+        self._low_value = kwargs["LowValue"]
+        self._middle_value = kwargs["MiddleValue"]
+        self._high_value = kwargs["HighValue"]
 
 
     @property

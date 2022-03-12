@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..frame.x_model import XModel as XModel_7a6e095c
 
@@ -45,26 +46,27 @@ class MailMergeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.text.MailMergeEvent'
     """Literal Constant ``com.sun.star.text.MailMergeEvent``"""
 
-    def __init__(self, Model: XModel_7a6e095c = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Model: typing.Optional[XModel_7a6e095c] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Model`` can be another ``MailMergeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Model (XModel, optional): Model value
+            Source (XInterface, optional): Source value.
+            Model (XModel, optional): Model value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Model, MailMergeEvent):
-            oth: MailMergeEvent = Model
-            self._model = oth.Model
-            return
-        else:
-            self._model = Model
+        kargs = {
+            "Source": Source,
+            "Model": Model,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._model = kwargs["Model"]
+        inst_keys = ('Model',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

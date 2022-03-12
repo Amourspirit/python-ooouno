@@ -41,33 +41,30 @@ class MemberResult(object):
     typeName: str = 'com.sun.star.sheet.MemberResult'
     """Literal Constant ``com.sun.star.sheet.MemberResult``"""
 
-    def __init__(self, Name: str = '', Caption: str = '', Flags: int = 0, Value: float = 0.0) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Caption: typing.Optional[str] = '', Flags: typing.Optional[int] = 0, Value: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``MemberResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Caption (str, optional): Caption value
-            Flags (int, optional): Flags value
-            Value (float, optional): Value value
+            Name (str, optional): Name value.
+            Caption (str, optional): Caption value.
+            Flags (int, optional): Flags value.
+            Value (float, optional): Value value.
         """
-        if isinstance(Name, MemberResult):
-            oth: MemberResult = Name
-            self._name = oth.Name
-            self._caption = oth.Caption
-            self._flags = oth.Flags
-            self._value = oth.Value
-            return
-        else:
-            self._name = Name
-            self._caption = Caption
-            self._flags = Flags
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Name": Name,
+            "Caption": Caption,
+            "Flags": Flags,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._caption = kwargs["Caption"]
+        self._flags = kwargs["Flags"]
+        self._value = kwargs["Value"]
 
 
     @property

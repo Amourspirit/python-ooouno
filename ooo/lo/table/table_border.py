@@ -42,81 +42,72 @@ class TableBorder(object):
     typeName: str = 'com.sun.star.table.TableBorder'
     """Literal Constant ``com.sun.star.table.TableBorder``"""
 
-    def __init__(self, TopLine: BorderLine_a3f80af6 = UNO_NONE, IsTopLineValid: bool = False, BottomLine: BorderLine_a3f80af6 = UNO_NONE, IsBottomLineValid: bool = False, LeftLine: BorderLine_a3f80af6 = UNO_NONE, IsLeftLineValid: bool = False, RightLine: BorderLine_a3f80af6 = UNO_NONE, IsRightLineValid: bool = False, HorizontalLine: BorderLine_a3f80af6 = UNO_NONE, IsHorizontalLineValid: bool = False, VerticalLine: BorderLine_a3f80af6 = UNO_NONE, IsVerticalLineValid: bool = False, Distance: int = 0, IsDistanceValid: bool = False) -> None:
+    def __init__(self, TopLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsTopLineValid: typing.Optional[bool] = False, BottomLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsBottomLineValid: typing.Optional[bool] = False, LeftLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsLeftLineValid: typing.Optional[bool] = False, RightLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsRightLineValid: typing.Optional[bool] = False, HorizontalLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsHorizontalLineValid: typing.Optional[bool] = False, VerticalLine: typing.Optional[BorderLine_a3f80af6] = UNO_NONE, IsVerticalLineValid: typing.Optional[bool] = False, Distance: typing.Optional[int] = 0, IsDistanceValid: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TopLine`` can be another ``TableBorder`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TopLine (BorderLine, optional): TopLine value
-            IsTopLineValid (bool, optional): IsTopLineValid value
-            BottomLine (BorderLine, optional): BottomLine value
-            IsBottomLineValid (bool, optional): IsBottomLineValid value
-            LeftLine (BorderLine, optional): LeftLine value
-            IsLeftLineValid (bool, optional): IsLeftLineValid value
-            RightLine (BorderLine, optional): RightLine value
-            IsRightLineValid (bool, optional): IsRightLineValid value
-            HorizontalLine (BorderLine, optional): HorizontalLine value
-            IsHorizontalLineValid (bool, optional): IsHorizontalLineValid value
-            VerticalLine (BorderLine, optional): VerticalLine value
-            IsVerticalLineValid (bool, optional): IsVerticalLineValid value
-            Distance (int, optional): Distance value
-            IsDistanceValid (bool, optional): IsDistanceValid value
+            TopLine (BorderLine, optional): TopLine value.
+            IsTopLineValid (bool, optional): IsTopLineValid value.
+            BottomLine (BorderLine, optional): BottomLine value.
+            IsBottomLineValid (bool, optional): IsBottomLineValid value.
+            LeftLine (BorderLine, optional): LeftLine value.
+            IsLeftLineValid (bool, optional): IsLeftLineValid value.
+            RightLine (BorderLine, optional): RightLine value.
+            IsRightLineValid (bool, optional): IsRightLineValid value.
+            HorizontalLine (BorderLine, optional): HorizontalLine value.
+            IsHorizontalLineValid (bool, optional): IsHorizontalLineValid value.
+            VerticalLine (BorderLine, optional): VerticalLine value.
+            IsVerticalLineValid (bool, optional): IsVerticalLineValid value.
+            Distance (int, optional): Distance value.
+            IsDistanceValid (bool, optional): IsDistanceValid value.
         """
-        if isinstance(TopLine, TableBorder):
-            oth: TableBorder = TopLine
-            self._top_line = oth.TopLine
-            self._is_top_line_valid = oth.IsTopLineValid
-            self._bottom_line = oth.BottomLine
-            self._is_bottom_line_valid = oth.IsBottomLineValid
-            self._left_line = oth.LeftLine
-            self._is_left_line_valid = oth.IsLeftLineValid
-            self._right_line = oth.RightLine
-            self._is_right_line_valid = oth.IsRightLineValid
-            self._horizontal_line = oth.HorizontalLine
-            self._is_horizontal_line_valid = oth.IsHorizontalLineValid
-            self._vertical_line = oth.VerticalLine
-            self._is_vertical_line_valid = oth.IsVerticalLineValid
-            self._distance = oth.Distance
-            self._is_distance_valid = oth.IsDistanceValid
-            return
-        else:
-            if TopLine is UNO_NONE:
-                self._top_line = BorderLine_a3f80af6()
-            else:
-                self._top_line = TopLine
-            self._is_top_line_valid = IsTopLineValid
-            if BottomLine is UNO_NONE:
-                self._bottom_line = BorderLine_a3f80af6()
-            else:
-                self._bottom_line = BottomLine
-            self._is_bottom_line_valid = IsBottomLineValid
-            if LeftLine is UNO_NONE:
-                self._left_line = BorderLine_a3f80af6()
-            else:
-                self._left_line = LeftLine
-            self._is_left_line_valid = IsLeftLineValid
-            if RightLine is UNO_NONE:
-                self._right_line = BorderLine_a3f80af6()
-            else:
-                self._right_line = RightLine
-            self._is_right_line_valid = IsRightLineValid
-            if HorizontalLine is UNO_NONE:
-                self._horizontal_line = BorderLine_a3f80af6()
-            else:
-                self._horizontal_line = HorizontalLine
-            self._is_horizontal_line_valid = IsHorizontalLineValid
-            if VerticalLine is UNO_NONE:
-                self._vertical_line = BorderLine_a3f80af6()
-            else:
-                self._vertical_line = VerticalLine
-            self._is_vertical_line_valid = IsVerticalLineValid
-            self._distance = Distance
-            self._is_distance_valid = IsDistanceValid
+        super().__init__()
+        kargs = {
+            "TopLine": TopLine,
+            "IsTopLineValid": IsTopLineValid,
+            "BottomLine": BottomLine,
+            "IsBottomLineValid": IsBottomLineValid,
+            "LeftLine": LeftLine,
+            "IsLeftLineValid": IsLeftLineValid,
+            "RightLine": RightLine,
+            "IsRightLineValid": IsRightLineValid,
+            "HorizontalLine": HorizontalLine,
+            "IsHorizontalLineValid": IsHorizontalLineValid,
+            "VerticalLine": VerticalLine,
+            "IsVerticalLineValid": IsVerticalLineValid,
+            "Distance": Distance,
+            "IsDistanceValid": IsDistanceValid,
+        }
+        if kargs["TopLine"] is UNO_NONE:
+            kargs["TopLine"] = None
+        if kargs["BottomLine"] is UNO_NONE:
+            kargs["BottomLine"] = None
+        if kargs["LeftLine"] is UNO_NONE:
+            kargs["LeftLine"] = None
+        if kargs["RightLine"] is UNO_NONE:
+            kargs["RightLine"] = None
+        if kargs["HorizontalLine"] is UNO_NONE:
+            kargs["HorizontalLine"] = None
+        if kargs["VerticalLine"] is UNO_NONE:
+            kargs["VerticalLine"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._top_line = kwargs["TopLine"]
+        self._is_top_line_valid = kwargs["IsTopLineValid"]
+        self._bottom_line = kwargs["BottomLine"]
+        self._is_bottom_line_valid = kwargs["IsBottomLineValid"]
+        self._left_line = kwargs["LeftLine"]
+        self._is_left_line_valid = kwargs["IsLeftLineValid"]
+        self._right_line = kwargs["RightLine"]
+        self._is_right_line_valid = kwargs["IsRightLineValid"]
+        self._horizontal_line = kwargs["HorizontalLine"]
+        self._is_horizontal_line_valid = kwargs["IsHorizontalLineValid"]
+        self._vertical_line = kwargs["VerticalLine"]
+        self._is_vertical_line_valid = kwargs["IsVerticalLineValid"]
+        self._distance = kwargs["Distance"]
+        self._is_distance_valid = kwargs["IsDistanceValid"]
 
 
     @property

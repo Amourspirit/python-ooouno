@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.smarttags
 import typing
-from abc import abstractmethod
+from abc import abstractmethod, abstractproperty
 from ..lang.x_initialization import XInitialization as XInitialization_d46c0cca
 if typing.TYPE_CHECKING:
     from ..frame.x_controller import XController as XController_b00e0b8f
@@ -91,6 +91,12 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         """
         recognizes smart tags.
         """
+    @abstractproperty
+    def SmartTagCount(self) -> int:
+        """
+        The number of smart tag types supported by this recognizer component.
+        """
+
 
 __all__ = ['XSmartTagRecognizer']
 

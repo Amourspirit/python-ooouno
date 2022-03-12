@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .x_content import XContent as XContent_79db0975
 from .x_content_identifier import XContentIdentifier as XContentIdentifier_edc90d78
@@ -40,32 +41,33 @@ class ContentEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ucb.ContentEvent'
     """Literal Constant ``com.sun.star.ucb.ContentEvent``"""
 
-    def __init__(self, Action: int = 0, Content: XContent_79db0975 = None, Id: XContentIdentifier_edc90d78 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Action: typing.Optional[int] = 0, Content: typing.Optional[XContent_79db0975] = None, Id: typing.Optional[XContentIdentifier_edc90d78] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Action`` can be another ``ContentEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Action (int, optional): Action value
-            Content (XContent, optional): Content value
-            Id (XContentIdentifier, optional): Id value
+            Source (XInterface, optional): Source value.
+            Action (int, optional): Action value.
+            Content (XContent, optional): Content value.
+            Id (XContentIdentifier, optional): Id value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Action, ContentEvent):
-            oth: ContentEvent = Action
-            self._action = oth.Action
-            self._content = oth.Content
-            self._id = oth.Id
-            return
-        else:
-            self._action = Action
-            self._content = Content
-            self._id = Id
+        kargs = {
+            "Source": Source,
+            "Action": Action,
+            "Content": Content,
+            "Id": Id,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._action = kwargs["Action"]
+        self._content = kwargs["Content"]
+        self._id = kwargs["Id"]
+        inst_keys = ('Action', 'Content', 'Id')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

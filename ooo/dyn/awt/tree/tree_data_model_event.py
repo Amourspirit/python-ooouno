@@ -22,26 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Nodes = UNO_NONE, ParentNode = UNO_NONE, **kwargs):
-            if getattr(Nodes, "__class__", None) == self.__class__:
-                orig_init(self, Nodes)
+        ordered_keys = ('Source', 'Nodes', 'ParentNode')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Nodes is UNO_NONE:
-                if getattr(self, 'Nodes') != Nodes:
-                    setattr(self, 'Nodes', Nodes)
-            if not ParentNode is UNO_NONE:
-                if getattr(self, 'ParentNode') != ParentNode:
-                    setattr(self, 'ParentNode', ParentNode)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.tree.TreeDataModelEvent'
         struct = uno.getClass(type_name)
@@ -53,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TreeDataModelEvent = _get_class()
-
 
 else:
     from ....lo.awt.tree.tree_data_model_event import TreeDataModelEvent as TreeDataModelEvent

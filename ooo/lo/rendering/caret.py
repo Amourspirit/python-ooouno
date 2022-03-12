@@ -43,30 +43,27 @@ class Caret(object):
     typeName: str = 'com.sun.star.rendering.Caret'
     """Literal Constant ``com.sun.star.rendering.Caret``"""
 
-    def __init__(self, MainCaretIndex: int = 0, SecondaryCaretIndex: int = 0, CaretAngle: float = 0.0) -> None:
+    def __init__(self, MainCaretIndex: typing.Optional[int] = 0, SecondaryCaretIndex: typing.Optional[int] = 0, CaretAngle: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MainCaretIndex`` can be another ``Caret`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            MainCaretIndex (int, optional): MainCaretIndex value
-            SecondaryCaretIndex (int, optional): SecondaryCaretIndex value
-            CaretAngle (float, optional): CaretAngle value
+            MainCaretIndex (int, optional): MainCaretIndex value.
+            SecondaryCaretIndex (int, optional): SecondaryCaretIndex value.
+            CaretAngle (float, optional): CaretAngle value.
         """
-        if isinstance(MainCaretIndex, Caret):
-            oth: Caret = MainCaretIndex
-            self._main_caret_index = oth.MainCaretIndex
-            self._secondary_caret_index = oth.SecondaryCaretIndex
-            self._caret_angle = oth.CaretAngle
-            return
-        else:
-            self._main_caret_index = MainCaretIndex
-            self._secondary_caret_index = SecondaryCaretIndex
-            self._caret_angle = CaretAngle
+        super().__init__()
+        kargs = {
+            "MainCaretIndex": MainCaretIndex,
+            "SecondaryCaretIndex": SecondaryCaretIndex,
+            "CaretAngle": CaretAngle,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._main_caret_index = kwargs["MainCaretIndex"]
+        self._secondary_caret_index = kwargs["SecondaryCaretIndex"]
+        self._caret_angle = kwargs["CaretAngle"]
 
 
     @property

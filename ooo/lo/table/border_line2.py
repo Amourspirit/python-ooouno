@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .border_line import BorderLine as BorderLine_a3f80af6
+from ..util.color import Color as Color_68e908c5
 import typing
 
 
@@ -42,29 +43,36 @@ class BorderLine2(BorderLine_a3f80af6):
     typeName: str = 'com.sun.star.table.BorderLine2'
     """Literal Constant ``com.sun.star.table.BorderLine2``"""
 
-    def __init__(self, LineStyle: int = 0, LineWidth: int = 0, **kwargs) -> None:
+    def __init__(self, Color: typing.Optional[Color_68e908c5] = Color_68e908c5(0), InnerLineWidth: typing.Optional[int] = 0, OuterLineWidth: typing.Optional[int] = 0, LineDistance: typing.Optional[int] = 0, LineStyle: typing.Optional[int] = 0, LineWidth: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LineStyle`` can be another ``BorderLine2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            LineStyle (int, optional): LineStyle value
-            LineWidth (int, optional): LineWidth value
+            Color (Color, optional): Color value.
+            InnerLineWidth (int, optional): InnerLineWidth value.
+            OuterLineWidth (int, optional): OuterLineWidth value.
+            LineDistance (int, optional): LineDistance value.
+            LineStyle (int, optional): LineStyle value.
+            LineWidth (int, optional): LineWidth value.
         """
-        super().__init__(**kwargs)
-        if isinstance(LineStyle, BorderLine2):
-            oth: BorderLine2 = LineStyle
-            self._line_style = oth.LineStyle
-            self._line_width = oth.LineWidth
-            return
-        else:
-            self._line_style = LineStyle
-            self._line_width = LineWidth
+        kargs = {
+            "Color": Color,
+            "InnerLineWidth": InnerLineWidth,
+            "OuterLineWidth": OuterLineWidth,
+            "LineDistance": LineDistance,
+            "LineStyle": LineStyle,
+            "LineWidth": LineWidth,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._line_style = kwargs["LineStyle"]
+        self._line_width = kwargs["LineWidth"]
+        inst_keys = ('LineStyle', 'LineWidth')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -21,11 +21,15 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from ..task.interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 from ..container.x_index_access import XIndexAccess as XIndexAccess_f0910d6d
 from ..sdbc.x_connection import XConnection as XConnection_a36a0b0c
 
 class ParametersRequest(ClassifiedInteractionRequest_9f72121b):
     """
+    Exception Class
+
     an error specifying the lack of parameters values
     
     Usually thrown if someone tries to execute an SQL statement containing parameters which can't be filled by the executing instance.
@@ -43,20 +47,34 @@ class ParametersRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.sdb.ParametersRequest'
     """Literal Constant ``com.sun.star.sdb.ParametersRequest``"""
 
-    def __init__(self, Parameters: typing.Optional[XIndexAccess_f0910d6d] = None, Connection: typing.Optional[XConnection_a36a0b0c] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, Parameters: typing.Optional[XIndexAccess_f0910d6d] = None, Connection: typing.Optional[XConnection_a36a0b0c] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            Classification (InteractionClassification, optional): Classification value.
             Parameters (XIndexAccess, optional): Parameters value.
             Connection (XConnection, optional): Connection value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+            "Parameters": Parameters,
+            "Connection": Connection,
+        }
+        self._init(**kargs)
 
-        self._parameters = Parameters
-        self._connection = Connection
+    def _init(self, **kwargs) -> None:
+        self._parameters = kwargs["Parameters"]
+        self._connection = kwargs["Connection"]
+        inst_keys = ('Parameters', 'Connection')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Parameters(self) -> XIndexAccess_f0910d6d:

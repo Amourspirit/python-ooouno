@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -37,29 +38,30 @@ class ContextChangeEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.ContextChangeEventObject'
     """Literal Constant ``com.sun.star.ui.ContextChangeEventObject``"""
 
-    def __init__(self, ApplicationName: str = '', ContextName: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, ApplicationName: typing.Optional[str] = '', ContextName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ApplicationName`` can be another ``ContextChangeEventObject`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ApplicationName (str, optional): ApplicationName value
-            ContextName (str, optional): ContextName value
+            Source (XInterface, optional): Source value.
+            ApplicationName (str, optional): ApplicationName value.
+            ContextName (str, optional): ContextName value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ApplicationName, ContextChangeEventObject):
-            oth: ContextChangeEventObject = ApplicationName
-            self._application_name = oth.ApplicationName
-            self._context_name = oth.ContextName
-            return
-        else:
-            self._application_name = ApplicationName
-            self._context_name = ContextName
+        kargs = {
+            "Source": Source,
+            "ApplicationName": ApplicationName,
+            "ContextName": ContextName,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._application_name = kwargs["ApplicationName"]
+        self._context_name = kwargs["ContextName"]
+        inst_keys = ('ApplicationName', 'ContextName')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

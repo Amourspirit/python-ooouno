@@ -43,30 +43,27 @@ class ChartDataValue(object):
     typeName: str = 'com.sun.star.chart.ChartDataValue'
     """Literal Constant ``com.sun.star.chart.ChartDataValue``"""
 
-    def __init__(self, Value: float = 0.0, HighError: float = 0.0, LowError: float = 0.0) -> None:
+    def __init__(self, Value: typing.Optional[float] = 0.0, HighError: typing.Optional[float] = 0.0, LowError: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``ChartDataValue`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (float, optional): Value value
-            HighError (float, optional): HighError value
-            LowError (float, optional): LowError value
+            Value (float, optional): Value value.
+            HighError (float, optional): HighError value.
+            LowError (float, optional): LowError value.
         """
-        if isinstance(Value, ChartDataValue):
-            oth: ChartDataValue = Value
-            self._value = oth.Value
-            self._high_error = oth.HighError
-            self._low_error = oth.LowError
-            return
-        else:
-            self._value = Value
-            self._high_error = HighError
-            self._low_error = LowError
+        super().__init__()
+        kargs = {
+            "Value": Value,
+            "HighError": HighError,
+            "LowError": LowError,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._high_error = kwargs["HighError"]
+        self._low_error = kwargs["LowError"]
 
 
     @property

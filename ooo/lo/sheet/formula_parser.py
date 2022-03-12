@@ -62,6 +62,30 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
         Names and symbols not defined here lead to a parser/print error.
         """
 
+    @abstractproperty
+    def CompileEnglish(self) -> bool:
+        """
+        specifies whether to use English parser and formatter.
+        
+        Note: When changing this, an already existing OpCodeMap needs to be recreated internally, so for performance reasons set this before setting the OpCodeMap.
+        """
+
+    @abstractproperty
+    def FormulaConvention(self) -> int:
+        """
+        specifies which address reference style convention to use when parsing a formula string.
+        """
+
+    @abstractproperty
+    def IgnoreLeadingSpaces(self) -> bool:
+        """
+        """
+
+    @abstractproperty
+    def ParameterSeparator(self) -> str:
+        """
+        """
+
 
 
 __all__ = ['FormulaParser']

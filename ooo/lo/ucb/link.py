@@ -37,27 +37,24 @@ class Link(object):
     typeName: str = 'com.sun.star.ucb.Link'
     """Literal Constant ``com.sun.star.ucb.Link``"""
 
-    def __init__(self, Source: str = '', Destination: str = '') -> None:
+    def __init__(self, Source: typing.Optional[str] = '', Destination: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Source`` can be another ``Link`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Source (str, optional): Source value
-            Destination (str, optional): Destination value
+            Source (str, optional): Source value.
+            Destination (str, optional): Destination value.
         """
-        if isinstance(Source, Link):
-            oth: Link = Source
-            self._source = oth.Source
-            self._destination = oth.Destination
-            return
-        else:
-            self._source = Source
-            self._destination = Destination
+        super().__init__()
+        kargs = {
+            "Source": Source,
+            "Destination": Destination,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._source = kwargs["Source"]
+        self._destination = kwargs["Destination"]
 
 
     @property

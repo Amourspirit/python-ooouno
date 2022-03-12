@@ -37,36 +37,33 @@ class LanguageCountryInfo(object):
     typeName: str = 'com.sun.star.i18n.LanguageCountryInfo'
     """Literal Constant ``com.sun.star.i18n.LanguageCountryInfo``"""
 
-    def __init__(self, Language: str = '', LanguageDefaultName: str = '', Country: str = '', CountryDefaultName: str = '', Variant: str = '') -> None:
+    def __init__(self, Language: typing.Optional[str] = '', LanguageDefaultName: typing.Optional[str] = '', Country: typing.Optional[str] = '', CountryDefaultName: typing.Optional[str] = '', Variant: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Language`` can be another ``LanguageCountryInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Language (str, optional): Language value
-            LanguageDefaultName (str, optional): LanguageDefaultName value
-            Country (str, optional): Country value
-            CountryDefaultName (str, optional): CountryDefaultName value
-            Variant (str, optional): Variant value
+            Language (str, optional): Language value.
+            LanguageDefaultName (str, optional): LanguageDefaultName value.
+            Country (str, optional): Country value.
+            CountryDefaultName (str, optional): CountryDefaultName value.
+            Variant (str, optional): Variant value.
         """
-        if isinstance(Language, LanguageCountryInfo):
-            oth: LanguageCountryInfo = Language
-            self._language = oth.Language
-            self._language_default_name = oth.LanguageDefaultName
-            self._country = oth.Country
-            self._country_default_name = oth.CountryDefaultName
-            self._variant = oth.Variant
-            return
-        else:
-            self._language = Language
-            self._language_default_name = LanguageDefaultName
-            self._country = Country
-            self._country_default_name = CountryDefaultName
-            self._variant = Variant
+        super().__init__()
+        kargs = {
+            "Language": Language,
+            "LanguageDefaultName": LanguageDefaultName,
+            "Country": Country,
+            "CountryDefaultName": CountryDefaultName,
+            "Variant": Variant,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._language = kwargs["Language"]
+        self._language_default_name = kwargs["LanguageDefaultName"]
+        self._country = kwargs["Country"]
+        self._country_default_name = kwargs["CountryDefaultName"]
+        self._variant = kwargs["Variant"]
 
 
     @property

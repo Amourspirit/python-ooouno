@@ -22,35 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FeatureURL = UNO_NONE, FeatureDescriptor = UNO_NONE, IsEnabled = UNO_NONE, Requery = UNO_NONE, State = UNO_NONE, **kwargs):
-            if getattr(FeatureURL, "__class__", None) == self.__class__:
-                orig_init(self, FeatureURL)
+        ordered_keys = ('Source', 'FeatureURL', 'FeatureDescriptor', 'IsEnabled', 'Requery', 'State')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FeatureURL is UNO_NONE:
-                if getattr(self, 'FeatureURL') != FeatureURL:
-                    setattr(self, 'FeatureURL', FeatureURL)
-            if not FeatureDescriptor is UNO_NONE:
-                if getattr(self, 'FeatureDescriptor') != FeatureDescriptor:
-                    setattr(self, 'FeatureDescriptor', FeatureDescriptor)
-            if not IsEnabled is UNO_NONE:
-                if getattr(self, 'IsEnabled') != IsEnabled:
-                    setattr(self, 'IsEnabled', IsEnabled)
-            if not Requery is UNO_NONE:
-                if getattr(self, 'Requery') != Requery:
-                    setattr(self, 'Requery', Requery)
-            if not State is UNO_NONE:
-                if getattr(self, 'State') != State:
-                    setattr(self, 'State', State)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.frame.FeatureStateEvent'
         struct = uno.getClass(type_name)
@@ -62,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FeatureStateEvent = _get_class()
-
 
 else:
     from ...lo.frame.feature_state_event import FeatureStateEvent as FeatureStateEvent

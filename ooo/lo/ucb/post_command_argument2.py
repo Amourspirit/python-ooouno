@@ -20,6 +20,8 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .post_command_argument import PostCommandArgument as PostCommandArgument_fc590dea
+from ..io.x_input_stream import XInputStream as XInputStream_98d40ab4
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,29 +40,32 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
     typeName: str = 'com.sun.star.ucb.PostCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.PostCommandArgument2``"""
 
-    def __init__(self, MediaType: str = '', Referer: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInputStream_98d40ab4] = None, Sink: typing.Optional[XInterface_8f010a43] = None, MediaType: typing.Optional[str] = '', Referer: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MediaType`` can be another ``PostCommandArgument2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            MediaType (str, optional): MediaType value
-            Referer (str, optional): Referer value
+            Source (XInputStream, optional): Source value.
+            Sink (XInterface, optional): Sink value.
+            MediaType (str, optional): MediaType value.
+            Referer (str, optional): Referer value.
         """
-        super().__init__(**kwargs)
-        if isinstance(MediaType, PostCommandArgument2):
-            oth: PostCommandArgument2 = MediaType
-            self._media_type = oth.MediaType
-            self._referer = oth.Referer
-            return
-        else:
-            self._media_type = MediaType
-            self._referer = Referer
+        kargs = {
+            "Source": Source,
+            "Sink": Sink,
+            "MediaType": MediaType,
+            "Referer": Referer,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._media_type = kwargs["MediaType"]
+        self._referer = kwargs["Referer"]
+        inst_keys = ('MediaType', 'Referer')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -44,30 +44,26 @@ class AccessibleRelation(object):
     typeName: str = 'com.sun.star.accessibility.AccessibleRelation'
     """Literal Constant ``com.sun.star.accessibility.AccessibleRelation``"""
 
-    def __init__(self, TargetSet: typing.Tuple[XInterface_8f010a43, ...] = UNO_NONE, RelationType: int = 0) -> None:
+    def __init__(self, TargetSet: typing.Optional[typing.Tuple[XInterface_8f010a43, ...]] = UNO_NONE, RelationType: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TargetSet`` can be another ``AccessibleRelation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TargetSet (Tuple[XInterface, ...], optional): TargetSet value
-            RelationType (int, optional): RelationType value
+            TargetSet (typing.Tuple[XInterface, ...], optional): TargetSet value.
+            RelationType (int, optional): RelationType value.
         """
-        if isinstance(TargetSet, AccessibleRelation):
-            oth: AccessibleRelation = TargetSet
-            self._target_set = oth.TargetSet
-            self._relation_type = oth.RelationType
-            return
-        else:
-            if TargetSet is UNO_NONE:
-                self._target_set = None
-            else:
-                self._target_set = TargetSet
-            self._relation_type = RelationType
+        super().__init__()
+        kargs = {
+            "TargetSet": TargetSet,
+            "RelationType": RelationType,
+        }
+        if kargs["TargetSet"] is UNO_NONE:
+            kargs["TargetSet"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._target_set = kwargs["TargetSet"]
+        self._relation_type = kwargs["RelationType"]
 
 
     @property

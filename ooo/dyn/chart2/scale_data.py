@@ -22,48 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Minimum = UNO_NONE, Maximum = UNO_NONE, Origin = UNO_NONE, Orientation = UNO_NONE, Scaling = UNO_NONE, Categories = UNO_NONE, AxisType = UNO_NONE, AutoDateAxis = UNO_NONE, ShiftedCategoryPosition = UNO_NONE, IncrementData = UNO_NONE, TimeIncrement = UNO_NONE):
-            if getattr(Minimum, "__class__", None) == self.__class__:
-                orig_init(self, Minimum)
+        ordered_keys = ('Minimum', 'Maximum', 'Origin', 'Orientation', 'Scaling', 'Categories', 'AxisType', 'AutoDateAxis', 'ShiftedCategoryPosition', 'IncrementData', 'TimeIncrement')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Minimum is UNO_NONE:
-                if getattr(self, 'Minimum') != Minimum:
-                    setattr(self, 'Minimum', Minimum)
-            if not Maximum is UNO_NONE:
-                if getattr(self, 'Maximum') != Maximum:
-                    setattr(self, 'Maximum', Maximum)
-            if not Origin is UNO_NONE:
-                if getattr(self, 'Origin') != Origin:
-                    setattr(self, 'Origin', Origin)
-            if not Orientation is UNO_NONE:
-                if getattr(self, 'Orientation') != Orientation:
-                    setattr(self, 'Orientation', Orientation)
-            if not Scaling is UNO_NONE:
-                if getattr(self, 'Scaling') != Scaling:
-                    setattr(self, 'Scaling', Scaling)
-            if not Categories is UNO_NONE:
-                if getattr(self, 'Categories') != Categories:
-                    setattr(self, 'Categories', Categories)
-            if not AxisType is UNO_NONE:
-                if getattr(self, 'AxisType') != AxisType:
-                    setattr(self, 'AxisType', AxisType)
-            if not AutoDateAxis is UNO_NONE:
-                if getattr(self, 'AutoDateAxis') != AutoDateAxis:
-                    setattr(self, 'AutoDateAxis', AutoDateAxis)
-            if not ShiftedCategoryPosition is UNO_NONE:
-                if getattr(self, 'ShiftedCategoryPosition') != ShiftedCategoryPosition:
-                    setattr(self, 'ShiftedCategoryPosition', ShiftedCategoryPosition)
-            if not IncrementData is UNO_NONE:
-                if getattr(self, 'IncrementData') != IncrementData:
-                    setattr(self, 'IncrementData', IncrementData)
-            if not TimeIncrement is UNO_NONE:
-                if getattr(self, 'TimeIncrement') != TimeIncrement:
-                    setattr(self, 'TimeIncrement', TimeIncrement)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.ScaleData'
         struct = uno.getClass(type_name)
@@ -75,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ScaleData = _get_class()
-
 
 else:
     from ...lo.chart2.scale_data import ScaleData as ScaleData

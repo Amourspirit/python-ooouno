@@ -37,30 +37,27 @@ class MenuSingleChange(object):
     typeName: str = 'com.sun.star.mozilla.MenuSingleChange'
     """Literal Constant ``com.sun.star.mozilla.MenuSingleChange``"""
 
-    def __init__(self, ID: int = 0, ChangeID: int = 0, Change: object = None) -> None:
+    def __init__(self, ID: typing.Optional[int] = 0, ChangeID: typing.Optional[int] = 0, Change: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ID`` can be another ``MenuSingleChange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ID (int, optional): ID value
-            ChangeID (int, optional): ChangeID value
-            Change (object, optional): Change value
+            ID (int, optional): ID value.
+            ChangeID (int, optional): ChangeID value.
+            Change (object, optional): Change value.
         """
-        if isinstance(ID, MenuSingleChange):
-            oth: MenuSingleChange = ID
-            self._id = oth.ID
-            self._change_id = oth.ChangeID
-            self._change = oth.Change
-            return
-        else:
-            self._id = ID
-            self._change_id = ChangeID
-            self._change = Change
+        super().__init__()
+        kargs = {
+            "ID": ID,
+            "ChangeID": ChangeID,
+            "Change": Change,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._id = kwargs["ID"]
+        self._change_id = kwargs["ChangeID"]
+        self._change = kwargs["Change"]
 
 
     @property

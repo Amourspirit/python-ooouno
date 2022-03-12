@@ -38,27 +38,24 @@ class SubTotalColumn(object):
     typeName: str = 'com.sun.star.sheet.SubTotalColumn'
     """Literal Constant ``com.sun.star.sheet.SubTotalColumn``"""
 
-    def __init__(self, Column: int = 0, Function: GeneralFunction_e2280d25 = GeneralFunction_e2280d25.NONE) -> None:
+    def __init__(self, Column: typing.Optional[int] = 0, Function: typing.Optional[GeneralFunction_e2280d25] = GeneralFunction_e2280d25.NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Column`` can be another ``SubTotalColumn`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Column (int, optional): Column value
-            Function (GeneralFunction, optional): Function value
+            Column (int, optional): Column value.
+            Function (GeneralFunction, optional): Function value.
         """
-        if isinstance(Column, SubTotalColumn):
-            oth: SubTotalColumn = Column
-            self._column = oth.Column
-            self._function = oth.Function
-            return
-        else:
-            self._column = Column
-            self._function = Function
+        super().__init__()
+        kargs = {
+            "Column": Column,
+            "Function": Function,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._column = kwargs["Column"]
+        self._function = kwargs["Function"]
 
 
     @property

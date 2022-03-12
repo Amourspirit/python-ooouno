@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.script.vba
 import typing
-from abc import abstractmethod, ABC
+from abc import abstractmethod, abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from .xvba_script_listener import XVBAScriptListener as XVBAScriptListener_533e0ff0
 
@@ -46,6 +46,21 @@ class XVBACompatibility(ABC):
     def removeVBAScriptListener(self, Listener: 'XVBAScriptListener_533e0ff0') -> None:
         """
         """
+    @abstractproperty
+    def ProjectName(self) -> str:
+        """
+        """
+
+    @abstractproperty
+    def RunningVBAScripts(self) -> int:
+        """
+        """
+
+    @abstractproperty
+    def VBACompatibilityMode(self) -> bool:
+        """
+        """
+
 
 __all__ = ['XVBACompatibility']
 

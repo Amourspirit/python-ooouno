@@ -36,27 +36,24 @@ class EnhancedCustomShapeSegment(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeSegment'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeSegment``"""
 
-    def __init__(self, Command: int = 0, Count: int = 0) -> None:
+    def __init__(self, Command: typing.Optional[int] = 0, Count: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Command`` can be another ``EnhancedCustomShapeSegment`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Command (int, optional): Command value
-            Count (int, optional): Count value
+            Command (int, optional): Command value.
+            Count (int, optional): Count value.
         """
-        if isinstance(Command, EnhancedCustomShapeSegment):
-            oth: EnhancedCustomShapeSegment = Command
-            self._command = oth.Command
-            self._count = oth.Count
-            return
-        else:
-            self._command = Command
-            self._count = Count
+        super().__init__()
+        kargs = {
+            "Command": Command,
+            "Count": Count,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._command = kwargs["Command"]
+        self._count = kwargs["Count"]
 
 
     @property

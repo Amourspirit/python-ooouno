@@ -42,30 +42,26 @@ class TimeWithTimezone(object):
     typeName: str = 'com.sun.star.util.TimeWithTimezone'
     """Literal Constant ``com.sun.star.util.TimeWithTimezone``"""
 
-    def __init__(self, TimeInTZ: Time_604e0855 = UNO_NONE, Timezone: int = 0) -> None:
+    def __init__(self, TimeInTZ: typing.Optional[Time_604e0855] = UNO_NONE, Timezone: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TimeInTZ`` can be another ``TimeWithTimezone`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TimeInTZ (Time, optional): TimeInTZ value
-            Timezone (int, optional): Timezone value
+            TimeInTZ (Time, optional): TimeInTZ value.
+            Timezone (int, optional): Timezone value.
         """
-        if isinstance(TimeInTZ, TimeWithTimezone):
-            oth: TimeWithTimezone = TimeInTZ
-            self._time_in_tz = oth.TimeInTZ
-            self._timezone = oth.Timezone
-            return
-        else:
-            if TimeInTZ is UNO_NONE:
-                self._time_in_tz = Time_604e0855()
-            else:
-                self._time_in_tz = TimeInTZ
-            self._timezone = Timezone
+        super().__init__()
+        kargs = {
+            "TimeInTZ": TimeInTZ,
+            "Timezone": Timezone,
+        }
+        if kargs["TimeInTZ"] is UNO_NONE:
+            kargs["TimeInTZ"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._time_in_tz = kwargs["TimeInTZ"]
+        self._timezone = kwargs["Timezone"]
 
 
     @property

@@ -43,39 +43,36 @@ class IntegerBezierSegment2D(object):
     typeName: str = 'com.sun.star.geometry.IntegerBezierSegment2D'
     """Literal Constant ``com.sun.star.geometry.IntegerBezierSegment2D``"""
 
-    def __init__(self, Px: int = 0, Py: int = 0, C1x: int = 0, C1y: int = 0, C2x: int = 0, C2y: int = 0) -> None:
+    def __init__(self, Px: typing.Optional[int] = 0, Py: typing.Optional[int] = 0, C1x: typing.Optional[int] = 0, C1y: typing.Optional[int] = 0, C2x: typing.Optional[int] = 0, C2y: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Px`` can be another ``IntegerBezierSegment2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Px (int, optional): Px value
-            Py (int, optional): Py value
-            C1x (int, optional): C1x value
-            C1y (int, optional): C1y value
-            C2x (int, optional): C2x value
-            C2y (int, optional): C2y value
+            Px (int, optional): Px value.
+            Py (int, optional): Py value.
+            C1x (int, optional): C1x value.
+            C1y (int, optional): C1y value.
+            C2x (int, optional): C2x value.
+            C2y (int, optional): C2y value.
         """
-        if isinstance(Px, IntegerBezierSegment2D):
-            oth: IntegerBezierSegment2D = Px
-            self._px = oth.Px
-            self._py = oth.Py
-            self._c1x = oth.C1x
-            self._c1y = oth.C1y
-            self._c2x = oth.C2x
-            self._c2y = oth.C2y
-            return
-        else:
-            self._px = Px
-            self._py = Py
-            self._c1x = C1x
-            self._c1y = C1y
-            self._c2x = C2x
-            self._c2y = C2y
+        super().__init__()
+        kargs = {
+            "Px": Px,
+            "Py": Py,
+            "C1x": C1x,
+            "C1y": C1y,
+            "C2x": C2x,
+            "C2y": C2y,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._px = kwargs["Px"]
+        self._py = kwargs["Py"]
+        self._c1x = kwargs["C1x"]
+        self._c1y = kwargs["C1y"]
+        self._c2x = kwargs["C2x"]
+        self._c2y = kwargs["C2y"]
 
 
     @property

@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, DashArray = UNO_NONE, LineArray = UNO_NONE, StrokeWidth = UNO_NONE, MiterLimit = UNO_NONE, StartCapType = UNO_NONE, EndCapType = UNO_NONE, JoinType = UNO_NONE):
-            if getattr(DashArray, "__class__", None) == self.__class__:
-                orig_init(self, DashArray)
+        ordered_keys = ('DashArray', 'LineArray', 'StrokeWidth', 'MiterLimit', 'StartCapType', 'EndCapType', 'JoinType')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not DashArray is UNO_NONE:
-                if getattr(self, 'DashArray') != DashArray:
-                    setattr(self, 'DashArray', DashArray)
-            if not LineArray is UNO_NONE:
-                if getattr(self, 'LineArray') != LineArray:
-                    setattr(self, 'LineArray', LineArray)
-            if not StrokeWidth is UNO_NONE:
-                if getattr(self, 'StrokeWidth') != StrokeWidth:
-                    setattr(self, 'StrokeWidth', StrokeWidth)
-            if not MiterLimit is UNO_NONE:
-                if getattr(self, 'MiterLimit') != MiterLimit:
-                    setattr(self, 'MiterLimit', MiterLimit)
-            if not StartCapType is UNO_NONE:
-                if getattr(self, 'StartCapType') != StartCapType:
-                    setattr(self, 'StartCapType', StartCapType)
-            if not EndCapType is UNO_NONE:
-                if getattr(self, 'EndCapType') != EndCapType:
-                    setattr(self, 'EndCapType', EndCapType)
-            if not JoinType is UNO_NONE:
-                if getattr(self, 'JoinType') != JoinType:
-                    setattr(self, 'JoinType', JoinType)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.StrokeAttributes'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     StrokeAttributes = _get_class()
-
 
 else:
     from ...lo.rendering.stroke_attributes import StrokeAttributes as StrokeAttributes

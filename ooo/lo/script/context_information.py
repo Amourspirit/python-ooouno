@@ -41,45 +41,41 @@ class ContextInformation(object):
     typeName: str = 'com.sun.star.script.ContextInformation'
     """Literal Constant ``com.sun.star.script.ContextInformation``"""
 
-    def __init__(self, LocalVariableNames: typing.Tuple[str, ...] = UNO_NONE, Name: str = '', SourceCode: str = '', StartLine: int = 0, StartColumn: int = 0, EndLine: int = 0, EndColumn: int = 0) -> None:
+    def __init__(self, LocalVariableNames: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Name: typing.Optional[str] = '', SourceCode: typing.Optional[str] = '', StartLine: typing.Optional[int] = 0, StartColumn: typing.Optional[int] = 0, EndLine: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LocalVariableNames`` can be another ``ContextInformation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            LocalVariableNames (Tuple[str, ...], optional): LocalVariableNames value
-            Name (str, optional): Name value
-            SourceCode (str, optional): SourceCode value
-            StartLine (int, optional): StartLine value
-            StartColumn (int, optional): StartColumn value
-            EndLine (int, optional): EndLine value
-            EndColumn (int, optional): EndColumn value
+            LocalVariableNames (typing.Tuple[str, ...], optional): LocalVariableNames value.
+            Name (str, optional): Name value.
+            SourceCode (str, optional): SourceCode value.
+            StartLine (int, optional): StartLine value.
+            StartColumn (int, optional): StartColumn value.
+            EndLine (int, optional): EndLine value.
+            EndColumn (int, optional): EndColumn value.
         """
-        if isinstance(LocalVariableNames, ContextInformation):
-            oth: ContextInformation = LocalVariableNames
-            self._local_variable_names = oth.LocalVariableNames
-            self._name = oth.Name
-            self._source_code = oth.SourceCode
-            self._start_line = oth.StartLine
-            self._start_column = oth.StartColumn
-            self._end_line = oth.EndLine
-            self._end_column = oth.EndColumn
-            return
-        else:
-            if LocalVariableNames is UNO_NONE:
-                self._local_variable_names = None
-            else:
-                self._local_variable_names = LocalVariableNames
-            self._name = Name
-            self._source_code = SourceCode
-            self._start_line = StartLine
-            self._start_column = StartColumn
-            self._end_line = EndLine
-            self._end_column = EndColumn
+        super().__init__()
+        kargs = {
+            "LocalVariableNames": LocalVariableNames,
+            "Name": Name,
+            "SourceCode": SourceCode,
+            "StartLine": StartLine,
+            "StartColumn": StartColumn,
+            "EndLine": EndLine,
+            "EndColumn": EndColumn,
+        }
+        if kargs["LocalVariableNames"] is UNO_NONE:
+            kargs["LocalVariableNames"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._local_variable_names = kwargs["LocalVariableNames"]
+        self._name = kwargs["Name"]
+        self._source_code = kwargs["SourceCode"]
+        self._start_line = kwargs["StartLine"]
+        self._start_column = kwargs["StartColumn"]
+        self._end_line = kwargs["EndLine"]
+        self._end_column = kwargs["EndColumn"]
 
 
     @property

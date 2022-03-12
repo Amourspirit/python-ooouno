@@ -43,36 +43,33 @@ class Uik(object):
     typeName: str = 'com.sun.star.uno.Uik'
     """Literal Constant ``com.sun.star.uno.Uik``"""
 
-    def __init__(self, Data1: int = 0, Data2: int = 0, Data3: int = 0, Data4: int = 0, Data5: int = 0) -> None:
+    def __init__(self, Data1: typing.Optional[int] = 0, Data2: typing.Optional[int] = 0, Data3: typing.Optional[int] = 0, Data4: typing.Optional[int] = 0, Data5: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Data1`` can be another ``Uik`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Data1 (int, optional): Data1 value
-            Data2 (int, optional): Data2 value
-            Data3 (int, optional): Data3 value
-            Data4 (int, optional): Data4 value
-            Data5 (int, optional): Data5 value
+            Data1 (int, optional): Data1 value.
+            Data2 (int, optional): Data2 value.
+            Data3 (int, optional): Data3 value.
+            Data4 (int, optional): Data4 value.
+            Data5 (int, optional): Data5 value.
         """
-        if isinstance(Data1, Uik):
-            oth: Uik = Data1
-            self._data1 = oth.Data1
-            self._data2 = oth.Data2
-            self._data3 = oth.Data3
-            self._data4 = oth.Data4
-            self._data5 = oth.Data5
-            return
-        else:
-            self._data1 = Data1
-            self._data2 = Data2
-            self._data3 = Data3
-            self._data4 = Data4
-            self._data5 = Data5
+        super().__init__()
+        kargs = {
+            "Data1": Data1,
+            "Data2": Data2,
+            "Data3": Data3,
+            "Data4": Data4,
+            "Data5": Data5,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._data1 = kwargs["Data1"]
+        self._data2 = kwargs["Data2"]
+        self._data3 = kwargs["Data3"]
+        self._data4 = kwargs["Data4"]
+        self._data5 = kwargs["Data5"]
 
 
     @property

@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Source = UNO_NONE, Trigger = UNO_NONE, Offset = UNO_NONE, Repeat = UNO_NONE):
-            if getattr(Source, "__class__", None) == self.__class__:
-                orig_init(self, Source)
+        ordered_keys = ('Source', 'Trigger', 'Offset', 'Repeat')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Source is UNO_NONE:
-                if getattr(self, 'Source') != Source:
-                    setattr(self, 'Source', Source)
-            if not Trigger is UNO_NONE:
-                if getattr(self, 'Trigger') != Trigger:
-                    setattr(self, 'Trigger', Trigger)
-            if not Offset is UNO_NONE:
-                if getattr(self, 'Offset') != Offset:
-                    setattr(self, 'Offset', Offset)
-            if not Repeat is UNO_NONE:
-                if getattr(self, 'Repeat') != Repeat:
-                    setattr(self, 'Repeat', Repeat)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.animations.Event'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Event = _get_class()
-
 
 else:
     from ...lo.animations.event import Event as Event

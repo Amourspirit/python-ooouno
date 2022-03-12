@@ -46,60 +46,54 @@ class ProofreadingResult(object):
     typeName: str = 'com.sun.star.linguistic2.ProofreadingResult'
     """Literal Constant ``com.sun.star.linguistic2.ProofreadingResult``"""
 
-    def __init__(self, aErrors: typing.Tuple[SingleProofreadingError_c54812c1, ...] = UNO_NONE, aProperties: typing.Tuple[PropertyValue_c9610c73, ...] = UNO_NONE, aDocumentIdentifier: str = '', xFlatParagraph: XFlatParagraph_c8310c42 = None, aText: str = '', aLocale: Locale_70d308fa = UNO_NONE, nStartOfSentencePosition: int = 0, nBehindEndOfSentencePosition: int = 0, nStartOfNextSentencePosition: int = 0, xProofreader: XProofreader_dab0e46 = None) -> None:
+    def __init__(self, aErrors: typing.Optional[typing.Tuple[SingleProofreadingError_c54812c1, ...]] = UNO_NONE, aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, aDocumentIdentifier: typing.Optional[str] = '', xFlatParagraph: typing.Optional[XFlatParagraph_c8310c42] = None, aText: typing.Optional[str] = '', aLocale: typing.Optional[Locale_70d308fa] = UNO_NONE, nStartOfSentencePosition: typing.Optional[int] = 0, nBehindEndOfSentencePosition: typing.Optional[int] = 0, nStartOfNextSentencePosition: typing.Optional[int] = 0, xProofreader: typing.Optional[XProofreader_dab0e46] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aErrors`` can be another ``ProofreadingResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aErrors (Tuple[SingleProofreadingError, ...], optional): aErrors value
-            aProperties (Tuple[PropertyValue, ...], optional): aProperties value
-            aDocumentIdentifier (str, optional): aDocumentIdentifier value
-            xFlatParagraph (XFlatParagraph, optional): xFlatParagraph value
-            aText (str, optional): aText value
-            aLocale (Locale, optional): aLocale value
-            nStartOfSentencePosition (int, optional): nStartOfSentencePosition value
-            nBehindEndOfSentencePosition (int, optional): nBehindEndOfSentencePosition value
-            nStartOfNextSentencePosition (int, optional): nStartOfNextSentencePosition value
-            xProofreader (XProofreader, optional): xProofreader value
+            aErrors (typing.Tuple[SingleProofreadingError, ...], optional): aErrors value.
+            aProperties (typing.Tuple[PropertyValue, ...], optional): aProperties value.
+            aDocumentIdentifier (str, optional): aDocumentIdentifier value.
+            xFlatParagraph (XFlatParagraph, optional): xFlatParagraph value.
+            aText (str, optional): aText value.
+            aLocale (Locale, optional): aLocale value.
+            nStartOfSentencePosition (int, optional): nStartOfSentencePosition value.
+            nBehindEndOfSentencePosition (int, optional): nBehindEndOfSentencePosition value.
+            nStartOfNextSentencePosition (int, optional): nStartOfNextSentencePosition value.
+            xProofreader (XProofreader, optional): xProofreader value.
         """
-        if isinstance(aErrors, ProofreadingResult):
-            oth: ProofreadingResult = aErrors
-            self._a_errors = oth.aErrors
-            self._a_properties = oth.aProperties
-            self._a_document_identifier = oth.aDocumentIdentifier
-            self._x_flat_paragraph = oth.xFlatParagraph
-            self._a_text = oth.aText
-            self._a_locale = oth.aLocale
-            self._n_start_of_sentence_position = oth.nStartOfSentencePosition
-            self._n_behind_end_of_sentence_position = oth.nBehindEndOfSentencePosition
-            self._n_start_of_next_sentence_position = oth.nStartOfNextSentencePosition
-            self._x_proofreader = oth.xProofreader
-            return
-        else:
-            if aErrors is UNO_NONE:
-                self._a_errors = None
-            else:
-                self._a_errors = aErrors
-            if aProperties is UNO_NONE:
-                self._a_properties = None
-            else:
-                self._a_properties = aProperties
-            self._a_document_identifier = aDocumentIdentifier
-            self._x_flat_paragraph = xFlatParagraph
-            self._a_text = aText
-            if aLocale is UNO_NONE:
-                self._a_locale = Locale_70d308fa()
-            else:
-                self._a_locale = aLocale
-            self._n_start_of_sentence_position = nStartOfSentencePosition
-            self._n_behind_end_of_sentence_position = nBehindEndOfSentencePosition
-            self._n_start_of_next_sentence_position = nStartOfNextSentencePosition
-            self._x_proofreader = xProofreader
+        super().__init__()
+        kargs = {
+            "aErrors": aErrors,
+            "aProperties": aProperties,
+            "aDocumentIdentifier": aDocumentIdentifier,
+            "xFlatParagraph": xFlatParagraph,
+            "aText": aText,
+            "aLocale": aLocale,
+            "nStartOfSentencePosition": nStartOfSentencePosition,
+            "nBehindEndOfSentencePosition": nBehindEndOfSentencePosition,
+            "nStartOfNextSentencePosition": nStartOfNextSentencePosition,
+            "xProofreader": xProofreader,
+        }
+        if kargs["aErrors"] is UNO_NONE:
+            kargs["aErrors"] = None
+        if kargs["aProperties"] is UNO_NONE:
+            kargs["aProperties"] = None
+        if kargs["aLocale"] is UNO_NONE:
+            kargs["aLocale"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._a_errors = kwargs["aErrors"]
+        self._a_properties = kwargs["aProperties"]
+        self._a_document_identifier = kwargs["aDocumentIdentifier"]
+        self._x_flat_paragraph = kwargs["xFlatParagraph"]
+        self._a_text = kwargs["aText"]
+        self._a_locale = kwargs["aLocale"]
+        self._n_start_of_sentence_position = kwargs["nStartOfSentencePosition"]
+        self._n_behind_end_of_sentence_position = kwargs["nBehindEndOfSentencePosition"]
+        self._n_start_of_next_sentence_position = kwargs["nStartOfNextSentencePosition"]
+        self._x_proofreader = kwargs["xProofreader"]
 
 
     @property

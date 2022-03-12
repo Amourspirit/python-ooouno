@@ -37,39 +37,36 @@ class FolderListEntry(object):
     typeName: str = 'com.sun.star.ucb.FolderListEntry'
     """Literal Constant ``com.sun.star.ucb.FolderListEntry``"""
 
-    def __init__(self, Title: str = '', ID: str = '', Subscribed: bool = False, New: bool = False, Removed: bool = False, Purge: bool = False) -> None:
+    def __init__(self, Title: typing.Optional[str] = '', ID: typing.Optional[str] = '', Subscribed: typing.Optional[bool] = False, New: typing.Optional[bool] = False, Removed: typing.Optional[bool] = False, Purge: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Title`` can be another ``FolderListEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Title (str, optional): Title value
-            ID (str, optional): ID value
-            Subscribed (bool, optional): Subscribed value
-            New (bool, optional): New value
-            Removed (bool, optional): Removed value
-            Purge (bool, optional): Purge value
+            Title (str, optional): Title value.
+            ID (str, optional): ID value.
+            Subscribed (bool, optional): Subscribed value.
+            New (bool, optional): New value.
+            Removed (bool, optional): Removed value.
+            Purge (bool, optional): Purge value.
         """
-        if isinstance(Title, FolderListEntry):
-            oth: FolderListEntry = Title
-            self._title = oth.Title
-            self._id = oth.ID
-            self._subscribed = oth.Subscribed
-            self._new = oth.New
-            self._removed = oth.Removed
-            self._purge = oth.Purge
-            return
-        else:
-            self._title = Title
-            self._id = ID
-            self._subscribed = Subscribed
-            self._new = New
-            self._removed = Removed
-            self._purge = Purge
+        super().__init__()
+        kargs = {
+            "Title": Title,
+            "ID": ID,
+            "Subscribed": Subscribed,
+            "New": New,
+            "Removed": Removed,
+            "Purge": Purge,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._title = kwargs["Title"]
+        self._id = kwargs["ID"]
+        self._subscribed = kwargs["Subscribed"]
+        self._new = kwargs["New"]
+        self._removed = kwargs["Removed"]
+        self._purge = kwargs["Purge"]
 
 
     @property

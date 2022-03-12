@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .point import Point as Point_5fb2085e
 
@@ -39,32 +40,32 @@ class EndPopupModeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.EndPopupModeEvent'
     """Literal Constant ``com.sun.star.awt.EndPopupModeEvent``"""
 
-    def __init__(self, bTearoff: bool = False, FloatingPosition: Point_5fb2085e = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, bTearoff: typing.Optional[bool] = False, FloatingPosition: typing.Optional[Point_5fb2085e] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``bTearoff`` can be another ``EndPopupModeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            bTearoff (bool, optional): bTearoff value
-            FloatingPosition (Point, optional): FloatingPosition value
+            Source (XInterface, optional): Source value.
+            bTearoff (bool, optional): bTearoff value.
+            FloatingPosition (Point, optional): FloatingPosition value.
         """
-        super().__init__(**kwargs)
-        if isinstance(bTearoff, EndPopupModeEvent):
-            oth: EndPopupModeEvent = bTearoff
-            self._b_tearoff = oth.bTearoff
-            self._floating_position = oth.FloatingPosition
-            return
-        else:
-            self._b_tearoff = bTearoff
-            if FloatingPosition is UNO_NONE:
-                self._floating_position = Point_5fb2085e()
-            else:
-                self._floating_position = FloatingPosition
+        kargs = {
+            "Source": Source,
+            "bTearoff": bTearoff,
+            "FloatingPosition": FloatingPosition,
+        }
+        if kargs["FloatingPosition"] is UNO_NONE:
+            kargs["FloatingPosition"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._b_tearoff = kwargs["bTearoff"]
+        self._floating_position = kwargs["FloatingPosition"]
+        inst_keys = ('bTearoff', 'FloatingPosition')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

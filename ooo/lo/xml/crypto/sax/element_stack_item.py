@@ -38,30 +38,27 @@ class ElementStackItem(object):
     typeName: str = 'com.sun.star.xml.crypto.sax.ElementStackItem'
     """Literal Constant ``com.sun.star.xml.crypto.sax.ElementStackItem``"""
 
-    def __init__(self, isStartElementEvent: bool = False, elementName: str = '', xAttributes: XAttributeList_eec70d7b = None) -> None:
+    def __init__(self, isStartElementEvent: typing.Optional[bool] = False, elementName: typing.Optional[str] = '', xAttributes: typing.Optional[XAttributeList_eec70d7b] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``isStartElementEvent`` can be another ``ElementStackItem`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            isStartElementEvent (bool, optional): isStartElementEvent value
-            elementName (str, optional): elementName value
-            xAttributes (XAttributeList, optional): xAttributes value
+            isStartElementEvent (bool, optional): isStartElementEvent value.
+            elementName (str, optional): elementName value.
+            xAttributes (XAttributeList, optional): xAttributes value.
         """
-        if isinstance(isStartElementEvent, ElementStackItem):
-            oth: ElementStackItem = isStartElementEvent
-            self._is_start_element_event = oth.isStartElementEvent
-            self._element_name = oth.elementName
-            self._x_attributes = oth.xAttributes
-            return
-        else:
-            self._is_start_element_event = isStartElementEvent
-            self._element_name = elementName
-            self._x_attributes = xAttributes
+        super().__init__()
+        kargs = {
+            "isStartElementEvent": isStartElementEvent,
+            "elementName": elementName,
+            "xAttributes": xAttributes,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._is_start_element_event = kwargs["isStartElementEvent"]
+        self._element_name = kwargs["elementName"]
+        self._x_attributes = kwargs["xAttributes"]
 
 
     @property

@@ -39,27 +39,28 @@ class Ambiguous(object):
     typeName: str = 'com.sun.star.beans.Ambiguous'
     """Literal Constant ``com.sun.star.beans.Ambiguous``"""
 
-    def __init__(self, Value: object = None, IsAmbiguous: bool = None) -> None:
+    def __init__(self, Value: typing.Optional[object] = None, IsAmbiguous: typing.Optional[bool] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``Ambiguous`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (object, optional): Value value
-            IsAmbiguous (bool, optional): IsAmbiguous value
+            Value (object, optional): Value value.
+            IsAmbiguous (bool, optional): IsAmbiguous value.
         """
-        if isinstance(Value, Ambiguous):
-            oth: Ambiguous = Value
-            self._value = oth.Value
-            self._is_ambiguous = oth.IsAmbiguous
-            return
-        else:
-            self._value = Value
-            self._is_ambiguous = IsAmbiguous
+        super().__init__()
+        kargs = {
+            "Value": Value,
+            "IsAmbiguous": IsAmbiguous,
+        }
+        if kargs["Value"] is UNO_NONE:
+            kargs["Value"] = None
+        if kargs["IsAmbiguous"] is UNO_NONE:
+            kargs["IsAmbiguous"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._is_ambiguous = kwargs["IsAmbiguous"]
 
 
     @property

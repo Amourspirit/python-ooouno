@@ -22,48 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Complete = UNO_NONE, Main = UNO_NONE, Protocol = UNO_NONE, User = UNO_NONE, Password = UNO_NONE, Server = UNO_NONE, Port = UNO_NONE, Path = UNO_NONE, Name = UNO_NONE, Arguments = UNO_NONE, Mark = UNO_NONE):
-            if getattr(Complete, "__class__", None) == self.__class__:
-                orig_init(self, Complete)
+        ordered_keys = ('Complete', 'Main', 'Protocol', 'User', 'Password', 'Server', 'Port', 'Path', 'Name', 'Arguments', 'Mark')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Complete is UNO_NONE:
-                if getattr(self, 'Complete') != Complete:
-                    setattr(self, 'Complete', Complete)
-            if not Main is UNO_NONE:
-                if getattr(self, 'Main') != Main:
-                    setattr(self, 'Main', Main)
-            if not Protocol is UNO_NONE:
-                if getattr(self, 'Protocol') != Protocol:
-                    setattr(self, 'Protocol', Protocol)
-            if not User is UNO_NONE:
-                if getattr(self, 'User') != User:
-                    setattr(self, 'User', User)
-            if not Password is UNO_NONE:
-                if getattr(self, 'Password') != Password:
-                    setattr(self, 'Password', Password)
-            if not Server is UNO_NONE:
-                if getattr(self, 'Server') != Server:
-                    setattr(self, 'Server', Server)
-            if not Port is UNO_NONE:
-                if getattr(self, 'Port') != Port:
-                    setattr(self, 'Port', Port)
-            if not Path is UNO_NONE:
-                if getattr(self, 'Path') != Path:
-                    setattr(self, 'Path', Path)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not Arguments is UNO_NONE:
-                if getattr(self, 'Arguments') != Arguments:
-                    setattr(self, 'Arguments', Arguments)
-            if not Mark is UNO_NONE:
-                if getattr(self, 'Mark') != Mark:
-                    setattr(self, 'Mark', Mark)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.URL'
         struct = uno.getClass(type_name)
@@ -75,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     URL = _get_class()
-
 
 else:
     from ...lo.util.url import URL as URL

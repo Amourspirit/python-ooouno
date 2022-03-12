@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, aURL = UNO_NONE, aOffset = UNO_NONE, aPositionOffset = UNO_NONE, aRectanglePoint = UNO_NONE, bLogicalSize = UNO_NONE, aSize = UNO_NONE, aBitmapMode = UNO_NONE):
-            if getattr(aURL, "__class__", None) == self.__class__:
-                orig_init(self, aURL)
+        ordered_keys = ('aURL', 'aOffset', 'aPositionOffset', 'aRectanglePoint', 'bLogicalSize', 'aSize', 'aBitmapMode')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not aURL is UNO_NONE:
-                if getattr(self, 'aURL') != aURL:
-                    setattr(self, 'aURL', aURL)
-            if not aOffset is UNO_NONE:
-                if getattr(self, 'aOffset') != aOffset:
-                    setattr(self, 'aOffset', aOffset)
-            if not aPositionOffset is UNO_NONE:
-                if getattr(self, 'aPositionOffset') != aPositionOffset:
-                    setattr(self, 'aPositionOffset', aPositionOffset)
-            if not aRectanglePoint is UNO_NONE:
-                if getattr(self, 'aRectanglePoint') != aRectanglePoint:
-                    setattr(self, 'aRectanglePoint', aRectanglePoint)
-            if not bLogicalSize is UNO_NONE:
-                if getattr(self, 'bLogicalSize') != bLogicalSize:
-                    setattr(self, 'bLogicalSize', bLogicalSize)
-            if not aSize is UNO_NONE:
-                if getattr(self, 'aSize') != aSize:
-                    setattr(self, 'aSize', aSize)
-            if not aBitmapMode is UNO_NONE:
-                if getattr(self, 'aBitmapMode') != aBitmapMode:
-                    setattr(self, 'aBitmapMode', aBitmapMode)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.FillBitmap'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FillBitmap = _get_class()
-
 
 else:
     from ...lo.chart2.fill_bitmap import FillBitmap as FillBitmap

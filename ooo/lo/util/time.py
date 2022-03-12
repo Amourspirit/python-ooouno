@@ -41,36 +41,33 @@ class Time(object):
     typeName: str = 'com.sun.star.util.Time'
     """Literal Constant ``com.sun.star.util.Time``"""
 
-    def __init__(self, NanoSeconds: int = 0, Seconds: int = 0, Minutes: int = 0, Hours: int = 0, IsUTC: bool = False) -> None:
+    def __init__(self, NanoSeconds: typing.Optional[int] = 0, Seconds: typing.Optional[int] = 0, Minutes: typing.Optional[int] = 0, Hours: typing.Optional[int] = 0, IsUTC: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``NanoSeconds`` can be another ``Time`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            NanoSeconds (int, optional): NanoSeconds value
-            Seconds (int, optional): Seconds value
-            Minutes (int, optional): Minutes value
-            Hours (int, optional): Hours value
-            IsUTC (bool, optional): IsUTC value
+            NanoSeconds (int, optional): NanoSeconds value.
+            Seconds (int, optional): Seconds value.
+            Minutes (int, optional): Minutes value.
+            Hours (int, optional): Hours value.
+            IsUTC (bool, optional): IsUTC value.
         """
-        if isinstance(NanoSeconds, Time):
-            oth: Time = NanoSeconds
-            self._nano_seconds = oth.NanoSeconds
-            self._seconds = oth.Seconds
-            self._minutes = oth.Minutes
-            self._hours = oth.Hours
-            self._is_utc = oth.IsUTC
-            return
-        else:
-            self._nano_seconds = NanoSeconds
-            self._seconds = Seconds
-            self._minutes = Minutes
-            self._hours = Hours
-            self._is_utc = IsUTC
+        super().__init__()
+        kargs = {
+            "NanoSeconds": NanoSeconds,
+            "Seconds": Seconds,
+            "Minutes": Minutes,
+            "Hours": Hours,
+            "IsUTC": IsUTC,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._nano_seconds = kwargs["NanoSeconds"]
+        self._seconds = kwargs["Seconds"]
+        self._minutes = kwargs["Minutes"]
+        self._hours = kwargs["Hours"]
+        self._is_utc = kwargs["IsUTC"]
 
 
     @property

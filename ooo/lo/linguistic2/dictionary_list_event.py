@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .dictionary_event import DictionaryEvent as DictionaryEvent_3ae00f8d
 
@@ -41,32 +42,32 @@ class DictionaryListEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.linguistic2.DictionaryListEvent'
     """Literal Constant ``com.sun.star.linguistic2.DictionaryListEvent``"""
 
-    def __init__(self, aDictionaryEvents: typing.Tuple[DictionaryEvent_3ae00f8d, ...] = UNO_NONE, nCondensedEvent: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, aDictionaryEvents: typing.Optional[typing.Tuple[DictionaryEvent_3ae00f8d, ...]] = UNO_NONE, nCondensedEvent: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aDictionaryEvents`` can be another ``DictionaryListEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            aDictionaryEvents (Tuple[DictionaryEvent, ...], optional): aDictionaryEvents value
-            nCondensedEvent (int, optional): nCondensedEvent value
+            Source (XInterface, optional): Source value.
+            aDictionaryEvents (typing.Tuple[DictionaryEvent, ...], optional): aDictionaryEvents value.
+            nCondensedEvent (int, optional): nCondensedEvent value.
         """
-        super().__init__(**kwargs)
-        if isinstance(aDictionaryEvents, DictionaryListEvent):
-            oth: DictionaryListEvent = aDictionaryEvents
-            self._a_dictionary_events = oth.aDictionaryEvents
-            self._n_condensed_event = oth.nCondensedEvent
-            return
-        else:
-            if aDictionaryEvents is UNO_NONE:
-                self._a_dictionary_events = None
-            else:
-                self._a_dictionary_events = aDictionaryEvents
-            self._n_condensed_event = nCondensedEvent
+        kargs = {
+            "Source": Source,
+            "aDictionaryEvents": aDictionaryEvents,
+            "nCondensedEvent": nCondensedEvent,
+        }
+        if kargs["aDictionaryEvents"] is UNO_NONE:
+            kargs["aDictionaryEvents"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._a_dictionary_events = kwargs["aDictionaryEvents"]
+        self._n_condensed_event = kwargs["nCondensedEvent"]
+        inst_keys = ('aDictionaryEvents', 'nCondensedEvent')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

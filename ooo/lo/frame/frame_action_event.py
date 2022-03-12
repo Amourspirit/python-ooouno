@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .frame_action import FrameAction as FrameAction_aef40b5c
 from .x_frame import XFrame as XFrame_7a570956
@@ -40,29 +41,30 @@ class FrameActionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.frame.FrameActionEvent'
     """Literal Constant ``com.sun.star.frame.FrameActionEvent``"""
 
-    def __init__(self, Frame: XFrame_7a570956 = None, Action: FrameAction_aef40b5c = FrameAction_aef40b5c.COMPONENT_ATTACHED, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Frame: typing.Optional[XFrame_7a570956] = None, Action: typing.Optional[FrameAction_aef40b5c] = FrameAction_aef40b5c.COMPONENT_ATTACHED) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Frame`` can be another ``FrameActionEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Frame (XFrame, optional): Frame value
-            Action (FrameAction, optional): Action value
+            Source (XInterface, optional): Source value.
+            Frame (XFrame, optional): Frame value.
+            Action (FrameAction, optional): Action value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Frame, FrameActionEvent):
-            oth: FrameActionEvent = Frame
-            self._frame = oth.Frame
-            self._action = oth.Action
-            return
-        else:
-            self._frame = Frame
-            self._action = Action
+        kargs = {
+            "Source": Source,
+            "Frame": Frame,
+            "Action": Action,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._frame = kwargs["Frame"]
+        self._action = kwargs["Action"]
+        inst_keys = ('Frame', 'Action')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

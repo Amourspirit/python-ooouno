@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, TopDistance = UNO_NONE, IsTopDistanceValid = UNO_NONE, BottomDistance = UNO_NONE, IsBottomDistanceValid = UNO_NONE, LeftDistance = UNO_NONE, IsLeftDistanceValid = UNO_NONE, RightDistance = UNO_NONE, IsRightDistanceValid = UNO_NONE):
-            if getattr(TopDistance, "__class__", None) == self.__class__:
-                orig_init(self, TopDistance)
+        ordered_keys = ('TopDistance', 'IsTopDistanceValid', 'BottomDistance', 'IsBottomDistanceValid', 'LeftDistance', 'IsLeftDistanceValid', 'RightDistance', 'IsRightDistanceValid')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not TopDistance is UNO_NONE:
-                if getattr(self, 'TopDistance') != TopDistance:
-                    setattr(self, 'TopDistance', TopDistance)
-            if not IsTopDistanceValid is UNO_NONE:
-                if getattr(self, 'IsTopDistanceValid') != IsTopDistanceValid:
-                    setattr(self, 'IsTopDistanceValid', IsTopDistanceValid)
-            if not BottomDistance is UNO_NONE:
-                if getattr(self, 'BottomDistance') != BottomDistance:
-                    setattr(self, 'BottomDistance', BottomDistance)
-            if not IsBottomDistanceValid is UNO_NONE:
-                if getattr(self, 'IsBottomDistanceValid') != IsBottomDistanceValid:
-                    setattr(self, 'IsBottomDistanceValid', IsBottomDistanceValid)
-            if not LeftDistance is UNO_NONE:
-                if getattr(self, 'LeftDistance') != LeftDistance:
-                    setattr(self, 'LeftDistance', LeftDistance)
-            if not IsLeftDistanceValid is UNO_NONE:
-                if getattr(self, 'IsLeftDistanceValid') != IsLeftDistanceValid:
-                    setattr(self, 'IsLeftDistanceValid', IsLeftDistanceValid)
-            if not RightDistance is UNO_NONE:
-                if getattr(self, 'RightDistance') != RightDistance:
-                    setattr(self, 'RightDistance', RightDistance)
-            if not IsRightDistanceValid is UNO_NONE:
-                if getattr(self, 'IsRightDistanceValid') != IsRightDistanceValid:
-                    setattr(self, 'IsRightDistanceValid', IsRightDistanceValid)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.table.TableBorderDistances'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TableBorderDistances = _get_class()
-
 
 else:
     from ...lo.table.table_border_distances import TableBorderDistances as TableBorderDistances

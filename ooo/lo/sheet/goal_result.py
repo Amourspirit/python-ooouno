@@ -37,27 +37,24 @@ class GoalResult(object):
     typeName: str = 'com.sun.star.sheet.GoalResult'
     """Literal Constant ``com.sun.star.sheet.GoalResult``"""
 
-    def __init__(self, Divergence: float = 0.0, Result: float = 0.0) -> None:
+    def __init__(self, Divergence: typing.Optional[float] = 0.0, Result: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Divergence`` can be another ``GoalResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Divergence (float, optional): Divergence value
-            Result (float, optional): Result value
+            Divergence (float, optional): Divergence value.
+            Result (float, optional): Result value.
         """
-        if isinstance(Divergence, GoalResult):
-            oth: GoalResult = Divergence
-            self._divergence = oth.Divergence
-            self._result = oth.Result
-            return
-        else:
-            self._divergence = Divergence
-            self._result = Result
+        super().__init__()
+        kargs = {
+            "Divergence": Divergence,
+            "Result": Result,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._divergence = kwargs["Divergence"]
+        self._result = kwargs["Result"]
 
 
     @property

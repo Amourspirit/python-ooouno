@@ -39,33 +39,29 @@ class ChartSeriesAddress(object):
     typeName: str = 'com.sun.star.chart.ChartSeriesAddress'
     """Literal Constant ``com.sun.star.chart.ChartSeriesAddress``"""
 
-    def __init__(self, DomainRangeAddresses: typing.Tuple[str, ...] = UNO_NONE, DataRangeAddress: str = '', LabelAddress: str = '') -> None:
+    def __init__(self, DomainRangeAddresses: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, DataRangeAddress: typing.Optional[str] = '', LabelAddress: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DomainRangeAddresses`` can be another ``ChartSeriesAddress`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DomainRangeAddresses (Tuple[str, ...], optional): DomainRangeAddresses value
-            DataRangeAddress (str, optional): DataRangeAddress value
-            LabelAddress (str, optional): LabelAddress value
+            DomainRangeAddresses (typing.Tuple[str, ...], optional): DomainRangeAddresses value.
+            DataRangeAddress (str, optional): DataRangeAddress value.
+            LabelAddress (str, optional): LabelAddress value.
         """
-        if isinstance(DomainRangeAddresses, ChartSeriesAddress):
-            oth: ChartSeriesAddress = DomainRangeAddresses
-            self._domain_range_addresses = oth.DomainRangeAddresses
-            self._data_range_address = oth.DataRangeAddress
-            self._label_address = oth.LabelAddress
-            return
-        else:
-            if DomainRangeAddresses is UNO_NONE:
-                self._domain_range_addresses = None
-            else:
-                self._domain_range_addresses = DomainRangeAddresses
-            self._data_range_address = DataRangeAddress
-            self._label_address = LabelAddress
+        super().__init__()
+        kargs = {
+            "DomainRangeAddresses": DomainRangeAddresses,
+            "DataRangeAddress": DataRangeAddress,
+            "LabelAddress": LabelAddress,
+        }
+        if kargs["DomainRangeAddresses"] is UNO_NONE:
+            kargs["DomainRangeAddresses"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._domain_range_addresses = kwargs["DomainRangeAddresses"]
+        self._data_range_address = kwargs["DataRangeAddress"]
+        self._label_address = kwargs["LabelAddress"]
 
 
     @property

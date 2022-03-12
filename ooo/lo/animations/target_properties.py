@@ -40,30 +40,26 @@ class TargetProperties(object):
     typeName: str = 'com.sun.star.animations.TargetProperties'
     """Literal Constant ``com.sun.star.animations.TargetProperties``"""
 
-    def __init__(self, Properties: typing.Tuple[NamedValue_a37a0af3, ...] = UNO_NONE, Target: object = None) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, Target: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Properties`` can be another ``TargetProperties`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Properties (Tuple[NamedValue, ...], optional): Properties value
-            Target (object, optional): Target value
+            Properties (typing.Tuple[NamedValue, ...], optional): Properties value.
+            Target (object, optional): Target value.
         """
-        if isinstance(Properties, TargetProperties):
-            oth: TargetProperties = Properties
-            self._properties = oth.Properties
-            self._target = oth.Target
-            return
-        else:
-            if Properties is UNO_NONE:
-                self._properties = None
-            else:
-                self._properties = Properties
-            self._target = Target
+        super().__init__()
+        kargs = {
+            "Properties": Properties,
+            "Target": Target,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._properties = kwargs["Properties"]
+        self._target = kwargs["Target"]
 
 
     @property

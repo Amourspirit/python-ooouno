@@ -43,27 +43,28 @@ class Pair(object):
     typeName: str = 'com.sun.star.beans.Pair'
     """Literal Constant ``com.sun.star.beans.Pair``"""
 
-    def __init__(self, First: object = None, Second: object = None) -> None:
+    def __init__(self, First: typing.Optional[object] = None, Second: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``First`` can be another ``Pair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            First (object, optional): First value
-            Second (object, optional): Second value
+            First (object, optional): First value.
+            Second (object, optional): Second value.
         """
-        if isinstance(First, Pair):
-            oth: Pair = First
-            self._first = oth.First
-            self._second = oth.Second
-            return
-        else:
-            self._first = First
-            self._second = Second
+        super().__init__()
+        kargs = {
+            "First": First,
+            "Second": Second,
+        }
+        if kargs["First"] is UNO_NONE:
+            kargs["First"] = None
+        if kargs["Second"] is UNO_NONE:
+            kargs["Second"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._first = kwargs["First"]
+        self._second = kwargs["Second"]
 
 
     @property

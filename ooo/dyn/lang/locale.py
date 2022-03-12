@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Language = UNO_NONE, Country = UNO_NONE, Variant = UNO_NONE):
-            if getattr(Language, "__class__", None) == self.__class__:
-                orig_init(self, Language)
+        ordered_keys = ('Language', 'Country', 'Variant')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Language is UNO_NONE:
-                if getattr(self, 'Language') != Language:
-                    setattr(self, 'Language', Language)
-            if not Country is UNO_NONE:
-                if getattr(self, 'Country') != Country:
-                    setattr(self, 'Country', Country)
-            if not Variant is UNO_NONE:
-                if getattr(self, 'Variant') != Variant:
-                    setattr(self, 'Variant', Variant)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.lang.Locale'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Locale = _get_class()
-
 
 else:
     from ...lo.lang.locale import Locale as Locale

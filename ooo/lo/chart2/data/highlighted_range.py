@@ -36,33 +36,30 @@ class HighlightedRange(object):
     typeName: str = 'com.sun.star.chart2.data.HighlightedRange'
     """Literal Constant ``com.sun.star.chart2.data.HighlightedRange``"""
 
-    def __init__(self, RangeRepresentation: str = '', Index: int = 0, PreferredColor: int = 0, AllowMerginigWithOtherRanges: bool = False) -> None:
+    def __init__(self, RangeRepresentation: typing.Optional[str] = '', Index: typing.Optional[int] = 0, PreferredColor: typing.Optional[int] = 0, AllowMerginigWithOtherRanges: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``RangeRepresentation`` can be another ``HighlightedRange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            RangeRepresentation (str, optional): RangeRepresentation value
-            Index (int, optional): Index value
-            PreferredColor (int, optional): PreferredColor value
-            AllowMerginigWithOtherRanges (bool, optional): AllowMerginigWithOtherRanges value
+            RangeRepresentation (str, optional): RangeRepresentation value.
+            Index (int, optional): Index value.
+            PreferredColor (int, optional): PreferredColor value.
+            AllowMerginigWithOtherRanges (bool, optional): AllowMerginigWithOtherRanges value.
         """
-        if isinstance(RangeRepresentation, HighlightedRange):
-            oth: HighlightedRange = RangeRepresentation
-            self._range_representation = oth.RangeRepresentation
-            self._index = oth.Index
-            self._preferred_color = oth.PreferredColor
-            self._allow_merginig_with_other_ranges = oth.AllowMerginigWithOtherRanges
-            return
-        else:
-            self._range_representation = RangeRepresentation
-            self._index = Index
-            self._preferred_color = PreferredColor
-            self._allow_merginig_with_other_ranges = AllowMerginigWithOtherRanges
+        super().__init__()
+        kargs = {
+            "RangeRepresentation": RangeRepresentation,
+            "Index": Index,
+            "PreferredColor": PreferredColor,
+            "AllowMerginigWithOtherRanges": AllowMerginigWithOtherRanges,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._range_representation = kwargs["RangeRepresentation"]
+        self._index = kwargs["Index"]
+        self._preferred_color = kwargs["PreferredColor"]
+        self._allow_merginig_with_other_ranges = kwargs["AllowMerginigWithOtherRanges"]
 
 
     @property

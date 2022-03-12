@@ -37,33 +37,30 @@ class ListAction(object):
     typeName: str = 'com.sun.star.ucb.ListAction'
     """Literal Constant ``com.sun.star.ucb.ListAction``"""
 
-    def __init__(self, Position: int = 0, Count: int = 0, ListActionType: int = 0, ActionInfo: object = None) -> None:
+    def __init__(self, Position: typing.Optional[int] = 0, Count: typing.Optional[int] = 0, ListActionType: typing.Optional[int] = 0, ActionInfo: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``ListAction`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (int, optional): Position value
-            Count (int, optional): Count value
-            ListActionType (int, optional): ListActionType value
-            ActionInfo (object, optional): ActionInfo value
+            Position (int, optional): Position value.
+            Count (int, optional): Count value.
+            ListActionType (int, optional): ListActionType value.
+            ActionInfo (object, optional): ActionInfo value.
         """
-        if isinstance(Position, ListAction):
-            oth: ListAction = Position
-            self._position = oth.Position
-            self._count = oth.Count
-            self._list_action_type = oth.ListActionType
-            self._action_info = oth.ActionInfo
-            return
-        else:
-            self._position = Position
-            self._count = Count
-            self._list_action_type = ListActionType
-            self._action_info = ActionInfo
+        super().__init__()
+        kargs = {
+            "Position": Position,
+            "Count": Count,
+            "ListActionType": ListActionType,
+            "ActionInfo": ActionInfo,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._count = kwargs["Count"]
+        self._list_action_type = kwargs["ListActionType"]
+        self._action_info = kwargs["ActionInfo"]
 
 
     @property

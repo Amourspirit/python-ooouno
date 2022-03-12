@@ -38,27 +38,24 @@ class ParagraphTarget(object):
     typeName: str = 'com.sun.star.presentation.ParagraphTarget'
     """Literal Constant ``com.sun.star.presentation.ParagraphTarget``"""
 
-    def __init__(self, Shape: XShape_8fd00a3d = None, Paragraph: int = 0) -> None:
+    def __init__(self, Shape: typing.Optional[XShape_8fd00a3d] = None, Paragraph: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Shape`` can be another ``ParagraphTarget`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Shape (XShape, optional): Shape value
-            Paragraph (int, optional): Paragraph value
+            Shape (XShape, optional): Shape value.
+            Paragraph (int, optional): Paragraph value.
         """
-        if isinstance(Shape, ParagraphTarget):
-            oth: ParagraphTarget = Shape
-            self._shape = oth.Shape
-            self._paragraph = oth.Paragraph
-            return
-        else:
-            self._shape = Shape
-            self._paragraph = Paragraph
+        super().__init__()
+        kargs = {
+            "Shape": Shape,
+            "Paragraph": Paragraph,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._shape = kwargs["Shape"]
+        self._paragraph = kwargs["Paragraph"]
 
 
     @property

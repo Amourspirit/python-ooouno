@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, vrp = UNO_NONE, vpn = UNO_NONE, vup = UNO_NONE):
-            if getattr(vrp, "__class__", None) == self.__class__:
-                orig_init(self, vrp)
+        ordered_keys = ('vrp', 'vpn', 'vup')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not vrp is UNO_NONE:
-                if getattr(self, 'vrp') != vrp:
-                    setattr(self, 'vrp', vrp)
-            if not vpn is UNO_NONE:
-                if getattr(self, 'vpn') != vpn:
-                    setattr(self, 'vpn', vpn)
-            if not vup is UNO_NONE:
-                if getattr(self, 'vup') != vup:
-                    setattr(self, 'vup', vup)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.CameraGeometry'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     CameraGeometry = _get_class()
-
 
 else:
     from ...lo.drawing.camera_geometry import CameraGeometry as CameraGeometry

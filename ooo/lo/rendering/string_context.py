@@ -43,30 +43,27 @@ class StringContext(object):
     typeName: str = 'com.sun.star.rendering.StringContext'
     """Literal Constant ``com.sun.star.rendering.StringContext``"""
 
-    def __init__(self, Text: str = '', StartPosition: int = 0, Length: int = 0) -> None:
+    def __init__(self, Text: typing.Optional[str] = '', StartPosition: typing.Optional[int] = 0, Length: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Text`` can be another ``StringContext`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Text (str, optional): Text value
-            StartPosition (int, optional): StartPosition value
-            Length (int, optional): Length value
+            Text (str, optional): Text value.
+            StartPosition (int, optional): StartPosition value.
+            Length (int, optional): Length value.
         """
-        if isinstance(Text, StringContext):
-            oth: StringContext = Text
-            self._text = oth.Text
-            self._start_position = oth.StartPosition
-            self._length = oth.Length
-            return
-        else:
-            self._text = Text
-            self._start_position = StartPosition
-            self._length = Length
+        super().__init__()
+        kargs = {
+            "Text": Text,
+            "StartPosition": StartPosition,
+            "Length": Length,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._text = kwargs["Text"]
+        self._start_position = kwargs["StartPosition"]
+        self._length = kwargs["Length"]
 
 
     @property

@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, m00 = UNO_NONE, m01 = UNO_NONE, m10 = UNO_NONE, m11 = UNO_NONE):
-            if getattr(m00, "__class__", None) == self.__class__:
-                orig_init(self, m00)
+        ordered_keys = ('m00', 'm01', 'm10', 'm11')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not m00 is UNO_NONE:
-                if getattr(self, 'm00') != m00:
-                    setattr(self, 'm00', m00)
-            if not m01 is UNO_NONE:
-                if getattr(self, 'm01') != m01:
-                    setattr(self, 'm01', m01)
-            if not m10 is UNO_NONE:
-                if getattr(self, 'm10') != m10:
-                    setattr(self, 'm10', m10)
-            if not m11 is UNO_NONE:
-                if getattr(self, 'm11') != m11:
-                    setattr(self, 'm11', m11)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.geometry.Matrix2D'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Matrix2D = _get_class()
-
 
 else:
     from ...lo.geometry.matrix2_d import Matrix2D as Matrix2D

@@ -41,27 +41,24 @@ class FeatureState(object):
     typeName: str = 'com.sun.star.form.runtime.FeatureState'
     """Literal Constant ``com.sun.star.form.runtime.FeatureState``"""
 
-    def __init__(self, Enabled: bool = False, State: object = None) -> None:
+    def __init__(self, Enabled: typing.Optional[bool] = False, State: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Enabled`` can be another ``FeatureState`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Enabled (bool, optional): Enabled value
-            State (object, optional): State value
+            Enabled (bool, optional): Enabled value.
+            State (object, optional): State value.
         """
-        if isinstance(Enabled, FeatureState):
-            oth: FeatureState = Enabled
-            self._enabled = oth.Enabled
-            self._state = oth.State
-            return
-        else:
-            self._enabled = Enabled
-            self._state = State
+        super().__init__()
+        kargs = {
+            "Enabled": Enabled,
+            "State": State,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._enabled = kwargs["Enabled"]
+        self._state = kwargs["State"]
 
 
     @property

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .adjustment_type import AdjustmentType as AdjustmentType_bd050c15
 
@@ -39,29 +40,30 @@ class AdjustmentEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.AdjustmentEvent'
     """Literal Constant ``com.sun.star.awt.AdjustmentEvent``"""
 
-    def __init__(self, Value: int = 0, Type: AdjustmentType_bd050c15 = AdjustmentType_bd050c15.ADJUST_LINE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Value: typing.Optional[int] = 0, Type: typing.Optional[AdjustmentType_bd050c15] = AdjustmentType_bd050c15.ADJUST_LINE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``AdjustmentEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Value (int, optional): Value value
-            Type (AdjustmentType, optional): Type value
+            Source (XInterface, optional): Source value.
+            Value (int, optional): Value value.
+            Type (AdjustmentType, optional): Type value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Value, AdjustmentEvent):
-            oth: AdjustmentEvent = Value
-            self._value = oth.Value
-            self._type = oth.Type
-            return
-        else:
-            self._value = Value
-            self._type = Type
+        kargs = {
+            "Source": Source,
+            "Value": Value,
+            "Type": Type,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._type = kwargs["Type"]
+        inst_keys = ('Value', 'Type')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

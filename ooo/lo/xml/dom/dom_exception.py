@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ...uno.exception import Exception as Exception_85530a09
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 from .dom_exception_type import DOMExceptionType as DOMExceptionType_5c70df8
 
 class DOMException(Exception_85530a09):
     """
+    Exception Class
+
     encapsulates the details of an XML parse error or warning.
 
     See Also:
@@ -40,18 +43,29 @@ class DOMException(Exception_85530a09):
     typeName: str = 'com.sun.star.xml.dom.DOMException'
     """Literal Constant ``com.sun.star.xml.dom.DOMException``"""
 
-    def __init__(self, Code: typing.Optional[DOMExceptionType_5c70df8] = DOMExceptionType_5c70df8.DOMSTRING_SIZE_ERR, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Code: typing.Optional[DOMExceptionType_5c70df8] = DOMExceptionType_5c70df8.DOMSTRING_SIZE_ERR) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Code (DOMExceptionType, optional): Code value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Code": Code,
+        }
+        self._init(**kargs)
 
-        self._code = Code
+    def _init(self, **kwargs) -> None:
+        self._code = kwargs["Code"]
+        inst_keys = ('Code',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Code(self) -> DOMExceptionType_5c70df8:

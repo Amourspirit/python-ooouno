@@ -39,27 +39,24 @@ class ForbiddenCharacters(object):
     typeName: str = 'com.sun.star.i18n.ForbiddenCharacters'
     """Literal Constant ``com.sun.star.i18n.ForbiddenCharacters``"""
 
-    def __init__(self, beginLine: str = '', endLine: str = '') -> None:
+    def __init__(self, beginLine: typing.Optional[str] = '', endLine: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``beginLine`` can be another ``ForbiddenCharacters`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            beginLine (str, optional): beginLine value
-            endLine (str, optional): endLine value
+            beginLine (str, optional): beginLine value.
+            endLine (str, optional): endLine value.
         """
-        if isinstance(beginLine, ForbiddenCharacters):
-            oth: ForbiddenCharacters = beginLine
-            self._begin_line = oth.beginLine
-            self._end_line = oth.endLine
-            return
-        else:
-            self._begin_line = beginLine
-            self._end_line = endLine
+        super().__init__()
+        kargs = {
+            "beginLine": beginLine,
+            "endLine": endLine,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._begin_line = kwargs["beginLine"]
+        self._end_line = kwargs["endLine"]
 
 
     @property

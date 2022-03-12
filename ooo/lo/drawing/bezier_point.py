@@ -44,39 +44,33 @@ class BezierPoint(object):
     typeName: str = 'com.sun.star.drawing.BezierPoint'
     """Literal Constant ``com.sun.star.drawing.BezierPoint``"""
 
-    def __init__(self, Position: Point_5fb2085e = UNO_NONE, ControlPoint1: Point_5fb2085e = UNO_NONE, ControlPoint2: Point_5fb2085e = UNO_NONE) -> None:
+    def __init__(self, Position: typing.Optional[Point_5fb2085e] = UNO_NONE, ControlPoint1: typing.Optional[Point_5fb2085e] = UNO_NONE, ControlPoint2: typing.Optional[Point_5fb2085e] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``BezierPoint`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (Point, optional): Position value
-            ControlPoint1 (Point, optional): ControlPoint1 value
-            ControlPoint2 (Point, optional): ControlPoint2 value
+            Position (Point, optional): Position value.
+            ControlPoint1 (Point, optional): ControlPoint1 value.
+            ControlPoint2 (Point, optional): ControlPoint2 value.
         """
-        if isinstance(Position, BezierPoint):
-            oth: BezierPoint = Position
-            self._position = oth.Position
-            self._control_point1 = oth.ControlPoint1
-            self._control_point2 = oth.ControlPoint2
-            return
-        else:
-            if Position is UNO_NONE:
-                self._position = Point_5fb2085e()
-            else:
-                self._position = Position
-            if ControlPoint1 is UNO_NONE:
-                self._control_point1 = Point_5fb2085e()
-            else:
-                self._control_point1 = ControlPoint1
-            if ControlPoint2 is UNO_NONE:
-                self._control_point2 = Point_5fb2085e()
-            else:
-                self._control_point2 = ControlPoint2
+        super().__init__()
+        kargs = {
+            "Position": Position,
+            "ControlPoint1": ControlPoint1,
+            "ControlPoint2": ControlPoint2,
+        }
+        if kargs["Position"] is UNO_NONE:
+            kargs["Position"] = None
+        if kargs["ControlPoint1"] is UNO_NONE:
+            kargs["ControlPoint1"] = None
+        if kargs["ControlPoint2"] is UNO_NONE:
+            kargs["ControlPoint2"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._control_point1 = kwargs["ControlPoint1"]
+        self._control_point2 = kwargs["ControlPoint2"]
 
 
     @property

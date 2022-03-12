@@ -37,42 +37,39 @@ class Currency(object):
     typeName: str = 'com.sun.star.i18n.Currency'
     """Literal Constant ``com.sun.star.i18n.Currency``"""
 
-    def __init__(self, ID: str = '', Symbol: str = '', BankSymbol: str = '', Name: str = '', Default: bool = False, UsedInCompatibleFormatCodes: bool = False, DecimalPlaces: int = 0) -> None:
+    def __init__(self, ID: typing.Optional[str] = '', Symbol: typing.Optional[str] = '', BankSymbol: typing.Optional[str] = '', Name: typing.Optional[str] = '', Default: typing.Optional[bool] = False, UsedInCompatibleFormatCodes: typing.Optional[bool] = False, DecimalPlaces: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ID`` can be another ``Currency`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ID (str, optional): ID value
-            Symbol (str, optional): Symbol value
-            BankSymbol (str, optional): BankSymbol value
-            Name (str, optional): Name value
-            Default (bool, optional): Default value
-            UsedInCompatibleFormatCodes (bool, optional): UsedInCompatibleFormatCodes value
-            DecimalPlaces (int, optional): DecimalPlaces value
+            ID (str, optional): ID value.
+            Symbol (str, optional): Symbol value.
+            BankSymbol (str, optional): BankSymbol value.
+            Name (str, optional): Name value.
+            Default (bool, optional): Default value.
+            UsedInCompatibleFormatCodes (bool, optional): UsedInCompatibleFormatCodes value.
+            DecimalPlaces (int, optional): DecimalPlaces value.
         """
-        if isinstance(ID, Currency):
-            oth: Currency = ID
-            self._id = oth.ID
-            self._symbol = oth.Symbol
-            self._bank_symbol = oth.BankSymbol
-            self._name = oth.Name
-            self._default = oth.Default
-            self._used_in_compatible_format_codes = oth.UsedInCompatibleFormatCodes
-            self._decimal_places = oth.DecimalPlaces
-            return
-        else:
-            self._id = ID
-            self._symbol = Symbol
-            self._bank_symbol = BankSymbol
-            self._name = Name
-            self._default = Default
-            self._used_in_compatible_format_codes = UsedInCompatibleFormatCodes
-            self._decimal_places = DecimalPlaces
+        super().__init__()
+        kargs = {
+            "ID": ID,
+            "Symbol": Symbol,
+            "BankSymbol": BankSymbol,
+            "Name": Name,
+            "Default": Default,
+            "UsedInCompatibleFormatCodes": UsedInCompatibleFormatCodes,
+            "DecimalPlaces": DecimalPlaces,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._id = kwargs["ID"]
+        self._symbol = kwargs["Symbol"]
+        self._bank_symbol = kwargs["BankSymbol"]
+        self._name = kwargs["Name"]
+        self._default = kwargs["Default"]
+        self._used_in_compatible_format_codes = kwargs["UsedInCompatibleFormatCodes"]
+        self._decimal_places = kwargs["DecimalPlaces"]
 
 
     @property

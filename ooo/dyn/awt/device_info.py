@@ -22,45 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Width = UNO_NONE, Height = UNO_NONE, LeftInset = UNO_NONE, TopInset = UNO_NONE, RightInset = UNO_NONE, BottomInset = UNO_NONE, PixelPerMeterX = UNO_NONE, PixelPerMeterY = UNO_NONE, BitsPerPixel = UNO_NONE, Capabilities = UNO_NONE):
-            if getattr(Width, "__class__", None) == self.__class__:
-                orig_init(self, Width)
+        ordered_keys = ('Width', 'Height', 'LeftInset', 'TopInset', 'RightInset', 'BottomInset', 'PixelPerMeterX', 'PixelPerMeterY', 'BitsPerPixel', 'Capabilities')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Width is UNO_NONE:
-                if getattr(self, 'Width') != Width:
-                    setattr(self, 'Width', Width)
-            if not Height is UNO_NONE:
-                if getattr(self, 'Height') != Height:
-                    setattr(self, 'Height', Height)
-            if not LeftInset is UNO_NONE:
-                if getattr(self, 'LeftInset') != LeftInset:
-                    setattr(self, 'LeftInset', LeftInset)
-            if not TopInset is UNO_NONE:
-                if getattr(self, 'TopInset') != TopInset:
-                    setattr(self, 'TopInset', TopInset)
-            if not RightInset is UNO_NONE:
-                if getattr(self, 'RightInset') != RightInset:
-                    setattr(self, 'RightInset', RightInset)
-            if not BottomInset is UNO_NONE:
-                if getattr(self, 'BottomInset') != BottomInset:
-                    setattr(self, 'BottomInset', BottomInset)
-            if not PixelPerMeterX is UNO_NONE:
-                if getattr(self, 'PixelPerMeterX') != PixelPerMeterX:
-                    setattr(self, 'PixelPerMeterX', PixelPerMeterX)
-            if not PixelPerMeterY is UNO_NONE:
-                if getattr(self, 'PixelPerMeterY') != PixelPerMeterY:
-                    setattr(self, 'PixelPerMeterY', PixelPerMeterY)
-            if not BitsPerPixel is UNO_NONE:
-                if getattr(self, 'BitsPerPixel') != BitsPerPixel:
-                    setattr(self, 'BitsPerPixel', BitsPerPixel)
-            if not Capabilities is UNO_NONE:
-                if getattr(self, 'Capabilities') != Capabilities:
-                    setattr(self, 'Capabilities', Capabilities)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.DeviceInfo'
         struct = uno.getClass(type_name)
@@ -72,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DeviceInfo = _get_class()
-
 
 else:
     from ...lo.awt.device_info import DeviceInfo as DeviceInfo

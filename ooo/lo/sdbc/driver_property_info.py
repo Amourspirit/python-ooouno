@@ -39,39 +39,35 @@ class DriverPropertyInfo(object):
     typeName: str = 'com.sun.star.sdbc.DriverPropertyInfo'
     """Literal Constant ``com.sun.star.sdbc.DriverPropertyInfo``"""
 
-    def __init__(self, Choices: typing.Tuple[str, ...] = UNO_NONE, Name: str = '', Description: str = '', IsRequired: bool = False, Value: str = '') -> None:
+    def __init__(self, Choices: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Name: typing.Optional[str] = '', Description: typing.Optional[str] = '', IsRequired: typing.Optional[bool] = False, Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Choices`` can be another ``DriverPropertyInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Choices (Tuple[str, ...], optional): Choices value
-            Name (str, optional): Name value
-            Description (str, optional): Description value
-            IsRequired (bool, optional): IsRequired value
-            Value (str, optional): Value value
+            Choices (typing.Tuple[str, ...], optional): Choices value.
+            Name (str, optional): Name value.
+            Description (str, optional): Description value.
+            IsRequired (bool, optional): IsRequired value.
+            Value (str, optional): Value value.
         """
-        if isinstance(Choices, DriverPropertyInfo):
-            oth: DriverPropertyInfo = Choices
-            self._choices = oth.Choices
-            self._name = oth.Name
-            self._description = oth.Description
-            self._is_required = oth.IsRequired
-            self._value = oth.Value
-            return
-        else:
-            if Choices is UNO_NONE:
-                self._choices = None
-            else:
-                self._choices = Choices
-            self._name = Name
-            self._description = Description
-            self._is_required = IsRequired
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Choices": Choices,
+            "Name": Name,
+            "Description": Description,
+            "IsRequired": IsRequired,
+            "Value": Value,
+        }
+        if kargs["Choices"] is UNO_NONE:
+            kargs["Choices"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._choices = kwargs["Choices"]
+        self._name = kwargs["Name"]
+        self._description = kwargs["Description"]
+        self._is_required = kwargs["IsRequired"]
+        self._value = kwargs["Value"]
 
 
     @property

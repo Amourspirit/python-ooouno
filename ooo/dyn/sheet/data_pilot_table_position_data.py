@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, PositionType = UNO_NONE, PositionData = UNO_NONE):
-            if getattr(PositionType, "__class__", None) == self.__class__:
-                orig_init(self, PositionType)
+        ordered_keys = ('PositionType', 'PositionData')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not PositionType is UNO_NONE:
-                if getattr(self, 'PositionType') != PositionType:
-                    setattr(self, 'PositionType', PositionType)
-            if not PositionData is UNO_NONE:
-                if getattr(self, 'PositionData') != PositionData:
-                    setattr(self, 'PositionData', PositionData)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.DataPilotTablePositionData'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPilotTablePositionData = _get_class()
-
 
 else:
     from ...lo.sheet.data_pilot_table_position_data import DataPilotTablePositionData as DataPilotTablePositionData

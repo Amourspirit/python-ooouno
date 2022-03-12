@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,26 +43,27 @@ class TabPageActivatedEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.tab.TabPageActivatedEvent'
     """Literal Constant ``com.sun.star.awt.tab.TabPageActivatedEvent``"""
 
-    def __init__(self, TabPageID: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, TabPageID: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TabPageID`` can be another ``TabPageActivatedEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            TabPageID (int, optional): TabPageID value
+            Source (XInterface, optional): Source value.
+            TabPageID (int, optional): TabPageID value.
         """
-        super().__init__(**kwargs)
-        if isinstance(TabPageID, TabPageActivatedEvent):
-            oth: TabPageActivatedEvent = TabPageID
-            self._tab_page_id = oth.TabPageID
-            return
-        else:
-            self._tab_page_id = TabPageID
+        kargs = {
+            "Source": Source,
+            "TabPageID": TabPageID,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._tab_page_id = kwargs["TabPageID"]
+        inst_keys = ('TabPageID',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

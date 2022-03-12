@@ -37,30 +37,26 @@ class SendMediaTypes(object):
     typeName: str = 'com.sun.star.ucb.SendMediaTypes'
     """Literal Constant ``com.sun.star.ucb.SendMediaTypes``"""
 
-    def __init__(self, Value: typing.Tuple[str, ...] = UNO_NONE, ProtocolType: str = '') -> None:
+    def __init__(self, Value: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, ProtocolType: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``SendMediaTypes`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (Tuple[str, ...], optional): Value value
-            ProtocolType (str, optional): ProtocolType value
+            Value (typing.Tuple[str, ...], optional): Value value.
+            ProtocolType (str, optional): ProtocolType value.
         """
-        if isinstance(Value, SendMediaTypes):
-            oth: SendMediaTypes = Value
-            self._value = oth.Value
-            self._protocol_type = oth.ProtocolType
-            return
-        else:
-            if Value is UNO_NONE:
-                self._value = None
-            else:
-                self._value = Value
-            self._protocol_type = ProtocolType
+        super().__init__()
+        kargs = {
+            "Value": Value,
+            "ProtocolType": ProtocolType,
+        }
+        if kargs["Value"] is UNO_NONE:
+            kargs["Value"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._protocol_type = kwargs["ProtocolType"]
 
 
     @property

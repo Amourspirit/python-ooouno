@@ -47,27 +47,24 @@ class TableColumnSeparator(object):
     typeName: str = 'com.sun.star.text.TableColumnSeparator'
     """Literal Constant ``com.sun.star.text.TableColumnSeparator``"""
 
-    def __init__(self, Position: int = 0, IsVisible: bool = False) -> None:
+    def __init__(self, Position: typing.Optional[int] = 0, IsVisible: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``TableColumnSeparator`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (int, optional): Position value
-            IsVisible (bool, optional): IsVisible value
+            Position (int, optional): Position value.
+            IsVisible (bool, optional): IsVisible value.
         """
-        if isinstance(Position, TableColumnSeparator):
-            oth: TableColumnSeparator = Position
-            self._position = oth.Position
-            self._is_visible = oth.IsVisible
-            return
-        else:
-            self._position = Position
-            self._is_visible = IsVisible
+        super().__init__()
+        kargs = {
+            "Position": Position,
+            "IsVisible": IsVisible,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._is_visible = kwargs["IsVisible"]
 
 
     @property

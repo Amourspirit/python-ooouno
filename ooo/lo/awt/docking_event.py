@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .point import Point as Point_5fb2085e
 from .rectangle import Rectangle as Rectangle_84b109e9
@@ -40,41 +41,40 @@ class DockingEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.DockingEvent'
     """Literal Constant ``com.sun.star.awt.DockingEvent``"""
 
-    def __init__(self, TrackingRectangle: Rectangle_84b109e9 = UNO_NONE, MousePos: Point_5fb2085e = UNO_NONE, bLiveMode: bool = False, bInteractive: bool = False, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, TrackingRectangle: typing.Optional[Rectangle_84b109e9] = UNO_NONE, MousePos: typing.Optional[Point_5fb2085e] = UNO_NONE, bLiveMode: typing.Optional[bool] = False, bInteractive: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TrackingRectangle`` can be another ``DockingEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            TrackingRectangle (Rectangle, optional): TrackingRectangle value
-            MousePos (Point, optional): MousePos value
-            bLiveMode (bool, optional): bLiveMode value
-            bInteractive (bool, optional): bInteractive value
+            Source (XInterface, optional): Source value.
+            TrackingRectangle (Rectangle, optional): TrackingRectangle value.
+            MousePos (Point, optional): MousePos value.
+            bLiveMode (bool, optional): bLiveMode value.
+            bInteractive (bool, optional): bInteractive value.
         """
-        super().__init__(**kwargs)
-        if isinstance(TrackingRectangle, DockingEvent):
-            oth: DockingEvent = TrackingRectangle
-            self._tracking_rectangle = oth.TrackingRectangle
-            self._mouse_pos = oth.MousePos
-            self._b_live_mode = oth.bLiveMode
-            self._b_interactive = oth.bInteractive
-            return
-        else:
-            if TrackingRectangle is UNO_NONE:
-                self._tracking_rectangle = Rectangle_84b109e9()
-            else:
-                self._tracking_rectangle = TrackingRectangle
-            if MousePos is UNO_NONE:
-                self._mouse_pos = Point_5fb2085e()
-            else:
-                self._mouse_pos = MousePos
-            self._b_live_mode = bLiveMode
-            self._b_interactive = bInteractive
+        kargs = {
+            "Source": Source,
+            "TrackingRectangle": TrackingRectangle,
+            "MousePos": MousePos,
+            "bLiveMode": bLiveMode,
+            "bInteractive": bInteractive,
+        }
+        if kargs["TrackingRectangle"] is UNO_NONE:
+            kargs["TrackingRectangle"] = None
+        if kargs["MousePos"] is UNO_NONE:
+            kargs["MousePos"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._tracking_rectangle = kwargs["TrackingRectangle"]
+        self._mouse_pos = kwargs["MousePos"]
+        self._b_live_mode = kwargs["bLiveMode"]
+        self._b_interactive = kwargs["bInteractive"]
+        inst_keys = ('TrackingRectangle', 'MousePos', 'bLiveMode', 'bInteractive')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

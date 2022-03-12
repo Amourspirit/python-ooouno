@@ -38,27 +38,24 @@ class WelcomeDynamicResultSetStruct(object):
     typeName: str = 'com.sun.star.ucb.WelcomeDynamicResultSetStruct'
     """Literal Constant ``com.sun.star.ucb.WelcomeDynamicResultSetStruct``"""
 
-    def __init__(self, Old: XResultSet_98e30aa7 = None, New: XResultSet_98e30aa7 = None) -> None:
+    def __init__(self, Old: typing.Optional[XResultSet_98e30aa7] = None, New: typing.Optional[XResultSet_98e30aa7] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Old`` can be another ``WelcomeDynamicResultSetStruct`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Old (XResultSet, optional): Old value
-            New (XResultSet, optional): New value
+            Old (XResultSet, optional): Old value.
+            New (XResultSet, optional): New value.
         """
-        if isinstance(Old, WelcomeDynamicResultSetStruct):
-            oth: WelcomeDynamicResultSetStruct = Old
-            self._old = oth.Old
-            self._new = oth.New
-            return
-        else:
-            self._old = Old
-            self._new = New
+        super().__init__()
+        kargs = {
+            "Old": Old,
+            "New": New,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._old = kwargs["Old"]
+        self._new = kwargs["New"]
 
 
     @property

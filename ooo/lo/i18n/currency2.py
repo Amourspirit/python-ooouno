@@ -44,26 +44,39 @@ class Currency2(Currency_80230993):
     typeName: str = 'com.sun.star.i18n.Currency2'
     """Literal Constant ``com.sun.star.i18n.Currency2``"""
 
-    def __init__(self, LegacyOnly: bool = False, **kwargs) -> None:
+    def __init__(self, ID: typing.Optional[str] = '', Symbol: typing.Optional[str] = '', BankSymbol: typing.Optional[str] = '', Name: typing.Optional[str] = '', Default: typing.Optional[bool] = False, UsedInCompatibleFormatCodes: typing.Optional[bool] = False, DecimalPlaces: typing.Optional[int] = 0, LegacyOnly: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LegacyOnly`` can be another ``Currency2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            LegacyOnly (bool, optional): LegacyOnly value
+            ID (str, optional): ID value.
+            Symbol (str, optional): Symbol value.
+            BankSymbol (str, optional): BankSymbol value.
+            Name (str, optional): Name value.
+            Default (bool, optional): Default value.
+            UsedInCompatibleFormatCodes (bool, optional): UsedInCompatibleFormatCodes value.
+            DecimalPlaces (int, optional): DecimalPlaces value.
+            LegacyOnly (bool, optional): LegacyOnly value.
         """
-        super().__init__(**kwargs)
-        if isinstance(LegacyOnly, Currency2):
-            oth: Currency2 = LegacyOnly
-            self._legacy_only = oth.LegacyOnly
-            return
-        else:
-            self._legacy_only = LegacyOnly
+        kargs = {
+            "ID": ID,
+            "Symbol": Symbol,
+            "BankSymbol": BankSymbol,
+            "Name": Name,
+            "Default": Default,
+            "UsedInCompatibleFormatCodes": UsedInCompatibleFormatCodes,
+            "DecimalPlaces": DecimalPlaces,
+            "LegacyOnly": LegacyOnly,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._legacy_only = kwargs["LegacyOnly"]
+        inst_keys = ('LegacyOnly',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

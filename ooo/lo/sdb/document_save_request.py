@@ -21,10 +21,14 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from ..task.interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 from ..ucb.x_content import XContent as XContent_79db0975
 
 class DocumentSaveRequest(ClassifiedInteractionRequest_9f72121b):
     """
+    Exception Class
+
     an error specifying the lack of a document name
     
     Usually thrown if someone tries to save a document which hasn't a name yet.
@@ -46,20 +50,34 @@ class DocumentSaveRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.sdb.DocumentSaveRequest'
     """Literal Constant ``com.sun.star.sdb.DocumentSaveRequest``"""
 
-    def __init__(self, Content: typing.Optional[XContent_79db0975] = None, Name: typing.Optional[str] = '', **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, Content: typing.Optional[XContent_79db0975] = None, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            Classification (InteractionClassification, optional): Classification value.
             Content (XContent, optional): Content value.
             Name (str, optional): Name value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+            "Content": Content,
+            "Name": Name,
+        }
+        self._init(**kargs)
 
-        self._content = Content
-        self._name = Name
+    def _init(self, **kwargs) -> None:
+        self._content = kwargs["Content"]
+        self._name = kwargs["Name"]
+        inst_keys = ('Content', 'Name')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Content(self) -> XContent_79db0975:

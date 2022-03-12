@@ -38,30 +38,26 @@ class VisualRepresentation(object):
     typeName: str = 'com.sun.star.embed.VisualRepresentation'
     """Literal Constant ``com.sun.star.embed.VisualRepresentation``"""
 
-    def __init__(self, Flavor: DataFlavor_ffd30deb = UNO_NONE, Data: object = None) -> None:
+    def __init__(self, Flavor: typing.Optional[DataFlavor_ffd30deb] = UNO_NONE, Data: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Flavor`` can be another ``VisualRepresentation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Flavor (DataFlavor, optional): Flavor value
-            Data (object, optional): Data value
+            Flavor (DataFlavor, optional): Flavor value.
+            Data (object, optional): Data value.
         """
-        if isinstance(Flavor, VisualRepresentation):
-            oth: VisualRepresentation = Flavor
-            self._flavor = oth.Flavor
-            self._data = oth.Data
-            return
-        else:
-            if Flavor is UNO_NONE:
-                self._flavor = DataFlavor_ffd30deb()
-            else:
-                self._flavor = Flavor
-            self._data = Data
+        super().__init__()
+        kargs = {
+            "Flavor": Flavor,
+            "Data": Data,
+        }
+        if kargs["Flavor"] is UNO_NONE:
+            kargs["Flavor"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._flavor = kwargs["Flavor"]
+        self._data = kwargs["Data"]
 
 
     @property

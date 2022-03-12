@@ -42,36 +42,32 @@ class TableFilterField3(object):
     typeName: str = 'com.sun.star.sheet.TableFilterField3'
     """Literal Constant ``com.sun.star.sheet.TableFilterField3``"""
 
-    def __init__(self, Values: typing.Tuple[FilterFieldValue_ef2a0d68, ...] = UNO_NONE, Connection: FilterConnection_f01f0d97 = FilterConnection_f01f0d97.AND, Field: int = 0, Operator: int = 0) -> None:
+    def __init__(self, Values: typing.Optional[typing.Tuple[FilterFieldValue_ef2a0d68, ...]] = UNO_NONE, Connection: typing.Optional[FilterConnection_f01f0d97] = FilterConnection_f01f0d97.AND, Field: typing.Optional[int] = 0, Operator: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Values`` can be another ``TableFilterField3`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Values (Tuple[FilterFieldValue, ...], optional): Values value
-            Connection (FilterConnection, optional): Connection value
-            Field (int, optional): Field value
-            Operator (int, optional): Operator value
+            Values (typing.Tuple[FilterFieldValue, ...], optional): Values value.
+            Connection (FilterConnection, optional): Connection value.
+            Field (int, optional): Field value.
+            Operator (int, optional): Operator value.
         """
-        if isinstance(Values, TableFilterField3):
-            oth: TableFilterField3 = Values
-            self._values = oth.Values
-            self._connection = oth.Connection
-            self._field = oth.Field
-            self._operator = oth.Operator
-            return
-        else:
-            if Values is UNO_NONE:
-                self._values = None
-            else:
-                self._values = Values
-            self._connection = Connection
-            self._field = Field
-            self._operator = Operator
+        super().__init__()
+        kargs = {
+            "Values": Values,
+            "Connection": Connection,
+            "Field": Field,
+            "Operator": Operator,
+        }
+        if kargs["Values"] is UNO_NONE:
+            kargs["Values"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._values = kwargs["Values"]
+        self._connection = kwargs["Connection"]
+        self._field = kwargs["Field"]
+        self._operator = kwargs["Operator"]
 
 
     @property

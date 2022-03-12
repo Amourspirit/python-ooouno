@@ -41,66 +41,63 @@ class DateTimeRange(object):
     typeName: str = 'com.sun.star.util.DateTimeRange'
     """Literal Constant ``com.sun.star.util.DateTimeRange``"""
 
-    def __init__(self, StartNanoSeconds: int = 0, StartSeconds: int = 0, StartMinutes: int = 0, StartHours: int = 0, StartDay: int = 0, StartMonth: int = 0, StartYear: int = 0, EndNanoSeconds: int = 0, EndSeconds: int = 0, EndMinutes: int = 0, EndHours: int = 0, EndDay: int = 0, EndMonth: int = 0, EndYear: int = 0, IsUTC: bool = False) -> None:
+    def __init__(self, StartNanoSeconds: typing.Optional[int] = 0, StartSeconds: typing.Optional[int] = 0, StartMinutes: typing.Optional[int] = 0, StartHours: typing.Optional[int] = 0, StartDay: typing.Optional[int] = 0, StartMonth: typing.Optional[int] = 0, StartYear: typing.Optional[int] = 0, EndNanoSeconds: typing.Optional[int] = 0, EndSeconds: typing.Optional[int] = 0, EndMinutes: typing.Optional[int] = 0, EndHours: typing.Optional[int] = 0, EndDay: typing.Optional[int] = 0, EndMonth: typing.Optional[int] = 0, EndYear: typing.Optional[int] = 0, IsUTC: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``StartNanoSeconds`` can be another ``DateTimeRange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            StartNanoSeconds (int, optional): StartNanoSeconds value
-            StartSeconds (int, optional): StartSeconds value
-            StartMinutes (int, optional): StartMinutes value
-            StartHours (int, optional): StartHours value
-            StartDay (int, optional): StartDay value
-            StartMonth (int, optional): StartMonth value
-            StartYear (int, optional): StartYear value
-            EndNanoSeconds (int, optional): EndNanoSeconds value
-            EndSeconds (int, optional): EndSeconds value
-            EndMinutes (int, optional): EndMinutes value
-            EndHours (int, optional): EndHours value
-            EndDay (int, optional): EndDay value
-            EndMonth (int, optional): EndMonth value
-            EndYear (int, optional): EndYear value
-            IsUTC (bool, optional): IsUTC value
+            StartNanoSeconds (int, optional): StartNanoSeconds value.
+            StartSeconds (int, optional): StartSeconds value.
+            StartMinutes (int, optional): StartMinutes value.
+            StartHours (int, optional): StartHours value.
+            StartDay (int, optional): StartDay value.
+            StartMonth (int, optional): StartMonth value.
+            StartYear (int, optional): StartYear value.
+            EndNanoSeconds (int, optional): EndNanoSeconds value.
+            EndSeconds (int, optional): EndSeconds value.
+            EndMinutes (int, optional): EndMinutes value.
+            EndHours (int, optional): EndHours value.
+            EndDay (int, optional): EndDay value.
+            EndMonth (int, optional): EndMonth value.
+            EndYear (int, optional): EndYear value.
+            IsUTC (bool, optional): IsUTC value.
         """
-        if isinstance(StartNanoSeconds, DateTimeRange):
-            oth: DateTimeRange = StartNanoSeconds
-            self._start_nano_seconds = oth.StartNanoSeconds
-            self._start_seconds = oth.StartSeconds
-            self._start_minutes = oth.StartMinutes
-            self._start_hours = oth.StartHours
-            self._start_day = oth.StartDay
-            self._start_month = oth.StartMonth
-            self._start_year = oth.StartYear
-            self._end_nano_seconds = oth.EndNanoSeconds
-            self._end_seconds = oth.EndSeconds
-            self._end_minutes = oth.EndMinutes
-            self._end_hours = oth.EndHours
-            self._end_day = oth.EndDay
-            self._end_month = oth.EndMonth
-            self._end_year = oth.EndYear
-            self._is_utc = oth.IsUTC
-            return
-        else:
-            self._start_nano_seconds = StartNanoSeconds
-            self._start_seconds = StartSeconds
-            self._start_minutes = StartMinutes
-            self._start_hours = StartHours
-            self._start_day = StartDay
-            self._start_month = StartMonth
-            self._start_year = StartYear
-            self._end_nano_seconds = EndNanoSeconds
-            self._end_seconds = EndSeconds
-            self._end_minutes = EndMinutes
-            self._end_hours = EndHours
-            self._end_day = EndDay
-            self._end_month = EndMonth
-            self._end_year = EndYear
-            self._is_utc = IsUTC
+        super().__init__()
+        kargs = {
+            "StartNanoSeconds": StartNanoSeconds,
+            "StartSeconds": StartSeconds,
+            "StartMinutes": StartMinutes,
+            "StartHours": StartHours,
+            "StartDay": StartDay,
+            "StartMonth": StartMonth,
+            "StartYear": StartYear,
+            "EndNanoSeconds": EndNanoSeconds,
+            "EndSeconds": EndSeconds,
+            "EndMinutes": EndMinutes,
+            "EndHours": EndHours,
+            "EndDay": EndDay,
+            "EndMonth": EndMonth,
+            "EndYear": EndYear,
+            "IsUTC": IsUTC,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._start_nano_seconds = kwargs["StartNanoSeconds"]
+        self._start_seconds = kwargs["StartSeconds"]
+        self._start_minutes = kwargs["StartMinutes"]
+        self._start_hours = kwargs["StartHours"]
+        self._start_day = kwargs["StartDay"]
+        self._start_month = kwargs["StartMonth"]
+        self._start_year = kwargs["StartYear"]
+        self._end_nano_seconds = kwargs["EndNanoSeconds"]
+        self._end_seconds = kwargs["EndSeconds"]
+        self._end_minutes = kwargs["EndMinutes"]
+        self._end_hours = kwargs["EndHours"]
+        self._end_day = kwargs["EndDay"]
+        self._end_month = kwargs["EndMonth"]
+        self._end_year = kwargs["EndYear"]
+        self._is_utc = kwargs["IsUTC"]
 
 
     @property

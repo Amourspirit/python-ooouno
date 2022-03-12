@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .drop_target_event import DropTargetEvent as DropTargetEvent_8d651169
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .x_drop_target_drag_context import XDropTargetDragContext as XDropTargetDragContext_10221422
 
@@ -41,38 +42,41 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
     typeName: str = 'com.sun.star.datatransfer.dnd.DropTargetDragEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DropTargetDragEvent``"""
 
-    def __init__(self, Context: XDropTargetDragContext_10221422 = None, DropAction: int = 0, LocationX: int = 0, LocationY: int = 0, SourceActions: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0, Context: typing.Optional[XDropTargetDragContext_10221422] = None, DropAction: typing.Optional[int] = 0, LocationX: typing.Optional[int] = 0, LocationY: typing.Optional[int] = 0, SourceActions: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Context`` can be another ``DropTargetDragEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Context (XDropTargetDragContext, optional): Context value
-            DropAction (int, optional): DropAction value
-            LocationX (int, optional): LocationX value
-            LocationY (int, optional): LocationY value
-            SourceActions (int, optional): SourceActions value
+            Source (XInterface, optional): Source value.
+            Dummy (int, optional): Dummy value.
+            Context (XDropTargetDragContext, optional): Context value.
+            DropAction (int, optional): DropAction value.
+            LocationX (int, optional): LocationX value.
+            LocationY (int, optional): LocationY value.
+            SourceActions (int, optional): SourceActions value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Context, DropTargetDragEvent):
-            oth: DropTargetDragEvent = Context
-            self._context = oth.Context
-            self._drop_action = oth.DropAction
-            self._location_x = oth.LocationX
-            self._location_y = oth.LocationY
-            self._source_actions = oth.SourceActions
-            return
-        else:
-            self._context = Context
-            self._drop_action = DropAction
-            self._location_x = LocationX
-            self._location_y = LocationY
-            self._source_actions = SourceActions
+        kargs = {
+            "Source": Source,
+            "Dummy": Dummy,
+            "Context": Context,
+            "DropAction": DropAction,
+            "LocationX": LocationX,
+            "LocationY": LocationY,
+            "SourceActions": SourceActions,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._context = kwargs["Context"]
+        self._drop_action = kwargs["DropAction"]
+        self._location_x = kwargs["LocationX"]
+        self._location_y = kwargs["LocationY"]
+        self._source_actions = kwargs["SourceActions"]
+        inst_keys = ('Context', 'DropAction', 'LocationX', 'LocationY', 'SourceActions')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

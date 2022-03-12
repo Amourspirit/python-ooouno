@@ -22,18 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, dummy = UNO_NONE):
-            if getattr(dummy, "__class__", None) == self.__class__:
-                orig_init(self, dummy)
+        ordered_keys = ('dummy',)
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not dummy is UNO_NONE:
-                if getattr(self, 'dummy') != dummy:
-                    setattr(self, 'dummy', dummy)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.ColorProfile'
         struct = uno.getClass(type_name)
@@ -45,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ColorProfile = _get_class()
-
 
 else:
     from ...lo.rendering.color_profile import ColorProfile as ColorProfile

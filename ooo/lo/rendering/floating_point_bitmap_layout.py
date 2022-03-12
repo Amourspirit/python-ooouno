@@ -44,45 +44,42 @@ class FloatingPointBitmapLayout(object):
     typeName: str = 'com.sun.star.rendering.FloatingPointBitmapLayout'
     """Literal Constant ``com.sun.star.rendering.FloatingPointBitmapLayout``"""
 
-    def __init__(self, ScanLines: int = 0, ScanLineBytes: int = 0, ScanLineStride: int = 0, PlaneStride: int = 0, ColorSpace: XColorSpace_e3940d09 = None, NumComponents: int = 0, Endianness: int = 0, Format: int = 0) -> None:
+    def __init__(self, ScanLines: typing.Optional[int] = 0, ScanLineBytes: typing.Optional[int] = 0, ScanLineStride: typing.Optional[int] = 0, PlaneStride: typing.Optional[int] = 0, ColorSpace: typing.Optional[XColorSpace_e3940d09] = None, NumComponents: typing.Optional[int] = 0, Endianness: typing.Optional[int] = 0, Format: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ScanLines`` can be another ``FloatingPointBitmapLayout`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ScanLines (int, optional): ScanLines value
-            ScanLineBytes (int, optional): ScanLineBytes value
-            ScanLineStride (int, optional): ScanLineStride value
-            PlaneStride (int, optional): PlaneStride value
-            ColorSpace (XColorSpace, optional): ColorSpace value
-            NumComponents (int, optional): NumComponents value
-            Endianness (int, optional): Endianness value
-            Format (int, optional): Format value
+            ScanLines (int, optional): ScanLines value.
+            ScanLineBytes (int, optional): ScanLineBytes value.
+            ScanLineStride (int, optional): ScanLineStride value.
+            PlaneStride (int, optional): PlaneStride value.
+            ColorSpace (XColorSpace, optional): ColorSpace value.
+            NumComponents (int, optional): NumComponents value.
+            Endianness (int, optional): Endianness value.
+            Format (int, optional): Format value.
         """
-        if isinstance(ScanLines, FloatingPointBitmapLayout):
-            oth: FloatingPointBitmapLayout = ScanLines
-            self._scan_lines = oth.ScanLines
-            self._scan_line_bytes = oth.ScanLineBytes
-            self._scan_line_stride = oth.ScanLineStride
-            self._plane_stride = oth.PlaneStride
-            self._color_space = oth.ColorSpace
-            self._num_components = oth.NumComponents
-            self._endianness = oth.Endianness
-            self._format = oth.Format
-            return
-        else:
-            self._scan_lines = ScanLines
-            self._scan_line_bytes = ScanLineBytes
-            self._scan_line_stride = ScanLineStride
-            self._plane_stride = PlaneStride
-            self._color_space = ColorSpace
-            self._num_components = NumComponents
-            self._endianness = Endianness
-            self._format = Format
+        super().__init__()
+        kargs = {
+            "ScanLines": ScanLines,
+            "ScanLineBytes": ScanLineBytes,
+            "ScanLineStride": ScanLineStride,
+            "PlaneStride": PlaneStride,
+            "ColorSpace": ColorSpace,
+            "NumComponents": NumComponents,
+            "Endianness": Endianness,
+            "Format": Format,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._scan_lines = kwargs["ScanLines"]
+        self._scan_line_bytes = kwargs["ScanLineBytes"]
+        self._scan_line_stride = kwargs["ScanLineStride"]
+        self._plane_stride = kwargs["PlaneStride"]
+        self._color_space = kwargs["ColorSpace"]
+        self._num_components = kwargs["NumComponents"]
+        self._endianness = kwargs["Endianness"]
+        self._format = kwargs["Format"]
 
 
     @property

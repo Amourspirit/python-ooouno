@@ -41,27 +41,24 @@ class ArrayWrapper(object):
     typeName: str = 'com.sun.star.script.ArrayWrapper'
     """Literal Constant ``com.sun.star.script.ArrayWrapper``"""
 
-    def __init__(self, IsZeroIndex: bool = False, Array: object = None) -> None:
+    def __init__(self, IsZeroIndex: typing.Optional[bool] = False, Array: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IsZeroIndex`` can be another ``ArrayWrapper`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IsZeroIndex (bool, optional): IsZeroIndex value
-            Array (object, optional): Array value
+            IsZeroIndex (bool, optional): IsZeroIndex value.
+            Array (object, optional): Array value.
         """
-        if isinstance(IsZeroIndex, ArrayWrapper):
-            oth: ArrayWrapper = IsZeroIndex
-            self._is_zero_index = oth.IsZeroIndex
-            self._array = oth.Array
-            return
-        else:
-            self._is_zero_index = IsZeroIndex
-            self._array = Array
+        super().__init__()
+        kargs = {
+            "IsZeroIndex": IsZeroIndex,
+            "Array": Array,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._is_zero_index = kwargs["IsZeroIndex"]
+        self._array = kwargs["Array"]
 
 
     @property

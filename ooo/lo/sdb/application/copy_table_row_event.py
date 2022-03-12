@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ...sdbc.x_result_set import XResultSet as XResultSet_98e30aa7
 
@@ -41,29 +42,30 @@ class CopyTableRowEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sdb.application.CopyTableRowEvent'
     """Literal Constant ``com.sun.star.sdb.application.CopyTableRowEvent``"""
 
-    def __init__(self, SourceData: XResultSet_98e30aa7 = None, Error: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, SourceData: typing.Optional[XResultSet_98e30aa7] = None, Error: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SourceData`` can be another ``CopyTableRowEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            SourceData (XResultSet, optional): SourceData value
-            Error (object, optional): Error value
+            Source (XInterface, optional): Source value.
+            SourceData (XResultSet, optional): SourceData value.
+            Error (object, optional): Error value.
         """
-        super().__init__(**kwargs)
-        if isinstance(SourceData, CopyTableRowEvent):
-            oth: CopyTableRowEvent = SourceData
-            self._source_data = oth.SourceData
-            self._error = oth.Error
-            return
-        else:
-            self._source_data = SourceData
-            self._error = Error
+        kargs = {
+            "Source": Source,
+            "SourceData": SourceData,
+            "Error": Error,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._source_data = kwargs["SourceData"]
+        self._error = kwargs["Error"]
+        inst_keys = ('SourceData', 'Error')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

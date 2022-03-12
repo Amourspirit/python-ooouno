@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Scale = UNO_NONE, Sign = UNO_NONE, LowValue = UNO_NONE, MiddleValue = UNO_NONE, HighValue = UNO_NONE):
-            if getattr(Scale, "__class__", None) == self.__class__:
-                orig_init(self, Scale)
+        ordered_keys = ('Scale', 'Sign', 'LowValue', 'MiddleValue', 'HighValue')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Scale is UNO_NONE:
-                if getattr(self, 'Scale') != Scale:
-                    setattr(self, 'Scale', Scale)
-            if not Sign is UNO_NONE:
-                if getattr(self, 'Sign') != Sign:
-                    setattr(self, 'Sign', Sign)
-            if not LowValue is UNO_NONE:
-                if getattr(self, 'LowValue') != LowValue:
-                    setattr(self, 'LowValue', LowValue)
-            if not MiddleValue is UNO_NONE:
-                if getattr(self, 'MiddleValue') != MiddleValue:
-                    setattr(self, 'MiddleValue', MiddleValue)
-            if not HighValue is UNO_NONE:
-                if getattr(self, 'HighValue') != HighValue:
-                    setattr(self, 'HighValue', HighValue)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.bridge.oleautomation.Decimal'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Decimal = _get_class()
-
 
 else:
     from ....lo.bridge.oleautomation.decimal import Decimal as Decimal

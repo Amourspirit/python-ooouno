@@ -43,27 +43,24 @@ class RealPoint2D(object):
     typeName: str = 'com.sun.star.geometry.RealPoint2D'
     """Literal Constant ``com.sun.star.geometry.RealPoint2D``"""
 
-    def __init__(self, X: float = 0.0, Y: float = 0.0) -> None:
+    def __init__(self, X: typing.Optional[float] = 0.0, Y: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``X`` can be another ``RealPoint2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            X (float, optional): X value
-            Y (float, optional): Y value
+            X (float, optional): X value.
+            Y (float, optional): Y value.
         """
-        if isinstance(X, RealPoint2D):
-            oth: RealPoint2D = X
-            self._x = oth.X
-            self._y = oth.Y
-            return
-        else:
-            self._x = X
-            self._y = Y
+        super().__init__()
+        kargs = {
+            "X": X,
+            "Y": Y,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._x = kwargs["X"]
+        self._y = kwargs["Y"]
 
 
     @property

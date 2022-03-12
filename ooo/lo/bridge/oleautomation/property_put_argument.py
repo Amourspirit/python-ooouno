@@ -43,24 +43,21 @@ class PropertyPutArgument(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.PropertyPutArgument'
     """Literal Constant ``com.sun.star.bridge.oleautomation.PropertyPutArgument``"""
 
-    def __init__(self, Value: object = None) -> None:
+    def __init__(self, Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``PropertyPutArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (object, optional): Value value
+            Value (object, optional): Value value.
         """
-        if isinstance(Value, PropertyPutArgument):
-            oth: PropertyPutArgument = Value
-            self._value = oth.Value
-            return
-        else:
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
 
 
     @property

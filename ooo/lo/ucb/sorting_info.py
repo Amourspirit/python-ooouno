@@ -37,27 +37,24 @@ class SortingInfo(object):
     typeName: str = 'com.sun.star.ucb.SortingInfo'
     """Literal Constant ``com.sun.star.ucb.SortingInfo``"""
 
-    def __init__(self, PropertyName: str = '', Ascending: bool = False) -> None:
+    def __init__(self, PropertyName: typing.Optional[str] = '', Ascending: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``PropertyName`` can be another ``SortingInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            PropertyName (str, optional): PropertyName value
-            Ascending (bool, optional): Ascending value
+            PropertyName (str, optional): PropertyName value.
+            Ascending (bool, optional): Ascending value.
         """
-        if isinstance(PropertyName, SortingInfo):
-            oth: SortingInfo = PropertyName
-            self._property_name = oth.PropertyName
-            self._ascending = oth.Ascending
-            return
-        else:
-            self._property_name = PropertyName
-            self._ascending = Ascending
+        super().__init__()
+        kargs = {
+            "PropertyName": PropertyName,
+            "Ascending": Ascending,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._property_name = kwargs["PropertyName"]
+        self._ascending = kwargs["Ascending"]
 
 
     @property

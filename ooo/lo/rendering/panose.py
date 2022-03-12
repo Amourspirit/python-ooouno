@@ -36,51 +36,48 @@ class Panose(object):
     typeName: str = 'com.sun.star.rendering.Panose'
     """Literal Constant ``com.sun.star.rendering.Panose``"""
 
-    def __init__(self, FamilyType: int = 0, SerifStyle: int = 0, Weight: int = 0, Proportion: int = 0, Contrast: int = 0, StrokeVariation: int = 0, ArmStyle: int = 0, Letterform: int = 0, Midline: int = 0, XHeight: int = 0) -> None:
+    def __init__(self, FamilyType: typing.Optional[int] = 0, SerifStyle: typing.Optional[int] = 0, Weight: typing.Optional[int] = 0, Proportion: typing.Optional[int] = 0, Contrast: typing.Optional[int] = 0, StrokeVariation: typing.Optional[int] = 0, ArmStyle: typing.Optional[int] = 0, Letterform: typing.Optional[int] = 0, Midline: typing.Optional[int] = 0, XHeight: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FamilyType`` can be another ``Panose`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FamilyType (int, optional): FamilyType value
-            SerifStyle (int, optional): SerifStyle value
-            Weight (int, optional): Weight value
-            Proportion (int, optional): Proportion value
-            Contrast (int, optional): Contrast value
-            StrokeVariation (int, optional): StrokeVariation value
-            ArmStyle (int, optional): ArmStyle value
-            Letterform (int, optional): Letterform value
-            Midline (int, optional): Midline value
-            XHeight (int, optional): XHeight value
+            FamilyType (int, optional): FamilyType value.
+            SerifStyle (int, optional): SerifStyle value.
+            Weight (int, optional): Weight value.
+            Proportion (int, optional): Proportion value.
+            Contrast (int, optional): Contrast value.
+            StrokeVariation (int, optional): StrokeVariation value.
+            ArmStyle (int, optional): ArmStyle value.
+            Letterform (int, optional): Letterform value.
+            Midline (int, optional): Midline value.
+            XHeight (int, optional): XHeight value.
         """
-        if isinstance(FamilyType, Panose):
-            oth: Panose = FamilyType
-            self._family_type = oth.FamilyType
-            self._serif_style = oth.SerifStyle
-            self._weight = oth.Weight
-            self._proportion = oth.Proportion
-            self._contrast = oth.Contrast
-            self._stroke_variation = oth.StrokeVariation
-            self._arm_style = oth.ArmStyle
-            self._letterform = oth.Letterform
-            self._midline = oth.Midline
-            self._x_height = oth.XHeight
-            return
-        else:
-            self._family_type = FamilyType
-            self._serif_style = SerifStyle
-            self._weight = Weight
-            self._proportion = Proportion
-            self._contrast = Contrast
-            self._stroke_variation = StrokeVariation
-            self._arm_style = ArmStyle
-            self._letterform = Letterform
-            self._midline = Midline
-            self._x_height = XHeight
+        super().__init__()
+        kargs = {
+            "FamilyType": FamilyType,
+            "SerifStyle": SerifStyle,
+            "Weight": Weight,
+            "Proportion": Proportion,
+            "Contrast": Contrast,
+            "StrokeVariation": StrokeVariation,
+            "ArmStyle": ArmStyle,
+            "Letterform": Letterform,
+            "Midline": Midline,
+            "XHeight": XHeight,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._family_type = kwargs["FamilyType"]
+        self._serif_style = kwargs["SerifStyle"]
+        self._weight = kwargs["Weight"]
+        self._proportion = kwargs["Proportion"]
+        self._contrast = kwargs["Contrast"]
+        self._stroke_variation = kwargs["StrokeVariation"]
+        self._arm_style = kwargs["ArmStyle"]
+        self._letterform = kwargs["Letterform"]
+        self._midline = kwargs["Midline"]
+        self._x_height = kwargs["XHeight"]
 
 
     @property

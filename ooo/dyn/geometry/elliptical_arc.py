@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, StartPosition = UNO_NONE, EndPosition = UNO_NONE, RadiusX = UNO_NONE, RadiusY = UNO_NONE, XAxisRotation = UNO_NONE, IsLargeArc = UNO_NONE, IsClockwiseSweep = UNO_NONE):
-            if getattr(StartPosition, "__class__", None) == self.__class__:
-                orig_init(self, StartPosition)
+        ordered_keys = ('StartPosition', 'EndPosition', 'RadiusX', 'RadiusY', 'XAxisRotation', 'IsLargeArc', 'IsClockwiseSweep')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not StartPosition is UNO_NONE:
-                if getattr(self, 'StartPosition') != StartPosition:
-                    setattr(self, 'StartPosition', StartPosition)
-            if not EndPosition is UNO_NONE:
-                if getattr(self, 'EndPosition') != EndPosition:
-                    setattr(self, 'EndPosition', EndPosition)
-            if not RadiusX is UNO_NONE:
-                if getattr(self, 'RadiusX') != RadiusX:
-                    setattr(self, 'RadiusX', RadiusX)
-            if not RadiusY is UNO_NONE:
-                if getattr(self, 'RadiusY') != RadiusY:
-                    setattr(self, 'RadiusY', RadiusY)
-            if not XAxisRotation is UNO_NONE:
-                if getattr(self, 'XAxisRotation') != XAxisRotation:
-                    setattr(self, 'XAxisRotation', XAxisRotation)
-            if not IsLargeArc is UNO_NONE:
-                if getattr(self, 'IsLargeArc') != IsLargeArc:
-                    setattr(self, 'IsLargeArc', IsLargeArc)
-            if not IsClockwiseSweep is UNO_NONE:
-                if getattr(self, 'IsClockwiseSweep') != IsClockwiseSweep:
-                    setattr(self, 'IsClockwiseSweep', IsClockwiseSweep)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.geometry.EllipticalArc'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     EllipticalArc = _get_class()
-
 
 else:
     from ...lo.geometry.elliptical_arc import EllipticalArc as EllipticalArc

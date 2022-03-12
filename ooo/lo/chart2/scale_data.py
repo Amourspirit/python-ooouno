@@ -41,60 +41,55 @@ class ScaleData(object):
     typeName: str = 'com.sun.star.chart2.ScaleData'
     """Literal Constant ``com.sun.star.chart2.ScaleData``"""
 
-    def __init__(self, Minimum: object = None, Maximum: object = None, Origin: object = None, Orientation: AxisOrientation_ecba0d6d = AxisOrientation_ecba0d6d.MATHEMATICAL, Scaling: XScaling_97500a65 = None, Categories: XLabeledDataSequence_7e1a10c8 = None, AxisType: int = 0, AutoDateAxis: bool = False, ShiftedCategoryPosition: bool = False, IncrementData: IncrementData_d2000c6b = UNO_NONE, TimeIncrement: TimeIncrement_c7e70c4e = UNO_NONE) -> None:
+    def __init__(self, Minimum: typing.Optional[object] = None, Maximum: typing.Optional[object] = None, Origin: typing.Optional[object] = None, Orientation: typing.Optional[AxisOrientation_ecba0d6d] = AxisOrientation_ecba0d6d.MATHEMATICAL, Scaling: typing.Optional[XScaling_97500a65] = None, Categories: typing.Optional[XLabeledDataSequence_7e1a10c8] = None, AxisType: typing.Optional[int] = 0, AutoDateAxis: typing.Optional[bool] = False, ShiftedCategoryPosition: typing.Optional[bool] = False, IncrementData: typing.Optional[IncrementData_d2000c6b] = UNO_NONE, TimeIncrement: typing.Optional[TimeIncrement_c7e70c4e] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Minimum`` can be another ``ScaleData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Minimum (object, optional): Minimum value
-            Maximum (object, optional): Maximum value
-            Origin (object, optional): Origin value
-            Orientation (AxisOrientation, optional): Orientation value
-            Scaling (XScaling, optional): Scaling value
-            Categories (XLabeledDataSequence, optional): Categories value
-            AxisType (int, optional): AxisType value
-            AutoDateAxis (bool, optional): AutoDateAxis value
-            ShiftedCategoryPosition (bool, optional): ShiftedCategoryPosition value
-            IncrementData (IncrementData, optional): IncrementData value
-            TimeIncrement (TimeIncrement, optional): TimeIncrement value
+            Minimum (object, optional): Minimum value.
+            Maximum (object, optional): Maximum value.
+            Origin (object, optional): Origin value.
+            Orientation (AxisOrientation, optional): Orientation value.
+            Scaling (XScaling, optional): Scaling value.
+            Categories (XLabeledDataSequence, optional): Categories value.
+            AxisType (int, optional): AxisType value.
+            AutoDateAxis (bool, optional): AutoDateAxis value.
+            ShiftedCategoryPosition (bool, optional): ShiftedCategoryPosition value.
+            IncrementData (IncrementData, optional): IncrementData value.
+            TimeIncrement (TimeIncrement, optional): TimeIncrement value.
         """
-        if isinstance(Minimum, ScaleData):
-            oth: ScaleData = Minimum
-            self._minimum = oth.Minimum
-            self._maximum = oth.Maximum
-            self._origin = oth.Origin
-            self._orientation = oth.Orientation
-            self._scaling = oth.Scaling
-            self._categories = oth.Categories
-            self._axis_type = oth.AxisType
-            self._auto_date_axis = oth.AutoDateAxis
-            self._shifted_category_position = oth.ShiftedCategoryPosition
-            self._increment_data = oth.IncrementData
-            self._time_increment = oth.TimeIncrement
-            return
-        else:
-            self._minimum = Minimum
-            self._maximum = Maximum
-            self._origin = Origin
-            self._orientation = Orientation
-            self._scaling = Scaling
-            self._categories = Categories
-            self._axis_type = AxisType
-            self._auto_date_axis = AutoDateAxis
-            self._shifted_category_position = ShiftedCategoryPosition
-            if IncrementData is UNO_NONE:
-                self._increment_data = IncrementData_d2000c6b()
-            else:
-                self._increment_data = IncrementData
-            if TimeIncrement is UNO_NONE:
-                self._time_increment = TimeIncrement_c7e70c4e()
-            else:
-                self._time_increment = TimeIncrement
+        super().__init__()
+        kargs = {
+            "Minimum": Minimum,
+            "Maximum": Maximum,
+            "Origin": Origin,
+            "Orientation": Orientation,
+            "Scaling": Scaling,
+            "Categories": Categories,
+            "AxisType": AxisType,
+            "AutoDateAxis": AutoDateAxis,
+            "ShiftedCategoryPosition": ShiftedCategoryPosition,
+            "IncrementData": IncrementData,
+            "TimeIncrement": TimeIncrement,
+        }
+        if kargs["IncrementData"] is UNO_NONE:
+            kargs["IncrementData"] = None
+        if kargs["TimeIncrement"] is UNO_NONE:
+            kargs["TimeIncrement"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._minimum = kwargs["Minimum"]
+        self._maximum = kwargs["Maximum"]
+        self._origin = kwargs["Origin"]
+        self._orientation = kwargs["Orientation"]
+        self._scaling = kwargs["Scaling"]
+        self._categories = kwargs["Categories"]
+        self._axis_type = kwargs["AxisType"]
+        self._auto_date_axis = kwargs["AutoDateAxis"]
+        self._shifted_category_position = kwargs["ShiftedCategoryPosition"]
+        self._increment_data = kwargs["IncrementData"]
+        self._time_increment = kwargs["TimeIncrement"]
 
 
     @property

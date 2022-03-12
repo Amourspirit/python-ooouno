@@ -41,27 +41,24 @@ class ExternalLinkInfo(object):
     typeName: str = 'com.sun.star.sheet.ExternalLinkInfo'
     """Literal Constant ``com.sun.star.sheet.ExternalLinkInfo``"""
 
-    def __init__(self, Type: int = 0, Data: object = None) -> None:
+    def __init__(self, Type: typing.Optional[int] = 0, Data: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``ExternalLinkInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (int, optional): Type value
-            Data (object, optional): Data value
+            Type (int, optional): Type value.
+            Data (object, optional): Data value.
         """
-        if isinstance(Type, ExternalLinkInfo):
-            oth: ExternalLinkInfo = Type
-            self._type = oth.Type
-            self._data = oth.Data
-            return
-        else:
-            self._type = Type
-            self._data = Data
+        super().__init__()
+        kargs = {
+            "Type": Type,
+            "Data": Data,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._data = kwargs["Data"]
 
 
     @property

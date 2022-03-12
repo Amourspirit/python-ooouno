@@ -43,33 +43,30 @@ class Verb(object):
     typeName: str = 'com.sun.star.frame.status.Verb'
     """Literal Constant ``com.sun.star.frame.status.Verb``"""
 
-    def __init__(self, VerbId: int = 0, VerbName: str = '', VerbIsOnMenu: bool = False, VerbIsConst: bool = False) -> None:
+    def __init__(self, VerbId: typing.Optional[int] = 0, VerbName: typing.Optional[str] = '', VerbIsOnMenu: typing.Optional[bool] = False, VerbIsConst: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``VerbId`` can be another ``Verb`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            VerbId (int, optional): VerbId value
-            VerbName (str, optional): VerbName value
-            VerbIsOnMenu (bool, optional): VerbIsOnMenu value
-            VerbIsConst (bool, optional): VerbIsConst value
+            VerbId (int, optional): VerbId value.
+            VerbName (str, optional): VerbName value.
+            VerbIsOnMenu (bool, optional): VerbIsOnMenu value.
+            VerbIsConst (bool, optional): VerbIsConst value.
         """
-        if isinstance(VerbId, Verb):
-            oth: Verb = VerbId
-            self._verb_id = oth.VerbId
-            self._verb_name = oth.VerbName
-            self._verb_is_on_menu = oth.VerbIsOnMenu
-            self._verb_is_const = oth.VerbIsConst
-            return
-        else:
-            self._verb_id = VerbId
-            self._verb_name = VerbName
-            self._verb_is_on_menu = VerbIsOnMenu
-            self._verb_is_const = VerbIsConst
+        super().__init__()
+        kargs = {
+            "VerbId": VerbId,
+            "VerbName": VerbName,
+            "VerbIsOnMenu": VerbIsOnMenu,
+            "VerbIsConst": VerbIsConst,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._verb_id = kwargs["VerbId"]
+        self._verb_name = kwargs["VerbName"]
+        self._verb_is_on_menu = kwargs["VerbIsOnMenu"]
+        self._verb_is_const = kwargs["VerbIsConst"]
 
 
     @property

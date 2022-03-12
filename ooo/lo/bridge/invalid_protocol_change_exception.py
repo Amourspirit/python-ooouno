@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .protocol_property import ProtocolProperty as ProtocolProperty_ff280e2c
 
 class InvalidProtocolChangeException(Exception_85530a09):
     """
+    Exception Class
+
     Indicates, that a requested property change could not be executed by the remote counterpart.
 
     See Also:
@@ -40,23 +43,34 @@ class InvalidProtocolChangeException(Exception_85530a09):
     typeName: str = 'com.sun.star.bridge.InvalidProtocolChangeException'
     """Literal Constant ``com.sun.star.bridge.InvalidProtocolChangeException``"""
 
-    def __init__(self, invalidProperty: typing.Optional[ProtocolProperty_ff280e2c] = UNO_NONE, reason: typing.Optional[int] = 0, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, invalidProperty: typing.Optional[ProtocolProperty_ff280e2c] = UNO_NONE, reason: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             invalidProperty (ProtocolProperty, optional): invalidProperty value.
             reason (int, optional): reason value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "invalidProperty": invalidProperty,
+            "reason": reason,
+        }
+        if kargs["invalidProperty"] is UNO_NONE:
+            kargs["invalidProperty"] = None
+        self._init(**kargs)
 
-        if invalidProperty is UNO_NONE:
-            self._invalid_property = ProtocolProperty_ff280e2c()
-        else:
-            self._invalid_property = invalidProperty
-        self._reason = reason
+    def _init(self, **kwargs) -> None:
+        self._invalid_property = kwargs["invalidProperty"]
+        self._reason = kwargs["reason"]
+        inst_keys = ('invalidProperty', 'reason')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def invalidProperty(self) -> ProtocolProperty_ff280e2c:

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .data_editor_event_type import DataEditorEventType as DataEditorEventType_b080e4b
 
@@ -39,26 +40,27 @@ class DataEditorEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.util.DataEditorEvent'
     """Literal Constant ``com.sun.star.util.DataEditorEvent``"""
 
-    def __init__(self, Type: DataEditorEventType_b080e4b = DataEditorEventType_b080e4b.DONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Type: typing.Optional[DataEditorEventType_b080e4b] = DataEditorEventType_b080e4b.DONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``DataEditorEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Type (DataEditorEventType, optional): Type value
+            Source (XInterface, optional): Source value.
+            Type (DataEditorEventType, optional): Type value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Type, DataEditorEvent):
-            oth: DataEditorEvent = Type
-            self._type = oth.Type
-            return
-        else:
-            self._type = Type
+        kargs = {
+            "Source": Source,
+            "Type": Type,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        inst_keys = ('Type',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

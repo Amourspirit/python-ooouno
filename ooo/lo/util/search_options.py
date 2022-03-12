@@ -38,51 +38,47 @@ class SearchOptions(object):
     typeName: str = 'com.sun.star.util.SearchOptions'
     """Literal Constant ``com.sun.star.util.SearchOptions``"""
 
-    def __init__(self, algorithmType: SearchAlgorithms_e2c00d36 = SearchAlgorithms_e2c00d36.ABSOLUTE, searchFlag: int = 0, searchString: str = '', replaceString: str = '', Locale: Locale_70d308fa = UNO_NONE, changedChars: int = 0, deletedChars: int = 0, insertedChars: int = 0, transliterateFlags: int = 0) -> None:
+    def __init__(self, algorithmType: typing.Optional[SearchAlgorithms_e2c00d36] = SearchAlgorithms_e2c00d36.ABSOLUTE, searchFlag: typing.Optional[int] = 0, searchString: typing.Optional[str] = '', replaceString: typing.Optional[str] = '', Locale: typing.Optional[Locale_70d308fa] = UNO_NONE, changedChars: typing.Optional[int] = 0, deletedChars: typing.Optional[int] = 0, insertedChars: typing.Optional[int] = 0, transliterateFlags: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``algorithmType`` can be another ``SearchOptions`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            algorithmType (SearchAlgorithms, optional): algorithmType value
-            searchFlag (int, optional): searchFlag value
-            searchString (str, optional): searchString value
-            replaceString (str, optional): replaceString value
-            Locale (Locale, optional): Locale value
-            changedChars (int, optional): changedChars value
-            deletedChars (int, optional): deletedChars value
-            insertedChars (int, optional): insertedChars value
-            transliterateFlags (int, optional): transliterateFlags value
+            algorithmType (SearchAlgorithms, optional): algorithmType value.
+            searchFlag (int, optional): searchFlag value.
+            searchString (str, optional): searchString value.
+            replaceString (str, optional): replaceString value.
+            Locale (Locale, optional): Locale value.
+            changedChars (int, optional): changedChars value.
+            deletedChars (int, optional): deletedChars value.
+            insertedChars (int, optional): insertedChars value.
+            transliterateFlags (int, optional): transliterateFlags value.
         """
-        if isinstance(algorithmType, SearchOptions):
-            oth: SearchOptions = algorithmType
-            self._algorithm_type = oth.algorithmType
-            self._search_flag = oth.searchFlag
-            self._search_string = oth.searchString
-            self._replace_string = oth.replaceString
-            self._locale = oth.Locale
-            self._changed_chars = oth.changedChars
-            self._deleted_chars = oth.deletedChars
-            self._inserted_chars = oth.insertedChars
-            self._transliterate_flags = oth.transliterateFlags
-            return
-        else:
-            self._algorithm_type = algorithmType
-            self._search_flag = searchFlag
-            self._search_string = searchString
-            self._replace_string = replaceString
-            if Locale is UNO_NONE:
-                self._locale = Locale_70d308fa()
-            else:
-                self._locale = Locale
-            self._changed_chars = changedChars
-            self._deleted_chars = deletedChars
-            self._inserted_chars = insertedChars
-            self._transliterate_flags = transliterateFlags
+        super().__init__()
+        kargs = {
+            "algorithmType": algorithmType,
+            "searchFlag": searchFlag,
+            "searchString": searchString,
+            "replaceString": replaceString,
+            "Locale": Locale,
+            "changedChars": changedChars,
+            "deletedChars": deletedChars,
+            "insertedChars": insertedChars,
+            "transliterateFlags": transliterateFlags,
+        }
+        if kargs["Locale"] is UNO_NONE:
+            kargs["Locale"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._algorithm_type = kwargs["algorithmType"]
+        self._search_flag = kwargs["searchFlag"]
+        self._search_string = kwargs["searchString"]
+        self._replace_string = kwargs["replaceString"]
+        self._locale = kwargs["Locale"]
+        self._changed_chars = kwargs["changedChars"]
+        self._deleted_chars = kwargs["deletedChars"]
+        self._inserted_chars = kwargs["insertedChars"]
+        self._transliterate_flags = kwargs["transliterateFlags"]
 
 
     @property

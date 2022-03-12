@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, AllListener = UNO_NONE, Helper = UNO_NONE, ListenerType = UNO_NONE, AddListenerParam = UNO_NONE, EventMethod = UNO_NONE):
-            if getattr(AllListener, "__class__", None) == self.__class__:
-                orig_init(self, AllListener)
+        ordered_keys = ('AllListener', 'Helper', 'ListenerType', 'AddListenerParam', 'EventMethod')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not AllListener is UNO_NONE:
-                if getattr(self, 'AllListener') != AllListener:
-                    setattr(self, 'AllListener', AllListener)
-            if not Helper is UNO_NONE:
-                if getattr(self, 'Helper') != Helper:
-                    setattr(self, 'Helper', Helper)
-            if not ListenerType is UNO_NONE:
-                if getattr(self, 'ListenerType') != ListenerType:
-                    setattr(self, 'ListenerType', ListenerType)
-            if not AddListenerParam is UNO_NONE:
-                if getattr(self, 'AddListenerParam') != AddListenerParam:
-                    setattr(self, 'AddListenerParam', AddListenerParam)
-            if not EventMethod is UNO_NONE:
-                if getattr(self, 'EventMethod') != EventMethod:
-                    setattr(self, 'EventMethod', EventMethod)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.script.EventListener'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     EventListener = _get_class()
-
 
 else:
     from ...lo.script.event_listener import EventListener as EventListener

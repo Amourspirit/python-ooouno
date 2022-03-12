@@ -38,33 +38,29 @@ class ContentInfo(object):
     typeName: str = 'com.sun.star.ucb.ContentInfo'
     """Literal Constant ``com.sun.star.ucb.ContentInfo``"""
 
-    def __init__(self, Properties: typing.Tuple[Property_8f4e0a76, ...] = UNO_NONE, Type: str = '', Attributes: int = 0) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Type: typing.Optional[str] = '', Attributes: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Properties`` can be another ``ContentInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Properties (Tuple[Property, ...], optional): Properties value
-            Type (str, optional): Type value
-            Attributes (int, optional): Attributes value
+            Properties (typing.Tuple[Property, ...], optional): Properties value.
+            Type (str, optional): Type value.
+            Attributes (int, optional): Attributes value.
         """
-        if isinstance(Properties, ContentInfo):
-            oth: ContentInfo = Properties
-            self._properties = oth.Properties
-            self._type = oth.Type
-            self._attributes = oth.Attributes
-            return
-        else:
-            if Properties is UNO_NONE:
-                self._properties = None
-            else:
-                self._properties = Properties
-            self._type = Type
-            self._attributes = Attributes
+        super().__init__()
+        kargs = {
+            "Properties": Properties,
+            "Type": Type,
+            "Attributes": Attributes,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._properties = kwargs["Properties"]
+        self._type = kwargs["Type"]
+        self._attributes = kwargs["Attributes"]
 
 
     @property

@@ -37,51 +37,48 @@ class DeviceInfo(object):
     typeName: str = 'com.sun.star.awt.DeviceInfo'
     """Literal Constant ``com.sun.star.awt.DeviceInfo``"""
 
-    def __init__(self, Width: int = 0, Height: int = 0, LeftInset: int = 0, TopInset: int = 0, RightInset: int = 0, BottomInset: int = 0, PixelPerMeterX: float = 0.0, PixelPerMeterY: float = 0.0, BitsPerPixel: int = 0, Capabilities: int = 0) -> None:
+    def __init__(self, Width: typing.Optional[int] = 0, Height: typing.Optional[int] = 0, LeftInset: typing.Optional[int] = 0, TopInset: typing.Optional[int] = 0, RightInset: typing.Optional[int] = 0, BottomInset: typing.Optional[int] = 0, PixelPerMeterX: typing.Optional[float] = 0.0, PixelPerMeterY: typing.Optional[float] = 0.0, BitsPerPixel: typing.Optional[int] = 0, Capabilities: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Width`` can be another ``DeviceInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Width (int, optional): Width value
-            Height (int, optional): Height value
-            LeftInset (int, optional): LeftInset value
-            TopInset (int, optional): TopInset value
-            RightInset (int, optional): RightInset value
-            BottomInset (int, optional): BottomInset value
-            PixelPerMeterX (float, optional): PixelPerMeterX value
-            PixelPerMeterY (float, optional): PixelPerMeterY value
-            BitsPerPixel (int, optional): BitsPerPixel value
-            Capabilities (int, optional): Capabilities value
+            Width (int, optional): Width value.
+            Height (int, optional): Height value.
+            LeftInset (int, optional): LeftInset value.
+            TopInset (int, optional): TopInset value.
+            RightInset (int, optional): RightInset value.
+            BottomInset (int, optional): BottomInset value.
+            PixelPerMeterX (float, optional): PixelPerMeterX value.
+            PixelPerMeterY (float, optional): PixelPerMeterY value.
+            BitsPerPixel (int, optional): BitsPerPixel value.
+            Capabilities (int, optional): Capabilities value.
         """
-        if isinstance(Width, DeviceInfo):
-            oth: DeviceInfo = Width
-            self._width = oth.Width
-            self._height = oth.Height
-            self._left_inset = oth.LeftInset
-            self._top_inset = oth.TopInset
-            self._right_inset = oth.RightInset
-            self._bottom_inset = oth.BottomInset
-            self._pixel_per_meter_x = oth.PixelPerMeterX
-            self._pixel_per_meter_y = oth.PixelPerMeterY
-            self._bits_per_pixel = oth.BitsPerPixel
-            self._capabilities = oth.Capabilities
-            return
-        else:
-            self._width = Width
-            self._height = Height
-            self._left_inset = LeftInset
-            self._top_inset = TopInset
-            self._right_inset = RightInset
-            self._bottom_inset = BottomInset
-            self._pixel_per_meter_x = PixelPerMeterX
-            self._pixel_per_meter_y = PixelPerMeterY
-            self._bits_per_pixel = BitsPerPixel
-            self._capabilities = Capabilities
+        super().__init__()
+        kargs = {
+            "Width": Width,
+            "Height": Height,
+            "LeftInset": LeftInset,
+            "TopInset": TopInset,
+            "RightInset": RightInset,
+            "BottomInset": BottomInset,
+            "PixelPerMeterX": PixelPerMeterX,
+            "PixelPerMeterY": PixelPerMeterY,
+            "BitsPerPixel": BitsPerPixel,
+            "Capabilities": Capabilities,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._width = kwargs["Width"]
+        self._height = kwargs["Height"]
+        self._left_inset = kwargs["LeftInset"]
+        self._top_inset = kwargs["TopInset"]
+        self._right_inset = kwargs["RightInset"]
+        self._bottom_inset = kwargs["BottomInset"]
+        self._pixel_per_meter_x = kwargs["PixelPerMeterX"]
+        self._pixel_per_meter_y = kwargs["PixelPerMeterY"]
+        self._bits_per_pixel = kwargs["BitsPerPixel"]
+        self._capabilities = kwargs["Capabilities"]
 
 
     @property

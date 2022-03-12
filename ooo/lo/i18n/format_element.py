@@ -39,42 +39,39 @@ class FormatElement(object):
     typeName: str = 'com.sun.star.i18n.FormatElement'
     """Literal Constant ``com.sun.star.i18n.FormatElement``"""
 
-    def __init__(self, formatCode: str = '', formatName: str = '', formatKey: str = '', formatType: str = '', formatUsage: str = '', formatIndex: int = 0, isDefault: bool = False) -> None:
+    def __init__(self, formatCode: typing.Optional[str] = '', formatName: typing.Optional[str] = '', formatKey: typing.Optional[str] = '', formatType: typing.Optional[str] = '', formatUsage: typing.Optional[str] = '', formatIndex: typing.Optional[int] = 0, isDefault: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``formatCode`` can be another ``FormatElement`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            formatCode (str, optional): formatCode value
-            formatName (str, optional): formatName value
-            formatKey (str, optional): formatKey value
-            formatType (str, optional): formatType value
-            formatUsage (str, optional): formatUsage value
-            formatIndex (int, optional): formatIndex value
-            isDefault (bool, optional): isDefault value
+            formatCode (str, optional): formatCode value.
+            formatName (str, optional): formatName value.
+            formatKey (str, optional): formatKey value.
+            formatType (str, optional): formatType value.
+            formatUsage (str, optional): formatUsage value.
+            formatIndex (int, optional): formatIndex value.
+            isDefault (bool, optional): isDefault value.
         """
-        if isinstance(formatCode, FormatElement):
-            oth: FormatElement = formatCode
-            self._format_code = oth.formatCode
-            self._format_name = oth.formatName
-            self._format_key = oth.formatKey
-            self._format_type = oth.formatType
-            self._format_usage = oth.formatUsage
-            self._format_index = oth.formatIndex
-            self._is_default = oth.isDefault
-            return
-        else:
-            self._format_code = formatCode
-            self._format_name = formatName
-            self._format_key = formatKey
-            self._format_type = formatType
-            self._format_usage = formatUsage
-            self._format_index = formatIndex
-            self._is_default = isDefault
+        super().__init__()
+        kargs = {
+            "formatCode": formatCode,
+            "formatName": formatName,
+            "formatKey": formatKey,
+            "formatType": formatType,
+            "formatUsage": formatUsage,
+            "formatIndex": formatIndex,
+            "isDefault": isDefault,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._format_code = kwargs["formatCode"]
+        self._format_name = kwargs["formatName"]
+        self._format_key = kwargs["formatKey"]
+        self._format_type = kwargs["formatType"]
+        self._format_usage = kwargs["formatUsage"]
+        self._format_index = kwargs["formatIndex"]
+        self._is_default = kwargs["isDefault"]
 
 
     @property

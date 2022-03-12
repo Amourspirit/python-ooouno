@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Primary = UNO_NONE, Secondary = UNO_NONE, Anchor = UNO_NONE):
-            if getattr(Primary, "__class__", None) == self.__class__:
-                orig_init(self, Primary)
+        ordered_keys = ('Primary', 'Secondary', 'Anchor')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Primary is UNO_NONE:
-                if getattr(self, 'Primary') != Primary:
-                    setattr(self, 'Primary', Primary)
-            if not Secondary is UNO_NONE:
-                if getattr(self, 'Secondary') != Secondary:
-                    setattr(self, 'Secondary', Secondary)
-            if not Anchor is UNO_NONE:
-                if getattr(self, 'Anchor') != Anchor:
-                    setattr(self, 'Anchor', Anchor)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.chart2.RelativePosition'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RelativePosition = _get_class()
-
 
 else:
     from ...lo.chart2.relative_position import RelativePosition as RelativePosition

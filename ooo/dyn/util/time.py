@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, NanoSeconds = UNO_NONE, Seconds = UNO_NONE, Minutes = UNO_NONE, Hours = UNO_NONE, IsUTC = UNO_NONE):
-            if getattr(NanoSeconds, "__class__", None) == self.__class__:
-                orig_init(self, NanoSeconds)
+        ordered_keys = ('NanoSeconds', 'Seconds', 'Minutes', 'Hours', 'IsUTC')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not NanoSeconds is UNO_NONE:
-                if getattr(self, 'NanoSeconds') != NanoSeconds:
-                    setattr(self, 'NanoSeconds', NanoSeconds)
-            if not Seconds is UNO_NONE:
-                if getattr(self, 'Seconds') != Seconds:
-                    setattr(self, 'Seconds', Seconds)
-            if not Minutes is UNO_NONE:
-                if getattr(self, 'Minutes') != Minutes:
-                    setattr(self, 'Minutes', Minutes)
-            if not Hours is UNO_NONE:
-                if getattr(self, 'Hours') != Hours:
-                    setattr(self, 'Hours', Hours)
-            if not IsUTC is UNO_NONE:
-                if getattr(self, 'IsUTC') != IsUTC:
-                    setattr(self, 'IsUTC', IsUTC)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.Time'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Time = _get_class()
-
 
 else:
     from ...lo.util.time import Time as Time

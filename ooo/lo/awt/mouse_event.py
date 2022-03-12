@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .input_event import InputEvent as InputEvent_8f520a66
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,38 +41,41 @@ class MouseEvent(InputEvent_8f520a66):
     typeName: str = 'com.sun.star.awt.MouseEvent'
     """Literal Constant ``com.sun.star.awt.MouseEvent``"""
 
-    def __init__(self, Buttons: int = 0, X: int = 0, Y: int = 0, ClickCount: int = 0, PopupTrigger: bool = False, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Modifiers: typing.Optional[int] = 0, Buttons: typing.Optional[int] = 0, X: typing.Optional[int] = 0, Y: typing.Optional[int] = 0, ClickCount: typing.Optional[int] = 0, PopupTrigger: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Buttons`` can be another ``MouseEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Buttons (int, optional): Buttons value
-            X (int, optional): X value
-            Y (int, optional): Y value
-            ClickCount (int, optional): ClickCount value
-            PopupTrigger (bool, optional): PopupTrigger value
+            Source (XInterface, optional): Source value.
+            Modifiers (int, optional): Modifiers value.
+            Buttons (int, optional): Buttons value.
+            X (int, optional): X value.
+            Y (int, optional): Y value.
+            ClickCount (int, optional): ClickCount value.
+            PopupTrigger (bool, optional): PopupTrigger value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Buttons, MouseEvent):
-            oth: MouseEvent = Buttons
-            self._buttons = oth.Buttons
-            self._x = oth.X
-            self._y = oth.Y
-            self._click_count = oth.ClickCount
-            self._popup_trigger = oth.PopupTrigger
-            return
-        else:
-            self._buttons = Buttons
-            self._x = X
-            self._y = Y
-            self._click_count = ClickCount
-            self._popup_trigger = PopupTrigger
+        kargs = {
+            "Source": Source,
+            "Modifiers": Modifiers,
+            "Buttons": Buttons,
+            "X": X,
+            "Y": Y,
+            "ClickCount": ClickCount,
+            "PopupTrigger": PopupTrigger,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._buttons = kwargs["Buttons"]
+        self._x = kwargs["X"]
+        self._y = kwargs["Y"]
+        self._click_count = kwargs["ClickCount"]
+        self._popup_trigger = kwargs["PopupTrigger"]
+        inst_keys = ('Buttons', 'X', 'Y', 'ClickCount', 'PopupTrigger')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

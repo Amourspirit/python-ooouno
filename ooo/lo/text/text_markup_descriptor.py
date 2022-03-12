@@ -42,36 +42,33 @@ class TextMarkupDescriptor(object):
     typeName: str = 'com.sun.star.text.TextMarkupDescriptor'
     """Literal Constant ``com.sun.star.text.TextMarkupDescriptor``"""
 
-    def __init__(self, nType: int = 0, aIdentifier: str = '', nOffset: int = 0, nLength: int = 0, xMarkupInfoContainer: XStringKeyMap_ffc60de1 = None) -> None:
+    def __init__(self, nType: typing.Optional[int] = 0, aIdentifier: typing.Optional[str] = '', nOffset: typing.Optional[int] = 0, nLength: typing.Optional[int] = 0, xMarkupInfoContainer: typing.Optional[XStringKeyMap_ffc60de1] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``nType`` can be another ``TextMarkupDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            nType (int, optional): nType value
-            aIdentifier (str, optional): aIdentifier value
-            nOffset (int, optional): nOffset value
-            nLength (int, optional): nLength value
-            xMarkupInfoContainer (XStringKeyMap, optional): xMarkupInfoContainer value
+            nType (int, optional): nType value.
+            aIdentifier (str, optional): aIdentifier value.
+            nOffset (int, optional): nOffset value.
+            nLength (int, optional): nLength value.
+            xMarkupInfoContainer (XStringKeyMap, optional): xMarkupInfoContainer value.
         """
-        if isinstance(nType, TextMarkupDescriptor):
-            oth: TextMarkupDescriptor = nType
-            self._n_type = oth.nType
-            self._a_identifier = oth.aIdentifier
-            self._n_offset = oth.nOffset
-            self._n_length = oth.nLength
-            self._x_markup_info_container = oth.xMarkupInfoContainer
-            return
-        else:
-            self._n_type = nType
-            self._a_identifier = aIdentifier
-            self._n_offset = nOffset
-            self._n_length = nLength
-            self._x_markup_info_container = xMarkupInfoContainer
+        super().__init__()
+        kargs = {
+            "nType": nType,
+            "aIdentifier": aIdentifier,
+            "nOffset": nOffset,
+            "nLength": nLength,
+            "xMarkupInfoContainer": xMarkupInfoContainer,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._n_type = kwargs["nType"]
+        self._a_identifier = kwargs["aIdentifier"]
+        self._n_offset = kwargs["nOffset"]
+        self._n_length = kwargs["nLength"]
+        self._x_markup_info_container = kwargs["xMarkupInfoContainer"]
 
 
     @property

@@ -49,30 +49,27 @@ class TextSegment(object):
     typeName: str = 'com.sun.star.accessibility.TextSegment'
     """Literal Constant ``com.sun.star.accessibility.TextSegment``"""
 
-    def __init__(self, SegmentText: str = '', SegmentStart: int = 0, SegmentEnd: int = 0) -> None:
+    def __init__(self, SegmentText: typing.Optional[str] = '', SegmentStart: typing.Optional[int] = 0, SegmentEnd: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SegmentText`` can be another ``TextSegment`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            SegmentText (str, optional): SegmentText value
-            SegmentStart (int, optional): SegmentStart value
-            SegmentEnd (int, optional): SegmentEnd value
+            SegmentText (str, optional): SegmentText value.
+            SegmentStart (int, optional): SegmentStart value.
+            SegmentEnd (int, optional): SegmentEnd value.
         """
-        if isinstance(SegmentText, TextSegment):
-            oth: TextSegment = SegmentText
-            self._segment_text = oth.SegmentText
-            self._segment_start = oth.SegmentStart
-            self._segment_end = oth.SegmentEnd
-            return
-        else:
-            self._segment_text = SegmentText
-            self._segment_start = SegmentStart
-            self._segment_end = SegmentEnd
+        super().__init__()
+        kargs = {
+            "SegmentText": SegmentText,
+            "SegmentStart": SegmentStart,
+            "SegmentEnd": SegmentEnd,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._segment_text = kwargs["SegmentText"]
+        self._segment_start = kwargs["SegmentStart"]
+        self._segment_end = kwargs["SegmentEnd"]
 
 
     @property

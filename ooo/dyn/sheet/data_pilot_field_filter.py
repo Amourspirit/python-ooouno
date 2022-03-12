@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FieldName = UNO_NONE, MatchValueName = UNO_NONE, MatchValue = UNO_NONE):
-            if getattr(FieldName, "__class__", None) == self.__class__:
-                orig_init(self, FieldName)
+        ordered_keys = ('FieldName', 'MatchValueName', 'MatchValue')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FieldName is UNO_NONE:
-                if getattr(self, 'FieldName') != FieldName:
-                    setattr(self, 'FieldName', FieldName)
-            if not MatchValueName is UNO_NONE:
-                if getattr(self, 'MatchValueName') != MatchValueName:
-                    setattr(self, 'MatchValueName', MatchValueName)
-            if not MatchValue is UNO_NONE:
-                if getattr(self, 'MatchValue') != MatchValue:
-                    setattr(self, 'MatchValue', MatchValue)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.DataPilotFieldFilter'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPilotFieldFilter = _get_class()
-
 
 else:
     from ...lo.sheet.data_pilot_field_filter import DataPilotFieldFilter as DataPilotFieldFilter

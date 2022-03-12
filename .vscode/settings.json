@@ -22,5 +22,7 @@
   }
 },
 "workbench.colorTheme": "Monokai",
-"python.formatting.provider": "black"
+"python.formatting.provider": "black",
+"esbonio.server.enabled": true,
+"esbonio.sphinx.confDir": "/home/paul/Documents/Projects/Python/Publish/ooo_uno_lib/docs"
 }

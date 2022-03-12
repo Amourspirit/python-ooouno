@@ -37,30 +37,27 @@ class Attribute(object):
     typeName: str = 'com.sun.star.xml.Attribute'
     """Literal Constant ``com.sun.star.xml.Attribute``"""
 
-    def __init__(self, Name: str = '', NamespaceURL: str = '', Value: str = '') -> None:
+    def __init__(self, Name: typing.Optional[str] = '', NamespaceURL: typing.Optional[str] = '', Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``Attribute`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            NamespaceURL (str, optional): NamespaceURL value
-            Value (str, optional): Value value
+            Name (str, optional): Name value.
+            NamespaceURL (str, optional): NamespaceURL value.
+            Value (str, optional): Value value.
         """
-        if isinstance(Name, Attribute):
-            oth: Attribute = Name
-            self._name = oth.Name
-            self._namespace_url = oth.NamespaceURL
-            self._value = oth.Value
-            return
-        else:
-            self._name = Name
-            self._namespace_url = NamespaceURL
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Name": Name,
+            "NamespaceURL": NamespaceURL,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._namespace_url = kwargs["NamespaceURL"]
+        self._value = kwargs["Value"]
 
 
     @property

@@ -45,38 +45,39 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.drawing.framework.ConfigurationChangeEvent'
     """Literal Constant ``com.sun.star.drawing.framework.ConfigurationChangeEvent``"""
 
-    def __init__(self, Type: str = '', Configuration: XConfiguration_8f0511a0 = None, ResourceId: XResourceId_5be3103d = None, ResourceObject: XInterface_8f010a43 = None, UserData: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Type: typing.Optional[str] = '', Configuration: typing.Optional[XConfiguration_8f0511a0] = None, ResourceId: typing.Optional[XResourceId_5be3103d] = None, ResourceObject: typing.Optional[XInterface_8f010a43] = None, UserData: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``ConfigurationChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Type (str, optional): Type value
-            Configuration (XConfiguration, optional): Configuration value
-            ResourceId (XResourceId, optional): ResourceId value
-            ResourceObject (XInterface, optional): ResourceObject value
-            UserData (object, optional): UserData value
+            Source (XInterface, optional): Source value.
+            Type (str, optional): Type value.
+            Configuration (XConfiguration, optional): Configuration value.
+            ResourceId (XResourceId, optional): ResourceId value.
+            ResourceObject (XInterface, optional): ResourceObject value.
+            UserData (object, optional): UserData value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Type, ConfigurationChangeEvent):
-            oth: ConfigurationChangeEvent = Type
-            self._type = oth.Type
-            self._configuration = oth.Configuration
-            self._resource_id = oth.ResourceId
-            self._resource_object = oth.ResourceObject
-            self._user_data = oth.UserData
-            return
-        else:
-            self._type = Type
-            self._configuration = Configuration
-            self._resource_id = ResourceId
-            self._resource_object = ResourceObject
-            self._user_data = UserData
+        kargs = {
+            "Source": Source,
+            "Type": Type,
+            "Configuration": Configuration,
+            "ResourceId": ResourceId,
+            "ResourceObject": ResourceObject,
+            "UserData": UserData,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._configuration = kwargs["Configuration"]
+        self._resource_id = kwargs["ResourceId"]
+        self._resource_object = kwargs["ResourceObject"]
+        self._user_data = kwargs["UserData"]
+        inst_keys = ('Type', 'Configuration', 'ResourceId', 'ResourceObject', 'UserData')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

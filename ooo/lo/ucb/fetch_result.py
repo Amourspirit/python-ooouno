@@ -39,36 +39,32 @@ class FetchResult(object):
     typeName: str = 'com.sun.star.ucb.FetchResult'
     """Literal Constant ``com.sun.star.ucb.FetchResult``"""
 
-    def __init__(self, Rows: typing.Tuple[object, ...] = UNO_NONE, StartIndex: int = 0, Orientation: bool = False, FetchError: int = 0) -> None:
+    def __init__(self, Rows: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, StartIndex: typing.Optional[int] = 0, Orientation: typing.Optional[bool] = False, FetchError: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Rows`` can be another ``FetchResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Rows (Tuple[object, ...], optional): Rows value
-            StartIndex (int, optional): StartIndex value
-            Orientation (bool, optional): Orientation value
-            FetchError (int, optional): FetchError value
+            Rows (typing.Tuple[object, ...], optional): Rows value.
+            StartIndex (int, optional): StartIndex value.
+            Orientation (bool, optional): Orientation value.
+            FetchError (int, optional): FetchError value.
         """
-        if isinstance(Rows, FetchResult):
-            oth: FetchResult = Rows
-            self._rows = oth.Rows
-            self._start_index = oth.StartIndex
-            self._orientation = oth.Orientation
-            self._fetch_error = oth.FetchError
-            return
-        else:
-            if Rows is UNO_NONE:
-                self._rows = None
-            else:
-                self._rows = Rows
-            self._start_index = StartIndex
-            self._orientation = Orientation
-            self._fetch_error = FetchError
+        super().__init__()
+        kargs = {
+            "Rows": Rows,
+            "StartIndex": StartIndex,
+            "Orientation": Orientation,
+            "FetchError": FetchError,
+        }
+        if kargs["Rows"] is UNO_NONE:
+            kargs["Rows"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._rows = kwargs["Rows"]
+        self._start_index = kwargs["StartIndex"]
+        self._orientation = kwargs["Orientation"]
+        self._fetch_error = kwargs["FetchError"]
 
 
     @property

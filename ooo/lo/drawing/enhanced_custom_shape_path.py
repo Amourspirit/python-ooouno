@@ -77,6 +77,54 @@ class EnhancedCustomShapePath(ABC):
         In general the first text frame is used, except the shape is containing vertical text, then the object tries to use the second text frame. The default text frame will be as big as the shape.
         """
 
+    @abstractproperty
+    def ConcentricGradientFillAllowed(self) -> bool:
+        """
+        This property specifies if this shape supports concentric gradient fill.
+        
+        The default is false.
+        """
+
+    @abstractproperty
+    def ExtrusionAllowed(self) -> bool:
+        """
+        This property specifies if this shape supports the EnhancedCustomShapeExtrusion properties.
+        
+        The default is true.
+        """
+
+    @abstractproperty
+    def GluePointType(self) -> int:
+        """
+        This property defines the GluePoint type.
+        
+        The values that can be used are specified in com.sun.star.drawing.EnhancedCustomShapeGluePointType
+        """
+
+    @abstractproperty
+    def StretchX(self) -> int:
+        """
+        This property specifies the horizontal StretchPoint that has to be used.
+        
+        No stretching is used if this property is omitted.
+        """
+
+    @abstractproperty
+    def StretchY(self) -> int:
+        """
+        This property specifies the vertical StretchPoint that has to be used.
+        
+        No stretching is used if this property is omitted.
+        """
+
+    @abstractproperty
+    def TextPathAllowed(self) -> bool:
+        """
+        This property specifies if this shape supports concentric gradient fill.
+        
+        The default is false;
+        """
+
 
 
 __all__ = ['EnhancedCustomShapePath']

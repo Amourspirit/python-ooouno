@@ -37,27 +37,24 @@ class ModuleInfo(object):
     typeName: str = 'com.sun.star.script.ModuleInfo'
     """Literal Constant ``com.sun.star.script.ModuleInfo``"""
 
-    def __init__(self, ModuleObject: XInterface_8f010a43 = None, ModuleType: int = 0) -> None:
+    def __init__(self, ModuleObject: typing.Optional[XInterface_8f010a43] = None, ModuleType: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ModuleObject`` can be another ``ModuleInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ModuleObject (XInterface, optional): ModuleObject value
-            ModuleType (int, optional): ModuleType value
+            ModuleObject (XInterface, optional): ModuleObject value.
+            ModuleType (int, optional): ModuleType value.
         """
-        if isinstance(ModuleObject, ModuleInfo):
-            oth: ModuleInfo = ModuleObject
-            self._module_object = oth.ModuleObject
-            self._module_type = oth.ModuleType
-            return
-        else:
-            self._module_object = ModuleObject
-            self._module_type = ModuleType
+        super().__init__()
+        kargs = {
+            "ModuleObject": ModuleObject,
+            "ModuleType": ModuleType,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._module_object = kwargs["ModuleObject"]
+        self._module_type = kwargs["ModuleType"]
 
 
     @property

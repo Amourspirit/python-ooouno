@@ -39,27 +39,24 @@ class LockEntry(object):
     typeName: str = 'com.sun.star.ucb.LockEntry'
     """Literal Constant ``com.sun.star.ucb.LockEntry``"""
 
-    def __init__(self, Scope: LockScope_839109c5 = LockScope_839109c5.EXCLUSIVE, Type: LockType_7a09096d = LockType_7a09096d.WRITE) -> None:
+    def __init__(self, Scope: typing.Optional[LockScope_839109c5] = LockScope_839109c5.EXCLUSIVE, Type: typing.Optional[LockType_7a09096d] = LockType_7a09096d.WRITE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Scope`` can be another ``LockEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Scope (LockScope, optional): Scope value
-            Type (LockType, optional): Type value
+            Scope (LockScope, optional): Scope value.
+            Type (LockType, optional): Type value.
         """
-        if isinstance(Scope, LockEntry):
-            oth: LockEntry = Scope
-            self._scope = oth.Scope
-            self._type = oth.Type
-            return
-        else:
-            self._scope = Scope
-            self._type = Type
+        super().__init__()
+        kargs = {
+            "Scope": Scope,
+            "Type": Type,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._scope = kwargs["Scope"]
+        self._type = kwargs["Type"]
 
 
     @property

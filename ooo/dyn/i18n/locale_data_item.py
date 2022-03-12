@@ -22,69 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, unoID = UNO_NONE, dateSeparator = UNO_NONE, thousandSeparator = UNO_NONE, decimalSeparator = UNO_NONE, timeSeparator = UNO_NONE, time100SecSeparator = UNO_NONE, listSeparator = UNO_NONE, quotationStart = UNO_NONE, quotationEnd = UNO_NONE, doubleQuotationStart = UNO_NONE, doubleQuotationEnd = UNO_NONE, timeAM = UNO_NONE, timePM = UNO_NONE, measurementSystem = UNO_NONE, LongDateDayOfWeekSeparator = UNO_NONE, LongDateDaySeparator = UNO_NONE, LongDateMonthSeparator = UNO_NONE, LongDateYearSeparator = UNO_NONE):
-            if getattr(unoID, "__class__", None) == self.__class__:
-                orig_init(self, unoID)
+        ordered_keys = ('unoID', 'dateSeparator', 'thousandSeparator', 'decimalSeparator', 'timeSeparator', 'time100SecSeparator', 'listSeparator', 'quotationStart', 'quotationEnd', 'doubleQuotationStart', 'doubleQuotationEnd', 'timeAM', 'timePM', 'measurementSystem', 'LongDateDayOfWeekSeparator', 'LongDateDaySeparator', 'LongDateMonthSeparator', 'LongDateYearSeparator')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not unoID is UNO_NONE:
-                if getattr(self, 'unoID') != unoID:
-                    setattr(self, 'unoID', unoID)
-            if not dateSeparator is UNO_NONE:
-                if getattr(self, 'dateSeparator') != dateSeparator:
-                    setattr(self, 'dateSeparator', dateSeparator)
-            if not thousandSeparator is UNO_NONE:
-                if getattr(self, 'thousandSeparator') != thousandSeparator:
-                    setattr(self, 'thousandSeparator', thousandSeparator)
-            if not decimalSeparator is UNO_NONE:
-                if getattr(self, 'decimalSeparator') != decimalSeparator:
-                    setattr(self, 'decimalSeparator', decimalSeparator)
-            if not timeSeparator is UNO_NONE:
-                if getattr(self, 'timeSeparator') != timeSeparator:
-                    setattr(self, 'timeSeparator', timeSeparator)
-            if not time100SecSeparator is UNO_NONE:
-                if getattr(self, 'time100SecSeparator') != time100SecSeparator:
-                    setattr(self, 'time100SecSeparator', time100SecSeparator)
-            if not listSeparator is UNO_NONE:
-                if getattr(self, 'listSeparator') != listSeparator:
-                    setattr(self, 'listSeparator', listSeparator)
-            if not quotationStart is UNO_NONE:
-                if getattr(self, 'quotationStart') != quotationStart:
-                    setattr(self, 'quotationStart', quotationStart)
-            if not quotationEnd is UNO_NONE:
-                if getattr(self, 'quotationEnd') != quotationEnd:
-                    setattr(self, 'quotationEnd', quotationEnd)
-            if not doubleQuotationStart is UNO_NONE:
-                if getattr(self, 'doubleQuotationStart') != doubleQuotationStart:
-                    setattr(self, 'doubleQuotationStart', doubleQuotationStart)
-            if not doubleQuotationEnd is UNO_NONE:
-                if getattr(self, 'doubleQuotationEnd') != doubleQuotationEnd:
-                    setattr(self, 'doubleQuotationEnd', doubleQuotationEnd)
-            if not timeAM is UNO_NONE:
-                if getattr(self, 'timeAM') != timeAM:
-                    setattr(self, 'timeAM', timeAM)
-            if not timePM is UNO_NONE:
-                if getattr(self, 'timePM') != timePM:
-                    setattr(self, 'timePM', timePM)
-            if not measurementSystem is UNO_NONE:
-                if getattr(self, 'measurementSystem') != measurementSystem:
-                    setattr(self, 'measurementSystem', measurementSystem)
-            if not LongDateDayOfWeekSeparator is UNO_NONE:
-                if getattr(self, 'LongDateDayOfWeekSeparator') != LongDateDayOfWeekSeparator:
-                    setattr(self, 'LongDateDayOfWeekSeparator', LongDateDayOfWeekSeparator)
-            if not LongDateDaySeparator is UNO_NONE:
-                if getattr(self, 'LongDateDaySeparator') != LongDateDaySeparator:
-                    setattr(self, 'LongDateDaySeparator', LongDateDaySeparator)
-            if not LongDateMonthSeparator is UNO_NONE:
-                if getattr(self, 'LongDateMonthSeparator') != LongDateMonthSeparator:
-                    setattr(self, 'LongDateMonthSeparator', LongDateMonthSeparator)
-            if not LongDateYearSeparator is UNO_NONE:
-                if getattr(self, 'LongDateYearSeparator') != LongDateYearSeparator:
-                    setattr(self, 'LongDateYearSeparator', LongDateYearSeparator)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.LocaleDataItem'
         struct = uno.getClass(type_name)
@@ -96,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LocaleDataItem = _get_class()
-
 
 else:
     from ...lo.i18n.locale_data_item import LocaleDataItem as LocaleDataItem

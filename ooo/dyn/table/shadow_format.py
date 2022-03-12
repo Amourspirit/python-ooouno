@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Location = UNO_NONE, ShadowWidth = UNO_NONE, IsTransparent = UNO_NONE, Color = UNO_NONE):
-            if getattr(Location, "__class__", None) == self.__class__:
-                orig_init(self, Location)
+        ordered_keys = ('Location', 'ShadowWidth', 'IsTransparent', 'Color')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Location is UNO_NONE:
-                if getattr(self, 'Location') != Location:
-                    setattr(self, 'Location', Location)
-            if not ShadowWidth is UNO_NONE:
-                if getattr(self, 'ShadowWidth') != ShadowWidth:
-                    setattr(self, 'ShadowWidth', ShadowWidth)
-            if not IsTransparent is UNO_NONE:
-                if getattr(self, 'IsTransparent') != IsTransparent:
-                    setattr(self, 'IsTransparent', IsTransparent)
-            if not Color is UNO_NONE:
-                if getattr(self, 'Color') != Color:
-                    setattr(self, 'Color', Color)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.table.ShadowFormat'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ShadowFormat = _get_class()
-
 
 else:
     from ...lo.table.shadow_format import ShadowFormat as ShadowFormat

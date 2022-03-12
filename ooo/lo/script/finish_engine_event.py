@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .finish_reason import FinishReason as FinishReason_ca230c66
 
@@ -43,32 +44,33 @@ class FinishEngineEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.script.FinishEngineEvent'
     """Literal Constant ``com.sun.star.script.FinishEngineEvent``"""
 
-    def __init__(self, Finish: FinishReason_ca230c66 = FinishReason_ca230c66.OK, ErrorMessage: str = '', Return: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Finish: typing.Optional[FinishReason_ca230c66] = FinishReason_ca230c66.OK, ErrorMessage: typing.Optional[str] = '', Return: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Finish`` can be another ``FinishEngineEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Finish (FinishReason, optional): Finish value
-            ErrorMessage (str, optional): ErrorMessage value
-            Return (object, optional): Return value
+            Source (XInterface, optional): Source value.
+            Finish (FinishReason, optional): Finish value.
+            ErrorMessage (str, optional): ErrorMessage value.
+            Return (object, optional): Return value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Finish, FinishEngineEvent):
-            oth: FinishEngineEvent = Finish
-            self._finish = oth.Finish
-            self._error_message = oth.ErrorMessage
-            self._return = oth.Return
-            return
-        else:
-            self._finish = Finish
-            self._error_message = ErrorMessage
-            self._return = Return
+        kargs = {
+            "Source": Source,
+            "Finish": Finish,
+            "ErrorMessage": ErrorMessage,
+            "Return": Return,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._finish = kwargs["Finish"]
+        self._error_message = kwargs["ErrorMessage"]
+        self._return = kwargs["Return"]
+        inst_keys = ('Finish', 'ErrorMessage', 'Return')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

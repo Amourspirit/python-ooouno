@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Text = UNO_NONE, StartPosition = UNO_NONE, Length = UNO_NONE):
-            if getattr(Text, "__class__", None) == self.__class__:
-                orig_init(self, Text)
+        ordered_keys = ('Text', 'StartPosition', 'Length')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Text is UNO_NONE:
-                if getattr(self, 'Text') != Text:
-                    setattr(self, 'Text', Text)
-            if not StartPosition is UNO_NONE:
-                if getattr(self, 'StartPosition') != StartPosition:
-                    setattr(self, 'StartPosition', StartPosition)
-            if not Length is UNO_NONE:
-                if getattr(self, 'Length') != Length:
-                    setattr(self, 'Length', Length)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.StringContext'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     StringContext = _get_class()
-
 
 else:
     from ...lo.rendering.string_context import StringContext as StringContext

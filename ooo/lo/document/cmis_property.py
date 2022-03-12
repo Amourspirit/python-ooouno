@@ -37,48 +37,45 @@ class CmisProperty(object):
     typeName: str = 'com.sun.star.document.CmisProperty'
     """Literal Constant ``com.sun.star.document.CmisProperty``"""
 
-    def __init__(self, Id: str = '', Name: str = '', Type: str = '', Updatable: bool = False, Required: bool = False, MultiValued: bool = False, OpenChoice: bool = False, Choices: object = None, Value: object = None) -> None:
+    def __init__(self, Id: typing.Optional[str] = '', Name: typing.Optional[str] = '', Type: typing.Optional[str] = '', Updatable: typing.Optional[bool] = False, Required: typing.Optional[bool] = False, MultiValued: typing.Optional[bool] = False, OpenChoice: typing.Optional[bool] = False, Choices: typing.Optional[object] = None, Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Id`` can be another ``CmisProperty`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Id (str, optional): Id value
-            Name (str, optional): Name value
-            Type (str, optional): Type value
-            Updatable (bool, optional): Updatable value
-            Required (bool, optional): Required value
-            MultiValued (bool, optional): MultiValued value
-            OpenChoice (bool, optional): OpenChoice value
-            Choices (object, optional): Choices value
-            Value (object, optional): Value value
+            Id (str, optional): Id value.
+            Name (str, optional): Name value.
+            Type (str, optional): Type value.
+            Updatable (bool, optional): Updatable value.
+            Required (bool, optional): Required value.
+            MultiValued (bool, optional): MultiValued value.
+            OpenChoice (bool, optional): OpenChoice value.
+            Choices (object, optional): Choices value.
+            Value (object, optional): Value value.
         """
-        if isinstance(Id, CmisProperty):
-            oth: CmisProperty = Id
-            self._id = oth.Id
-            self._name = oth.Name
-            self._type = oth.Type
-            self._updatable = oth.Updatable
-            self._required = oth.Required
-            self._multi_valued = oth.MultiValued
-            self._open_choice = oth.OpenChoice
-            self._choices = oth.Choices
-            self._value = oth.Value
-            return
-        else:
-            self._id = Id
-            self._name = Name
-            self._type = Type
-            self._updatable = Updatable
-            self._required = Required
-            self._multi_valued = MultiValued
-            self._open_choice = OpenChoice
-            self._choices = Choices
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Id": Id,
+            "Name": Name,
+            "Type": Type,
+            "Updatable": Updatable,
+            "Required": Required,
+            "MultiValued": MultiValued,
+            "OpenChoice": OpenChoice,
+            "Choices": Choices,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._id = kwargs["Id"]
+        self._name = kwargs["Name"]
+        self._type = kwargs["Type"]
+        self._updatable = kwargs["Updatable"]
+        self._required = kwargs["Required"]
+        self._multi_valued = kwargs["MultiValued"]
+        self._open_choice = kwargs["OpenChoice"]
+        self._choices = kwargs["Choices"]
+        self._value = kwargs["Value"]
 
 
     @property

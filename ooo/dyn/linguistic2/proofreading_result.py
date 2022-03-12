@@ -22,45 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, aErrors = UNO_NONE, aProperties = UNO_NONE, aDocumentIdentifier = UNO_NONE, xFlatParagraph = UNO_NONE, aText = UNO_NONE, aLocale = UNO_NONE, nStartOfSentencePosition = UNO_NONE, nBehindEndOfSentencePosition = UNO_NONE, nStartOfNextSentencePosition = UNO_NONE, xProofreader = UNO_NONE):
-            if getattr(aErrors, "__class__", None) == self.__class__:
-                orig_init(self, aErrors)
+        ordered_keys = ('aErrors', 'aProperties', 'aDocumentIdentifier', 'xFlatParagraph', 'aText', 'aLocale', 'nStartOfSentencePosition', 'nBehindEndOfSentencePosition', 'nStartOfNextSentencePosition', 'xProofreader')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not aErrors is UNO_NONE:
-                if getattr(self, 'aErrors') != aErrors:
-                    setattr(self, 'aErrors', aErrors)
-            if not aProperties is UNO_NONE:
-                if getattr(self, 'aProperties') != aProperties:
-                    setattr(self, 'aProperties', aProperties)
-            if not aDocumentIdentifier is UNO_NONE:
-                if getattr(self, 'aDocumentIdentifier') != aDocumentIdentifier:
-                    setattr(self, 'aDocumentIdentifier', aDocumentIdentifier)
-            if not xFlatParagraph is UNO_NONE:
-                if getattr(self, 'xFlatParagraph') != xFlatParagraph:
-                    setattr(self, 'xFlatParagraph', xFlatParagraph)
-            if not aText is UNO_NONE:
-                if getattr(self, 'aText') != aText:
-                    setattr(self, 'aText', aText)
-            if not aLocale is UNO_NONE:
-                if getattr(self, 'aLocale') != aLocale:
-                    setattr(self, 'aLocale', aLocale)
-            if not nStartOfSentencePosition is UNO_NONE:
-                if getattr(self, 'nStartOfSentencePosition') != nStartOfSentencePosition:
-                    setattr(self, 'nStartOfSentencePosition', nStartOfSentencePosition)
-            if not nBehindEndOfSentencePosition is UNO_NONE:
-                if getattr(self, 'nBehindEndOfSentencePosition') != nBehindEndOfSentencePosition:
-                    setattr(self, 'nBehindEndOfSentencePosition', nBehindEndOfSentencePosition)
-            if not nStartOfNextSentencePosition is UNO_NONE:
-                if getattr(self, 'nStartOfNextSentencePosition') != nStartOfNextSentencePosition:
-                    setattr(self, 'nStartOfNextSentencePosition', nStartOfNextSentencePosition)
-            if not xProofreader is UNO_NONE:
-                if getattr(self, 'xProofreader') != xProofreader:
-                    setattr(self, 'xProofreader', xProofreader)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.linguistic2.ProofreadingResult'
         struct = uno.getClass(type_name)
@@ -72,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ProofreadingResult = _get_class()
-
 
 else:
     from ...lo.linguistic2.proofreading_result import ProofreadingResult as ProofreadingResult

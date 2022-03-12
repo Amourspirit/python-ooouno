@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.report.meta
 import typing
-from abc import abstractmethod
+from abc import abstractmethod, abstractproperty
 from ...beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from ...container.x_index_access import XIndexAccess as XIndexAccess_f0910d6d
 if typing.TYPE_CHECKING:
@@ -46,6 +46,18 @@ class XFunctionCategory(XPropertySet_bc180bfa, XIndexAccess_f0910d6d):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+    @abstractproperty
+    def Name(self) -> str:
+        """
+        returns the localized category's name.
+        """
+
+    @abstractproperty
+    def Number(self) -> int:
+        """
+        specifies the category number.
+        """
+
 
 __all__ = ['XFunctionCategory']
 

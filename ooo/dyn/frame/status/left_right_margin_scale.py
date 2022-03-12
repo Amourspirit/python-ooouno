@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, TextLeft = UNO_NONE, Left = UNO_NONE, Right = UNO_NONE, FirstLine = UNO_NONE, ScaleLeft = UNO_NONE, ScaleRight = UNO_NONE, ScaleFirstLine = UNO_NONE, AutoFirstLine = UNO_NONE):
-            if getattr(TextLeft, "__class__", None) == self.__class__:
-                orig_init(self, TextLeft)
+        ordered_keys = ('TextLeft', 'Left', 'Right', 'FirstLine', 'ScaleLeft', 'ScaleRight', 'ScaleFirstLine', 'AutoFirstLine')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not TextLeft is UNO_NONE:
-                if getattr(self, 'TextLeft') != TextLeft:
-                    setattr(self, 'TextLeft', TextLeft)
-            if not Left is UNO_NONE:
-                if getattr(self, 'Left') != Left:
-                    setattr(self, 'Left', Left)
-            if not Right is UNO_NONE:
-                if getattr(self, 'Right') != Right:
-                    setattr(self, 'Right', Right)
-            if not FirstLine is UNO_NONE:
-                if getattr(self, 'FirstLine') != FirstLine:
-                    setattr(self, 'FirstLine', FirstLine)
-            if not ScaleLeft is UNO_NONE:
-                if getattr(self, 'ScaleLeft') != ScaleLeft:
-                    setattr(self, 'ScaleLeft', ScaleLeft)
-            if not ScaleRight is UNO_NONE:
-                if getattr(self, 'ScaleRight') != ScaleRight:
-                    setattr(self, 'ScaleRight', ScaleRight)
-            if not ScaleFirstLine is UNO_NONE:
-                if getattr(self, 'ScaleFirstLine') != ScaleFirstLine:
-                    setattr(self, 'ScaleFirstLine', ScaleFirstLine)
-            if not AutoFirstLine is UNO_NONE:
-                if getattr(self, 'AutoFirstLine') != AutoFirstLine:
-                    setattr(self, 'AutoFirstLine', AutoFirstLine)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.frame.status.LeftRightMarginScale'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LeftRightMarginScale = _get_class()
-
 
 else:
     from ....lo.frame.status.left_right_margin_scale import LeftRightMarginScale as LeftRightMarginScale

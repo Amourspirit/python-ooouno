@@ -37,33 +37,30 @@ class Event(object):
     typeName: str = 'com.sun.star.animations.Event'
     """Literal Constant ``com.sun.star.animations.Event``"""
 
-    def __init__(self, Source: object = None, Trigger: int = 0, Offset: object = None, Repeat: int = 0) -> None:
+    def __init__(self, Source: typing.Optional[object] = None, Trigger: typing.Optional[int] = 0, Offset: typing.Optional[object] = None, Repeat: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Source`` can be another ``Event`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Source (object, optional): Source value
-            Trigger (int, optional): Trigger value
-            Offset (object, optional): Offset value
-            Repeat (int, optional): Repeat value
+            Source (object, optional): Source value.
+            Trigger (int, optional): Trigger value.
+            Offset (object, optional): Offset value.
+            Repeat (int, optional): Repeat value.
         """
-        if isinstance(Source, Event):
-            oth: Event = Source
-            self._source = oth.Source
-            self._trigger = oth.Trigger
-            self._offset = oth.Offset
-            self._repeat = oth.Repeat
-            return
-        else:
-            self._source = Source
-            self._trigger = Trigger
-            self._offset = Offset
-            self._repeat = Repeat
+        super().__init__()
+        kargs = {
+            "Source": Source,
+            "Trigger": Trigger,
+            "Offset": Offset,
+            "Repeat": Repeat,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._source = kwargs["Source"]
+        self._trigger = kwargs["Trigger"]
+        self._offset = kwargs["Offset"]
+        self._repeat = kwargs["Repeat"]
 
 
     @property

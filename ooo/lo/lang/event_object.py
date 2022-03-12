@@ -38,24 +38,21 @@ class EventObject(object):
     typeName: str = 'com.sun.star.lang.EventObject'
     """Literal Constant ``com.sun.star.lang.EventObject``"""
 
-    def __init__(self, Source: XInterface_8f010a43 = None) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Source`` can be another ``EventObject`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Source (XInterface, optional): Source value
+            Source (XInterface, optional): Source value.
         """
-        if isinstance(Source, EventObject):
-            oth: EventObject = Source
-            self._source = oth.Source
-            return
-        else:
-            self._source = Source
+        super().__init__()
+        kargs = {
+            "Source": Source,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._source = kwargs["Source"]
 
 
     @property

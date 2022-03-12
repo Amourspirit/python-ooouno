@@ -39,27 +39,28 @@ class Optional(object):
     typeName: str = 'com.sun.star.beans.Optional'
     """Literal Constant ``com.sun.star.beans.Optional``"""
 
-    def __init__(self, IsPresent: bool = None, Value: object = None) -> None:
+    def __init__(self, IsPresent: typing.Optional[bool] = None, Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IsPresent`` can be another ``Optional`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IsPresent (bool, optional): IsPresent value
-            Value (object, optional): Value value
+            IsPresent (bool, optional): IsPresent value.
+            Value (object, optional): Value value.
         """
-        if isinstance(IsPresent, Optional):
-            oth: Optional = IsPresent
-            self._is_present = oth.IsPresent
-            self._value = oth.Value
-            return
-        else:
-            self._is_present = IsPresent
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "IsPresent": IsPresent,
+            "Value": Value,
+        }
+        if kargs["IsPresent"] is UNO_NONE:
+            kargs["IsPresent"] = None
+        if kargs["Value"] is UNO_NONE:
+            kargs["Value"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._is_present = kwargs["IsPresent"]
+        self._value = kwargs["Value"]
 
 
     @property

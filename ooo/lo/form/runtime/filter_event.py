@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,32 +43,33 @@ class FilterEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.runtime.FilterEvent'
     """Literal Constant ``com.sun.star.form.runtime.FilterEvent``"""
 
-    def __init__(self, DisjunctiveTerm: int = 0, FilterComponent: int = 0, PredicateExpression: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, DisjunctiveTerm: typing.Optional[int] = 0, FilterComponent: typing.Optional[int] = 0, PredicateExpression: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DisjunctiveTerm`` can be another ``FilterEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            DisjunctiveTerm (int, optional): DisjunctiveTerm value
-            FilterComponent (int, optional): FilterComponent value
-            PredicateExpression (str, optional): PredicateExpression value
+            Source (XInterface, optional): Source value.
+            DisjunctiveTerm (int, optional): DisjunctiveTerm value.
+            FilterComponent (int, optional): FilterComponent value.
+            PredicateExpression (str, optional): PredicateExpression value.
         """
-        super().__init__(**kwargs)
-        if isinstance(DisjunctiveTerm, FilterEvent):
-            oth: FilterEvent = DisjunctiveTerm
-            self._disjunctive_term = oth.DisjunctiveTerm
-            self._filter_component = oth.FilterComponent
-            self._predicate_expression = oth.PredicateExpression
-            return
-        else:
-            self._disjunctive_term = DisjunctiveTerm
-            self._filter_component = FilterComponent
-            self._predicate_expression = PredicateExpression
+        kargs = {
+            "Source": Source,
+            "DisjunctiveTerm": DisjunctiveTerm,
+            "FilterComponent": FilterComponent,
+            "PredicateExpression": PredicateExpression,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._disjunctive_term = kwargs["DisjunctiveTerm"]
+        self._filter_component = kwargs["FilterComponent"]
+        self._predicate_expression = kwargs["PredicateExpression"]
+        inst_keys = ('DisjunctiveTerm', 'FilterComponent', 'PredicateExpression')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

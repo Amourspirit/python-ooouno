@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Data = UNO_NONE, ReplaceExisting = UNO_NONE):
-            if getattr(Data, "__class__", None) == self.__class__:
-                orig_init(self, Data)
+        ordered_keys = ('Data', 'ReplaceExisting')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Data is UNO_NONE:
-                if getattr(self, 'Data') != Data:
-                    setattr(self, 'Data', Data)
-            if not ReplaceExisting is UNO_NONE:
-                if getattr(self, 'ReplaceExisting') != ReplaceExisting:
-                    setattr(self, 'ReplaceExisting', ReplaceExisting)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.InsertCommandArgument'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     InsertCommandArgument = _get_class()
-
 
 else:
     from ...lo.ucb.insert_command_argument import InsertCommandArgument as InsertCommandArgument

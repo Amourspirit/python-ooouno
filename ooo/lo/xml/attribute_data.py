@@ -37,30 +37,27 @@ class AttributeData(object):
     typeName: str = 'com.sun.star.xml.AttributeData'
     """Literal Constant ``com.sun.star.xml.AttributeData``"""
 
-    def __init__(self, Namespace: str = '', Type: str = '', Value: str = '') -> None:
+    def __init__(self, Namespace: typing.Optional[str] = '', Type: typing.Optional[str] = '', Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Namespace`` can be another ``AttributeData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Namespace (str, optional): Namespace value
-            Type (str, optional): Type value
-            Value (str, optional): Value value
+            Namespace (str, optional): Namespace value.
+            Type (str, optional): Type value.
+            Value (str, optional): Value value.
         """
-        if isinstance(Namespace, AttributeData):
-            oth: AttributeData = Namespace
-            self._namespace = oth.Namespace
-            self._type = oth.Type
-            self._value = oth.Value
-            return
-        else:
-            self._namespace = Namespace
-            self._type = Type
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Namespace": Namespace,
+            "Type": Type,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._namespace = kwargs["Namespace"]
+        self._type = kwargs["Type"]
+        self._value = kwargs["Value"]
 
 
     @property

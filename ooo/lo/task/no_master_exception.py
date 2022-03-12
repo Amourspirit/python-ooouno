@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.runtime_exception import RuntimeException as RuntimeException_d7390ced
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .password_request_mode import PasswordRequestMode as PasswordRequestMode_ec10e7c
 
 class NoMasterException(RuntimeException_d7390ced):
     """
+    Exception Class
+
     is thrown when a master password is needed but not available/correct.
 
     See Also:
@@ -40,18 +43,29 @@ class NoMasterException(RuntimeException_d7390ced):
     typeName: str = 'com.sun.star.task.NoMasterException'
     """Literal Constant ``com.sun.star.task.NoMasterException``"""
 
-    def __init__(self, Mode: typing.Optional[PasswordRequestMode_ec10e7c] = PasswordRequestMode_ec10e7c.PASSWORD_CREATE, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Mode: typing.Optional[PasswordRequestMode_ec10e7c] = PasswordRequestMode_ec10e7c.PASSWORD_CREATE) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Mode (PasswordRequestMode, optional): Mode value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Mode": Mode,
+        }
+        self._init(**kargs)
 
-        self._mode = Mode
+    def _init(self, **kwargs) -> None:
+        self._mode = kwargs["Mode"]
+        inst_keys = ('Mode',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Mode(self) -> PasswordRequestMode_ec10e7c:

@@ -38,27 +38,24 @@ class ExportStreamInfo(object):
     typeName: str = 'com.sun.star.ucb.ExportStreamInfo'
     """Literal Constant ``com.sun.star.ucb.ExportStreamInfo``"""
 
-    def __init__(self, Target: XOutputStream_a4e00b35 = None, ForceBodies: bool = False) -> None:
+    def __init__(self, Target: typing.Optional[XOutputStream_a4e00b35] = None, ForceBodies: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Target`` can be another ``ExportStreamInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Target (XOutputStream, optional): Target value
-            ForceBodies (bool, optional): ForceBodies value
+            Target (XOutputStream, optional): Target value.
+            ForceBodies (bool, optional): ForceBodies value.
         """
-        if isinstance(Target, ExportStreamInfo):
-            oth: ExportStreamInfo = Target
-            self._target = oth.Target
-            self._force_bodies = oth.ForceBodies
-            return
-        else:
-            self._target = Target
-            self._force_bodies = ForceBodies
+        super().__init__()
+        kargs = {
+            "Target": Target,
+            "ForceBodies": ForceBodies,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._target = kwargs["Target"]
+        self._force_bodies = kwargs["ForceBodies"]
 
 
     @property

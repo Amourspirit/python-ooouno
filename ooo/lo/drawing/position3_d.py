@@ -37,30 +37,27 @@ class Position3D(object):
     typeName: str = 'com.sun.star.drawing.Position3D'
     """Literal Constant ``com.sun.star.drawing.Position3D``"""
 
-    def __init__(self, PositionX: float = 0.0, PositionY: float = 0.0, PositionZ: float = 0.0) -> None:
+    def __init__(self, PositionX: typing.Optional[float] = 0.0, PositionY: typing.Optional[float] = 0.0, PositionZ: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``PositionX`` can be another ``Position3D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            PositionX (float, optional): PositionX value
-            PositionY (float, optional): PositionY value
-            PositionZ (float, optional): PositionZ value
+            PositionX (float, optional): PositionX value.
+            PositionY (float, optional): PositionY value.
+            PositionZ (float, optional): PositionZ value.
         """
-        if isinstance(PositionX, Position3D):
-            oth: Position3D = PositionX
-            self._position_x = oth.PositionX
-            self._position_y = oth.PositionY
-            self._position_z = oth.PositionZ
-            return
-        else:
-            self._position_x = PositionX
-            self._position_y = PositionY
-            self._position_z = PositionZ
+        super().__init__()
+        kargs = {
+            "PositionX": PositionX,
+            "PositionY": PositionY,
+            "PositionZ": PositionZ,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._position_x = kwargs["PositionX"]
+        self._position_y = kwargs["PositionY"]
+        self._position_z = kwargs["PositionZ"]
 
 
     @property

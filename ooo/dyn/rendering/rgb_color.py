@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Red = UNO_NONE, Green = UNO_NONE, Blue = UNO_NONE):
-            if getattr(Red, "__class__", None) == self.__class__:
-                orig_init(self, Red)
+        ordered_keys = ('Red', 'Green', 'Blue')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Red is UNO_NONE:
-                if getattr(self, 'Red') != Red:
-                    setattr(self, 'Red', Red)
-            if not Green is UNO_NONE:
-                if getattr(self, 'Green') != Green:
-                    setattr(self, 'Green', Green)
-            if not Blue is UNO_NONE:
-                if getattr(self, 'Blue') != Blue:
-                    setattr(self, 'Blue', Blue)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.RGBColor'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RGBColor = _get_class()
-
 
 else:
     from ...lo.rendering.rgb_color import RGBColor as RGBColor

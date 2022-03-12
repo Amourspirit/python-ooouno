@@ -45,48 +45,45 @@ class DocumentSignatureInformation(object):
     typeName: str = 'com.sun.star.security.DocumentSignatureInformation'
     """Literal Constant ``com.sun.star.security.DocumentSignatureInformation``"""
 
-    def __init__(self, Signer: XCertificate_e55b0d3b = None, SignatureDate: int = 0, SignatureTime: int = 0, SignatureIsValid: bool = False, CertificateStatus: int = 0, PartialDocumentSignature: bool = False, SignatureLineId: str = '', ValidSignatureLineImage: XGraphic_a4da0afc = None, InvalidSignatureLineImage: XGraphic_a4da0afc = None) -> None:
+    def __init__(self, Signer: typing.Optional[XCertificate_e55b0d3b] = None, SignatureDate: typing.Optional[int] = 0, SignatureTime: typing.Optional[int] = 0, SignatureIsValid: typing.Optional[bool] = False, CertificateStatus: typing.Optional[int] = 0, PartialDocumentSignature: typing.Optional[bool] = False, SignatureLineId: typing.Optional[str] = '', ValidSignatureLineImage: typing.Optional[XGraphic_a4da0afc] = None, InvalidSignatureLineImage: typing.Optional[XGraphic_a4da0afc] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Signer`` can be another ``DocumentSignatureInformation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Signer (XCertificate, optional): Signer value
-            SignatureDate (int, optional): SignatureDate value
-            SignatureTime (int, optional): SignatureTime value
-            SignatureIsValid (bool, optional): SignatureIsValid value
-            CertificateStatus (int, optional): CertificateStatus value
-            PartialDocumentSignature (bool, optional): PartialDocumentSignature value
-            SignatureLineId (str, optional): SignatureLineId value
-            ValidSignatureLineImage (XGraphic, optional): ValidSignatureLineImage value
-            InvalidSignatureLineImage (XGraphic, optional): InvalidSignatureLineImage value
+            Signer (XCertificate, optional): Signer value.
+            SignatureDate (int, optional): SignatureDate value.
+            SignatureTime (int, optional): SignatureTime value.
+            SignatureIsValid (bool, optional): SignatureIsValid value.
+            CertificateStatus (int, optional): CertificateStatus value.
+            PartialDocumentSignature (bool, optional): PartialDocumentSignature value.
+            SignatureLineId (str, optional): SignatureLineId value.
+            ValidSignatureLineImage (XGraphic, optional): ValidSignatureLineImage value.
+            InvalidSignatureLineImage (XGraphic, optional): InvalidSignatureLineImage value.
         """
-        if isinstance(Signer, DocumentSignatureInformation):
-            oth: DocumentSignatureInformation = Signer
-            self._signer = oth.Signer
-            self._signature_date = oth.SignatureDate
-            self._signature_time = oth.SignatureTime
-            self._signature_is_valid = oth.SignatureIsValid
-            self._certificate_status = oth.CertificateStatus
-            self._partial_document_signature = oth.PartialDocumentSignature
-            self._signature_line_id = oth.SignatureLineId
-            self._valid_signature_line_image = oth.ValidSignatureLineImage
-            self._invalid_signature_line_image = oth.InvalidSignatureLineImage
-            return
-        else:
-            self._signer = Signer
-            self._signature_date = SignatureDate
-            self._signature_time = SignatureTime
-            self._signature_is_valid = SignatureIsValid
-            self._certificate_status = CertificateStatus
-            self._partial_document_signature = PartialDocumentSignature
-            self._signature_line_id = SignatureLineId
-            self._valid_signature_line_image = ValidSignatureLineImage
-            self._invalid_signature_line_image = InvalidSignatureLineImage
+        super().__init__()
+        kargs = {
+            "Signer": Signer,
+            "SignatureDate": SignatureDate,
+            "SignatureTime": SignatureTime,
+            "SignatureIsValid": SignatureIsValid,
+            "CertificateStatus": CertificateStatus,
+            "PartialDocumentSignature": PartialDocumentSignature,
+            "SignatureLineId": SignatureLineId,
+            "ValidSignatureLineImage": ValidSignatureLineImage,
+            "InvalidSignatureLineImage": InvalidSignatureLineImage,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._signer = kwargs["Signer"]
+        self._signature_date = kwargs["SignatureDate"]
+        self._signature_time = kwargs["SignatureTime"]
+        self._signature_is_valid = kwargs["SignatureIsValid"]
+        self._certificate_status = kwargs["CertificateStatus"]
+        self._partial_document_signature = kwargs["PartialDocumentSignature"]
+        self._signature_line_id = kwargs["SignatureLineId"]
+        self._valid_signature_line_image = kwargs["ValidSignatureLineImage"]
+        self._invalid_signature_line_image = kwargs["InvalidSignatureLineImage"]
 
 
     @property

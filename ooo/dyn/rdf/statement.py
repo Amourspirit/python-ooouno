@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Subject = UNO_NONE, Predicate = UNO_NONE, Object = UNO_NONE, Graph = UNO_NONE):
-            if getattr(Subject, "__class__", None) == self.__class__:
-                orig_init(self, Subject)
+        ordered_keys = ('Subject', 'Predicate', 'Object', 'Graph')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Subject is UNO_NONE:
-                if getattr(self, 'Subject') != Subject:
-                    setattr(self, 'Subject', Subject)
-            if not Predicate is UNO_NONE:
-                if getattr(self, 'Predicate') != Predicate:
-                    setattr(self, 'Predicate', Predicate)
-            if not Object is UNO_NONE:
-                if getattr(self, 'Object') != Object:
-                    setattr(self, 'Object', Object)
-            if not Graph is UNO_NONE:
-                if getattr(self, 'Graph') != Graph:
-                    setattr(self, 'Graph', Graph)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rdf.Statement'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Statement = _get_class()
-
 
 else:
     from ...lo.rdf.statement import Statement as Statement

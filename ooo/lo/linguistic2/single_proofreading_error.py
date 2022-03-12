@@ -42,51 +42,46 @@ class SingleProofreadingError(object):
     typeName: str = 'com.sun.star.linguistic2.SingleProofreadingError'
     """Literal Constant ``com.sun.star.linguistic2.SingleProofreadingError``"""
 
-    def __init__(self, aSuggestions: typing.Tuple[str, ...] = UNO_NONE, aProperties: typing.Tuple[PropertyValue_c9610c73, ...] = UNO_NONE, nErrorStart: int = 0, nErrorLength: int = 0, nErrorType: int = 0, aRuleIdentifier: str = '', aShortComment: str = '', aFullComment: str = '') -> None:
+    def __init__(self, aSuggestions: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, nErrorStart: typing.Optional[int] = 0, nErrorLength: typing.Optional[int] = 0, nErrorType: typing.Optional[int] = 0, aRuleIdentifier: typing.Optional[str] = '', aShortComment: typing.Optional[str] = '', aFullComment: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aSuggestions`` can be another ``SingleProofreadingError`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aSuggestions (Tuple[str, ...], optional): aSuggestions value
-            aProperties (Tuple[PropertyValue, ...], optional): aProperties value
-            nErrorStart (int, optional): nErrorStart value
-            nErrorLength (int, optional): nErrorLength value
-            nErrorType (int, optional): nErrorType value
-            aRuleIdentifier (str, optional): aRuleIdentifier value
-            aShortComment (str, optional): aShortComment value
-            aFullComment (str, optional): aFullComment value
+            aSuggestions (typing.Tuple[str, ...], optional): aSuggestions value.
+            aProperties (typing.Tuple[PropertyValue, ...], optional): aProperties value.
+            nErrorStart (int, optional): nErrorStart value.
+            nErrorLength (int, optional): nErrorLength value.
+            nErrorType (int, optional): nErrorType value.
+            aRuleIdentifier (str, optional): aRuleIdentifier value.
+            aShortComment (str, optional): aShortComment value.
+            aFullComment (str, optional): aFullComment value.
         """
-        if isinstance(aSuggestions, SingleProofreadingError):
-            oth: SingleProofreadingError = aSuggestions
-            self._a_suggestions = oth.aSuggestions
-            self._a_properties = oth.aProperties
-            self._n_error_start = oth.nErrorStart
-            self._n_error_length = oth.nErrorLength
-            self._n_error_type = oth.nErrorType
-            self._a_rule_identifier = oth.aRuleIdentifier
-            self._a_short_comment = oth.aShortComment
-            self._a_full_comment = oth.aFullComment
-            return
-        else:
-            if aSuggestions is UNO_NONE:
-                self._a_suggestions = None
-            else:
-                self._a_suggestions = aSuggestions
-            if aProperties is UNO_NONE:
-                self._a_properties = None
-            else:
-                self._a_properties = aProperties
-            self._n_error_start = nErrorStart
-            self._n_error_length = nErrorLength
-            self._n_error_type = nErrorType
-            self._a_rule_identifier = aRuleIdentifier
-            self._a_short_comment = aShortComment
-            self._a_full_comment = aFullComment
+        super().__init__()
+        kargs = {
+            "aSuggestions": aSuggestions,
+            "aProperties": aProperties,
+            "nErrorStart": nErrorStart,
+            "nErrorLength": nErrorLength,
+            "nErrorType": nErrorType,
+            "aRuleIdentifier": aRuleIdentifier,
+            "aShortComment": aShortComment,
+            "aFullComment": aFullComment,
+        }
+        if kargs["aSuggestions"] is UNO_NONE:
+            kargs["aSuggestions"] = None
+        if kargs["aProperties"] is UNO_NONE:
+            kargs["aProperties"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._a_suggestions = kwargs["aSuggestions"]
+        self._a_properties = kwargs["aProperties"]
+        self._n_error_start = kwargs["nErrorStart"]
+        self._n_error_length = kwargs["nErrorLength"]
+        self._n_error_type = kwargs["nErrorType"]
+        self._a_rule_identifier = kwargs["aRuleIdentifier"]
+        self._a_short_comment = kwargs["aShortComment"]
+        self._a_full_comment = kwargs["aFullComment"]
 
 
     @property

@@ -41,33 +41,28 @@ class ClipboardFormats(object):
     typeName: str = 'com.sun.star.frame.status.ClipboardFormats'
     """Literal Constant ``com.sun.star.frame.status.ClipboardFormats``"""
 
-    def __init__(self, Identifiers: typing.Tuple[int, ...] = UNO_NONE, Names: typing.Tuple[str, ...] = UNO_NONE) -> None:
+    def __init__(self, Identifiers: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, Names: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Identifiers`` can be another ``ClipboardFormats`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Identifiers (Tuple[int, ...], optional): Identifiers value
-            Names (Tuple[str, ...], optional): Names value
+            Identifiers (typing.Tuple[int, ...], optional): Identifiers value.
+            Names (typing.Tuple[str, ...], optional): Names value.
         """
-        if isinstance(Identifiers, ClipboardFormats):
-            oth: ClipboardFormats = Identifiers
-            self._identifiers = oth.Identifiers
-            self._names = oth.Names
-            return
-        else:
-            if Identifiers is UNO_NONE:
-                self._identifiers = None
-            else:
-                self._identifiers = Identifiers
-            if Names is UNO_NONE:
-                self._names = None
-            else:
-                self._names = Names
+        super().__init__()
+        kargs = {
+            "Identifiers": Identifiers,
+            "Names": Names,
+        }
+        if kargs["Identifiers"] is UNO_NONE:
+            kargs["Identifiers"] = None
+        if kargs["Names"] is UNO_NONE:
+            kargs["Names"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._identifiers = kwargs["Identifiers"]
+        self._names = kwargs["Names"]
 
 
     @property

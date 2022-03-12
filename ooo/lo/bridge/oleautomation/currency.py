@@ -45,24 +45,21 @@ class Currency(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.Currency'
     """Literal Constant ``com.sun.star.bridge.oleautomation.Currency``"""
 
-    def __init__(self, Value: int = 0) -> None:
+    def __init__(self, Value: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``Currency`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (int, optional): Value value
+            Value (int, optional): Value value.
         """
-        if isinstance(Value, Currency):
-            oth: Currency = Value
-            self._value = oth.Value
-            return
-        else:
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
 
 
     @property

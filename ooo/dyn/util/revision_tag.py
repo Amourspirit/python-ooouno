@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, TimeStamp = UNO_NONE, Author = UNO_NONE, Comment = UNO_NONE, Identifier = UNO_NONE):
-            if getattr(TimeStamp, "__class__", None) == self.__class__:
-                orig_init(self, TimeStamp)
+        ordered_keys = ('TimeStamp', 'Author', 'Comment', 'Identifier')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not TimeStamp is UNO_NONE:
-                if getattr(self, 'TimeStamp') != TimeStamp:
-                    setattr(self, 'TimeStamp', TimeStamp)
-            if not Author is UNO_NONE:
-                if getattr(self, 'Author') != Author:
-                    setattr(self, 'Author', Author)
-            if not Comment is UNO_NONE:
-                if getattr(self, 'Comment') != Comment:
-                    setattr(self, 'Comment', Comment)
-            if not Identifier is UNO_NONE:
-                if getattr(self, 'Identifier') != Identifier:
-                    setattr(self, 'Identifier', Identifier)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.RevisionTag'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RevisionTag = _get_class()
-
 
 else:
     from ...lo.util.revision_tag import RevisionTag as RevisionTag

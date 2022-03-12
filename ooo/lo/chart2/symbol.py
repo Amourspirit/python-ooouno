@@ -41,48 +41,43 @@ class Symbol(object):
     typeName: str = 'com.sun.star.chart2.Symbol'
     """Literal Constant ``com.sun.star.chart2.Symbol``"""
 
-    def __init__(self, Style: SymbolStyle_baa20bd3 = SymbolStyle_baa20bd3.NONE, PolygonCoords: PolyPolygonBezierCoords_7ec5114b = UNO_NONE, StandardSymbol: int = 0, Graphic: XGraphic_a4da0afc = None, Size: Size_576707ef = UNO_NONE, BorderColor: int = 0, FillColor: int = 0) -> None:
+    def __init__(self, Style: typing.Optional[SymbolStyle_baa20bd3] = SymbolStyle_baa20bd3.NONE, PolygonCoords: typing.Optional[PolyPolygonBezierCoords_7ec5114b] = UNO_NONE, StandardSymbol: typing.Optional[int] = 0, Graphic: typing.Optional[XGraphic_a4da0afc] = None, Size: typing.Optional[Size_576707ef] = UNO_NONE, BorderColor: typing.Optional[int] = 0, FillColor: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Style`` can be another ``Symbol`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Style (SymbolStyle, optional): Style value
-            PolygonCoords (PolyPolygonBezierCoords, optional): PolygonCoords value
-            StandardSymbol (int, optional): StandardSymbol value
-            Graphic (XGraphic, optional): Graphic value
-            Size (Size, optional): Size value
-            BorderColor (int, optional): BorderColor value
-            FillColor (int, optional): FillColor value
+            Style (SymbolStyle, optional): Style value.
+            PolygonCoords (PolyPolygonBezierCoords, optional): PolygonCoords value.
+            StandardSymbol (int, optional): StandardSymbol value.
+            Graphic (XGraphic, optional): Graphic value.
+            Size (Size, optional): Size value.
+            BorderColor (int, optional): BorderColor value.
+            FillColor (int, optional): FillColor value.
         """
-        if isinstance(Style, Symbol):
-            oth: Symbol = Style
-            self._style = oth.Style
-            self._polygon_coords = oth.PolygonCoords
-            self._standard_symbol = oth.StandardSymbol
-            self._graphic = oth.Graphic
-            self._size = oth.Size
-            self._border_color = oth.BorderColor
-            self._fill_color = oth.FillColor
-            return
-        else:
-            self._style = Style
-            if PolygonCoords is UNO_NONE:
-                self._polygon_coords = PolyPolygonBezierCoords_7ec5114b()
-            else:
-                self._polygon_coords = PolygonCoords
-            self._standard_symbol = StandardSymbol
-            self._graphic = Graphic
-            if Size is UNO_NONE:
-                self._size = Size_576707ef()
-            else:
-                self._size = Size
-            self._border_color = BorderColor
-            self._fill_color = FillColor
+        super().__init__()
+        kargs = {
+            "Style": Style,
+            "PolygonCoords": PolygonCoords,
+            "StandardSymbol": StandardSymbol,
+            "Graphic": Graphic,
+            "Size": Size,
+            "BorderColor": BorderColor,
+            "FillColor": FillColor,
+        }
+        if kargs["PolygonCoords"] is UNO_NONE:
+            kargs["PolygonCoords"] = None
+        if kargs["Size"] is UNO_NONE:
+            kargs["Size"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._style = kwargs["Style"]
+        self._polygon_coords = kwargs["PolygonCoords"]
+        self._standard_symbol = kwargs["StandardSymbol"]
+        self._graphic = kwargs["Graphic"]
+        self._size = kwargs["Size"]
+        self._border_color = kwargs["BorderColor"]
+        self._fill_color = kwargs["FillColor"]
 
 
     @property

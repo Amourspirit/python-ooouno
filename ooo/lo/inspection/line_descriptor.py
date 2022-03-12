@@ -45,60 +45,57 @@ class LineDescriptor(object):
     typeName: str = 'com.sun.star.inspection.LineDescriptor'
     """Literal Constant ``com.sun.star.inspection.LineDescriptor``"""
 
-    def __init__(self, DisplayName: str = '', Control: XPropertyControl_3f260fe2 = None, HelpURL: str = '', HasPrimaryButton: bool = False, PrimaryButtonId: str = '', PrimaryButtonImageURL: str = '', PrimaryButtonImage: XGraphic_a4da0afc = None, HasSecondaryButton: bool = False, SecondaryButtonId: str = '', SecondaryButtonImageURL: str = '', SecondaryButtonImage: XGraphic_a4da0afc = None, IndentLevel: int = 0, Category: str = '') -> None:
+    def __init__(self, DisplayName: typing.Optional[str] = '', Control: typing.Optional[XPropertyControl_3f260fe2] = None, HelpURL: typing.Optional[str] = '', HasPrimaryButton: typing.Optional[bool] = False, PrimaryButtonId: typing.Optional[str] = '', PrimaryButtonImageURL: typing.Optional[str] = '', PrimaryButtonImage: typing.Optional[XGraphic_a4da0afc] = None, HasSecondaryButton: typing.Optional[bool] = False, SecondaryButtonId: typing.Optional[str] = '', SecondaryButtonImageURL: typing.Optional[str] = '', SecondaryButtonImage: typing.Optional[XGraphic_a4da0afc] = None, IndentLevel: typing.Optional[int] = 0, Category: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DisplayName`` can be another ``LineDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DisplayName (str, optional): DisplayName value
-            Control (XPropertyControl, optional): Control value
-            HelpURL (str, optional): HelpURL value
-            HasPrimaryButton (bool, optional): HasPrimaryButton value
-            PrimaryButtonId (str, optional): PrimaryButtonId value
-            PrimaryButtonImageURL (str, optional): PrimaryButtonImageURL value
-            PrimaryButtonImage (XGraphic, optional): PrimaryButtonImage value
-            HasSecondaryButton (bool, optional): HasSecondaryButton value
-            SecondaryButtonId (str, optional): SecondaryButtonId value
-            SecondaryButtonImageURL (str, optional): SecondaryButtonImageURL value
-            SecondaryButtonImage (XGraphic, optional): SecondaryButtonImage value
-            IndentLevel (int, optional): IndentLevel value
-            Category (str, optional): Category value
+            DisplayName (str, optional): DisplayName value.
+            Control (XPropertyControl, optional): Control value.
+            HelpURL (str, optional): HelpURL value.
+            HasPrimaryButton (bool, optional): HasPrimaryButton value.
+            PrimaryButtonId (str, optional): PrimaryButtonId value.
+            PrimaryButtonImageURL (str, optional): PrimaryButtonImageURL value.
+            PrimaryButtonImage (XGraphic, optional): PrimaryButtonImage value.
+            HasSecondaryButton (bool, optional): HasSecondaryButton value.
+            SecondaryButtonId (str, optional): SecondaryButtonId value.
+            SecondaryButtonImageURL (str, optional): SecondaryButtonImageURL value.
+            SecondaryButtonImage (XGraphic, optional): SecondaryButtonImage value.
+            IndentLevel (int, optional): IndentLevel value.
+            Category (str, optional): Category value.
         """
-        if isinstance(DisplayName, LineDescriptor):
-            oth: LineDescriptor = DisplayName
-            self._display_name = oth.DisplayName
-            self._control = oth.Control
-            self._help_url = oth.HelpURL
-            self._has_primary_button = oth.HasPrimaryButton
-            self._primary_button_id = oth.PrimaryButtonId
-            self._primary_button_image_url = oth.PrimaryButtonImageURL
-            self._primary_button_image = oth.PrimaryButtonImage
-            self._has_secondary_button = oth.HasSecondaryButton
-            self._secondary_button_id = oth.SecondaryButtonId
-            self._secondary_button_image_url = oth.SecondaryButtonImageURL
-            self._secondary_button_image = oth.SecondaryButtonImage
-            self._indent_level = oth.IndentLevel
-            self._category = oth.Category
-            return
-        else:
-            self._display_name = DisplayName
-            self._control = Control
-            self._help_url = HelpURL
-            self._has_primary_button = HasPrimaryButton
-            self._primary_button_id = PrimaryButtonId
-            self._primary_button_image_url = PrimaryButtonImageURL
-            self._primary_button_image = PrimaryButtonImage
-            self._has_secondary_button = HasSecondaryButton
-            self._secondary_button_id = SecondaryButtonId
-            self._secondary_button_image_url = SecondaryButtonImageURL
-            self._secondary_button_image = SecondaryButtonImage
-            self._indent_level = IndentLevel
-            self._category = Category
+        super().__init__()
+        kargs = {
+            "DisplayName": DisplayName,
+            "Control": Control,
+            "HelpURL": HelpURL,
+            "HasPrimaryButton": HasPrimaryButton,
+            "PrimaryButtonId": PrimaryButtonId,
+            "PrimaryButtonImageURL": PrimaryButtonImageURL,
+            "PrimaryButtonImage": PrimaryButtonImage,
+            "HasSecondaryButton": HasSecondaryButton,
+            "SecondaryButtonId": SecondaryButtonId,
+            "SecondaryButtonImageURL": SecondaryButtonImageURL,
+            "SecondaryButtonImage": SecondaryButtonImage,
+            "IndentLevel": IndentLevel,
+            "Category": Category,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._display_name = kwargs["DisplayName"]
+        self._control = kwargs["Control"]
+        self._help_url = kwargs["HelpURL"]
+        self._has_primary_button = kwargs["HasPrimaryButton"]
+        self._primary_button_id = kwargs["PrimaryButtonId"]
+        self._primary_button_image_url = kwargs["PrimaryButtonImageURL"]
+        self._primary_button_image = kwargs["PrimaryButtonImage"]
+        self._has_secondary_button = kwargs["HasSecondaryButton"]
+        self._secondary_button_id = kwargs["SecondaryButtonId"]
+        self._secondary_button_image_url = kwargs["SecondaryButtonImageURL"]
+        self._secondary_button_image = kwargs["SecondaryButtonImage"]
+        self._indent_level = kwargs["IndentLevel"]
+        self._category = kwargs["Category"]
 
 
     @property

@@ -44,6 +44,26 @@ class UnoControlComboBoxModel(UnoControlModel_c8ce0c58, XItemList_83fb09d7):
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
+    def StringItemList(self) -> 'typing.Tuple[str, ...]':
+        """
+        specifies the list of items.
+        """
+
+    @abstractproperty
+    def TypedItemList(self) -> 'typing.Tuple[object, ...]':
+        """
+        specifies the list of raw typed (not stringized) items.
+        
+        This list corresponds with the StringItemList and if given has to be of the same length, the elements' positions matching those of their string representation in StringItemList.
+        
+        If a new value is entered via the ComboBox edit then this list will be invalidated.
+        
+        **since**
+        
+            LibreOffice 5.4
+        """
+
+    @abstractproperty
     def Align(self) -> int:
         """
         specifies the horizontal alignment of the text in the control.

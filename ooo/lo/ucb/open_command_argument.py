@@ -39,36 +39,32 @@ class OpenCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument``"""
 
-    def __init__(self, Properties: typing.Tuple[Property_8f4e0a76, ...] = UNO_NONE, Mode: int = 0, Priority: int = 0, Sink: XInterface_8f010a43 = None) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Properties`` can be another ``OpenCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Properties (Tuple[Property, ...], optional): Properties value
-            Mode (int, optional): Mode value
-            Priority (int, optional): Priority value
-            Sink (XInterface, optional): Sink value
+            Properties (typing.Tuple[Property, ...], optional): Properties value.
+            Mode (int, optional): Mode value.
+            Priority (int, optional): Priority value.
+            Sink (XInterface, optional): Sink value.
         """
-        if isinstance(Properties, OpenCommandArgument):
-            oth: OpenCommandArgument = Properties
-            self._properties = oth.Properties
-            self._mode = oth.Mode
-            self._priority = oth.Priority
-            self._sink = oth.Sink
-            return
-        else:
-            if Properties is UNO_NONE:
-                self._properties = None
-            else:
-                self._properties = Properties
-            self._mode = Mode
-            self._priority = Priority
-            self._sink = Sink
+        super().__init__()
+        kargs = {
+            "Properties": Properties,
+            "Mode": Mode,
+            "Priority": Priority,
+            "Sink": Sink,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._properties = kwargs["Properties"]
+        self._mode = kwargs["Mode"]
+        self._priority = kwargs["Priority"]
+        self._sink = kwargs["Sink"]
 
 
     @property

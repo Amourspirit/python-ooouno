@@ -37,27 +37,24 @@ class DataResult(object):
     typeName: str = 'com.sun.star.sheet.DataResult'
     """Literal Constant ``com.sun.star.sheet.DataResult``"""
 
-    def __init__(self, Flags: int = 0, Value: float = 0.0) -> None:
+    def __init__(self, Flags: typing.Optional[int] = 0, Value: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Flags`` can be another ``DataResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Flags (int, optional): Flags value
-            Value (float, optional): Value value
+            Flags (int, optional): Flags value.
+            Value (float, optional): Value value.
         """
-        if isinstance(Flags, DataResult):
-            oth: DataResult = Flags
-            self._flags = oth.Flags
-            self._value = oth.Value
-            return
-        else:
-            self._flags = Flags
-            self._value = Value
+        super().__init__()
+        kargs = {
+            "Flags": Flags,
+            "Value": Value,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._flags = kwargs["Flags"]
+        self._value = kwargs["Value"]
 
 
     @property

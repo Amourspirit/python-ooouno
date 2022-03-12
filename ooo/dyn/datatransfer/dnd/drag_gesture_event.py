@@ -22,35 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, DragAction = UNO_NONE, DragOriginX = UNO_NONE, DragOriginY = UNO_NONE, DragSource = UNO_NONE, Event = UNO_NONE, **kwargs):
-            if getattr(DragAction, "__class__", None) == self.__class__:
-                orig_init(self, DragAction)
+        ordered_keys = ('Source', 'DragAction', 'DragOriginX', 'DragOriginY', 'DragSource', 'Event')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not DragAction is UNO_NONE:
-                if getattr(self, 'DragAction') != DragAction:
-                    setattr(self, 'DragAction', DragAction)
-            if not DragOriginX is UNO_NONE:
-                if getattr(self, 'DragOriginX') != DragOriginX:
-                    setattr(self, 'DragOriginX', DragOriginX)
-            if not DragOriginY is UNO_NONE:
-                if getattr(self, 'DragOriginY') != DragOriginY:
-                    setattr(self, 'DragOriginY', DragOriginY)
-            if not DragSource is UNO_NONE:
-                if getattr(self, 'DragSource') != DragSource:
-                    setattr(self, 'DragSource', DragSource)
-            if not Event is UNO_NONE:
-                if getattr(self, 'Event') != Event:
-                    setattr(self, 'Event', Event)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.datatransfer.dnd.DragGestureEvent'
         struct = uno.getClass(type_name)
@@ -62,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DragGestureEvent = _get_class()
-
 
 else:
     from ....lo.datatransfer.dnd.drag_gesture_event import DragGestureEvent as DragGestureEvent

@@ -40,51 +40,48 @@ class SymbolDescriptor(object):
     typeName: str = 'com.sun.star.formula.SymbolDescriptor'
     """Literal Constant ``com.sun.star.formula.SymbolDescriptor``"""
 
-    def __init__(self, sName: str = '', sExportName: str = '', sSymbolSet: str = '', nCharacter: int = 0, sFontName: str = '', nCharSet: int = 0, nFamily: int = 0, nPitch: int = 0, nWeight: int = 0, nItalic: int = 0) -> None:
+    def __init__(self, sName: typing.Optional[str] = '', sExportName: typing.Optional[str] = '', sSymbolSet: typing.Optional[str] = '', nCharacter: typing.Optional[int] = 0, sFontName: typing.Optional[str] = '', nCharSet: typing.Optional[int] = 0, nFamily: typing.Optional[int] = 0, nPitch: typing.Optional[int] = 0, nWeight: typing.Optional[int] = 0, nItalic: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``sName`` can be another ``SymbolDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            sName (str, optional): sName value
-            sExportName (str, optional): sExportName value
-            sSymbolSet (str, optional): sSymbolSet value
-            nCharacter (int, optional): nCharacter value
-            sFontName (str, optional): sFontName value
-            nCharSet (int, optional): nCharSet value
-            nFamily (int, optional): nFamily value
-            nPitch (int, optional): nPitch value
-            nWeight (int, optional): nWeight value
-            nItalic (int, optional): nItalic value
+            sName (str, optional): sName value.
+            sExportName (str, optional): sExportName value.
+            sSymbolSet (str, optional): sSymbolSet value.
+            nCharacter (int, optional): nCharacter value.
+            sFontName (str, optional): sFontName value.
+            nCharSet (int, optional): nCharSet value.
+            nFamily (int, optional): nFamily value.
+            nPitch (int, optional): nPitch value.
+            nWeight (int, optional): nWeight value.
+            nItalic (int, optional): nItalic value.
         """
-        if isinstance(sName, SymbolDescriptor):
-            oth: SymbolDescriptor = sName
-            self._s_name = oth.sName
-            self._s_export_name = oth.sExportName
-            self._s_symbol_set = oth.sSymbolSet
-            self._n_character = oth.nCharacter
-            self._s_font_name = oth.sFontName
-            self._n_char_set = oth.nCharSet
-            self._n_family = oth.nFamily
-            self._n_pitch = oth.nPitch
-            self._n_weight = oth.nWeight
-            self._n_italic = oth.nItalic
-            return
-        else:
-            self._s_name = sName
-            self._s_export_name = sExportName
-            self._s_symbol_set = sSymbolSet
-            self._n_character = nCharacter
-            self._s_font_name = sFontName
-            self._n_char_set = nCharSet
-            self._n_family = nFamily
-            self._n_pitch = nPitch
-            self._n_weight = nWeight
-            self._n_italic = nItalic
+        super().__init__()
+        kargs = {
+            "sName": sName,
+            "sExportName": sExportName,
+            "sSymbolSet": sSymbolSet,
+            "nCharacter": nCharacter,
+            "sFontName": sFontName,
+            "nCharSet": nCharSet,
+            "nFamily": nFamily,
+            "nPitch": nPitch,
+            "nWeight": nWeight,
+            "nItalic": nItalic,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._s_name = kwargs["sName"]
+        self._s_export_name = kwargs["sExportName"]
+        self._s_symbol_set = kwargs["sSymbolSet"]
+        self._n_character = kwargs["nCharacter"]
+        self._s_font_name = kwargs["sFontName"]
+        self._n_char_set = kwargs["nCharSet"]
+        self._n_family = kwargs["nFamily"]
+        self._n_pitch = kwargs["nPitch"]
+        self._n_weight = kwargs["nWeight"]
+        self._n_italic = kwargs["nItalic"]
 
 
     @property

@@ -43,33 +43,30 @@ class GraphicCrop(object):
     typeName: str = 'com.sun.star.text.GraphicCrop'
     """Literal Constant ``com.sun.star.text.GraphicCrop``"""
 
-    def __init__(self, Top: int = 0, Bottom: int = 0, Left: int = 0, Right: int = 0) -> None:
+    def __init__(self, Top: typing.Optional[int] = 0, Bottom: typing.Optional[int] = 0, Left: typing.Optional[int] = 0, Right: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Top`` can be another ``GraphicCrop`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Top (int, optional): Top value
-            Bottom (int, optional): Bottom value
-            Left (int, optional): Left value
-            Right (int, optional): Right value
+            Top (int, optional): Top value.
+            Bottom (int, optional): Bottom value.
+            Left (int, optional): Left value.
+            Right (int, optional): Right value.
         """
-        if isinstance(Top, GraphicCrop):
-            oth: GraphicCrop = Top
-            self._top = oth.Top
-            self._bottom = oth.Bottom
-            self._left = oth.Left
-            self._right = oth.Right
-            return
-        else:
-            self._top = Top
-            self._bottom = Bottom
-            self._left = Left
-            self._right = Right
+        super().__init__()
+        kargs = {
+            "Top": Top,
+            "Bottom": Bottom,
+            "Left": Left,
+            "Right": Right,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._top = kwargs["Top"]
+        self._bottom = kwargs["Bottom"]
+        self._left = kwargs["Left"]
+        self._right = kwargs["Right"]
 
 
     @property

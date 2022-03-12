@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Modifiers = UNO_NONE, KeyCode = UNO_NONE, KeyChar = UNO_NONE, KeyFunc = UNO_NONE):
-            if getattr(Modifiers, "__class__", None) == self.__class__:
-                orig_init(self, Modifiers)
+        ordered_keys = ('Modifiers', 'KeyCode', 'KeyChar', 'KeyFunc')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Modifiers is UNO_NONE:
-                if getattr(self, 'Modifiers') != Modifiers:
-                    setattr(self, 'Modifiers', Modifiers)
-            if not KeyCode is UNO_NONE:
-                if getattr(self, 'KeyCode') != KeyCode:
-                    setattr(self, 'KeyCode', KeyCode)
-            if not KeyChar is UNO_NONE:
-                if getattr(self, 'KeyChar') != KeyChar:
-                    setattr(self, 'KeyChar', KeyChar)
-            if not KeyFunc is UNO_NONE:
-                if getattr(self, 'KeyFunc') != KeyFunc:
-                    setattr(self, 'KeyFunc', KeyFunc)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.KeyStroke'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     KeyStroke = _get_class()
-
 
 else:
     from ...lo.awt.key_stroke import KeyStroke as KeyStroke

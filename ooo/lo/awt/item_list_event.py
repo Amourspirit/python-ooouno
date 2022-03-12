@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,38 +39,37 @@ class ItemListEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.ItemListEvent'
     """Literal Constant ``com.sun.star.awt.ItemListEvent``"""
 
-    def __init__(self, ItemPosition: int = 0, ItemText: object = UNO_NONE, ItemImageURL: object = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, ItemPosition: typing.Optional[int] = 0, ItemText: typing.Optional[object] = UNO_NONE, ItemImageURL: typing.Optional[object] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ItemPosition`` can be another ``ItemListEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ItemPosition (int, optional): ItemPosition value
-            ItemText (object, optional): ItemText value
-            ItemImageURL (object, optional): ItemImageURL value
+            Source (XInterface, optional): Source value.
+            ItemPosition (int, optional): ItemPosition value.
+            ItemText (object, optional): ItemText value.
+            ItemImageURL (object, optional): ItemImageURL value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ItemPosition, ItemListEvent):
-            oth: ItemListEvent = ItemPosition
-            self._item_position = oth.ItemPosition
-            self._item_text = oth.ItemText
-            self._item_image_url = oth.ItemImageURL
-            return
-        else:
-            self._item_position = ItemPosition
-            if ItemText is UNO_NONE:
-                self._item_text = None
-            else:
-                self._item_text = ItemText
-            if ItemImageURL is UNO_NONE:
-                self._item_image_url = None
-            else:
-                self._item_image_url = ItemImageURL
+        kargs = {
+            "Source": Source,
+            "ItemPosition": ItemPosition,
+            "ItemText": ItemText,
+            "ItemImageURL": ItemImageURL,
+        }
+        if kargs["ItemText"] is UNO_NONE:
+            kargs["ItemText"] = None
+        if kargs["ItemImageURL"] is UNO_NONE:
+            kargs["ItemImageURL"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._item_position = kwargs["ItemPosition"]
+        self._item_text = kwargs["ItemText"]
+        self._item_image_url = kwargs["ItemImageURL"]
+        inst_keys = ('ItemPosition', 'ItemText', 'ItemImageURL')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

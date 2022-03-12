@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,32 +43,33 @@ class DatabaseRegistrationEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sdb.DatabaseRegistrationEvent'
     """Literal Constant ``com.sun.star.sdb.DatabaseRegistrationEvent``"""
 
-    def __init__(self, Name: str = '', OldLocation: str = '', NewLocation: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Name: typing.Optional[str] = '', OldLocation: typing.Optional[str] = '', NewLocation: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``DatabaseRegistrationEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Name (str, optional): Name value
-            OldLocation (str, optional): OldLocation value
-            NewLocation (str, optional): NewLocation value
+            Source (XInterface, optional): Source value.
+            Name (str, optional): Name value.
+            OldLocation (str, optional): OldLocation value.
+            NewLocation (str, optional): NewLocation value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Name, DatabaseRegistrationEvent):
-            oth: DatabaseRegistrationEvent = Name
-            self._name = oth.Name
-            self._old_location = oth.OldLocation
-            self._new_location = oth.NewLocation
-            return
-        else:
-            self._name = Name
-            self._old_location = OldLocation
-            self._new_location = NewLocation
+        kargs = {
+            "Source": Source,
+            "Name": Name,
+            "OldLocation": OldLocation,
+            "NewLocation": NewLocation,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._old_location = kwargs["OldLocation"]
+        self._new_location = kwargs["NewLocation"]
+        inst_keys = ('Name', 'OldLocation', 'NewLocation')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Shape = UNO_NONE, Paragraph = UNO_NONE):
-            if getattr(Shape, "__class__", None) == self.__class__:
-                orig_init(self, Shape)
+        ordered_keys = ('Shape', 'Paragraph')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Shape is UNO_NONE:
-                if getattr(self, 'Shape') != Shape:
-                    setattr(self, 'Shape', Shape)
-            if not Paragraph is UNO_NONE:
-                if getattr(self, 'Paragraph') != Paragraph:
-                    setattr(self, 'Paragraph', Paragraph)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.presentation.ParagraphTarget'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ParagraphTarget = _get_class()
-
 
 else:
     from ...lo.presentation.paragraph_target import ParagraphTarget as ParagraphTarget

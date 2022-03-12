@@ -41,24 +41,21 @@ class AllPermission(object):
     typeName: str = 'com.sun.star.security.AllPermission'
     """Literal Constant ``com.sun.star.security.AllPermission``"""
 
-    def __init__(self, dummy: int = 0) -> None:
+    def __init__(self, dummy: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``dummy`` can be another ``AllPermission`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            dummy (int, optional): dummy value
+            dummy (int, optional): dummy value.
         """
-        if isinstance(dummy, AllPermission):
-            oth: AllPermission = dummy
-            self._dummy = oth.dummy
-            return
-        else:
-            self._dummy = dummy
+        super().__init__()
+        kargs = {
+            "dummy": dummy,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._dummy = kwargs["dummy"]
 
 
     @property

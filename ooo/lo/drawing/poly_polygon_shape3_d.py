@@ -38,39 +38,33 @@ class PolyPolygonShape3D(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonShape3D'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonShape3D``"""
 
-    def __init__(self, SequenceX: DoubleSequenceSequence_6b8010c1 = UNO_NONE, SequenceY: DoubleSequenceSequence_6b8010c1 = UNO_NONE, SequenceZ: DoubleSequenceSequence_6b8010c1 = UNO_NONE) -> None:
+    def __init__(self, SequenceX: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE, SequenceY: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE, SequenceZ: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SequenceX`` can be another ``PolyPolygonShape3D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            SequenceX (DoubleSequenceSequence, optional): SequenceX value
-            SequenceY (DoubleSequenceSequence, optional): SequenceY value
-            SequenceZ (DoubleSequenceSequence, optional): SequenceZ value
+            SequenceX (DoubleSequenceSequence, optional): SequenceX value.
+            SequenceY (DoubleSequenceSequence, optional): SequenceY value.
+            SequenceZ (DoubleSequenceSequence, optional): SequenceZ value.
         """
-        if isinstance(SequenceX, PolyPolygonShape3D):
-            oth: PolyPolygonShape3D = SequenceX
-            self._sequence_x = oth.SequenceX
-            self._sequence_y = oth.SequenceY
-            self._sequence_z = oth.SequenceZ
-            return
-        else:
-            if SequenceX is UNO_NONE:
-                self._sequence_x = None
-            else:
-                self._sequence_x = SequenceX
-            if SequenceY is UNO_NONE:
-                self._sequence_y = None
-            else:
-                self._sequence_y = SequenceY
-            if SequenceZ is UNO_NONE:
-                self._sequence_z = None
-            else:
-                self._sequence_z = SequenceZ
+        super().__init__()
+        kargs = {
+            "SequenceX": SequenceX,
+            "SequenceY": SequenceY,
+            "SequenceZ": SequenceZ,
+        }
+        if kargs["SequenceX"] is UNO_NONE:
+            kargs["SequenceX"] = None
+        if kargs["SequenceY"] is UNO_NONE:
+            kargs["SequenceY"] = None
+        if kargs["SequenceZ"] is UNO_NONE:
+            kargs["SequenceZ"] = None
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._sequence_x = kwargs["SequenceX"]
+        self._sequence_y = kwargs["SequenceY"]
+        self._sequence_z = kwargs["SequenceZ"]
 
 
     @property

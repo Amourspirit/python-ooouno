@@ -20,7 +20,7 @@ def test_struct():
     assert ev.EventId == 2
     assert ev.NewValue == 4
     assert ev.OldValue == 3
-    assert AccessibleEventObject.__qualname__ == '_dynamic_struct.<locals>._struct_init'
+    assert AccessibleEventObject.__qualname__ == 'com.sun.star.accessibility.AccessibleEventObject'
 
 
 def test_enum():

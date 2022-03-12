@@ -37,39 +37,36 @@ class SimpleFontMetric(object):
     typeName: str = 'com.sun.star.awt.SimpleFontMetric'
     """Literal Constant ``com.sun.star.awt.SimpleFontMetric``"""
 
-    def __init__(self, Ascent: int = 0, Descent: int = 0, Leading: int = 0, Slant: int = 0, FirstChar: str = '\u0000', LastChar: str = '\u0000') -> None:
+    def __init__(self, Ascent: typing.Optional[int] = 0, Descent: typing.Optional[int] = 0, Leading: typing.Optional[int] = 0, Slant: typing.Optional[int] = 0, FirstChar: typing.Optional[str] = '\u0000', LastChar: typing.Optional[str] = '\u0000') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Ascent`` can be another ``SimpleFontMetric`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Ascent (int, optional): Ascent value
-            Descent (int, optional): Descent value
-            Leading (int, optional): Leading value
-            Slant (int, optional): Slant value
-            FirstChar (str, optional): FirstChar value
-            LastChar (str, optional): LastChar value
+            Ascent (int, optional): Ascent value.
+            Descent (int, optional): Descent value.
+            Leading (int, optional): Leading value.
+            Slant (int, optional): Slant value.
+            FirstChar (str, optional): FirstChar value.
+            LastChar (str, optional): LastChar value.
         """
-        if isinstance(Ascent, SimpleFontMetric):
-            oth: SimpleFontMetric = Ascent
-            self._ascent = oth.Ascent
-            self._descent = oth.Descent
-            self._leading = oth.Leading
-            self._slant = oth.Slant
-            self._first_char = oth.FirstChar
-            self._last_char = oth.LastChar
-            return
-        else:
-            self._ascent = Ascent
-            self._descent = Descent
-            self._leading = Leading
-            self._slant = Slant
-            self._first_char = FirstChar
-            self._last_char = LastChar
+        super().__init__()
+        kargs = {
+            "Ascent": Ascent,
+            "Descent": Descent,
+            "Leading": Leading,
+            "Slant": Slant,
+            "FirstChar": FirstChar,
+            "LastChar": LastChar,
+        }
+        self._init(**kargs)
 
+    def _init(self, **kwargs) -> None:
+        self._ascent = kwargs["Ascent"]
+        self._descent = kwargs["Descent"]
+        self._leading = kwargs["Leading"]
+        self._slant = kwargs["Slant"]
+        self._first_char = kwargs["FirstChar"]
+        self._last_char = kwargs["LastChar"]
 
 
     @property

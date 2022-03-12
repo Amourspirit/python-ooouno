@@ -21,11 +21,14 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
 from ..frame.x_model import XModel as XModel_7a6e095c
 
 class FilterOptionsRequest(Exception_85530a09):
     """
+    Exception Class
+
     Is used for interaction handle to get filter options.
     
     **since**
@@ -45,23 +48,34 @@ class FilterOptionsRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.FilterOptionsRequest'
     """Literal Constant ``com.sun.star.document.FilterOptionsRequest``"""
 
-    def __init__(self, rProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, rModel: typing.Optional[XModel_7a6e095c] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, rProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, rModel: typing.Optional[XModel_7a6e095c] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
-            rProperties (Tuple[PropertyValue, ...], optional): rProperties value.
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            rProperties (typing.Tuple[PropertyValue, ...], optional): rProperties value.
             rModel (XModel, optional): rModel value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "rProperties": rProperties,
+            "rModel": rModel,
+        }
+        if kargs["rProperties"] is UNO_NONE:
+            kargs["rProperties"] = None
+        self._init(**kargs)
 
-        if rProperties is UNO_NONE:
-            self._r_properties = None
-        else:
-            self._r_properties = rProperties
-        self._r_model = rModel
+    def _init(self, **kwargs) -> None:
+        self._r_properties = kwargs["rProperties"]
+        self._r_model = kwargs["rModel"]
+        inst_keys = ('rProperties', 'rModel')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def rProperties(self) -> typing.Tuple[PropertyValue_c9610c73, ...]:

@@ -47,6 +47,14 @@ class Attribute(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Name, Attribute):
+            oth: Attribute = Name
+            self.Name = oth.Name
+            self.NamespaceURL = oth.NamespaceURL
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Name": Name,
             "NamespaceURL": NamespaceURL,

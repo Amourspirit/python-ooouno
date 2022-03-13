@@ -57,6 +57,19 @@ class LogRecord(object):
             Level (int, optional): Level value.
         """
         super().__init__()
+
+        if isinstance(LoggerName, LogRecord):
+            oth: LogRecord = LoggerName
+            self.LoggerName = oth.LoggerName
+            self.SourceClassName = oth.SourceClassName
+            self.SourceMethodName = oth.SourceMethodName
+            self.Message = oth.Message
+            self.LogTime = oth.LogTime
+            self.SequenceNumber = oth.SequenceNumber
+            self.ThreadID = oth.ThreadID
+            self.Level = oth.Level
+            return
+
         kargs = {
             "LoggerName": LoggerName,
             "SourceClassName": SourceClassName,

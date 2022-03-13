@@ -49,6 +49,13 @@ class TargetProperties(object):
             Target (object, optional): Target value.
         """
         super().__init__()
+
+        if isinstance(Properties, TargetProperties):
+            oth: TargetProperties = Properties
+            self.Properties = oth.Properties
+            self.Target = oth.Target
+            return
+
         kargs = {
             "Properties": Properties,
             "Target": Target,

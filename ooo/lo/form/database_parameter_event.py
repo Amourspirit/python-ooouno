@@ -48,6 +48,13 @@ class DatabaseParameterEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Parameters (XIndexAccess, optional): Parameters value.
         """
+
+        if isinstance(Source, DatabaseParameterEvent):
+            oth: DatabaseParameterEvent = Source
+            self.Source = oth.Source
+            self.Parameters = oth.Parameters
+            return
+
         kargs = {
             "Source": Source,
             "Parameters": Parameters,

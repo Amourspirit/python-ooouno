@@ -49,6 +49,12 @@ class Visibility(object):
             bVisible (bool, optional): bVisible value.
         """
         super().__init__()
+
+        if isinstance(bVisible, Visibility):
+            oth: Visibility = bVisible
+            self.bVisible = oth.bVisible
+            return
+
         kargs = {
             "bVisible": bVisible,
         }

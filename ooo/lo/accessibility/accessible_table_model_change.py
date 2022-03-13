@@ -55,6 +55,16 @@ class AccessibleTableModelChange(object):
             LastColumn (int, optional): LastColumn value.
         """
         super().__init__()
+
+        if isinstance(Type, AccessibleTableModelChange):
+            oth: AccessibleTableModelChange = Type
+            self.Type = oth.Type
+            self.FirstRow = oth.FirstRow
+            self.LastRow = oth.LastRow
+            self.FirstColumn = oth.FirstColumn
+            self.LastColumn = oth.LastColumn
+            return
+
         kargs = {
             "Type": Type,
             "FirstRow": FirstRow,

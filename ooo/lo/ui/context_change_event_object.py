@@ -47,6 +47,14 @@ class ContextChangeEventObject(EventObject_a3d70b03):
             ApplicationName (str, optional): ApplicationName value.
             ContextName (str, optional): ContextName value.
         """
+
+        if isinstance(Source, ContextChangeEventObject):
+            oth: ContextChangeEventObject = Source
+            self.Source = oth.Source
+            self.ApplicationName = oth.ApplicationName
+            self.ContextName = oth.ContextName
+            return
+
         kargs = {
             "Source": Source,
             "ApplicationName": ApplicationName,

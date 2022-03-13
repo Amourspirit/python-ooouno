@@ -46,6 +46,13 @@ class AliasProgrammaticPair(object):
             ProgrammaticName (str, optional): ProgrammaticName value.
         """
         super().__init__()
+
+        if isinstance(Alias, AliasProgrammaticPair):
+            oth: AliasProgrammaticPair = Alias
+            self.Alias = oth.Alias
+            self.ProgrammaticName = oth.ProgrammaticName
+            return
+
         kargs = {
             "Alias": Alias,
             "ProgrammaticName": ProgrammaticName,

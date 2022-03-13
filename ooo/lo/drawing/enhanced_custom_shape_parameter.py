@@ -46,6 +46,13 @@ class EnhancedCustomShapeParameter(object):
             Type (int, optional): Type value.
         """
         super().__init__()
+
+        if isinstance(Value, EnhancedCustomShapeParameter):
+            oth: EnhancedCustomShapeParameter = Value
+            self.Value = oth.Value
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Value": Value,
             "Type": Type,

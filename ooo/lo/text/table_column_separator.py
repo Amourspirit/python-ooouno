@@ -56,6 +56,13 @@ class TableColumnSeparator(object):
             IsVisible (bool, optional): IsVisible value.
         """
         super().__init__()
+
+        if isinstance(Position, TableColumnSeparator):
+            oth: TableColumnSeparator = Position
+            self.Position = oth.Position
+            self.IsVisible = oth.IsVisible
+            return
+
         kargs = {
             "Position": Position,
             "IsVisible": IsVisible,

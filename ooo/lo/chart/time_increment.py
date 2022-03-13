@@ -51,6 +51,14 @@ class TimeIncrement(object):
             TimeResolution (object, optional): TimeResolution value.
         """
         super().__init__()
+
+        if isinstance(MajorTimeInterval, TimeIncrement):
+            oth: TimeIncrement = MajorTimeInterval
+            self.MajorTimeInterval = oth.MajorTimeInterval
+            self.MinorTimeInterval = oth.MinorTimeInterval
+            self.TimeResolution = oth.TimeResolution
+            return
+
         kargs = {
             "MajorTimeInterval": MajorTimeInterval,
             "MinorTimeInterval": MinorTimeInterval,

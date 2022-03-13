@@ -54,6 +54,14 @@ class NativeNumberXmlAttributes(object):
             Style (str, optional): Style value.
         """
         super().__init__()
+
+        if isinstance(Locale, NativeNumberXmlAttributes):
+            oth: NativeNumberXmlAttributes = Locale
+            self.Locale = oth.Locale
+            self.Format = oth.Format
+            self.Style = oth.Style
+            return
+
         kargs = {
             "Locale": Locale,
             "Format": Format,

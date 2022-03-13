@@ -52,6 +52,17 @@ class DragGestureEvent(EventObject_a3d70b03):
             DragSource (XDragSource, optional): DragSource value.
             Event (object, optional): Event value.
         """
+
+        if isinstance(Source, DragGestureEvent):
+            oth: DragGestureEvent = Source
+            self.Source = oth.Source
+            self.DragAction = oth.DragAction
+            self.DragOriginX = oth.DragOriginX
+            self.DragOriginY = oth.DragOriginY
+            self.DragSource = oth.DragSource
+            self.Event = oth.Event
+            return
+
         kargs = {
             "Source": Source,
             "DragAction": DragAction,

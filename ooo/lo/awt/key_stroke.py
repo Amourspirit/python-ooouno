@@ -52,6 +52,15 @@ class KeyStroke(object):
             KeyFunc (int, optional): KeyFunc value.
         """
         super().__init__()
+
+        if isinstance(Modifiers, KeyStroke):
+            oth: KeyStroke = Modifiers
+            self.Modifiers = oth.Modifiers
+            self.KeyCode = oth.KeyCode
+            self.KeyChar = oth.KeyChar
+            self.KeyFunc = oth.KeyFunc
+            return
+
         kargs = {
             "Modifiers": Modifiers,
             "KeyCode": KeyCode,

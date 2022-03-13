@@ -46,6 +46,13 @@ class TablePageBreakData(object):
             ManualBreak (bool, optional): ManualBreak value.
         """
         super().__init__()
+
+        if isinstance(Position, TablePageBreakData):
+            oth: TablePageBreakData = Position
+            self.Position = oth.Position
+            self.ManualBreak = oth.ManualBreak
+            return
+
         kargs = {
             "Position": Position,
             "ManualBreak": ManualBreak,

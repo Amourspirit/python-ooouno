@@ -48,6 +48,14 @@ class HomogenMatrix3(object):
             Line3 (HomogenMatrixLine3, optional): Line3 value.
         """
         super().__init__()
+
+        if isinstance(Line1, HomogenMatrix3):
+            oth: HomogenMatrix3 = Line1
+            self.Line1 = oth.Line1
+            self.Line2 = oth.Line2
+            self.Line3 = oth.Line3
+            return
+
         kargs = {
             "Line1": Line1,
             "Line2": Line2,

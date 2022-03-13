@@ -61,6 +61,20 @@ class DocumentSignatureInformation(object):
             InvalidSignatureLineImage (XGraphic, optional): InvalidSignatureLineImage value.
         """
         super().__init__()
+
+        if isinstance(Signer, DocumentSignatureInformation):
+            oth: DocumentSignatureInformation = Signer
+            self.Signer = oth.Signer
+            self.SignatureDate = oth.SignatureDate
+            self.SignatureTime = oth.SignatureTime
+            self.SignatureIsValid = oth.SignatureIsValid
+            self.CertificateStatus = oth.CertificateStatus
+            self.PartialDocumentSignature = oth.PartialDocumentSignature
+            self.SignatureLineId = oth.SignatureLineId
+            self.ValidSignatureLineImage = oth.ValidSignatureLineImage
+            self.InvalidSignatureLineImage = oth.InvalidSignatureLineImage
+            return
+
         kargs = {
             "Signer": Signer,
             "SignatureDate": SignatureDate,

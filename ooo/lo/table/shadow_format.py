@@ -50,6 +50,15 @@ class ShadowFormat(object):
             Color (Color, optional): Color value.
         """
         super().__init__()
+
+        if isinstance(Location, ShadowFormat):
+            oth: ShadowFormat = Location
+            self.Location = oth.Location
+            self.ShadowWidth = oth.ShadowWidth
+            self.IsTransparent = oth.IsTransparent
+            self.Color = oth.Color
+            return
+
         kargs = {
             "Location": Location,
             "ShadowWidth": ShadowWidth,

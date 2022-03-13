@@ -49,6 +49,16 @@ class CellRangeAddress(object):
             EndRow (int, optional): EndRow value.
         """
         super().__init__()
+
+        if isinstance(Sheet, CellRangeAddress):
+            oth: CellRangeAddress = Sheet
+            self.Sheet = oth.Sheet
+            self.StartColumn = oth.StartColumn
+            self.StartRow = oth.StartRow
+            self.EndColumn = oth.EndColumn
+            self.EndRow = oth.EndRow
+            return
+
         kargs = {
             "Sheet": Sheet,
             "StartColumn": StartColumn,

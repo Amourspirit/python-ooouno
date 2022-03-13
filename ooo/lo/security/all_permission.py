@@ -49,6 +49,12 @@ class AllPermission(object):
             dummy (int, optional): dummy value.
         """
         super().__init__()
+
+        if isinstance(dummy, AllPermission):
+            oth: AllPermission = dummy
+            self.dummy = oth.dummy
+            return
+
         kargs = {
             "dummy": dummy,
         }

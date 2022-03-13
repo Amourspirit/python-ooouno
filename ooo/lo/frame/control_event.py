@@ -53,6 +53,14 @@ class ControlEvent(object):
             Event (str, optional): Event value.
         """
         super().__init__()
+
+        if isinstance(aInformation, ControlEvent):
+            oth: ControlEvent = aInformation
+            self.aInformation = oth.aInformation
+            self.aURL = oth.aURL
+            self.Event = oth.Event
+            return
+
         kargs = {
             "aInformation": aInformation,
             "aURL": aURL,

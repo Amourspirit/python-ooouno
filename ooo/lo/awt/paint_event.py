@@ -51,6 +51,14 @@ class PaintEvent(EventObject_a3d70b03):
             UpdateRect (Rectangle, optional): UpdateRect value.
             Count (int, optional): Count value.
         """
+
+        if isinstance(Source, PaintEvent):
+            oth: PaintEvent = Source
+            self.Source = oth.Source
+            self.UpdateRect = oth.UpdateRect
+            self.Count = oth.Count
+            return
+
         kargs = {
             "Source": Source,
             "UpdateRect": UpdateRect,

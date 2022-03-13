@@ -48,6 +48,14 @@ class RowChangeEvent(EventObject_a3d70b03):
             Action (int, optional): Action value.
             Rows (int, optional): Rows value.
         """
+
+        if isinstance(Source, RowChangeEvent):
+            oth: RowChangeEvent = Source
+            self.Source = oth.Source
+            self.Action = oth.Action
+            self.Rows = oth.Rows
+            return
+
         kargs = {
             "Source": Source,
             "Action": Action,

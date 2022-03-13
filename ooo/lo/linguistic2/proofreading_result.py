@@ -63,6 +63,21 @@ class ProofreadingResult(object):
             xProofreader (XProofreader, optional): xProofreader value.
         """
         super().__init__()
+
+        if isinstance(aErrors, ProofreadingResult):
+            oth: ProofreadingResult = aErrors
+            self.aErrors = oth.aErrors
+            self.aProperties = oth.aProperties
+            self.aDocumentIdentifier = oth.aDocumentIdentifier
+            self.xFlatParagraph = oth.xFlatParagraph
+            self.aText = oth.aText
+            self.aLocale = oth.aLocale
+            self.nStartOfSentencePosition = oth.nStartOfSentencePosition
+            self.nBehindEndOfSentencePosition = oth.nBehindEndOfSentencePosition
+            self.nStartOfNextSentencePosition = oth.nStartOfNextSentencePosition
+            self.xProofreader = oth.xProofreader
+            return
+
         kargs = {
             "aErrors": aErrors,
             "aProperties": aProperties,

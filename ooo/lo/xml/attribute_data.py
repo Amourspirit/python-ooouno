@@ -47,6 +47,14 @@ class AttributeData(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Namespace, AttributeData):
+            oth: AttributeData = Namespace
+            self.Namespace = oth.Namespace
+            self.Type = oth.Type
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Namespace": Namespace,
             "Type": Type,

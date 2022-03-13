@@ -47,6 +47,13 @@ class VisualRepresentation(object):
             Data (object, optional): Data value.
         """
         super().__init__()
+
+        if isinstance(Flavor, VisualRepresentation):
+            oth: VisualRepresentation = Flavor
+            self.Flavor = oth.Flavor
+            self.Data = oth.Data
+            return
+
         kargs = {
             "Flavor": Flavor,
             "Data": Data,

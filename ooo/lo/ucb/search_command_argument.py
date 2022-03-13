@@ -48,6 +48,13 @@ class SearchCommandArgument(object):
             Info (SearchInfo, optional): Info value.
         """
         super().__init__()
+
+        if isinstance(Properties, SearchCommandArgument):
+            oth: SearchCommandArgument = Properties
+            self.Properties = oth.Properties
+            self.Info = oth.Info
+            return
+
         kargs = {
             "Properties": Properties,
             "Info": Info,

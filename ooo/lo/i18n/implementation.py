@@ -46,6 +46,13 @@ class Implementation(object):
             isDefault (bool, optional): isDefault value.
         """
         super().__init__()
+
+        if isinstance(unoID, Implementation):
+            oth: Implementation = unoID
+            self.unoID = oth.unoID
+            self.isDefault = oth.isDefault
+            return
+
         kargs = {
             "unoID": unoID,
             "isDefault": isDefault,

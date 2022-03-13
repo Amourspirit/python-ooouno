@@ -50,6 +50,13 @@ class ClipboardFormats(object):
             Names (typing.Tuple[str, ...], optional): Names value.
         """
         super().__init__()
+
+        if isinstance(Identifiers, ClipboardFormats):
+            oth: ClipboardFormats = Identifiers
+            self.Identifiers = oth.Identifiers
+            self.Names = oth.Names
+            return
+
         kargs = {
             "Identifiers": Identifiers,
             "Names": Names,

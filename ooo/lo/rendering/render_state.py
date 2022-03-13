@@ -57,6 +57,15 @@ class RenderState(object):
             CompositeOperation (int, optional): CompositeOperation value.
         """
         super().__init__()
+
+        if isinstance(DeviceColor, RenderState):
+            oth: RenderState = DeviceColor
+            self.DeviceColor = oth.DeviceColor
+            self.AffineTransform = oth.AffineTransform
+            self.Clip = oth.Clip
+            self.CompositeOperation = oth.CompositeOperation
+            return
+
         kargs = {
             "DeviceColor": DeviceColor,
             "AffineTransform": AffineTransform,

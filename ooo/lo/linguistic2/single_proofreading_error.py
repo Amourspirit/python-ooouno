@@ -57,6 +57,19 @@ class SingleProofreadingError(object):
             aFullComment (str, optional): aFullComment value.
         """
         super().__init__()
+
+        if isinstance(aSuggestions, SingleProofreadingError):
+            oth: SingleProofreadingError = aSuggestions
+            self.aSuggestions = oth.aSuggestions
+            self.aProperties = oth.aProperties
+            self.nErrorStart = oth.nErrorStart
+            self.nErrorLength = oth.nErrorLength
+            self.nErrorType = oth.nErrorType
+            self.aRuleIdentifier = oth.aRuleIdentifier
+            self.aShortComment = oth.aShortComment
+            self.aFullComment = oth.aFullComment
+            return
+
         kargs = {
             "aSuggestions": aSuggestions,
             "aProperties": aProperties,

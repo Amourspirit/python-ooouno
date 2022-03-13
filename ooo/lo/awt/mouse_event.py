@@ -54,6 +54,18 @@ class MouseEvent(InputEvent_8f520a66):
             ClickCount (int, optional): ClickCount value.
             PopupTrigger (bool, optional): PopupTrigger value.
         """
+
+        if isinstance(Source, MouseEvent):
+            oth: MouseEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            self.Buttons = oth.Buttons
+            self.X = oth.X
+            self.Y = oth.Y
+            self.ClickCount = oth.ClickCount
+            self.PopupTrigger = oth.PopupTrigger
+            return
+
         kargs = {
             "Source": Source,
             "Modifiers": Modifiers,

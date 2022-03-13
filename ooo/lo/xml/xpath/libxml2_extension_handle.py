@@ -47,6 +47,15 @@ class Libxml2ExtensionHandle(object):
             variableData (int, optional): variableData value.
         """
         super().__init__()
+
+        if isinstance(functionLookupFunction, Libxml2ExtensionHandle):
+            oth: Libxml2ExtensionHandle = functionLookupFunction
+            self.functionLookupFunction = oth.functionLookupFunction
+            self.functionData = oth.functionData
+            self.variableLookupFunction = oth.variableLookupFunction
+            self.variableData = oth.variableData
+            return
+
         kargs = {
             "functionLookupFunction": functionLookupFunction,
             "functionData": functionData,

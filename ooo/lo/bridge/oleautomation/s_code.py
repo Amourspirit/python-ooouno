@@ -53,6 +53,12 @@ class SCode(object):
             Value (int, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Value, SCode):
+            oth: SCode = Value
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Value": Value,
         }

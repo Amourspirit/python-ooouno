@@ -51,6 +51,18 @@ class NumberFormatCode(object):
             Default (bool, optional): Default value.
         """
         super().__init__()
+
+        if isinstance(Type, NumberFormatCode):
+            oth: NumberFormatCode = Type
+            self.Type = oth.Type
+            self.Usage = oth.Usage
+            self.Code = oth.Code
+            self.DefaultName = oth.DefaultName
+            self.NameID = oth.NameID
+            self.Index = oth.Index
+            self.Default = oth.Default
+            return
+
         kargs = {
             "Type": Type,
             "Usage": Usage,

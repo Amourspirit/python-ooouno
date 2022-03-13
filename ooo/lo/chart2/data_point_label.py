@@ -53,6 +53,17 @@ class DataPointLabel(object):
             ShowSeriesName (bool, optional): ShowSeriesName value.
         """
         super().__init__()
+
+        if isinstance(ShowNumber, DataPointLabel):
+            oth: DataPointLabel = ShowNumber
+            self.ShowNumber = oth.ShowNumber
+            self.ShowNumberInPercent = oth.ShowNumberInPercent
+            self.ShowCategoryName = oth.ShowCategoryName
+            self.ShowLegendSymbol = oth.ShowLegendSymbol
+            self.ShowCustomLabel = oth.ShowCustomLabel
+            self.ShowSeriesName = oth.ShowSeriesName
+            return
+
         kargs = {
             "ShowNumber": ShowNumber,
             "ShowNumberInPercent": ShowNumberInPercent,

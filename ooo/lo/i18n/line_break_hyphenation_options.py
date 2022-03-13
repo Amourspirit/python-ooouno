@@ -49,6 +49,14 @@ class LineBreakHyphenationOptions(object):
             hyphenIndex (int, optional): hyphenIndex value.
         """
         super().__init__()
+
+        if isinstance(rHyphenator, LineBreakHyphenationOptions):
+            oth: LineBreakHyphenationOptions = rHyphenator
+            self.rHyphenator = oth.rHyphenator
+            self.aHyphenationOptions = oth.aHyphenationOptions
+            self.hyphenIndex = oth.hyphenIndex
+            return
+
         kargs = {
             "rHyphenator": rHyphenator,
             "aHyphenationOptions": aHyphenationOptions,

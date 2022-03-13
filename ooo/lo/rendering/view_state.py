@@ -54,6 +54,13 @@ class ViewState(object):
             Clip (XPolyPolygon2D, optional): Clip value.
         """
         super().__init__()
+
+        if isinstance(AffineTransform, ViewState):
+            oth: ViewState = AffineTransform
+            self.AffineTransform = oth.AffineTransform
+            self.Clip = oth.Clip
+            return
+
         kargs = {
             "AffineTransform": AffineTransform,
             "Clip": Clip,

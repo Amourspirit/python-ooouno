@@ -47,6 +47,13 @@ class SubTotalColumn(object):
             Function (GeneralFunction, optional): Function value.
         """
         super().__init__()
+
+        if isinstance(Column, SubTotalColumn):
+            oth: SubTotalColumn = Column
+            self.Column = oth.Column
+            self.Function = oth.Function
+            return
+
         kargs = {
             "Column": Column,
             "Function": Function,

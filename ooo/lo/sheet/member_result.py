@@ -52,6 +52,15 @@ class MemberResult(object):
             Value (float, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Name, MemberResult):
+            oth: MemberResult = Name
+            self.Name = oth.Name
+            self.Caption = oth.Caption
+            self.Flags = oth.Flags
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Name": Name,
             "Caption": Caption,

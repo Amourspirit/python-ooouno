@@ -50,6 +50,13 @@ class DispatchInformation(object):
             GroupId (int, optional): GroupId value.
         """
         super().__init__()
+
+        if isinstance(Command, DispatchInformation):
+            oth: DispatchInformation = Command
+            self.Command = oth.Command
+            self.GroupId = oth.GroupId
+            return
+
         kargs = {
             "Command": Command,
             "GroupId": GroupId,

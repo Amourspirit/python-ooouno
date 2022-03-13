@@ -49,6 +49,14 @@ class SolverConstraint(object):
             Right (object, optional): Right value.
         """
         super().__init__()
+
+        if isinstance(Left, SolverConstraint):
+            oth: SolverConstraint = Left
+            self.Left = oth.Left
+            self.Operator = oth.Operator
+            self.Right = oth.Right
+            return
+
         kargs = {
             "Left": Left,
             "Operator": Operator,

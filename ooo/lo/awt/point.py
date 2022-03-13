@@ -46,6 +46,13 @@ class Point(object):
             Y (int, optional): Y value.
         """
         super().__init__()
+
+        if isinstance(X, Point):
+            oth: Point = X
+            self.X = oth.X
+            self.Y = oth.Y
+            return
+
         kargs = {
             "X": X,
             "Y": Y,

@@ -57,6 +57,17 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
             ResourceObject (XInterface, optional): ResourceObject value.
             UserData (object, optional): UserData value.
         """
+
+        if isinstance(Source, ConfigurationChangeEvent):
+            oth: ConfigurationChangeEvent = Source
+            self.Source = oth.Source
+            self.Type = oth.Type
+            self.Configuration = oth.Configuration
+            self.ResourceId = oth.ResourceId
+            self.ResourceObject = oth.ResourceObject
+            self.UserData = oth.UserData
+            return
+
         kargs = {
             "Source": Source,
             "Type": Type,

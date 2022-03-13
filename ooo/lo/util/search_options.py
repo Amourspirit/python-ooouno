@@ -54,6 +54,20 @@ class SearchOptions(object):
             transliterateFlags (int, optional): transliterateFlags value.
         """
         super().__init__()
+
+        if isinstance(algorithmType, SearchOptions):
+            oth: SearchOptions = algorithmType
+            self.algorithmType = oth.algorithmType
+            self.searchFlag = oth.searchFlag
+            self.searchString = oth.searchString
+            self.replaceString = oth.replaceString
+            self.Locale = oth.Locale
+            self.changedChars = oth.changedChars
+            self.deletedChars = oth.deletedChars
+            self.insertedChars = oth.insertedChars
+            self.transliterateFlags = oth.transliterateFlags
+            return
+
         kargs = {
             "algorithmType": algorithmType,
             "searchFlag": searchFlag,

@@ -58,6 +58,21 @@ class Gradient(object):
             StepCount (int, optional): StepCount value.
         """
         super().__init__()
+
+        if isinstance(Style, Gradient):
+            oth: Gradient = Style
+            self.Style = oth.Style
+            self.StartColor = oth.StartColor
+            self.EndColor = oth.EndColor
+            self.Angle = oth.Angle
+            self.Border = oth.Border
+            self.XOffset = oth.XOffset
+            self.YOffset = oth.YOffset
+            self.StartIntensity = oth.StartIntensity
+            self.EndIntensity = oth.EndIntensity
+            self.StepCount = oth.StepCount
+            return
+
         kargs = {
             "Style": Style,
             "StartColor": StartColor,

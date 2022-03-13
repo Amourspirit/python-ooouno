@@ -52,6 +52,17 @@ class SearchInfo(object):
             FollowIndirections (bool, optional): FollowIndirections value.
         """
         super().__init__()
+
+        if isinstance(Criteria, SearchInfo):
+            oth: SearchInfo = Criteria
+            self.Criteria = oth.Criteria
+            self.Recursion = oth.Recursion
+            self.IncludeBase = oth.IncludeBase
+            self.RespectFolderViewRestrictions = oth.RespectFolderViewRestrictions
+            self.RespectDocViewRestrictions = oth.RespectDocViewRestrictions
+            self.FollowIndirections = oth.FollowIndirections
+            return
+
         kargs = {
             "Criteria": Criteria,
             "Recursion": Recursion,

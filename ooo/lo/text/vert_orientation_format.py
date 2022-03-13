@@ -49,6 +49,14 @@ class VertOrientationFormat(object):
             VerticalRelation (int, optional): VerticalRelation value.
         """
         super().__init__()
+
+        if isinstance(YPos, VertOrientationFormat):
+            oth: VertOrientationFormat = YPos
+            self.YPos = oth.YPos
+            self.VerticalOrientation = oth.VerticalOrientation
+            self.VerticalRelation = oth.VerticalRelation
+            return
+
         kargs = {
             "YPos": YPos,
             "VerticalOrientation": VerticalOrientation,

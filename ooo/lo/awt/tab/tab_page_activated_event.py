@@ -51,6 +51,13 @@ class TabPageActivatedEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             TabPageID (int, optional): TabPageID value.
         """
+
+        if isinstance(Source, TabPageActivatedEvent):
+            oth: TabPageActivatedEvent = Source
+            self.Source = oth.Source
+            self.TabPageID = oth.TabPageID
+            return
+
         kargs = {
             "Source": Source,
             "TabPageID": TabPageID,

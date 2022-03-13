@@ -53,6 +53,14 @@ class Caret(object):
             CaretAngle (float, optional): CaretAngle value.
         """
         super().__init__()
+
+        if isinstance(MainCaretIndex, Caret):
+            oth: Caret = MainCaretIndex
+            self.MainCaretIndex = oth.MainCaretIndex
+            self.SecondaryCaretIndex = oth.SecondaryCaretIndex
+            self.CaretAngle = oth.CaretAngle
+            return
+
         kargs = {
             "MainCaretIndex": MainCaretIndex,
             "SecondaryCaretIndex": SecondaryCaretIndex,

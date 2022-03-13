@@ -47,6 +47,13 @@ class SpinEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             dummy1 (int, optional): dummy1 value.
         """
+
+        if isinstance(Source, SpinEvent):
+            oth: SpinEvent = Source
+            self.Source = oth.Source
+            self.dummy1 = oth.dummy1
+            return
+
         kargs = {
             "Source": Source,
             "dummy1": dummy1,

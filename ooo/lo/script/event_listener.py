@@ -49,6 +49,16 @@ class EventListener(object):
             EventMethod (str, optional): EventMethod value.
         """
         super().__init__()
+
+        if isinstance(AllListener, EventListener):
+            oth: EventListener = AllListener
+            self.AllListener = oth.AllListener
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.AddListenerParam = oth.AddListenerParam
+            self.EventMethod = oth.EventMethod
+            return
+
         kargs = {
             "AllListener": AllListener,
             "Helper": Helper,

@@ -53,6 +53,12 @@ class Currency(object):
             Value (int, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Value, Currency):
+            oth: Currency = Value
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Value": Value,
         }

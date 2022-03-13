@@ -54,6 +54,16 @@ class DragSourceDragEvent(DragSourceEvent_8ccf115c):
             DropAction (int, optional): DropAction value.
             UserAction (int, optional): UserAction value.
         """
+
+        if isinstance(Source, DragSourceDragEvent):
+            oth: DragSourceDragEvent = Source
+            self.Source = oth.Source
+            self.DragSourceContext = oth.DragSourceContext
+            self.DragSource = oth.DragSource
+            self.DropAction = oth.DropAction
+            self.UserAction = oth.UserAction
+            return
+
         kargs = {
             "Source": Source,
             "DragSourceContext": DragSourceContext,

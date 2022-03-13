@@ -48,6 +48,13 @@ class RelativeSize(object):
             Secondary (float, optional): Secondary value.
         """
         super().__init__()
+
+        if isinstance(Primary, RelativeSize):
+            oth: RelativeSize = Primary
+            self.Primary = oth.Primary
+            self.Secondary = oth.Secondary
+            return
+
         kargs = {
             "Primary": Primary,
             "Secondary": Secondary,

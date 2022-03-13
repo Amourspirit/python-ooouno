@@ -48,6 +48,13 @@ class ForbiddenCharacters(object):
             endLine (str, optional): endLine value.
         """
         super().__init__()
+
+        if isinstance(beginLine, ForbiddenCharacters):
+            oth: ForbiddenCharacters = beginLine
+            self.beginLine = oth.beginLine
+            self.endLine = oth.endLine
+            return
+
         kargs = {
             "beginLine": beginLine,
             "endLine": endLine,

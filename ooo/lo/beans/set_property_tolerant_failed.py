@@ -46,6 +46,13 @@ class SetPropertyTolerantFailed(object):
             Result (int, optional): Result value.
         """
         super().__init__()
+
+        if isinstance(Name, SetPropertyTolerantFailed):
+            oth: SetPropertyTolerantFailed = Name
+            self.Name = oth.Name
+            self.Result = oth.Result
+            return
+
         kargs = {
             "Name": Name,
             "Result": Result,

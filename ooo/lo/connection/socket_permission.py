@@ -65,6 +65,13 @@ class SocketPermission(object):
             Actions (str, optional): Actions value.
         """
         super().__init__()
+
+        if isinstance(Host, SocketPermission):
+            oth: SocketPermission = Host
+            self.Host = oth.Host
+            self.Actions = oth.Actions
+            return
+
         kargs = {
             "Host": Host,
             "Actions": Actions,

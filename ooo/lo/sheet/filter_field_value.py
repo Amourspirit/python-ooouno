@@ -53,6 +53,16 @@ class FilterFieldValue(object):
             ColorValue (Color, optional): ColorValue value.
         """
         super().__init__()
+
+        if isinstance(IsNumeric, FilterFieldValue):
+            oth: FilterFieldValue = IsNumeric
+            self.IsNumeric = oth.IsNumeric
+            self.NumericValue = oth.NumericValue
+            self.StringValue = oth.StringValue
+            self.FilterType = oth.FilterType
+            self.ColorValue = oth.ColorValue
+            return
+
         kargs = {
             "IsNumeric": IsNumeric,
             "NumericValue": NumericValue,

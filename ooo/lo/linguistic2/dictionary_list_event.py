@@ -51,6 +51,14 @@ class DictionaryListEvent(EventObject_a3d70b03):
             aDictionaryEvents (typing.Tuple[DictionaryEvent, ...], optional): aDictionaryEvents value.
             nCondensedEvent (int, optional): nCondensedEvent value.
         """
+
+        if isinstance(Source, DictionaryListEvent):
+            oth: DictionaryListEvent = Source
+            self.Source = oth.Source
+            self.aDictionaryEvents = oth.aDictionaryEvents
+            self.nCondensedEvent = oth.nCondensedEvent
+            return
+
         kargs = {
             "Source": Source,
             "aDictionaryEvents": aDictionaryEvents,

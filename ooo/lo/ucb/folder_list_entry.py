@@ -50,6 +50,17 @@ class FolderListEntry(object):
             Purge (bool, optional): Purge value.
         """
         super().__init__()
+
+        if isinstance(Title, FolderListEntry):
+            oth: FolderListEntry = Title
+            self.Title = oth.Title
+            self.ID = oth.ID
+            self.Subscribed = oth.Subscribed
+            self.New = oth.New
+            self.Removed = oth.Removed
+            self.Purge = oth.Purge
+            return
+
         kargs = {
             "Title": Title,
             "ID": ID,

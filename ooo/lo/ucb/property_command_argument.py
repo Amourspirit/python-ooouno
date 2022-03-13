@@ -51,6 +51,13 @@ class PropertyCommandArgument(object):
             DefaultValue (object, optional): DefaultValue value.
         """
         super().__init__()
+
+        if isinstance(Property, PropertyCommandArgument):
+            oth: PropertyCommandArgument = Property
+            self.Property = oth.Property
+            self.DefaultValue = oth.DefaultValue
+            return
+
         kargs = {
             "Property": Property,
             "DefaultValue": DefaultValue,

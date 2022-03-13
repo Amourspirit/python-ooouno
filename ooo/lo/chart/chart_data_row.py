@@ -53,6 +53,13 @@ class ChartDataRow(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Points, ChartDataRow):
+            oth: ChartDataRow = Points
+            self.Points = oth.Points
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Points": Points,
             "Name": Name,

@@ -51,6 +51,13 @@ class UpdateInformationEntry(object):
             Description (str, optional): Description value.
         """
         super().__init__()
+
+        if isinstance(UpdateDocument, UpdateInformationEntry):
+            oth: UpdateInformationEntry = UpdateDocument
+            self.UpdateDocument = oth.UpdateDocument
+            self.Description = oth.Description
+            return
+
         kargs = {
             "UpdateDocument": UpdateDocument,
             "Description": Description,

@@ -49,6 +49,13 @@ class VclContainerEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Child (XInterface, optional): Child value.
         """
+
+        if isinstance(Source, VclContainerEvent):
+            oth: VclContainerEvent = Source
+            self.Source = oth.Source
+            self.Child = oth.Child
+            return
+
         kargs = {
             "Source": Source,
             "Child": Child,

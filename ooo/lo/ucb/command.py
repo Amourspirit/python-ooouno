@@ -47,6 +47,14 @@ class Command(object):
             Argument (object, optional): Argument value.
         """
         super().__init__()
+
+        if isinstance(Name, Command):
+            oth: Command = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Argument = oth.Argument
+            return
+
         kargs = {
             "Name": Name,
             "Handle": Handle,

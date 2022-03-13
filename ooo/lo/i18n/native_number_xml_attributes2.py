@@ -55,6 +55,15 @@ class NativeNumberXmlAttributes2(NativeNumberXmlAttributes_5e4f1070):
             Style (str, optional): Style value.
             Spellout (str, optional): Spellout value.
         """
+
+        if isinstance(Locale, NativeNumberXmlAttributes2):
+            oth: NativeNumberXmlAttributes2 = Locale
+            self.Locale = oth.Locale
+            self.Format = oth.Format
+            self.Style = oth.Style
+            self.Spellout = oth.Spellout
+            return
+
         kargs = {
             "Locale": Locale,
             "Format": Format,

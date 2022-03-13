@@ -52,6 +52,15 @@ class HoriOrientationFormat(object):
             PositionToggle (bool, optional): PositionToggle value.
         """
         super().__init__()
+
+        if isinstance(XPos, HoriOrientationFormat):
+            oth: HoriOrientationFormat = XPos
+            self.XPos = oth.XPos
+            self.HorizontalOrientation = oth.HorizontalOrientation
+            self.HorizontalRelation = oth.HorizontalRelation
+            self.PositionToggle = oth.PositionToggle
+            return
+
         kargs = {
             "XPos": XPos,
             "HorizontalOrientation": HorizontalOrientation,

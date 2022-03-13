@@ -52,6 +52,13 @@ class IntegerPoint2D(object):
             Y (int, optional): Y value.
         """
         super().__init__()
+
+        if isinstance(X, IntegerPoint2D):
+            oth: IntegerPoint2D = X
+            self.X = oth.X
+            self.Y = oth.Y
+            return
+
         kargs = {
             "X": X,
             "Y": Y,

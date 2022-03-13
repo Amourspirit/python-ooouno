@@ -58,6 +58,19 @@ class Currency2(Currency_80230993):
             DecimalPlaces (int, optional): DecimalPlaces value.
             LegacyOnly (bool, optional): LegacyOnly value.
         """
+
+        if isinstance(ID, Currency2):
+            oth: Currency2 = ID
+            self.ID = oth.ID
+            self.Symbol = oth.Symbol
+            self.BankSymbol = oth.BankSymbol
+            self.Name = oth.Name
+            self.Default = oth.Default
+            self.UsedInCompatibleFormatCodes = oth.UsedInCompatibleFormatCodes
+            self.DecimalPlaces = oth.DecimalPlaces
+            self.LegacyOnly = oth.LegacyOnly
+            return
+
         kargs = {
             "ID": ID,
             "Symbol": Symbol,

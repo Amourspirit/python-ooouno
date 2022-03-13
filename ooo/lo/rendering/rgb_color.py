@@ -48,6 +48,14 @@ class RGBColor(object):
             Blue (ColorComponent, optional): Blue value.
         """
         super().__init__()
+
+        if isinstance(Red, RGBColor):
+            oth: RGBColor = Red
+            self.Red = oth.Red
+            self.Green = oth.Green
+            self.Blue = oth.Blue
+            return
+
         kargs = {
             "Red": Red,
             "Green": Green,

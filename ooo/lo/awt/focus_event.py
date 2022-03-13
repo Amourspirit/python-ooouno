@@ -51,6 +51,15 @@ class FocusEvent(EventObject_a3d70b03):
             NextFocus (XInterface, optional): NextFocus value.
             Temporary (bool, optional): Temporary value.
         """
+
+        if isinstance(Source, FocusEvent):
+            oth: FocusEvent = Source
+            self.Source = oth.Source
+            self.FocusFlags = oth.FocusFlags
+            self.NextFocus = oth.NextFocus
+            self.Temporary = oth.Temporary
+            return
+
         kargs = {
             "Source": Source,
             "FocusFlags": FocusFlags,

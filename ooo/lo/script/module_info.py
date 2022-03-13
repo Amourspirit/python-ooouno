@@ -46,6 +46,13 @@ class ModuleInfo(object):
             ModuleType (int, optional): ModuleType value.
         """
         super().__init__()
+
+        if isinstance(ModuleObject, ModuleInfo):
+            oth: ModuleInfo = ModuleObject
+            self.ModuleObject = oth.ModuleObject
+            self.ModuleType = oth.ModuleType
+            return
+
         kargs = {
             "ModuleObject": ModuleObject,
             "ModuleType": ModuleType,

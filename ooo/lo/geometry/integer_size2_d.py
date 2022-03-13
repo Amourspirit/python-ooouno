@@ -52,6 +52,13 @@ class IntegerSize2D(object):
             Height (int, optional): Height value.
         """
         super().__init__()
+
+        if isinstance(Width, IntegerSize2D):
+            oth: IntegerSize2D = Width
+            self.Width = oth.Width
+            self.Height = oth.Height
+            return
+
         kargs = {
             "Width": Width,
             "Height": Height,

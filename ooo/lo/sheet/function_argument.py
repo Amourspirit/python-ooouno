@@ -47,6 +47,14 @@ class FunctionArgument(object):
             IsOptional (bool, optional): IsOptional value.
         """
         super().__init__()
+
+        if isinstance(Name, FunctionArgument):
+            oth: FunctionArgument = Name
+            self.Name = oth.Name
+            self.Description = oth.Description
+            self.IsOptional = oth.IsOptional
+            return
+
         kargs = {
             "Name": Name,
             "Description": Description,

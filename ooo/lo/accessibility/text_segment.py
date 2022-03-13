@@ -59,6 +59,14 @@ class TextSegment(object):
             SegmentEnd (int, optional): SegmentEnd value.
         """
         super().__init__()
+
+        if isinstance(SegmentText, TextSegment):
+            oth: TextSegment = SegmentText
+            self.SegmentText = oth.SegmentText
+            self.SegmentStart = oth.SegmentStart
+            self.SegmentEnd = oth.SegmentEnd
+            return
+
         kargs = {
             "SegmentText": SegmentText,
             "SegmentStart": SegmentStart,

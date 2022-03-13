@@ -53,6 +53,17 @@ class WindowDescriptor(object):
             WindowAttributes (int, optional): WindowAttributes value.
         """
         super().__init__()
+
+        if isinstance(Type, WindowDescriptor):
+            oth: WindowDescriptor = Type
+            self.Type = oth.Type
+            self.WindowServiceName = oth.WindowServiceName
+            self.Parent = oth.Parent
+            self.ParentIndex = oth.ParentIndex
+            self.Bounds = oth.Bounds
+            self.WindowAttributes = oth.WindowAttributes
+            return
+
         kargs = {
             "Type": Type,
             "WindowServiceName": WindowServiceName,

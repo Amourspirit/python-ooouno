@@ -55,6 +55,18 @@ class Symbol(object):
             FillColor (int, optional): FillColor value.
         """
         super().__init__()
+
+        if isinstance(Style, Symbol):
+            oth: Symbol = Style
+            self.Style = oth.Style
+            self.PolygonCoords = oth.PolygonCoords
+            self.StandardSymbol = oth.StandardSymbol
+            self.Graphic = oth.Graphic
+            self.Size = oth.Size
+            self.BorderColor = oth.BorderColor
+            self.FillColor = oth.FillColor
+            return
+
         kargs = {
             "Style": Style,
             "PolygonCoords": PolygonCoords,

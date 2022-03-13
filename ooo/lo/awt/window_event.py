@@ -54,6 +54,20 @@ class WindowEvent(EventObject_a3d70b03):
             RightInset (int, optional): RightInset value.
             BottomInset (int, optional): BottomInset value.
         """
+
+        if isinstance(Source, WindowEvent):
+            oth: WindowEvent = Source
+            self.Source = oth.Source
+            self.X = oth.X
+            self.Y = oth.Y
+            self.Width = oth.Width
+            self.Height = oth.Height
+            self.LeftInset = oth.LeftInset
+            self.TopInset = oth.TopInset
+            self.RightInset = oth.RightInset
+            self.BottomInset = oth.BottomInset
+            return
+
         kargs = {
             "Source": Source,
             "X": X,

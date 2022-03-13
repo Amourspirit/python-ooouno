@@ -56,6 +56,16 @@ class GridDataEvent(EventObject_a3d70b03):
             FirstRow (int, optional): FirstRow value.
             LastRow (int, optional): LastRow value.
         """
+
+        if isinstance(Source, GridDataEvent):
+            oth: GridDataEvent = Source
+            self.Source = oth.Source
+            self.FirstColumn = oth.FirstColumn
+            self.LastColumn = oth.LastColumn
+            self.FirstRow = oth.FirstRow
+            self.LastRow = oth.LastRow
+            return
+
         kargs = {
             "Source": Source,
             "FirstColumn": FirstColumn,

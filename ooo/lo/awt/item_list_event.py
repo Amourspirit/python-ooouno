@@ -49,6 +49,15 @@ class ItemListEvent(EventObject_a3d70b03):
             ItemText (object, optional): ItemText value.
             ItemImageURL (object, optional): ItemImageURL value.
         """
+
+        if isinstance(Source, ItemListEvent):
+            oth: ItemListEvent = Source
+            self.Source = oth.Source
+            self.ItemPosition = oth.ItemPosition
+            self.ItemText = oth.ItemText
+            self.ItemImageURL = oth.ItemImageURL
+            return
+
         kargs = {
             "Source": Source,
             "ItemPosition": ItemPosition,

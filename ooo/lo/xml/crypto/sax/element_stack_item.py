@@ -48,6 +48,14 @@ class ElementStackItem(object):
             xAttributes (XAttributeList, optional): xAttributes value.
         """
         super().__init__()
+
+        if isinstance(isStartElementEvent, ElementStackItem):
+            oth: ElementStackItem = isStartElementEvent
+            self.isStartElementEvent = oth.isStartElementEvent
+            self.elementName = oth.elementName
+            self.xAttributes = oth.xAttributes
+            return
+
         kargs = {
             "isStartElementEvent": isStartElementEvent,
             "elementName": elementName,

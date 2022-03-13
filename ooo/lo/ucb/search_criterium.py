@@ -46,6 +46,12 @@ class SearchCriterium(object):
             Terms (typing.Tuple[RuleTerm, ...], optional): Terms value.
         """
         super().__init__()
+
+        if isinstance(Terms, SearchCriterium):
+            oth: SearchCriterium = Terms
+            self.Terms = oth.Terms
+            return
+
         kargs = {
             "Terms": Terms,
         }

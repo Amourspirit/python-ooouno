@@ -52,6 +52,15 @@ class Hatch(object):
             Angle (int, optional): Angle value.
         """
         super().__init__()
+
+        if isinstance(Style, Hatch):
+            oth: Hatch = Style
+            self.Style = oth.Style
+            self.Color = oth.Color
+            self.Distance = oth.Distance
+            self.Angle = oth.Angle
+            return
+
         kargs = {
             "Style": Style,
             "Color": Color,

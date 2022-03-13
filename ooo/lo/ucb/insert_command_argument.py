@@ -47,6 +47,13 @@ class InsertCommandArgument(object):
             ReplaceExisting (bool, optional): ReplaceExisting value.
         """
         super().__init__()
+
+        if isinstance(Data, InsertCommandArgument):
+            oth: InsertCommandArgument = Data
+            self.Data = oth.Data
+            self.ReplaceExisting = oth.ReplaceExisting
+            return
+
         kargs = {
             "Data": Data,
             "ReplaceExisting": ReplaceExisting,

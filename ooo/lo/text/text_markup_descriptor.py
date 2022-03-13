@@ -54,6 +54,16 @@ class TextMarkupDescriptor(object):
             xMarkupInfoContainer (XStringKeyMap, optional): xMarkupInfoContainer value.
         """
         super().__init__()
+
+        if isinstance(nType, TextMarkupDescriptor):
+            oth: TextMarkupDescriptor = nType
+            self.nType = oth.nType
+            self.aIdentifier = oth.aIdentifier
+            self.nOffset = oth.nOffset
+            self.nLength = oth.nLength
+            self.xMarkupInfoContainer = oth.xMarkupInfoContainer
+            return
+
         kargs = {
             "nType": nType,
             "aIdentifier": aIdentifier,

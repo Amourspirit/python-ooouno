@@ -48,6 +48,13 @@ class PolyPolygonBezierCoords(object):
             Flags (FlagSequenceSequence, optional): Flags value.
         """
         super().__init__()
+
+        if isinstance(Coordinates, PolyPolygonBezierCoords):
+            oth: PolyPolygonBezierCoords = Coordinates
+            self.Coordinates = oth.Coordinates
+            self.Flags = oth.Flags
+            return
+
         kargs = {
             "Coordinates": Coordinates,
             "Flags": Flags,

@@ -53,6 +53,14 @@ class ChartDataValue(object):
             LowError (float, optional): LowError value.
         """
         super().__init__()
+
+        if isinstance(Value, ChartDataValue):
+            oth: ChartDataValue = Value
+            self.Value = oth.Value
+            self.HighError = oth.HighError
+            self.LowError = oth.LowError
+            return
+
         kargs = {
             "Value": Value,
             "HighError": HighError,

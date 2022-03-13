@@ -49,6 +49,14 @@ class LayoutSize(object):
             Preferred (int, optional): Preferred value.
         """
         super().__init__()
+
+        if isinstance(Minimum, LayoutSize):
+            oth: LayoutSize = Minimum
+            self.Minimum = oth.Minimum
+            self.Maximum = oth.Maximum
+            self.Preferred = oth.Preferred
+            return
+
         kargs = {
             "Minimum": Minimum,
             "Maximum": Maximum,

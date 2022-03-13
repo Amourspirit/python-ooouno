@@ -53,6 +53,16 @@ class Time(object):
             IsUTC (bool, optional): IsUTC value.
         """
         super().__init__()
+
+        if isinstance(NanoSeconds, Time):
+            oth: Time = NanoSeconds
+            self.NanoSeconds = oth.NanoSeconds
+            self.Seconds = oth.Seconds
+            self.Minutes = oth.Minutes
+            self.Hours = oth.Hours
+            self.IsUTC = oth.IsUTC
+            return
+
         kargs = {
             "NanoSeconds": NanoSeconds,
             "Seconds": Seconds,

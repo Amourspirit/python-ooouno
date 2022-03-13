@@ -46,6 +46,13 @@ class GoalResult(object):
             Result (float, optional): Result value.
         """
         super().__init__()
+
+        if isinstance(Divergence, GoalResult):
+            oth: GoalResult = Divergence
+            self.Divergence = oth.Divergence
+            self.Result = oth.Result
+            return
+
         kargs = {
             "Divergence": Divergence,
             "Result": Result,

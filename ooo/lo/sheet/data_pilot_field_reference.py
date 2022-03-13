@@ -48,6 +48,15 @@ class DataPilotFieldReference(object):
             ReferenceItemName (str, optional): ReferenceItemName value.
         """
         super().__init__()
+
+        if isinstance(ReferenceType, DataPilotFieldReference):
+            oth: DataPilotFieldReference = ReferenceType
+            self.ReferenceType = oth.ReferenceType
+            self.ReferenceField = oth.ReferenceField
+            self.ReferenceItemType = oth.ReferenceItemType
+            self.ReferenceItemName = oth.ReferenceItemName
+            return
+
         kargs = {
             "ReferenceType": ReferenceType,
             "ReferenceField": ReferenceField,

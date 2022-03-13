@@ -47,6 +47,13 @@ class ResultEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Value (object, optional): Value value.
         """
+
+        if isinstance(Source, ResultEvent):
+            oth: ResultEvent = Source
+            self.Source = oth.Source
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Source": Source,
             "Value": Value,

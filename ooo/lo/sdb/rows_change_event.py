@@ -49,6 +49,15 @@ class RowsChangeEvent(RowChangeEvent_ba0c0bc1):
             Rows (int, optional): Rows value.
             Bookmarks (typing.Tuple[object, ...], optional): Bookmarks value.
         """
+
+        if isinstance(Source, RowsChangeEvent):
+            oth: RowsChangeEvent = Source
+            self.Source = oth.Source
+            self.Action = oth.Action
+            self.Rows = oth.Rows
+            self.Bookmarks = oth.Bookmarks
+            return
+
         kargs = {
             "Source": Source,
             "Action": Action,

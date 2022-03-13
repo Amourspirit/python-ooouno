@@ -57,6 +57,21 @@ class SymbolDescriptor(object):
             nItalic (int, optional): nItalic value.
         """
         super().__init__()
+
+        if isinstance(sName, SymbolDescriptor):
+            oth: SymbolDescriptor = sName
+            self.sName = oth.sName
+            self.sExportName = oth.sExportName
+            self.sSymbolSet = oth.sSymbolSet
+            self.nCharacter = oth.nCharacter
+            self.sFontName = oth.sFontName
+            self.nCharSet = oth.nCharSet
+            self.nFamily = oth.nFamily
+            self.nPitch = oth.nPitch
+            self.nWeight = oth.nWeight
+            self.nItalic = oth.nItalic
+            return
+
         kargs = {
             "sName": sName,
             "sExportName": sExportName,

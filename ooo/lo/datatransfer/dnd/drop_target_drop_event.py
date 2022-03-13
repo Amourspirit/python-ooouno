@@ -57,6 +57,19 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
             SourceActions (int, optional): SourceActions value.
             Transferable (XTransferable, optional): Transferable value.
         """
+
+        if isinstance(Source, DropTargetDropEvent):
+            oth: DropTargetDropEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            self.Context = oth.Context
+            self.DropAction = oth.DropAction
+            self.LocationX = oth.LocationX
+            self.LocationY = oth.LocationY
+            self.SourceActions = oth.SourceActions
+            self.Transferable = oth.Transferable
+            return
+
         kargs = {
             "Source": Source,
             "Dummy": Dummy,

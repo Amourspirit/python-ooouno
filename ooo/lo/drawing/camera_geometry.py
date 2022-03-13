@@ -49,6 +49,14 @@ class CameraGeometry(object):
             vup (Direction3D, optional): vup value.
         """
         super().__init__()
+
+        if isinstance(vrp, CameraGeometry):
+            oth: CameraGeometry = vrp
+            self.vrp = oth.vrp
+            self.vpn = oth.vpn
+            self.vup = oth.vup
+            return
+
         kargs = {
             "vrp": vrp,
             "vpn": vpn,

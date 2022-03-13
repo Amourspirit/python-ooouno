@@ -48,6 +48,15 @@ class PropertyInfo(object):
             Protected (bool, optional): Protected value.
         """
         super().__init__()
+
+        if isinstance(Name, PropertyInfo):
+            oth: PropertyInfo = Name
+            self.Name = oth.Name
+            self.Type = oth.Type
+            self.Value = oth.Value
+            self.Protected = oth.Protected
+            return
+
         kargs = {
             "Name": Name,
             "Type": Type,

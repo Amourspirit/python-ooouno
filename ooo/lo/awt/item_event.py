@@ -49,6 +49,15 @@ class ItemEvent(EventObject_a3d70b03):
             Highlighted (int, optional): Highlighted value.
             ItemId (int, optional): ItemId value.
         """
+
+        if isinstance(Source, ItemEvent):
+            oth: ItemEvent = Source
+            self.Source = oth.Source
+            self.Selected = oth.Selected
+            self.Highlighted = oth.Highlighted
+            self.ItemId = oth.ItemId
+            return
+
         kargs = {
             "Source": Source,
             "Selected": Selected,

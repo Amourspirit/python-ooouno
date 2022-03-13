@@ -56,6 +56,19 @@ class LeftRightMarginScale(object):
             AutoFirstLine (bool, optional): AutoFirstLine value.
         """
         super().__init__()
+
+        if isinstance(TextLeft, LeftRightMarginScale):
+            oth: LeftRightMarginScale = TextLeft
+            self.TextLeft = oth.TextLeft
+            self.Left = oth.Left
+            self.Right = oth.Right
+            self.FirstLine = oth.FirstLine
+            self.ScaleLeft = oth.ScaleLeft
+            self.ScaleRight = oth.ScaleRight
+            self.ScaleFirstLine = oth.ScaleFirstLine
+            self.AutoFirstLine = oth.AutoFirstLine
+            return
+
         kargs = {
             "TextLeft": TextLeft,
             "Left": Left,

@@ -47,6 +47,14 @@ class OpenCLPlatform(object):
             Vendor (str, optional): Vendor value.
         """
         super().__init__()
+
+        if isinstance(Devices, OpenCLPlatform):
+            oth: OpenCLPlatform = Devices
+            self.Devices = oth.Devices
+            self.Name = oth.Name
+            self.Vendor = oth.Vendor
+            return
+
         kargs = {
             "Devices": Devices,
             "Name": Name,

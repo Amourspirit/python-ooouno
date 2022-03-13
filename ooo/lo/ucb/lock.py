@@ -53,6 +53,17 @@ class Lock(LockEntry_839e09dd):
             Owner (object, optional): Owner value.
             Timeout (int, optional): Timeout value.
         """
+
+        if isinstance(Scope, Lock):
+            oth: Lock = Scope
+            self.Scope = oth.Scope
+            self.Type = oth.Type
+            self.LockTokens = oth.LockTokens
+            self.Depth = oth.Depth
+            self.Owner = oth.Owner
+            self.Timeout = oth.Timeout
+            return
+
         kargs = {
             "Scope": Scope,
             "Type": Type,

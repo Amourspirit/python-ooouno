@@ -52,6 +52,17 @@ class CheckinArgument(object):
             MimeType (str, optional): MimeType value.
         """
         super().__init__()
+
+        if isinstance(MajorVersion, CheckinArgument):
+            oth: CheckinArgument = MajorVersion
+            self.MajorVersion = oth.MajorVersion
+            self.VersionComment = oth.VersionComment
+            self.SourceURL = oth.SourceURL
+            self.TargetURL = oth.TargetURL
+            self.NewTitle = oth.NewTitle
+            self.MimeType = oth.MimeType
+            return
+
         kargs = {
             "MajorVersion": MajorVersion,
             "VersionComment": VersionComment,

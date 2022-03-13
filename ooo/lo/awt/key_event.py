@@ -50,6 +50,16 @@ class KeyEvent(InputEvent_8f520a66):
             KeyChar (str, optional): KeyChar value.
             KeyFunc (int, optional): KeyFunc value.
         """
+
+        if isinstance(Source, KeyEvent):
+            oth: KeyEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            self.KeyCode = oth.KeyCode
+            self.KeyChar = oth.KeyChar
+            self.KeyFunc = oth.KeyFunc
+            return
+
         kargs = {
             "Source": Source,
             "Modifiers": Modifiers,

@@ -54,6 +54,15 @@ class GraphicCrop(object):
             Right (int, optional): Right value.
         """
         super().__init__()
+
+        if isinstance(Top, GraphicCrop):
+            oth: GraphicCrop = Top
+            self.Top = oth.Top
+            self.Bottom = oth.Bottom
+            self.Left = oth.Left
+            self.Right = oth.Right
+            return
+
         kargs = {
             "Top": Top,
             "Bottom": Bottom,

@@ -45,6 +45,12 @@ class ColorProfile(object):
             dummy (int, optional): dummy value.
         """
         super().__init__()
+
+        if isinstance(dummy, ColorProfile):
+            oth: ColorProfile = dummy
+            self.dummy = oth.dummy
+            return
+
         kargs = {
             "dummy": dummy,
         }

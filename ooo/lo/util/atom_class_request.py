@@ -46,6 +46,13 @@ class AtomClassRequest(object):
             atomClass (int, optional): atomClass value.
         """
         super().__init__()
+
+        if isinstance(atoms, AtomClassRequest):
+            oth: AtomClassRequest = atoms
+            self.atoms = oth.atoms
+            self.atomClass = oth.atomClass
+            return
+
         kargs = {
             "atoms": atoms,
             "atomClass": atomClass,

@@ -49,6 +49,14 @@ class EndPopupModeEvent(EventObject_a3d70b03):
             bTearoff (bool, optional): bTearoff value.
             FloatingPosition (Point, optional): FloatingPosition value.
         """
+
+        if isinstance(Source, EndPopupModeEvent):
+            oth: EndPopupModeEvent = Source
+            self.Source = oth.Source
+            self.bTearoff = oth.bTearoff
+            self.FloatingPosition = oth.FloatingPosition
+            return
+
         kargs = {
             "Source": Source,
             "bTearoff": bTearoff,

@@ -60,6 +60,18 @@ class EllipticalArc(object):
             IsClockwiseSweep (bool, optional): IsClockwiseSweep value.
         """
         super().__init__()
+
+        if isinstance(StartPosition, EllipticalArc):
+            oth: EllipticalArc = StartPosition
+            self.StartPosition = oth.StartPosition
+            self.EndPosition = oth.EndPosition
+            self.RadiusX = oth.RadiusX
+            self.RadiusY = oth.RadiusY
+            self.XAxisRotation = oth.XAxisRotation
+            self.IsLargeArc = oth.IsLargeArc
+            self.IsClockwiseSweep = oth.IsClockwiseSweep
+            return
+
         kargs = {
             "StartPosition": StartPosition,
             "EndPosition": EndPosition,

@@ -47,6 +47,14 @@ class TextColumn(object):
             RightMargin (int, optional): RightMargin value.
         """
         super().__init__()
+
+        if isinstance(Width, TextColumn):
+            oth: TextColumn = Width
+            self.Width = oth.Width
+            self.LeftMargin = oth.LeftMargin
+            self.RightMargin = oth.RightMargin
+            return
+
         kargs = {
             "Width": Width,
             "LeftMargin": LeftMargin,

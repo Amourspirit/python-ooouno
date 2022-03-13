@@ -50,6 +50,14 @@ class DispatchResultEvent(EventObject_a3d70b03):
             State (int, optional): State value.
             Result (object, optional): Result value.
         """
+
+        if isinstance(Source, DispatchResultEvent):
+            oth: DispatchResultEvent = Source
+            self.Source = oth.Source
+            self.State = oth.State
+            self.Result = oth.Result
+            return
+
         kargs = {
             "Source": Source,
             "State": State,

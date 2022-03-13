@@ -59,6 +59,18 @@ class IntegerBitmapLayout(object):
             IsMsbFirst (bool, optional): IsMsbFirst value.
         """
         super().__init__()
+
+        if isinstance(ScanLines, IntegerBitmapLayout):
+            oth: IntegerBitmapLayout = ScanLines
+            self.ScanLines = oth.ScanLines
+            self.ScanLineBytes = oth.ScanLineBytes
+            self.ScanLineStride = oth.ScanLineStride
+            self.PlaneStride = oth.PlaneStride
+            self.ColorSpace = oth.ColorSpace
+            self.Palette = oth.Palette
+            self.IsMsbFirst = oth.IsMsbFirst
+            return
+
         kargs = {
             "ScanLines": ScanLines,
             "ScanLineBytes": ScanLineBytes,

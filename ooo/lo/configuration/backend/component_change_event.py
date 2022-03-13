@@ -47,6 +47,13 @@ class ComponentChangeEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Component (str, optional): Component value.
         """
+
+        if isinstance(Source, ComponentChangeEvent):
+            oth: ComponentChangeEvent = Source
+            self.Source = oth.Source
+            self.Component = oth.Component
+            return
+
         kargs = {
             "Source": Source,
             "Component": Component,

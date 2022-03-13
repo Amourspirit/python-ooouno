@@ -50,6 +50,14 @@ class RelativePosition(object):
             Anchor (Alignment, optional): Anchor value.
         """
         super().__init__()
+
+        if isinstance(Primary, RelativePosition):
+            oth: RelativePosition = Primary
+            self.Primary = oth.Primary
+            self.Secondary = oth.Secondary
+            self.Anchor = oth.Anchor
+            return
+
         kargs = {
             "Primary": Primary,
             "Secondary": Secondary,

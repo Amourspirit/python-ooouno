@@ -50,6 +50,13 @@ class ItemStatus(object):
             aStateData (object, optional): aStateData value.
         """
         super().__init__()
+
+        if isinstance(State, ItemStatus):
+            oth: ItemStatus = State
+            self.State = oth.State
+            self.aStateData = oth.aStateData
+            return
+
         kargs = {
             "State": State,
             "aStateData": aStateData,

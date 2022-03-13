@@ -46,6 +46,14 @@ class OpenCLDevice(object):
             Driver (str, optional): Driver value.
         """
         super().__init__()
+
+        if isinstance(Name, OpenCLDevice):
+            oth: OpenCLDevice = Name
+            self.Name = oth.Name
+            self.Vendor = oth.Vendor
+            self.Driver = oth.Driver
+            return
+
         kargs = {
             "Name": Name,
             "Vendor": Vendor,

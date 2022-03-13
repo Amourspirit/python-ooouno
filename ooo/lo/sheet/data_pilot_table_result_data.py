@@ -55,6 +55,14 @@ class DataPilotTableResultData(object):
             Result (DataResult, optional): Result value.
         """
         super().__init__()
+
+        if isinstance(FieldFilters, DataPilotTableResultData):
+            oth: DataPilotTableResultData = FieldFilters
+            self.FieldFilters = oth.FieldFilters
+            self.DataFieldIndex = oth.DataFieldIndex
+            self.Result = oth.Result
+            return
+
         kargs = {
             "FieldFilters": FieldFilters,
             "DataFieldIndex": DataFieldIndex,

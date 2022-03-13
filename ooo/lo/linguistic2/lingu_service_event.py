@@ -49,6 +49,13 @@ class LinguServiceEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             nEvent (int, optional): nEvent value.
         """
+
+        if isinstance(Source, LinguServiceEvent):
+            oth: LinguServiceEvent = Source
+            self.Source = oth.Source
+            self.nEvent = oth.nEvent
+            return
+
         kargs = {
             "Source": Source,
             "nEvent": nEvent,

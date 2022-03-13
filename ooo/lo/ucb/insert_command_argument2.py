@@ -49,6 +49,15 @@ class InsertCommandArgument2(InsertCommandArgument_19550eb9):
             MimeType (str, optional): MimeType value.
             DocumentId (str, optional): DocumentId value.
         """
+
+        if isinstance(Data, InsertCommandArgument2):
+            oth: InsertCommandArgument2 = Data
+            self.Data = oth.Data
+            self.ReplaceExisting = oth.ReplaceExisting
+            self.MimeType = oth.MimeType
+            self.DocumentId = oth.DocumentId
+            return
+
         kargs = {
             "Data": Data,
             "ReplaceExisting": ReplaceExisting,

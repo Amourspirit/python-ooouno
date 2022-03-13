@@ -47,6 +47,13 @@ class FilePickerEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             ElementId (int, optional): ElementId value.
         """
+
+        if isinstance(Source, FilePickerEvent):
+            oth: FilePickerEvent = Source
+            self.Source = oth.Source
+            self.ElementId = oth.ElementId
+            return
+
         kargs = {
             "Source": Source,
             "ElementId": ElementId,

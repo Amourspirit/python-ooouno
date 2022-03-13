@@ -52,6 +52,15 @@ class UpperLowerMarginScale(object):
             ScaleLower (int, optional): ScaleLower value.
         """
         super().__init__()
+
+        if isinstance(Upper, UpperLowerMarginScale):
+            oth: UpperLowerMarginScale = Upper
+            self.Upper = oth.Upper
+            self.Lower = oth.Lower
+            self.ScaleUpper = oth.ScaleUpper
+            self.ScaleLower = oth.ScaleLower
+            return
+
         kargs = {
             "Upper": Upper,
             "Lower": Lower,

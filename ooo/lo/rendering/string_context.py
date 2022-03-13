@@ -53,6 +53,14 @@ class StringContext(object):
             Length (int, optional): Length value.
         """
         super().__init__()
+
+        if isinstance(Text, StringContext):
+            oth: StringContext = Text
+            self.Text = oth.Text
+            self.StartPosition = oth.StartPosition
+            self.Length = oth.Length
+            return
+
         kargs = {
             "Text": Text,
             "StartPosition": StartPosition,

@@ -50,6 +50,15 @@ class DataPilotFieldAutoShowInfo(object):
             DataField (str, optional): DataField value.
         """
         super().__init__()
+
+        if isinstance(IsEnabled, DataPilotFieldAutoShowInfo):
+            oth: DataPilotFieldAutoShowInfo = IsEnabled
+            self.IsEnabled = oth.IsEnabled
+            self.ShowItemsMode = oth.ShowItemsMode
+            self.ItemCount = oth.ItemCount
+            self.DataField = oth.DataField
+            return
+
         kargs = {
             "IsEnabled": IsEnabled,
             "ShowItemsMode": ShowItemsMode,

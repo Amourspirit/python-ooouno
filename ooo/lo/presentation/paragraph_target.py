@@ -47,6 +47,13 @@ class ParagraphTarget(object):
             Paragraph (int, optional): Paragraph value.
         """
         super().__init__()
+
+        if isinstance(Shape, ParagraphTarget):
+            oth: ParagraphTarget = Shape
+            self.Shape = oth.Shape
+            self.Paragraph = oth.Paragraph
+            return
+
         kargs = {
             "Shape": Shape,
             "Paragraph": Paragraph,

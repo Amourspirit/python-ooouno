@@ -51,6 +51,15 @@ class CommandInfoChangeEvent(EventObject_a3d70b03):
             Handle (int, optional): Handle value.
             Reason (int, optional): Reason value.
         """
+
+        if isinstance(Source, CommandInfoChangeEvent):
+            oth: CommandInfoChangeEvent = Source
+            self.Source = oth.Source
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Reason = oth.Reason
+            return
+
         kargs = {
             "Source": Source,
             "Name": Name,

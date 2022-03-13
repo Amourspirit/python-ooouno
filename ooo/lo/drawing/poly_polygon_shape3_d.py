@@ -48,6 +48,14 @@ class PolyPolygonShape3D(object):
             SequenceZ (DoubleSequenceSequence, optional): SequenceZ value.
         """
         super().__init__()
+
+        if isinstance(SequenceX, PolyPolygonShape3D):
+            oth: PolyPolygonShape3D = SequenceX
+            self.SequenceX = oth.SequenceX
+            self.SequenceY = oth.SequenceY
+            self.SequenceZ = oth.SequenceZ
+            return
+
         kargs = {
             "SequenceX": SequenceX,
             "SequenceY": SequenceY,

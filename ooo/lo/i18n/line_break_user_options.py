@@ -49,6 +49,16 @@ class LineBreakUserOptions(object):
             allowHyphenateEnglish (bool, optional): allowHyphenateEnglish value.
         """
         super().__init__()
+
+        if isinstance(forbiddenBeginCharacters, LineBreakUserOptions):
+            oth: LineBreakUserOptions = forbiddenBeginCharacters
+            self.forbiddenBeginCharacters = oth.forbiddenBeginCharacters
+            self.forbiddenEndCharacters = oth.forbiddenEndCharacters
+            self.applyForbiddenRules = oth.applyForbiddenRules
+            self.allowPunctuationOutsideMargin = oth.allowPunctuationOutsideMargin
+            self.allowHyphenateEnglish = oth.allowHyphenateEnglish
+            return
+
         kargs = {
             "forbiddenBeginCharacters": forbiddenBeginCharacters,
             "forbiddenEndCharacters": forbiddenEndCharacters,

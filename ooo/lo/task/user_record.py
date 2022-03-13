@@ -45,6 +45,13 @@ class UserRecord(object):
             UserName (str, optional): UserName value.
         """
         super().__init__()
+
+        if isinstance(Passwords, UserRecord):
+            oth: UserRecord = Passwords
+            self.Passwords = oth.Passwords
+            self.UserName = oth.UserName
+            return
+
         kargs = {
             "Passwords": Passwords,
             "UserName": UserName,

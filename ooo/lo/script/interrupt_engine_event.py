@@ -59,6 +59,20 @@ class InterruptEngineEvent(EventObject_a3d70b03):
             ErrorMessage (str, optional): ErrorMessage value.
             Reason (InterruptReason, optional): Reason value.
         """
+
+        if isinstance(Source, InterruptEngineEvent):
+            oth: InterruptEngineEvent = Source
+            self.Source = oth.Source
+            self.Name = oth.Name
+            self.SourceCode = oth.SourceCode
+            self.StartLine = oth.StartLine
+            self.StartColumn = oth.StartColumn
+            self.EndLine = oth.EndLine
+            self.EndColumn = oth.EndColumn
+            self.ErrorMessage = oth.ErrorMessage
+            self.Reason = oth.Reason
+            return
+
         kargs = {
             "Source": Source,
             "Name": Name,

@@ -48,6 +48,13 @@ class DataEditorEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Type (DataEditorEventType, optional): Type value.
         """
+
+        if isinstance(Source, DataEditorEvent):
+            oth: DataEditorEvent = Source
+            self.Source = oth.Source
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Source": Source,
             "Type": Type,

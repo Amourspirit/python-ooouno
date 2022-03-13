@@ -55,6 +55,17 @@ class BorderLine2(BorderLine_a3f80af6):
             LineStyle (int, optional): LineStyle value.
             LineWidth (int, optional): LineWidth value.
         """
+
+        if isinstance(Color, BorderLine2):
+            oth: BorderLine2 = Color
+            self.Color = oth.Color
+            self.InnerLineWidth = oth.InnerLineWidth
+            self.OuterLineWidth = oth.OuterLineWidth
+            self.LineDistance = oth.LineDistance
+            self.LineStyle = oth.LineStyle
+            self.LineWidth = oth.LineWidth
+            return
+
         kargs = {
             "Color": Color,
             "InnerLineWidth": InnerLineWidth,

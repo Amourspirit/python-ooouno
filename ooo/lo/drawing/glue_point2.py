@@ -54,6 +54,16 @@ class GluePoint2(object):
             IsUserDefined (bool, optional): IsUserDefined value.
         """
         super().__init__()
+
+        if isinstance(Position, GluePoint2):
+            oth: GluePoint2 = Position
+            self.Position = oth.Position
+            self.IsRelative = oth.IsRelative
+            self.PositionAlignment = oth.PositionAlignment
+            self.Escape = oth.Escape
+            self.IsUserDefined = oth.IsUserDefined
+            return
+
         kargs = {
             "Position": Position,
             "IsRelative": IsRelative,

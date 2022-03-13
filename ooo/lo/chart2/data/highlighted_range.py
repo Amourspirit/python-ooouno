@@ -47,6 +47,15 @@ class HighlightedRange(object):
             AllowMerginigWithOtherRanges (bool, optional): AllowMerginigWithOtherRanges value.
         """
         super().__init__()
+
+        if isinstance(RangeRepresentation, HighlightedRange):
+            oth: HighlightedRange = RangeRepresentation
+            self.RangeRepresentation = oth.RangeRepresentation
+            self.Index = oth.Index
+            self.PreferredColor = oth.PreferredColor
+            self.AllowMerginigWithOtherRanges = oth.AllowMerginigWithOtherRanges
+            return
+
         kargs = {
             "RangeRepresentation": RangeRepresentation,
             "Index": Index,

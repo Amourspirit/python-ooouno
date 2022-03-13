@@ -47,6 +47,13 @@ class ContentProviderInfo(object):
             Scheme (str, optional): Scheme value.
         """
         super().__init__()
+
+        if isinstance(ContentProvider, ContentProviderInfo):
+            oth: ContentProviderInfo = ContentProvider
+            self.ContentProvider = oth.ContentProvider
+            self.Scheme = oth.Scheme
+            return
+
         kargs = {
             "ContentProvider": ContentProvider,
             "Scheme": Scheme,

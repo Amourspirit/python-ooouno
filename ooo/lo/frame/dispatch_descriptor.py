@@ -50,6 +50,14 @@ class DispatchDescriptor(object):
             SearchFlags (int, optional): SearchFlags value.
         """
         super().__init__()
+
+        if isinstance(FeatureURL, DispatchDescriptor):
+            oth: DispatchDescriptor = FeatureURL
+            self.FeatureURL = oth.FeatureURL
+            self.FrameName = oth.FrameName
+            self.SearchFlags = oth.SearchFlags
+            return
+
         kargs = {
             "FeatureURL": FeatureURL,
             "FrameName": FrameName,

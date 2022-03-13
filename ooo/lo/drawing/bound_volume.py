@@ -47,6 +47,13 @@ class BoundVolume(object):
             max (Position3D, optional): max value.
         """
         super().__init__()
+
+        if isinstance(min, BoundVolume):
+            oth: BoundVolume = min
+            self.min = oth.min
+            self.max = oth.max
+            return
+
         kargs = {
             "min": min,
             "max": max,

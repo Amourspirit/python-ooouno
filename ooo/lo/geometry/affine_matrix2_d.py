@@ -64,6 +64,17 @@ class AffineMatrix2D(object):
             m12 (float, optional): m12 value.
         """
         super().__init__()
+
+        if isinstance(m00, AffineMatrix2D):
+            oth: AffineMatrix2D = m00
+            self.m00 = oth.m00
+            self.m01 = oth.m01
+            self.m02 = oth.m02
+            self.m10 = oth.m10
+            self.m11 = oth.m11
+            self.m12 = oth.m12
+            return
+
         kargs = {
             "m00": m00,
             "m01": m01,

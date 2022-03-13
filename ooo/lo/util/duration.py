@@ -60,6 +60,19 @@ class Duration(object):
             NanoSeconds (int, optional): NanoSeconds value.
         """
         super().__init__()
+
+        if isinstance(Negative, Duration):
+            oth: Duration = Negative
+            self.Negative = oth.Negative
+            self.Years = oth.Years
+            self.Months = oth.Months
+            self.Days = oth.Days
+            self.Hours = oth.Hours
+            self.Minutes = oth.Minutes
+            self.Seconds = oth.Seconds
+            self.NanoSeconds = oth.NanoSeconds
+            return
+
         kargs = {
             "Negative": Negative,
             "Years": Years,

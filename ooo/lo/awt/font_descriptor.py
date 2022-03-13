@@ -63,6 +63,27 @@ class FontDescriptor(object):
             Type (int, optional): Type value.
         """
         super().__init__()
+
+        if isinstance(Name, FontDescriptor):
+            oth: FontDescriptor = Name
+            self.Name = oth.Name
+            self.Height = oth.Height
+            self.Width = oth.Width
+            self.StyleName = oth.StyleName
+            self.Family = oth.Family
+            self.CharSet = oth.CharSet
+            self.Pitch = oth.Pitch
+            self.CharacterWidth = oth.CharacterWidth
+            self.Weight = oth.Weight
+            self.Slant = oth.Slant
+            self.Underline = oth.Underline
+            self.Strikeout = oth.Strikeout
+            self.Orientation = oth.Orientation
+            self.Kerning = oth.Kerning
+            self.WordLineMode = oth.WordLineMode
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Name": Name,
             "Height": Height,

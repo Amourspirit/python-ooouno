@@ -45,6 +45,13 @@ class SubIncrement(object):
             PostEquidistant (object, optional): PostEquidistant value.
         """
         super().__init__()
+
+        if isinstance(IntervalCount, SubIncrement):
+            oth: SubIncrement = IntervalCount
+            self.IntervalCount = oth.IntervalCount
+            self.PostEquidistant = oth.PostEquidistant
+            return
+
         kargs = {
             "IntervalCount": IntervalCount,
             "PostEquidistant": PostEquidistant,

@@ -46,6 +46,13 @@ class DataResult(object):
             Value (float, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Flags, DataResult):
+            oth: DataResult = Flags
+            self.Flags = oth.Flags
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Flags": Flags,
             "Value": Value,

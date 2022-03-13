@@ -51,6 +51,14 @@ class QRCode(object):
             Border (int, optional): Border value.
         """
         super().__init__()
+
+        if isinstance(Payload, QRCode):
+            oth: QRCode = Payload
+            self.Payload = oth.Payload
+            self.ErrorCorrection = oth.ErrorCorrection
+            self.Border = oth.Border
+            return
+
         kargs = {
             "Payload": Payload,
             "ErrorCorrection": ErrorCorrection,

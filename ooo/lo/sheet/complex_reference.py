@@ -47,6 +47,13 @@ class ComplexReference(object):
             Reference2 (SingleReference, optional): Reference2 value.
         """
         super().__init__()
+
+        if isinstance(Reference1, ComplexReference):
+            oth: ComplexReference = Reference1
+            self.Reference1 = oth.Reference1
+            self.Reference2 = oth.Reference2
+            return
+
         kargs = {
             "Reference1": Reference1,
             "Reference2": Reference2,

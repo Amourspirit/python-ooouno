@@ -53,6 +53,14 @@ class FontHeight(object):
             Diff (float, optional): Diff value.
         """
         super().__init__()
+
+        if isinstance(Height, FontHeight):
+            oth: FontHeight = Height
+            self.Height = oth.Height
+            self.Prop = oth.Prop
+            self.Diff = oth.Diff
+            return
+
         kargs = {
             "Height": Height,
             "Prop": Prop,

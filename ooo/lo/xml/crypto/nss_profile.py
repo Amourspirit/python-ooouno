@@ -51,6 +51,14 @@ class NSSProfile(object):
             Type (MozillaProductType, optional): Type value.
         """
         super().__init__()
+
+        if isinstance(Name, NSSProfile):
+            oth: NSSProfile = Name
+            self.Name = oth.Name
+            self.Path = oth.Path
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Name": Name,
             "Path": Path,

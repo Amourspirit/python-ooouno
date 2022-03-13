@@ -49,6 +49,16 @@ class ScriptEventDescriptor(object):
             ScriptCode (str, optional): ScriptCode value.
         """
         super().__init__()
+
+        if isinstance(ListenerType, ScriptEventDescriptor):
+            oth: ScriptEventDescriptor = ListenerType
+            self.ListenerType = oth.ListenerType
+            self.EventMethod = oth.EventMethod
+            self.AddListenerParam = oth.AddListenerParam
+            self.ScriptType = oth.ScriptType
+            self.ScriptCode = oth.ScriptCode
+            return
+
         kargs = {
             "ListenerType": ListenerType,
             "EventMethod": EventMethod,

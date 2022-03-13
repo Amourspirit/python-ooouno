@@ -56,6 +56,17 @@ class OpenCommandArgument3(OpenCommandArgument2_9210e08):
             SortingInfo (typing.Tuple[NumberedSortingInfo, ...], optional): SortingInfo value.
             OpeningFlags (typing.Tuple[NamedValue, ...], optional): OpeningFlags value.
         """
+
+        if isinstance(Properties, OpenCommandArgument3):
+            oth: OpenCommandArgument3 = Properties
+            self.Properties = oth.Properties
+            self.Mode = oth.Mode
+            self.Priority = oth.Priority
+            self.Sink = oth.Sink
+            self.SortingInfo = oth.SortingInfo
+            self.OpeningFlags = oth.OpeningFlags
+            return
+
         kargs = {
             "Properties": Properties,
             "Mode": Mode,

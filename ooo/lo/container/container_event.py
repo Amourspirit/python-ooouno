@@ -49,6 +49,15 @@ class ContainerEvent(EventObject_a3d70b03):
             Element (object, optional): Element value.
             ReplacedElement (object, optional): ReplacedElement value.
         """
+
+        if isinstance(Source, ContainerEvent):
+            oth: ContainerEvent = Source
+            self.Source = oth.Source
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
+            return
+
         kargs = {
             "Source": Source,
             "Accessor": Accessor,

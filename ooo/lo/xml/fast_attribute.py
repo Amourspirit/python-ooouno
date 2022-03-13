@@ -46,6 +46,13 @@ class FastAttribute(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Token, FastAttribute):
+            oth: FastAttribute = Token
+            self.Token = oth.Token
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Token": Token,
             "Value": Value,

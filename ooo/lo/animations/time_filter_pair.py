@@ -45,6 +45,13 @@ class TimeFilterPair(object):
             Progress (float, optional): Progress value.
         """
         super().__init__()
+
+        if isinstance(Time, TimeFilterPair):
+            oth: TimeFilterPair = Time
+            self.Time = oth.Time
+            self.Progress = oth.Progress
+            return
+
         kargs = {
             "Time": Time,
             "Progress": Progress,

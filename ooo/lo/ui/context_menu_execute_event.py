@@ -52,6 +52,15 @@ class ContextMenuExecuteEvent(object):
             Selection (XSelectionSupplier, optional): Selection value.
         """
         super().__init__()
+
+        if isinstance(SourceWindow, ContextMenuExecuteEvent):
+            oth: ContextMenuExecuteEvent = SourceWindow
+            self.SourceWindow = oth.SourceWindow
+            self.ExecutePosition = oth.ExecutePosition
+            self.ActionTriggerContainer = oth.ActionTriggerContainer
+            self.Selection = oth.Selection
+            return
+
         kargs = {
             "SourceWindow": SourceWindow,
             "ExecutePosition": ExecutePosition,

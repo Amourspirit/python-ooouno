@@ -57,6 +57,19 @@ class EnhancedMouseEvent(MouseEvent_8f430a5f):
             PopupTrigger (bool, optional): PopupTrigger value.
             Target (XInterface, optional): Target value.
         """
+
+        if isinstance(Source, EnhancedMouseEvent):
+            oth: EnhancedMouseEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            self.Buttons = oth.Buttons
+            self.X = oth.X
+            self.Y = oth.Y
+            self.ClickCount = oth.ClickCount
+            self.PopupTrigger = oth.PopupTrigger
+            self.Target = oth.Target
+            return
+
         kargs = {
             "Source": Source,
             "Modifiers": Modifiers,

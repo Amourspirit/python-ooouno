@@ -48,6 +48,13 @@ class CrossReference(object):
             Id (int, optional): Id value.
         """
         super().__init__()
+
+        if isinstance(Group, CrossReference):
+            oth: CrossReference = Group
+            self.Group = oth.Group
+            self.Id = oth.Id
+            return
+
         kargs = {
             "Group": Group,
             "Id": Id,

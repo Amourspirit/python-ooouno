@@ -46,6 +46,12 @@ class EventObject(object):
             Source (XInterface, optional): Source value.
         """
         super().__init__()
+
+        if isinstance(Source, EventObject):
+            oth: EventObject = Source
+            self.Source = oth.Source
+            return
+
         kargs = {
             "Source": Source,
         }

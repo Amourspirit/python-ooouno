@@ -49,6 +49,15 @@ class IncrementData(object):
             BaseValue (object, optional): BaseValue value.
         """
         super().__init__()
+
+        if isinstance(SubIncrements, IncrementData):
+            oth: IncrementData = SubIncrements
+            self.SubIncrements = oth.SubIncrements
+            self.Distance = oth.Distance
+            self.PostEquidistant = oth.PostEquidistant
+            self.BaseValue = oth.BaseValue
+            return
+
         kargs = {
             "SubIncrements": SubIncrements,
             "Distance": Distance,

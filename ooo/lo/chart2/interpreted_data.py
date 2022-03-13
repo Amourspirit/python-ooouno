@@ -48,6 +48,13 @@ class InterpretedData(object):
             Categories (XLabeledDataSequence, optional): Categories value.
         """
         super().__init__()
+
+        if isinstance(Series, InterpretedData):
+            oth: InterpretedData = Series
+            self.Series = oth.Series
+            self.Categories = oth.Categories
+            return
+
         kargs = {
             "Series": Series,
             "Categories": Categories,

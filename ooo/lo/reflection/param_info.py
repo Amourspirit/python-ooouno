@@ -49,6 +49,14 @@ class ParamInfo(object):
             aType (XIdlClass, optional): aType value.
         """
         super().__init__()
+
+        if isinstance(aName, ParamInfo):
+            oth: ParamInfo = aName
+            self.aName = oth.aName
+            self.aMode = oth.aMode
+            self.aType = oth.aType
+            return
+
         kargs = {
             "aName": aName,
             "aMode": aMode,

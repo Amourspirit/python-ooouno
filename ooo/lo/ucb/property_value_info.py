@@ -51,6 +51,16 @@ class PropertyValueInfo(PropertyValue_c9610c73):
             State (PropertyState, optional): State value.
             ValueState (PropertyValueState, optional): ValueState value.
         """
+
+        if isinstance(Name, PropertyValueInfo):
+            oth: PropertyValueInfo = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Value = oth.Value
+            self.State = oth.State
+            self.ValueState = oth.ValueState
+            return
+
         kargs = {
             "Name": Name,
             "Handle": Handle,

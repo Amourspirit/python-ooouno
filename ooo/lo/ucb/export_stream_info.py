@@ -47,6 +47,13 @@ class ExportStreamInfo(object):
             ForceBodies (bool, optional): ForceBodies value.
         """
         super().__init__()
+
+        if isinstance(Target, ExportStreamInfo):
+            oth: ExportStreamInfo = Target
+            self.Target = oth.Target
+            self.ForceBodies = oth.ForceBodies
+            return
+
         kargs = {
             "Target": Target,
             "ForceBodies": ForceBodies,

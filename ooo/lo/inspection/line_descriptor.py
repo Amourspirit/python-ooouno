@@ -65,6 +65,24 @@ class LineDescriptor(object):
             Category (str, optional): Category value.
         """
         super().__init__()
+
+        if isinstance(DisplayName, LineDescriptor):
+            oth: LineDescriptor = DisplayName
+            self.DisplayName = oth.DisplayName
+            self.Control = oth.Control
+            self.HelpURL = oth.HelpURL
+            self.HasPrimaryButton = oth.HasPrimaryButton
+            self.PrimaryButtonId = oth.PrimaryButtonId
+            self.PrimaryButtonImageURL = oth.PrimaryButtonImageURL
+            self.PrimaryButtonImage = oth.PrimaryButtonImage
+            self.HasSecondaryButton = oth.HasSecondaryButton
+            self.SecondaryButtonId = oth.SecondaryButtonId
+            self.SecondaryButtonImageURL = oth.SecondaryButtonImageURL
+            self.SecondaryButtonImage = oth.SecondaryButtonImage
+            self.IndentLevel = oth.IndentLevel
+            self.Category = oth.Category
+            return
+
         kargs = {
             "DisplayName": DisplayName,
             "Control": Control,

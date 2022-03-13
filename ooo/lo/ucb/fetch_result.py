@@ -50,6 +50,15 @@ class FetchResult(object):
             FetchError (int, optional): FetchError value.
         """
         super().__init__()
+
+        if isinstance(Rows, FetchResult):
+            oth: FetchResult = Rows
+            self.Rows = oth.Rows
+            self.StartIndex = oth.StartIndex
+            self.Orientation = oth.Orientation
+            self.FetchError = oth.FetchError
+            return
+
         kargs = {
             "Rows": Rows,
             "StartIndex": StartIndex,

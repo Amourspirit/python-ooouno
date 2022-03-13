@@ -50,6 +50,13 @@ class LeftRightMargin(object):
             Right (int, optional): Right value.
         """
         super().__init__()
+
+        if isinstance(Left, LeftRightMargin):
+            oth: LeftRightMargin = Left
+            self.Left = oth.Left
+            self.Right = oth.Right
+            return
+
         kargs = {
             "Left": Left,
             "Right": Right,

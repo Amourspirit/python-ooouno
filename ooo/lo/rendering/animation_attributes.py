@@ -52,6 +52,14 @@ class AnimationAttributes(object):
             UntransformedSize (RealSize2D, optional): UntransformedSize value.
         """
         super().__init__()
+
+        if isinstance(Duration, AnimationAttributes):
+            oth: AnimationAttributes = Duration
+            self.Duration = oth.Duration
+            self.RepeatMode = oth.RepeatMode
+            self.UntransformedSize = oth.UntransformedSize
+            return
+
         kargs = {
             "Duration": Duration,
             "RepeatMode": RepeatMode,

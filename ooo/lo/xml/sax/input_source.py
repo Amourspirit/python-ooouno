@@ -51,6 +51,15 @@ class InputSource(object):
             sSystemId (str, optional): sSystemId value.
         """
         super().__init__()
+
+        if isinstance(aInputStream, InputSource):
+            oth: InputSource = aInputStream
+            self.aInputStream = oth.aInputStream
+            self.sEncoding = oth.sEncoding
+            self.sPublicId = oth.sPublicId
+            self.sSystemId = oth.sSystemId
+            return
+
         kargs = {
             "aInputStream": aInputStream,
             "sEncoding": sEncoding,

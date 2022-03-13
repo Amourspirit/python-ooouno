@@ -51,6 +51,13 @@ class EventObject(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             EventName (str, optional): EventName value.
         """
+
+        if isinstance(Source, EventObject):
+            oth: EventObject = Source
+            self.Source = oth.Source
+            self.EventName = oth.EventName
+            return
+
         kargs = {
             "Source": Source,
             "EventName": EventName,

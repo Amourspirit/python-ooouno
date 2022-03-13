@@ -48,6 +48,13 @@ class TreeExpansionEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Node (XTreeNode, optional): Node value.
         """
+
+        if isinstance(Source, TreeExpansionEvent):
+            oth: TreeExpansionEvent = Source
+            self.Source = oth.Source
+            self.Node = oth.Node
+            return
+
         kargs = {
             "Source": Source,
             "Node": Node,

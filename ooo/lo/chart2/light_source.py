@@ -48,6 +48,15 @@ class LightSource(object):
             bSpecular (bool, optional): bSpecular value.
         """
         super().__init__()
+
+        if isinstance(nDiffuseColor, LightSource):
+            oth: LightSource = nDiffuseColor
+            self.nDiffuseColor = oth.nDiffuseColor
+            self.aDirection = oth.aDirection
+            self.bIsEnabled = oth.bIsEnabled
+            self.bSpecular = oth.bSpecular
+            return
+
         kargs = {
             "nDiffuseColor": nDiffuseColor,
             "aDirection": aDirection,

@@ -48,6 +48,13 @@ class LockEntry(object):
             Type (LockType, optional): Type value.
         """
         super().__init__()
+
+        if isinstance(Scope, LockEntry):
+            oth: LockEntry = Scope
+            self.Scope = oth.Scope
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Scope": Scope,
             "Type": Type,

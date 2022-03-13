@@ -48,6 +48,14 @@ class ContentInfo(object):
             Attributes (int, optional): Attributes value.
         """
         super().__init__()
+
+        if isinstance(Properties, ContentInfo):
+            oth: ContentInfo = Properties
+            self.Properties = oth.Properties
+            self.Type = oth.Type
+            self.Attributes = oth.Attributes
+            return
+
         kargs = {
             "Properties": Properties,
             "Type": Type,

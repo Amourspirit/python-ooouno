@@ -49,6 +49,14 @@ class ChangesEvent(EventObject_a3d70b03):
             Base (object, optional): Base value.
             Changes (ChangesSet, optional): Changes value.
         """
+
+        if isinstance(Source, ChangesEvent):
+            oth: ChangesEvent = Source
+            self.Source = oth.Source
+            self.Base = oth.Base
+            self.Changes = oth.Changes
+            return
+
         kargs = {
             "Source": Source,
             "Base": Base,

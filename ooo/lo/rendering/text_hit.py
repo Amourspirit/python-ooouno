@@ -52,6 +52,13 @@ class TextHit(object):
             IsLeadingEdge (bool, optional): IsLeadingEdge value.
         """
         super().__init__()
+
+        if isinstance(EntryIndex, TextHit):
+            oth: TextHit = EntryIndex
+            self.EntryIndex = oth.EntryIndex
+            self.IsLeadingEdge = oth.IsLeadingEdge
+            return
+
         kargs = {
             "EntryIndex": EntryIndex,
             "IsLeadingEdge": IsLeadingEdge,

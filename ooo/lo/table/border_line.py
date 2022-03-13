@@ -49,6 +49,15 @@ class BorderLine(object):
             LineDistance (int, optional): LineDistance value.
         """
         super().__init__()
+
+        if isinstance(Color, BorderLine):
+            oth: BorderLine = Color
+            self.Color = oth.Color
+            self.InnerLineWidth = oth.InnerLineWidth
+            self.OuterLineWidth = oth.OuterLineWidth
+            self.LineDistance = oth.LineDistance
+            return
+
         kargs = {
             "Color": Color,
             "InnerLineWidth": InnerLineWidth,

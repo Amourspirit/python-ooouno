@@ -49,6 +49,13 @@ class DialogClosedEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             DialogResult (int, optional): DialogResult value.
         """
+
+        if isinstance(Source, DialogClosedEvent):
+            oth: DialogClosedEvent = Source
+            self.Source = oth.Source
+            self.DialogResult = oth.DialogResult
+            return
+
         kargs = {
             "Source": Source,
             "DialogResult": DialogResult,

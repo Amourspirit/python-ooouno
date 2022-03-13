@@ -55,6 +55,18 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
             LocationY (int, optional): LocationY value.
             SourceActions (int, optional): SourceActions value.
         """
+
+        if isinstance(Source, DropTargetDragEvent):
+            oth: DropTargetDragEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            self.Context = oth.Context
+            self.DropAction = oth.DropAction
+            self.LocationX = oth.LocationX
+            self.LocationY = oth.LocationY
+            self.SourceActions = oth.SourceActions
+            return
+
         kargs = {
             "Source": Source,
             "Dummy": Dummy,

@@ -53,6 +53,18 @@ class FormatElement(object):
             isDefault (bool, optional): isDefault value.
         """
         super().__init__()
+
+        if isinstance(formatCode, FormatElement):
+            oth: FormatElement = formatCode
+            self.formatCode = oth.formatCode
+            self.formatName = oth.formatName
+            self.formatKey = oth.formatKey
+            self.formatType = oth.formatType
+            self.formatUsage = oth.formatUsage
+            self.formatIndex = oth.formatIndex
+            self.isDefault = oth.isDefault
+            return
+
         kargs = {
             "formatCode": formatCode,
             "formatName": formatName,

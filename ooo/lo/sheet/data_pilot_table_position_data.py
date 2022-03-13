@@ -52,6 +52,13 @@ class DataPilotTablePositionData(object):
             PositionData (object, optional): PositionData value.
         """
         super().__init__()
+
+        if isinstance(PositionType, DataPilotTablePositionData):
+            oth: DataPilotTablePositionData = PositionType
+            self.PositionType = oth.PositionType
+            self.PositionData = oth.PositionData
+            return
+
         kargs = {
             "PositionType": PositionType,
             "PositionData": PositionData,

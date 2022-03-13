@@ -47,6 +47,14 @@ class ElementChange(object):
             ReplacedElement (object, optional): ReplacedElement value.
         """
         super().__init__()
+
+        if isinstance(Accessor, ElementChange):
+            oth: ElementChange = Accessor
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
+            return
+
         kargs = {
             "Accessor": Accessor,
             "Element": Element,

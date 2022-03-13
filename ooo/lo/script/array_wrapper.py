@@ -50,6 +50,13 @@ class ArrayWrapper(object):
             Array (object, optional): Array value.
         """
         super().__init__()
+
+        if isinstance(IsZeroIndex, ArrayWrapper):
+            oth: ArrayWrapper = IsZeroIndex
+            self.IsZeroIndex = oth.IsZeroIndex
+            self.Array = oth.Array
+            return
+
         kargs = {
             "IsZeroIndex": IsZeroIndex,
             "Array": Array,

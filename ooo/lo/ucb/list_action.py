@@ -48,6 +48,15 @@ class ListAction(object):
             ActionInfo (object, optional): ActionInfo value.
         """
         super().__init__()
+
+        if isinstance(Position, ListAction):
+            oth: ListAction = Position
+            self.Position = oth.Position
+            self.Count = oth.Count
+            self.ListActionType = oth.ListActionType
+            self.ActionInfo = oth.ActionInfo
+            return
+
         kargs = {
             "Position": Position,
             "Count": Count,

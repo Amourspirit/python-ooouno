@@ -52,6 +52,13 @@ class Pair(object):
             Second (object, optional): Second value.
         """
         super().__init__()
+
+        if isinstance(First, Pair):
+            oth: Pair = First
+            self.First = oth.First
+            self.Second = oth.Second
+            return
+
         kargs = {
             "First": First,
             "Second": Second,

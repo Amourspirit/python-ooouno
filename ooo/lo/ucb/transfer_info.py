@@ -50,6 +50,15 @@ class TransferInfo(object):
             NameClash (int, optional): NameClash value.
         """
         super().__init__()
+
+        if isinstance(MoveData, TransferInfo):
+            oth: TransferInfo = MoveData
+            self.MoveData = oth.MoveData
+            self.SourceURL = oth.SourceURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
+            return
+
         kargs = {
             "MoveData": MoveData,
             "SourceURL": SourceURL,

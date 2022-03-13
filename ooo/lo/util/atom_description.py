@@ -46,6 +46,13 @@ class AtomDescription(object):
             description (str, optional): description value.
         """
         super().__init__()
+
+        if isinstance(atom, AtomDescription):
+            oth: AtomDescription = atom
+            self.atom = oth.atom
+            self.description = oth.description
+            return
+
         kargs = {
             "atom": atom,
             "description": description,

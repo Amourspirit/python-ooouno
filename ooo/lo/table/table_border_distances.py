@@ -56,6 +56,19 @@ class TableBorderDistances(object):
             IsRightDistanceValid (bool, optional): IsRightDistanceValid value.
         """
         super().__init__()
+
+        if isinstance(TopDistance, TableBorderDistances):
+            oth: TableBorderDistances = TopDistance
+            self.TopDistance = oth.TopDistance
+            self.IsTopDistanceValid = oth.IsTopDistanceValid
+            self.BottomDistance = oth.BottomDistance
+            self.IsBottomDistanceValid = oth.IsBottomDistanceValid
+            self.LeftDistance = oth.LeftDistance
+            self.IsLeftDistanceValid = oth.IsLeftDistanceValid
+            self.RightDistance = oth.RightDistance
+            self.IsRightDistanceValid = oth.IsRightDistanceValid
+            return
+
         kargs = {
             "TopDistance": TopDistance,
             "IsTopDistanceValid": IsTopDistanceValid,

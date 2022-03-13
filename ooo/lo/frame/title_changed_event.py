@@ -47,6 +47,13 @@ class TitleChangedEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Title (str, optional): Title value.
         """
+
+        if isinstance(Source, TitleChangedEvent):
+            oth: TitleChangedEvent = Source
+            self.Source = oth.Source
+            self.Title = oth.Title
+            return
+
         kargs = {
             "Source": Source,
             "Title": Title,

@@ -46,6 +46,13 @@ class LineSpacing(object):
             Height (int, optional): Height value.
         """
         super().__init__()
+
+        if isinstance(Mode, LineSpacing):
+            oth: LineSpacing = Mode
+            self.Mode = oth.Mode
+            self.Height = oth.Height
+            return
+
         kargs = {
             "Mode": Mode,
             "Height": Height,

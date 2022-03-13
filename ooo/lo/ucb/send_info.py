@@ -48,6 +48,13 @@ class SendInfo(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(ProtocolType, SendInfo):
+            oth: SendInfo = ProtocolType
+            self.ProtocolType = oth.ProtocolType
+            self.Value = oth.Value
+            return
+
         kargs = {
             "ProtocolType": ProtocolType,
             "Value": Value,

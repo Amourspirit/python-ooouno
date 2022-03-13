@@ -59,6 +59,19 @@ class FloatingPointBitmapLayout(object):
             Format (int, optional): Format value.
         """
         super().__init__()
+
+        if isinstance(ScanLines, FloatingPointBitmapLayout):
+            oth: FloatingPointBitmapLayout = ScanLines
+            self.ScanLines = oth.ScanLines
+            self.ScanLineBytes = oth.ScanLineBytes
+            self.ScanLineStride = oth.ScanLineStride
+            self.PlaneStride = oth.PlaneStride
+            self.ColorSpace = oth.ColorSpace
+            self.NumComponents = oth.NumComponents
+            self.Endianness = oth.Endianness
+            self.Format = oth.Format
+            return
+
         kargs = {
             "ScanLines": ScanLines,
             "ScanLineBytes": ScanLineBytes,

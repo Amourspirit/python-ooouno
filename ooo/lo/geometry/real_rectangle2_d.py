@@ -52,6 +52,15 @@ class RealRectangle2D(object):
             Y2 (float, optional): Y2 value.
         """
         super().__init__()
+
+        if isinstance(X1, RealRectangle2D):
+            oth: RealRectangle2D = X1
+            self.X1 = oth.X1
+            self.Y1 = oth.Y1
+            self.X2 = oth.X2
+            self.Y2 = oth.Y2
+            return
+
         kargs = {
             "X1": X1,
             "Y1": Y1,

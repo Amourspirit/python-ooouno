@@ -53,6 +53,21 @@ class Panose(object):
             XHeight (int, optional): XHeight value.
         """
         super().__init__()
+
+        if isinstance(FamilyType, Panose):
+            oth: Panose = FamilyType
+            self.FamilyType = oth.FamilyType
+            self.SerifStyle = oth.SerifStyle
+            self.Weight = oth.Weight
+            self.Proportion = oth.Proportion
+            self.Contrast = oth.Contrast
+            self.StrokeVariation = oth.StrokeVariation
+            self.ArmStyle = oth.ArmStyle
+            self.Letterform = oth.Letterform
+            self.Midline = oth.Midline
+            self.XHeight = oth.XHeight
+            return
+
         kargs = {
             "FamilyType": FamilyType,
             "SerifStyle": SerifStyle,

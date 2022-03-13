@@ -57,6 +57,16 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
             OldValue (PropertyState, optional): OldValue value.
             NewValue (PropertyState, optional): NewValue value.
         """
+
+        if isinstance(Source, PropertyStateChangeEvent):
+            oth: PropertyStateChangeEvent = Source
+            self.Source = oth.Source
+            self.PropertyName = oth.PropertyName
+            self.PropertyHandle = oth.PropertyHandle
+            self.OldValue = oth.OldValue
+            self.NewValue = oth.NewValue
+            return
+
         kargs = {
             "Source": Source,
             "PropertyName": PropertyName,

@@ -55,6 +55,15 @@ class GluePoint(object):
             Alignment (int, optional): Alignment value.
         """
         super().__init__()
+
+        if isinstance(Position, GluePoint):
+            oth: GluePoint = Position
+            self.Position = oth.Position
+            self.EscapeDirection = oth.EscapeDirection
+            self.PositionAbsolute = oth.PositionAbsolute
+            self.Alignment = oth.Alignment
+            return
+
         kargs = {
             "Position": Position,
             "EscapeDirection": EscapeDirection,

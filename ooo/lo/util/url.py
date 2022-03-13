@@ -58,6 +58,22 @@ class URL(object):
             Mark (str, optional): Mark value.
         """
         super().__init__()
+
+        if isinstance(Complete, URL):
+            oth: URL = Complete
+            self.Complete = oth.Complete
+            self.Main = oth.Main
+            self.Protocol = oth.Protocol
+            self.User = oth.User
+            self.Password = oth.Password
+            self.Server = oth.Server
+            self.Port = oth.Port
+            self.Path = oth.Path
+            self.Name = oth.Name
+            self.Arguments = oth.Arguments
+            self.Mark = oth.Mark
+            return
+
         kargs = {
             "Complete": Complete,
             "Main": Main,

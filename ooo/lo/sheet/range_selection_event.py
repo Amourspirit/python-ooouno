@@ -47,6 +47,13 @@ class RangeSelectionEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             RangeDescriptor (str, optional): RangeDescriptor value.
         """
+
+        if isinstance(Source, RangeSelectionEvent):
+            oth: RangeSelectionEvent = Source
+            self.Source = oth.Source
+            self.RangeDescriptor = oth.RangeDescriptor
+            return
+
         kargs = {
             "Source": Source,
             "RangeDescriptor": RangeDescriptor,

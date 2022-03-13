@@ -49,6 +49,14 @@ class ChartSeriesAddress(object):
             LabelAddress (str, optional): LabelAddress value.
         """
         super().__init__()
+
+        if isinstance(DomainRangeAddresses, ChartSeriesAddress):
+            oth: ChartSeriesAddress = DomainRangeAddresses
+            self.DomainRangeAddresses = oth.DomainRangeAddresses
+            self.DataRangeAddress = oth.DataRangeAddress
+            self.LabelAddress = oth.LabelAddress
+            return
+
         kargs = {
             "DomainRangeAddresses": DomainRangeAddresses,
             "DataRangeAddress": DataRangeAddress,

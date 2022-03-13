@@ -50,6 +50,13 @@ class UpperLowerMargin(object):
             Lower (int, optional): Lower value.
         """
         super().__init__()
+
+        if isinstance(Upper, UpperLowerMargin):
+            oth: UpperLowerMargin = Upper
+            self.Upper = oth.Upper
+            self.Lower = oth.Lower
+            return
+
         kargs = {
             "Upper": Upper,
             "Lower": Lower,

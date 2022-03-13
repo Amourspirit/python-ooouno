@@ -54,6 +54,13 @@ class MailMergeEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Model (XModel, optional): Model value.
         """
+
+        if isinstance(Source, MailMergeEvent):
+            oth: MailMergeEvent = Source
+            self.Source = oth.Source
+            self.Model = oth.Model
+            return
+
         kargs = {
             "Source": Source,
             "Model": Model,

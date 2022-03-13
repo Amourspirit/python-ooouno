@@ -48,6 +48,15 @@ class Event(object):
             Repeat (int, optional): Repeat value.
         """
         super().__init__()
+
+        if isinstance(Source, Event):
+            oth: Event = Source
+            self.Source = oth.Source
+            self.Trigger = oth.Trigger
+            self.Offset = oth.Offset
+            self.Repeat = oth.Repeat
+            return
+
         kargs = {
             "Source": Source,
             "Trigger": Trigger,

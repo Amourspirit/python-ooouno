@@ -56,6 +56,14 @@ class DDELinkInfo(object):
             Topic (str, optional): Topic value.
         """
         super().__init__()
+
+        if isinstance(Items, DDELinkInfo):
+            oth: DDELinkInfo = Items
+            self.Items = oth.Items
+            self.Service = oth.Service
+            self.Topic = oth.Topic
+            return
+
         kargs = {
             "Items": Items,
             "Service": Service,

@@ -53,6 +53,20 @@ class MenuMultipleChange(object):
             IsChecked (bool, optional): IsChecked value.
         """
         super().__init__()
+
+        if isinstance(Image, MenuMultipleChange):
+            oth: MenuMultipleChange = Image
+            self.Image = oth.Image
+            self.ID = oth.ID
+            self.GroupID = oth.GroupID
+            self.PreItemID = oth.PreItemID
+            self.ItemText = oth.ItemText
+            self.IsVisible = oth.IsVisible
+            self.IsActive = oth.IsActive
+            self.IsCheckable = oth.IsCheckable
+            self.IsChecked = oth.IsChecked
+            return
+
         kargs = {
             "Image": Image,
             "ID": ID,

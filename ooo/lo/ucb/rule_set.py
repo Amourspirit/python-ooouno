@@ -49,6 +49,13 @@ class RuleSet(object):
             HandleFolder (bool, optional): HandleFolder value.
         """
         super().__init__()
+
+        if isinstance(Rules, RuleSet):
+            oth: RuleSet = Rules
+            self.Rules = oth.Rules
+            self.HandleFolder = oth.HandleFolder
+            return
+
         kargs = {
             "Rules": Rules,
             "HandleFolder": HandleFolder,

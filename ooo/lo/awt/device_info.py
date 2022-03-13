@@ -54,6 +54,21 @@ class DeviceInfo(object):
             Capabilities (int, optional): Capabilities value.
         """
         super().__init__()
+
+        if isinstance(Width, DeviceInfo):
+            oth: DeviceInfo = Width
+            self.Width = oth.Width
+            self.Height = oth.Height
+            self.LeftInset = oth.LeftInset
+            self.TopInset = oth.TopInset
+            self.RightInset = oth.RightInset
+            self.BottomInset = oth.BottomInset
+            self.PixelPerMeterX = oth.PixelPerMeterX
+            self.PixelPerMeterY = oth.PixelPerMeterY
+            self.BitsPerPixel = oth.BitsPerPixel
+            self.Capabilities = oth.Capabilities
+            return
+
         kargs = {
             "Width": Width,
             "Height": Height,

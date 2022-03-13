@@ -54,6 +54,15 @@ class FinishEngineEvent(EventObject_a3d70b03):
             ErrorMessage (str, optional): ErrorMessage value.
             Return (object, optional): Return value.
         """
+
+        if isinstance(Source, FinishEngineEvent):
+            oth: FinishEngineEvent = Source
+            self.Source = oth.Source
+            self.Finish = oth.Finish
+            self.ErrorMessage = oth.ErrorMessage
+            self.Return = oth.Return
+            return
+
         kargs = {
             "Source": Source,
             "Finish": Finish,

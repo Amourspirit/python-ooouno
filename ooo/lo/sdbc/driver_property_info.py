@@ -51,6 +51,16 @@ class DriverPropertyInfo(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Choices, DriverPropertyInfo):
+            oth: DriverPropertyInfo = Choices
+            self.Choices = oth.Choices
+            self.Name = oth.Name
+            self.Description = oth.Description
+            self.IsRequired = oth.IsRequired
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Choices": Choices,
             "Name": Name,

@@ -47,6 +47,14 @@ class DataPilotFieldSortInfo(object):
             Mode (int, optional): Mode value.
         """
         super().__init__()
+
+        if isinstance(Field, DataPilotFieldSortInfo):
+            oth: DataPilotFieldSortInfo = Field
+            self.Field = oth.Field
+            self.IsAscending = oth.IsAscending
+            self.Mode = oth.Mode
+            return
+
         kargs = {
             "Field": Field,
             "IsAscending": IsAscending,

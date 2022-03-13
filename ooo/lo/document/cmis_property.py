@@ -53,6 +53,20 @@ class CmisProperty(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Id, CmisProperty):
+            oth: CmisProperty = Id
+            self.Id = oth.Id
+            self.Name = oth.Name
+            self.Type = oth.Type
+            self.Updatable = oth.Updatable
+            self.Required = oth.Required
+            self.MultiValued = oth.MultiValued
+            self.OpenChoice = oth.OpenChoice
+            self.Choices = oth.Choices
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Id": Id,
             "Name": Name,

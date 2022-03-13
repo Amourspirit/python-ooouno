@@ -48,6 +48,14 @@ class GridSelectionEvent(EventObject_a3d70b03):
             SelectedRowIndexes (typing.Tuple[int, ...], optional): SelectedRowIndexes value.
             SelectedColumnIndexes (typing.Tuple[int, ...], optional): SelectedColumnIndexes value.
         """
+
+        if isinstance(Source, GridSelectionEvent):
+            oth: GridSelectionEvent = Source
+            self.Source = oth.Source
+            self.SelectedRowIndexes = oth.SelectedRowIndexes
+            self.SelectedColumnIndexes = oth.SelectedColumnIndexes
+            return
+
         kargs = {
             "Source": Source,
             "SelectedRowIndexes": SelectedRowIndexes,

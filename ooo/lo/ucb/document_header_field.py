@@ -48,6 +48,13 @@ class DocumentHeaderField(object):
             Value (str, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Name, DocumentHeaderField):
+            oth: DocumentHeaderField = Name
+            self.Name = oth.Name
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Name": Name,
             "Value": Value,

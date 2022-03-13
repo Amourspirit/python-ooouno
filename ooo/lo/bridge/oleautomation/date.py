@@ -53,6 +53,12 @@ class Date(object):
             Value (float, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Value, Date):
+            oth: Date = Value
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Value": Value,
         }

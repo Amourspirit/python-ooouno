@@ -55,6 +55,15 @@ class AccessibleEventObject(EventObject_a3d70b03):
             NewValue (object, optional): NewValue value.
             OldValue (object, optional): OldValue value.
         """
+
+        if isinstance(Source, AccessibleEventObject):
+            oth: AccessibleEventObject = Source
+            self.Source = oth.Source
+            self.EventId = oth.EventId
+            self.NewValue = oth.NewValue
+            self.OldValue = oth.OldValue
+            return
+
         kargs = {
             "Source": Source,
             "EventId": EventId,

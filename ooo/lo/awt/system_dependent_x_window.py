@@ -52,6 +52,13 @@ class SystemDependentXWindow(object):
             DisplayPointer (int, optional): DisplayPointer value.
         """
         super().__init__()
+
+        if isinstance(WindowHandle, SystemDependentXWindow):
+            oth: SystemDependentXWindow = WindowHandle
+            self.WindowHandle = oth.WindowHandle
+            self.DisplayPointer = oth.DisplayPointer
+            return
+
         kargs = {
             "WindowHandle": WindowHandle,
             "DisplayPointer": DisplayPointer,

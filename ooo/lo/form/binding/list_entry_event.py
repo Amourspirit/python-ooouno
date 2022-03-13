@@ -49,6 +49,15 @@ class ListEntryEvent(EventObject_a3d70b03):
             Position (int, optional): Position value.
             Count (int, optional): Count value.
         """
+
+        if isinstance(Source, ListEntryEvent):
+            oth: ListEntryEvent = Source
+            self.Source = oth.Source
+            self.Entries = oth.Entries
+            self.Position = oth.Position
+            self.Count = oth.Count
+            return
+
         kargs = {
             "Source": Source,
             "Entries": Entries,

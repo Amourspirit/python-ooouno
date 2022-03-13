@@ -52,6 +52,15 @@ class PivotTableFieldEntry(object):
             HasHiddenMembers (bool, optional): HasHiddenMembers value.
         """
         super().__init__()
+
+        if isinstance(Name, PivotTableFieldEntry):
+            oth: PivotTableFieldEntry = Name
+            self.Name = oth.Name
+            self.DimensionIndex = oth.DimensionIndex
+            self.DimensionPositionIndex = oth.DimensionPositionIndex
+            self.HasHiddenMembers = oth.HasHiddenMembers
+            return
+
         kargs = {
             "Name": Name,
             "DimensionIndex": DimensionIndex,

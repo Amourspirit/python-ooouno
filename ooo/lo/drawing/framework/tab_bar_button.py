@@ -52,6 +52,14 @@ class TabBarButton(object):
             ResourceId (XResourceId, optional): ResourceId value.
         """
         super().__init__()
+
+        if isinstance(ButtonLabel, TabBarButton):
+            oth: TabBarButton = ButtonLabel
+            self.ButtonLabel = oth.ButtonLabel
+            self.HelpText = oth.HelpText
+            self.ResourceId = oth.ResourceId
+            return
+
         kargs = {
             "ButtonLabel": ButtonLabel,
             "HelpText": HelpText,

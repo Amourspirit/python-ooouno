@@ -52,6 +52,17 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
             StartRow (int, optional): StartRow value.
             EndRow (int, optional): EndRow value.
         """
+
+        if isinstance(Source, ChartDataChangeEvent):
+            oth: ChartDataChangeEvent = Source
+            self.Source = oth.Source
+            self.Type = oth.Type
+            self.StartColumn = oth.StartColumn
+            self.EndColumn = oth.EndColumn
+            self.StartRow = oth.StartRow
+            self.EndRow = oth.EndRow
+            return
+
         kargs = {
             "Source": Source,
             "Type": Type,

@@ -49,6 +49,15 @@ class ARGBColor(object):
             Blue (ColorComponent, optional): Blue value.
         """
         super().__init__()
+
+        if isinstance(Alpha, ARGBColor):
+            oth: ARGBColor = Alpha
+            self.Alpha = oth.Alpha
+            self.Red = oth.Red
+            self.Green = oth.Green
+            self.Blue = oth.Blue
+            return
+
         kargs = {
             "Alpha": Alpha,
             "Red": Red,

@@ -52,6 +52,16 @@ class AllEventObject(EventObject_a3d70b03):
             ListenerType (object, optional): ListenerType value.
             MethodName (str, optional): MethodName value.
         """
+
+        if isinstance(Source, AllEventObject):
+            oth: AllEventObject = Source
+            self.Source = oth.Source
+            self.Arguments = oth.Arguments
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.MethodName = oth.MethodName
+            return
+
         kargs = {
             "Source": Source,
             "Arguments": Arguments,

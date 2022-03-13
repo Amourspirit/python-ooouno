@@ -51,6 +51,14 @@ class PropertyCategoryDescriptor(object):
             HelpURL (str, optional): HelpURL value.
         """
         super().__init__()
+
+        if isinstance(ProgrammaticName, PropertyCategoryDescriptor):
+            oth: PropertyCategoryDescriptor = ProgrammaticName
+            self.ProgrammaticName = oth.ProgrammaticName
+            self.UIName = oth.UIName
+            self.HelpURL = oth.HelpURL
+            return
+
         kargs = {
             "ProgrammaticName": ProgrammaticName,
             "UIName": UIName,

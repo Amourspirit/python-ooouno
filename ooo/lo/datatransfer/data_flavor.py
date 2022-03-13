@@ -47,6 +47,14 @@ class DataFlavor(object):
             DataType (object, optional): DataType value.
         """
         super().__init__()
+
+        if isinstance(MimeType, DataFlavor):
+            oth: DataFlavor = MimeType
+            self.MimeType = oth.MimeType
+            self.HumanPresentableName = oth.HumanPresentableName
+            self.DataType = oth.DataType
+            return
+
         kargs = {
             "MimeType": MimeType,
             "HumanPresentableName": HumanPresentableName,

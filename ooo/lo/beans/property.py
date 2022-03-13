@@ -50,6 +50,15 @@ class Property(object):
             Attributes (int, optional): Attributes value.
         """
         super().__init__()
+
+        if isinstance(Name, Property):
+            oth: Property = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Type = oth.Type
+            self.Attributes = oth.Attributes
+            return
+
         kargs = {
             "Name": Name,
             "Handle": Handle,

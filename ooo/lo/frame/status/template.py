@@ -51,6 +51,14 @@ class Template(object):
             StyleNameIdentifier (str, optional): StyleNameIdentifier value.
         """
         super().__init__()
+
+        if isinstance(StyleName, Template):
+            oth: Template = StyleName
+            self.StyleName = oth.StyleName
+            self.Value = oth.Value
+            self.StyleNameIdentifier = oth.StyleNameIdentifier
+            return
+
         kargs = {
             "StyleName": StyleName,
             "Value": Value,

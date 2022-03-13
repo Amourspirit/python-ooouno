@@ -48,6 +48,14 @@ class LineBreakResults(object):
             rHyphenatedWord (XHyphenatedWord, optional): rHyphenatedWord value.
         """
         super().__init__()
+
+        if isinstance(breakType, LineBreakResults):
+            oth: LineBreakResults = breakType
+            self.breakType = oth.breakType
+            self.breakIndex = oth.breakIndex
+            self.rHyphenatedWord = oth.rHyphenatedWord
+            return
+
         kargs = {
             "breakType": breakType,
             "breakIndex": breakIndex,

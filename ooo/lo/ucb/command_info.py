@@ -47,6 +47,14 @@ class CommandInfo(object):
             ArgType (object, optional): ArgType value.
         """
         super().__init__()
+
+        if isinstance(Name, CommandInfo):
+            oth: CommandInfo = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.ArgType = oth.ArgType
+            return
+
         kargs = {
             "Name": Name,
             "Handle": Handle,

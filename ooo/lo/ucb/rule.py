@@ -50,6 +50,14 @@ class Rule(object):
             Action (int, optional): Action value.
         """
         super().__init__()
+
+        if isinstance(Terms, Rule):
+            oth: Rule = Terms
+            self.Terms = oth.Terms
+            self.Parameter = oth.Parameter
+            self.Action = oth.Action
+            return
+
         kargs = {
             "Terms": Terms,
             "Parameter": Parameter,

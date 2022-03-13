@@ -59,6 +59,20 @@ class FontInfo(object):
             IsVertical (TriState, optional): IsVertical value.
         """
         super().__init__()
+
+        if isinstance(FontDescription, FontInfo):
+            oth: FontInfo = FontDescription
+            self.FontDescription = oth.FontDescription
+            self.FamilyName = oth.FamilyName
+            self.StyleName = oth.StyleName
+            self.UnicodeRanges0 = oth.UnicodeRanges0
+            self.UnicodeRanges1 = oth.UnicodeRanges1
+            self.UnicodeRanges2 = oth.UnicodeRanges2
+            self.UnicodeRanges3 = oth.UnicodeRanges3
+            self.IsSymbolFont = oth.IsSymbolFont
+            self.IsVertical = oth.IsVertical
+            return
+
         kargs = {
             "FontDescription": FontDescription,
             "FamilyName": FamilyName,

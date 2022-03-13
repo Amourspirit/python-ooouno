@@ -48,6 +48,13 @@ class Boundary(object):
             endPos (int, optional): endPos value.
         """
         super().__init__()
+
+        if isinstance(startPos, Boundary):
+            oth: Boundary = startPos
+            self.startPos = oth.startPos
+            self.endPos = oth.endPos
+            return
+
         kargs = {
             "startPos": startPos,
             "endPos": endPos,

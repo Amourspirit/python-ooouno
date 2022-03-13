@@ -50,6 +50,14 @@ class FrameActionEvent(EventObject_a3d70b03):
             Frame (XFrame, optional): Frame value.
             Action (FrameAction, optional): Action value.
         """
+
+        if isinstance(Source, FrameActionEvent):
+            oth: FrameActionEvent = Source
+            self.Source = oth.Source
+            self.Frame = oth.Frame
+            self.Action = oth.Action
+            return
+
         kargs = {
             "Source": Source,
             "Frame": Frame,

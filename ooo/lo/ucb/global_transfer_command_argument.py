@@ -50,6 +50,16 @@ class GlobalTransferCommandArgument(object):
             NameClash (int, optional): NameClash value.
         """
         super().__init__()
+
+        if isinstance(Operation, GlobalTransferCommandArgument):
+            oth: GlobalTransferCommandArgument = Operation
+            self.Operation = oth.Operation
+            self.SourceURL = oth.SourceURL
+            self.TargetURL = oth.TargetURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
+            return
+
         kargs = {
             "Operation": Operation,
             "SourceURL": SourceURL,

@@ -48,6 +48,14 @@ class EnhancedCustomShapeAdjustmentValue(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Value, EnhancedCustomShapeAdjustmentValue):
+            oth: EnhancedCustomShapeAdjustmentValue = Value
+            self.Value = oth.Value
+            self.State = oth.State
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Value": Value,
             "State": State,

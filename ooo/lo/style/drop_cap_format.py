@@ -47,6 +47,14 @@ class DropCapFormat(object):
             Distance (int, optional): Distance value.
         """
         super().__init__()
+
+        if isinstance(Lines, DropCapFormat):
+            oth: DropCapFormat = Lines
+            self.Lines = oth.Lines
+            self.Count = oth.Count
+            self.Distance = oth.Distance
+            return
+
         kargs = {
             "Lines": Lines,
             "Count": Count,

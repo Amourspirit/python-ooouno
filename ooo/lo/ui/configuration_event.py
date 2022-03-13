@@ -55,6 +55,17 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
             ResourceURL (str, optional): ResourceURL value.
             aInfo (object, optional): aInfo value.
         """
+
+        if isinstance(Source, ConfigurationEvent):
+            oth: ConfigurationEvent = Source
+            self.Source = oth.Source
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
+            self.ResourceURL = oth.ResourceURL
+            self.aInfo = oth.aInfo
+            return
+
         kargs = {
             "Source": Source,
             "Accessor": Accessor,

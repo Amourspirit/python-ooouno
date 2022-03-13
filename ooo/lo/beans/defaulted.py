@@ -48,6 +48,13 @@ class Defaulted(object):
             IsDefaulted (bool, optional): IsDefaulted value.
         """
         super().__init__()
+
+        if isinstance(Value, Defaulted):
+            oth: Defaulted = Value
+            self.Value = oth.Value
+            self.IsDefaulted = oth.IsDefaulted
+            return
+
         kargs = {
             "Value": Value,
             "IsDefaulted": IsDefaulted,

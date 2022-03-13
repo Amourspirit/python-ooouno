@@ -53,6 +53,13 @@ class ErrorEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Reason (object, optional): Reason value.
         """
+
+        if isinstance(Source, ErrorEvent):
+            oth: ErrorEvent = Source
+            self.Source = oth.Source
+            self.Reason = oth.Reason
+            return
+
         kargs = {
             "Source": Source,
             "Reason": Reason,

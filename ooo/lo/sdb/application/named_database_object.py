@@ -50,6 +50,13 @@ class NamedDatabaseObject(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Type, NamedDatabaseObject):
+            oth: NamedDatabaseObject = Type
+            self.Type = oth.Type
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Type": Type,
             "Name": Name,

@@ -51,6 +51,14 @@ class TreeDataModelEvent(EventObject_a3d70b03):
             Nodes (typing.Tuple[XTreeNode, ...], optional): Nodes value.
             ParentNode (XTreeNode, optional): ParentNode value.
         """
+
+        if isinstance(Source, TreeDataModelEvent):
+            oth: TreeDataModelEvent = Source
+            self.Source = oth.Source
+            self.Nodes = oth.Nodes
+            self.ParentNode = oth.ParentNode
+            return
+
         kargs = {
             "Source": Source,
             "Nodes": Nodes,

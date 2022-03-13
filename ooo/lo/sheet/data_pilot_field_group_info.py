@@ -55,6 +55,20 @@ class DataPilotFieldGroupInfo(object):
             Groups (XNameAccess, optional): Groups value.
         """
         super().__init__()
+
+        if isinstance(HasAutoStart, DataPilotFieldGroupInfo):
+            oth: DataPilotFieldGroupInfo = HasAutoStart
+            self.HasAutoStart = oth.HasAutoStart
+            self.HasAutoEnd = oth.HasAutoEnd
+            self.HasDateValues = oth.HasDateValues
+            self.Start = oth.Start
+            self.End = oth.End
+            self.Step = oth.Step
+            self.GroupBy = oth.GroupBy
+            self.SourceField = oth.SourceField
+            self.Groups = oth.Groups
+            return
+
         kargs = {
             "HasAutoStart": HasAutoStart,
             "HasAutoEnd": HasAutoEnd,

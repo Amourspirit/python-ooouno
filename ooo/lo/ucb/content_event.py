@@ -51,6 +51,15 @@ class ContentEvent(EventObject_a3d70b03):
             Content (XContent, optional): Content value.
             Id (XContentIdentifier, optional): Id value.
         """
+
+        if isinstance(Source, ContentEvent):
+            oth: ContentEvent = Source
+            self.Source = oth.Source
+            self.Action = oth.Action
+            self.Content = oth.Content
+            self.Id = oth.Id
+            return
+
         kargs = {
             "Source": Source,
             "Action": Action,

@@ -53,6 +53,15 @@ class FilterEvent(EventObject_a3d70b03):
             FilterComponent (int, optional): FilterComponent value.
             PredicateExpression (str, optional): PredicateExpression value.
         """
+
+        if isinstance(Source, FilterEvent):
+            oth: FilterEvent = Source
+            self.Source = oth.Source
+            self.DisjunctiveTerm = oth.DisjunctiveTerm
+            self.FilterComponent = oth.FilterComponent
+            self.PredicateExpression = oth.PredicateExpression
+            return
+
         kargs = {
             "Source": Source,
             "DisjunctiveTerm": DisjunctiveTerm,

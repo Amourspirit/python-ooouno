@@ -48,6 +48,13 @@ class InsertedObjectInfo(object):
             Object (XEmbeddedObject, optional): Object value.
         """
         super().__init__()
+
+        if isinstance(Options, InsertedObjectInfo):
+            oth: InsertedObjectInfo = Options
+            self.Options = oth.Options
+            self.Object = oth.Object
+            return
+
         kargs = {
             "Options": Options,
             "Object": Object,

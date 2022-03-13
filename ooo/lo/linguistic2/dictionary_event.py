@@ -51,6 +51,14 @@ class DictionaryEvent(EventObject_a3d70b03):
             nEvent (int, optional): nEvent value.
             xDictionaryEntry (XDictionaryEntry, optional): xDictionaryEntry value.
         """
+
+        if isinstance(Source, DictionaryEvent):
+            oth: DictionaryEvent = Source
+            self.Source = oth.Source
+            self.nEvent = oth.nEvent
+            self.xDictionaryEntry = oth.xDictionaryEntry
+            return
+
         kargs = {
             "Source": Source,
             "nEvent": nEvent,

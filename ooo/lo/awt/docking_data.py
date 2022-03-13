@@ -47,6 +47,13 @@ class DockingData(object):
             bFloating (bool, optional): bFloating value.
         """
         super().__init__()
+
+        if isinstance(TrackingRectangle, DockingData):
+            oth: DockingData = TrackingRectangle
+            self.TrackingRectangle = oth.TrackingRectangle
+            self.bFloating = oth.bFloating
+            return
+
         kargs = {
             "TrackingRectangle": TrackingRectangle,
             "bFloating": bFloating,

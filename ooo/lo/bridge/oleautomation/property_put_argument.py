@@ -51,6 +51,12 @@ class PropertyPutArgument(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Value, PropertyPutArgument):
+            oth: PropertyPutArgument = Value
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Value": Value,
         }

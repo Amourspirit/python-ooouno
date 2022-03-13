@@ -47,6 +47,13 @@ class FormulaOpCodeMapEntry(object):
             Token (FormulaToken, optional): Token value.
         """
         super().__init__()
+
+        if isinstance(Name, FormulaOpCodeMapEntry):
+            oth: FormulaOpCodeMapEntry = Name
+            self.Name = oth.Name
+            self.Token = oth.Token
+            return
+
         kargs = {
             "Name": Name,
             "Token": Token,

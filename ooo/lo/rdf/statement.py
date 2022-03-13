@@ -55,6 +55,15 @@ class Statement(object):
             Graph (XURI, optional): Graph value.
         """
         super().__init__()
+
+        if isinstance(Subject, Statement):
+            oth: Statement = Subject
+            self.Subject = oth.Subject
+            self.Predicate = oth.Predicate
+            self.Object = oth.Object
+            self.Graph = oth.Graph
+            return
+
         kargs = {
             "Subject": Subject,
             "Predicate": Predicate,

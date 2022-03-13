@@ -54,6 +54,14 @@ class BezierPoint(object):
             ControlPoint2 (Point, optional): ControlPoint2 value.
         """
         super().__init__()
+
+        if isinstance(Position, BezierPoint):
+            oth: BezierPoint = Position
+            self.Position = oth.Position
+            self.ControlPoint1 = oth.ControlPoint1
+            self.ControlPoint2 = oth.ControlPoint2
+            return
+
         kargs = {
             "Position": Position,
             "ControlPoint1": ControlPoint1,

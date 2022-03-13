@@ -52,6 +52,16 @@ class DockingEvent(EventObject_a3d70b03):
             bLiveMode (bool, optional): bLiveMode value.
             bInteractive (bool, optional): bInteractive value.
         """
+
+        if isinstance(Source, DockingEvent):
+            oth: DockingEvent = Source
+            self.Source = oth.Source
+            self.TrackingRectangle = oth.TrackingRectangle
+            self.MousePos = oth.MousePos
+            self.bLiveMode = oth.bLiveMode
+            self.bInteractive = oth.bInteractive
+            return
+
         kargs = {
             "Source": Source,
             "TrackingRectangle": TrackingRectangle,

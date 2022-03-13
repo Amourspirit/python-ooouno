@@ -53,6 +53,16 @@ class Decimal(object):
             HighValue (int, optional): HighValue value.
         """
         super().__init__()
+
+        if isinstance(Scale, Decimal):
+            oth: Decimal = Scale
+            self.Scale = oth.Scale
+            self.Sign = oth.Sign
+            self.LowValue = oth.LowValue
+            self.MiddleValue = oth.MiddleValue
+            self.HighValue = oth.HighValue
+            return
+
         kargs = {
             "Scale": Scale,
             "Sign": Sign,

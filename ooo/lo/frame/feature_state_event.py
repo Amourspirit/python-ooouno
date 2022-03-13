@@ -52,6 +52,17 @@ class FeatureStateEvent(EventObject_a3d70b03):
             Requery (bool, optional): Requery value.
             State (object, optional): State value.
         """
+
+        if isinstance(Source, FeatureStateEvent):
+            oth: FeatureStateEvent = Source
+            self.Source = oth.Source
+            self.FeatureURL = oth.FeatureURL
+            self.FeatureDescriptor = oth.FeatureDescriptor
+            self.IsEnabled = oth.IsEnabled
+            self.Requery = oth.Requery
+            self.State = oth.State
+            return
+
         kargs = {
             "Source": Source,
             "FeatureURL": FeatureURL,

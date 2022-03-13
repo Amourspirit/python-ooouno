@@ -57,6 +57,17 @@ class TableFilterField2(object):
             StringValue (str, optional): StringValue value.
         """
         super().__init__()
+
+        if isinstance(Connection, TableFilterField2):
+            oth: TableFilterField2 = Connection
+            self.Connection = oth.Connection
+            self.Field = oth.Field
+            self.Operator = oth.Operator
+            self.IsNumeric = oth.IsNumeric
+            self.NumericValue = oth.NumericValue
+            self.StringValue = oth.StringValue
+            return
+
         kargs = {
             "Connection": Connection,
             "Field": Field,

@@ -58,6 +58,15 @@ class DocumentEvent(EventObject_a3d70b03):
             ViewController (XController2, optional): ViewController value.
             Supplement (object, optional): Supplement value.
         """
+
+        if isinstance(Source, DocumentEvent):
+            oth: DocumentEvent = Source
+            self.Source = oth.Source
+            self.EventName = oth.EventName
+            self.ViewController = oth.ViewController
+            self.Supplement = oth.Supplement
+            return
+
         kargs = {
             "Source": Source,
             "EventName": EventName,

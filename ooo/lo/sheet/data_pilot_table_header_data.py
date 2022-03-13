@@ -55,6 +55,16 @@ class DataPilotTableHeaderData(object):
             MemberName (str, optional): MemberName value.
         """
         super().__init__()
+
+        if isinstance(Dimension, DataPilotTableHeaderData):
+            oth: DataPilotTableHeaderData = Dimension
+            self.Dimension = oth.Dimension
+            self.Hierarchy = oth.Hierarchy
+            self.Level = oth.Level
+            self.Flags = oth.Flags
+            self.MemberName = oth.MemberName
+            return
+
         kargs = {
             "Dimension": Dimension,
             "Hierarchy": Hierarchy,

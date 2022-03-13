@@ -49,6 +49,16 @@ class TransferInfo2(TransferInfo_a4600b13):
             NameClash (int, optional): NameClash value.
             MimeType (str, optional): MimeType value.
         """
+
+        if isinstance(MoveData, TransferInfo2):
+            oth: TransferInfo2 = MoveData
+            self.MoveData = oth.MoveData
+            self.SourceURL = oth.SourceURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
+            self.MimeType = oth.MimeType
+            return
+
         kargs = {
             "MoveData": MoveData,
             "SourceURL": SourceURL,

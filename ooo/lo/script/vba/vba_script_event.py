@@ -48,6 +48,14 @@ class VBAScriptEvent(EventObject_a3d70b03):
             Identifier (int, optional): Identifier value.
             ModuleName (str, optional): ModuleName value.
         """
+
+        if isinstance(Source, VBAScriptEvent):
+            oth: VBAScriptEvent = Source
+            self.Source = oth.Source
+            self.Identifier = oth.Identifier
+            self.ModuleName = oth.ModuleName
+            return
+
         kargs = {
             "Source": Source,
             "Identifier": Identifier,

@@ -50,6 +50,17 @@ class SimpleFontMetric(object):
             LastChar (str, optional): LastChar value.
         """
         super().__init__()
+
+        if isinstance(Ascent, SimpleFontMetric):
+            oth: SimpleFontMetric = Ascent
+            self.Ascent = oth.Ascent
+            self.Descent = oth.Descent
+            self.Leading = oth.Leading
+            self.Slant = oth.Slant
+            self.FirstChar = oth.FirstChar
+            self.LastChar = oth.LastChar
+            return
+
         kargs = {
             "Ascent": Ascent,
             "Descent": Descent,

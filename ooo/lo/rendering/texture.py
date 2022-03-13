@@ -65,6 +65,20 @@ class Texture(object):
             RepeatModeY (int, optional): RepeatModeY value.
         """
         super().__init__()
+
+        if isinstance(AffineTransform, Texture):
+            oth: Texture = AffineTransform
+            self.AffineTransform = oth.AffineTransform
+            self.Alpha = oth.Alpha
+            self.NumberOfHatchPolygons = oth.NumberOfHatchPolygons
+            self.Bitmap = oth.Bitmap
+            self.Gradient = oth.Gradient
+            self.Hatching = oth.Hatching
+            self.HatchAttributes = oth.HatchAttributes
+            self.RepeatModeX = oth.RepeatModeX
+            self.RepeatModeY = oth.RepeatModeY
+            return
+
         kargs = {
             "AffineTransform": AffineTransform,
             "Alpha": Alpha,

@@ -51,6 +51,18 @@ class SingleReference(object):
             Flags (int, optional): Flags value.
         """
         super().__init__()
+
+        if isinstance(Column, SingleReference):
+            oth: SingleReference = Column
+            self.Column = oth.Column
+            self.RelativeColumn = oth.RelativeColumn
+            self.Row = oth.Row
+            self.RelativeRow = oth.RelativeRow
+            self.Sheet = oth.Sheet
+            self.RelativeSheet = oth.RelativeSheet
+            self.Flags = oth.Flags
+            return
+
         kargs = {
             "Column": Column,
             "RelativeColumn": RelativeColumn,

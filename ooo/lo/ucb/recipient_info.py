@@ -60,6 +60,24 @@ class RecipientInfo(object):
             SendTries (int, optional): SendTries value.
         """
         super().__init__()
+
+        if isinstance(ProtocolType, RecipientInfo):
+            oth: RecipientInfo = ProtocolType
+            self.ProtocolType = oth.ProtocolType
+            self.State = oth.State
+            self.To = oth.To
+            self.CC = oth.CC
+            self.BCC = oth.BCC
+            self.Newsgroups = oth.Newsgroups
+            self.Server = oth.Server
+            self.Username = oth.Username
+            self.Password = oth.Password
+            self.VIMPostOfficePath = oth.VIMPostOfficePath
+            self.ProtocolErrorString = oth.ProtocolErrorString
+            self.ProtocolErrorNumber = oth.ProtocolErrorNumber
+            self.SendTries = oth.SendTries
+            return
+
         kargs = {
             "ProtocolType": ProtocolType,
             "State": State,

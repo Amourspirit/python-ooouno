@@ -51,6 +51,13 @@ class TimeWithTimezone(object):
             Timezone (int, optional): Timezone value.
         """
         super().__init__()
+
+        if isinstance(TimeInTZ, TimeWithTimezone):
+            oth: TimeWithTimezone = TimeInTZ
+            self.TimeInTZ = oth.TimeInTZ
+            self.Timezone = oth.Timezone
+            return
+
         kargs = {
             "TimeInTZ": TimeInTZ,
             "Timezone": Timezone,

@@ -56,6 +56,17 @@ class TableSortField(object):
             CollatorAlgorithm (str, optional): CollatorAlgorithm value.
         """
         super().__init__()
+
+        if isinstance(Field, TableSortField):
+            oth: TableSortField = Field
+            self.Field = oth.Field
+            self.IsAscending = oth.IsAscending
+            self.IsCaseSensitive = oth.IsCaseSensitive
+            self.FieldType = oth.FieldType
+            self.CollatorLocale = oth.CollatorLocale
+            self.CollatorAlgorithm = oth.CollatorAlgorithm
+            return
+
         kargs = {
             "Field": Field,
             "IsAscending": IsAscending,

@@ -46,6 +46,13 @@ class NameToken(object):
             Sheet (int, optional): Sheet value.
         """
         super().__init__()
+
+        if isinstance(Index, NameToken):
+            oth: NameToken = Index
+            self.Index = oth.Index
+            self.Sheet = oth.Sheet
+            return
+
         kargs = {
             "Index": Index,
             "Sheet": Sheet,

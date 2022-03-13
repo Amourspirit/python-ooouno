@@ -52,6 +52,14 @@ class SortField(object):
             FieldType (SortFieldType, optional): FieldType value.
         """
         super().__init__()
+
+        if isinstance(Field, SortField):
+            oth: SortField = Field
+            self.Field = oth.Field
+            self.SortAscending = oth.SortAscending
+            self.FieldType = oth.FieldType
+            return
+
         kargs = {
             "Field": Field,
             "SortAscending": SortAscending,

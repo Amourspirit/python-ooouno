@@ -49,6 +49,14 @@ class AdjustmentEvent(EventObject_a3d70b03):
             Value (int, optional): Value value.
             Type (AdjustmentType, optional): Type value.
         """
+
+        if isinstance(Source, AdjustmentEvent):
+            oth: AdjustmentEvent = Source
+            self.Source = oth.Source
+            self.Value = oth.Value
+            self.Type = oth.Type
+            return
+
         kargs = {
             "Source": Source,
             "Value": Value,

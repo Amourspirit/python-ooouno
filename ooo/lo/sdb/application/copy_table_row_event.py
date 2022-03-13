@@ -51,6 +51,14 @@ class CopyTableRowEvent(EventObject_a3d70b03):
             SourceData (XResultSet, optional): SourceData value.
             Error (object, optional): Error value.
         """
+
+        if isinstance(Source, CopyTableRowEvent):
+            oth: CopyTableRowEvent = Source
+            self.Source = oth.Source
+            self.SourceData = oth.SourceData
+            self.Error = oth.Error
+            return
+
         kargs = {
             "Source": Source,
             "SourceData": SourceData,

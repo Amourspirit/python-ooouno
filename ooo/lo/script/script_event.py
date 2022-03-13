@@ -54,6 +54,18 @@ class ScriptEvent(AllEventObject_e2c20d0f):
             ScriptType (str, optional): ScriptType value.
             ScriptCode (str, optional): ScriptCode value.
         """
+
+        if isinstance(Source, ScriptEvent):
+            oth: ScriptEvent = Source
+            self.Source = oth.Source
+            self.Arguments = oth.Arguments
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.MethodName = oth.MethodName
+            self.ScriptType = oth.ScriptType
+            self.ScriptCode = oth.ScriptCode
+            return
+
         kargs = {
             "Source": Source,
             "Arguments": Arguments,

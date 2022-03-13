@@ -47,6 +47,14 @@ class Direction3D(object):
             DirectionZ (float, optional): DirectionZ value.
         """
         super().__init__()
+
+        if isinstance(DirectionX, Direction3D):
+            oth: Direction3D = DirectionX
+            self.DirectionX = oth.DirectionX
+            self.DirectionY = oth.DirectionY
+            self.DirectionZ = oth.DirectionZ
+            return
+
         kargs = {
             "DirectionX": DirectionX,
             "DirectionY": DirectionY,

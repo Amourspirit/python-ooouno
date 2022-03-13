@@ -54,6 +54,15 @@ class CalendarItem2(CalendarItem_a86c0af1):
             FullName (str, optional): FullName value.
             NarrowName (str, optional): NarrowName value.
         """
+
+        if isinstance(ID, CalendarItem2):
+            oth: CalendarItem2 = ID
+            self.ID = oth.ID
+            self.AbbrevName = oth.AbbrevName
+            self.FullName = oth.FullName
+            self.NarrowName = oth.NarrowName
+            return
+
         kargs = {
             "ID": ID,
             "AbbrevName": AbbrevName,

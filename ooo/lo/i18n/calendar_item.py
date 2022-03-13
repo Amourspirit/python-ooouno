@@ -49,6 +49,14 @@ class CalendarItem(object):
             FullName (str, optional): FullName value.
         """
         super().__init__()
+
+        if isinstance(ID, CalendarItem):
+            oth: CalendarItem = ID
+            self.ID = oth.ID
+            self.AbbrevName = oth.AbbrevName
+            self.FullName = oth.FullName
+            return
+
         kargs = {
             "ID": ID,
             "AbbrevName": AbbrevName,

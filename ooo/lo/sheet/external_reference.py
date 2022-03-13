@@ -52,6 +52,13 @@ class ExternalReference(object):
             Reference (object, optional): Reference value.
         """
         super().__init__()
+
+        if isinstance(Index, ExternalReference):
+            oth: ExternalReference = Index
+            self.Index = oth.Index
+            self.Reference = oth.Reference
+            return
+
         kargs = {
             "Index": Index,
             "Reference": Reference,

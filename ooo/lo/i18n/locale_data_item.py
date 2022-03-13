@@ -62,6 +62,29 @@ class LocaleDataItem(object):
             LongDateYearSeparator (str, optional): LongDateYearSeparator value.
         """
         super().__init__()
+
+        if isinstance(unoID, LocaleDataItem):
+            oth: LocaleDataItem = unoID
+            self.unoID = oth.unoID
+            self.dateSeparator = oth.dateSeparator
+            self.thousandSeparator = oth.thousandSeparator
+            self.decimalSeparator = oth.decimalSeparator
+            self.timeSeparator = oth.timeSeparator
+            self.time100SecSeparator = oth.time100SecSeparator
+            self.listSeparator = oth.listSeparator
+            self.quotationStart = oth.quotationStart
+            self.quotationEnd = oth.quotationEnd
+            self.doubleQuotationStart = oth.doubleQuotationStart
+            self.doubleQuotationEnd = oth.doubleQuotationEnd
+            self.timeAM = oth.timeAM
+            self.timePM = oth.timePM
+            self.measurementSystem = oth.measurementSystem
+            self.LongDateDayOfWeekSeparator = oth.LongDateDayOfWeekSeparator
+            self.LongDateDaySeparator = oth.LongDateDaySeparator
+            self.LongDateMonthSeparator = oth.LongDateMonthSeparator
+            self.LongDateYearSeparator = oth.LongDateYearSeparator
+            return
+
         kargs = {
             "unoID": unoID,
             "dateSeparator": dateSeparator,

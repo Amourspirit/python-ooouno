@@ -48,6 +48,15 @@ class CmisVersion(object):
             Comment (str, optional): Comment value.
         """
         super().__init__()
+
+        if isinstance(Id, CmisVersion):
+            oth: CmisVersion = Id
+            self.Id = oth.Id
+            self.TimeStamp = oth.TimeStamp
+            self.Author = oth.Author
+            self.Comment = oth.Comment
+            return
+
         kargs = {
             "Id": Id,
             "TimeStamp": TimeStamp,

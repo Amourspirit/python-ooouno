@@ -53,6 +53,15 @@ class TableFilterField3(object):
             Operator (int, optional): Operator value.
         """
         super().__init__()
+
+        if isinstance(Values, TableFilterField3):
+            oth: TableFilterField3 = Values
+            self.Values = oth.Values
+            self.Connection = oth.Connection
+            self.Field = oth.Field
+            self.Operator = oth.Operator
+            return
+
         kargs = {
             "Values": Values,
             "Connection": Connection,

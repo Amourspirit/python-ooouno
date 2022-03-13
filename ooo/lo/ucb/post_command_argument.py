@@ -48,6 +48,13 @@ class PostCommandArgument(object):
             Sink (XInterface, optional): Sink value.
         """
         super().__init__()
+
+        if isinstance(Source, PostCommandArgument):
+            oth: PostCommandArgument = Source
+            self.Source = oth.Source
+            self.Sink = oth.Sink
+            return
+
         kargs = {
             "Source": Source,
             "Sink": Sink,

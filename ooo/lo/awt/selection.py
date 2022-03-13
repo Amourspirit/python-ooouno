@@ -46,6 +46,13 @@ class Selection(object):
             Max (int, optional): Max value.
         """
         super().__init__()
+
+        if isinstance(Min, Selection):
+            oth: Selection = Min
+            self.Min = oth.Min
+            self.Max = oth.Max
+            return
+
         kargs = {
             "Min": Min,
             "Max": Max,

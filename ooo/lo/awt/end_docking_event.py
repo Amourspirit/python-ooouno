@@ -50,6 +50,15 @@ class EndDockingEvent(EventObject_a3d70b03):
             bFloating (bool, optional): bFloating value.
             bCancelled (bool, optional): bCancelled value.
         """
+
+        if isinstance(Source, EndDockingEvent):
+            oth: EndDockingEvent = Source
+            self.Source = oth.Source
+            self.WindowRectangle = oth.WindowRectangle
+            self.bFloating = oth.bFloating
+            self.bCancelled = oth.bCancelled
+            return
+
         kargs = {
             "Source": Source,
             "WindowRectangle": WindowRectangle,

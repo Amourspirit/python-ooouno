@@ -55,6 +55,18 @@ class ContextInformation(object):
             EndColumn (int, optional): EndColumn value.
         """
         super().__init__()
+
+        if isinstance(LocalVariableNames, ContextInformation):
+            oth: ContextInformation = LocalVariableNames
+            self.LocalVariableNames = oth.LocalVariableNames
+            self.Name = oth.Name
+            self.SourceCode = oth.SourceCode
+            self.StartLine = oth.StartLine
+            self.StartColumn = oth.StartColumn
+            self.EndLine = oth.EndLine
+            self.EndColumn = oth.EndColumn
+            return
+
         kargs = {
             "LocalVariableNames": LocalVariableNames,
             "Name": Name,

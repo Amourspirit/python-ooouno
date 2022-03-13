@@ -47,6 +47,14 @@ class CellAddress(object):
             Row (int, optional): Row value.
         """
         super().__init__()
+
+        if isinstance(Sheet, CellAddress):
+            oth: CellAddress = Sheet
+            self.Sheet = oth.Sheet
+            self.Column = oth.Column
+            self.Row = oth.Row
+            return
+
         kargs = {
             "Sheet": Sheet,
             "Column": Column,

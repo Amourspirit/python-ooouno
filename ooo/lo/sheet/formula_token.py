@@ -46,6 +46,13 @@ class FormulaToken(object):
             Data (object, optional): Data value.
         """
         super().__init__()
+
+        if isinstance(OpCode, FormulaToken):
+            oth: FormulaToken = OpCode
+            self.OpCode = oth.OpCode
+            self.Data = oth.Data
+            return
+
         kargs = {
             "OpCode": OpCode,
             "Data": Data,

@@ -51,6 +51,16 @@ class RuleTerm(object):
             RegularExpression (bool, optional): RegularExpression value.
         """
         super().__init__()
+
+        if isinstance(Property, RuleTerm):
+            oth: RuleTerm = Property
+            self.Property = oth.Property
+            self.Operand = oth.Operand
+            self.Operator = oth.Operator
+            self.CaseSensitive = oth.CaseSensitive
+            self.RegularExpression = oth.RegularExpression
+            return
+
         kargs = {
             "Property": Property,
             "Operand": Operand,

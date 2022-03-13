@@ -52,6 +52,13 @@ class SectionFileLink(object):
             FilterName (str, optional): FilterName value.
         """
         super().__init__()
+
+        if isinstance(FileURL, SectionFileLink):
+            oth: SectionFileLink = FileURL
+            self.FileURL = oth.FileURL
+            self.FilterName = oth.FilterName
+            return
+
         kargs = {
             "FileURL": FileURL,
             "FilterName": FilterName,

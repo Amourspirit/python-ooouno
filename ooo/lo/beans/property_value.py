@@ -49,6 +49,15 @@ class PropertyValue(object):
             State (PropertyState, optional): State value.
         """
         super().__init__()
+
+        if isinstance(Name, PropertyValue):
+            oth: PropertyValue = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Value = oth.Value
+            self.State = oth.State
+            return
+
         kargs = {
             "Name": Name,
             "Handle": Handle,

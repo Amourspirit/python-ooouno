@@ -51,6 +51,18 @@ class Currency(object):
             DecimalPlaces (int, optional): DecimalPlaces value.
         """
         super().__init__()
+
+        if isinstance(ID, Currency):
+            oth: Currency = ID
+            self.ID = oth.ID
+            self.Symbol = oth.Symbol
+            self.BankSymbol = oth.BankSymbol
+            self.Name = oth.Name
+            self.Default = oth.Default
+            self.UsedInCompatibleFormatCodes = oth.UsedInCompatibleFormatCodes
+            self.DecimalPlaces = oth.DecimalPlaces
+            return
+
         kargs = {
             "ID": ID,
             "Symbol": Symbol,

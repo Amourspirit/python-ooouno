@@ -49,6 +49,14 @@ class Date(object):
             Year (int, optional): Year value.
         """
         super().__init__()
+
+        if isinstance(Day, Date):
+            oth: Date = Day
+            self.Day = oth.Day
+            self.Month = oth.Month
+            self.Year = oth.Year
+            return
+
         kargs = {
             "Day": Day,
             "Month": Month,

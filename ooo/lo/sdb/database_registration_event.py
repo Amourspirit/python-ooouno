@@ -53,6 +53,15 @@ class DatabaseRegistrationEvent(EventObject_a3d70b03):
             OldLocation (str, optional): OldLocation value.
             NewLocation (str, optional): NewLocation value.
         """
+
+        if isinstance(Source, DatabaseRegistrationEvent):
+            oth: DatabaseRegistrationEvent = Source
+            self.Source = oth.Source
+            self.Name = oth.Name
+            self.OldLocation = oth.OldLocation
+            self.NewLocation = oth.NewLocation
+            return
+
         kargs = {
             "Source": Source,
             "Name": Name,

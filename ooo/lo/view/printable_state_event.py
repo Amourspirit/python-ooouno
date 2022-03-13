@@ -52,6 +52,13 @@ class PrintableStateEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             State (PrintableState, optional): State value.
         """
+
+        if isinstance(Source, PrintableStateEvent):
+            oth: PrintableStateEvent = Source
+            self.Source = oth.Source
+            self.State = oth.State
+            return
+
         kargs = {
             "Source": Source,
             "State": State,

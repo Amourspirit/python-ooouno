@@ -48,6 +48,14 @@ class GetPropertyTolerantResult(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Result, GetPropertyTolerantResult):
+            oth: GetPropertyTolerantResult = Result
+            self.Result = oth.Result
+            self.State = oth.State
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Result": Result,
             "State": State,

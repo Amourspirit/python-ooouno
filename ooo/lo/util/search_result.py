@@ -46,6 +46,14 @@ class SearchResult(object):
             subRegExpressions (int, optional): subRegExpressions value.
         """
         super().__init__()
+
+        if isinstance(startOffset, SearchResult):
+            oth: SearchResult = startOffset
+            self.startOffset = oth.startOffset
+            self.endOffset = oth.endOffset
+            self.subRegExpressions = oth.subRegExpressions
+            return
+
         kargs = {
             "startOffset": startOffset,
             "endOffset": endOffset,

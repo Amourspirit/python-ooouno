@@ -53,6 +53,14 @@ class Locale(object):
             Variant (str, optional): Variant value.
         """
         super().__init__()
+
+        if isinstance(Language, Locale):
+            oth: Locale = Language
+            self.Language = oth.Language
+            self.Country = oth.Country
+            self.Variant = oth.Variant
+            return
+
         kargs = {
             "Language": Language,
             "Country": Country,

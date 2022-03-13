@@ -47,6 +47,14 @@ class Position3D(object):
             PositionZ (float, optional): PositionZ value.
         """
         super().__init__()
+
+        if isinstance(PositionX, Position3D):
+            oth: Position3D = PositionX
+            self.PositionX = oth.PositionX
+            self.PositionY = oth.PositionY
+            self.PositionZ = oth.PositionZ
+            return
+
         kargs = {
             "PositionX": PositionX,
             "PositionY": PositionY,

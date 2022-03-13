@@ -50,6 +50,13 @@ class FeatureState(object):
             State (object, optional): State value.
         """
         super().__init__()
+
+        if isinstance(Enabled, FeatureState):
+            oth: FeatureState = Enabled
+            self.Enabled = oth.Enabled
+            self.State = oth.State
+            return
+
         kargs = {
             "Enabled": Enabled,
             "State": State,

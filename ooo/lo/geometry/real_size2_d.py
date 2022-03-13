@@ -52,6 +52,13 @@ class RealSize2D(object):
             Height (float, optional): Height value.
         """
         super().__init__()
+
+        if isinstance(Width, RealSize2D):
+            oth: RealSize2D = Width
+            self.Width = oth.Width
+            self.Height = oth.Height
+            return
+
         kargs = {
             "Width": Width,
             "Height": Height,

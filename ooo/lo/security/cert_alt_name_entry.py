@@ -47,6 +47,13 @@ class CertAltNameEntry(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Type, CertAltNameEntry):
+            oth: CertAltNameEntry = Type
+            self.Type = oth.Type
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Type": Type,
             "Value": Value,

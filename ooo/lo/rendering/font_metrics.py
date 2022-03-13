@@ -59,6 +59,18 @@ class FontMetrics(object):
             StrikeThroughOffset (float, optional): StrikeThroughOffset value.
         """
         super().__init__()
+
+        if isinstance(Ascent, FontMetrics):
+            oth: FontMetrics = Ascent
+            self.Ascent = oth.Ascent
+            self.Descent = oth.Descent
+            self.InternalLeading = oth.InternalLeading
+            self.ExternalLeading = oth.ExternalLeading
+            self.ReferenceCharSize = oth.ReferenceCharSize
+            self.UnderlineOffset = oth.UnderlineOffset
+            self.StrikeThroughOffset = oth.StrikeThroughOffset
+            return
+
         kargs = {
             "Ascent": Ascent,
             "Descent": Descent,

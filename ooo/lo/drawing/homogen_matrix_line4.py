@@ -48,6 +48,15 @@ class HomogenMatrixLine4(object):
             Column4 (float, optional): Column4 value.
         """
         super().__init__()
+
+        if isinstance(Column1, HomogenMatrixLine4):
+            oth: HomogenMatrixLine4 = Column1
+            self.Column1 = oth.Column1
+            self.Column2 = oth.Column2
+            self.Column3 = oth.Column3
+            self.Column4 = oth.Column4
+            return
+
         kargs = {
             "Column1": Column1,
             "Column2": Column2,

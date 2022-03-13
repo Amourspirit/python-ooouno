@@ -46,6 +46,13 @@ class UrlRecord(object):
             Url (str, optional): Url value.
         """
         super().__init__()
+
+        if isinstance(UserList, UrlRecord):
+            oth: UrlRecord = UserList
+            self.UserList = oth.UserList
+            self.Url = oth.Url
+            return
+
         kargs = {
             "UserList": UserList,
             "Url": Url,

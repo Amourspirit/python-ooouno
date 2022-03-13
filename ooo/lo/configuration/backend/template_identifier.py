@@ -50,6 +50,13 @@ class TemplateIdentifier(object):
             Component (str, optional): Component value.
         """
         super().__init__()
+
+        if isinstance(Name, TemplateIdentifier):
+            oth: TemplateIdentifier = Name
+            self.Name = oth.Name
+            self.Component = oth.Component
+            return
+
         kargs = {
             "Name": Name,
             "Component": Component,

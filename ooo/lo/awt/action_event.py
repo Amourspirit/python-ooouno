@@ -51,6 +51,13 @@ class ActionEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             ActionCommand (str, optional): ActionCommand value.
         """
+
+        if isinstance(Source, ActionEvent):
+            oth: ActionEvent = Source
+            self.Source = oth.Source
+            self.ActionCommand = oth.ActionCommand
+            return
+
         kargs = {
             "Source": Source,
             "ActionCommand": ActionCommand,

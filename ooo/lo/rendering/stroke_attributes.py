@@ -53,6 +53,18 @@ class StrokeAttributes(object):
             JoinType (int, optional): JoinType value.
         """
         super().__init__()
+
+        if isinstance(DashArray, StrokeAttributes):
+            oth: StrokeAttributes = DashArray
+            self.DashArray = oth.DashArray
+            self.LineArray = oth.LineArray
+            self.StrokeWidth = oth.StrokeWidth
+            self.MiterLimit = oth.MiterLimit
+            self.StartCapType = oth.StartCapType
+            self.EndCapType = oth.EndCapType
+            self.JoinType = oth.JoinType
+            return
+
         kargs = {
             "DashArray": DashArray,
             "LineArray": LineArray,

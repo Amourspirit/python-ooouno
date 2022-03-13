@@ -55,6 +55,16 @@ class Uik(object):
             Data5 (int, optional): Data5 value.
         """
         super().__init__()
+
+        if isinstance(Data1, Uik):
+            oth: Uik = Data1
+            self.Data1 = oth.Data1
+            self.Data2 = oth.Data2
+            self.Data3 = oth.Data3
+            self.Data4 = oth.Data4
+            self.Data5 = oth.Data5
+            return
+
         kargs = {
             "Data1": Data1,
             "Data2": Data2,

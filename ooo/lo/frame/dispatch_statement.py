@@ -54,6 +54,16 @@ class DispatchStatement(object):
             bIsComment (bool, optional): bIsComment value.
         """
         super().__init__()
+
+        if isinstance(aArgs, DispatchStatement):
+            oth: DispatchStatement = aArgs
+            self.aArgs = oth.aArgs
+            self.aCommand = oth.aCommand
+            self.aTarget = oth.aTarget
+            self.nFlags = oth.nFlags
+            self.bIsComment = oth.bIsComment
+            return
+
         kargs = {
             "aArgs": aArgs,
             "aCommand": aCommand,

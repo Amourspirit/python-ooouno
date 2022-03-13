@@ -63,6 +63,26 @@ class DateTimeRange(object):
             IsUTC (bool, optional): IsUTC value.
         """
         super().__init__()
+
+        if isinstance(StartNanoSeconds, DateTimeRange):
+            oth: DateTimeRange = StartNanoSeconds
+            self.StartNanoSeconds = oth.StartNanoSeconds
+            self.StartSeconds = oth.StartSeconds
+            self.StartMinutes = oth.StartMinutes
+            self.StartHours = oth.StartHours
+            self.StartDay = oth.StartDay
+            self.StartMonth = oth.StartMonth
+            self.StartYear = oth.StartYear
+            self.EndNanoSeconds = oth.EndNanoSeconds
+            self.EndSeconds = oth.EndSeconds
+            self.EndMinutes = oth.EndMinutes
+            self.EndHours = oth.EndHours
+            self.EndDay = oth.EndDay
+            self.EndMonth = oth.EndMonth
+            self.EndYear = oth.EndYear
+            self.IsUTC = oth.IsUTC
+            return
+
         kargs = {
             "StartNanoSeconds": StartNanoSeconds,
             "StartSeconds": StartSeconds,

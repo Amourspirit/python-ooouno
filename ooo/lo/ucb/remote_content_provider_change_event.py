@@ -49,6 +49,14 @@ class RemoteContentProviderChangeEvent(EventObject_a3d70b03):
             Identifier (str, optional): Identifier value.
             Action (RemoteContentProviderChangeAction, optional): Action value.
         """
+
+        if isinstance(Source, RemoteContentProviderChangeEvent):
+            oth: RemoteContentProviderChangeEvent = Source
+            self.Source = oth.Source
+            self.Identifier = oth.Identifier
+            self.Action = oth.Action
+            return
+
         kargs = {
             "Source": Source,
             "Identifier": Identifier,

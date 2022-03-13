@@ -48,6 +48,15 @@ class BorderWidths(object):
             Bottom (int, optional): Bottom value.
         """
         super().__init__()
+
+        if isinstance(Left, BorderWidths):
+            oth: BorderWidths = Left
+            self.Left = oth.Left
+            self.Top = oth.Top
+            self.Right = oth.Right
+            self.Bottom = oth.Bottom
+            return
+
         kargs = {
             "Left": Left,
             "Top": Top,

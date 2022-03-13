@@ -52,6 +52,19 @@ class ParseResult(object):
             DequotedNameOrString (str, optional): DequotedNameOrString value.
         """
         super().__init__()
+
+        if isinstance(LeadingWhiteSpace, ParseResult):
+            oth: ParseResult = LeadingWhiteSpace
+            self.LeadingWhiteSpace = oth.LeadingWhiteSpace
+            self.EndPos = oth.EndPos
+            self.CharLen = oth.CharLen
+            self.Value = oth.Value
+            self.TokenType = oth.TokenType
+            self.StartFlags = oth.StartFlags
+            self.ContFlags = oth.ContFlags
+            self.DequotedNameOrString = oth.DequotedNameOrString
+            return
+
         kargs = {
             "LeadingWhiteSpace": LeadingWhiteSpace,
             "EndPos": EndPos,

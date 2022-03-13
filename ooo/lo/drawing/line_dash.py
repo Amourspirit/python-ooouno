@@ -51,6 +51,17 @@ class LineDash(object):
             Distance (int, optional): Distance value.
         """
         super().__init__()
+
+        if isinstance(Style, LineDash):
+            oth: LineDash = Style
+            self.Style = oth.Style
+            self.Dots = oth.Dots
+            self.DotLen = oth.DotLen
+            self.Dashes = oth.Dashes
+            self.DashLen = oth.DashLen
+            self.Distance = oth.Distance
+            return
+
         kargs = {
             "Style": Style,
             "Dots": Dots,

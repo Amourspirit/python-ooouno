@@ -46,6 +46,13 @@ class SendMediaTypes(object):
             ProtocolType (str, optional): ProtocolType value.
         """
         super().__init__()
+
+        if isinstance(Value, SendMediaTypes):
+            oth: SendMediaTypes = Value
+            self.Value = oth.Value
+            self.ProtocolType = oth.ProtocolType
+            return
+
         kargs = {
             "Value": Value,
             "ProtocolType": ProtocolType,

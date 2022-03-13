@@ -52,6 +52,18 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
             MimeType (str, optional): MimeType value.
             DocumentId (str, optional): DocumentId value.
         """
+
+        if isinstance(Operation, GlobalTransferCommandArgument2):
+            oth: GlobalTransferCommandArgument2 = Operation
+            self.Operation = oth.Operation
+            self.SourceURL = oth.SourceURL
+            self.TargetURL = oth.TargetURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
+            self.MimeType = oth.MimeType
+            self.DocumentId = oth.DocumentId
+            return
+
         kargs = {
             "Operation": Operation,
             "SourceURL": SourceURL,

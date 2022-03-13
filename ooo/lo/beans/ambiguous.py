@@ -48,6 +48,13 @@ class Ambiguous(object):
             IsAmbiguous (bool, optional): IsAmbiguous value.
         """
         super().__init__()
+
+        if isinstance(Value, Ambiguous):
+            oth: Ambiguous = Value
+            self.Value = oth.Value
+            self.IsAmbiguous = oth.IsAmbiguous
+            return
+
         kargs = {
             "Value": Value,
             "IsAmbiguous": IsAmbiguous,

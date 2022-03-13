@@ -50,6 +50,15 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
             MediaType (str, optional): MediaType value.
             Referer (str, optional): Referer value.
         """
+
+        if isinstance(Source, PostCommandArgument2):
+            oth: PostCommandArgument2 = Source
+            self.Source = oth.Source
+            self.Sink = oth.Sink
+            self.MediaType = oth.MediaType
+            self.Referer = oth.Referer
+            return
+
         kargs = {
             "Source": Source,
             "Sink": Sink,

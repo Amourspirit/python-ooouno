@@ -51,6 +51,13 @@ class ControlCommand(object):
             Command (str, optional): Command value.
         """
         super().__init__()
+
+        if isinstance(Arguments, ControlCommand):
+            oth: ControlCommand = Arguments
+            self.Arguments = oth.Arguments
+            self.Command = oth.Command
+            return
+
         kargs = {
             "Arguments": Arguments,
             "Command": Command,

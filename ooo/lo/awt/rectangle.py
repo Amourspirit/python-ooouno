@@ -48,6 +48,15 @@ class Rectangle(object):
             Height (int, optional): Height value.
         """
         super().__init__()
+
+        if isinstance(X, Rectangle):
+            oth: Rectangle = X
+            self.X = oth.X
+            self.Y = oth.Y
+            self.Width = oth.Width
+            self.Height = oth.Height
+            return
+
         kargs = {
             "X": X,
             "Y": Y,

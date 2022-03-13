@@ -49,6 +49,15 @@ class RevisionTag(object):
             Identifier (str, optional): Identifier value.
         """
         super().__init__()
+
+        if isinstance(TimeStamp, RevisionTag):
+            oth: RevisionTag = TimeStamp
+            self.TimeStamp = oth.TimeStamp
+            self.Author = oth.Author
+            self.Comment = oth.Comment
+            self.Identifier = oth.Identifier
+            return
+
         kargs = {
             "TimeStamp": TimeStamp,
             "Author": Author,

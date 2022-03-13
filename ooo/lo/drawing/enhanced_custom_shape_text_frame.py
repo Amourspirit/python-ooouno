@@ -47,6 +47,13 @@ class EnhancedCustomShapeTextFrame(object):
             BottomRight (EnhancedCustomShapeParameterPair, optional): BottomRight value.
         """
         super().__init__()
+
+        if isinstance(TopLeft, EnhancedCustomShapeTextFrame):
+            oth: EnhancedCustomShapeTextFrame = TopLeft
+            self.TopLeft = oth.TopLeft
+            self.BottomRight = oth.BottomRight
+            return
+
         kargs = {
             "TopLeft": TopLeft,
             "BottomRight": BottomRight,

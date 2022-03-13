@@ -52,6 +52,17 @@ class InvocationInfo(object):
             aType (object, optional): aType value.
         """
         super().__init__()
+
+        if isinstance(aParamTypes, InvocationInfo):
+            oth: InvocationInfo = aParamTypes
+            self.aParamTypes = oth.aParamTypes
+            self.aParamModes = oth.aParamModes
+            self.aName = oth.aName
+            self.eMemberType = oth.eMemberType
+            self.PropertyAttribute = oth.PropertyAttribute
+            self.aType = oth.aType
+            return
+
         kargs = {
             "aParamTypes": aParamTypes,
             "aParamModes": aParamModes,

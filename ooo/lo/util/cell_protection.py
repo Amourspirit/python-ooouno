@@ -48,6 +48,15 @@ class CellProtection(object):
             IsPrintHidden (bool, optional): IsPrintHidden value.
         """
         super().__init__()
+
+        if isinstance(IsLocked, CellProtection):
+            oth: CellProtection = IsLocked
+            self.IsLocked = oth.IsLocked
+            self.IsFormulaHidden = oth.IsFormulaHidden
+            self.IsHidden = oth.IsHidden
+            self.IsPrintHidden = oth.IsPrintHidden
+            return
+
         kargs = {
             "IsLocked": IsLocked,
             "IsFormulaHidden": IsFormulaHidden,

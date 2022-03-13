@@ -46,6 +46,13 @@ class ScannerContext(object):
             InternalData (int, optional): InternalData value.
         """
         super().__init__()
+
+        if isinstance(ScannerName, ScannerContext):
+            oth: ScannerContext = ScannerName
+            self.ScannerName = oth.ScannerName
+            self.InternalData = oth.InternalData
+            return
+
         kargs = {
             "ScannerName": ScannerName,
             "InternalData": InternalData,

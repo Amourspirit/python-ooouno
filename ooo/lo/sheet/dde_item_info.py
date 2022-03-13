@@ -52,6 +52,13 @@ class DDEItemInfo(object):
             Item (str, optional): Item value.
         """
         super().__init__()
+
+        if isinstance(Results, DDEItemInfo):
+            oth: DDEItemInfo = Results
+            self.Results = oth.Results
+            self.Item = oth.Item
+            return
+
         kargs = {
             "Results": Results,
             "Item": Item,

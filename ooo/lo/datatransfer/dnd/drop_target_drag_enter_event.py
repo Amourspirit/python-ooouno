@@ -57,6 +57,19 @@ class DropTargetDragEnterEvent(DropTargetDragEvent_d60612e7):
             SourceActions (int, optional): SourceActions value.
             SupportedDataFlavors (typing.Tuple[DataFlavor, ...], optional): SupportedDataFlavors value.
         """
+
+        if isinstance(Source, DropTargetDragEnterEvent):
+            oth: DropTargetDragEnterEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            self.Context = oth.Context
+            self.DropAction = oth.DropAction
+            self.LocationX = oth.LocationX
+            self.LocationY = oth.LocationY
+            self.SourceActions = oth.SourceActions
+            self.SupportedDataFlavors = oth.SupportedDataFlavors
+            return
+
         kargs = {
             "Source": Source,
             "Dummy": Dummy,

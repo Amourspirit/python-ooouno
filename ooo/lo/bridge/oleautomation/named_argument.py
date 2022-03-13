@@ -52,6 +52,13 @@ class NamedArgument(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(Name, NamedArgument):
+            oth: NamedArgument = Name
+            self.Name = oth.Name
+            self.Value = oth.Value
+            return
+
         kargs = {
             "Name": Name,
             "Value": Value,

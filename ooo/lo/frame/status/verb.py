@@ -54,6 +54,15 @@ class Verb(object):
             VerbIsConst (bool, optional): VerbIsConst value.
         """
         super().__init__()
+
+        if isinstance(VerbId, Verb):
+            oth: Verb = VerbId
+            self.VerbId = oth.VerbId
+            self.VerbName = oth.VerbName
+            self.VerbIsOnMenu = oth.VerbIsOnMenu
+            self.VerbIsConst = oth.VerbIsConst
+            return
+
         kargs = {
             "VerbId": VerbId,
             "VerbName": VerbName,

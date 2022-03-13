@@ -52,6 +52,13 @@ class RealPoint2D(object):
             Y (float, optional): Y value.
         """
         super().__init__()
+
+        if isinstance(X, RealPoint2D):
+            oth: RealPoint2D = X
+            self.X = oth.X
+            self.Y = oth.Y
+            return
+
         kargs = {
             "X": X,
             "Y": Y,

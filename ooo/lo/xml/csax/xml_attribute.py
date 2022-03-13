@@ -46,6 +46,13 @@ class XMLAttribute(object):
             sValue (str, optional): sValue value.
         """
         super().__init__()
+
+        if isinstance(sName, XMLAttribute):
+            oth: XMLAttribute = sName
+            self.sName = oth.sName
+            self.sValue = oth.sValue
+            return
+
         kargs = {
             "sName": sName,
             "sValue": sValue,

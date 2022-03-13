@@ -54,6 +54,13 @@ class ActivationEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             ActiveSheet (XSpreadsheet, optional): ActiveSheet value.
         """
+
+        if isinstance(Source, ActivationEvent):
+            oth: ActivationEvent = Source
+            self.Source = oth.Source
+            self.ActiveSheet = oth.ActiveSheet
+            return
+
         kargs = {
             "Source": Source,
             "ActiveSheet": ActiveSheet,

@@ -63,6 +63,25 @@ class TableBorder(object):
             IsDistanceValid (bool, optional): IsDistanceValid value.
         """
         super().__init__()
+
+        if isinstance(TopLine, TableBorder):
+            oth: TableBorder = TopLine
+            self.TopLine = oth.TopLine
+            self.IsTopLineValid = oth.IsTopLineValid
+            self.BottomLine = oth.BottomLine
+            self.IsBottomLineValid = oth.IsBottomLineValid
+            self.LeftLine = oth.LeftLine
+            self.IsLeftLineValid = oth.IsLeftLineValid
+            self.RightLine = oth.RightLine
+            self.IsRightLineValid = oth.IsRightLineValid
+            self.HorizontalLine = oth.HorizontalLine
+            self.IsHorizontalLineValid = oth.IsHorizontalLineValid
+            self.VerticalLine = oth.VerticalLine
+            self.IsVerticalLineValid = oth.IsVerticalLineValid
+            self.Distance = oth.Distance
+            self.IsDistanceValid = oth.IsDistanceValid
+            return
+
         kargs = {
             "TopLine": TopLine,
             "IsTopLineValid": IsTopLineValid,

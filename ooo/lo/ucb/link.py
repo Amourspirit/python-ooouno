@@ -46,6 +46,13 @@ class Link(object):
             Destination (str, optional): Destination value.
         """
         super().__init__()
+
+        if isinstance(Source, Link):
+            oth: Link = Source
+            self.Source = oth.Source
+            self.Destination = oth.Destination
+            return
+
         kargs = {
             "Source": Source,
             "Destination": Destination,

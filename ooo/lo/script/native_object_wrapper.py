@@ -44,6 +44,12 @@ class NativeObjectWrapper(object):
             ObjectId (object, optional): ObjectId value.
         """
         super().__init__()
+
+        if isinstance(ObjectId, NativeObjectWrapper):
+            oth: NativeObjectWrapper = ObjectId
+            self.ObjectId = oth.ObjectId
+            return
+
         kargs = {
             "ObjectId": ObjectId,
         }

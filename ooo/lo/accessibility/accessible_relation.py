@@ -53,6 +53,13 @@ class AccessibleRelation(object):
             RelationType (int, optional): RelationType value.
         """
         super().__init__()
+
+        if isinstance(TargetSet, AccessibleRelation):
+            oth: AccessibleRelation = TargetSet
+            self.TargetSet = oth.TargetSet
+            self.RelationType = oth.RelationType
+            return
+
         kargs = {
             "TargetSet": TargetSet,
             "RelationType": RelationType,

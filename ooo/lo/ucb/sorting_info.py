@@ -46,6 +46,13 @@ class SortingInfo(object):
             Ascending (bool, optional): Ascending value.
         """
         super().__init__()
+
+        if isinstance(PropertyName, SortingInfo):
+            oth: SortingInfo = PropertyName
+            self.PropertyName = oth.PropertyName
+            self.Ascending = oth.Ascending
+            return
+
         kargs = {
             "PropertyName": PropertyName,
             "Ascending": Ascending,

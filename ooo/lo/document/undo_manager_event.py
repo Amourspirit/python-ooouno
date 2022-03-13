@@ -52,6 +52,14 @@ class UndoManagerEvent(EventObject_a3d70b03):
             UndoActionTitle (str, optional): UndoActionTitle value.
             UndoContextDepth (int, optional): UndoContextDepth value.
         """
+
+        if isinstance(Source, UndoManagerEvent):
+            oth: UndoManagerEvent = Source
+            self.Source = oth.Source
+            self.UndoActionTitle = oth.UndoActionTitle
+            self.UndoContextDepth = oth.UndoContextDepth
+            return
+
         kargs = {
             "Source": Source,
             "UndoActionTitle": UndoActionTitle,

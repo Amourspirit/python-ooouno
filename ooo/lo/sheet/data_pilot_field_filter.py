@@ -46,6 +46,14 @@ class DataPilotFieldFilter(object):
             MatchValue (str, optional): MatchValue value.
         """
         super().__init__()
+
+        if isinstance(FieldName, DataPilotFieldFilter):
+            oth: DataPilotFieldFilter = FieldName
+            self.FieldName = oth.FieldName
+            self.MatchValueName = oth.MatchValueName
+            self.MatchValue = oth.MatchValue
+            return
+
         kargs = {
             "FieldName": FieldName,
             "MatchValueName": MatchValueName,

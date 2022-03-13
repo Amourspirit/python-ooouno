@@ -49,6 +49,13 @@ class DropTargetEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Dummy (int, optional): Dummy value.
         """
+
+        if isinstance(Source, DropTargetEvent):
+            oth: DropTargetEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            return
+
         kargs = {
             "Source": Source,
             "Dummy": Dummy,

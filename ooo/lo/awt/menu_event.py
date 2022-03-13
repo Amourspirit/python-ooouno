@@ -47,6 +47,13 @@ class MenuEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             MenuId (int, optional): MenuId value.
         """
+
+        if isinstance(Source, MenuEvent):
+            oth: MenuEvent = Source
+            self.Source = oth.Source
+            self.MenuId = oth.MenuId
+            return
+
         kargs = {
             "Source": Source,
             "MenuId": MenuId,

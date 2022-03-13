@@ -52,6 +52,14 @@ class DragSourceEvent(EventObject_a3d70b03):
             DragSourceContext (XDragSourceContext, optional): DragSourceContext value.
             DragSource (XDragSource, optional): DragSource value.
         """
+
+        if isinstance(Source, DragSourceEvent):
+            oth: DragSourceEvent = Source
+            self.Source = oth.Source
+            self.DragSourceContext = oth.DragSourceContext
+            self.DragSource = oth.DragSource
+            return
+
         kargs = {
             "Source": Source,
             "DragSourceContext": DragSourceContext,

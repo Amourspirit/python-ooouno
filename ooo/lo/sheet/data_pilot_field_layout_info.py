@@ -46,6 +46,13 @@ class DataPilotFieldLayoutInfo(object):
             AddEmptyLines (bool, optional): AddEmptyLines value.
         """
         super().__init__()
+
+        if isinstance(LayoutMode, DataPilotFieldLayoutInfo):
+            oth: DataPilotFieldLayoutInfo = LayoutMode
+            self.LayoutMode = oth.LayoutMode
+            self.AddEmptyLines = oth.AddEmptyLines
+            return
+
         kargs = {
             "LayoutMode": LayoutMode,
             "AddEmptyLines": AddEmptyLines,

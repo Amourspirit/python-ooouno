@@ -45,6 +45,13 @@ class EnhancedCustomShapeSegment(object):
             Count (int, optional): Count value.
         """
         super().__init__()
+
+        if isinstance(Command, EnhancedCustomShapeSegment):
+            oth: EnhancedCustomShapeSegment = Command
+            self.Command = oth.Command
+            self.Count = oth.Count
+            return
+
         kargs = {
             "Command": Command,
             "Count": Count,

@@ -47,6 +47,14 @@ class MenuSingleChange(object):
             Change (object, optional): Change value.
         """
         super().__init__()
+
+        if isinstance(ID, MenuSingleChange):
+            oth: MenuSingleChange = ID
+            self.ID = oth.ID
+            self.ChangeID = oth.ChangeID
+            self.Change = oth.Change
+            return
+
         kargs = {
             "ID": ID,
             "ChangeID": ChangeID,

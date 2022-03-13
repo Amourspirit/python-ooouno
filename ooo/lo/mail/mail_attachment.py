@@ -51,6 +51,13 @@ class MailAttachment(object):
             ReadableName (str, optional): ReadableName value.
         """
         super().__init__()
+
+        if isinstance(Data, MailAttachment):
+            oth: MailAttachment = Data
+            self.Data = oth.Data
+            self.ReadableName = oth.ReadableName
+            return
+
         kargs = {
             "Data": Data,
             "ReadableName": ReadableName,

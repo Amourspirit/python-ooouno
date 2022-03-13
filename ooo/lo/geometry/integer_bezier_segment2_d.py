@@ -56,6 +56,17 @@ class IntegerBezierSegment2D(object):
             C2y (int, optional): C2y value.
         """
         super().__init__()
+
+        if isinstance(Px, IntegerBezierSegment2D):
+            oth: IntegerBezierSegment2D = Px
+            self.Px = oth.Px
+            self.Py = oth.Py
+            self.C1x = oth.C1x
+            self.C1y = oth.C1y
+            self.C2x = oth.C2x
+            self.C2y = oth.C2y
+            return
+
         kargs = {
             "Px": Px,
             "Py": Py,

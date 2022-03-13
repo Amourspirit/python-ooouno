@@ -52,6 +52,18 @@ class Calendar(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Days, Calendar):
+            oth: Calendar = Days
+            self.Days = oth.Days
+            self.Months = oth.Months
+            self.Eras = oth.Eras
+            self.StartOfWeek = oth.StartOfWeek
+            self.MinimumNumberOfDaysForFirstWeek = oth.MinimumNumberOfDaysForFirstWeek
+            self.Default = oth.Default
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Days": Days,
             "Months": Months,

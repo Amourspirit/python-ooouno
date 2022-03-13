@@ -49,6 +49,15 @@ class TabStop(object):
             FillChar (str, optional): FillChar value.
         """
         super().__init__()
+
+        if isinstance(Position, TabStop):
+            oth: TabStop = Position
+            self.Position = oth.Position
+            self.Alignment = oth.Alignment
+            self.DecimalChar = oth.DecimalChar
+            self.FillChar = oth.FillChar
+            return
+
         kargs = {
             "Position": Position,
             "Alignment": Alignment,

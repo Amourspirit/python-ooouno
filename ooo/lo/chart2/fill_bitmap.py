@@ -55,6 +55,18 @@ class FillBitmap(object):
             aBitmapMode (BitmapMode, optional): aBitmapMode value.
         """
         super().__init__()
+
+        if isinstance(aURL, FillBitmap):
+            oth: FillBitmap = aURL
+            self.aURL = oth.aURL
+            self.aOffset = oth.aOffset
+            self.aPositionOffset = oth.aPositionOffset
+            self.aRectanglePoint = oth.aRectanglePoint
+            self.bLogicalSize = oth.bLogicalSize
+            self.aSize = oth.aSize
+            self.aBitmapMode = oth.aBitmapMode
+            return
+
         kargs = {
             "aURL": aURL,
             "aOffset": aOffset,

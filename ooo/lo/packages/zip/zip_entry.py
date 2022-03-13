@@ -58,6 +58,23 @@ class ZipEntry(object):
             sComment (str, optional): sComment value.
         """
         super().__init__()
+
+        if isinstance(extra, ZipEntry):
+            oth: ZipEntry = extra
+            self.extra = oth.extra
+            self.nVersion = oth.nVersion
+            self.nFlag = oth.nFlag
+            self.nMethod = oth.nMethod
+            self.nTime = oth.nTime
+            self.nCrc = oth.nCrc
+            self.nCompressedSize = oth.nCompressedSize
+            self.nSize = oth.nSize
+            self.nOffset = oth.nOffset
+            self.nDiskNumber = oth.nDiskNumber
+            self.sName = oth.sName
+            self.sComment = oth.sComment
+            return
+
         kargs = {
             "extra": extra,
             "nVersion": nVersion,

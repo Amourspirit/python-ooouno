@@ -49,6 +49,13 @@ class InputEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Modifiers (int, optional): Modifiers value.
         """
+
+        if isinstance(Source, InputEvent):
+            oth: InputEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            return
+
         kargs = {
             "Source": Source,
             "Modifiers": Modifiers,

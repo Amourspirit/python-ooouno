@@ -47,6 +47,13 @@ class EnhancedCustomShapeParameterPair(object):
             Second (EnhancedCustomShapeParameter, optional): Second value.
         """
         super().__init__()
+
+        if isinstance(First, EnhancedCustomShapeParameterPair):
+            oth: EnhancedCustomShapeParameterPair = First
+            self.First = oth.First
+            self.Second = oth.Second
+            return
+
         kargs = {
             "First": First,
             "Second": Second,

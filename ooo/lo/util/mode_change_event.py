@@ -51,6 +51,13 @@ class ModeChangeEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             NewMode (str, optional): NewMode value.
         """
+
+        if isinstance(Source, ModeChangeEvent):
+            oth: ModeChangeEvent = Source
+            self.Source = oth.Source
+            self.NewMode = oth.NewMode
+            return
+
         kargs = {
             "Source": Source,
             "NewMode": NewMode,

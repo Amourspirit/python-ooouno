@@ -54,6 +54,16 @@ class GridColumnEvent(EventObject_a3d70b03):
             NewValue (object, optional): NewValue value.
             ColumnIndex (int, optional): ColumnIndex value.
         """
+
+        if isinstance(Source, GridColumnEvent):
+            oth: GridColumnEvent = Source
+            self.Source = oth.Source
+            self.AttributeName = oth.AttributeName
+            self.OldValue = oth.OldValue
+            self.NewValue = oth.NewValue
+            self.ColumnIndex = oth.ColumnIndex
+            return
+
         kargs = {
             "Source": Source,
             "AttributeName": AttributeName,

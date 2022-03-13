@@ -46,6 +46,13 @@ class TextRangeSelection(object):
             End (TextPosition, optional): End value.
         """
         super().__init__()
+
+        if isinstance(Start, TextRangeSelection):
+            oth: TextRangeSelection = Start
+            self.Start = oth.Start
+            self.End = oth.End
+            return
+
         kargs = {
             "Start": Start,
             "End": End,

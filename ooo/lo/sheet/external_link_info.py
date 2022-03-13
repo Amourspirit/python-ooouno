@@ -50,6 +50,13 @@ class ExternalLinkInfo(object):
             Data (object, optional): Data value.
         """
         super().__init__()
+
+        if isinstance(Type, ExternalLinkInfo):
+            oth: ExternalLinkInfo = Type
+            self.Type = oth.Type
+            self.Data = oth.Data
+            return
+
         kargs = {
             "Type": Type,
             "Data": Data,

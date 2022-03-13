@@ -48,6 +48,13 @@ class ListEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Changes (typing.Tuple[ListAction, ...], optional): Changes value.
         """
+
+        if isinstance(Source, ListEvent):
+            oth: ListEvent = Source
+            self.Source = oth.Source
+            self.Changes = oth.Changes
+            return
+
         kargs = {
             "Source": Source,
             "Changes": Changes,

@@ -51,6 +51,13 @@ class TextConversionResult(object):
             Boundary (Boundary, optional): Boundary value.
         """
         super().__init__()
+
+        if isinstance(Candidates, TextConversionResult):
+            oth: TextConversionResult = Candidates
+            self.Candidates = oth.Candidates
+            self.Boundary = oth.Boundary
+            return
+
         kargs = {
             "Candidates": Candidates,
             "Boundary": Boundary,

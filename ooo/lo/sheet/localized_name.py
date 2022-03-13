@@ -47,6 +47,13 @@ class LocalizedName(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Locale, LocalizedName):
+            oth: LocalizedName = Locale
+            self.Locale = oth.Locale
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Locale": Locale,
             "Name": Name,

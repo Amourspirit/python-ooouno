@@ -58,6 +58,13 @@ class FilePermission(object):
             Actions (str, optional): Actions value.
         """
         super().__init__()
+
+        if isinstance(URL, FilePermission):
+            oth: FilePermission = URL
+            self.URL = oth.URL
+            self.Actions = oth.Actions
+            return
+
         kargs = {
             "URL": URL,
             "Actions": Actions,

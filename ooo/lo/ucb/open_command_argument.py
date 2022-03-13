@@ -50,6 +50,15 @@ class OpenCommandArgument(object):
             Sink (XInterface, optional): Sink value.
         """
         super().__init__()
+
+        if isinstance(Properties, OpenCommandArgument):
+            oth: OpenCommandArgument = Properties
+            self.Properties = oth.Properties
+            self.Mode = oth.Mode
+            self.Priority = oth.Priority
+            self.Sink = oth.Sink
+            return
+
         kargs = {
             "Properties": Properties,
             "Mode": Mode,

@@ -48,6 +48,13 @@ class NumberedSortingInfo(object):
             Ascending (bool, optional): Ascending value.
         """
         super().__init__()
+
+        if isinstance(ColumnIndex, NumberedSortingInfo):
+            oth: NumberedSortingInfo = ColumnIndex
+            self.ColumnIndex = oth.ColumnIndex
+            self.Ascending = oth.Ascending
+            return
+
         kargs = {
             "ColumnIndex": ColumnIndex,
             "Ascending": Ascending,

@@ -45,6 +45,13 @@ class TextPosition(object):
             PositionInParagraph (int, optional): PositionInParagraph value.
         """
         super().__init__()
+
+        if isinstance(Paragraph, TextPosition):
+            oth: TextPosition = Paragraph
+            self.Paragraph = oth.Paragraph
+            self.PositionInParagraph = oth.PositionInParagraph
+            return
+
         kargs = {
             "Paragraph": Paragraph,
             "PositionInParagraph": PositionInParagraph,

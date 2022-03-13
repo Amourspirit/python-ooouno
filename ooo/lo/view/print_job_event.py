@@ -56,6 +56,13 @@ class PrintJobEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             State (PrintableState, optional): State value.
         """
+
+        if isinstance(Source, PrintJobEvent):
+            oth: PrintJobEvent = Source
+            self.Source = oth.Source
+            self.State = oth.State
+            return
+
         kargs = {
             "Source": Source,
             "State": State,

@@ -59,6 +59,22 @@ class ScaleData(object):
             TimeIncrement (TimeIncrement, optional): TimeIncrement value.
         """
         super().__init__()
+
+        if isinstance(Minimum, ScaleData):
+            oth: ScaleData = Minimum
+            self.Minimum = oth.Minimum
+            self.Maximum = oth.Maximum
+            self.Origin = oth.Origin
+            self.Orientation = oth.Orientation
+            self.Scaling = oth.Scaling
+            self.Categories = oth.Categories
+            self.AxisType = oth.AxisType
+            self.AutoDateAxis = oth.AutoDateAxis
+            self.ShiftedCategoryPosition = oth.ShiftedCategoryPosition
+            self.IncrementData = oth.IncrementData
+            self.TimeIncrement = oth.TimeIncrement
+            return
+
         kargs = {
             "Minimum": Minimum,
             "Maximum": Maximum,

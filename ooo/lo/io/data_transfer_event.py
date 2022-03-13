@@ -47,6 +47,13 @@ class DataTransferEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             aException (object, optional): aException value.
         """
+
+        if isinstance(Source, DataTransferEvent):
+            oth: DataTransferEvent = Source
+            self.Source = oth.Source
+            self.aException = oth.aException
+            return
+
         kargs = {
             "Source": Source,
             "aException": aException,

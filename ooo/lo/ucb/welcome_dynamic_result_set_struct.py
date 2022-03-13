@@ -47,6 +47,13 @@ class WelcomeDynamicResultSetStruct(object):
             New (XResultSet, optional): New value.
         """
         super().__init__()
+
+        if isinstance(Old, WelcomeDynamicResultSetStruct):
+            oth: WelcomeDynamicResultSetStruct = Old
+            self.Old = oth.Old
+            self.New = oth.New
+            return
+
         kargs = {
             "Old": Old,
             "New": New,

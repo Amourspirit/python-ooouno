@@ -48,6 +48,15 @@ class VerbDescriptor(object):
             VerbAttributes (int, optional): VerbAttributes value.
         """
         super().__init__()
+
+        if isinstance(VerbID, VerbDescriptor):
+            oth: VerbDescriptor = VerbID
+            self.VerbID = oth.VerbID
+            self.VerbName = oth.VerbName
+            self.VerbFlags = oth.VerbFlags
+            self.VerbAttributes = oth.VerbAttributes
+            return
+
         kargs = {
             "VerbID": VerbID,
             "VerbName": VerbName,

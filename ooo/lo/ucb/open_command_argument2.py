@@ -54,6 +54,16 @@ class OpenCommandArgument2(OpenCommandArgument_fb0a0dd6):
             Sink (XInterface, optional): Sink value.
             SortingInfo (typing.Tuple[NumberedSortingInfo, ...], optional): SortingInfo value.
         """
+
+        if isinstance(Properties, OpenCommandArgument2):
+            oth: OpenCommandArgument2 = Properties
+            self.Properties = oth.Properties
+            self.Mode = oth.Mode
+            self.Priority = oth.Priority
+            self.Sink = oth.Sink
+            self.SortingInfo = oth.SortingInfo
+            return
+
         kargs = {
             "Properties": Properties,
             "Mode": Mode,

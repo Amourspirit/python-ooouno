@@ -51,6 +51,12 @@ class RuntimePermission(object):
             Name (str, optional): Name value.
         """
         super().__init__()
+
+        if isinstance(Name, RuntimePermission):
+            oth: RuntimePermission = Name
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Name": Name,
         }

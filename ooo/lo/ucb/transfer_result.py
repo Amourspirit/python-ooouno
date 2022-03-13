@@ -47,6 +47,14 @@ class TransferResult(object):
             Result (object, optional): Result value.
         """
         super().__init__()
+
+        if isinstance(Source, TransferResult):
+            oth: TransferResult = Source
+            self.Source = oth.Source
+            self.Target = oth.Target
+            self.Result = oth.Result
+            return
+
         kargs = {
             "Source": Source,
             "Target": Target,

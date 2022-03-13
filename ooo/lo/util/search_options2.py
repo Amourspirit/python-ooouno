@@ -61,6 +61,22 @@ class SearchOptions2(SearchOptions_bd140c08):
             AlgorithmType2 (int, optional): AlgorithmType2 value.
             WildcardEscapeCharacter (int, optional): WildcardEscapeCharacter value.
         """
+
+        if isinstance(algorithmType, SearchOptions2):
+            oth: SearchOptions2 = algorithmType
+            self.algorithmType = oth.algorithmType
+            self.searchFlag = oth.searchFlag
+            self.searchString = oth.searchString
+            self.replaceString = oth.replaceString
+            self.Locale = oth.Locale
+            self.changedChars = oth.changedChars
+            self.deletedChars = oth.deletedChars
+            self.insertedChars = oth.insertedChars
+            self.transliterateFlags = oth.transliterateFlags
+            self.AlgorithmType2 = oth.AlgorithmType2
+            self.WildcardEscapeCharacter = oth.WildcardEscapeCharacter
+            return
+
         kargs = {
             "algorithmType": algorithmType,
             "searchFlag": searchFlag,

@@ -48,6 +48,13 @@ class ClipboardEvent(EventObject_a3d70b03):
             Source (XInterface, optional): Source value.
             Contents (XTransferable, optional): Contents value.
         """
+
+        if isinstance(Source, ClipboardEvent):
+            oth: ClipboardEvent = Source
+            self.Source = oth.Source
+            self.Contents = oth.Contents
+            return
+
         kargs = {
             "Source": Source,
             "Contents": Contents,

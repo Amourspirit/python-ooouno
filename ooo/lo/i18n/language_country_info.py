@@ -49,6 +49,16 @@ class LanguageCountryInfo(object):
             Variant (str, optional): Variant value.
         """
         super().__init__()
+
+        if isinstance(Language, LanguageCountryInfo):
+            oth: LanguageCountryInfo = Language
+            self.Language = oth.Language
+            self.LanguageDefaultName = oth.LanguageDefaultName
+            self.Country = oth.Country
+            self.CountryDefaultName = oth.CountryDefaultName
+            self.Variant = oth.Variant
+            return
+
         kargs = {
             "Language": Language,
             "LanguageDefaultName": LanguageDefaultName,

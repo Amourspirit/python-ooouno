@@ -48,6 +48,13 @@ class FolderList(object):
             Command (FolderListCommand, optional): Command value.
         """
         super().__init__()
+
+        if isinstance(List, FolderList):
+            oth: FolderList = List
+            self.List = oth.List
+            self.Command = oth.Command
+            return
+
         kargs = {
             "List": List,
             "Command": Command,

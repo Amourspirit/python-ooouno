@@ -50,6 +50,13 @@ class TimeInterval(object):
             TimeUnit (int, optional): TimeUnit value.
         """
         super().__init__()
+
+        if isinstance(Number, TimeInterval):
+            oth: TimeInterval = Number
+            self.Number = oth.Number
+            self.TimeUnit = oth.TimeUnit
+            return
+
         kargs = {
             "Number": Number,
             "TimeUnit": TimeUnit,

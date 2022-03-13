@@ -70,6 +70,23 @@ class AffineMatrix3D(object):
             m23 (float, optional): m23 value.
         """
         super().__init__()
+
+        if isinstance(m00, AffineMatrix3D):
+            oth: AffineMatrix3D = m00
+            self.m00 = oth.m00
+            self.m01 = oth.m01
+            self.m02 = oth.m02
+            self.m03 = oth.m03
+            self.m10 = oth.m10
+            self.m11 = oth.m11
+            self.m12 = oth.m12
+            self.m13 = oth.m13
+            self.m20 = oth.m20
+            self.m21 = oth.m21
+            self.m22 = oth.m22
+            self.m23 = oth.m23
+            return
+
         kargs = {
             "m00": m00,
             "m01": m01,

@@ -48,6 +48,13 @@ class Optional(object):
             Value (object, optional): Value value.
         """
         super().__init__()
+
+        if isinstance(IsPresent, Optional):
+            oth: Optional = IsPresent
+            self.IsPresent = oth.IsPresent
+            self.Value = oth.Value
+            return
+
         kargs = {
             "IsPresent": IsPresent,
             "Value": Value,

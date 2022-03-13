@@ -64,6 +64,15 @@ class Matrix2D(object):
             m11 (float, optional): m11 value.
         """
         super().__init__()
+
+        if isinstance(m00, Matrix2D):
+            oth: Matrix2D = m00
+            self.m00 = oth.m00
+            self.m01 = oth.m01
+            self.m10 = oth.m10
+            self.m11 = oth.m11
+            return
+
         kargs = {
             "m00": m00,
             "m01": m01,

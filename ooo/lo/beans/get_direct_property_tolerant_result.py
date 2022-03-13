@@ -51,6 +51,15 @@ class GetDirectPropertyTolerantResult(GetPropertyTolerantResult_7c4e115e):
             Value (object, optional): Value value.
             Name (str, optional): Name value.
         """
+
+        if isinstance(Result, GetDirectPropertyTolerantResult):
+            oth: GetDirectPropertyTolerantResult = Result
+            self.Result = oth.Result
+            self.State = oth.State
+            self.Value = oth.Value
+            self.Name = oth.Name
+            return
+
         kargs = {
             "Result": Result,
             "State": State,

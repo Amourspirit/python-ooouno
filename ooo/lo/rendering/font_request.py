@@ -58,6 +58,15 @@ class FontRequest(object):
             Locale (Locale, optional): Locale value.
         """
         super().__init__()
+
+        if isinstance(FontDescription, FontRequest):
+            oth: FontRequest = FontDescription
+            self.FontDescription = oth.FontDescription
+            self.CellSize = oth.CellSize
+            self.ReferenceAdvancement = oth.ReferenceAdvancement
+            self.Locale = oth.Locale
+            return
+
         kargs = {
             "FontDescription": FontDescription,
             "CellSize": CellSize,

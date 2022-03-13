@@ -61,4 +61,31 @@ Example dynamic:
         assert rect2.X == 122
         assert rect2.Y == 240
 
-Struct classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are the same classes.
+General
+=======
+
+Struct classes can accept keyword or positional arguments.
+
+Example keyword and positional:
+    .. code-block:: python
+
+        from ooo.cssdyn.awt import Rectangle
+        rect1 = Rectangle(X=100, Y=200, Width=50, Height=1)
+        rect2 = Rectangle(100, 200, 50, 1)
+        assert rect1.X == rect2.X
+        assert rect1.Y == rect2.Y
+        assert rect1.Width == rect2.Width
+        assert rect1.Height == rect2.Height
+
+Struct classes can be constructed by another struct of the same type:
+
+Example construct from other struct:
+    .. code-block:: python
+
+        from ooo.cssdyn.awt import Rectangle
+        rect1 = Rectangle(100, 200, 50, 1)
+        rect2 = Rectangle(rect1)
+        assert rect1.X == rect2.X
+        assert rect1.Y == rect2.Y
+        assert rect1.Width == rect2.Width
+        assert rect1.Height == rect2.Height

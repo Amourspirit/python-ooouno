@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..x_transferable import XTransferable as XTransferable_2d800f38
 
@@ -39,26 +40,34 @@ class ClipboardEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.datatransfer.clipboard.ClipboardEvent'
     """Literal Constant ``com.sun.star.datatransfer.clipboard.ClipboardEvent``"""
 
-    def __init__(self, Contents: XTransferable_2d800f38 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Contents: typing.Optional[XTransferable_2d800f38] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Contents`` can be another ``ClipboardEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Contents (XTransferable, optional): Contents value
+            Source (XInterface, optional): Source value.
+            Contents (XTransferable, optional): Contents value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Contents, ClipboardEvent):
-            oth: ClipboardEvent = Contents
-            self._contents = oth.Contents
-            return
-        else:
-            self._contents = Contents
 
+        if isinstance(Source, ClipboardEvent):
+            oth: ClipboardEvent = Source
+            self.Source = oth.Source
+            self.Contents = oth.Contents
+            return
+
+        kargs = {
+            "Source": Source,
+            "Contents": Contents,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._contents = kwargs["Contents"]
+        inst_keys = ('Contents',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

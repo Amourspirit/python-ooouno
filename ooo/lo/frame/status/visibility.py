@@ -41,24 +41,27 @@ class Visibility(object):
     typeName: str = 'com.sun.star.frame.status.Visibility'
     """Literal Constant ``com.sun.star.frame.status.Visibility``"""
 
-    def __init__(self, bVisible: bool = False) -> None:
+    def __init__(self, bVisible: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``bVisible`` can be another ``Visibility`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            bVisible (bool, optional): bVisible value
+            bVisible (bool, optional): bVisible value.
         """
+        super().__init__()
+
         if isinstance(bVisible, Visibility):
             oth: Visibility = bVisible
-            self._b_visible = oth.bVisible
+            self.bVisible = oth.bVisible
             return
-        else:
-            self._b_visible = bVisible
 
+        kargs = {
+            "bVisible": bVisible,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._b_visible = kwargs["bVisible"]
 
 
     @property

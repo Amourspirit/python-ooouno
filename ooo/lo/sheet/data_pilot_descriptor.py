@@ -63,6 +63,62 @@ class DataPilotDescriptor(XPropertySet_bc180bfa, XDataPilotDataLayoutFieldSuppli
             OOo 3.3
         """
 
+    @abstractproperty
+    def ColumnGrand(self) -> bool:
+        """
+        specifies if columns for grand total results are created.
+        """
+
+    @abstractproperty
+    def DrillDownOnDoubleClick(self) -> bool:
+        """
+        specifies whether to drill down to details or go into edit mode.
+        """
+
+    @abstractproperty
+    def GrandTotalName(self) -> str:
+        """
+        specifies a label for grand total results.
+        
+        **since**
+        
+            OOo 3.4
+        """
+
+    @abstractproperty
+    def IgnoreEmptyRows(self) -> bool:
+        """
+        specifies if empty rows in the source data are ignored.
+        """
+
+    @abstractproperty
+    def RepeatIfEmpty(self) -> bool:
+        """
+        specifies if empty category cells in the source data should be treated as repetition of the content from the previous row.
+        """
+
+    @abstractproperty
+    def RowGrand(self) -> bool:
+        """
+        specifies if rows for grand total results are created.
+        """
+
+    @abstractproperty
+    def ShowFilterButton(self) -> bool:
+        """
+        specifies whether the filter button is shown.
+        """
+
+    @abstractproperty
+    def SourceServiceName(self) -> str:
+        """
+        specifies the name of a DataPilotSource implementation for the data pilot table.
+        
+        **since**
+        
+            OOo 3.3
+        """
+
 
 
 __all__ = ['DataPilotDescriptor']

@@ -37,27 +37,31 @@ class FormulaToken(object):
     typeName: str = 'com.sun.star.sheet.FormulaToken'
     """Literal Constant ``com.sun.star.sheet.FormulaToken``"""
 
-    def __init__(self, OpCode: int = 0, Data: object = None) -> None:
+    def __init__(self, OpCode: typing.Optional[int] = 0, Data: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``OpCode`` can be another ``FormulaToken`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            OpCode (int, optional): OpCode value
-            Data (object, optional): Data value
+            OpCode (int, optional): OpCode value.
+            Data (object, optional): Data value.
         """
+        super().__init__()
+
         if isinstance(OpCode, FormulaToken):
             oth: FormulaToken = OpCode
-            self._op_code = oth.OpCode
-            self._data = oth.Data
+            self.OpCode = oth.OpCode
+            self.Data = oth.Data
             return
-        else:
-            self._op_code = OpCode
-            self._data = Data
 
+        kargs = {
+            "OpCode": OpCode,
+            "Data": Data,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._op_code = kwargs["OpCode"]
+        self._data = kwargs["Data"]
 
 
     @property

@@ -20,6 +20,9 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .drag_source_event import DragSourceEvent as DragSourceEvent_8ccf115c
+from ...uno.x_interface import XInterface as XInterface_8f010a43
+from .x_drag_source_context import XDragSourceContext as XDragSourceContext_c2661297
+from .x_drag_source import XDragSource as XDragSource_49900fb2
 import typing
 
 
@@ -40,29 +43,44 @@ class DragSourceDropEvent(DragSourceEvent_8ccf115c):
     typeName: str = 'com.sun.star.datatransfer.dnd.DragSourceDropEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DragSourceDropEvent``"""
 
-    def __init__(self, DropAction: int = 0, DropSuccess: bool = False, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, DragSourceContext: typing.Optional[XDragSourceContext_c2661297] = None, DragSource: typing.Optional[XDragSource_49900fb2] = None, DropAction: typing.Optional[int] = 0, DropSuccess: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DropAction`` can be another ``DragSourceDropEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            DropAction (int, optional): DropAction value
-            DropSuccess (bool, optional): DropSuccess value
+            Source (XInterface, optional): Source value.
+            DragSourceContext (XDragSourceContext, optional): DragSourceContext value.
+            DragSource (XDragSource, optional): DragSource value.
+            DropAction (int, optional): DropAction value.
+            DropSuccess (bool, optional): DropSuccess value.
         """
-        super().__init__(**kwargs)
-        if isinstance(DropAction, DragSourceDropEvent):
-            oth: DragSourceDropEvent = DropAction
-            self._drop_action = oth.DropAction
-            self._drop_success = oth.DropSuccess
-            return
-        else:
-            self._drop_action = DropAction
-            self._drop_success = DropSuccess
 
+        if isinstance(Source, DragSourceDropEvent):
+            oth: DragSourceDropEvent = Source
+            self.Source = oth.Source
+            self.DragSourceContext = oth.DragSourceContext
+            self.DragSource = oth.DragSource
+            self.DropAction = oth.DropAction
+            self.DropSuccess = oth.DropSuccess
+            return
+
+        kargs = {
+            "Source": Source,
+            "DragSourceContext": DragSourceContext,
+            "DragSource": DragSource,
+            "DropAction": DropAction,
+            "DropSuccess": DropSuccess,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._drop_action = kwargs["DropAction"]
+        self._drop_success = kwargs["DropSuccess"]
+        inst_keys = ('DropAction', 'DropSuccess')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

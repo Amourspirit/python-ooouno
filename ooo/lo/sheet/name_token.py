@@ -37,27 +37,31 @@ class NameToken(object):
     typeName: str = 'com.sun.star.sheet.NameToken'
     """Literal Constant ``com.sun.star.sheet.NameToken``"""
 
-    def __init__(self, Index: int = 0, Sheet: int = 0) -> None:
+    def __init__(self, Index: typing.Optional[int] = 0, Sheet: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Index`` can be another ``NameToken`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Index (int, optional): Index value
-            Sheet (int, optional): Sheet value
+            Index (int, optional): Index value.
+            Sheet (int, optional): Sheet value.
         """
+        super().__init__()
+
         if isinstance(Index, NameToken):
             oth: NameToken = Index
-            self._index = oth.Index
-            self._sheet = oth.Sheet
+            self.Index = oth.Index
+            self.Sheet = oth.Sheet
             return
-        else:
-            self._index = Index
-            self._sheet = Sheet
 
+        kargs = {
+            "Index": Index,
+            "Sheet": Sheet,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._index = kwargs["Index"]
+        self._sheet = kwargs["Sheet"]
 
 
     @property

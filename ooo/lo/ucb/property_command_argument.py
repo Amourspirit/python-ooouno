@@ -42,30 +42,33 @@ class PropertyCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.PropertyCommandArgument'
     """Literal Constant ``com.sun.star.ucb.PropertyCommandArgument``"""
 
-    def __init__(self, Property: Property_8f4e0a76 = UNO_NONE, DefaultValue: object = None) -> None:
+    def __init__(self, Property: typing.Optional[Property_8f4e0a76] = UNO_NONE, DefaultValue: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Property`` can be another ``PropertyCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Property (Property, optional): Property value
-            DefaultValue (object, optional): DefaultValue value
+            Property (Property, optional): Property value.
+            DefaultValue (object, optional): DefaultValue value.
         """
+        super().__init__()
+
         if isinstance(Property, PropertyCommandArgument):
             oth: PropertyCommandArgument = Property
-            self._property = oth.Property
-            self._default_value = oth.DefaultValue
+            self.Property = oth.Property
+            self.DefaultValue = oth.DefaultValue
             return
-        else:
-            if Property is UNO_NONE:
-                self._property = Property_8f4e0a76()
-            else:
-                self._property = Property
-            self._default_value = DefaultValue
 
+        kargs = {
+            "Property": Property,
+            "DefaultValue": DefaultValue,
+        }
+        if kargs["Property"] is UNO_NONE:
+            kargs["Property"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._property = kwargs["Property"]
+        self._default_value = kwargs["DefaultValue"]
 
 
     @property

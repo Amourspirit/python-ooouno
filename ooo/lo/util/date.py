@@ -39,30 +39,35 @@ class Date(object):
     typeName: str = 'com.sun.star.util.Date'
     """Literal Constant ``com.sun.star.util.Date``"""
 
-    def __init__(self, Day: int = 0, Month: int = 0, Year: int = 0) -> None:
+    def __init__(self, Day: typing.Optional[int] = 0, Month: typing.Optional[int] = 0, Year: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Day`` can be another ``Date`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Day (int, optional): Day value
-            Month (int, optional): Month value
-            Year (int, optional): Year value
+            Day (int, optional): Day value.
+            Month (int, optional): Month value.
+            Year (int, optional): Year value.
         """
+        super().__init__()
+
         if isinstance(Day, Date):
             oth: Date = Day
-            self._day = oth.Day
-            self._month = oth.Month
-            self._year = oth.Year
+            self.Day = oth.Day
+            self.Month = oth.Month
+            self.Year = oth.Year
             return
-        else:
-            self._day = Day
-            self._month = Month
-            self._year = Year
 
+        kargs = {
+            "Day": Day,
+            "Month": Month,
+            "Year": Year,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._day = kwargs["Day"]
+        self._month = kwargs["Month"]
+        self._year = kwargs["Year"]
 
 
     @property

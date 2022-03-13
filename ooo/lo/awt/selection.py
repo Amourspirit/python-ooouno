@@ -37,27 +37,31 @@ class Selection(object):
     typeName: str = 'com.sun.star.awt.Selection'
     """Literal Constant ``com.sun.star.awt.Selection``"""
 
-    def __init__(self, Min: int = 0, Max: int = 0) -> None:
+    def __init__(self, Min: typing.Optional[int] = 0, Max: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Min`` can be another ``Selection`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Min (int, optional): Min value
-            Max (int, optional): Max value
+            Min (int, optional): Min value.
+            Max (int, optional): Max value.
         """
+        super().__init__()
+
         if isinstance(Min, Selection):
             oth: Selection = Min
-            self._min = oth.Min
-            self._max = oth.Max
+            self.Min = oth.Min
+            self.Max = oth.Max
             return
-        else:
-            self._min = Min
-            self._max = Max
 
+        kargs = {
+            "Min": Min,
+            "Max": Max,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._min = kwargs["Min"]
+        self._max = kwargs["Max"]
 
 
     @property

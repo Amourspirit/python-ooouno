@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,32 +39,42 @@ class ContainerEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.container.ContainerEvent'
     """Literal Constant ``com.sun.star.container.ContainerEvent``"""
 
-    def __init__(self, Accessor: object = None, Element: object = None, ReplacedElement: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Accessor: typing.Optional[object] = None, Element: typing.Optional[object] = None, ReplacedElement: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Accessor`` can be another ``ContainerEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Accessor (object, optional): Accessor value
-            Element (object, optional): Element value
-            ReplacedElement (object, optional): ReplacedElement value
+            Source (XInterface, optional): Source value.
+            Accessor (object, optional): Accessor value.
+            Element (object, optional): Element value.
+            ReplacedElement (object, optional): ReplacedElement value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Accessor, ContainerEvent):
-            oth: ContainerEvent = Accessor
-            self._accessor = oth.Accessor
-            self._element = oth.Element
-            self._replaced_element = oth.ReplacedElement
-            return
-        else:
-            self._accessor = Accessor
-            self._element = Element
-            self._replaced_element = ReplacedElement
 
+        if isinstance(Source, ContainerEvent):
+            oth: ContainerEvent = Source
+            self.Source = oth.Source
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
+            return
+
+        kargs = {
+            "Source": Source,
+            "Accessor": Accessor,
+            "Element": Element,
+            "ReplacedElement": ReplacedElement,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._accessor = kwargs["Accessor"]
+        self._element = kwargs["Element"]
+        self._replaced_element = kwargs["ReplacedElement"]
+        inst_keys = ('Accessor', 'Element', 'ReplacedElement')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

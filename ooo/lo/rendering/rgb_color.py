@@ -38,30 +38,35 @@ class RGBColor(object):
     typeName: str = 'com.sun.star.rendering.RGBColor'
     """Literal Constant ``com.sun.star.rendering.RGBColor``"""
 
-    def __init__(self, Red: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0), Green: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0), Blue: ColorComponent_e4c0e78 = ColorComponent_e4c0e78(0.0)) -> None:
+    def __init__(self, Red: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0), Green: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0), Blue: typing.Optional[ColorComponent_e4c0e78] = ColorComponent_e4c0e78(0.0)) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Red`` can be another ``RGBColor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Red (ColorComponent, optional): Red value
-            Green (ColorComponent, optional): Green value
-            Blue (ColorComponent, optional): Blue value
+            Red (ColorComponent, optional): Red value.
+            Green (ColorComponent, optional): Green value.
+            Blue (ColorComponent, optional): Blue value.
         """
+        super().__init__()
+
         if isinstance(Red, RGBColor):
             oth: RGBColor = Red
-            self._red = oth.Red
-            self._green = oth.Green
-            self._blue = oth.Blue
+            self.Red = oth.Red
+            self.Green = oth.Green
+            self.Blue = oth.Blue
             return
-        else:
-            self._red = Red
-            self._green = Green
-            self._blue = Blue
 
+        kargs = {
+            "Red": Red,
+            "Green": Green,
+            "Blue": Blue,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._red = kwargs["Red"]
+        self._green = kwargs["Green"]
+        self._blue = kwargs["Blue"]
 
 
     @property

@@ -42,30 +42,35 @@ class TabBarButton(object):
     typeName: str = 'com.sun.star.drawing.framework.TabBarButton'
     """Literal Constant ``com.sun.star.drawing.framework.TabBarButton``"""
 
-    def __init__(self, ButtonLabel: str = '', HelpText: str = '', ResourceId: XResourceId_5be3103d = None) -> None:
+    def __init__(self, ButtonLabel: typing.Optional[str] = '', HelpText: typing.Optional[str] = '', ResourceId: typing.Optional[XResourceId_5be3103d] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ButtonLabel`` can be another ``TabBarButton`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ButtonLabel (str, optional): ButtonLabel value
-            HelpText (str, optional): HelpText value
-            ResourceId (XResourceId, optional): ResourceId value
+            ButtonLabel (str, optional): ButtonLabel value.
+            HelpText (str, optional): HelpText value.
+            ResourceId (XResourceId, optional): ResourceId value.
         """
+        super().__init__()
+
         if isinstance(ButtonLabel, TabBarButton):
             oth: TabBarButton = ButtonLabel
-            self._button_label = oth.ButtonLabel
-            self._help_text = oth.HelpText
-            self._resource_id = oth.ResourceId
+            self.ButtonLabel = oth.ButtonLabel
+            self.HelpText = oth.HelpText
+            self.ResourceId = oth.ResourceId
             return
-        else:
-            self._button_label = ButtonLabel
-            self._help_text = HelpText
-            self._resource_id = ResourceId
 
+        kargs = {
+            "ButtonLabel": ButtonLabel,
+            "HelpText": HelpText,
+            "ResourceId": ResourceId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._button_label = kwargs["ButtonLabel"]
+        self._help_text = kwargs["HelpText"]
+        self._resource_id = kwargs["ResourceId"]
 
 
     @property

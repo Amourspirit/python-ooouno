@@ -37,27 +37,31 @@ class SetPropertyTolerantFailed(object):
     typeName: str = 'com.sun.star.beans.SetPropertyTolerantFailed'
     """Literal Constant ``com.sun.star.beans.SetPropertyTolerantFailed``"""
 
-    def __init__(self, Name: str = '', Result: int = 0) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Result: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``SetPropertyTolerantFailed`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Result (int, optional): Result value
+            Name (str, optional): Name value.
+            Result (int, optional): Result value.
         """
+        super().__init__()
+
         if isinstance(Name, SetPropertyTolerantFailed):
             oth: SetPropertyTolerantFailed = Name
-            self._name = oth.Name
-            self._result = oth.Result
+            self.Name = oth.Name
+            self.Result = oth.Result
             return
-        else:
-            self._name = Name
-            self._result = Result
 
+        kargs = {
+            "Name": Name,
+            "Result": Result,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._result = kwargs["Result"]
 
 
     @property

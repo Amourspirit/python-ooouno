@@ -39,30 +39,33 @@ class FolderList(object):
     typeName: str = 'com.sun.star.ucb.FolderList'
     """Literal Constant ``com.sun.star.ucb.FolderList``"""
 
-    def __init__(self, List: typing.Tuple[FolderListEntry_c6c30c4c, ...] = UNO_NONE, Command: FolderListCommand_e0140cf9 = FolderListCommand_e0140cf9.GET) -> None:
+    def __init__(self, List: typing.Optional[typing.Tuple[FolderListEntry_c6c30c4c, ...]] = UNO_NONE, Command: typing.Optional[FolderListCommand_e0140cf9] = FolderListCommand_e0140cf9.GET) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``List`` can be another ``FolderList`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            List (Tuple[FolderListEntry, ...], optional): List value
-            Command (FolderListCommand, optional): Command value
+            List (typing.Tuple[FolderListEntry, ...], optional): List value.
+            Command (FolderListCommand, optional): Command value.
         """
+        super().__init__()
+
         if isinstance(List, FolderList):
             oth: FolderList = List
-            self._list = oth.List
-            self._command = oth.Command
+            self.List = oth.List
+            self.Command = oth.Command
             return
-        else:
-            if List is UNO_NONE:
-                self._list = None
-            else:
-                self._list = List
-            self._command = Command
 
+        kargs = {
+            "List": List,
+            "Command": Command,
+        }
+        if kargs["List"] is UNO_NONE:
+            kargs["List"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._list = kwargs["List"]
+        self._command = kwargs["Command"]
 
 
     @property

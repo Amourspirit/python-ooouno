@@ -40,33 +40,39 @@ class InputSource(object):
     typeName: str = 'com.sun.star.xml.sax.InputSource'
     """Literal Constant ``com.sun.star.xml.sax.InputSource``"""
 
-    def __init__(self, aInputStream: XInputStream_98d40ab4 = None, sEncoding: str = '', sPublicId: str = '', sSystemId: str = '') -> None:
+    def __init__(self, aInputStream: typing.Optional[XInputStream_98d40ab4] = None, sEncoding: typing.Optional[str] = '', sPublicId: typing.Optional[str] = '', sSystemId: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aInputStream`` can be another ``InputSource`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aInputStream (XInputStream, optional): aInputStream value
-            sEncoding (str, optional): sEncoding value
-            sPublicId (str, optional): sPublicId value
-            sSystemId (str, optional): sSystemId value
+            aInputStream (XInputStream, optional): aInputStream value.
+            sEncoding (str, optional): sEncoding value.
+            sPublicId (str, optional): sPublicId value.
+            sSystemId (str, optional): sSystemId value.
         """
+        super().__init__()
+
         if isinstance(aInputStream, InputSource):
             oth: InputSource = aInputStream
-            self._a_input_stream = oth.aInputStream
-            self._s_encoding = oth.sEncoding
-            self._s_public_id = oth.sPublicId
-            self._s_system_id = oth.sSystemId
+            self.aInputStream = oth.aInputStream
+            self.sEncoding = oth.sEncoding
+            self.sPublicId = oth.sPublicId
+            self.sSystemId = oth.sSystemId
             return
-        else:
-            self._a_input_stream = aInputStream
-            self._s_encoding = sEncoding
-            self._s_public_id = sPublicId
-            self._s_system_id = sSystemId
 
+        kargs = {
+            "aInputStream": aInputStream,
+            "sEncoding": sEncoding,
+            "sPublicId": sPublicId,
+            "sSystemId": sSystemId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_input_stream = kwargs["aInputStream"]
+        self._s_encoding = kwargs["sEncoding"]
+        self._s_public_id = kwargs["sPublicId"]
+        self._s_system_id = kwargs["sSystemId"]
 
 
     @property

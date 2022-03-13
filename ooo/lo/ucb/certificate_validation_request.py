@@ -21,10 +21,14 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from ..task.interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 from ..security.x_certificate import XCertificate as XCertificate_e55b0d3b
 
 class CertificateValidationRequest(ClassifiedInteractionRequest_9f72121b):
     """
+    Exception Class
+
     An error specifying an invalid certificate.
 
     See Also:
@@ -40,22 +44,37 @@ class CertificateValidationRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.CertificateValidationRequest'
     """Literal Constant ``com.sun.star.ucb.CertificateValidationRequest``"""
 
-    def __init__(self, CertificateValidity: typing.Optional[int] = 0, Certificate: typing.Optional[XCertificate_e55b0d3b] = None, HostName: typing.Optional[str] = '', **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, CertificateValidity: typing.Optional[int] = 0, Certificate: typing.Optional[XCertificate_e55b0d3b] = None, HostName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            Classification (InteractionClassification, optional): Classification value.
             CertificateValidity (int, optional): CertificateValidity value.
             Certificate (XCertificate, optional): Certificate value.
             HostName (str, optional): HostName value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+            "CertificateValidity": CertificateValidity,
+            "Certificate": Certificate,
+            "HostName": HostName,
+        }
+        self._init(**kargs)
 
-        self._certificate_validity = CertificateValidity
-        self._certificate = Certificate
-        self._host_name = HostName
+    def _init(self, **kwargs) -> None:
+        self._certificate_validity = kwargs["CertificateValidity"]
+        self._certificate = kwargs["Certificate"]
+        self._host_name = kwargs["HostName"]
+        inst_keys = ('CertificateValidity', 'Certificate', 'HostName')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def CertificateValidity(self) -> int:

@@ -41,27 +41,31 @@ class NamedDatabaseObject(object):
     typeName: str = 'com.sun.star.sdb.application.NamedDatabaseObject'
     """Literal Constant ``com.sun.star.sdb.application.NamedDatabaseObject``"""
 
-    def __init__(self, Type: int = 0, Name: str = '') -> None:
+    def __init__(self, Type: typing.Optional[int] = 0, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``NamedDatabaseObject`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (int, optional): Type value
-            Name (str, optional): Name value
+            Type (int, optional): Type value.
+            Name (str, optional): Name value.
         """
+        super().__init__()
+
         if isinstance(Type, NamedDatabaseObject):
             oth: NamedDatabaseObject = Type
-            self._type = oth.Type
-            self._name = oth.Name
+            self.Type = oth.Type
+            self.Name = oth.Name
             return
-        else:
-            self._type = Type
-            self._name = Name
 
+        kargs = {
+            "Type": Type,
+            "Name": Name,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._name = kwargs["Name"]
 
 
     @property

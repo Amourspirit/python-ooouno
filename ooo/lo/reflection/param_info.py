@@ -39,30 +39,35 @@ class ParamInfo(object):
     typeName: str = 'com.sun.star.reflection.ParamInfo'
     """Literal Constant ``com.sun.star.reflection.ParamInfo``"""
 
-    def __init__(self, aName: str = '', aMode: ParamMode_d7260ca9 = ParamMode_d7260ca9.IN, aType: XIdlClass_d63a0c9a = None) -> None:
+    def __init__(self, aName: typing.Optional[str] = '', aMode: typing.Optional[ParamMode_d7260ca9] = ParamMode_d7260ca9.IN, aType: typing.Optional[XIdlClass_d63a0c9a] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aName`` can be another ``ParamInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aName (str, optional): aName value
-            aMode (ParamMode, optional): aMode value
-            aType (XIdlClass, optional): aType value
+            aName (str, optional): aName value.
+            aMode (ParamMode, optional): aMode value.
+            aType (XIdlClass, optional): aType value.
         """
+        super().__init__()
+
         if isinstance(aName, ParamInfo):
             oth: ParamInfo = aName
-            self._a_name = oth.aName
-            self._a_mode = oth.aMode
-            self._a_type = oth.aType
+            self.aName = oth.aName
+            self.aMode = oth.aMode
+            self.aType = oth.aType
             return
-        else:
-            self._a_name = aName
-            self._a_mode = aMode
-            self._a_type = aType
 
+        kargs = {
+            "aName": aName,
+            "aMode": aMode,
+            "aType": aType,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_name = kwargs["aName"]
+        self._a_mode = kwargs["aMode"]
+        self._a_type = kwargs["aType"]
 
 
     @property

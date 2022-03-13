@@ -39,42 +39,49 @@ class SearchInfo(object):
     typeName: str = 'com.sun.star.ucb.SearchInfo'
     """Literal Constant ``com.sun.star.ucb.SearchInfo``"""
 
-    def __init__(self, Criteria: typing.Tuple[SearchCriterium_c6d30c4c, ...] = UNO_NONE, Recursion: SearchRecursion_c7080c52 = SearchRecursion_c7080c52.NONE, IncludeBase: bool = False, RespectFolderViewRestrictions: bool = False, RespectDocViewRestrictions: bool = False, FollowIndirections: bool = False) -> None:
+    def __init__(self, Criteria: typing.Optional[typing.Tuple[SearchCriterium_c6d30c4c, ...]] = UNO_NONE, Recursion: typing.Optional[SearchRecursion_c7080c52] = SearchRecursion_c7080c52.NONE, IncludeBase: typing.Optional[bool] = False, RespectFolderViewRestrictions: typing.Optional[bool] = False, RespectDocViewRestrictions: typing.Optional[bool] = False, FollowIndirections: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Criteria`` can be another ``SearchInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Criteria (Tuple[SearchCriterium, ...], optional): Criteria value
-            Recursion (SearchRecursion, optional): Recursion value
-            IncludeBase (bool, optional): IncludeBase value
-            RespectFolderViewRestrictions (bool, optional): RespectFolderViewRestrictions value
-            RespectDocViewRestrictions (bool, optional): RespectDocViewRestrictions value
-            FollowIndirections (bool, optional): FollowIndirections value
+            Criteria (typing.Tuple[SearchCriterium, ...], optional): Criteria value.
+            Recursion (SearchRecursion, optional): Recursion value.
+            IncludeBase (bool, optional): IncludeBase value.
+            RespectFolderViewRestrictions (bool, optional): RespectFolderViewRestrictions value.
+            RespectDocViewRestrictions (bool, optional): RespectDocViewRestrictions value.
+            FollowIndirections (bool, optional): FollowIndirections value.
         """
+        super().__init__()
+
         if isinstance(Criteria, SearchInfo):
             oth: SearchInfo = Criteria
-            self._criteria = oth.Criteria
-            self._recursion = oth.Recursion
-            self._include_base = oth.IncludeBase
-            self._respect_folder_view_restrictions = oth.RespectFolderViewRestrictions
-            self._respect_doc_view_restrictions = oth.RespectDocViewRestrictions
-            self._follow_indirections = oth.FollowIndirections
+            self.Criteria = oth.Criteria
+            self.Recursion = oth.Recursion
+            self.IncludeBase = oth.IncludeBase
+            self.RespectFolderViewRestrictions = oth.RespectFolderViewRestrictions
+            self.RespectDocViewRestrictions = oth.RespectDocViewRestrictions
+            self.FollowIndirections = oth.FollowIndirections
             return
-        else:
-            if Criteria is UNO_NONE:
-                self._criteria = None
-            else:
-                self._criteria = Criteria
-            self._recursion = Recursion
-            self._include_base = IncludeBase
-            self._respect_folder_view_restrictions = RespectFolderViewRestrictions
-            self._respect_doc_view_restrictions = RespectDocViewRestrictions
-            self._follow_indirections = FollowIndirections
 
+        kargs = {
+            "Criteria": Criteria,
+            "Recursion": Recursion,
+            "IncludeBase": IncludeBase,
+            "RespectFolderViewRestrictions": RespectFolderViewRestrictions,
+            "RespectDocViewRestrictions": RespectDocViewRestrictions,
+            "FollowIndirections": FollowIndirections,
+        }
+        if kargs["Criteria"] is UNO_NONE:
+            kargs["Criteria"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._criteria = kwargs["Criteria"]
+        self._recursion = kwargs["Recursion"]
+        self._include_base = kwargs["IncludeBase"]
+        self._respect_folder_view_restrictions = kwargs["RespectFolderViewRestrictions"]
+        self._respect_doc_view_restrictions = kwargs["RespectDocViewRestrictions"]
+        self._follow_indirections = kwargs["FollowIndirections"]
 
 
     @property

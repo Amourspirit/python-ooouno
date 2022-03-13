@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, IsNumeric = UNO_NONE, NumericValue = UNO_NONE, StringValue = UNO_NONE, FilterType = UNO_NONE, ColorValue = UNO_NONE):
-            if getattr(IsNumeric, "__class__", None) == self.__class__:
-                orig_init(self, IsNumeric)
+        ordered_keys = ('IsNumeric', 'NumericValue', 'StringValue', 'FilterType', 'ColorValue')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not IsNumeric is UNO_NONE:
-                if getattr(self, 'IsNumeric') != IsNumeric:
-                    setattr(self, 'IsNumeric', IsNumeric)
-            if not NumericValue is UNO_NONE:
-                if getattr(self, 'NumericValue') != NumericValue:
-                    setattr(self, 'NumericValue', NumericValue)
-            if not StringValue is UNO_NONE:
-                if getattr(self, 'StringValue') != StringValue:
-                    setattr(self, 'StringValue', StringValue)
-            if not FilterType is UNO_NONE:
-                if getattr(self, 'FilterType') != FilterType:
-                    setattr(self, 'FilterType', FilterType)
-            if not ColorValue is UNO_NONE:
-                if getattr(self, 'ColorValue') != ColorValue:
-                    setattr(self, 'ColorValue', ColorValue)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.FilterFieldValue'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FilterFieldValue = _get_class()
-
 
 else:
     from ...lo.sheet.filter_field_value import FilterFieldValue as FilterFieldValue

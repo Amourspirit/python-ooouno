@@ -37,27 +37,31 @@ class AtomDescription(object):
     typeName: str = 'com.sun.star.util.AtomDescription'
     """Literal Constant ``com.sun.star.util.AtomDescription``"""
 
-    def __init__(self, atom: int = 0, description: str = '') -> None:
+    def __init__(self, atom: typing.Optional[int] = 0, description: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``atom`` can be another ``AtomDescription`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            atom (int, optional): atom value
-            description (str, optional): description value
+            atom (int, optional): atom value.
+            description (str, optional): description value.
         """
+        super().__init__()
+
         if isinstance(atom, AtomDescription):
             oth: AtomDescription = atom
-            self._atom = oth.atom
-            self._description = oth.description
+            self.atom = oth.atom
+            self.description = oth.description
             return
-        else:
-            self._atom = atom
-            self._description = description
 
+        kargs = {
+            "atom": atom,
+            "description": description,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._atom = kwargs["atom"]
+        self._description = kwargs["description"]
 
 
     @property

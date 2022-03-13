@@ -36,27 +36,31 @@ class TimeFilterPair(object):
     typeName: str = 'com.sun.star.animations.TimeFilterPair'
     """Literal Constant ``com.sun.star.animations.TimeFilterPair``"""
 
-    def __init__(self, Time: float = 0.0, Progress: float = 0.0) -> None:
+    def __init__(self, Time: typing.Optional[float] = 0.0, Progress: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Time`` can be another ``TimeFilterPair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Time (float, optional): Time value
-            Progress (float, optional): Progress value
+            Time (float, optional): Time value.
+            Progress (float, optional): Progress value.
         """
+        super().__init__()
+
         if isinstance(Time, TimeFilterPair):
             oth: TimeFilterPair = Time
-            self._time = oth.Time
-            self._progress = oth.Progress
+            self.Time = oth.Time
+            self.Progress = oth.Progress
             return
-        else:
-            self._time = Time
-            self._progress = Progress
 
+        kargs = {
+            "Time": Time,
+            "Progress": Progress,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._time = kwargs["Time"]
+        self._progress = kwargs["Progress"]
 
 
     @property

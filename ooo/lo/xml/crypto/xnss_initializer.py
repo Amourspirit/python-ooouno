@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.xml.crypto
 import typing
-from abc import abstractmethod
+from abc import abstractmethod, abstractproperty
 from .x_cipher_context_supplier import XCipherContextSupplier as XCipherContextSupplier_9fd31214
 from .x_digest_context_supplier import XDigestContextSupplier as XDigestContextSupplier_a0151219
 if typing.TYPE_CHECKING:
@@ -49,6 +49,30 @@ class XNSSInitializer(XCipherContextSupplier_9fd31214, XDigestContextSupplier_a0
         
             LibreOffice 7.1
         """
+    @abstractproperty
+    def IsNSSinitialized(self) -> bool:
+        """
+        the state of the NSS initialization
+        
+        This attribute returns true, if the NSS library is initialized.
+        
+        **since**
+        
+            LibreOffice 7.1
+        """
+
+    @abstractproperty
+    def NSSPath(self) -> str:
+        """
+        the current path to the NSS databases
+        
+        This attribute returns the current setting, based on the user selection or automatic detection. This value can change until someone uses NSS crypto functions, because just then LibreOffice initializes the NSS library and the value stays fixed until LibreOffice is restarted!
+        
+        **since**
+        
+            LibreOffice 7.1
+        """
+
 
 __all__ = ['XNSSInitializer']
 

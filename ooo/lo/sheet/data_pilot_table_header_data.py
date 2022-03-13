@@ -43,36 +43,43 @@ class DataPilotTableHeaderData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTableHeaderData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTableHeaderData``"""
 
-    def __init__(self, Dimension: int = 0, Hierarchy: int = 0, Level: int = 0, Flags: int = 0, MemberName: str = '') -> None:
+    def __init__(self, Dimension: typing.Optional[int] = 0, Hierarchy: typing.Optional[int] = 0, Level: typing.Optional[int] = 0, Flags: typing.Optional[int] = 0, MemberName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Dimension`` can be another ``DataPilotTableHeaderData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Dimension (int, optional): Dimension value
-            Hierarchy (int, optional): Hierarchy value
-            Level (int, optional): Level value
-            Flags (int, optional): Flags value
-            MemberName (str, optional): MemberName value
+            Dimension (int, optional): Dimension value.
+            Hierarchy (int, optional): Hierarchy value.
+            Level (int, optional): Level value.
+            Flags (int, optional): Flags value.
+            MemberName (str, optional): MemberName value.
         """
+        super().__init__()
+
         if isinstance(Dimension, DataPilotTableHeaderData):
             oth: DataPilotTableHeaderData = Dimension
-            self._dimension = oth.Dimension
-            self._hierarchy = oth.Hierarchy
-            self._level = oth.Level
-            self._flags = oth.Flags
-            self._member_name = oth.MemberName
+            self.Dimension = oth.Dimension
+            self.Hierarchy = oth.Hierarchy
+            self.Level = oth.Level
+            self.Flags = oth.Flags
+            self.MemberName = oth.MemberName
             return
-        else:
-            self._dimension = Dimension
-            self._hierarchy = Hierarchy
-            self._level = Level
-            self._flags = Flags
-            self._member_name = MemberName
 
+        kargs = {
+            "Dimension": Dimension,
+            "Hierarchy": Hierarchy,
+            "Level": Level,
+            "Flags": Flags,
+            "MemberName": MemberName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._dimension = kwargs["Dimension"]
+        self._hierarchy = kwargs["Hierarchy"]
+        self._level = kwargs["Level"]
+        self._flags = kwargs["Flags"]
+        self._member_name = kwargs["MemberName"]
 
 
     @property

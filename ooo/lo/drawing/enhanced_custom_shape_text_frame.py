@@ -38,33 +38,35 @@ class EnhancedCustomShapeTextFrame(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeTextFrame'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeTextFrame``"""
 
-    def __init__(self, TopLeft: EnhancedCustomShapeParameterPair_262914a3 = UNO_NONE, BottomRight: EnhancedCustomShapeParameterPair_262914a3 = UNO_NONE) -> None:
+    def __init__(self, TopLeft: typing.Optional[EnhancedCustomShapeParameterPair_262914a3] = UNO_NONE, BottomRight: typing.Optional[EnhancedCustomShapeParameterPair_262914a3] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TopLeft`` can be another ``EnhancedCustomShapeTextFrame`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TopLeft (EnhancedCustomShapeParameterPair, optional): TopLeft value
-            BottomRight (EnhancedCustomShapeParameterPair, optional): BottomRight value
+            TopLeft (EnhancedCustomShapeParameterPair, optional): TopLeft value.
+            BottomRight (EnhancedCustomShapeParameterPair, optional): BottomRight value.
         """
+        super().__init__()
+
         if isinstance(TopLeft, EnhancedCustomShapeTextFrame):
             oth: EnhancedCustomShapeTextFrame = TopLeft
-            self._top_left = oth.TopLeft
-            self._bottom_right = oth.BottomRight
+            self.TopLeft = oth.TopLeft
+            self.BottomRight = oth.BottomRight
             return
-        else:
-            if TopLeft is UNO_NONE:
-                self._top_left = EnhancedCustomShapeParameterPair_262914a3()
-            else:
-                self._top_left = TopLeft
-            if BottomRight is UNO_NONE:
-                self._bottom_right = EnhancedCustomShapeParameterPair_262914a3()
-            else:
-                self._bottom_right = BottomRight
 
+        kargs = {
+            "TopLeft": TopLeft,
+            "BottomRight": BottomRight,
+        }
+        if kargs["TopLeft"] is UNO_NONE:
+            kargs["TopLeft"] = None
+        if kargs["BottomRight"] is UNO_NONE:
+            kargs["BottomRight"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._top_left = kwargs["TopLeft"]
+        self._bottom_right = kwargs["BottomRight"]
 
 
     @property

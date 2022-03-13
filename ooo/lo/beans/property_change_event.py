@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -44,38 +45,50 @@ class PropertyChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.beans.PropertyChangeEvent'
     """Literal Constant ``com.sun.star.beans.PropertyChangeEvent``"""
 
-    def __init__(self, PropertyName: str = '', Further: bool = False, PropertyHandle: int = 0, OldValue: object = None, NewValue: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, PropertyName: typing.Optional[str] = '', Further: typing.Optional[bool] = False, PropertyHandle: typing.Optional[int] = 0, OldValue: typing.Optional[object] = None, NewValue: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``PropertyName`` can be another ``PropertyChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            PropertyName (str, optional): PropertyName value
-            Further (bool, optional): Further value
-            PropertyHandle (int, optional): PropertyHandle value
-            OldValue (object, optional): OldValue value
-            NewValue (object, optional): NewValue value
+            Source (XInterface, optional): Source value.
+            PropertyName (str, optional): PropertyName value.
+            Further (bool, optional): Further value.
+            PropertyHandle (int, optional): PropertyHandle value.
+            OldValue (object, optional): OldValue value.
+            NewValue (object, optional): NewValue value.
         """
-        super().__init__(**kwargs)
-        if isinstance(PropertyName, PropertyChangeEvent):
-            oth: PropertyChangeEvent = PropertyName
-            self._property_name = oth.PropertyName
-            self._further = oth.Further
-            self._property_handle = oth.PropertyHandle
-            self._old_value = oth.OldValue
-            self._new_value = oth.NewValue
-            return
-        else:
-            self._property_name = PropertyName
-            self._further = Further
-            self._property_handle = PropertyHandle
-            self._old_value = OldValue
-            self._new_value = NewValue
 
+        if isinstance(Source, PropertyChangeEvent):
+            oth: PropertyChangeEvent = Source
+            self.Source = oth.Source
+            self.PropertyName = oth.PropertyName
+            self.Further = oth.Further
+            self.PropertyHandle = oth.PropertyHandle
+            self.OldValue = oth.OldValue
+            self.NewValue = oth.NewValue
+            return
+
+        kargs = {
+            "Source": Source,
+            "PropertyName": PropertyName,
+            "Further": Further,
+            "PropertyHandle": PropertyHandle,
+            "OldValue": OldValue,
+            "NewValue": NewValue,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._property_name = kwargs["PropertyName"]
+        self._further = kwargs["Further"]
+        self._property_handle = kwargs["PropertyHandle"]
+        self._old_value = kwargs["OldValue"]
+        self._new_value = kwargs["NewValue"]
+        inst_keys = ('PropertyName', 'Further', 'PropertyHandle', 'OldValue', 'NewValue')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

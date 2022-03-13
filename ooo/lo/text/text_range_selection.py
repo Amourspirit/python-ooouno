@@ -37,33 +37,35 @@ class TextRangeSelection(object):
     typeName: str = 'com.sun.star.text.TextRangeSelection'
     """Literal Constant ``com.sun.star.text.TextRangeSelection``"""
 
-    def __init__(self, Start: TextPosition_b2ae0bc7 = UNO_NONE, End: TextPosition_b2ae0bc7 = UNO_NONE) -> None:
+    def __init__(self, Start: typing.Optional[TextPosition_b2ae0bc7] = UNO_NONE, End: typing.Optional[TextPosition_b2ae0bc7] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Start`` can be another ``TextRangeSelection`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Start (TextPosition, optional): Start value
-            End (TextPosition, optional): End value
+            Start (TextPosition, optional): Start value.
+            End (TextPosition, optional): End value.
         """
+        super().__init__()
+
         if isinstance(Start, TextRangeSelection):
             oth: TextRangeSelection = Start
-            self._start = oth.Start
-            self._end = oth.End
+            self.Start = oth.Start
+            self.End = oth.End
             return
-        else:
-            if Start is UNO_NONE:
-                self._start = TextPosition_b2ae0bc7()
-            else:
-                self._start = Start
-            if End is UNO_NONE:
-                self._end = TextPosition_b2ae0bc7()
-            else:
-                self._end = End
 
+        kargs = {
+            "Start": Start,
+            "End": End,
+        }
+        if kargs["Start"] is UNO_NONE:
+            kargs["Start"] = None
+        if kargs["End"] is UNO_NONE:
+            kargs["End"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._start = kwargs["Start"]
+        self._end = kwargs["End"]
 
 
     @property

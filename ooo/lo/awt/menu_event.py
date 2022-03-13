@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,26 +39,34 @@ class MenuEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.MenuEvent'
     """Literal Constant ``com.sun.star.awt.MenuEvent``"""
 
-    def __init__(self, MenuId: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, MenuId: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MenuId`` can be another ``MenuEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            MenuId (int, optional): MenuId value
+            Source (XInterface, optional): Source value.
+            MenuId (int, optional): MenuId value.
         """
-        super().__init__(**kwargs)
-        if isinstance(MenuId, MenuEvent):
-            oth: MenuEvent = MenuId
-            self._menu_id = oth.MenuId
-            return
-        else:
-            self._menu_id = MenuId
 
+        if isinstance(Source, MenuEvent):
+            oth: MenuEvent = Source
+            self.Source = oth.Source
+            self.MenuId = oth.MenuId
+            return
+
+        kargs = {
+            "Source": Source,
+            "MenuId": MenuId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._menu_id = kwargs["MenuId"]
+        inst_keys = ('MenuId',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

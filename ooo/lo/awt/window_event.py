@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,47 +39,62 @@ class WindowEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.WindowEvent'
     """Literal Constant ``com.sun.star.awt.WindowEvent``"""
 
-    def __init__(self, X: int = 0, Y: int = 0, Width: int = 0, Height: int = 0, LeftInset: int = 0, TopInset: int = 0, RightInset: int = 0, BottomInset: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, X: typing.Optional[int] = 0, Y: typing.Optional[int] = 0, Width: typing.Optional[int] = 0, Height: typing.Optional[int] = 0, LeftInset: typing.Optional[int] = 0, TopInset: typing.Optional[int] = 0, RightInset: typing.Optional[int] = 0, BottomInset: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``X`` can be another ``WindowEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            X (int, optional): X value
-            Y (int, optional): Y value
-            Width (int, optional): Width value
-            Height (int, optional): Height value
-            LeftInset (int, optional): LeftInset value
-            TopInset (int, optional): TopInset value
-            RightInset (int, optional): RightInset value
-            BottomInset (int, optional): BottomInset value
+            Source (XInterface, optional): Source value.
+            X (int, optional): X value.
+            Y (int, optional): Y value.
+            Width (int, optional): Width value.
+            Height (int, optional): Height value.
+            LeftInset (int, optional): LeftInset value.
+            TopInset (int, optional): TopInset value.
+            RightInset (int, optional): RightInset value.
+            BottomInset (int, optional): BottomInset value.
         """
-        super().__init__(**kwargs)
-        if isinstance(X, WindowEvent):
-            oth: WindowEvent = X
-            self._x = oth.X
-            self._y = oth.Y
-            self._width = oth.Width
-            self._height = oth.Height
-            self._left_inset = oth.LeftInset
-            self._top_inset = oth.TopInset
-            self._right_inset = oth.RightInset
-            self._bottom_inset = oth.BottomInset
-            return
-        else:
-            self._x = X
-            self._y = Y
-            self._width = Width
-            self._height = Height
-            self._left_inset = LeftInset
-            self._top_inset = TopInset
-            self._right_inset = RightInset
-            self._bottom_inset = BottomInset
 
+        if isinstance(Source, WindowEvent):
+            oth: WindowEvent = Source
+            self.Source = oth.Source
+            self.X = oth.X
+            self.Y = oth.Y
+            self.Width = oth.Width
+            self.Height = oth.Height
+            self.LeftInset = oth.LeftInset
+            self.TopInset = oth.TopInset
+            self.RightInset = oth.RightInset
+            self.BottomInset = oth.BottomInset
+            return
+
+        kargs = {
+            "Source": Source,
+            "X": X,
+            "Y": Y,
+            "Width": Width,
+            "Height": Height,
+            "LeftInset": LeftInset,
+            "TopInset": TopInset,
+            "RightInset": RightInset,
+            "BottomInset": BottomInset,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._x = kwargs["X"]
+        self._y = kwargs["Y"]
+        self._width = kwargs["Width"]
+        self._height = kwargs["Height"]
+        self._left_inset = kwargs["LeftInset"]
+        self._top_inset = kwargs["TopInset"]
+        self._right_inset = kwargs["RightInset"]
+        self._bottom_inset = kwargs["BottomInset"]
+        inst_keys = ('X', 'Y', 'Width', 'Height', 'LeftInset', 'TopInset', 'RightInset', 'BottomInset')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -56,27 +56,31 @@ class SocketPermission(object):
     typeName: str = 'com.sun.star.connection.SocketPermission'
     """Literal Constant ``com.sun.star.connection.SocketPermission``"""
 
-    def __init__(self, Host: str = '', Actions: str = '') -> None:
+    def __init__(self, Host: typing.Optional[str] = '', Actions: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Host`` can be another ``SocketPermission`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Host (str, optional): Host value
-            Actions (str, optional): Actions value
+            Host (str, optional): Host value.
+            Actions (str, optional): Actions value.
         """
+        super().__init__()
+
         if isinstance(Host, SocketPermission):
             oth: SocketPermission = Host
-            self._host = oth.Host
-            self._actions = oth.Actions
+            self.Host = oth.Host
+            self.Actions = oth.Actions
             return
-        else:
-            self._host = Host
-            self._actions = Actions
 
+        kargs = {
+            "Host": Host,
+            "Actions": Actions,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._host = kwargs["Host"]
+        self._actions = kwargs["Actions"]
 
 
     @property

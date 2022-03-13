@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -44,32 +45,42 @@ class AccessibleEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.accessibility.AccessibleEventObject'
     """Literal Constant ``com.sun.star.accessibility.AccessibleEventObject``"""
 
-    def __init__(self, EventId: int = 0, NewValue: object = None, OldValue: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, EventId: typing.Optional[int] = 0, NewValue: typing.Optional[object] = None, OldValue: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``EventId`` can be another ``AccessibleEventObject`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            EventId (int, optional): EventId value
-            NewValue (object, optional): NewValue value
-            OldValue (object, optional): OldValue value
+            Source (XInterface, optional): Source value.
+            EventId (int, optional): EventId value.
+            NewValue (object, optional): NewValue value.
+            OldValue (object, optional): OldValue value.
         """
-        super().__init__(**kwargs)
-        if isinstance(EventId, AccessibleEventObject):
-            oth: AccessibleEventObject = EventId
-            self._event_id = oth.EventId
-            self._new_value = oth.NewValue
-            self._old_value = oth.OldValue
-            return
-        else:
-            self._event_id = EventId
-            self._new_value = NewValue
-            self._old_value = OldValue
 
+        if isinstance(Source, AccessibleEventObject):
+            oth: AccessibleEventObject = Source
+            self.Source = oth.Source
+            self.EventId = oth.EventId
+            self.NewValue = oth.NewValue
+            self.OldValue = oth.OldValue
+            return
+
+        kargs = {
+            "Source": Source,
+            "EventId": EventId,
+            "NewValue": NewValue,
+            "OldValue": OldValue,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._event_id = kwargs["EventId"]
+        self._new_value = kwargs["NewValue"]
+        self._old_value = kwargs["OldValue"]
+        inst_keys = ('EventId', 'NewValue', 'OldValue')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

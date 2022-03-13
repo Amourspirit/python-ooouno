@@ -41,39 +41,47 @@ class RealRectangle3D(object):
     typeName: str = 'com.sun.star.geometry.RealRectangle3D'
     """Literal Constant ``com.sun.star.geometry.RealRectangle3D``"""
 
-    def __init__(self, X1: float = 0.0, Y1: float = 0.0, Z1: float = 0.0, X2: float = 0.0, Y2: float = 0.0, Z2: float = 0.0) -> None:
+    def __init__(self, X1: typing.Optional[float] = 0.0, Y1: typing.Optional[float] = 0.0, Z1: typing.Optional[float] = 0.0, X2: typing.Optional[float] = 0.0, Y2: typing.Optional[float] = 0.0, Z2: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``X1`` can be another ``RealRectangle3D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            X1 (float, optional): X1 value
-            Y1 (float, optional): Y1 value
-            Z1 (float, optional): Z1 value
-            X2 (float, optional): X2 value
-            Y2 (float, optional): Y2 value
-            Z2 (float, optional): Z2 value
+            X1 (float, optional): X1 value.
+            Y1 (float, optional): Y1 value.
+            Z1 (float, optional): Z1 value.
+            X2 (float, optional): X2 value.
+            Y2 (float, optional): Y2 value.
+            Z2 (float, optional): Z2 value.
         """
+        super().__init__()
+
         if isinstance(X1, RealRectangle3D):
             oth: RealRectangle3D = X1
-            self._x1 = oth.X1
-            self._y1 = oth.Y1
-            self._z1 = oth.Z1
-            self._x2 = oth.X2
-            self._y2 = oth.Y2
-            self._z2 = oth.Z2
+            self.X1 = oth.X1
+            self.Y1 = oth.Y1
+            self.Z1 = oth.Z1
+            self.X2 = oth.X2
+            self.Y2 = oth.Y2
+            self.Z2 = oth.Z2
             return
-        else:
-            self._x1 = X1
-            self._y1 = Y1
-            self._z1 = Z1
-            self._x2 = X2
-            self._y2 = Y2
-            self._z2 = Z2
 
+        kargs = {
+            "X1": X1,
+            "Y1": Y1,
+            "Z1": Z1,
+            "X2": X2,
+            "Y2": Y2,
+            "Z2": Z2,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._x1 = kwargs["X1"]
+        self._y1 = kwargs["Y1"]
+        self._z1 = kwargs["Z1"]
+        self._x2 = kwargs["X2"]
+        self._y2 = kwargs["Y2"]
+        self._z2 = kwargs["Z2"]
 
 
     @property

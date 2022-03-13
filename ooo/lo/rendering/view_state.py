@@ -45,30 +45,33 @@ class ViewState(object):
     typeName: str = 'com.sun.star.rendering.ViewState'
     """Literal Constant ``com.sun.star.rendering.ViewState``"""
 
-    def __init__(self, AffineTransform: AffineMatrix2D_ff040da8 = UNO_NONE, Clip: XPolyPolygon2D_e1b0e20 = None) -> None:
+    def __init__(self, AffineTransform: typing.Optional[AffineMatrix2D_ff040da8] = UNO_NONE, Clip: typing.Optional[XPolyPolygon2D_e1b0e20] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``AffineTransform`` can be another ``ViewState`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            AffineTransform (AffineMatrix2D, optional): AffineTransform value
-            Clip (XPolyPolygon2D, optional): Clip value
+            AffineTransform (AffineMatrix2D, optional): AffineTransform value.
+            Clip (XPolyPolygon2D, optional): Clip value.
         """
+        super().__init__()
+
         if isinstance(AffineTransform, ViewState):
             oth: ViewState = AffineTransform
-            self._affine_transform = oth.AffineTransform
-            self._clip = oth.Clip
+            self.AffineTransform = oth.AffineTransform
+            self.Clip = oth.Clip
             return
-        else:
-            if AffineTransform is UNO_NONE:
-                self._affine_transform = AffineMatrix2D_ff040da8()
-            else:
-                self._affine_transform = AffineTransform
-            self._clip = Clip
 
+        kargs = {
+            "AffineTransform": AffineTransform,
+            "Clip": Clip,
+        }
+        if kargs["AffineTransform"] is UNO_NONE:
+            kargs["AffineTransform"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._affine_transform = kwargs["AffineTransform"]
+        self._clip = kwargs["Clip"]
 
 
     @property

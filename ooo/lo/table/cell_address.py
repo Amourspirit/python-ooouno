@@ -37,30 +37,35 @@ class CellAddress(object):
     typeName: str = 'com.sun.star.table.CellAddress'
     """Literal Constant ``com.sun.star.table.CellAddress``"""
 
-    def __init__(self, Sheet: int = 0, Column: int = 0, Row: int = 0) -> None:
+    def __init__(self, Sheet: typing.Optional[int] = 0, Column: typing.Optional[int] = 0, Row: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Sheet`` can be another ``CellAddress`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Sheet (int, optional): Sheet value
-            Column (int, optional): Column value
-            Row (int, optional): Row value
+            Sheet (int, optional): Sheet value.
+            Column (int, optional): Column value.
+            Row (int, optional): Row value.
         """
+        super().__init__()
+
         if isinstance(Sheet, CellAddress):
             oth: CellAddress = Sheet
-            self._sheet = oth.Sheet
-            self._column = oth.Column
-            self._row = oth.Row
+            self.Sheet = oth.Sheet
+            self.Column = oth.Column
+            self.Row = oth.Row
             return
-        else:
-            self._sheet = Sheet
-            self._column = Column
-            self._row = Row
 
+        kargs = {
+            "Sheet": Sheet,
+            "Column": Column,
+            "Row": Row,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._sheet = kwargs["Sheet"]
+        self._column = kwargs["Column"]
+        self._row = kwargs["Row"]
 
 
     @property

@@ -36,30 +36,35 @@ class DataPilotFieldFilter(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldFilter'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldFilter``"""
 
-    def __init__(self, FieldName: str = '', MatchValueName: str = '', MatchValue: str = '') -> None:
+    def __init__(self, FieldName: typing.Optional[str] = '', MatchValueName: typing.Optional[str] = '', MatchValue: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FieldName`` can be another ``DataPilotFieldFilter`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FieldName (str, optional): FieldName value
-            MatchValueName (str, optional): MatchValueName value
-            MatchValue (str, optional): MatchValue value
+            FieldName (str, optional): FieldName value.
+            MatchValueName (str, optional): MatchValueName value.
+            MatchValue (str, optional): MatchValue value.
         """
+        super().__init__()
+
         if isinstance(FieldName, DataPilotFieldFilter):
             oth: DataPilotFieldFilter = FieldName
-            self._field_name = oth.FieldName
-            self._match_value_name = oth.MatchValueName
-            self._match_value = oth.MatchValue
+            self.FieldName = oth.FieldName
+            self.MatchValueName = oth.MatchValueName
+            self.MatchValue = oth.MatchValue
             return
-        else:
-            self._field_name = FieldName
-            self._match_value_name = MatchValueName
-            self._match_value = MatchValue
 
+        kargs = {
+            "FieldName": FieldName,
+            "MatchValueName": MatchValueName,
+            "MatchValue": MatchValue,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._field_name = kwargs["FieldName"]
+        self._match_value_name = kwargs["MatchValueName"]
+        self._match_value = kwargs["MatchValue"]
 
 
     @property

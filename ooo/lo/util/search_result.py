@@ -36,36 +36,39 @@ class SearchResult(object):
     typeName: str = 'com.sun.star.util.SearchResult'
     """Literal Constant ``com.sun.star.util.SearchResult``"""
 
-    def __init__(self, startOffset: typing.Tuple[int, ...] = UNO_NONE, endOffset: typing.Tuple[int, ...] = UNO_NONE, subRegExpressions: int = 0) -> None:
+    def __init__(self, startOffset: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, endOffset: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, subRegExpressions: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``startOffset`` can be another ``SearchResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            startOffset (Tuple[int, ...], optional): startOffset value
-            endOffset (Tuple[int, ...], optional): endOffset value
-            subRegExpressions (int, optional): subRegExpressions value
+            startOffset (typing.Tuple[int, ...], optional): startOffset value.
+            endOffset (typing.Tuple[int, ...], optional): endOffset value.
+            subRegExpressions (int, optional): subRegExpressions value.
         """
+        super().__init__()
+
         if isinstance(startOffset, SearchResult):
             oth: SearchResult = startOffset
-            self._start_offset = oth.startOffset
-            self._end_offset = oth.endOffset
-            self._sub_reg_expressions = oth.subRegExpressions
+            self.startOffset = oth.startOffset
+            self.endOffset = oth.endOffset
+            self.subRegExpressions = oth.subRegExpressions
             return
-        else:
-            if startOffset is UNO_NONE:
-                self._start_offset = None
-            else:
-                self._start_offset = startOffset
-            if endOffset is UNO_NONE:
-                self._end_offset = None
-            else:
-                self._end_offset = endOffset
-            self._sub_reg_expressions = subRegExpressions
 
+        kargs = {
+            "startOffset": startOffset,
+            "endOffset": endOffset,
+            "subRegExpressions": subRegExpressions,
+        }
+        if kargs["startOffset"] is UNO_NONE:
+            kargs["startOffset"] = None
+        if kargs["endOffset"] is UNO_NONE:
+            kargs["endOffset"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._start_offset = kwargs["startOffset"]
+        self._end_offset = kwargs["endOffset"]
+        self._sub_reg_expressions = kwargs["subRegExpressions"]
 
 
     @property

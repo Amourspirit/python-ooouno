@@ -36,27 +36,31 @@ class TextPosition(object):
     typeName: str = 'com.sun.star.text.TextPosition'
     """Literal Constant ``com.sun.star.text.TextPosition``"""
 
-    def __init__(self, Paragraph: int = 0, PositionInParagraph: int = 0) -> None:
+    def __init__(self, Paragraph: typing.Optional[int] = 0, PositionInParagraph: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Paragraph`` can be another ``TextPosition`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Paragraph (int, optional): Paragraph value
-            PositionInParagraph (int, optional): PositionInParagraph value
+            Paragraph (int, optional): Paragraph value.
+            PositionInParagraph (int, optional): PositionInParagraph value.
         """
+        super().__init__()
+
         if isinstance(Paragraph, TextPosition):
             oth: TextPosition = Paragraph
-            self._paragraph = oth.Paragraph
-            self._position_in_paragraph = oth.PositionInParagraph
+            self.Paragraph = oth.Paragraph
+            self.PositionInParagraph = oth.PositionInParagraph
             return
-        else:
-            self._paragraph = Paragraph
-            self._position_in_paragraph = PositionInParagraph
 
+        kargs = {
+            "Paragraph": Paragraph,
+            "PositionInParagraph": PositionInParagraph,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._paragraph = kwargs["Paragraph"]
+        self._position_in_paragraph = kwargs["PositionInParagraph"]
 
 
     @property

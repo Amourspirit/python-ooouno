@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Type = UNO_NONE, Usage = UNO_NONE, Code = UNO_NONE, DefaultName = UNO_NONE, NameID = UNO_NONE, Index = UNO_NONE, Default = UNO_NONE):
-            if getattr(Type, "__class__", None) == self.__class__:
-                orig_init(self, Type)
+        ordered_keys = ('Type', 'Usage', 'Code', 'DefaultName', 'NameID', 'Index', 'Default')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Type is UNO_NONE:
-                if getattr(self, 'Type') != Type:
-                    setattr(self, 'Type', Type)
-            if not Usage is UNO_NONE:
-                if getattr(self, 'Usage') != Usage:
-                    setattr(self, 'Usage', Usage)
-            if not Code is UNO_NONE:
-                if getattr(self, 'Code') != Code:
-                    setattr(self, 'Code', Code)
-            if not DefaultName is UNO_NONE:
-                if getattr(self, 'DefaultName') != DefaultName:
-                    setattr(self, 'DefaultName', DefaultName)
-            if not NameID is UNO_NONE:
-                if getattr(self, 'NameID') != NameID:
-                    setattr(self, 'NameID', NameID)
-            if not Index is UNO_NONE:
-                if getattr(self, 'Index') != Index:
-                    setattr(self, 'Index', Index)
-            if not Default is UNO_NONE:
-                if getattr(self, 'Default') != Default:
-                    setattr(self, 'Default', Default)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.NumberFormatCode'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     NumberFormatCode = _get_class()
-
 
 else:
     from ...lo.i18n.number_format_code import NumberFormatCode as NumberFormatCode

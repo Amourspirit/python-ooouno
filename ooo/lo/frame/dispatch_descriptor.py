@@ -40,33 +40,37 @@ class DispatchDescriptor(object):
     typeName: str = 'com.sun.star.frame.DispatchDescriptor'
     """Literal Constant ``com.sun.star.frame.DispatchDescriptor``"""
 
-    def __init__(self, FeatureURL: URL_57ad07b9 = UNO_NONE, FrameName: str = '', SearchFlags: int = 0) -> None:
+    def __init__(self, FeatureURL: typing.Optional[URL_57ad07b9] = UNO_NONE, FrameName: typing.Optional[str] = '', SearchFlags: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FeatureURL`` can be another ``DispatchDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FeatureURL (URL, optional): FeatureURL value
-            FrameName (str, optional): FrameName value
-            SearchFlags (int, optional): SearchFlags value
+            FeatureURL (URL, optional): FeatureURL value.
+            FrameName (str, optional): FrameName value.
+            SearchFlags (int, optional): SearchFlags value.
         """
+        super().__init__()
+
         if isinstance(FeatureURL, DispatchDescriptor):
             oth: DispatchDescriptor = FeatureURL
-            self._feature_url = oth.FeatureURL
-            self._frame_name = oth.FrameName
-            self._search_flags = oth.SearchFlags
+            self.FeatureURL = oth.FeatureURL
+            self.FrameName = oth.FrameName
+            self.SearchFlags = oth.SearchFlags
             return
-        else:
-            if FeatureURL is UNO_NONE:
-                self._feature_url = URL_57ad07b9()
-            else:
-                self._feature_url = FeatureURL
-            self._frame_name = FrameName
-            self._search_flags = SearchFlags
 
+        kargs = {
+            "FeatureURL": FeatureURL,
+            "FrameName": FrameName,
+            "SearchFlags": SearchFlags,
+        }
+        if kargs["FeatureURL"] is UNO_NONE:
+            kargs["FeatureURL"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._feature_url = kwargs["FeatureURL"]
+        self._frame_name = kwargs["FrameName"]
+        self._search_flags = kwargs["SearchFlags"]
 
 
     @property

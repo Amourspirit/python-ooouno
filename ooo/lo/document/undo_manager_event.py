@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,29 +43,38 @@ class UndoManagerEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.document.UndoManagerEvent'
     """Literal Constant ``com.sun.star.document.UndoManagerEvent``"""
 
-    def __init__(self, UndoActionTitle: str = '', UndoContextDepth: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, UndoActionTitle: typing.Optional[str] = '', UndoContextDepth: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``UndoActionTitle`` can be another ``UndoManagerEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            UndoActionTitle (str, optional): UndoActionTitle value
-            UndoContextDepth (int, optional): UndoContextDepth value
+            Source (XInterface, optional): Source value.
+            UndoActionTitle (str, optional): UndoActionTitle value.
+            UndoContextDepth (int, optional): UndoContextDepth value.
         """
-        super().__init__(**kwargs)
-        if isinstance(UndoActionTitle, UndoManagerEvent):
-            oth: UndoManagerEvent = UndoActionTitle
-            self._undo_action_title = oth.UndoActionTitle
-            self._undo_context_depth = oth.UndoContextDepth
-            return
-        else:
-            self._undo_action_title = UndoActionTitle
-            self._undo_context_depth = UndoContextDepth
 
+        if isinstance(Source, UndoManagerEvent):
+            oth: UndoManagerEvent = Source
+            self.Source = oth.Source
+            self.UndoActionTitle = oth.UndoActionTitle
+            self.UndoContextDepth = oth.UndoContextDepth
+            return
+
+        kargs = {
+            "Source": Source,
+            "UndoActionTitle": UndoActionTitle,
+            "UndoContextDepth": UndoContextDepth,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._undo_action_title = kwargs["UndoActionTitle"]
+        self._undo_context_depth = kwargs["UndoContextDepth"]
+        inst_keys = ('UndoActionTitle', 'UndoContextDepth')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

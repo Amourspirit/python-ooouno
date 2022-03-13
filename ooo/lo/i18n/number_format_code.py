@@ -37,42 +37,51 @@ class NumberFormatCode(object):
     typeName: str = 'com.sun.star.i18n.NumberFormatCode'
     """Literal Constant ``com.sun.star.i18n.NumberFormatCode``"""
 
-    def __init__(self, Type: int = 0, Usage: int = 0, Code: str = '', DefaultName: str = '', NameID: str = '', Index: int = 0, Default: bool = False) -> None:
+    def __init__(self, Type: typing.Optional[int] = 0, Usage: typing.Optional[int] = 0, Code: typing.Optional[str] = '', DefaultName: typing.Optional[str] = '', NameID: typing.Optional[str] = '', Index: typing.Optional[int] = 0, Default: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``NumberFormatCode`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (int, optional): Type value
-            Usage (int, optional): Usage value
-            Code (str, optional): Code value
-            DefaultName (str, optional): DefaultName value
-            NameID (str, optional): NameID value
-            Index (int, optional): Index value
-            Default (bool, optional): Default value
+            Type (int, optional): Type value.
+            Usage (int, optional): Usage value.
+            Code (str, optional): Code value.
+            DefaultName (str, optional): DefaultName value.
+            NameID (str, optional): NameID value.
+            Index (int, optional): Index value.
+            Default (bool, optional): Default value.
         """
+        super().__init__()
+
         if isinstance(Type, NumberFormatCode):
             oth: NumberFormatCode = Type
-            self._type = oth.Type
-            self._usage = oth.Usage
-            self._code = oth.Code
-            self._default_name = oth.DefaultName
-            self._name_id = oth.NameID
-            self._index = oth.Index
-            self._default = oth.Default
+            self.Type = oth.Type
+            self.Usage = oth.Usage
+            self.Code = oth.Code
+            self.DefaultName = oth.DefaultName
+            self.NameID = oth.NameID
+            self.Index = oth.Index
+            self.Default = oth.Default
             return
-        else:
-            self._type = Type
-            self._usage = Usage
-            self._code = Code
-            self._default_name = DefaultName
-            self._name_id = NameID
-            self._index = Index
-            self._default = Default
 
+        kargs = {
+            "Type": Type,
+            "Usage": Usage,
+            "Code": Code,
+            "DefaultName": DefaultName,
+            "NameID": NameID,
+            "Index": Index,
+            "Default": Default,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._usage = kwargs["Usage"]
+        self._code = kwargs["Code"]
+        self._default_name = kwargs["DefaultName"]
+        self._name_id = kwargs["NameID"]
+        self._index = kwargs["Index"]
+        self._default = kwargs["Default"]
 
 
     @property

@@ -37,24 +37,27 @@ class ColorProfile(object):
     typeName: str = 'com.sun.star.rendering.ColorProfile'
     """Literal Constant ``com.sun.star.rendering.ColorProfile``"""
 
-    def __init__(self, dummy: int = 0) -> None:
+    def __init__(self, dummy: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``dummy`` can be another ``ColorProfile`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            dummy (int, optional): dummy value
+            dummy (int, optional): dummy value.
         """
+        super().__init__()
+
         if isinstance(dummy, ColorProfile):
             oth: ColorProfile = dummy
-            self._dummy = oth.dummy
+            self.dummy = oth.dummy
             return
-        else:
-            self._dummy = dummy
 
+        kargs = {
+            "dummy": dummy,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._dummy = kwargs["dummy"]
 
 
     @property

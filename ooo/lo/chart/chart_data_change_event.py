@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .chart_data_change_type import ChartDataChangeType as ChartDataChangeType_16cc0e6e
 
@@ -39,38 +40,50 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.chart.ChartDataChangeEvent'
     """Literal Constant ``com.sun.star.chart.ChartDataChangeEvent``"""
 
-    def __init__(self, Type: ChartDataChangeType_16cc0e6e = ChartDataChangeType_16cc0e6e.ALL, StartColumn: int = 0, EndColumn: int = 0, StartRow: int = 0, EndRow: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Type: typing.Optional[ChartDataChangeType_16cc0e6e] = ChartDataChangeType_16cc0e6e.ALL, StartColumn: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0, StartRow: typing.Optional[int] = 0, EndRow: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``ChartDataChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Type (ChartDataChangeType, optional): Type value
-            StartColumn (int, optional): StartColumn value
-            EndColumn (int, optional): EndColumn value
-            StartRow (int, optional): StartRow value
-            EndRow (int, optional): EndRow value
+            Source (XInterface, optional): Source value.
+            Type (ChartDataChangeType, optional): Type value.
+            StartColumn (int, optional): StartColumn value.
+            EndColumn (int, optional): EndColumn value.
+            StartRow (int, optional): StartRow value.
+            EndRow (int, optional): EndRow value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Type, ChartDataChangeEvent):
-            oth: ChartDataChangeEvent = Type
-            self._type = oth.Type
-            self._start_column = oth.StartColumn
-            self._end_column = oth.EndColumn
-            self._start_row = oth.StartRow
-            self._end_row = oth.EndRow
-            return
-        else:
-            self._type = Type
-            self._start_column = StartColumn
-            self._end_column = EndColumn
-            self._start_row = StartRow
-            self._end_row = EndRow
 
+        if isinstance(Source, ChartDataChangeEvent):
+            oth: ChartDataChangeEvent = Source
+            self.Source = oth.Source
+            self.Type = oth.Type
+            self.StartColumn = oth.StartColumn
+            self.EndColumn = oth.EndColumn
+            self.StartRow = oth.StartRow
+            self.EndRow = oth.EndRow
+            return
+
+        kargs = {
+            "Source": Source,
+            "Type": Type,
+            "StartColumn": StartColumn,
+            "EndColumn": EndColumn,
+            "StartRow": StartRow,
+            "EndRow": EndRow,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._start_column = kwargs["StartColumn"]
+        self._end_column = kwargs["EndColumn"]
+        self._start_row = kwargs["StartRow"]
+        self._end_row = kwargs["EndRow"]
+        inst_keys = ('Type', 'StartColumn', 'EndColumn', 'StartRow', 'EndRow')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

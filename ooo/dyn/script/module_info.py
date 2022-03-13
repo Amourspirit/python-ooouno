@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ModuleObject = UNO_NONE, ModuleType = UNO_NONE):
-            if getattr(ModuleObject, "__class__", None) == self.__class__:
-                orig_init(self, ModuleObject)
+        ordered_keys = ('ModuleObject', 'ModuleType')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ModuleObject is UNO_NONE:
-                if getattr(self, 'ModuleObject') != ModuleObject:
-                    setattr(self, 'ModuleObject', ModuleObject)
-            if not ModuleType is UNO_NONE:
-                if getattr(self, 'ModuleType') != ModuleType:
-                    setattr(self, 'ModuleType', ModuleType)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.script.ModuleInfo'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ModuleInfo = _get_class()
-
 
 else:
     from ...lo.script.module_info import ModuleInfo as ModuleInfo

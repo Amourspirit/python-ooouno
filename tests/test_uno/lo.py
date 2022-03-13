@@ -13,7 +13,8 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 from unotools import Pipe, connect_with_pipe
 from unotools.context import LocalContext, ScriptContext
-from com.sun.star.connection import NoConnectException
+# from com.sun.star.connection import NoConnectException
+NoConnectException = uno.getClass('com.sun.star.connection.NoConnectException')
 
 
 class LoSocketStart(object):

@@ -1,6 +1,5 @@
 # coding: utf-8
 import uno
-import pyuno
 import typing
 from ..dyn.frame.the_desktop import theDesktop
 from ..dyn.reflection.the_core_reflection import theCoreReflection
@@ -222,7 +221,7 @@ def unotype(name: str) -> uno.Type:
     <Type instance com.sun.star.uno.XInterface
         (<uno.Enum com.sun.star.uno.TypeClass ('INTERFACE')>)>
     """
-    return pyuno.getTypeByName(name)
+    return uno.getTypeByName(name)
 
 
 def unoclass(name: str) -> type:
@@ -230,7 +229,7 @@ def unoclass(name: str) -> type:
     >>> unoclass('com.sun.star.text.XText')
     <class 'uno.com.sun.star.text.XText'>
     """
-    return pyuno.getClass(name)
+    return uno.getClass(name)
 
 @typing.overload
 def supports_service(si:'XServiceInfo', *services: str ) -> bool:

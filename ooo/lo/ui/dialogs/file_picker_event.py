@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,26 +39,34 @@ class FilePickerEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ui.dialogs.FilePickerEvent'
     """Literal Constant ``com.sun.star.ui.dialogs.FilePickerEvent``"""
 
-    def __init__(self, ElementId: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, ElementId: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ElementId`` can be another ``FilePickerEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ElementId (int, optional): ElementId value
+            Source (XInterface, optional): Source value.
+            ElementId (int, optional): ElementId value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ElementId, FilePickerEvent):
-            oth: FilePickerEvent = ElementId
-            self._element_id = oth.ElementId
-            return
-        else:
-            self._element_id = ElementId
 
+        if isinstance(Source, FilePickerEvent):
+            oth: FilePickerEvent = Source
+            self.Source = oth.Source
+            self.ElementId = oth.ElementId
+            return
+
+        kargs = {
+            "Source": Source,
+            "ElementId": ElementId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._element_id = kwargs["ElementId"]
+        inst_keys = ('ElementId',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

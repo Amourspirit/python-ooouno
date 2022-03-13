@@ -40,42 +40,49 @@ class WindowDescriptor(object):
     typeName: str = 'com.sun.star.awt.WindowDescriptor'
     """Literal Constant ``com.sun.star.awt.WindowDescriptor``"""
 
-    def __init__(self, Type: WindowClass_99f60ac2 = WindowClass_99f60ac2.TOP, WindowServiceName: str = '', Parent: XWindowPeer_99760ab0 = None, ParentIndex: int = 0, Bounds: Rectangle_84b109e9 = UNO_NONE, WindowAttributes: int = 0) -> None:
+    def __init__(self, Type: typing.Optional[WindowClass_99f60ac2] = WindowClass_99f60ac2.TOP, WindowServiceName: typing.Optional[str] = '', Parent: typing.Optional[XWindowPeer_99760ab0] = None, ParentIndex: typing.Optional[int] = 0, Bounds: typing.Optional[Rectangle_84b109e9] = UNO_NONE, WindowAttributes: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``WindowDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (WindowClass, optional): Type value
-            WindowServiceName (str, optional): WindowServiceName value
-            Parent (XWindowPeer, optional): Parent value
-            ParentIndex (int, optional): ParentIndex value
-            Bounds (Rectangle, optional): Bounds value
-            WindowAttributes (int, optional): WindowAttributes value
+            Type (WindowClass, optional): Type value.
+            WindowServiceName (str, optional): WindowServiceName value.
+            Parent (XWindowPeer, optional): Parent value.
+            ParentIndex (int, optional): ParentIndex value.
+            Bounds (Rectangle, optional): Bounds value.
+            WindowAttributes (int, optional): WindowAttributes value.
         """
+        super().__init__()
+
         if isinstance(Type, WindowDescriptor):
             oth: WindowDescriptor = Type
-            self._type = oth.Type
-            self._window_service_name = oth.WindowServiceName
-            self._parent = oth.Parent
-            self._parent_index = oth.ParentIndex
-            self._bounds = oth.Bounds
-            self._window_attributes = oth.WindowAttributes
+            self.Type = oth.Type
+            self.WindowServiceName = oth.WindowServiceName
+            self.Parent = oth.Parent
+            self.ParentIndex = oth.ParentIndex
+            self.Bounds = oth.Bounds
+            self.WindowAttributes = oth.WindowAttributes
             return
-        else:
-            self._type = Type
-            self._window_service_name = WindowServiceName
-            self._parent = Parent
-            self._parent_index = ParentIndex
-            if Bounds is UNO_NONE:
-                self._bounds = Rectangle_84b109e9()
-            else:
-                self._bounds = Bounds
-            self._window_attributes = WindowAttributes
 
+        kargs = {
+            "Type": Type,
+            "WindowServiceName": WindowServiceName,
+            "Parent": Parent,
+            "ParentIndex": ParentIndex,
+            "Bounds": Bounds,
+            "WindowAttributes": WindowAttributes,
+        }
+        if kargs["Bounds"] is UNO_NONE:
+            kargs["Bounds"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._window_service_name = kwargs["WindowServiceName"]
+        self._parent = kwargs["Parent"]
+        self._parent_index = kwargs["ParentIndex"]
+        self._bounds = kwargs["Bounds"]
+        self._window_attributes = kwargs["WindowAttributes"]
 
 
     @property

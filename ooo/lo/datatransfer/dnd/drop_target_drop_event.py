@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .drop_target_event import DropTargetEvent as DropTargetEvent_8d651169
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..x_transferable import XTransferable as XTransferable_2d800f38
 from .x_drop_target_drop_context import XDropTargetDropContext as XDropTargetDropContext_10e81439
@@ -42,41 +43,57 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
     typeName: str = 'com.sun.star.datatransfer.dnd.DropTargetDropEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DropTargetDropEvent``"""
 
-    def __init__(self, Context: XDropTargetDropContext_10e81439 = None, DropAction: int = 0, LocationX: int = 0, LocationY: int = 0, SourceActions: int = 0, Transferable: XTransferable_2d800f38 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0, Context: typing.Optional[XDropTargetDropContext_10e81439] = None, DropAction: typing.Optional[int] = 0, LocationX: typing.Optional[int] = 0, LocationY: typing.Optional[int] = 0, SourceActions: typing.Optional[int] = 0, Transferable: typing.Optional[XTransferable_2d800f38] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Context`` can be another ``DropTargetDropEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Context (XDropTargetDropContext, optional): Context value
-            DropAction (int, optional): DropAction value
-            LocationX (int, optional): LocationX value
-            LocationY (int, optional): LocationY value
-            SourceActions (int, optional): SourceActions value
-            Transferable (XTransferable, optional): Transferable value
+            Source (XInterface, optional): Source value.
+            Dummy (int, optional): Dummy value.
+            Context (XDropTargetDropContext, optional): Context value.
+            DropAction (int, optional): DropAction value.
+            LocationX (int, optional): LocationX value.
+            LocationY (int, optional): LocationY value.
+            SourceActions (int, optional): SourceActions value.
+            Transferable (XTransferable, optional): Transferable value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Context, DropTargetDropEvent):
-            oth: DropTargetDropEvent = Context
-            self._context = oth.Context
-            self._drop_action = oth.DropAction
-            self._location_x = oth.LocationX
-            self._location_y = oth.LocationY
-            self._source_actions = oth.SourceActions
-            self._transferable = oth.Transferable
-            return
-        else:
-            self._context = Context
-            self._drop_action = DropAction
-            self._location_x = LocationX
-            self._location_y = LocationY
-            self._source_actions = SourceActions
-            self._transferable = Transferable
 
+        if isinstance(Source, DropTargetDropEvent):
+            oth: DropTargetDropEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            self.Context = oth.Context
+            self.DropAction = oth.DropAction
+            self.LocationX = oth.LocationX
+            self.LocationY = oth.LocationY
+            self.SourceActions = oth.SourceActions
+            self.Transferable = oth.Transferable
+            return
+
+        kargs = {
+            "Source": Source,
+            "Dummy": Dummy,
+            "Context": Context,
+            "DropAction": DropAction,
+            "LocationX": LocationX,
+            "LocationY": LocationY,
+            "SourceActions": SourceActions,
+            "Transferable": Transferable,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._context = kwargs["Context"]
+        self._drop_action = kwargs["DropAction"]
+        self._location_x = kwargs["LocationX"]
+        self._location_y = kwargs["LocationY"]
+        self._source_actions = kwargs["SourceActions"]
+        self._transferable = kwargs["Transferable"]
+        inst_keys = ('Context', 'DropAction', 'LocationX', 'LocationY', 'SourceActions', 'Transferable')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

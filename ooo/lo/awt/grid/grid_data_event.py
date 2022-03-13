@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -44,35 +45,46 @@ class GridDataEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.grid.GridDataEvent'
     """Literal Constant ``com.sun.star.awt.grid.GridDataEvent``"""
 
-    def __init__(self, FirstColumn: int = 0, LastColumn: int = 0, FirstRow: int = 0, LastRow: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, FirstColumn: typing.Optional[int] = 0, LastColumn: typing.Optional[int] = 0, FirstRow: typing.Optional[int] = 0, LastRow: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FirstColumn`` can be another ``GridDataEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            FirstColumn (int, optional): FirstColumn value
-            LastColumn (int, optional): LastColumn value
-            FirstRow (int, optional): FirstRow value
-            LastRow (int, optional): LastRow value
+            Source (XInterface, optional): Source value.
+            FirstColumn (int, optional): FirstColumn value.
+            LastColumn (int, optional): LastColumn value.
+            FirstRow (int, optional): FirstRow value.
+            LastRow (int, optional): LastRow value.
         """
-        super().__init__(**kwargs)
-        if isinstance(FirstColumn, GridDataEvent):
-            oth: GridDataEvent = FirstColumn
-            self._first_column = oth.FirstColumn
-            self._last_column = oth.LastColumn
-            self._first_row = oth.FirstRow
-            self._last_row = oth.LastRow
-            return
-        else:
-            self._first_column = FirstColumn
-            self._last_column = LastColumn
-            self._first_row = FirstRow
-            self._last_row = LastRow
 
+        if isinstance(Source, GridDataEvent):
+            oth: GridDataEvent = Source
+            self.Source = oth.Source
+            self.FirstColumn = oth.FirstColumn
+            self.LastColumn = oth.LastColumn
+            self.FirstRow = oth.FirstRow
+            self.LastRow = oth.LastRow
+            return
+
+        kargs = {
+            "Source": Source,
+            "FirstColumn": FirstColumn,
+            "LastColumn": LastColumn,
+            "FirstRow": FirstRow,
+            "LastRow": LastRow,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._first_column = kwargs["FirstColumn"]
+        self._last_column = kwargs["LastColumn"]
+        self._first_row = kwargs["FirstRow"]
+        self._last_row = kwargs["LastRow"]
+        inst_keys = ('FirstColumn', 'LastColumn', 'FirstRow', 'LastRow')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

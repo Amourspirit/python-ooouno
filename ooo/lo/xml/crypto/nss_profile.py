@@ -41,30 +41,41 @@ class NSSProfile(object):
     typeName: str = 'com.sun.star.xml.crypto.NSSProfile'
     """Literal Constant ``com.sun.star.xml.crypto.NSSProfile``"""
 
-    def __init__(self, Name: str = None, Path: str = None, Type: MozillaProductType_2e210f5b = None) -> None:
+    def __init__(self, Name: typing.Optional[str] = None, Path: typing.Optional[str] = None, Type: typing.Optional[MozillaProductType_2e210f5b] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``NSSProfile`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Path (str, optional): Path value
-            Type (MozillaProductType, optional): Type value
+            Name (str, optional): Name value.
+            Path (str, optional): Path value.
+            Type (MozillaProductType, optional): Type value.
         """
+        super().__init__()
+
         if isinstance(Name, NSSProfile):
             oth: NSSProfile = Name
-            self._name = oth.Name
-            self._path = oth.Path
-            self._type = oth.Type
+            self.Name = oth.Name
+            self.Path = oth.Path
+            self.Type = oth.Type
             return
-        else:
-            self._name = Name
-            self._path = Path
-            self._type = Type
 
+        kargs = {
+            "Name": Name,
+            "Path": Path,
+            "Type": Type,
+        }
+        if kargs["Name"] is UNO_NONE:
+            kargs["Name"] = None
+        if kargs["Path"] is UNO_NONE:
+            kargs["Path"] = None
+        if kargs["Type"] is UNO_NONE:
+            kargs["Type"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._path = kwargs["Path"]
+        self._type = kwargs["Type"]
 
 
     @property

@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, IsLocked = UNO_NONE, IsFormulaHidden = UNO_NONE, IsHidden = UNO_NONE, IsPrintHidden = UNO_NONE):
-            if getattr(IsLocked, "__class__", None) == self.__class__:
-                orig_init(self, IsLocked)
+        ordered_keys = ('IsLocked', 'IsFormulaHidden', 'IsHidden', 'IsPrintHidden')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not IsLocked is UNO_NONE:
-                if getattr(self, 'IsLocked') != IsLocked:
-                    setattr(self, 'IsLocked', IsLocked)
-            if not IsFormulaHidden is UNO_NONE:
-                if getattr(self, 'IsFormulaHidden') != IsFormulaHidden:
-                    setattr(self, 'IsFormulaHidden', IsFormulaHidden)
-            if not IsHidden is UNO_NONE:
-                if getattr(self, 'IsHidden') != IsHidden:
-                    setattr(self, 'IsHidden', IsHidden)
-            if not IsPrintHidden is UNO_NONE:
-                if getattr(self, 'IsPrintHidden') != IsPrintHidden:
-                    setattr(self, 'IsPrintHidden', IsPrintHidden)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.CellProtection'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     CellProtection = _get_class()
-
 
 else:
     from ...lo.util.cell_protection import CellProtection as CellProtection

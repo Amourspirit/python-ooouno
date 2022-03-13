@@ -38,30 +38,35 @@ class GetPropertyTolerantResult(object):
     typeName: str = 'com.sun.star.beans.GetPropertyTolerantResult'
     """Literal Constant ``com.sun.star.beans.GetPropertyTolerantResult``"""
 
-    def __init__(self, Result: int = 0, State: PropertyState_c97b0c77 = PropertyState_c97b0c77.DIRECT_VALUE, Value: object = None) -> None:
+    def __init__(self, Result: typing.Optional[int] = 0, State: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE, Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Result`` can be another ``GetPropertyTolerantResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Result (int, optional): Result value
-            State (PropertyState, optional): State value
-            Value (object, optional): Value value
+            Result (int, optional): Result value.
+            State (PropertyState, optional): State value.
+            Value (object, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Result, GetPropertyTolerantResult):
             oth: GetPropertyTolerantResult = Result
-            self._result = oth.Result
-            self._state = oth.State
-            self._value = oth.Value
+            self.Result = oth.Result
+            self.State = oth.State
+            self.Value = oth.Value
             return
-        else:
-            self._result = Result
-            self._state = State
-            self._value = Value
 
+        kargs = {
+            "Result": Result,
+            "State": State,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._result = kwargs["Result"]
+        self._state = kwargs["State"]
+        self._value = kwargs["Value"]
 
 
     @property

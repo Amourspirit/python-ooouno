@@ -37,27 +37,31 @@ class DataPilotFieldLayoutInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldLayoutInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldLayoutInfo``"""
 
-    def __init__(self, LayoutMode: int = 0, AddEmptyLines: bool = False) -> None:
+    def __init__(self, LayoutMode: typing.Optional[int] = 0, AddEmptyLines: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LayoutMode`` can be another ``DataPilotFieldLayoutInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            LayoutMode (int, optional): LayoutMode value
-            AddEmptyLines (bool, optional): AddEmptyLines value
+            LayoutMode (int, optional): LayoutMode value.
+            AddEmptyLines (bool, optional): AddEmptyLines value.
         """
+        super().__init__()
+
         if isinstance(LayoutMode, DataPilotFieldLayoutInfo):
             oth: DataPilotFieldLayoutInfo = LayoutMode
-            self._layout_mode = oth.LayoutMode
-            self._add_empty_lines = oth.AddEmptyLines
+            self.LayoutMode = oth.LayoutMode
+            self.AddEmptyLines = oth.AddEmptyLines
             return
-        else:
-            self._layout_mode = LayoutMode
-            self._add_empty_lines = AddEmptyLines
 
+        kargs = {
+            "LayoutMode": LayoutMode,
+            "AddEmptyLines": AddEmptyLines,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._layout_mode = kwargs["LayoutMode"]
+        self._add_empty_lines = kwargs["AddEmptyLines"]
 
 
     @property

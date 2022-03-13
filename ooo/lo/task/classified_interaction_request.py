@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 
 class ClassifiedInteractionRequest(Exception_85530a09):
     """
+    Exception Class
+
     A classified interaction request.
 
     See Also:
@@ -40,18 +43,29 @@ class ClassifiedInteractionRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.task.ClassifiedInteractionRequest'
     """Literal Constant ``com.sun.star.task.ClassifiedInteractionRequest``"""
 
-    def __init__(self, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Classification (InteractionClassification, optional): Classification value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+        }
+        self._init(**kargs)
 
-        self._classification = Classification
+    def _init(self, **kwargs) -> None:
+        self._classification = kwargs["Classification"]
+        inst_keys = ('Classification',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Classification(self) -> InteractionClassification_6c4d10e7:

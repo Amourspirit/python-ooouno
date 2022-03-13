@@ -39,33 +39,39 @@ class Property(object):
     typeName: str = 'com.sun.star.beans.Property'
     """Literal Constant ``com.sun.star.beans.Property``"""
 
-    def __init__(self, Name: str = '', Handle: int = 0, Type: object = None, Attributes: int = 0) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Handle: typing.Optional[int] = 0, Type: typing.Optional[object] = None, Attributes: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``Property`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Handle (int, optional): Handle value
-            Type (object, optional): Type value
-            Attributes (int, optional): Attributes value
+            Name (str, optional): Name value.
+            Handle (int, optional): Handle value.
+            Type (object, optional): Type value.
+            Attributes (int, optional): Attributes value.
         """
+        super().__init__()
+
         if isinstance(Name, Property):
             oth: Property = Name
-            self._name = oth.Name
-            self._handle = oth.Handle
-            self._type = oth.Type
-            self._attributes = oth.Attributes
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Type = oth.Type
+            self.Attributes = oth.Attributes
             return
-        else:
-            self._name = Name
-            self._handle = Handle
-            self._type = Type
-            self._attributes = Attributes
 
+        kargs = {
+            "Name": Name,
+            "Handle": Handle,
+            "Type": Type,
+            "Attributes": Attributes,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._handle = kwargs["Handle"]
+        self._type = kwargs["Type"]
+        self._attributes = kwargs["Attributes"]
 
 
     @property

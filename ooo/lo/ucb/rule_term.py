@@ -39,36 +39,43 @@ class RuleTerm(object):
     typeName: str = 'com.sun.star.ucb.RuleTerm'
     """Literal Constant ``com.sun.star.ucb.RuleTerm``"""
 
-    def __init__(self, Property: str = '', Operand: object = None, Operator: int = 0, CaseSensitive: bool = False, RegularExpression: bool = False) -> None:
+    def __init__(self, Property: typing.Optional[str] = '', Operand: typing.Optional[object] = None, Operator: typing.Optional[int] = 0, CaseSensitive: typing.Optional[bool] = False, RegularExpression: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Property`` can be another ``RuleTerm`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Property (str, optional): Property value
-            Operand (object, optional): Operand value
-            Operator (int, optional): Operator value
-            CaseSensitive (bool, optional): CaseSensitive value
-            RegularExpression (bool, optional): RegularExpression value
+            Property (str, optional): Property value.
+            Operand (object, optional): Operand value.
+            Operator (int, optional): Operator value.
+            CaseSensitive (bool, optional): CaseSensitive value.
+            RegularExpression (bool, optional): RegularExpression value.
         """
+        super().__init__()
+
         if isinstance(Property, RuleTerm):
             oth: RuleTerm = Property
-            self._property = oth.Property
-            self._operand = oth.Operand
-            self._operator = oth.Operator
-            self._case_sensitive = oth.CaseSensitive
-            self._regular_expression = oth.RegularExpression
+            self.Property = oth.Property
+            self.Operand = oth.Operand
+            self.Operator = oth.Operator
+            self.CaseSensitive = oth.CaseSensitive
+            self.RegularExpression = oth.RegularExpression
             return
-        else:
-            self._property = Property
-            self._operand = Operand
-            self._operator = Operator
-            self._case_sensitive = CaseSensitive
-            self._regular_expression = RegularExpression
 
+        kargs = {
+            "Property": Property,
+            "Operand": Operand,
+            "Operator": Operator,
+            "CaseSensitive": CaseSensitive,
+            "RegularExpression": RegularExpression,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._property = kwargs["Property"]
+        self._operand = kwargs["Operand"]
+        self._operator = kwargs["Operator"]
+        self._case_sensitive = kwargs["CaseSensitive"]
+        self._regular_expression = kwargs["RegularExpression"]
 
 
     @property

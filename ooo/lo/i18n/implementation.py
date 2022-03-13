@@ -37,27 +37,31 @@ class Implementation(object):
     typeName: str = 'com.sun.star.i18n.Implementation'
     """Literal Constant ``com.sun.star.i18n.Implementation``"""
 
-    def __init__(self, unoID: str = '', isDefault: bool = False) -> None:
+    def __init__(self, unoID: typing.Optional[str] = '', isDefault: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``unoID`` can be another ``Implementation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            unoID (str, optional): unoID value
-            isDefault (bool, optional): isDefault value
+            unoID (str, optional): unoID value.
+            isDefault (bool, optional): isDefault value.
         """
+        super().__init__()
+
         if isinstance(unoID, Implementation):
             oth: Implementation = unoID
-            self._uno_id = oth.unoID
-            self._is_default = oth.isDefault
+            self.unoID = oth.unoID
+            self.isDefault = oth.isDefault
             return
-        else:
-            self._uno_id = unoID
-            self._is_default = isDefault
 
+        kargs = {
+            "unoID": unoID,
+            "isDefault": isDefault,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._uno_id = kwargs["unoID"]
+        self._is_default = kwargs["isDefault"]
 
 
     @property

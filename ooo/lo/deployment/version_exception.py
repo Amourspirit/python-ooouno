@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .x_package import XPackage as XPackage_cb1f0c4d
 
 class VersionException(Exception_85530a09):
     """
+    Exception Class
+
     describes version clashes of a deployment unit.
     
     This exception is intended to be used with an com.sun.star.task.XInteractionHandler.
@@ -46,22 +49,35 @@ class VersionException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.VersionException'
     """Literal Constant ``com.sun.star.deployment.VersionException``"""
 
-    def __init__(self, NewVersion: typing.Optional[str] = '', NewDisplayName: typing.Optional[str] = '', Deployed: typing.Optional[XPackage_cb1f0c4d] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, NewVersion: typing.Optional[str] = '', NewDisplayName: typing.Optional[str] = '', Deployed: typing.Optional[XPackage_cb1f0c4d] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             NewVersion (str, optional): NewVersion value.
             NewDisplayName (str, optional): NewDisplayName value.
             Deployed (XPackage, optional): Deployed value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "NewVersion": NewVersion,
+            "NewDisplayName": NewDisplayName,
+            "Deployed": Deployed,
+        }
+        self._init(**kargs)
 
-        self._new_version = NewVersion
-        self._new_display_name = NewDisplayName
-        self._deployed = Deployed
+    def _init(self, **kwargs) -> None:
+        self._new_version = kwargs["NewVersion"]
+        self._new_display_name = kwargs["NewDisplayName"]
+        self._deployed = kwargs["Deployed"]
+        inst_keys = ('NewVersion', 'NewDisplayName', 'Deployed')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def NewVersion(self) -> str:

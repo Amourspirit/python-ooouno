@@ -42,39 +42,45 @@ class DispatchStatement(object):
     typeName: str = 'com.sun.star.frame.DispatchStatement'
     """Literal Constant ``com.sun.star.frame.DispatchStatement``"""
 
-    def __init__(self, aArgs: typing.Tuple[PropertyValue_c9610c73, ...] = UNO_NONE, aCommand: str = '', aTarget: str = '', nFlags: int = 0, bIsComment: bool = False) -> None:
+    def __init__(self, aArgs: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, aCommand: typing.Optional[str] = '', aTarget: typing.Optional[str] = '', nFlags: typing.Optional[int] = 0, bIsComment: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aArgs`` can be another ``DispatchStatement`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aArgs (Tuple[PropertyValue, ...], optional): aArgs value
-            aCommand (str, optional): aCommand value
-            aTarget (str, optional): aTarget value
-            nFlags (int, optional): nFlags value
-            bIsComment (bool, optional): bIsComment value
+            aArgs (typing.Tuple[PropertyValue, ...], optional): aArgs value.
+            aCommand (str, optional): aCommand value.
+            aTarget (str, optional): aTarget value.
+            nFlags (int, optional): nFlags value.
+            bIsComment (bool, optional): bIsComment value.
         """
+        super().__init__()
+
         if isinstance(aArgs, DispatchStatement):
             oth: DispatchStatement = aArgs
-            self._a_args = oth.aArgs
-            self._a_command = oth.aCommand
-            self._a_target = oth.aTarget
-            self._n_flags = oth.nFlags
-            self._b_is_comment = oth.bIsComment
+            self.aArgs = oth.aArgs
+            self.aCommand = oth.aCommand
+            self.aTarget = oth.aTarget
+            self.nFlags = oth.nFlags
+            self.bIsComment = oth.bIsComment
             return
-        else:
-            if aArgs is UNO_NONE:
-                self._a_args = None
-            else:
-                self._a_args = aArgs
-            self._a_command = aCommand
-            self._a_target = aTarget
-            self._n_flags = nFlags
-            self._b_is_comment = bIsComment
 
+        kargs = {
+            "aArgs": aArgs,
+            "aCommand": aCommand,
+            "aTarget": aTarget,
+            "nFlags": nFlags,
+            "bIsComment": bIsComment,
+        }
+        if kargs["aArgs"] is UNO_NONE:
+            kargs["aArgs"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_args = kwargs["aArgs"]
+        self._a_command = kwargs["aCommand"]
+        self._a_target = kwargs["aTarget"]
+        self._n_flags = kwargs["nFlags"]
+        self._b_is_comment = kwargs["bIsComment"]
 
 
     @property

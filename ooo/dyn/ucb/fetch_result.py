@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Rows = UNO_NONE, StartIndex = UNO_NONE, Orientation = UNO_NONE, FetchError = UNO_NONE):
-            if getattr(Rows, "__class__", None) == self.__class__:
-                orig_init(self, Rows)
+        ordered_keys = ('Rows', 'StartIndex', 'Orientation', 'FetchError')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Rows is UNO_NONE:
-                if getattr(self, 'Rows') != Rows:
-                    setattr(self, 'Rows', Rows)
-            if not StartIndex is UNO_NONE:
-                if getattr(self, 'StartIndex') != StartIndex:
-                    setattr(self, 'StartIndex', StartIndex)
-            if not Orientation is UNO_NONE:
-                if getattr(self, 'Orientation') != Orientation:
-                    setattr(self, 'Orientation', Orientation)
-            if not FetchError is UNO_NONE:
-                if getattr(self, 'FetchError') != FetchError:
-                    setattr(self, 'FetchError', FetchError)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.FetchResult'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FetchResult = _get_class()
-
 
 else:
     from ...lo.ucb.fetch_result import FetchResult as FetchResult

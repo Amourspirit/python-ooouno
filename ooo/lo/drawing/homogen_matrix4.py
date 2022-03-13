@@ -38,45 +38,47 @@ class HomogenMatrix4(object):
     typeName: str = 'com.sun.star.drawing.HomogenMatrix4'
     """Literal Constant ``com.sun.star.drawing.HomogenMatrix4``"""
 
-    def __init__(self, Line1: HomogenMatrixLine4_2b170ef2 = UNO_NONE, Line2: HomogenMatrixLine4_2b170ef2 = UNO_NONE, Line3: HomogenMatrixLine4_2b170ef2 = UNO_NONE, Line4: HomogenMatrixLine4_2b170ef2 = UNO_NONE) -> None:
+    def __init__(self, Line1: typing.Optional[HomogenMatrixLine4_2b170ef2] = UNO_NONE, Line2: typing.Optional[HomogenMatrixLine4_2b170ef2] = UNO_NONE, Line3: typing.Optional[HomogenMatrixLine4_2b170ef2] = UNO_NONE, Line4: typing.Optional[HomogenMatrixLine4_2b170ef2] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Line1`` can be another ``HomogenMatrix4`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Line1 (HomogenMatrixLine4, optional): Line1 value
-            Line2 (HomogenMatrixLine4, optional): Line2 value
-            Line3 (HomogenMatrixLine4, optional): Line3 value
-            Line4 (HomogenMatrixLine4, optional): Line4 value
+            Line1 (HomogenMatrixLine4, optional): Line1 value.
+            Line2 (HomogenMatrixLine4, optional): Line2 value.
+            Line3 (HomogenMatrixLine4, optional): Line3 value.
+            Line4 (HomogenMatrixLine4, optional): Line4 value.
         """
+        super().__init__()
+
         if isinstance(Line1, HomogenMatrix4):
             oth: HomogenMatrix4 = Line1
-            self._line1 = oth.Line1
-            self._line2 = oth.Line2
-            self._line3 = oth.Line3
-            self._line4 = oth.Line4
+            self.Line1 = oth.Line1
+            self.Line2 = oth.Line2
+            self.Line3 = oth.Line3
+            self.Line4 = oth.Line4
             return
-        else:
-            if Line1 is UNO_NONE:
-                self._line1 = HomogenMatrixLine4_2b170ef2()
-            else:
-                self._line1 = Line1
-            if Line2 is UNO_NONE:
-                self._line2 = HomogenMatrixLine4_2b170ef2()
-            else:
-                self._line2 = Line2
-            if Line3 is UNO_NONE:
-                self._line3 = HomogenMatrixLine4_2b170ef2()
-            else:
-                self._line3 = Line3
-            if Line4 is UNO_NONE:
-                self._line4 = HomogenMatrixLine4_2b170ef2()
-            else:
-                self._line4 = Line4
 
+        kargs = {
+            "Line1": Line1,
+            "Line2": Line2,
+            "Line3": Line3,
+            "Line4": Line4,
+        }
+        if kargs["Line1"] is UNO_NONE:
+            kargs["Line1"] = None
+        if kargs["Line2"] is UNO_NONE:
+            kargs["Line2"] = None
+        if kargs["Line3"] is UNO_NONE:
+            kargs["Line3"] = None
+        if kargs["Line4"] is UNO_NONE:
+            kargs["Line4"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._line1 = kwargs["Line1"]
+        self._line2 = kwargs["Line2"]
+        self._line3 = kwargs["Line3"]
+        self._line4 = kwargs["Line4"]
 
 
     @property

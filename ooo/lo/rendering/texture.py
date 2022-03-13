@@ -49,54 +49,63 @@ class Texture(object):
     typeName: str = 'com.sun.star.rendering.Texture'
     """Literal Constant ``com.sun.star.rendering.Texture``"""
 
-    def __init__(self, AffineTransform: AffineMatrix2D_ff040da8 = UNO_NONE, Alpha: float = 0.0, NumberOfHatchPolygons: int = 0, Bitmap: XBitmap_b1b70b7b = None, Gradient: XParametricPolyPolygon2D_b3511228 = None, Hatching: XParametricPolyPolygon2D_b3511228 = None, HatchAttributes: StrokeAttributes_2dd10f65 = UNO_NONE, RepeatModeX: int = 0, RepeatModeY: int = 0) -> None:
+    def __init__(self, AffineTransform: typing.Optional[AffineMatrix2D_ff040da8] = UNO_NONE, Alpha: typing.Optional[float] = 0.0, NumberOfHatchPolygons: typing.Optional[int] = 0, Bitmap: typing.Optional[XBitmap_b1b70b7b] = None, Gradient: typing.Optional[XParametricPolyPolygon2D_b3511228] = None, Hatching: typing.Optional[XParametricPolyPolygon2D_b3511228] = None, HatchAttributes: typing.Optional[StrokeAttributes_2dd10f65] = UNO_NONE, RepeatModeX: typing.Optional[int] = 0, RepeatModeY: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``AffineTransform`` can be another ``Texture`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            AffineTransform (AffineMatrix2D, optional): AffineTransform value
-            Alpha (float, optional): Alpha value
-            NumberOfHatchPolygons (int, optional): NumberOfHatchPolygons value
-            Bitmap (XBitmap, optional): Bitmap value
-            Gradient (XParametricPolyPolygon2D, optional): Gradient value
-            Hatching (XParametricPolyPolygon2D, optional): Hatching value
-            HatchAttributes (StrokeAttributes, optional): HatchAttributes value
-            RepeatModeX (int, optional): RepeatModeX value
-            RepeatModeY (int, optional): RepeatModeY value
+            AffineTransform (AffineMatrix2D, optional): AffineTransform value.
+            Alpha (float, optional): Alpha value.
+            NumberOfHatchPolygons (int, optional): NumberOfHatchPolygons value.
+            Bitmap (XBitmap, optional): Bitmap value.
+            Gradient (XParametricPolyPolygon2D, optional): Gradient value.
+            Hatching (XParametricPolyPolygon2D, optional): Hatching value.
+            HatchAttributes (StrokeAttributes, optional): HatchAttributes value.
+            RepeatModeX (int, optional): RepeatModeX value.
+            RepeatModeY (int, optional): RepeatModeY value.
         """
+        super().__init__()
+
         if isinstance(AffineTransform, Texture):
             oth: Texture = AffineTransform
-            self._affine_transform = oth.AffineTransform
-            self._alpha = oth.Alpha
-            self._number_of_hatch_polygons = oth.NumberOfHatchPolygons
-            self._bitmap = oth.Bitmap
-            self._gradient = oth.Gradient
-            self._hatching = oth.Hatching
-            self._hatch_attributes = oth.HatchAttributes
-            self._repeat_mode_x = oth.RepeatModeX
-            self._repeat_mode_y = oth.RepeatModeY
+            self.AffineTransform = oth.AffineTransform
+            self.Alpha = oth.Alpha
+            self.NumberOfHatchPolygons = oth.NumberOfHatchPolygons
+            self.Bitmap = oth.Bitmap
+            self.Gradient = oth.Gradient
+            self.Hatching = oth.Hatching
+            self.HatchAttributes = oth.HatchAttributes
+            self.RepeatModeX = oth.RepeatModeX
+            self.RepeatModeY = oth.RepeatModeY
             return
-        else:
-            if AffineTransform is UNO_NONE:
-                self._affine_transform = AffineMatrix2D_ff040da8()
-            else:
-                self._affine_transform = AffineTransform
-            self._alpha = Alpha
-            self._number_of_hatch_polygons = NumberOfHatchPolygons
-            self._bitmap = Bitmap
-            self._gradient = Gradient
-            self._hatching = Hatching
-            if HatchAttributes is UNO_NONE:
-                self._hatch_attributes = StrokeAttributes_2dd10f65()
-            else:
-                self._hatch_attributes = HatchAttributes
-            self._repeat_mode_x = RepeatModeX
-            self._repeat_mode_y = RepeatModeY
 
+        kargs = {
+            "AffineTransform": AffineTransform,
+            "Alpha": Alpha,
+            "NumberOfHatchPolygons": NumberOfHatchPolygons,
+            "Bitmap": Bitmap,
+            "Gradient": Gradient,
+            "Hatching": Hatching,
+            "HatchAttributes": HatchAttributes,
+            "RepeatModeX": RepeatModeX,
+            "RepeatModeY": RepeatModeY,
+        }
+        if kargs["AffineTransform"] is UNO_NONE:
+            kargs["AffineTransform"] = None
+        if kargs["HatchAttributes"] is UNO_NONE:
+            kargs["HatchAttributes"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._affine_transform = kwargs["AffineTransform"]
+        self._alpha = kwargs["Alpha"]
+        self._number_of_hatch_polygons = kwargs["NumberOfHatchPolygons"]
+        self._bitmap = kwargs["Bitmap"]
+        self._gradient = kwargs["Gradient"]
+        self._hatching = kwargs["Hatching"]
+        self._hatch_attributes = kwargs["HatchAttributes"]
+        self._repeat_mode_x = kwargs["RepeatModeX"]
+        self._repeat_mode_y = kwargs["RepeatModeY"]
 
 
     @property

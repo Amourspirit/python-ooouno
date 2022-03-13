@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .all_event_object import AllEventObject as AllEventObject_e2c20d0f
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,29 +41,52 @@ class ScriptEvent(AllEventObject_e2c20d0f):
     typeName: str = 'com.sun.star.script.ScriptEvent'
     """Literal Constant ``com.sun.star.script.ScriptEvent``"""
 
-    def __init__(self, ScriptType: str = '', ScriptCode: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '', ScriptType: typing.Optional[str] = '', ScriptCode: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ScriptType`` can be another ``ScriptEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ScriptType (str, optional): ScriptType value
-            ScriptCode (str, optional): ScriptCode value
+            Source (XInterface, optional): Source value.
+            Arguments (typing.Tuple[object, ...], optional): Arguments value.
+            Helper (object, optional): Helper value.
+            ListenerType (object, optional): ListenerType value.
+            MethodName (str, optional): MethodName value.
+            ScriptType (str, optional): ScriptType value.
+            ScriptCode (str, optional): ScriptCode value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ScriptType, ScriptEvent):
-            oth: ScriptEvent = ScriptType
-            self._script_type = oth.ScriptType
-            self._script_code = oth.ScriptCode
-            return
-        else:
-            self._script_type = ScriptType
-            self._script_code = ScriptCode
 
+        if isinstance(Source, ScriptEvent):
+            oth: ScriptEvent = Source
+            self.Source = oth.Source
+            self.Arguments = oth.Arguments
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.MethodName = oth.MethodName
+            self.ScriptType = oth.ScriptType
+            self.ScriptCode = oth.ScriptCode
+            return
+
+        kargs = {
+            "Source": Source,
+            "Arguments": Arguments,
+            "Helper": Helper,
+            "ListenerType": ListenerType,
+            "MethodName": MethodName,
+            "ScriptType": ScriptType,
+            "ScriptCode": ScriptCode,
+        }
+        if kargs["Arguments"] is UNO_NONE:
+            kargs["Arguments"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._script_type = kwargs["ScriptType"]
+        self._script_code = kwargs["ScriptCode"]
+        inst_keys = ('ScriptType', 'ScriptCode')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

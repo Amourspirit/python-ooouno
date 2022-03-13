@@ -37,75 +37,95 @@ class LocaleDataItem(object):
     typeName: str = 'com.sun.star.i18n.LocaleDataItem'
     """Literal Constant ``com.sun.star.i18n.LocaleDataItem``"""
 
-    def __init__(self, unoID: str = '', dateSeparator: str = '', thousandSeparator: str = '', decimalSeparator: str = '', timeSeparator: str = '', time100SecSeparator: str = '', listSeparator: str = '', quotationStart: str = '', quotationEnd: str = '', doubleQuotationStart: str = '', doubleQuotationEnd: str = '', timeAM: str = '', timePM: str = '', measurementSystem: str = '', LongDateDayOfWeekSeparator: str = '', LongDateDaySeparator: str = '', LongDateMonthSeparator: str = '', LongDateYearSeparator: str = '') -> None:
+    def __init__(self, unoID: typing.Optional[str] = '', dateSeparator: typing.Optional[str] = '', thousandSeparator: typing.Optional[str] = '', decimalSeparator: typing.Optional[str] = '', timeSeparator: typing.Optional[str] = '', time100SecSeparator: typing.Optional[str] = '', listSeparator: typing.Optional[str] = '', quotationStart: typing.Optional[str] = '', quotationEnd: typing.Optional[str] = '', doubleQuotationStart: typing.Optional[str] = '', doubleQuotationEnd: typing.Optional[str] = '', timeAM: typing.Optional[str] = '', timePM: typing.Optional[str] = '', measurementSystem: typing.Optional[str] = '', LongDateDayOfWeekSeparator: typing.Optional[str] = '', LongDateDaySeparator: typing.Optional[str] = '', LongDateMonthSeparator: typing.Optional[str] = '', LongDateYearSeparator: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``unoID`` can be another ``LocaleDataItem`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            unoID (str, optional): unoID value
-            dateSeparator (str, optional): dateSeparator value
-            thousandSeparator (str, optional): thousandSeparator value
-            decimalSeparator (str, optional): decimalSeparator value
-            timeSeparator (str, optional): timeSeparator value
-            time100SecSeparator (str, optional): time100SecSeparator value
-            listSeparator (str, optional): listSeparator value
-            quotationStart (str, optional): quotationStart value
-            quotationEnd (str, optional): quotationEnd value
-            doubleQuotationStart (str, optional): doubleQuotationStart value
-            doubleQuotationEnd (str, optional): doubleQuotationEnd value
-            timeAM (str, optional): timeAM value
-            timePM (str, optional): timePM value
-            measurementSystem (str, optional): measurementSystem value
-            LongDateDayOfWeekSeparator (str, optional): LongDateDayOfWeekSeparator value
-            LongDateDaySeparator (str, optional): LongDateDaySeparator value
-            LongDateMonthSeparator (str, optional): LongDateMonthSeparator value
-            LongDateYearSeparator (str, optional): LongDateYearSeparator value
+            unoID (str, optional): unoID value.
+            dateSeparator (str, optional): dateSeparator value.
+            thousandSeparator (str, optional): thousandSeparator value.
+            decimalSeparator (str, optional): decimalSeparator value.
+            timeSeparator (str, optional): timeSeparator value.
+            time100SecSeparator (str, optional): time100SecSeparator value.
+            listSeparator (str, optional): listSeparator value.
+            quotationStart (str, optional): quotationStart value.
+            quotationEnd (str, optional): quotationEnd value.
+            doubleQuotationStart (str, optional): doubleQuotationStart value.
+            doubleQuotationEnd (str, optional): doubleQuotationEnd value.
+            timeAM (str, optional): timeAM value.
+            timePM (str, optional): timePM value.
+            measurementSystem (str, optional): measurementSystem value.
+            LongDateDayOfWeekSeparator (str, optional): LongDateDayOfWeekSeparator value.
+            LongDateDaySeparator (str, optional): LongDateDaySeparator value.
+            LongDateMonthSeparator (str, optional): LongDateMonthSeparator value.
+            LongDateYearSeparator (str, optional): LongDateYearSeparator value.
         """
+        super().__init__()
+
         if isinstance(unoID, LocaleDataItem):
             oth: LocaleDataItem = unoID
-            self._uno_id = oth.unoID
-            self._date_separator = oth.dateSeparator
-            self._thousand_separator = oth.thousandSeparator
-            self._decimal_separator = oth.decimalSeparator
-            self._time_separator = oth.timeSeparator
-            self._time100_sec_separator = oth.time100SecSeparator
-            self._list_separator = oth.listSeparator
-            self._quotation_start = oth.quotationStart
-            self._quotation_end = oth.quotationEnd
-            self._double_quotation_start = oth.doubleQuotationStart
-            self._double_quotation_end = oth.doubleQuotationEnd
-            self._time_am = oth.timeAM
-            self._time_pm = oth.timePM
-            self._measurement_system = oth.measurementSystem
-            self._long_date_day_of_week_separator = oth.LongDateDayOfWeekSeparator
-            self._long_date_day_separator = oth.LongDateDaySeparator
-            self._long_date_month_separator = oth.LongDateMonthSeparator
-            self._long_date_year_separator = oth.LongDateYearSeparator
+            self.unoID = oth.unoID
+            self.dateSeparator = oth.dateSeparator
+            self.thousandSeparator = oth.thousandSeparator
+            self.decimalSeparator = oth.decimalSeparator
+            self.timeSeparator = oth.timeSeparator
+            self.time100SecSeparator = oth.time100SecSeparator
+            self.listSeparator = oth.listSeparator
+            self.quotationStart = oth.quotationStart
+            self.quotationEnd = oth.quotationEnd
+            self.doubleQuotationStart = oth.doubleQuotationStart
+            self.doubleQuotationEnd = oth.doubleQuotationEnd
+            self.timeAM = oth.timeAM
+            self.timePM = oth.timePM
+            self.measurementSystem = oth.measurementSystem
+            self.LongDateDayOfWeekSeparator = oth.LongDateDayOfWeekSeparator
+            self.LongDateDaySeparator = oth.LongDateDaySeparator
+            self.LongDateMonthSeparator = oth.LongDateMonthSeparator
+            self.LongDateYearSeparator = oth.LongDateYearSeparator
             return
-        else:
-            self._uno_id = unoID
-            self._date_separator = dateSeparator
-            self._thousand_separator = thousandSeparator
-            self._decimal_separator = decimalSeparator
-            self._time_separator = timeSeparator
-            self._time100_sec_separator = time100SecSeparator
-            self._list_separator = listSeparator
-            self._quotation_start = quotationStart
-            self._quotation_end = quotationEnd
-            self._double_quotation_start = doubleQuotationStart
-            self._double_quotation_end = doubleQuotationEnd
-            self._time_am = timeAM
-            self._time_pm = timePM
-            self._measurement_system = measurementSystem
-            self._long_date_day_of_week_separator = LongDateDayOfWeekSeparator
-            self._long_date_day_separator = LongDateDaySeparator
-            self._long_date_month_separator = LongDateMonthSeparator
-            self._long_date_year_separator = LongDateYearSeparator
 
+        kargs = {
+            "unoID": unoID,
+            "dateSeparator": dateSeparator,
+            "thousandSeparator": thousandSeparator,
+            "decimalSeparator": decimalSeparator,
+            "timeSeparator": timeSeparator,
+            "time100SecSeparator": time100SecSeparator,
+            "listSeparator": listSeparator,
+            "quotationStart": quotationStart,
+            "quotationEnd": quotationEnd,
+            "doubleQuotationStart": doubleQuotationStart,
+            "doubleQuotationEnd": doubleQuotationEnd,
+            "timeAM": timeAM,
+            "timePM": timePM,
+            "measurementSystem": measurementSystem,
+            "LongDateDayOfWeekSeparator": LongDateDayOfWeekSeparator,
+            "LongDateDaySeparator": LongDateDaySeparator,
+            "LongDateMonthSeparator": LongDateMonthSeparator,
+            "LongDateYearSeparator": LongDateYearSeparator,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._uno_id = kwargs["unoID"]
+        self._date_separator = kwargs["dateSeparator"]
+        self._thousand_separator = kwargs["thousandSeparator"]
+        self._decimal_separator = kwargs["decimalSeparator"]
+        self._time_separator = kwargs["timeSeparator"]
+        self._time100_sec_separator = kwargs["time100SecSeparator"]
+        self._list_separator = kwargs["listSeparator"]
+        self._quotation_start = kwargs["quotationStart"]
+        self._quotation_end = kwargs["quotationEnd"]
+        self._double_quotation_start = kwargs["doubleQuotationStart"]
+        self._double_quotation_end = kwargs["doubleQuotationEnd"]
+        self._time_am = kwargs["timeAM"]
+        self._time_pm = kwargs["timePM"]
+        self._measurement_system = kwargs["measurementSystem"]
+        self._long_date_day_of_week_separator = kwargs["LongDateDayOfWeekSeparator"]
+        self._long_date_day_separator = kwargs["LongDateDaySeparator"]
+        self._long_date_month_separator = kwargs["LongDateMonthSeparator"]
+        self._long_date_year_separator = kwargs["LongDateYearSeparator"]
 
 
     @property

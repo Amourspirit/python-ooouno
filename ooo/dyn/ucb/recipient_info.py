@@ -22,54 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ProtocolType = UNO_NONE, State = UNO_NONE, To = UNO_NONE, CC = UNO_NONE, BCC = UNO_NONE, Newsgroups = UNO_NONE, Server = UNO_NONE, Username = UNO_NONE, Password = UNO_NONE, VIMPostOfficePath = UNO_NONE, ProtocolErrorString = UNO_NONE, ProtocolErrorNumber = UNO_NONE, SendTries = UNO_NONE):
-            if getattr(ProtocolType, "__class__", None) == self.__class__:
-                orig_init(self, ProtocolType)
+        ordered_keys = ('ProtocolType', 'State', 'To', 'CC', 'BCC', 'Newsgroups', 'Server', 'Username', 'Password', 'VIMPostOfficePath', 'ProtocolErrorString', 'ProtocolErrorNumber', 'SendTries')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ProtocolType is UNO_NONE:
-                if getattr(self, 'ProtocolType') != ProtocolType:
-                    setattr(self, 'ProtocolType', ProtocolType)
-            if not State is UNO_NONE:
-                if getattr(self, 'State') != State:
-                    setattr(self, 'State', State)
-            if not To is UNO_NONE:
-                if getattr(self, 'To') != To:
-                    setattr(self, 'To', To)
-            if not CC is UNO_NONE:
-                if getattr(self, 'CC') != CC:
-                    setattr(self, 'CC', CC)
-            if not BCC is UNO_NONE:
-                if getattr(self, 'BCC') != BCC:
-                    setattr(self, 'BCC', BCC)
-            if not Newsgroups is UNO_NONE:
-                if getattr(self, 'Newsgroups') != Newsgroups:
-                    setattr(self, 'Newsgroups', Newsgroups)
-            if not Server is UNO_NONE:
-                if getattr(self, 'Server') != Server:
-                    setattr(self, 'Server', Server)
-            if not Username is UNO_NONE:
-                if getattr(self, 'Username') != Username:
-                    setattr(self, 'Username', Username)
-            if not Password is UNO_NONE:
-                if getattr(self, 'Password') != Password:
-                    setattr(self, 'Password', Password)
-            if not VIMPostOfficePath is UNO_NONE:
-                if getattr(self, 'VIMPostOfficePath') != VIMPostOfficePath:
-                    setattr(self, 'VIMPostOfficePath', VIMPostOfficePath)
-            if not ProtocolErrorString is UNO_NONE:
-                if getattr(self, 'ProtocolErrorString') != ProtocolErrorString:
-                    setattr(self, 'ProtocolErrorString', ProtocolErrorString)
-            if not ProtocolErrorNumber is UNO_NONE:
-                if getattr(self, 'ProtocolErrorNumber') != ProtocolErrorNumber:
-                    setattr(self, 'ProtocolErrorNumber', ProtocolErrorNumber)
-            if not SendTries is UNO_NONE:
-                if getattr(self, 'SendTries') != SendTries:
-                    setattr(self, 'SendTries', SendTries)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.RecipientInfo'
         struct = uno.getClass(type_name)
@@ -81,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RecipientInfo = _get_class()
-
 
 else:
     from ...lo.ucb.recipient_info import RecipientInfo as RecipientInfo

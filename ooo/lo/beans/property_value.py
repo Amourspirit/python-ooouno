@@ -38,33 +38,39 @@ class PropertyValue(object):
     typeName: str = 'com.sun.star.beans.PropertyValue'
     """Literal Constant ``com.sun.star.beans.PropertyValue``"""
 
-    def __init__(self, Name: str = '', Handle: int = 0, Value: object = None, State: PropertyState_c97b0c77 = PropertyState_c97b0c77.DIRECT_VALUE) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Handle: typing.Optional[int] = 0, Value: typing.Optional[object] = None, State: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``PropertyValue`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Handle (int, optional): Handle value
-            Value (object, optional): Value value
-            State (PropertyState, optional): State value
+            Name (str, optional): Name value.
+            Handle (int, optional): Handle value.
+            Value (object, optional): Value value.
+            State (PropertyState, optional): State value.
         """
+        super().__init__()
+
         if isinstance(Name, PropertyValue):
             oth: PropertyValue = Name
-            self._name = oth.Name
-            self._handle = oth.Handle
-            self._value = oth.Value
-            self._state = oth.State
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Value = oth.Value
+            self.State = oth.State
             return
-        else:
-            self._name = Name
-            self._handle = Handle
-            self._value = Value
-            self._state = State
 
+        kargs = {
+            "Name": Name,
+            "Handle": Handle,
+            "Value": Value,
+            "State": State,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._handle = kwargs["Handle"]
+        self._value = kwargs["Value"]
+        self._state = kwargs["State"]
 
 
     @property

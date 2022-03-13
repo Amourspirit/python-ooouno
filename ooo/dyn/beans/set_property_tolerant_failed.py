@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Name = UNO_NONE, Result = UNO_NONE):
-            if getattr(Name, "__class__", None) == self.__class__:
-                orig_init(self, Name)
+        ordered_keys = ('Name', 'Result')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not Result is UNO_NONE:
-                if getattr(self, 'Result') != Result:
-                    setattr(self, 'Result', Result)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.beans.SetPropertyTolerantFailed'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SetPropertyTolerantFailed = _get_class()
-
 
 else:
     from ...lo.beans.set_property_tolerant_failed import SetPropertyTolerantFailed as SetPropertyTolerantFailed

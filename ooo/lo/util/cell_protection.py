@@ -37,33 +37,39 @@ class CellProtection(object):
     typeName: str = 'com.sun.star.util.CellProtection'
     """Literal Constant ``com.sun.star.util.CellProtection``"""
 
-    def __init__(self, IsLocked: bool = False, IsFormulaHidden: bool = False, IsHidden: bool = False, IsPrintHidden: bool = False) -> None:
+    def __init__(self, IsLocked: typing.Optional[bool] = False, IsFormulaHidden: typing.Optional[bool] = False, IsHidden: typing.Optional[bool] = False, IsPrintHidden: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IsLocked`` can be another ``CellProtection`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IsLocked (bool, optional): IsLocked value
-            IsFormulaHidden (bool, optional): IsFormulaHidden value
-            IsHidden (bool, optional): IsHidden value
-            IsPrintHidden (bool, optional): IsPrintHidden value
+            IsLocked (bool, optional): IsLocked value.
+            IsFormulaHidden (bool, optional): IsFormulaHidden value.
+            IsHidden (bool, optional): IsHidden value.
+            IsPrintHidden (bool, optional): IsPrintHidden value.
         """
+        super().__init__()
+
         if isinstance(IsLocked, CellProtection):
             oth: CellProtection = IsLocked
-            self._is_locked = oth.IsLocked
-            self._is_formula_hidden = oth.IsFormulaHidden
-            self._is_hidden = oth.IsHidden
-            self._is_print_hidden = oth.IsPrintHidden
+            self.IsLocked = oth.IsLocked
+            self.IsFormulaHidden = oth.IsFormulaHidden
+            self.IsHidden = oth.IsHidden
+            self.IsPrintHidden = oth.IsPrintHidden
             return
-        else:
-            self._is_locked = IsLocked
-            self._is_formula_hidden = IsFormulaHidden
-            self._is_hidden = IsHidden
-            self._is_print_hidden = IsPrintHidden
 
+        kargs = {
+            "IsLocked": IsLocked,
+            "IsFormulaHidden": IsFormulaHidden,
+            "IsHidden": IsHidden,
+            "IsPrintHidden": IsPrintHidden,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._is_locked = kwargs["IsLocked"]
+        self._is_formula_hidden = kwargs["IsFormulaHidden"]
+        self._is_hidden = kwargs["IsHidden"]
+        self._is_print_hidden = kwargs["IsPrintHidden"]
 
 
     @property

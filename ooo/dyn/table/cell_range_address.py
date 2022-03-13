@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Sheet = UNO_NONE, StartColumn = UNO_NONE, StartRow = UNO_NONE, EndColumn = UNO_NONE, EndRow = UNO_NONE):
-            if getattr(Sheet, "__class__", None) == self.__class__:
-                orig_init(self, Sheet)
+        ordered_keys = ('Sheet', 'StartColumn', 'StartRow', 'EndColumn', 'EndRow')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Sheet is UNO_NONE:
-                if getattr(self, 'Sheet') != Sheet:
-                    setattr(self, 'Sheet', Sheet)
-            if not StartColumn is UNO_NONE:
-                if getattr(self, 'StartColumn') != StartColumn:
-                    setattr(self, 'StartColumn', StartColumn)
-            if not StartRow is UNO_NONE:
-                if getattr(self, 'StartRow') != StartRow:
-                    setattr(self, 'StartRow', StartRow)
-            if not EndColumn is UNO_NONE:
-                if getattr(self, 'EndColumn') != EndColumn:
-                    setattr(self, 'EndColumn', EndColumn)
-            if not EndRow is UNO_NONE:
-                if getattr(self, 'EndRow') != EndRow:
-                    setattr(self, 'EndRow', EndRow)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.table.CellRangeAddress'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     CellRangeAddress = _get_class()
-
 
 else:
     from ...lo.table.cell_range_address import CellRangeAddress as CellRangeAddress

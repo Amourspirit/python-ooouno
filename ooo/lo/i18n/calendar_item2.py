@@ -44,26 +44,40 @@ class CalendarItem2(CalendarItem_a86c0af1):
     typeName: str = 'com.sun.star.i18n.CalendarItem2'
     """Literal Constant ``com.sun.star.i18n.CalendarItem2``"""
 
-    def __init__(self, NarrowName: str = '', **kwargs) -> None:
+    def __init__(self, ID: typing.Optional[str] = '', AbbrevName: typing.Optional[str] = '', FullName: typing.Optional[str] = '', NarrowName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``NarrowName`` can be another ``CalendarItem2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            NarrowName (str, optional): NarrowName value
+            ID (str, optional): ID value.
+            AbbrevName (str, optional): AbbrevName value.
+            FullName (str, optional): FullName value.
+            NarrowName (str, optional): NarrowName value.
         """
-        super().__init__(**kwargs)
-        if isinstance(NarrowName, CalendarItem2):
-            oth: CalendarItem2 = NarrowName
-            self._narrow_name = oth.NarrowName
-            return
-        else:
-            self._narrow_name = NarrowName
 
+        if isinstance(ID, CalendarItem2):
+            oth: CalendarItem2 = ID
+            self.ID = oth.ID
+            self.AbbrevName = oth.AbbrevName
+            self.FullName = oth.FullName
+            self.NarrowName = oth.NarrowName
+            return
+
+        kargs = {
+            "ID": ID,
+            "AbbrevName": AbbrevName,
+            "FullName": FullName,
+            "NarrowName": NarrowName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._narrow_name = kwargs["NarrowName"]
+        inst_keys = ('NarrowName',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -38,27 +38,31 @@ class ContentProviderInfo(object):
     typeName: str = 'com.sun.star.ucb.ContentProviderInfo'
     """Literal Constant ``com.sun.star.ucb.ContentProviderInfo``"""
 
-    def __init__(self, ContentProvider: XContentProvider_d4150cc0 = None, Scheme: str = '') -> None:
+    def __init__(self, ContentProvider: typing.Optional[XContentProvider_d4150cc0] = None, Scheme: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ContentProvider`` can be another ``ContentProviderInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ContentProvider (XContentProvider, optional): ContentProvider value
-            Scheme (str, optional): Scheme value
+            ContentProvider (XContentProvider, optional): ContentProvider value.
+            Scheme (str, optional): Scheme value.
         """
+        super().__init__()
+
         if isinstance(ContentProvider, ContentProviderInfo):
             oth: ContentProviderInfo = ContentProvider
-            self._content_provider = oth.ContentProvider
-            self._scheme = oth.Scheme
+            self.ContentProvider = oth.ContentProvider
+            self.Scheme = oth.Scheme
             return
-        else:
-            self._content_provider = ContentProvider
-            self._scheme = Scheme
 
+        kargs = {
+            "ContentProvider": ContentProvider,
+            "Scheme": Scheme,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._content_provider = kwargs["ContentProvider"]
+        self._scheme = kwargs["Scheme"]
 
 
     @property

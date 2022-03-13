@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,26 +41,34 @@ class DropTargetEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.datatransfer.dnd.DropTargetEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DropTargetEvent``"""
 
-    def __init__(self, Dummy: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Dummy`` can be another ``DropTargetEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Dummy (int, optional): Dummy value
+            Source (XInterface, optional): Source value.
+            Dummy (int, optional): Dummy value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Dummy, DropTargetEvent):
-            oth: DropTargetEvent = Dummy
-            self._dummy = oth.Dummy
-            return
-        else:
-            self._dummy = Dummy
 
+        if isinstance(Source, DropTargetEvent):
+            oth: DropTargetEvent = Source
+            self.Source = oth.Source
+            self.Dummy = oth.Dummy
+            return
+
+        kargs = {
+            "Source": Source,
+            "Dummy": Dummy,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._dummy = kwargs["Dummy"]
+        inst_keys = ('Dummy',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

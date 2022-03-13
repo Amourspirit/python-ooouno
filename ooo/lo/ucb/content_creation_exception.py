@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .content_creation_error import ContentCreationError as ContentCreationError_b010e5c
 
 class ContentCreationException(Exception_85530a09):
     """
+    Exception Class
+
     This exception is thrown to indicate that the creation of a UCB content failed.
 
     See Also:
@@ -40,18 +43,29 @@ class ContentCreationException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.ContentCreationException'
     """Literal Constant ``com.sun.star.ucb.ContentCreationException``"""
 
-    def __init__(self, eError: typing.Optional[ContentCreationError_b010e5c] = ContentCreationError_b010e5c.UNKNOWN, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, eError: typing.Optional[ContentCreationError_b010e5c] = ContentCreationError_b010e5c.UNKNOWN) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             eError (ContentCreationError, optional): eError value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "eError": eError,
+        }
+        self._init(**kargs)
 
-        self._e_error = eError
+    def _init(self, **kwargs) -> None:
+        self._e_error = kwargs["eError"]
+        inst_keys = ('eError',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def eError(self) -> ContentCreationError_b010e5c:

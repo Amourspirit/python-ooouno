@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, URL = UNO_NONE, Actions = UNO_NONE):
-            if getattr(URL, "__class__", None) == self.__class__:
-                orig_init(self, URL)
+        ordered_keys = ('URL', 'Actions')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not URL is UNO_NONE:
-                if getattr(self, 'URL') != URL:
-                    setattr(self, 'URL', URL)
-            if not Actions is UNO_NONE:
-                if getattr(self, 'Actions') != Actions:
-                    setattr(self, 'Actions', Actions)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.io.FilePermission'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FilePermission = _get_class()
-
 
 else:
     from ...lo.io.file_permission import FilePermission as FilePermission

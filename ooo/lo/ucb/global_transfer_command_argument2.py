@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .global_transfer_command_argument import GlobalTransferCommandArgument as GlobalTransferCommandArgument_9ae711da
+from .transfer_command_operation import TransferCommandOperation as TransferCommandOperation_486a0ff7
 import typing
 
 
@@ -38,29 +39,50 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
     typeName: str = 'com.sun.star.ucb.GlobalTransferCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.GlobalTransferCommandArgument2``"""
 
-    def __init__(self, MimeType: str = '', DocumentId: str = '', **kwargs) -> None:
+    def __init__(self, Operation: typing.Optional[TransferCommandOperation_486a0ff7] = TransferCommandOperation_486a0ff7.COPY, SourceURL: typing.Optional[str] = '', TargetURL: typing.Optional[str] = '', NewTitle: typing.Optional[str] = '', NameClash: typing.Optional[int] = 0, MimeType: typing.Optional[str] = '', DocumentId: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MimeType`` can be another ``GlobalTransferCommandArgument2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            MimeType (str, optional): MimeType value
-            DocumentId (str, optional): DocumentId value
+            Operation (TransferCommandOperation, optional): Operation value.
+            SourceURL (str, optional): SourceURL value.
+            TargetURL (str, optional): TargetURL value.
+            NewTitle (str, optional): NewTitle value.
+            NameClash (int, optional): NameClash value.
+            MimeType (str, optional): MimeType value.
+            DocumentId (str, optional): DocumentId value.
         """
-        super().__init__(**kwargs)
-        if isinstance(MimeType, GlobalTransferCommandArgument2):
-            oth: GlobalTransferCommandArgument2 = MimeType
-            self._mime_type = oth.MimeType
-            self._document_id = oth.DocumentId
-            return
-        else:
-            self._mime_type = MimeType
-            self._document_id = DocumentId
 
+        if isinstance(Operation, GlobalTransferCommandArgument2):
+            oth: GlobalTransferCommandArgument2 = Operation
+            self.Operation = oth.Operation
+            self.SourceURL = oth.SourceURL
+            self.TargetURL = oth.TargetURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
+            self.MimeType = oth.MimeType
+            self.DocumentId = oth.DocumentId
+            return
+
+        kargs = {
+            "Operation": Operation,
+            "SourceURL": SourceURL,
+            "TargetURL": TargetURL,
+            "NewTitle": NewTitle,
+            "NameClash": NameClash,
+            "MimeType": MimeType,
+            "DocumentId": DocumentId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._mime_type = kwargs["MimeType"]
+        self._document_id = kwargs["DocumentId"]
+        inst_keys = ('MimeType', 'DocumentId')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

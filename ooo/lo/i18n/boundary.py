@@ -39,27 +39,31 @@ class Boundary(object):
     typeName: str = 'com.sun.star.i18n.Boundary'
     """Literal Constant ``com.sun.star.i18n.Boundary``"""
 
-    def __init__(self, startPos: int = 0, endPos: int = 0) -> None:
+    def __init__(self, startPos: typing.Optional[int] = 0, endPos: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``startPos`` can be another ``Boundary`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            startPos (int, optional): startPos value
-            endPos (int, optional): endPos value
+            startPos (int, optional): startPos value.
+            endPos (int, optional): endPos value.
         """
+        super().__init__()
+
         if isinstance(startPos, Boundary):
             oth: Boundary = startPos
-            self._start_pos = oth.startPos
-            self._end_pos = oth.endPos
+            self.startPos = oth.startPos
+            self.endPos = oth.endPos
             return
-        else:
-            self._start_pos = startPos
-            self._end_pos = endPos
 
+        kargs = {
+            "startPos": startPos,
+            "endPos": endPos,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._start_pos = kwargs["startPos"]
+        self._end_pos = kwargs["endPos"]
 
 
     @property

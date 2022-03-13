@@ -37,30 +37,33 @@ class AtomClassRequest(object):
     typeName: str = 'com.sun.star.util.AtomClassRequest'
     """Literal Constant ``com.sun.star.util.AtomClassRequest``"""
 
-    def __init__(self, atoms: typing.Tuple[int, ...] = UNO_NONE, atomClass: int = 0) -> None:
+    def __init__(self, atoms: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, atomClass: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``atoms`` can be another ``AtomClassRequest`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            atoms (Tuple[int, ...], optional): atoms value
-            atomClass (int, optional): atomClass value
+            atoms (typing.Tuple[int, ...], optional): atoms value.
+            atomClass (int, optional): atomClass value.
         """
+        super().__init__()
+
         if isinstance(atoms, AtomClassRequest):
             oth: AtomClassRequest = atoms
-            self._atoms = oth.atoms
-            self._atom_class = oth.atomClass
+            self.atoms = oth.atoms
+            self.atomClass = oth.atomClass
             return
-        else:
-            if atoms is UNO_NONE:
-                self._atoms = None
-            else:
-                self._atoms = atoms
-            self._atom_class = atomClass
 
+        kargs = {
+            "atoms": atoms,
+            "atomClass": atomClass,
+        }
+        if kargs["atoms"] is UNO_NONE:
+            kargs["atoms"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._atoms = kwargs["atoms"]
+        self._atom_class = kwargs["atomClass"]
 
 
     @property

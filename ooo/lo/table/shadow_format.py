@@ -39,33 +39,39 @@ class ShadowFormat(object):
     typeName: str = 'com.sun.star.table.ShadowFormat'
     """Literal Constant ``com.sun.star.table.ShadowFormat``"""
 
-    def __init__(self, Location: ShadowLocation_d4530caf = ShadowLocation_d4530caf.NONE, ShadowWidth: int = 0, IsTransparent: bool = False, Color: Color_68e908c5 = Color_68e908c5(0)) -> None:
+    def __init__(self, Location: typing.Optional[ShadowLocation_d4530caf] = ShadowLocation_d4530caf.NONE, ShadowWidth: typing.Optional[int] = 0, IsTransparent: typing.Optional[bool] = False, Color: typing.Optional[Color_68e908c5] = Color_68e908c5(0)) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Location`` can be another ``ShadowFormat`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Location (ShadowLocation, optional): Location value
-            ShadowWidth (int, optional): ShadowWidth value
-            IsTransparent (bool, optional): IsTransparent value
-            Color (Color, optional): Color value
+            Location (ShadowLocation, optional): Location value.
+            ShadowWidth (int, optional): ShadowWidth value.
+            IsTransparent (bool, optional): IsTransparent value.
+            Color (Color, optional): Color value.
         """
+        super().__init__()
+
         if isinstance(Location, ShadowFormat):
             oth: ShadowFormat = Location
-            self._location = oth.Location
-            self._shadow_width = oth.ShadowWidth
-            self._is_transparent = oth.IsTransparent
-            self._color = oth.Color
+            self.Location = oth.Location
+            self.ShadowWidth = oth.ShadowWidth
+            self.IsTransparent = oth.IsTransparent
+            self.Color = oth.Color
             return
-        else:
-            self._location = Location
-            self._shadow_width = ShadowWidth
-            self._is_transparent = IsTransparent
-            self._color = Color
 
+        kargs = {
+            "Location": Location,
+            "ShadowWidth": ShadowWidth,
+            "IsTransparent": IsTransparent,
+            "Color": Color,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._location = kwargs["Location"]
+        self._shadow_width = kwargs["ShadowWidth"]
+        self._is_transparent = kwargs["IsTransparent"]
+        self._color = kwargs["Color"]
 
 
     @property

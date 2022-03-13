@@ -38,39 +38,41 @@ class HomogenMatrix3(object):
     typeName: str = 'com.sun.star.drawing.HomogenMatrix3'
     """Literal Constant ``com.sun.star.drawing.HomogenMatrix3``"""
 
-    def __init__(self, Line1: HomogenMatrixLine3_2b160ef1 = UNO_NONE, Line2: HomogenMatrixLine3_2b160ef1 = UNO_NONE, Line3: HomogenMatrixLine3_2b160ef1 = UNO_NONE) -> None:
+    def __init__(self, Line1: typing.Optional[HomogenMatrixLine3_2b160ef1] = UNO_NONE, Line2: typing.Optional[HomogenMatrixLine3_2b160ef1] = UNO_NONE, Line3: typing.Optional[HomogenMatrixLine3_2b160ef1] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Line1`` can be another ``HomogenMatrix3`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Line1 (HomogenMatrixLine3, optional): Line1 value
-            Line2 (HomogenMatrixLine3, optional): Line2 value
-            Line3 (HomogenMatrixLine3, optional): Line3 value
+            Line1 (HomogenMatrixLine3, optional): Line1 value.
+            Line2 (HomogenMatrixLine3, optional): Line2 value.
+            Line3 (HomogenMatrixLine3, optional): Line3 value.
         """
+        super().__init__()
+
         if isinstance(Line1, HomogenMatrix3):
             oth: HomogenMatrix3 = Line1
-            self._line1 = oth.Line1
-            self._line2 = oth.Line2
-            self._line3 = oth.Line3
+            self.Line1 = oth.Line1
+            self.Line2 = oth.Line2
+            self.Line3 = oth.Line3
             return
-        else:
-            if Line1 is UNO_NONE:
-                self._line1 = HomogenMatrixLine3_2b160ef1()
-            else:
-                self._line1 = Line1
-            if Line2 is UNO_NONE:
-                self._line2 = HomogenMatrixLine3_2b160ef1()
-            else:
-                self._line2 = Line2
-            if Line3 is UNO_NONE:
-                self._line3 = HomogenMatrixLine3_2b160ef1()
-            else:
-                self._line3 = Line3
 
+        kargs = {
+            "Line1": Line1,
+            "Line2": Line2,
+            "Line3": Line3,
+        }
+        if kargs["Line1"] is UNO_NONE:
+            kargs["Line1"] = None
+        if kargs["Line2"] is UNO_NONE:
+            kargs["Line2"] = None
+        if kargs["Line3"] is UNO_NONE:
+            kargs["Line3"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._line1 = kwargs["Line1"]
+        self._line2 = kwargs["Line2"]
+        self._line3 = kwargs["Line3"]
 
 
     @property

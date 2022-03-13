@@ -38,30 +38,35 @@ class EnhancedCustomShapeAdjustmentValue(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeAdjustmentValue'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeAdjustmentValue``"""
 
-    def __init__(self, Value: object = None, State: PropertyState_c97b0c77 = PropertyState_c97b0c77.DIRECT_VALUE, Name: str = '') -> None:
+    def __init__(self, Value: typing.Optional[object] = None, State: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``EnhancedCustomShapeAdjustmentValue`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (object, optional): Value value
-            State (PropertyState, optional): State value
-            Name (str, optional): Name value
+            Value (object, optional): Value value.
+            State (PropertyState, optional): State value.
+            Name (str, optional): Name value.
         """
+        super().__init__()
+
         if isinstance(Value, EnhancedCustomShapeAdjustmentValue):
             oth: EnhancedCustomShapeAdjustmentValue = Value
-            self._value = oth.Value
-            self._state = oth.State
-            self._name = oth.Name
+            self.Value = oth.Value
+            self.State = oth.State
+            self.Name = oth.Name
             return
-        else:
-            self._value = Value
-            self._state = State
-            self._name = Name
 
+        kargs = {
+            "Value": Value,
+            "State": State,
+            "Name": Name,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._state = kwargs["State"]
+        self._name = kwargs["Name"]
 
 
     @property

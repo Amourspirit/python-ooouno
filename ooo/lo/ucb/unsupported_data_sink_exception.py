@@ -25,6 +25,8 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 
 class UnsupportedDataSinkException(Exception_85530a09):
     """
+    Exception Class
+
     This exception is used to indicate that the requested type of data sink is not supported.
     
     For example, each OpenCommandArgument supplied as argument of the command \"open\" contains such a data sink.
@@ -42,18 +44,29 @@ class UnsupportedDataSinkException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.UnsupportedDataSinkException'
     """Literal Constant ``com.sun.star.ucb.UnsupportedDataSinkException``"""
 
-    def __init__(self, Sink: typing.Optional[XInterface_8f010a43] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Sink: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Sink (XInterface, optional): Sink value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Sink": Sink,
+        }
+        self._init(**kargs)
 
-        self._sink = Sink
+    def _init(self, **kwargs) -> None:
+        self._sink = kwargs["Sink"]
+        inst_keys = ('Sink',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Sink(self) -> XInterface_8f010a43:

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..frame.x_controller2 import XController2 as XController2_bbcf0bc1
 
@@ -47,32 +48,42 @@ class DocumentEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.document.DocumentEvent'
     """Literal Constant ``com.sun.star.document.DocumentEvent``"""
 
-    def __init__(self, EventName: str = '', ViewController: XController2_bbcf0bc1 = None, Supplement: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, EventName: typing.Optional[str] = '', ViewController: typing.Optional[XController2_bbcf0bc1] = None, Supplement: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``EventName`` can be another ``DocumentEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            EventName (str, optional): EventName value
-            ViewController (XController2, optional): ViewController value
-            Supplement (object, optional): Supplement value
+            Source (XInterface, optional): Source value.
+            EventName (str, optional): EventName value.
+            ViewController (XController2, optional): ViewController value.
+            Supplement (object, optional): Supplement value.
         """
-        super().__init__(**kwargs)
-        if isinstance(EventName, DocumentEvent):
-            oth: DocumentEvent = EventName
-            self._event_name = oth.EventName
-            self._view_controller = oth.ViewController
-            self._supplement = oth.Supplement
-            return
-        else:
-            self._event_name = EventName
-            self._view_controller = ViewController
-            self._supplement = Supplement
 
+        if isinstance(Source, DocumentEvent):
+            oth: DocumentEvent = Source
+            self.Source = oth.Source
+            self.EventName = oth.EventName
+            self.ViewController = oth.ViewController
+            self.Supplement = oth.Supplement
+            return
+
+        kargs = {
+            "Source": Source,
+            "EventName": EventName,
+            "ViewController": ViewController,
+            "Supplement": Supplement,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._event_name = kwargs["EventName"]
+        self._view_controller = kwargs["ViewController"]
+        self._supplement = kwargs["Supplement"]
+        inst_keys = ('EventName', 'ViewController', 'Supplement')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

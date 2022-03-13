@@ -44,36 +44,41 @@ class GluePoint(object):
     typeName: str = 'com.sun.star.drawing.GluePoint'
     """Literal Constant ``com.sun.star.drawing.GluePoint``"""
 
-    def __init__(self, Position: Point_5fb2085e = UNO_NONE, EscapeDirection: int = 0, PositionAbsolute: bool = False, Alignment: int = 0) -> None:
+    def __init__(self, Position: typing.Optional[Point_5fb2085e] = UNO_NONE, EscapeDirection: typing.Optional[int] = 0, PositionAbsolute: typing.Optional[bool] = False, Alignment: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``GluePoint`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (Point, optional): Position value
-            EscapeDirection (int, optional): EscapeDirection value
-            PositionAbsolute (bool, optional): PositionAbsolute value
-            Alignment (int, optional): Alignment value
+            Position (Point, optional): Position value.
+            EscapeDirection (int, optional): EscapeDirection value.
+            PositionAbsolute (bool, optional): PositionAbsolute value.
+            Alignment (int, optional): Alignment value.
         """
+        super().__init__()
+
         if isinstance(Position, GluePoint):
             oth: GluePoint = Position
-            self._position = oth.Position
-            self._escape_direction = oth.EscapeDirection
-            self._position_absolute = oth.PositionAbsolute
-            self._alignment = oth.Alignment
+            self.Position = oth.Position
+            self.EscapeDirection = oth.EscapeDirection
+            self.PositionAbsolute = oth.PositionAbsolute
+            self.Alignment = oth.Alignment
             return
-        else:
-            if Position is UNO_NONE:
-                self._position = Point_5fb2085e()
-            else:
-                self._position = Position
-            self._escape_direction = EscapeDirection
-            self._position_absolute = PositionAbsolute
-            self._alignment = Alignment
 
+        kargs = {
+            "Position": Position,
+            "EscapeDirection": EscapeDirection,
+            "PositionAbsolute": PositionAbsolute,
+            "Alignment": Alignment,
+        }
+        if kargs["Position"] is UNO_NONE:
+            kargs["Position"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._escape_direction = kwargs["EscapeDirection"]
+        self._position_absolute = kwargs["PositionAbsolute"]
+        self._alignment = kwargs["Alignment"]
 
 
     @property

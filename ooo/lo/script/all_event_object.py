@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,38 +41,48 @@ class AllEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.script.AllEventObject'
     """Literal Constant ``com.sun.star.script.AllEventObject``"""
 
-    def __init__(self, Arguments: typing.Tuple[object, ...] = UNO_NONE, Helper: object = None, ListenerType: object = None, MethodName: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Arguments`` can be another ``AllEventObject`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Arguments (Tuple[object, ...], optional): Arguments value
-            Helper (object, optional): Helper value
-            ListenerType (object, optional): ListenerType value
-            MethodName (str, optional): MethodName value
+            Source (XInterface, optional): Source value.
+            Arguments (typing.Tuple[object, ...], optional): Arguments value.
+            Helper (object, optional): Helper value.
+            ListenerType (object, optional): ListenerType value.
+            MethodName (str, optional): MethodName value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Arguments, AllEventObject):
-            oth: AllEventObject = Arguments
-            self._arguments = oth.Arguments
-            self._helper = oth.Helper
-            self._listener_type = oth.ListenerType
-            self._method_name = oth.MethodName
-            return
-        else:
-            if Arguments is UNO_NONE:
-                self._arguments = None
-            else:
-                self._arguments = Arguments
-            self._helper = Helper
-            self._listener_type = ListenerType
-            self._method_name = MethodName
 
+        if isinstance(Source, AllEventObject):
+            oth: AllEventObject = Source
+            self.Source = oth.Source
+            self.Arguments = oth.Arguments
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.MethodName = oth.MethodName
+            return
+
+        kargs = {
+            "Source": Source,
+            "Arguments": Arguments,
+            "Helper": Helper,
+            "ListenerType": ListenerType,
+            "MethodName": MethodName,
+        }
+        if kargs["Arguments"] is UNO_NONE:
+            kargs["Arguments"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._arguments = kwargs["Arguments"]
+        self._helper = kwargs["Helper"]
+        self._listener_type = kwargs["ListenerType"]
+        self._method_name = kwargs["MethodName"]
+        inst_keys = ('Arguments', 'Helper', 'ListenerType', 'MethodName')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

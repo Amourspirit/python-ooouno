@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .rectangle import Rectangle as Rectangle_84b109e9
 
@@ -39,35 +40,44 @@ class EndDockingEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.EndDockingEvent'
     """Literal Constant ``com.sun.star.awt.EndDockingEvent``"""
 
-    def __init__(self, WindowRectangle: Rectangle_84b109e9 = UNO_NONE, bFloating: bool = False, bCancelled: bool = False, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, WindowRectangle: typing.Optional[Rectangle_84b109e9] = UNO_NONE, bFloating: typing.Optional[bool] = False, bCancelled: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``WindowRectangle`` can be another ``EndDockingEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            WindowRectangle (Rectangle, optional): WindowRectangle value
-            bFloating (bool, optional): bFloating value
-            bCancelled (bool, optional): bCancelled value
+            Source (XInterface, optional): Source value.
+            WindowRectangle (Rectangle, optional): WindowRectangle value.
+            bFloating (bool, optional): bFloating value.
+            bCancelled (bool, optional): bCancelled value.
         """
-        super().__init__(**kwargs)
-        if isinstance(WindowRectangle, EndDockingEvent):
-            oth: EndDockingEvent = WindowRectangle
-            self._window_rectangle = oth.WindowRectangle
-            self._b_floating = oth.bFloating
-            self._b_cancelled = oth.bCancelled
-            return
-        else:
-            if WindowRectangle is UNO_NONE:
-                self._window_rectangle = Rectangle_84b109e9()
-            else:
-                self._window_rectangle = WindowRectangle
-            self._b_floating = bFloating
-            self._b_cancelled = bCancelled
 
+        if isinstance(Source, EndDockingEvent):
+            oth: EndDockingEvent = Source
+            self.Source = oth.Source
+            self.WindowRectangle = oth.WindowRectangle
+            self.bFloating = oth.bFloating
+            self.bCancelled = oth.bCancelled
+            return
+
+        kargs = {
+            "Source": Source,
+            "WindowRectangle": WindowRectangle,
+            "bFloating": bFloating,
+            "bCancelled": bCancelled,
+        }
+        if kargs["WindowRectangle"] is UNO_NONE:
+            kargs["WindowRectangle"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._window_rectangle = kwargs["WindowRectangle"]
+        self._b_floating = kwargs["bFloating"]
+        self._b_cancelled = kwargs["bCancelled"]
+        inst_keys = ('WindowRectangle', 'bFloating', 'bCancelled')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

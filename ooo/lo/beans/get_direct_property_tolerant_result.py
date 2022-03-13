@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .get_property_tolerant_result import GetPropertyTolerantResult as GetPropertyTolerantResult_7c4e115e
+from .property_state import PropertyState as PropertyState_c97b0c77
 import typing
 
 
@@ -40,26 +41,40 @@ class GetDirectPropertyTolerantResult(GetPropertyTolerantResult_7c4e115e):
     typeName: str = 'com.sun.star.beans.GetDirectPropertyTolerantResult'
     """Literal Constant ``com.sun.star.beans.GetDirectPropertyTolerantResult``"""
 
-    def __init__(self, Name: str = '', **kwargs) -> None:
+    def __init__(self, Result: typing.Optional[int] = 0, State: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE, Value: typing.Optional[object] = None, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``GetDirectPropertyTolerantResult`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Name (str, optional): Name value
+            Result (int, optional): Result value.
+            State (PropertyState, optional): State value.
+            Value (object, optional): Value value.
+            Name (str, optional): Name value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Name, GetDirectPropertyTolerantResult):
-            oth: GetDirectPropertyTolerantResult = Name
-            self._name = oth.Name
-            return
-        else:
-            self._name = Name
 
+        if isinstance(Result, GetDirectPropertyTolerantResult):
+            oth: GetDirectPropertyTolerantResult = Result
+            self.Result = oth.Result
+            self.State = oth.State
+            self.Value = oth.Value
+            self.Name = oth.Name
+            return
+
+        kargs = {
+            "Result": Result,
+            "State": State,
+            "Value": Value,
+            "Name": Name,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        inst_keys = ('Name',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

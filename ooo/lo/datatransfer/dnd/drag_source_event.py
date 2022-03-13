@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .x_drag_source import XDragSource as XDragSource_49900fb2
 from .x_drag_source_context import XDragSourceContext as XDragSourceContext_c2661297
@@ -42,29 +43,38 @@ class DragSourceEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.datatransfer.dnd.DragSourceEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DragSourceEvent``"""
 
-    def __init__(self, DragSourceContext: XDragSourceContext_c2661297 = None, DragSource: XDragSource_49900fb2 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, DragSourceContext: typing.Optional[XDragSourceContext_c2661297] = None, DragSource: typing.Optional[XDragSource_49900fb2] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DragSourceContext`` can be another ``DragSourceEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            DragSourceContext (XDragSourceContext, optional): DragSourceContext value
-            DragSource (XDragSource, optional): DragSource value
+            Source (XInterface, optional): Source value.
+            DragSourceContext (XDragSourceContext, optional): DragSourceContext value.
+            DragSource (XDragSource, optional): DragSource value.
         """
-        super().__init__(**kwargs)
-        if isinstance(DragSourceContext, DragSourceEvent):
-            oth: DragSourceEvent = DragSourceContext
-            self._drag_source_context = oth.DragSourceContext
-            self._drag_source = oth.DragSource
-            return
-        else:
-            self._drag_source_context = DragSourceContext
-            self._drag_source = DragSource
 
+        if isinstance(Source, DragSourceEvent):
+            oth: DragSourceEvent = Source
+            self.Source = oth.Source
+            self.DragSourceContext = oth.DragSourceContext
+            self.DragSource = oth.DragSource
+            return
+
+        kargs = {
+            "Source": Source,
+            "DragSourceContext": DragSourceContext,
+            "DragSource": DragSource,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._drag_source_context = kwargs["DragSourceContext"]
+        self._drag_source = kwargs["DragSource"]
+        inst_keys = ('DragSourceContext', 'DragSource')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

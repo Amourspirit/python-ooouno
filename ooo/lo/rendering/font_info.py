@@ -43,51 +43,61 @@ class FontInfo(object):
     typeName: str = 'com.sun.star.rendering.FontInfo'
     """Literal Constant ``com.sun.star.rendering.FontInfo``"""
 
-    def __init__(self, FontDescription: Panose_a6bc0b2c = UNO_NONE, FamilyName: str = '', StyleName: str = '', UnicodeRanges0: int = 0, UnicodeRanges1: int = 0, UnicodeRanges2: int = 0, UnicodeRanges3: int = 0, IsSymbolFont: TriState_85af09f6 = TriState_85af09f6.NO, IsVertical: TriState_85af09f6 = TriState_85af09f6.NO) -> None:
+    def __init__(self, FontDescription: typing.Optional[Panose_a6bc0b2c] = UNO_NONE, FamilyName: typing.Optional[str] = '', StyleName: typing.Optional[str] = '', UnicodeRanges0: typing.Optional[int] = 0, UnicodeRanges1: typing.Optional[int] = 0, UnicodeRanges2: typing.Optional[int] = 0, UnicodeRanges3: typing.Optional[int] = 0, IsSymbolFont: typing.Optional[TriState_85af09f6] = TriState_85af09f6.NO, IsVertical: typing.Optional[TriState_85af09f6] = TriState_85af09f6.NO) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FontDescription`` can be another ``FontInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FontDescription (Panose, optional): FontDescription value
-            FamilyName (str, optional): FamilyName value
-            StyleName (str, optional): StyleName value
-            UnicodeRanges0 (int, optional): UnicodeRanges0 value
-            UnicodeRanges1 (int, optional): UnicodeRanges1 value
-            UnicodeRanges2 (int, optional): UnicodeRanges2 value
-            UnicodeRanges3 (int, optional): UnicodeRanges3 value
-            IsSymbolFont (TriState, optional): IsSymbolFont value
-            IsVertical (TriState, optional): IsVertical value
+            FontDescription (Panose, optional): FontDescription value.
+            FamilyName (str, optional): FamilyName value.
+            StyleName (str, optional): StyleName value.
+            UnicodeRanges0 (int, optional): UnicodeRanges0 value.
+            UnicodeRanges1 (int, optional): UnicodeRanges1 value.
+            UnicodeRanges2 (int, optional): UnicodeRanges2 value.
+            UnicodeRanges3 (int, optional): UnicodeRanges3 value.
+            IsSymbolFont (TriState, optional): IsSymbolFont value.
+            IsVertical (TriState, optional): IsVertical value.
         """
+        super().__init__()
+
         if isinstance(FontDescription, FontInfo):
             oth: FontInfo = FontDescription
-            self._font_description = oth.FontDescription
-            self._family_name = oth.FamilyName
-            self._style_name = oth.StyleName
-            self._unicode_ranges0 = oth.UnicodeRanges0
-            self._unicode_ranges1 = oth.UnicodeRanges1
-            self._unicode_ranges2 = oth.UnicodeRanges2
-            self._unicode_ranges3 = oth.UnicodeRanges3
-            self._is_symbol_font = oth.IsSymbolFont
-            self._is_vertical = oth.IsVertical
+            self.FontDescription = oth.FontDescription
+            self.FamilyName = oth.FamilyName
+            self.StyleName = oth.StyleName
+            self.UnicodeRanges0 = oth.UnicodeRanges0
+            self.UnicodeRanges1 = oth.UnicodeRanges1
+            self.UnicodeRanges2 = oth.UnicodeRanges2
+            self.UnicodeRanges3 = oth.UnicodeRanges3
+            self.IsSymbolFont = oth.IsSymbolFont
+            self.IsVertical = oth.IsVertical
             return
-        else:
-            if FontDescription is UNO_NONE:
-                self._font_description = Panose_a6bc0b2c()
-            else:
-                self._font_description = FontDescription
-            self._family_name = FamilyName
-            self._style_name = StyleName
-            self._unicode_ranges0 = UnicodeRanges0
-            self._unicode_ranges1 = UnicodeRanges1
-            self._unicode_ranges2 = UnicodeRanges2
-            self._unicode_ranges3 = UnicodeRanges3
-            self._is_symbol_font = IsSymbolFont
-            self._is_vertical = IsVertical
 
+        kargs = {
+            "FontDescription": FontDescription,
+            "FamilyName": FamilyName,
+            "StyleName": StyleName,
+            "UnicodeRanges0": UnicodeRanges0,
+            "UnicodeRanges1": UnicodeRanges1,
+            "UnicodeRanges2": UnicodeRanges2,
+            "UnicodeRanges3": UnicodeRanges3,
+            "IsSymbolFont": IsSymbolFont,
+            "IsVertical": IsVertical,
+        }
+        if kargs["FontDescription"] is UNO_NONE:
+            kargs["FontDescription"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._font_description = kwargs["FontDescription"]
+        self._family_name = kwargs["FamilyName"]
+        self._style_name = kwargs["StyleName"]
+        self._unicode_ranges0 = kwargs["UnicodeRanges0"]
+        self._unicode_ranges1 = kwargs["UnicodeRanges1"]
+        self._unicode_ranges2 = kwargs["UnicodeRanges2"]
+        self._unicode_ranges3 = kwargs["UnicodeRanges3"]
+        self._is_symbol_font = kwargs["IsSymbolFont"]
+        self._is_vertical = kwargs["IsVertical"]
 
 
     @property

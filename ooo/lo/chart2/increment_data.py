@@ -38,36 +38,41 @@ class IncrementData(object):
     typeName: str = 'com.sun.star.chart2.IncrementData'
     """Literal Constant ``com.sun.star.chart2.IncrementData``"""
 
-    def __init__(self, SubIncrements: typing.Tuple[SubIncrement_c5630c1b, ...] = UNO_NONE, Distance: object = None, PostEquidistant: object = None, BaseValue: object = None) -> None:
+    def __init__(self, SubIncrements: typing.Optional[typing.Tuple[SubIncrement_c5630c1b, ...]] = UNO_NONE, Distance: typing.Optional[object] = None, PostEquidistant: typing.Optional[object] = None, BaseValue: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SubIncrements`` can be another ``IncrementData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            SubIncrements (Tuple[SubIncrement, ...], optional): SubIncrements value
-            Distance (object, optional): Distance value
-            PostEquidistant (object, optional): PostEquidistant value
-            BaseValue (object, optional): BaseValue value
+            SubIncrements (typing.Tuple[SubIncrement, ...], optional): SubIncrements value.
+            Distance (object, optional): Distance value.
+            PostEquidistant (object, optional): PostEquidistant value.
+            BaseValue (object, optional): BaseValue value.
         """
+        super().__init__()
+
         if isinstance(SubIncrements, IncrementData):
             oth: IncrementData = SubIncrements
-            self._sub_increments = oth.SubIncrements
-            self._distance = oth.Distance
-            self._post_equidistant = oth.PostEquidistant
-            self._base_value = oth.BaseValue
+            self.SubIncrements = oth.SubIncrements
+            self.Distance = oth.Distance
+            self.PostEquidistant = oth.PostEquidistant
+            self.BaseValue = oth.BaseValue
             return
-        else:
-            if SubIncrements is UNO_NONE:
-                self._sub_increments = None
-            else:
-                self._sub_increments = SubIncrements
-            self._distance = Distance
-            self._post_equidistant = PostEquidistant
-            self._base_value = BaseValue
 
+        kargs = {
+            "SubIncrements": SubIncrements,
+            "Distance": Distance,
+            "PostEquidistant": PostEquidistant,
+            "BaseValue": BaseValue,
+        }
+        if kargs["SubIncrements"] is UNO_NONE:
+            kargs["SubIncrements"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._sub_increments = kwargs["SubIncrements"]
+        self._distance = kwargs["Distance"]
+        self._post_equidistant = kwargs["PostEquidistant"]
+        self._base_value = kwargs["BaseValue"]
 
 
     @property

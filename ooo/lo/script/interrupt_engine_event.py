@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .interrupt_reason import InterruptReason as InterruptReason_f3d00dd2
 
@@ -43,47 +44,62 @@ class InterruptEngineEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.script.InterruptEngineEvent'
     """Literal Constant ``com.sun.star.script.InterruptEngineEvent``"""
 
-    def __init__(self, Name: str = '', SourceCode: str = '', StartLine: int = 0, StartColumn: int = 0, EndLine: int = 0, EndColumn: int = 0, ErrorMessage: str = '', Reason: InterruptReason_f3d00dd2 = InterruptReason_f3d00dd2.Cancel, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Name: typing.Optional[str] = '', SourceCode: typing.Optional[str] = '', StartLine: typing.Optional[int] = 0, StartColumn: typing.Optional[int] = 0, EndLine: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0, ErrorMessage: typing.Optional[str] = '', Reason: typing.Optional[InterruptReason_f3d00dd2] = InterruptReason_f3d00dd2.Cancel) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``InterruptEngineEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Name (str, optional): Name value
-            SourceCode (str, optional): SourceCode value
-            StartLine (int, optional): StartLine value
-            StartColumn (int, optional): StartColumn value
-            EndLine (int, optional): EndLine value
-            EndColumn (int, optional): EndColumn value
-            ErrorMessage (str, optional): ErrorMessage value
-            Reason (InterruptReason, optional): Reason value
+            Source (XInterface, optional): Source value.
+            Name (str, optional): Name value.
+            SourceCode (str, optional): SourceCode value.
+            StartLine (int, optional): StartLine value.
+            StartColumn (int, optional): StartColumn value.
+            EndLine (int, optional): EndLine value.
+            EndColumn (int, optional): EndColumn value.
+            ErrorMessage (str, optional): ErrorMessage value.
+            Reason (InterruptReason, optional): Reason value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Name, InterruptEngineEvent):
-            oth: InterruptEngineEvent = Name
-            self._name = oth.Name
-            self._source_code = oth.SourceCode
-            self._start_line = oth.StartLine
-            self._start_column = oth.StartColumn
-            self._end_line = oth.EndLine
-            self._end_column = oth.EndColumn
-            self._error_message = oth.ErrorMessage
-            self._reason = oth.Reason
-            return
-        else:
-            self._name = Name
-            self._source_code = SourceCode
-            self._start_line = StartLine
-            self._start_column = StartColumn
-            self._end_line = EndLine
-            self._end_column = EndColumn
-            self._error_message = ErrorMessage
-            self._reason = Reason
 
+        if isinstance(Source, InterruptEngineEvent):
+            oth: InterruptEngineEvent = Source
+            self.Source = oth.Source
+            self.Name = oth.Name
+            self.SourceCode = oth.SourceCode
+            self.StartLine = oth.StartLine
+            self.StartColumn = oth.StartColumn
+            self.EndLine = oth.EndLine
+            self.EndColumn = oth.EndColumn
+            self.ErrorMessage = oth.ErrorMessage
+            self.Reason = oth.Reason
+            return
+
+        kargs = {
+            "Source": Source,
+            "Name": Name,
+            "SourceCode": SourceCode,
+            "StartLine": StartLine,
+            "StartColumn": StartColumn,
+            "EndLine": EndLine,
+            "EndColumn": EndColumn,
+            "ErrorMessage": ErrorMessage,
+            "Reason": Reason,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._source_code = kwargs["SourceCode"]
+        self._start_line = kwargs["StartLine"]
+        self._start_column = kwargs["StartColumn"]
+        self._end_line = kwargs["EndLine"]
+        self._end_column = kwargs["EndColumn"]
+        self._error_message = kwargs["ErrorMessage"]
+        self._reason = kwargs["Reason"]
+        inst_keys = ('Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn', 'ErrorMessage', 'Reason')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -47,39 +47,43 @@ class FontRequest(object):
     typeName: str = 'com.sun.star.rendering.FontRequest'
     """Literal Constant ``com.sun.star.rendering.FontRequest``"""
 
-    def __init__(self, FontDescription: FontInfo_bded0be9 = UNO_NONE, CellSize: float = 0.0, ReferenceAdvancement: float = 0.0, Locale: Locale_70d308fa = UNO_NONE) -> None:
+    def __init__(self, FontDescription: typing.Optional[FontInfo_bded0be9] = UNO_NONE, CellSize: typing.Optional[float] = 0.0, ReferenceAdvancement: typing.Optional[float] = 0.0, Locale: typing.Optional[Locale_70d308fa] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FontDescription`` can be another ``FontRequest`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FontDescription (FontInfo, optional): FontDescription value
-            CellSize (float, optional): CellSize value
-            ReferenceAdvancement (float, optional): ReferenceAdvancement value
-            Locale (Locale, optional): Locale value
+            FontDescription (FontInfo, optional): FontDescription value.
+            CellSize (float, optional): CellSize value.
+            ReferenceAdvancement (float, optional): ReferenceAdvancement value.
+            Locale (Locale, optional): Locale value.
         """
+        super().__init__()
+
         if isinstance(FontDescription, FontRequest):
             oth: FontRequest = FontDescription
-            self._font_description = oth.FontDescription
-            self._cell_size = oth.CellSize
-            self._reference_advancement = oth.ReferenceAdvancement
-            self._locale = oth.Locale
+            self.FontDescription = oth.FontDescription
+            self.CellSize = oth.CellSize
+            self.ReferenceAdvancement = oth.ReferenceAdvancement
+            self.Locale = oth.Locale
             return
-        else:
-            if FontDescription is UNO_NONE:
-                self._font_description = FontInfo_bded0be9()
-            else:
-                self._font_description = FontDescription
-            self._cell_size = CellSize
-            self._reference_advancement = ReferenceAdvancement
-            if Locale is UNO_NONE:
-                self._locale = Locale_70d308fa()
-            else:
-                self._locale = Locale
 
+        kargs = {
+            "FontDescription": FontDescription,
+            "CellSize": CellSize,
+            "ReferenceAdvancement": ReferenceAdvancement,
+            "Locale": Locale,
+        }
+        if kargs["FontDescription"] is UNO_NONE:
+            kargs["FontDescription"] = None
+        if kargs["Locale"] is UNO_NONE:
+            kargs["Locale"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._font_description = kwargs["FontDescription"]
+        self._cell_size = kwargs["CellSize"]
+        self._reference_advancement = kwargs["ReferenceAdvancement"]
+        self._locale = kwargs["Locale"]
 
 
     @property

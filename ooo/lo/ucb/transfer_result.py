@@ -37,30 +37,35 @@ class TransferResult(object):
     typeName: str = 'com.sun.star.ucb.TransferResult'
     """Literal Constant ``com.sun.star.ucb.TransferResult``"""
 
-    def __init__(self, Source: str = '', Target: str = '', Result: object = None) -> None:
+    def __init__(self, Source: typing.Optional[str] = '', Target: typing.Optional[str] = '', Result: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Source`` can be another ``TransferResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Source (str, optional): Source value
-            Target (str, optional): Target value
-            Result (object, optional): Result value
+            Source (str, optional): Source value.
+            Target (str, optional): Target value.
+            Result (object, optional): Result value.
         """
+        super().__init__()
+
         if isinstance(Source, TransferResult):
             oth: TransferResult = Source
-            self._source = oth.Source
-            self._target = oth.Target
-            self._result = oth.Result
+            self.Source = oth.Source
+            self.Target = oth.Target
+            self.Result = oth.Result
             return
-        else:
-            self._source = Source
-            self._target = Target
-            self._result = Result
 
+        kargs = {
+            "Source": Source,
+            "Target": Target,
+            "Result": Result,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._source = kwargs["Source"]
+        self._target = kwargs["Target"]
+        self._result = kwargs["Result"]
 
 
     @property

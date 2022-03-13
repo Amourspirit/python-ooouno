@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Column = UNO_NONE, Function = UNO_NONE):
-            if getattr(Column, "__class__", None) == self.__class__:
-                orig_init(self, Column)
+        ordered_keys = ('Column', 'Function')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Column is UNO_NONE:
-                if getattr(self, 'Column') != Column:
-                    setattr(self, 'Column', Column)
-            if not Function is UNO_NONE:
-                if getattr(self, 'Function') != Function:
-                    setattr(self, 'Function', Function)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.SubTotalColumn'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SubTotalColumn = _get_class()
-
 
 else:
     from ...lo.sheet.sub_total_column import SubTotalColumn as SubTotalColumn

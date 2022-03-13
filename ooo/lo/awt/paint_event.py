@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .rectangle import Rectangle as Rectangle_84b109e9
 
@@ -41,32 +42,40 @@ class PaintEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.PaintEvent'
     """Literal Constant ``com.sun.star.awt.PaintEvent``"""
 
-    def __init__(self, UpdateRect: Rectangle_84b109e9 = UNO_NONE, Count: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, UpdateRect: typing.Optional[Rectangle_84b109e9] = UNO_NONE, Count: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``UpdateRect`` can be another ``PaintEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            UpdateRect (Rectangle, optional): UpdateRect value
-            Count (int, optional): Count value
+            Source (XInterface, optional): Source value.
+            UpdateRect (Rectangle, optional): UpdateRect value.
+            Count (int, optional): Count value.
         """
-        super().__init__(**kwargs)
-        if isinstance(UpdateRect, PaintEvent):
-            oth: PaintEvent = UpdateRect
-            self._update_rect = oth.UpdateRect
-            self._count = oth.Count
-            return
-        else:
-            if UpdateRect is UNO_NONE:
-                self._update_rect = Rectangle_84b109e9()
-            else:
-                self._update_rect = UpdateRect
-            self._count = Count
 
+        if isinstance(Source, PaintEvent):
+            oth: PaintEvent = Source
+            self.Source = oth.Source
+            self.UpdateRect = oth.UpdateRect
+            self.Count = oth.Count
+            return
+
+        kargs = {
+            "Source": Source,
+            "UpdateRect": UpdateRect,
+            "Count": Count,
+        }
+        if kargs["UpdateRect"] is UNO_NONE:
+            kargs["UpdateRect"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._update_rect = kwargs["UpdateRect"]
+        self._count = kwargs["Count"]
+        inst_keys = ('UpdateRect', 'Count')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

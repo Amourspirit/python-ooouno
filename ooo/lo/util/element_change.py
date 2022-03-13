@@ -37,30 +37,35 @@ class ElementChange(object):
     typeName: str = 'com.sun.star.util.ElementChange'
     """Literal Constant ``com.sun.star.util.ElementChange``"""
 
-    def __init__(self, Accessor: object = None, Element: object = None, ReplacedElement: object = None) -> None:
+    def __init__(self, Accessor: typing.Optional[object] = None, Element: typing.Optional[object] = None, ReplacedElement: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Accessor`` can be another ``ElementChange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Accessor (object, optional): Accessor value
-            Element (object, optional): Element value
-            ReplacedElement (object, optional): ReplacedElement value
+            Accessor (object, optional): Accessor value.
+            Element (object, optional): Element value.
+            ReplacedElement (object, optional): ReplacedElement value.
         """
+        super().__init__()
+
         if isinstance(Accessor, ElementChange):
             oth: ElementChange = Accessor
-            self._accessor = oth.Accessor
-            self._element = oth.Element
-            self._replaced_element = oth.ReplacedElement
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
             return
-        else:
-            self._accessor = Accessor
-            self._element = Element
-            self._replaced_element = ReplacedElement
 
+        kargs = {
+            "Accessor": Accessor,
+            "Element": Element,
+            "ReplacedElement": ReplacedElement,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._accessor = kwargs["Accessor"]
+        self._element = kwargs["Element"]
+        self._replaced_element = kwargs["ReplacedElement"]
 
 
     @property

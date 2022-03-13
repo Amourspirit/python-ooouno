@@ -37,27 +37,31 @@ class Size(object):
     typeName: str = 'com.sun.star.awt.Size'
     """Literal Constant ``com.sun.star.awt.Size``"""
 
-    def __init__(self, Width: int = 0, Height: int = 0) -> None:
+    def __init__(self, Width: typing.Optional[int] = 0, Height: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Width`` can be another ``Size`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Width (int, optional): Width value
-            Height (int, optional): Height value
+            Width (int, optional): Width value.
+            Height (int, optional): Height value.
         """
+        super().__init__()
+
         if isinstance(Width, Size):
             oth: Size = Width
-            self._width = oth.Width
-            self._height = oth.Height
+            self.Width = oth.Width
+            self.Height = oth.Height
             return
-        else:
-            self._width = Width
-            self._height = Height
 
+        kargs = {
+            "Width": Width,
+            "Height": Height,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._width = kwargs["Width"]
+        self._height = kwargs["Height"]
 
 
     @property

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,26 +43,34 @@ class ActionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.ActionEvent'
     """Literal Constant ``com.sun.star.awt.ActionEvent``"""
 
-    def __init__(self, ActionCommand: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, ActionCommand: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ActionCommand`` can be another ``ActionEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ActionCommand (str, optional): ActionCommand value
+            Source (XInterface, optional): Source value.
+            ActionCommand (str, optional): ActionCommand value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ActionCommand, ActionEvent):
-            oth: ActionEvent = ActionCommand
-            self._action_command = oth.ActionCommand
-            return
-        else:
-            self._action_command = ActionCommand
 
+        if isinstance(Source, ActionEvent):
+            oth: ActionEvent = Source
+            self.Source = oth.Source
+            self.ActionCommand = oth.ActionCommand
+            return
+
+        kargs = {
+            "Source": Source,
+            "ActionCommand": ActionCommand,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._action_command = kwargs["ActionCommand"]
+        inst_keys = ('ActionCommand',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

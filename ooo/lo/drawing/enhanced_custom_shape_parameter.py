@@ -37,27 +37,31 @@ class EnhancedCustomShapeParameter(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeParameter'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeParameter``"""
 
-    def __init__(self, Value: object = None, Type: int = 0) -> None:
+    def __init__(self, Value: typing.Optional[object] = None, Type: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``EnhancedCustomShapeParameter`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (object, optional): Value value
-            Type (int, optional): Type value
+            Value (object, optional): Value value.
+            Type (int, optional): Type value.
         """
+        super().__init__()
+
         if isinstance(Value, EnhancedCustomShapeParameter):
             oth: EnhancedCustomShapeParameter = Value
-            self._value = oth.Value
-            self._type = oth.Type
+            self.Value = oth.Value
+            self.Type = oth.Type
             return
-        else:
-            self._value = Value
-            self._type = Type
 
+        kargs = {
+            "Value": Value,
+            "Type": Type,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._type = kwargs["Type"]
 
 
     @property

@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Days = UNO_NONE, Months = UNO_NONE, GenitiveMonths = UNO_NONE, PartitiveMonths = UNO_NONE, Eras = UNO_NONE, StartOfWeek = UNO_NONE, MinimumNumberOfDaysForFirstWeek = UNO_NONE, Default = UNO_NONE, Name = UNO_NONE):
-            if getattr(Days, "__class__", None) == self.__class__:
-                orig_init(self, Days)
+        ordered_keys = ('Days', 'Months', 'GenitiveMonths', 'PartitiveMonths', 'Eras', 'StartOfWeek', 'MinimumNumberOfDaysForFirstWeek', 'Default', 'Name')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Days is UNO_NONE:
-                if getattr(self, 'Days') != Days:
-                    setattr(self, 'Days', Days)
-            if not Months is UNO_NONE:
-                if getattr(self, 'Months') != Months:
-                    setattr(self, 'Months', Months)
-            if not GenitiveMonths is UNO_NONE:
-                if getattr(self, 'GenitiveMonths') != GenitiveMonths:
-                    setattr(self, 'GenitiveMonths', GenitiveMonths)
-            if not PartitiveMonths is UNO_NONE:
-                if getattr(self, 'PartitiveMonths') != PartitiveMonths:
-                    setattr(self, 'PartitiveMonths', PartitiveMonths)
-            if not Eras is UNO_NONE:
-                if getattr(self, 'Eras') != Eras:
-                    setattr(self, 'Eras', Eras)
-            if not StartOfWeek is UNO_NONE:
-                if getattr(self, 'StartOfWeek') != StartOfWeek:
-                    setattr(self, 'StartOfWeek', StartOfWeek)
-            if not MinimumNumberOfDaysForFirstWeek is UNO_NONE:
-                if getattr(self, 'MinimumNumberOfDaysForFirstWeek') != MinimumNumberOfDaysForFirstWeek:
-                    setattr(self, 'MinimumNumberOfDaysForFirstWeek', MinimumNumberOfDaysForFirstWeek)
-            if not Default is UNO_NONE:
-                if getattr(self, 'Default') != Default:
-                    setattr(self, 'Default', Default)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.Calendar2'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Calendar2 = _get_class()
-
 
 else:
     from ...lo.i18n.calendar2 import Calendar2 as Calendar2

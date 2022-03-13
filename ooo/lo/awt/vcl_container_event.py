@@ -41,26 +41,34 @@ class VclContainerEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.VclContainerEvent'
     """Literal Constant ``com.sun.star.awt.VclContainerEvent``"""
 
-    def __init__(self, Child: XInterface_8f010a43 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Child: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Child`` can be another ``VclContainerEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Child (XInterface, optional): Child value
+            Source (XInterface, optional): Source value.
+            Child (XInterface, optional): Child value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Child, VclContainerEvent):
-            oth: VclContainerEvent = Child
-            self._child = oth.Child
-            return
-        else:
-            self._child = Child
 
+        if isinstance(Source, VclContainerEvent):
+            oth: VclContainerEvent = Source
+            self.Source = oth.Source
+            self.Child = oth.Child
+            return
+
+        kargs = {
+            "Source": Source,
+            "Child": Child,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._child = kwargs["Child"]
+        inst_keys = ('Child',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

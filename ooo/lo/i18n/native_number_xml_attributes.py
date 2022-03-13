@@ -44,33 +44,37 @@ class NativeNumberXmlAttributes(object):
     typeName: str = 'com.sun.star.i18n.NativeNumberXmlAttributes'
     """Literal Constant ``com.sun.star.i18n.NativeNumberXmlAttributes``"""
 
-    def __init__(self, Locale: Locale_70d308fa = UNO_NONE, Format: str = '', Style: str = '') -> None:
+    def __init__(self, Locale: typing.Optional[Locale_70d308fa] = UNO_NONE, Format: typing.Optional[str] = '', Style: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Locale`` can be another ``NativeNumberXmlAttributes`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Locale (Locale, optional): Locale value
-            Format (str, optional): Format value
-            Style (str, optional): Style value
+            Locale (Locale, optional): Locale value.
+            Format (str, optional): Format value.
+            Style (str, optional): Style value.
         """
+        super().__init__()
+
         if isinstance(Locale, NativeNumberXmlAttributes):
             oth: NativeNumberXmlAttributes = Locale
-            self._locale = oth.Locale
-            self._format = oth.Format
-            self._style = oth.Style
+            self.Locale = oth.Locale
+            self.Format = oth.Format
+            self.Style = oth.Style
             return
-        else:
-            if Locale is UNO_NONE:
-                self._locale = Locale_70d308fa()
-            else:
-                self._locale = Locale
-            self._format = Format
-            self._style = Style
 
+        kargs = {
+            "Locale": Locale,
+            "Format": Format,
+            "Style": Style,
+        }
+        if kargs["Locale"] is UNO_NONE:
+            kargs["Locale"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._locale = kwargs["Locale"]
+        self._format = kwargs["Format"]
+        self._style = kwargs["Style"]
 
 
     @property

@@ -42,30 +42,33 @@ class DateWithTimezone(object):
     typeName: str = 'com.sun.star.util.DateWithTimezone'
     """Literal Constant ``com.sun.star.util.DateWithTimezone``"""
 
-    def __init__(self, DateInTZ: Date_60040844 = UNO_NONE, Timezone: int = 0) -> None:
+    def __init__(self, DateInTZ: typing.Optional[Date_60040844] = UNO_NONE, Timezone: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DateInTZ`` can be another ``DateWithTimezone`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DateInTZ (Date, optional): DateInTZ value
-            Timezone (int, optional): Timezone value
+            DateInTZ (Date, optional): DateInTZ value.
+            Timezone (int, optional): Timezone value.
         """
+        super().__init__()
+
         if isinstance(DateInTZ, DateWithTimezone):
             oth: DateWithTimezone = DateInTZ
-            self._date_in_tz = oth.DateInTZ
-            self._timezone = oth.Timezone
+            self.DateInTZ = oth.DateInTZ
+            self.Timezone = oth.Timezone
             return
-        else:
-            if DateInTZ is UNO_NONE:
-                self._date_in_tz = Date_60040844()
-            else:
-                self._date_in_tz = DateInTZ
-            self._timezone = Timezone
 
+        kargs = {
+            "DateInTZ": DateInTZ,
+            "Timezone": Timezone,
+        }
+        if kargs["DateInTZ"] is UNO_NONE:
+            kargs["DateInTZ"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._date_in_tz = kwargs["DateInTZ"]
+        self._timezone = kwargs["Timezone"]
 
 
     @property

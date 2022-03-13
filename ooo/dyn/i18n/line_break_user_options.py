@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, forbiddenBeginCharacters = UNO_NONE, forbiddenEndCharacters = UNO_NONE, applyForbiddenRules = UNO_NONE, allowPunctuationOutsideMargin = UNO_NONE, allowHyphenateEnglish = UNO_NONE):
-            if getattr(forbiddenBeginCharacters, "__class__", None) == self.__class__:
-                orig_init(self, forbiddenBeginCharacters)
+        ordered_keys = ('forbiddenBeginCharacters', 'forbiddenEndCharacters', 'applyForbiddenRules', 'allowPunctuationOutsideMargin', 'allowHyphenateEnglish')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not forbiddenBeginCharacters is UNO_NONE:
-                if getattr(self, 'forbiddenBeginCharacters') != forbiddenBeginCharacters:
-                    setattr(self, 'forbiddenBeginCharacters', forbiddenBeginCharacters)
-            if not forbiddenEndCharacters is UNO_NONE:
-                if getattr(self, 'forbiddenEndCharacters') != forbiddenEndCharacters:
-                    setattr(self, 'forbiddenEndCharacters', forbiddenEndCharacters)
-            if not applyForbiddenRules is UNO_NONE:
-                if getattr(self, 'applyForbiddenRules') != applyForbiddenRules:
-                    setattr(self, 'applyForbiddenRules', applyForbiddenRules)
-            if not allowPunctuationOutsideMargin is UNO_NONE:
-                if getattr(self, 'allowPunctuationOutsideMargin') != allowPunctuationOutsideMargin:
-                    setattr(self, 'allowPunctuationOutsideMargin', allowPunctuationOutsideMargin)
-            if not allowHyphenateEnglish is UNO_NONE:
-                if getattr(self, 'allowHyphenateEnglish') != allowHyphenateEnglish:
-                    setattr(self, 'allowHyphenateEnglish', allowHyphenateEnglish)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.LineBreakUserOptions'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LineBreakUserOptions = _get_class()
-
 
 else:
     from ...lo.i18n.line_break_user_options import LineBreakUserOptions as LineBreakUserOptions

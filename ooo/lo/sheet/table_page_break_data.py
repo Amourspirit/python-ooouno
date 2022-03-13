@@ -37,27 +37,31 @@ class TablePageBreakData(object):
     typeName: str = 'com.sun.star.sheet.TablePageBreakData'
     """Literal Constant ``com.sun.star.sheet.TablePageBreakData``"""
 
-    def __init__(self, Position: int = 0, ManualBreak: bool = False) -> None:
+    def __init__(self, Position: typing.Optional[int] = 0, ManualBreak: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Position`` can be another ``TablePageBreakData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Position (int, optional): Position value
-            ManualBreak (bool, optional): ManualBreak value
+            Position (int, optional): Position value.
+            ManualBreak (bool, optional): ManualBreak value.
         """
+        super().__init__()
+
         if isinstance(Position, TablePageBreakData):
             oth: TablePageBreakData = Position
-            self._position = oth.Position
-            self._manual_break = oth.ManualBreak
+            self.Position = oth.Position
+            self.ManualBreak = oth.ManualBreak
             return
-        else:
-            self._position = Position
-            self._manual_break = ManualBreak
 
+        kargs = {
+            "Position": Position,
+            "ManualBreak": ManualBreak,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._position = kwargs["Position"]
+        self._manual_break = kwargs["ManualBreak"]
 
 
     @property

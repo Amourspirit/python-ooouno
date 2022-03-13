@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FontDescription = UNO_NONE, CellSize = UNO_NONE, ReferenceAdvancement = UNO_NONE, Locale = UNO_NONE):
-            if getattr(FontDescription, "__class__", None) == self.__class__:
-                orig_init(self, FontDescription)
+        ordered_keys = ('FontDescription', 'CellSize', 'ReferenceAdvancement', 'Locale')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FontDescription is UNO_NONE:
-                if getattr(self, 'FontDescription') != FontDescription:
-                    setattr(self, 'FontDescription', FontDescription)
-            if not CellSize is UNO_NONE:
-                if getattr(self, 'CellSize') != CellSize:
-                    setattr(self, 'CellSize', CellSize)
-            if not ReferenceAdvancement is UNO_NONE:
-                if getattr(self, 'ReferenceAdvancement') != ReferenceAdvancement:
-                    setattr(self, 'ReferenceAdvancement', ReferenceAdvancement)
-            if not Locale is UNO_NONE:
-                if getattr(self, 'Locale') != Locale:
-                    setattr(self, 'Locale', Locale)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.FontRequest'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FontRequest = _get_class()
-
 
 else:
     from ...lo.rendering.font_request import FontRequest as FontRequest

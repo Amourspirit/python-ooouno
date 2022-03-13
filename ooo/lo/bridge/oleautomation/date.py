@@ -45,24 +45,27 @@ class Date(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.Date'
     """Literal Constant ``com.sun.star.bridge.oleautomation.Date``"""
 
-    def __init__(self, Value: float = 0.0) -> None:
+    def __init__(self, Value: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``Date`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (float, optional): Value value
+            Value (float, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Value, Date):
             oth: Date = Value
-            self._value = oth.Value
+            self.Value = oth.Value
             return
-        else:
-            self._value = Value
 
+        kargs = {
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
 
 
     @property

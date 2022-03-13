@@ -37,27 +37,31 @@ class StringPair(object):
     typeName: str = 'com.sun.star.beans.StringPair'
     """Literal Constant ``com.sun.star.beans.StringPair``"""
 
-    def __init__(self, First: str = '', Second: str = '') -> None:
+    def __init__(self, First: typing.Optional[str] = '', Second: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``First`` can be another ``StringPair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            First (str, optional): First value
-            Second (str, optional): Second value
+            First (str, optional): First value.
+            Second (str, optional): Second value.
         """
+        super().__init__()
+
         if isinstance(First, StringPair):
             oth: StringPair = First
-            self._first = oth.First
-            self._second = oth.Second
+            self.First = oth.First
+            self.Second = oth.Second
             return
-        else:
-            self._first = First
-            self._second = Second
 
+        kargs = {
+            "First": First,
+            "Second": Second,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._first = kwargs["First"]
+        self._second = kwargs["Second"]
 
 
     @property

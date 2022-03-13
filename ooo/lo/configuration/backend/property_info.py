@@ -37,33 +37,39 @@ class PropertyInfo(object):
     typeName: str = 'com.sun.star.configuration.backend.PropertyInfo'
     """Literal Constant ``com.sun.star.configuration.backend.PropertyInfo``"""
 
-    def __init__(self, Name: str = '', Type: str = '', Value: object = None, Protected: bool = False) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Type: typing.Optional[str] = '', Value: typing.Optional[object] = None, Protected: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``PropertyInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Type (str, optional): Type value
-            Value (object, optional): Value value
-            Protected (bool, optional): Protected value
+            Name (str, optional): Name value.
+            Type (str, optional): Type value.
+            Value (object, optional): Value value.
+            Protected (bool, optional): Protected value.
         """
+        super().__init__()
+
         if isinstance(Name, PropertyInfo):
             oth: PropertyInfo = Name
-            self._name = oth.Name
-            self._type = oth.Type
-            self._value = oth.Value
-            self._protected = oth.Protected
+            self.Name = oth.Name
+            self.Type = oth.Type
+            self.Value = oth.Value
+            self.Protected = oth.Protected
             return
-        else:
-            self._name = Name
-            self._type = Type
-            self._value = Value
-            self._protected = Protected
 
+        kargs = {
+            "Name": Name,
+            "Type": Type,
+            "Value": Value,
+            "Protected": Protected,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._type = kwargs["Type"]
+        self._value = kwargs["Value"]
+        self._protected = kwargs["Protected"]
 
 
     @property

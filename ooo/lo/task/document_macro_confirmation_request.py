@@ -21,11 +21,15 @@
 from ooo.oenv import UNO_NONE
 import typing
 from .classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from .interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 from ..embed.x_storage import XStorage as XStorage_8e460a32
 from ..security.document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation_f36c13f7
 
 class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     """
+    Exception Class
+
     describes the request to approve or deny the execution of macros contained in a document.
 
     See Also:
@@ -41,27 +45,42 @@ class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.task.DocumentMacroConfirmationRequest'
     """Literal Constant ``com.sun.star.task.DocumentMacroConfirmationRequest``"""
 
-    def __init__(self, DocumentSignatureInformation: typing.Optional[typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]] = UNO_NONE, DocumentURL: typing.Optional[str] = '', DocumentStorage: typing.Optional[XStorage_8e460a32] = None, DocumentVersion: typing.Optional[str] = '', **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, DocumentSignatureInformation: typing.Optional[typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]] = UNO_NONE, DocumentURL: typing.Optional[str] = '', DocumentStorage: typing.Optional[XStorage_8e460a32] = None, DocumentVersion: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Keyword Arguments:
-            DocumentSignatureInformation (Tuple[DocumentSignatureInformation, ...], optional): DocumentSignatureInformation value.
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            Classification (InteractionClassification, optional): Classification value.
+            DocumentSignatureInformation (typing.Tuple[DocumentSignatureInformation, ...], optional): DocumentSignatureInformation value.
             DocumentURL (str, optional): DocumentURL value.
             DocumentStorage (XStorage, optional): DocumentStorage value.
             DocumentVersion (str, optional): DocumentVersion value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+            "DocumentSignatureInformation": DocumentSignatureInformation,
+            "DocumentURL": DocumentURL,
+            "DocumentStorage": DocumentStorage,
+            "DocumentVersion": DocumentVersion,
+        }
+        if kargs["DocumentSignatureInformation"] is UNO_NONE:
+            kargs["DocumentSignatureInformation"] = None
+        self._init(**kargs)
 
-        if DocumentSignatureInformation is UNO_NONE:
-            self._document_signature_information = None
-        else:
-            self._document_signature_information = DocumentSignatureInformation
-        self._document_url = DocumentURL
-        self._document_storage = DocumentStorage
-        self._document_version = DocumentVersion
+    def _init(self, **kwargs) -> None:
+        self._document_signature_information = kwargs["DocumentSignatureInformation"]
+        self._document_url = kwargs["DocumentURL"]
+        self._document_storage = kwargs["DocumentStorage"]
+        self._document_version = kwargs["DocumentVersion"]
+        inst_keys = ('DocumentSignatureInformation', 'DocumentURL', 'DocumentStorage', 'DocumentVersion')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def DocumentSignatureInformation(self) -> typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]:

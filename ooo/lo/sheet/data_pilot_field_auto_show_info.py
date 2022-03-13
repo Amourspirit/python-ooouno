@@ -39,33 +39,39 @@ class DataPilotFieldAutoShowInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldAutoShowInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldAutoShowInfo``"""
 
-    def __init__(self, IsEnabled: bool = False, ShowItemsMode: int = 0, ItemCount: int = 0, DataField: str = '') -> None:
+    def __init__(self, IsEnabled: typing.Optional[bool] = False, ShowItemsMode: typing.Optional[int] = 0, ItemCount: typing.Optional[int] = 0, DataField: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``IsEnabled`` can be another ``DataPilotFieldAutoShowInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            IsEnabled (bool, optional): IsEnabled value
-            ShowItemsMode (int, optional): ShowItemsMode value
-            ItemCount (int, optional): ItemCount value
-            DataField (str, optional): DataField value
+            IsEnabled (bool, optional): IsEnabled value.
+            ShowItemsMode (int, optional): ShowItemsMode value.
+            ItemCount (int, optional): ItemCount value.
+            DataField (str, optional): DataField value.
         """
+        super().__init__()
+
         if isinstance(IsEnabled, DataPilotFieldAutoShowInfo):
             oth: DataPilotFieldAutoShowInfo = IsEnabled
-            self._is_enabled = oth.IsEnabled
-            self._show_items_mode = oth.ShowItemsMode
-            self._item_count = oth.ItemCount
-            self._data_field = oth.DataField
+            self.IsEnabled = oth.IsEnabled
+            self.ShowItemsMode = oth.ShowItemsMode
+            self.ItemCount = oth.ItemCount
+            self.DataField = oth.DataField
             return
-        else:
-            self._is_enabled = IsEnabled
-            self._show_items_mode = ShowItemsMode
-            self._item_count = ItemCount
-            self._data_field = DataField
 
+        kargs = {
+            "IsEnabled": IsEnabled,
+            "ShowItemsMode": ShowItemsMode,
+            "ItemCount": ItemCount,
+            "DataField": DataField,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._is_enabled = kwargs["IsEnabled"]
+        self._show_items_mode = kwargs["ShowItemsMode"]
+        self._item_count = kwargs["ItemCount"]
+        self._data_field = kwargs["DataField"]
 
 
     @property

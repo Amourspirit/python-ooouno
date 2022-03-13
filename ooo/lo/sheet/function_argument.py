@@ -37,30 +37,35 @@ class FunctionArgument(object):
     typeName: str = 'com.sun.star.sheet.FunctionArgument'
     """Literal Constant ``com.sun.star.sheet.FunctionArgument``"""
 
-    def __init__(self, Name: str = '', Description: str = '', IsOptional: bool = False) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Description: typing.Optional[str] = '', IsOptional: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``FunctionArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Description (str, optional): Description value
-            IsOptional (bool, optional): IsOptional value
+            Name (str, optional): Name value.
+            Description (str, optional): Description value.
+            IsOptional (bool, optional): IsOptional value.
         """
+        super().__init__()
+
         if isinstance(Name, FunctionArgument):
             oth: FunctionArgument = Name
-            self._name = oth.Name
-            self._description = oth.Description
-            self._is_optional = oth.IsOptional
+            self.Name = oth.Name
+            self.Description = oth.Description
+            self.IsOptional = oth.IsOptional
             return
-        else:
-            self._name = Name
-            self._description = Description
-            self._is_optional = IsOptional
 
+        kargs = {
+            "Name": Name,
+            "Description": Description,
+            "IsOptional": IsOptional,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._description = kwargs["Description"]
+        self._is_optional = kwargs["IsOptional"]
 
 
     @property

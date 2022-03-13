@@ -37,30 +37,35 @@ class DropCapFormat(object):
     typeName: str = 'com.sun.star.style.DropCapFormat'
     """Literal Constant ``com.sun.star.style.DropCapFormat``"""
 
-    def __init__(self, Lines: int = 0, Count: int = 0, Distance: int = 0) -> None:
+    def __init__(self, Lines: typing.Optional[int] = 0, Count: typing.Optional[int] = 0, Distance: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Lines`` can be another ``DropCapFormat`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Lines (int, optional): Lines value
-            Count (int, optional): Count value
-            Distance (int, optional): Distance value
+            Lines (int, optional): Lines value.
+            Count (int, optional): Count value.
+            Distance (int, optional): Distance value.
         """
+        super().__init__()
+
         if isinstance(Lines, DropCapFormat):
             oth: DropCapFormat = Lines
-            self._lines = oth.Lines
-            self._count = oth.Count
-            self._distance = oth.Distance
+            self.Lines = oth.Lines
+            self.Count = oth.Count
+            self.Distance = oth.Distance
             return
-        else:
-            self._lines = Lines
-            self._count = Count
-            self._distance = Distance
 
+        kargs = {
+            "Lines": Lines,
+            "Count": Count,
+            "Distance": Distance,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._lines = kwargs["Lines"]
+        self._count = kwargs["Count"]
+        self._distance = kwargs["Distance"]
 
 
     @property

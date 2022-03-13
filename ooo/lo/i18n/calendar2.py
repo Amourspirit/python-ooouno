@@ -46,63 +46,69 @@ class Calendar2(object):
     typeName: str = 'com.sun.star.i18n.Calendar2'
     """Literal Constant ``com.sun.star.i18n.Calendar2``"""
 
-    def __init__(self, Days: typing.Tuple[CalendarItem2_b38f0b23, ...] = UNO_NONE, Months: typing.Tuple[CalendarItem2_b38f0b23, ...] = UNO_NONE, GenitiveMonths: typing.Tuple[CalendarItem2_b38f0b23, ...] = UNO_NONE, PartitiveMonths: typing.Tuple[CalendarItem2_b38f0b23, ...] = UNO_NONE, Eras: typing.Tuple[CalendarItem2_b38f0b23, ...] = UNO_NONE, StartOfWeek: str = '', MinimumNumberOfDaysForFirstWeek: int = 0, Default: bool = False, Name: str = '') -> None:
+    def __init__(self, Days: typing.Optional[typing.Tuple[CalendarItem2_b38f0b23, ...]] = UNO_NONE, Months: typing.Optional[typing.Tuple[CalendarItem2_b38f0b23, ...]] = UNO_NONE, GenitiveMonths: typing.Optional[typing.Tuple[CalendarItem2_b38f0b23, ...]] = UNO_NONE, PartitiveMonths: typing.Optional[typing.Tuple[CalendarItem2_b38f0b23, ...]] = UNO_NONE, Eras: typing.Optional[typing.Tuple[CalendarItem2_b38f0b23, ...]] = UNO_NONE, StartOfWeek: typing.Optional[str] = '', MinimumNumberOfDaysForFirstWeek: typing.Optional[int] = 0, Default: typing.Optional[bool] = False, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Days`` can be another ``Calendar2`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Days (Tuple[CalendarItem2, ...], optional): Days value
-            Months (Tuple[CalendarItem2, ...], optional): Months value
-            GenitiveMonths (Tuple[CalendarItem2, ...], optional): GenitiveMonths value
-            PartitiveMonths (Tuple[CalendarItem2, ...], optional): PartitiveMonths value
-            Eras (Tuple[CalendarItem2, ...], optional): Eras value
-            StartOfWeek (str, optional): StartOfWeek value
-            MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value
-            Default (bool, optional): Default value
-            Name (str, optional): Name value
+            Days (typing.Tuple[CalendarItem2, ...], optional): Days value.
+            Months (typing.Tuple[CalendarItem2, ...], optional): Months value.
+            GenitiveMonths (typing.Tuple[CalendarItem2, ...], optional): GenitiveMonths value.
+            PartitiveMonths (typing.Tuple[CalendarItem2, ...], optional): PartitiveMonths value.
+            Eras (typing.Tuple[CalendarItem2, ...], optional): Eras value.
+            StartOfWeek (str, optional): StartOfWeek value.
+            MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value.
+            Default (bool, optional): Default value.
+            Name (str, optional): Name value.
         """
+        super().__init__()
+
         if isinstance(Days, Calendar2):
             oth: Calendar2 = Days
-            self._days = oth.Days
-            self._months = oth.Months
-            self._genitive_months = oth.GenitiveMonths
-            self._partitive_months = oth.PartitiveMonths
-            self._eras = oth.Eras
-            self._start_of_week = oth.StartOfWeek
-            self._minimum_number_of_days_for_first_week = oth.MinimumNumberOfDaysForFirstWeek
-            self._default = oth.Default
-            self._name = oth.Name
+            self.Days = oth.Days
+            self.Months = oth.Months
+            self.GenitiveMonths = oth.GenitiveMonths
+            self.PartitiveMonths = oth.PartitiveMonths
+            self.Eras = oth.Eras
+            self.StartOfWeek = oth.StartOfWeek
+            self.MinimumNumberOfDaysForFirstWeek = oth.MinimumNumberOfDaysForFirstWeek
+            self.Default = oth.Default
+            self.Name = oth.Name
             return
-        else:
-            if Days is UNO_NONE:
-                self._days = None
-            else:
-                self._days = Days
-            if Months is UNO_NONE:
-                self._months = None
-            else:
-                self._months = Months
-            if GenitiveMonths is UNO_NONE:
-                self._genitive_months = None
-            else:
-                self._genitive_months = GenitiveMonths
-            if PartitiveMonths is UNO_NONE:
-                self._partitive_months = None
-            else:
-                self._partitive_months = PartitiveMonths
-            if Eras is UNO_NONE:
-                self._eras = None
-            else:
-                self._eras = Eras
-            self._start_of_week = StartOfWeek
-            self._minimum_number_of_days_for_first_week = MinimumNumberOfDaysForFirstWeek
-            self._default = Default
-            self._name = Name
 
+        kargs = {
+            "Days": Days,
+            "Months": Months,
+            "GenitiveMonths": GenitiveMonths,
+            "PartitiveMonths": PartitiveMonths,
+            "Eras": Eras,
+            "StartOfWeek": StartOfWeek,
+            "MinimumNumberOfDaysForFirstWeek": MinimumNumberOfDaysForFirstWeek,
+            "Default": Default,
+            "Name": Name,
+        }
+        if kargs["Days"] is UNO_NONE:
+            kargs["Days"] = None
+        if kargs["Months"] is UNO_NONE:
+            kargs["Months"] = None
+        if kargs["GenitiveMonths"] is UNO_NONE:
+            kargs["GenitiveMonths"] = None
+        if kargs["PartitiveMonths"] is UNO_NONE:
+            kargs["PartitiveMonths"] = None
+        if kargs["Eras"] is UNO_NONE:
+            kargs["Eras"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._days = kwargs["Days"]
+        self._months = kwargs["Months"]
+        self._genitive_months = kwargs["GenitiveMonths"]
+        self._partitive_months = kwargs["PartitiveMonths"]
+        self._eras = kwargs["Eras"]
+        self._start_of_week = kwargs["StartOfWeek"]
+        self._minimum_number_of_days_for_first_week = kwargs["MinimumNumberOfDaysForFirstWeek"]
+        self._default = kwargs["Default"]
+        self._name = kwargs["Name"]
 
 
     @property

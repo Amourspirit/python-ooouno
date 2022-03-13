@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,29 +39,38 @@ class RowChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.sdb.RowChangeEvent'
     """Literal Constant ``com.sun.star.sdb.RowChangeEvent``"""
 
-    def __init__(self, Action: int = 0, Rows: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Action: typing.Optional[int] = 0, Rows: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Action`` can be another ``RowChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Action (int, optional): Action value
-            Rows (int, optional): Rows value
+            Source (XInterface, optional): Source value.
+            Action (int, optional): Action value.
+            Rows (int, optional): Rows value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Action, RowChangeEvent):
-            oth: RowChangeEvent = Action
-            self._action = oth.Action
-            self._rows = oth.Rows
-            return
-        else:
-            self._action = Action
-            self._rows = Rows
 
+        if isinstance(Source, RowChangeEvent):
+            oth: RowChangeEvent = Source
+            self.Source = oth.Source
+            self.Action = oth.Action
+            self.Rows = oth.Rows
+            return
+
+        kargs = {
+            "Source": Source,
+            "Action": Action,
+            "Rows": Rows,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._action = kwargs["Action"]
+        self._rows = kwargs["Rows"]
+        inst_keys = ('Action', 'Rows')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

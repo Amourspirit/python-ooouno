@@ -42,27 +42,31 @@ class MailAttachment(object):
     typeName: str = 'com.sun.star.mail.MailAttachment'
     """Literal Constant ``com.sun.star.mail.MailAttachment``"""
 
-    def __init__(self, Data: XTransferable_2d800f38 = None, ReadableName: str = '') -> None:
+    def __init__(self, Data: typing.Optional[XTransferable_2d800f38] = None, ReadableName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Data`` can be another ``MailAttachment`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Data (XTransferable, optional): Data value
-            ReadableName (str, optional): ReadableName value
+            Data (XTransferable, optional): Data value.
+            ReadableName (str, optional): ReadableName value.
         """
+        super().__init__()
+
         if isinstance(Data, MailAttachment):
             oth: MailAttachment = Data
-            self._data = oth.Data
-            self._readable_name = oth.ReadableName
+            self.Data = oth.Data
+            self.ReadableName = oth.ReadableName
             return
-        else:
-            self._data = Data
-            self._readable_name = ReadableName
 
+        kargs = {
+            "Data": Data,
+            "ReadableName": ReadableName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._data = kwargs["Data"]
+        self._readable_name = kwargs["ReadableName"]
 
 
     @property

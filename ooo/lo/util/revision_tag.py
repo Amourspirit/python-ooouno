@@ -38,36 +38,41 @@ class RevisionTag(object):
     typeName: str = 'com.sun.star.util.RevisionTag'
     """Literal Constant ``com.sun.star.util.RevisionTag``"""
 
-    def __init__(self, TimeStamp: DateTime_84de09d3 = UNO_NONE, Author: str = '', Comment: str = '', Identifier: str = '') -> None:
+    def __init__(self, TimeStamp: typing.Optional[DateTime_84de09d3] = UNO_NONE, Author: typing.Optional[str] = '', Comment: typing.Optional[str] = '', Identifier: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TimeStamp`` can be another ``RevisionTag`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TimeStamp (DateTime, optional): TimeStamp value
-            Author (str, optional): Author value
-            Comment (str, optional): Comment value
-            Identifier (str, optional): Identifier value
+            TimeStamp (DateTime, optional): TimeStamp value.
+            Author (str, optional): Author value.
+            Comment (str, optional): Comment value.
+            Identifier (str, optional): Identifier value.
         """
+        super().__init__()
+
         if isinstance(TimeStamp, RevisionTag):
             oth: RevisionTag = TimeStamp
-            self._time_stamp = oth.TimeStamp
-            self._author = oth.Author
-            self._comment = oth.Comment
-            self._identifier = oth.Identifier
+            self.TimeStamp = oth.TimeStamp
+            self.Author = oth.Author
+            self.Comment = oth.Comment
+            self.Identifier = oth.Identifier
             return
-        else:
-            if TimeStamp is UNO_NONE:
-                self._time_stamp = DateTime_84de09d3()
-            else:
-                self._time_stamp = TimeStamp
-            self._author = Author
-            self._comment = Comment
-            self._identifier = Identifier
 
+        kargs = {
+            "TimeStamp": TimeStamp,
+            "Author": Author,
+            "Comment": Comment,
+            "Identifier": Identifier,
+        }
+        if kargs["TimeStamp"] is UNO_NONE:
+            kargs["TimeStamp"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._time_stamp = kwargs["TimeStamp"]
+        self._author = kwargs["Author"]
+        self._comment = kwargs["Comment"]
+        self._identifier = kwargs["Identifier"]
 
 
     @property

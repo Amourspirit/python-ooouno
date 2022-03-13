@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FontDescription = UNO_NONE, FamilyName = UNO_NONE, StyleName = UNO_NONE, UnicodeRanges0 = UNO_NONE, UnicodeRanges1 = UNO_NONE, UnicodeRanges2 = UNO_NONE, UnicodeRanges3 = UNO_NONE, IsSymbolFont = UNO_NONE, IsVertical = UNO_NONE):
-            if getattr(FontDescription, "__class__", None) == self.__class__:
-                orig_init(self, FontDescription)
+        ordered_keys = ('FontDescription', 'FamilyName', 'StyleName', 'UnicodeRanges0', 'UnicodeRanges1', 'UnicodeRanges2', 'UnicodeRanges3', 'IsSymbolFont', 'IsVertical')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FontDescription is UNO_NONE:
-                if getattr(self, 'FontDescription') != FontDescription:
-                    setattr(self, 'FontDescription', FontDescription)
-            if not FamilyName is UNO_NONE:
-                if getattr(self, 'FamilyName') != FamilyName:
-                    setattr(self, 'FamilyName', FamilyName)
-            if not StyleName is UNO_NONE:
-                if getattr(self, 'StyleName') != StyleName:
-                    setattr(self, 'StyleName', StyleName)
-            if not UnicodeRanges0 is UNO_NONE:
-                if getattr(self, 'UnicodeRanges0') != UnicodeRanges0:
-                    setattr(self, 'UnicodeRanges0', UnicodeRanges0)
-            if not UnicodeRanges1 is UNO_NONE:
-                if getattr(self, 'UnicodeRanges1') != UnicodeRanges1:
-                    setattr(self, 'UnicodeRanges1', UnicodeRanges1)
-            if not UnicodeRanges2 is UNO_NONE:
-                if getattr(self, 'UnicodeRanges2') != UnicodeRanges2:
-                    setattr(self, 'UnicodeRanges2', UnicodeRanges2)
-            if not UnicodeRanges3 is UNO_NONE:
-                if getattr(self, 'UnicodeRanges3') != UnicodeRanges3:
-                    setattr(self, 'UnicodeRanges3', UnicodeRanges3)
-            if not IsSymbolFont is UNO_NONE:
-                if getattr(self, 'IsSymbolFont') != IsSymbolFont:
-                    setattr(self, 'IsSymbolFont', IsSymbolFont)
-            if not IsVertical is UNO_NONE:
-                if getattr(self, 'IsVertical') != IsVertical:
-                    setattr(self, 'IsVertical', IsVertical)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.FontInfo'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FontInfo = _get_class()
-
 
 else:
     from ...lo.rendering.font_info import FontInfo as FontInfo

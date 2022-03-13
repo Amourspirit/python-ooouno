@@ -36,33 +36,39 @@ class Libxml2ExtensionHandle(object):
     typeName: str = 'com.sun.star.xml.xpath.Libxml2ExtensionHandle'
     """Literal Constant ``com.sun.star.xml.xpath.Libxml2ExtensionHandle``"""
 
-    def __init__(self, functionLookupFunction: int = 0, functionData: int = 0, variableLookupFunction: int = 0, variableData: int = 0) -> None:
+    def __init__(self, functionLookupFunction: typing.Optional[int] = 0, functionData: typing.Optional[int] = 0, variableLookupFunction: typing.Optional[int] = 0, variableData: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``functionLookupFunction`` can be another ``Libxml2ExtensionHandle`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            functionLookupFunction (int, optional): functionLookupFunction value
-            functionData (int, optional): functionData value
-            variableLookupFunction (int, optional): variableLookupFunction value
-            variableData (int, optional): variableData value
+            functionLookupFunction (int, optional): functionLookupFunction value.
+            functionData (int, optional): functionData value.
+            variableLookupFunction (int, optional): variableLookupFunction value.
+            variableData (int, optional): variableData value.
         """
+        super().__init__()
+
         if isinstance(functionLookupFunction, Libxml2ExtensionHandle):
             oth: Libxml2ExtensionHandle = functionLookupFunction
-            self._function_lookup_function = oth.functionLookupFunction
-            self._function_data = oth.functionData
-            self._variable_lookup_function = oth.variableLookupFunction
-            self._variable_data = oth.variableData
+            self.functionLookupFunction = oth.functionLookupFunction
+            self.functionData = oth.functionData
+            self.variableLookupFunction = oth.variableLookupFunction
+            self.variableData = oth.variableData
             return
-        else:
-            self._function_lookup_function = functionLookupFunction
-            self._function_data = functionData
-            self._variable_lookup_function = variableLookupFunction
-            self._variable_data = variableData
 
+        kargs = {
+            "functionLookupFunction": functionLookupFunction,
+            "functionData": functionData,
+            "variableLookupFunction": variableLookupFunction,
+            "variableData": variableData,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._function_lookup_function = kwargs["functionLookupFunction"]
+        self._function_data = kwargs["functionData"]
+        self._variable_lookup_function = kwargs["variableLookupFunction"]
+        self._variable_data = kwargs["variableData"]
 
 
     @property

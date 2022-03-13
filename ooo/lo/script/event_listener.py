@@ -37,36 +37,43 @@ class EventListener(object):
     typeName: str = 'com.sun.star.script.EventListener'
     """Literal Constant ``com.sun.star.script.EventListener``"""
 
-    def __init__(self, AllListener: XAllListener_c91b0c54 = None, Helper: object = None, ListenerType: str = '', AddListenerParam: str = '', EventMethod: str = '') -> None:
+    def __init__(self, AllListener: typing.Optional[XAllListener_c91b0c54] = None, Helper: typing.Optional[object] = None, ListenerType: typing.Optional[str] = '', AddListenerParam: typing.Optional[str] = '', EventMethod: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``AllListener`` can be another ``EventListener`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            AllListener (XAllListener, optional): AllListener value
-            Helper (object, optional): Helper value
-            ListenerType (str, optional): ListenerType value
-            AddListenerParam (str, optional): AddListenerParam value
-            EventMethod (str, optional): EventMethod value
+            AllListener (XAllListener, optional): AllListener value.
+            Helper (object, optional): Helper value.
+            ListenerType (str, optional): ListenerType value.
+            AddListenerParam (str, optional): AddListenerParam value.
+            EventMethod (str, optional): EventMethod value.
         """
+        super().__init__()
+
         if isinstance(AllListener, EventListener):
             oth: EventListener = AllListener
-            self._all_listener = oth.AllListener
-            self._helper = oth.Helper
-            self._listener_type = oth.ListenerType
-            self._add_listener_param = oth.AddListenerParam
-            self._event_method = oth.EventMethod
+            self.AllListener = oth.AllListener
+            self.Helper = oth.Helper
+            self.ListenerType = oth.ListenerType
+            self.AddListenerParam = oth.AddListenerParam
+            self.EventMethod = oth.EventMethod
             return
-        else:
-            self._all_listener = AllListener
-            self._helper = Helper
-            self._listener_type = ListenerType
-            self._add_listener_param = AddListenerParam
-            self._event_method = EventMethod
 
+        kargs = {
+            "AllListener": AllListener,
+            "Helper": Helper,
+            "ListenerType": ListenerType,
+            "AddListenerParam": AddListenerParam,
+            "EventMethod": EventMethod,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._all_listener = kwargs["AllListener"]
+        self._helper = kwargs["Helper"]
+        self._listener_type = kwargs["ListenerType"]
+        self._add_listener_param = kwargs["AddListenerParam"]
+        self._event_method = kwargs["EventMethod"]
 
 
     @property

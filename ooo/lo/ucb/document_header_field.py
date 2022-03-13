@@ -39,27 +39,31 @@ class DocumentHeaderField(object):
     typeName: str = 'com.sun.star.ucb.DocumentHeaderField'
     """Literal Constant ``com.sun.star.ucb.DocumentHeaderField``"""
 
-    def __init__(self, Name: str = '', Value: str = '') -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``DocumentHeaderField`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Value (str, optional): Value value
+            Name (str, optional): Name value.
+            Value (str, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Name, DocumentHeaderField):
             oth: DocumentHeaderField = Name
-            self._name = oth.Name
-            self._value = oth.Value
+            self.Name = oth.Name
+            self.Value = oth.Value
             return
-        else:
-            self._name = Name
-            self._value = Value
 
+        kargs = {
+            "Name": Name,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._value = kwargs["Value"]
 
 
     @property

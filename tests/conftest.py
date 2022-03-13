@@ -1,13 +1,12 @@
 # coding: utf-8
+import os
 import sys
 from pathlib import Path
-
 import pytest
 import gc
 import functools
-from typing import List, Union
 from typing import TYPE_CHECKING
-
+sys.path.insert(0, os.path.abspath('.'))
 
 @pytest.fixture(scope='module')
 def uno_env() -> bool:

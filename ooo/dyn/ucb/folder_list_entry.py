@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Title = UNO_NONE, ID = UNO_NONE, Subscribed = UNO_NONE, New = UNO_NONE, Removed = UNO_NONE, Purge = UNO_NONE):
-            if getattr(Title, "__class__", None) == self.__class__:
-                orig_init(self, Title)
+        ordered_keys = ('Title', 'ID', 'Subscribed', 'New', 'Removed', 'Purge')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Title is UNO_NONE:
-                if getattr(self, 'Title') != Title:
-                    setattr(self, 'Title', Title)
-            if not ID is UNO_NONE:
-                if getattr(self, 'ID') != ID:
-                    setattr(self, 'ID', ID)
-            if not Subscribed is UNO_NONE:
-                if getattr(self, 'Subscribed') != Subscribed:
-                    setattr(self, 'Subscribed', Subscribed)
-            if not New is UNO_NONE:
-                if getattr(self, 'New') != New:
-                    setattr(self, 'New', New)
-            if not Removed is UNO_NONE:
-                if getattr(self, 'Removed') != Removed:
-                    setattr(self, 'Removed', Removed)
-            if not Purge is UNO_NONE:
-                if getattr(self, 'Purge') != Purge:
-                    setattr(self, 'Purge', Purge)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.FolderListEntry'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FolderListEntry = _get_class()
-
 
 else:
     from ...lo.ucb.folder_list_entry import FolderListEntry as FolderListEntry

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .x_tree_node import XTreeNode as XTreeNode_baaf0ba0
 
@@ -41,32 +42,40 @@ class TreeDataModelEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.tree.TreeDataModelEvent'
     """Literal Constant ``com.sun.star.awt.tree.TreeDataModelEvent``"""
 
-    def __init__(self, Nodes: typing.Tuple[XTreeNode_baaf0ba0, ...] = UNO_NONE, ParentNode: XTreeNode_baaf0ba0 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Nodes: typing.Optional[typing.Tuple[XTreeNode_baaf0ba0, ...]] = UNO_NONE, ParentNode: typing.Optional[XTreeNode_baaf0ba0] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Nodes`` can be another ``TreeDataModelEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Nodes (Tuple[XTreeNode, ...], optional): Nodes value
-            ParentNode (XTreeNode, optional): ParentNode value
+            Source (XInterface, optional): Source value.
+            Nodes (typing.Tuple[XTreeNode, ...], optional): Nodes value.
+            ParentNode (XTreeNode, optional): ParentNode value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Nodes, TreeDataModelEvent):
-            oth: TreeDataModelEvent = Nodes
-            self._nodes = oth.Nodes
-            self._parent_node = oth.ParentNode
-            return
-        else:
-            if Nodes is UNO_NONE:
-                self._nodes = None
-            else:
-                self._nodes = Nodes
-            self._parent_node = ParentNode
 
+        if isinstance(Source, TreeDataModelEvent):
+            oth: TreeDataModelEvent = Source
+            self.Source = oth.Source
+            self.Nodes = oth.Nodes
+            self.ParentNode = oth.ParentNode
+            return
+
+        kargs = {
+            "Source": Source,
+            "Nodes": Nodes,
+            "ParentNode": ParentNode,
+        }
+        if kargs["Nodes"] is UNO_NONE:
+            kargs["Nodes"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._nodes = kwargs["Nodes"]
+        self._parent_node = kwargs["ParentNode"]
+        inst_keys = ('Nodes', 'ParentNode')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

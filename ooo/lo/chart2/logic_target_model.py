@@ -48,6 +48,20 @@ class LogicTargetModel(ABC):
         MAYBEVOID, not BOUND nor CONSTRAINED in terms of Listener notifications, each element in the sequence must implement the service com.sun.star.chart2.LogicTargetModel.
         """
 
+    @abstractproperty
+    def ID(self) -> str:
+        """
+        identifies an instance of this service within one chart document.
+        """
+
+    @abstractproperty
+    def LegendID(self) -> str:
+        """
+        identifies an instance of the service com.sun.star.chart2.LegendModel within one chart document.
+        
+        that instance is used to automatically calculate missing properties
+        """
+
 
 
 __all__ = ['LogicTargetModel']

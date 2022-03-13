@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .x_text_content import XTextContent as XTextContent_b16e0ba5
 
 class InvalidTextContentException(Exception_85530a09):
     """
+    Exception Class
+
     is thrown whenever a method gets a TextContent as an actual argument when the text content cannot be used for that operation.
 
     See Also:
@@ -40,18 +43,29 @@ class InvalidTextContentException(Exception_85530a09):
     typeName: str = 'com.sun.star.text.InvalidTextContentException'
     """Literal Constant ``com.sun.star.text.InvalidTextContentException``"""
 
-    def __init__(self, TextContent: typing.Optional[XTextContent_b16e0ba5] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, TextContent: typing.Optional[XTextContent_b16e0ba5] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             TextContent (XTextContent, optional): TextContent value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "TextContent": TextContent,
+        }
+        self._init(**kargs)
 
-        self._text_content = TextContent
+    def _init(self, **kwargs) -> None:
+        self._text_content = kwargs["TextContent"]
+        inst_keys = ('TextContent',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def TextContent(self) -> XTextContent_b16e0ba5:

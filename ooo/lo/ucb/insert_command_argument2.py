@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .insert_command_argument import InsertCommandArgument as InsertCommandArgument_19550eb9
+from ..io.x_input_stream import XInputStream as XInputStream_98d40ab4
 import typing
 
 
@@ -38,29 +39,41 @@ class InsertCommandArgument2(InsertCommandArgument_19550eb9):
     typeName: str = 'com.sun.star.ucb.InsertCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.InsertCommandArgument2``"""
 
-    def __init__(self, MimeType: str = '', DocumentId: str = '', **kwargs) -> None:
+    def __init__(self, Data: typing.Optional[XInputStream_98d40ab4] = None, ReplaceExisting: typing.Optional[bool] = False, MimeType: typing.Optional[str] = '', DocumentId: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MimeType`` can be another ``InsertCommandArgument2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            MimeType (str, optional): MimeType value
-            DocumentId (str, optional): DocumentId value
+            Data (XInputStream, optional): Data value.
+            ReplaceExisting (bool, optional): ReplaceExisting value.
+            MimeType (str, optional): MimeType value.
+            DocumentId (str, optional): DocumentId value.
         """
-        super().__init__(**kwargs)
-        if isinstance(MimeType, InsertCommandArgument2):
-            oth: InsertCommandArgument2 = MimeType
-            self._mime_type = oth.MimeType
-            self._document_id = oth.DocumentId
-            return
-        else:
-            self._mime_type = MimeType
-            self._document_id = DocumentId
 
+        if isinstance(Data, InsertCommandArgument2):
+            oth: InsertCommandArgument2 = Data
+            self.Data = oth.Data
+            self.ReplaceExisting = oth.ReplaceExisting
+            self.MimeType = oth.MimeType
+            self.DocumentId = oth.DocumentId
+            return
+
+        kargs = {
+            "Data": Data,
+            "ReplaceExisting": ReplaceExisting,
+            "MimeType": MimeType,
+            "DocumentId": DocumentId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._mime_type = kwargs["MimeType"]
+        self._document_id = kwargs["DocumentId"]
+        inst_keys = ('MimeType', 'DocumentId')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

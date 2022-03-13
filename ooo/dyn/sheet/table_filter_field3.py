@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Values = UNO_NONE, Connection = UNO_NONE, Field = UNO_NONE, Operator = UNO_NONE):
-            if getattr(Values, "__class__", None) == self.__class__:
-                orig_init(self, Values)
+        ordered_keys = ('Values', 'Connection', 'Field', 'Operator')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Values is UNO_NONE:
-                if getattr(self, 'Values') != Values:
-                    setattr(self, 'Values', Values)
-            if not Connection is UNO_NONE:
-                if getattr(self, 'Connection') != Connection:
-                    setattr(self, 'Connection', Connection)
-            if not Field is UNO_NONE:
-                if getattr(self, 'Field') != Field:
-                    setattr(self, 'Field', Field)
-            if not Operator is UNO_NONE:
-                if getattr(self, 'Operator') != Operator:
-                    setattr(self, 'Operator', Operator)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.TableFilterField3'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TableFilterField3 = _get_class()
-
 
 else:
     from ...lo.sheet.table_filter_field3 import TableFilterField3 as TableFilterField3

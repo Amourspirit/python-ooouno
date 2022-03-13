@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from ..util.url import URL as URL_57ad07b9
 
@@ -39,41 +40,52 @@ class FeatureStateEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.frame.FeatureStateEvent'
     """Literal Constant ``com.sun.star.frame.FeatureStateEvent``"""
 
-    def __init__(self, FeatureURL: URL_57ad07b9 = UNO_NONE, FeatureDescriptor: str = '', IsEnabled: bool = False, Requery: bool = False, State: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, FeatureURL: typing.Optional[URL_57ad07b9] = UNO_NONE, FeatureDescriptor: typing.Optional[str] = '', IsEnabled: typing.Optional[bool] = False, Requery: typing.Optional[bool] = False, State: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FeatureURL`` can be another ``FeatureStateEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            FeatureURL (URL, optional): FeatureURL value
-            FeatureDescriptor (str, optional): FeatureDescriptor value
-            IsEnabled (bool, optional): IsEnabled value
-            Requery (bool, optional): Requery value
-            State (object, optional): State value
+            Source (XInterface, optional): Source value.
+            FeatureURL (URL, optional): FeatureURL value.
+            FeatureDescriptor (str, optional): FeatureDescriptor value.
+            IsEnabled (bool, optional): IsEnabled value.
+            Requery (bool, optional): Requery value.
+            State (object, optional): State value.
         """
-        super().__init__(**kwargs)
-        if isinstance(FeatureURL, FeatureStateEvent):
-            oth: FeatureStateEvent = FeatureURL
-            self._feature_url = oth.FeatureURL
-            self._feature_descriptor = oth.FeatureDescriptor
-            self._is_enabled = oth.IsEnabled
-            self._requery = oth.Requery
-            self._state = oth.State
-            return
-        else:
-            if FeatureURL is UNO_NONE:
-                self._feature_url = URL_57ad07b9()
-            else:
-                self._feature_url = FeatureURL
-            self._feature_descriptor = FeatureDescriptor
-            self._is_enabled = IsEnabled
-            self._requery = Requery
-            self._state = State
 
+        if isinstance(Source, FeatureStateEvent):
+            oth: FeatureStateEvent = Source
+            self.Source = oth.Source
+            self.FeatureURL = oth.FeatureURL
+            self.FeatureDescriptor = oth.FeatureDescriptor
+            self.IsEnabled = oth.IsEnabled
+            self.Requery = oth.Requery
+            self.State = oth.State
+            return
+
+        kargs = {
+            "Source": Source,
+            "FeatureURL": FeatureURL,
+            "FeatureDescriptor": FeatureDescriptor,
+            "IsEnabled": IsEnabled,
+            "Requery": Requery,
+            "State": State,
+        }
+        if kargs["FeatureURL"] is UNO_NONE:
+            kargs["FeatureURL"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._feature_url = kwargs["FeatureURL"]
+        self._feature_descriptor = kwargs["FeatureDescriptor"]
+        self._is_enabled = kwargs["IsEnabled"]
+        self._requery = kwargs["Requery"]
+        self._state = kwargs["State"]
+        inst_keys = ('FeatureURL', 'FeatureDescriptor', 'IsEnabled', 'Requery', 'State')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

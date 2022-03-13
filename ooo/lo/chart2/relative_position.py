@@ -40,30 +40,35 @@ class RelativePosition(object):
     typeName: str = 'com.sun.star.chart2.RelativePosition'
     """Literal Constant ``com.sun.star.chart2.RelativePosition``"""
 
-    def __init__(self, Primary: float = 0.0, Secondary: float = 0.0, Anchor: Alignment_b1400b93 = Alignment_b1400b93.TOP_LEFT) -> None:
+    def __init__(self, Primary: typing.Optional[float] = 0.0, Secondary: typing.Optional[float] = 0.0, Anchor: typing.Optional[Alignment_b1400b93] = Alignment_b1400b93.TOP_LEFT) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Primary`` can be another ``RelativePosition`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Primary (float, optional): Primary value
-            Secondary (float, optional): Secondary value
-            Anchor (Alignment, optional): Anchor value
+            Primary (float, optional): Primary value.
+            Secondary (float, optional): Secondary value.
+            Anchor (Alignment, optional): Anchor value.
         """
+        super().__init__()
+
         if isinstance(Primary, RelativePosition):
             oth: RelativePosition = Primary
-            self._primary = oth.Primary
-            self._secondary = oth.Secondary
-            self._anchor = oth.Anchor
+            self.Primary = oth.Primary
+            self.Secondary = oth.Secondary
+            self.Anchor = oth.Anchor
             return
-        else:
-            self._primary = Primary
-            self._secondary = Secondary
-            self._anchor = Anchor
 
+        kargs = {
+            "Primary": Primary,
+            "Secondary": Secondary,
+            "Anchor": Anchor,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._primary = kwargs["Primary"]
+        self._secondary = kwargs["Secondary"]
+        self._anchor = kwargs["Anchor"]
 
 
     @property

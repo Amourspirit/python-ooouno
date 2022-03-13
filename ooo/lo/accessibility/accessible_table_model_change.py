@@ -43,36 +43,43 @@ class AccessibleTableModelChange(object):
     typeName: str = 'com.sun.star.accessibility.AccessibleTableModelChange'
     """Literal Constant ``com.sun.star.accessibility.AccessibleTableModelChange``"""
 
-    def __init__(self, Type: int = 0, FirstRow: int = 0, LastRow: int = 0, FirstColumn: int = 0, LastColumn: int = 0) -> None:
+    def __init__(self, Type: typing.Optional[int] = 0, FirstRow: typing.Optional[int] = 0, LastRow: typing.Optional[int] = 0, FirstColumn: typing.Optional[int] = 0, LastColumn: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Type`` can be another ``AccessibleTableModelChange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Type (int, optional): Type value
-            FirstRow (int, optional): FirstRow value
-            LastRow (int, optional): LastRow value
-            FirstColumn (int, optional): FirstColumn value
-            LastColumn (int, optional): LastColumn value
+            Type (int, optional): Type value.
+            FirstRow (int, optional): FirstRow value.
+            LastRow (int, optional): LastRow value.
+            FirstColumn (int, optional): FirstColumn value.
+            LastColumn (int, optional): LastColumn value.
         """
+        super().__init__()
+
         if isinstance(Type, AccessibleTableModelChange):
             oth: AccessibleTableModelChange = Type
-            self._type = oth.Type
-            self._first_row = oth.FirstRow
-            self._last_row = oth.LastRow
-            self._first_column = oth.FirstColumn
-            self._last_column = oth.LastColumn
+            self.Type = oth.Type
+            self.FirstRow = oth.FirstRow
+            self.LastRow = oth.LastRow
+            self.FirstColumn = oth.FirstColumn
+            self.LastColumn = oth.LastColumn
             return
-        else:
-            self._type = Type
-            self._first_row = FirstRow
-            self._last_row = LastRow
-            self._first_column = FirstColumn
-            self._last_column = LastColumn
 
+        kargs = {
+            "Type": Type,
+            "FirstRow": FirstRow,
+            "LastRow": LastRow,
+            "FirstColumn": FirstColumn,
+            "LastColumn": LastColumn,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._type = kwargs["Type"]
+        self._first_row = kwargs["FirstRow"]
+        self._last_row = kwargs["LastRow"]
+        self._first_column = kwargs["FirstColumn"]
+        self._last_column = kwargs["LastColumn"]
 
 
     @property

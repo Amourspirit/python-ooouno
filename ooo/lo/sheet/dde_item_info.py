@@ -43,30 +43,33 @@ class DDEItemInfo(object):
     typeName: str = 'com.sun.star.sheet.DDEItemInfo'
     """Literal Constant ``com.sun.star.sheet.DDEItemInfo``"""
 
-    def __init__(self, Results: typing.Tuple[typing.Tuple[object, ...], ...] = UNO_NONE, Item: str = '') -> None:
+    def __init__(self, Results: typing.Optional[typing.Tuple[typing.Tuple[object, ...], ...]] = UNO_NONE, Item: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Results`` can be another ``DDEItemInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Results (Tuple[typing.Tuple[object, ...], ...], optional): Results value
-            Item (str, optional): Item value
+            Results (typing.Tuple[typing.Tuple[object, ...], ...], optional): Results value.
+            Item (str, optional): Item value.
         """
+        super().__init__()
+
         if isinstance(Results, DDEItemInfo):
             oth: DDEItemInfo = Results
-            self._results = oth.Results
-            self._item = oth.Item
+            self.Results = oth.Results
+            self.Item = oth.Item
             return
-        else:
-            if Results is UNO_NONE:
-                self._results = None
-            else:
-                self._results = Results
-            self._item = Item
 
+        kargs = {
+            "Results": Results,
+            "Item": Item,
+        }
+        if kargs["Results"] is UNO_NONE:
+            kargs["Results"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._results = kwargs["Results"]
+        self._item = kwargs["Item"]
 
 
     @property

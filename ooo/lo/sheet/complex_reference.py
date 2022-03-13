@@ -38,33 +38,35 @@ class ComplexReference(object):
     typeName: str = 'com.sun.star.sheet.ComplexReference'
     """Literal Constant ``com.sun.star.sheet.ComplexReference``"""
 
-    def __init__(self, Reference1: SingleReference_e27e0d12 = UNO_NONE, Reference2: SingleReference_e27e0d12 = UNO_NONE) -> None:
+    def __init__(self, Reference1: typing.Optional[SingleReference_e27e0d12] = UNO_NONE, Reference2: typing.Optional[SingleReference_e27e0d12] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Reference1`` can be another ``ComplexReference`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Reference1 (SingleReference, optional): Reference1 value
-            Reference2 (SingleReference, optional): Reference2 value
+            Reference1 (SingleReference, optional): Reference1 value.
+            Reference2 (SingleReference, optional): Reference2 value.
         """
+        super().__init__()
+
         if isinstance(Reference1, ComplexReference):
             oth: ComplexReference = Reference1
-            self._reference1 = oth.Reference1
-            self._reference2 = oth.Reference2
+            self.Reference1 = oth.Reference1
+            self.Reference2 = oth.Reference2
             return
-        else:
-            if Reference1 is UNO_NONE:
-                self._reference1 = SingleReference_e27e0d12()
-            else:
-                self._reference1 = Reference1
-            if Reference2 is UNO_NONE:
-                self._reference2 = SingleReference_e27e0d12()
-            else:
-                self._reference2 = Reference2
 
+        kargs = {
+            "Reference1": Reference1,
+            "Reference2": Reference2,
+        }
+        if kargs["Reference1"] is UNO_NONE:
+            kargs["Reference1"] = None
+        if kargs["Reference2"] is UNO_NONE:
+            kargs["Reference2"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._reference1 = kwargs["Reference1"]
+        self._reference2 = kwargs["Reference2"]
 
 
     @property

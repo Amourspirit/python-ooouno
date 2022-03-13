@@ -38,33 +38,35 @@ class EnhancedCustomShapeParameterPair(object):
     typeName: str = 'com.sun.star.drawing.EnhancedCustomShapeParameterPair'
     """Literal Constant ``com.sun.star.drawing.EnhancedCustomShapeParameterPair``"""
 
-    def __init__(self, First: EnhancedCustomShapeParameter_d6171317 = UNO_NONE, Second: EnhancedCustomShapeParameter_d6171317 = UNO_NONE) -> None:
+    def __init__(self, First: typing.Optional[EnhancedCustomShapeParameter_d6171317] = UNO_NONE, Second: typing.Optional[EnhancedCustomShapeParameter_d6171317] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``First`` can be another ``EnhancedCustomShapeParameterPair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            First (EnhancedCustomShapeParameter, optional): First value
-            Second (EnhancedCustomShapeParameter, optional): Second value
+            First (EnhancedCustomShapeParameter, optional): First value.
+            Second (EnhancedCustomShapeParameter, optional): Second value.
         """
+        super().__init__()
+
         if isinstance(First, EnhancedCustomShapeParameterPair):
             oth: EnhancedCustomShapeParameterPair = First
-            self._first = oth.First
-            self._second = oth.Second
+            self.First = oth.First
+            self.Second = oth.Second
             return
-        else:
-            if First is UNO_NONE:
-                self._first = EnhancedCustomShapeParameter_d6171317()
-            else:
-                self._first = First
-            if Second is UNO_NONE:
-                self._second = EnhancedCustomShapeParameter_d6171317()
-            else:
-                self._second = Second
 
+        kargs = {
+            "First": First,
+            "Second": Second,
+        }
+        if kargs["First"] is UNO_NONE:
+            kargs["First"] = None
+        if kargs["Second"] is UNO_NONE:
+            kargs["Second"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._first = kwargs["First"]
+        self._second = kwargs["Second"]
 
 
     @property

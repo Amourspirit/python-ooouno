@@ -40,33 +40,37 @@ class Rule(object):
     typeName: str = 'com.sun.star.ucb.Rule'
     """Literal Constant ``com.sun.star.ucb.Rule``"""
 
-    def __init__(self, Terms: typing.Tuple[RuleTerm_7a4b0972, ...] = UNO_NONE, Parameter: str = '', Action: int = 0) -> None:
+    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = UNO_NONE, Parameter: typing.Optional[str] = '', Action: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Terms`` can be another ``Rule`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Terms (Tuple[RuleTerm, ...], optional): Terms value
-            Parameter (str, optional): Parameter value
-            Action (int, optional): Action value
+            Terms (typing.Tuple[RuleTerm, ...], optional): Terms value.
+            Parameter (str, optional): Parameter value.
+            Action (int, optional): Action value.
         """
+        super().__init__()
+
         if isinstance(Terms, Rule):
             oth: Rule = Terms
-            self._terms = oth.Terms
-            self._parameter = oth.Parameter
-            self._action = oth.Action
+            self.Terms = oth.Terms
+            self.Parameter = oth.Parameter
+            self.Action = oth.Action
             return
-        else:
-            if Terms is UNO_NONE:
-                self._terms = None
-            else:
-                self._terms = Terms
-            self._parameter = Parameter
-            self._action = Action
 
+        kargs = {
+            "Terms": Terms,
+            "Parameter": Parameter,
+            "Action": Action,
+        }
+        if kargs["Terms"] is UNO_NONE:
+            kargs["Terms"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._terms = kwargs["Terms"]
+        self._parameter = kwargs["Parameter"]
+        self._action = kwargs["Action"]
 
 
     @property

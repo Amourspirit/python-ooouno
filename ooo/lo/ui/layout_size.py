@@ -39,30 +39,35 @@ class LayoutSize(object):
     typeName: str = 'com.sun.star.ui.LayoutSize'
     """Literal Constant ``com.sun.star.ui.LayoutSize``"""
 
-    def __init__(self, Minimum: int = 0, Maximum: int = 0, Preferred: int = 0) -> None:
+    def __init__(self, Minimum: typing.Optional[int] = 0, Maximum: typing.Optional[int] = 0, Preferred: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Minimum`` can be another ``LayoutSize`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Minimum (int, optional): Minimum value
-            Maximum (int, optional): Maximum value
-            Preferred (int, optional): Preferred value
+            Minimum (int, optional): Minimum value.
+            Maximum (int, optional): Maximum value.
+            Preferred (int, optional): Preferred value.
         """
+        super().__init__()
+
         if isinstance(Minimum, LayoutSize):
             oth: LayoutSize = Minimum
-            self._minimum = oth.Minimum
-            self._maximum = oth.Maximum
-            self._preferred = oth.Preferred
+            self.Minimum = oth.Minimum
+            self.Maximum = oth.Maximum
+            self.Preferred = oth.Preferred
             return
-        else:
-            self._minimum = Minimum
-            self._maximum = Maximum
-            self._preferred = Preferred
 
+        kargs = {
+            "Minimum": Minimum,
+            "Maximum": Maximum,
+            "Preferred": Preferred,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._minimum = kwargs["Minimum"]
+        self._maximum = kwargs["Maximum"]
+        self._preferred = kwargs["Preferred"]
 
 
     @property

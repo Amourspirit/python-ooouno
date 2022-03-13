@@ -22,57 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, TopLine = UNO_NONE, IsTopLineValid = UNO_NONE, BottomLine = UNO_NONE, IsBottomLineValid = UNO_NONE, LeftLine = UNO_NONE, IsLeftLineValid = UNO_NONE, RightLine = UNO_NONE, IsRightLineValid = UNO_NONE, HorizontalLine = UNO_NONE, IsHorizontalLineValid = UNO_NONE, VerticalLine = UNO_NONE, IsVerticalLineValid = UNO_NONE, Distance = UNO_NONE, IsDistanceValid = UNO_NONE):
-            if getattr(TopLine, "__class__", None) == self.__class__:
-                orig_init(self, TopLine)
+        ordered_keys = ('TopLine', 'IsTopLineValid', 'BottomLine', 'IsBottomLineValid', 'LeftLine', 'IsLeftLineValid', 'RightLine', 'IsRightLineValid', 'HorizontalLine', 'IsHorizontalLineValid', 'VerticalLine', 'IsVerticalLineValid', 'Distance', 'IsDistanceValid')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not TopLine is UNO_NONE:
-                if getattr(self, 'TopLine') != TopLine:
-                    setattr(self, 'TopLine', TopLine)
-            if not IsTopLineValid is UNO_NONE:
-                if getattr(self, 'IsTopLineValid') != IsTopLineValid:
-                    setattr(self, 'IsTopLineValid', IsTopLineValid)
-            if not BottomLine is UNO_NONE:
-                if getattr(self, 'BottomLine') != BottomLine:
-                    setattr(self, 'BottomLine', BottomLine)
-            if not IsBottomLineValid is UNO_NONE:
-                if getattr(self, 'IsBottomLineValid') != IsBottomLineValid:
-                    setattr(self, 'IsBottomLineValid', IsBottomLineValid)
-            if not LeftLine is UNO_NONE:
-                if getattr(self, 'LeftLine') != LeftLine:
-                    setattr(self, 'LeftLine', LeftLine)
-            if not IsLeftLineValid is UNO_NONE:
-                if getattr(self, 'IsLeftLineValid') != IsLeftLineValid:
-                    setattr(self, 'IsLeftLineValid', IsLeftLineValid)
-            if not RightLine is UNO_NONE:
-                if getattr(self, 'RightLine') != RightLine:
-                    setattr(self, 'RightLine', RightLine)
-            if not IsRightLineValid is UNO_NONE:
-                if getattr(self, 'IsRightLineValid') != IsRightLineValid:
-                    setattr(self, 'IsRightLineValid', IsRightLineValid)
-            if not HorizontalLine is UNO_NONE:
-                if getattr(self, 'HorizontalLine') != HorizontalLine:
-                    setattr(self, 'HorizontalLine', HorizontalLine)
-            if not IsHorizontalLineValid is UNO_NONE:
-                if getattr(self, 'IsHorizontalLineValid') != IsHorizontalLineValid:
-                    setattr(self, 'IsHorizontalLineValid', IsHorizontalLineValid)
-            if not VerticalLine is UNO_NONE:
-                if getattr(self, 'VerticalLine') != VerticalLine:
-                    setattr(self, 'VerticalLine', VerticalLine)
-            if not IsVerticalLineValid is UNO_NONE:
-                if getattr(self, 'IsVerticalLineValid') != IsVerticalLineValid:
-                    setattr(self, 'IsVerticalLineValid', IsVerticalLineValid)
-            if not Distance is UNO_NONE:
-                if getattr(self, 'Distance') != Distance:
-                    setattr(self, 'Distance', Distance)
-            if not IsDistanceValid is UNO_NONE:
-                if getattr(self, 'IsDistanceValid') != IsDistanceValid:
-                    setattr(self, 'IsDistanceValid', IsDistanceValid)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.table.TableBorder'
         struct = uno.getClass(type_name)
@@ -84,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     TableBorder = _get_class()
-
 
 else:
     from ...lo.table.table_border import TableBorder as TableBorder

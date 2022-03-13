@@ -51,39 +51,47 @@ class AffineMatrix2D(object):
     typeName: str = 'com.sun.star.geometry.AffineMatrix2D'
     """Literal Constant ``com.sun.star.geometry.AffineMatrix2D``"""
 
-    def __init__(self, m00: float = 0.0, m01: float = 0.0, m02: float = 0.0, m10: float = 0.0, m11: float = 0.0, m12: float = 0.0) -> None:
+    def __init__(self, m00: typing.Optional[float] = 0.0, m01: typing.Optional[float] = 0.0, m02: typing.Optional[float] = 0.0, m10: typing.Optional[float] = 0.0, m11: typing.Optional[float] = 0.0, m12: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``m00`` can be another ``AffineMatrix2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            m00 (float, optional): m00 value
-            m01 (float, optional): m01 value
-            m02 (float, optional): m02 value
-            m10 (float, optional): m10 value
-            m11 (float, optional): m11 value
-            m12 (float, optional): m12 value
+            m00 (float, optional): m00 value.
+            m01 (float, optional): m01 value.
+            m02 (float, optional): m02 value.
+            m10 (float, optional): m10 value.
+            m11 (float, optional): m11 value.
+            m12 (float, optional): m12 value.
         """
+        super().__init__()
+
         if isinstance(m00, AffineMatrix2D):
             oth: AffineMatrix2D = m00
-            self._m00 = oth.m00
-            self._m01 = oth.m01
-            self._m02 = oth.m02
-            self._m10 = oth.m10
-            self._m11 = oth.m11
-            self._m12 = oth.m12
+            self.m00 = oth.m00
+            self.m01 = oth.m01
+            self.m02 = oth.m02
+            self.m10 = oth.m10
+            self.m11 = oth.m11
+            self.m12 = oth.m12
             return
-        else:
-            self._m00 = m00
-            self._m01 = m01
-            self._m02 = m02
-            self._m10 = m10
-            self._m11 = m11
-            self._m12 = m12
 
+        kargs = {
+            "m00": m00,
+            "m01": m01,
+            "m02": m02,
+            "m10": m10,
+            "m11": m11,
+            "m12": m12,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._m00 = kwargs["m00"]
+        self._m01 = kwargs["m01"]
+        self._m02 = kwargs["m02"]
+        self._m10 = kwargs["m10"]
+        self._m11 = kwargs["m11"]
+        self._m12 = kwargs["m12"]
 
 
     @property

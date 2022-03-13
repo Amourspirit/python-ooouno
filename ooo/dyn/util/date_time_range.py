@@ -22,60 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, StartNanoSeconds = UNO_NONE, StartSeconds = UNO_NONE, StartMinutes = UNO_NONE, StartHours = UNO_NONE, StartDay = UNO_NONE, StartMonth = UNO_NONE, StartYear = UNO_NONE, EndNanoSeconds = UNO_NONE, EndSeconds = UNO_NONE, EndMinutes = UNO_NONE, EndHours = UNO_NONE, EndDay = UNO_NONE, EndMonth = UNO_NONE, EndYear = UNO_NONE, IsUTC = UNO_NONE):
-            if getattr(StartNanoSeconds, "__class__", None) == self.__class__:
-                orig_init(self, StartNanoSeconds)
+        ordered_keys = ('StartNanoSeconds', 'StartSeconds', 'StartMinutes', 'StartHours', 'StartDay', 'StartMonth', 'StartYear', 'EndNanoSeconds', 'EndSeconds', 'EndMinutes', 'EndHours', 'EndDay', 'EndMonth', 'EndYear', 'IsUTC')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not StartNanoSeconds is UNO_NONE:
-                if getattr(self, 'StartNanoSeconds') != StartNanoSeconds:
-                    setattr(self, 'StartNanoSeconds', StartNanoSeconds)
-            if not StartSeconds is UNO_NONE:
-                if getattr(self, 'StartSeconds') != StartSeconds:
-                    setattr(self, 'StartSeconds', StartSeconds)
-            if not StartMinutes is UNO_NONE:
-                if getattr(self, 'StartMinutes') != StartMinutes:
-                    setattr(self, 'StartMinutes', StartMinutes)
-            if not StartHours is UNO_NONE:
-                if getattr(self, 'StartHours') != StartHours:
-                    setattr(self, 'StartHours', StartHours)
-            if not StartDay is UNO_NONE:
-                if getattr(self, 'StartDay') != StartDay:
-                    setattr(self, 'StartDay', StartDay)
-            if not StartMonth is UNO_NONE:
-                if getattr(self, 'StartMonth') != StartMonth:
-                    setattr(self, 'StartMonth', StartMonth)
-            if not StartYear is UNO_NONE:
-                if getattr(self, 'StartYear') != StartYear:
-                    setattr(self, 'StartYear', StartYear)
-            if not EndNanoSeconds is UNO_NONE:
-                if getattr(self, 'EndNanoSeconds') != EndNanoSeconds:
-                    setattr(self, 'EndNanoSeconds', EndNanoSeconds)
-            if not EndSeconds is UNO_NONE:
-                if getattr(self, 'EndSeconds') != EndSeconds:
-                    setattr(self, 'EndSeconds', EndSeconds)
-            if not EndMinutes is UNO_NONE:
-                if getattr(self, 'EndMinutes') != EndMinutes:
-                    setattr(self, 'EndMinutes', EndMinutes)
-            if not EndHours is UNO_NONE:
-                if getattr(self, 'EndHours') != EndHours:
-                    setattr(self, 'EndHours', EndHours)
-            if not EndDay is UNO_NONE:
-                if getattr(self, 'EndDay') != EndDay:
-                    setattr(self, 'EndDay', EndDay)
-            if not EndMonth is UNO_NONE:
-                if getattr(self, 'EndMonth') != EndMonth:
-                    setattr(self, 'EndMonth', EndMonth)
-            if not EndYear is UNO_NONE:
-                if getattr(self, 'EndYear') != EndYear:
-                    setattr(self, 'EndYear', EndYear)
-            if not IsUTC is UNO_NONE:
-                if getattr(self, 'IsUTC') != IsUTC:
-                    setattr(self, 'IsUTC', IsUTC)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.DateTimeRange'
         struct = uno.getClass(type_name)
@@ -87,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DateTimeRange = _get_class()
-
 
 else:
     from ...lo.util.date_time_range import DateTimeRange as DateTimeRange

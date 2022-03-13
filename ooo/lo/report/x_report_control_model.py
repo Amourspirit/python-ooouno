@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.report
 import typing
-from abc import abstractmethod
+from abc import abstractmethod, abstractproperty
 from ..container.x_container import XContainer as XContainer_d6fb0cc6
 from ..container.x_index_container import XIndexContainer as XIndexContainer_1c040ebe
 from .x_report_component import XReportComponent as XReportComponent_df0e2b
@@ -46,6 +46,30 @@ class XReportControlModel(XContainer_d6fb0cc6, XIndexContainer_1c040ebe, XReport
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+    @abstractproperty
+    def ConditionalPrintExpression(self) -> str:
+        """
+        Describes the print expression of the report control model.
+        
+        If the expression evaluates to true than the report control model will be printed otherwise not.
+        """
+
+    @abstractproperty
+    def DataField(self) -> str:
+        """
+        Specifies which content should be shown.
+        
+        The value can be
+        """
+
+    @abstractproperty
+    def PrintWhenGroupChange(self) -> bool:
+        """
+        Specifies that the element gets printed when the group changes.
+        
+        The default value is TRUE.
+        """
+
 
 __all__ = ['XReportControlModel']
 

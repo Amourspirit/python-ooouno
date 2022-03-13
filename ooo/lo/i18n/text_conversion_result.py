@@ -42,33 +42,35 @@ class TextConversionResult(object):
     typeName: str = 'com.sun.star.i18n.TextConversionResult'
     """Literal Constant ``com.sun.star.i18n.TextConversionResult``"""
 
-    def __init__(self, Candidates: typing.Tuple[str, ...] = UNO_NONE, Boundary: Boundary_7fe2098c = UNO_NONE) -> None:
+    def __init__(self, Candidates: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Boundary: typing.Optional[Boundary_7fe2098c] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Candidates`` can be another ``TextConversionResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Candidates (Tuple[str, ...], optional): Candidates value
-            Boundary (Boundary, optional): Boundary value
+            Candidates (typing.Tuple[str, ...], optional): Candidates value.
+            Boundary (Boundary, optional): Boundary value.
         """
+        super().__init__()
+
         if isinstance(Candidates, TextConversionResult):
             oth: TextConversionResult = Candidates
-            self._candidates = oth.Candidates
-            self._boundary = oth.Boundary
+            self.Candidates = oth.Candidates
+            self.Boundary = oth.Boundary
             return
-        else:
-            if Candidates is UNO_NONE:
-                self._candidates = None
-            else:
-                self._candidates = Candidates
-            if Boundary is UNO_NONE:
-                self._boundary = Boundary_7fe2098c()
-            else:
-                self._boundary = Boundary
 
+        kargs = {
+            "Candidates": Candidates,
+            "Boundary": Boundary,
+        }
+        if kargs["Candidates"] is UNO_NONE:
+            kargs["Candidates"] = None
+        if kargs["Boundary"] is UNO_NONE:
+            kargs["Boundary"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._candidates = kwargs["Candidates"]
+        self._boundary = kwargs["Boundary"]
 
 
     @property

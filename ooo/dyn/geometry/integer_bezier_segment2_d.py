@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Px = UNO_NONE, Py = UNO_NONE, C1x = UNO_NONE, C1y = UNO_NONE, C2x = UNO_NONE, C2y = UNO_NONE):
-            if getattr(Px, "__class__", None) == self.__class__:
-                orig_init(self, Px)
+        ordered_keys = ('Px', 'Py', 'C1x', 'C1y', 'C2x', 'C2y')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Px is UNO_NONE:
-                if getattr(self, 'Px') != Px:
-                    setattr(self, 'Px', Px)
-            if not Py is UNO_NONE:
-                if getattr(self, 'Py') != Py:
-                    setattr(self, 'Py', Py)
-            if not C1x is UNO_NONE:
-                if getattr(self, 'C1x') != C1x:
-                    setattr(self, 'C1x', C1x)
-            if not C1y is UNO_NONE:
-                if getattr(self, 'C1y') != C1y:
-                    setattr(self, 'C1y', C1y)
-            if not C2x is UNO_NONE:
-                if getattr(self, 'C2x') != C2x:
-                    setattr(self, 'C2x', C2x)
-            if not C2y is UNO_NONE:
-                if getattr(self, 'C2y') != C2y:
-                    setattr(self, 'C2y', C2y)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.geometry.IntegerBezierSegment2D'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     IntegerBezierSegment2D = _get_class()
-
 
 else:
     from ...lo.geometry.integer_bezier_segment2_d import IntegerBezierSegment2D as IntegerBezierSegment2D

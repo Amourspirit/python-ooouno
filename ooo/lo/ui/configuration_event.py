@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..container.container_event import ContainerEvent as ContainerEvent_ea50e70
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,29 +43,47 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
     typeName: str = 'com.sun.star.ui.ConfigurationEvent'
     """Literal Constant ``com.sun.star.ui.ConfigurationEvent``"""
 
-    def __init__(self, ResourceURL: str = '', aInfo: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Accessor: typing.Optional[object] = None, Element: typing.Optional[object] = None, ReplacedElement: typing.Optional[object] = None, ResourceURL: typing.Optional[str] = '', aInfo: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ResourceURL`` can be another ``ConfigurationEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ResourceURL (str, optional): ResourceURL value
-            aInfo (object, optional): aInfo value
+            Source (XInterface, optional): Source value.
+            Accessor (object, optional): Accessor value.
+            Element (object, optional): Element value.
+            ReplacedElement (object, optional): ReplacedElement value.
+            ResourceURL (str, optional): ResourceURL value.
+            aInfo (object, optional): aInfo value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ResourceURL, ConfigurationEvent):
-            oth: ConfigurationEvent = ResourceURL
-            self._resource_url = oth.ResourceURL
-            self._a_info = oth.aInfo
-            return
-        else:
-            self._resource_url = ResourceURL
-            self._a_info = aInfo
 
+        if isinstance(Source, ConfigurationEvent):
+            oth: ConfigurationEvent = Source
+            self.Source = oth.Source
+            self.Accessor = oth.Accessor
+            self.Element = oth.Element
+            self.ReplacedElement = oth.ReplacedElement
+            self.ResourceURL = oth.ResourceURL
+            self.aInfo = oth.aInfo
+            return
+
+        kargs = {
+            "Source": Source,
+            "Accessor": Accessor,
+            "Element": Element,
+            "ReplacedElement": ReplacedElement,
+            "ResourceURL": ResourceURL,
+            "aInfo": aInfo,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._resource_url = kwargs["ResourceURL"]
+        self._a_info = kwargs["aInfo"]
+        inst_keys = ('ResourceURL', 'aInfo')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

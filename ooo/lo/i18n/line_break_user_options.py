@@ -37,36 +37,43 @@ class LineBreakUserOptions(object):
     typeName: str = 'com.sun.star.i18n.LineBreakUserOptions'
     """Literal Constant ``com.sun.star.i18n.LineBreakUserOptions``"""
 
-    def __init__(self, forbiddenBeginCharacters: str = '', forbiddenEndCharacters: str = '', applyForbiddenRules: bool = False, allowPunctuationOutsideMargin: bool = False, allowHyphenateEnglish: bool = False) -> None:
+    def __init__(self, forbiddenBeginCharacters: typing.Optional[str] = '', forbiddenEndCharacters: typing.Optional[str] = '', applyForbiddenRules: typing.Optional[bool] = False, allowPunctuationOutsideMargin: typing.Optional[bool] = False, allowHyphenateEnglish: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``forbiddenBeginCharacters`` can be another ``LineBreakUserOptions`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            forbiddenBeginCharacters (str, optional): forbiddenBeginCharacters value
-            forbiddenEndCharacters (str, optional): forbiddenEndCharacters value
-            applyForbiddenRules (bool, optional): applyForbiddenRules value
-            allowPunctuationOutsideMargin (bool, optional): allowPunctuationOutsideMargin value
-            allowHyphenateEnglish (bool, optional): allowHyphenateEnglish value
+            forbiddenBeginCharacters (str, optional): forbiddenBeginCharacters value.
+            forbiddenEndCharacters (str, optional): forbiddenEndCharacters value.
+            applyForbiddenRules (bool, optional): applyForbiddenRules value.
+            allowPunctuationOutsideMargin (bool, optional): allowPunctuationOutsideMargin value.
+            allowHyphenateEnglish (bool, optional): allowHyphenateEnglish value.
         """
+        super().__init__()
+
         if isinstance(forbiddenBeginCharacters, LineBreakUserOptions):
             oth: LineBreakUserOptions = forbiddenBeginCharacters
-            self._forbidden_begin_characters = oth.forbiddenBeginCharacters
-            self._forbidden_end_characters = oth.forbiddenEndCharacters
-            self._apply_forbidden_rules = oth.applyForbiddenRules
-            self._allow_punctuation_outside_margin = oth.allowPunctuationOutsideMargin
-            self._allow_hyphenate_english = oth.allowHyphenateEnglish
+            self.forbiddenBeginCharacters = oth.forbiddenBeginCharacters
+            self.forbiddenEndCharacters = oth.forbiddenEndCharacters
+            self.applyForbiddenRules = oth.applyForbiddenRules
+            self.allowPunctuationOutsideMargin = oth.allowPunctuationOutsideMargin
+            self.allowHyphenateEnglish = oth.allowHyphenateEnglish
             return
-        else:
-            self._forbidden_begin_characters = forbiddenBeginCharacters
-            self._forbidden_end_characters = forbiddenEndCharacters
-            self._apply_forbidden_rules = applyForbiddenRules
-            self._allow_punctuation_outside_margin = allowPunctuationOutsideMargin
-            self._allow_hyphenate_english = allowHyphenateEnglish
 
+        kargs = {
+            "forbiddenBeginCharacters": forbiddenBeginCharacters,
+            "forbiddenEndCharacters": forbiddenEndCharacters,
+            "applyForbiddenRules": applyForbiddenRules,
+            "allowPunctuationOutsideMargin": allowPunctuationOutsideMargin,
+            "allowHyphenateEnglish": allowHyphenateEnglish,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._forbidden_begin_characters = kwargs["forbiddenBeginCharacters"]
+        self._forbidden_end_characters = kwargs["forbiddenEndCharacters"]
+        self._apply_forbidden_rules = kwargs["applyForbiddenRules"]
+        self._allow_punctuation_outside_margin = kwargs["allowPunctuationOutsideMargin"]
+        self._allow_hyphenate_english = kwargs["allowHyphenateEnglish"]
 
 
     @property

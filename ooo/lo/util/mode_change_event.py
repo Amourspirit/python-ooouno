@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,26 +43,34 @@ class ModeChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.util.ModeChangeEvent'
     """Literal Constant ``com.sun.star.util.ModeChangeEvent``"""
 
-    def __init__(self, NewMode: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, NewMode: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``NewMode`` can be another ``ModeChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            NewMode (str, optional): NewMode value
+            Source (XInterface, optional): Source value.
+            NewMode (str, optional): NewMode value.
         """
-        super().__init__(**kwargs)
-        if isinstance(NewMode, ModeChangeEvent):
-            oth: ModeChangeEvent = NewMode
-            self._new_mode = oth.NewMode
-            return
-        else:
-            self._new_mode = NewMode
 
+        if isinstance(Source, ModeChangeEvent):
+            oth: ModeChangeEvent = Source
+            self.Source = oth.Source
+            self.NewMode = oth.NewMode
+            return
+
+        kargs = {
+            "Source": Source,
+            "NewMode": NewMode,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._new_mode = kwargs["NewMode"]
+        inst_keys = ('NewMode',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

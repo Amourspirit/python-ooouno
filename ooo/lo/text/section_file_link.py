@@ -43,27 +43,31 @@ class SectionFileLink(object):
     typeName: str = 'com.sun.star.text.SectionFileLink'
     """Literal Constant ``com.sun.star.text.SectionFileLink``"""
 
-    def __init__(self, FileURL: str = '', FilterName: str = '') -> None:
+    def __init__(self, FileURL: typing.Optional[str] = '', FilterName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FileURL`` can be another ``SectionFileLink`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FileURL (str, optional): FileURL value
-            FilterName (str, optional): FilterName value
+            FileURL (str, optional): FileURL value.
+            FilterName (str, optional): FilterName value.
         """
+        super().__init__()
+
         if isinstance(FileURL, SectionFileLink):
             oth: SectionFileLink = FileURL
-            self._file_url = oth.FileURL
-            self._filter_name = oth.FilterName
+            self.FileURL = oth.FileURL
+            self.FilterName = oth.FilterName
             return
-        else:
-            self._file_url = FileURL
-            self._filter_name = FilterName
 
+        kargs = {
+            "FileURL": FileURL,
+            "FilterName": FilterName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._file_url = kwargs["FileURL"]
+        self._filter_name = kwargs["FilterName"]
 
 
     @property

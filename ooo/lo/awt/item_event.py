@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,32 +39,42 @@ class ItemEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.ItemEvent'
     """Literal Constant ``com.sun.star.awt.ItemEvent``"""
 
-    def __init__(self, Selected: int = 0, Highlighted: int = 0, ItemId: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Selected: typing.Optional[int] = 0, Highlighted: typing.Optional[int] = 0, ItemId: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Selected`` can be another ``ItemEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Selected (int, optional): Selected value
-            Highlighted (int, optional): Highlighted value
-            ItemId (int, optional): ItemId value
+            Source (XInterface, optional): Source value.
+            Selected (int, optional): Selected value.
+            Highlighted (int, optional): Highlighted value.
+            ItemId (int, optional): ItemId value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Selected, ItemEvent):
-            oth: ItemEvent = Selected
-            self._selected = oth.Selected
-            self._highlighted = oth.Highlighted
-            self._item_id = oth.ItemId
-            return
-        else:
-            self._selected = Selected
-            self._highlighted = Highlighted
-            self._item_id = ItemId
 
+        if isinstance(Source, ItemEvent):
+            oth: ItemEvent = Source
+            self.Source = oth.Source
+            self.Selected = oth.Selected
+            self.Highlighted = oth.Highlighted
+            self.ItemId = oth.ItemId
+            return
+
+        kargs = {
+            "Source": Source,
+            "Selected": Selected,
+            "Highlighted": Highlighted,
+            "ItemId": ItemId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._selected = kwargs["Selected"]
+        self._highlighted = kwargs["Highlighted"]
+        self._item_id = kwargs["ItemId"]
+        inst_keys = ('Selected', 'Highlighted', 'ItemId')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

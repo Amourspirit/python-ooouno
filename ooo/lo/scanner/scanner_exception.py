@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .scan_error import ScanError as ScanError_b0d90b81
 
 class ScannerException(Exception_85530a09):
     """
+    Exception Class
+
     A ScannerException gets thrown if an object of type XScannerManager could not complete a specific action.
 
     See Also:
@@ -40,18 +43,29 @@ class ScannerException(Exception_85530a09):
     typeName: str = 'com.sun.star.scanner.ScannerException'
     """Literal Constant ``com.sun.star.scanner.ScannerException``"""
 
-    def __init__(self, Error: typing.Optional[ScanError_b0d90b81] = ScanError_b0d90b81.ScanErrorNone, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Error: typing.Optional[ScanError_b0d90b81] = ScanError_b0d90b81.ScanErrorNone) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             Error (ScanError, optional): Error value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Error": Error,
+        }
+        self._init(**kargs)
 
-        self._error = Error
+    def _init(self, **kwargs) -> None:
+        self._error = kwargs["Error"]
+        inst_keys = ('Error',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Error(self) -> ScanError_b0d90b81:

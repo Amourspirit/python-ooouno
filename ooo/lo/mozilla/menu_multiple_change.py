@@ -37,51 +37,61 @@ class MenuMultipleChange(object):
     typeName: str = 'com.sun.star.mozilla.MenuMultipleChange'
     """Literal Constant ``com.sun.star.mozilla.MenuMultipleChange``"""
 
-    def __init__(self, Image: typing.Tuple[int, ...] = UNO_NONE, ID: int = 0, GroupID: int = 0, PreItemID: int = 0, ItemText: str = '', IsVisible: bool = False, IsActive: bool = False, IsCheckable: bool = False, IsChecked: bool = False) -> None:
+    def __init__(self, Image: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, ID: typing.Optional[int] = 0, GroupID: typing.Optional[int] = 0, PreItemID: typing.Optional[int] = 0, ItemText: typing.Optional[str] = '', IsVisible: typing.Optional[bool] = False, IsActive: typing.Optional[bool] = False, IsCheckable: typing.Optional[bool] = False, IsChecked: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Image`` can be another ``MenuMultipleChange`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Image (Tuple[int, ...], optional): Image value
-            ID (int, optional): ID value
-            GroupID (int, optional): GroupID value
-            PreItemID (int, optional): PreItemID value
-            ItemText (str, optional): ItemText value
-            IsVisible (bool, optional): IsVisible value
-            IsActive (bool, optional): IsActive value
-            IsCheckable (bool, optional): IsCheckable value
-            IsChecked (bool, optional): IsChecked value
+            Image (typing.Tuple[int, ...], optional): Image value.
+            ID (int, optional): ID value.
+            GroupID (int, optional): GroupID value.
+            PreItemID (int, optional): PreItemID value.
+            ItemText (str, optional): ItemText value.
+            IsVisible (bool, optional): IsVisible value.
+            IsActive (bool, optional): IsActive value.
+            IsCheckable (bool, optional): IsCheckable value.
+            IsChecked (bool, optional): IsChecked value.
         """
+        super().__init__()
+
         if isinstance(Image, MenuMultipleChange):
             oth: MenuMultipleChange = Image
-            self._image = oth.Image
-            self._id = oth.ID
-            self._group_id = oth.GroupID
-            self._pre_item_id = oth.PreItemID
-            self._item_text = oth.ItemText
-            self._is_visible = oth.IsVisible
-            self._is_active = oth.IsActive
-            self._is_checkable = oth.IsCheckable
-            self._is_checked = oth.IsChecked
+            self.Image = oth.Image
+            self.ID = oth.ID
+            self.GroupID = oth.GroupID
+            self.PreItemID = oth.PreItemID
+            self.ItemText = oth.ItemText
+            self.IsVisible = oth.IsVisible
+            self.IsActive = oth.IsActive
+            self.IsCheckable = oth.IsCheckable
+            self.IsChecked = oth.IsChecked
             return
-        else:
-            if Image is UNO_NONE:
-                self._image = None
-            else:
-                self._image = Image
-            self._id = ID
-            self._group_id = GroupID
-            self._pre_item_id = PreItemID
-            self._item_text = ItemText
-            self._is_visible = IsVisible
-            self._is_active = IsActive
-            self._is_checkable = IsCheckable
-            self._is_checked = IsChecked
 
+        kargs = {
+            "Image": Image,
+            "ID": ID,
+            "GroupID": GroupID,
+            "PreItemID": PreItemID,
+            "ItemText": ItemText,
+            "IsVisible": IsVisible,
+            "IsActive": IsActive,
+            "IsCheckable": IsCheckable,
+            "IsChecked": IsChecked,
+        }
+        if kargs["Image"] is UNO_NONE:
+            kargs["Image"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._image = kwargs["Image"]
+        self._id = kwargs["ID"]
+        self._group_id = kwargs["GroupID"]
+        self._pre_item_id = kwargs["PreItemID"]
+        self._item_text = kwargs["ItemText"]
+        self._is_visible = kwargs["IsVisible"]
+        self._is_active = kwargs["IsActive"]
+        self._is_checkable = kwargs["IsCheckable"]
+        self._is_checked = kwargs["IsChecked"]
 
 
     @property

@@ -49,27 +49,31 @@ class FilePermission(object):
     typeName: str = 'com.sun.star.io.FilePermission'
     """Literal Constant ``com.sun.star.io.FilePermission``"""
 
-    def __init__(self, URL: str = '', Actions: str = '') -> None:
+    def __init__(self, URL: typing.Optional[str] = '', Actions: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``URL`` can be another ``FilePermission`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            URL (str, optional): URL value
-            Actions (str, optional): Actions value
+            URL (str, optional): URL value.
+            Actions (str, optional): Actions value.
         """
+        super().__init__()
+
         if isinstance(URL, FilePermission):
             oth: FilePermission = URL
-            self._url = oth.URL
-            self._actions = oth.Actions
+            self.URL = oth.URL
+            self.Actions = oth.Actions
             return
-        else:
-            self._url = URL
-            self._actions = Actions
 
+        kargs = {
+            "URL": URL,
+            "Actions": Actions,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._url = kwargs["URL"]
+        self._actions = kwargs["Actions"]
 
 
     @property

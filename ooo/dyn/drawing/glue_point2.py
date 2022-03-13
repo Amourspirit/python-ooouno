@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Position = UNO_NONE, IsRelative = UNO_NONE, PositionAlignment = UNO_NONE, Escape = UNO_NONE, IsUserDefined = UNO_NONE):
-            if getattr(Position, "__class__", None) == self.__class__:
-                orig_init(self, Position)
+        ordered_keys = ('Position', 'IsRelative', 'PositionAlignment', 'Escape', 'IsUserDefined')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Position is UNO_NONE:
-                if getattr(self, 'Position') != Position:
-                    setattr(self, 'Position', Position)
-            if not IsRelative is UNO_NONE:
-                if getattr(self, 'IsRelative') != IsRelative:
-                    setattr(self, 'IsRelative', IsRelative)
-            if not PositionAlignment is UNO_NONE:
-                if getattr(self, 'PositionAlignment') != PositionAlignment:
-                    setattr(self, 'PositionAlignment', PositionAlignment)
-            if not Escape is UNO_NONE:
-                if getattr(self, 'Escape') != Escape:
-                    setattr(self, 'Escape', Escape)
-            if not IsUserDefined is UNO_NONE:
-                if getattr(self, 'IsUserDefined') != IsUserDefined:
-                    setattr(self, 'IsUserDefined', IsUserDefined)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.GluePoint2'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     GluePoint2 = _get_class()
-
 
 else:
     from ...lo.drawing.glue_point2 import GluePoint2 as GluePoint2

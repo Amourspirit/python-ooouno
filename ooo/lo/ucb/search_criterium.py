@@ -38,27 +38,29 @@ class SearchCriterium(object):
     typeName: str = 'com.sun.star.ucb.SearchCriterium'
     """Literal Constant ``com.sun.star.ucb.SearchCriterium``"""
 
-    def __init__(self, Terms: typing.Tuple[RuleTerm_7a4b0972, ...] = UNO_NONE) -> None:
+    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Terms`` can be another ``SearchCriterium`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Terms (Tuple[RuleTerm, ...], optional): Terms value
+            Terms (typing.Tuple[RuleTerm, ...], optional): Terms value.
         """
+        super().__init__()
+
         if isinstance(Terms, SearchCriterium):
             oth: SearchCriterium = Terms
-            self._terms = oth.Terms
+            self.Terms = oth.Terms
             return
-        else:
-            if Terms is UNO_NONE:
-                self._terms = None
-            else:
-                self._terms = Terms
 
+        kargs = {
+            "Terms": Terms,
+        }
+        if kargs["Terms"] is UNO_NONE:
+            kargs["Terms"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._terms = kwargs["Terms"]
 
 
     @property

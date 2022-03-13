@@ -39,27 +39,31 @@ class SendInfo(object):
     typeName: str = 'com.sun.star.ucb.SendInfo'
     """Literal Constant ``com.sun.star.ucb.SendInfo``"""
 
-    def __init__(self, ProtocolType: str = '', Value: str = '') -> None:
+    def __init__(self, ProtocolType: typing.Optional[str] = '', Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ProtocolType`` can be another ``SendInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ProtocolType (str, optional): ProtocolType value
-            Value (str, optional): Value value
+            ProtocolType (str, optional): ProtocolType value.
+            Value (str, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(ProtocolType, SendInfo):
             oth: SendInfo = ProtocolType
-            self._protocol_type = oth.ProtocolType
-            self._value = oth.Value
+            self.ProtocolType = oth.ProtocolType
+            self.Value = oth.Value
             return
-        else:
-            self._protocol_type = ProtocolType
-            self._value = Value
 
+        kargs = {
+            "ProtocolType": ProtocolType,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._protocol_type = kwargs["ProtocolType"]
+        self._value = kwargs["Value"]
 
 
     @property

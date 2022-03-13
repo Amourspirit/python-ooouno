@@ -37,30 +37,35 @@ class Command(object):
     typeName: str = 'com.sun.star.ucb.Command'
     """Literal Constant ``com.sun.star.ucb.Command``"""
 
-    def __init__(self, Name: str = '', Handle: int = 0, Argument: object = None) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Handle: typing.Optional[int] = 0, Argument: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``Command`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Handle (int, optional): Handle value
-            Argument (object, optional): Argument value
+            Name (str, optional): Name value.
+            Handle (int, optional): Handle value.
+            Argument (object, optional): Argument value.
         """
+        super().__init__()
+
         if isinstance(Name, Command):
             oth: Command = Name
-            self._name = oth.Name
-            self._handle = oth.Handle
-            self._argument = oth.Argument
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Argument = oth.Argument
             return
-        else:
-            self._name = Name
-            self._handle = Handle
-            self._argument = Argument
 
+        kargs = {
+            "Name": Name,
+            "Handle": Handle,
+            "Argument": Argument,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._handle = kwargs["Handle"]
+        self._argument = kwargs["Argument"]
 
 
     @property

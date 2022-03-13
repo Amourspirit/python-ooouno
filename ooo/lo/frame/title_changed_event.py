@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,26 +39,34 @@ class TitleChangedEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.frame.TitleChangedEvent'
     """Literal Constant ``com.sun.star.frame.TitleChangedEvent``"""
 
-    def __init__(self, Title: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Title: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Title`` can be another ``TitleChangedEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Title (str, optional): Title value
+            Source (XInterface, optional): Source value.
+            Title (str, optional): Title value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Title, TitleChangedEvent):
-            oth: TitleChangedEvent = Title
-            self._title = oth.Title
-            return
-        else:
-            self._title = Title
 
+        if isinstance(Source, TitleChangedEvent):
+            oth: TitleChangedEvent = Source
+            self.Source = oth.Source
+            self.Title = oth.Title
+            return
+
+        kargs = {
+            "Source": Source,
+            "Title": Title,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._title = kwargs["Title"]
+        inst_keys = ('Title',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

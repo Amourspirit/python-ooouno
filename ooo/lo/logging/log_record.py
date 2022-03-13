@@ -42,48 +42,57 @@ class LogRecord(object):
     typeName: str = 'com.sun.star.logging.LogRecord'
     """Literal Constant ``com.sun.star.logging.LogRecord``"""
 
-    def __init__(self, LoggerName: str = '', SourceClassName: str = '', SourceMethodName: str = '', Message: str = '', LogTime: DateTime_84de09d3 = UNO_NONE, SequenceNumber: int = 0, ThreadID: str = '', Level: int = 0) -> None:
+    def __init__(self, LoggerName: typing.Optional[str] = '', SourceClassName: typing.Optional[str] = '', SourceMethodName: typing.Optional[str] = '', Message: typing.Optional[str] = '', LogTime: typing.Optional[DateTime_84de09d3] = UNO_NONE, SequenceNumber: typing.Optional[int] = 0, ThreadID: typing.Optional[str] = '', Level: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LoggerName`` can be another ``LogRecord`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            LoggerName (str, optional): LoggerName value
-            SourceClassName (str, optional): SourceClassName value
-            SourceMethodName (str, optional): SourceMethodName value
-            Message (str, optional): Message value
-            LogTime (DateTime, optional): LogTime value
-            SequenceNumber (int, optional): SequenceNumber value
-            ThreadID (str, optional): ThreadID value
-            Level (int, optional): Level value
+            LoggerName (str, optional): LoggerName value.
+            SourceClassName (str, optional): SourceClassName value.
+            SourceMethodName (str, optional): SourceMethodName value.
+            Message (str, optional): Message value.
+            LogTime (DateTime, optional): LogTime value.
+            SequenceNumber (int, optional): SequenceNumber value.
+            ThreadID (str, optional): ThreadID value.
+            Level (int, optional): Level value.
         """
+        super().__init__()
+
         if isinstance(LoggerName, LogRecord):
             oth: LogRecord = LoggerName
-            self._logger_name = oth.LoggerName
-            self._source_class_name = oth.SourceClassName
-            self._source_method_name = oth.SourceMethodName
-            self._message = oth.Message
-            self._log_time = oth.LogTime
-            self._sequence_number = oth.SequenceNumber
-            self._thread_id = oth.ThreadID
-            self._level = oth.Level
+            self.LoggerName = oth.LoggerName
+            self.SourceClassName = oth.SourceClassName
+            self.SourceMethodName = oth.SourceMethodName
+            self.Message = oth.Message
+            self.LogTime = oth.LogTime
+            self.SequenceNumber = oth.SequenceNumber
+            self.ThreadID = oth.ThreadID
+            self.Level = oth.Level
             return
-        else:
-            self._logger_name = LoggerName
-            self._source_class_name = SourceClassName
-            self._source_method_name = SourceMethodName
-            self._message = Message
-            if LogTime is UNO_NONE:
-                self._log_time = DateTime_84de09d3()
-            else:
-                self._log_time = LogTime
-            self._sequence_number = SequenceNumber
-            self._thread_id = ThreadID
-            self._level = Level
 
+        kargs = {
+            "LoggerName": LoggerName,
+            "SourceClassName": SourceClassName,
+            "SourceMethodName": SourceMethodName,
+            "Message": Message,
+            "LogTime": LogTime,
+            "SequenceNumber": SequenceNumber,
+            "ThreadID": ThreadID,
+            "Level": Level,
+        }
+        if kargs["LogTime"] is UNO_NONE:
+            kargs["LogTime"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._logger_name = kwargs["LoggerName"]
+        self._source_class_name = kwargs["SourceClassName"]
+        self._source_method_name = kwargs["SourceMethodName"]
+        self._message = kwargs["Message"]
+        self._log_time = kwargs["LogTime"]
+        self._sequence_number = kwargs["SequenceNumber"]
+        self._thread_id = kwargs["ThreadID"]
+        self._level = kwargs["Level"]
 
 
     @property

@@ -37,36 +37,43 @@ class CellRangeAddress(object):
     typeName: str = 'com.sun.star.table.CellRangeAddress'
     """Literal Constant ``com.sun.star.table.CellRangeAddress``"""
 
-    def __init__(self, Sheet: int = 0, StartColumn: int = 0, StartRow: int = 0, EndColumn: int = 0, EndRow: int = 0) -> None:
+    def __init__(self, Sheet: typing.Optional[int] = 0, StartColumn: typing.Optional[int] = 0, StartRow: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0, EndRow: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Sheet`` can be another ``CellRangeAddress`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Sheet (int, optional): Sheet value
-            StartColumn (int, optional): StartColumn value
-            StartRow (int, optional): StartRow value
-            EndColumn (int, optional): EndColumn value
-            EndRow (int, optional): EndRow value
+            Sheet (int, optional): Sheet value.
+            StartColumn (int, optional): StartColumn value.
+            StartRow (int, optional): StartRow value.
+            EndColumn (int, optional): EndColumn value.
+            EndRow (int, optional): EndRow value.
         """
+        super().__init__()
+
         if isinstance(Sheet, CellRangeAddress):
             oth: CellRangeAddress = Sheet
-            self._sheet = oth.Sheet
-            self._start_column = oth.StartColumn
-            self._start_row = oth.StartRow
-            self._end_column = oth.EndColumn
-            self._end_row = oth.EndRow
+            self.Sheet = oth.Sheet
+            self.StartColumn = oth.StartColumn
+            self.StartRow = oth.StartRow
+            self.EndColumn = oth.EndColumn
+            self.EndRow = oth.EndRow
             return
-        else:
-            self._sheet = Sheet
-            self._start_column = StartColumn
-            self._start_row = StartRow
-            self._end_column = EndColumn
-            self._end_row = EndRow
 
+        kargs = {
+            "Sheet": Sheet,
+            "StartColumn": StartColumn,
+            "StartRow": StartRow,
+            "EndColumn": EndColumn,
+            "EndRow": EndRow,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._sheet = kwargs["Sheet"]
+        self._start_column = kwargs["StartColumn"]
+        self._start_row = kwargs["StartRow"]
+        self._end_column = kwargs["EndColumn"]
+        self._end_row = kwargs["EndRow"]
 
 
     @property

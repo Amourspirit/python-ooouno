@@ -41,27 +41,31 @@ class LeftRightMargin(object):
     typeName: str = 'com.sun.star.frame.status.LeftRightMargin'
     """Literal Constant ``com.sun.star.frame.status.LeftRightMargin``"""
 
-    def __init__(self, Left: int = 0, Right: int = 0) -> None:
+    def __init__(self, Left: typing.Optional[int] = 0, Right: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Left`` can be another ``LeftRightMargin`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Left (int, optional): Left value
-            Right (int, optional): Right value
+            Left (int, optional): Left value.
+            Right (int, optional): Right value.
         """
+        super().__init__()
+
         if isinstance(Left, LeftRightMargin):
             oth: LeftRightMargin = Left
-            self._left = oth.Left
-            self._right = oth.Right
+            self.Left = oth.Left
+            self.Right = oth.Right
             return
-        else:
-            self._left = Left
-            self._right = Right
 
+        kargs = {
+            "Left": Left,
+            "Right": Right,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._left = kwargs["Left"]
+        self._right = kwargs["Right"]
 
 
     @property

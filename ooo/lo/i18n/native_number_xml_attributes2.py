@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .native_number_xml_attributes import NativeNumberXmlAttributes as NativeNumberXmlAttributes_5e4f1070
+from ..lang.locale import Locale as Locale_70d308fa
 import typing
 
 
@@ -44,26 +45,42 @@ class NativeNumberXmlAttributes2(NativeNumberXmlAttributes_5e4f1070):
     typeName: str = 'com.sun.star.i18n.NativeNumberXmlAttributes2'
     """Literal Constant ``com.sun.star.i18n.NativeNumberXmlAttributes2``"""
 
-    def __init__(self, Spellout: str = '', **kwargs) -> None:
+    def __init__(self, Locale: typing.Optional[Locale_70d308fa] = UNO_NONE, Format: typing.Optional[str] = '', Style: typing.Optional[str] = '', Spellout: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Spellout`` can be another ``NativeNumberXmlAttributes2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Spellout (str, optional): Spellout value
+            Locale (Locale, optional): Locale value.
+            Format (str, optional): Format value.
+            Style (str, optional): Style value.
+            Spellout (str, optional): Spellout value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Spellout, NativeNumberXmlAttributes2):
-            oth: NativeNumberXmlAttributes2 = Spellout
-            self._spellout = oth.Spellout
-            return
-        else:
-            self._spellout = Spellout
 
+        if isinstance(Locale, NativeNumberXmlAttributes2):
+            oth: NativeNumberXmlAttributes2 = Locale
+            self.Locale = oth.Locale
+            self.Format = oth.Format
+            self.Style = oth.Style
+            self.Spellout = oth.Spellout
+            return
+
+        kargs = {
+            "Locale": Locale,
+            "Format": Format,
+            "Style": Style,
+            "Spellout": Spellout,
+        }
+        if kargs["Locale"] is UNO_NONE:
+            kargs["Locale"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._spellout = kwargs["Spellout"]
+        inst_keys = ('Spellout',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

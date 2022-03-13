@@ -45,36 +45,39 @@ class DataPilotTableResultData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTableResultData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTableResultData``"""
 
-    def __init__(self, FieldFilters: typing.Tuple[DataPilotFieldFilter_271e0eed, ...] = UNO_NONE, DataFieldIndex: int = 0, Result: DataResult_a47d0b1a = UNO_NONE) -> None:
+    def __init__(self, FieldFilters: typing.Optional[typing.Tuple[DataPilotFieldFilter_271e0eed, ...]] = UNO_NONE, DataFieldIndex: typing.Optional[int] = 0, Result: typing.Optional[DataResult_a47d0b1a] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FieldFilters`` can be another ``DataPilotTableResultData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            FieldFilters (Tuple[DataPilotFieldFilter, ...], optional): FieldFilters value
-            DataFieldIndex (int, optional): DataFieldIndex value
-            Result (DataResult, optional): Result value
+            FieldFilters (typing.Tuple[DataPilotFieldFilter, ...], optional): FieldFilters value.
+            DataFieldIndex (int, optional): DataFieldIndex value.
+            Result (DataResult, optional): Result value.
         """
+        super().__init__()
+
         if isinstance(FieldFilters, DataPilotTableResultData):
             oth: DataPilotTableResultData = FieldFilters
-            self._field_filters = oth.FieldFilters
-            self._data_field_index = oth.DataFieldIndex
-            self._result = oth.Result
+            self.FieldFilters = oth.FieldFilters
+            self.DataFieldIndex = oth.DataFieldIndex
+            self.Result = oth.Result
             return
-        else:
-            if FieldFilters is UNO_NONE:
-                self._field_filters = None
-            else:
-                self._field_filters = FieldFilters
-            self._data_field_index = DataFieldIndex
-            if Result is UNO_NONE:
-                self._result = DataResult_a47d0b1a()
-            else:
-                self._result = Result
 
+        kargs = {
+            "FieldFilters": FieldFilters,
+            "DataFieldIndex": DataFieldIndex,
+            "Result": Result,
+        }
+        if kargs["FieldFilters"] is UNO_NONE:
+            kargs["FieldFilters"] = None
+        if kargs["Result"] is UNO_NONE:
+            kargs["Result"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._field_filters = kwargs["FieldFilters"]
+        self._data_field_index = kwargs["DataFieldIndex"]
+        self._result = kwargs["Result"]
 
 
     @property

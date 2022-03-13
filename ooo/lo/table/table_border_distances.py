@@ -41,45 +41,55 @@ class TableBorderDistances(object):
     typeName: str = 'com.sun.star.table.TableBorderDistances'
     """Literal Constant ``com.sun.star.table.TableBorderDistances``"""
 
-    def __init__(self, TopDistance: int = 0, IsTopDistanceValid: bool = False, BottomDistance: int = 0, IsBottomDistanceValid: bool = False, LeftDistance: int = 0, IsLeftDistanceValid: bool = False, RightDistance: int = 0, IsRightDistanceValid: bool = False) -> None:
+    def __init__(self, TopDistance: typing.Optional[int] = 0, IsTopDistanceValid: typing.Optional[bool] = False, BottomDistance: typing.Optional[int] = 0, IsBottomDistanceValid: typing.Optional[bool] = False, LeftDistance: typing.Optional[int] = 0, IsLeftDistanceValid: typing.Optional[bool] = False, RightDistance: typing.Optional[int] = 0, IsRightDistanceValid: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TopDistance`` can be another ``TableBorderDistances`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TopDistance (int, optional): TopDistance value
-            IsTopDistanceValid (bool, optional): IsTopDistanceValid value
-            BottomDistance (int, optional): BottomDistance value
-            IsBottomDistanceValid (bool, optional): IsBottomDistanceValid value
-            LeftDistance (int, optional): LeftDistance value
-            IsLeftDistanceValid (bool, optional): IsLeftDistanceValid value
-            RightDistance (int, optional): RightDistance value
-            IsRightDistanceValid (bool, optional): IsRightDistanceValid value
+            TopDistance (int, optional): TopDistance value.
+            IsTopDistanceValid (bool, optional): IsTopDistanceValid value.
+            BottomDistance (int, optional): BottomDistance value.
+            IsBottomDistanceValid (bool, optional): IsBottomDistanceValid value.
+            LeftDistance (int, optional): LeftDistance value.
+            IsLeftDistanceValid (bool, optional): IsLeftDistanceValid value.
+            RightDistance (int, optional): RightDistance value.
+            IsRightDistanceValid (bool, optional): IsRightDistanceValid value.
         """
+        super().__init__()
+
         if isinstance(TopDistance, TableBorderDistances):
             oth: TableBorderDistances = TopDistance
-            self._top_distance = oth.TopDistance
-            self._is_top_distance_valid = oth.IsTopDistanceValid
-            self._bottom_distance = oth.BottomDistance
-            self._is_bottom_distance_valid = oth.IsBottomDistanceValid
-            self._left_distance = oth.LeftDistance
-            self._is_left_distance_valid = oth.IsLeftDistanceValid
-            self._right_distance = oth.RightDistance
-            self._is_right_distance_valid = oth.IsRightDistanceValid
+            self.TopDistance = oth.TopDistance
+            self.IsTopDistanceValid = oth.IsTopDistanceValid
+            self.BottomDistance = oth.BottomDistance
+            self.IsBottomDistanceValid = oth.IsBottomDistanceValid
+            self.LeftDistance = oth.LeftDistance
+            self.IsLeftDistanceValid = oth.IsLeftDistanceValid
+            self.RightDistance = oth.RightDistance
+            self.IsRightDistanceValid = oth.IsRightDistanceValid
             return
-        else:
-            self._top_distance = TopDistance
-            self._is_top_distance_valid = IsTopDistanceValid
-            self._bottom_distance = BottomDistance
-            self._is_bottom_distance_valid = IsBottomDistanceValid
-            self._left_distance = LeftDistance
-            self._is_left_distance_valid = IsLeftDistanceValid
-            self._right_distance = RightDistance
-            self._is_right_distance_valid = IsRightDistanceValid
 
+        kargs = {
+            "TopDistance": TopDistance,
+            "IsTopDistanceValid": IsTopDistanceValid,
+            "BottomDistance": BottomDistance,
+            "IsBottomDistanceValid": IsBottomDistanceValid,
+            "LeftDistance": LeftDistance,
+            "IsLeftDistanceValid": IsLeftDistanceValid,
+            "RightDistance": RightDistance,
+            "IsRightDistanceValid": IsRightDistanceValid,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._top_distance = kwargs["TopDistance"]
+        self._is_top_distance_valid = kwargs["IsTopDistanceValid"]
+        self._bottom_distance = kwargs["BottomDistance"]
+        self._is_bottom_distance_valid = kwargs["IsBottomDistanceValid"]
+        self._left_distance = kwargs["LeftDistance"]
+        self._is_left_distance_valid = kwargs["IsLeftDistanceValid"]
+        self._right_distance = kwargs["RightDistance"]
+        self._is_right_distance_valid = kwargs["IsRightDistanceValid"]
 
 
     @property

@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
+from ..beans.property_state import PropertyState as PropertyState_c97b0c77
 import typing
 from .property_value_state import PropertyValueState as PropertyValueState_f1050da5
 
@@ -39,26 +40,43 @@ class PropertyValueInfo(PropertyValue_c9610c73):
     typeName: str = 'com.sun.star.ucb.PropertyValueInfo'
     """Literal Constant ``com.sun.star.ucb.PropertyValueInfo``"""
 
-    def __init__(self, ValueState: PropertyValueState_f1050da5 = PropertyValueState_f1050da5.UNPROCESSED, **kwargs) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Handle: typing.Optional[int] = 0, Value: typing.Optional[object] = None, State: typing.Optional[PropertyState_c97b0c77] = PropertyState_c97b0c77.DIRECT_VALUE, ValueState: typing.Optional[PropertyValueState_f1050da5] = PropertyValueState_f1050da5.UNPROCESSED) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ValueState`` can be another ``PropertyValueInfo`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            ValueState (PropertyValueState, optional): ValueState value
+            Name (str, optional): Name value.
+            Handle (int, optional): Handle value.
+            Value (object, optional): Value value.
+            State (PropertyState, optional): State value.
+            ValueState (PropertyValueState, optional): ValueState value.
         """
-        super().__init__(**kwargs)
-        if isinstance(ValueState, PropertyValueInfo):
-            oth: PropertyValueInfo = ValueState
-            self._value_state = oth.ValueState
-            return
-        else:
-            self._value_state = ValueState
 
+        if isinstance(Name, PropertyValueInfo):
+            oth: PropertyValueInfo = Name
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Value = oth.Value
+            self.State = oth.State
+            self.ValueState = oth.ValueState
+            return
+
+        kargs = {
+            "Name": Name,
+            "Handle": Handle,
+            "Value": Value,
+            "State": State,
+            "ValueState": ValueState,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._value_state = kwargs["ValueState"]
+        inst_keys = ('ValueState',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

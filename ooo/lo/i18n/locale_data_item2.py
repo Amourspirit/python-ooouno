@@ -42,26 +42,85 @@ class LocaleDataItem2(LocaleDataItem_beff0ba1):
     typeName: str = 'com.sun.star.i18n.LocaleDataItem2'
     """Literal Constant ``com.sun.star.i18n.LocaleDataItem2``"""
 
-    def __init__(self, decimalSeparatorAlternative: str = '', **kwargs) -> None:
+    def __init__(self, unoID: typing.Optional[str] = '', dateSeparator: typing.Optional[str] = '', thousandSeparator: typing.Optional[str] = '', decimalSeparator: typing.Optional[str] = '', timeSeparator: typing.Optional[str] = '', time100SecSeparator: typing.Optional[str] = '', listSeparator: typing.Optional[str] = '', quotationStart: typing.Optional[str] = '', quotationEnd: typing.Optional[str] = '', doubleQuotationStart: typing.Optional[str] = '', doubleQuotationEnd: typing.Optional[str] = '', timeAM: typing.Optional[str] = '', timePM: typing.Optional[str] = '', measurementSystem: typing.Optional[str] = '', LongDateDayOfWeekSeparator: typing.Optional[str] = '', LongDateDaySeparator: typing.Optional[str] = '', LongDateMonthSeparator: typing.Optional[str] = '', LongDateYearSeparator: typing.Optional[str] = '', decimalSeparatorAlternative: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``decimalSeparatorAlternative`` can be another ``LocaleDataItem2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            decimalSeparatorAlternative (str, optional): decimalSeparatorAlternative value
+            unoID (str, optional): unoID value.
+            dateSeparator (str, optional): dateSeparator value.
+            thousandSeparator (str, optional): thousandSeparator value.
+            decimalSeparator (str, optional): decimalSeparator value.
+            timeSeparator (str, optional): timeSeparator value.
+            time100SecSeparator (str, optional): time100SecSeparator value.
+            listSeparator (str, optional): listSeparator value.
+            quotationStart (str, optional): quotationStart value.
+            quotationEnd (str, optional): quotationEnd value.
+            doubleQuotationStart (str, optional): doubleQuotationStart value.
+            doubleQuotationEnd (str, optional): doubleQuotationEnd value.
+            timeAM (str, optional): timeAM value.
+            timePM (str, optional): timePM value.
+            measurementSystem (str, optional): measurementSystem value.
+            LongDateDayOfWeekSeparator (str, optional): LongDateDayOfWeekSeparator value.
+            LongDateDaySeparator (str, optional): LongDateDaySeparator value.
+            LongDateMonthSeparator (str, optional): LongDateMonthSeparator value.
+            LongDateYearSeparator (str, optional): LongDateYearSeparator value.
+            decimalSeparatorAlternative (str, optional): decimalSeparatorAlternative value.
         """
-        super().__init__(**kwargs)
-        if isinstance(decimalSeparatorAlternative, LocaleDataItem2):
-            oth: LocaleDataItem2 = decimalSeparatorAlternative
-            self._decimal_separator_alternative = oth.decimalSeparatorAlternative
-            return
-        else:
-            self._decimal_separator_alternative = decimalSeparatorAlternative
 
+        if isinstance(unoID, LocaleDataItem2):
+            oth: LocaleDataItem2 = unoID
+            self.unoID = oth.unoID
+            self.dateSeparator = oth.dateSeparator
+            self.thousandSeparator = oth.thousandSeparator
+            self.decimalSeparator = oth.decimalSeparator
+            self.timeSeparator = oth.timeSeparator
+            self.time100SecSeparator = oth.time100SecSeparator
+            self.listSeparator = oth.listSeparator
+            self.quotationStart = oth.quotationStart
+            self.quotationEnd = oth.quotationEnd
+            self.doubleQuotationStart = oth.doubleQuotationStart
+            self.doubleQuotationEnd = oth.doubleQuotationEnd
+            self.timeAM = oth.timeAM
+            self.timePM = oth.timePM
+            self.measurementSystem = oth.measurementSystem
+            self.LongDateDayOfWeekSeparator = oth.LongDateDayOfWeekSeparator
+            self.LongDateDaySeparator = oth.LongDateDaySeparator
+            self.LongDateMonthSeparator = oth.LongDateMonthSeparator
+            self.LongDateYearSeparator = oth.LongDateYearSeparator
+            self.decimalSeparatorAlternative = oth.decimalSeparatorAlternative
+            return
+
+        kargs = {
+            "unoID": unoID,
+            "dateSeparator": dateSeparator,
+            "thousandSeparator": thousandSeparator,
+            "decimalSeparator": decimalSeparator,
+            "timeSeparator": timeSeparator,
+            "time100SecSeparator": time100SecSeparator,
+            "listSeparator": listSeparator,
+            "quotationStart": quotationStart,
+            "quotationEnd": quotationEnd,
+            "doubleQuotationStart": doubleQuotationStart,
+            "doubleQuotationEnd": doubleQuotationEnd,
+            "timeAM": timeAM,
+            "timePM": timePM,
+            "measurementSystem": measurementSystem,
+            "LongDateDayOfWeekSeparator": LongDateDayOfWeekSeparator,
+            "LongDateDaySeparator": LongDateDaySeparator,
+            "LongDateMonthSeparator": LongDateMonthSeparator,
+            "LongDateYearSeparator": LongDateYearSeparator,
+            "decimalSeparatorAlternative": decimalSeparatorAlternative,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._decimal_separator_alternative = kwargs["decimalSeparatorAlternative"]
+        inst_keys = ('decimalSeparatorAlternative',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

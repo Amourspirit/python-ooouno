@@ -41,51 +41,57 @@ class FillBitmap(object):
     typeName: str = 'com.sun.star.chart2.FillBitmap'
     """Literal Constant ``com.sun.star.chart2.FillBitmap``"""
 
-    def __init__(self, aURL: str = '', aOffset: Point_5fb2085e = UNO_NONE, aPositionOffset: Point_5fb2085e = UNO_NONE, aRectanglePoint: RectanglePoint_f0ff0d93 = RectanglePoint_f0ff0d93.LEFT_TOP, bLogicalSize: bool = False, aSize: Size_576707ef = UNO_NONE, aBitmapMode: BitmapMode_bced0bd6 = BitmapMode_bced0bd6.REPEAT) -> None:
+    def __init__(self, aURL: typing.Optional[str] = '', aOffset: typing.Optional[Point_5fb2085e] = UNO_NONE, aPositionOffset: typing.Optional[Point_5fb2085e] = UNO_NONE, aRectanglePoint: typing.Optional[RectanglePoint_f0ff0d93] = RectanglePoint_f0ff0d93.LEFT_TOP, bLogicalSize: typing.Optional[bool] = False, aSize: typing.Optional[Size_576707ef] = UNO_NONE, aBitmapMode: typing.Optional[BitmapMode_bced0bd6] = BitmapMode_bced0bd6.REPEAT) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aURL`` can be another ``FillBitmap`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aURL (str, optional): aURL value
-            aOffset (Point, optional): aOffset value
-            aPositionOffset (Point, optional): aPositionOffset value
-            aRectanglePoint (RectanglePoint, optional): aRectanglePoint value
-            bLogicalSize (bool, optional): bLogicalSize value
-            aSize (Size, optional): aSize value
-            aBitmapMode (BitmapMode, optional): aBitmapMode value
+            aURL (str, optional): aURL value.
+            aOffset (Point, optional): aOffset value.
+            aPositionOffset (Point, optional): aPositionOffset value.
+            aRectanglePoint (RectanglePoint, optional): aRectanglePoint value.
+            bLogicalSize (bool, optional): bLogicalSize value.
+            aSize (Size, optional): aSize value.
+            aBitmapMode (BitmapMode, optional): aBitmapMode value.
         """
+        super().__init__()
+
         if isinstance(aURL, FillBitmap):
             oth: FillBitmap = aURL
-            self._a_url = oth.aURL
-            self._a_offset = oth.aOffset
-            self._a_position_offset = oth.aPositionOffset
-            self._a_rectangle_point = oth.aRectanglePoint
-            self._b_logical_size = oth.bLogicalSize
-            self._a_size = oth.aSize
-            self._a_bitmap_mode = oth.aBitmapMode
+            self.aURL = oth.aURL
+            self.aOffset = oth.aOffset
+            self.aPositionOffset = oth.aPositionOffset
+            self.aRectanglePoint = oth.aRectanglePoint
+            self.bLogicalSize = oth.bLogicalSize
+            self.aSize = oth.aSize
+            self.aBitmapMode = oth.aBitmapMode
             return
-        else:
-            self._a_url = aURL
-            if aOffset is UNO_NONE:
-                self._a_offset = Point_5fb2085e()
-            else:
-                self._a_offset = aOffset
-            if aPositionOffset is UNO_NONE:
-                self._a_position_offset = Point_5fb2085e()
-            else:
-                self._a_position_offset = aPositionOffset
-            self._a_rectangle_point = aRectanglePoint
-            self._b_logical_size = bLogicalSize
-            if aSize is UNO_NONE:
-                self._a_size = Size_576707ef()
-            else:
-                self._a_size = aSize
-            self._a_bitmap_mode = aBitmapMode
 
+        kargs = {
+            "aURL": aURL,
+            "aOffset": aOffset,
+            "aPositionOffset": aPositionOffset,
+            "aRectanglePoint": aRectanglePoint,
+            "bLogicalSize": bLogicalSize,
+            "aSize": aSize,
+            "aBitmapMode": aBitmapMode,
+        }
+        if kargs["aOffset"] is UNO_NONE:
+            kargs["aOffset"] = None
+        if kargs["aPositionOffset"] is UNO_NONE:
+            kargs["aPositionOffset"] = None
+        if kargs["aSize"] is UNO_NONE:
+            kargs["aSize"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_url = kwargs["aURL"]
+        self._a_offset = kwargs["aOffset"]
+        self._a_position_offset = kwargs["aPositionOffset"]
+        self._a_rectangle_point = kwargs["aRectanglePoint"]
+        self._b_logical_size = kwargs["bLogicalSize"]
+        self._a_size = kwargs["aSize"]
+        self._a_bitmap_mode = kwargs["aBitmapMode"]
 
 
     @property

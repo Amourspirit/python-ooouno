@@ -41,27 +41,31 @@ class DispatchInformation(object):
     typeName: str = 'com.sun.star.frame.DispatchInformation'
     """Literal Constant ``com.sun.star.frame.DispatchInformation``"""
 
-    def __init__(self, Command: str = '', GroupId: int = 0) -> None:
+    def __init__(self, Command: typing.Optional[str] = '', GroupId: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Command`` can be another ``DispatchInformation`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Command (str, optional): Command value
-            GroupId (int, optional): GroupId value
+            Command (str, optional): Command value.
+            GroupId (int, optional): GroupId value.
         """
+        super().__init__()
+
         if isinstance(Command, DispatchInformation):
             oth: DispatchInformation = Command
-            self._command = oth.Command
-            self._group_id = oth.GroupId
+            self.Command = oth.Command
+            self.GroupId = oth.GroupId
             return
-        else:
-            self._command = Command
-            self._group_id = GroupId
 
+        kargs = {
+            "Command": Command,
+            "GroupId": GroupId,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._command = kwargs["Command"]
+        self._group_id = kwargs["GroupId"]
 
 
     @property

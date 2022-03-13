@@ -38,30 +38,33 @@ class DockingData(object):
     typeName: str = 'com.sun.star.awt.DockingData'
     """Literal Constant ``com.sun.star.awt.DockingData``"""
 
-    def __init__(self, TrackingRectangle: Rectangle_84b109e9 = UNO_NONE, bFloating: bool = False) -> None:
+    def __init__(self, TrackingRectangle: typing.Optional[Rectangle_84b109e9] = UNO_NONE, bFloating: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TrackingRectangle`` can be another ``DockingData`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TrackingRectangle (Rectangle, optional): TrackingRectangle value
-            bFloating (bool, optional): bFloating value
+            TrackingRectangle (Rectangle, optional): TrackingRectangle value.
+            bFloating (bool, optional): bFloating value.
         """
+        super().__init__()
+
         if isinstance(TrackingRectangle, DockingData):
             oth: DockingData = TrackingRectangle
-            self._tracking_rectangle = oth.TrackingRectangle
-            self._b_floating = oth.bFloating
+            self.TrackingRectangle = oth.TrackingRectangle
+            self.bFloating = oth.bFloating
             return
-        else:
-            if TrackingRectangle is UNO_NONE:
-                self._tracking_rectangle = Rectangle_84b109e9()
-            else:
-                self._tracking_rectangle = TrackingRectangle
-            self._b_floating = bFloating
 
+        kargs = {
+            "TrackingRectangle": TrackingRectangle,
+            "bFloating": bFloating,
+        }
+        if kargs["TrackingRectangle"] is UNO_NONE:
+            kargs["TrackingRectangle"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._tracking_rectangle = kwargs["TrackingRectangle"]
+        self._b_floating = kwargs["bFloating"]
 
 
     @property

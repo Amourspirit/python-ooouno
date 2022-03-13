@@ -39,48 +39,59 @@ class DataPilotFieldGroupInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldGroupInfo``"""
 
-    def __init__(self, HasAutoStart: bool = False, HasAutoEnd: bool = False, HasDateValues: bool = False, Start: float = 0.0, End: float = 0.0, Step: float = 0.0, GroupBy: int = 0, SourceField: XDataPilotField_e0350cdf = None, Groups: XNameAccess_e2ab0cf6 = None) -> None:
+    def __init__(self, HasAutoStart: typing.Optional[bool] = False, HasAutoEnd: typing.Optional[bool] = False, HasDateValues: typing.Optional[bool] = False, Start: typing.Optional[float] = 0.0, End: typing.Optional[float] = 0.0, Step: typing.Optional[float] = 0.0, GroupBy: typing.Optional[int] = 0, SourceField: typing.Optional[XDataPilotField_e0350cdf] = None, Groups: typing.Optional[XNameAccess_e2ab0cf6] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``HasAutoStart`` can be another ``DataPilotFieldGroupInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            HasAutoStart (bool, optional): HasAutoStart value
-            HasAutoEnd (bool, optional): HasAutoEnd value
-            HasDateValues (bool, optional): HasDateValues value
-            Start (float, optional): Start value
-            End (float, optional): End value
-            Step (float, optional): Step value
-            GroupBy (int, optional): GroupBy value
-            SourceField (XDataPilotField, optional): SourceField value
-            Groups (XNameAccess, optional): Groups value
+            HasAutoStart (bool, optional): HasAutoStart value.
+            HasAutoEnd (bool, optional): HasAutoEnd value.
+            HasDateValues (bool, optional): HasDateValues value.
+            Start (float, optional): Start value.
+            End (float, optional): End value.
+            Step (float, optional): Step value.
+            GroupBy (int, optional): GroupBy value.
+            SourceField (XDataPilotField, optional): SourceField value.
+            Groups (XNameAccess, optional): Groups value.
         """
+        super().__init__()
+
         if isinstance(HasAutoStart, DataPilotFieldGroupInfo):
             oth: DataPilotFieldGroupInfo = HasAutoStart
-            self._has_auto_start = oth.HasAutoStart
-            self._has_auto_end = oth.HasAutoEnd
-            self._has_date_values = oth.HasDateValues
-            self._start = oth.Start
-            self._end = oth.End
-            self._step = oth.Step
-            self._group_by = oth.GroupBy
-            self._source_field = oth.SourceField
-            self._groups = oth.Groups
+            self.HasAutoStart = oth.HasAutoStart
+            self.HasAutoEnd = oth.HasAutoEnd
+            self.HasDateValues = oth.HasDateValues
+            self.Start = oth.Start
+            self.End = oth.End
+            self.Step = oth.Step
+            self.GroupBy = oth.GroupBy
+            self.SourceField = oth.SourceField
+            self.Groups = oth.Groups
             return
-        else:
-            self._has_auto_start = HasAutoStart
-            self._has_auto_end = HasAutoEnd
-            self._has_date_values = HasDateValues
-            self._start = Start
-            self._end = End
-            self._step = Step
-            self._group_by = GroupBy
-            self._source_field = SourceField
-            self._groups = Groups
 
+        kargs = {
+            "HasAutoStart": HasAutoStart,
+            "HasAutoEnd": HasAutoEnd,
+            "HasDateValues": HasDateValues,
+            "Start": Start,
+            "End": End,
+            "Step": Step,
+            "GroupBy": GroupBy,
+            "SourceField": SourceField,
+            "Groups": Groups,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._has_auto_start = kwargs["HasAutoStart"]
+        self._has_auto_end = kwargs["HasAutoEnd"]
+        self._has_date_values = kwargs["HasDateValues"]
+        self._start = kwargs["Start"]
+        self._end = kwargs["End"]
+        self._step = kwargs["Step"]
+        self._group_by = kwargs["GroupBy"]
+        self._source_field = kwargs["SourceField"]
+        self._groups = kwargs["Groups"]
 
 
     @property

@@ -41,45 +41,55 @@ class DateTime(object):
     typeName: str = 'com.sun.star.util.DateTime'
     """Literal Constant ``com.sun.star.util.DateTime``"""
 
-    def __init__(self, NanoSeconds: int = 0, Seconds: int = 0, Minutes: int = 0, Hours: int = 0, Day: int = 0, Month: int = 0, Year: int = 0, IsUTC: bool = False) -> None:
+    def __init__(self, NanoSeconds: typing.Optional[int] = 0, Seconds: typing.Optional[int] = 0, Minutes: typing.Optional[int] = 0, Hours: typing.Optional[int] = 0, Day: typing.Optional[int] = 0, Month: typing.Optional[int] = 0, Year: typing.Optional[int] = 0, IsUTC: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``NanoSeconds`` can be another ``DateTime`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            NanoSeconds (int, optional): NanoSeconds value
-            Seconds (int, optional): Seconds value
-            Minutes (int, optional): Minutes value
-            Hours (int, optional): Hours value
-            Day (int, optional): Day value
-            Month (int, optional): Month value
-            Year (int, optional): Year value
-            IsUTC (bool, optional): IsUTC value
+            NanoSeconds (int, optional): NanoSeconds value.
+            Seconds (int, optional): Seconds value.
+            Minutes (int, optional): Minutes value.
+            Hours (int, optional): Hours value.
+            Day (int, optional): Day value.
+            Month (int, optional): Month value.
+            Year (int, optional): Year value.
+            IsUTC (bool, optional): IsUTC value.
         """
+        super().__init__()
+
         if isinstance(NanoSeconds, DateTime):
             oth: DateTime = NanoSeconds
-            self._nano_seconds = oth.NanoSeconds
-            self._seconds = oth.Seconds
-            self._minutes = oth.Minutes
-            self._hours = oth.Hours
-            self._day = oth.Day
-            self._month = oth.Month
-            self._year = oth.Year
-            self._is_utc = oth.IsUTC
+            self.NanoSeconds = oth.NanoSeconds
+            self.Seconds = oth.Seconds
+            self.Minutes = oth.Minutes
+            self.Hours = oth.Hours
+            self.Day = oth.Day
+            self.Month = oth.Month
+            self.Year = oth.Year
+            self.IsUTC = oth.IsUTC
             return
-        else:
-            self._nano_seconds = NanoSeconds
-            self._seconds = Seconds
-            self._minutes = Minutes
-            self._hours = Hours
-            self._day = Day
-            self._month = Month
-            self._year = Year
-            self._is_utc = IsUTC
 
+        kargs = {
+            "NanoSeconds": NanoSeconds,
+            "Seconds": Seconds,
+            "Minutes": Minutes,
+            "Hours": Hours,
+            "Day": Day,
+            "Month": Month,
+            "Year": Year,
+            "IsUTC": IsUTC,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._nano_seconds = kwargs["NanoSeconds"]
+        self._seconds = kwargs["Seconds"]
+        self._minutes = kwargs["Minutes"]
+        self._hours = kwargs["Hours"]
+        self._day = kwargs["Day"]
+        self._month = kwargs["Month"]
+        self._year = kwargs["Year"]
+        self._is_utc = kwargs["IsUTC"]
 
 
     @property

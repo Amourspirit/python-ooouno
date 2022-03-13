@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Id = UNO_NONE, TimeStamp = UNO_NONE, Author = UNO_NONE, Comment = UNO_NONE):
-            if getattr(Id, "__class__", None) == self.__class__:
-                orig_init(self, Id)
+        ordered_keys = ('Id', 'TimeStamp', 'Author', 'Comment')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Id is UNO_NONE:
-                if getattr(self, 'Id') != Id:
-                    setattr(self, 'Id', Id)
-            if not TimeStamp is UNO_NONE:
-                if getattr(self, 'TimeStamp') != TimeStamp:
-                    setattr(self, 'TimeStamp', TimeStamp)
-            if not Author is UNO_NONE:
-                if getattr(self, 'Author') != Author:
-                    setattr(self, 'Author', Author)
-            if not Comment is UNO_NONE:
-                if getattr(self, 'Comment') != Comment:
-                    setattr(self, 'Comment', Comment)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.document.CmisVersion'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     CmisVersion = _get_class()
-
 
 else:
     from ...lo.document.cmis_version import CmisVersion as CmisVersion

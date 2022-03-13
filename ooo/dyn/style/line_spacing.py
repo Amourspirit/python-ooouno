@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Mode = UNO_NONE, Height = UNO_NONE):
-            if getattr(Mode, "__class__", None) == self.__class__:
-                orig_init(self, Mode)
+        ordered_keys = ('Mode', 'Height')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Mode is UNO_NONE:
-                if getattr(self, 'Mode') != Mode:
-                    setattr(self, 'Mode', Mode)
-            if not Height is UNO_NONE:
-                if getattr(self, 'Height') != Height:
-                    setattr(self, 'Height', Height)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.style.LineSpacing'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LineSpacing = _get_class()
-
 
 else:
     from ...lo.style.line_spacing import LineSpacing as LineSpacing

@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, IsPresent = UNO_NONE, Value = UNO_NONE):
-            if getattr(IsPresent, "__class__", None) == self.__class__:
-                orig_init(self, IsPresent)
+        ordered_keys = ('IsPresent', 'Value')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not IsPresent is UNO_NONE:
-                if getattr(self, 'IsPresent') != IsPresent:
-                    setattr(self, 'IsPresent', IsPresent)
-            if not Value is UNO_NONE:
-                if getattr(self, 'Value') != Value:
-                    setattr(self, 'Value', Value)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.beans.Optional'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Optional = _get_class()
-
 
 else:
     from ...lo.beans.optional import Optional as Optional

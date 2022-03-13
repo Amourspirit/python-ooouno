@@ -43,36 +43,39 @@ class ControlEvent(object):
     typeName: str = 'com.sun.star.frame.ControlEvent'
     """Literal Constant ``com.sun.star.frame.ControlEvent``"""
 
-    def __init__(self, aInformation: typing.Tuple[NamedValue_a37a0af3, ...] = UNO_NONE, aURL: URL_57ad07b9 = UNO_NONE, Event: str = '') -> None:
+    def __init__(self, aInformation: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, aURL: typing.Optional[URL_57ad07b9] = UNO_NONE, Event: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aInformation`` can be another ``ControlEvent`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aInformation (Tuple[NamedValue, ...], optional): aInformation value
-            aURL (URL, optional): aURL value
-            Event (str, optional): Event value
+            aInformation (typing.Tuple[NamedValue, ...], optional): aInformation value.
+            aURL (URL, optional): aURL value.
+            Event (str, optional): Event value.
         """
+        super().__init__()
+
         if isinstance(aInformation, ControlEvent):
             oth: ControlEvent = aInformation
-            self._a_information = oth.aInformation
-            self._a_url = oth.aURL
-            self._event = oth.Event
+            self.aInformation = oth.aInformation
+            self.aURL = oth.aURL
+            self.Event = oth.Event
             return
-        else:
-            if aInformation is UNO_NONE:
-                self._a_information = None
-            else:
-                self._a_information = aInformation
-            if aURL is UNO_NONE:
-                self._a_url = URL_57ad07b9()
-            else:
-                self._a_url = aURL
-            self._event = Event
 
+        kargs = {
+            "aInformation": aInformation,
+            "aURL": aURL,
+            "Event": Event,
+        }
+        if kargs["aInformation"] is UNO_NONE:
+            kargs["aInformation"] = None
+        if kargs["aURL"] is UNO_NONE:
+            kargs["aURL"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_information = kwargs["aInformation"]
+        self._a_url = kwargs["aURL"]
+        self._event = kwargs["Event"]
 
 
     @property

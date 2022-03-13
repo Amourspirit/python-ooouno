@@ -43,30 +43,35 @@ class FontHeight(object):
     typeName: str = 'com.sun.star.frame.status.FontHeight'
     """Literal Constant ``com.sun.star.frame.status.FontHeight``"""
 
-    def __init__(self, Height: float = 0.0, Prop: int = 0, Diff: float = 0.0) -> None:
+    def __init__(self, Height: typing.Optional[float] = 0.0, Prop: typing.Optional[int] = 0, Diff: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Height`` can be another ``FontHeight`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Height (float, optional): Height value
-            Prop (int, optional): Prop value
-            Diff (float, optional): Diff value
+            Height (float, optional): Height value.
+            Prop (int, optional): Prop value.
+            Diff (float, optional): Diff value.
         """
+        super().__init__()
+
         if isinstance(Height, FontHeight):
             oth: FontHeight = Height
-            self._height = oth.Height
-            self._prop = oth.Prop
-            self._diff = oth.Diff
+            self.Height = oth.Height
+            self.Prop = oth.Prop
+            self.Diff = oth.Diff
             return
-        else:
-            self._height = Height
-            self._prop = Prop
-            self._diff = Diff
 
+        kargs = {
+            "Height": Height,
+            "Prop": Prop,
+            "Diff": Diff,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._height = kwargs["Height"]
+        self._prop = kwargs["Prop"]
+        self._diff = kwargs["Diff"]
 
 
     @property

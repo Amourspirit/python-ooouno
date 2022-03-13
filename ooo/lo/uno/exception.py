@@ -24,6 +24,8 @@ from .x_interface import XInterface as XInterface_8f010a43
 
 class Exception(Exception):
     """
+    Exception Class
+
     the base of all UNO exceptions
     
     All exceptions defined in UNO idl should derive from this exception.
@@ -45,14 +47,20 @@ class Exception(Exception):
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
             Message (str, optional): Message value.
             Context (XInterface, optional): Context value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        self._message = Message
-        self._context = Context
+        super().__init__()
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._message = kwargs["Message"]
+        self._context = kwargs["Context"]
 
     @property
     def Message(self) -> str:

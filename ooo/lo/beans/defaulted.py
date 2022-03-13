@@ -39,27 +39,35 @@ class Defaulted(object):
     typeName: str = 'com.sun.star.beans.Defaulted'
     """Literal Constant ``com.sun.star.beans.Defaulted``"""
 
-    def __init__(self, Value: object = None, IsDefaulted: bool = None) -> None:
+    def __init__(self, Value: typing.Optional[object] = None, IsDefaulted: typing.Optional[bool] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Value`` can be another ``Defaulted`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Value (object, optional): Value value
-            IsDefaulted (bool, optional): IsDefaulted value
+            Value (object, optional): Value value.
+            IsDefaulted (bool, optional): IsDefaulted value.
         """
+        super().__init__()
+
         if isinstance(Value, Defaulted):
             oth: Defaulted = Value
-            self._value = oth.Value
-            self._is_defaulted = oth.IsDefaulted
+            self.Value = oth.Value
+            self.IsDefaulted = oth.IsDefaulted
             return
-        else:
-            self._value = Value
-            self._is_defaulted = IsDefaulted
 
+        kargs = {
+            "Value": Value,
+            "IsDefaulted": IsDefaulted,
+        }
+        if kargs["Value"] is UNO_NONE:
+            kargs["Value"] = None
+        if kargs["IsDefaulted"] is UNO_NONE:
+            kargs["IsDefaulted"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._value = kwargs["Value"]
+        self._is_defaulted = kwargs["IsDefaulted"]
 
 
     @property

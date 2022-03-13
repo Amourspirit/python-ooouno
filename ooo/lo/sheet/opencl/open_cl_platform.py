@@ -37,33 +37,37 @@ class OpenCLPlatform(object):
     typeName: str = 'com.sun.star.sheet.opencl.OpenCLPlatform'
     """Literal Constant ``com.sun.star.sheet.opencl.OpenCLPlatform``"""
 
-    def __init__(self, Devices: typing.Tuple[OpenCLDevice_180d0e41, ...] = UNO_NONE, Name: str = '', Vendor: str = '') -> None:
+    def __init__(self, Devices: typing.Optional[typing.Tuple[OpenCLDevice_180d0e41, ...]] = UNO_NONE, Name: typing.Optional[str] = '', Vendor: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Devices`` can be another ``OpenCLPlatform`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Devices (Tuple[OpenCLDevice, ...], optional): Devices value
-            Name (str, optional): Name value
-            Vendor (str, optional): Vendor value
+            Devices (typing.Tuple[OpenCLDevice, ...], optional): Devices value.
+            Name (str, optional): Name value.
+            Vendor (str, optional): Vendor value.
         """
+        super().__init__()
+
         if isinstance(Devices, OpenCLPlatform):
             oth: OpenCLPlatform = Devices
-            self._devices = oth.Devices
-            self._name = oth.Name
-            self._vendor = oth.Vendor
+            self.Devices = oth.Devices
+            self.Name = oth.Name
+            self.Vendor = oth.Vendor
             return
-        else:
-            if Devices is UNO_NONE:
-                self._devices = None
-            else:
-                self._devices = Devices
-            self._name = Name
-            self._vendor = Vendor
 
+        kargs = {
+            "Devices": Devices,
+            "Name": Name,
+            "Vendor": Vendor,
+        }
+        if kargs["Devices"] is UNO_NONE:
+            kargs["Devices"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._devices = kwargs["Devices"]
+        self._name = kwargs["Name"]
+        self._vendor = kwargs["Vendor"]
 
 
     @property

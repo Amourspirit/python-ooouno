@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, MainCaretIndex = UNO_NONE, SecondaryCaretIndex = UNO_NONE, CaretAngle = UNO_NONE):
-            if getattr(MainCaretIndex, "__class__", None) == self.__class__:
-                orig_init(self, MainCaretIndex)
+        ordered_keys = ('MainCaretIndex', 'SecondaryCaretIndex', 'CaretAngle')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not MainCaretIndex is UNO_NONE:
-                if getattr(self, 'MainCaretIndex') != MainCaretIndex:
-                    setattr(self, 'MainCaretIndex', MainCaretIndex)
-            if not SecondaryCaretIndex is UNO_NONE:
-                if getattr(self, 'SecondaryCaretIndex') != SecondaryCaretIndex:
-                    setattr(self, 'SecondaryCaretIndex', SecondaryCaretIndex)
-            if not CaretAngle is UNO_NONE:
-                if getattr(self, 'CaretAngle') != CaretAngle:
-                    setattr(self, 'CaretAngle', CaretAngle)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.Caret'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Caret = _get_class()
-
 
 else:
     from ...lo.rendering.caret import Caret as Caret

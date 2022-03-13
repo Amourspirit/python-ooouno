@@ -76,6 +76,48 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
             LibreOffice 4.2
         """
 
+    @abstractproperty
+    def DisplayName(self) -> str:
+        """
+        contains the name of the style as it is displayed in the user interface.
+        
+        The names of the styles at the API are language independent. The user interface names are localized.
+        """
+
+    @abstractproperty
+    def FollowStyle(self) -> str:
+        """
+        contains the name of the style that is applied to the next paragraph.
+        
+        This property is usually available at paragraph styles only.
+        """
+
+    @abstractproperty
+    def Hidden(self) -> bool:
+        """
+        Flag indicating whether to hide the style in the UI.
+        
+        **since**
+        
+            LibreOffice 4.0
+        """
+
+    @abstractproperty
+    def IsAutoUpdate(self) -> str:
+        """
+        determines if a style is automatically updated, if the properties of an object that the style is applied to are changed.
+        
+        For example, if the style is applied to a paragraph and the properties of the paragraph are changed then the style will be updated accordingly.
+        """
+
+    @abstractproperty
+    def IsPhysical(self) -> bool:
+        """
+        determines if a style is physically created.
+        
+        Built in styles may not be created until they are needed. To prevent standard style properties from being exported, it may be useful to check if the style is created first.
+        """
+
 
 
 __all__ = ['Style']

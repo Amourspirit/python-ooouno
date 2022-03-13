@@ -22,63 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Name = UNO_NONE, Height = UNO_NONE, Width = UNO_NONE, StyleName = UNO_NONE, Family = UNO_NONE, CharSet = UNO_NONE, Pitch = UNO_NONE, CharacterWidth = UNO_NONE, Weight = UNO_NONE, Slant = UNO_NONE, Underline = UNO_NONE, Strikeout = UNO_NONE, Orientation = UNO_NONE, Kerning = UNO_NONE, WordLineMode = UNO_NONE, Type = UNO_NONE):
-            if getattr(Name, "__class__", None) == self.__class__:
-                orig_init(self, Name)
+        ordered_keys = ('Name', 'Height', 'Width', 'StyleName', 'Family', 'CharSet', 'Pitch', 'CharacterWidth', 'Weight', 'Slant', 'Underline', 'Strikeout', 'Orientation', 'Kerning', 'WordLineMode', 'Type')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not Height is UNO_NONE:
-                if getattr(self, 'Height') != Height:
-                    setattr(self, 'Height', Height)
-            if not Width is UNO_NONE:
-                if getattr(self, 'Width') != Width:
-                    setattr(self, 'Width', Width)
-            if not StyleName is UNO_NONE:
-                if getattr(self, 'StyleName') != StyleName:
-                    setattr(self, 'StyleName', StyleName)
-            if not Family is UNO_NONE:
-                if getattr(self, 'Family') != Family:
-                    setattr(self, 'Family', Family)
-            if not CharSet is UNO_NONE:
-                if getattr(self, 'CharSet') != CharSet:
-                    setattr(self, 'CharSet', CharSet)
-            if not Pitch is UNO_NONE:
-                if getattr(self, 'Pitch') != Pitch:
-                    setattr(self, 'Pitch', Pitch)
-            if not CharacterWidth is UNO_NONE:
-                if getattr(self, 'CharacterWidth') != CharacterWidth:
-                    setattr(self, 'CharacterWidth', CharacterWidth)
-            if not Weight is UNO_NONE:
-                if getattr(self, 'Weight') != Weight:
-                    setattr(self, 'Weight', Weight)
-            if not Slant is UNO_NONE:
-                if getattr(self, 'Slant') != Slant:
-                    setattr(self, 'Slant', Slant)
-            if not Underline is UNO_NONE:
-                if getattr(self, 'Underline') != Underline:
-                    setattr(self, 'Underline', Underline)
-            if not Strikeout is UNO_NONE:
-                if getattr(self, 'Strikeout') != Strikeout:
-                    setattr(self, 'Strikeout', Strikeout)
-            if not Orientation is UNO_NONE:
-                if getattr(self, 'Orientation') != Orientation:
-                    setattr(self, 'Orientation', Orientation)
-            if not Kerning is UNO_NONE:
-                if getattr(self, 'Kerning') != Kerning:
-                    setattr(self, 'Kerning', Kerning)
-            if not WordLineMode is UNO_NONE:
-                if getattr(self, 'WordLineMode') != WordLineMode:
-                    setattr(self, 'WordLineMode', WordLineMode)
-            if not Type is UNO_NONE:
-                if getattr(self, 'Type') != Type:
-                    setattr(self, 'Type', Type)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.FontDescriptor'
         struct = uno.getClass(type_name)
@@ -90,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FontDescriptor = _get_class()
-
 
 else:
     from ...lo.awt.font_descriptor import FontDescriptor as FontDescriptor

@@ -41,36 +41,41 @@ class ContextMenuExecuteEvent(object):
     typeName: str = 'com.sun.star.ui.ContextMenuExecuteEvent'
     """Literal Constant ``com.sun.star.ui.ContextMenuExecuteEvent``"""
 
-    def __init__(self, SourceWindow: XWindow_713b0924 = None, ExecutePosition: Point_5fb2085e = UNO_NONE, ActionTriggerContainer: XIndexContainer_1c040ebe = None, Selection: XSelectionSupplier_fed20e15 = None) -> None:
+    def __init__(self, SourceWindow: typing.Optional[XWindow_713b0924] = None, ExecutePosition: typing.Optional[Point_5fb2085e] = UNO_NONE, ActionTriggerContainer: typing.Optional[XIndexContainer_1c040ebe] = None, Selection: typing.Optional[XSelectionSupplier_fed20e15] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SourceWindow`` can be another ``ContextMenuExecuteEvent`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            SourceWindow (XWindow, optional): SourceWindow value
-            ExecutePosition (Point, optional): ExecutePosition value
-            ActionTriggerContainer (XIndexContainer, optional): ActionTriggerContainer value
-            Selection (XSelectionSupplier, optional): Selection value
+            SourceWindow (XWindow, optional): SourceWindow value.
+            ExecutePosition (Point, optional): ExecutePosition value.
+            ActionTriggerContainer (XIndexContainer, optional): ActionTriggerContainer value.
+            Selection (XSelectionSupplier, optional): Selection value.
         """
+        super().__init__()
+
         if isinstance(SourceWindow, ContextMenuExecuteEvent):
             oth: ContextMenuExecuteEvent = SourceWindow
-            self._source_window = oth.SourceWindow
-            self._execute_position = oth.ExecutePosition
-            self._action_trigger_container = oth.ActionTriggerContainer
-            self._selection = oth.Selection
+            self.SourceWindow = oth.SourceWindow
+            self.ExecutePosition = oth.ExecutePosition
+            self.ActionTriggerContainer = oth.ActionTriggerContainer
+            self.Selection = oth.Selection
             return
-        else:
-            self._source_window = SourceWindow
-            if ExecutePosition is UNO_NONE:
-                self._execute_position = Point_5fb2085e()
-            else:
-                self._execute_position = ExecutePosition
-            self._action_trigger_container = ActionTriggerContainer
-            self._selection = Selection
 
+        kargs = {
+            "SourceWindow": SourceWindow,
+            "ExecutePosition": ExecutePosition,
+            "ActionTriggerContainer": ActionTriggerContainer,
+            "Selection": Selection,
+        }
+        if kargs["ExecutePosition"] is UNO_NONE:
+            kargs["ExecutePosition"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._source_window = kwargs["SourceWindow"]
+        self._execute_position = kwargs["ExecutePosition"]
+        self._action_trigger_container = kwargs["ActionTriggerContainer"]
+        self._selection = kwargs["Selection"]
 
 
     @property

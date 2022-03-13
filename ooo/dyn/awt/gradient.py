@@ -22,45 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Style = UNO_NONE, StartColor = UNO_NONE, EndColor = UNO_NONE, Angle = UNO_NONE, Border = UNO_NONE, XOffset = UNO_NONE, YOffset = UNO_NONE, StartIntensity = UNO_NONE, EndIntensity = UNO_NONE, StepCount = UNO_NONE):
-            if getattr(Style, "__class__", None) == self.__class__:
-                orig_init(self, Style)
+        ordered_keys = ('Style', 'StartColor', 'EndColor', 'Angle', 'Border', 'XOffset', 'YOffset', 'StartIntensity', 'EndIntensity', 'StepCount')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Style is UNO_NONE:
-                if getattr(self, 'Style') != Style:
-                    setattr(self, 'Style', Style)
-            if not StartColor is UNO_NONE:
-                if getattr(self, 'StartColor') != StartColor:
-                    setattr(self, 'StartColor', StartColor)
-            if not EndColor is UNO_NONE:
-                if getattr(self, 'EndColor') != EndColor:
-                    setattr(self, 'EndColor', EndColor)
-            if not Angle is UNO_NONE:
-                if getattr(self, 'Angle') != Angle:
-                    setattr(self, 'Angle', Angle)
-            if not Border is UNO_NONE:
-                if getattr(self, 'Border') != Border:
-                    setattr(self, 'Border', Border)
-            if not XOffset is UNO_NONE:
-                if getattr(self, 'XOffset') != XOffset:
-                    setattr(self, 'XOffset', XOffset)
-            if not YOffset is UNO_NONE:
-                if getattr(self, 'YOffset') != YOffset:
-                    setattr(self, 'YOffset', YOffset)
-            if not StartIntensity is UNO_NONE:
-                if getattr(self, 'StartIntensity') != StartIntensity:
-                    setattr(self, 'StartIntensity', StartIntensity)
-            if not EndIntensity is UNO_NONE:
-                if getattr(self, 'EndIntensity') != EndIntensity:
-                    setattr(self, 'EndIntensity', EndIntensity)
-            if not StepCount is UNO_NONE:
-                if getattr(self, 'StepCount') != StepCount:
-                    setattr(self, 'StepCount', StepCount)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.Gradient'
         struct = uno.getClass(type_name)
@@ -72,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Gradient = _get_class()
-
 
 else:
     from ...lo.awt.gradient import Gradient as Gradient

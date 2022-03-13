@@ -37,33 +37,39 @@ class DataPilotFieldReference(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldReference'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldReference``"""
 
-    def __init__(self, ReferenceType: int = 0, ReferenceField: str = '', ReferenceItemType: int = 0, ReferenceItemName: str = '') -> None:
+    def __init__(self, ReferenceType: typing.Optional[int] = 0, ReferenceField: typing.Optional[str] = '', ReferenceItemType: typing.Optional[int] = 0, ReferenceItemName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ReferenceType`` can be another ``DataPilotFieldReference`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ReferenceType (int, optional): ReferenceType value
-            ReferenceField (str, optional): ReferenceField value
-            ReferenceItemType (int, optional): ReferenceItemType value
-            ReferenceItemName (str, optional): ReferenceItemName value
+            ReferenceType (int, optional): ReferenceType value.
+            ReferenceField (str, optional): ReferenceField value.
+            ReferenceItemType (int, optional): ReferenceItemType value.
+            ReferenceItemName (str, optional): ReferenceItemName value.
         """
+        super().__init__()
+
         if isinstance(ReferenceType, DataPilotFieldReference):
             oth: DataPilotFieldReference = ReferenceType
-            self._reference_type = oth.ReferenceType
-            self._reference_field = oth.ReferenceField
-            self._reference_item_type = oth.ReferenceItemType
-            self._reference_item_name = oth.ReferenceItemName
+            self.ReferenceType = oth.ReferenceType
+            self.ReferenceField = oth.ReferenceField
+            self.ReferenceItemType = oth.ReferenceItemType
+            self.ReferenceItemName = oth.ReferenceItemName
             return
-        else:
-            self._reference_type = ReferenceType
-            self._reference_field = ReferenceField
-            self._reference_item_type = ReferenceItemType
-            self._reference_item_name = ReferenceItemName
 
+        kargs = {
+            "ReferenceType": ReferenceType,
+            "ReferenceField": ReferenceField,
+            "ReferenceItemType": ReferenceItemType,
+            "ReferenceItemName": ReferenceItemName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._reference_type = kwargs["ReferenceType"]
+        self._reference_field = kwargs["ReferenceField"]
+        self._reference_item_type = kwargs["ReferenceItemType"]
+        self._reference_item_name = kwargs["ReferenceItemName"]
 
 
     @property

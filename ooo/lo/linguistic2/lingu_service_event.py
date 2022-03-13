@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,26 +41,34 @@ class LinguServiceEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.linguistic2.LinguServiceEvent'
     """Literal Constant ``com.sun.star.linguistic2.LinguServiceEvent``"""
 
-    def __init__(self, nEvent: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, nEvent: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``nEvent`` can be another ``LinguServiceEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            nEvent (int, optional): nEvent value
+            Source (XInterface, optional): Source value.
+            nEvent (int, optional): nEvent value.
         """
-        super().__init__(**kwargs)
-        if isinstance(nEvent, LinguServiceEvent):
-            oth: LinguServiceEvent = nEvent
-            self._n_event = oth.nEvent
-            return
-        else:
-            self._n_event = nEvent
 
+        if isinstance(Source, LinguServiceEvent):
+            oth: LinguServiceEvent = Source
+            self.Source = oth.Source
+            self.nEvent = oth.nEvent
+            return
+
+        kargs = {
+            "Source": Source,
+            "nEvent": nEvent,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._n_event = kwargs["nEvent"]
+        inst_keys = ('nEvent',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

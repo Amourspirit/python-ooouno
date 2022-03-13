@@ -11,8 +11,8 @@ from unotools.unohelper import convert_path_to_url
 from unotools.component.writer import Writer
 sys.path.insert(0, os.path.abspath('.'))
 from . import unohlp as d_lib
-from ooo.dyn.connection.no_connect_exception import NoConnectException
-# from com.sun.star.connection import NoConnectException
+# from ooo.dyn.connection.no_connect_exception import NoConnectException
+from com.sun.star.connection import NoConnectException
 
 _PIPE_NAME = None
 

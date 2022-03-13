@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Image = UNO_NONE, ID = UNO_NONE, GroupID = UNO_NONE, PreItemID = UNO_NONE, ItemText = UNO_NONE, IsVisible = UNO_NONE, IsActive = UNO_NONE, IsCheckable = UNO_NONE, IsChecked = UNO_NONE):
-            if getattr(Image, "__class__", None) == self.__class__:
-                orig_init(self, Image)
+        ordered_keys = ('Image', 'ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Image is UNO_NONE:
-                if getattr(self, 'Image') != Image:
-                    setattr(self, 'Image', Image)
-            if not ID is UNO_NONE:
-                if getattr(self, 'ID') != ID:
-                    setattr(self, 'ID', ID)
-            if not GroupID is UNO_NONE:
-                if getattr(self, 'GroupID') != GroupID:
-                    setattr(self, 'GroupID', GroupID)
-            if not PreItemID is UNO_NONE:
-                if getattr(self, 'PreItemID') != PreItemID:
-                    setattr(self, 'PreItemID', PreItemID)
-            if not ItemText is UNO_NONE:
-                if getattr(self, 'ItemText') != ItemText:
-                    setattr(self, 'ItemText', ItemText)
-            if not IsVisible is UNO_NONE:
-                if getattr(self, 'IsVisible') != IsVisible:
-                    setattr(self, 'IsVisible', IsVisible)
-            if not IsActive is UNO_NONE:
-                if getattr(self, 'IsActive') != IsActive:
-                    setattr(self, 'IsActive', IsActive)
-            if not IsCheckable is UNO_NONE:
-                if getattr(self, 'IsCheckable') != IsCheckable:
-                    setattr(self, 'IsCheckable', IsCheckable)
-            if not IsChecked is UNO_NONE:
-                if getattr(self, 'IsChecked') != IsChecked:
-                    setattr(self, 'IsChecked', IsChecked)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.mozilla.MenuMultipleChange'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     MenuMultipleChange = _get_class()
-
 
 else:
     from ...lo.mozilla.menu_multiple_change import MenuMultipleChange as MenuMultipleChange

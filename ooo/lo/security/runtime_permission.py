@@ -43,24 +43,27 @@ class RuntimePermission(object):
     typeName: str = 'com.sun.star.security.RuntimePermission'
     """Literal Constant ``com.sun.star.security.RuntimePermission``"""
 
-    def __init__(self, Name: str = '') -> None:
+    def __init__(self, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``RuntimePermission`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
+            Name (str, optional): Name value.
         """
+        super().__init__()
+
         if isinstance(Name, RuntimePermission):
             oth: RuntimePermission = Name
-            self._name = oth.Name
+            self.Name = oth.Name
             return
-        else:
-            self._name = Name
 
+        kargs = {
+            "Name": Name,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
 
 
     @property

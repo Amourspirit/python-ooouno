@@ -41,30 +41,35 @@ class Template(object):
     typeName: str = 'com.sun.star.frame.status.Template'
     """Literal Constant ``com.sun.star.frame.status.Template``"""
 
-    def __init__(self, StyleName: str = '', Value: int = 0, StyleNameIdentifier: str = None) -> None:
+    def __init__(self, StyleName: typing.Optional[str] = '', Value: typing.Optional[int] = 0, StyleNameIdentifier: typing.Optional[str] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``StyleName`` can be another ``Template`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            StyleName (str, optional): StyleName value
-            Value (int, optional): Value value
-            StyleNameIdentifier (str, optional): StyleNameIdentifier value
+            StyleName (str, optional): StyleName value.
+            Value (int, optional): Value value.
+            StyleNameIdentifier (str, optional): StyleNameIdentifier value.
         """
+        super().__init__()
+
         if isinstance(StyleName, Template):
             oth: Template = StyleName
-            self._style_name = oth.StyleName
-            self._value = oth.Value
-            self._style_name_identifier = oth.StyleNameIdentifier
+            self.StyleName = oth.StyleName
+            self.Value = oth.Value
+            self.StyleNameIdentifier = oth.StyleNameIdentifier
             return
-        else:
-            self._style_name = StyleName
-            self._value = Value
-            self._style_name_identifier = StyleNameIdentifier
 
+        kargs = {
+            "StyleName": StyleName,
+            "Value": Value,
+            "StyleNameIdentifier": StyleNameIdentifier,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._style_name = kwargs["StyleName"]
+        self._value = kwargs["Value"]
+        self._style_name_identifier = kwargs["StyleNameIdentifier"]
 
 
     @property

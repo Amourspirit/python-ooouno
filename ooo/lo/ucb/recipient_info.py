@@ -40,60 +40,75 @@ class RecipientInfo(object):
     typeName: str = 'com.sun.star.ucb.RecipientInfo'
     """Literal Constant ``com.sun.star.ucb.RecipientInfo``"""
 
-    def __init__(self, ProtocolType: str = '', State: OutgoingMessageState_c200e54 = OutgoingMessageState_c200e54.WRITTEN, To: str = '', CC: str = '', BCC: str = '', Newsgroups: str = '', Server: str = '', Username: str = '', Password: str = '', VIMPostOfficePath: str = '', ProtocolErrorString: str = '', ProtocolErrorNumber: int = 0, SendTries: int = 0) -> None:
+    def __init__(self, ProtocolType: typing.Optional[str] = '', State: typing.Optional[OutgoingMessageState_c200e54] = OutgoingMessageState_c200e54.WRITTEN, To: typing.Optional[str] = '', CC: typing.Optional[str] = '', BCC: typing.Optional[str] = '', Newsgroups: typing.Optional[str] = '', Server: typing.Optional[str] = '', Username: typing.Optional[str] = '', Password: typing.Optional[str] = '', VIMPostOfficePath: typing.Optional[str] = '', ProtocolErrorString: typing.Optional[str] = '', ProtocolErrorNumber: typing.Optional[int] = 0, SendTries: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ProtocolType`` can be another ``RecipientInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ProtocolType (str, optional): ProtocolType value
-            State (OutgoingMessageState, optional): State value
-            To (str, optional): To value
-            CC (str, optional): CC value
-            BCC (str, optional): BCC value
-            Newsgroups (str, optional): Newsgroups value
-            Server (str, optional): Server value
-            Username (str, optional): Username value
-            Password (str, optional): Password value
-            VIMPostOfficePath (str, optional): VIMPostOfficePath value
-            ProtocolErrorString (str, optional): ProtocolErrorString value
-            ProtocolErrorNumber (int, optional): ProtocolErrorNumber value
-            SendTries (int, optional): SendTries value
+            ProtocolType (str, optional): ProtocolType value.
+            State (OutgoingMessageState, optional): State value.
+            To (str, optional): To value.
+            CC (str, optional): CC value.
+            BCC (str, optional): BCC value.
+            Newsgroups (str, optional): Newsgroups value.
+            Server (str, optional): Server value.
+            Username (str, optional): Username value.
+            Password (str, optional): Password value.
+            VIMPostOfficePath (str, optional): VIMPostOfficePath value.
+            ProtocolErrorString (str, optional): ProtocolErrorString value.
+            ProtocolErrorNumber (int, optional): ProtocolErrorNumber value.
+            SendTries (int, optional): SendTries value.
         """
+        super().__init__()
+
         if isinstance(ProtocolType, RecipientInfo):
             oth: RecipientInfo = ProtocolType
-            self._protocol_type = oth.ProtocolType
-            self._state = oth.State
-            self._to = oth.To
-            self._cc = oth.CC
-            self._bcc = oth.BCC
-            self._newsgroups = oth.Newsgroups
-            self._server = oth.Server
-            self._username = oth.Username
-            self._password = oth.Password
-            self._vim_post_office_path = oth.VIMPostOfficePath
-            self._protocol_error_string = oth.ProtocolErrorString
-            self._protocol_error_number = oth.ProtocolErrorNumber
-            self._send_tries = oth.SendTries
+            self.ProtocolType = oth.ProtocolType
+            self.State = oth.State
+            self.To = oth.To
+            self.CC = oth.CC
+            self.BCC = oth.BCC
+            self.Newsgroups = oth.Newsgroups
+            self.Server = oth.Server
+            self.Username = oth.Username
+            self.Password = oth.Password
+            self.VIMPostOfficePath = oth.VIMPostOfficePath
+            self.ProtocolErrorString = oth.ProtocolErrorString
+            self.ProtocolErrorNumber = oth.ProtocolErrorNumber
+            self.SendTries = oth.SendTries
             return
-        else:
-            self._protocol_type = ProtocolType
-            self._state = State
-            self._to = To
-            self._cc = CC
-            self._bcc = BCC
-            self._newsgroups = Newsgroups
-            self._server = Server
-            self._username = Username
-            self._password = Password
-            self._vim_post_office_path = VIMPostOfficePath
-            self._protocol_error_string = ProtocolErrorString
-            self._protocol_error_number = ProtocolErrorNumber
-            self._send_tries = SendTries
 
+        kargs = {
+            "ProtocolType": ProtocolType,
+            "State": State,
+            "To": To,
+            "CC": CC,
+            "BCC": BCC,
+            "Newsgroups": Newsgroups,
+            "Server": Server,
+            "Username": Username,
+            "Password": Password,
+            "VIMPostOfficePath": VIMPostOfficePath,
+            "ProtocolErrorString": ProtocolErrorString,
+            "ProtocolErrorNumber": ProtocolErrorNumber,
+            "SendTries": SendTries,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._protocol_type = kwargs["ProtocolType"]
+        self._state = kwargs["State"]
+        self._to = kwargs["To"]
+        self._cc = kwargs["CC"]
+        self._bcc = kwargs["BCC"]
+        self._newsgroups = kwargs["Newsgroups"]
+        self._server = kwargs["Server"]
+        self._username = kwargs["Username"]
+        self._password = kwargs["Password"]
+        self._vim_post_office_path = kwargs["VIMPostOfficePath"]
+        self._protocol_error_string = kwargs["ProtocolErrorString"]
+        self._protocol_error_number = kwargs["ProtocolErrorNumber"]
+        self._send_tries = kwargs["SendTries"]
 
 
     @property

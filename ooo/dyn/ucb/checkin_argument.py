@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, MajorVersion = UNO_NONE, VersionComment = UNO_NONE, SourceURL = UNO_NONE, TargetURL = UNO_NONE, NewTitle = UNO_NONE, MimeType = UNO_NONE):
-            if getattr(MajorVersion, "__class__", None) == self.__class__:
-                orig_init(self, MajorVersion)
+        ordered_keys = ('MajorVersion', 'VersionComment', 'SourceURL', 'TargetURL', 'NewTitle', 'MimeType')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not MajorVersion is UNO_NONE:
-                if getattr(self, 'MajorVersion') != MajorVersion:
-                    setattr(self, 'MajorVersion', MajorVersion)
-            if not VersionComment is UNO_NONE:
-                if getattr(self, 'VersionComment') != VersionComment:
-                    setattr(self, 'VersionComment', VersionComment)
-            if not SourceURL is UNO_NONE:
-                if getattr(self, 'SourceURL') != SourceURL:
-                    setattr(self, 'SourceURL', SourceURL)
-            if not TargetURL is UNO_NONE:
-                if getattr(self, 'TargetURL') != TargetURL:
-                    setattr(self, 'TargetURL', TargetURL)
-            if not NewTitle is UNO_NONE:
-                if getattr(self, 'NewTitle') != NewTitle:
-                    setattr(self, 'NewTitle', NewTitle)
-            if not MimeType is UNO_NONE:
-                if getattr(self, 'MimeType') != MimeType:
-                    setattr(self, 'MimeType', MimeType)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.CheckinArgument'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     CheckinArgument = _get_class()
-
 
 else:
     from ...lo.ucb.checkin_argument import CheckinArgument as CheckinArgument

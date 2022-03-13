@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, min = UNO_NONE, max = UNO_NONE):
-            if getattr(min, "__class__", None) == self.__class__:
-                orig_init(self, min)
+        ordered_keys = ('min', 'max')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not min is UNO_NONE:
-                if getattr(self, 'min') != min:
-                    setattr(self, 'min', min)
-            if not max is UNO_NONE:
-                if getattr(self, 'max') != max:
-                    setattr(self, 'max', max)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.BoundVolume'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     BoundVolume = _get_class()
-
 
 else:
     from ...lo.drawing.bound_volume import BoundVolume as BoundVolume

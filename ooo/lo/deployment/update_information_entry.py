@@ -42,27 +42,31 @@ class UpdateInformationEntry(object):
     typeName: str = 'com.sun.star.deployment.UpdateInformationEntry'
     """Literal Constant ``com.sun.star.deployment.UpdateInformationEntry``"""
 
-    def __init__(self, UpdateDocument: XElement_a33d0ae9 = None, Description: str = '') -> None:
+    def __init__(self, UpdateDocument: typing.Optional[XElement_a33d0ae9] = None, Description: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``UpdateDocument`` can be another ``UpdateInformationEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            UpdateDocument (XElement, optional): UpdateDocument value
-            Description (str, optional): Description value
+            UpdateDocument (XElement, optional): UpdateDocument value.
+            Description (str, optional): Description value.
         """
+        super().__init__()
+
         if isinstance(UpdateDocument, UpdateInformationEntry):
             oth: UpdateInformationEntry = UpdateDocument
-            self._update_document = oth.UpdateDocument
-            self._description = oth.Description
+            self.UpdateDocument = oth.UpdateDocument
+            self.Description = oth.Description
             return
-        else:
-            self._update_document = UpdateDocument
-            self._description = Description
 
+        kargs = {
+            "UpdateDocument": UpdateDocument,
+            "Description": Description,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._update_document = kwargs["UpdateDocument"]
+        self._description = kwargs["Description"]
 
 
     @property

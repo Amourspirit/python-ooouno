@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt.tab
 import typing
-from abc import abstractmethod, ABC
+from abc import abstractmethod, abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from .x_tab_page import XTabPage as XTabPage_a2060aa5
     from .x_tab_page_container_listener import XTabPageContainerListener as XTabPageContainerListener_940d118e
@@ -70,6 +70,12 @@ class XTabPageContainer(ABC):
         """
         Removes a listener previously added with addTabPageListener().
         """
+    @abstractproperty
+    def ActiveTabPageID(self) -> int:
+        """
+        Specifies the ID of the current active tab page.
+        """
+
 
 __all__ = ['XTabPageContainer']
 

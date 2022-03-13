@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,35 +39,42 @@ class GridSelectionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.grid.GridSelectionEvent'
     """Literal Constant ``com.sun.star.awt.grid.GridSelectionEvent``"""
 
-    def __init__(self, SelectedRowIndexes: typing.Tuple[int, ...] = UNO_NONE, SelectedColumnIndexes: typing.Tuple[int, ...] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, SelectedRowIndexes: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, SelectedColumnIndexes: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SelectedRowIndexes`` can be another ``GridSelectionEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            SelectedRowIndexes (Tuple[int, ...], optional): SelectedRowIndexes value
-            SelectedColumnIndexes (Tuple[int, ...], optional): SelectedColumnIndexes value
+            Source (XInterface, optional): Source value.
+            SelectedRowIndexes (typing.Tuple[int, ...], optional): SelectedRowIndexes value.
+            SelectedColumnIndexes (typing.Tuple[int, ...], optional): SelectedColumnIndexes value.
         """
-        super().__init__(**kwargs)
-        if isinstance(SelectedRowIndexes, GridSelectionEvent):
-            oth: GridSelectionEvent = SelectedRowIndexes
-            self._selected_row_indexes = oth.SelectedRowIndexes
-            self._selected_column_indexes = oth.SelectedColumnIndexes
-            return
-        else:
-            if SelectedRowIndexes is UNO_NONE:
-                self._selected_row_indexes = None
-            else:
-                self._selected_row_indexes = SelectedRowIndexes
-            if SelectedColumnIndexes is UNO_NONE:
-                self._selected_column_indexes = None
-            else:
-                self._selected_column_indexes = SelectedColumnIndexes
 
+        if isinstance(Source, GridSelectionEvent):
+            oth: GridSelectionEvent = Source
+            self.Source = oth.Source
+            self.SelectedRowIndexes = oth.SelectedRowIndexes
+            self.SelectedColumnIndexes = oth.SelectedColumnIndexes
+            return
+
+        kargs = {
+            "Source": Source,
+            "SelectedRowIndexes": SelectedRowIndexes,
+            "SelectedColumnIndexes": SelectedColumnIndexes,
+        }
+        if kargs["SelectedRowIndexes"] is UNO_NONE:
+            kargs["SelectedRowIndexes"] = None
+        if kargs["SelectedColumnIndexes"] is UNO_NONE:
+            kargs["SelectedColumnIndexes"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._selected_row_indexes = kwargs["SelectedRowIndexes"]
+        self._selected_column_indexes = kwargs["SelectedColumnIndexes"]
+        inst_keys = ('SelectedRowIndexes', 'SelectedColumnIndexes')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

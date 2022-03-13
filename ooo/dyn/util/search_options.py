@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, algorithmType = UNO_NONE, searchFlag = UNO_NONE, searchString = UNO_NONE, replaceString = UNO_NONE, Locale = UNO_NONE, changedChars = UNO_NONE, deletedChars = UNO_NONE, insertedChars = UNO_NONE, transliterateFlags = UNO_NONE):
-            if getattr(algorithmType, "__class__", None) == self.__class__:
-                orig_init(self, algorithmType)
+        ordered_keys = ('algorithmType', 'searchFlag', 'searchString', 'replaceString', 'Locale', 'changedChars', 'deletedChars', 'insertedChars', 'transliterateFlags')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not algorithmType is UNO_NONE:
-                if getattr(self, 'algorithmType') != algorithmType:
-                    setattr(self, 'algorithmType', algorithmType)
-            if not searchFlag is UNO_NONE:
-                if getattr(self, 'searchFlag') != searchFlag:
-                    setattr(self, 'searchFlag', searchFlag)
-            if not searchString is UNO_NONE:
-                if getattr(self, 'searchString') != searchString:
-                    setattr(self, 'searchString', searchString)
-            if not replaceString is UNO_NONE:
-                if getattr(self, 'replaceString') != replaceString:
-                    setattr(self, 'replaceString', replaceString)
-            if not Locale is UNO_NONE:
-                if getattr(self, 'Locale') != Locale:
-                    setattr(self, 'Locale', Locale)
-            if not changedChars is UNO_NONE:
-                if getattr(self, 'changedChars') != changedChars:
-                    setattr(self, 'changedChars', changedChars)
-            if not deletedChars is UNO_NONE:
-                if getattr(self, 'deletedChars') != deletedChars:
-                    setattr(self, 'deletedChars', deletedChars)
-            if not insertedChars is UNO_NONE:
-                if getattr(self, 'insertedChars') != insertedChars:
-                    setattr(self, 'insertedChars', insertedChars)
-            if not transliterateFlags is UNO_NONE:
-                if getattr(self, 'transliterateFlags') != transliterateFlags:
-                    setattr(self, 'transliterateFlags', transliterateFlags)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.util.SearchOptions'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     SearchOptions = _get_class()
-
 
 else:
     from ...lo.util.search_options import SearchOptions as SearchOptions

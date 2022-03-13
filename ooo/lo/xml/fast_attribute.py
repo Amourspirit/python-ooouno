@@ -37,27 +37,31 @@ class FastAttribute(object):
     typeName: str = 'com.sun.star.xml.FastAttribute'
     """Literal Constant ``com.sun.star.xml.FastAttribute``"""
 
-    def __init__(self, Token: int = 0, Value: str = '') -> None:
+    def __init__(self, Token: typing.Optional[int] = 0, Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Token`` can be another ``FastAttribute`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Token (int, optional): Token value
-            Value (str, optional): Value value
+            Token (int, optional): Token value.
+            Value (str, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Token, FastAttribute):
             oth: FastAttribute = Token
-            self._token = oth.Token
-            self._value = oth.Value
+            self.Token = oth.Token
+            self.Value = oth.Value
             return
-        else:
-            self._token = Token
-            self._value = Value
 
+        kargs = {
+            "Token": Token,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._token = kwargs["Token"]
+        self._value = kwargs["Value"]
 
 
     @property

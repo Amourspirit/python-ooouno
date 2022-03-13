@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ScanLines = UNO_NONE, ScanLineBytes = UNO_NONE, ScanLineStride = UNO_NONE, PlaneStride = UNO_NONE, ColorSpace = UNO_NONE, NumComponents = UNO_NONE, Endianness = UNO_NONE, Format = UNO_NONE):
-            if getattr(ScanLines, "__class__", None) == self.__class__:
-                orig_init(self, ScanLines)
+        ordered_keys = ('ScanLines', 'ScanLineBytes', 'ScanLineStride', 'PlaneStride', 'ColorSpace', 'NumComponents', 'Endianness', 'Format')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ScanLines is UNO_NONE:
-                if getattr(self, 'ScanLines') != ScanLines:
-                    setattr(self, 'ScanLines', ScanLines)
-            if not ScanLineBytes is UNO_NONE:
-                if getattr(self, 'ScanLineBytes') != ScanLineBytes:
-                    setattr(self, 'ScanLineBytes', ScanLineBytes)
-            if not ScanLineStride is UNO_NONE:
-                if getattr(self, 'ScanLineStride') != ScanLineStride:
-                    setattr(self, 'ScanLineStride', ScanLineStride)
-            if not PlaneStride is UNO_NONE:
-                if getattr(self, 'PlaneStride') != PlaneStride:
-                    setattr(self, 'PlaneStride', PlaneStride)
-            if not ColorSpace is UNO_NONE:
-                if getattr(self, 'ColorSpace') != ColorSpace:
-                    setattr(self, 'ColorSpace', ColorSpace)
-            if not NumComponents is UNO_NONE:
-                if getattr(self, 'NumComponents') != NumComponents:
-                    setattr(self, 'NumComponents', NumComponents)
-            if not Endianness is UNO_NONE:
-                if getattr(self, 'Endianness') != Endianness:
-                    setattr(self, 'Endianness', Endianness)
-            if not Format is UNO_NONE:
-                if getattr(self, 'Format') != Format:
-                    setattr(self, 'Format', Format)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.FloatingPointBitmapLayout'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FloatingPointBitmapLayout = _get_class()
-
 
 else:
     from ...lo.rendering.floating_point_bitmap_layout import FloatingPointBitmapLayout as FloatingPointBitmapLayout

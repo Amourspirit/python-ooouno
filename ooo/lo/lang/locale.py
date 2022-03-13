@@ -43,30 +43,35 @@ class Locale(object):
     typeName: str = 'com.sun.star.lang.Locale'
     """Literal Constant ``com.sun.star.lang.Locale``"""
 
-    def __init__(self, Language: str = '', Country: str = '', Variant: str = '') -> None:
+    def __init__(self, Language: typing.Optional[str] = '', Country: typing.Optional[str] = '', Variant: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Language`` can be another ``Locale`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Language (str, optional): Language value
-            Country (str, optional): Country value
-            Variant (str, optional): Variant value
+            Language (str, optional): Language value.
+            Country (str, optional): Country value.
+            Variant (str, optional): Variant value.
         """
+        super().__init__()
+
         if isinstance(Language, Locale):
             oth: Locale = Language
-            self._language = oth.Language
-            self._country = oth.Country
-            self._variant = oth.Variant
+            self.Language = oth.Language
+            self.Country = oth.Country
+            self.Variant = oth.Variant
             return
-        else:
-            self._language = Language
-            self._country = Country
-            self._variant = Variant
 
+        kargs = {
+            "Language": Language,
+            "Country": Country,
+            "Variant": Variant,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._language = kwargs["Language"]
+        self._country = kwargs["Country"]
+        self._variant = kwargs["Variant"]
 
 
     @property

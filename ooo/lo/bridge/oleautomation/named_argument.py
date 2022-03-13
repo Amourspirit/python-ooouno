@@ -43,27 +43,31 @@ class NamedArgument(object):
     typeName: str = 'com.sun.star.bridge.oleautomation.NamedArgument'
     """Literal Constant ``com.sun.star.bridge.oleautomation.NamedArgument``"""
 
-    def __init__(self, Name: str = '', Value: object = None) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``NamedArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Value (object, optional): Value value
+            Name (str, optional): Name value.
+            Value (object, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Name, NamedArgument):
             oth: NamedArgument = Name
-            self._name = oth.Name
-            self._value = oth.Value
+            self.Name = oth.Name
+            self.Value = oth.Value
             return
-        else:
-            self._name = Name
-            self._value = Value
 
+        kargs = {
+            "Name": Name,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._value = kwargs["Value"]
 
 
     @property

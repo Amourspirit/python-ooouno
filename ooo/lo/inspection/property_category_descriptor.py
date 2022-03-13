@@ -41,30 +41,35 @@ class PropertyCategoryDescriptor(object):
     typeName: str = 'com.sun.star.inspection.PropertyCategoryDescriptor'
     """Literal Constant ``com.sun.star.inspection.PropertyCategoryDescriptor``"""
 
-    def __init__(self, ProgrammaticName: str = '', UIName: str = '', HelpURL: str = '') -> None:
+    def __init__(self, ProgrammaticName: typing.Optional[str] = '', UIName: typing.Optional[str] = '', HelpURL: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ProgrammaticName`` can be another ``PropertyCategoryDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ProgrammaticName (str, optional): ProgrammaticName value
-            UIName (str, optional): UIName value
-            HelpURL (str, optional): HelpURL value
+            ProgrammaticName (str, optional): ProgrammaticName value.
+            UIName (str, optional): UIName value.
+            HelpURL (str, optional): HelpURL value.
         """
+        super().__init__()
+
         if isinstance(ProgrammaticName, PropertyCategoryDescriptor):
             oth: PropertyCategoryDescriptor = ProgrammaticName
-            self._programmatic_name = oth.ProgrammaticName
-            self._ui_name = oth.UIName
-            self._help_url = oth.HelpURL
+            self.ProgrammaticName = oth.ProgrammaticName
+            self.UIName = oth.UIName
+            self.HelpURL = oth.HelpURL
             return
-        else:
-            self._programmatic_name = ProgrammaticName
-            self._ui_name = UIName
-            self._help_url = HelpURL
 
+        kargs = {
+            "ProgrammaticName": ProgrammaticName,
+            "UIName": UIName,
+            "HelpURL": HelpURL,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._programmatic_name = kwargs["ProgrammaticName"]
+        self._ui_name = kwargs["UIName"]
+        self._help_url = kwargs["HelpURL"]
 
 
     @property

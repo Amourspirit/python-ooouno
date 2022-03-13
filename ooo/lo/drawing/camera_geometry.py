@@ -39,39 +39,41 @@ class CameraGeometry(object):
     typeName: str = 'com.sun.star.drawing.CameraGeometry'
     """Literal Constant ``com.sun.star.drawing.CameraGeometry``"""
 
-    def __init__(self, vrp: Position3D_bddc0bc0 = UNO_NONE, vpn: Direction3D_c9370c0c = UNO_NONE, vup: Direction3D_c9370c0c = UNO_NONE) -> None:
+    def __init__(self, vrp: typing.Optional[Position3D_bddc0bc0] = UNO_NONE, vpn: typing.Optional[Direction3D_c9370c0c] = UNO_NONE, vup: typing.Optional[Direction3D_c9370c0c] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``vrp`` can be another ``CameraGeometry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            vrp (Position3D, optional): vrp value
-            vpn (Direction3D, optional): vpn value
-            vup (Direction3D, optional): vup value
+            vrp (Position3D, optional): vrp value.
+            vpn (Direction3D, optional): vpn value.
+            vup (Direction3D, optional): vup value.
         """
+        super().__init__()
+
         if isinstance(vrp, CameraGeometry):
             oth: CameraGeometry = vrp
-            self._vrp = oth.vrp
-            self._vpn = oth.vpn
-            self._vup = oth.vup
+            self.vrp = oth.vrp
+            self.vpn = oth.vpn
+            self.vup = oth.vup
             return
-        else:
-            if vrp is UNO_NONE:
-                self._vrp = Position3D_bddc0bc0()
-            else:
-                self._vrp = vrp
-            if vpn is UNO_NONE:
-                self._vpn = Direction3D_c9370c0c()
-            else:
-                self._vpn = vpn
-            if vup is UNO_NONE:
-                self._vup = Direction3D_c9370c0c()
-            else:
-                self._vup = vup
 
+        kargs = {
+            "vrp": vrp,
+            "vpn": vpn,
+            "vup": vup,
+        }
+        if kargs["vrp"] is UNO_NONE:
+            kargs["vrp"] = None
+        if kargs["vpn"] is UNO_NONE:
+            kargs["vpn"] = None
+        if kargs["vup"] is UNO_NONE:
+            kargs["vup"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._vrp = kwargs["vrp"]
+        self._vpn = kwargs["vpn"]
+        self._vup = kwargs["vup"]
 
 
     @property

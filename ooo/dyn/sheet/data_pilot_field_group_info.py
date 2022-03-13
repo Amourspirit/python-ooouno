@@ -22,42 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, HasAutoStart = UNO_NONE, HasAutoEnd = UNO_NONE, HasDateValues = UNO_NONE, Start = UNO_NONE, End = UNO_NONE, Step = UNO_NONE, GroupBy = UNO_NONE, SourceField = UNO_NONE, Groups = UNO_NONE):
-            if getattr(HasAutoStart, "__class__", None) == self.__class__:
-                orig_init(self, HasAutoStart)
+        ordered_keys = ('HasAutoStart', 'HasAutoEnd', 'HasDateValues', 'Start', 'End', 'Step', 'GroupBy', 'SourceField', 'Groups')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not HasAutoStart is UNO_NONE:
-                if getattr(self, 'HasAutoStart') != HasAutoStart:
-                    setattr(self, 'HasAutoStart', HasAutoStart)
-            if not HasAutoEnd is UNO_NONE:
-                if getattr(self, 'HasAutoEnd') != HasAutoEnd:
-                    setattr(self, 'HasAutoEnd', HasAutoEnd)
-            if not HasDateValues is UNO_NONE:
-                if getattr(self, 'HasDateValues') != HasDateValues:
-                    setattr(self, 'HasDateValues', HasDateValues)
-            if not Start is UNO_NONE:
-                if getattr(self, 'Start') != Start:
-                    setattr(self, 'Start', Start)
-            if not End is UNO_NONE:
-                if getattr(self, 'End') != End:
-                    setattr(self, 'End', End)
-            if not Step is UNO_NONE:
-                if getattr(self, 'Step') != Step:
-                    setattr(self, 'Step', Step)
-            if not GroupBy is UNO_NONE:
-                if getattr(self, 'GroupBy') != GroupBy:
-                    setattr(self, 'GroupBy', GroupBy)
-            if not SourceField is UNO_NONE:
-                if getattr(self, 'SourceField') != SourceField:
-                    setattr(self, 'SourceField', SourceField)
-            if not Groups is UNO_NONE:
-                if getattr(self, 'Groups') != Groups:
-                    setattr(self, 'Groups', Groups)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.DataPilotFieldGroupInfo'
         struct = uno.getClass(type_name)
@@ -69,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPilotFieldGroupInfo = _get_class()
-
 
 else:
     from ...lo.sheet.data_pilot_field_group_info import DataPilotFieldGroupInfo as DataPilotFieldGroupInfo

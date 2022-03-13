@@ -43,26 +43,52 @@ class EnhancedMouseEvent(MouseEvent_8f430a5f):
     typeName: str = 'com.sun.star.awt.EnhancedMouseEvent'
     """Literal Constant ``com.sun.star.awt.EnhancedMouseEvent``"""
 
-    def __init__(self, Target: XInterface_8f010a43 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Modifiers: typing.Optional[int] = 0, Buttons: typing.Optional[int] = 0, X: typing.Optional[int] = 0, Y: typing.Optional[int] = 0, ClickCount: typing.Optional[int] = 0, PopupTrigger: typing.Optional[bool] = False, Target: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Target`` can be another ``EnhancedMouseEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Target (XInterface, optional): Target value
+            Source (XInterface, optional): Source value.
+            Modifiers (int, optional): Modifiers value.
+            Buttons (int, optional): Buttons value.
+            X (int, optional): X value.
+            Y (int, optional): Y value.
+            ClickCount (int, optional): ClickCount value.
+            PopupTrigger (bool, optional): PopupTrigger value.
+            Target (XInterface, optional): Target value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Target, EnhancedMouseEvent):
-            oth: EnhancedMouseEvent = Target
-            self._target = oth.Target
-            return
-        else:
-            self._target = Target
 
+        if isinstance(Source, EnhancedMouseEvent):
+            oth: EnhancedMouseEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            self.Buttons = oth.Buttons
+            self.X = oth.X
+            self.Y = oth.Y
+            self.ClickCount = oth.ClickCount
+            self.PopupTrigger = oth.PopupTrigger
+            self.Target = oth.Target
+            return
+
+        kargs = {
+            "Source": Source,
+            "Modifiers": Modifiers,
+            "Buttons": Buttons,
+            "X": X,
+            "Y": Y,
+            "ClickCount": ClickCount,
+            "PopupTrigger": PopupTrigger,
+            "Target": Target,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._target = kwargs["Target"]
+        inst_keys = ('Target',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

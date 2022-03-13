@@ -41,27 +41,31 @@ class TemplateIdentifier(object):
     typeName: str = 'com.sun.star.configuration.backend.TemplateIdentifier'
     """Literal Constant ``com.sun.star.configuration.backend.TemplateIdentifier``"""
 
-    def __init__(self, Name: str = '', Component: str = '') -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Component: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``TemplateIdentifier`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Component (str, optional): Component value
+            Name (str, optional): Name value.
+            Component (str, optional): Component value.
         """
+        super().__init__()
+
         if isinstance(Name, TemplateIdentifier):
             oth: TemplateIdentifier = Name
-            self._name = oth.Name
-            self._component = oth.Component
+            self.Name = oth.Name
+            self.Component = oth.Component
             return
-        else:
-            self._name = Name
-            self._component = Component
 
+        kargs = {
+            "Name": Name,
+            "Component": Component,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._component = kwargs["Component"]
 
 
     @property

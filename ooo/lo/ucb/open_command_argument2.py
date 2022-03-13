@@ -20,6 +20,8 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .open_command_argument import OpenCommandArgument as OpenCommandArgument_fb0a0dd6
+from ..beans.property import Property as Property_8f4e0a76
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .numbered_sorting_info import NumberedSortingInfo as NumberedSortingInfo_fd0e0de6
 
@@ -41,29 +43,47 @@ class OpenCommandArgument2(OpenCommandArgument_fb0a0dd6):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument2'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument2``"""
 
-    def __init__(self, SortingInfo: typing.Tuple[NumberedSortingInfo_fd0e0de6, ...] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None, SortingInfo: typing.Optional[typing.Tuple[NumberedSortingInfo_fd0e0de6, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``SortingInfo`` can be another ``OpenCommandArgument2`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            SortingInfo (Tuple[NumberedSortingInfo, ...], optional): SortingInfo value
+            Properties (typing.Tuple[Property, ...], optional): Properties value.
+            Mode (int, optional): Mode value.
+            Priority (int, optional): Priority value.
+            Sink (XInterface, optional): Sink value.
+            SortingInfo (typing.Tuple[NumberedSortingInfo, ...], optional): SortingInfo value.
         """
-        super().__init__(**kwargs)
-        if isinstance(SortingInfo, OpenCommandArgument2):
-            oth: OpenCommandArgument2 = SortingInfo
-            self._sorting_info = oth.SortingInfo
-            return
-        else:
-            if SortingInfo is UNO_NONE:
-                self._sorting_info = None
-            else:
-                self._sorting_info = SortingInfo
 
+        if isinstance(Properties, OpenCommandArgument2):
+            oth: OpenCommandArgument2 = Properties
+            self.Properties = oth.Properties
+            self.Mode = oth.Mode
+            self.Priority = oth.Priority
+            self.Sink = oth.Sink
+            self.SortingInfo = oth.SortingInfo
+            return
+
+        kargs = {
+            "Properties": Properties,
+            "Mode": Mode,
+            "Priority": Priority,
+            "Sink": Sink,
+            "SortingInfo": SortingInfo,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        if kargs["SortingInfo"] is UNO_NONE:
+            kargs["SortingInfo"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._sorting_info = kwargs["SortingInfo"]
+        inst_keys = ('SortingInfo',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

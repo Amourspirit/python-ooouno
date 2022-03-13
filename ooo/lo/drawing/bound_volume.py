@@ -38,33 +38,35 @@ class BoundVolume(object):
     typeName: str = 'com.sun.star.drawing.BoundVolume'
     """Literal Constant ``com.sun.star.drawing.BoundVolume``"""
 
-    def __init__(self, min: Position3D_bddc0bc0 = UNO_NONE, max: Position3D_bddc0bc0 = UNO_NONE) -> None:
+    def __init__(self, min: typing.Optional[Position3D_bddc0bc0] = UNO_NONE, max: typing.Optional[Position3D_bddc0bc0] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``min`` can be another ``BoundVolume`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            min (Position3D, optional): min value
-            max (Position3D, optional): max value
+            min (Position3D, optional): min value.
+            max (Position3D, optional): max value.
         """
+        super().__init__()
+
         if isinstance(min, BoundVolume):
             oth: BoundVolume = min
-            self._min = oth.min
-            self._max = oth.max
+            self.min = oth.min
+            self.max = oth.max
             return
-        else:
-            if min is UNO_NONE:
-                self._min = Position3D_bddc0bc0()
-            else:
-                self._min = min
-            if max is UNO_NONE:
-                self._max = Position3D_bddc0bc0()
-            else:
-                self._max = max
 
+        kargs = {
+            "min": min,
+            "max": max,
+        }
+        if kargs["min"] is UNO_NONE:
+            kargs["min"] = None
+        if kargs["max"] is UNO_NONE:
+            kargs["max"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._min = kwargs["min"]
+        self._max = kwargs["max"]
 
 
     @property

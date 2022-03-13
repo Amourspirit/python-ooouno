@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, ProgrammaticName = UNO_NONE, UIName = UNO_NONE, HelpURL = UNO_NONE):
-            if getattr(ProgrammaticName, "__class__", None) == self.__class__:
-                orig_init(self, ProgrammaticName)
+        ordered_keys = ('ProgrammaticName', 'UIName', 'HelpURL')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not ProgrammaticName is UNO_NONE:
-                if getattr(self, 'ProgrammaticName') != ProgrammaticName:
-                    setattr(self, 'ProgrammaticName', ProgrammaticName)
-            if not UIName is UNO_NONE:
-                if getattr(self, 'UIName') != UIName:
-                    setattr(self, 'UIName', UIName)
-            if not HelpURL is UNO_NONE:
-                if getattr(self, 'HelpURL') != HelpURL:
-                    setattr(self, 'HelpURL', HelpURL)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.inspection.PropertyCategoryDescriptor'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     PropertyCategoryDescriptor = _get_class()
-
 
 else:
     from ...lo.inspection.property_category_descriptor import PropertyCategoryDescriptor as PropertyCategoryDescriptor

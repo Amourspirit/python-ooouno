@@ -38,39 +38,47 @@ class LineDash(object):
     typeName: str = 'com.sun.star.drawing.LineDash'
     """Literal Constant ``com.sun.star.drawing.LineDash``"""
 
-    def __init__(self, Style: DashStyle_b10d0b85 = DashStyle_b10d0b85.RECT, Dots: int = 0, DotLen: int = 0, Dashes: int = 0, DashLen: int = 0, Distance: int = 0) -> None:
+    def __init__(self, Style: typing.Optional[DashStyle_b10d0b85] = DashStyle_b10d0b85.RECT, Dots: typing.Optional[int] = 0, DotLen: typing.Optional[int] = 0, Dashes: typing.Optional[int] = 0, DashLen: typing.Optional[int] = 0, Distance: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Style`` can be another ``LineDash`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Style (DashStyle, optional): Style value
-            Dots (int, optional): Dots value
-            DotLen (int, optional): DotLen value
-            Dashes (int, optional): Dashes value
-            DashLen (int, optional): DashLen value
-            Distance (int, optional): Distance value
+            Style (DashStyle, optional): Style value.
+            Dots (int, optional): Dots value.
+            DotLen (int, optional): DotLen value.
+            Dashes (int, optional): Dashes value.
+            DashLen (int, optional): DashLen value.
+            Distance (int, optional): Distance value.
         """
+        super().__init__()
+
         if isinstance(Style, LineDash):
             oth: LineDash = Style
-            self._style = oth.Style
-            self._dots = oth.Dots
-            self._dot_len = oth.DotLen
-            self._dashes = oth.Dashes
-            self._dash_len = oth.DashLen
-            self._distance = oth.Distance
+            self.Style = oth.Style
+            self.Dots = oth.Dots
+            self.DotLen = oth.DotLen
+            self.Dashes = oth.Dashes
+            self.DashLen = oth.DashLen
+            self.Distance = oth.Distance
             return
-        else:
-            self._style = Style
-            self._dots = Dots
-            self._dot_len = DotLen
-            self._dashes = Dashes
-            self._dash_len = DashLen
-            self._distance = Distance
 
+        kargs = {
+            "Style": Style,
+            "Dots": Dots,
+            "DotLen": DotLen,
+            "Dashes": Dashes,
+            "DashLen": DashLen,
+            "Distance": Distance,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._style = kwargs["Style"]
+        self._dots = kwargs["Dots"]
+        self._dot_len = kwargs["DotLen"]
+        self._dashes = kwargs["Dashes"]
+        self._dash_len = kwargs["DashLen"]
+        self._distance = kwargs["Distance"]
 
 
     @property

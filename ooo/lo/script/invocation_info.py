@@ -39,45 +39,51 @@ class InvocationInfo(object):
     typeName: str = 'com.sun.star.script.InvocationInfo'
     """Literal Constant ``com.sun.star.script.InvocationInfo``"""
 
-    def __init__(self, aParamTypes: typing.Tuple[object, ...] = UNO_NONE, aParamModes: typing.Tuple[ParamMode_d7260ca9, ...] = UNO_NONE, aName: str = '', eMemberType: MemberType_b1e00b97 = MemberType_b1e00b97.METHOD, PropertyAttribute: int = 0, aType: object = None) -> None:
+    def __init__(self, aParamTypes: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, aParamModes: typing.Optional[typing.Tuple[ParamMode_d7260ca9, ...]] = UNO_NONE, aName: typing.Optional[str] = '', eMemberType: typing.Optional[MemberType_b1e00b97] = MemberType_b1e00b97.METHOD, PropertyAttribute: typing.Optional[int] = 0, aType: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``aParamTypes`` can be another ``InvocationInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            aParamTypes (Tuple[object, ...], optional): aParamTypes value
-            aParamModes (Tuple[ParamMode, ...], optional): aParamModes value
-            aName (str, optional): aName value
-            eMemberType (MemberType, optional): eMemberType value
-            PropertyAttribute (int, optional): PropertyAttribute value
-            aType (object, optional): aType value
+            aParamTypes (typing.Tuple[object, ...], optional): aParamTypes value.
+            aParamModes (typing.Tuple[ParamMode, ...], optional): aParamModes value.
+            aName (str, optional): aName value.
+            eMemberType (MemberType, optional): eMemberType value.
+            PropertyAttribute (int, optional): PropertyAttribute value.
+            aType (object, optional): aType value.
         """
+        super().__init__()
+
         if isinstance(aParamTypes, InvocationInfo):
             oth: InvocationInfo = aParamTypes
-            self._a_param_types = oth.aParamTypes
-            self._a_param_modes = oth.aParamModes
-            self._a_name = oth.aName
-            self._e_member_type = oth.eMemberType
-            self._property_attribute = oth.PropertyAttribute
-            self._a_type = oth.aType
+            self.aParamTypes = oth.aParamTypes
+            self.aParamModes = oth.aParamModes
+            self.aName = oth.aName
+            self.eMemberType = oth.eMemberType
+            self.PropertyAttribute = oth.PropertyAttribute
+            self.aType = oth.aType
             return
-        else:
-            if aParamTypes is UNO_NONE:
-                self._a_param_types = None
-            else:
-                self._a_param_types = aParamTypes
-            if aParamModes is UNO_NONE:
-                self._a_param_modes = None
-            else:
-                self._a_param_modes = aParamModes
-            self._a_name = aName
-            self._e_member_type = eMemberType
-            self._property_attribute = PropertyAttribute
-            self._a_type = aType
 
+        kargs = {
+            "aParamTypes": aParamTypes,
+            "aParamModes": aParamModes,
+            "aName": aName,
+            "eMemberType": eMemberType,
+            "PropertyAttribute": PropertyAttribute,
+            "aType": aType,
+        }
+        if kargs["aParamTypes"] is UNO_NONE:
+            kargs["aParamTypes"] = None
+        if kargs["aParamModes"] is UNO_NONE:
+            kargs["aParamModes"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._a_param_types = kwargs["aParamTypes"]
+        self._a_param_modes = kwargs["aParamModes"]
+        self._a_name = kwargs["aName"]
+        self._e_member_type = kwargs["eMemberType"]
+        self._property_attribute = kwargs["PropertyAttribute"]
+        self._a_type = kwargs["aType"]
 
 
     @property

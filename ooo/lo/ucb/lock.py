@@ -20,6 +20,8 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from .lock_entry import LockEntry as LockEntry_839e09dd
+from .lock_scope import LockScope as LockScope_839109c5
+from .lock_type import LockType as LockType_7a09096d
 import typing
 from .lock_depth import LockDepth as LockDepth_835c09c0
 
@@ -39,38 +41,51 @@ class Lock(LockEntry_839e09dd):
     typeName: str = 'com.sun.star.ucb.Lock'
     """Literal Constant ``com.sun.star.ucb.Lock``"""
 
-    def __init__(self, LockTokens: typing.Tuple[str, ...] = UNO_NONE, Depth: LockDepth_835c09c0 = LockDepth_835c09c0.ZERO, Owner: object = None, Timeout: int = 0, **kwargs) -> None:
+    def __init__(self, Scope: typing.Optional[LockScope_839109c5] = LockScope_839109c5.EXCLUSIVE, Type: typing.Optional[LockType_7a09096d] = LockType_7a09096d.WRITE, LockTokens: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Depth: typing.Optional[LockDepth_835c09c0] = LockDepth_835c09c0.ZERO, Owner: typing.Optional[object] = None, Timeout: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LockTokens`` can be another ``Lock`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            LockTokens (Tuple[str, ...], optional): LockTokens value
-            Depth (LockDepth, optional): Depth value
-            Owner (object, optional): Owner value
-            Timeout (int, optional): Timeout value
+            Scope (LockScope, optional): Scope value.
+            Type (LockType, optional): Type value.
+            LockTokens (typing.Tuple[str, ...], optional): LockTokens value.
+            Depth (LockDepth, optional): Depth value.
+            Owner (object, optional): Owner value.
+            Timeout (int, optional): Timeout value.
         """
-        super().__init__(**kwargs)
-        if isinstance(LockTokens, Lock):
-            oth: Lock = LockTokens
-            self._lock_tokens = oth.LockTokens
-            self._depth = oth.Depth
-            self._owner = oth.Owner
-            self._timeout = oth.Timeout
-            return
-        else:
-            if LockTokens is UNO_NONE:
-                self._lock_tokens = None
-            else:
-                self._lock_tokens = LockTokens
-            self._depth = Depth
-            self._owner = Owner
-            self._timeout = Timeout
 
+        if isinstance(Scope, Lock):
+            oth: Lock = Scope
+            self.Scope = oth.Scope
+            self.Type = oth.Type
+            self.LockTokens = oth.LockTokens
+            self.Depth = oth.Depth
+            self.Owner = oth.Owner
+            self.Timeout = oth.Timeout
+            return
+
+        kargs = {
+            "Scope": Scope,
+            "Type": Type,
+            "LockTokens": LockTokens,
+            "Depth": Depth,
+            "Owner": Owner,
+            "Timeout": Timeout,
+        }
+        if kargs["LockTokens"] is UNO_NONE:
+            kargs["LockTokens"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._lock_tokens = kwargs["LockTokens"]
+        self._depth = kwargs["Depth"]
+        self._owner = kwargs["Owner"]
+        self._timeout = kwargs["Timeout"]
+        inst_keys = ('LockTokens', 'Depth', 'Owner', 'Timeout')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

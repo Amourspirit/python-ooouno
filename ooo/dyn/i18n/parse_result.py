@@ -22,39 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, LeadingWhiteSpace = UNO_NONE, EndPos = UNO_NONE, CharLen = UNO_NONE, Value = UNO_NONE, TokenType = UNO_NONE, StartFlags = UNO_NONE, ContFlags = UNO_NONE, DequotedNameOrString = UNO_NONE):
-            if getattr(LeadingWhiteSpace, "__class__", None) == self.__class__:
-                orig_init(self, LeadingWhiteSpace)
+        ordered_keys = ('LeadingWhiteSpace', 'EndPos', 'CharLen', 'Value', 'TokenType', 'StartFlags', 'ContFlags', 'DequotedNameOrString')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not LeadingWhiteSpace is UNO_NONE:
-                if getattr(self, 'LeadingWhiteSpace') != LeadingWhiteSpace:
-                    setattr(self, 'LeadingWhiteSpace', LeadingWhiteSpace)
-            if not EndPos is UNO_NONE:
-                if getattr(self, 'EndPos') != EndPos:
-                    setattr(self, 'EndPos', EndPos)
-            if not CharLen is UNO_NONE:
-                if getattr(self, 'CharLen') != CharLen:
-                    setattr(self, 'CharLen', CharLen)
-            if not Value is UNO_NONE:
-                if getattr(self, 'Value') != Value:
-                    setattr(self, 'Value', Value)
-            if not TokenType is UNO_NONE:
-                if getattr(self, 'TokenType') != TokenType:
-                    setattr(self, 'TokenType', TokenType)
-            if not StartFlags is UNO_NONE:
-                if getattr(self, 'StartFlags') != StartFlags:
-                    setattr(self, 'StartFlags', StartFlags)
-            if not ContFlags is UNO_NONE:
-                if getattr(self, 'ContFlags') != ContFlags:
-                    setattr(self, 'ContFlags', ContFlags)
-            if not DequotedNameOrString is UNO_NONE:
-                if getattr(self, 'DequotedNameOrString') != DequotedNameOrString:
-                    setattr(self, 'DequotedNameOrString', DequotedNameOrString)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.ParseResult'
         struct = uno.getClass(type_name)
@@ -66,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ParseResult = _get_class()
-
 
 else:
     from ...lo.i18n.parse_result import ParseResult as ParseResult

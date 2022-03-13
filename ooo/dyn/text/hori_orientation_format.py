@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, XPos = UNO_NONE, HorizontalOrientation = UNO_NONE, HorizontalRelation = UNO_NONE, PositionToggle = UNO_NONE):
-            if getattr(XPos, "__class__", None) == self.__class__:
-                orig_init(self, XPos)
+        ordered_keys = ('XPos', 'HorizontalOrientation', 'HorizontalRelation', 'PositionToggle')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not XPos is UNO_NONE:
-                if getattr(self, 'XPos') != XPos:
-                    setattr(self, 'XPos', XPos)
-            if not HorizontalOrientation is UNO_NONE:
-                if getattr(self, 'HorizontalOrientation') != HorizontalOrientation:
-                    setattr(self, 'HorizontalOrientation', HorizontalOrientation)
-            if not HorizontalRelation is UNO_NONE:
-                if getattr(self, 'HorizontalRelation') != HorizontalRelation:
-                    setattr(self, 'HorizontalRelation', HorizontalRelation)
-            if not PositionToggle is UNO_NONE:
-                if getattr(self, 'PositionToggle') != PositionToggle:
-                    setattr(self, 'PositionToggle', PositionToggle)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.text.HoriOrientationFormat'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     HoriOrientationFormat = _get_class()
-
 
 else:
     from ...lo.text.hori_orientation_format import HoriOrientationFormat as HoriOrientationFormat

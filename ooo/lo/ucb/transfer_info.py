@@ -39,33 +39,39 @@ class TransferInfo(object):
     typeName: str = 'com.sun.star.ucb.TransferInfo'
     """Literal Constant ``com.sun.star.ucb.TransferInfo``"""
 
-    def __init__(self, MoveData: bool = False, SourceURL: str = '', NewTitle: str = '', NameClash: int = 0) -> None:
+    def __init__(self, MoveData: typing.Optional[bool] = False, SourceURL: typing.Optional[str] = '', NewTitle: typing.Optional[str] = '', NameClash: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MoveData`` can be another ``TransferInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            MoveData (bool, optional): MoveData value
-            SourceURL (str, optional): SourceURL value
-            NewTitle (str, optional): NewTitle value
-            NameClash (int, optional): NameClash value
+            MoveData (bool, optional): MoveData value.
+            SourceURL (str, optional): SourceURL value.
+            NewTitle (str, optional): NewTitle value.
+            NameClash (int, optional): NameClash value.
         """
+        super().__init__()
+
         if isinstance(MoveData, TransferInfo):
             oth: TransferInfo = MoveData
-            self._move_data = oth.MoveData
-            self._source_url = oth.SourceURL
-            self._new_title = oth.NewTitle
-            self._name_clash = oth.NameClash
+            self.MoveData = oth.MoveData
+            self.SourceURL = oth.SourceURL
+            self.NewTitle = oth.NewTitle
+            self.NameClash = oth.NameClash
             return
-        else:
-            self._move_data = MoveData
-            self._source_url = SourceURL
-            self._new_title = NewTitle
-            self._name_clash = NameClash
 
+        kargs = {
+            "MoveData": MoveData,
+            "SourceURL": SourceURL,
+            "NewTitle": NewTitle,
+            "NameClash": NameClash,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._move_data = kwargs["MoveData"]
+        self._source_url = kwargs["SourceURL"]
+        self._new_title = kwargs["NewTitle"]
+        self._name_clash = kwargs["NameClash"]
 
 
     @property

@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.sheet
 import typing
-from abc import abstractmethod, ABC
+from abc import abstractmethod, abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from .formula_op_code_map_entry import FormulaOpCodeMapEntry as FormulaOpCodeMapEntry_37da0f61
     from .formula_token import FormulaToken as FormulaToken_bd1c0bf8
@@ -62,6 +62,22 @@ class XFormulaOpCodeMapper(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+    @abstractproperty
+    def OpCodeExternal(self) -> int:
+        """
+        OpCode value used for external Add-In functions.
+        
+        Needed to be able to identify which of the function names map to an Add-In implementation where this OpCode is used in the returned mapping and the programmatic name is available as additional information.
+        """
+
+    @abstractproperty
+    def OpCodeUnknown(self) -> int:
+        """
+        OpCode value used for unknown functions.
+        
+        Used to identify which of the function names queried with getMappings() are unknown to the implementation.
+        """
+
 
 __all__ = ['XFormulaOpCodeMapper']
 

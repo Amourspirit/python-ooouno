@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Type = UNO_NONE, WindowServiceName = UNO_NONE, Parent = UNO_NONE, ParentIndex = UNO_NONE, Bounds = UNO_NONE, WindowAttributes = UNO_NONE):
-            if getattr(Type, "__class__", None) == self.__class__:
-                orig_init(self, Type)
+        ordered_keys = ('Type', 'WindowServiceName', 'Parent', 'ParentIndex', 'Bounds', 'WindowAttributes')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Type is UNO_NONE:
-                if getattr(self, 'Type') != Type:
-                    setattr(self, 'Type', Type)
-            if not WindowServiceName is UNO_NONE:
-                if getattr(self, 'WindowServiceName') != WindowServiceName:
-                    setattr(self, 'WindowServiceName', WindowServiceName)
-            if not Parent is UNO_NONE:
-                if getattr(self, 'Parent') != Parent:
-                    setattr(self, 'Parent', Parent)
-            if not ParentIndex is UNO_NONE:
-                if getattr(self, 'ParentIndex') != ParentIndex:
-                    setattr(self, 'ParentIndex', ParentIndex)
-            if not Bounds is UNO_NONE:
-                if getattr(self, 'Bounds') != Bounds:
-                    setattr(self, 'Bounds', Bounds)
-            if not WindowAttributes is UNO_NONE:
-                if getattr(self, 'WindowAttributes') != WindowAttributes:
-                    setattr(self, 'WindowAttributes', WindowAttributes)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.awt.WindowDescriptor'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     WindowDescriptor = _get_class()
-
 
 else:
     from ...lo.awt.window_descriptor import WindowDescriptor as WindowDescriptor

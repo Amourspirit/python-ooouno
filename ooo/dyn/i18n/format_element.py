@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, formatCode = UNO_NONE, formatName = UNO_NONE, formatKey = UNO_NONE, formatType = UNO_NONE, formatUsage = UNO_NONE, formatIndex = UNO_NONE, isDefault = UNO_NONE):
-            if getattr(formatCode, "__class__", None) == self.__class__:
-                orig_init(self, formatCode)
+        ordered_keys = ('formatCode', 'formatName', 'formatKey', 'formatType', 'formatUsage', 'formatIndex', 'isDefault')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not formatCode is UNO_NONE:
-                if getattr(self, 'formatCode') != formatCode:
-                    setattr(self, 'formatCode', formatCode)
-            if not formatName is UNO_NONE:
-                if getattr(self, 'formatName') != formatName:
-                    setattr(self, 'formatName', formatName)
-            if not formatKey is UNO_NONE:
-                if getattr(self, 'formatKey') != formatKey:
-                    setattr(self, 'formatKey', formatKey)
-            if not formatType is UNO_NONE:
-                if getattr(self, 'formatType') != formatType:
-                    setattr(self, 'formatType', formatType)
-            if not formatUsage is UNO_NONE:
-                if getattr(self, 'formatUsage') != formatUsage:
-                    setattr(self, 'formatUsage', formatUsage)
-            if not formatIndex is UNO_NONE:
-                if getattr(self, 'formatIndex') != formatIndex:
-                    setattr(self, 'formatIndex', formatIndex)
-            if not isDefault is UNO_NONE:
-                if getattr(self, 'isDefault') != isDefault:
-                    setattr(self, 'isDefault', isDefault)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.i18n.FormatElement'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     FormatElement = _get_class()
-
 
 else:
     from ...lo.i18n.format_element import FormatElement as FormatElement

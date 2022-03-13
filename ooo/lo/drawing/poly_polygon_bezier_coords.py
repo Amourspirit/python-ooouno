@@ -39,33 +39,35 @@ class PolyPolygonBezierCoords(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonBezierCoords'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonBezierCoords``"""
 
-    def __init__(self, Coordinates: PointSequenceSequence_5c591070 = UNO_NONE, Flags: FlagSequenceSequence_49130fe0 = UNO_NONE) -> None:
+    def __init__(self, Coordinates: typing.Optional[PointSequenceSequence_5c591070] = UNO_NONE, Flags: typing.Optional[FlagSequenceSequence_49130fe0] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Coordinates`` can be another ``PolyPolygonBezierCoords`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Coordinates (PointSequenceSequence, optional): Coordinates value
-            Flags (FlagSequenceSequence, optional): Flags value
+            Coordinates (PointSequenceSequence, optional): Coordinates value.
+            Flags (FlagSequenceSequence, optional): Flags value.
         """
+        super().__init__()
+
         if isinstance(Coordinates, PolyPolygonBezierCoords):
             oth: PolyPolygonBezierCoords = Coordinates
-            self._coordinates = oth.Coordinates
-            self._flags = oth.Flags
+            self.Coordinates = oth.Coordinates
+            self.Flags = oth.Flags
             return
-        else:
-            if Coordinates is UNO_NONE:
-                self._coordinates = None
-            else:
-                self._coordinates = Coordinates
-            if Flags is UNO_NONE:
-                self._flags = None
-            else:
-                self._flags = Flags
 
+        kargs = {
+            "Coordinates": Coordinates,
+            "Flags": Flags,
+        }
+        if kargs["Coordinates"] is UNO_NONE:
+            kargs["Coordinates"] = None
+        if kargs["Flags"] is UNO_NONE:
+            kargs["Flags"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._coordinates = kwargs["Coordinates"]
+        self._flags = kwargs["Flags"]
 
 
     @property

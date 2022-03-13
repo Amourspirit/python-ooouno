@@ -39,30 +39,35 @@ class VertOrientationFormat(object):
     typeName: str = 'com.sun.star.text.VertOrientationFormat'
     """Literal Constant ``com.sun.star.text.VertOrientationFormat``"""
 
-    def __init__(self, YPos: int = 0, VerticalOrientation: int = 0, VerticalRelation: int = 0) -> None:
+    def __init__(self, YPos: typing.Optional[int] = 0, VerticalOrientation: typing.Optional[int] = 0, VerticalRelation: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``YPos`` can be another ``VertOrientationFormat`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            YPos (int, optional): YPos value
-            VerticalOrientation (int, optional): VerticalOrientation value
-            VerticalRelation (int, optional): VerticalRelation value
+            YPos (int, optional): YPos value.
+            VerticalOrientation (int, optional): VerticalOrientation value.
+            VerticalRelation (int, optional): VerticalRelation value.
         """
+        super().__init__()
+
         if isinstance(YPos, VertOrientationFormat):
             oth: VertOrientationFormat = YPos
-            self._y_pos = oth.YPos
-            self._vertical_orientation = oth.VerticalOrientation
-            self._vertical_relation = oth.VerticalRelation
+            self.YPos = oth.YPos
+            self.VerticalOrientation = oth.VerticalOrientation
+            self.VerticalRelation = oth.VerticalRelation
             return
-        else:
-            self._y_pos = YPos
-            self._vertical_orientation = VerticalOrientation
-            self._vertical_relation = VerticalRelation
 
+        kargs = {
+            "YPos": YPos,
+            "VerticalOrientation": VerticalOrientation,
+            "VerticalRelation": VerticalRelation,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._y_pos = kwargs["YPos"]
+        self._vertical_orientation = kwargs["VerticalOrientation"]
+        self._vertical_relation = kwargs["VerticalRelation"]
 
 
     @property

@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FieldFilters = UNO_NONE, DataFieldIndex = UNO_NONE, Result = UNO_NONE):
-            if getattr(FieldFilters, "__class__", None) == self.__class__:
-                orig_init(self, FieldFilters)
+        ordered_keys = ('FieldFilters', 'DataFieldIndex', 'Result')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FieldFilters is UNO_NONE:
-                if getattr(self, 'FieldFilters') != FieldFilters:
-                    setattr(self, 'FieldFilters', FieldFilters)
-            if not DataFieldIndex is UNO_NONE:
-                if getattr(self, 'DataFieldIndex') != DataFieldIndex:
-                    setattr(self, 'DataFieldIndex', DataFieldIndex)
-            if not Result is UNO_NONE:
-                if getattr(self, 'Result') != Result:
-                    setattr(self, 'Result', Result)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sheet.DataPilotTableResultData'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DataPilotTableResultData = _get_class()
-
 
 else:
     from ...lo.sheet.data_pilot_table_result_data import DataPilotTableResultData as DataPilotTableResultData

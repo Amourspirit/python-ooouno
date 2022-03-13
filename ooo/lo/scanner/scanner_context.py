@@ -37,27 +37,31 @@ class ScannerContext(object):
     typeName: str = 'com.sun.star.scanner.ScannerContext'
     """Literal Constant ``com.sun.star.scanner.ScannerContext``"""
 
-    def __init__(self, ScannerName: str = '', InternalData: int = 0) -> None:
+    def __init__(self, ScannerName: typing.Optional[str] = '', InternalData: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ScannerName`` can be another ``ScannerContext`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ScannerName (str, optional): ScannerName value
-            InternalData (int, optional): InternalData value
+            ScannerName (str, optional): ScannerName value.
+            InternalData (int, optional): InternalData value.
         """
+        super().__init__()
+
         if isinstance(ScannerName, ScannerContext):
             oth: ScannerContext = ScannerName
-            self._scanner_name = oth.ScannerName
-            self._internal_data = oth.InternalData
+            self.ScannerName = oth.ScannerName
+            self.InternalData = oth.InternalData
             return
-        else:
-            self._scanner_name = ScannerName
-            self._internal_data = InternalData
 
+        kargs = {
+            "ScannerName": ScannerName,
+            "InternalData": InternalData,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._scanner_name = kwargs["ScannerName"]
+        self._internal_data = kwargs["InternalData"]
 
 
     @property

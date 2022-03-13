@@ -39,30 +39,35 @@ class CalendarItem(object):
     typeName: str = 'com.sun.star.i18n.CalendarItem'
     """Literal Constant ``com.sun.star.i18n.CalendarItem``"""
 
-    def __init__(self, ID: str = '', AbbrevName: str = '', FullName: str = '') -> None:
+    def __init__(self, ID: typing.Optional[str] = '', AbbrevName: typing.Optional[str] = '', FullName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ID`` can be another ``CalendarItem`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ID (str, optional): ID value
-            AbbrevName (str, optional): AbbrevName value
-            FullName (str, optional): FullName value
+            ID (str, optional): ID value.
+            AbbrevName (str, optional): AbbrevName value.
+            FullName (str, optional): FullName value.
         """
+        super().__init__()
+
         if isinstance(ID, CalendarItem):
             oth: CalendarItem = ID
-            self._id = oth.ID
-            self._abbrev_name = oth.AbbrevName
-            self._full_name = oth.FullName
+            self.ID = oth.ID
+            self.AbbrevName = oth.AbbrevName
+            self.FullName = oth.FullName
             return
-        else:
-            self._id = ID
-            self._abbrev_name = AbbrevName
-            self._full_name = FullName
 
+        kargs = {
+            "ID": ID,
+            "AbbrevName": AbbrevName,
+            "FullName": FullName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._id = kwargs["ID"]
+        self._abbrev_name = kwargs["AbbrevName"]
+        self._full_name = kwargs["FullName"]
 
 
     @property

@@ -25,7 +25,7 @@ Installation
 CONDA
 -----
 
-OOOUNO on `Anaconda <https://anaconda.org/conda-forge/ooouno>`_
+**ooouno** on `Anaconda <https://anaconda.org/conda-forge/ooouno>`_
 
 .. code-block:: bash
 
@@ -56,13 +56,17 @@ For instance:
     | ``from ooo.cssdyn.style import LineSpacing`` is equivalent to
     | ``from com.sun.star.style import LineSpacing``
 
+
+Namespace
+---------
+
 There are four namespaces representing LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ in this library.
 
 ooo.lo
-------
+++++++
 
 | Namespace ``ooo.lo`` contains all static python classes. The format is
-| ``ooo.lo.<ns>.<snake_case_name>.<UpperCamelCaseName>``
+| ``ooo.lo.<ns>.<snake_case_name>.<PascalCaseName>``
 
 .. code-block:: python
 
@@ -71,10 +75,10 @@ ooo.lo
     def foo(input:str) -> XInterface: ...
 
 ooo.dyn
--------
++++++++
 
 Namespace ``ooo.dyn`` contains static and dynamic classes depending on class type.
-The format is ``ooo.dyn.<ns>.<snake_case_name>.<UpperCamelCaseName>``
+The format is ``ooo.dyn.<ns>.<snake_case_name>.<PascalCaseName>``
 
 This namespace has dynamic classes that are changed at runtime.
 For classes that are dynamic are fully or partially replaced by UNO version at runtime.
@@ -96,10 +100,10 @@ This allows for typings while in design time (working in IDE) and at runtime UNO
     
 
 ooo.csslo
----------
++++++++++
 
 | Namespace ``ooo.csslo`` contains static classes as LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ style imports.
-| The format is ``ooo.csslo.<ns>.<UpperCamelCaseName>``
+| The format is ``ooo.csslo.<ns>.<PascalCaseName>``
 
 When importing from ``ooo.csslo`` all classes in that namespace are also loaded.
 Under some circumstances this may not be desired. Such as packaging with `stickytape <https://pypi.org/project/stickytape/>`_.
@@ -115,7 +119,7 @@ Under some circumstances this may not be desired. Such as packaging with `sticky
     'LineSpacing'
 
 ooo.cssdyn
-----------
+++++++++++
 
 Namespace ``ooo.cssdyn`` contains static and dynamic classes depending on class type as LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ style imports.
 
@@ -139,7 +143,7 @@ Generally speaking
 When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
 
 When using ooo interactivly such as creating structs, enums, singletons, const classes then
-import from ``ooo.dyn`` or ```ooo.cssdyn``.
+import from ``ooo.dyn`` or ``ooo.cssdyn``.
 
 
 .. |lic| image:: https://img.shields.io/github/license/Amourspirit/python-ooouno

@@ -36,6 +36,18 @@ class TabularDataProviderArguments(ABC):
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
+    def SequenceMapping(self) -> 'typing.Tuple[int, ...]':
+        """
+        determines the order of the created labeled sequences
+        
+        For example a SequenceMapping of [3,0,2,1] indicates that the sequence from old position \"3\" should now be the first one. Then comes the sequence from old position \"0\". Then that one from old position \"2\" and then the sequence from old position \"1\".
+        
+        If the SequenceMapping contains invalid indexes just ignore those single indexes. For example if you only have three labeled sequences and a SequenceMapping [2,5,1,0], you should ignore the \"5\" and continue to place the sequence from old index \"1\" to the next new position and so on.
+        
+        If the given SequenceMapping does not cover all existing labeled sequences just put the remaining sequences in old order behind the others. For example you have 4 sequences and a SequenceMapping [3,1]. The result should be as if [3,1,0,2] was given.
+        """
+
+    @abstractproperty
     def CellRangeRepresentation(self) -> str:
         """
         the range address string spanning all data.

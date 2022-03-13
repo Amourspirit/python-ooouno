@@ -37,45 +37,55 @@ class ParseResult(object):
     typeName: str = 'com.sun.star.i18n.ParseResult'
     """Literal Constant ``com.sun.star.i18n.ParseResult``"""
 
-    def __init__(self, LeadingWhiteSpace: int = 0, EndPos: int = 0, CharLen: int = 0, Value: float = 0.0, TokenType: int = 0, StartFlags: int = 0, ContFlags: int = 0, DequotedNameOrString: str = '') -> None:
+    def __init__(self, LeadingWhiteSpace: typing.Optional[int] = 0, EndPos: typing.Optional[int] = 0, CharLen: typing.Optional[int] = 0, Value: typing.Optional[float] = 0.0, TokenType: typing.Optional[int] = 0, StartFlags: typing.Optional[int] = 0, ContFlags: typing.Optional[int] = 0, DequotedNameOrString: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``LeadingWhiteSpace`` can be another ``ParseResult`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            LeadingWhiteSpace (int, optional): LeadingWhiteSpace value
-            EndPos (int, optional): EndPos value
-            CharLen (int, optional): CharLen value
-            Value (float, optional): Value value
-            TokenType (int, optional): TokenType value
-            StartFlags (int, optional): StartFlags value
-            ContFlags (int, optional): ContFlags value
-            DequotedNameOrString (str, optional): DequotedNameOrString value
+            LeadingWhiteSpace (int, optional): LeadingWhiteSpace value.
+            EndPos (int, optional): EndPos value.
+            CharLen (int, optional): CharLen value.
+            Value (float, optional): Value value.
+            TokenType (int, optional): TokenType value.
+            StartFlags (int, optional): StartFlags value.
+            ContFlags (int, optional): ContFlags value.
+            DequotedNameOrString (str, optional): DequotedNameOrString value.
         """
+        super().__init__()
+
         if isinstance(LeadingWhiteSpace, ParseResult):
             oth: ParseResult = LeadingWhiteSpace
-            self._leading_white_space = oth.LeadingWhiteSpace
-            self._end_pos = oth.EndPos
-            self._char_len = oth.CharLen
-            self._value = oth.Value
-            self._token_type = oth.TokenType
-            self._start_flags = oth.StartFlags
-            self._cont_flags = oth.ContFlags
-            self._dequoted_name_or_string = oth.DequotedNameOrString
+            self.LeadingWhiteSpace = oth.LeadingWhiteSpace
+            self.EndPos = oth.EndPos
+            self.CharLen = oth.CharLen
+            self.Value = oth.Value
+            self.TokenType = oth.TokenType
+            self.StartFlags = oth.StartFlags
+            self.ContFlags = oth.ContFlags
+            self.DequotedNameOrString = oth.DequotedNameOrString
             return
-        else:
-            self._leading_white_space = LeadingWhiteSpace
-            self._end_pos = EndPos
-            self._char_len = CharLen
-            self._value = Value
-            self._token_type = TokenType
-            self._start_flags = StartFlags
-            self._cont_flags = ContFlags
-            self._dequoted_name_or_string = DequotedNameOrString
 
+        kargs = {
+            "LeadingWhiteSpace": LeadingWhiteSpace,
+            "EndPos": EndPos,
+            "CharLen": CharLen,
+            "Value": Value,
+            "TokenType": TokenType,
+            "StartFlags": StartFlags,
+            "ContFlags": ContFlags,
+            "DequotedNameOrString": DequotedNameOrString,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._leading_white_space = kwargs["LeadingWhiteSpace"]
+        self._end_pos = kwargs["EndPos"]
+        self._char_len = kwargs["CharLen"]
+        self._value = kwargs["Value"]
+        self._token_type = kwargs["TokenType"]
+        self._start_flags = kwargs["StartFlags"]
+        self._cont_flags = kwargs["ContFlags"]
+        self._dequoted_name_or_string = kwargs["DequotedNameOrString"]
 
 
     @property

@@ -41,45 +41,55 @@ class LeftRightMarginScale(object):
     typeName: str = 'com.sun.star.frame.status.LeftRightMarginScale'
     """Literal Constant ``com.sun.star.frame.status.LeftRightMarginScale``"""
 
-    def __init__(self, TextLeft: int = 0, Left: int = 0, Right: int = 0, FirstLine: int = 0, ScaleLeft: int = 0, ScaleRight: int = 0, ScaleFirstLine: int = 0, AutoFirstLine: bool = False) -> None:
+    def __init__(self, TextLeft: typing.Optional[int] = 0, Left: typing.Optional[int] = 0, Right: typing.Optional[int] = 0, FirstLine: typing.Optional[int] = 0, ScaleLeft: typing.Optional[int] = 0, ScaleRight: typing.Optional[int] = 0, ScaleFirstLine: typing.Optional[int] = 0, AutoFirstLine: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``TextLeft`` can be another ``LeftRightMarginScale`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            TextLeft (int, optional): TextLeft value
-            Left (int, optional): Left value
-            Right (int, optional): Right value
-            FirstLine (int, optional): FirstLine value
-            ScaleLeft (int, optional): ScaleLeft value
-            ScaleRight (int, optional): ScaleRight value
-            ScaleFirstLine (int, optional): ScaleFirstLine value
-            AutoFirstLine (bool, optional): AutoFirstLine value
+            TextLeft (int, optional): TextLeft value.
+            Left (int, optional): Left value.
+            Right (int, optional): Right value.
+            FirstLine (int, optional): FirstLine value.
+            ScaleLeft (int, optional): ScaleLeft value.
+            ScaleRight (int, optional): ScaleRight value.
+            ScaleFirstLine (int, optional): ScaleFirstLine value.
+            AutoFirstLine (bool, optional): AutoFirstLine value.
         """
+        super().__init__()
+
         if isinstance(TextLeft, LeftRightMarginScale):
             oth: LeftRightMarginScale = TextLeft
-            self._text_left = oth.TextLeft
-            self._left = oth.Left
-            self._right = oth.Right
-            self._first_line = oth.FirstLine
-            self._scale_left = oth.ScaleLeft
-            self._scale_right = oth.ScaleRight
-            self._scale_first_line = oth.ScaleFirstLine
-            self._auto_first_line = oth.AutoFirstLine
+            self.TextLeft = oth.TextLeft
+            self.Left = oth.Left
+            self.Right = oth.Right
+            self.FirstLine = oth.FirstLine
+            self.ScaleLeft = oth.ScaleLeft
+            self.ScaleRight = oth.ScaleRight
+            self.ScaleFirstLine = oth.ScaleFirstLine
+            self.AutoFirstLine = oth.AutoFirstLine
             return
-        else:
-            self._text_left = TextLeft
-            self._left = Left
-            self._right = Right
-            self._first_line = FirstLine
-            self._scale_left = ScaleLeft
-            self._scale_right = ScaleRight
-            self._scale_first_line = ScaleFirstLine
-            self._auto_first_line = AutoFirstLine
 
+        kargs = {
+            "TextLeft": TextLeft,
+            "Left": Left,
+            "Right": Right,
+            "FirstLine": FirstLine,
+            "ScaleLeft": ScaleLeft,
+            "ScaleRight": ScaleRight,
+            "ScaleFirstLine": ScaleFirstLine,
+            "AutoFirstLine": AutoFirstLine,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._text_left = kwargs["TextLeft"]
+        self._left = kwargs["Left"]
+        self._right = kwargs["Right"]
+        self._first_line = kwargs["FirstLine"]
+        self._scale_left = kwargs["ScaleLeft"]
+        self._scale_right = kwargs["ScaleRight"]
+        self._scale_first_line = kwargs["ScaleFirstLine"]
+        self._auto_first_line = kwargs["AutoFirstLine"]
 
 
     @property

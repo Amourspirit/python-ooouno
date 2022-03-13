@@ -22,33 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Style = UNO_NONE, Dots = UNO_NONE, DotLen = UNO_NONE, Dashes = UNO_NONE, DashLen = UNO_NONE, Distance = UNO_NONE):
-            if getattr(Style, "__class__", None) == self.__class__:
-                orig_init(self, Style)
+        ordered_keys = ('Style', 'Dots', 'DotLen', 'Dashes', 'DashLen', 'Distance')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Style is UNO_NONE:
-                if getattr(self, 'Style') != Style:
-                    setattr(self, 'Style', Style)
-            if not Dots is UNO_NONE:
-                if getattr(self, 'Dots') != Dots:
-                    setattr(self, 'Dots', Dots)
-            if not DotLen is UNO_NONE:
-                if getattr(self, 'DotLen') != DotLen:
-                    setattr(self, 'DotLen', DotLen)
-            if not Dashes is UNO_NONE:
-                if getattr(self, 'Dashes') != Dashes:
-                    setattr(self, 'Dashes', Dashes)
-            if not DashLen is UNO_NONE:
-                if getattr(self, 'DashLen') != DashLen:
-                    setattr(self, 'DashLen', DashLen)
-            if not Distance is UNO_NONE:
-                if getattr(self, 'Distance') != Distance:
-                    setattr(self, 'Distance', Distance)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.LineDash'
         struct = uno.getClass(type_name)
@@ -60,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     LineDash = _get_class()
-
 
 else:
     from ...lo.drawing.line_dash import LineDash as LineDash

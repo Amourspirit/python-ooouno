@@ -22,21 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, X = UNO_NONE, Y = UNO_NONE):
-            if getattr(X, "__class__", None) == self.__class__:
-                orig_init(self, X)
+        ordered_keys = ('X', 'Y')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not X is UNO_NONE:
-                if getattr(self, 'X') != X:
-                    setattr(self, 'X', X)
-            if not Y is UNO_NONE:
-                if getattr(self, 'Y') != Y:
-                    setattr(self, 'Y', Y)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.geometry.RealPoint2D'
         struct = uno.getClass(type_name)
@@ -48,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     RealPoint2D = _get_class()
-
 
 else:
     from ...lo.geometry.real_point2_d import RealPoint2D as RealPoint2D

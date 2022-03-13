@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, PositionX = UNO_NONE, PositionY = UNO_NONE, PositionZ = UNO_NONE):
-            if getattr(PositionX, "__class__", None) == self.__class__:
-                orig_init(self, PositionX)
+        ordered_keys = ('PositionX', 'PositionY', 'PositionZ')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not PositionX is UNO_NONE:
-                if getattr(self, 'PositionX') != PositionX:
-                    setattr(self, 'PositionX', PositionX)
-            if not PositionY is UNO_NONE:
-                if getattr(self, 'PositionY') != PositionY:
-                    setattr(self, 'PositionY', PositionY)
-            if not PositionZ is UNO_NONE:
-                if getattr(self, 'PositionZ') != PositionZ:
-                    setattr(self, 'PositionZ', PositionZ)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.Position3D'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Position3D = _get_class()
-
 
 else:
     from ...lo.drawing.position3_d import Position3D as Position3D

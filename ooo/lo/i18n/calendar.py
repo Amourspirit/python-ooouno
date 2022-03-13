@@ -38,51 +38,57 @@ class Calendar(object):
     typeName: str = 'com.sun.star.i18n.Calendar'
     """Literal Constant ``com.sun.star.i18n.Calendar``"""
 
-    def __init__(self, Days: typing.Tuple[CalendarItem_a86c0af1, ...] = UNO_NONE, Months: typing.Tuple[CalendarItem_a86c0af1, ...] = UNO_NONE, Eras: typing.Tuple[CalendarItem_a86c0af1, ...] = UNO_NONE, StartOfWeek: str = '', MinimumNumberOfDaysForFirstWeek: int = 0, Default: bool = False, Name: str = '') -> None:
+    def __init__(self, Days: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, Months: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, Eras: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, StartOfWeek: typing.Optional[str] = '', MinimumNumberOfDaysForFirstWeek: typing.Optional[int] = 0, Default: typing.Optional[bool] = False, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Days`` can be another ``Calendar`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Days (Tuple[CalendarItem, ...], optional): Days value
-            Months (Tuple[CalendarItem, ...], optional): Months value
-            Eras (Tuple[CalendarItem, ...], optional): Eras value
-            StartOfWeek (str, optional): StartOfWeek value
-            MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value
-            Default (bool, optional): Default value
-            Name (str, optional): Name value
+            Days (typing.Tuple[CalendarItem, ...], optional): Days value.
+            Months (typing.Tuple[CalendarItem, ...], optional): Months value.
+            Eras (typing.Tuple[CalendarItem, ...], optional): Eras value.
+            StartOfWeek (str, optional): StartOfWeek value.
+            MinimumNumberOfDaysForFirstWeek (int, optional): MinimumNumberOfDaysForFirstWeek value.
+            Default (bool, optional): Default value.
+            Name (str, optional): Name value.
         """
+        super().__init__()
+
         if isinstance(Days, Calendar):
             oth: Calendar = Days
-            self._days = oth.Days
-            self._months = oth.Months
-            self._eras = oth.Eras
-            self._start_of_week = oth.StartOfWeek
-            self._minimum_number_of_days_for_first_week = oth.MinimumNumberOfDaysForFirstWeek
-            self._default = oth.Default
-            self._name = oth.Name
+            self.Days = oth.Days
+            self.Months = oth.Months
+            self.Eras = oth.Eras
+            self.StartOfWeek = oth.StartOfWeek
+            self.MinimumNumberOfDaysForFirstWeek = oth.MinimumNumberOfDaysForFirstWeek
+            self.Default = oth.Default
+            self.Name = oth.Name
             return
-        else:
-            if Days is UNO_NONE:
-                self._days = None
-            else:
-                self._days = Days
-            if Months is UNO_NONE:
-                self._months = None
-            else:
-                self._months = Months
-            if Eras is UNO_NONE:
-                self._eras = None
-            else:
-                self._eras = Eras
-            self._start_of_week = StartOfWeek
-            self._minimum_number_of_days_for_first_week = MinimumNumberOfDaysForFirstWeek
-            self._default = Default
-            self._name = Name
 
+        kargs = {
+            "Days": Days,
+            "Months": Months,
+            "Eras": Eras,
+            "StartOfWeek": StartOfWeek,
+            "MinimumNumberOfDaysForFirstWeek": MinimumNumberOfDaysForFirstWeek,
+            "Default": Default,
+            "Name": Name,
+        }
+        if kargs["Days"] is UNO_NONE:
+            kargs["Days"] = None
+        if kargs["Months"] is UNO_NONE:
+            kargs["Months"] = None
+        if kargs["Eras"] is UNO_NONE:
+            kargs["Eras"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._days = kwargs["Days"]
+        self._months = kwargs["Months"]
+        self._eras = kwargs["Eras"]
+        self._start_of_week = kwargs["StartOfWeek"]
+        self._minimum_number_of_days_for_first_week = kwargs["MinimumNumberOfDaysForFirstWeek"]
+        self._default = kwargs["Default"]
+        self._name = kwargs["Name"]
 
 
     @property

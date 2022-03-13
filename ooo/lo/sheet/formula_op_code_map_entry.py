@@ -38,30 +38,33 @@ class FormulaOpCodeMapEntry(object):
     typeName: str = 'com.sun.star.sheet.FormulaOpCodeMapEntry'
     """Literal Constant ``com.sun.star.sheet.FormulaOpCodeMapEntry``"""
 
-    def __init__(self, Name: str = '', Token: FormulaToken_bd1c0bf8 = UNO_NONE) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Token: typing.Optional[FormulaToken_bd1c0bf8] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``FormulaOpCodeMapEntry`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Token (FormulaToken, optional): Token value
+            Name (str, optional): Name value.
+            Token (FormulaToken, optional): Token value.
         """
+        super().__init__()
+
         if isinstance(Name, FormulaOpCodeMapEntry):
             oth: FormulaOpCodeMapEntry = Name
-            self._name = oth.Name
-            self._token = oth.Token
+            self.Name = oth.Name
+            self.Token = oth.Token
             return
-        else:
-            self._name = Name
-            if Token is UNO_NONE:
-                self._token = FormulaToken_bd1c0bf8()
-            else:
-                self._token = Token
 
+        kargs = {
+            "Name": Name,
+            "Token": Token,
+        }
+        if kargs["Token"] is UNO_NONE:
+            kargs["Token"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._token = kwargs["Token"]
 
 
     @property

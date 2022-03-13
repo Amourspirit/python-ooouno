@@ -37,33 +37,39 @@ class BorderWidths(object):
     typeName: str = 'com.sun.star.frame.BorderWidths'
     """Literal Constant ``com.sun.star.frame.BorderWidths``"""
 
-    def __init__(self, Left: int = 0, Top: int = 0, Right: int = 0, Bottom: int = 0) -> None:
+    def __init__(self, Left: typing.Optional[int] = 0, Top: typing.Optional[int] = 0, Right: typing.Optional[int] = 0, Bottom: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Left`` can be another ``BorderWidths`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Left (int, optional): Left value
-            Top (int, optional): Top value
-            Right (int, optional): Right value
-            Bottom (int, optional): Bottom value
+            Left (int, optional): Left value.
+            Top (int, optional): Top value.
+            Right (int, optional): Right value.
+            Bottom (int, optional): Bottom value.
         """
+        super().__init__()
+
         if isinstance(Left, BorderWidths):
             oth: BorderWidths = Left
-            self._left = oth.Left
-            self._top = oth.Top
-            self._right = oth.Right
-            self._bottom = oth.Bottom
+            self.Left = oth.Left
+            self.Top = oth.Top
+            self.Right = oth.Right
+            self.Bottom = oth.Bottom
             return
-        else:
-            self._left = Left
-            self._top = Top
-            self._right = Right
-            self._bottom = Bottom
 
+        kargs = {
+            "Left": Left,
+            "Top": Top,
+            "Right": Right,
+            "Bottom": Bottom,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._left = kwargs["Left"]
+        self._top = kwargs["Top"]
+        self._right = kwargs["Right"]
+        self._bottom = kwargs["Bottom"]
 
 
     @property

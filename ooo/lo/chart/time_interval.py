@@ -41,27 +41,31 @@ class TimeInterval(object):
     typeName: str = 'com.sun.star.chart.TimeInterval'
     """Literal Constant ``com.sun.star.chart.TimeInterval``"""
 
-    def __init__(self, Number: int = 0, TimeUnit: int = 0) -> None:
+    def __init__(self, Number: typing.Optional[int] = 0, TimeUnit: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Number`` can be another ``TimeInterval`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Number (int, optional): Number value
-            TimeUnit (int, optional): TimeUnit value
+            Number (int, optional): Number value.
+            TimeUnit (int, optional): TimeUnit value.
         """
+        super().__init__()
+
         if isinstance(Number, TimeInterval):
             oth: TimeInterval = Number
-            self._number = oth.Number
-            self._time_unit = oth.TimeUnit
+            self.Number = oth.Number
+            self.TimeUnit = oth.TimeUnit
             return
-        else:
-            self._number = Number
-            self._time_unit = TimeUnit
 
+        kargs = {
+            "Number": Number,
+            "TimeUnit": TimeUnit,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._number = kwargs["Number"]
+        self._time_unit = kwargs["TimeUnit"]
 
 
     @property

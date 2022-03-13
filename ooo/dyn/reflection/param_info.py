@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, aName = UNO_NONE, aMode = UNO_NONE, aType = UNO_NONE):
-            if getattr(aName, "__class__", None) == self.__class__:
-                orig_init(self, aName)
+        ordered_keys = ('aName', 'aMode', 'aType')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not aName is UNO_NONE:
-                if getattr(self, 'aName') != aName:
-                    setattr(self, 'aName', aName)
-            if not aMode is UNO_NONE:
-                if getattr(self, 'aMode') != aMode:
-                    setattr(self, 'aMode', aMode)
-            if not aType is UNO_NONE:
-                if getattr(self, 'aType') != aType:
-                    setattr(self, 'aType', aType)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.reflection.ParamInfo'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ParamInfo = _get_class()
-
 
 else:
     from ...lo.reflection.param_info import ParamInfo as ParamInfo

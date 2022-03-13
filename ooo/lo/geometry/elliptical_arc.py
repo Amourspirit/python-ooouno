@@ -46,48 +46,55 @@ class EllipticalArc(object):
     typeName: str = 'com.sun.star.geometry.EllipticalArc'
     """Literal Constant ``com.sun.star.geometry.EllipticalArc``"""
 
-    def __init__(self, StartPosition: RealPoint2D_d6e70c78 = UNO_NONE, EndPosition: RealPoint2D_d6e70c78 = UNO_NONE, RadiusX: float = 0.0, RadiusY: float = 0.0, XAxisRotation: float = 0.0, IsLargeArc: bool = False, IsClockwiseSweep: bool = False) -> None:
+    def __init__(self, StartPosition: typing.Optional[RealPoint2D_d6e70c78] = UNO_NONE, EndPosition: typing.Optional[RealPoint2D_d6e70c78] = UNO_NONE, RadiusX: typing.Optional[float] = 0.0, RadiusY: typing.Optional[float] = 0.0, XAxisRotation: typing.Optional[float] = 0.0, IsLargeArc: typing.Optional[bool] = False, IsClockwiseSweep: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``StartPosition`` can be another ``EllipticalArc`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            StartPosition (RealPoint2D, optional): StartPosition value
-            EndPosition (RealPoint2D, optional): EndPosition value
-            RadiusX (float, optional): RadiusX value
-            RadiusY (float, optional): RadiusY value
-            XAxisRotation (float, optional): XAxisRotation value
-            IsLargeArc (bool, optional): IsLargeArc value
-            IsClockwiseSweep (bool, optional): IsClockwiseSweep value
+            StartPosition (RealPoint2D, optional): StartPosition value.
+            EndPosition (RealPoint2D, optional): EndPosition value.
+            RadiusX (float, optional): RadiusX value.
+            RadiusY (float, optional): RadiusY value.
+            XAxisRotation (float, optional): XAxisRotation value.
+            IsLargeArc (bool, optional): IsLargeArc value.
+            IsClockwiseSweep (bool, optional): IsClockwiseSweep value.
         """
+        super().__init__()
+
         if isinstance(StartPosition, EllipticalArc):
             oth: EllipticalArc = StartPosition
-            self._start_position = oth.StartPosition
-            self._end_position = oth.EndPosition
-            self._radius_x = oth.RadiusX
-            self._radius_y = oth.RadiusY
-            self._x_axis_rotation = oth.XAxisRotation
-            self._is_large_arc = oth.IsLargeArc
-            self._is_clockwise_sweep = oth.IsClockwiseSweep
+            self.StartPosition = oth.StartPosition
+            self.EndPosition = oth.EndPosition
+            self.RadiusX = oth.RadiusX
+            self.RadiusY = oth.RadiusY
+            self.XAxisRotation = oth.XAxisRotation
+            self.IsLargeArc = oth.IsLargeArc
+            self.IsClockwiseSweep = oth.IsClockwiseSweep
             return
-        else:
-            if StartPosition is UNO_NONE:
-                self._start_position = RealPoint2D_d6e70c78()
-            else:
-                self._start_position = StartPosition
-            if EndPosition is UNO_NONE:
-                self._end_position = RealPoint2D_d6e70c78()
-            else:
-                self._end_position = EndPosition
-            self._radius_x = RadiusX
-            self._radius_y = RadiusY
-            self._x_axis_rotation = XAxisRotation
-            self._is_large_arc = IsLargeArc
-            self._is_clockwise_sweep = IsClockwiseSweep
 
+        kargs = {
+            "StartPosition": StartPosition,
+            "EndPosition": EndPosition,
+            "RadiusX": RadiusX,
+            "RadiusY": RadiusY,
+            "XAxisRotation": XAxisRotation,
+            "IsLargeArc": IsLargeArc,
+            "IsClockwiseSweep": IsClockwiseSweep,
+        }
+        if kargs["StartPosition"] is UNO_NONE:
+            kargs["StartPosition"] = None
+        if kargs["EndPosition"] is UNO_NONE:
+            kargs["EndPosition"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._start_position = kwargs["StartPosition"]
+        self._end_position = kwargs["EndPosition"]
+        self._radius_x = kwargs["RadiusX"]
+        self._radius_y = kwargs["RadiusY"]
+        self._x_axis_rotation = kwargs["XAxisRotation"]
+        self._is_large_arc = kwargs["IsLargeArc"]
+        self._is_clockwise_sweep = kwargs["IsClockwiseSweep"]
 
 
     @property

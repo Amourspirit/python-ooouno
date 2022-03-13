@@ -37,27 +37,31 @@ class XMLAttribute(object):
     typeName: str = 'com.sun.star.xml.csax.XMLAttribute'
     """Literal Constant ``com.sun.star.xml.csax.XMLAttribute``"""
 
-    def __init__(self, sName: str = '', sValue: str = '') -> None:
+    def __init__(self, sName: typing.Optional[str] = '', sValue: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``sName`` can be another ``XMLAttribute`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            sName (str, optional): sName value
-            sValue (str, optional): sValue value
+            sName (str, optional): sName value.
+            sValue (str, optional): sValue value.
         """
+        super().__init__()
+
         if isinstance(sName, XMLAttribute):
             oth: XMLAttribute = sName
-            self._s_name = oth.sName
-            self._s_value = oth.sValue
+            self.sName = oth.sName
+            self.sValue = oth.sValue
             return
-        else:
-            self._s_name = sName
-            self._s_value = sValue
 
+        kargs = {
+            "sName": sName,
+            "sValue": sValue,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._s_name = kwargs["sName"]
+        self._s_value = kwargs["sValue"]
 
 
     @property

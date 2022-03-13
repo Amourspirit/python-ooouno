@@ -41,32 +41,42 @@ class FocusEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.FocusEvent'
     """Literal Constant ``com.sun.star.awt.FocusEvent``"""
 
-    def __init__(self, FocusFlags: int = 0, NextFocus: XInterface_8f010a43 = None, Temporary: bool = False, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, FocusFlags: typing.Optional[int] = 0, NextFocus: typing.Optional[XInterface_8f010a43] = None, Temporary: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``FocusFlags`` can be another ``FocusEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            FocusFlags (int, optional): FocusFlags value
-            NextFocus (XInterface, optional): NextFocus value
-            Temporary (bool, optional): Temporary value
+            Source (XInterface, optional): Source value.
+            FocusFlags (int, optional): FocusFlags value.
+            NextFocus (XInterface, optional): NextFocus value.
+            Temporary (bool, optional): Temporary value.
         """
-        super().__init__(**kwargs)
-        if isinstance(FocusFlags, FocusEvent):
-            oth: FocusEvent = FocusFlags
-            self._focus_flags = oth.FocusFlags
-            self._next_focus = oth.NextFocus
-            self._temporary = oth.Temporary
-            return
-        else:
-            self._focus_flags = FocusFlags
-            self._next_focus = NextFocus
-            self._temporary = Temporary
 
+        if isinstance(Source, FocusEvent):
+            oth: FocusEvent = Source
+            self.Source = oth.Source
+            self.FocusFlags = oth.FocusFlags
+            self.NextFocus = oth.NextFocus
+            self.Temporary = oth.Temporary
+            return
+
+        kargs = {
+            "Source": Source,
+            "FocusFlags": FocusFlags,
+            "NextFocus": NextFocus,
+            "Temporary": Temporary,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._focus_flags = kwargs["FocusFlags"]
+        self._next_focus = kwargs["NextFocus"]
+        self._temporary = kwargs["Temporary"]
+        inst_keys = ('FocusFlags', 'NextFocus', 'Temporary')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

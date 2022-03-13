@@ -19,7 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.script
 import typing
-from abc import abstractmethod, ABC
+from abc import abstractmethod, abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from ..lang.x_service_info import XServiceInfo as XServiceInfo_af180b5f
     from ..lang.x_type_provider import XTypeProvider as XTypeProvider_bbb40bef
@@ -52,6 +52,16 @@ class XServiceDocumenter(ABC):
     def showServiceDocs(self, xService: 'XServiceInfo_af180b5f') -> None:
         """
         """
+    @abstractproperty
+    def CoreBaseUrl(self) -> str:
+        """
+        """
+
+    @abstractproperty
+    def ServiceBaseUrl(self) -> str:
+        """
+        """
+
 
 __all__ = ['XServiceDocumenter']
 

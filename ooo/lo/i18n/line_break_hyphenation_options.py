@@ -39,33 +39,37 @@ class LineBreakHyphenationOptions(object):
     typeName: str = 'com.sun.star.i18n.LineBreakHyphenationOptions'
     """Literal Constant ``com.sun.star.i18n.LineBreakHyphenationOptions``"""
 
-    def __init__(self, rHyphenator: XHyphenator_ff4e0def = None, aHyphenationOptions: PropertyValues_d6470ce6 = UNO_NONE, hyphenIndex: int = 0) -> None:
+    def __init__(self, rHyphenator: typing.Optional[XHyphenator_ff4e0def] = None, aHyphenationOptions: typing.Optional[PropertyValues_d6470ce6] = UNO_NONE, hyphenIndex: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``rHyphenator`` can be another ``LineBreakHyphenationOptions`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            rHyphenator (XHyphenator, optional): rHyphenator value
-            aHyphenationOptions (PropertyValues, optional): aHyphenationOptions value
-            hyphenIndex (int, optional): hyphenIndex value
+            rHyphenator (XHyphenator, optional): rHyphenator value.
+            aHyphenationOptions (PropertyValues, optional): aHyphenationOptions value.
+            hyphenIndex (int, optional): hyphenIndex value.
         """
+        super().__init__()
+
         if isinstance(rHyphenator, LineBreakHyphenationOptions):
             oth: LineBreakHyphenationOptions = rHyphenator
-            self._r_hyphenator = oth.rHyphenator
-            self._a_hyphenation_options = oth.aHyphenationOptions
-            self._hyphen_index = oth.hyphenIndex
+            self.rHyphenator = oth.rHyphenator
+            self.aHyphenationOptions = oth.aHyphenationOptions
+            self.hyphenIndex = oth.hyphenIndex
             return
-        else:
-            self._r_hyphenator = rHyphenator
-            if aHyphenationOptions is UNO_NONE:
-                self._a_hyphenation_options = None
-            else:
-                self._a_hyphenation_options = aHyphenationOptions
-            self._hyphen_index = hyphenIndex
 
+        kargs = {
+            "rHyphenator": rHyphenator,
+            "aHyphenationOptions": aHyphenationOptions,
+            "hyphenIndex": hyphenIndex,
+        }
+        if kargs["aHyphenationOptions"] is UNO_NONE:
+            kargs["aHyphenationOptions"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._r_hyphenator = kwargs["rHyphenator"]
+        self._a_hyphenation_options = kwargs["aHyphenationOptions"]
+        self._hyphen_index = kwargs["hyphenIndex"]
 
 
     @property

@@ -37,27 +37,31 @@ class ProtocolProperty(object):
     typeName: str = 'com.sun.star.bridge.ProtocolProperty'
     """Literal Constant ``com.sun.star.bridge.ProtocolProperty``"""
 
-    def __init__(self, Name: str = '', Value: object = None) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Value: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``ProtocolProperty`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Name (str, optional): Name value
-            Value (object, optional): Value value
+            Name (str, optional): Name value.
+            Value (object, optional): Value value.
         """
+        super().__init__()
+
         if isinstance(Name, ProtocolProperty):
             oth: ProtocolProperty = Name
-            self._name = oth.Name
-            self._value = oth.Value
+            self.Name = oth.Name
+            self.Value = oth.Value
             return
-        else:
-            self._name = Name
-            self._value = Value
 
+        kargs = {
+            "Name": Name,
+            "Value": Value,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._value = kwargs["Value"]
 
 
     @property

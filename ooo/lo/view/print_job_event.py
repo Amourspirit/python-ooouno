@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .printable_state import PrintableState as PrintableState_c9fb0c65
 
@@ -47,26 +48,34 @@ class PrintJobEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.view.PrintJobEvent'
     """Literal Constant ``com.sun.star.view.PrintJobEvent``"""
 
-    def __init__(self, State: PrintableState_c9fb0c65 = PrintableState_c9fb0c65.JOB_STARTED, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, State: typing.Optional[PrintableState_c9fb0c65] = PrintableState_c9fb0c65.JOB_STARTED) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``State`` can be another ``PrintJobEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            State (PrintableState, optional): State value
+            Source (XInterface, optional): Source value.
+            State (PrintableState, optional): State value.
         """
-        super().__init__(**kwargs)
-        if isinstance(State, PrintJobEvent):
-            oth: PrintJobEvent = State
-            self._state = oth.State
-            return
-        else:
-            self._state = State
 
+        if isinstance(Source, PrintJobEvent):
+            oth: PrintJobEvent = Source
+            self.Source = oth.Source
+            self.State = oth.State
+            return
+
+        kargs = {
+            "Source": Source,
+            "State": State,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._state = kwargs["State"]
+        inst_keys = ('State',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

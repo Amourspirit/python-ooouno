@@ -41,33 +41,39 @@ class KeyStroke(object):
     typeName: str = 'com.sun.star.awt.KeyStroke'
     """Literal Constant ``com.sun.star.awt.KeyStroke``"""
 
-    def __init__(self, Modifiers: int = 0, KeyCode: int = 0, KeyChar: str = '\u0000', KeyFunc: int = 0) -> None:
+    def __init__(self, Modifiers: typing.Optional[int] = 0, KeyCode: typing.Optional[int] = 0, KeyChar: typing.Optional[str] = '\u0000', KeyFunc: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Modifiers`` can be another ``KeyStroke`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Modifiers (int, optional): Modifiers value
-            KeyCode (int, optional): KeyCode value
-            KeyChar (str, optional): KeyChar value
-            KeyFunc (int, optional): KeyFunc value
+            Modifiers (int, optional): Modifiers value.
+            KeyCode (int, optional): KeyCode value.
+            KeyChar (str, optional): KeyChar value.
+            KeyFunc (int, optional): KeyFunc value.
         """
+        super().__init__()
+
         if isinstance(Modifiers, KeyStroke):
             oth: KeyStroke = Modifiers
-            self._modifiers = oth.Modifiers
-            self._key_code = oth.KeyCode
-            self._key_char = oth.KeyChar
-            self._key_func = oth.KeyFunc
+            self.Modifiers = oth.Modifiers
+            self.KeyCode = oth.KeyCode
+            self.KeyChar = oth.KeyChar
+            self.KeyFunc = oth.KeyFunc
             return
-        else:
-            self._modifiers = Modifiers
-            self._key_code = KeyCode
-            self._key_char = KeyChar
-            self._key_func = KeyFunc
 
+        kargs = {
+            "Modifiers": Modifiers,
+            "KeyCode": KeyCode,
+            "KeyChar": KeyChar,
+            "KeyFunc": KeyFunc,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._modifiers = kwargs["Modifiers"]
+        self._key_code = kwargs["KeyCode"]
+        self._key_char = kwargs["KeyChar"]
+        self._key_func = kwargs["KeyFunc"]
 
 
     @property

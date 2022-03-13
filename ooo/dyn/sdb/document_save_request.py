@@ -19,30 +19,22 @@
 # Namespace: com.sun.star.sdb
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
 
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Content = UNO_NONE, Name = UNO_NONE, **kwargs):
-            if getattr(Content, "__class__", None) == self.__class__:
-                orig_init(self, Content)
+        ordered_keys = ('Message', 'Context', 'Classification', 'Content', 'Name')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Content is UNO_NONE:
-                if getattr(self, 'Content') != Content:
-                    setattr(self, 'Content', Content)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            for k, v in kwargs.items():
-                if v is UNO_NONE:
-                    continue
-                else:
-                    setattr(self, k, v)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sdb.DocumentSaveRequest'
         ex = uno.getClass(type_name)

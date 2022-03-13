@@ -37,27 +37,31 @@ class AliasProgrammaticPair(object):
     typeName: str = 'com.sun.star.util.AliasProgrammaticPair'
     """Literal Constant ``com.sun.star.util.AliasProgrammaticPair``"""
 
-    def __init__(self, Alias: str = '', ProgrammaticName: str = '') -> None:
+    def __init__(self, Alias: typing.Optional[str] = '', ProgrammaticName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Alias`` can be another ``AliasProgrammaticPair`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Alias (str, optional): Alias value
-            ProgrammaticName (str, optional): ProgrammaticName value
+            Alias (str, optional): Alias value.
+            ProgrammaticName (str, optional): ProgrammaticName value.
         """
+        super().__init__()
+
         if isinstance(Alias, AliasProgrammaticPair):
             oth: AliasProgrammaticPair = Alias
-            self._alias = oth.Alias
-            self._programmatic_name = oth.ProgrammaticName
+            self.Alias = oth.Alias
+            self.ProgrammaticName = oth.ProgrammaticName
             return
-        else:
-            self._alias = Alias
-            self._programmatic_name = ProgrammaticName
 
+        kargs = {
+            "Alias": Alias,
+            "ProgrammaticName": ProgrammaticName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._alias = kwargs["Alias"]
+        self._programmatic_name = kwargs["ProgrammaticName"]
 
 
     @property

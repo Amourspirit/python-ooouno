@@ -39,27 +39,31 @@ class NumberedSortingInfo(object):
     typeName: str = 'com.sun.star.ucb.NumberedSortingInfo'
     """Literal Constant ``com.sun.star.ucb.NumberedSortingInfo``"""
 
-    def __init__(self, ColumnIndex: int = 0, Ascending: bool = False) -> None:
+    def __init__(self, ColumnIndex: typing.Optional[int] = 0, Ascending: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``ColumnIndex`` can be another ``NumberedSortingInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            ColumnIndex (int, optional): ColumnIndex value
-            Ascending (bool, optional): Ascending value
+            ColumnIndex (int, optional): ColumnIndex value.
+            Ascending (bool, optional): Ascending value.
         """
+        super().__init__()
+
         if isinstance(ColumnIndex, NumberedSortingInfo):
             oth: NumberedSortingInfo = ColumnIndex
-            self._column_index = oth.ColumnIndex
-            self._ascending = oth.Ascending
+            self.ColumnIndex = oth.ColumnIndex
+            self.Ascending = oth.Ascending
             return
-        else:
-            self._column_index = ColumnIndex
-            self._ascending = Ascending
 
+        kargs = {
+            "ColumnIndex": ColumnIndex,
+            "Ascending": Ascending,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._column_index = kwargs["ColumnIndex"]
+        self._ascending = kwargs["Ascending"]
 
 
     @property

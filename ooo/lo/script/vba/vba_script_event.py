@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,29 +39,38 @@ class VBAScriptEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.script.vba.VBAScriptEvent'
     """Literal Constant ``com.sun.star.script.vba.VBAScriptEvent``"""
 
-    def __init__(self, Identifier: int = 0, ModuleName: str = '', **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Identifier: typing.Optional[int] = 0, ModuleName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Identifier`` can be another ``VBAScriptEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Identifier (int, optional): Identifier value
-            ModuleName (str, optional): ModuleName value
+            Source (XInterface, optional): Source value.
+            Identifier (int, optional): Identifier value.
+            ModuleName (str, optional): ModuleName value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Identifier, VBAScriptEvent):
-            oth: VBAScriptEvent = Identifier
-            self._identifier = oth.Identifier
-            self._module_name = oth.ModuleName
-            return
-        else:
-            self._identifier = Identifier
-            self._module_name = ModuleName
 
+        if isinstance(Source, VBAScriptEvent):
+            oth: VBAScriptEvent = Source
+            self.Source = oth.Source
+            self.Identifier = oth.Identifier
+            self.ModuleName = oth.ModuleName
+            return
+
+        kargs = {
+            "Source": Source,
+            "Identifier": Identifier,
+            "ModuleName": ModuleName,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._identifier = kwargs["Identifier"]
+        self._module_name = kwargs["ModuleName"]
+        inst_keys = ('Identifier', 'ModuleName')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

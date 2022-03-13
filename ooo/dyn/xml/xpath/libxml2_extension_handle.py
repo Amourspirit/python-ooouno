@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, functionLookupFunction = UNO_NONE, functionData = UNO_NONE, variableLookupFunction = UNO_NONE, variableData = UNO_NONE):
-            if getattr(functionLookupFunction, "__class__", None) == self.__class__:
-                orig_init(self, functionLookupFunction)
+        ordered_keys = ('functionLookupFunction', 'functionData', 'variableLookupFunction', 'variableData')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not functionLookupFunction is UNO_NONE:
-                if getattr(self, 'functionLookupFunction') != functionLookupFunction:
-                    setattr(self, 'functionLookupFunction', functionLookupFunction)
-            if not functionData is UNO_NONE:
-                if getattr(self, 'functionData') != functionData:
-                    setattr(self, 'functionData', functionData)
-            if not variableLookupFunction is UNO_NONE:
-                if getattr(self, 'variableLookupFunction') != variableLookupFunction:
-                    setattr(self, 'variableLookupFunction', variableLookupFunction)
-            if not variableData is UNO_NONE:
-                if getattr(self, 'variableData') != variableData:
-                    setattr(self, 'variableData', variableData)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.xml.xpath.Libxml2ExtensionHandle'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Libxml2ExtensionHandle = _get_class()
-
 
 else:
     from ....lo.xml.xpath.libxml2_extension_handle import Libxml2ExtensionHandle as Libxml2ExtensionHandle

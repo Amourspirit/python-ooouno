@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Top = UNO_NONE, Bottom = UNO_NONE, Left = UNO_NONE, Right = UNO_NONE):
-            if getattr(Top, "__class__", None) == self.__class__:
-                orig_init(self, Top)
+        ordered_keys = ('Top', 'Bottom', 'Left', 'Right')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Top is UNO_NONE:
-                if getattr(self, 'Top') != Top:
-                    setattr(self, 'Top', Top)
-            if not Bottom is UNO_NONE:
-                if getattr(self, 'Bottom') != Bottom:
-                    setattr(self, 'Bottom', Bottom)
-            if not Left is UNO_NONE:
-                if getattr(self, 'Left') != Left:
-                    setattr(self, 'Left', Left)
-            if not Right is UNO_NONE:
-                if getattr(self, 'Right') != Right:
-                    setattr(self, 'Right', Right)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.text.GraphicCrop'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     GraphicCrop = _get_class()
-
 
 else:
     from ...lo.text.graphic_crop import GraphicCrop as GraphicCrop

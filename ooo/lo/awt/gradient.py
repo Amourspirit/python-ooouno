@@ -41,51 +41,63 @@ class Gradient(object):
     typeName: str = 'com.sun.star.awt.Gradient'
     """Literal Constant ``com.sun.star.awt.Gradient``"""
 
-    def __init__(self, Style: GradientStyle_b02b0b93 = GradientStyle_b02b0b93.LINEAR, StartColor: Color_68e908c5 = Color_68e908c5(0), EndColor: Color_68e908c5 = Color_68e908c5(0), Angle: int = 0, Border: int = 0, XOffset: int = 0, YOffset: int = 0, StartIntensity: int = 0, EndIntensity: int = 0, StepCount: int = 0) -> None:
+    def __init__(self, Style: typing.Optional[GradientStyle_b02b0b93] = GradientStyle_b02b0b93.LINEAR, StartColor: typing.Optional[Color_68e908c5] = Color_68e908c5(0), EndColor: typing.Optional[Color_68e908c5] = Color_68e908c5(0), Angle: typing.Optional[int] = 0, Border: typing.Optional[int] = 0, XOffset: typing.Optional[int] = 0, YOffset: typing.Optional[int] = 0, StartIntensity: typing.Optional[int] = 0, EndIntensity: typing.Optional[int] = 0, StepCount: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Style`` can be another ``Gradient`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Style (GradientStyle, optional): Style value
-            StartColor (Color, optional): StartColor value
-            EndColor (Color, optional): EndColor value
-            Angle (int, optional): Angle value
-            Border (int, optional): Border value
-            XOffset (int, optional): XOffset value
-            YOffset (int, optional): YOffset value
-            StartIntensity (int, optional): StartIntensity value
-            EndIntensity (int, optional): EndIntensity value
-            StepCount (int, optional): StepCount value
+            Style (GradientStyle, optional): Style value.
+            StartColor (Color, optional): StartColor value.
+            EndColor (Color, optional): EndColor value.
+            Angle (int, optional): Angle value.
+            Border (int, optional): Border value.
+            XOffset (int, optional): XOffset value.
+            YOffset (int, optional): YOffset value.
+            StartIntensity (int, optional): StartIntensity value.
+            EndIntensity (int, optional): EndIntensity value.
+            StepCount (int, optional): StepCount value.
         """
+        super().__init__()
+
         if isinstance(Style, Gradient):
             oth: Gradient = Style
-            self._style = oth.Style
-            self._start_color = oth.StartColor
-            self._end_color = oth.EndColor
-            self._angle = oth.Angle
-            self._border = oth.Border
-            self._x_offset = oth.XOffset
-            self._y_offset = oth.YOffset
-            self._start_intensity = oth.StartIntensity
-            self._end_intensity = oth.EndIntensity
-            self._step_count = oth.StepCount
+            self.Style = oth.Style
+            self.StartColor = oth.StartColor
+            self.EndColor = oth.EndColor
+            self.Angle = oth.Angle
+            self.Border = oth.Border
+            self.XOffset = oth.XOffset
+            self.YOffset = oth.YOffset
+            self.StartIntensity = oth.StartIntensity
+            self.EndIntensity = oth.EndIntensity
+            self.StepCount = oth.StepCount
             return
-        else:
-            self._style = Style
-            self._start_color = StartColor
-            self._end_color = EndColor
-            self._angle = Angle
-            self._border = Border
-            self._x_offset = XOffset
-            self._y_offset = YOffset
-            self._start_intensity = StartIntensity
-            self._end_intensity = EndIntensity
-            self._step_count = StepCount
 
+        kargs = {
+            "Style": Style,
+            "StartColor": StartColor,
+            "EndColor": EndColor,
+            "Angle": Angle,
+            "Border": Border,
+            "XOffset": XOffset,
+            "YOffset": YOffset,
+            "StartIntensity": StartIntensity,
+            "EndIntensity": EndIntensity,
+            "StepCount": StepCount,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._style = kwargs["Style"]
+        self._start_color = kwargs["StartColor"]
+        self._end_color = kwargs["EndColor"]
+        self._angle = kwargs["Angle"]
+        self._border = kwargs["Border"]
+        self._x_offset = kwargs["XOffset"]
+        self._y_offset = kwargs["YOffset"]
+        self._start_intensity = kwargs["StartIntensity"]
+        self._end_intensity = kwargs["EndIntensity"]
+        self._step_count = kwargs["StepCount"]
 
 
     @property

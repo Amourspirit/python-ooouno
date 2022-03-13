@@ -44,33 +44,39 @@ class Statement(object):
     typeName: str = 'com.sun.star.rdf.Statement'
     """Literal Constant ``com.sun.star.rdf.Statement``"""
 
-    def __init__(self, Subject: XResource_842709e4 = None, Predicate: XURI_5682078c = None, Object: XNode_5ee40822 = None, Graph: XURI_5682078c = None) -> None:
+    def __init__(self, Subject: typing.Optional[XResource_842709e4] = None, Predicate: typing.Optional[XURI_5682078c] = None, Object: typing.Optional[XNode_5ee40822] = None, Graph: typing.Optional[XURI_5682078c] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Subject`` can be another ``Statement`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Subject (XResource, optional): Subject value
-            Predicate (XURI, optional): Predicate value
-            Object (XNode, optional): Object value
-            Graph (XURI, optional): Graph value
+            Subject (XResource, optional): Subject value.
+            Predicate (XURI, optional): Predicate value.
+            Object (XNode, optional): Object value.
+            Graph (XURI, optional): Graph value.
         """
+        super().__init__()
+
         if isinstance(Subject, Statement):
             oth: Statement = Subject
-            self._subject = oth.Subject
-            self._predicate = oth.Predicate
-            self._object = oth.Object
-            self._graph = oth.Graph
+            self.Subject = oth.Subject
+            self.Predicate = oth.Predicate
+            self.Object = oth.Object
+            self.Graph = oth.Graph
             return
-        else:
-            self._subject = Subject
-            self._predicate = Predicate
-            self._object = Object
-            self._graph = Graph
 
+        kargs = {
+            "Subject": Subject,
+            "Predicate": Predicate,
+            "Object": Object,
+            "Graph": Graph,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._subject = kwargs["Subject"]
+        self._predicate = kwargs["Predicate"]
+        self._object = kwargs["Object"]
+        self._graph = kwargs["Graph"]
 
 
     @property

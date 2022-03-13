@@ -37,30 +37,35 @@ class DataPilotFieldSortInfo(object):
     typeName: str = 'com.sun.star.sheet.DataPilotFieldSortInfo'
     """Literal Constant ``com.sun.star.sheet.DataPilotFieldSortInfo``"""
 
-    def __init__(self, Field: str = '', IsAscending: bool = False, Mode: int = 0) -> None:
+    def __init__(self, Field: typing.Optional[str] = '', IsAscending: typing.Optional[bool] = False, Mode: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Field`` can be another ``DataPilotFieldSortInfo`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Field (str, optional): Field value
-            IsAscending (bool, optional): IsAscending value
-            Mode (int, optional): Mode value
+            Field (str, optional): Field value.
+            IsAscending (bool, optional): IsAscending value.
+            Mode (int, optional): Mode value.
         """
+        super().__init__()
+
         if isinstance(Field, DataPilotFieldSortInfo):
             oth: DataPilotFieldSortInfo = Field
-            self._field = oth.Field
-            self._is_ascending = oth.IsAscending
-            self._mode = oth.Mode
+            self.Field = oth.Field
+            self.IsAscending = oth.IsAscending
+            self.Mode = oth.Mode
             return
-        else:
-            self._field = Field
-            self._is_ascending = IsAscending
-            self._mode = Mode
 
+        kargs = {
+            "Field": Field,
+            "IsAscending": IsAscending,
+            "Mode": Mode,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._field = kwargs["Field"]
+        self._is_ascending = kwargs["IsAscending"]
+        self._mode = kwargs["Mode"]
 
 
     @property

@@ -38,30 +38,35 @@ class LineBreakResults(object):
     typeName: str = 'com.sun.star.i18n.LineBreakResults'
     """Literal Constant ``com.sun.star.i18n.LineBreakResults``"""
 
-    def __init__(self, breakType: int = 0, breakIndex: int = 0, rHyphenatedWord: XHyphenatedWord_3a880f73 = None) -> None:
+    def __init__(self, breakType: typing.Optional[int] = 0, breakIndex: typing.Optional[int] = 0, rHyphenatedWord: typing.Optional[XHyphenatedWord_3a880f73] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``breakType`` can be another ``LineBreakResults`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            breakType (int, optional): breakType value
-            breakIndex (int, optional): breakIndex value
-            rHyphenatedWord (XHyphenatedWord, optional): rHyphenatedWord value
+            breakType (int, optional): breakType value.
+            breakIndex (int, optional): breakIndex value.
+            rHyphenatedWord (XHyphenatedWord, optional): rHyphenatedWord value.
         """
+        super().__init__()
+
         if isinstance(breakType, LineBreakResults):
             oth: LineBreakResults = breakType
-            self._break_type = oth.breakType
-            self._break_index = oth.breakIndex
-            self._r_hyphenated_word = oth.rHyphenatedWord
+            self.breakType = oth.breakType
+            self.breakIndex = oth.breakIndex
+            self.rHyphenatedWord = oth.rHyphenatedWord
             return
-        else:
-            self._break_type = breakType
-            self._break_index = breakIndex
-            self._r_hyphenated_word = rHyphenatedWord
 
+        kargs = {
+            "breakType": breakType,
+            "breakIndex": breakIndex,
+            "rHyphenatedWord": rHyphenatedWord,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._break_type = kwargs["breakType"]
+        self._break_index = kwargs["breakIndex"]
+        self._r_hyphenated_word = kwargs["rHyphenatedWord"]
 
 
     @property

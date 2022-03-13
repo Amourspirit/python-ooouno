@@ -39,33 +39,35 @@ class SearchCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.SearchCommandArgument'
     """Literal Constant ``com.sun.star.ucb.SearchCommandArgument``"""
 
-    def __init__(self, Properties: typing.Tuple[Property_8f4e0a76, ...] = UNO_NONE, Info: SearchInfo_8daf0a24 = UNO_NONE) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Info: typing.Optional[SearchInfo_8daf0a24] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Properties`` can be another ``SearchCommandArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Properties (Tuple[Property, ...], optional): Properties value
-            Info (SearchInfo, optional): Info value
+            Properties (typing.Tuple[Property, ...], optional): Properties value.
+            Info (SearchInfo, optional): Info value.
         """
+        super().__init__()
+
         if isinstance(Properties, SearchCommandArgument):
             oth: SearchCommandArgument = Properties
-            self._properties = oth.Properties
-            self._info = oth.Info
+            self.Properties = oth.Properties
+            self.Info = oth.Info
             return
-        else:
-            if Properties is UNO_NONE:
-                self._properties = None
-            else:
-                self._properties = Properties
-            if Info is UNO_NONE:
-                self._info = SearchInfo_8daf0a24()
-            else:
-                self._info = Info
 
+        kargs = {
+            "Properties": Properties,
+            "Info": Info,
+        }
+        if kargs["Properties"] is UNO_NONE:
+            kargs["Properties"] = None
+        if kargs["Info"] is UNO_NONE:
+            kargs["Info"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._properties = kwargs["Properties"]
+        self._info = kwargs["Info"]
 
 
     @property

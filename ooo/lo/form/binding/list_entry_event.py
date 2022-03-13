@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -38,35 +39,44 @@ class ListEntryEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.binding.ListEntryEvent'
     """Literal Constant ``com.sun.star.form.binding.ListEntryEvent``"""
 
-    def __init__(self, Entries: typing.Tuple[str, ...] = UNO_NONE, Position: int = 0, Count: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Entries: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Position: typing.Optional[int] = 0, Count: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Entries`` can be another ``ListEntryEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Entries (Tuple[str, ...], optional): Entries value
-            Position (int, optional): Position value
-            Count (int, optional): Count value
+            Source (XInterface, optional): Source value.
+            Entries (typing.Tuple[str, ...], optional): Entries value.
+            Position (int, optional): Position value.
+            Count (int, optional): Count value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Entries, ListEntryEvent):
-            oth: ListEntryEvent = Entries
-            self._entries = oth.Entries
-            self._position = oth.Position
-            self._count = oth.Count
-            return
-        else:
-            if Entries is UNO_NONE:
-                self._entries = None
-            else:
-                self._entries = Entries
-            self._position = Position
-            self._count = Count
 
+        if isinstance(Source, ListEntryEvent):
+            oth: ListEntryEvent = Source
+            self.Source = oth.Source
+            self.Entries = oth.Entries
+            self.Position = oth.Position
+            self.Count = oth.Count
+            return
+
+        kargs = {
+            "Source": Source,
+            "Entries": Entries,
+            "Position": Position,
+            "Count": Count,
+        }
+        if kargs["Entries"] is UNO_NONE:
+            kargs["Entries"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._entries = kwargs["Entries"]
+        self._position = kwargs["Position"]
+        self._count = kwargs["Count"]
+        inst_keys = ('Entries', 'Position', 'Count')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

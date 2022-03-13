@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 from .x_dictionary_entry import XDictionaryEntry as XDictionaryEntry_49ef0ff5
 
@@ -41,29 +42,38 @@ class DictionaryEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.linguistic2.DictionaryEvent'
     """Literal Constant ``com.sun.star.linguistic2.DictionaryEvent``"""
 
-    def __init__(self, nEvent: int = 0, xDictionaryEntry: XDictionaryEntry_49ef0ff5 = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, nEvent: typing.Optional[int] = 0, xDictionaryEntry: typing.Optional[XDictionaryEntry_49ef0ff5] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``nEvent`` can be another ``DictionaryEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            nEvent (int, optional): nEvent value
-            xDictionaryEntry (XDictionaryEntry, optional): xDictionaryEntry value
+            Source (XInterface, optional): Source value.
+            nEvent (int, optional): nEvent value.
+            xDictionaryEntry (XDictionaryEntry, optional): xDictionaryEntry value.
         """
-        super().__init__(**kwargs)
-        if isinstance(nEvent, DictionaryEvent):
-            oth: DictionaryEvent = nEvent
-            self._n_event = oth.nEvent
-            self._x_dictionary_entry = oth.xDictionaryEntry
-            return
-        else:
-            self._n_event = nEvent
-            self._x_dictionary_entry = xDictionaryEntry
 
+        if isinstance(Source, DictionaryEvent):
+            oth: DictionaryEvent = Source
+            self.Source = oth.Source
+            self.nEvent = oth.nEvent
+            self.xDictionaryEntry = oth.xDictionaryEntry
+            return
+
+        kargs = {
+            "Source": Source,
+            "nEvent": nEvent,
+            "xDictionaryEntry": xDictionaryEntry,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._n_event = kwargs["nEvent"]
+        self._x_dictionary_entry = kwargs["xDictionaryEntry"]
+        inst_keys = ('nEvent', 'xDictionaryEntry')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

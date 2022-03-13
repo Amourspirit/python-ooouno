@@ -41,33 +41,39 @@ class HoriOrientationFormat(object):
     typeName: str = 'com.sun.star.text.HoriOrientationFormat'
     """Literal Constant ``com.sun.star.text.HoriOrientationFormat``"""
 
-    def __init__(self, XPos: int = 0, HorizontalOrientation: int = 0, HorizontalRelation: int = 0, PositionToggle: bool = False) -> None:
+    def __init__(self, XPos: typing.Optional[int] = 0, HorizontalOrientation: typing.Optional[int] = 0, HorizontalRelation: typing.Optional[int] = 0, PositionToggle: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``XPos`` can be another ``HoriOrientationFormat`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            XPos (int, optional): XPos value
-            HorizontalOrientation (int, optional): HorizontalOrientation value
-            HorizontalRelation (int, optional): HorizontalRelation value
-            PositionToggle (bool, optional): PositionToggle value
+            XPos (int, optional): XPos value.
+            HorizontalOrientation (int, optional): HorizontalOrientation value.
+            HorizontalRelation (int, optional): HorizontalRelation value.
+            PositionToggle (bool, optional): PositionToggle value.
         """
+        super().__init__()
+
         if isinstance(XPos, HoriOrientationFormat):
             oth: HoriOrientationFormat = XPos
-            self._x_pos = oth.XPos
-            self._horizontal_orientation = oth.HorizontalOrientation
-            self._horizontal_relation = oth.HorizontalRelation
-            self._position_toggle = oth.PositionToggle
+            self.XPos = oth.XPos
+            self.HorizontalOrientation = oth.HorizontalOrientation
+            self.HorizontalRelation = oth.HorizontalRelation
+            self.PositionToggle = oth.PositionToggle
             return
-        else:
-            self._x_pos = XPos
-            self._horizontal_orientation = HorizontalOrientation
-            self._horizontal_relation = HorizontalRelation
-            self._position_toggle = PositionToggle
 
+        kargs = {
+            "XPos": XPos,
+            "HorizontalOrientation": HorizontalOrientation,
+            "HorizontalRelation": HorizontalRelation,
+            "PositionToggle": PositionToggle,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._x_pos = kwargs["XPos"]
+        self._horizontal_orientation = kwargs["HorizontalOrientation"]
+        self._horizontal_relation = kwargs["HorizontalRelation"]
+        self._position_toggle = kwargs["PositionToggle"]
 
 
     @property

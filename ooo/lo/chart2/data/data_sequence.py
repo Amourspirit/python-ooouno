@@ -48,6 +48,12 @@ class DataSequence(XPropertySet_bc180bfa, XDataSequence_11f00e1f, XNumericalData
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
+    def HiddenValues(self) -> 'typing.Tuple[int, ...]':
+        """
+        a sequence of indexes that identify values that are hidden in the underlying data provider.
+        """
+
+    @abstractproperty
     def IncludeHiddenCells(self) -> bool:
         """
         If set to false FALSE, values from hidden cells are not returned.

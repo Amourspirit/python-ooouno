@@ -37,30 +37,35 @@ class Direction3D(object):
     typeName: str = 'com.sun.star.drawing.Direction3D'
     """Literal Constant ``com.sun.star.drawing.Direction3D``"""
 
-    def __init__(self, DirectionX: float = 0.0, DirectionY: float = 0.0, DirectionZ: float = 0.0) -> None:
+    def __init__(self, DirectionX: typing.Optional[float] = 0.0, DirectionY: typing.Optional[float] = 0.0, DirectionZ: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``DirectionX`` can be another ``Direction3D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            DirectionX (float, optional): DirectionX value
-            DirectionY (float, optional): DirectionY value
-            DirectionZ (float, optional): DirectionZ value
+            DirectionX (float, optional): DirectionX value.
+            DirectionY (float, optional): DirectionY value.
+            DirectionZ (float, optional): DirectionZ value.
         """
+        super().__init__()
+
         if isinstance(DirectionX, Direction3D):
             oth: Direction3D = DirectionX
-            self._direction_x = oth.DirectionX
-            self._direction_y = oth.DirectionY
-            self._direction_z = oth.DirectionZ
+            self.DirectionX = oth.DirectionX
+            self.DirectionY = oth.DirectionY
+            self.DirectionZ = oth.DirectionZ
             return
-        else:
-            self._direction_x = DirectionX
-            self._direction_y = DirectionY
-            self._direction_z = DirectionZ
 
+        kargs = {
+            "DirectionX": DirectionX,
+            "DirectionY": DirectionY,
+            "DirectionZ": DirectionZ,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._direction_x = kwargs["DirectionX"]
+        self._direction_y = kwargs["DirectionY"]
+        self._direction_z = kwargs["DirectionZ"]
 
 
     @property

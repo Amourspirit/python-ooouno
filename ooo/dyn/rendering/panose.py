@@ -22,45 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, FamilyType = UNO_NONE, SerifStyle = UNO_NONE, Weight = UNO_NONE, Proportion = UNO_NONE, Contrast = UNO_NONE, StrokeVariation = UNO_NONE, ArmStyle = UNO_NONE, Letterform = UNO_NONE, Midline = UNO_NONE, XHeight = UNO_NONE):
-            if getattr(FamilyType, "__class__", None) == self.__class__:
-                orig_init(self, FamilyType)
+        ordered_keys = ('FamilyType', 'SerifStyle', 'Weight', 'Proportion', 'Contrast', 'StrokeVariation', 'ArmStyle', 'Letterform', 'Midline', 'XHeight')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not FamilyType is UNO_NONE:
-                if getattr(self, 'FamilyType') != FamilyType:
-                    setattr(self, 'FamilyType', FamilyType)
-            if not SerifStyle is UNO_NONE:
-                if getattr(self, 'SerifStyle') != SerifStyle:
-                    setattr(self, 'SerifStyle', SerifStyle)
-            if not Weight is UNO_NONE:
-                if getattr(self, 'Weight') != Weight:
-                    setattr(self, 'Weight', Weight)
-            if not Proportion is UNO_NONE:
-                if getattr(self, 'Proportion') != Proportion:
-                    setattr(self, 'Proportion', Proportion)
-            if not Contrast is UNO_NONE:
-                if getattr(self, 'Contrast') != Contrast:
-                    setattr(self, 'Contrast', Contrast)
-            if not StrokeVariation is UNO_NONE:
-                if getattr(self, 'StrokeVariation') != StrokeVariation:
-                    setattr(self, 'StrokeVariation', StrokeVariation)
-            if not ArmStyle is UNO_NONE:
-                if getattr(self, 'ArmStyle') != ArmStyle:
-                    setattr(self, 'ArmStyle', ArmStyle)
-            if not Letterform is UNO_NONE:
-                if getattr(self, 'Letterform') != Letterform:
-                    setattr(self, 'Letterform', Letterform)
-            if not Midline is UNO_NONE:
-                if getattr(self, 'Midline') != Midline:
-                    setattr(self, 'Midline', Midline)
-            if not XHeight is UNO_NONE:
-                if getattr(self, 'XHeight') != XHeight:
-                    setattr(self, 'XHeight', XHeight)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.rendering.Panose'
         struct = uno.getClass(type_name)
@@ -72,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     Panose = _get_class()
-
 
 else:
     from ...lo.rendering.panose import Panose as Panose

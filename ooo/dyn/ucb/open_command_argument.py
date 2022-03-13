@@ -22,27 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Properties = UNO_NONE, Mode = UNO_NONE, Priority = UNO_NONE, Sink = UNO_NONE):
-            if getattr(Properties, "__class__", None) == self.__class__:
-                orig_init(self, Properties)
+        ordered_keys = ('Properties', 'Mode', 'Priority', 'Sink')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Properties is UNO_NONE:
-                if getattr(self, 'Properties') != Properties:
-                    setattr(self, 'Properties', Properties)
-            if not Mode is UNO_NONE:
-                if getattr(self, 'Mode') != Mode:
-                    setattr(self, 'Mode', Mode)
-            if not Priority is UNO_NONE:
-                if getattr(self, 'Priority') != Priority:
-                    setattr(self, 'Priority', Priority)
-            if not Sink is UNO_NONE:
-                if getattr(self, 'Sink') != Sink:
-                    setattr(self, 'Sink', Sink)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.ucb.OpenCommandArgument'
         struct = uno.getClass(type_name)
@@ -54,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     OpenCommandArgument = _get_class()
-
 
 else:
     from ...lo.ucb.open_command_argument import OpenCommandArgument as OpenCommandArgument

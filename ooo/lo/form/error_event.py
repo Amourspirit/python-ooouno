@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -44,26 +45,34 @@ class ErrorEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.ErrorEvent'
     """Literal Constant ``com.sun.star.form.ErrorEvent``"""
 
-    def __init__(self, Reason: object = None, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Reason: typing.Optional[object] = None) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Reason`` can be another ``ErrorEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Reason (object, optional): Reason value
+            Source (XInterface, optional): Source value.
+            Reason (object, optional): Reason value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Reason, ErrorEvent):
-            oth: ErrorEvent = Reason
-            self._reason = oth.Reason
-            return
-        else:
-            self._reason = Reason
 
+        if isinstance(Source, ErrorEvent):
+            oth: ErrorEvent = Source
+            self.Source = oth.Source
+            self.Reason = oth.Reason
+            return
+
+        kargs = {
+            "Source": Source,
+            "Reason": Reason,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._reason = kwargs["Reason"]
+        inst_keys = ('Reason',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

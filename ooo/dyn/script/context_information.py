@@ -22,36 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, LocalVariableNames = UNO_NONE, Name = UNO_NONE, SourceCode = UNO_NONE, StartLine = UNO_NONE, StartColumn = UNO_NONE, EndLine = UNO_NONE, EndColumn = UNO_NONE):
-            if getattr(LocalVariableNames, "__class__", None) == self.__class__:
-                orig_init(self, LocalVariableNames)
+        ordered_keys = ('LocalVariableNames', 'Name', 'SourceCode', 'StartLine', 'StartColumn', 'EndLine', 'EndColumn')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not LocalVariableNames is UNO_NONE:
-                if getattr(self, 'LocalVariableNames') != LocalVariableNames:
-                    setattr(self, 'LocalVariableNames', LocalVariableNames)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not SourceCode is UNO_NONE:
-                if getattr(self, 'SourceCode') != SourceCode:
-                    setattr(self, 'SourceCode', SourceCode)
-            if not StartLine is UNO_NONE:
-                if getattr(self, 'StartLine') != StartLine:
-                    setattr(self, 'StartLine', StartLine)
-            if not StartColumn is UNO_NONE:
-                if getattr(self, 'StartColumn') != StartColumn:
-                    setattr(self, 'StartColumn', StartColumn)
-            if not EndLine is UNO_NONE:
-                if getattr(self, 'EndLine') != EndLine:
-                    setattr(self, 'EndLine', EndLine)
-            if not EndColumn is UNO_NONE:
-                if getattr(self, 'EndColumn') != EndColumn:
-                    setattr(self, 'EndColumn', EndColumn)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.script.ContextInformation'
         struct = uno.getClass(type_name)
@@ -63,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     ContextInformation = _get_class()
-
 
 else:
     from ...lo.script.context_information import ContextInformation as ContextInformation

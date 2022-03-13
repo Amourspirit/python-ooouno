@@ -37,30 +37,35 @@ class HomogenMatrixLine3(object):
     typeName: str = 'com.sun.star.drawing.HomogenMatrixLine3'
     """Literal Constant ``com.sun.star.drawing.HomogenMatrixLine3``"""
 
-    def __init__(self, Column1: float = 0.0, Column2: float = 0.0, Column3: float = 0.0) -> None:
+    def __init__(self, Column1: typing.Optional[float] = 0.0, Column2: typing.Optional[float] = 0.0, Column3: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Column1`` can be another ``HomogenMatrixLine3`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            Column1 (float, optional): Column1 value
-            Column2 (float, optional): Column2 value
-            Column3 (float, optional): Column3 value
+            Column1 (float, optional): Column1 value.
+            Column2 (float, optional): Column2 value.
+            Column3 (float, optional): Column3 value.
         """
+        super().__init__()
+
         if isinstance(Column1, HomogenMatrixLine3):
             oth: HomogenMatrixLine3 = Column1
-            self._column1 = oth.Column1
-            self._column2 = oth.Column2
-            self._column3 = oth.Column3
+            self.Column1 = oth.Column1
+            self.Column2 = oth.Column2
+            self.Column3 = oth.Column3
             return
-        else:
-            self._column1 = Column1
-            self._column2 = Column2
-            self._column3 = Column3
 
+        kargs = {
+            "Column1": Column1,
+            "Column2": Column2,
+            "Column3": Column3,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._column1 = kwargs["Column1"]
+        self._column2 = kwargs["Column2"]
+        self._column3 = kwargs["Column3"]
 
 
     @property

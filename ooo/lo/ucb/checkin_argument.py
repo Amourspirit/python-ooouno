@@ -39,39 +39,47 @@ class CheckinArgument(object):
     typeName: str = 'com.sun.star.ucb.CheckinArgument'
     """Literal Constant ``com.sun.star.ucb.CheckinArgument``"""
 
-    def __init__(self, MajorVersion: bool = False, VersionComment: str = '', SourceURL: str = '', TargetURL: str = '', NewTitle: str = '', MimeType: str = '') -> None:
+    def __init__(self, MajorVersion: typing.Optional[bool] = False, VersionComment: typing.Optional[str] = '', SourceURL: typing.Optional[str] = '', TargetURL: typing.Optional[str] = '', NewTitle: typing.Optional[str] = '', MimeType: typing.Optional[str] = '') -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``MajorVersion`` can be another ``CheckinArgument`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            MajorVersion (bool, optional): MajorVersion value
-            VersionComment (str, optional): VersionComment value
-            SourceURL (str, optional): SourceURL value
-            TargetURL (str, optional): TargetURL value
-            NewTitle (str, optional): NewTitle value
-            MimeType (str, optional): MimeType value
+            MajorVersion (bool, optional): MajorVersion value.
+            VersionComment (str, optional): VersionComment value.
+            SourceURL (str, optional): SourceURL value.
+            TargetURL (str, optional): TargetURL value.
+            NewTitle (str, optional): NewTitle value.
+            MimeType (str, optional): MimeType value.
         """
+        super().__init__()
+
         if isinstance(MajorVersion, CheckinArgument):
             oth: CheckinArgument = MajorVersion
-            self._major_version = oth.MajorVersion
-            self._version_comment = oth.VersionComment
-            self._source_url = oth.SourceURL
-            self._target_url = oth.TargetURL
-            self._new_title = oth.NewTitle
-            self._mime_type = oth.MimeType
+            self.MajorVersion = oth.MajorVersion
+            self.VersionComment = oth.VersionComment
+            self.SourceURL = oth.SourceURL
+            self.TargetURL = oth.TargetURL
+            self.NewTitle = oth.NewTitle
+            self.MimeType = oth.MimeType
             return
-        else:
-            self._major_version = MajorVersion
-            self._version_comment = VersionComment
-            self._source_url = SourceURL
-            self._target_url = TargetURL
-            self._new_title = NewTitle
-            self._mime_type = MimeType
 
+        kargs = {
+            "MajorVersion": MajorVersion,
+            "VersionComment": VersionComment,
+            "SourceURL": SourceURL,
+            "TargetURL": TargetURL,
+            "NewTitle": NewTitle,
+            "MimeType": MimeType,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._major_version = kwargs["MajorVersion"]
+        self._version_comment = kwargs["VersionComment"]
+        self._source_url = kwargs["SourceURL"]
+        self._target_url = kwargs["TargetURL"]
+        self._new_title = kwargs["NewTitle"]
+        self._mime_type = kwargs["MimeType"]
 
 
     @property

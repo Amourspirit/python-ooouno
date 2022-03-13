@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,32 +41,42 @@ class PropertySetInfoChangeEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.beans.PropertySetInfoChangeEvent'
     """Literal Constant ``com.sun.star.beans.PropertySetInfoChangeEvent``"""
 
-    def __init__(self, Name: str = '', Handle: int = 0, Reason: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Name: typing.Optional[str] = '', Handle: typing.Optional[int] = 0, Reason: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Name`` can be another ``PropertySetInfoChangeEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Name (str, optional): Name value
-            Handle (int, optional): Handle value
-            Reason (int, optional): Reason value
+            Source (XInterface, optional): Source value.
+            Name (str, optional): Name value.
+            Handle (int, optional): Handle value.
+            Reason (int, optional): Reason value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Name, PropertySetInfoChangeEvent):
-            oth: PropertySetInfoChangeEvent = Name
-            self._name = oth.Name
-            self._handle = oth.Handle
-            self._reason = oth.Reason
-            return
-        else:
-            self._name = Name
-            self._handle = Handle
-            self._reason = Reason
 
+        if isinstance(Source, PropertySetInfoChangeEvent):
+            oth: PropertySetInfoChangeEvent = Source
+            self.Source = oth.Source
+            self.Name = oth.Name
+            self.Handle = oth.Handle
+            self.Reason = oth.Reason
+            return
+
+        kargs = {
+            "Source": Source,
+            "Name": Name,
+            "Handle": Handle,
+            "Reason": Reason,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._name = kwargs["Name"]
+        self._handle = kwargs["Handle"]
+        self._reason = kwargs["Reason"]
+        inst_keys = ('Name', 'Handle', 'Reason')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

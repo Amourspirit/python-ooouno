@@ -50,6 +50,12 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
+    def SelectedValues(self) -> 'typing.Tuple[object, ...]':
+        """
+        The selected values.
+        """
+
+    @abstractproperty
     def BoundColumn(self) -> int:
         """
         specifies which column of the list result set should be used for data exchange.

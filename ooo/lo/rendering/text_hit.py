@@ -43,27 +43,31 @@ class TextHit(object):
     typeName: str = 'com.sun.star.rendering.TextHit'
     """Literal Constant ``com.sun.star.rendering.TextHit``"""
 
-    def __init__(self, EntryIndex: int = 0, IsLeadingEdge: bool = False) -> None:
+    def __init__(self, EntryIndex: typing.Optional[int] = 0, IsLeadingEdge: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``EntryIndex`` can be another ``TextHit`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            EntryIndex (int, optional): EntryIndex value
-            IsLeadingEdge (bool, optional): IsLeadingEdge value
+            EntryIndex (int, optional): EntryIndex value.
+            IsLeadingEdge (bool, optional): IsLeadingEdge value.
         """
+        super().__init__()
+
         if isinstance(EntryIndex, TextHit):
             oth: TextHit = EntryIndex
-            self._entry_index = oth.EntryIndex
-            self._is_leading_edge = oth.IsLeadingEdge
+            self.EntryIndex = oth.EntryIndex
+            self.IsLeadingEdge = oth.IsLeadingEdge
             return
-        else:
-            self._entry_index = EntryIndex
-            self._is_leading_edge = IsLeadingEdge
 
+        kargs = {
+            "EntryIndex": EntryIndex,
+            "IsLeadingEdge": IsLeadingEdge,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._entry_index = kwargs["EntryIndex"]
+        self._is_leading_edge = kwargs["IsLeadingEdge"]
 
 
     @property

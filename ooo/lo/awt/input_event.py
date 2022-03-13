@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -40,26 +41,34 @@ class InputEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.InputEvent'
     """Literal Constant ``com.sun.star.awt.InputEvent``"""
 
-    def __init__(self, Modifiers: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Modifiers: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Modifiers`` can be another ``InputEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Modifiers (int, optional): Modifiers value
+            Source (XInterface, optional): Source value.
+            Modifiers (int, optional): Modifiers value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Modifiers, InputEvent):
-            oth: InputEvent = Modifiers
-            self._modifiers = oth.Modifiers
-            return
-        else:
-            self._modifiers = Modifiers
 
+        if isinstance(Source, InputEvent):
+            oth: InputEvent = Source
+            self.Source = oth.Source
+            self.Modifiers = oth.Modifiers
+            return
+
+        kargs = {
+            "Source": Source,
+            "Modifiers": Modifiers,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._modifiers = kwargs["Modifiers"]
+        inst_keys = ('Modifiers',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

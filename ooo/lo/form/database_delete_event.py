@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ..lang.event_object import EventObject as EventObject_a3d70b03
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -44,29 +45,36 @@ class DatabaseDeleteEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.DatabaseDeleteEvent'
     """Literal Constant ``com.sun.star.form.DatabaseDeleteEvent``"""
 
-    def __init__(self, Bookmarks: typing.Tuple[object, ...] = UNO_NONE, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Bookmarks: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``Bookmarks`` can be another ``DatabaseDeleteEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            Bookmarks (Tuple[object, ...], optional): Bookmarks value
+            Source (XInterface, optional): Source value.
+            Bookmarks (typing.Tuple[object, ...], optional): Bookmarks value.
         """
-        super().__init__(**kwargs)
-        if isinstance(Bookmarks, DatabaseDeleteEvent):
-            oth: DatabaseDeleteEvent = Bookmarks
-            self._bookmarks = oth.Bookmarks
-            return
-        else:
-            if Bookmarks is UNO_NONE:
-                self._bookmarks = None
-            else:
-                self._bookmarks = Bookmarks
 
+        if isinstance(Source, DatabaseDeleteEvent):
+            oth: DatabaseDeleteEvent = Source
+            self.Source = oth.Source
+            self.Bookmarks = oth.Bookmarks
+            return
+
+        kargs = {
+            "Source": Source,
+            "Bookmarks": Bookmarks,
+        }
+        if kargs["Bookmarks"] is UNO_NONE:
+            kargs["Bookmarks"] = None
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._bookmarks = kwargs["Bookmarks"]
+        inst_keys = ('Bookmarks',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

@@ -19,25 +19,22 @@
 # Namespace: com.sun.star.uno
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
+from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
 
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Message = UNO_NONE, Context = UNO_NONE):
-            if getattr(Message, "__class__", None) == self.__class__:
-                orig_init(self, Message)
+        ordered_keys = ('Message', 'Context')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Message is UNO_NONE:
-                if getattr(self, 'Message') != Message:
-                    setattr(self, 'Message', Message)
-            if not Context is UNO_NONE:
-                if getattr(self, 'Context') != Context:
-                    setattr(self, 'Context', Context)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.uno.Exception'
         ex = uno.getClass(type_name)

@@ -37,33 +37,39 @@ class VerbDescriptor(object):
     typeName: str = 'com.sun.star.embed.VerbDescriptor'
     """Literal Constant ``com.sun.star.embed.VerbDescriptor``"""
 
-    def __init__(self, VerbID: int = 0, VerbName: str = '', VerbFlags: int = 0, VerbAttributes: int = 0) -> None:
+    def __init__(self, VerbID: typing.Optional[int] = 0, VerbName: typing.Optional[str] = '', VerbFlags: typing.Optional[int] = 0, VerbAttributes: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``VerbID`` can be another ``VerbDescriptor`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            VerbID (int, optional): VerbID value
-            VerbName (str, optional): VerbName value
-            VerbFlags (int, optional): VerbFlags value
-            VerbAttributes (int, optional): VerbAttributes value
+            VerbID (int, optional): VerbID value.
+            VerbName (str, optional): VerbName value.
+            VerbFlags (int, optional): VerbFlags value.
+            VerbAttributes (int, optional): VerbAttributes value.
         """
+        super().__init__()
+
         if isinstance(VerbID, VerbDescriptor):
             oth: VerbDescriptor = VerbID
-            self._verb_id = oth.VerbID
-            self._verb_name = oth.VerbName
-            self._verb_flags = oth.VerbFlags
-            self._verb_attributes = oth.VerbAttributes
+            self.VerbID = oth.VerbID
+            self.VerbName = oth.VerbName
+            self.VerbFlags = oth.VerbFlags
+            self.VerbAttributes = oth.VerbAttributes
             return
-        else:
-            self._verb_id = VerbID
-            self._verb_name = VerbName
-            self._verb_flags = VerbFlags
-            self._verb_attributes = VerbAttributes
 
+        kargs = {
+            "VerbID": VerbID,
+            "VerbName": VerbName,
+            "VerbFlags": VerbFlags,
+            "VerbAttributes": VerbAttributes,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._verb_id = kwargs["VerbID"]
+        self._verb_name = kwargs["VerbName"]
+        self._verb_flags = kwargs["VerbFlags"]
+        self._verb_attributes = kwargs["VerbAttributes"]
 
 
     @property

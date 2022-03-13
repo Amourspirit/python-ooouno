@@ -21,10 +21,14 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest_9f72121b
+from ..uno.x_interface import XInterface as XInterface_8f010a43
+from ..task.interaction_classification import InteractionClassification as InteractionClassification_6c4d10e7
 from .io_error_code import IOErrorCode as IOErrorCode_96ab0a5f
 
 class InteractiveIOException(ClassifiedInteractionRequest_9f72121b):
     """
+    Exception Class
+
     An input/output error.
 
     See Also:
@@ -40,18 +44,31 @@ class InteractiveIOException(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.ucb.InteractiveIOException'
     """Literal Constant ``com.sun.star.ucb.InteractiveIOException``"""
 
-    def __init__(self, Code: typing.Optional[IOErrorCode_96ab0a5f] = IOErrorCode_96ab0a5f.ABORT, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, Code: typing.Optional[IOErrorCode_96ab0a5f] = IOErrorCode_96ab0a5f.ABORT) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
+            Classification (InteractionClassification, optional): Classification value.
             Code (IOErrorCode, optional): Code value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "Classification": Classification,
+            "Code": Code,
+        }
+        self._init(**kargs)
 
-        self._code = Code
+    def _init(self, **kwargs) -> None:
+        self._code = kwargs["Code"]
+        inst_keys = ('Code',)
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def Code(self) -> IOErrorCode_96ab0a5f:

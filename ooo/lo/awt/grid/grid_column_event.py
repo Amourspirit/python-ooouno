@@ -20,6 +20,7 @@
 # Libre Office Version: 7.2
 from ooo.oenv import UNO_NONE
 from ...lang.event_object import EventObject as EventObject_a3d70b03
+from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
 
 
@@ -42,35 +43,46 @@ class GridColumnEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.grid.GridColumnEvent'
     """Literal Constant ``com.sun.star.awt.grid.GridColumnEvent``"""
 
-    def __init__(self, AttributeName: str = '', OldValue: object = None, NewValue: object = None, ColumnIndex: int = 0, **kwargs) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, AttributeName: typing.Optional[str] = '', OldValue: typing.Optional[object] = None, NewValue: typing.Optional[object] = None, ColumnIndex: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``AttributeName`` can be another ``GridColumnEvent`` instance,
-                in which case other named args are ignored.
-                However ``**kwargs`` are still passed so parent class.
-
         Arguments:
-            AttributeName (str, optional): AttributeName value
-            OldValue (object, optional): OldValue value
-            NewValue (object, optional): NewValue value
-            ColumnIndex (int, optional): ColumnIndex value
+            Source (XInterface, optional): Source value.
+            AttributeName (str, optional): AttributeName value.
+            OldValue (object, optional): OldValue value.
+            NewValue (object, optional): NewValue value.
+            ColumnIndex (int, optional): ColumnIndex value.
         """
-        super().__init__(**kwargs)
-        if isinstance(AttributeName, GridColumnEvent):
-            oth: GridColumnEvent = AttributeName
-            self._attribute_name = oth.AttributeName
-            self._old_value = oth.OldValue
-            self._new_value = oth.NewValue
-            self._column_index = oth.ColumnIndex
-            return
-        else:
-            self._attribute_name = AttributeName
-            self._old_value = OldValue
-            self._new_value = NewValue
-            self._column_index = ColumnIndex
 
+        if isinstance(Source, GridColumnEvent):
+            oth: GridColumnEvent = Source
+            self.Source = oth.Source
+            self.AttributeName = oth.AttributeName
+            self.OldValue = oth.OldValue
+            self.NewValue = oth.NewValue
+            self.ColumnIndex = oth.ColumnIndex
+            return
+
+        kargs = {
+            "Source": Source,
+            "AttributeName": AttributeName,
+            "OldValue": OldValue,
+            "NewValue": NewValue,
+            "ColumnIndex": ColumnIndex,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._attribute_name = kwargs["AttributeName"]
+        self._old_value = kwargs["OldValue"]
+        self._new_value = kwargs["NewValue"]
+        self._column_index = kwargs["ColumnIndex"]
+        inst_keys = ('AttributeName', 'OldValue', 'NewValue', 'ColumnIndex')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
 
     @property

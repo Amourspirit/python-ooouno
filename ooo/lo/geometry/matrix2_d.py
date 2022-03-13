@@ -53,33 +53,39 @@ class Matrix2D(object):
     typeName: str = 'com.sun.star.geometry.Matrix2D'
     """Literal Constant ``com.sun.star.geometry.Matrix2D``"""
 
-    def __init__(self, m00: float = 0.0, m01: float = 0.0, m10: float = 0.0, m11: float = 0.0) -> None:
+    def __init__(self, m00: typing.Optional[float] = 0.0, m01: typing.Optional[float] = 0.0, m10: typing.Optional[float] = 0.0, m11: typing.Optional[float] = 0.0) -> None:
         """
         Constructor
 
-        Other Arguments:
-            ``m00`` can be another ``Matrix2D`` instance,
-                in which case other named args are ignored.
-
         Arguments:
-            m00 (float, optional): m00 value
-            m01 (float, optional): m01 value
-            m10 (float, optional): m10 value
-            m11 (float, optional): m11 value
+            m00 (float, optional): m00 value.
+            m01 (float, optional): m01 value.
+            m10 (float, optional): m10 value.
+            m11 (float, optional): m11 value.
         """
+        super().__init__()
+
         if isinstance(m00, Matrix2D):
             oth: Matrix2D = m00
-            self._m00 = oth.m00
-            self._m01 = oth.m01
-            self._m10 = oth.m10
-            self._m11 = oth.m11
+            self.m00 = oth.m00
+            self.m01 = oth.m01
+            self.m10 = oth.m10
+            self.m11 = oth.m11
             return
-        else:
-            self._m00 = m00
-            self._m01 = m01
-            self._m10 = m10
-            self._m11 = m11
 
+        kargs = {
+            "m00": m00,
+            "m01": m01,
+            "m10": m10,
+            "m11": m11,
+        }
+        self._init(**kargs)
+
+    def _init(self, **kwargs) -> None:
+        self._m00 = kwargs["m00"]
+        self._m01 = kwargs["m01"]
+        self._m10 = kwargs["m10"]
+        self._m11 = kwargs["m11"]
 
 
     @property

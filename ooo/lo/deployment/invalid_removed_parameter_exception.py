@@ -21,10 +21,13 @@
 from ooo.oenv import UNO_NONE
 import typing
 from ..uno.exception import Exception as Exception_85530a09
+from ..uno.x_interface import XInterface as XInterface_8f010a43
 from .x_package import XPackage as XPackage_cb1f0c4d
 
 class InvalidRemovedParameterException(Exception_85530a09):
     """
+    Exception Class
+
     indicates that XPackageRegistry.bindPackage() was previously called with a different value for the removed parameter and that the XPackage object created by that call still exist.
     
     **since**
@@ -44,20 +47,32 @@ class InvalidRemovedParameterException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.InvalidRemovedParameterException'
     """Literal Constant ``com.sun.star.deployment.InvalidRemovedParameterException``"""
 
-    def __init__(self, PreviousValue: typing.Optional[bool] = False, Extension: typing.Optional[XPackage_cb1f0c4d] = None, **kwargs) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, PreviousValue: typing.Optional[bool] = False, Extension: typing.Optional[XPackage_cb1f0c4d] = None) -> None:
         """
         Constructor
 
-        Keyword Arguments:
+        Arguments:
+            Message (str, optional): Message value.
+            Context (XInterface, optional): Context value.
             PreviousValue (bool, optional): PreviousValue value.
             Extension (XPackage, optional): Extension value.
-
-            Other ``*args`` and ``**kwargs`` are passed to parent class.
         """
-        super().__init__(**kwargs)
+        kargs = {
+            "Message": Message,
+            "Context": Context,
+            "PreviousValue": PreviousValue,
+            "Extension": Extension,
+        }
+        self._init(**kargs)
 
-        self._previous_value = PreviousValue
-        self._extension = Extension
+    def _init(self, **kwargs) -> None:
+        self._previous_value = kwargs["PreviousValue"]
+        self._extension = kwargs["Extension"]
+        inst_keys = ('PreviousValue', 'Extension')
+        kargs = kwargs.copy()
+        for key in inst_keys:
+            del kargs[key]
+        super()._init(**kargs)
 
     @property
     def PreviousValue(self) -> bool:

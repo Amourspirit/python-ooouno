@@ -22,24 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Line1 = UNO_NONE, Line2 = UNO_NONE, Line3 = UNO_NONE):
-            if getattr(Line1, "__class__", None) == self.__class__:
-                orig_init(self, Line1)
+        ordered_keys = ('Line1', 'Line2', 'Line3')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Line1 is UNO_NONE:
-                if getattr(self, 'Line1') != Line1:
-                    setattr(self, 'Line1', Line1)
-            if not Line2 is UNO_NONE:
-                if getattr(self, 'Line2') != Line2:
-                    setattr(self, 'Line2', Line2)
-            if not Line3 is UNO_NONE:
-                if getattr(self, 'Line3') != Line3:
-                    setattr(self, 'Line3', Line3)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.drawing.HomogenMatrix3'
         struct = uno.getClass(type_name)
@@ -51,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     HomogenMatrix3 = _get_class()
-
 
 else:
     from ...lo.drawing.homogen_matrix3 import HomogenMatrix3 as HomogenMatrix3

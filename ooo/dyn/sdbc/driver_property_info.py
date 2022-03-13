@@ -22,30 +22,18 @@ from typing import TYPE_CHECKING
 from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno
- 
+
     def _get_class():
         orig_init = None
-        def init(self, Choices = UNO_NONE, Name = UNO_NONE, Description = UNO_NONE, IsRequired = UNO_NONE, Value = UNO_NONE):
-            if getattr(Choices, "__class__", None) == self.__class__:
-                orig_init(self, Choices)
+        ordered_keys = ('Choices', 'Name', 'Description', 'IsRequired', 'Value')
+        def init(self, *args, **kwargs):
+            if len(kwargs) == 0 and len(args) == 1 and getattr(args[0], "__class__", None) == self.__class__:
+                orig_init(self, args[0])
                 return
-            else:
-                orig_init(self)
-            if not Choices is UNO_NONE:
-                if getattr(self, 'Choices') != Choices:
-                    setattr(self, 'Choices', Choices)
-            if not Name is UNO_NONE:
-                if getattr(self, 'Name') != Name:
-                    setattr(self, 'Name', Name)
-            if not Description is UNO_NONE:
-                if getattr(self, 'Description') != Description:
-                    setattr(self, 'Description', Description)
-            if not IsRequired is UNO_NONE:
-                if getattr(self, 'IsRequired') != IsRequired:
-                    setattr(self, 'IsRequired', IsRequired)
-            if not Value is UNO_NONE:
-                if getattr(self, 'Value') != Value:
-                    setattr(self, 'Value', Value)
+            kargs = kwargs.copy()
+            for i, arg in enumerate(args):
+                kargs[ordered_keys[i]] = arg
+            orig_init(self, **kargs)
 
         type_name = 'com.sun.star.sdbc.DriverPropertyInfo'
         struct = uno.getClass(type_name)
@@ -57,7 +45,6 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
         return struct
 
     DriverPropertyInfo = _get_class()
-
 
 else:
     from ...lo.sdbc.driver_property_info import DriverPropertyInfo as DriverPropertyInfo

@@ -14,7 +14,6 @@
         "--init-hook",
         "import sys; sys.path.append(\"${workspaceFolder}/env/lib/python3.7/site-packages\");",
     ],
-    "restructuredtext.confPath": "${workspaceFolder}/docs",
     "autoDocstring.docstringFormat": "google",
   "workbench.colorCustomizations": {
   "[Monokai]": {
@@ -24,5 +23,6 @@
 "workbench.colorTheme": "Monokai",
 "python.formatting.provider": "black",
 "esbonio.server.enabled": true,
-"esbonio.sphinx.confDir": "/home/paul/Documents/Projects/Python/Publish/ooo_uno_lib/docs"
+"esbonio.sphinx.confDir": "/home/paul/Documents/Projects/Python/Publish/ooo_uno_lib/docs",
+"restructuredtext.confPath": ""
 }

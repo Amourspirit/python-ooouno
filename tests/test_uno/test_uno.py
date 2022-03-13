@@ -35,11 +35,11 @@ def test_sequence(get_document: 'XModel'):
     data = table.getDataArray()
     assert data == a
     
-    arg1 = PropertyValue()
-    arg1.Name = "InputStream"
-    arg2 = PropertyValue()
-    arg2.Name = "FilterName"
-    arg2.Value = "writer_web_HTML"
+    arg1 = PropertyValue("InputStream")
+    # arg1.Name = "InputStream"
+    arg2 = PropertyValue(Name="FilterName", Value="writer_web_HTML")
+    # arg2.Name = "FilterName"
+    # arg2.Value = "writer_web_HTML"
     bs = b"<html><body><p>Text from <b>HTML</b>.</p></body></html>"
     # sequence: SequenceInputStream = uno_helper.create_uno_service("com.sun.star.io.SequenceInputStream")
     sequence: SequenceInputStream = uno_helper.create_uno_service(SequenceInputStream)

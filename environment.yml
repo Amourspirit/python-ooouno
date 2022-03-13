@@ -1,4 +1,4 @@
-name: /home/paul/Documents/Projects/Python/Publish/ooo_uno_lib/env
+name: env
 channels:
   - conda-forge
   - defaults
@@ -102,4 +102,4 @@ dependencies:
     - sphinx-rtd-theme==1.0.0
     - stickytape==0.2.1
     - unotools==0.3.3
-prefix: /home/paul/Documents/Projects/Python/Publish/ooo_uno_lib/env
+prefix: env

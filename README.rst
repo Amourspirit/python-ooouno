@@ -25,7 +25,7 @@ Installation
 CONDA
 -----
 
-OOOUNO on `Anaconda <https://anaconda.org/conda-forge/ooouno>`_
+**ooouno** on `Anaconda <https://anaconda.org/conda-forge/ooouno>`_
 
 .. code-block:: bash
 
@@ -66,7 +66,7 @@ ooo.lo
 ++++++
 
 | Namespace ``ooo.lo`` contains all static python classes. The format is
-| ``ooo.lo.<ns>.<snake_case_name>.<UpperCamelCaseName>``
+| ``ooo.lo.<ns>.<snake_case_name>.<PascalCaseName>``
 
 .. code-block:: python
 
@@ -78,7 +78,7 @@ ooo.dyn
 +++++++
 
 Namespace ``ooo.dyn`` contains static and dynamic classes depending on class type.
-The format is ``ooo.dyn.<ns>.<snake_case_name>.<UpperCamelCaseName>``
+The format is ``ooo.dyn.<ns>.<snake_case_name>.<PascalCaseName>``
 
 This namespace has dynamic classes that are changed at runtime.
 For classes that are dynamic are fully or partially replaced by UNO version at runtime.
@@ -103,7 +103,7 @@ ooo.csslo
 +++++++++
 
 | Namespace ``ooo.csslo`` contains static classes as LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ style imports.
-| The format is ``ooo.csslo.<ns>.<UpperCamelCaseName>``
+| The format is ``ooo.csslo.<ns>.<PascalCaseName>``
 
 When importing from ``ooo.csslo`` all classes in that namespace are also loaded.
 Under some circumstances this may not be desired. Such as packaging with `stickytape <https://pypi.org/project/stickytape/>`_.

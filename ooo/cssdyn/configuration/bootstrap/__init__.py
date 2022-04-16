@@ -14,9 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.configuration.bootstrap.bootstrap_context import BootstrapContext as BootstrapContext
-except ImportError:
-    pass
+from ....dyn.configuration.bootstrap.bootstrap_context import BootstrapContext as BootstrapContext

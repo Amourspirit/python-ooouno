@@ -14,17 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.ui.test.ui_test import UITest as UITest
-except ImportError:
-    pass
-try:
-    from ....dyn.ui.test.xui_object import XUIObject as XUIObject
-except ImportError:
-    pass
-try:
-    from ....dyn.ui.test.xui_test import XUITest as XUITest
-except ImportError:
-    pass
+from ....dyn.ui.test.ui_test import UITest as UITest
+from ....dyn.ui.test.xui_object import XUIObject as XUIObject
+from ....dyn.ui.test.xui_test import XUITest as XUITest

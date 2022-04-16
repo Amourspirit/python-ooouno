@@ -14,65 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.awt.tree.expand_veto_exception import ExpandVetoException as ExpandVetoException
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.mutable_tree_data_model import MutableTreeDataModel as MutableTreeDataModel
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.mutable_tree_node import MutableTreeNode as MutableTreeNode
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.tree_control import TreeControl as TreeControl
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.tree_control_model import TreeControlModel as TreeControlModel
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.tree_data_model_event import TreeDataModelEvent as TreeDataModelEvent
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.tree_expansion_event import TreeExpansionEvent as TreeExpansionEvent
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_mutable_tree_data_model import XMutableTreeDataModel as XMutableTreeDataModel
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_mutable_tree_node import XMutableTreeNode as XMutableTreeNode
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_control import XTreeControl as XTreeControl
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_data_model import XTreeDataModel as XTreeDataModel
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_data_model_listener import XTreeDataModelListener as XTreeDataModelListener
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_edit_listener import XTreeEditListener as XTreeEditListener
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_expansion_listener import XTreeExpansionListener as XTreeExpansionListener
-except ImportError:
-    pass
-try:
-    from ....dyn.awt.tree.x_tree_node import XTreeNode as XTreeNode
-except ImportError:
-    pass
+from ....dyn.awt.tree.expand_veto_exception import ExpandVetoException as ExpandVetoException
+from ....dyn.awt.tree.mutable_tree_data_model import MutableTreeDataModel as MutableTreeDataModel
+from ....dyn.awt.tree.mutable_tree_node import MutableTreeNode as MutableTreeNode
+from ....dyn.awt.tree.tree_control import TreeControl as TreeControl
+from ....dyn.awt.tree.tree_control_model import TreeControlModel as TreeControlModel
+from ....dyn.awt.tree.tree_data_model_event import TreeDataModelEvent as TreeDataModelEvent
+from ....dyn.awt.tree.tree_expansion_event import TreeExpansionEvent as TreeExpansionEvent
+from ....dyn.awt.tree.x_mutable_tree_data_model import XMutableTreeDataModel as XMutableTreeDataModel
+from ....dyn.awt.tree.x_mutable_tree_node import XMutableTreeNode as XMutableTreeNode
+from ....dyn.awt.tree.x_tree_control import XTreeControl as XTreeControl
+from ....dyn.awt.tree.x_tree_data_model import XTreeDataModel as XTreeDataModel
+from ....dyn.awt.tree.x_tree_data_model_listener import XTreeDataModelListener as XTreeDataModelListener
+from ....dyn.awt.tree.x_tree_edit_listener import XTreeEditListener as XTreeEditListener
+from ....dyn.awt.tree.x_tree_expansion_listener import XTreeExpansionListener as XTreeExpansionListener
+from ....dyn.awt.tree.x_tree_node import XTreeNode as XTreeNode

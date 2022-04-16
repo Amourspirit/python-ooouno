@@ -14,49 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.connection.acceptor import Acceptor as Acceptor
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.connector import Connector as Connector
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.no_connect_exception import NoConnectException as NoConnectException
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.socket_permission import SocketPermission as SocketPermission
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.x_acceptor import XAcceptor as XAcceptor
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.x_connection import XConnection as XConnection
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.x_connection2 import XConnection2 as XConnection2
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.x_connection_broadcaster import XConnectionBroadcaster as XConnectionBroadcaster
-except ImportError:
-    pass
-try:
-    from ...dyn.connection.x_connector import XConnector as XConnector
-except ImportError:
-    pass
+from ...dyn.connection.acceptor import Acceptor as Acceptor
+from ...dyn.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
+from ...dyn.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException
+from ...dyn.connection.connector import Connector as Connector
+from ...dyn.connection.no_connect_exception import NoConnectException as NoConnectException
+from ...dyn.connection.socket_permission import SocketPermission as SocketPermission
+from ...dyn.connection.x_acceptor import XAcceptor as XAcceptor
+from ...dyn.connection.x_connection import XConnection as XConnection
+from ...dyn.connection.x_connection2 import XConnection2 as XConnection2
+from ...dyn.connection.x_connection_broadcaster import XConnectionBroadcaster as XConnectionBroadcaster
+from ...dyn.connection.x_connector import XConnector as XConnector

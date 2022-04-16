@@ -14,17 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.presentation.textfield.date_time import DateTime as DateTime
-except ImportError:
-    pass
-try:
-    from ....dyn.presentation.textfield.footer import Footer as Footer
-except ImportError:
-    pass
-try:
-    from ....dyn.presentation.textfield.header import Header as Header
-except ImportError:
-    pass
+from ....dyn.presentation.textfield.date_time import DateTime as DateTime
+from ....dyn.presentation.textfield.footer import Footer as Footer
+from ....dyn.presentation.textfield.header import Header as Header

@@ -14,13 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.ldap.ldap_connection_exception import LdapConnectionException as LdapConnectionException
-except ImportError:
-    pass
-try:
-    from ...dyn.ldap.ldap_generic_exception import LdapGenericException as LdapGenericException
-except ImportError:
-    pass
+from ...dyn.ldap.ldap_connection_exception import LdapConnectionException as LdapConnectionException
+from ...dyn.ldap.ldap_generic_exception import LdapGenericException as LdapGenericException

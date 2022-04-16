@@ -14,21 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.report.meta.x_formula_parser import XFormulaParser as XFormulaParser
-except ImportError:
-    pass
-try:
-    from ....dyn.report.meta.x_function_category import XFunctionCategory as XFunctionCategory
-except ImportError:
-    pass
-try:
-    from ....dyn.report.meta.x_function_description import XFunctionDescription as XFunctionDescription
-except ImportError:
-    pass
-try:
-    from ....dyn.report.meta.x_function_manager import XFunctionManager as XFunctionManager
-except ImportError:
-    pass
+from ....dyn.report.meta.x_formula_parser import XFormulaParser as XFormulaParser
+from ....dyn.report.meta.x_function_category import XFunctionCategory as XFunctionCategory
+from ....dyn.report.meta.x_function_description import XFunctionDescription as XFunctionDescription
+from ....dyn.report.meta.x_function_manager import XFunctionManager as XFunctionManager

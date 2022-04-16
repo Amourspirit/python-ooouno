@@ -14,49 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from .....dyn.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.event_exception import EventException as EventException
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.event_type import EventType as EventType
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.phase_type import PhaseType as PhaseType
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_document_event import XDocumentEvent as XDocumentEvent
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_event import XEvent as XEvent
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_event_listener import XEventListener as XEventListener
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_event_target import XEventTarget as XEventTarget
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_mouse_event import XMouseEvent as XMouseEvent
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.x_mutation_event import XMutationEvent as XMutationEvent
-except ImportError:
-    pass
-try:
-    from .....dyn.xml.dom.events.xui_event import XUIEvent as XUIEvent
-except ImportError:
-    pass
+from .....dyn.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
+from .....dyn.xml.dom.events.event_exception import EventException as EventException
+from .....dyn.xml.dom.events.event_type import EventType as EventType
+from .....dyn.xml.dom.events.phase_type import PhaseType as PhaseType
+from .....dyn.xml.dom.events.x_document_event import XDocumentEvent as XDocumentEvent
+from .....dyn.xml.dom.events.x_event import XEvent as XEvent
+from .....dyn.xml.dom.events.x_event_listener import XEventListener as XEventListener
+from .....dyn.xml.dom.events.x_event_target import XEventTarget as XEventTarget
+from .....dyn.xml.dom.events.x_mouse_event import XMouseEvent as XMouseEvent
+from .....dyn.xml.dom.events.x_mutation_event import XMutationEvent as XMutationEvent
+from .....dyn.xml.dom.events.xui_event import XUIEvent as XUIEvent

@@ -14,29 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
-except ImportError:
-    pass
-try:
-    from ...dyn.loader.dynamic import Dynamic as Dynamic
-except ImportError:
-    pass
-try:
-    from ...dyn.loader.java import Java as Java
-except ImportError:
-    pass
-try:
-    from ...dyn.loader.java2 import Java2 as Java2
-except ImportError:
-    pass
-try:
-    from ...dyn.loader.shared_library import SharedLibrary as SharedLibrary
-except ImportError:
-    pass
-try:
-    from ...dyn.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader
-except ImportError:
-    pass
+from ...dyn.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
+from ...dyn.loader.dynamic import Dynamic as Dynamic
+from ...dyn.loader.java import Java as Java
+from ...dyn.loader.java2 import Java2 as Java2
+from ...dyn.loader.shared_library import SharedLibrary as SharedLibrary
+from ...dyn.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader

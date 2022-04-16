@@ -14,13 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.xml.csax.x_compressed_document_handler import XCompressedDocumentHandler as XCompressedDocumentHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.csax.xml_attribute import XMLAttribute as XMLAttribute
-except ImportError:
-    pass
+from ....dyn.xml.csax.x_compressed_document_handler import XCompressedDocumentHandler as XCompressedDocumentHandler
+from ....dyn.xml.csax.xml_attribute import XMLAttribute as XMLAttribute

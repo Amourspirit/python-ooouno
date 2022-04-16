@@ -18,7 +18,6 @@ from ...lo.resource.missing_resource_exception import MissingResourceException a
 from ...lo.resource.string_resource import StringResource as StringResource
 from ...lo.resource.string_resource_with_location import StringResourceWithLocation as StringResourceWithLocation
 from ...lo.resource.string_resource_with_storage import StringResourceWithStorage as StringResourceWithStorage
-from ...lo.resource.x_locale import XLocale as XLocale
 from ...lo.resource.x_string_resource_manager import XStringResourceManager as XStringResourceManager
 from ...lo.resource.x_string_resource_persistence import XStringResourcePersistence as XStringResourcePersistence
 from ...lo.resource.x_string_resource_resolver import XStringResourceResolver as XStringResourceResolver

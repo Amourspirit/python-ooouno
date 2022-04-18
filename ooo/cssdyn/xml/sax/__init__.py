@@ -14,121 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.xml.sax.fast_parser import FastParser as FastParser
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.fast_shape_context_handler import FastShapeContextHandler as FastShapeContextHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.fast_token import FastToken as FastToken
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.fast_token import FastTokenEnum as FastTokenEnum
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.fast_token_handler import FastTokenHandler as FastTokenHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.input_source import InputSource as InputSource
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.parser import Parser as Parser
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.sax_exception import SAXException as SAXException
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.sax_invalid_character_exception import SAXInvalidCharacterException as SAXInvalidCharacterException
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.sax_parse_exception import SAXParseException as SAXParseException
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.writer import Writer as Writer
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_attribute_list import XAttributeList as XAttributeList
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.xdtd_handler import XDTDHandler as XDTDHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_document_handler import XDocumentHandler as XDocumentHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_entity_resolver import XEntityResolver as XEntityResolver
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_error_handler import XErrorHandler as XErrorHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_extended_document_handler import XExtendedDocumentHandler as XExtendedDocumentHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_attribute_list import XFastAttributeList as XFastAttributeList
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_context_handler import XFastContextHandler as XFastContextHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_document_handler import XFastDocumentHandler as XFastDocumentHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_namespace_handler import XFastNamespaceHandler as XFastNamespaceHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_parser import XFastParser as XFastParser
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_sax_serializable import XFastSAXSerializable as XFastSAXSerializable
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_shape_context_handler import XFastShapeContextHandler as XFastShapeContextHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_fast_token_handler import XFastTokenHandler as XFastTokenHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_locator import XLocator as XLocator
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_parser import XParser as XParser
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.xsax_serializable import XSAXSerializable as XSAXSerializable
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.sax.x_writer import XWriter as XWriter
-except ImportError:
-    pass
+from ....dyn.xml.sax.fast_parser import FastParser as FastParser
+from ....dyn.xml.sax.fast_token import FastToken as FastToken
+from ....dyn.xml.sax.fast_token import FastTokenEnum as FastTokenEnum
+from ....dyn.xml.sax.fast_token_handler import FastTokenHandler as FastTokenHandler
+from ....dyn.xml.sax.input_source import InputSource as InputSource
+from ....dyn.xml.sax.parser import Parser as Parser
+from ....dyn.xml.sax.sax_exception import SAXException as SAXException
+from ....dyn.xml.sax.sax_invalid_character_exception import SAXInvalidCharacterException as SAXInvalidCharacterException
+from ....dyn.xml.sax.sax_parse_exception import SAXParseException as SAXParseException
+from ....dyn.xml.sax.writer import Writer as Writer
+from ....dyn.xml.sax.x_attribute_list import XAttributeList as XAttributeList
+from ....dyn.xml.sax.xdtd_handler import XDTDHandler as XDTDHandler
+from ....dyn.xml.sax.x_document_handler import XDocumentHandler as XDocumentHandler
+from ....dyn.xml.sax.x_entity_resolver import XEntityResolver as XEntityResolver
+from ....dyn.xml.sax.x_error_handler import XErrorHandler as XErrorHandler
+from ....dyn.xml.sax.x_extended_document_handler import XExtendedDocumentHandler as XExtendedDocumentHandler
+from ....dyn.xml.sax.x_fast_attribute_list import XFastAttributeList as XFastAttributeList
+from ....dyn.xml.sax.x_fast_context_handler import XFastContextHandler as XFastContextHandler
+from ....dyn.xml.sax.x_fast_document_handler import XFastDocumentHandler as XFastDocumentHandler
+from ....dyn.xml.sax.x_fast_namespace_handler import XFastNamespaceHandler as XFastNamespaceHandler
+from ....dyn.xml.sax.x_fast_parser import XFastParser as XFastParser
+from ....dyn.xml.sax.x_fast_sax_serializable import XFastSAXSerializable as XFastSAXSerializable
+from ....dyn.xml.sax.x_fast_token_handler import XFastTokenHandler as XFastTokenHandler
+from ....dyn.xml.sax.x_locator import XLocator as XLocator
+from ....dyn.xml.sax.x_parser import XParser as XParser
+from ....dyn.xml.sax.xsax_serializable import XSAXSerializable as XSAXSerializable
+from ....dyn.xml.sax.x_writer import XWriter as XWriter

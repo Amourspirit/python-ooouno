@@ -14,65 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.auth.authentication_failed_exception import AuthenticationFailedException as AuthenticationFailedException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.invalid_argument_exception import InvalidArgumentException as InvalidArgumentException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.invalid_context_exception import InvalidContextException as InvalidContextException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.invalid_credential_exception import InvalidCredentialException as InvalidCredentialException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.invalid_principal_exception import InvalidPrincipalException as InvalidPrincipalException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.persistence_failure_exception import PersistenceFailureException as PersistenceFailureException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.sso_manager_factory import SSOManagerFactory as SSOManagerFactory
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.sso_password_cache import SSOPasswordCache as SSOPasswordCache
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.unsupported_exception import UnsupportedException as UnsupportedException
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_acceptor_context import XSSOAcceptorContext as XSSOAcceptorContext
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_context import XSSOContext as XSSOContext
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_initiator_context import XSSOInitiatorContext as XSSOInitiatorContext
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_manager import XSSOManager as XSSOManager
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_manager_factory import XSSOManagerFactory as XSSOManagerFactory
-except ImportError:
-    pass
-try:
-    from ...dyn.auth.xsso_password_cache import XSSOPasswordCache as XSSOPasswordCache
-except ImportError:
-    pass
+from ...dyn.auth.authentication_failed_exception import AuthenticationFailedException as AuthenticationFailedException
+from ...dyn.auth.invalid_argument_exception import InvalidArgumentException as InvalidArgumentException
+from ...dyn.auth.invalid_context_exception import InvalidContextException as InvalidContextException
+from ...dyn.auth.invalid_credential_exception import InvalidCredentialException as InvalidCredentialException
+from ...dyn.auth.invalid_principal_exception import InvalidPrincipalException as InvalidPrincipalException
+from ...dyn.auth.persistence_failure_exception import PersistenceFailureException as PersistenceFailureException
+from ...dyn.auth.sso_manager_factory import SSOManagerFactory as SSOManagerFactory
+from ...dyn.auth.sso_password_cache import SSOPasswordCache as SSOPasswordCache
+from ...dyn.auth.unsupported_exception import UnsupportedException as UnsupportedException
+from ...dyn.auth.xsso_acceptor_context import XSSOAcceptorContext as XSSOAcceptorContext
+from ...dyn.auth.xsso_context import XSSOContext as XSSOContext
+from ...dyn.auth.xsso_initiator_context import XSSOInitiatorContext as XSSOInitiatorContext
+from ...dyn.auth.xsso_manager import XSSOManager as XSSOManager
+from ...dyn.auth.xsso_manager_factory import XSSOManagerFactory as XSSOManagerFactory
+from ...dyn.auth.xsso_password_cache import XSSOPasswordCache as XSSOPasswordCache

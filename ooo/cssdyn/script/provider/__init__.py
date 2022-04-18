@@ -14,89 +14,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.script.provider.language_script_provider import LanguageScriptProvider as LanguageScriptProvider
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.master_script_provider import MasterScriptProvider as MasterScriptProvider
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.master_script_provider_factory import MasterScriptProviderFactory as MasterScriptProviderFactory
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_error_raised_exception import ScriptErrorRaisedException as ScriptErrorRaisedException
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_exception_raised_exception import ScriptExceptionRaisedException as ScriptExceptionRaisedException
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_framework_error_exception import ScriptFrameworkErrorException as ScriptFrameworkErrorException
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_framework_error_type import ScriptFrameworkErrorTypeEnum as ScriptFrameworkErrorTypeEnum
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_provider import ScriptProvider as ScriptProvider
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_provider_for_basic import ScriptProviderForBasic as ScriptProviderForBasic
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_provider_for_bean_shell import ScriptProviderForBeanShell as ScriptProviderForBeanShell
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_provider_for_java import ScriptProviderForJava as ScriptProviderForJava
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_provider_for_java_script import ScriptProviderForJavaScript as ScriptProviderForJavaScript
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.script_uri_helper import ScriptURIHelper as ScriptURIHelper
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script import XScript as XScript
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script_context import XScriptContext as XScriptContext
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script_provider import XScriptProvider as XScriptProvider
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script_provider_factory import XScriptProviderFactory as XScriptProviderFactory
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script_provider_supplier import XScriptProviderSupplier as XScriptProviderSupplier
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.x_script_uri_helper import XScriptURIHelper as XScriptURIHelper
-except ImportError:
-    pass
-try:
-    from ....dyn.script.provider.the_master_script_provider_factory import theMasterScriptProviderFactory as theMasterScriptProviderFactory
-except ImportError:
-    pass
+from ....dyn.script.provider.language_script_provider import LanguageScriptProvider as LanguageScriptProvider
+from ....dyn.script.provider.master_script_provider import MasterScriptProvider as MasterScriptProvider
+from ....dyn.script.provider.master_script_provider_factory import MasterScriptProviderFactory as MasterScriptProviderFactory
+from ....dyn.script.provider.script_error_raised_exception import ScriptErrorRaisedException as ScriptErrorRaisedException
+from ....dyn.script.provider.script_exception_raised_exception import ScriptExceptionRaisedException as ScriptExceptionRaisedException
+from ....dyn.script.provider.script_framework_error_exception import ScriptFrameworkErrorException as ScriptFrameworkErrorException
+from ....dyn.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
+from ....dyn.script.provider.script_framework_error_type import ScriptFrameworkErrorTypeEnum as ScriptFrameworkErrorTypeEnum
+from ....dyn.script.provider.script_provider import ScriptProvider as ScriptProvider
+from ....dyn.script.provider.script_provider_for_basic import ScriptProviderForBasic as ScriptProviderForBasic
+from ....dyn.script.provider.script_provider_for_bean_shell import ScriptProviderForBeanShell as ScriptProviderForBeanShell
+from ....dyn.script.provider.script_provider_for_java import ScriptProviderForJava as ScriptProviderForJava
+from ....dyn.script.provider.script_provider_for_java_script import ScriptProviderForJavaScript as ScriptProviderForJavaScript
+from ....dyn.script.provider.script_uri_helper import ScriptURIHelper as ScriptURIHelper
+from ....dyn.script.provider.x_script import XScript as XScript
+from ....dyn.script.provider.x_script_context import XScriptContext as XScriptContext
+from ....dyn.script.provider.x_script_provider import XScriptProvider as XScriptProvider
+from ....dyn.script.provider.x_script_provider_factory import XScriptProviderFactory as XScriptProviderFactory
+from ....dyn.script.provider.x_script_provider_supplier import XScriptProviderSupplier as XScriptProviderSupplier
+from ....dyn.script.provider.x_script_uri_helper import XScriptURIHelper as XScriptURIHelper
+from ....dyn.script.provider.the_master_script_provider_factory import theMasterScriptProviderFactory as theMasterScriptProviderFactory

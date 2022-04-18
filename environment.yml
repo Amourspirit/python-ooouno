@@ -108,5 +108,6 @@ dependencies:
     - sphinxcontrib-globalsubs==0.1.0
     - stickytape==0.2.1
     - typeguard==2.13.3
+    - types-unopy==0.3.3
     - unotools==0.3.3
 prefix: env

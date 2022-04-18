@@ -14,25 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.xml.input.sax_document_handler import SaxDocumentHandler as SaxDocumentHandler
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.input.x_attributes import XAttributes as XAttributes
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.input.x_element import XElement as XElement
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.input.x_namespace_mapping import XNamespaceMapping as XNamespaceMapping
-except ImportError:
-    pass
-try:
-    from ....dyn.xml.input.x_root import XRoot as XRoot
-except ImportError:
-    pass
+from ....dyn.xml.input.sax_document_handler import SaxDocumentHandler as SaxDocumentHandler
+from ....dyn.xml.input.x_attributes import XAttributes as XAttributes
+from ....dyn.xml.input.x_element import XElement as XElement
+from ....dyn.xml.input.x_namespace_mapping import XNamespaceMapping as XNamespaceMapping
+from ....dyn.xml.input.x_root import XRoot as XRoot

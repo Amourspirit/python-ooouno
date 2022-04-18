@@ -42,5 +42,8 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
     ],
+    install_requires=[
+        'types-unopy>=0.3.3'
+    ],
     include_package_data=True,
 )

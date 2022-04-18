@@ -26,6 +26,8 @@ from ...lo.drawing.alignment import Alignment as Alignment
 from ...lo.drawing.applet_shape import AppletShape as AppletShape
 from ...lo.drawing.arrangement import Arrangement as Arrangement
 from ...lo.drawing.background import Background as Background
+from ...lo.drawing.bar_code import BarCode as BarCode
+from ...lo.drawing.bar_code_error_correction import BarCodeErrorCorrection as BarCodeErrorCorrection
 from ...lo.drawing.bezier_point import BezierPoint as BezierPoint
 from ...lo.drawing.bitmap_mode import BitmapMode as BitmapMode
 from ...lo.drawing.bitmap_table import BitmapTable as BitmapTable
@@ -138,8 +140,6 @@ from ...lo.drawing.polygon_flags import PolygonFlags as PolygonFlags
 from ...lo.drawing.polygon_kind import PolygonKind as PolygonKind
 from ...lo.drawing.position3_d import Position3D as Position3D
 from ...lo.drawing.projection_mode import ProjectionMode as ProjectionMode
-from ...lo.drawing.qr_code import QRCode as QRCode
-from ...lo.drawing.qr_code_error_correction import QRCodeErrorCorrection as QRCodeErrorCorrection
 from ...lo.drawing.rectangle_point import RectanglePoint as RectanglePoint
 from ...lo.drawing.rectangle_shape import RectangleShape as RectangleShape
 from ...lo.drawing.rotation_descriptor import RotationDescriptor as RotationDescriptor

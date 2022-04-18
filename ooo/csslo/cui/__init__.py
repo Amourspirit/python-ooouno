@@ -14,4 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from ...lo.cui.asynchronous_color_picker import AsynchronousColorPicker as AsynchronousColorPicker
 from ...lo.cui.color_picker import ColorPicker as ColorPicker

@@ -14,29 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.scanner.scan_error import ScanError as ScanError
-except ImportError:
-    pass
-try:
-    from ...dyn.scanner.scanner_context import ScannerContext as ScannerContext
-except ImportError:
-    pass
-try:
-    from ...dyn.scanner.scanner_exception import ScannerException as ScannerException
-except ImportError:
-    pass
-try:
-    from ...dyn.scanner.scanner_manager import ScannerManager as ScannerManager
-except ImportError:
-    pass
-try:
-    from ...dyn.scanner.x_scanner_manager import XScannerManager as XScannerManager
-except ImportError:
-    pass
-try:
-    from ...dyn.scanner.x_scanner_manager2 import XScannerManager2 as XScannerManager2
-except ImportError:
-    pass
+from ...dyn.scanner.scan_error import ScanError as ScanError
+from ...dyn.scanner.scanner_context import ScannerContext as ScannerContext
+from ...dyn.scanner.scanner_exception import ScannerException as ScannerException
+from ...dyn.scanner.scanner_manager import ScannerManager as ScannerManager
+from ...dyn.scanner.x_scanner_manager import XScannerManager as XScannerManager
+from ...dyn.scanner.x_scanner_manager2 import XScannerManager2 as XScannerManager2

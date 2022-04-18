@@ -14,49 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ...dyn.xforms.binding import Binding as Binding
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.invalid_data_on_submit_exception import InvalidDataOnSubmitException as InvalidDataOnSubmitException
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.model import Model as Model
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_data_type_repository import XDataTypeRepository as XDataTypeRepository
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_forms import XForms as XForms
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_forms_event import XFormsEvent as XFormsEvent
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_forms_supplier import XFormsSupplier as XFormsSupplier
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_forms_ui_helper1 import XFormsUIHelper1 as XFormsUIHelper1
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_model import XModel as XModel
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_model2 import XModel2 as XModel2
-except ImportError:
-    pass
-try:
-    from ...dyn.xforms.x_submission import XSubmission as XSubmission
-except ImportError:
-    pass
+from ...dyn.xforms.binding import Binding as Binding
+from ...dyn.xforms.invalid_data_on_submit_exception import InvalidDataOnSubmitException as InvalidDataOnSubmitException
+from ...dyn.xforms.model import Model as Model
+from ...dyn.xforms.x_data_type_repository import XDataTypeRepository as XDataTypeRepository
+from ...dyn.xforms.x_forms import XForms as XForms
+from ...dyn.xforms.x_forms_event import XFormsEvent as XFormsEvent
+from ...dyn.xforms.x_forms_supplier import XFormsSupplier as XFormsSupplier
+from ...dyn.xforms.x_forms_ui_helper1 import XFormsUIHelper1 as XFormsUIHelper1
+from ...dyn.xforms.x_model import XModel as XModel
+from ...dyn.xforms.x_model2 import XModel2 as XModel2
+from ...dyn.xforms.x_submission import XSubmission as XSubmission

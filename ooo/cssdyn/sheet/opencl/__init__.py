@@ -14,17 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.sheet.opencl.open_cl_device import OpenCLDevice as OpenCLDevice
-except ImportError:
-    pass
-try:
-    from ....dyn.sheet.opencl.open_cl_platform import OpenCLPlatform as OpenCLPlatform
-except ImportError:
-    pass
-try:
-    from ....dyn.sheet.opencl.x_open_cl_selection import XOpenCLSelection as XOpenCLSelection
-except ImportError:
-    pass
+from ....dyn.sheet.opencl.open_cl_device import OpenCLDevice as OpenCLDevice
+from ....dyn.sheet.opencl.open_cl_platform import OpenCLPlatform as OpenCLPlatform
+from ....dyn.sheet.opencl.x_open_cl_selection import XOpenCLSelection as XOpenCLSelection

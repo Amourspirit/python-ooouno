@@ -56,7 +56,6 @@ from ...lo.document.ole_embedded_server_registration import OleEmbeddedServerReg
 from ...lo.document.own_lock_on_document_request import OwnLockOnDocumentRequest as OwnLockOnDocumentRequest
 from ...lo.document.pdf_dialog import PDFDialog as PDFDialog
 from ...lo.document.printer_independent_layout import PrinterIndependentLayout as PrinterIndependentLayout
-from ...lo.document.read_only_open_request import ReadOnlyOpenRequest as ReadOnlyOpenRequest
 from ...lo.document.redline_display_type import RedlineDisplayType as RedlineDisplayType
 from ...lo.document.reload_editable_request import ReloadEditableRequest as ReloadEditableRequest
 from ...lo.document.settings import Settings as Settings

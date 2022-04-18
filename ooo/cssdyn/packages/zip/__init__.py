@@ -14,37 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# all imports are wrapped in try blocks for allowing of backwards compatibility.
-
-try:
-    from ....dyn.packages.zip.x_zip_file_access import XZipFileAccess as XZipFileAccess
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.x_zip_file_access2 import XZipFileAccess2 as XZipFileAccess2
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_constants import ZipConstants as ZipConstants
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_constants import ZipConstantsEnum as ZipConstantsEnum
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_entry import ZipEntry as ZipEntry
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_exception import ZipException as ZipException
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_file_access import ZipFileAccess as ZipFileAccess
-except ImportError:
-    pass
-try:
-    from ....dyn.packages.zip.zip_io_exception import ZipIOException as ZipIOException
-except ImportError:
-    pass
+from ....dyn.packages.zip.x_zip_file_access import XZipFileAccess as XZipFileAccess
+from ....dyn.packages.zip.x_zip_file_access2 import XZipFileAccess2 as XZipFileAccess2
+from ....dyn.packages.zip.zip_constants import ZipConstants as ZipConstants
+from ....dyn.packages.zip.zip_constants import ZipConstantsEnum as ZipConstantsEnum
+from ....dyn.packages.zip.zip_entry import ZipEntry as ZipEntry
+from ....dyn.packages.zip.zip_exception import ZipException as ZipException
+from ....dyn.packages.zip.zip_file_access import ZipFileAccess as ZipFileAccess
+from ....dyn.packages.zip.zip_io_exception import ZipIOException as ZipIOException

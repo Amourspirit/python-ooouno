@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 from ....lo.xml.sax.fast_parser import FastParser as FastParser
-from ....lo.xml.sax.fast_shape_context_handler import FastShapeContextHandler as FastShapeContextHandler
 from ....lo.xml.sax.fast_token import FastToken as FastToken
 from ....lo.xml.sax.fast_token_handler import FastTokenHandler as FastTokenHandler
 from ....lo.xml.sax.input_source import InputSource as InputSource
@@ -36,7 +35,6 @@ from ....lo.xml.sax.x_fast_document_handler import XFastDocumentHandler as XFast
 from ....lo.xml.sax.x_fast_namespace_handler import XFastNamespaceHandler as XFastNamespaceHandler
 from ....lo.xml.sax.x_fast_parser import XFastParser as XFastParser
 from ....lo.xml.sax.x_fast_sax_serializable import XFastSAXSerializable as XFastSAXSerializable
-from ....lo.xml.sax.x_fast_shape_context_handler import XFastShapeContextHandler as XFastShapeContextHandler
 from ....lo.xml.sax.x_fast_token_handler import XFastTokenHandler as XFastTokenHandler
 from ....lo.xml.sax.x_locator import XLocator as XLocator
 from ....lo.xml.sax.x_parser import XParser as XParser

@@ -229,6 +229,8 @@ from ...lo.awt.x_fixed_text import XFixedText as XFixedText
 from ...lo.awt.x_focus_listener import XFocusListener as XFocusListener
 from ...lo.awt.x_font import XFont as XFont
 from ...lo.awt.x_font2 import XFont2 as XFont2
+from ...lo.awt.x_font_mapping_use import XFontMappingUse as XFontMappingUse
+from ...lo.awt.x_font_mapping_use_item import XFontMappingUseItem as XFontMappingUseItem
 from ...lo.awt.x_graphics import XGraphics as XGraphics
 from ...lo.awt.x_graphics2 import XGraphics2 as XGraphics2
 from ...lo.awt.x_image_button import XImageButton as XImageButton
@@ -291,6 +293,7 @@ from ...lo.awt.x_time_field import XTimeField as XTimeField
 from ...lo.awt.x_toggle_button import XToggleButton as XToggleButton
 from ...lo.awt.x_toolkit import XToolkit as XToolkit
 from ...lo.awt.x_toolkit2 import XToolkit2 as XToolkit2
+from ...lo.awt.x_toolkit3 import XToolkit3 as XToolkit3
 from ...lo.awt.x_toolkit_experimental import XToolkitExperimental as XToolkitExperimental
 from ...lo.awt.x_toolkit_robot import XToolkitRobot as XToolkitRobot
 from ...lo.awt.x_top_window import XTopWindow as XTopWindow

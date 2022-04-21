@@ -109,4 +109,5 @@ dependencies:
     - stickytape==0.2.1
     - typeguard==2.13.3
     - unotools==0.3.3
+    - types-unopy<0.2
 prefix: env

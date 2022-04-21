@@ -29,7 +29,7 @@ CONDA
 
 .. code-block:: bash
 
-    $ conda install -c conda-forge ooouno
+    $ conda install -c conda-forge "ooouno<0.2"
 
 
 PIP
@@ -39,7 +39,7 @@ PIP
 
 .. code-block:: bash
 
-    $ pip install ooouno
+    $ pip install "ooouno<0.2"
 
 
 

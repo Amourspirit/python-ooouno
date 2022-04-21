@@ -45,3 +45,5 @@ class theMasterScriptProviderFactory(XScriptProviderFactory_3ce1426):
         return cls._instance
 
 
+__all__ = ['theMasterScriptProviderFactory']
+

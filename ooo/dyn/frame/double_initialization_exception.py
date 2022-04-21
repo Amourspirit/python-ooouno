@@ -19,7 +19,7 @@
 # Namespace: com.sun.star.frame
 # Libre Office Version: 7.2
 from typing import TYPE_CHECKING
-from ooo.oenv import UNO_ENVIRONMENT, UNO_RUNTIME
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     import uno

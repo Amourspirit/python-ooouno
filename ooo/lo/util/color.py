@@ -29,6 +29,6 @@ describes an RGB color value with an optional alpha channel.
 The byte order is from high to low:
 
 See Also:
-    `API Color <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a1eba7fdd59cb0581d2b072a5798bd75d>`_
+    `API Color <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#aa1d747451151fbd244196e6305348dbd>`_
 """
 

@@ -65,3 +65,5 @@ class ResultSetException(SQLException_acc90b43):
         super()._init(**kwargs)
 
 
+__all__ = ['ResultSetException']
+

@@ -61,3 +61,5 @@ class InvalidDataOnSubmitException(VetoException_bdad0c13):
         super()._init(**kwargs)
 
 
+__all__ = ['InvalidDataOnSubmitException']
+

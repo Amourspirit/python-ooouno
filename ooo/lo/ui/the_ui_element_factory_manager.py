@@ -49,3 +49,5 @@ class theUIElementFactoryManager(XUIElementFactoryManager_32250f39):
         return cls._instance
 
 
+__all__ = ['theUIElementFactoryManager']
+

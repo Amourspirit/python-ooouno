@@ -58,3 +58,5 @@ class XMLEncryptionException(EncryptionException_5076105a):
         super()._init(**kwargs)
 
 
+__all__ = ['XMLEncryptionException']
+

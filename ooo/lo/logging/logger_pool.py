@@ -49,3 +49,5 @@ class LoggerPool(XLoggerPool_c8c40c41):
         return cls._instance
 
 
+__all__ = ['LoggerPool']
+

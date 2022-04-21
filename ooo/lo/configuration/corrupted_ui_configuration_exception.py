@@ -65,3 +65,5 @@ class CorruptedUIConfigurationException(CorruptedConfigurationException_a229173f
         super()._init(**kwargs)
 
 
+__all__ = ['CorruptedUIConfigurationException']
+

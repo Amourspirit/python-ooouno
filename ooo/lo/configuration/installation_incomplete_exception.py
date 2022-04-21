@@ -59,3 +59,5 @@ class InstallationIncompleteException(CannotLoadConfigurationException_b325176a)
         super()._init(**kwargs)
 
 
+__all__ = ['InstallationIncompleteException']
+

@@ -58,3 +58,5 @@ class EncryptionException(CryptographyException_735a113b):
         super()._init(**kwargs)
 
 
+__all__ = ['EncryptionException']
+

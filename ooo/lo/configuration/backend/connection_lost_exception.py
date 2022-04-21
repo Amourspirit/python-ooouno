@@ -67,3 +67,5 @@ class ConnectionLostException(BackendAccessException_7cb5161f):
         super()._init(**kwargs)
 
 
+__all__ = ['ConnectionLostException']
+

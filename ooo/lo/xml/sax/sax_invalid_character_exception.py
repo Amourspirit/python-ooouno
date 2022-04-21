@@ -61,3 +61,5 @@ class SAXInvalidCharacterException(SAXException_d1a00c6e):
         super()._init(**kwargs)
 
 
+__all__ = ['SAXInvalidCharacterException']
+

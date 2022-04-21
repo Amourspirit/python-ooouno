@@ -65,3 +65,5 @@ class InvalidAuthenticationMechanismException(BackendSetupException_68ae15de):
         super()._init(**kwargs)
 
 
+__all__ = ['InvalidAuthenticationMechanismException']
+

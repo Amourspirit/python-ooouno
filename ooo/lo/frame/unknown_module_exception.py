@@ -63,3 +63,5 @@ class UnknownModuleException(Exception_85530a09):
         super()._init(**kwargs)
 
 
+__all__ = ['UnknownModuleException']
+

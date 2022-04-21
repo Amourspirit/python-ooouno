@@ -59,3 +59,5 @@ class UnexpectedEOFException(IOException_8c450a27):
         super()._init(**kwargs)
 
 
+__all__ = ['UnexpectedEOFException']
+

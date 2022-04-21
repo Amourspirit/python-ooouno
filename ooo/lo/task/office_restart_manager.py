@@ -47,3 +47,5 @@ class OfficeRestartManager(XRestartManager_d5390cb3):
         return cls._instance
 
 
+__all__ = ['OfficeRestartManager']
+

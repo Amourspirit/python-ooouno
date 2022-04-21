@@ -71,3 +71,5 @@ class MasterPasswordRequest(PasswordRequest_d7280cf7):
         super()._init(**kwargs)
 
 
+__all__ = ['MasterPasswordRequest']
+

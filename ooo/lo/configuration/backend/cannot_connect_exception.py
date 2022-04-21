@@ -67,3 +67,5 @@ class CannotConnectException(BackendSetupException_68ae15de):
         super()._init(**kwargs)
 
 
+__all__ = ['CannotConnectException']
+

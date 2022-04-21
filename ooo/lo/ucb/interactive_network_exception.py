@@ -64,3 +64,5 @@ class InteractiveNetworkException(ClassifiedInteractionRequest_9f72121b):
         super()._init(**kwargs)
 
 
+__all__ = ['InteractiveNetworkException']
+

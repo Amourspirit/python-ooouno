@@ -61,3 +61,5 @@ class InvocationTargetException(WrappedTargetException_38ae0f93):
         super()._init(**kwargs)
 
 
+__all__ = ['InvocationTargetException']
+

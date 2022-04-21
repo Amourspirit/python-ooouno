@@ -51,3 +51,5 @@ class theDesktop(XDesktop2_98eb0a77):
         return cls._instance
 
 
+__all__ = ['theDesktop']
+

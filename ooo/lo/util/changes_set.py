@@ -28,6 +28,6 @@ TypeDef type alias
 describes a set of changes occurring as a batch transaction.
 
 See Also:
-    `API ChangesSet <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a1eba7fdd59cb0581d2b072a5798bd75d>`_
+    `API ChangesSet <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#aa1d747451151fbd244196e6305348dbd>`_
 """
 

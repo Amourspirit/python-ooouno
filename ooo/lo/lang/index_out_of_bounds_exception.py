@@ -61,3 +61,5 @@ class IndexOutOfBoundsException(Exception_85530a09):
         super()._init(**kwargs)
 
 
+__all__ = ['IndexOutOfBoundsException']
+

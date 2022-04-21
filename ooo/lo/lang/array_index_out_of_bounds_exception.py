@@ -61,3 +61,5 @@ class ArrayIndexOutOfBoundsException(IndexOutOfBoundsException_66d010a9):
         super()._init(**kwargs)
 
 
+__all__ = ['ArrayIndexOutOfBoundsException']
+

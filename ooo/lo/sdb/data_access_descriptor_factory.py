@@ -43,3 +43,5 @@ class DataAccessDescriptorFactory(XDataAccessDescriptorFactory_8473115c):
         return cls._instance
 
 
+__all__ = ['DataAccessDescriptorFactory']
+

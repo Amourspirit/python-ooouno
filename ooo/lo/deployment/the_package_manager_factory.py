@@ -53,3 +53,5 @@ class thePackageManagerFactory(XPackageManagerFactory_9f9611e0):
         return cls._instance
 
 
+__all__ = ['thePackageManagerFactory']
+

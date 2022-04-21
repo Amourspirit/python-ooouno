@@ -49,3 +49,5 @@ class theWindowContentFactoryManager(XSingleComponentFactory_46cc0fef):
         return cls._instance
 
 
+__all__ = ['theWindowContentFactoryManager']
+

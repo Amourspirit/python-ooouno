@@ -58,3 +58,5 @@ class XMLSignatureException(SignatureException_3f870fe1):
         super()._init(**kwargs)
 
 
+__all__ = ['XMLSignatureException']
+

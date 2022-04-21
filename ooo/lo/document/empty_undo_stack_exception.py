@@ -63,3 +63,5 @@ class EmptyUndoStackException(InvalidStateException_2b290f3d):
         super()._init(**kwargs)
 
 
+__all__ = ['EmptyUndoStackException']
+

@@ -51,3 +51,5 @@ class theGlobalEventBroadcaster(XGlobalEventBroadcaster_55351028):
         return cls._instance
 
 
+__all__ = ['theGlobalEventBroadcaster']
+

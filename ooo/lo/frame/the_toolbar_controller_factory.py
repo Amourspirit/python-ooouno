@@ -51,3 +51,5 @@ class theToolbarControllerFactory(XUIControllerFactory_25e60f05):
         return cls._instance
 
 
+__all__ = ['theToolbarControllerFactory']
+

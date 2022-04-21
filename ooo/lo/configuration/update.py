@@ -42,3 +42,5 @@ class Update(XUpdate_e66d0d3b):
         return cls._instance
 
 
+__all__ = ['Update']
+

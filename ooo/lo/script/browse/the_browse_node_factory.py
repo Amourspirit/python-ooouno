@@ -49,3 +49,5 @@ class theBrowseNodeFactory(XBrowseNodeFactory_8e541185):
         return cls._instance
 
 
+__all__ = ['theBrowseNodeFactory']
+

@@ -45,3 +45,5 @@ class ContextChangeEventMultiplexer(XContextChangeEventMultiplexer_9c971206):
         return cls._instance
 
 
+__all__ = ['ContextChangeEventMultiplexer']
+

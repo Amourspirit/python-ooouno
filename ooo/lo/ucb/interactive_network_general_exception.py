@@ -62,3 +62,5 @@ class InteractiveNetworkGeneralException(InteractiveNetworkException_7ca31159):
         super()._init(**kwargs)
 
 
+__all__ = ['InteractiveNetworkGeneralException']
+

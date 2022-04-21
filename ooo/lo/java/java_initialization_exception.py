@@ -70,3 +70,5 @@ class JavaInitializationException(DeploymentException_ffd30e2a):
         super()._init(**kwargs)
 
 
+__all__ = ['JavaInitializationException']
+

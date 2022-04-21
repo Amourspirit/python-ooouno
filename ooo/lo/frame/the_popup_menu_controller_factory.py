@@ -51,3 +51,5 @@ class thePopupMenuControllerFactory(XUIControllerFactory_25e60f05):
         return cls._instance
 
 
+__all__ = ['thePopupMenuControllerFactory']
+

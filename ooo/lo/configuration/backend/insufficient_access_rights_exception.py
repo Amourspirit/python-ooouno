@@ -67,3 +67,5 @@ class InsufficientAccessRightsException(BackendAccessException_7cb5161f):
         super()._init(**kwargs)
 
 
+__all__ = ['InsufficientAccessRightsException']
+

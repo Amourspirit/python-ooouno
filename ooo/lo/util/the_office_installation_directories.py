@@ -45,3 +45,5 @@ class theOfficeInstallationDirectories(XOfficeInstallationDirectories_c38f12d9):
         return cls._instance
 
 
+__all__ = ['theOfficeInstallationDirectories']
+

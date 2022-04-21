@@ -49,3 +49,5 @@ class theDefaultProvider(XMultiServiceFactory_191e0eb6):
         return cls._instance
 
 
+__all__ = ['theDefaultProvider']
+

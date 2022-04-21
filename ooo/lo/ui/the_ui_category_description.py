@@ -55,3 +55,5 @@ class theUICategoryDescription(XNameAccess_e2ab0cf6):
         return cls._instance
 
 
+__all__ = ['theUICategoryDescription']
+

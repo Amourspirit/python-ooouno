@@ -65,3 +65,5 @@ class JavaNotConfiguredException(JavaInitializationException_8b6211a3):
         super()._init(**kwargs)
 
 
+__all__ = ['JavaNotConfiguredException']
+

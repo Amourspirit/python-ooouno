@@ -52,3 +52,5 @@ class thePathSettings(XPathSettings_bc930bfc):
         return cls._instance
 
 
+__all__ = ['thePathSettings']
+

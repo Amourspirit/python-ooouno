@@ -49,3 +49,5 @@ class ExtensionManager(XExtensionManager_4e471019):
         return cls._instance
 
 
+__all__ = ['ExtensionManager']
+

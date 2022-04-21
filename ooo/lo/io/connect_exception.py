@@ -61,3 +61,5 @@ class ConnectException(SocketException_bb650bf8):
         super()._init(**kwargs)
 
 
+__all__ = ['ConnectException']
+

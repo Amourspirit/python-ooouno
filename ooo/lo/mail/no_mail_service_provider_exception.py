@@ -63,3 +63,5 @@ class NoMailServiceProviderException(MailException_ba9e0bdd):
         super()._init(**kwargs)
 
 
+__all__ = ['NoMailServiceProviderException']
+

@@ -46,3 +46,5 @@ class theCoreReflection(XIdlReflection_1b8b0eaf):
         return cls._instance
 
 
+__all__ = ['theCoreReflection']
+

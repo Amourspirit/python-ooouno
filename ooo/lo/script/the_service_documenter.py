@@ -47,3 +47,5 @@ class theServiceDocumenter(XServiceDocumenter_1cc00edc):
         return cls._instance
 
 
+__all__ = ['theServiceDocumenter']
+

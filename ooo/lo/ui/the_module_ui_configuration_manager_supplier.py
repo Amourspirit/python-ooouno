@@ -53,3 +53,5 @@ class theModuleUIConfigurationManagerSupplier(XModuleUIConfigurationManagerSuppl
         return cls._instance
 
 
+__all__ = ['theModuleUIConfigurationManagerSupplier']
+

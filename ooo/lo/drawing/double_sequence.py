@@ -26,6 +26,6 @@ TypeDef type alias
 
 
 See Also:
-    `API DoubleSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a5dd92d80424b0a105962411e468bf9ab>`_
+    `API DoubleSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a5fba30ad0b948910e5a46d57bb673a3f>`_
 """
 

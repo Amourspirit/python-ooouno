@@ -47,3 +47,5 @@ class PackageInformationProvider(XPackageInformationProvider_21b141e):
         return cls._instance
 
 
+__all__ = ['PackageInformationProvider']
+

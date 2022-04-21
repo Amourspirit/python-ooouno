@@ -47,3 +47,5 @@ class theMacroExpander(XMacroExpander_c8360c47):
         return cls._instance
 
 
+__all__ = ['theMacroExpander']
+

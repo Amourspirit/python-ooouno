@@ -47,3 +47,5 @@ class theAutoRecovery(XDispatch_98ff0a9b):
         return cls._instance
 
 
+__all__ = ['theAutoRecovery']
+

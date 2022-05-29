@@ -6,11 +6,13 @@
 import pytest
 from typing import TYPE_CHECKING
 from pathlib import Path
-if TYPE_CHECKING:
-    from ooo.lo.frame.x_model import XModel
 
 if __name__ == "__main__":
     pytest.main([__file__])
+
+if TYPE_CHECKING:
+    from ooo.lo.frame.x_model import XModel
+
 
 
 def test_sequence(get_document: 'XModel'):

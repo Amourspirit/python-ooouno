@@ -1,9 +1,7 @@
 import pytest
 if __name__ == "__main__":
-    import sys
-    import os
-    sys.path.append(os.path.realpath('.'))
     pytest.main([__file__])
+
 from ooo.helper import uno_helper as helper
 
 def test_property_value():

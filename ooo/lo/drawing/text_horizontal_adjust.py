@@ -34,37 +34,31 @@ class TextHorizontalAdjust(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
     __ooo_type_name__: str = 'enum'
 
-    ALLLINES = 'ALLLINES'
+    BLOCK = 'BLOCK'
     """
-    Nowadays this is the same as PROPORTIONAL.
+    The text extends from the left to the right edge of the shape.
+    
+    The text extends from the top to the bottom edge of the shape.
     """
-    AUTOFIT = 'AUTOFIT'
+    CENTER = 'CENTER'
     """
-    The font size is scaled down (never up!) isotropically to fit the available space.
-    
-    Auto line-breaks will keep working.
+    The text is centered inside the shape.
     """
-    NONE = 'NONE'
+    LEFT = 'LEFT'
     """
-    the area is not filled.
+    the connection line leaves the connected object to the left,
     
-    The text size is only defined by the font properties.
+    The left edge of the text is adjusted to the left edge of the shape.
     
-    Don't animate this text.
-    
-    the line is hidden.
-    
-    the joint between lines will not be connected
-    
-    the line has no special end.
+    The text is positioned to the left.
     """
-    PROPORTIONAL = 'PROPORTIONAL'
+    RIGHT = 'RIGHT'
     """
-    The bitmap with the rendered glyphs is scaled up or down proportionally to fit the size of the shape.
+    the connection line leaves the connected object to the right,
     
-    This may scale anisotropically. No AutoGrow and no Auto line-breaks in this case.
+    The right edge of the text is adjusted to the right edge of the shape.
     
-    On fontwork custom shapes, the rendering is different: each line of text is separately scaled proportionally to fit the width.
+    The text is positioned to the right.
     """
 
 __all__ = ['TextHorizontalAdjust']

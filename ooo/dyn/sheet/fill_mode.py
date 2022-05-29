@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.FillMode import (FILL_DATE_DAY, FILL_DATE_MONTH, FILL_DATE_WEEKDAY, FILL_DATE_YEAR)
+    from com.sun.star.sheet.FillMode import (AUTO, DATE, GROWTH, LINEAR, SIMPLE)
 
     def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
@@ -36,10 +36,11 @@ if not TYPE_CHECKING and _DYNAMIC:
             "__ooo_ns__": "com.sun.star.sheet",
             "__ooo_full_ns__": "com.sun.star.sheet.FillMode",
             "__ooo_type_name__": "enum",
-            "FILL_DATE_DAY": FILL_DATE_DAY,
-            "FILL_DATE_MONTH": FILL_DATE_MONTH,
-            "FILL_DATE_WEEKDAY": FILL_DATE_WEEKDAY,
-            "FILL_DATE_YEAR": FILL_DATE_YEAR,
+            "AUTO": AUTO,
+            "DATE": DATE,
+            "GROWTH": GROWTH,
+            "LINEAR": LINEAR,
+            "SIMPLE": SIMPLE,
         }
         result = type('FillMode', (object,), _dict)
         return result

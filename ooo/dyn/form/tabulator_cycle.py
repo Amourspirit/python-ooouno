@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.form.TabulatorCycle import (CURRENT, NONE, PARENT)
+    from com.sun.star.form.TabulatorCycle import (CURRENT, PAGE, RECORDS)
 
     def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
@@ -37,8 +37,8 @@ if not TYPE_CHECKING and _DYNAMIC:
             "__ooo_full_ns__": "com.sun.star.form.TabulatorCycle",
             "__ooo_type_name__": "enum",
             "CURRENT": CURRENT,
-            "NONE": NONE,
-            "PARENT": PARENT,
+            "PAGE": PAGE,
+            "RECORDS": RECORDS,
         }
         result = type('TabulatorCycle', (object,), _dict)
         return result

@@ -26,7 +26,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
 
 if not TYPE_CHECKING and _DYNAMIC:
     from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.TextHorizontalAdjust import (ALLLINES, AUTOFIT, NONE, PROPORTIONAL)
+    from com.sun.star.drawing.TextHorizontalAdjust import (BLOCK, CENTER, LEFT, RIGHT)
 
     def _get_enum():
         # Dynamically create class that actually contains UNO enum instances
@@ -36,10 +36,10 @@ if not TYPE_CHECKING and _DYNAMIC:
             "__ooo_ns__": "com.sun.star.drawing",
             "__ooo_full_ns__": "com.sun.star.drawing.TextHorizontalAdjust",
             "__ooo_type_name__": "enum",
-            "ALLLINES": ALLLINES,
-            "AUTOFIT": AUTOFIT,
-            "NONE": NONE,
-            "PROPORTIONAL": PROPORTIONAL,
+            "BLOCK": BLOCK,
+            "CENTER": CENTER,
+            "LEFT": LEFT,
+            "RIGHT": RIGHT,
         }
         result = type('TextHorizontalAdjust', (object,), _dict)
         return result

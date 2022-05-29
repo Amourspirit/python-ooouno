@@ -41,7 +41,7 @@ class XFontMappingUseItem(object):
     typeName: str = 'com.sun.star.awt.XFontMappingUseItem'
     """Literal Constant ``com.sun.star.awt.XFontMappingUseItem``"""
 
-    def __init__(self, usedFonts: typing.Optional[typing.Tuple[str, ...]] = None, originalFont: typing.Optional[str] = None, count: typing.Optional[int] = None) -> None:
+    def __init__(self, usedFonts: typing.Optional[typing.Tuple[str, ...]] = (), originalFont: typing.Optional[str] = '', count: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -64,12 +64,6 @@ class XFontMappingUseItem(object):
             "originalFont": originalFont,
             "count": count,
         }
-        if kargs["usedFonts"] is UNO_NONE:
-            kargs["usedFonts"] = None
-        if kargs["originalFont"] is UNO_NONE:
-            kargs["originalFont"] = None
-        if kargs["count"] is UNO_NONE:
-            kargs["count"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

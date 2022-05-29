@@ -42,17 +42,13 @@ class TabulatorCycle(Enum):
     
     This is the default and most often encountered mode.
     """
-    NONE = 'NONE'
+    PAGE = 'PAGE'
     """
-    no navigation bar is provided and navigation on the current form is only possible with the keyboard (TAB/SHIFT TAB).
-    
-    Note that when this mode is set, a simultaneous TabulatorCycle value of TabulatorCycle.CURRENT means that you cannot travel between records anymore.
+    pressing the TAB key from the last control of a form moves the focus to the first control of the next form in the tab order.
     """
-    PARENT = 'PARENT'
+    RECORDS = 'RECORDS'
     """
-    a navigation bar is provided and navigation will be performed on the parent of the current/active form.
-    
-    This option is usually used for forms containing a grid control only. In such a form, the control has its own navigation elements, so there is no need to use the navigation bar for the form, but rather for its parent.
+    pressing the TAB key from the last control moves the focus to the first control in the tab order of the next record.
     """
 
 __all__ = ['TabulatorCycle']

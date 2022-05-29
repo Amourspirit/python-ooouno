@@ -6,7 +6,7 @@ import pytest
 import gc
 import functools
 from typing import TYPE_CHECKING
-sys.path.insert(0, os.path.abspath('.'))
+# sys.path.insert(0, os.path.abspath('.'))
 
 @pytest.fixture(scope='module')
 def uno_env() -> bool:

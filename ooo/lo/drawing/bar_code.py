@@ -41,7 +41,7 @@ class BarCode(object):
     typeName: str = 'com.sun.star.drawing.BarCode'
     """Literal Constant ``com.sun.star.drawing.BarCode``"""
 
-    def __init__(self, Type: typing.Optional[int] = None, Payload: typing.Optional[str] = None, ErrorCorrection: typing.Optional[int] = None, Border: typing.Optional[int] = None) -> None:
+    def __init__(self, Type: typing.Optional[int] = 0, Payload: typing.Optional[str] = '', ErrorCorrection: typing.Optional[int] = 0, Border: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -67,14 +67,6 @@ class BarCode(object):
             "ErrorCorrection": ErrorCorrection,
             "Border": Border,
         }
-        if kargs["Type"] is UNO_NONE:
-            kargs["Type"] = None
-        if kargs["Payload"] is UNO_NONE:
-            kargs["Payload"] = None
-        if kargs["ErrorCorrection"] is UNO_NONE:
-            kargs["ErrorCorrection"] = None
-        if kargs["Border"] is UNO_NONE:
-            kargs["Border"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

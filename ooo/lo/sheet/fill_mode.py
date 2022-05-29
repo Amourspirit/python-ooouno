@@ -34,21 +34,29 @@ class FillMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
     __ooo_type_name__: str = 'enum'
 
-    FILL_DATE_DAY = 'FILL_DATE_DAY'
+    AUTO = 'AUTO'
     """
-    for every new value a single day is added.
+    specifies the use of a user-defined list.
+    
+    function is determined automatically.
     """
-    FILL_DATE_MONTH = 'FILL_DATE_MONTH'
+    DATE = 'DATE'
     """
-    for every new value one month is added (day keeps unchanged).
+    specifies an arithmetic series for date values.
+    
+    any date value matching the specified condition is valid.
     """
-    FILL_DATE_WEEKDAY = 'FILL_DATE_WEEKDAY'
+    GROWTH = 'GROWTH'
     """
-    for every new value a single day is added, but Saturdays and Sundays are skipped.
+    specifies a geometric series.
     """
-    FILL_DATE_YEAR = 'FILL_DATE_YEAR'
+    LINEAR = 'LINEAR'
     """
-    for every new value one year is added (day and month keep unchanged).
+    specifies an arithmetic series.
+    """
+    SIMPLE = 'SIMPLE'
+    """
+    specifies a constant series.
     """
 
 __all__ = ['FillMode']

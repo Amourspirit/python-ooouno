@@ -32,7 +32,7 @@ CONDA
 
 
 For LibreOffice <= ``7.2``
-    ``$ conda install -c conda-forge ooouno==0.1.13``
+    ``$ conda install -c conda-forge "ooouno<0.2"``
 
 PIP
 ---
@@ -45,7 +45,7 @@ PIP
 
 
 For LibreOffice <= ``7.2``
-    ``pip install ooouno==0.1.13``
+    ``pip install "ooouno<0.2"``
 
 
 Usage
@@ -149,6 +149,18 @@ When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
 When using ooo interactivly such as creating structs, enums, singletons, const classes then
 import from ``ooo.dyn`` or ``ooo.cssdyn``.
 
+Related Projects
+----------------
+
+
+* `LibreOffice API Typings <https://github.com/Amourspirit/python-types-unopy>`_
+* `ScriptForge Typings <https://github.com/Amourspirit/python-types-scriptforge>`_
+* `Access2base Typings <https://github.com/Amourspirit/python-types-access2base>`_
+* `LibreOffice Python UNO Examples <https://github.com/Amourspirit/python-ooouno-ex>`_
+* `LibreOffice Developer Search <https://github.com/Amourspirit/python_lo_dev_search>`_
+* `LibreOffice UNO Typings <https://github.com/Amourspirit/python-types-uno-script>`_
+* `LibreOffice Developer Search <https://github.com/Amourspirit/python_lo_dev_search>`_
+* `OOO UNO TEMPLATE <https://github.com/Amourspirit/ooo_uno_tmpl>`_
 
 .. |lic| image:: https://img.shields.io/github/license/Amourspirit/python-ooouno
     :alt: License Apache

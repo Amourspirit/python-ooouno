@@ -41,6 +41,7 @@ class DocumentIndexMark(BaseIndexMark_bbb30bcb):
         
         In a document index this entry will be emphasized by assigning a character style to it.
         """
+        ...
 
     @abstractproperty
     def PrimaryKey(self) -> str:
@@ -49,6 +50,7 @@ class DocumentIndexMark(BaseIndexMark_bbb30bcb):
         
         It is used to build a hierarchical document index.
         """
+        ...
 
     @abstractproperty
     def SecondaryKey(self) -> str:
@@ -57,6 +59,7 @@ class DocumentIndexMark(BaseIndexMark_bbb30bcb):
         
         It is used to build a hierarchical document index.
         """
+        ...
 
 
 

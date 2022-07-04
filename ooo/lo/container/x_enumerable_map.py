@@ -56,6 +56,7 @@ class XEnumerableMap(XMap_90a60a41):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def createKeyEnumeration(self, Isolated: bool) -> 'XEnumeration_f2180daa':
         """
@@ -64,6 +65,7 @@ class XEnumerableMap(XMap_90a60a41):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def createValueEnumeration(self, Isolated: bool) -> 'XEnumeration_f2180daa':
         """
@@ -72,6 +74,7 @@ class XEnumerableMap(XMap_90a60a41):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
 
 __all__ = ['XEnumerableMap']
 

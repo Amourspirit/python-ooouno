@@ -45,10 +45,12 @@ class StatusIndicatorFactory(XStatusIndicatorFactory_49e4100c):
     def createWithFrame(self, Frame: 'XFrame_7a570956', DisableReschedule: bool, AllowParentShow: bool) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithWindow(self, ParentWindow: 'XWindow_713b0924', DisableReschedule: bool, AllowParentShow: bool) -> None:
         """
         """
+        ...
 
 
 __all__ = ['StatusIndicatorFactory']

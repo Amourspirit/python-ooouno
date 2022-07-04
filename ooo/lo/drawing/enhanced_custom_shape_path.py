@@ -44,30 +44,35 @@ class EnhancedCustomShapePath(ABC):
         """
         This property is specifying the points that makes the geometry of the shape.
         """
+        ...
 
     @abstractproperty
     def GluePointLeavingDirections(self) -> 'typing.Tuple[float, ...]':
         """
         This property specifies GluePoint leaving directions.
         """
+        ...
 
     @abstractproperty
     def GluePoints(self) -> 'typing.Tuple[EnhancedCustomShapeParameterPair_262914a3, ...]':
         """
         This property specifies custom gluepoints.
         """
+        ...
 
     @abstractproperty
     def Segments(self) -> 'typing.Tuple[EnhancedCustomShapeSegment_b07b1249, ...]':
         """
         This property specifies the commands and the way the Coordinates have to be interpreted.
         """
+        ...
 
     @abstractproperty
     def SubViewSize(self) -> 'typing.Tuple[Size_576707ef, ...]':
         """
         This property specifies view size per sub path.
         """
+        ...
 
     @abstractproperty
     def TextFrames(self) -> 'typing.Tuple[EnhancedCustomShapeTextFrame_d6321306, ...]':
@@ -76,6 +81,7 @@ class EnhancedCustomShapePath(ABC):
         
         In general the first text frame is used, except the shape is containing vertical text, then the object tries to use the second text frame. The default text frame will be as big as the shape.
         """
+        ...
 
     @abstractproperty
     def ConcentricGradientFillAllowed(self) -> bool:
@@ -84,6 +90,7 @@ class EnhancedCustomShapePath(ABC):
         
         The default is false.
         """
+        ...
 
     @abstractproperty
     def ExtrusionAllowed(self) -> bool:
@@ -92,6 +99,7 @@ class EnhancedCustomShapePath(ABC):
         
         The default is true.
         """
+        ...
 
     @abstractproperty
     def GluePointType(self) -> int:
@@ -100,6 +108,7 @@ class EnhancedCustomShapePath(ABC):
         
         The values that can be used are specified in com.sun.star.drawing.EnhancedCustomShapeGluePointType
         """
+        ...
 
     @abstractproperty
     def StretchX(self) -> int:
@@ -108,6 +117,7 @@ class EnhancedCustomShapePath(ABC):
         
         No stretching is used if this property is omitted.
         """
+        ...
 
     @abstractproperty
     def StretchY(self) -> int:
@@ -116,6 +126,7 @@ class EnhancedCustomShapePath(ABC):
         
         No stretching is used if this property is omitted.
         """
+        ...
 
     @abstractproperty
     def TextPathAllowed(self) -> bool:
@@ -124,6 +135,7 @@ class EnhancedCustomShapePath(ABC):
         
         The default is false;
         """
+        ...
 
 
 

@@ -45,6 +45,7 @@ class XDataFormatTranslator(XInterface_8f010a43):
         
         If there is no appropriate mapping for a system dependent data type, the returned DataFlavor will be empty.
         """
+        ...
     @abstractmethod
     def getSystemDataTypeFromDataFlavor(self, aDataFlavor: 'DataFlavor_ffd30deb') -> object:
         """
@@ -52,6 +53,7 @@ class XDataFormatTranslator(XInterface_8f010a43):
         
         If the is no system dependent data type for a given DataFlavor the returned any is empty.
         """
+        ...
 
 __all__ = ['XDataFormatTranslator']
 

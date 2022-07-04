@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.linguistic2.DictionaryType import (MIXED, NEGATIVE, POSITIVE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.linguistic2.DictionaryType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.linguistic2",
-            "__ooo_full_ns__": "com.sun.star.linguistic2.DictionaryType",
-            "__ooo_type_name__": "enum",
-            "MIXED": MIXED,
-            "NEGATIVE": NEGATIVE,
-            "POSITIVE": POSITIVE,
-        }
-        result = type('DictionaryType', (object,), _dict)
-        return result
-
-    DictionaryType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class DictionaryType(metaclass=UnoEnumMeta, type_name="com.sun.star.linguistic2.DictionaryType", name_space="com.sun.star.linguistic2"):
+        """Dynamically created class that represents ``com.sun.star.linguistic2.DictionaryType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.linguistic2.dictionary_type import DictionaryType as DictionaryType
 

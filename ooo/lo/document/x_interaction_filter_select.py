@@ -40,6 +40,7 @@ class XInteractionFilterSelect(XInteractionContinuation_5af0108e):
         """
         used by detection to get selected filter
         """
+        ...
     @abstractmethod
     def setFilter(self, Name: str) -> None:
         """
@@ -47,6 +48,7 @@ class XInteractionFilterSelect(XInteractionContinuation_5af0108e):
         
         This value must be saved till another one will be set and must be provided on getFilter() for interest users.
         """
+        ...
 
 __all__ = ['XInteractionFilterSelect']
 

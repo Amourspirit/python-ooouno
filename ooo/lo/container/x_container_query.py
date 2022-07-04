@@ -46,6 +46,7 @@ class XContainerQuery(XInterface_8f010a43):
         
         It's not possible to use special commands or search specific parameters here. You can match by properties only. Enumerated elements must provide queried properties as minimum. Not specified properties will not be used for searching.
         """
+        ...
     @abstractmethod
     def createSubSetEnumerationByQuery(self, Query: str) -> 'XEnumeration_f2180daa':
         """
@@ -53,6 +54,7 @@ class XContainerQuery(XInterface_8f010a43):
         
         Items of this sub set must match used query string. Format of query depends from real implementation. Using of \"param=value\" pairs isn't necessary. So it's possible to combine different parameters as one simple command string.
         """
+        ...
 
 __all__ = ['XContainerQuery']
 

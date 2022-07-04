@@ -38,11 +38,13 @@ class XTextCursor(XTextRange_9a910ab7):
         """
         sets the start of the position to the end.
         """
+        ...
     @abstractmethod
     def collapseToStart(self) -> None:
         """
         sets the end of the position to the start.
         """
+        ...
     @abstractmethod
     def goLeft(self, nCount: int, bExpand: bool) -> bool:
         """
@@ -50,6 +52,7 @@ class XTextCursor(XTextRange_9a910ab7):
         
         Note: Even if the command was not completed successfully it may be completed partially. E.g. if it was required to move 5 characters but it is only possible to move 3 FALSE will be returned and the cursor moves only those 3 characters.
         """
+        ...
     @abstractmethod
     def goRight(self, nCount: int, bExpand: bool) -> bool:
         """
@@ -57,26 +60,31 @@ class XTextCursor(XTextRange_9a910ab7):
         
         Note: Even if the command was not completed successfully it may be completed partially. E.g. if it was required to move 5 characters but it is only possible to move 3 FALSE will be returned and the cursor moves only those 3 characters.
         """
+        ...
     @abstractmethod
     def gotoEnd(self, bExpand: bool) -> None:
         """
         moves the cursor to the end of the text.
         """
+        ...
     @abstractmethod
     def gotoRange(self, xRange: 'XTextRange_9a910ab7', bExpand: bool) -> None:
         """
         moves or expands the cursor to a specified TextRange.
         """
+        ...
     @abstractmethod
     def gotoStart(self, bExpand: bool) -> None:
         """
         moves the cursor to the start of the text.
         """
+        ...
     @abstractmethod
     def isCollapsed(self) -> bool:
         """
         determines if the start and end positions are the same.
         """
+        ...
 
 __all__ = ['XTextCursor']
 

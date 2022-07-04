@@ -42,26 +42,31 @@ class XTopWindow(XInterface_8f010a43):
         """
         adds the specified top window listener to receive window events from this window.
         """
+        ...
     @abstractmethod
     def removeTopWindowListener(self, xListener: 'XTopWindowListener_efc20d9d') -> None:
         """
         removes the specified top window listener so that it no longer receives window events from this window.
         """
+        ...
     @abstractmethod
     def setMenuBar(self, xMenu: 'XMenuBar_7a040956') -> None:
         """
         sets a menu bar.
         """
+        ...
     @abstractmethod
     def toBack(self) -> None:
         """
         places this window at the bottom of the stacking order and makes the corresponding adjustment to other visible windows.
         """
+        ...
     @abstractmethod
     def toFront(self) -> None:
         """
         places this window at the top of the stacking order and shows it in front of any other windows.
         """
+        ...
 
 __all__ = ['XTopWindow']
 

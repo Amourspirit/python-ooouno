@@ -34,6 +34,10 @@ class PasswordRequestMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.task.PasswordRequestMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.task.PasswordRequestMode'
+
     PASSWORD_CREATE = 'PASSWORD_CREATE'
     """
     Password creation.

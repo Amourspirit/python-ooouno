@@ -38,7 +38,7 @@ class IncrementData(object):
     typeName: str = 'com.sun.star.chart2.IncrementData'
     """Literal Constant ``com.sun.star.chart2.IncrementData``"""
 
-    def __init__(self, SubIncrements: typing.Optional[typing.Tuple[SubIncrement_c5630c1b, ...]] = UNO_NONE, Distance: typing.Optional[object] = None, PostEquidistant: typing.Optional[object] = None, BaseValue: typing.Optional[object] = None) -> None:
+    def __init__(self, SubIncrements: typing.Optional[typing.Tuple[SubIncrement_c5630c1b, ...]] = (), Distance: typing.Optional[object] = None, PostEquidistant: typing.Optional[object] = None, BaseValue: typing.Optional[object] = None) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class IncrementData(object):
             "PostEquidistant": PostEquidistant,
             "BaseValue": BaseValue,
         }
-        if kargs["SubIncrements"] is UNO_NONE:
-            kargs["SubIncrements"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -41,6 +41,7 @@ class XGroupsSupplier(XInterface_8f010a43):
         """
         returns the container of groups.
         """
+        ...
 
 __all__ = ['XGroupsSupplier']
 

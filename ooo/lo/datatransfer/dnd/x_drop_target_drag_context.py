@@ -46,11 +46,13 @@ class XDropTargetDragContext(XInterface_8f010a43):
         
         if the implementation wishes to accept the drag operation with the specified action.
         """
+        ...
     @abstractmethod
     def rejectDrag(self) -> None:
         """
         Reject the drag as a result of examining the available com.sun.star.datatransfer.DataFlavor types received in the com.sun.star.datatransfer.dnd.XDropTargetListener.dragEnter() method.
         """
+        ...
 
 __all__ = ['XDropTargetDragContext']
 

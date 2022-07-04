@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.embed
 import typing
+import uno
 from abc import abstractmethod
 from ..document.x_event_broadcaster import XEventBroadcaster as XEventBroadcaster_2b120f2b
 from .x_classified_object import XClassifiedObject as XClassifiedObject_fa3b0dab
@@ -52,6 +53,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def doVerb(self, nVerbID: int) -> None:
         """
@@ -63,6 +65,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.embed.UnreachableStateException: ``UnreachableStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getClientSite(self) -> 'XEmbeddedClient_ddea0cc6':
         """
@@ -71,6 +74,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getCurrentState(self) -> int:
         """
@@ -79,8 +83,9 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
-    def getReachableStates(self) -> 'typing.Tuple[int, ...]':
+    def getReachableStates(self) -> uno.ByteSequence:
         """
         returns supported states for the object.
 
@@ -88,6 +93,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.embed.NeedsRunningStateException: ``NeedsRunningStateException``
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getStatus(self, nAspect: int) -> int:
         """
@@ -96,6 +102,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getSupportedVerbs(self) -> 'typing.Tuple[VerbDescriptor_d3680cb3, ...]':
         """
@@ -105,6 +112,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.embed.NeedsRunningStateException: ``NeedsRunningStateException``
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def setClientSite(self, xClient: 'XEmbeddedClient_ddea0cc6') -> None:
         """
@@ -113,11 +121,13 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def setContainerName(self, sName: str) -> None:
         """
         provides object with the name of container document.
         """
+        ...
     @abstractmethod
     def setUpdateMode(self, nMode: int) -> None:
         """
@@ -126,6 +136,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def update(self) -> None:
         """
@@ -135,6 +146,7 @@ class XEmbeddedObject(XEventBroadcaster_2b120f2b, XClassifiedObject_fa3b0dab, XC
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XEmbeddedObject']
 

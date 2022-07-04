@@ -55,6 +55,7 @@ class XXMLSignature(XInterface_8f010a43):
             : ````
             com.sun.star.uno.SecurityException: ``SecurityException``
         """
+        ...
     @abstractmethod
     def validate(self, aTemplate: 'XXMLSignatureTemplate_89fe115f', aContext: 'XXMLSecurityContext_681010ae') -> 'XXMLSignatureTemplate_89fe115f':
         """
@@ -64,6 +65,7 @@ class XXMLSignature(XInterface_8f010a43):
             : ````
             com.sun.star.uno.SecurityException: ``SecurityException``
         """
+        ...
 
 __all__ = ['XXMLSignature']
 

@@ -41,11 +41,13 @@ class XLoadEventListener(XEventListener_c7230c4a):
         """
         is called when a frame load is canceled or failed.
         """
+        ...
     @abstractmethod
     def loadFinished(self, Loader: 'XFrameLoader_ba3a0bad') -> None:
         """
         is called when a new component is loaded into a frame successfully.
         """
+        ...
 
 __all__ = ['XLoadEventListener']
 

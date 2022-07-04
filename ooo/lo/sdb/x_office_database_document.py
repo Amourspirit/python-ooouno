@@ -43,6 +43,7 @@ class XOfficeDatabaseDocument(XDocumentSubStorageSupplier_da021351, XFormDocumen
         """
         provides access to the one and only DataSource associated with this document
         """
+        ...
 
 
 __all__ = ['XOfficeDatabaseDocument']

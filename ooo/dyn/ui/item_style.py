@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import ItemStyle as ItemStyle
-    if hasattr(ItemStyle, '_constants') and isinstance(ItemStyle._constants, dict):
-        ItemStyle._constants['__ooo_ns__'] = 'com.sun.star.ui'
-        ItemStyle._constants['__ooo_full_ns__'] = 'com.sun.star.ui.ItemStyle'
-        ItemStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ItemStyleEnum
-        ls = [f for f in dir(ItemStyle) if not callable(getattr(ItemStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ItemStyle, name)
-        ItemStyleEnum = IntEnum('ItemStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ItemStyle(metaclass=UnoConstMeta, type_name="com.sun.star.ui.ItemStyle", name_space="com.sun.star.ui"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.ItemStyle``"""
+        pass
+
+    class ItemStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.ItemStyle", name_space="com.sun.star.ui"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.ItemStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.ui.item_style import ItemStyle as ItemStyle
 
@@ -48,8 +46,7 @@ else:
 
         specifies styles which influence the appearance and the behavior of an user interface item.
         
-        These styles are only valid if the item describes a toolbar or statusbar item. The style values can be combined with the OR operator. Styles which are not valid for an item will be ignored by the implementation.
-        There are two styles where only one value is valid: Alignment:
+        These styles are only valid if the item describes a toolbar or statusbar item. The style values can be combined with the OR operator. Styles which are not valid for an item will be ignored by the implementation.There are two styles where only one value is valid: Alignment:
         
         Drawing:
         

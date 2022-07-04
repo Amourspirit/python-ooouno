@@ -45,6 +45,7 @@ class SlideSorter(XSlideSorterBase_c400e37):
         """
         Create a new slide sorter object.
         """
+        ...
 
 
 __all__ = ['SlideSorter']

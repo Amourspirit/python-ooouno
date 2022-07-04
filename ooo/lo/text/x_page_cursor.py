@@ -37,41 +37,49 @@ class XPageCursor(XInterface_8f010a43):
     def getPage(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def jumpToEndOfPage(self) -> bool:
         """
         moves the cursor to the end of the current page.
         """
+        ...
     @abstractmethod
     def jumpToFirstPage(self) -> bool:
         """
         moves the cursor to the first page.
         """
+        ...
     @abstractmethod
     def jumpToLastPage(self) -> bool:
         """
         moves the cursor to the last page.
         """
+        ...
     @abstractmethod
     def jumpToNextPage(self) -> bool:
         """
         moves the cursor to the next page.
         """
+        ...
     @abstractmethod
     def jumpToPage(self, nPage: int) -> bool:
         """
         moves the cursor to the specified page.
         """
+        ...
     @abstractmethod
     def jumpToPreviousPage(self) -> bool:
         """
         moves the cursor to the previous page.
         """
+        ...
     @abstractmethod
     def jumpToStartOfPage(self) -> bool:
         """
         moves the cursor to the start of the current page.
         """
+        ...
 
 __all__ = ['XPageCursor']
 

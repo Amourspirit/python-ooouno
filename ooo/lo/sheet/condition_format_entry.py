@@ -37,22 +37,26 @@ class ConditionFormatEntry(XConditionEntry_e2340d32):
     def Formula1(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Formula2(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Operator(self) -> int:
         """
         See com.sun.star.sheet.ConditionFormatOperator for valid values.
         """
+        ...
 
     @abstractproperty
     def StyleName(self) -> str:
         """
         """
+        ...
 
 
 

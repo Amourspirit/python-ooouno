@@ -47,6 +47,7 @@ class XDataPilotFieldGrouping(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createNameGroup(self, aItems: 'typing.Tuple[str, ...]') -> 'XDataPilotField_e0350cdf':
         """
@@ -59,6 +60,7 @@ class XDataPilotFieldGrouping(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XDataPilotFieldGrouping']
 

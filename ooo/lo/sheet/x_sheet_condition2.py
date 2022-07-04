@@ -38,11 +38,13 @@ class XSheetCondition2(XSheetCondition_e1940d19):
         """
         returns the operator in the condition (new interface).
         """
+        ...
     @abstractmethod
     def setConditionOperator(self, nOperator: int) -> None:
         """
         sets the operator in the condition (new interface).
         """
+        ...
 
 __all__ = ['XSheetCondition2']
 

@@ -40,7 +40,7 @@ class TargetProperties(object):
     typeName: str = 'com.sun.star.animations.TargetProperties'
     """Literal Constant ``com.sun.star.animations.TargetProperties``"""
 
-    def __init__(self, Properties: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, Target: typing.Optional[object] = None) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = (), Target: typing.Optional[object] = None) -> None:
         """
         Constructor
 
@@ -60,8 +60,6 @@ class TargetProperties(object):
             "Properties": Properties,
             "Target": Target,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

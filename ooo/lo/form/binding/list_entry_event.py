@@ -39,7 +39,7 @@ class ListEntryEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.binding.ListEntryEvent'
     """Literal Constant ``com.sun.star.form.binding.ListEntryEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Entries: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Position: typing.Optional[int] = 0, Count: typing.Optional[int] = 0) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Entries: typing.Optional[typing.Tuple[str, ...]] = (), Position: typing.Optional[int] = 0, Count: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class ListEntryEvent(EventObject_a3d70b03):
             "Position": Position,
             "Count": Count,
         }
-        if kargs["Entries"] is UNO_NONE:
-            kargs["Entries"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

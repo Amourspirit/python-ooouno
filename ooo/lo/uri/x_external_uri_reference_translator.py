@@ -45,11 +45,13 @@ class XExternalUriReferenceTranslator(ABC):
         """
         returns the external counterpart of an internal URI reference.
         """
+        ...
     @abstractmethod
     def translateToInternal(self, externalUriReference: str) -> str:
         """
         returns the internal counterpart of an external URI reference.
         """
+        ...
 
 __all__ = ['XExternalUriReferenceTranslator']
 

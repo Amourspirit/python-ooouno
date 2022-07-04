@@ -34,6 +34,10 @@ class PropertyState(Enum):
     __ooo_full_ns__: str = 'com.sun.star.beans.PropertyState'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.beans.PropertyState'
+
     AMBIGUOUS_VALUE = 'AMBIGUOUS_VALUE'
     """
     The value of the property is only a recommendation because there are multiple values for this property (e.g., from a multi selection).

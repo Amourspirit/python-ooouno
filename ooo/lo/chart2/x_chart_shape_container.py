@@ -40,10 +40,12 @@ class XChartShapeContainer(XInterface_8f010a43):
         """
         a renderer creates ChartShapes and adds it to this container
         """
+        ...
     @abstractmethod
     def getShape(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
     @abstractmethod
     def removeShape(self, xShape: 'XShape_8fd00a3d') -> None:
         """
@@ -51,6 +53,7 @@ class XChartShapeContainer(XInterface_8f010a43):
         
         if the visible range has changed)
         """
+        ...
 
 __all__ = ['XChartShapeContainer']
 

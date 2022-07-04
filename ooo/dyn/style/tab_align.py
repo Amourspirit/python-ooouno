@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.style.TabAlign import (CENTER, DECIMAL, DEFAULT, LEFT, RIGHT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.style.TabAlign Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.style",
-            "__ooo_full_ns__": "com.sun.star.style.TabAlign",
-            "__ooo_type_name__": "enum",
-            "CENTER": CENTER,
-            "DECIMAL": DECIMAL,
-            "DEFAULT": DEFAULT,
-            "LEFT": LEFT,
-            "RIGHT": RIGHT,
-        }
-        result = type('TabAlign', (object,), _dict)
-        return result
-
-    TabAlign = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TabAlign(metaclass=UnoEnumMeta, type_name="com.sun.star.style.TabAlign", name_space="com.sun.star.style"):
+        """Dynamically created class that represents ``com.sun.star.style.TabAlign`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.style.tab_align import TabAlign as TabAlign
 

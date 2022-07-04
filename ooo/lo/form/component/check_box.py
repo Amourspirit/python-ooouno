@@ -45,6 +45,7 @@ class CheckBox(UnoControlCheckBoxModel_383d0f5f, FormControlModel_e2990d22, XRes
         
         This value is used when the control is initially displayed, and for resetting it.
         """
+        ...
 
     @abstractproperty
     def RefValue(self) -> str:
@@ -53,6 +54,7 @@ class CheckBox(UnoControlCheckBoxModel_383d0f5f, FormControlModel_e2990d22, XRes
         
         When submitting a HTMLForm which contains a check box, which is checked, the RefValue is used for submission.
         """
+        ...
 
 
 

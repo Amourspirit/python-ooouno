@@ -50,6 +50,7 @@ class Text(XEnumerationAccess_4bac0ffc, XRelativeTextContentInsert_7dca1156, XTe
         
         The sequence contains the following properties
         """
+        ...
 
     @abstractproperty
     def StartRedline(self) -> 'PropertyValues_d6470ce6':
@@ -58,6 +59,7 @@ class Text(XEnumerationAccess_4bac0ffc, XRelativeTextContentInsert_7dca1156, XTe
         
         The sequence contains the following properties
         """
+        ...
 
 
 

@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart2.StackingDirection import (NO_STACKING, Y_STACKING, Z_STACKING)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart2.StackingDirection Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart2",
-            "__ooo_full_ns__": "com.sun.star.chart2.StackingDirection",
-            "__ooo_type_name__": "enum",
-            "NO_STACKING": NO_STACKING,
-            "Y_STACKING": Y_STACKING,
-            "Z_STACKING": Z_STACKING,
-        }
-        result = type('StackingDirection', (object,), _dict)
-        return result
-
-    StackingDirection = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class StackingDirection(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.StackingDirection", name_space="com.sun.star.chart2"):
+        """Dynamically created class that represents ``com.sun.star.chart2.StackingDirection`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart2.stacking_direction import StackingDirection as StackingDirection
 

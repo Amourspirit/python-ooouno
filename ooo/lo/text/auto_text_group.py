@@ -41,12 +41,14 @@ class AutoTextGroup(XIndexAccess_f0910d6d, XNamed_a6520b08, XAutoTextGroup_c9770
         """
         The path to the file containing the AutoTextEntry's in this group.
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         The title of this AutoTextGroup.
         """
+        ...
 
 
 

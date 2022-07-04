@@ -61,6 +61,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def addMetadataFile(self, FileName: str, Types: 'typing.Tuple[XURI_5682078c, ...]') -> 'XURI_5682078c':
         """
@@ -72,11 +73,13 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def getElementByMetadataReference(self, MetadataReference: 'StringPair_a4bc0b14') -> 'XMetadatable_a3000af0':
         """
         get the unique ODF element with the given metadata reference.
         """
+        ...
     @abstractmethod
     def getElementByURI(self, URI: 'XURI_5682078c') -> 'XMetadatable_a3000af0':
         """
@@ -85,6 +88,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getMetadataGraphsWithType(self, Type: 'XURI_5682078c') -> 'typing.Tuple[XURI_5682078c, ...]':
         """
@@ -93,6 +97,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def importMetadataFile(self, Format: int, InStream: 'XInputStream_98d40ab4', FileName: str, BaseURI: 'XURI_5682078c', Types: 'typing.Tuple[XURI_5682078c, ...]') -> 'XURI_5682078c':
         """
@@ -107,6 +112,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             ParseException: ``ParseException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def loadMetadataFromMedium(self, Medium: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -118,6 +124,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def loadMetadataFromStorage(self, Storage: 'XStorage_8e460a32', BaseURI: 'XURI_5682078c', InteractionHandler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -135,6 +142,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeContentOrStylesFile(self, FileName: str) -> None:
         """
@@ -146,6 +154,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def removeMetadataFile(self, GraphName: 'XURI_5682078c') -> None:
         """
@@ -157,6 +166,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def storeMetadataToMedium(self, Medium: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -166,6 +176,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def storeMetadataToStorage(self, Storage: 'XStorage_8e460a32') -> None:
         """
@@ -179,6 +190,7 @@ class XDocumentMetadataAccess(XRepositorySupplier_feff0e30, XURI_5682078c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XDocumentMetadataAccess']
 

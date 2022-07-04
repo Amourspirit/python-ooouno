@@ -48,6 +48,7 @@ class XDocumentDataSource(ABC):
         
         Additionally, if the caller does long-lasting processing on the document, it's advised to add itself as com.sun.star.util.XCloseListener to the document, to prevent closing as long as the processing lasts.
         """
+        ...
 
 
 __all__ = ['XDocumentDataSource']

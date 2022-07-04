@@ -43,6 +43,7 @@ class Descriptor(XPropertySet_bc180bfa):
         """
         is the name for the object to create.
         """
+        ...
 
 
 

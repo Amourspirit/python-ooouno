@@ -43,6 +43,7 @@ class XDispatchProviderInterception(XInterface_8f010a43):
         """
         registers an XDispatchProviderInterceptor, which will become the first interceptor in the chain of registered interceptors.
         """
+        ...
     @abstractmethod
     def releaseDispatchProviderInterceptor(self, Interceptor: 'XDispatchProviderInterceptor_afda1275') -> None:
         """
@@ -50,6 +51,7 @@ class XDispatchProviderInterception(XInterface_8f010a43):
         
         The order of removals is arbitrary. It is not necessary to remove the last registered interceptor first.
         """
+        ...
 
 __all__ = ['XDispatchProviderInterception']
 

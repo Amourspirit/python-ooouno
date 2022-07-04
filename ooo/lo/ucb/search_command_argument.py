@@ -39,7 +39,7 @@ class SearchCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.SearchCommandArgument'
     """Literal Constant ``com.sun.star.ucb.SearchCommandArgument``"""
 
-    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Info: typing.Optional[SearchInfo_8daf0a24] = UNO_NONE) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = (), Info: typing.Optional[SearchInfo_8daf0a24] = UNO_NONE) -> None:
         """
         Constructor
 
@@ -59,8 +59,6 @@ class SearchCommandArgument(object):
             "Properties": Properties,
             "Info": Info,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
         if kargs["Info"] is UNO_NONE:
             kargs["Info"] = None
         self._init(**kargs)

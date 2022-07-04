@@ -50,6 +50,7 @@ class FormOperations(XFormOperations_4a450ffe):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createWithFormController(self, Controller: 'XFormController_4a570ffe') -> None:
         """
@@ -58,6 +59,7 @@ class FormOperations(XFormOperations_4a450ffe):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['FormOperations']

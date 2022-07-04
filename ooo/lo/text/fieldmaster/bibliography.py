@@ -45,18 +45,21 @@ class Bibliography(TextFieldMaster_d6410cc2):
         
         This property is used if the property IsSortByPosition is not set. Each contained element of the sequence is a sequence of the following two properties:
         """
+        ...
 
     @abstractproperty
     def BracketAfter(self) -> str:
         """
         determines the closing bracket used to display the bibliography text fields.
         """
+        ...
 
     @abstractproperty
     def BracketBefore(self) -> str:
         """
         determines the opening bracket used to display the bibliography text fields.
         """
+        ...
 
     @abstractproperty
     def IsNumberEntries(self) -> bool:
@@ -65,6 +68,7 @@ class Bibliography(TextFieldMaster_d6410cc2):
         
         If FALSE the short name of the bibliography entry is displayed instead.
         """
+        ...
 
     @abstractproperty
     def IsSortByPosition(self) -> bool:
@@ -73,18 +77,21 @@ class Bibliography(TextFieldMaster_d6410cc2):
         
         If FALSE the SortKey property determines the sorting of the entries.
         """
+        ...
 
     @abstractproperty
     def Locale(self) -> 'Locale_70d308fa':
         """
         contains the locale of the field master
         """
+        ...
 
     @abstractproperty
     def SortAlgorithm(self) -> str:
         """
         contains the name of the sort algorithm that is used to sort the text fields.
         """
+        ...
 
 
 

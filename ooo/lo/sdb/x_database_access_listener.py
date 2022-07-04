@@ -44,14 +44,17 @@ class XDatabaseAccessListener(XEventListener_c7230c4a):
     def approveConnectionClosing(self, event: 'EventObject_a3d70b03') -> bool:
         """
         """
+        ...
     @abstractmethod
     def connectionChanged(self, event: 'EventObject_a3d70b03') -> None:
         """
         """
+        ...
     @abstractmethod
     def connectionClosing(self, event: 'EventObject_a3d70b03') -> None:
         """
         """
+        ...
 
 __all__ = ['XDatabaseAccessListener']
 

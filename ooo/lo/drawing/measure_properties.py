@@ -47,6 +47,7 @@ class MeasureProperties(ABC):
         """
         If this property is TRUE, the measure is drawn below the reference edge instead of above it.
         """
+        ...
 
     @abstractproperty
     def MeasureDecimalPlaces(self) -> int:
@@ -57,102 +58,119 @@ class MeasureProperties(ABC):
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def MeasureHelpLine1Length(self) -> int:
         """
         This is the length of the first help line.
         """
+        ...
 
     @abstractproperty
     def MeasureHelpLine2Length(self) -> int:
         """
         This is the length of the second help line.
         """
+        ...
 
     @abstractproperty
     def MeasureHelpLineDistance(self) -> int:
         """
         This is the distance from the measure line to the start of the help lines.
         """
+        ...
 
     @abstractproperty
     def MeasureHelpLineOverhang(self) -> int:
         """
         This is the overhang of the two help lines.
         """
+        ...
 
     @abstractproperty
     def MeasureKind(self) -> 'MeasureKind_c99e0c4c':
         """
         This enumeration specifies the MeasureKind.
         """
+        ...
 
     @abstractproperty
     def MeasureLineDistance(self) -> int:
         """
         This is the distance from the reference edge to the measure line.
         """
+        ...
 
     @abstractproperty
     def MeasureOverhang(self) -> int:
         """
         This is the overhang of the reference line over the help lines.
         """
+        ...
 
     @abstractproperty
     def MeasureShowUnit(self) -> bool:
         """
         If this is TRUE, the unit of measure is shown in the measure text.
         """
+        ...
 
     @abstractproperty
     def MeasureTextAutoAngle(self) -> bool:
         """
         If this is TRUE, the angle of the measure is set automatically.
         """
+        ...
 
     @abstractproperty
     def MeasureTextAutoAngleView(self) -> int:
         """
         This is the automatic angle.
         """
+        ...
 
     @abstractproperty
     def MeasureTextFixedAngle(self) -> int:
         """
         This is the fixed angle.
         """
+        ...
 
     @abstractproperty
     def MeasureTextHorizontalPosition(self) -> 'MeasureTextHorzPos_2bcb0f40':
         """
         This is the horizontal position of the measure text.
         """
+        ...
 
     @abstractproperty
     def MeasureTextIsFixedAngle(self) -> bool:
         """
         If this value is TRUE, the measure has a fixed angle.
         """
+        ...
 
     @abstractproperty
     def MeasureTextRotate90(self) -> bool:
         """
         If this value is TRUE, the text is rotated 90 degrees.
         """
+        ...
 
     @abstractproperty
     def MeasureTextUpsideDown(self) -> bool:
         """
         If this value is TRUE, the text is printed upside down.
         """
+        ...
 
     @abstractproperty
     def MeasureTextVerticalPosition(self) -> 'MeasureTextVertPos_2bd90f3e':
         """
         This is the vertical position of the text.
         """
+        ...
 
 
 

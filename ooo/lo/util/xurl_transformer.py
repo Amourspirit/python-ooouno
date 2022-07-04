@@ -41,6 +41,7 @@ class XURLTransformer(XInterface_8f010a43):
         """
         assembles the parts of the URL specified by aURL and stores it into URL.Complete
         """
+        ...
     @abstractmethod
     def getPresentation(self, aURL: 'URL_57ad07b9', bWithPassword: bool) -> str:
         """
@@ -48,6 +49,7 @@ class XURLTransformer(XInterface_8f010a43):
         
         Sometimes it can be useful to show a URL on an user interface in a more \"human readable\" form. Such URL can't be used on any API call, but make it easier for the user to understand it.
         """
+        ...
     @abstractmethod
     def parseSmart(self, aURL: object, sSmartProtocol: str) -> bool:
         """
@@ -55,6 +57,7 @@ class XURLTransformer(XInterface_8f010a43):
         
         The implementation can use smart functions to correct or interpret URL.Complete if it is not a syntactically complete URL. The parts of the URL are stored in the other fields of aURL.
         """
+        ...
     @abstractmethod
     def parseStrict(self, aURL: object) -> bool:
         """
@@ -62,6 +65,7 @@ class XURLTransformer(XInterface_8f010a43):
         
         The implementation is allowed to correct minor failures in URL.Complete if the meaning of the URL remain unchanged. Parts of the URL are stored in the other fields of aURL.
         """
+        ...
 
 __all__ = ['XURLTransformer']
 

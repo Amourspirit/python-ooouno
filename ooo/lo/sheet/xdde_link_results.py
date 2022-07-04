@@ -43,11 +43,13 @@ class XDDELinkResults(XInterface_8f010a43):
         """
         returns the DDE link results.
         """
+        ...
     @abstractmethod
     def setResults(self, aResults: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
         sets the DDE link results.
         """
+        ...
 
 __all__ = ['XDDELinkResults']
 

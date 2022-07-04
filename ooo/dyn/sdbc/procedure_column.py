@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ProcedureColumn as ProcedureColumn
-    if hasattr(ProcedureColumn, '_constants') and isinstance(ProcedureColumn._constants, dict):
-        ProcedureColumn._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        ProcedureColumn._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ProcedureColumn'
-        ProcedureColumn._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ProcedureColumnEnum
-        ls = [f for f in dir(ProcedureColumn) if not callable(getattr(ProcedureColumn, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ProcedureColumn, name)
-        ProcedureColumnEnum = IntEnum('ProcedureColumnEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ProcedureColumn(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.ProcedureColumn", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.ProcedureColumn``"""
+        pass
+
+    class ProcedureColumnEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.ProcedureColumn", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.ProcedureColumn`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.procedure_column import ProcedureColumn as ProcedureColumn
 

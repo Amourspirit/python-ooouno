@@ -56,6 +56,7 @@ class CellRange(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df,
         """
         contains color of the background.
         """
+        ...
 
     @abstractproperty
     def BackGraphic(self) -> 'XGraphic_a4da0afc':
@@ -66,18 +67,21 @@ class CellRange(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df,
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def BackGraphicFilter(self) -> str:
         """
         contains the filter name of the background graphic.
         """
+        ...
 
     @abstractproperty
     def BackGraphicLocation(self) -> 'GraphicLocation_e3ef0d30':
         """
         determines the location of the background graphic.
         """
+        ...
 
     @abstractproperty
     def BackGraphicURL(self) -> str:
@@ -86,30 +90,35 @@ class CellRange(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df,
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the graphic and set the BackGraphic property.
         """
+        ...
 
     @abstractproperty
     def BackTransparent(self) -> bool:
         """
         determines if the background color is transparent.
         """
+        ...
 
     @abstractproperty
     def ChartColumnAsLabel(self) -> bool:
         """
         determines if the first column of the table should be treated as axis labels when a chart is to be created.
         """
+        ...
 
     @abstractproperty
     def ChartRowAsLabel(self) -> bool:
         """
         determines if the first row of the table should be treated as axis labels when a chart is to be created.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         contains the number format.
         """
+        ...
 
 
 

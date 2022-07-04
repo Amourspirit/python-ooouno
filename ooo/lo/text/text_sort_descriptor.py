@@ -43,66 +43,77 @@ class TextSortDescriptor(SortDescriptor_ca680c8d):
         """
         contains the character that marks the separation of columns.
         """
+        ...
 
     @abstractproperty
     def IsSortAscending0(self) -> bool:
         """
         determines if the sorting in the first search key is done in ascending or descending order.
         """
+        ...
 
     @abstractproperty
     def IsSortAscending1(self) -> bool:
         """
         determines if the sorting in the second search key is done in ascending or descending order.
         """
+        ...
 
     @abstractproperty
     def IsSortAscending2(self) -> bool:
         """
         determines if the sorting in the third search key is done in ascending or descending order.
         """
+        ...
 
     @abstractproperty
     def IsSortInTable(self) -> bool:
         """
         determines if the content of a table is to be sorted.
         """
+        ...
 
     @abstractproperty
     def IsSortNumeric0(self) -> bool:
         """
         determines if the sorting in the first search key is done numeric or alphanumeric order.
         """
+        ...
 
     @abstractproperty
     def IsSortNumeric1(self) -> bool:
         """
         determines if the sorting in the second search key is done in numeric or alphanumeric order.
         """
+        ...
 
     @abstractproperty
     def IsSortNumeric2(self) -> bool:
         """
         determines if the sorting in the third search key is done in numeric or alphanumeric order.
         """
+        ...
 
     @abstractproperty
     def SortRowOrColumnNo0(self) -> int:
         """
         contains the row or column index used in the first search key.
         """
+        ...
 
     @abstractproperty
     def SortRowOrColumnNo1(self) -> int:
         """
         contains the row or column index used in the second search key.
         """
+        ...
 
     @abstractproperty
     def SortRowOrColumnNo2(self) -> int:
         """
         contains the row or column index used in the third search key.
         """
+        ...
 
 
 

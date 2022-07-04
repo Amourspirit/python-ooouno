@@ -43,6 +43,7 @@ class XInstanceProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XInstanceProvider']
 

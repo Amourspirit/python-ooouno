@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldReferenceItemType as DataPilotFieldReferenceItemType
-    if hasattr(DataPilotFieldReferenceItemType, '_constants') and isinstance(DataPilotFieldReferenceItemType._constants, dict):
-        DataPilotFieldReferenceItemType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataPilotFieldReferenceItemType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldReferenceItemType'
-        DataPilotFieldReferenceItemType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataPilotFieldReferenceItemTypeEnum
-        ls = [f for f in dir(DataPilotFieldReferenceItemType) if not callable(getattr(DataPilotFieldReferenceItemType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataPilotFieldReferenceItemType, name)
-        DataPilotFieldReferenceItemTypeEnum = IntEnum('DataPilotFieldReferenceItemTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DataPilotFieldReferenceItemType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldReferenceItemType", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldReferenceItemType``"""
+        pass
+
+    class DataPilotFieldReferenceItemTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataPilotFieldReferenceItemType", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldReferenceItemType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_pilot_field_reference_item_type import DataPilotFieldReferenceItemType as DataPilotFieldReferenceItemType
 

@@ -42,12 +42,14 @@ class ConditionalFormat(XPropertySet_bc180bfa, XConditionalFormat_be90e56):
     def ID(self) -> int:
         """
         """
+        ...
 
     @abstractproperty
     def Range(self) -> 'XSheetCellRanges_edef0d52':
         """
         represents the range for the conditional format All ranges have to be in the same sheet.
         """
+        ...
 
 
 

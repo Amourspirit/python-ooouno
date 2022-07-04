@@ -41,6 +41,7 @@ class XScenario(XInterface_8f010a43):
         """
         adds more ranges to the scenario.
         """
+        ...
     @abstractmethod
     def apply(self) -> None:
         """
@@ -48,21 +49,25 @@ class XScenario(XInterface_8f010a43):
         
         The contents of the scenario ranges are copied into the first non-scenario sheet which is in front of the sheet containing the scenario by itself.
         """
+        ...
     @abstractmethod
     def getIsScenario(self) -> bool:
         """
         returns TRUE if the current object is a scenario.
         """
+        ...
     @abstractmethod
     def getScenarioComment(self) -> str:
         """
         returns the comment for the scenario.
         """
+        ...
     @abstractmethod
     def setScenarioComment(self, aScenarioComment: str) -> None:
         """
         sets a new comment for the scenario.
         """
+        ...
 
 __all__ = ['XScenario']
 

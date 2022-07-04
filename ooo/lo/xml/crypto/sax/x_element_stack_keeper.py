@@ -43,16 +43,19 @@ class XElementStackKeeper(XInterface_8f010a43):
         
         All transferred events are removed from the buffer.
         """
+        ...
     @abstractmethod
     def start(self) -> None:
         """
         Starts to buffer key SAX events.
         """
+        ...
     @abstractmethod
     def stop(self) -> None:
         """
         Stops buffering key SAX events.
         """
+        ...
 
 __all__ = ['XElementStackKeeper']
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import KeyRule as KeyRule
-    if hasattr(KeyRule, '_constants') and isinstance(KeyRule._constants, dict):
-        KeyRule._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        KeyRule._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.KeyRule'
-        KeyRule._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global KeyRuleEnum
-        ls = [f for f in dir(KeyRule) if not callable(getattr(KeyRule, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(KeyRule, name)
-        KeyRuleEnum = IntEnum('KeyRuleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class KeyRule(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.KeyRule", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.KeyRule``"""
+        pass
+
+    class KeyRuleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.KeyRule", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.KeyRule`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.key_rule import KeyRule as KeyRule
 

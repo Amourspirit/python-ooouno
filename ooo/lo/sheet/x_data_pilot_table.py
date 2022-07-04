@@ -41,11 +41,13 @@ class XDataPilotTable(XInterface_8f010a43):
         """
         returns the address of the cell range that contains the data pilot table.
         """
+        ...
     @abstractmethod
     def refresh(self) -> None:
         """
         recreates the data pilot table with current data from the source cell range.
         """
+        ...
 
 __all__ = ['XDataPilotTable']
 

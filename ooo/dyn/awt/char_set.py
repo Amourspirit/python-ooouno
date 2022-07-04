@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import CharSet as CharSet
-    if hasattr(CharSet, '_constants') and isinstance(CharSet._constants, dict):
-        CharSet._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        CharSet._constants['__ooo_full_ns__'] = 'com.sun.star.awt.CharSet'
-        CharSet._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CharSetEnum
-        ls = [f for f in dir(CharSet) if not callable(getattr(CharSet, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CharSet, name)
-        CharSetEnum = IntEnum('CharSetEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class CharSet(metaclass=UnoConstMeta, type_name="com.sun.star.awt.CharSet", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.CharSet``"""
+        pass
+
+    class CharSetEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.CharSet", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.CharSet`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.char_set import CharSet as CharSet
 

@@ -46,6 +46,7 @@ class XUpdateInformationProvider(ABC):
         """
         interrupts a getUpdateInformation call and let's it return immediately.
         """
+        ...
     @abstractmethod
     def getUpdateInformation(self, repositories: 'typing.Tuple[str, ...]', extensionId: str) -> 'typing.Tuple[XElement_a33d0ae9, ...]':
         """
@@ -54,6 +55,7 @@ class XUpdateInformationProvider(ABC):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getUpdateInformationEnumeration(self, repositories: 'typing.Tuple[str, ...]', extensionId: str) -> 'XEnumeration_f2180daa':
         """
@@ -62,6 +64,7 @@ class XUpdateInformationProvider(ABC):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setInteractionHandler(self, handler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -69,6 +72,7 @@ class XUpdateInformationProvider(ABC):
         
         A default interaction handler is available as service com.sun.star.task.InteractionHandler. The documentation of this service also contains further information about the interaction handler concept.
         """
+        ...
 
 __all__ = ['XUpdateInformationProvider']
 

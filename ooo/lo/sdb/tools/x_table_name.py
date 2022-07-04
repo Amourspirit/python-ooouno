@@ -31,8 +31,7 @@ class XTableName(ABC):
     
     The XTableName interface eases this and other, similar tasks around table names.
     
-    The component itself does not have life-time control mechanisms, i.e. you cannot explicitly dispose it (com.sun.star.lang.XComponent.dispose()), and you cannot be notified when it dies.
-    However, if your try to access any of its methods or attributes, after the connection which was used to create it was closed, a com.sun.star.lang.DisposedException will be thrown.
+    The component itself does not have life-time control mechanisms, i.e. you cannot explicitly dispose it (com.sun.star.lang.XComponent.dispose()), and you cannot be notified when it dies.However, if your try to access any of its methods or attributes, after the connection which was used to create it was closed, a com.sun.star.lang.DisposedException will be thrown.
     
     **since**
     
@@ -54,16 +53,19 @@ class XTableName(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setComposedName(self, ComposedName: str, Type: int) -> None:
         """
         sets a new composed table name
         """
+        ...
     @abstractproperty
     def CatalogName(self) -> str:
         """
         denotes the name of the catalog which the table is a part of
         """
+        ...
 
     @abstractproperty
     def NameForSelect(self) -> str:
@@ -72,12 +74,14 @@ class XTableName(ABC):
         
         On a per-data-source basis, OpenOffice.org allows to override database meta data information in that you can specify to not use catalog and or schema names in SELECT statements. Using this attribute, you can generate a table name which respects those settings.
         """
+        ...
 
     @abstractproperty
     def SchemaName(self) -> str:
         """
         denotes the name of the schema which the table is a part of
         """
+        ...
 
     @abstractproperty
     def Table(self) -> 'XPropertySet_bc180bfa':
@@ -86,12 +90,14 @@ class XTableName(ABC):
         
         Retrieving this attribute is equivalent to obtaining the tables container from the connection (via com.sun.star.sdbcx.XTablesSupplier), and calling its com.sun.star.container.XNameAccess.getByName() method with the ComposedName.
         """
+        ...
 
     @abstractproperty
     def TableName(self) -> str:
         """
         denotes the mere, unqualified table name, excluding any catalog and schema.
         """
+        ...
 
 
 __all__ = ['XTableName']

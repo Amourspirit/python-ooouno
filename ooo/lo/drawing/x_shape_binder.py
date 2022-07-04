@@ -42,11 +42,13 @@ class XShapeBinder(XInterface_8f010a43):
         """
         binds Shapes together.
         """
+        ...
     @abstractmethod
     def unbind(self, xShape: 'XShape_8fd00a3d') -> None:
         """
         breaks a Shape into its line segments
         """
+        ...
 
 __all__ = ['XShapeBinder']
 

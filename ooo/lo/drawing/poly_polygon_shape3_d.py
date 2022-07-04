@@ -38,7 +38,7 @@ class PolyPolygonShape3D(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonShape3D'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonShape3D``"""
 
-    def __init__(self, SequenceX: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE, SequenceY: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE, SequenceZ: typing.Optional[DoubleSequenceSequence_6b8010c1] = UNO_NONE) -> None:
+    def __init__(self, SequenceX: typing.Optional[DoubleSequenceSequence_6b8010c1] = DoubleSequenceSequence_6b8010c1(()), SequenceY: typing.Optional[DoubleSequenceSequence_6b8010c1] = DoubleSequenceSequence_6b8010c1(()), SequenceZ: typing.Optional[DoubleSequenceSequence_6b8010c1] = DoubleSequenceSequence_6b8010c1(())) -> None:
         """
         Constructor
 
@@ -61,12 +61,6 @@ class PolyPolygonShape3D(object):
             "SequenceY": SequenceY,
             "SequenceZ": SequenceZ,
         }
-        if kargs["SequenceX"] is UNO_NONE:
-            kargs["SequenceX"] = None
-        if kargs["SequenceY"] is UNO_NONE:
-            kargs["SequenceY"] = None
-        if kargs["SequenceZ"] is UNO_NONE:
-            kargs["SequenceZ"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

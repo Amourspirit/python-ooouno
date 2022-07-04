@@ -51,6 +51,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         
         If the animation is currently running, the next frame that is drawn after this method has finished, will be the first one. Please note that if an animation is not started, the associated XSpriteCanvas does not update changed sprites automatically.
         """
+        ...
     @abstractmethod
     def setAll(self, aNewPos: 'RealPoint2D_d6e70c78', aViewState: 'ViewState_cab30c62', aRenderState: 'RenderState_e4490d27', nAlpha: float, bUpdateAnimation: bool) -> None:
         """
@@ -63,6 +64,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setViewState(self, aViewState: 'ViewState_cab30c62') -> None:
         """
@@ -73,6 +75,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def startAnimation(self, nSpeed: float) -> None:
         """
@@ -80,6 +83,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         
         The speed of the animation is given in cycles per second (where a cycle is defined as one full animation run, i.e. the full [0,1] range of the XAnimation.render()'s t parameter, or a full sequence of sprite bitmaps drawn). Once an animation is running, the associated XSpriteCanvas handles screen updates automatically. That means, changes to position or alpha are reflected on screen automatically. Please note further that sprite visibility and animation are unrelated, i.e. a hidden sprite can have a running animation, which then displays in the middle of the animation sequence, when a show() is called later on.
         """
+        ...
     @abstractmethod
     def stopAnimation(self) -> None:
         """
@@ -87,6 +91,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         
         A subsequent XAnimatedSprite.startAnimation() will commence the sequence at the point where it was stopped with here. Once an animation is stopped, the associated XSpriteCanvas does not update changed sprites anymore.
         """
+        ...
     @abstractmethod
     def updateAnimation(self) -> None:
         """
@@ -94,6 +99,7 @@ class XAnimatedSprite(XSprite_b2470b95):
         
         This method has no effect when called for a bitmap-sequence sprite. Please note that if an animation is not started, the associated XSpriteCanvas does not update changed sprites automatically, but has to be told to do so via XSpriteCanvas.updateScreen().
         """
+        ...
 
 __all__ = ['XAnimatedSprite']
 

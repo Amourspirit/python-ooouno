@@ -53,6 +53,7 @@ class XKeyHandler(XEventListener_c7230c4a):
         
         Consuming this event does not prevent the pending key-release event from being broadcasted.
         """
+        ...
     @abstractmethod
     def keyReleased(self, aEvent: 'KeyEvent_7a78097f') -> bool:
         """
@@ -62,6 +63,7 @@ class XKeyHandler(XEventListener_c7230c4a):
         
         Consume the event if the action performed by the implementation is mutually exclusive with the default action of the broadcaster or, when known, with that of other handlers.
         """
+        ...
 
 __all__ = ['XKeyHandler']
 

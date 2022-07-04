@@ -40,6 +40,7 @@ class XCommand(XAnimationNode_1cf10eb9):
         
         See documentation of used application for commands.
         """
+        ...
 
     @abstractproperty
     def Parameter(self) -> object:
@@ -48,6 +49,7 @@ class XCommand(XAnimationNode_1cf10eb9):
         
         See documentation of used application for supported parameters for different commands and target combinations.
         """
+        ...
 
     @abstractproperty
     def Target(self) -> object:
@@ -56,6 +58,7 @@ class XCommand(XAnimationNode_1cf10eb9):
         
         See documentation of used application for supported targets.
         """
+        ...
 
 
 __all__ = ['XCommand']

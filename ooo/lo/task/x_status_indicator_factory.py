@@ -43,6 +43,7 @@ class XStatusIndicatorFactory(XInterface_8f010a43):
         """
         create a new status indicator instance
         """
+        ...
 
 __all__ = ['XStatusIndicatorFactory']
 

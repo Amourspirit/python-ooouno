@@ -34,6 +34,10 @@ class AnimationSpeed(Enum):
     __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.presentation.AnimationSpeed'
+
     FAST = 'FAST'
     """
     set the speed from the animation/fade to fast.

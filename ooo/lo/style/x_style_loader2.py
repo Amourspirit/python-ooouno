@@ -51,6 +51,7 @@ class XStyleLoader2(XStyleLoader_be2a0bf9):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XStyleLoader2']
 

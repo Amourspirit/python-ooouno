@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto import DigestID as DigestID
-    if hasattr(DigestID, '_constants') and isinstance(DigestID._constants, dict):
-        DigestID._constants['__ooo_ns__'] = 'com.sun.star.xml.crypto'
-        DigestID._constants['__ooo_full_ns__'] = 'com.sun.star.xml.crypto.DigestID'
-        DigestID._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DigestIDEnum
-        ls = [f for f in dir(DigestID) if not callable(getattr(DigestID, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DigestID, name)
-        DigestIDEnum = IntEnum('DigestIDEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DigestID(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.DigestID", name_space="com.sun.star.xml.crypto"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.xml.crypto.DigestID``"""
+        pass
+
+    class DigestIDEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.xml.crypto.DigestID", name_space="com.sun.star.xml.crypto"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.xml.crypto.DigestID`` as Enum values"""
+        pass
+
 else:
     from ....lo.xml.crypto.digest_id import DigestID as DigestID
 

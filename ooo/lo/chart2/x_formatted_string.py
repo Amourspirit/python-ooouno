@@ -36,10 +36,12 @@ class XFormattedString(XInterface_8f010a43):
     def getString(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setString(self, String: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XFormattedString']
 

@@ -50,11 +50,13 @@ class XContentCreator(XInterface_8f010a43):
         """
         creates a new content of given type.
         """
+        ...
     @abstractmethod
     def queryCreatableContentsInfo(self) -> 'typing.Tuple[ContentInfo_98f60aa9, ...]':
         """
         returns a list with information about the creatable contents.
         """
+        ...
 
 __all__ = ['XContentCreator']
 

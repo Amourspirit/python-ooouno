@@ -41,10 +41,12 @@ class XFrameSetModel(XInterface_8f010a43):
     def getSource(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setSource(self, Source: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XFrameSetModel']
 

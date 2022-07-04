@@ -44,6 +44,7 @@ class XColorScheme(XInterface_8f010a43):
         
         Usually there exist a fixed number of default colors. This method should always return a valid Color. If the index (i) is higher than the number of default colors (n), the method should return the modulus (i mod n), i.e., the colors should repeat in a cyclic way.
         """
+        ...
 
 __all__ = ['XColorScheme']
 

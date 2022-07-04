@@ -47,11 +47,13 @@ class XHyperlinkControl(XPropertyControl_3f260fe2):
         """
         adds a listener which will be notified when the user clicked the hyperlink text in the control
         """
+        ...
     @abstractmethod
     def removeActionListener(self, listener: 'XActionListener_c7560c50') -> None:
         """
         removes a listener which was previously added via addActionListener()
         """
+        ...
 
 __all__ = ['XHyperlinkControl']
 

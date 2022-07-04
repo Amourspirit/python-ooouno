@@ -34,6 +34,10 @@ class GraphicLocation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.GraphicLocation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.GraphicLocation'
+
     AREA = 'AREA'
     """
     The graphic is scaled to fill the whole surrounding area.

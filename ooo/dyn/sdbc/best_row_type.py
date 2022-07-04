@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import BestRowType as BestRowType
-    if hasattr(BestRowType, '_constants') and isinstance(BestRowType._constants, dict):
-        BestRowType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        BestRowType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.BestRowType'
-        BestRowType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global BestRowTypeEnum
-        ls = [f for f in dir(BestRowType) if not callable(getattr(BestRowType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(BestRowType, name)
-        BestRowTypeEnum = IntEnum('BestRowTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class BestRowType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.BestRowType", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.BestRowType``"""
+        pass
+
+    class BestRowTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.BestRowType", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.BestRowType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.best_row_type import BestRowType as BestRowType
 

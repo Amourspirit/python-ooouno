@@ -44,6 +44,7 @@ class XSingleComponentFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createInstanceWithContext(self, Context: 'XComponentContext_e2e10d4a') -> 'XInterface_8f010a43':
         """
@@ -52,6 +53,7 @@ class XSingleComponentFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XSingleComponentFactory']
 

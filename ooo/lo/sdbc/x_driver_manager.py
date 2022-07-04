@@ -49,6 +49,7 @@ class XDriverManager(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getConnectionWithInfo(self, url: str, info: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XConnection_a36a0b0c':
         """
@@ -59,16 +60,19 @@ class XDriverManager(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getLoginTimeout(self) -> int:
         """
         gets the maximum time in seconds that a driver can wait when attempting to login to a database.
         """
+        ...
     @abstractmethod
     def setLoginTimeout(self, seconds: int) -> None:
         """
         sets the maximum time in seconds that a driver will wait while attempting to connect to a database.
         """
+        ...
 
 __all__ = ['XDriverManager']
 

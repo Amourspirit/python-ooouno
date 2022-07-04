@@ -46,7 +46,7 @@ class ReloadEditableRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.ReloadEditableRequest'
     """Literal Constant ``com.sun.star.document.ReloadEditableRequest``"""
 
-    def __init__(self, Message: typing.Optional[str] = None, Context: typing.Optional[XInterface_8f010a43] = None, DocumentURL: typing.Optional[str] = None) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, DocumentURL: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -60,8 +60,6 @@ class ReloadEditableRequest(Exception_85530a09):
             "Context": Context,
             "DocumentURL": DocumentURL,
         }
-        if kargs["DocumentURL"] is UNO_NONE:
-            kargs["DocumentURL"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

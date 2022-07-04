@@ -36,7 +36,7 @@ class UserRecord(object):
     typeName: str = 'com.sun.star.task.UserRecord'
     """Literal Constant ``com.sun.star.task.UserRecord``"""
 
-    def __init__(self, Passwords: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, UserName: typing.Optional[str] = '') -> None:
+    def __init__(self, Passwords: typing.Optional[typing.Tuple[str, ...]] = (), UserName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -56,8 +56,6 @@ class UserRecord(object):
             "Passwords": Passwords,
             "UserName": UserName,
         }
-        if kargs["Passwords"] is UNO_NONE:
-            kargs["Passwords"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

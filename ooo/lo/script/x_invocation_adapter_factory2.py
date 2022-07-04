@@ -41,6 +41,7 @@ class XInvocationAdapterFactory2(XInterface_8f010a43):
         """
         Creates an adapter interface of given types for calling the given XInvocation interface.
         """
+        ...
 
 __all__ = ['XInvocationAdapterFactory2']
 

@@ -49,6 +49,7 @@ class XDynamicResultSetListener(XEventListener_c7230c4a):
         
         The Listener is allowed to stay (block) this call, until he really wants to use the new result set. The only situation, where the listener has to return immediately is while he disposes his broadcaster or while he is removing himself as listener (otherwise you deadlock)!!!
         """
+        ...
 
 __all__ = ['XDynamicResultSetListener']
 

@@ -37,7 +37,7 @@ class SendMediaTypes(object):
     typeName: str = 'com.sun.star.ucb.SendMediaTypes'
     """Literal Constant ``com.sun.star.ucb.SendMediaTypes``"""
 
-    def __init__(self, Value: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, ProtocolType: typing.Optional[str] = '') -> None:
+    def __init__(self, Value: typing.Optional[typing.Tuple[str, ...]] = (), ProtocolType: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -57,8 +57,6 @@ class SendMediaTypes(object):
             "Value": Value,
             "ProtocolType": ProtocolType,
         }
-        if kargs["Value"] is UNO_NONE:
-            kargs["Value"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -34,6 +34,10 @@ class CellHoriJustify(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.CellHoriJustify'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.CellHoriJustify'
+
     BLOCK = 'BLOCK'
     """
     contents are justified to the cell width.

@@ -37,6 +37,7 @@ class Function(XFunction_a6b30b42):
     def create(self) -> None:
         """
         """
+        ...
 
 
 __all__ = ['Function']

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import UserDataPart as UserDataPart
-    if hasattr(UserDataPart, '_constants') and isinstance(UserDataPart._constants, dict):
-        UserDataPart._constants['__ooo_ns__'] = 'com.sun.star.text'
-        UserDataPart._constants['__ooo_full_ns__'] = 'com.sun.star.text.UserDataPart'
-        UserDataPart._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global UserDataPartEnum
-        ls = [f for f in dir(UserDataPart) if not callable(getattr(UserDataPart, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(UserDataPart, name)
-        UserDataPartEnum = IntEnum('UserDataPartEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class UserDataPart(metaclass=UnoConstMeta, type_name="com.sun.star.text.UserDataPart", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.UserDataPart``"""
+        pass
+
+    class UserDataPartEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.UserDataPart", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.UserDataPart`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.user_data_part import UserDataPart as UserDataPart
 

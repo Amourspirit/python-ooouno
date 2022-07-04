@@ -46,6 +46,7 @@ class FootnoteSettings(ABC):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def BeginNotice(self) -> str:
@@ -54,12 +55,14 @@ class FootnoteSettings(ABC):
         
         For footnotes only.
         """
+        ...
 
     @abstractproperty
     def CharStyleName(self) -> str:
         """
         contains the name of the character style that is used for the label in front of the footnote/endnote text.
         """
+        ...
 
     @abstractproperty
     def EndNotice(self) -> str:
@@ -68,6 +71,7 @@ class FootnoteSettings(ABC):
         
         For footnotes only.
         """
+        ...
 
     @abstractproperty
     def FootnoteCounting(self) -> int:
@@ -76,24 +80,28 @@ class FootnoteSettings(ABC):
         
         For footnotes only.
         """
+        ...
 
     @abstractproperty
     def NumberingType(self) -> int:
         """
         contains the numbering type for the numbering of the footnotes/endnotes.
         """
+        ...
 
     @abstractproperty
     def PageStyleName(self) -> str:
         """
         contains the page style that is used for the page that contains the footnote/endnote texts
         """
+        ...
 
     @abstractproperty
     def ParaStyleName(self) -> str:
         """
         contains the paragraph style that is used for the footnote/endnote text.
         """
+        ...
 
     @abstractproperty
     def PositionEndOfDoc(self) -> bool:
@@ -102,24 +110,28 @@ class FootnoteSettings(ABC):
         
         For footnotes only.
         """
+        ...
 
     @abstractproperty
     def Prefix(self) -> str:
         """
         contains the prefix for the footnote/endnote symbol.
         """
+        ...
 
     @abstractproperty
     def StartAt(self) -> int:
         """
         contains the first number of the automatic numbering of footnotes/endnotes.
         """
+        ...
 
     @abstractproperty
     def Suffix(self) -> str:
         """
         contains the suffix for the footnote/endnote symbol.
         """
+        ...
 
 
 

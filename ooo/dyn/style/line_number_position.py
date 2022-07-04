@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import LineNumberPosition as LineNumberPosition
-    if hasattr(LineNumberPosition, '_constants') and isinstance(LineNumberPosition._constants, dict):
-        LineNumberPosition._constants['__ooo_ns__'] = 'com.sun.star.style'
-        LineNumberPosition._constants['__ooo_full_ns__'] = 'com.sun.star.style.LineNumberPosition'
-        LineNumberPosition._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global LineNumberPositionEnum
-        ls = [f for f in dir(LineNumberPosition) if not callable(getattr(LineNumberPosition, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(LineNumberPosition, name)
-        LineNumberPositionEnum = IntEnum('LineNumberPositionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class LineNumberPosition(metaclass=UnoConstMeta, type_name="com.sun.star.style.LineNumberPosition", name_space="com.sun.star.style"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.style.LineNumberPosition``"""
+        pass
+
+    class LineNumberPositionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.style.LineNumberPosition", name_space="com.sun.star.style"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.style.LineNumberPosition`` as Enum values"""
+        pass
+
 else:
     from ...lo.style.line_number_position import LineNumberPosition as LineNumberPosition
 

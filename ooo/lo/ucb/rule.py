@@ -40,7 +40,7 @@ class Rule(object):
     typeName: str = 'com.sun.star.ucb.Rule'
     """Literal Constant ``com.sun.star.ucb.Rule``"""
 
-    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = UNO_NONE, Parameter: typing.Optional[str] = '', Action: typing.Optional[int] = 0) -> None:
+    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = (), Parameter: typing.Optional[str] = '', Action: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -63,8 +63,6 @@ class Rule(object):
             "Parameter": Parameter,
             "Action": Action,
         }
-        if kargs["Terms"] is UNO_NONE:
-            kargs["Terms"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -41,7 +41,7 @@ class Template(object):
     typeName: str = 'com.sun.star.frame.status.Template'
     """Literal Constant ``com.sun.star.frame.status.Template``"""
 
-    def __init__(self, StyleName: typing.Optional[str] = '', Value: typing.Optional[int] = 0, StyleNameIdentifier: typing.Optional[str] = None) -> None:
+    def __init__(self, StyleName: typing.Optional[str] = '', Value: typing.Optional[int] = 0, StyleNameIdentifier: typing.Optional[str] = '') -> None:
         """
         Constructor
 

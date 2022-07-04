@@ -46,6 +46,7 @@ class XUriBinding(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setUriBinding(self, uri: str, InputStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -54,6 +55,7 @@ class XUriBinding(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XUriBinding']
 

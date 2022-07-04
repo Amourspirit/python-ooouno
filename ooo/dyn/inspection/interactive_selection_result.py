@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.inspection.InteractiveSelectionResult import (Cancelled, ObtainedValue, Pending, Success)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.inspection.InteractiveSelectionResult Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.inspection",
-            "__ooo_full_ns__": "com.sun.star.inspection.InteractiveSelectionResult",
-            "__ooo_type_name__": "enum",
-            "Cancelled": Cancelled,
-            "ObtainedValue": ObtainedValue,
-            "Pending": Pending,
-            "Success": Success,
-        }
-        result = type('InteractiveSelectionResult', (object,), _dict)
-        return result
-
-    InteractiveSelectionResult = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class InteractiveSelectionResult(metaclass=UnoEnumMeta, type_name="com.sun.star.inspection.InteractiveSelectionResult", name_space="com.sun.star.inspection"):
+        """Dynamically created class that represents ``com.sun.star.inspection.InteractiveSelectionResult`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult
 

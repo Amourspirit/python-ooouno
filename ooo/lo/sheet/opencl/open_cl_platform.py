@@ -37,7 +37,7 @@ class OpenCLPlatform(object):
     typeName: str = 'com.sun.star.sheet.opencl.OpenCLPlatform'
     """Literal Constant ``com.sun.star.sheet.opencl.OpenCLPlatform``"""
 
-    def __init__(self, Devices: typing.Optional[typing.Tuple[OpenCLDevice_180d0e41, ...]] = UNO_NONE, Name: typing.Optional[str] = '', Vendor: typing.Optional[str] = '') -> None:
+    def __init__(self, Devices: typing.Optional[typing.Tuple[OpenCLDevice_180d0e41, ...]] = (), Name: typing.Optional[str] = '', Vendor: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -60,8 +60,6 @@ class OpenCLPlatform(object):
             "Name": Name,
             "Vendor": Vendor,
         }
-        if kargs["Devices"] is UNO_NONE:
-            kargs["Devices"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

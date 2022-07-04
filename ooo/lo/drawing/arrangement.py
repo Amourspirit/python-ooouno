@@ -34,6 +34,10 @@ class Arrangement(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.Arrangement'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.Arrangement'
+
     BACK = 'BACK'
     """
     Move this object behind all other objects.

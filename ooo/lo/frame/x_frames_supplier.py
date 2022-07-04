@@ -43,11 +43,13 @@ class XFramesSupplier(XFrame_7a570956):
         
         This may be the frame itself. The active frame is defined as the frame which contains (recursively) the window with the focus. If no window within the frame contains the focus, this method returns the last frame which had the focus. If no containing window ever had the focus, the first frame within this frame is returned.
         """
+        ...
     @abstractmethod
     def getFrames(self) -> 'XFrames_842009c9':
         """
         provides access to this container and to all other XFramesSupplier which are available from this node of frame tree
         """
+        ...
     @abstractmethod
     def setActiveFrame(self, Frame: 'XFrame_7a570956') -> None:
         """
@@ -59,6 +61,7 @@ class XFramesSupplier(XFrame_7a570956):
         
         Note: Given parameter Frame must already exist inside the container (e.g., inserted by using XFrames.append())
         """
+        ...
 
 __all__ = ['XFramesSupplier']
 

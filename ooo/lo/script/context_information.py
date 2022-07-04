@@ -41,7 +41,7 @@ class ContextInformation(object):
     typeName: str = 'com.sun.star.script.ContextInformation'
     """Literal Constant ``com.sun.star.script.ContextInformation``"""
 
-    def __init__(self, LocalVariableNames: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Name: typing.Optional[str] = '', SourceCode: typing.Optional[str] = '', StartLine: typing.Optional[int] = 0, StartColumn: typing.Optional[int] = 0, EndLine: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0) -> None:
+    def __init__(self, LocalVariableNames: typing.Optional[typing.Tuple[str, ...]] = (), Name: typing.Optional[str] = '', SourceCode: typing.Optional[str] = '', StartLine: typing.Optional[int] = 0, StartColumn: typing.Optional[int] = 0, EndLine: typing.Optional[int] = 0, EndColumn: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -76,8 +76,6 @@ class ContextInformation(object):
             "EndLine": EndLine,
             "EndColumn": EndColumn,
         }
-        if kargs["LocalVariableNames"] is UNO_NONE:
-            kargs["LocalVariableNames"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

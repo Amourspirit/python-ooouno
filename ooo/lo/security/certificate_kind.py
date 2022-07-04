@@ -34,6 +34,10 @@ class CertificateKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.security.CertificateKind'
+
     NONE = 'NONE'
     """
     No format specified.

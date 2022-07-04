@@ -34,6 +34,10 @@ class ElementMarkType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.crypto.sax.ElementMarkType'
+
     ELEMENTCOLLECTOR = 'ELEMENTCOLLECTOR'
     """
     """

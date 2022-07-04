@@ -25,8 +25,7 @@ class XBoundComponent(XUpdateBroadcaster_fc910de1):
     """
     specifies a (form) component which is bound to a data source.
     
-    The interface provides the possibility of committing its respective data to a data source it is bound to. A commit() will be performed by the environment (usually, a FormController).
-    For example, suppose you have a data-bound control that is connected to a database field. Each time the control loses its focus, the model (component) of the control is triggered by the environment to store its value in the database field.
+    The interface provides the possibility of committing its respective data to a data source it is bound to. A commit() will be performed by the environment (usually, a FormController).For example, suppose you have a data-bound control that is connected to a database field. Each time the control loses its focus, the model (component) of the control is triggered by the environment to store its value in the database field.
     
     A commit may fail if an XUpdateListener vetoes the it.
 
@@ -43,6 +42,7 @@ class XBoundComponent(XUpdateBroadcaster_fc910de1):
         """
         commits the content of the component into the data source it is bound to.
         """
+        ...
 
 __all__ = ['XBoundComponent']
 

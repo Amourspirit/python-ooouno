@@ -34,6 +34,10 @@ class ListSourceType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.form.ListSourceType'
+
     QUERY = 'QUERY'
     """
     The control should be filled with the results of a database query.

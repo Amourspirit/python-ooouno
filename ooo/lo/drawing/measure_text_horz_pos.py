@@ -34,6 +34,10 @@ class MeasureTextHorzPos(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextHorzPos'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.MeasureTextHorzPos'
+
     AUTO = 'AUTO'
     """
     the connection point is chosen automatically,

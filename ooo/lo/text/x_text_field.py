@@ -39,6 +39,7 @@ class XTextField(XTextContent_b16e0ba5):
     def getPresentation(self, bShowCommand: bool) -> str:
         """
         """
+        ...
 
 __all__ = ['XTextField']
 

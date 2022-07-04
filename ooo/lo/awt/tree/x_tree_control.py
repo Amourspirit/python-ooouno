@@ -44,11 +44,13 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         """
         Adds a XTreeEditListener.
         """
+        ...
     @abstractmethod
     def addTreeExpansionListener(self, Listener: 'XTreeExpansionListener_78511115') -> None:
         """
         Adds a listener for TreeExpansion events.
         """
+        ...
     @abstractmethod
     def cancelEditing(self) -> None:
         """
@@ -56,6 +58,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         Has no effect if the tree isn't being edited.
         """
+        ...
     @abstractmethod
     def collapseNode(self, Node: 'XTreeNode_baaf0ba0') -> None:
         """
@@ -65,6 +68,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             ExpandVetoException: ``ExpandVetoException``
         """
+        ...
     @abstractmethod
     def expandNode(self, Node: 'XTreeNode_baaf0ba0') -> None:
         """
@@ -76,6 +80,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             ExpandVetoException: ``ExpandVetoException``
         """
+        ...
     @abstractmethod
     def getClosestNodeForLocation(self, x: int, y: int) -> 'XTreeNode_baaf0ba0':
         """
@@ -83,11 +88,13 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         If no nodes are currently viewable, or there is no model, returns null, otherwise it always returns a valid node. To test if the node is exactly at x, y, use getNodeForLocation().
         """
+        ...
     @abstractmethod
     def getNodeForLocation(self, x: int, y: int) -> 'XTreeNode_baaf0ba0':
         """
         Returns the node at the specified location.
         """
+        ...
     @abstractmethod
     def getNodeRect(self, Node: 'XTreeNode_baaf0ba0') -> 'Rectangle_84b109e9':
         """
@@ -96,6 +103,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isEditing(self) -> bool:
         """
@@ -103,6 +111,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         The node that is being edited can be obtained using com.sun.star.view.XSelectionSupplier.getSelection().
         """
+        ...
     @abstractmethod
     def isNodeCollapsed(self, Node: 'XTreeNode_baaf0ba0') -> bool:
         """
@@ -111,6 +120,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isNodeExpanded(self, Node: 'XTreeNode_baaf0ba0') -> bool:
         """
@@ -119,6 +129,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isNodeVisible(self, Node: 'XTreeNode_baaf0ba0') -> bool:
         """
@@ -129,6 +140,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def makeNodeVisible(self, Node: 'XTreeNode_baaf0ba0') -> None:
         """
@@ -140,16 +152,19 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             ExpandVetoException: ``ExpandVetoException``
         """
+        ...
     @abstractmethod
     def removeTreeEditListener(self, Listener: 'XTreeEditListener_25e10ee6') -> None:
         """
         Removes a XTreeEditListener.
         """
+        ...
     @abstractmethod
     def removeTreeExpansionListener(self, Listener: 'XTreeExpansionListener_78511115') -> None:
         """
         Removes a listener for TreeExpansion events.
         """
+        ...
     @abstractmethod
     def startEditingAtNode(self, Node: 'XTreeNode_baaf0ba0') -> None:
         """
@@ -162,6 +177,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def stopEditing(self) -> bool:
         """
@@ -171,6 +187,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         Has no effect if the tree isn't being edited.
         """
+        ...
     @abstractproperty
     def DefaultCollapsedGraphicURL(self) -> str:
         """
@@ -178,6 +195,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         This can be overridden for individual nodes by XTreeNode.getCollapsedGraphicURL()
         """
+        ...
 
     @abstractproperty
     def DefaultExpandedGraphicURL(self) -> str:
@@ -186,6 +204,7 @@ class XTreeControl(XMultiSelectionSupplier_4b0d1020):
         
         This can be overridden for individual nodes by XTreeNode.getExpandedGraphicURL()
         """
+        ...
 
 
 __all__ = ['XTreeControl']

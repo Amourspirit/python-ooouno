@@ -34,6 +34,10 @@ class CircleKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.CircleKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.CircleKind'
+
     ARC = 'ARC'
     """
     a circle with an open cut

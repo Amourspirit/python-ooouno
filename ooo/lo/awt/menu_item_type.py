@@ -34,6 +34,10 @@ class MenuItemType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.MenuItemType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.MenuItemType'
+
     DONTKNOW = 'DONTKNOW'
     """
     specifies a font with an unknown slant.

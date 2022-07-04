@@ -48,6 +48,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         """
         specifies the horizontal alignment of the text in the control.
         """
+        ...
 
     @abstractproperty
     def AutoHScroll(self) -> bool:
@@ -58,6 +59,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.3
         """
+        ...
 
     @abstractproperty
     def AutoVScroll(self) -> bool:
@@ -68,18 +70,21 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.3
         """
+        ...
 
     @abstractproperty
     def BackgroundColor(self) -> 'Color_68e908c5':
         """
         specifies the background color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+        ...
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -92,60 +97,70 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def EchoChar(self) -> int:
         """
         specifies the echo character for a password edit field.
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font attributes of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontEmphasisMark(self) -> int:
         """
         specifies the com.sun.star.text.FontEmphasis value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontRelief(self) -> int:
         """
         specifies the com.sun.star.text.FontRelief value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def HScroll(self) -> bool:
         """
         specifies if the content of the control can be scrolled in the horizontal direction.
         """
+        ...
 
     @abstractproperty
     def HardLineBreaks(self) -> bool:
         """
         specifies if hard line breaks will be returned in the XTextComponent.getText() method.
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def HideInactiveSelection(self) -> bool:
@@ -156,6 +171,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def LineEndFormat(self) -> int:
@@ -172,6 +188,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def MaxTextLen(self) -> int:
@@ -180,12 +197,14 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
         There's no limitation, if set to 0.
         """
+        ...
 
     @abstractproperty
     def MultiLine(self) -> bool:
         """
         specifies that the control may have more than one line.
         """
+        ...
 
     @abstractproperty
     def PaintTransparent(self) -> bool:
@@ -196,48 +215,56 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 2.3
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies that the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def ReadOnly(self) -> bool:
         """
         specifies that the content of the control cannot be modified by the user.
         """
+        ...
 
     @abstractproperty
     def Tabstop(self) -> bool:
         """
         specifies that the control can be reached with the TAB key.
         """
+        ...
 
     @abstractproperty
     def Text(self) -> str:
         """
         specifies the text displayed in the control.
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def TextLineColor(self) -> 'Color_68e908c5':
         """
         specifies the text line color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def VScroll(self) -> bool:
         """
         specifies if the content of the control can be scrolled in the vertical direction.
         """
+        ...
 
     @abstractproperty
     def VerticalAlign(self) -> 'VerticalAlignment_8d0e12':
@@ -248,6 +275,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 3.3
         """
+        ...
 
     @abstractproperty
     def WritingMode(self) -> int:
@@ -260,6 +288,7 @@ class UnoControlEditModel(UnoControlModel_c8ce0c58):
         
             OOo 3.1
         """
+        ...
 
 
 

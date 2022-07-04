@@ -34,6 +34,10 @@ class CellInsertMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.CellInsertMode'
+
     COLUMNS = 'COLUMNS'
     """
     entire columns to the right of the deleted cells are moved left.

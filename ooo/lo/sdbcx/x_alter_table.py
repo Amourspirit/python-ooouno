@@ -47,6 +47,7 @@ class XAlterTable(XInterface_8f010a43):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def alterColumnByName(self, colName: str, descriptor: 'XPropertySet_bc180bfa') -> None:
         """
@@ -58,6 +59,7 @@ class XAlterTable(XInterface_8f010a43):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XAlterTable']
 

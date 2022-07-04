@@ -41,16 +41,19 @@ class XRefreshable(XInterface_8f010a43):
         """
         adds the specified listener to receive the event \"refreshed.\"
         """
+        ...
     @abstractmethod
     def refresh(self) -> None:
         """
         refreshes the data of the object from the connected data source.
         """
+        ...
     @abstractmethod
     def removeRefreshListener(self, l: 'XRefreshListener_e2f20d33') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XRefreshable']
 

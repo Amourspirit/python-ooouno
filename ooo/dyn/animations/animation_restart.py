@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import AnimationRestart as AnimationRestart
-    if hasattr(AnimationRestart, '_constants') and isinstance(AnimationRestart._constants, dict):
-        AnimationRestart._constants['__ooo_ns__'] = 'com.sun.star.animations'
-        AnimationRestart._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationRestart'
-        AnimationRestart._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AnimationRestartEnum
-        ls = [f for f in dir(AnimationRestart) if not callable(getattr(AnimationRestart, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AnimationRestart, name)
-        AnimationRestartEnum = IntEnum('AnimationRestartEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class AnimationRestart(metaclass=UnoConstMeta, type_name="com.sun.star.animations.AnimationRestart", name_space="com.sun.star.animations"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.animations.AnimationRestart``"""
+        pass
+
+    class AnimationRestartEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.animations.AnimationRestart", name_space="com.sun.star.animations"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.animations.AnimationRestart`` as Enum values"""
+        pass
+
 else:
     from ...lo.animations.animation_restart import AnimationRestart as AnimationRestart
 

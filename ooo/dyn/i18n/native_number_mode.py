@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import NativeNumberMode as NativeNumberMode
-    if hasattr(NativeNumberMode, '_constants') and isinstance(NativeNumberMode._constants, dict):
-        NativeNumberMode._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        NativeNumberMode._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.NativeNumberMode'
-        NativeNumberMode._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global NativeNumberModeEnum
-        ls = [f for f in dir(NativeNumberMode) if not callable(getattr(NativeNumberMode, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(NativeNumberMode, name)
-        NativeNumberModeEnum = IntEnum('NativeNumberModeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class NativeNumberMode(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.NativeNumberMode", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.NativeNumberMode``"""
+        pass
+
+    class NativeNumberModeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.NativeNumberMode", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.NativeNumberMode`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.native_number_mode import NativeNumberMode as NativeNumberMode
 
@@ -66,97 +64,47 @@ else:
         """
         NATNUM1 = NativeNumberMode.NATNUM1
         """
-        Transliteration in
-        Chinese: Chinese lower case characters; CAL: 1/7/7 [DBNum1]
-        Japanese: short Kanji characters [DBNum1]; CAL: 1/4/4 [DBNum1]
-        Korean: Korean lower case characters [DBNum1]; CAL: 1/7/7 [DBNum1]
-        Hebrew: Hebrew characters
-        Arabic: Arabic-Indic characters
-        Thai: Thai characters
-        Hindi: Indic-Devanagari characters
-        Odia: Odia (Oriya) characters
-        Marathi: Indic-Devanagari characters
-        Bengali: Bengali characters
-        Punjabi: Punjabi (Gurmukhi) characters
-        Gujarati: Gujarati characters
-        Tamil: Tamil characters
-        Telugu: Telugu characters
-        Kannada: Kannada characters
-        Malayalam: Malayalam characters
-        Lao: Lao characters
-        Tibetan: Tibetan characters
-        Burmese: Burmese (Myanmar) characters
-        Khmer: Khmer (Cambodian) characters
-        Mongolian: Mongolian characters
-        Nepali: Indic-Devanagari characters
-        Dzongkha: Tibetan characters
-        Farsi: East Arabic-Indic characters
-        Church Slavic: Cyrillic characters.
+        Transliteration in Chinese: Chinese lower case characters; CAL: 1/7/7 [DBNum1] Japanese: short Kanji characters [DBNum1]; CAL: 1/4/4 [DBNum1] Korean: Korean lower case characters [DBNum1]; CAL: 1/7/7 [DBNum1] Hebrew: Hebrew characters Arabic: Arabic-Indic characters Thai: Thai characters Hindi: Indic-Devanagari characters Odia: Odia (Oriya) charactersMarathi: Indic-Devanagari charactersBengali: Bengali charactersPunjabi: Punjabi (Gurmukhi) charactersGujarati: Gujarati charactersTamil: Tamil charactersTelugu: Telugu charactersKannada: Kannada charactersMalayalam: Malayalam charactersLao: Lao charactersTibetan: Tibetan charactersBurmese: Burmese (Myanmar) charactersKhmer: Khmer (Cambodian) charactersMongolian: Mongolian charactersNepali: Indic-Devanagari charactersDzongkha: Tibetan charactersFarsi: East Arabic-Indic charactersChurch Slavic: Cyrillic characters.
         """
         NATNUM2 = NativeNumberMode.NATNUM2
         """
-        Transliteration in
-        Chinese: Chinese upper case characters; CAL: 2/8/8 [DBNum2]
-        Japanese: traditional Kanji characters; CAL: 2/5/5 [DBNum2]
-        Korean: Korean upper case characters [DBNum2]; CAL: 2/8/8 [DBNum2]
-        Hebrew: Hebrew numbering.
+        Transliteration in Chinese: Chinese upper case characters; CAL: 2/8/8 [DBNum2] Japanese: traditional Kanji characters; CAL: 2/5/5 [DBNum2] Korean: Korean upper case characters [DBNum2]; CAL: 2/8/8 [DBNum2] Hebrew: Hebrew numbering.
         """
         NATNUM3 = NativeNumberMode.NATNUM3
         """
-        Transliteration in
-        Chinese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3]
-        Japanese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3]
-        Korean: fullwidth Arabic digits [DBNum3]; CAL: 3/3/3 [DBNum3].
+        Transliteration in Chinese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3] Japanese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3] Korean: fullwidth Arabic digits [DBNum3]; CAL: 3/3/3 [DBNum3].
         """
         NATNUM4 = NativeNumberMode.NATNUM4
         """
-        Transliteration in
-        Chinese: lower case text [DBNum1]
-        Japanese: modern long Kanji text [DBNum2]
-        Korean: formal lower case text.
+        Transliteration in Chinese: lower case text [DBNum1] Japanese: modern long Kanji text [DBNum2] Korean: formal lower case text.
         """
         NATNUM5 = NativeNumberMode.NATNUM5
         """
-        Transliteration in
-        Chinese: Chinese upper case text [DBNum2]
-        Japanese: traditional long Kanji text [DBNum3]
-        Korean: formal upper case text.
+        Transliteration in Chinese: Chinese upper case text [DBNum2] Japanese: traditional long Kanji text [DBNum3] Korean: formal upper case text.
         """
         NATNUM6 = NativeNumberMode.NATNUM6
         """
-        Transliteration in
-        Chinese: fullwidth text [DBNum3]
-        Japanese: fullwidth text
-        Korean: fullwidth text.
+        Transliteration in Chinese: fullwidth text [DBNum3] Japanese: fullwidth text Korean: fullwidth text.
         """
         NATNUM7 = NativeNumberMode.NATNUM7
         """
-        Transliteration in
-        Chinese: short lower case text
-        Japanese: modern short Kanji text
-        Korean: informal lower case text.
+        Transliteration in Chinese: short lower case text Japanese: modern short Kanji text Korean: informal lower case text.
         """
         NATNUM8 = NativeNumberMode.NATNUM8
         """
-        Transliteration in
-        Chinese: short upper case text
-        Japanese: traditional short Kanji text [DBNum4]
-        Korean: informal upper case text.
+        Transliteration in Chinese: short upper case text Japanese: traditional short Kanji text [DBNum4] Korean: informal upper case text.
         """
         NATNUM9 = NativeNumberMode.NATNUM9
         """
-        Transliteration in
-        Korean: Hangul characters.
+        Transliteration in Korean: Hangul characters.
         """
         NATNUM10 = NativeNumberMode.NATNUM10
         """
-        Transliteration in
-        Korean: formal Hangul text [DBNum4]; CAL: 9/11/11 [DBNum4].
+        Transliteration in Korean: formal Hangul text [DBNum4]; CAL: 9/11/11 [DBNum4].
         """
         NATNUM11 = NativeNumberMode.NATNUM11
         """
-        Transliteration in
-        Korean: informal Hangul text.
+        Transliteration in Korean: informal Hangul text.
         """
         NATNUM12 = NativeNumberMode.NATNUM12
         """

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import PrivilegeObject as PrivilegeObject
-    if hasattr(PrivilegeObject, '_constants') and isinstance(PrivilegeObject._constants, dict):
-        PrivilegeObject._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
-        PrivilegeObject._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.PrivilegeObject'
-        PrivilegeObject._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PrivilegeObjectEnum
-        ls = [f for f in dir(PrivilegeObject) if not callable(getattr(PrivilegeObject, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PrivilegeObject, name)
-        PrivilegeObjectEnum = IntEnum('PrivilegeObjectEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class PrivilegeObject(metaclass=UnoConstMeta, type_name="com.sun.star.sdbcx.PrivilegeObject", name_space="com.sun.star.sdbcx"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbcx.PrivilegeObject``"""
+        pass
+
+    class PrivilegeObjectEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbcx.PrivilegeObject", name_space="com.sun.star.sdbcx"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbcx.PrivilegeObject`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
 

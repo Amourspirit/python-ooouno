@@ -45,6 +45,7 @@ class XLibraryContainer(XNameAccess_e2ab0cf6):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def createLibraryLink(self, Name: str, StorageURL: str, ReadOnly: bool) -> 'XNameAccess_e2ab0cf6':
         """
@@ -56,6 +57,7 @@ class XLibraryContainer(XNameAccess_e2ab0cf6):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def isLibraryLoaded(self, Name: str) -> bool:
         """
@@ -64,6 +66,7 @@ class XLibraryContainer(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def loadLibrary(self, Name: str) -> None:
         """
@@ -73,6 +76,7 @@ class XLibraryContainer(XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeLibrary(self, Name: str) -> None:
         """
@@ -84,6 +88,7 @@ class XLibraryContainer(XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XLibraryContainer']
 

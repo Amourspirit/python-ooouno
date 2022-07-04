@@ -40,6 +40,7 @@ class XStreamListener(XEventListener_c7230c4a):
         
         The termination could be done using the method XActiveDataControl.terminate().
         """
+        ...
     @abstractmethod
     def error(self, aException: object) -> None:
         """
@@ -47,16 +48,19 @@ class XStreamListener(XEventListener_c7230c4a):
         
         After the method is called, the close is called on the connected streams.
         """
+        ...
     @abstractmethod
     def started(self) -> None:
         """
         gets called as soon as data transfer has started.
         """
+        ...
     @abstractmethod
     def terminated(self) -> None:
         """
         gets called when XActiveDataControl.terminate() is called.
         """
+        ...
 
 __all__ = ['XStreamListener']
 

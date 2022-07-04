@@ -39,7 +39,7 @@ class InterpretedData(object):
     typeName: str = 'com.sun.star.chart2.InterpretedData'
     """Literal Constant ``com.sun.star.chart2.InterpretedData``"""
 
-    def __init__(self, Series: typing.Optional[typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...], ...]] = UNO_NONE, Categories: typing.Optional[XLabeledDataSequence_7e1a10c8] = None) -> None:
+    def __init__(self, Series: typing.Optional[typing.Tuple[typing.Tuple[XDataSeries_b8150b89, ...], ...]] = (), Categories: typing.Optional[XLabeledDataSequence_7e1a10c8] = None) -> None:
         """
         Constructor
 
@@ -59,8 +59,6 @@ class InterpretedData(object):
             "Series": Series,
             "Categories": Categories,
         }
-        if kargs["Series"] is UNO_NONE:
-            kargs["Series"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

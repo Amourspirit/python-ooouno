@@ -63,6 +63,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
             OOo 2.0.1
         """
+        ...
 
     @abstractproperty
     def StyleInteropGrabBag(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
@@ -75,6 +76,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
             LibreOffice 4.2
         """
+        ...
 
     @abstractproperty
     def DisplayName(self) -> str:
@@ -83,6 +85,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
         The names of the styles at the API are language independent. The user interface names are localized.
         """
+        ...
 
     @abstractproperty
     def FollowStyle(self) -> str:
@@ -91,6 +94,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
         This property is usually available at paragraph styles only.
         """
+        ...
 
     @abstractproperty
     def Hidden(self) -> bool:
@@ -101,6 +105,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
             LibreOffice 4.0
         """
+        ...
 
     @abstractproperty
     def IsAutoUpdate(self) -> str:
@@ -109,6 +114,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
         For example, if the style is applied to a paragraph and the properties of the paragraph are changed then the style will be updated accordingly.
         """
+        ...
 
     @abstractproperty
     def IsPhysical(self) -> bool:
@@ -117,6 +123,7 @@ class Style(UserDefinedAttributesSupplier_9fbe1222, XMultiPropertySet_fd880e05, 
         
         Built in styles may not be created until they are needed. To prevent standard style properties from being exported, it may be useful to check if the style is created first.
         """
+        ...
 
 
 

@@ -51,6 +51,7 @@ class DocumentCloser(XComponent_98dc0ab5):
             com.sun.star.frame.DoubleInitializationException: ``DoubleInitializationException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 
 __all__ = ['DocumentCloser']

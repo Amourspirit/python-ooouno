@@ -34,6 +34,10 @@ class GradientStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.GradientStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.GradientStyle'
+
     AXIAL = 'AXIAL'
     """
     specifies an axial gradient.

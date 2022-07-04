@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xml.crypto.sax import ConstOfSecurityId as ConstOfSecurityId
-    if hasattr(ConstOfSecurityId, '_constants') and isinstance(ConstOfSecurityId._constants, dict):
-        ConstOfSecurityId._constants['__ooo_ns__'] = 'com.sun.star.xml.crypto.sax'
-        ConstOfSecurityId._constants['__ooo_full_ns__'] = 'com.sun.star.xml.crypto.sax.ConstOfSecurityId'
-        ConstOfSecurityId._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ConstOfSecurityIdEnum
-        ls = [f for f in dir(ConstOfSecurityId) if not callable(getattr(ConstOfSecurityId, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ConstOfSecurityId, name)
-        ConstOfSecurityIdEnum = IntEnum('ConstOfSecurityIdEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ConstOfSecurityId(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.sax.ConstOfSecurityId", name_space="com.sun.star.xml.crypto.sax"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.xml.crypto.sax.ConstOfSecurityId``"""
+        pass
+
+    class ConstOfSecurityIdEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.xml.crypto.sax.ConstOfSecurityId", name_space="com.sun.star.xml.crypto.sax"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.xml.crypto.sax.ConstOfSecurityId`` as Enum values"""
+        pass
+
 else:
     from .....lo.xml.crypto.sax.const_of_security_id import ConstOfSecurityId as ConstOfSecurityId
 

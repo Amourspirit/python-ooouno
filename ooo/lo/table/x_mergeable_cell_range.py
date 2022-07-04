@@ -37,6 +37,7 @@ class XMergeableCellRange(XInterface_8f010a43):
     def isMergeable(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def merge(self) -> None:
         """
@@ -45,6 +46,7 @@ class XMergeableCellRange(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def split(self, Columns: int, Rows: int) -> None:
         """
@@ -56,6 +58,7 @@ class XMergeableCellRange(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XMergeableCellRange']
 

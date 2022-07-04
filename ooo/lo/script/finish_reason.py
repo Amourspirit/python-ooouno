@@ -34,6 +34,10 @@ class FinishReason(Enum):
     __ooo_full_ns__: str = 'com.sun.star.script.FinishReason'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.script.FinishReason'
+
     Cancel = 'Cancel'
     """
     script in the engine was cancelled.

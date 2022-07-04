@@ -46,6 +46,7 @@ class XLayerImporter(XInterface_8f010a43):
         """
         gets the target backend for importing.
         """
+        ...
     @abstractmethod
     def importLayer(self, aLayer: 'XLayer_4cd50fcb') -> None:
         """
@@ -59,6 +60,7 @@ class XLayerImporter(XInterface_8f010a43):
             com.sun.star.lang.NullPointerException: ``NullPointerException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def importLayerForEntity(self, aLayer: 'XLayer_4cd50fcb', aEntity: str) -> None:
         """
@@ -72,6 +74,7 @@ class XLayerImporter(XInterface_8f010a43):
             com.sun.star.lang.NullPointerException: ``NullPointerException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setTargetBackend(self, aBackend: 'XBackend_6ce81076') -> None:
         """
@@ -80,6 +83,7 @@ class XLayerImporter(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NullPointerException: ``NullPointerException``
         """
+        ...
 
 __all__ = ['XLayerImporter']
 

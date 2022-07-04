@@ -39,7 +39,7 @@ class InsertedObjectInfo(object):
     typeName: str = 'com.sun.star.embed.InsertedObjectInfo'
     """Literal Constant ``com.sun.star.embed.InsertedObjectInfo``"""
 
-    def __init__(self, Options: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, Object: typing.Optional[XEmbeddedObject_ddee0cbe] = None) -> None:
+    def __init__(self, Options: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = (), Object: typing.Optional[XEmbeddedObject_ddee0cbe] = None) -> None:
         """
         Constructor
 
@@ -59,8 +59,6 @@ class InsertedObjectInfo(object):
             "Options": Options,
             "Object": Object,
         }
-        if kargs["Options"] is UNO_NONE:
-            kargs["Options"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

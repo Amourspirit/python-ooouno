@@ -49,11 +49,13 @@ class XBufferController(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def destroyBuffers(self) -> None:
         """
         Destroy all buffers generated via this object.
         """
+        ...
     @abstractmethod
     def showBuffer(self, bUpdateAll: bool) -> bool:
         """
@@ -63,6 +65,7 @@ class XBufferController(XInterface_8f010a43):
         
         Use this method if you need your screen display to be in sync with other things, e.g. sound playback.
         """
+        ...
     @abstractmethod
     def switchBuffer(self, bUpdateAll: bool) -> bool:
         """
@@ -72,6 +75,7 @@ class XBufferController(XInterface_8f010a43):
         
         Use this method if you favor maximal render speed, but don't necessarily require your screen display to be in sync with other things, e.g. sound playback.
         """
+        ...
 
 __all__ = ['XBufferController']
 

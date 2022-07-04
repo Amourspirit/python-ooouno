@@ -45,6 +45,7 @@ class XModifyListener(XEventListener_c7230c4a):
         
         The source of the event may be the content of the object to which the listener is registered.
         """
+        ...
 
 __all__ = ['XModifyListener']
 

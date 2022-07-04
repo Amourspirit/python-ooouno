@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.awt
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -37,18 +38,17 @@ class XSystemChildFactory(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.awt.XSystemChildFactory'
 
     @abstractmethod
-    def createSystemChild(self, Parent: object, ProcessId: 'typing.Tuple[int, ...]', SystemType: int) -> 'XWindowPeer_99760ab0':
+    def createSystemChild(self, Parent: object, ProcessId: uno.ByteSequence, SystemType: int) -> 'XWindowPeer_99760ab0':
         """
         creates a system child window.
         
-        You must check the machine ID and the process ID.
-        WIN32: HWND.
-        WIN16: HWND.
+        You must check the machine ID and the process ID.WIN32: HWND.WIN16: HWND.
         
         JAVA: global reference to a java.awt.Component object provided from the JNI-API.
         
         MAC: (NSView*) pointer.
         """
+        ...
 
 __all__ = ['XSystemChildFactory']
 

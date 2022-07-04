@@ -40,6 +40,7 @@ class XViewFreezable(XInterface_8f010a43):
         
         To freeze only horizontally, specify nRows as 0. To freeze only vertically, specify nColumns as 0.
         """
+        ...
     @abstractmethod
     def hasFrozenPanes(self) -> bool:
         """
@@ -47,6 +48,7 @@ class XViewFreezable(XInterface_8f010a43):
         
         Only one of XViewSplitable.getIsWindowSplit() and XViewFreezable.hasFrozenPanes() can be TRUE.
         """
+        ...
 
 __all__ = ['XViewFreezable']
 

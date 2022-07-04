@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.reflection
 import typing
+import uno
 from abc import abstractmethod
 from .x_type_description import XTypeDescription as XTypeDescription_3c210fb1
 
@@ -39,16 +40,19 @@ class XEnumTypeDescription(XTypeDescription_3c210fb1):
         """
         Returns the default enum value.
         """
+        ...
     @abstractmethod
     def getEnumNames(self) -> 'typing.Tuple[str, ...]':
         """
         Returns the enum member values.
         """
+        ...
     @abstractmethod
-    def getEnumValues(self) -> 'typing.Tuple[int, ...]':
+    def getEnumValues(self) -> uno.ByteSequence:
         """
         Returns the enum member names.
         """
+        ...
 
 __all__ = ['XEnumTypeDescription']
 

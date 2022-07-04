@@ -42,6 +42,7 @@ class XExtendedFilterDetection(XInterface_8f010a43):
         
         Registered services in configuration, which support this interface for different mime types, will be called automatically to look into the document stream and decide which format it represent. Add the collected information about detected documents in given MediaDescriptor Descriptor. The decision must be returned as any valid type name (which specifies the detected format) or an empty value for unknown formats.
         """
+        ...
 
 __all__ = ['XExtendedFilterDetection']
 

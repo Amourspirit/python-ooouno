@@ -45,7 +45,7 @@ class DataPilotTableResultData(object):
     typeName: str = 'com.sun.star.sheet.DataPilotTableResultData'
     """Literal Constant ``com.sun.star.sheet.DataPilotTableResultData``"""
 
-    def __init__(self, FieldFilters: typing.Optional[typing.Tuple[DataPilotFieldFilter_271e0eed, ...]] = UNO_NONE, DataFieldIndex: typing.Optional[int] = 0, Result: typing.Optional[DataResult_a47d0b1a] = UNO_NONE) -> None:
+    def __init__(self, FieldFilters: typing.Optional[typing.Tuple[DataPilotFieldFilter_271e0eed, ...]] = (), DataFieldIndex: typing.Optional[int] = 0, Result: typing.Optional[DataResult_a47d0b1a] = UNO_NONE) -> None:
         """
         Constructor
 
@@ -68,8 +68,6 @@ class DataPilotTableResultData(object):
             "DataFieldIndex": DataFieldIndex,
             "Result": Result,
         }
-        if kargs["FieldFilters"] is UNO_NONE:
-            kargs["FieldFilters"] = None
         if kargs["Result"] is UNO_NONE:
             kargs["Result"] = None
         self._init(**kargs)

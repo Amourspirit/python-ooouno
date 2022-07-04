@@ -75,8 +75,7 @@ class Locale(object):
         """
         specifies an ISO 639 Language Code.
         
-        These codes are preferably the lower-case two-letter codes as defined by ISO 639-1, or three-letter codes as defined by ISO 639-3. You can find a full list of these codes at a number of sites, such as:
-        https://iso639-3.sil.org/code_tables/639/data.
+        These codes are preferably the lower-case two-letter codes as defined by ISO 639-1, or three-letter codes as defined by ISO 639-3. You can find a full list of these codes at a number of sites, such as: https://iso639-3.sil.org/code_tables/639/data.
         
         If this field contains an empty string, the meaning depends on the context.
         
@@ -93,8 +92,7 @@ class Locale(object):
         """
         specifies an ISO 3166 Country Code.
         
-        These codes are the upper-case two-letter codes as defined by ISO 3166-1. You can find a full list of these codes at a number of sites, such as:
-        https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
+        These codes are the upper-case two-letter codes as defined by ISO 3166-1. You can find a full list of these codes at a number of sites, such as: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
         
         If this field contains an empty string, the meaning depends on the context.
         """
@@ -111,11 +109,9 @@ class Locale(object):
         
         Since LibreOffice 4.2, if the Language field is the code \"qlt\" this field contains the full BCP 47 language tag. If the Language field is not \"qlt\" this field is empty.
         
-        You can find BCP 47 language tag resources at
-        http://www.langtag.net/.
+        You can find BCP 47 language tag resources at http://www.langtag.net/.
         
-        Earlier versions of the documentation mentioned \"vendor and
-        browser-specific\" codes but that was never supported. Use of any arbitrary strings in the Variant field that do not form a valid BCP 47 language tag is strongly deprecated.
+        Earlier versions of the documentation mentioned \"vendor andbrowser-specific\" codes but that was never supported. Use of any arbitrary strings in the Variant field that do not form a valid BCP 47 language tag is strongly deprecated.
         """
         return self._variant
     

@@ -45,24 +45,28 @@ class XAnnotation(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         """
         a reference to the document content this annotation is anchored to.
         """
+        ...
 
     @abstractproperty
     def Author(self) -> str:
         """
         stores the full name of the author who created this annotation.
         """
+        ...
 
     @abstractproperty
     def DateTime(self) -> 'DateTime_84de09d3':
         """
         stores the date and time this annotation was last edited.
         """
+        ...
 
     @abstractproperty
     def Initials(self) -> str:
         """
         stores the initials of the author who created this annotation.
         """
+        ...
 
     @abstractproperty
     def Position(self) -> 'RealPoint2D_d6e70c78':
@@ -71,18 +75,21 @@ class XAnnotation(XPropertySet_bc180bfa, XComponent_98dc0ab5):
         
         This could be an offset to the annotations anchor.
         """
+        ...
 
     @abstractproperty
     def Size(self) -> 'RealSize2D_ca1a0c09':
         """
         this is an optional size that gives the user interface a hint how large the annotation should be rendered.
         """
+        ...
 
     @abstractproperty
     def TextRange(self) -> 'XText_690408ca':
         """
         gives access to the annotations text.
         """
+        ...
 
 
 __all__ = ['XAnnotation']

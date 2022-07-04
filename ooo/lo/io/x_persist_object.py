@@ -52,6 +52,7 @@ class XPersistObject(XInterface_8f010a43):
         
         This name is used to create such an object by a factory during deserialization.
         """
+        ...
     @abstractmethod
     def read(self, InStream: 'XObjectInputStream_dfb60d0b') -> None:
         """
@@ -64,6 +65,7 @@ class XPersistObject(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def write(self, OutStream: 'XObjectOutputStream_ee190d8c') -> None:
         """
@@ -74,6 +76,7 @@ class XPersistObject(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XPersistObject']
 

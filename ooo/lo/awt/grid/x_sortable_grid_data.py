@@ -38,11 +38,13 @@ class XSortableGridData(ABC):
         """
         returns the current sort order.
         """
+        ...
     @abstractmethod
     def removeColumnSort(self) -> None:
         """
         removes any possibly present sorting of the grid data
         """
+        ...
     @abstractmethod
     def sortByColumn(self, ColumnIndex: int, SortAscending: bool) -> None:
         """
@@ -51,6 +53,7 @@ class XSortableGridData(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XSortableGridData']
 

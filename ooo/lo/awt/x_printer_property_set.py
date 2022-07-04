@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.awt
 import typing
+import uno
 from abc import abstractmethod
 from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 
@@ -37,15 +38,17 @@ class XPrinterPropertySet(XPropertySet_bc180bfa):
     __pyunointerface__: str = 'com.sun.star.awt.XPrinterPropertySet'
 
     @abstractmethod
-    def getBinarySetup(self) -> 'typing.Tuple[int, ...]':
+    def getBinarySetup(self) -> uno.ByteSequence:
         """
         returns a binary encoded version of the printer setup.
         """
+        ...
     @abstractmethod
     def getFormDescriptions(self) -> 'typing.Tuple[str, ...]':
         """
         returns descriptions of all available printer forms.
         """
+        ...
     @abstractmethod
     def selectForm(self, aFormDescription: str) -> None:
         """
@@ -57,8 +60,9 @@ class XPrinterPropertySet(XPropertySet_bc180bfa):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def setBinarySetup(self, data: 'typing.Tuple[int, ...]') -> None:
+    def setBinarySetup(self, data: uno.ByteSequence) -> None:
         """
         sets the data specific to the printer driver.
         
@@ -68,6 +72,7 @@ class XPrinterPropertySet(XPropertySet_bc180bfa):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setHorizontal(self, bHorizontal: bool) -> None:
         """
@@ -77,6 +82,7 @@ class XPrinterPropertySet(XPropertySet_bc180bfa):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XPrinterPropertySet']
 

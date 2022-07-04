@@ -42,6 +42,7 @@ class XResourceFactoryManager(ABC):
         
         When one factory is responsible for more than one type of resource then this method has to be called for each type. If this method is called multiple times for the same URL then a previously registered factory is removed for the URL.
         """
+        ...
     @abstractmethod
     def getResourceFactory(self, sResourceURL: str) -> 'XResourceFactory_b3561268':
         """
@@ -49,6 +50,7 @@ class XResourceFactoryManager(ABC):
         
         This method is typically called by one of the resource controllers.
         """
+        ...
     @abstractmethod
     def removeResourceFactoryForReference(self, xResourceFactory: 'XResourceFactory_b3561268') -> None:
         """
@@ -56,6 +58,7 @@ class XResourceFactoryManager(ABC):
         
         Use removeResourceFactoryForURL() to remove a factory just for one resource type and to leave it registered for others.
         """
+        ...
     @abstractmethod
     def removeResourceFactoryForURL(self, sResourceURL: str) -> None:
         """
@@ -63,6 +66,7 @@ class XResourceFactoryManager(ABC):
         
         When the factory has been registered for other URLs as well then it remains registered for them. Use the removeResourceFactoryForReference() to remove a factory completely.
         """
+        ...
 
 __all__ = ['XResourceFactoryManager']
 

@@ -34,6 +34,10 @@ class AxisOrientation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.AxisOrientation'
+
     MATHEMATICAL = 'MATHEMATICAL'
     """
     means equal to the primary writing direction

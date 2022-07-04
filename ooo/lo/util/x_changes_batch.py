@@ -50,16 +50,19 @@ class XChangesBatch(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getPendingChanges(self) -> 'ChangesSet_99de0aab':
         """
         queries for any pending changes that can be committed.
         """
+        ...
     @abstractmethod
     def hasPendingChanges(self) -> bool:
         """
         checks whether this object has any pending changes that can be committed.
         """
+        ...
 
 __all__ = ['XChangesBatch']
 

@@ -41,10 +41,12 @@ class XFilterDetect(XInterface_8f010a43):
     def getContentType(self, URL: str) -> str:
         """
         """
+        ...
     @abstractmethod
     def useExternBrowser(self, URL: str) -> bool:
         """
         """
+        ...
 
 __all__ = ['XFilterDetect']
 

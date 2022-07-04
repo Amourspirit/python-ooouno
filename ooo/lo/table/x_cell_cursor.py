@@ -38,6 +38,7 @@ class XCellCursor(XCellRange_a2f70ad5):
         """
         points the cursor to a single cell which is the end of a contiguous series of (filled) cells.
         """
+        ...
     @abstractmethod
     def gotoNext(self) -> None:
         """
@@ -45,11 +46,13 @@ class XCellCursor(XCellRange_a2f70ad5):
         
         If the sheet is not protected, this is the next cell to the right.
         """
+        ...
     @abstractmethod
     def gotoOffset(self, nColumnOffset: int, nRowOffset: int) -> None:
         """
         moves the origin of the cursor relative to the current position.
         """
+        ...
     @abstractmethod
     def gotoPrevious(self) -> None:
         """
@@ -57,11 +60,13 @@ class XCellCursor(XCellRange_a2f70ad5):
         
         If the sheet is not protected, this is the next cell to the left.
         """
+        ...
     @abstractmethod
     def gotoStart(self) -> None:
         """
         points the cursor to a single cell which is the beginning of a contiguous series of (filled) cells.
         """
+        ...
 
 __all__ = ['XCellCursor']
 

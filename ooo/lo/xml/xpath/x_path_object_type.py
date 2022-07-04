@@ -34,6 +34,10 @@ class XPathObjectType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.xpath.XPathObjectType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.xpath.XPathObjectType'
+
     XPATH_BOOLEAN = 'XPATH_BOOLEAN'
     """
     """

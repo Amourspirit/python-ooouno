@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame.status import ItemState as ItemState
-    if hasattr(ItemState, '_constants') and isinstance(ItemState._constants, dict):
-        ItemState._constants['__ooo_ns__'] = 'com.sun.star.frame.status'
-        ItemState._constants['__ooo_full_ns__'] = 'com.sun.star.frame.status.ItemState'
-        ItemState._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ItemStateEnum
-        ls = [f for f in dir(ItemState) if not callable(getattr(ItemState, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ItemState, name)
-        ItemStateEnum = IntFlag('ItemStateEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ItemState(metaclass=UnoConstMeta, type_name="com.sun.star.frame.status.ItemState", name_space="com.sun.star.frame.status"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.frame.status.ItemState``"""
+        pass
+
+    class ItemStateEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.frame.status.ItemState", name_space="com.sun.star.frame.status"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.frame.status.ItemState`` as Enum values"""
+        pass
+
 else:
     from ....lo.frame.status.item_state import ItemState as ItemState
 

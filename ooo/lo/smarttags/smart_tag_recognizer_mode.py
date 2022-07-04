@@ -34,6 +34,10 @@ class SmartTagRecognizerMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.smarttags.SmartTagRecognizerMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.smarttags.SmartTagRecognizerMode'
+
     CELL = 'CELL'
     """
     Text passed to the recognizer is a cell.

@@ -39,7 +39,7 @@ class RowsChangeEvent(RowChangeEvent_ba0c0bc1):
     typeName: str = 'com.sun.star.sdb.RowsChangeEvent'
     """Literal Constant ``com.sun.star.sdb.RowsChangeEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Action: typing.Optional[int] = 0, Rows: typing.Optional[int] = 0, Bookmarks: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Action: typing.Optional[int] = 0, Rows: typing.Optional[int] = 0, Bookmarks: typing.Optional[typing.Tuple[object, ...]] = ()) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class RowsChangeEvent(RowChangeEvent_ba0c0bc1):
             "Rows": Rows,
             "Bookmarks": Bookmarks,
         }
-        if kargs["Bookmarks"] is UNO_NONE:
-            kargs["Bookmarks"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -42,6 +42,7 @@ class XUIFunctionListener(XEventListener_c7230c4a):
         """
         gets called to notify a component that a user interface element wants to execute a function.
         """
+        ...
 
 __all__ = ['XUIFunctionListener']
 

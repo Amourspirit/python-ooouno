@@ -43,6 +43,7 @@ class XDefaultsSupplier(XInterface_8f010a43):
         """
         This method returns an XPropertySet of defaults.
         """
+        ...
 
 __all__ = ['XDefaultsSupplier']
 

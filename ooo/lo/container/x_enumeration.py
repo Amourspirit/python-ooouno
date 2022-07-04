@@ -44,6 +44,7 @@ class XEnumeration(XInterface_8f010a43):
         """
         tests whether this enumeration contains more elements.
         """
+        ...
     @abstractmethod
     def nextElement(self) -> object:
         """
@@ -52,6 +53,7 @@ class XEnumeration(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XEnumeration']
 

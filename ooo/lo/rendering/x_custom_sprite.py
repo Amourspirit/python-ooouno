@@ -47,6 +47,7 @@ class XCustomSprite(XSprite_b2470b95):
         
         Whatever is rendered to this canvas will become visible on the screen only after a XSpriteCanvas.updateScreen() call at the associated sprite canvas. This canvas is not equivalent to the host canvas of the sprite. At the very least, all output happens relative to the sprite's upper left corner, i.e. the origin of the sprite's canvas device coordinate system will move with the sprite across the screen.
         """
+        ...
 
 __all__ = ['XCustomSprite']
 

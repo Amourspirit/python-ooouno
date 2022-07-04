@@ -49,32 +49,31 @@ class XSQLData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readSQL(self, stream: 'XSQLInput_8c4109fc', typeName: str) -> None:
         """
         populates this object with data read from the database.
         
-        The implementation of the method must follow this protocol:
-        It must read each of the attributes or elements of the SQL type from the given input stream. This is done by calling a method of the input stream to read each item, in the order that they appear in the SQL definition of the type. The method readSQL then assigns the data to appropriate fields or elements (of this or other objects).
-        Specifically, it must call the appropriate XSQLInput.readXXX method(s) to do the following: for a Distinct Type, read its single data element; for a Structured Type, read a value for each attribute of the SQL type.
+        The implementation of the method must follow this protocol: It must read each of the attributes or elements of the SQL type from the given input stream. This is done by calling a method of the input stream to read each item, in the order that they appear in the SQL definition of the type. The method readSQL then assigns the data to appropriate fields or elements (of this or other objects). Specifically, it must call the appropriate XSQLInput.readXXX method(s) to do the following: for a Distinct Type, read its single data element; for a Structured Type, read a value for each attribute of the SQL type.
         
         The SDBC driver initializes the input stream with a type map before calling this method, which is used by the appropriate SQLInput.readXXX method on the stream.
 
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def writeSQL(self, stream: 'XSQLOutput_96fb0a7d') -> None:
         """
         writes this object to the given SQL data stream.
         
-        The implementation of the method must follow this protocol:
-        It must write each of the attributes of the SQL type to the given output stream. This is done by calling a method of the output stream to write each item, in the order that they appear in the SQL definition of the type. Specifically, it must call the appropriate XSQLOutput.writeXXX method(s) to do the following:
-        for a Distinct Type, write its single data element; for a Structured Type, write a value for each attribute of the SQL type.
+        The implementation of the method must follow this protocol: It must write each of the attributes of the SQL type to the given output stream. This is done by calling a method of the output stream to write each item, in the order that they appear in the SQL definition of the type. Specifically, it must call the appropriate XSQLOutput.writeXXX method(s) to do the following:for a Distinct Type, write its single data element; for a Structured Type, write a value for each attribute of the SQL type.
 
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XSQLData']
 

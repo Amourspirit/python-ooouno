@@ -48,6 +48,7 @@ class XDataSinkEncrSupport(XInterface_8f010a43):
             com.sun.star.packages.zip.ZipException: ``ZipException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getPlainRawStream(self) -> 'XInputStream_98d40ab4':
         """
@@ -57,6 +58,7 @@ class XDataSinkEncrSupport(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.packages.NoEncryptionException: ``NoEncryptionException``
         """
+        ...
     @abstractmethod
     def getRawStream(self) -> 'XInputStream_98d40ab4':
         """
@@ -70,6 +72,7 @@ class XDataSinkEncrSupport(XInterface_8f010a43):
             com.sun.star.packages.NoEncryptionException: ``NoEncryptionException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def setDataStream(self, aStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -80,6 +83,7 @@ class XDataSinkEncrSupport(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def setRawStream(self, aStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -92,6 +96,7 @@ class XDataSinkEncrSupport(XInterface_8f010a43):
             com.sun.star.packages.NoRawFormatException: ``NoRawFormatException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XDataSinkEncrSupport']
 

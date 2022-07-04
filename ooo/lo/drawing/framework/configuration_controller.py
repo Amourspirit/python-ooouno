@@ -43,6 +43,7 @@ class ConfigurationController(XConfigurationController_557c15c4):
     def create(self, xController: 'XController_b00e0b8f') -> None:
         """
         """
+        ...
 
 
 __all__ = ['ConfigurationController']

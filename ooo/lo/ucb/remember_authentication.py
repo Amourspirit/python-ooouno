@@ -34,6 +34,10 @@ class RememberAuthentication(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.RememberAuthentication'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.RememberAuthentication'
+
     NO = 'NO'
     """
     Do not remember the authentication data (use it once and immediately forget about it).

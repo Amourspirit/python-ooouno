@@ -38,6 +38,7 @@ class XEmbeddedObjectResolver(XInterface_8f010a43):
         """
         converts the given URL from the source URL namespace to the destination URL space of this instance.
         """
+        ...
 
 __all__ = ['XEmbeddedObjectResolver']
 

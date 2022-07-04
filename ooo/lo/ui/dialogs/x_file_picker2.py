@@ -49,6 +49,7 @@ class XFilePicker2(XFilePicker_ec3e0d2d):
         
         Notes for the implementation of a FileSave dialog:If there exists a checkbox \"Automatic File Extension\" which is checked and a valid filter is currently selected the dialog may automatically add an extension to the selected file name(s).
         """
+        ...
 
 __all__ = ['XFilePicker2']
 

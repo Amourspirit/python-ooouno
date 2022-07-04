@@ -47,11 +47,13 @@ class XLocalizedAliases(XInterface_8f010a43):
         Raises:
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def listAliases(self, locale: 'Locale_70d308fa') -> 'typing.Tuple[AliasProgrammaticPair_2a930f22, ...]':
         """
         retrieves a list of all registered aliases for a certain language.
         """
+        ...
     @abstractmethod
     def lookupAlias(self, locale: 'Locale_70d308fa', Alias: str) -> str:
         """
@@ -60,6 +62,7 @@ class XLocalizedAliases(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def lookupProgrammatic(self, locale: 'Locale_70d308fa', programmatic: str) -> str:
         """
@@ -68,6 +71,7 @@ class XLocalizedAliases(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def rebindAliases(self, currentProgrammatic: str, newProgrammatic: str) -> None:
         """
@@ -77,6 +81,7 @@ class XLocalizedAliases(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def renameAlias(self, locale: 'Locale_70d308fa', oldName: str, aNewName: str) -> None:
         """
@@ -86,6 +91,7 @@ class XLocalizedAliases(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def unbindAlias(self, locale: 'Locale_70d308fa', alias: str) -> None:
         """
@@ -94,6 +100,7 @@ class XLocalizedAliases(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def unbindAliases(self, programmaticName: str) -> None:
         """
@@ -102,6 +109,7 @@ class XLocalizedAliases(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XLocalizedAliases']
 

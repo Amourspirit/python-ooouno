@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DateType as DateType
-    if hasattr(DateType, '_constants') and isinstance(DateType._constants, dict):
-        DateType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DateType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DateType'
-        DateType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DateTypeEnum
-        ls = [f for f in dir(DateType) if not callable(getattr(DateType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DateType, name)
-        DateTypeEnum = IntEnum('DateTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DateType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DateType", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DateType``"""
+        pass
+
+    class DateTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DateType", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DateType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.date_type import DateType as DateType
 

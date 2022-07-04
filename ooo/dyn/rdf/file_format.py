@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rdf import FileFormat as FileFormat
-    if hasattr(FileFormat, '_constants') and isinstance(FileFormat._constants, dict):
-        FileFormat._constants['__ooo_ns__'] = 'com.sun.star.rdf'
-        FileFormat._constants['__ooo_full_ns__'] = 'com.sun.star.rdf.FileFormat'
-        FileFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FileFormatEnum
-        ls = [f for f in dir(FileFormat) if not callable(getattr(FileFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FileFormat, name)
-        FileFormatEnum = IntEnum('FileFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class FileFormat(metaclass=UnoConstMeta, type_name="com.sun.star.rdf.FileFormat", name_space="com.sun.star.rdf"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rdf.FileFormat``"""
+        pass
+
+    class FileFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rdf.FileFormat", name_space="com.sun.star.rdf"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rdf.FileFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.rdf.file_format import FileFormat as FileFormat
 

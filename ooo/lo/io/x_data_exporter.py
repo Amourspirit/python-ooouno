@@ -45,11 +45,13 @@ class XDataExporter(XInterface_8f010a43):
         """
         cancels the export process.
         """
+        ...
     @abstractmethod
     def exportData(self, aOutputStream: 'XOutputStream_a4e00b35', Component: 'XComponent_98dc0ab5', aListener: 'XDataTransferEventListener_54d6103f') -> None:
         """
         exports data for a component into an output stream.
         """
+        ...
 
 __all__ = ['XDataExporter']
 

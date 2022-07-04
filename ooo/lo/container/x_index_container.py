@@ -45,6 +45,7 @@ class XIndexContainer(XIndexReplace_feed0dd7):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeByIndex(self, Index: int) -> None:
         """
@@ -54,6 +55,7 @@ class XIndexContainer(XIndexReplace_feed0dd7):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XIndexContainer']
 

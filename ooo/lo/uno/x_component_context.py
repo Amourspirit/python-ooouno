@@ -45,11 +45,13 @@ class XComponentContext(XInterface_8f010a43):
         
         This method has been added for convenience, because the service manager is used very often.
         """
+        ...
     @abstractmethod
     def getValueByName(self, Name: str) -> object:
         """
         Gets a value from the context.
         """
+        ...
 
 __all__ = ['XComponentContext']
 

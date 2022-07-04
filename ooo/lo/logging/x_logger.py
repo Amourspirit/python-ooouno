@@ -50,6 +50,7 @@ class XLogger(ABC):
         
         Note: The log level of the given handler (XLogHandler.Level) will not be touched. In particular, it will not be set to the logger's log level. It's the responsibility of the component which knits a logger with one or more log handlers to ensure that all loggers have appropriate levels set.
         """
+        ...
     @abstractmethod
     def isLoggable(self, Level: int) -> bool:
         """
@@ -57,32 +58,38 @@ class XLogger(ABC):
         
         The method can be used to optimize performance as maybe complex parameter evaluation in the log calls can be omitted if isLoggable evaluates to false.
         """
+        ...
     @abstractmethod
     def log(self, Level: int, Message: str) -> None:
         """
         logs a given message
         """
+        ...
     @abstractmethod
     def logp(self, Level: int, SourceClass: str, SourceMethod: str, Message: str) -> None:
         """
         logs a given message, detailing the source class and method at which the logged event occurred.
         """
+        ...
     @abstractmethod
     def removeLogHandler(self, LogHandler: 'XLogHandler_c7f80c27') -> None:
         """
         removes the given handler from the list of handlers.
         """
+        ...
     @abstractproperty
     def Level(self) -> int:
         """
         specifies which log events are logged or ignored.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         denotes the name of the logger.
         """
+        ...
 
 
 __all__ = ['XLogger']

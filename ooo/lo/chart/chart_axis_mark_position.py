@@ -34,6 +34,10 @@ class ChartAxisMarkPosition(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisMarkPosition'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartAxisMarkPosition'
+
     AT_AXIS = 'AT_AXIS'
     """
     The interval marks are drawn at the axis line.

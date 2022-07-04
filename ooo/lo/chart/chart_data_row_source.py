@@ -34,6 +34,10 @@ class ChartDataRowSource(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartDataRowSource'
+
     COLUMNS = 'COLUMNS'
     """
     values displayed as data rows are taken from the columns of the data source.

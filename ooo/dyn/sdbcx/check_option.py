@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import CheckOption as CheckOption
-    if hasattr(CheckOption, '_constants') and isinstance(CheckOption._constants, dict):
-        CheckOption._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
-        CheckOption._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.CheckOption'
-        CheckOption._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CheckOptionEnum
-        ls = [f for f in dir(CheckOption) if not callable(getattr(CheckOption, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CheckOption, name)
-        CheckOptionEnum = IntEnum('CheckOptionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class CheckOption(metaclass=UnoConstMeta, type_name="com.sun.star.sdbcx.CheckOption", name_space="com.sun.star.sdbcx"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbcx.CheckOption``"""
+        pass
+
+    class CheckOptionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbcx.CheckOption", name_space="com.sun.star.sdbcx"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbcx.CheckOption`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbcx.check_option import CheckOption as CheckOption
 

@@ -41,6 +41,7 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def insertChildByIndex(self, Index: int, ChildNode: 'XMutableTreeNode') -> None:
         """
@@ -50,6 +51,7 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def removeChildByIndex(self, Index: int) -> None:
         """
@@ -58,6 +60,7 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setCollapsedGraphicURL(self, URL: str) -> None:
         """
@@ -65,11 +68,13 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         
         If URL is empty, XTreeControl.DefaultCollapsedGraphicURL is used.
         """
+        ...
     @abstractmethod
     def setDisplayValue(self, Value: object) -> None:
         """
         sets the display value of this node
         """
+        ...
     @abstractmethod
     def setExpandedGraphicURL(self, URL: str) -> None:
         """
@@ -77,11 +82,13 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         
         If URL is empty, XTreeControl.DefaultExpandedGraphicURL is used.
         """
+        ...
     @abstractmethod
     def setHasChildrenOnDemand(self, ChildrenOnDemand: bool) -> None:
         """
         Changes if the children of this node are created on demand.
         """
+        ...
     @abstractmethod
     def setNodeGraphicURL(self, URL: str) -> None:
         """
@@ -89,6 +96,7 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         
         If this URL is empty, no graphic is rendered.
         """
+        ...
     @abstractproperty
     def DataValue(self) -> object:
         """
@@ -96,6 +104,7 @@ class XMutableTreeNode(XTreeNode_baaf0ba0):
         
         You can use this attribute to store data for this node that is independent of the display value
         """
+        ...
 
 
 __all__ = ['XMutableTreeNode']

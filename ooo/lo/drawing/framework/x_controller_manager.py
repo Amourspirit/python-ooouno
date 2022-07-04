@@ -43,11 +43,13 @@ class XControllerManager(ABC):
         """
         Return the XConfigurationController object.
         """
+        ...
     @abstractmethod
     def getModuleController(self) -> 'XModuleController_c5d112d2':
         """
         Return the XModuleController object.
         """
+        ...
 
 __all__ = ['XControllerManager']
 

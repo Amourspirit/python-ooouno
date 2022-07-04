@@ -50,16 +50,19 @@ class XScriptContext(XInterface_8f010a43):
         """
         Obtain the component context which the script can use to create other uno components.
         """
+        ...
     @abstractmethod
     def getDesktop(self) -> 'XDesktop_8e740a45':
         """
         Obtain the desktop reference on which the script can operate.
         """
+        ...
     @abstractmethod
     def getDocument(self) -> 'XModel_7a6e095c':
         """
         Obtain the document reference on which the script can operate.
         """
+        ...
     @abstractmethod
     def getInvocationContext(self) -> 'XScriptInvocationContext_a29f1233':
         """
@@ -75,6 +78,7 @@ class XScriptContext(XInterface_8f010a43):
         
             OOo 3.0
         """
+        ...
 
 __all__ = ['XScriptContext']
 

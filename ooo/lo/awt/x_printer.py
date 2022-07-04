@@ -46,6 +46,7 @@ class XPrinter(XPrinterPropertySet_ff190e21):
         Raises:
             com.sun.star.awt.PrinterException: ``PrinterException``
         """
+        ...
     @abstractmethod
     def endPage(self) -> None:
         """
@@ -54,6 +55,7 @@ class XPrinter(XPrinterPropertySet_ff190e21):
         Raises:
             com.sun.star.awt.PrinterException: ``PrinterException``
         """
+        ...
     @abstractmethod
     def start(self, nJobName: str, nCopies: int, nCollate: bool) -> bool:
         """
@@ -65,6 +67,7 @@ class XPrinter(XPrinterPropertySet_ff190e21):
             com.sun.star.awt.PrinterException: ``PrinterException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def startPage(self) -> 'XDevice_70ba08fc':
         """
@@ -73,6 +76,7 @@ class XPrinter(XPrinterPropertySet_ff190e21):
         Raises:
             com.sun.star.awt.PrinterException: ``PrinterException``
         """
+        ...
     @abstractmethod
     def terminate(self) -> None:
         """
@@ -80,6 +84,7 @@ class XPrinter(XPrinterPropertySet_ff190e21):
         
         If the method com.sun.star.awt.XPrinter.end() is called beforehand, then this call does nothing. If you call com.sun.star.awt.XPrinter.terminate() in or before the call to com.sun.star.awt.XPrinter.start(), com.sun.star.awt.XPrinter.terminate() returns FALSE. This call must not block the thread.
         """
+        ...
 
 __all__ = ['XPrinter']
 

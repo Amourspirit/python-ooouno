@@ -48,12 +48,14 @@ class TablePageStyle(PageStyle_9b210ac7):
         """
         determines whether the table is centered horizontally on the page.
         """
+        ...
 
     @abstractproperty
     def CenterVertically(self) -> bool:
         """
         determines whether the table is centered vertically on the page.
         """
+        ...
 
     @abstractproperty
     def FirstPageNumber(self) -> int:
@@ -62,6 +64,7 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         The value 0 indicates that the page numbers are continued from the previous sheet.
         """
+        ...
 
     @abstractproperty
     def LeftPageFooterContent(self) -> 'XHeaderFooterContent_275c0f0c':
@@ -70,6 +73,7 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         After changing the footer text contents, this property has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def LeftPageHeaderContent(self) -> 'XHeaderFooterContent_275c0f0c':
@@ -78,24 +82,28 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         After changing the header text contents, this property has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def PageScale(self) -> int:
         """
         contains the scaling factor (in percent) for printing the sheet.
         """
+        ...
 
     @abstractproperty
     def PrintAnnotations(self) -> bool:
         """
         enables printing of cell annotations.
         """
+        ...
 
     @abstractproperty
     def PrintCharts(self) -> bool:
         """
         enables printing of charts.
         """
+        ...
 
     @abstractproperty
     def PrintDownFirst(self) -> bool:
@@ -104,42 +112,49 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         If TRUE, the order for printing pages begins with top-to-bottom, then continues with the next set of cell columns to the right. If FALSE, the order for printing pages begins with left-to-right, then continues with the next set of cell rows to the bottom.
         """
+        ...
 
     @abstractproperty
     def PrintDrawing(self) -> bool:
         """
         enables printing of drawing objects.
         """
+        ...
 
     @abstractproperty
     def PrintFormulas(self) -> bool:
         """
         enables printing of formulas instead of their results.
         """
+        ...
 
     @abstractproperty
     def PrintGrid(self) -> bool:
         """
         enables printing of the cell grid.
         """
+        ...
 
     @abstractproperty
     def PrintHeaders(self) -> bool:
         """
         enables printing of column and row headers.
         """
+        ...
 
     @abstractproperty
     def PrintObjects(self) -> bool:
         """
         enables printing of embedded objects.
         """
+        ...
 
     @abstractproperty
     def PrintZeroValues(self) -> bool:
         """
         enables printing of zero-values.
         """
+        ...
 
     @abstractproperty
     def RightPageFooterContent(self) -> 'XHeaderFooterContent_275c0f0c':
@@ -148,6 +163,7 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         After changing the footer text contents, this property has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def RightPageHeaderContent(self) -> 'XHeaderFooterContent_275c0f0c':
@@ -156,12 +172,14 @@ class TablePageStyle(PageStyle_9b210ac7):
         
         After changing the header text contents, this property has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def ScaleToPages(self) -> int:
         """
         contains the number of pages the sheet will printed.
         """
+        ...
 
     @abstractproperty
     def ScaleToPagesX(self) -> int:
@@ -172,6 +190,7 @@ class TablePageStyle(PageStyle_9b210ac7):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def ScaleToPagesY(self) -> int:
@@ -182,6 +201,7 @@ class TablePageStyle(PageStyle_9b210ac7):
         
             OOo 2.0
         """
+        ...
 
 
 

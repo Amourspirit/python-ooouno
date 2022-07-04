@@ -42,6 +42,7 @@ class NumberFormatSettings(XPropertySet_bc180bfa):
         """
         is set to indicate that a zero value should be formatted as an empty string.
         """
+        ...
 
     @abstractproperty
     def NullDate(self) -> 'Date_60040844':
@@ -50,18 +51,21 @@ class NumberFormatSettings(XPropertySet_bc180bfa):
         
         The most common value for this is 12/30/1899.
         """
+        ...
 
     @abstractproperty
     def StandardDecimals(self) -> int:
         """
         specifies the maximum number of decimals used for the standard number format (\"General\").
         """
+        ...
 
     @abstractproperty
     def TwoDigitDateStart(self) -> int:
         """
         specifies the first year to be generated from a two-digit year input.
         """
+        ...
 
 
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataBarAxis as DataBarAxis
-    if hasattr(DataBarAxis, '_constants') and isinstance(DataBarAxis._constants, dict):
-        DataBarAxis._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataBarAxis._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataBarAxis'
-        DataBarAxis._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataBarAxisEnum
-        ls = [f for f in dir(DataBarAxis) if not callable(getattr(DataBarAxis, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataBarAxis, name)
-        DataBarAxisEnum = IntEnum('DataBarAxisEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DataBarAxis(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataBarAxis", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataBarAxis``"""
+        pass
+
+    class DataBarAxisEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataBarAxis", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataBarAxis`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_bar_axis import DataBarAxis as DataBarAxis
 

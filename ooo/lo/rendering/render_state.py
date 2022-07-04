@@ -46,7 +46,7 @@ class RenderState(object):
     typeName: str = 'com.sun.star.rendering.RenderState'
     """Literal Constant ``com.sun.star.rendering.RenderState``"""
 
-    def __init__(self, DeviceColor: typing.Optional[typing.Tuple[ColorComponent_e4c0e78, ...]] = UNO_NONE, AffineTransform: typing.Optional[AffineMatrix2D_ff040da8] = UNO_NONE, Clip: typing.Optional[XPolyPolygon2D_e1b0e20] = None, CompositeOperation: typing.Optional[int] = 0) -> None:
+    def __init__(self, DeviceColor: typing.Optional[typing.Tuple[ColorComponent_e4c0e78, ...]] = (), AffineTransform: typing.Optional[AffineMatrix2D_ff040da8] = UNO_NONE, Clip: typing.Optional[XPolyPolygon2D_e1b0e20] = None, CompositeOperation: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -72,8 +72,6 @@ class RenderState(object):
             "Clip": Clip,
             "CompositeOperation": CompositeOperation,
         }
-        if kargs["DeviceColor"] is UNO_NONE:
-            kargs["DeviceColor"] = None
         if kargs["AffineTransform"] is UNO_NONE:
             kargs["AffineTransform"] = None
         self._init(**kargs)

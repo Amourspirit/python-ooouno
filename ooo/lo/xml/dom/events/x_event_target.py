@@ -40,6 +40,7 @@ class XEventTarget(XInterface_8f010a43):
     def addEventListener(self, eventType: str, listener: 'XEventListener_5641102a', useCapture: bool) -> None:
         """
         """
+        ...
     @abstractmethod
     def dispatchEvent(self, evt: 'XEvent_e0c30ce4') -> bool:
         """
@@ -47,10 +48,12 @@ class XEventTarget(XInterface_8f010a43):
         Raises:
             EventException: ``EventException``
         """
+        ...
     @abstractmethod
     def removeEventListener(self, eventType: str, listener: 'XEventListener_5641102a', useCapture: bool) -> None:
         """
         """
+        ...
 
 __all__ = ['XEventTarget']
 

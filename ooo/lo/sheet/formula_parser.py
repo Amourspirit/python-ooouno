@@ -53,6 +53,7 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
         
             OOo 3.1
         """
+        ...
 
     @abstractproperty
     def OpCodeMap(self) -> 'typing.Tuple[FormulaOpCodeMapEntry_37da0f61, ...]':
@@ -61,6 +62,7 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
         
         Names and symbols not defined here lead to a parser/print error.
         """
+        ...
 
     @abstractproperty
     def CompileEnglish(self) -> bool:
@@ -69,22 +71,26 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
         
         Note: When changing this, an already existing OpCodeMap needs to be recreated internally, so for performance reasons set this before setting the OpCodeMap.
         """
+        ...
 
     @abstractproperty
     def FormulaConvention(self) -> int:
         """
         specifies which address reference style convention to use when parsing a formula string.
         """
+        ...
 
     @abstractproperty
     def IgnoreLeadingSpaces(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def ParameterSeparator(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def RefConventionChartOOXML(self) -> bool:
@@ -97,6 +103,7 @@ class FormulaParser(PropertySet_b0e70ba2, XFormulaParser_d54d0cbc):
         
             LibreOffice 7.3
         """
+        ...
 
 
 

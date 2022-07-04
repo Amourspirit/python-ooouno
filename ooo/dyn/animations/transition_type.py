@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import TransitionType as TransitionType
-    if hasattr(TransitionType, '_constants') and isinstance(TransitionType._constants, dict):
-        TransitionType._constants['__ooo_ns__'] = 'com.sun.star.animations'
-        TransitionType._constants['__ooo_full_ns__'] = 'com.sun.star.animations.TransitionType'
-        TransitionType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TransitionTypeEnum
-        ls = [f for f in dir(TransitionType) if not callable(getattr(TransitionType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TransitionType, name)
-        TransitionTypeEnum = IntEnum('TransitionTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TransitionType(metaclass=UnoConstMeta, type_name="com.sun.star.animations.TransitionType", name_space="com.sun.star.animations"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.animations.TransitionType``"""
+        pass
+
+    class TransitionTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.animations.TransitionType", name_space="com.sun.star.animations"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.animations.TransitionType`` as Enum values"""
+        pass
+
 else:
     from ...lo.animations.transition_type import TransitionType as TransitionType
 

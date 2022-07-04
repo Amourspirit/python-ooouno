@@ -34,6 +34,10 @@ class VerticalAlignment(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.VerticalAlignment'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.VerticalAlignment'
+
     BOTTOM = 'BOTTOM'
     """
     set the vertical alignment to the bottom margin from the container object.

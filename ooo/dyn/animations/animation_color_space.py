@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import AnimationColorSpace as AnimationColorSpace
-    if hasattr(AnimationColorSpace, '_constants') and isinstance(AnimationColorSpace._constants, dict):
-        AnimationColorSpace._constants['__ooo_ns__'] = 'com.sun.star.animations'
-        AnimationColorSpace._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationColorSpace'
-        AnimationColorSpace._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AnimationColorSpaceEnum
-        ls = [f for f in dir(AnimationColorSpace) if not callable(getattr(AnimationColorSpace, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AnimationColorSpace, name)
-        AnimationColorSpaceEnum = IntEnum('AnimationColorSpaceEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class AnimationColorSpace(metaclass=UnoConstMeta, type_name="com.sun.star.animations.AnimationColorSpace", name_space="com.sun.star.animations"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.animations.AnimationColorSpace``"""
+        pass
+
+    class AnimationColorSpaceEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.animations.AnimationColorSpace", name_space="com.sun.star.animations"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.animations.AnimationColorSpace`` as Enum values"""
+        pass
+
 else:
     from ...lo.animations.animation_color_space import AnimationColorSpace as AnimationColorSpace
 

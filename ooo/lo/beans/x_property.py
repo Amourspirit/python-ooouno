@@ -42,6 +42,7 @@ class XProperty(XInterface_8f010a43):
     def getAsProperty(self) -> 'Property_8f4e0a76':
         """
         """
+        ...
 
 __all__ = ['XProperty']
 

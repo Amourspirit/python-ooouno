@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import TextDirection as TextDirection
-    if hasattr(TextDirection, '_constants') and isinstance(TextDirection._constants, dict):
-        TextDirection._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        TextDirection._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.TextDirection'
-        TextDirection._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TextDirectionEnum
-        ls = [f for f in dir(TextDirection) if not callable(getattr(TextDirection, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TextDirection, name)
-        TextDirectionEnum = IntEnum('TextDirectionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TextDirection(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.TextDirection", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.TextDirection``"""
+        pass
+
+    class TextDirectionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.TextDirection", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.TextDirection`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.text_direction import TextDirection as TextDirection
 

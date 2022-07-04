@@ -44,7 +44,7 @@ class MissingPropertiesException(Exception_85530a09):
     typeName: str = 'com.sun.star.ucb.MissingPropertiesException'
     """Literal Constant ``com.sun.star.ucb.MissingPropertiesException``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Properties: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Properties: typing.Optional[typing.Tuple[str, ...]] = ()) -> None:
         """
         Constructor
 
@@ -58,8 +58,6 @@ class MissingPropertiesException(Exception_85530a09):
             "Context": Context,
             "Properties": Properties,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

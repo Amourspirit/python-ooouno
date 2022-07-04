@@ -46,11 +46,13 @@ class XPrimitiveFactory2D(XInterface_8f010a43):
         """
         Create primitives from com.sun.star.drawing.XDrawPage.
         """
+        ...
     @abstractmethod
     def createPrimitivesFromXShape(self, xShape: 'XShape_8fd00a3d', aParms: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'typing.Tuple[XPrimitive2D_d5730c6d, ...]':
         """
         Create primitives from com.sun.star.drawing.XShape.
         """
+        ...
 
 __all__ = ['XPrimitiveFactory2D']
 

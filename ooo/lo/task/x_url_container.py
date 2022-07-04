@@ -45,21 +45,25 @@ class XUrlContainer(XInterface_8f010a43):
         """
         Add a URL to the container.
         """
+        ...
     @abstractmethod
     def findUrl(self, Url: str) -> str:
         """
         Lookup a URL in the container.
         """
+        ...
     @abstractmethod
     def getUrls(self, OnlyPersistent: bool) -> 'typing.Tuple[str, ...]':
         """
         Get all URLs.
         """
+        ...
     @abstractmethod
     def removeUrl(self, Url: str) -> None:
         """
         Remove a URL from the container.
         """
+        ...
 
 __all__ = ['XUrlContainer']
 

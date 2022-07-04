@@ -53,6 +53,7 @@ class XLinkageSupport(XCommonEmbedPersist_16930e8d):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getLinkURL(self) -> str:
         """
@@ -62,6 +63,7 @@ class XLinkageSupport(XCommonEmbedPersist_16930e8d):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def isLink(self) -> bool:
         """
@@ -72,6 +74,7 @@ class XLinkageSupport(XCommonEmbedPersist_16930e8d):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
 
 __all__ = ['XLinkageSupport']
 

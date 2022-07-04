@@ -40,6 +40,7 @@ class XRequestCallback(ABC):
         """
         adds a callback request to the implementation
         """
+        ...
 
 __all__ = ['XRequestCallback']
 

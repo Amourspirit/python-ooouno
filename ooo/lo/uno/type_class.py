@@ -34,6 +34,10 @@ class TypeClass(Enum):
     __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.uno.TypeClass'
+
     ANY = 'ANY'
     """
     reflecting the any type; anys can carry any UNO value except of any values

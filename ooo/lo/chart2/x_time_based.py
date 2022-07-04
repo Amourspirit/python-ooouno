@@ -36,15 +36,18 @@ class XTimeBased(XInterface_8f010a43):
     def setRange(self, start: int, end: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def setToPointInTime(self, point: int) -> bool:
         """
         point is the zero based index into the time based array
         """
+        ...
     @abstractmethod
     def switchToNext(self, wrap: bool) -> bool:
         """
         """
+        ...
 
 __all__ = ['XTimeBased']
 

@@ -44,61 +44,73 @@ class XDeck(ABC):
         """
         Activate the deck and display its content.
         """
+        ...
     @abstractmethod
     def getId(self) -> str:
         """
         The deck identifier.
         """
+        ...
     @abstractmethod
     def getOrderIndex(self) -> int:
         """
         Get the ordering index of the deck button in sidebar.
         """
+        ...
     @abstractmethod
     def getPanels(self) -> 'XPanels_676608a1':
         """
         Panels collection attached to the deck.
         """
+        ...
     @abstractmethod
     def getTitle(self) -> str:
         """
         Get the deck title string.
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         Is the deck the active one.
         """
+        ...
     @abstractmethod
     def moveDown(self) -> None:
         """
         Move deck one step down in the sidebar.
         """
+        ...
     @abstractmethod
     def moveFirst(self) -> None:
         """
         Move deck button at first position in sidebar.
         """
+        ...
     @abstractmethod
     def moveLast(self) -> None:
         """
         Move deck button at last position in sidebar.
         """
+        ...
     @abstractmethod
     def moveUp(self) -> None:
         """
         Move deck one step up in the sidebar.
         """
+        ...
     @abstractmethod
     def setOrderIndex(self, newOrderIndex: int) -> None:
         """
         Set the ordering index of the deck button in sidebar.
         """
+        ...
     @abstractmethod
     def setTitle(self, newTitle: str) -> None:
         """
         Set the deck title string.
         """
+        ...
 
 __all__ = ['XDeck']
 

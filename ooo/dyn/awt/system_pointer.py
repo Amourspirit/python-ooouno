@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import SystemPointer as SystemPointer
-    if hasattr(SystemPointer, '_constants') and isinstance(SystemPointer._constants, dict):
-        SystemPointer._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        SystemPointer._constants['__ooo_full_ns__'] = 'com.sun.star.awt.SystemPointer'
-        SystemPointer._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SystemPointerEnum
-        ls = [f for f in dir(SystemPointer) if not callable(getattr(SystemPointer, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SystemPointer, name)
-        SystemPointerEnum = IntEnum('SystemPointerEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class SystemPointer(metaclass=UnoConstMeta, type_name="com.sun.star.awt.SystemPointer", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.SystemPointer``"""
+        pass
+
+    class SystemPointerEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.SystemPointer", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.SystemPointer`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.system_pointer import SystemPointer as SystemPointer
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import TolerantPropertySetResultType as TolerantPropertySetResultType
-    if hasattr(TolerantPropertySetResultType, '_constants') and isinstance(TolerantPropertySetResultType._constants, dict):
-        TolerantPropertySetResultType._constants['__ooo_ns__'] = 'com.sun.star.beans'
-        TolerantPropertySetResultType._constants['__ooo_full_ns__'] = 'com.sun.star.beans.TolerantPropertySetResultType'
-        TolerantPropertySetResultType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TolerantPropertySetResultTypeEnum
-        ls = [f for f in dir(TolerantPropertySetResultType) if not callable(getattr(TolerantPropertySetResultType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TolerantPropertySetResultType, name)
-        TolerantPropertySetResultTypeEnum = IntEnum('TolerantPropertySetResultTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TolerantPropertySetResultType(metaclass=UnoConstMeta, type_name="com.sun.star.beans.TolerantPropertySetResultType", name_space="com.sun.star.beans"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.beans.TolerantPropertySetResultType``"""
+        pass
+
+    class TolerantPropertySetResultTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.beans.TolerantPropertySetResultType", name_space="com.sun.star.beans"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.beans.TolerantPropertySetResultType`` as Enum values"""
+        pass
+
 else:
     from ...lo.beans.tolerant_property_set_result_type import TolerantPropertySetResultType as TolerantPropertySetResultType
 

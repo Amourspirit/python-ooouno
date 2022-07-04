@@ -42,12 +42,14 @@ class EnhancedCustomShapeHandle(ABC):
         """
         Specifies if the x position of the handle is mirrored.
         """
+        ...
 
     @abstractproperty
     def MirroredY(self) -> bool:
         """
         Specifies if the y position of the handle is mirrored.
         """
+        ...
 
     @abstractproperty
     def Polar(self) -> 'EnhancedCustomShapeParameterPair_262914a3':
@@ -56,6 +58,7 @@ class EnhancedCustomShapeHandle(ABC):
         
         The property specifies the center position of the handle. If this attribute is set, the attributes RangeX and RangeY are ignored, instead the attribute RadiusRange is used.
         """
+        ...
 
     @abstractproperty
     def Position(self) -> 'EnhancedCustomShapeParameterPair_262914a3':
@@ -64,72 +67,84 @@ class EnhancedCustomShapeHandle(ABC):
         
         Otherwise, if the handle is not polar, the first parameter specifies the horizontal handle position, the vertical handle position is described by the second parameter.
         """
+        ...
 
     @abstractproperty
     def RadiusRangeMaximum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If this attribute is set, it specifies the maximum radius range that can be used for a polar handle.
         """
+        ...
 
     @abstractproperty
     def RadiusRangeMinimum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If this attribute is set, it specifies the minimum radius range that can be used for a polar handle.
         """
+        ...
 
     @abstractproperty
     def RangeXMaximum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If the attribute RangeXMaximum is set, it specifies the horizontal maximum range of the handle.
         """
+        ...
 
     @abstractproperty
     def RangeXMinimum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If the attribute RangeXMinimum is set, it specifies the horizontal minimum range of the handle.
         """
+        ...
 
     @abstractproperty
     def RangeYMaximum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If the attribute RangeYMaximum is set, it specifies the vertical maximum range of the handle.
         """
+        ...
 
     @abstractproperty
     def RangeYMinimum(self) -> 'EnhancedCustomShapeParameter_d6171317':
         """
         If the attribute RangeYMinimum is set, it specifies the vertical minimum range of the handle.
         """
+        ...
 
     @abstractproperty
     def RefAngle(self) -> int:
         """
         RefAngle, if this attribute is set, it specifies the index of the adjustment value which is connected to the angle of the handle.
         """
+        ...
 
     @abstractproperty
     def RefR(self) -> int:
         """
         RefR, if this attribute is set, it specifies the index of the adjustment value which is connected to the radius of the handle.
         """
+        ...
 
     @abstractproperty
     def RefX(self) -> int:
         """
         RefX, if this attribute is set, it specifies the index of the adjustment value which is connected to the horizontal position of the handle.
         """
+        ...
 
     @abstractproperty
     def RefY(self) -> int:
         """
         RefY, if this attribute is set, it specifies the index of the adjustment value which is connected to the vertical position of the handle.
         """
+        ...
 
     @abstractproperty
     def Switched(self) -> bool:
         """
         Specifies if the handle directions are swapped if the shape is taller than wide.
         """
+        ...
 
 
 

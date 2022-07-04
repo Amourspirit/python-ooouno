@@ -34,6 +34,10 @@ class SynchronizePolicy(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.SynchronizePolicy'
+
     CLIENT_IS_MASTER = 'CLIENT_IS_MASTER'
     """
     Client is master.

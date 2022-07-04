@@ -41,6 +41,7 @@ class XTransferableSupplier(XInterface_8f010a43):
         """
         allows to get access to com.sun.star.datatransfer.XTransferable implementation.
         """
+        ...
 
 __all__ = ['XTransferableSupplier']
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import NumberFormatIndex as NumberFormatIndex
-    if hasattr(NumberFormatIndex, '_constants') and isinstance(NumberFormatIndex._constants, dict):
-        NumberFormatIndex._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        NumberFormatIndex._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.NumberFormatIndex'
-        NumberFormatIndex._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global NumberFormatIndexEnum
-        ls = [f for f in dir(NumberFormatIndex) if not callable(getattr(NumberFormatIndex, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(NumberFormatIndex, name)
-        NumberFormatIndexEnum = IntEnum('NumberFormatIndexEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class NumberFormatIndex(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.NumberFormatIndex", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.NumberFormatIndex``"""
+        pass
+
+    class NumberFormatIndexEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.NumberFormatIndex", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.NumberFormatIndex`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.number_format_index import NumberFormatIndex as NumberFormatIndex
 
@@ -70,38 +68,27 @@ else:
         """
         NUMBER_STANDARD = NumberFormatIndex.NUMBER_STANDARD
         """
-        The \"General\" standard format
-        formatindex=\"0\".
+        The \"General\" standard format formatindex=\"0\".
         """
         NUMBER_INT = NumberFormatIndex.NUMBER_INT
         """
-        0
-        Integer number
-        formatindex=\"1\"
+        0 Integer number formatindex=\"1\"
         """
         NUMBER_DEC2 = NumberFormatIndex.NUMBER_DEC2
         """
-        0.00
-        Decimal number with 2 decimals
-        formatindex=\"2\"
+        0.00 Decimal number with 2 decimals formatindex=\"2\"
         """
         NUMBER_1000INT = NumberFormatIndex.NUMBER_1000INT
         """
-        #,##0
-        Integer number with group separator
-        formatindex=\"3\"
+        #,##0 Integer number with group separator formatindex=\"3\"
         """
         NUMBER_1000DEC2 = NumberFormatIndex.NUMBER_1000DEC2
         """
-        #,##0.00
-        Decimal number with group separator
-        formatindex=\"4\"
+        #,##0.00 Decimal number with group separator formatindex=\"4\"
         """
         NUMBER_SYSTEM = NumberFormatIndex.NUMBER_SYSTEM
         """
-        #,##0.00
-        In SO5/Win this format was retrieved from the Regional Settings
-        formatindex=\"5\"
+        #,##0.00 In SO5/Win this format was retrieved from the Regional Settings formatindex=\"5\"
         """
         NUMBER_END = NumberFormatIndex.NUMBER_END
         """
@@ -113,15 +100,11 @@ else:
         """
         SCIENTIFIC_000E000 = NumberFormatIndex.SCIENTIFIC_000E000
         """
-        0.00E+000
-        Number in scientific notation with exponent in 3 digit placeholders
-        formatindex=\"6\"
+        0.00E+000 Number in scientific notation with exponent in 3 digit placeholders formatindex=\"6\"
         """
         SCIENTIFIC_000E00 = NumberFormatIndex.SCIENTIFIC_000E00
         """
-        0.00E+00
-        Number in scientific notation with exponent in 2 digit placeholders
-        formatindex=\"7\"
+        0.00E+00 Number in scientific notation with exponent in 2 digit placeholders formatindex=\"7\"
         """
         SCIENTIFIC_END = NumberFormatIndex.SCIENTIFIC_END
         """
@@ -133,15 +116,11 @@ else:
         """
         PERCENT_INT = NumberFormatIndex.PERCENT_INT
         """
-        0%
-        Percentage format, rounded to integer
-        formatindex=\"8\"
+        0% Percentage format, rounded to integer formatindex=\"8\"
         """
         PERCENT_DEC2 = NumberFormatIndex.PERCENT_DEC2
         """
-        0.00%
-        Percentage format, rounded to 2 decimals
-        formatindex=\"9\"
+        0.00% Percentage format, rounded to 2 decimals formatindex=\"9\"
         """
         PERCENT_END = NumberFormatIndex.PERCENT_END
         """
@@ -163,39 +142,27 @@ else:
         """
         CURRENCY_1000INT = NumberFormatIndex.CURRENCY_1000INT
         """
-        #,##0 DM
-        Integer currency format with group separator
-        formatindex=\"12\"
+        #,##0 DM Integer currency format with group separator formatindex=\"12\"
         """
         CURRENCY_1000DEC2 = NumberFormatIndex.CURRENCY_1000DEC2
         """
-        #,##0.00 DM
-        Decimal currency format with group separator
-        formatindex=\"13\"
+        #,##0.00 DM Decimal currency format with group separator formatindex=\"13\"
         """
         CURRENCY_1000INT_RED = NumberFormatIndex.CURRENCY_1000INT_RED
         """
-        #,##0 DM
-        Integer currency format with negative in red
-        formatindex=\"14\"
+        #,##0 DM Integer currency format with negative in red formatindex=\"14\"
         """
         CURRENCY_1000DEC2_RED = NumberFormatIndex.CURRENCY_1000DEC2_RED
         """
-        #,##0.00 DM
-        Decimal currency format with negative in red
-        formatindex=\"15\"
+        #,##0.00 DM Decimal currency format with negative in red formatindex=\"15\"
         """
         CURRENCY_1000DEC2_CCC = NumberFormatIndex.CURRENCY_1000DEC2_CCC
         """
-        #,##0.00 DEM
-        Currency in ISO-4217 abbreviation format
-        formatindex=\"16\"
+        #,##0.00 DEM Currency in ISO-4217 abbreviation format formatindex=\"16\"
         """
         CURRENCY_1000DEC2_DASHED = NumberFormatIndex.CURRENCY_1000DEC2_DASHED
         """
-        #,##0.– DM
-        Currency format with dash representing 0 in decimals
-        formatindex=\"17\"
+        #,##0.– DM Currency format with dash representing 0 in decimals formatindex=\"17\"
         """
         CURRENCY_END = NumberFormatIndex.CURRENCY_END
         """
@@ -207,32 +174,23 @@ else:
         """
         DATE_SYSTEM_SHORT = NumberFormatIndex.DATE_SYSTEM_SHORT
         """
-        08.10.97
-        see also DATE_SYSTEM_... explanation
-        formatindex=\"18\"
+        08.10.97 see also DATE_SYSTEM_... explanation formatindex=\"18\"
         """
         DATE_SYSTEM_LONG = NumberFormatIndex.DATE_SYSTEM_LONG
         """
         Wednesday, 8.
         
-        October 1997
-        see also DATE_SYSTEM_... explanation
-        formatindex=\"19\"
+        October 1997 see also DATE_SYSTEM_... explanation formatindex=\"19\"
         """
         DATE_SYS_DDMMYY = NumberFormatIndex.DATE_SYS_DDMMYY
         """
-        08.10.97
-        see also DATE_SYS_... explanation
-        formatindex=\"20\"
+        08.10.97 see also DATE_SYS_... explanation formatindex=\"20\"
         """
         DATE_SYS_DDMMYYYY = NumberFormatIndex.DATE_SYS_DDMMYYYY
         """
-        08.10.1997
-        see also DATE_SYS_...
+        08.10.1997 see also DATE_SYS_...
         
-        explanation
-        Note: When editing already existing date data this format is forced in order to always edit the full century.
-        formatindex=\"21\"
+        explanation Note: When editing already existing date data this format is forced in order to always edit the full century. formatindex=\"21\"
         """
         DATE_SYS_DMMMYY = NumberFormatIndex.DATE_SYS_DMMMYY
         DATE_SYS_DMMMYYYY = NumberFormatIndex.DATE_SYS_DMMMYYYY
@@ -241,71 +199,51 @@ else:
         DATE_DIN_DMMMMYYYY = NumberFormatIndex.DATE_DIN_DMMMMYYYY
         DATE_SYS_NNDMMMYY = NumberFormatIndex.DATE_SYS_NNDMMMYY
         """
-        Wed, 8. Oct 97
-        see also DATE_SYS_... explanation
-        formatindex=\"27\".
+        Wed, 8. Oct 97 see also DATE_SYS_... explanation formatindex=\"27\".
         """
         DATE_DEF_NNDDMMMYY = NumberFormatIndex.DATE_DEF_NNDDMMMYY
         """
-        Wed 08.Oct 97
-        see also DATE_DEF_... explanation
-        formatindex=\"28\".
+        Wed 08.Oct 97 see also DATE_DEF_... explanation formatindex=\"28\".
         """
         DATE_SYS_NNDMMMMYYYY = NumberFormatIndex.DATE_SYS_NNDMMMMYYYY
         """
-        Wed, 8. October 1997
-        see also DATE_SYS_... explanation
-        formatindex=\"29\".
+        Wed, 8. October 1997 see also DATE_SYS_... explanation formatindex=\"29\".
         """
         DATE_SYS_NNNNDMMMMYYYY = NumberFormatIndex.DATE_SYS_NNNNDMMMMYYYY
         """
-        Wednesday, 8. October 1997
-        formatindex=\"30\".
+        Wednesday, 8. October 1997 formatindex=\"30\".
         """
         DATE_DIN_MMDD = NumberFormatIndex.DATE_DIN_MMDD
         """
-        10-08
-        DIN/EN
-        formatindex=\"31\"
+        10-08 DIN/EN formatindex=\"31\"
         """
         DATE_DIN_YYMMDD = NumberFormatIndex.DATE_DIN_YYMMDD
         """
-        97-10-08
-        DIN/EN
-        formatindex=\"32\"
+        97-10-08 DIN/EN formatindex=\"32\"
         """
         DATE_DIN_YYYYMMDD = NumberFormatIndex.DATE_DIN_YYYYMMDD
         """
-        1997-10-08
-        DIN/EN/ISO
-        formatindex=\"33\"
+        1997-10-08 DIN/EN/ISO formatindex=\"33\"
         """
         DATE_SYS_MMYY = NumberFormatIndex.DATE_SYS_MMYY
         """
-        10.97
-        see also DATE_SYS_... explanation
-        formatindex=\"34\"
+        10.97 see also DATE_SYS_... explanation formatindex=\"34\"
         """
         DATE_SYS_DDMMM = NumberFormatIndex.DATE_SYS_DDMMM
         """
-        08.Oct
-        see also DATE_SYS_... explanation
-        formatindex=\"35\"
+        08.Oct see also DATE_SYS_... explanation formatindex=\"35\"
         """
         DATE_MMMM = NumberFormatIndex.DATE_MMMM
         """
-        October
-        formatindex=\"36\".
+        October formatindex=\"36\".
         """
         DATE_QQJJ = NumberFormatIndex.DATE_QQJJ
         """
-        4th quarter 97
-        formatindex=\"37\"
+        4th quarter 97 formatindex=\"37\"
         """
         DATE_WW = NumberFormatIndex.DATE_WW
         """
-        week of year
-        formatindex=\"38\"
+        week of year formatindex=\"38\"
         """
         DATE_END = NumberFormatIndex.DATE_END
         """
@@ -317,45 +255,31 @@ else:
         """
         TIME_HHMM = NumberFormatIndex.TIME_HHMM
         """
-        HH:MM
-        Time format with hour and minute
-        formatindex=\"39\".
+        HH:MM Time format with hour and minute formatindex=\"39\".
         """
         TIME_HHMMSS = NumberFormatIndex.TIME_HHMMSS
         """
-        HH:MM:SS
-        Time format with hour, minute and second
-        formatindex=\"40\".
+        HH:MM:SS Time format with hour, minute and second formatindex=\"40\".
         """
         TIME_HHMMAMPM = NumberFormatIndex.TIME_HHMMAMPM
         """
-        HH:MM AM/PM
-        Time format with hour, minute and morning/afternoon notation
-        formatindex=\"41\".
+        HH:MM AM/PM Time format with hour, minute and morning/afternoon notation formatindex=\"41\".
         """
         TIME_HHMMSSAMPM = NumberFormatIndex.TIME_HHMMSSAMPM
         """
-        HH:MM:SS AM/PM
-        Time format with hour, minute, second and morning/afternoon notation
-        formatindex=\"42\".
+        HH:MM:SS AM/PM Time format with hour, minute, second and morning/afternoon notation formatindex=\"42\".
         """
         TIME_HH_MMSS = NumberFormatIndex.TIME_HH_MMSS
         """
-        [HH]:MM:SS
-        Time format with amount of hours
-        formatindex=\"43\"
+        [HH]:MM:SS Time format with amount of hours formatindex=\"43\"
         """
         TIME_MMSS00 = NumberFormatIndex.TIME_MMSS00
         """
-        MM:SS,00
-        Time format with second in fraction
-        formatindex=\"44\".
+        MM:SS,00 Time format with second in fraction formatindex=\"44\".
         """
         TIME_HH_MMSS00 = NumberFormatIndex.TIME_HH_MMSS00
         """
-        [HH]:MM:SS,00
-        Time format with amount of hours and seconds with fraction
-        formatindex=\"45\"
+        [HH]:MM:SS,00 Time format with amount of hours and seconds with fraction formatindex=\"45\"
         """
         TIME_END = NumberFormatIndex.TIME_END
         """
@@ -367,13 +291,11 @@ else:
         """
         DATETIME_SYSTEM_SHORT_HHMM = NumberFormatIndex.DATETIME_SYSTEM_SHORT_HHMM
         """
-        08.10.97 01:23 Date/time format
-        formatindex=\"46\"
+        08.10.97 01:23 Date/time format formatindex=\"46\"
         """
         DATETIME_SYS_DDMMYYYY_HHMMSS = NumberFormatIndex.DATETIME_SYS_DDMMYYYY_HHMMSS
         """
-        08.10.1997 01:23:45 Date/time format with second
-        Note: When editing already existing date/time data this format is forced in order to always edit the full century.
+        08.10.1997 01:23:45 Date/time format with second Note: When editing already existing date/time data this format is forced in order to always edit the full century.
         
         formatindex=\"47\"
         """

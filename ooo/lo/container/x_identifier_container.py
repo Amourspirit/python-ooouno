@@ -42,6 +42,7 @@ class XIdentifierContainer(XIdentifierReplace_4ac10fe2):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeByIdentifier(self, Identifier: int) -> None:
         """
@@ -51,6 +52,7 @@ class XIdentifierContainer(XIdentifierReplace_4ac10fe2):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XIdentifierContainer']
 

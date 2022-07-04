@@ -38,7 +38,7 @@ class Calendar(object):
     typeName: str = 'com.sun.star.i18n.Calendar'
     """Literal Constant ``com.sun.star.i18n.Calendar``"""
 
-    def __init__(self, Days: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, Months: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, Eras: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = UNO_NONE, StartOfWeek: typing.Optional[str] = '', MinimumNumberOfDaysForFirstWeek: typing.Optional[int] = 0, Default: typing.Optional[bool] = False, Name: typing.Optional[str] = '') -> None:
+    def __init__(self, Days: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = (), Months: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = (), Eras: typing.Optional[typing.Tuple[CalendarItem_a86c0af1, ...]] = (), StartOfWeek: typing.Optional[str] = '', MinimumNumberOfDaysForFirstWeek: typing.Optional[int] = 0, Default: typing.Optional[bool] = False, Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -73,12 +73,6 @@ class Calendar(object):
             "Default": Default,
             "Name": Name,
         }
-        if kargs["Days"] is UNO_NONE:
-            kargs["Days"] = None
-        if kargs["Months"] is UNO_NONE:
-            kargs["Months"] = None
-        if kargs["Eras"] is UNO_NONE:
-            kargs["Eras"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

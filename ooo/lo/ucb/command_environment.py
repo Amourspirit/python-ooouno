@@ -42,6 +42,7 @@ class CommandEnvironment(XCommandEnvironment_fb330dee):
         """
         Constructor.
         """
+        ...
 
 
 __all__ = ['CommandEnvironment']

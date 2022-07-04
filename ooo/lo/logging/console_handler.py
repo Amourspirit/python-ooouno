@@ -46,6 +46,7 @@ class ConsoleHandler(XConsoleHandler_fdad0dd8):
         """
         creates a ConsoleHandler
         """
+        ...
     @abstractmethod
     def createWithSettings(self, Settings: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
         """
@@ -56,6 +57,7 @@ class ConsoleHandler(XConsoleHandler_fdad0dd8):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['ConsoleHandler']

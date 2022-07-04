@@ -46,7 +46,7 @@ class ProofreadingResult(object):
     typeName: str = 'com.sun.star.linguistic2.ProofreadingResult'
     """Literal Constant ``com.sun.star.linguistic2.ProofreadingResult``"""
 
-    def __init__(self, aErrors: typing.Optional[typing.Tuple[SingleProofreadingError_c54812c1, ...]] = UNO_NONE, aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, aDocumentIdentifier: typing.Optional[str] = '', xFlatParagraph: typing.Optional[XFlatParagraph_c8310c42] = None, aText: typing.Optional[str] = '', aLocale: typing.Optional[Locale_70d308fa] = UNO_NONE, nStartOfSentencePosition: typing.Optional[int] = 0, nBehindEndOfSentencePosition: typing.Optional[int] = 0, nStartOfNextSentencePosition: typing.Optional[int] = 0, xProofreader: typing.Optional[XProofreader_dab0e46] = None) -> None:
+    def __init__(self, aErrors: typing.Optional[typing.Tuple[SingleProofreadingError_c54812c1, ...]] = (), aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = (), aDocumentIdentifier: typing.Optional[str] = '', xFlatParagraph: typing.Optional[XFlatParagraph_c8310c42] = None, aText: typing.Optional[str] = '', aLocale: typing.Optional[Locale_70d308fa] = UNO_NONE, nStartOfSentencePosition: typing.Optional[int] = 0, nBehindEndOfSentencePosition: typing.Optional[int] = 0, nStartOfNextSentencePosition: typing.Optional[int] = 0, xProofreader: typing.Optional[XProofreader_dab0e46] = None) -> None:
         """
         Constructor
 
@@ -90,10 +90,6 @@ class ProofreadingResult(object):
             "nStartOfNextSentencePosition": nStartOfNextSentencePosition,
             "xProofreader": xProofreader,
         }
-        if kargs["aErrors"] is UNO_NONE:
-            kargs["aErrors"] = None
-        if kargs["aProperties"] is UNO_NONE:
-            kargs["aProperties"] = None
         if kargs["aLocale"] is UNO_NONE:
             kargs["aLocale"] = None
         self._init(**kargs)

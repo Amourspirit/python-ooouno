@@ -44,6 +44,7 @@ class XWizardController(ABC):
     def canAdvance(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def confirmFinish(self) -> bool:
         """
@@ -51,6 +52,7 @@ class XWizardController(ABC):
         
         This method allows the controller to do any final checks, and ultimately veto finishing the wizard.
         """
+        ...
     @abstractmethod
     def createPage(self, ParentWindow: 'XWindow_713b0924', PageId: int) -> 'XWizardPage_ed7c0d3d':
         """
@@ -58,6 +60,7 @@ class XWizardController(ABC):
         
         Wizard pages are created on demand, when the respective page is reached during traveling through the wizard. Effectively, this means the method is called at most once for each possible page ID.
         """
+        ...
     @abstractmethod
     def getPageTitle(self, PageId: int) -> str:
         """
@@ -65,16 +68,19 @@ class XWizardController(ABC):
         
         The page titles are displayed in the wizard's roadmap.
         """
+        ...
     @abstractmethod
     def onActivatePage(self, PageId: int) -> None:
         """
         called when a new page in the wizard is being activated
         """
+        ...
     @abstractmethod
     def onDeactivatePage(self, PageId: int) -> None:
         """
         called when a page in the wizard is being deactivated
         """
+        ...
 
 __all__ = ['XWizardController']
 

@@ -47,19 +47,23 @@ class XConnectionPointContainer(XInterface_8f010a43):
         
         Use this method instead of the advise method at the connection point, only if you know that the broadcaster supports the outgoing interface, or if it does not matter that the outgoing interface is not supported.
         """
+        ...
     @abstractmethod
     def getConnectionPointTypes(self) -> 'typing.Tuple[object, ...]':
         """
         """
+        ...
     @abstractmethod
     def queryConnectionPoint(self, aType: object) -> 'XConnectionPoint_e0da0d1c':
         """
         """
+        ...
     @abstractmethod
     def unadvise(self, aType: object, xListener: 'XInterface_8f010a43') -> None:
         """
         terminates a notification previously set up with advise at the container or at the suitable connection point.
         """
+        ...
 
 __all__ = ['XConnectionPointContainer']
 

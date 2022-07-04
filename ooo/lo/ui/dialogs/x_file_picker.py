@@ -41,6 +41,7 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         
         If the user did cancel the dialog, the returned value is undefined.
         """
+        ...
     @abstractmethod
     def getFiles(self) -> 'typing.Tuple[str, ...]':
         """
@@ -56,6 +57,7 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         
         Notes for the implementation of a FileSave dialog:If there exists a checkbox \"Automatic File Extension\" which is checked and a valid filter is currently selected the dialog may automatically add an extension to the selected file name.
         """
+        ...
     @abstractmethod
     def setDefaultName(self, aName: str) -> None:
         """
@@ -63,6 +65,7 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         
         Specifies the default file name, displayed when the FilePicker is shown. The implementation may accept any string, and does not have to check for a valid file name or if the file really exists.
         """
+        ...
     @abstractmethod
     def setDisplayDirectory(self, aDirectory: str) -> None:
         """
@@ -71,6 +74,7 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setMultiSelectionMode(self, bMode: bool) -> None:
         """
@@ -82,6 +86,7 @@ class XFilePicker(XExecutableDialog_450f0fa1):
         
         A value of FALSE disables the multi-selection mode, this is the default.
         """
+        ...
 
 __all__ = ['XFilePicker']
 

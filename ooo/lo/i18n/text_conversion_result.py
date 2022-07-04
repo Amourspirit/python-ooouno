@@ -42,7 +42,7 @@ class TextConversionResult(object):
     typeName: str = 'com.sun.star.i18n.TextConversionResult'
     """Literal Constant ``com.sun.star.i18n.TextConversionResult``"""
 
-    def __init__(self, Candidates: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Boundary: typing.Optional[Boundary_7fe2098c] = UNO_NONE) -> None:
+    def __init__(self, Candidates: typing.Optional[typing.Tuple[str, ...]] = (), Boundary: typing.Optional[Boundary_7fe2098c] = UNO_NONE) -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class TextConversionResult(object):
             "Candidates": Candidates,
             "Boundary": Boundary,
         }
-        if kargs["Candidates"] is UNO_NONE:
-            kargs["Candidates"] = None
         if kargs["Boundary"] is UNO_NONE:
             kargs["Boundary"] = None
         self._init(**kargs)

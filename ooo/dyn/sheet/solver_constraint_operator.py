@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.SolverConstraintOperator import (BINARY, EQUAL, GREATER_EQUAL, INTEGER, LESS_EQUAL)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.SolverConstraintOperator Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.SolverConstraintOperator",
-            "__ooo_type_name__": "enum",
-            "BINARY": BINARY,
-            "EQUAL": EQUAL,
-            "GREATER_EQUAL": GREATER_EQUAL,
-            "INTEGER": INTEGER,
-            "LESS_EQUAL": LESS_EQUAL,
-        }
-        result = type('SolverConstraintOperator', (object,), _dict)
-        return result
-
-    SolverConstraintOperator = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class SolverConstraintOperator(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.SolverConstraintOperator", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.SolverConstraintOperator`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.solver_constraint_operator import SolverConstraintOperator as SolverConstraintOperator
 

@@ -48,11 +48,13 @@ class XLogHandler(XComponent_98dc0ab5):
         
         Log handlers are allowed to buffer their output. Upon flush being called, they must flush all their buffers.
         """
+        ...
     @abstractmethod
     def publish(self, Record: 'LogRecord_b0c20b70') -> bool:
         """
         publish the given log record at the handler's output channel.
         """
+        ...
     @abstractproperty
     def Encoding(self) -> str:
         """
@@ -60,12 +62,14 @@ class XLogHandler(XComponent_98dc0ab5):
         
         It depends on the concrete handler implementation whether or not this parameter is needed.
         """
+        ...
 
     @abstractproperty
     def Formatter(self) -> 'XLogFormatter_e23d0d1d':
         """
         specifies the formatter to be used by this handler.
         """
+        ...
 
     @abstractproperty
     def Level(self) -> int:
@@ -74,6 +78,7 @@ class XLogHandler(XComponent_98dc0ab5):
         
         Different handlers can have different log levels, which again might be different from the log level of the XLogger for which the handlers are used.
         """
+        ...
 
 
 __all__ = ['XLogHandler']

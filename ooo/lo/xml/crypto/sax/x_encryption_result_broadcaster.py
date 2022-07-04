@@ -48,6 +48,7 @@ class XEncryptionResultBroadcaster(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def removeEncryptionResultListener(self, listener: 'XEncryptionResultListener_290f14ea') -> None:
         """
@@ -55,6 +56,7 @@ class XEncryptionResultBroadcaster(XInterface_8f010a43):
         
         After a listener is removed, no result information will be sent to it.
         """
+        ...
 
 __all__ = ['XEncryptionResultBroadcaster']
 

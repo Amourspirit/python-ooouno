@@ -25,29 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.accessibility.AccessibleScrollType import (SCROLL_ANYWHERE, SCROLL_BOTTOM_EDGE, SCROLL_BOTTOM_RIGHT, SCROLL_LEFT_EDGE, SCROLL_RIGHT_EDGE, SCROLL_TOP_EDGE, SCROLL_TOP_LEFT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.accessibility.AccessibleScrollType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.accessibility",
-            "__ooo_full_ns__": "com.sun.star.accessibility.AccessibleScrollType",
-            "__ooo_type_name__": "enum",
-            "SCROLL_ANYWHERE": SCROLL_ANYWHERE,
-            "SCROLL_BOTTOM_EDGE": SCROLL_BOTTOM_EDGE,
-            "SCROLL_BOTTOM_RIGHT": SCROLL_BOTTOM_RIGHT,
-            "SCROLL_LEFT_EDGE": SCROLL_LEFT_EDGE,
-            "SCROLL_RIGHT_EDGE": SCROLL_RIGHT_EDGE,
-            "SCROLL_TOP_EDGE": SCROLL_TOP_EDGE,
-            "SCROLL_TOP_LEFT": SCROLL_TOP_LEFT,
-        }
-        result = type('AccessibleScrollType', (object,), _dict)
-        return result
-
-    AccessibleScrollType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class AccessibleScrollType(metaclass=UnoEnumMeta, type_name="com.sun.star.accessibility.AccessibleScrollType", name_space="com.sun.star.accessibility"):
+        """Dynamically created class that represents ``com.sun.star.accessibility.AccessibleScrollType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.accessibility.accessible_scroll_type import AccessibleScrollType as AccessibleScrollType
 

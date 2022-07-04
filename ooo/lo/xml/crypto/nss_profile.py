@@ -41,7 +41,7 @@ class NSSProfile(object):
     typeName: str = 'com.sun.star.xml.crypto.NSSProfile'
     """Literal Constant ``com.sun.star.xml.crypto.NSSProfile``"""
 
-    def __init__(self, Name: typing.Optional[str] = None, Path: typing.Optional[str] = None, Type: typing.Optional[MozillaProductType_2e210f5b] = None) -> None:
+    def __init__(self, Name: typing.Optional[str] = '', Path: typing.Optional[str] = '', Type: typing.Optional[MozillaProductType_2e210f5b] = MozillaProductType_2e210f5b.Default) -> None:
         """
         Constructor
 
@@ -64,12 +64,6 @@ class NSSProfile(object):
             "Path": Path,
             "Type": Type,
         }
-        if kargs["Name"] is UNO_NONE:
-            kargs["Name"] = None
-        if kargs["Path"] is UNO_NONE:
-            kargs["Path"] = None
-        if kargs["Type"] is UNO_NONE:
-            kargs["Type"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

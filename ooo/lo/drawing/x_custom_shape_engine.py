@@ -43,18 +43,22 @@ class XCustomShapeEngine(XInterface_8f010a43):
     def getInteraction(self) -> 'typing.Tuple[XCustomShapeHandle_2a620f04, ...]':
         """
         """
+        ...
     @abstractmethod
     def getLineGeometry(self) -> 'PolyPolygonBezierCoords_7ec5114b':
         """
         """
+        ...
     @abstractmethod
     def getTextBounds(self) -> 'Rectangle_84b109e9':
         """
         """
+        ...
     @abstractmethod
     def render(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
 
 __all__ = ['XCustomShapeEngine']
 

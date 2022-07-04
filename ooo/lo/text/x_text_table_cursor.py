@@ -38,51 +38,61 @@ class XTextTableCursor(XInterface_8f010a43):
         """
         The name is the cell name of the top left table cell of the range concatenated by \":\" with the table cell name of the bottom left table cell of the cell range. If the range consists of one table cell only then the name of that table cell is returned.
         """
+        ...
     @abstractmethod
     def goDown(self, nCount: int, bExpand: bool) -> bool:
         """
         moves the cursor to the bottom neighbor cell.
         """
+        ...
     @abstractmethod
     def goLeft(self, nCount: int, bExpand: bool) -> bool:
         """
         moves the cursor to the left neighbor.
         """
+        ...
     @abstractmethod
     def goRight(self, nCount: int, bExpand: bool) -> bool:
         """
         moves the cursor to the right neighbor.
         """
+        ...
     @abstractmethod
     def goUp(self, nCount: int, bExpand: bool) -> bool:
         """
         moves the cursor to the top neighbor.
         """
+        ...
     @abstractmethod
     def gotoCellByName(self, aCellName: str, bExpand: bool) -> bool:
         """
         moves the cursor to the cell with the specified name.
         """
+        ...
     @abstractmethod
     def gotoEnd(self, bExpand: bool) -> None:
         """
         moves the cursor to the bottom right cell of the table.
         """
+        ...
     @abstractmethod
     def gotoStart(self, bExpand: bool) -> None:
         """
         moves the cursor to the top left cell of the table.
         """
+        ...
     @abstractmethod
     def mergeRange(self) -> bool:
         """
         merges the selected range of cells.
         """
+        ...
     @abstractmethod
     def splitRange(self, nCount: int, bHorizontal: bool) -> bool:
         """
         splits the range of cells.
         """
+        ...
 
 __all__ = ['XTextTableCursor']
 

@@ -41,6 +41,7 @@ class XSimpleMailMessage2(XSimpleMailMessage_1d420eb7):
     def Body(self) -> str:
         """
         """
+        ...
 
 
 __all__ = ['XSimpleMailMessage2']

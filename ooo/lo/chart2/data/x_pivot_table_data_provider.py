@@ -46,56 +46,67 @@ class XPivotTableDataProvider(XInterface_8f010a43):
         """
         creates a single data sequence of categories.
         """
+        ...
     @abstractmethod
     def createDataSequenceOfLabelsByIndex(self, nIndex: int) -> 'XDataSequence_11f00e1f':
         """
         creates a single data sequence of label(s) for the given data series index.
         """
+        ...
     @abstractmethod
     def createDataSequenceOfValuesByIndex(self, nIndex: int) -> 'XDataSequence_11f00e1f':
         """
         creates a single data sequence of values for the given data series index.
         """
+        ...
     @abstractmethod
     def getColumnFields(self) -> 'typing.Tuple[PivotTableFieldEntry_81a11104, ...]':
         """
         names of column fields from the associated pivot table
         """
+        ...
     @abstractmethod
     def getDataFields(self) -> 'typing.Tuple[PivotTableFieldEntry_81a11104, ...]':
         """
         names of data fields from the associated pivot table
         """
+        ...
     @abstractmethod
     def getFieldOutputDescription(self, nDimensionIndex: int) -> str:
         """
         field output description: either \"- all -\", \"- multiple -\", or specific value
         """
+        ...
     @abstractmethod
     def getPageFields(self) -> 'typing.Tuple[PivotTableFieldEntry_81a11104, ...]':
         """
         names of page fields from the associated pivot table
         """
+        ...
     @abstractmethod
     def getPivotTableName(self) -> str:
         """
         get the associated pivot table name
         """
+        ...
     @abstractmethod
     def getRowFields(self) -> 'typing.Tuple[PivotTableFieldEntry_81a11104, ...]':
         """
         names of row fields from the associated pivot table
         """
+        ...
     @abstractmethod
     def hasPivotTable(self) -> bool:
         """
         check if the associated pivot table exists
         """
+        ...
     @abstractmethod
     def setPivotTableName(self, sPivotTableName: str) -> None:
         """
         set the associated pivot table name
         """
+        ...
 
 __all__ = ['XPivotTableDataProvider']
 

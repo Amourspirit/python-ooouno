@@ -41,31 +41,37 @@ class XTableChart(XInterface_8f010a43):
         """
         returns, whether the cells of the topmost row of the source data are interpreted as column headers.
         """
+        ...
     @abstractmethod
     def getHasRowHeaders(self) -> bool:
         """
         returns, whether the cells of the leftmost column of the source data are interpreted as row headers.
         """
+        ...
     @abstractmethod
     def getRanges(self) -> 'typing.Tuple[CellRangeAddress_ec450d43, ...]':
         """
         returns the cell ranges that contain the data for the chart.
         """
+        ...
     @abstractmethod
     def setHasColumnHeaders(self, bHasColumnHeaders: bool) -> None:
         """
         specifies whether the cells of the topmost row of the source data are interpreted as column headers.
         """
+        ...
     @abstractmethod
     def setHasRowHeaders(self, bHasRowHeaders: bool) -> None:
         """
         specifies whether the cells of the leftmost column of the source data are interpreted as row headers.
         """
+        ...
     @abstractmethod
     def setRanges(self, aRanges: 'typing.Tuple[CellRangeAddress_ec450d43, ...]') -> None:
         """
         sets the cell ranges that contain the data for the chart.
         """
+        ...
 
 __all__ = ['XTableChart']
 

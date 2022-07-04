@@ -46,6 +46,7 @@ class XTextTable(XTextContent_b16e0ba5):
         
         Initially the cursor is positioned in the cell with the specified name.
         """
+        ...
     @abstractmethod
     def getCellByName(self, aCellName: str) -> 'XCell_70d408e8':
         """
@@ -55,18 +56,22 @@ class XTextTable(XTextContent_b16e0ba5):
         
         Example: If the cell \"D3\" is horizontally split, it now contains the cells \"D3.1.1\" and \"D3.1.2\"
         """
+        ...
     @abstractmethod
     def getCellNames(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def getColumns(self) -> 'XTableColumns_c66d0c31':
         """
         """
+        ...
     @abstractmethod
     def getRows(self) -> 'XTableRows_a37e0afb':
         """
         """
+        ...
     @abstractmethod
     def initialize(self, nRows: int, nColumns: int) -> None:
         """
@@ -74,6 +79,7 @@ class XTextTable(XTextContent_b16e0ba5):
         
         This method must be called after the object is created and before the object is insert or attached elsewhere.
         """
+        ...
 
 __all__ = ['XTextTable']
 

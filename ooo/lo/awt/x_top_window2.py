@@ -40,18 +40,21 @@ class XTopWindow2(XTopWindow_8ebb0a57):
         
         When retrieving this property, in case the window is positioned on multiple displays, the number returned will be of the display containing the upper left pixel of the frame area (that is of the client area on system decorated windows, or the frame area of undecorated resp. owner decorated windows).
         """
+        ...
 
     @abstractproperty
     def IsMaximized(self) -> bool:
         """
         controls whether the window is currently maximized
         """
+        ...
 
     @abstractproperty
     def IsMinimized(self) -> bool:
         """
         controls whether the window is currently minimized
         """
+        ...
 
 
 __all__ = ['XTopWindow2']

@@ -34,6 +34,10 @@ class ShadeMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.ShadeMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.ShadeMode'
+
     DRAFT = 'DRAFT'
     """
     DRAFT is a special mode which uses a BSP tree and triangle subdivision for displaying.

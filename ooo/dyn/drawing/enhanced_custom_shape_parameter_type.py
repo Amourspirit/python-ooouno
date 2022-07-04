@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
-    if hasattr(EnhancedCustomShapeParameterType, '_constants') and isinstance(EnhancedCustomShapeParameterType._constants, dict):
-        EnhancedCustomShapeParameterType._constants['__ooo_ns__'] = 'com.sun.star.drawing'
-        EnhancedCustomShapeParameterType._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.EnhancedCustomShapeParameterType'
-        EnhancedCustomShapeParameterType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EnhancedCustomShapeParameterTypeEnum
-        ls = [f for f in dir(EnhancedCustomShapeParameterType) if not callable(getattr(EnhancedCustomShapeParameterType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EnhancedCustomShapeParameterType, name)
-        EnhancedCustomShapeParameterTypeEnum = IntEnum('EnhancedCustomShapeParameterTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class EnhancedCustomShapeParameterType(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeParameterType", name_space="com.sun.star.drawing"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeParameterType``"""
+        pass
+
+    class EnhancedCustomShapeParameterTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeParameterType", name_space="com.sun.star.drawing"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeParameterType`` as Enum values"""
+        pass
+
 else:
     from ...lo.drawing.enhanced_custom_shape_parameter_type import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType
 

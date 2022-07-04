@@ -46,6 +46,7 @@ class XImplementationLoader(XInterface_8f010a43):
         Raises:
             com.sun.star.loader.CannotActivateFactoryException: ``CannotActivateFactoryException``
         """
+        ...
     @abstractmethod
     def writeRegistryInfo(self, xKey: 'XRegistryKey_e61a0d5b', implementationLoaderUrl: str, locationUrl: str) -> bool:
         """
@@ -58,6 +59,7 @@ class XImplementationLoader(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.CannotRegisterImplementationException: ``CannotRegisterImplementationException``
         """
+        ...
 
 __all__ = ['XImplementationLoader']
 

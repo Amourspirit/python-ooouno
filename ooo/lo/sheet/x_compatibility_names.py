@@ -49,6 +49,7 @@ class XCompatibilityNames(XInterface_8f010a43):
         
         If a locale is not present in the sequence of compatibility names, the first entry of the sequence is used. So the method should return a sequence which contains first the entry representing the current locale.TRUE
         """
+        ...
 
 __all__ = ['XCompatibilityNames']
 

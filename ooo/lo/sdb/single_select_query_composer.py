@@ -45,6 +45,7 @@ class SingleSelectQueryComposer(SingleSelectQueryAnalyzer_577c105f, XPropertySet
         """
         is the original SQL statement set with the interface com.sun.star.sdb.XSingleSelectQueryAnalyzer.
         """
+        ...
 
 
 

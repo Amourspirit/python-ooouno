@@ -45,6 +45,7 @@ class XControlNotificationListener(XInterface_8f010a43):
         """
         notifies that a control event has happened
         """
+        ...
 
 __all__ = ['XControlNotificationListener']
 

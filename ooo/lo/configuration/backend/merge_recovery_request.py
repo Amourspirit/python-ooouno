@@ -109,8 +109,7 @@ class MergeRecoveryRequest(Exception_85530a09):
         """
         specifies whether the requester wants to remove or skip the invalid layer.
         
-        If TRUE the requester wants to remove the underlying data of the layer.
-        If FALSE the request is to skip the underlying data this time, but without removing it.
+        If TRUE the requester wants to remove the underlying data of the layer.If FALSE the request is to skip the underlying data this time, but without removing it.
         """
         return self._is_removal_request
     

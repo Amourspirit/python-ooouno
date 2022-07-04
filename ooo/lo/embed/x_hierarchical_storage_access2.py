@@ -55,6 +55,7 @@ class XHierarchicalStorageAccess2(XHierarchicalStorageAccess_876b1143):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
 
 __all__ = ['XHierarchicalStorageAccess2']
 

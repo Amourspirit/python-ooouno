@@ -38,7 +38,7 @@ class SearchCriterium(object):
     typeName: str = 'com.sun.star.ucb.SearchCriterium'
     """Literal Constant ``com.sun.star.ucb.SearchCriterium``"""
 
-    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = UNO_NONE) -> None:
+    def __init__(self, Terms: typing.Optional[typing.Tuple[RuleTerm_7a4b0972, ...]] = ()) -> None:
         """
         Constructor
 
@@ -55,8 +55,6 @@ class SearchCriterium(object):
         kargs = {
             "Terms": Terms,
         }
-        if kargs["Terms"] is UNO_NONE:
-            kargs["Terms"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -40,6 +40,7 @@ class XMaterialHolder(XInterface_8f010a43):
         """
         returns the material that is connected to this (tool-) object
         """
+        ...
 
 __all__ = ['XMaterialHolder']
 

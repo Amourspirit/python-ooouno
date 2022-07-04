@@ -47,18 +47,21 @@ class CellAreaLink(XPropertySet_bc180bfa, XAreaLink_98db0a80, XRefreshable_b0d60
         """
         specifies the name of the filter used to load the source document.
         """
+        ...
 
     @abstractproperty
     def FilterOptions(self) -> str:
         """
         specifies the filter options needed to load the source document.
         """
+        ...
 
     @abstractproperty
     def RefreshDelay(self) -> int:
         """
         specifies the delay time between two refresh actions in seconds.
         """
+        ...
 
     @abstractproperty
     def RefreshPeriod(self) -> int:
@@ -69,12 +72,14 @@ class CellAreaLink(XPropertySet_bc180bfa, XAreaLink_98db0a80, XRefreshable_b0d60
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Url(self) -> str:
         """
         specifies the URL of the source document.
         """
+        ...
 
 
 

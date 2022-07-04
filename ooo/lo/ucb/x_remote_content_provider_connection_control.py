@@ -45,6 +45,7 @@ class XRemoteContentProviderConnectionControl(XInterface_8f010a43):
         
         The implementation of this interface must hold a reference to the supplied token. If the connection gets lost, the reference count of the token will drop, which the remote content provider acceptor can observe.
         """
+        ...
 
 __all__ = ['XRemoteContentProviderConnectionControl']
 

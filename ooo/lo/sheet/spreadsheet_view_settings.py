@@ -42,114 +42,133 @@ class SpreadsheetViewSettings(XPropertySet_bc180bfa):
         """
         specifies the color in which the cell grid is displayed.
         """
+        ...
 
     @abstractproperty
     def HasColumnRowHeaders(self) -> bool:
         """
         enables the column and row headers of the view.
         """
+        ...
 
     @abstractproperty
     def HasHorizontalScrollBar(self) -> bool:
         """
         enables the horizontal scroll bar of the view.
         """
+        ...
 
     @abstractproperty
     def HasSheetTabs(self) -> bool:
         """
         enables the sheet tabs of the view.
         """
+        ...
 
     @abstractproperty
     def HasVerticalScrollBar(self) -> bool:
         """
         enables the vertical scroll bar of the view.
         """
+        ...
 
     @abstractproperty
     def HideSpellMarks(self) -> bool:
         """
         disables the display of marks from online spelling.
         """
+        ...
 
     @abstractproperty
     def IsOutlineSymbolsSet(self) -> bool:
         """
         enables the display of outline symbols.
         """
+        ...
 
     @abstractproperty
     def IsValueHighlightingEnabled(self) -> bool:
         """
         controls whether strings, values, and formulas are displayed in different colors.
         """
+        ...
 
     @abstractproperty
     def ShowAnchor(self) -> bool:
         """
         enables display of anchor symbols when drawing objects are selected.
         """
+        ...
 
     @abstractproperty
     def ShowCharts(self) -> int:
         """
         enables the display of charts in the view.
         """
+        ...
 
     @abstractproperty
     def ShowDrawing(self) -> int:
         """
         enables the display of drawing objects in the view.
         """
+        ...
 
     @abstractproperty
     def ShowFormulas(self) -> bool:
         """
         controls whether formulas are displayed instead of their results.
         """
+        ...
 
     @abstractproperty
     def ShowGrid(self) -> bool:
         """
         enables the display of the cell grid.
         """
+        ...
 
     @abstractproperty
     def ShowHelpLines(self) -> bool:
         """
         enables display of help lines when moving drawing objects.
         """
+        ...
 
     @abstractproperty
     def ShowNotes(self) -> bool:
         """
         controls whether a marker is shown for notes in cells.
         """
+        ...
 
     @abstractproperty
     def ShowObjects(self) -> int:
         """
         enables display of embedded objects in the view.
         """
+        ...
 
     @abstractproperty
     def ShowPageBreaks(self) -> bool:
         """
         enables display of page breaks.
         """
+        ...
 
     @abstractproperty
     def ShowZeroValues(self) -> bool:
         """
         enables display of zero-values.
         """
+        ...
 
     @abstractproperty
     def ZoomType(self) -> int:
         """
         This property defines the zoom type for the document.
         """
+        ...
 
     @abstractproperty
     def ZoomValue(self) -> int:
@@ -158,6 +177,7 @@ class SpreadsheetViewSettings(XPropertySet_bc180bfa):
         
         Valid only if the ZoomType is set to com.sun.star.view.DocumentZoomType.BY_VALUE.
         """
+        ...
 
 
 

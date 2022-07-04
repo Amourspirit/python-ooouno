@@ -48,6 +48,7 @@ class Binding(ListEntrySource_48260fe4, ValueBinding_18de0e7d, XValidator_2a5c0f
         
         The value supports the service com.sun.star.xml.NamespaceContainer
         """
+        ...
 
 
 

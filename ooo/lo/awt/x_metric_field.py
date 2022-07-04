@@ -38,91 +38,109 @@ class XMetricField(XInterface_8f010a43):
         """
         returns the corrected value which is displayed in the metric field.
         """
+        ...
     @abstractmethod
     def getDecimalDigits(self) -> int:
         """
         returns the currently set number of decimals.
         """
+        ...
     @abstractmethod
     def getFirst(self, FieldUnit: int) -> int:
         """
         returns the currently set first value which is set on POS1 key.
         """
+        ...
     @abstractmethod
     def getLast(self, FieldUnit: int) -> int:
         """
         returns the currently set last value which is set on END key.
         """
+        ...
     @abstractmethod
     def getMax(self, FieldUnit: int) -> int:
         """
         returns the currently set maximum value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def getMin(self, FieldUnit: int) -> int:
         """
         returns the currently set minimum value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def getSpinSize(self) -> int:
         """
         returns the currently set increment value for the spin button.
         """
+        ...
     @abstractmethod
     def getValue(self, FieldUnit: int) -> int:
         """
         returns the value which is currently displayed in the metric field.
         """
+        ...
     @abstractmethod
     def isStrictFormat(self) -> bool:
         """
         returns whether the format is currently checked during user input.
         """
+        ...
     @abstractmethod
     def setDecimalDigits(self, nDigits: int) -> None:
         """
         sets the number of decimals.
         """
+        ...
     @abstractmethod
     def setFirst(self, Value: int, FieldUnit: int) -> None:
         """
         sets the first value to be set on POS1 key.
         """
+        ...
     @abstractmethod
     def setLast(self, Value: int, FieldUnit: int) -> None:
         """
         sets the last value to be set on END key.
         """
+        ...
     @abstractmethod
     def setMax(self, Value: int, FieldUnit: int) -> None:
         """
         sets the maximum value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def setMin(self, Value: int, FieldUnit: int) -> None:
         """
         sets the minimum value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def setSpinSize(self, Value: int) -> None:
         """
         sets the increment value for the spin button.
         """
+        ...
     @abstractmethod
     def setStrictFormat(self, bStrict: bool) -> None:
         """
         determines if the format is checked during user input.
         """
+        ...
     @abstractmethod
     def setUserValue(self, Value: int, FieldUnit: int) -> None:
         """
         sets the user value which is displayed in the metric field.
         """
+        ...
     @abstractmethod
     def setValue(self, Value: int, FieldUnit: int) -> None:
         """
         sets the value which is displayed in the metric field.
         """
+        ...
 
 __all__ = ['XMetricField']
 

@@ -46,6 +46,7 @@ class URI(XURI_5682078c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createKnown(self, Id: int) -> None:
         """
@@ -54,6 +55,7 @@ class URI(XURI_5682078c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createNS(self, Namespace: str, LocalName: str) -> None:
         """
@@ -62,6 +64,7 @@ class URI(XURI_5682078c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['URI']

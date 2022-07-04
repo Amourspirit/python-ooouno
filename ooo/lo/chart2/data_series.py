@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.chart2
 import typing
+import uno
 from abc import abstractproperty
 from .data_point_properties import DataPointProperties as DataPointProperties_24a00efd
 from .x_data_series import XDataSeries as XDataSeries_b8150b89
@@ -48,7 +49,7 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
-    def AttributedDataPoints(self) -> 'typing.Tuple[int, ...]':
+    def AttributedDataPoints(self) -> uno.ByteSequence:
         """
         This service will be used to render this data series.
         
@@ -66,9 +67,10 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
         
         This property is especially useful for large data series with only some formatted data points, because you do not have to iterate over all elements.
         """
+        ...
 
     @abstractproperty
-    def DeletedLegendEntries(self) -> 'typing.Tuple[int, ...]':
+    def DeletedLegendEntries(self) -> uno.ByteSequence:
         """
         A sequence of indexes denoting which data points shouldn't be shown in the legend.
         
@@ -76,6 +78,7 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
         
             LibreOffice 7.0
         """
+        ...
 
     @abstractproperty
     def AttachedAxisIndex(self) -> int:
@@ -88,6 +91,7 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
         
         If you want to scale a series at a different x or z axis you need to create an additional coordinate system and host this series there.
         """
+        ...
 
     @abstractproperty
     def ShowCustomLeaderLines(self) -> bool:
@@ -98,6 +102,7 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
         
             LibreOffice 7.1
         """
+        ...
 
     @abstractproperty
     def ShowLegendEntry(self) -> bool:
@@ -108,18 +113,21 @@ class DataSeries(DataPointProperties_24a00efd, XDataSeries_b8150b89, XRegression
         
             LibreOffice 6.3
         """
+        ...
 
     @abstractproperty
     def StackingDirection(self) -> 'StackingDirection_8060e21':
         """
         indicates whether this series should be stacked with respect to the previous series.
         """
+        ...
 
     @abstractproperty
     def VaryColorsByPoint(self) -> bool:
         """
         If TRUE, the data points of this series get different colors by default, like in a pie chart.
         """
+        ...
 
 
 

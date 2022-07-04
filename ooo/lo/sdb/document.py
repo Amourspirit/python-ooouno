@@ -45,6 +45,7 @@ class Document(XPropertySet_bc180bfa):
         """
         is the URL of the document.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
@@ -53,6 +54,7 @@ class Document(XPropertySet_bc180bfa):
         
         If the document is part of the container, it is not possible to alter the name.
         """
+        ...
 
 
 

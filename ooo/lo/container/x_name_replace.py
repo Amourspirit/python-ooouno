@@ -43,6 +43,7 @@ class XNameReplace(XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XNameReplace']
 

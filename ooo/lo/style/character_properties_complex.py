@@ -42,12 +42,14 @@ class CharacterPropertiesComplex(ABC):
         """
         This property contains the text encoding of the font as specified in com.sun.star.awt.CharSet.
         """
+        ...
 
     @abstractproperty
     def CharFontFamilyComplex(self) -> int:
         """
         This property contains font family as specified in com.sun.star.awt.FontFamily .
         """
+        ...
 
     @abstractproperty
     def CharFontNameComplex(self) -> str:
@@ -56,12 +58,14 @@ class CharacterPropertiesComplex(ABC):
         
         It may contain more than one name separated by comma.
         """
+        ...
 
     @abstractproperty
     def CharFontPitchComplex(self) -> int:
         """
         This property contains the font pitch as specified in com.sun.star.awt.FontPitch.
         """
+        ...
 
     @abstractproperty
     def CharFontStyleNameComplex(self) -> str:
@@ -70,30 +74,35 @@ class CharacterPropertiesComplex(ABC):
         
         This property may be empty.
         """
+        ...
 
     @abstractproperty
     def CharHeightComplex(self) -> float:
         """
         This value contains the height of the characters in point.
         """
+        ...
 
     @abstractproperty
     def CharLocaleComplex(self) -> 'Locale_70d308fa':
         """
         contains the value of the locale.
         """
+        ...
 
     @abstractproperty
     def CharPostureComplex(self) -> 'FontSlant_849509ed':
         """
         This property contains the value of the posture of the document.
         """
+        ...
 
     @abstractproperty
     def CharWeightComplex(self) -> float:
         """
         This property contains the value of the font weight.
         """
+        ...
 
 
 

@@ -44,6 +44,7 @@ class XAutoTextGroup(XNameAccess_e2ab0cf6):
         
         The order of the entries corresponds to the output of the function getElementNames().
         """
+        ...
     @abstractmethod
     def insertNewByName(self, aName: str, aTitle: str, xTextRange: 'XTextRange_9a910ab7') -> 'XAutoTextEntry_c96f0c75':
         """
@@ -52,6 +53,7 @@ class XAutoTextGroup(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def removeByName(self, aEntryName: str) -> None:
         """
@@ -60,6 +62,7 @@ class XAutoTextGroup(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def renameByName(self, aElementName: str, aNewElementName: str, aNewElementTitle: str) -> None:
         """
@@ -72,6 +75,7 @@ class XAutoTextGroup(XNameAccess_e2ab0cf6):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XAutoTextGroup']
 

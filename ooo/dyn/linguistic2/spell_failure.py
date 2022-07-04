@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import SpellFailure as SpellFailure
-    if hasattr(SpellFailure, '_constants') and isinstance(SpellFailure._constants, dict):
-        SpellFailure._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
-        SpellFailure._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.SpellFailure'
-        SpellFailure._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SpellFailureEnum
-        ls = [f for f in dir(SpellFailure) if not callable(getattr(SpellFailure, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SpellFailure, name)
-        SpellFailureEnum = IntEnum('SpellFailureEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class SpellFailure(metaclass=UnoConstMeta, type_name="com.sun.star.linguistic2.SpellFailure", name_space="com.sun.star.linguistic2"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.linguistic2.SpellFailure``"""
+        pass
+
+    class SpellFailureEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.linguistic2.SpellFailure", name_space="com.sun.star.linguistic2"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.linguistic2.SpellFailure`` as Enum values"""
+        pass
+
 else:
     from ...lo.linguistic2.spell_failure import SpellFailure as SpellFailure
 

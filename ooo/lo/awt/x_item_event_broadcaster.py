@@ -41,11 +41,13 @@ class XItemEventBroadcaster(XInterface_8f010a43):
         """
         registers a listener for item events.
         """
+        ...
     @abstractmethod
     def removeItemListener(self, l: 'XItemListener_af710b81') -> None:
         """
         unregisters a listener for item events.
         """
+        ...
 
 __all__ = ['XItemEventBroadcaster']
 

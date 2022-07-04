@@ -48,7 +48,7 @@ class SendMailMessageFailedException(MailException_ba9e0bdd):
     typeName: str = 'com.sun.star.mail.SendMailMessageFailedException'
     """Literal Constant ``com.sun.star.mail.SendMailMessageFailedException``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, InvalidAddresses: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, ValidSentAddresses: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, ValidUnsentAddresses: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, InvalidAddresses: typing.Optional[typing.Tuple[str, ...]] = (), ValidSentAddresses: typing.Optional[typing.Tuple[str, ...]] = (), ValidUnsentAddresses: typing.Optional[typing.Tuple[str, ...]] = ()) -> None:
         """
         Constructor
 
@@ -66,12 +66,6 @@ class SendMailMessageFailedException(MailException_ba9e0bdd):
             "ValidSentAddresses": ValidSentAddresses,
             "ValidUnsentAddresses": ValidUnsentAddresses,
         }
-        if kargs["InvalidAddresses"] is UNO_NONE:
-            kargs["InvalidAddresses"] = None
-        if kargs["ValidSentAddresses"] is UNO_NONE:
-            kargs["ValidSentAddresses"] = None
-        if kargs["ValidUnsentAddresses"] is UNO_NONE:
-            kargs["ValidUnsentAddresses"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

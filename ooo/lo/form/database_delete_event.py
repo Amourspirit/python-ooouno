@@ -45,7 +45,7 @@ class DatabaseDeleteEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.form.DatabaseDeleteEvent'
     """Literal Constant ``com.sun.star.form.DatabaseDeleteEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Bookmarks: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Bookmarks: typing.Optional[typing.Tuple[object, ...]] = ()) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class DatabaseDeleteEvent(EventObject_a3d70b03):
             "Source": Source,
             "Bookmarks": Bookmarks,
         }
-        if kargs["Bookmarks"] is UNO_NONE:
-            kargs["Bookmarks"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

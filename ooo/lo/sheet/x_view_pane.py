@@ -41,26 +41,31 @@ class XViewPane(XInterface_8f010a43):
         """
         returns the first column that is visible in the pane.
         """
+        ...
     @abstractmethod
     def getFirstVisibleRow(self) -> int:
         """
         returns the first row that is visible in the pane.
         """
+        ...
     @abstractmethod
     def getVisibleRange(self) -> 'CellRangeAddress_ec450d43':
         """
         returns the address of the cell range that consists of the cells which are visible in the pane.
         """
+        ...
     @abstractmethod
     def setFirstVisibleColumn(self, nFirstVisibleColumn: int) -> None:
         """
         sets the first column that is visible in the pane.
         """
+        ...
     @abstractmethod
     def setFirstVisibleRow(self, nFirstVisibleRow: int) -> None:
         """
         sets the first row that is visible in the pane.
         """
+        ...
 
 __all__ = ['XViewPane']
 

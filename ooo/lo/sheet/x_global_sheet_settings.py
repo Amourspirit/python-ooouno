@@ -43,30 +43,35 @@ class XGlobalSheetSettings(ABC):
         
         Each string contains the members of a list, separated by commas.
         """
+        ...
 
     @abstractproperty
     def DoAutoComplete(self) -> bool:
         """
         specifies whether automatic completion of text in a cell is used.
         """
+        ...
 
     @abstractproperty
     def EnterEdit(self) -> bool:
         """
         specifies whether the enter key can be used to start editing a cell.
         """
+        ...
 
     @abstractproperty
     def ExpandReferences(self) -> bool:
         """
         specifies whether formula references are extended when cells are inserted below or to the right of them.
         """
+        ...
 
     @abstractproperty
     def ExtendFormat(self) -> bool:
         """
         specifies whether cell formatting is extended when entering data.
         """
+        ...
 
     @abstractproperty
     def LinkUpdateMode(self) -> int:
@@ -79,48 +84,56 @@ class XGlobalSheetSettings(ABC):
         
         2 = on demand
         """
+        ...
 
     @abstractproperty
     def MarkHeader(self) -> bool:
         """
         specifies whether the current selection is highlighted in column and row headers.
         """
+        ...
 
     @abstractproperty
     def Metric(self) -> int:
         """
         contains the metric for all spreadsheet documents.
         """
+        ...
 
     @abstractproperty
     def MoveDirection(self) -> int:
         """
         contains the direction the cursor moves after entering cells.
         """
+        ...
 
     @abstractproperty
     def MoveSelection(self) -> bool:
         """
         specifies whether the cursor is moved after entering into cells.
         """
+        ...
 
     @abstractproperty
     def PrintAllSheets(self) -> bool:
         """
         specifies whether all sheets or only selected sheets are printed.
         """
+        ...
 
     @abstractproperty
     def PrintEmptyPages(self) -> bool:
         """
         specifies whether empty pages are printed.
         """
+        ...
 
     @abstractproperty
     def RangeFinder(self) -> bool:
         """
         specifies whether ranges are highlighted on the sheet when editing a formula.
         """
+        ...
 
     @abstractproperty
     def ReplaceCellsWarning(self) -> bool:
@@ -129,6 +142,7 @@ class XGlobalSheetSettings(ABC):
         
         when pasting from clipboard).
         """
+        ...
 
     @abstractproperty
     def Scale(self) -> int:
@@ -143,24 +157,28 @@ class XGlobalSheetSettings(ABC):
         
         -3 = Page width
         """
+        ...
 
     @abstractproperty
     def StatusBarFunction(self) -> int:
         """
         contains the function that is displayed in the status bar.
         """
+        ...
 
     @abstractproperty
     def UsePrinterMetrics(self) -> bool:
         """
         specifies whether printer metrics are used for display.
         """
+        ...
 
     @abstractproperty
     def UseTabCol(self) -> bool:
         """
         specifies whether the enter key moves the cursor to the column it was in before using the tab key to change columns.
         """
+        ...
 
 
 __all__ = ['XGlobalSheetSettings']

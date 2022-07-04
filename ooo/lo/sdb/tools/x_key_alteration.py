@@ -50,6 +50,7 @@ class XKeyAlteration(XConnectionSupplier_57f3105c):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def dropKey(self, table: 'XPropertySet_bc180bfa', key: 'XPropertySet_bc180bfa') -> None:
         """
@@ -58,6 +59,7 @@ class XKeyAlteration(XConnectionSupplier_57f3105c):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XKeyAlteration']
 

@@ -42,6 +42,7 @@ class MailServiceProvider(XMailServiceProvider_17ba0ea2):
         """
         Creation method.
         """
+        ...
 
 
 __all__ = ['MailServiceProvider']

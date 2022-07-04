@@ -40,14 +40,17 @@ class XRegressionCurve(XInterface_8f010a43):
     def getCalculator(self) -> 'XRegressionCurveCalculator_995511d4':
         """
         """
+        ...
     @abstractmethod
     def getEquationProperties(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def setEquationProperties(self, xEquationProperties: 'XPropertySet_bc180bfa') -> None:
         """
         """
+        ...
 
 __all__ = ['XRegressionCurve']
 

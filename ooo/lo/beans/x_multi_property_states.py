@@ -47,6 +47,7 @@ class XMultiPropertyStates(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getPropertyStates(self, aPropertyName: 'typing.Tuple[str, ...]') -> 'typing.Tuple[PropertyState_c97b0c77, ...]':
         """
@@ -55,6 +56,7 @@ class XMultiPropertyStates(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def setAllPropertiesToDefault(self) -> None:
         """
@@ -62,6 +64,7 @@ class XMultiPropertyStates(XInterface_8f010a43):
         
         Each value depends on the implementation of this interface. If it is a bound property, you must change the value before the change events are fired. If it is a constrained property, you must fire the vetoable event before you change the property value.
         """
+        ...
     @abstractmethod
     def setPropertiesToDefault(self, aPropertyNames: 'typing.Tuple[str, ...]') -> None:
         """
@@ -72,6 +75,7 @@ class XMultiPropertyStates(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
 
 __all__ = ['XMultiPropertyStates']
 

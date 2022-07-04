@@ -42,6 +42,7 @@ class XMultiServiceFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createInstanceWithArguments(self, ServiceSpecifier: str, Arguments: 'typing.Tuple[object, ...]') -> 'XInterface_8f010a43':
         """
@@ -50,11 +51,13 @@ class XMultiServiceFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getAvailableServiceNames(self) -> 'typing.Tuple[str, ...]':
         """
         Provides the available names of the factory to be used to create instances.
         """
+        ...
 
 __all__ = ['XMultiServiceFactory']
 

@@ -34,6 +34,10 @@ class DataPilotFieldOrientation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotFieldOrientation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.DataPilotFieldOrientation'
+
     COLUMN = 'COLUMN'
     """
     the field is used as a column field.

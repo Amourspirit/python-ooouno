@@ -34,6 +34,10 @@ class LegendPosition(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.LegendPosition'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.LegendPosition'
+
     CUSTOM = 'CUSTOM'
     """
     The position of the legend is given by an offset value.

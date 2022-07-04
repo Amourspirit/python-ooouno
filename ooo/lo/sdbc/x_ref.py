@@ -43,6 +43,7 @@ class XRef(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XRef']
 

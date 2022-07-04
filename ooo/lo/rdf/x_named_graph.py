@@ -58,6 +58,7 @@ class XNamedGraph(XURI_5682078c):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
@@ -67,6 +68,7 @@ class XNamedGraph(XURI_5682078c):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def getName(self) -> 'XURI_5682078c':
         """
@@ -74,6 +76,7 @@ class XNamedGraph(XURI_5682078c):
         
         The name is unique within the repository.
         """
+        ...
     @abstractmethod
     def getStatements(self, Subject: 'XResource_842709e4', Predicate: 'XURI_5682078c', Object: 'XNode_5ee40822') -> 'XEnumeration_f2180daa':
         """
@@ -87,6 +90,7 @@ class XNamedGraph(XURI_5682078c):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def removeStatements(self, Subject: 'XResource_842709e4', Predicate: 'XURI_5682078c', Object: 'XNode_5ee40822') -> None:
         """
@@ -100,6 +104,7 @@ class XNamedGraph(XURI_5682078c):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             RepositoryException: ``RepositoryException``
         """
+        ...
 
 __all__ = ['XNamedGraph']
 

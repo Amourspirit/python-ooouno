@@ -41,46 +41,55 @@ class XElement(XNode_83fb09a5):
         """
         Retrieves an attribute value by name.
         """
+        ...
     @abstractmethod
     def getAttributeNS(self, namespaceURI: str, localName: str) -> str:
         """
         Retrieves an attribute value by local name and namespace URI.
         """
+        ...
     @abstractmethod
     def getAttributeNode(self, name: str) -> 'XAttr_840309ba':
         """
         Retrieves an attribute node by name.
         """
+        ...
     @abstractmethod
     def getAttributeNodeNS(self, namespaceURI: str, localName: str) -> 'XAttr_840309ba':
         """
         Retrieves an Attr node by local name and namespace URI.
         """
+        ...
     @abstractmethod
     def getElementsByTagName(self, name: str) -> 'XNodeList_ae540b41':
         """
         Returns a NodeList of all descendant Elements with a given tag name, in the order in which they are encountered in a preorder traversal of this Element tree.
         """
+        ...
     @abstractmethod
     def getElementsByTagNameNS(self, namespaceURI: str, localName: str) -> 'XNodeList_ae540b41':
         """
         Returns a NodeList of all the descendant Elements with a given local name and namespace URI in the order in which they are encountered in a preorder traversal of this Element tree.
         """
+        ...
     @abstractmethod
     def getTagName(self) -> str:
         """
         The name of the element.
         """
+        ...
     @abstractmethod
     def hasAttribute(self, name: str) -> bool:
         """
         Returns true when an attribute with a given name is specified on this element or has a default value, false otherwise.
         """
+        ...
     @abstractmethod
     def hasAttributeNS(self, namespaceURI: str, localName: str) -> bool:
         """
         Returns true when an attribute with a given local name and namespace URI is specified on this element or has a default value, false otherwise.
         """
+        ...
     @abstractmethod
     def removeAttribute(self, name: str) -> None:
         """
@@ -91,6 +100,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def removeAttributeNS(self, namespaceURI: str, localName: str) -> None:
         """
@@ -101,6 +111,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def removeAttributeNode(self, oldAttr: 'XAttr_840309ba') -> 'XAttr_840309ba':
         """
@@ -111,6 +122,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setAttribute(self, name: str, value: str) -> None:
         """
@@ -121,6 +133,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setAttributeNS(self, namespaceURI: str, qualifiedName: str, value: str) -> None:
         """
@@ -131,6 +144,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setAttributeNode(self, newAttr: 'XAttr_840309ba') -> 'XAttr_840309ba':
         """
@@ -141,6 +155,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setAttributeNodeNS(self, newAttr: 'XAttr_840309ba') -> 'XAttr_840309ba':
         """
@@ -151,6 +166,7 @@ class XElement(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
 
 __all__ = ['XElement']
 

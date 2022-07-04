@@ -39,6 +39,7 @@ class URL(TextField_90260a56):
         """
         Specifies how the URL is formatted on output.
         """
+        ...
 
     @abstractproperty
     def Representation(self) -> str:
@@ -47,18 +48,21 @@ class URL(TextField_90260a56):
         
         If this string is empty, the URL will be shown.
         """
+        ...
 
     @abstractproperty
     def TargetFrame(self) -> str:
         """
         Specifies the frame name in that the URL will be opened.
         """
+        ...
 
     @abstractproperty
     def URL(self) -> str:
         """
         contains the unparsed original URL, for example, http://me:pass@www.sun.de:8080/pub/test/foo.txt?a=b#xyz
         """
+        ...
 
 
 

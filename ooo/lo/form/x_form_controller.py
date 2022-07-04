@@ -45,14 +45,17 @@ class XFormController(XTabController_bacd0be7):
     def addActivateListener(self, l: 'XFormControllerListener_49ba1012') -> None:
         """
         """
+        ...
     @abstractmethod
     def getCurrentControl(self) -> 'XControl_7a9c098d':
         """
         """
+        ...
     @abstractmethod
     def removeActivateListener(self, l: 'XFormControllerListener_49ba1012') -> None:
         """
         """
+        ...
 
 __all__ = ['XFormController']
 

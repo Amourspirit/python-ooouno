@@ -39,6 +39,7 @@ class XEventListener(XInterface_8f010a43):
     def handleEvent(self, evt: 'XEvent_e0c30ce4') -> None:
         """
         """
+        ...
 
 __all__ = ['XEventListener']
 

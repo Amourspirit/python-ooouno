@@ -34,6 +34,10 @@ class FormButtonType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.form.FormButtonType'
+
     PUSH = 'PUSH'
     """
     requires the button to act like a common push button, means no special action is triggered.

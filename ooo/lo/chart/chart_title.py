@@ -48,6 +48,7 @@ class ChartTitle(Shape_85cc09e5, UserDefinedAttributesSupplier_9fbe1222):
         
         Setting this property to false will have no effect. Instead use the interface com.sun.star.drawing.XShape to set a concrete position.
         """
+        ...
 
     @abstractproperty
     def String(self) -> str:
@@ -56,6 +57,7 @@ class ChartTitle(Shape_85cc09e5, UserDefinedAttributesSupplier_9fbe1222):
         
         Note that you cannot change attributes of parts of a title, e.g., put one word in bold characters. All formatting affects the entire string.
         """
+        ...
 
     @abstractproperty
     def TextRotation(self) -> int:
@@ -64,6 +66,7 @@ class ChartTitle(Shape_85cc09e5, UserDefinedAttributesSupplier_9fbe1222):
         
         Especially in three-dimensional charts, this property comes in handy if you want to align the axis titles with the axis, which are usually not vertical or horizontal in the two-dimensional projection.
         """
+        ...
 
 
 

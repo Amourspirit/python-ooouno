@@ -43,6 +43,7 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def comment(self, sComment: str) -> None:
         """
@@ -51,6 +52,7 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endCDATA(self) -> None:
         """
@@ -61,6 +63,7 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startCDATA(self) -> None:
         """
@@ -71,6 +74,7 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def unknown(self, sString: str) -> None:
         """
@@ -79,6 +83,7 @@ class XExtendedDocumentHandler(XDocumentHandler_9b90e28):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XExtendedDocumentHandler']
 

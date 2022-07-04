@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import FormulaMapGroup as FormulaMapGroup
-    if hasattr(FormulaMapGroup, '_constants') and isinstance(FormulaMapGroup._constants, dict):
-        FormulaMapGroup._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        FormulaMapGroup._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaMapGroup'
-        FormulaMapGroup._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FormulaMapGroupEnum
-        ls = [f for f in dir(FormulaMapGroup) if not callable(getattr(FormulaMapGroup, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FormulaMapGroup, name)
-        FormulaMapGroupEnum = IntEnum('FormulaMapGroupEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class FormulaMapGroup(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.FormulaMapGroup", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.FormulaMapGroup``"""
+        pass
+
+    class FormulaMapGroupEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.FormulaMapGroup", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.FormulaMapGroup`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.formula_map_group import FormulaMapGroup as FormulaMapGroup
 

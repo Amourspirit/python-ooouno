@@ -48,6 +48,7 @@ class XUnnamedDatabaseRanges(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def hasByTable(self, nTab: int) -> bool:
         """
@@ -55,6 +56,7 @@ class XUnnamedDatabaseRanges(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setByTable(self, aRange: 'CellRangeAddress_ec450d43') -> None:
         """
@@ -62,6 +64,7 @@ class XUnnamedDatabaseRanges(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XUnnamedDatabaseRanges']
 

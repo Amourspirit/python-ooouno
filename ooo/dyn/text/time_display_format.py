@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import TimeDisplayFormat as TimeDisplayFormat
-    if hasattr(TimeDisplayFormat, '_constants') and isinstance(TimeDisplayFormat._constants, dict):
-        TimeDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
-        TimeDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.TimeDisplayFormat'
-        TimeDisplayFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TimeDisplayFormatEnum
-        ls = [f for f in dir(TimeDisplayFormat) if not callable(getattr(TimeDisplayFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TimeDisplayFormat, name)
-        TimeDisplayFormatEnum = IntEnum('TimeDisplayFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TimeDisplayFormat(metaclass=UnoConstMeta, type_name="com.sun.star.text.TimeDisplayFormat", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.TimeDisplayFormat``"""
+        pass
+
+    class TimeDisplayFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.TimeDisplayFormat", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.TimeDisplayFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.time_display_format import TimeDisplayFormat as TimeDisplayFormat
 

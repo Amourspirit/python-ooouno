@@ -41,6 +41,7 @@ class XTabControllerModel(XInterface_8f010a43):
         """
         returns the control models.
         """
+        ...
     @abstractmethod
     def getGroup(self, nGroup: int, Group: 'typing.Tuple[XControlModel_affc0b7e, ...]', Name: str) -> None:
         """
@@ -49,6 +50,7 @@ class XTabControllerModel(XInterface_8f010a43):
         * ``Group`` is an out direction argument.
         * ``Name`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getGroupByName(self, Name: str, Group: 'typing.Tuple[XControlModel_affc0b7e, ...]') -> None:
         """
@@ -56,31 +58,37 @@ class XTabControllerModel(XInterface_8f010a43):
 
         * ``Group`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getGroupControl(self) -> bool:
         """
         returns whether the control models are grouped together.
         """
+        ...
     @abstractmethod
     def getGroupCount(self) -> int:
         """
         returns the number of control model groups.
         """
+        ...
     @abstractmethod
     def setControlModels(self, Controls: 'typing.Tuple[XControlModel_affc0b7e, ...]') -> None:
         """
         sets the control models.
         """
+        ...
     @abstractmethod
     def setGroup(self, Group: 'typing.Tuple[XControlModel_affc0b7e, ...]', GroupName: str) -> None:
         """
         sets a control model group.
         """
+        ...
     @abstractmethod
     def setGroupControl(self, GroupControl: bool) -> None:
         """
         determines if the control models are grouped together.
         """
+        ...
 
 __all__ = ['XTabControllerModel']
 

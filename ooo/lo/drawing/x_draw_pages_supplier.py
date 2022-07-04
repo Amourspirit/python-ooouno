@@ -40,6 +40,7 @@ class XDrawPagesSupplier(XInterface_8f010a43):
     def getDrawPages(self) -> 'XDrawPages_bc440bca':
         """
         """
+        ...
 
 __all__ = ['XDrawPagesSupplier']
 

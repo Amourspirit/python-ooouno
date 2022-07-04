@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb import ErrorCondition as ErrorCondition
-    if hasattr(ErrorCondition, '_constants') and isinstance(ErrorCondition._constants, dict):
-        ErrorCondition._constants['__ooo_ns__'] = 'com.sun.star.sdb'
-        ErrorCondition._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.ErrorCondition'
-        ErrorCondition._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ErrorConditionEnum
-        ls = [f for f in dir(ErrorCondition) if not callable(getattr(ErrorCondition, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ErrorCondition, name)
-        ErrorConditionEnum = IntEnum('ErrorConditionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ErrorCondition(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.ErrorCondition", name_space="com.sun.star.sdb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdb.ErrorCondition``"""
+        pass
+
+    class ErrorConditionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdb.ErrorCondition", name_space="com.sun.star.sdb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdb.ErrorCondition`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdb.error_condition import ErrorCondition as ErrorCondition
 
@@ -48,8 +46,7 @@ else:
 
         defines error conditions for OpenOffice.org Base core components
         
-        Core components of OpenOffice.org will use those error conditions as error codes (com.sun.star.sdbc.SQLException.ErrorCode) wherever possible.
-        That is, if an SQLException is raised by such a component, caused by an error condition which is included in the ErrorCondition group, then the respective negative value will be used as ErrorCode.
+        Core components of OpenOffice.org will use those error conditions as error codes (com.sun.star.sdbc.SQLException.ErrorCode) wherever possible.That is, if an SQLException is raised by such a component, caused by an error condition which is included in the ErrorCondition group, then the respective negative value will be used as ErrorCode.
         
         This allows to determine specific error conditions in your client code, and to handle it appropriately.
         

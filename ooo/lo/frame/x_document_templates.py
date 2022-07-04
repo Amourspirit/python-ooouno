@@ -44,11 +44,13 @@ class XDocumentTemplates(XInterface_8f010a43):
         """
         creates a new group
         """
+        ...
     @abstractmethod
     def addTemplate(self, GroupName: str, TemplateName: str, SourceURL: str) -> bool:
         """
         creates the template with the given name in the given group using the given URL
         """
+        ...
     @abstractmethod
     def getContent(self) -> 'XContent_79db0975':
         """
@@ -56,31 +58,37 @@ class XDocumentTemplates(XInterface_8f010a43):
         
         This content can be used for accessing the groups directly.
         """
+        ...
     @abstractmethod
     def removeGroup(self, GroupName: str) -> bool:
         """
         remove an existing group
         """
+        ...
     @abstractmethod
     def removeTemplate(self, GroupName: str, TemplateName: str) -> bool:
         """
         remove a template from specified group
         """
+        ...
     @abstractmethod
     def renameGroup(self, OldGroupName: str, NewGroupName: str) -> bool:
         """
         rename an existing group
         """
+        ...
     @abstractmethod
     def renameTemplate(self, GroupName: str, OldTemplateName: str, NewTemplateName: str) -> bool:
         """
         rename a template inside specified group
         """
+        ...
     @abstractmethod
     def storeTemplate(self, GroupName: str, TemplateName: str, Storable: 'XStorable_998f0aa7') -> bool:
         """
         creates the template with the given name in the given group using the data from the storable
         """
+        ...
     @abstractmethod
     def update(self) -> None:
         """
@@ -88,6 +96,7 @@ class XDocumentTemplates(XInterface_8f010a43):
         
         Because the templates are well known by links and not as direct content they can be outdated. An update force actualization of that to find wrong links.
         """
+        ...
 
 __all__ = ['XDocumentTemplates']
 

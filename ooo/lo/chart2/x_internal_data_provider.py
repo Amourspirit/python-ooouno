@@ -47,6 +47,7 @@ class XInternalDataProvider(XDataProvider_122f0e31):
         
         (size - 1)
         """
+        ...
     @abstractmethod
     def deleteComplexCategoryLevel(self, nLevel: int) -> None:
         """
@@ -56,22 +57,27 @@ class XInternalDataProvider(XDataProvider_122f0e31):
         
             OOo 3.3
         """
+        ...
     @abstractmethod
     def deleteDataPointForAllSequences(self, nAtIndex: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def deleteSequence(self, nAtIndex: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def getDataByRangeRepresentation(self, aRange: str) -> 'typing.Tuple[object, ...]':
         """
         """
+        ...
     @abstractmethod
     def hasDataByRangeRepresentation(self, aRange: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def insertComplexCategoryLevel(self, nLevel: int) -> None:
         """
@@ -81,14 +87,17 @@ class XInternalDataProvider(XDataProvider_122f0e31):
         
             OOo 3.3
         """
+        ...
     @abstractmethod
     def insertDataPointForAllSequences(self, nAfterIndex: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def insertSequence(self, nAfterIndex: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def registerDataSequenceForChanges(self, xSeq: 'XDataSequence_11f00e1f') -> None:
         """
@@ -96,14 +105,17 @@ class XInternalDataProvider(XDataProvider_122f0e31):
         
         Sequences that are directly retrieved via the methods of the XDataProvider interface are already registered. If a labeled data sequence was created by cloning an existing one, it has to be explicitly registered via this method.
         """
+        ...
     @abstractmethod
     def setDataByRangeRepresentation(self, aRange: str, aNewData: 'typing.Tuple[object, ...]') -> None:
         """
         """
+        ...
     @abstractmethod
     def swapDataPointWithNextOneForAllSequences(self, nAtIndex: int) -> None:
         """
         """
+        ...
 
 __all__ = ['XInternalDataProvider']
 

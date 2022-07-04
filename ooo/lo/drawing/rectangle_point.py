@@ -34,6 +34,10 @@ class RectanglePoint(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.RectanglePoint'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.RectanglePoint'
+
     LEFT_BOTTOM = 'LEFT_BOTTOM'
     """
     specify to the point on the bottom of the left side from the rectangle.

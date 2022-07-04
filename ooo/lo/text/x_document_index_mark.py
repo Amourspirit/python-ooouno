@@ -37,6 +37,7 @@ class XDocumentIndexMark(XTextContent_b16e0ba5):
     def getMarkEntry(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setMarkEntry(self, aIndexEntry: str) -> None:
         """
@@ -44,6 +45,7 @@ class XDocumentIndexMark(XTextContent_b16e0ba5):
         
         If empty, the string of the TextRange to which the TextContent refers is used in the index.
         """
+        ...
 
 __all__ = ['XDocumentIndexMark']
 

@@ -55,6 +55,7 @@ class XObjectInspector(XController_b00e0b8f, XDispatchProvider_fc690de6):
         Raises:
             com.sun.star.util.VetoException: ``VetoException``
         """
+        ...
     @abstractproperty
     def InspectorModel(self) -> 'XObjectInspectorModel_9077119b':
         """
@@ -66,6 +67,7 @@ class XObjectInspector(XController_b00e0b8f, XDispatchProvider_fc690de6):
         
         If a new model is set at the inspector, the complete UI will be rebuilt to reflect the change, using the new property handlers provided by the new model.
         """
+        ...
 
     @abstractproperty
     def InspectorUI(self) -> 'XObjectInspectorUI_5ccd1048':
@@ -78,6 +80,7 @@ class XObjectInspector(XController_b00e0b8f, XDispatchProvider_fc690de6):
         
             OOo 2.2
         """
+        ...
 
 
 __all__ = ['XObjectInspector']

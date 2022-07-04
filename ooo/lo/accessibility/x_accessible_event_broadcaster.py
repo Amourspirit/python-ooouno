@@ -45,11 +45,13 @@ class XAccessibleEventBroadcaster(XInterface_8f010a43):
         """
         registers the given XAccessibleEventListener.
         """
+        ...
     @abstractmethod
     def removeAccessibleEventListener(self, xListener: 'XAccessibleEventListener_1813fe') -> None:
         """
         unregisters the given XAccessibleEventListener.
         """
+        ...
 
 __all__ = ['XAccessibleEventBroadcaster']
 

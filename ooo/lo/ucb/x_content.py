@@ -42,6 +42,7 @@ class XContent(XInterface_8f010a43):
         """
         adds a listener for content events.
         """
+        ...
     @abstractmethod
     def getContentType(self) -> str:
         """
@@ -49,16 +50,19 @@ class XContent(XInterface_8f010a43):
         
         \"application/vnd.sun.star.hierarchy-folder\").
         """
+        ...
     @abstractmethod
     def getIdentifier(self) -> 'XContentIdentifier_edc90d78':
         """
         returns the identifier of the content.
         """
+        ...
     @abstractmethod
     def removeContentEventListener(self, Listener: 'XContentEventListener_18ea0ebd') -> None:
         """
         removes a listener for content events.
         """
+        ...
 
 __all__ = ['XContent']
 

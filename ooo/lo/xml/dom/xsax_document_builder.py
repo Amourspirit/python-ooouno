@@ -42,26 +42,32 @@ class XSAXDocumentBuilder(XInterface_8f010a43):
     def endDocumentFragment(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def getDocument(self) -> 'XDocument_aebc0b5e':
         """
         """
+        ...
     @abstractmethod
     def getDocumentFragment(self) -> 'XDocumentFragment_17850e92':
         """
         """
+        ...
     @abstractmethod
     def getState(self) -> 'SAXDocumentBuilderState_723f10ba':
         """
         """
+        ...
     @abstractmethod
     def reset(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def startDocumentFragment(self, ownerDoc: 'XDocument_aebc0b5e') -> None:
         """
         """
+        ...
 
 __all__ = ['XSAXDocumentBuilder']
 

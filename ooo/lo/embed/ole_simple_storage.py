@@ -43,11 +43,13 @@ class OLESimpleStorage(XOLESimpleStorage_f6db0d7c):
         """
         is used to initialize the object on it's creation.
         """
+        ...
     @abstractmethod
     def createFromStream(self, xStream: 'XStream_678908a4', bNoTempCopy: bool) -> None:
         """
         is used to initialize the object on it's creation.
         """
+        ...
 
 
 __all__ = ['OLESimpleStorage']

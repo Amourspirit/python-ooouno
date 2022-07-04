@@ -39,6 +39,7 @@ class CoordinateSystem(XChartTypeContainer_23c30edb, XCoordinateSystem_7ff0e31, 
     def SwapXAndYAxis(self) -> bool:
         """
         """
+        ...
 
 
 

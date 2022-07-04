@@ -41,6 +41,7 @@ class XDataPilotTablesSupplier(XInterface_8f010a43):
         """
         Returns the collection of data pilot tables.
         """
+        ...
 
 __all__ = ['XDataPilotTablesSupplier']
 

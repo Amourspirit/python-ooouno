@@ -44,6 +44,7 @@ class XUndoAction(ABC):
         Raises:
             com.sun.star.document.UndoFailedException: ``UndoFailedException``
         """
+        ...
     @abstractmethod
     def undo(self) -> None:
         """
@@ -52,11 +53,13 @@ class XUndoAction(ABC):
         Raises:
             com.sun.star.document.UndoFailedException: ``UndoFailedException``
         """
+        ...
     @abstractproperty
     def Title(self) -> str:
         """
         is the human-readable, localized description of the action.
         """
+        ...
 
 
 __all__ = ['XUndoAction']

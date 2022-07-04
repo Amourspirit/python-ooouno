@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.sdbc
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -55,6 +56,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readBinaryStream(self) -> 'XInputStream_98d40ab4':
         """
@@ -63,6 +65,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readBlob(self) -> 'XBlob_6773087b':
         """
@@ -71,6 +74,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readBoolean(self) -> bool:
         """
@@ -79,6 +83,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readByte(self) -> int:
         """
@@ -87,14 +92,16 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
-    def readBytes(self) -> 'typing.Tuple[int, ...]':
+    def readBytes(self) -> uno.ByteSequence:
         """
         reads the next attribute in the stream as sequence of bytes.
 
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readCharacterStream(self) -> 'XInputStream_98d40ab4':
         """
@@ -103,6 +110,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readClob(self) -> 'XClob_6777087c':
         """
@@ -111,6 +119,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readDate(self) -> 'Date_60040844':
         """
@@ -119,6 +128,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readDouble(self) -> float:
         """
@@ -127,6 +137,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readFloat(self) -> float:
         """
@@ -135,6 +146,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readInt(self) -> int:
         """
@@ -143,6 +155,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readLong(self) -> int:
         """
@@ -151,6 +164,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readObject(self) -> object:
         """
@@ -165,6 +179,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readRef(self) -> 'XRef_5f110819':
         """
@@ -173,6 +188,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readShort(self) -> int:
         """
@@ -181,6 +197,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readString(self) -> str:
         """
@@ -189,6 +206,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readTime(self) -> 'Time_604e0855':
         """
@@ -197,6 +215,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def readTimestamp(self) -> 'DateTime_84de09d3':
         """
@@ -205,6 +224,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def wasNull(self) -> bool:
         """
@@ -213,6 +233,7 @@ class XSQLInput(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XSQLInput']
 

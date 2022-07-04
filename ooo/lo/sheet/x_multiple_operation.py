@@ -45,6 +45,7 @@ class XMultipleOperation(XInterface_8f010a43):
         
         The specified formulas are repeated, with references to the specified cells replaced by references to values in the first column and/or row of the range.
         """
+        ...
 
 __all__ = ['XMultipleOperation']
 

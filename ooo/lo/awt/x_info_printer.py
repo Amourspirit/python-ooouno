@@ -43,6 +43,7 @@ class XInfoPrinter(XPrinterPropertySet_ff190e21):
         
         The current settings are used as a template.
         """
+        ...
 
 __all__ = ['XInfoPrinter']
 

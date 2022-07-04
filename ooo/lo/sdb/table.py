@@ -40,6 +40,7 @@ class Table(DataSettings_a3000b0c, Table_71780904):
         """
         indicates the privileges for the table.
         """
+        ...
 
 
 

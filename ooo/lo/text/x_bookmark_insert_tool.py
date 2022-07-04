@@ -42,6 +42,7 @@ class XBookmarkInsertTool(XInterface_8f010a43):
         """
         inserts a bookmark at the specified text position.
         """
+        ...
 
 __all__ = ['XBookmarkInsertTool']
 

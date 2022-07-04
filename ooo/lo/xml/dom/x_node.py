@@ -63,56 +63,67 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def cloneNode(self, deep: bool) -> 'XNode':
         """
         Returns a duplicate of this node, i.e., serves as a generic copy constructor for nodes.
         """
+        ...
     @abstractmethod
     def getAttributes(self) -> 'XNamedNodeMap_de600ca8':
         """
         A NamedNodeMap containing the attributes of this node (if it is an Element) or null otherwise.
         """
+        ...
     @abstractmethod
     def getChildNodes(self) -> 'XNodeList_ae540b41':
         """
         A NodeList that contains all children of this node.
         """
+        ...
     @abstractmethod
     def getFirstChild(self) -> 'XNode':
         """
         The first child of this node.
         """
+        ...
     @abstractmethod
     def getLastChild(self) -> 'XNode':
         """
         The last child of this node.
         """
+        ...
     @abstractmethod
     def getLocalName(self) -> str:
         """
         Returns the local part of the qualified name of this node.
         """
+        ...
     @abstractmethod
     def getNamespaceURI(self) -> str:
         """
         The namespace URI of this node, or null if it is unspecified.
         """
+        ...
     @abstractmethod
     def getNextSibling(self) -> 'XNode':
         """
         The node immediately following this node.
         """
+        ...
     @abstractmethod
     def getNodeName(self) -> str:
         """
         The name of this node, depending on its type; see the table above.
         """
+        ...
     @abstractmethod
     def getNodeType(self) -> 'NodeType_a3b00aef':
         """
         A code representing the type of the underlying object, as defined above.
         """
+        ...
     @abstractmethod
     def getNodeValue(self) -> str:
         """
@@ -123,36 +134,43 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def getOwnerDocument(self) -> 'XDocument_aebc0b5e':
         """
         The Document object associated with this node.
         """
+        ...
     @abstractmethod
     def getParentNode(self) -> 'XNode':
         """
         The parent of this node.
         """
+        ...
     @abstractmethod
     def getPrefix(self) -> str:
         """
         The namespace prefix of this node, or null if it is unspecified.
         """
+        ...
     @abstractmethod
     def getPreviousSibling(self) -> 'XNode':
         """
         The node immediately preceding this node.
         """
+        ...
     @abstractmethod
     def hasAttributes(self) -> bool:
         """
         Returns whether this node (if it is an element) has any attributes.
         """
+        ...
     @abstractmethod
     def hasChildNodes(self) -> bool:
         """
         Returns whether this node has any children.
         """
+        ...
     @abstractmethod
     def insertBefore(self, newChild: 'XNode', refChild: 'XNode') -> 'XNode':
         """
@@ -169,16 +187,19 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def isSupported(self, feature: str, ver: str) -> bool:
         """
         Tests whether the DOM implementation implements a specific feature and that feature is supported by this node.
         """
+        ...
     @abstractmethod
     def normalize(self) -> None:
         """
         Puts all Text nodes in the full depth of the sub-tree underneath this Node, including attribute nodes, into a \"normal\" form where only structure (e.g., elements, comments, processing instructions, CDATA sections, and entity references) separates Text nodes, i.e., there are neither adjacent Text nodes nor empty Text nodes.
         """
+        ...
     @abstractmethod
     def removeChild(self, oldChild: 'XNode') -> 'XNode':
         """
@@ -191,6 +212,7 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def replaceChild(self, newChild: 'XNode', oldChild: 'XNode') -> 'XNode':
         """
@@ -207,6 +229,7 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setNodeValue(self, nodeValue: str) -> None:
         """
@@ -219,6 +242,7 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setPrefix(self, prefix: str) -> None:
         """
@@ -233,6 +257,7 @@ class XNode(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
 
 __all__ = ['XNode']
 

@@ -34,6 +34,10 @@ class NavigationBarMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.form.NavigationBarMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.form.NavigationBarMode'
+
     CURRENT = 'CURRENT'
     """
     a navigation bar is provided and navigation will be performed on the current/active form.

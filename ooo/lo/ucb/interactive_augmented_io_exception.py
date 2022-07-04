@@ -44,7 +44,7 @@ class InteractiveAugmentedIOException(InteractiveIOException_27a60f07):
     typeName: str = 'com.sun.star.ucb.InteractiveAugmentedIOException'
     """Literal Constant ``com.sun.star.ucb.InteractiveAugmentedIOException``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, Code: typing.Optional[IOErrorCode_96ab0a5f] = IOErrorCode_96ab0a5f.ABORT, Arguments: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, Code: typing.Optional[IOErrorCode_96ab0a5f] = IOErrorCode_96ab0a5f.ABORT, Arguments: typing.Optional[typing.Tuple[object, ...]] = ()) -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class InteractiveAugmentedIOException(InteractiveIOException_27a60f07):
             "Code": Code,
             "Arguments": Arguments,
         }
-        if kargs["Arguments"] is UNO_NONE:
-            kargs["Arguments"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

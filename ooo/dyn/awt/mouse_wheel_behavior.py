@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import MouseWheelBehavior as MouseWheelBehavior
-    if hasattr(MouseWheelBehavior, '_constants') and isinstance(MouseWheelBehavior._constants, dict):
-        MouseWheelBehavior._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        MouseWheelBehavior._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MouseWheelBehavior'
-        MouseWheelBehavior._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global MouseWheelBehaviorEnum
-        ls = [f for f in dir(MouseWheelBehavior) if not callable(getattr(MouseWheelBehavior, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(MouseWheelBehavior, name)
-        MouseWheelBehaviorEnum = IntEnum('MouseWheelBehaviorEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class MouseWheelBehavior(metaclass=UnoConstMeta, type_name="com.sun.star.awt.MouseWheelBehavior", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.MouseWheelBehavior``"""
+        pass
+
+    class MouseWheelBehaviorEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.MouseWheelBehavior", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.MouseWheelBehavior`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.mouse_wheel_behavior import MouseWheelBehavior as MouseWheelBehavior
 

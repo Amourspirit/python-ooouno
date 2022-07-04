@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.script
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 
@@ -41,20 +42,23 @@ class XLibraryAccess(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.script.XLibraryAccess'
 
     @abstractmethod
-    def getFunctionCode(self, FunctionName: str) -> 'typing.Tuple[int, ...]':
+    def getFunctionCode(self, FunctionName: str) -> uno.ByteSequence:
         """
         Get the compiled code of a function.
         """
+        ...
     @abstractmethod
     def getFunctionSource(self, aFunctionName: str) -> str:
         """
         get the source code of a function.
         """
+        ...
     @abstractmethod
-    def getModuleCode(self, aModuleName: str) -> 'typing.Tuple[int, ...]':
+    def getModuleCode(self, aModuleName: str) -> uno.ByteSequence:
         """
         Get the whole compiled code of a module.
         """
+        ...
     @abstractmethod
     def getModuleNames(self) -> 'typing.Tuple[str, ...]':
         """
@@ -62,21 +66,25 @@ class XLibraryAccess(XInterface_8f010a43):
         
         e.g., { \"UtilLibrary.ModuleDate\", \"UtilLibrary.Output\", ... }
         """
+        ...
     @abstractmethod
     def getModuleSource(self, aModulName: str) -> str:
         """
         get the source code of a module.
         """
+        ...
     @abstractmethod
     def isFunction(self, aFunctionName: str) -> bool:
         """
         returns TRUE, if the function is accessible through this library; otherwise it returns FALSE.
         """
+        ...
     @abstractmethod
     def isValidPath(self, aPathName: str) -> bool:
         """
         returns TRUE if a fully qualified function name begins with this name.
         """
+        ...
 
 __all__ = ['XLibraryAccess']
 

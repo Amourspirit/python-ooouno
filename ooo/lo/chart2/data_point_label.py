@@ -40,7 +40,7 @@ class DataPointLabel(object):
     typeName: str = 'com.sun.star.chart2.DataPointLabel'
     """Literal Constant ``com.sun.star.chart2.DataPointLabel``"""
 
-    def __init__(self, ShowNumber: typing.Optional[bool] = False, ShowNumberInPercent: typing.Optional[bool] = False, ShowCategoryName: typing.Optional[bool] = False, ShowLegendSymbol: typing.Optional[bool] = False, ShowCustomLabel: typing.Optional[bool] = None, ShowSeriesName: typing.Optional[bool] = None) -> None:
+    def __init__(self, ShowNumber: typing.Optional[bool] = False, ShowNumberInPercent: typing.Optional[bool] = False, ShowCategoryName: typing.Optional[bool] = False, ShowLegendSymbol: typing.Optional[bool] = False, ShowCustomLabel: typing.Optional[bool] = False, ShowSeriesName: typing.Optional[bool] = False) -> None:
         """
         Constructor
 

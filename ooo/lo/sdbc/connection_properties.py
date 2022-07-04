@@ -42,12 +42,14 @@ class ConnectionProperties(ABC):
         """
         the password
         """
+        ...
 
     @abstractproperty
     def user(self) -> str:
         """
         the username
         """
+        ...
 
 
 

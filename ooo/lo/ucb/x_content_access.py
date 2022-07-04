@@ -44,11 +44,13 @@ class XContentAccess(XInterface_8f010a43):
         """
         returns the content ( \"most expensive method\" ).
         """
+        ...
     @abstractmethod
     def queryContentIdentifier(self) -> 'XContentIdentifier_edc90d78':
         """
         returns the identifier object of the content.
         """
+        ...
     @abstractmethod
     def queryContentIdentifierString(self) -> str:
         """
@@ -56,6 +58,7 @@ class XContentAccess(XInterface_8f010a43):
         
         Note that this string can be used later to recreate the content.
         """
+        ...
 
 __all__ = ['XContentAccess']
 

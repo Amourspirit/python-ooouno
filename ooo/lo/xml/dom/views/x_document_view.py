@@ -39,6 +39,7 @@ class XDocumentView(XInterface_8f010a43):
     def getDefaultView(self) -> 'XAbstractView_35f90f4a':
         """
         """
+        ...
 
 __all__ = ['XDocumentView']
 

@@ -34,6 +34,10 @@ class WritingMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.text.WritingMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.text.WritingMode'
+
     LR_TB = 'LR_TB'
     """
     text within lines is written left-to-right.

@@ -41,11 +41,13 @@ class XRangeSelectionListener(XEventListener_c7230c4a):
         """
         is called when range selection is aborted.
         """
+        ...
     @abstractmethod
     def done(self, aEvent: 'RangeSelectionEvent_1a2b0eb6') -> None:
         """
         is called when range selection is completed.
         """
+        ...
 
 __all__ = ['XRangeSelectionListener']
 

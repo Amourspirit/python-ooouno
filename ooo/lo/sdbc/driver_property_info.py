@@ -39,7 +39,7 @@ class DriverPropertyInfo(object):
     typeName: str = 'com.sun.star.sdbc.DriverPropertyInfo'
     """Literal Constant ``com.sun.star.sdbc.DriverPropertyInfo``"""
 
-    def __init__(self, Choices: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Name: typing.Optional[str] = '', Description: typing.Optional[str] = '', IsRequired: typing.Optional[bool] = False, Value: typing.Optional[str] = '') -> None:
+    def __init__(self, Choices: typing.Optional[typing.Tuple[str, ...]] = (), Name: typing.Optional[str] = '', Description: typing.Optional[str] = '', IsRequired: typing.Optional[bool] = False, Value: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -68,8 +68,6 @@ class DriverPropertyInfo(object):
             "IsRequired": IsRequired,
             "Value": Value,
         }
-        if kargs["Choices"] is UNO_NONE:
-            kargs["Choices"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

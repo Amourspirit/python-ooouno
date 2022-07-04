@@ -41,6 +41,7 @@ class XRangeXMLConversion(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertRangeToXML(self, aRangeRepresentation: str) -> str:
         """
@@ -51,6 +52,7 @@ class XRangeXMLConversion(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XRangeXMLConversion']
 

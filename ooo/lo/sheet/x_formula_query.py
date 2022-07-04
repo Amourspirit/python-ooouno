@@ -45,6 +45,7 @@ class XFormulaQuery(XInterface_8f010a43):
         
         Dependent cells are cells containing formulas with references to the original cell.
         """
+        ...
     @abstractmethod
     def queryPrecedents(self, bRecursive: bool) -> 'XSheetCellRanges_edef0d52':
         """
@@ -52,6 +53,7 @@ class XFormulaQuery(XInterface_8f010a43):
         
         Precedent cells are cells which are referenced from a formula cell.
         """
+        ...
 
 __all__ = ['XFormulaQuery']
 

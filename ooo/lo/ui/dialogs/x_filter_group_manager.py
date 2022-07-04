@@ -41,12 +41,12 @@ class XFilterGroupManager(XInterface_8f010a43):
         """
         Appends a group of filters to the current filter list.
         
-        It is implementation dependent how the filter groups are presented to the user.
-        It is not even guaranteed that the groups are visualized: implementations are free to simply append all the filters separately, with ignoring the group title.
+        It is implementation dependent how the filter groups are presented to the user.It is not even guaranteed that the groups are visualized: implementations are free to simply append all the filters separately, with ignoring the group title.
 
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XFilterGroupManager']
 

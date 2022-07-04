@@ -51,6 +51,7 @@ class XDataSource(XInterface_8f010a43):
         
         If the data stored consist only of strings, the returned instances should also support the service TextualDataSequence.
         """
+        ...
 
 __all__ = ['XDataSource']
 

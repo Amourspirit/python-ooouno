@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import ColorSpaceType as ColorSpaceType
-    if hasattr(ColorSpaceType, '_constants') and isinstance(ColorSpaceType._constants, dict):
-        ColorSpaceType._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        ColorSpaceType._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.ColorSpaceType'
-        ColorSpaceType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ColorSpaceTypeEnum
-        ls = [f for f in dir(ColorSpaceType) if not callable(getattr(ColorSpaceType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ColorSpaceType, name)
-        ColorSpaceTypeEnum = IntEnum('ColorSpaceTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ColorSpaceType(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.ColorSpaceType", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.ColorSpaceType``"""
+        pass
+
+    class ColorSpaceTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.ColorSpaceType", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.ColorSpaceType`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.color_space_type import ColorSpaceType as ColorSpaceType
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import ExtendedFilePickerElementIds as ExtendedFilePickerElementIds
-    if hasattr(ExtendedFilePickerElementIds, '_constants') and isinstance(ExtendedFilePickerElementIds._constants, dict):
-        ExtendedFilePickerElementIds._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
-        ExtendedFilePickerElementIds._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.ExtendedFilePickerElementIds'
-        ExtendedFilePickerElementIds._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ExtendedFilePickerElementIdsEnum
-        ls = [f for f in dir(ExtendedFilePickerElementIds) if not callable(getattr(ExtendedFilePickerElementIds, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ExtendedFilePickerElementIds, name)
-        ExtendedFilePickerElementIdsEnum = IntEnum('ExtendedFilePickerElementIdsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ExtendedFilePickerElementIds(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.ExtendedFilePickerElementIds", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.dialogs.ExtendedFilePickerElementIds``"""
+        pass
+
+    class ExtendedFilePickerElementIdsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.dialogs.ExtendedFilePickerElementIds", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.dialogs.ExtendedFilePickerElementIds`` as Enum values"""
+        pass
+
 else:
     from ....lo.ui.dialogs.extended_file_picker_element_ids import ExtendedFilePickerElementIds as ExtendedFilePickerElementIds
 

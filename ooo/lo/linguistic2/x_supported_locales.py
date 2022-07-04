@@ -42,10 +42,12 @@ class XSupportedLocales(XInterface_8f010a43):
     def getLocales(self) -> 'typing.Tuple[Locale_70d308fa, ...]':
         """
         """
+        ...
     @abstractmethod
     def hasLocale(self, aLocale: 'Locale_70d308fa') -> bool:
         """
         """
+        ...
 
 __all__ = ['XSupportedLocales']
 

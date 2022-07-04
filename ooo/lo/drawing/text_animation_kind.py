@@ -34,6 +34,10 @@ class TextAnimationKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.TextAnimationKind'
+
     ALTERNATE = 'ALTERNATE'
     """
     Scroll the text from one side to the other and back.

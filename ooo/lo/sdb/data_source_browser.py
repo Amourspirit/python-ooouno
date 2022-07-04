@@ -38,10 +38,7 @@ class DataSourceBrowser(FormController_c9180c74, XController_b00e0b8f, XDispatch
     
     Some aspects of the browser can be controlled from outside, e.g., it is possible to dispatch a sort or filter request, if a table or query is being displayed.
     
-    The communication between the browser and external instances works in two ways.
-    The way in is provided by the com.sun.star.frame.XDispatchProvider interface the service exports (Please see below for more details on this).
-    The way out works in another way. There are several URLs which an external instance can provide dispatches for (usually by implementing a com.sun.star.frame.XDispatchProviderInterceptor for the parent frame of the browser), thus indicating that the browser should provide special functionality.
-    In this case, the browser displays and maintains some additional slots (to be more concrete: toolbox items), which, upon triggering, call the com.sun.star.frame.XDispatch.dispatch() method of the object provided by the external instance.
+    The communication between the browser and external instances works in two ways. The way in is provided by the com.sun.star.frame.XDispatchProvider interface the service exports (Please see below for more details on this). The way out works in another way. There are several URLs which an external instance can provide dispatches for (usually by implementing a com.sun.star.frame.XDispatchProviderInterceptor for the parent frame of the browser), thus indicating that the browser should provide special functionality. In this case, the browser displays and maintains some additional slots (to be more concrete: toolbox items), which, upon triggering, call the com.sun.star.frame.XDispatch.dispatch() method of the object provided by the external instance.
     
     In particular, the supported URLs for communicating to an external instance are:
     

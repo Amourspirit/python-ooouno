@@ -49,6 +49,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createFolder(self, NewFolderURL: str) -> None:
         """
@@ -58,6 +59,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def exists(self, FileURL: str) -> bool:
         """
@@ -67,6 +69,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getContentType(self, FileURL: str) -> str:
         """
@@ -76,6 +79,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getDateTimeModified(self, FileURL: str) -> 'DateTime_84de09d3':
         """
@@ -85,6 +89,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getFolderContents(self, FolderURL: str, bIncludeFolders: bool) -> 'typing.Tuple[str, ...]':
         """
@@ -94,6 +99,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getSize(self, FileURL: str) -> int:
         """
@@ -103,6 +109,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def isFolder(self, FileURL: str) -> bool:
         """
@@ -112,6 +119,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def isReadOnly(self, FileURL: str) -> bool:
         """
@@ -121,6 +129,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def kill(self, FileURL: str) -> None:
         """
@@ -132,6 +141,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def move(self, SourceURL: str, DestURL: str) -> None:
         """
@@ -141,6 +151,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def openFileRead(self, FileURL: str) -> 'XInputStream_98d40ab4':
         """
@@ -150,6 +161,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def openFileReadWrite(self, FileURL: str) -> 'XStream_678908a4':
         """
@@ -159,6 +171,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def openFileWrite(self, FileURL: str) -> 'XOutputStream_a4e00b35':
         """
@@ -168,6 +181,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setInteractionHandler(self, Handler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -175,6 +189,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
         
         A default interaction handler is available as service com.sun.star.task.InteractionHandler. The documentation of this service also contains further information about the interaction handler concept.
         """
+        ...
     @abstractmethod
     def setReadOnly(self, FileURL: str, bReadOnly: bool) -> None:
         """
@@ -184,6 +199,7 @@ class XSimpleFileAccess(XInterface_8f010a43):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XSimpleFileAccess']
 

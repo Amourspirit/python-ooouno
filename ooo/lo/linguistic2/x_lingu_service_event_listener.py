@@ -42,6 +42,7 @@ class XLinguServiceEventListener(XEventListener_c7230c4a):
     def processLinguServiceEvent(self, aLngSvcEvent: 'LinguServiceEvent_5ab71047') -> None:
         """
         """
+        ...
 
 __all__ = ['XLinguServiceEventListener']
 

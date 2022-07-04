@@ -34,6 +34,10 @@ class PageNumberType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.text.PageNumberType'
+
     CURRENT = 'CURRENT'
     """
     The number of the current page is displayed.

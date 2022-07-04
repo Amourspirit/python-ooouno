@@ -41,16 +41,19 @@ class XMimeContentType(XInterface_8f010a43):
         """
         To get the full media/submedia type of the MIME content-type.
         """
+        ...
     @abstractmethod
     def getMediaSubtype(self) -> str:
         """
         To get the media subtype of the MIME content-type.
         """
+        ...
     @abstractmethod
     def getMediaType(self) -> str:
         """
         To get the media type of the MIME content-type.
         """
+        ...
     @abstractmethod
     def getParameterValue(self, aName: str) -> str:
         """
@@ -59,11 +62,13 @@ class XMimeContentType(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getParameters(self) -> 'typing.Tuple[str, ...]':
         """
         To get a list of parameters that the MIME content-type contains.
         """
+        ...
     @abstractmethod
     def hasParameter(self, aName: str) -> bool:
         """
@@ -71,6 +76,7 @@ class XMimeContentType(XInterface_8f010a43):
         
         A value of FALSE if the MIME content-type has not the specified parameter.
         """
+        ...
 
 __all__ = ['XMimeContentType']
 

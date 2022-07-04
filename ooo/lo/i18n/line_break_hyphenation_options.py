@@ -39,7 +39,7 @@ class LineBreakHyphenationOptions(object):
     typeName: str = 'com.sun.star.i18n.LineBreakHyphenationOptions'
     """Literal Constant ``com.sun.star.i18n.LineBreakHyphenationOptions``"""
 
-    def __init__(self, rHyphenator: typing.Optional[XHyphenator_ff4e0def] = None, aHyphenationOptions: typing.Optional[PropertyValues_d6470ce6] = UNO_NONE, hyphenIndex: typing.Optional[int] = 0) -> None:
+    def __init__(self, rHyphenator: typing.Optional[XHyphenator_ff4e0def] = None, aHyphenationOptions: typing.Optional[PropertyValues_d6470ce6] = PropertyValues_d6470ce6(()), hyphenIndex: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class LineBreakHyphenationOptions(object):
             "aHyphenationOptions": aHyphenationOptions,
             "hyphenIndex": hyphenIndex,
         }
-        if kargs["aHyphenationOptions"] is UNO_NONE:
-            kargs["aHyphenationOptions"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

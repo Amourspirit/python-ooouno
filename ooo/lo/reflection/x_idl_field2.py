@@ -51,6 +51,7 @@ class XIdlField2(XIdlMember_e3400cfc):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getAccessMode(self) -> 'FieldAccessMode_2a300eee':
         """
@@ -58,11 +59,13 @@ class XIdlField2(XIdlMember_e3400cfc):
         
         read-write, read-only or write-only (access mode \"const\" is deprecated).
         """
+        ...
     @abstractmethod
     def getType(self) -> 'XIdlClass_d63a0c9a':
         """
         Returns the type of the field.
         """
+        ...
     @abstractmethod
     def set(self, obj: object, value: object) -> None:
         """
@@ -76,6 +79,7 @@ class XIdlField2(XIdlMember_e3400cfc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
 
 __all__ = ['XIdlField2']
 

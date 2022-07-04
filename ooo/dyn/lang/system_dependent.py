@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.lang import SystemDependent as SystemDependent
-    if hasattr(SystemDependent, '_constants') and isinstance(SystemDependent._constants, dict):
-        SystemDependent._constants['__ooo_ns__'] = 'com.sun.star.lang'
-        SystemDependent._constants['__ooo_full_ns__'] = 'com.sun.star.lang.SystemDependent'
-        SystemDependent._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SystemDependentEnum
-        ls = [f for f in dir(SystemDependent) if not callable(getattr(SystemDependent, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SystemDependent, name)
-        SystemDependentEnum = IntEnum('SystemDependentEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class SystemDependent(metaclass=UnoConstMeta, type_name="com.sun.star.lang.SystemDependent", name_space="com.sun.star.lang"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.lang.SystemDependent``"""
+        pass
+
+    class SystemDependentEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.lang.SystemDependent", name_space="com.sun.star.lang"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.lang.SystemDependent`` as Enum values"""
+        pass
+
 else:
     from ...lo.lang.system_dependent import SystemDependent as SystemDependent
 

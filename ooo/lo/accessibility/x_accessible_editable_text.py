@@ -54,6 +54,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def deleteText(self, nStartIndex: int, nEndIndex: int) -> bool:
         """
@@ -66,6 +67,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def insertText(self, sText: str, nIndex: int) -> bool:
         """
@@ -76,6 +78,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def pasteText(self, nIndex: int) -> bool:
         """
@@ -86,6 +89,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def replaceText(self, nStartIndex: int, nEndIndex: int, sReplacement: str) -> bool:
         """
@@ -98,6 +102,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setAttributes(self, nStartIndex: int, nEndIndex: int, aAttributeSet: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> bool:
         """
@@ -110,6 +115,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setText(self, sText: str) -> bool:
         """
@@ -117,6 +123,7 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
         
         The text content of this object is set to the given string.
         """
+        ...
 
 __all__ = ['XAccessibleEditableText']
 

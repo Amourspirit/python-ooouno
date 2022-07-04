@@ -49,11 +49,13 @@ class XTransitionFactory(XInterface_8f010a43):
         """
         Actually create a transition for the given transition id.
         """
+        ...
     @abstractmethod
     def hasTransition(self, transitionType: int, transitionSubType: int) -> bool:
         """
         Checks whether this instance provides an implementation for given transition id.
         """
+        ...
 
 __all__ = ['XTransitionFactory']
 

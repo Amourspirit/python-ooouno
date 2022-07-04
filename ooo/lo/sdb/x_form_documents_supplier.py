@@ -41,6 +41,7 @@ class XFormDocumentsSupplier(XInterface_8f010a43):
         """
         returns the container of forms.
         """
+        ...
 
 __all__ = ['XFormDocumentsSupplier']
 

@@ -37,16 +37,19 @@ class XEntity(XNode_83fb09a5):
         """
         For unparsed entities, the name of the notation for the entity.
         """
+        ...
     @abstractmethod
     def getPublicId(self) -> str:
         """
         The public identifier associated with the entity, if specified.
         """
+        ...
     @abstractmethod
     def getSystemId(self) -> str:
         """
         The system identifier associated with the entity, if specified.
         """
+        ...
 
 __all__ = ['XEntity']
 

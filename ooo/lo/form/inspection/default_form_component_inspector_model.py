@@ -49,6 +49,7 @@ class DefaultFormComponentInspectorModel(XObjectInspectorModel_9077119b):
         
             OOo 2.2
         """
+        ...
     @abstractmethod
     def createWithHelpSection(self, minHelpTextLines: int, maxHelpTextLines: int) -> None:
         """
@@ -61,6 +62,7 @@ class DefaultFormComponentInspectorModel(XObjectInspectorModel_9077119b):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['DefaultFormComponentInspectorModel']

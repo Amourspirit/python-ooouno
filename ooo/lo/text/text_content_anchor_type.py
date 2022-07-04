@@ -34,6 +34,10 @@ class TextContentAnchorType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.text.TextContentAnchorType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.text.TextContentAnchorType'
+
     AS_CHARACTER = 'AS_CHARACTER'
     """
     The object is anchored instead of a character.

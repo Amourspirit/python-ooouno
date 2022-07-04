@@ -39,7 +39,7 @@ class PolyPolygonBezierCoords(object):
     typeName: str = 'com.sun.star.drawing.PolyPolygonBezierCoords'
     """Literal Constant ``com.sun.star.drawing.PolyPolygonBezierCoords``"""
 
-    def __init__(self, Coordinates: typing.Optional[PointSequenceSequence_5c591070] = UNO_NONE, Flags: typing.Optional[FlagSequenceSequence_49130fe0] = UNO_NONE) -> None:
+    def __init__(self, Coordinates: typing.Optional[PointSequenceSequence_5c591070] = PointSequenceSequence_5c591070(()), Flags: typing.Optional[FlagSequenceSequence_49130fe0] = FlagSequenceSequence_49130fe0(())) -> None:
         """
         Constructor
 
@@ -59,10 +59,6 @@ class PolyPolygonBezierCoords(object):
             "Coordinates": Coordinates,
             "Flags": Flags,
         }
-        if kargs["Coordinates"] is UNO_NONE:
-            kargs["Coordinates"] = None
-        if kargs["Flags"] is UNO_NONE:
-            kargs["Flags"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

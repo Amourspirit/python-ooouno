@@ -41,11 +41,13 @@ class XAsynchronousExecutableDialog(XInterface_8f010a43):
         """
         Sets the title of the dialog.
         """
+        ...
     @abstractmethod
     def startExecuteModal(self, xListener: 'XDialogClosedListener_85ff113f') -> None:
         """
         Executes (shows) the dialog and returns immediately.
         """
+        ...
 
 __all__ = ['XAsynchronousExecutableDialog']
 

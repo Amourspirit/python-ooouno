@@ -56,6 +56,7 @@ class XRepository(ABC):
         """
         creates a fresh unique blank node.
         """
+        ...
     @abstractmethod
     def createGraph(self, GraphName: 'XURI_5682078c') -> 'XNamedGraph_97680a73':
         """
@@ -68,6 +69,7 @@ class XRepository(ABC):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def destroyGraph(self, GraphName: 'XURI_5682078c') -> None:
         """
@@ -80,6 +82,7 @@ class XRepository(ABC):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def exportGraph(self, Format: int, OutStream: 'XOutputStream_a4e00b35', GraphName: 'XURI_5682078c', BaseURI: 'XURI_5682078c') -> None:
         """
@@ -94,6 +97,7 @@ class XRepository(ABC):
             RepositoryException: ``RepositoryException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getGraph(self, GraphName: 'XURI_5682078c') -> 'XNamedGraph_97680a73':
         """
@@ -103,6 +107,7 @@ class XRepository(ABC):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def getGraphNames(self) -> 'typing.Tuple[XURI_5682078c, ...]':
         """
@@ -111,6 +116,7 @@ class XRepository(ABC):
         Raises:
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def getStatements(self, Subject: 'XResource_842709e4', Predicate: 'XURI_5682078c', Object: 'XNode_5ee40822') -> 'XEnumeration_f2180daa':
         """
@@ -121,6 +127,7 @@ class XRepository(ABC):
         Raises:
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def importGraph(self, Format: int, InStream: 'XInputStream_98d40ab4', GraphName: 'XURI_5682078c', BaseURI: 'XURI_5682078c') -> 'XNamedGraph_97680a73':
         """
@@ -136,6 +143,7 @@ class XRepository(ABC):
             RepositoryException: ``RepositoryException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def queryAsk(self, Query: str) -> bool:
         """
@@ -147,6 +155,7 @@ class XRepository(ABC):
             QueryException: ``QueryException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def queryConstruct(self, Query: str) -> 'XEnumeration_f2180daa':
         """
@@ -158,6 +167,7 @@ class XRepository(ABC):
             QueryException: ``QueryException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def querySelect(self, Query: str) -> 'XQuerySelectResult_eebb0d91':
         """
@@ -169,6 +179,7 @@ class XRepository(ABC):
             QueryException: ``QueryException``
             RepositoryException: ``RepositoryException``
         """
+        ...
 
 __all__ = ['XRepository']
 

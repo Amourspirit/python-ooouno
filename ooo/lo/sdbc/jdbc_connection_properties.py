@@ -50,23 +50,25 @@ class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         """
         specifies a set of properties to pass to java.lang.System.setProperty before loading the system's JDBC driver.
         """
+        ...
 
     @abstractproperty
     def TypeInfoSettings(self) -> 'typing.Tuple[object, ...]':
         """
         specifies how the type info returned by com.sun.star.sdbc.XDatabaseMetaData.getTypeInfo() will be modified.
         
-        The sequence contains an even amount of string values. Each pair describes what should be searched for and what should be replaced if found.
-        The syntax is:
+        The sequence contains an even amount of string values. Each pair describes what should be searched for and what should be replaced if found. The syntax is:
         
         COLUMN(X) defines the column which will be compared and the column which will be replaced. In the example above column 2 will be compared with the value -5. If this is true than column 6 will now return the value PRECISION.
         """
+        ...
 
     @abstractproperty
     def AutoRetrievingStatement(self) -> str:
         """
         specifies the statement which should be executed when asking an \"INSERT\" statement for the XGeneratedResultSet (future concept) interface.
         """
+        ...
 
     @abstractproperty
     def IsAutoRetrievingEnabled(self) -> bool:
@@ -75,12 +77,14 @@ class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         
         If TRUE than the statement will support the XGeneratedResultSet (future concept) interface, otherwise not.
         """
+        ...
 
     @abstractproperty
     def JavaDriverClass(self) -> str:
         """
         which JDBC driver class should be loaded to create the connection.
         """
+        ...
 
     @abstractproperty
     def JavaDriverClassPath(self) -> str:
@@ -93,6 +97,7 @@ class JDBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         
             OOo 2.3
         """
+        ...
 
 
 

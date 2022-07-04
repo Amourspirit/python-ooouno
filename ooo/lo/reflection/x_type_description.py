@@ -41,11 +41,13 @@ class XTypeDescription(XInterface_8f010a43):
         """
         Returns the fully qualified name of the UNOIDL entity.
         """
+        ...
     @abstractmethod
     def getTypeClass(self) -> 'TypeClass_853109f2':
         """
         Returns the type class of the reflected UNOIDL entity.
         """
+        ...
 
 __all__ = ['XTypeDescription']
 

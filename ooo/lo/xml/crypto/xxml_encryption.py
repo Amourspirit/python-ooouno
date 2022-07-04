@@ -55,6 +55,7 @@ class XXMLEncryption(XInterface_8f010a43):
             : ````
             com.sun.star.uno.SecurityException: ``SecurityException``
         """
+        ...
     @abstractmethod
     def encrypt(self, aTemplate: 'XXMLEncryptionTemplate_9c6511d8', aEnvironment: 'XSecurityEnvironment_7ead116d') -> 'XXMLEncryptionTemplate_9c6511d8':
         """
@@ -64,6 +65,7 @@ class XXMLEncryption(XInterface_8f010a43):
             : ````
             com.sun.star.uno.SecurityException: ``SecurityException``
         """
+        ...
 
 __all__ = ['XXMLEncryption']
 

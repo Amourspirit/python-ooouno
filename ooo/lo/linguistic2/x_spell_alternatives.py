@@ -42,22 +42,27 @@ class XSpellAlternatives(XInterface_8f010a43):
     def getAlternatives(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def getAlternativesCount(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getFailureType(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getLocale(self) -> 'Locale_70d308fa':
         """
         """
+        ...
     @abstractmethod
     def getWord(self) -> str:
         """
         """
+        ...
 
 __all__ = ['XSpellAlternatives']
 

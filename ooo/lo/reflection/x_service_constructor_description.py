@@ -45,21 +45,25 @@ class XServiceConstructorDescription(ABC):
         """
         Returns the exceptions that can be raised by the constructor.
         """
+        ...
     @abstractmethod
     def getName(self) -> str:
         """
         Returns the constructor's name.
         """
+        ...
     @abstractmethod
     def getParameters(self) -> 'typing.Tuple[XParameter_e4470d2c, ...]':
         """
         Returns the constructor's parameters.
         """
+        ...
     @abstractmethod
     def isDefaultConstructor(self) -> bool:
         """
         Returns whether the constructor is a default constructor.
         """
+        ...
 
 __all__ = ['XServiceConstructorDescription']
 

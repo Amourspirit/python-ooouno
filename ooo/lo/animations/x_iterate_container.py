@@ -40,6 +40,7 @@ class XIterateContainer(XTimeContainer_1cca0ec5):
         """
         the time interval in second before the next iterated content is animated.
         """
+        ...
 
     @abstractproperty
     def IterateType(self) -> int:
@@ -48,24 +49,25 @@ class XIterateContainer(XTimeContainer_1cca0ec5):
         
         See documentation of used animation engine for supported iteration types.
         """
+        ...
 
     @abstractproperty
     def SubItem(self) -> int:
         """
         This attribute specifies an optional subitem from the target element that should be animated.
         
-        A value of zero should always be the default and animate the complete target.
-        See documentation of used animation engine for supported subitems.
+        A value of zero should always be the default and animate the complete target. See documentation of used animation engine for supported subitems.
         """
+        ...
 
     @abstractproperty
     def Target(self) -> object:
         """
         a target that contains iterable contents, f.e.
         
-        a paragraph.
-        See documentation of used animation engine for supported targets.
+        a paragraph. See documentation of used animation engine for supported targets.
         """
+        ...
 
 
 __all__ = ['XIterateContainer']

@@ -41,26 +41,31 @@ class XDisplayConnection(XInterface_8f010a43):
         """
         register an error handler for toolkit specific errors.
         """
+        ...
     @abstractmethod
     def addEventHandler(self, window: object, eventHandler: 'XEventHandler_af250b6c', eventMask: int) -> None:
         """
         registers an event handler.
         """
+        ...
     @abstractmethod
     def getIdentifier(self) -> object:
         """
         returns an identifier.
         """
+        ...
     @abstractmethod
     def removeErrorHandler(self, errorHandler: 'XEventHandler_af250b6c') -> None:
         """
         remover an error handler from the handler list.
         """
+        ...
     @abstractmethod
     def removeEventHandler(self, window: object, eventHandler: 'XEventHandler_af250b6c') -> None:
         """
         removes an eventHandler from the handler list.
         """
+        ...
 
 __all__ = ['XDisplayConnection']
 

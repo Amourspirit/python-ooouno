@@ -20,6 +20,7 @@
 # Libre Office Version: 7.3
 from ooo.oenv.env_const import UNO_NONE
 import typing
+import uno
 from .sql_exception import SQLException as SQLException_acc90b43
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 
@@ -44,7 +45,7 @@ class BatchUpdateException(SQLException_acc90b43):
     typeName: str = 'com.sun.star.sdbc.BatchUpdateException'
     """Literal Constant ``com.sun.star.sdbc.BatchUpdateException``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, SQLState: typing.Optional[str] = '', ErrorCode: typing.Optional[int] = 0, NextException: typing.Optional[object] = None, UpdateCounts: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, SQLState: typing.Optional[str] = '', ErrorCode: typing.Optional[int] = 0, NextException: typing.Optional[object] = None, UpdateCounts: typing.Optional[uno.ByteSequence] = ()) -> None:
         """
         Constructor
 
@@ -54,7 +55,7 @@ class BatchUpdateException(SQLException_acc90b43):
             SQLState (str, optional): SQLState value.
             ErrorCode (int, optional): ErrorCode value.
             NextException (object, optional): NextException value.
-            UpdateCounts (typing.Tuple[int, ...], optional): UpdateCounts value.
+            UpdateCounts (uno.ByteSequence, optional): UpdateCounts value.
         """
         kargs = {
             "Message": Message,
@@ -64,8 +65,6 @@ class BatchUpdateException(SQLException_acc90b43):
             "NextException": NextException,
             "UpdateCounts": UpdateCounts,
         }
-        if kargs["UpdateCounts"] is UNO_NONE:
-            kargs["UpdateCounts"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:
@@ -77,14 +76,14 @@ class BatchUpdateException(SQLException_acc90b43):
         super()._init(**kargs)
 
     @property
-    def UpdateCounts(self) -> typing.Tuple[int, ...]:
+    def UpdateCounts(self) -> uno.ByteSequence:
         """
         is an array of long , with each element indicating the update count for a SQL command that executed successfully before the exception was thrown.
         """
         return self._update_counts
     
     @UpdateCounts.setter
-    def UpdateCounts(self, value: typing.Tuple[int, ...]) -> None:
+    def UpdateCounts(self, value: uno.ByteSequence) -> None:
         self._update_counts = value
 
 

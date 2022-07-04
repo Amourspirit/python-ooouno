@@ -47,6 +47,7 @@ class XDataProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createDataSequenceByRangeRepresentationPossible(self, aRangeRepresentation: str) -> bool:
         """
@@ -54,6 +55,7 @@ class XDataProvider(XInterface_8f010a43):
         
         If FALSE is returned, createDataSequenceByRangeRepresentation throws an exception.
         """
+        ...
     @abstractmethod
     def createDataSequenceByValueArray(self, aRole: str, aValueArray: str, aRoleQualifier: str) -> 'XDataSequence_11f00e1f':
         """
@@ -62,6 +64,7 @@ class XDataProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createDataSource(self, aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XDataSource_f6340d57':
         """
@@ -74,6 +77,7 @@ class XDataProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createDataSourcePossible(self, aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> bool:
         """
@@ -81,6 +85,7 @@ class XDataProvider(XInterface_8f010a43):
         
         If FALSE is returned, createDataSource throws an exception.
         """
+        ...
     @abstractmethod
     def detectArguments(self, xDataSource: 'XDataSource_f6340d57') -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
@@ -90,6 +95,7 @@ class XDataProvider(XInterface_8f010a43):
         
         This method may merge representation strings together if adjacent ranges appear successively in the range identifiers. E.g., if the first range refers to \"$Sheet1.$A$1:$A$8\" and the second range refers to \"$Sheet1.$B$1:$B$8\", those should be merged together to \"$Sheet1.$A$1:$B$8\".
         """
+        ...
     @abstractmethod
     def getRangeSelection(self) -> 'XRangeSelection_e1310d0c':
         """
@@ -99,6 +105,7 @@ class XDataProvider(XInterface_8f010a43):
         
         This method may return nothing, if it does not support range selection or if there is no current controller available that offers the functionality.
         """
+        ...
 
 __all__ = ['XDataProvider']
 

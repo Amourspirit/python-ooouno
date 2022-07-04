@@ -34,6 +34,10 @@ class AttrChangeType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.AttrChangeType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.dom.events.AttrChangeType'
+
     ADDITION = 'ADDITION'
     """
     """

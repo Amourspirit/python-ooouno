@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import EffectNodeType as EffectNodeType
-    if hasattr(EffectNodeType, '_constants') and isinstance(EffectNodeType._constants, dict):
-        EffectNodeType._constants['__ooo_ns__'] = 'com.sun.star.presentation'
-        EffectNodeType._constants['__ooo_full_ns__'] = 'com.sun.star.presentation.EffectNodeType'
-        EffectNodeType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EffectNodeTypeEnum
-        ls = [f for f in dir(EffectNodeType) if not callable(getattr(EffectNodeType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EffectNodeType, name)
-        EffectNodeTypeEnum = IntEnum('EffectNodeTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class EffectNodeType(metaclass=UnoConstMeta, type_name="com.sun.star.presentation.EffectNodeType", name_space="com.sun.star.presentation"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.presentation.EffectNodeType``"""
+        pass
+
+    class EffectNodeTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.presentation.EffectNodeType", name_space="com.sun.star.presentation"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.presentation.EffectNodeType`` as Enum values"""
+        pass
+
 else:
     from ...lo.presentation.effect_node_type import EffectNodeType as EffectNodeType
 
@@ -48,8 +46,7 @@ else:
 
         This constants defines a type for an animation effect node.
         
-        This is stored with the name node-type inside the com.sun.star.animations.XAnimationNode.UserData sequence.
-        This does not manipulate the timing or synchronization. It can be used to quickly identify semantic blocks inside an animation hierarchy.
+        This is stored with the name node-type inside the com.sun.star.animations.XAnimationNode.UserData sequence. This does not manipulate the timing or synchronization. It can be used to quickly identify semantic blocks inside an animation hierarchy.
         """
         DEFAULT = EffectNodeType.DEFAULT
         """

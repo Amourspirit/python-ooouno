@@ -48,6 +48,7 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         """
         Clears all useless element in a branch of the DOM tree along the tree order.
         """
+        ...
     @abstractmethod
     def collapse(self, node: 'XXMLElementWrapper_66c0107c') -> None:
         """
@@ -55,6 +56,7 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         
         Each element in the ancestor path of the node will be checked, if this element is empty, then deletes it.
         """
+        ...
     @abstractmethod
     def generateSAXEvents(self, handler: 'XDocumentHandler_9b90e28', saxEventKeeperHandler: 'XDocumentHandler_9b90e28', startNode: 'XXMLElementWrapper_66c0107c', endNode: 'XXMLElementWrapper_66c0107c') -> None:
         """
@@ -63,16 +65,19 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def getCurrentElement(self) -> 'XXMLElementWrapper_66c0107c':
         """
         Gets the current element.
         """
+        ...
     @abstractmethod
     def getNodeName(self, node: 'XXMLElementWrapper_66c0107c') -> str:
         """
         Gets the name of the element.
         """
+        ...
     @abstractmethod
     def getTree(self, handler: 'XDocumentHandler_9b90e28') -> None:
         """
@@ -81,21 +86,25 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def isCurrent(self, node: 'XXMLElementWrapper_66c0107c') -> bool:
         """
         Checks whether an element is the current element.
         """
+        ...
     @abstractmethod
     def isCurrentElementEmpty(self) -> bool:
         """
         Checks whether the current element is empty.
         """
+        ...
     @abstractmethod
     def rebuildIDLink(self, node: 'XXMLElementWrapper_66c0107c') -> None:
         """
         Rebuild the ID attribute in the branch starting from the particular element.
         """
+        ...
     @abstractmethod
     def removeCurrentElement(self) -> None:
         """
@@ -103,6 +112,7 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         
         When the current element is removed, then its parent element becomes the new current element.
         """
+        ...
     @abstractmethod
     def setCurrentElement(self, element: 'XXMLElementWrapper_66c0107c') -> None:
         """
@@ -110,6 +120,7 @@ class XXMLDocumentWrapper(XInterface_8f010a43):
         
         When the current element is replaced outside of this interface, then uses this method can update the current element pointer.
         """
+        ...
 
 __all__ = ['XXMLDocumentWrapper']
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import TransliterationType as TransliterationType
-    if hasattr(TransliterationType, '_constants') and isinstance(TransliterationType._constants, dict):
-        TransliterationType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        TransliterationType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.TransliterationType'
-        TransliterationType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TransliterationTypeEnum
-        ls = [f for f in dir(TransliterationType) if not callable(getattr(TransliterationType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TransliterationType, name)
-        TransliterationTypeEnum = IntEnum('TransliterationTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TransliterationType(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.TransliterationType", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.TransliterationType``"""
+        pass
+
+    class TransliterationTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.TransliterationType", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.TransliterationType`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.transliteration_type import TransliterationType as TransliterationType
 
@@ -48,8 +46,7 @@ else:
 
         Bitmask transliteration types used with XTransliteration.getType() and XTransliteration.getAvailableModules() methods.
         
-        Non-IGNORE type modules provide XTransliteration.transliterate().
-        IGNORE type modules provide XTransliteration.equals() and XTransliteration.transliterateRange().
+        Non-IGNORE type modules provide XTransliteration.transliterate(). IGNORE type modules provide XTransliteration.equals() and XTransliteration.transliterateRange().
         """
         NONE = TransliterationType.NONE
         ONE_TO_ONE = TransliterationType.ONE_TO_ONE

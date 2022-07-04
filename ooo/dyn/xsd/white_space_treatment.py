@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xsd import WhiteSpaceTreatment as WhiteSpaceTreatment
-    if hasattr(WhiteSpaceTreatment, '_constants') and isinstance(WhiteSpaceTreatment._constants, dict):
-        WhiteSpaceTreatment._constants['__ooo_ns__'] = 'com.sun.star.xsd'
-        WhiteSpaceTreatment._constants['__ooo_full_ns__'] = 'com.sun.star.xsd.WhiteSpaceTreatment'
-        WhiteSpaceTreatment._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global WhiteSpaceTreatmentEnum
-        ls = [f for f in dir(WhiteSpaceTreatment) if not callable(getattr(WhiteSpaceTreatment, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(WhiteSpaceTreatment, name)
-        WhiteSpaceTreatmentEnum = IntEnum('WhiteSpaceTreatmentEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class WhiteSpaceTreatment(metaclass=UnoConstMeta, type_name="com.sun.star.xsd.WhiteSpaceTreatment", name_space="com.sun.star.xsd"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.xsd.WhiteSpaceTreatment``"""
+        pass
+
+    class WhiteSpaceTreatmentEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.xsd.WhiteSpaceTreatment", name_space="com.sun.star.xsd"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.xsd.WhiteSpaceTreatment`` as Enum values"""
+        pass
+
 else:
     from ...lo.xsd.white_space_treatment import WhiteSpaceTreatment as WhiteSpaceTreatment
 

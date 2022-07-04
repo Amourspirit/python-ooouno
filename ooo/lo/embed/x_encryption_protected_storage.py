@@ -45,6 +45,7 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
         """
         allows to get the encryption algorithms of the object.
         """
+        ...
     @abstractmethod
     def setEncryptionAlgorithms(self, aAlgorithms: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
         """
@@ -57,6 +58,7 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setGpgProperties(self, aProps: 'typing.Tuple[typing.Tuple[NamedValue_a37a0af3, ...], ...]') -> None:
         """
@@ -73,6 +75,7 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XEncryptionProtectedStorage']
 

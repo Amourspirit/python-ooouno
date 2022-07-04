@@ -46,11 +46,13 @@ class XXMLSecurityContext(XInterface_8f010a43):
         Raises:
             com.sun.star.security.SecurityInfrastructureException: ``SecurityInfrastructureException``
         """
+        ...
     @abstractmethod
     def getDefaultSecurityEnvironmentIndex(self) -> int:
         """
         Get the ID of the internal security environment.
         """
+        ...
     @abstractmethod
     def getSecurityEnvironment(self) -> 'XSecurityEnvironment_7ead116d':
         """
@@ -58,21 +60,25 @@ class XXMLSecurityContext(XInterface_8f010a43):
         
         In XMLSec/NSS, the first personal security environment should be the \"internal slot\"
         """
+        ...
     @abstractmethod
     def getSecurityEnvironmentByIndex(self, index: int) -> 'XSecurityEnvironment_7ead116d':
         """
         Get personal security environment.
         """
+        ...
     @abstractmethod
     def getSecurityEnvironmentNumber(self) -> int:
         """
         Get the number of security environments.
         """
+        ...
     @abstractmethod
     def setDefaultSecurityEnvironmentIndex(self, index: int) -> None:
         """
         set the ID of the internal security environment
         """
+        ...
 
 __all__ = ['XXMLSecurityContext']
 

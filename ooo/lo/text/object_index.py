@@ -39,36 +39,42 @@ class ObjectIndex(BaseIndex_8f0d0a40):
         """
         Determines if external embedded objects are included in the office.
         """
+        ...
 
     @abstractproperty
     def CreateFromStarCalc(self) -> bool:
         """
         Determines if star office calc objects are included in the office.
         """
+        ...
 
     @abstractproperty
     def CreateFromStarChart(self) -> bool:
         """
         Determines if star office chart objects are included in the office.
         """
+        ...
 
     @abstractproperty
     def CreateFromStarDraw(self) -> bool:
         """
         Determines if star office draw objects are included in the office.
         """
+        ...
 
     @abstractproperty
     def CreateFromStarImage(self) -> bool:
         """
         Determines if star office image objects are included in the office.
         """
+        ...
 
     @abstractproperty
     def CreateFromStarMath(self) -> bool:
         """
         Determines if star office math objects are included in the office.
         """
+        ...
 
 
 

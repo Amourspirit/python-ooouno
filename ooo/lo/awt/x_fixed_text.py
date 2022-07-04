@@ -38,21 +38,25 @@ class XFixedText(XInterface_8f010a43):
         """
         returns the alignment of the text in the control.
         """
+        ...
     @abstractmethod
     def getText(self) -> str:
         """
         returns the text of the control.
         """
+        ...
     @abstractmethod
     def setAlignment(self, nAlign: int) -> None:
         """
         sets the alignment of the text in the control.
         """
+        ...
     @abstractmethod
     def setText(self, Text: str) -> None:
         """
         sets the text of the control.
         """
+        ...
 
 __all__ = ['XFixedText']
 

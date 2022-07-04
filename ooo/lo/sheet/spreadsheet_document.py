@@ -60,42 +60,49 @@ class SpreadsheetDocument(OfficeDocument_fecd0df2, SpreadsheetDocumentSettings_a
         """
         contains the collection of area links in the document.
         """
+        ...
 
     @abstractproperty
     def ColumnLabelRanges(self) -> 'XLabelRanges_bac20bb9':
         """
         contains the collection of column label ranges in the document.
         """
+        ...
 
     @abstractproperty
     def DDELinks(self) -> 'XNameAccess_e2ab0cf6':
         """
         contains the collection of DDE links in the document.
         """
+        ...
 
     @abstractproperty
     def DatabaseRanges(self) -> 'XDatabaseRanges_e0690cee':
         """
         contains the collection of database ranges in the document.
         """
+        ...
 
     @abstractproperty
     def NamedRanges(self) -> 'XNamedRanges_bb030bbe':
         """
         contains the collection of named ranges in the document.
         """
+        ...
 
     @abstractproperty
     def RowLabelRanges(self) -> 'XLabelRanges_bac20bb9':
         """
         contains the collection of row label ranges in the document.
         """
+        ...
 
     @abstractproperty
     def SheetLinks(self) -> 'XNameAccess_e2ab0cf6':
         """
         contains the collection of sheet links in the document.
         """
+        ...
 
 
 

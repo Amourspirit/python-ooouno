@@ -39,11 +39,13 @@ class XScaling(XInterface_8f010a43):
         
         For instance, for linear scaling, given a x value, the method may return a y value as defined by y = Ax + B for predefined values of A and B.
         """
+        ...
     @abstractmethod
     def getInverseScaling(self) -> 'XScaling':
         """
         Get an interface object that conforms to a scaling rule that is the reverse of the original scaling rule.
         """
+        ...
 
 __all__ = ['XScaling']
 

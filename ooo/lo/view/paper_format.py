@@ -34,6 +34,10 @@ class PaperFormat(Enum):
     __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.view.PaperFormat'
+
     A3 = 'A3'
     """
     specifies the paper format as A3.

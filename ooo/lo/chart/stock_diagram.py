@@ -33,17 +33,13 @@ class StockDiagram(ChartAxisXSupplier_a950e4d, ChartStatistics_e2190d37, ChartTw
     
     Note that the data must have a specific structure for stock diagrams. Let us assume that data is interpreted, such that series are taken from columns (see property Diagram.DataRowSource). Then you need tables of the following structures for different types:
     
-    StockDiagram.Volume is FALSE
-    StockDiagram.UpDown is FALSE
+    StockDiagram.Volume is FALSEStockDiagram.UpDown is FALSE
     
-    StockDiagram.Volume is TRUE
-    StockDiagram.UpDown is FALSE
+    StockDiagram.Volume is TRUEStockDiagram.UpDown is FALSE
     
-    StockDiagram.Volume is FALSE
-    StockDiagram.UpDown is TRUE
+    StockDiagram.Volume is FALSEStockDiagram.UpDown is TRUE
     
-    StockDiagram.Volume is TRUE
-    StockDiagram.UpDown is TRUE
+    StockDiagram.Volume is TRUEStockDiagram.UpDown is TRUE
 
     See Also:
         `API StockDiagram <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1chart_1_1StockDiagram.html>`_
@@ -63,6 +59,7 @@ class StockDiagram(ChartAxisXSupplier_a950e4d, ChartStatistics_e2190d37, ChartTw
         
         If this property is set to TRUE, one additional series is needed with the opening value of the stocks. It is assumed as the series before the series with the day's lowest value.
         """
+        ...
 
     @abstractproperty
     def Volume(self) -> bool:
@@ -73,6 +70,7 @@ class StockDiagram(ChartAxisXSupplier_a950e4d, ChartStatistics_e2190d37, ChartTw
         
         If this property is set to TRUE, the values of the first series of the chart data are interpreted as volume.
         """
+        ...
 
 
 

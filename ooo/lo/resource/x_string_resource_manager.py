@@ -56,11 +56,13 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
         Returns the resource's read only state.
         """
+        ...
     @abstractmethod
     def newLocale(self, locale: 'Locale_70d308fa') -> None:
         """
@@ -73,6 +75,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def removeId(self, ResourceID: str) -> None:
         """
@@ -82,6 +85,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def removeIdForLocale(self, ResourceID: str, locale: 'Locale_70d308fa') -> None:
         """
@@ -91,6 +95,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def removeLocale(self, locale: 'Locale_70d308fa') -> None:
         """
@@ -100,6 +105,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def setCurrentLocale(self, Locale: 'Locale_70d308fa', FindClosestMatch: bool) -> None:
         """
@@ -114,6 +120,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setDefaultLocale(self, Locale: 'Locale_70d308fa') -> None:
         """
@@ -123,6 +130,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def setString(self, ResourceID: str, Str: str) -> None:
         """
@@ -133,6 +141,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def setStringForLocale(self, ResourceID: str, Str: str, locale: 'Locale_70d308fa') -> None:
         """
@@ -145,6 +154,7 @@ class XStringResourceManager(XStringResourceResolver_92cb11d9):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
 
 __all__ = ['XStringResourceManager']
 

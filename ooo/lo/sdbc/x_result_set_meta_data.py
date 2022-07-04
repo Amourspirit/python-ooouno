@@ -41,6 +41,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnCount(self) -> int:
         """
@@ -49,6 +50,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnDisplaySize(self, column: int) -> int:
         """
@@ -57,6 +59,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnLabel(self, column: int) -> str:
         """
@@ -65,6 +68,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnName(self, column: int) -> str:
         """
@@ -73,6 +77,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnServiceName(self, column: int) -> str:
         """
@@ -81,6 +86,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnType(self, column: int) -> int:
         """
@@ -89,6 +95,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnTypeName(self, column: int) -> str:
         """
@@ -97,6 +104,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getPrecision(self, column: int) -> int:
         """
@@ -105,6 +113,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getScale(self, column: int) -> int:
         """
@@ -113,6 +122,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSchemaName(self, column: int) -> str:
         """
@@ -121,6 +131,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTableName(self, column: int) -> str:
         """
@@ -129,6 +140,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isAutoIncrement(self, column: int) -> bool:
         """
@@ -137,6 +149,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isCaseSensitive(self, column: int) -> bool:
         """
@@ -145,6 +158,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isCurrency(self, column: int) -> bool:
         """
@@ -153,6 +167,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isDefinitelyWritable(self, column: int) -> bool:
         """
@@ -161,6 +176,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isNullable(self, column: int) -> int:
         """
@@ -169,6 +185,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isReadOnly(self, column: int) -> bool:
         """
@@ -177,6 +194,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isSearchable(self, column: int) -> bool:
         """
@@ -185,6 +203,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isSigned(self, column: int) -> bool:
         """
@@ -193,6 +212,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isWritable(self, column: int) -> bool:
         """
@@ -201,6 +221,7 @@ class XResultSetMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XResultSetMetaData']
 

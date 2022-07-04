@@ -44,6 +44,7 @@ class XStringResourceWithLocation(XStringResourcePersistence_cabc130c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def storeAsURL(self, URL: str) -> None:
         """
@@ -54,6 +55,7 @@ class XStringResourceWithLocation(XStringResourcePersistence_cabc130c):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XStringResourceWithLocation']
 

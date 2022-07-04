@@ -43,6 +43,7 @@ class XDefaultSizeTransmitter(XInterface_8f010a43):
         """
         set a default size
         """
+        ...
 
 __all__ = ['XDefaultSizeTransmitter']
 

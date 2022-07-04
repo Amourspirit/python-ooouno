@@ -41,6 +41,7 @@ class XScriptEventsSupplier(XInterface_8f010a43):
         """
         Returns an XNameContainer containing instances of ScriptEventDescriptor.
         """
+        ...
 
 __all__ = ['XScriptEventsSupplier']
 

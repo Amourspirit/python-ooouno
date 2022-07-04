@@ -40,6 +40,7 @@ class XGluePointsSupplier(XInterface_8f010a43):
     def getGluePoints(self) -> 'XIndexContainer_1c040ebe':
         """
         """
+        ...
 
 __all__ = ['XGluePointsSupplier']
 

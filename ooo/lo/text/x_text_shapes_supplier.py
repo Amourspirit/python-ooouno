@@ -41,6 +41,7 @@ class XTextShapesSupplier(XInterface_8f010a43):
         """
         returns the collection of shapes.
         """
+        ...
 
 __all__ = ['XTextShapesSupplier']
 

@@ -59,6 +59,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addOrReplaceNodeFromTemplate(self, aName: str, aAttributes: int, aTemplate: 'TemplateIdentifier_2aaa14b5') -> None:
         """
@@ -76,6 +77,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addOrReplaceProperty(self, aName: str, aAttributes: int, aType: object) -> None:
         """
@@ -93,6 +95,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addOrReplacePropertyWithValue(self, aName: str, aAttributes: int, aValue: object) -> None:
         """
@@ -112,6 +115,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endNode(self) -> None:
         """
@@ -125,6 +129,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endProperty(self) -> None:
         """
@@ -138,6 +143,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endUpdate(self) -> None:
         """
@@ -152,6 +158,7 @@ class XUpdateHandler(XInterface_8f010a43):
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def modifyNode(self, aName: str, aAttributes: int, aAttributeMask: int, bReset: bool) -> None:
         """
@@ -171,6 +178,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def modifyProperty(self, aName: str, aAttributes: int, aAttributeMask: int, aType: object) -> None:
         """
@@ -194,6 +202,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeNode(self, aName: str) -> None:
         """
@@ -207,6 +216,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeProperty(self, aName: str) -> None:
         """
@@ -220,6 +230,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def resetProperty(self, aName: str) -> None:
         """
@@ -231,6 +242,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def resetPropertyValue(self) -> None:
         """
@@ -242,6 +254,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def resetPropertyValueForLocale(self, aLocale: str) -> None:
         """
@@ -253,6 +266,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setPropertyValue(self, aValue: object) -> None:
         """
@@ -266,6 +280,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setPropertyValueForLocale(self, aValue: object, aLocale: str) -> None:
         """
@@ -279,6 +294,7 @@ class XUpdateHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startUpdate(self) -> None:
         """
@@ -291,6 +307,7 @@ class XUpdateHandler(XInterface_8f010a43):
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XUpdateHandler']
 

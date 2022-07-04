@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.application import DatabaseObject as DatabaseObject
-    if hasattr(DatabaseObject, '_constants') and isinstance(DatabaseObject._constants, dict):
-        DatabaseObject._constants['__ooo_ns__'] = 'com.sun.star.sdb.application'
-        DatabaseObject._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.application.DatabaseObject'
-        DatabaseObject._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DatabaseObjectEnum
-        ls = [f for f in dir(DatabaseObject) if not callable(getattr(DatabaseObject, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DatabaseObject, name)
-        DatabaseObjectEnum = IntEnum('DatabaseObjectEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DatabaseObject(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.application.DatabaseObject", name_space="com.sun.star.sdb.application"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdb.application.DatabaseObject``"""
+        pass
+
+    class DatabaseObjectEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdb.application.DatabaseObject", name_space="com.sun.star.sdb.application"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdb.application.DatabaseObject`` as Enum values"""
+        pass
+
 else:
     from ....lo.sdb.application.database_object import DatabaseObject as DatabaseObject
 

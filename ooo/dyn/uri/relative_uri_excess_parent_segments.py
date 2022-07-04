@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.uri.RelativeUriExcessParentSegments import (ERROR, REMOVE, RETAIN)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.uri.RelativeUriExcessParentSegments Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.uri",
-            "__ooo_full_ns__": "com.sun.star.uri.RelativeUriExcessParentSegments",
-            "__ooo_type_name__": "enum",
-            "ERROR": ERROR,
-            "REMOVE": REMOVE,
-            "RETAIN": RETAIN,
-        }
-        result = type('RelativeUriExcessParentSegments', (object,), _dict)
-        return result
-
-    RelativeUriExcessParentSegments = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class RelativeUriExcessParentSegments(metaclass=UnoEnumMeta, type_name="com.sun.star.uri.RelativeUriExcessParentSegments", name_space="com.sun.star.uri"):
+        """Dynamically created class that represents ``com.sun.star.uri.RelativeUriExcessParentSegments`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.uri.relative_uri_excess_parent_segments import RelativeUriExcessParentSegments as RelativeUriExcessParentSegments
 

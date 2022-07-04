@@ -39,6 +39,7 @@ class Script(TextField_90260a56):
         """
         contains the script text or a URL that points to a script depending on the URLContent property.
         """
+        ...
 
     @abstractproperty
     def ScriptType(self) -> str:
@@ -47,12 +48,14 @@ class Script(TextField_90260a56):
         
         JavaScript)
         """
+        ...
 
     @abstractproperty
     def URLContent(self) -> bool:
         """
         determines whether the property Content contains a URL or a script.
         """
+        ...
 
 
 

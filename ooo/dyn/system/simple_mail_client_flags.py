@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.system import SimpleMailClientFlags as SimpleMailClientFlags
-    if hasattr(SimpleMailClientFlags, '_constants') and isinstance(SimpleMailClientFlags._constants, dict):
-        SimpleMailClientFlags._constants['__ooo_ns__'] = 'com.sun.star.system'
-        SimpleMailClientFlags._constants['__ooo_full_ns__'] = 'com.sun.star.system.SimpleMailClientFlags'
-        SimpleMailClientFlags._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SimpleMailClientFlagsEnum
-        ls = [f for f in dir(SimpleMailClientFlags) if not callable(getattr(SimpleMailClientFlags, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SimpleMailClientFlags, name)
-        SimpleMailClientFlagsEnum = IntEnum('SimpleMailClientFlagsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class SimpleMailClientFlags(metaclass=UnoConstMeta, type_name="com.sun.star.system.SimpleMailClientFlags", name_space="com.sun.star.system"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.system.SimpleMailClientFlags``"""
+        pass
+
+    class SimpleMailClientFlagsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.system.SimpleMailClientFlags", name_space="com.sun.star.system"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.system.SimpleMailClientFlags`` as Enum values"""
+        pass
+
 else:
     from ...lo.system.simple_mail_client_flags import SimpleMailClientFlags as SimpleMailClientFlags
 

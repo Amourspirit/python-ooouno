@@ -46,6 +46,7 @@ class XFastAttributeList(XInterface_8f010a43):
         """
         returns a sequence of attributes which names and or namespaces URLS are translated to tokens.
         """
+        ...
     @abstractmethod
     def getOptionalValue(self, Token: int) -> str:
         """
@@ -53,6 +54,7 @@ class XFastAttributeList(XInterface_8f010a43):
         
         If the attribute name has a namespace that was registered with the XFastParser, Token contains the integer token of the attributes local name from the XFastTokenHandler and the integer token of the namespace combined with an arithmetic or operation.
         """
+        ...
     @abstractmethod
     def getOptionalValueToken(self, Token: int, Default: int) -> int:
         """
@@ -60,11 +62,13 @@ class XFastAttributeList(XInterface_8f010a43):
         
         If the attribute name has a namespace that was registered with the XFastParser, Token contains the integer token of the attributes local name from the XFastTokenHandler and the integer token of the namespace combined with an arithmetic or operation.
         """
+        ...
     @abstractmethod
     def getUnknownAttributes(self) -> 'typing.Tuple[Attribute_85880a0d, ...]':
         """
         returns a sequence of attributes which names and or namespaces URLS can not be translated to tokens.
         """
+        ...
     @abstractmethod
     def getValue(self, Token: int) -> str:
         """
@@ -75,6 +79,7 @@ class XFastAttributeList(XInterface_8f010a43):
         Raises:
             SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def getValueToken(self, Token: int) -> int:
         """
@@ -85,6 +90,7 @@ class XFastAttributeList(XInterface_8f010a43):
         Raises:
             SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def hasAttribute(self, Token: int) -> bool:
         """
@@ -92,6 +98,7 @@ class XFastAttributeList(XInterface_8f010a43):
         
         If the attribute name has a namespace that was registered with the XFastParser, Token contains the integer token of the attributes local name from the XFastTokenHandler and the integer token of the namespace combined with an arithmetic or operation.
         """
+        ...
 
 __all__ = ['XFastAttributeList']
 

@@ -43,6 +43,7 @@ class XInterceptorInfo(XInterface_8f010a43):
         
         Wildcards inside the URLs are allowed to register the interceptor for URLs too, which can have optional arguments (e.g. \"..#..\" or \"..?..\").
         """
+        ...
 
 __all__ = ['XInterceptorInfo']
 

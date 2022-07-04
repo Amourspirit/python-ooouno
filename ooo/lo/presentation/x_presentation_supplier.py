@@ -42,6 +42,7 @@ class XPresentationSupplier(XInterface_8f010a43):
     def getPresentation(self) -> 'XPresentation_30890f78':
         """
         """
+        ...
 
 __all__ = ['XPresentationSupplier']
 

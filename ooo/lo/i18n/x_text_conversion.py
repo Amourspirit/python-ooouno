@@ -52,6 +52,7 @@ class XTextConversion(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def getConversions(self, aText: str, nStartPos: int, nLength: int, Locale: 'Locale_70d308fa', nTextConversionType: int, nTextConversionOptions: int) -> 'TextConversionResult_12d10e92':
         """
@@ -61,6 +62,7 @@ class XTextConversion(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def interactiveConversion(self, Locale: 'Locale_70d308fa', nTextConversionType: int, nTextConversionOptions: int) -> bool:
         """
@@ -70,6 +72,7 @@ class XTextConversion(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
 
 __all__ = ['XTextConversion']
 

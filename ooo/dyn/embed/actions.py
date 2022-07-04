@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import Actions as Actions
-    if hasattr(Actions, '_constants') and isinstance(Actions._constants, dict):
-        Actions._constants['__ooo_ns__'] = 'com.sun.star.embed'
-        Actions._constants['__ooo_full_ns__'] = 'com.sun.star.embed.Actions'
-        Actions._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ActionsEnum
-        ls = [f for f in dir(Actions) if not callable(getattr(Actions, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(Actions, name)
-        ActionsEnum = IntFlag('ActionsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class Actions(metaclass=UnoConstMeta, type_name="com.sun.star.embed.Actions", name_space="com.sun.star.embed"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.embed.Actions``"""
+        pass
+
+    class ActionsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.embed.Actions", name_space="com.sun.star.embed"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.embed.Actions`` as Enum values"""
+        pass
+
 else:
     from ...lo.embed.actions import Actions as Actions
 

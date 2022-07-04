@@ -59,6 +59,7 @@ class XIeeeFloatReadOnlyBitmap(XBitmap_b1b70b7b):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
+        ...
     @abstractmethod
     def getMemoryLayout(self) -> 'FloatingPointBitmapLayout_c66812df':
         """
@@ -66,6 +67,7 @@ class XIeeeFloatReadOnlyBitmap(XBitmap_b1b70b7b):
         
         Please note that for volatile bitmaps, the memory layout might change between subsequent calls.
         """
+        ...
     @abstractmethod
     def getPixel(self, bitmapLayout: 'FloatingPointBitmapLayout_c66812df', pos: 'IntegerPoint2D_8f0dc2') -> 'typing.Tuple[float, ...]':
         """
@@ -79,6 +81,7 @@ class XIeeeFloatReadOnlyBitmap(XBitmap_b1b70b7b):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
+        ...
 
 __all__ = ['XIeeeFloatReadOnlyBitmap']
 

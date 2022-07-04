@@ -39,6 +39,7 @@ class XConditionEntry(XInterface_8f010a43):
     def getType(self) -> int:
         """
         """
+        ...
 
 __all__ = ['XConditionEntry']
 

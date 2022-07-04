@@ -42,7 +42,7 @@ class ModuleSizeExceededRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.script.ModuleSizeExceededRequest'
     """Literal Constant ``com.sun.star.script.ModuleSizeExceededRequest``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Names: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Names: typing.Optional[typing.Tuple[str, ...]] = ()) -> None:
         """
         Constructor
 
@@ -56,8 +56,6 @@ class ModuleSizeExceededRequest(Exception_85530a09):
             "Context": Context,
             "Names": Names,
         }
-        if kargs["Names"] is UNO_NONE:
-            kargs["Names"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

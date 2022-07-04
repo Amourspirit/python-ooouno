@@ -40,7 +40,7 @@ class ChangesEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.util.ChangesEvent'
     """Literal Constant ``com.sun.star.util.ChangesEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Base: typing.Optional[object] = None, Changes: typing.Optional[ChangesSet_99de0aab] = UNO_NONE) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Base: typing.Optional[object] = None, Changes: typing.Optional[ChangesSet_99de0aab] = ChangesSet_99de0aab(())) -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class ChangesEvent(EventObject_a3d70b03):
             "Base": Base,
             "Changes": Changes,
         }
-        if kargs["Changes"] is UNO_NONE:
-            kargs["Changes"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

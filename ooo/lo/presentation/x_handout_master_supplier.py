@@ -41,6 +41,7 @@ class XHandoutMasterSupplier(XInterface_8f010a43):
         """
         returns the DrawPage.
         """
+        ...
 
 __all__ = ['XHandoutMasterSupplier']
 

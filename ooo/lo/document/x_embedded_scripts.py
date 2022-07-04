@@ -46,18 +46,21 @@ class XEmbeddedScripts(ABC):
         
         Effectively, this attribute is an evaluation of the document's MacroExecMode against possibly applicable configuration settings, the document location in relation to the trusted location, and the like.
         """
+        ...
 
     @abstractproperty
     def BasicLibraries(self) -> 'XStorageBasedLibraryContainer_d72a1321':
         """
         is the container of StarBasic macro libraries contained in the document
         """
+        ...
 
     @abstractproperty
     def DialogLibraries(self) -> 'XStorageBasedLibraryContainer_d72a1321':
         """
         is the container of dialogs libraries contained in the document
         """
+        ...
 
 
 __all__ = ['XEmbeddedScripts']

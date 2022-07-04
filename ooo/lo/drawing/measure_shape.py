@@ -47,12 +47,14 @@ class MeasureShape(LineProperties_f13f0da9, MeasureProperties_1d340ef3, Rotation
         """
         this point is the end of the measured distance
         """
+        ...
 
     @abstractproperty
     def StartPosition(self) -> 'Point_5fb2085e':
         """
         this point is the start of the measured distance
         """
+        ...
 
 
 

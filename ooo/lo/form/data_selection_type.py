@@ -34,6 +34,10 @@ class DataSelectionType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.form.DataSelectionType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.form.DataSelectionType'
+
     QUERY = 'QUERY'
     """
     The control should be filled with the results of a database query.

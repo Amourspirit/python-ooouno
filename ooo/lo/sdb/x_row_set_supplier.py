@@ -41,11 +41,13 @@ class XRowSetSupplier(XInterface_8f010a43):
         """
         provides access to the data source.
         """
+        ...
     @abstractmethod
     def setRowSet(self, xDataSource: 'XRowSet_7a090960') -> None:
         """
         sets the data source.
         """
+        ...
 
 __all__ = ['XRowSetSupplier']
 

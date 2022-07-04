@@ -44,6 +44,7 @@ class AsynchronousColorPicker(XAsynchronousExecutableDialog_255014ad):
     def createWithParent(self, Parent: 'XWindow_713b0924') -> None:
         """
         """
+        ...
 
 
 __all__ = ['AsynchronousColorPicker']

@@ -53,36 +53,42 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def BackgroundColor(self) -> int:
         """
         specifies the background color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font attributes of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontEmphasisMark(self) -> int:
         """
         specifies the com.sun.star.text.FontEmphasis value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontRelief(self) -> int:
         """
         specifies the com.sun.star.text.FontRelief value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def Graphic(self) -> 'XGraphic_a4da0afc':
@@ -95,18 +101,21 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 2.1
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def ImagePosition(self) -> int:
@@ -115,18 +124,21 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
         Valid values of this property are specified with ImagePosition.
         """
+        ...
 
     @abstractproperty
     def ImageURL(self) -> str:
         """
         specifies a URL to an image to display besides the label of the control
         """
+        ...
 
     @abstractproperty
     def Label(self) -> str:
         """
         specifies the label of the control.
         """
+        ...
 
     @abstractproperty
     def MultiLine(self) -> bool:
@@ -137,42 +149,49 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies that the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def State(self) -> int:
         """
         specifies the state of the control.
         """
+        ...
 
     @abstractproperty
     def Tabstop(self) -> bool:
         """
         specifies that the control can be reached with the TAB key.
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def TextLineColor(self) -> 'Color_68e908c5':
         """
         specifies the text line color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def TriState(self) -> bool:
         """
         specifies that the control may have the state \"don't know\".
         """
+        ...
 
     @abstractproperty
     def VerticalAlign(self) -> 'VerticalAlignment_8d0e12':
@@ -183,6 +202,7 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def VisualEffect(self) -> int:
@@ -195,6 +215,7 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def WritingMode(self) -> int:
@@ -207,6 +228,7 @@ class UnoControlCheckBoxModel(UnoControlModel_c8ce0c58):
         
             OOo 3.1
         """
+        ...
 
 
 

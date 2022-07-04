@@ -47,6 +47,7 @@ class XCreateCatalog(XInterface_8f010a43):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
 
 __all__ = ['XCreateCatalog']
 

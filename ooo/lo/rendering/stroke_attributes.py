@@ -39,7 +39,7 @@ class StrokeAttributes(object):
     typeName: str = 'com.sun.star.rendering.StrokeAttributes'
     """Literal Constant ``com.sun.star.rendering.StrokeAttributes``"""
 
-    def __init__(self, DashArray: typing.Optional[typing.Tuple[float, ...]] = UNO_NONE, LineArray: typing.Optional[typing.Tuple[float, ...]] = UNO_NONE, StrokeWidth: typing.Optional[float] = 0.0, MiterLimit: typing.Optional[float] = 0.0, StartCapType: typing.Optional[int] = 0, EndCapType: typing.Optional[int] = 0, JoinType: typing.Optional[int] = 0) -> None:
+    def __init__(self, DashArray: typing.Optional[typing.Tuple[float, ...]] = (), LineArray: typing.Optional[typing.Tuple[float, ...]] = (), StrokeWidth: typing.Optional[float] = 0.0, MiterLimit: typing.Optional[float] = 0.0, StartCapType: typing.Optional[int] = 0, EndCapType: typing.Optional[int] = 0, JoinType: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -74,10 +74,6 @@ class StrokeAttributes(object):
             "EndCapType": EndCapType,
             "JoinType": JoinType,
         }
-        if kargs["DashArray"] is UNO_NONE:
-            kargs["DashArray"] = None
-        if kargs["LineArray"] is UNO_NONE:
-            kargs["LineArray"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

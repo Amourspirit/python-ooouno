@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import CharacterCompressionType as CharacterCompressionType
-    if hasattr(CharacterCompressionType, '_constants') and isinstance(CharacterCompressionType._constants, dict):
-        CharacterCompressionType._constants['__ooo_ns__'] = 'com.sun.star.text'
-        CharacterCompressionType._constants['__ooo_full_ns__'] = 'com.sun.star.text.CharacterCompressionType'
-        CharacterCompressionType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CharacterCompressionTypeEnum
-        ls = [f for f in dir(CharacterCompressionType) if not callable(getattr(CharacterCompressionType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CharacterCompressionType, name)
-        CharacterCompressionTypeEnum = IntEnum('CharacterCompressionTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class CharacterCompressionType(metaclass=UnoConstMeta, type_name="com.sun.star.text.CharacterCompressionType", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.CharacterCompressionType``"""
+        pass
+
+    class CharacterCompressionTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.CharacterCompressionType", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.CharacterCompressionType`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.character_compression_type import CharacterCompressionType as CharacterCompressionType
 

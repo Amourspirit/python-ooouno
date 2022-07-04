@@ -42,7 +42,7 @@ class TreeDataModelEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.tree.TreeDataModelEvent'
     """Literal Constant ``com.sun.star.awt.tree.TreeDataModelEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Nodes: typing.Optional[typing.Tuple[XTreeNode_baaf0ba0, ...]] = UNO_NONE, ParentNode: typing.Optional[XTreeNode_baaf0ba0] = None) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Nodes: typing.Optional[typing.Tuple[XTreeNode_baaf0ba0, ...]] = (), ParentNode: typing.Optional[XTreeNode_baaf0ba0] = None) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class TreeDataModelEvent(EventObject_a3d70b03):
             "Nodes": Nodes,
             "ParentNode": ParentNode,
         }
-        if kargs["Nodes"] is UNO_NONE:
-            kargs["Nodes"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

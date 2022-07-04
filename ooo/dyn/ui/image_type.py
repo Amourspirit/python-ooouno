@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import ImageType as ImageType
-    if hasattr(ImageType, '_constants') and isinstance(ImageType._constants, dict):
-        ImageType._constants['__ooo_ns__'] = 'com.sun.star.ui'
-        ImageType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.ImageType'
-        ImageType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ImageTypeEnum
-        ls = [f for f in dir(ImageType) if not callable(getattr(ImageType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ImageType, name)
-        ImageTypeEnum = IntFlag('ImageTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ImageType(metaclass=UnoConstMeta, type_name="com.sun.star.ui.ImageType", name_space="com.sun.star.ui"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.ImageType``"""
+        pass
+
+    class ImageTypeEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.ImageType", name_space="com.sun.star.ui"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.ImageType`` as Enum values"""
+        pass
+
 else:
     from ...lo.ui.image_type import ImageType as ImageType
 

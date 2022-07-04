@@ -42,12 +42,14 @@ class Bibliography(BaseIndex_8f0d0a40):
         """
         contains the locale of the index.
         """
+        ...
 
     @abstractproperty
     def SortAlgorithm(self) -> str:
         """
         contains the name of the sort algorithm that is used to sort the entries.
         """
+        ...
 
 
 

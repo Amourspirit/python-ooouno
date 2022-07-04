@@ -42,24 +42,28 @@ class NumberingRules(XPropertySet_bc180bfa, XIndexReplace_feed0dd7):
         """
         id of default list for the numbering rules instance
         """
+        ...
 
     @abstractproperty
     def IsAbsoluteMargins(self) -> bool:
         """
         determines if the margins are absolute or relative to the preceding numbering level.
         """
+        ...
 
     @abstractproperty
     def IsAutomatic(self) -> bool:
         """
         determines if the numbering rules are automatically created as opposed to numbering rules that are part of a numbering style.
         """
+        ...
 
     @abstractproperty
     def IsContinuousNumbering(self) -> bool:
         """
         determines if the numbering levels are counted continuously or if each numbering level is counted separately.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
@@ -68,6 +72,7 @@ class NumberingRules(XPropertySet_bc180bfa, XIndexReplace_feed0dd7):
         
         It is used to identify a certain numbering rules property
         """
+        ...
 
     @abstractproperty
     def NumberingIsOutline(self) -> bool:
@@ -76,12 +81,14 @@ class NumberingRules(XPropertySet_bc180bfa, XIndexReplace_feed0dd7):
         
         headings).
         """
+        ...
 
     @abstractproperty
     def NumberingType(self) -> int:
         """
         the type of numbering (Arabic, characters, roman numbers, etc.).
         """
+        ...
 
 
 

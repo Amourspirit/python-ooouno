@@ -43,6 +43,7 @@ class PatternField(UnoControlPatternFieldModel_7c49111a, FormControlModel_e2990d
         
         This value is used when the control is initially displayed, and for resetting it.
         """
+        ...
 
 
 

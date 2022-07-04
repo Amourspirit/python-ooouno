@@ -43,16 +43,19 @@ class XSubTotalCalculatable(XInterface_8f010a43):
         """
         creates subtotals using the settings of the passed descriptor.
         """
+        ...
     @abstractmethod
     def createSubTotalDescriptor(self, bEmpty: bool) -> 'XSubTotalDescriptor_19fd0ec6':
         """
         creates a subtotal descriptor.
         """
+        ...
     @abstractmethod
     def removeSubTotals(self) -> None:
         """
         removes the subtotals from the current object.
         """
+        ...
 
 __all__ = ['XSubTotalCalculatable']
 

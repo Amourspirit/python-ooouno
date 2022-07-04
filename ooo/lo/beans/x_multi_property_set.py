@@ -46,20 +46,24 @@ class XMultiPropertySet(XInterface_8f010a43):
         
         It is suggested to allow multiple registration of the same listener, thus for each time a listener is added, it has to be removed.
         """
+        ...
     @abstractmethod
     def firePropertiesChangeEvent(self, aPropertyNames: 'typing.Tuple[str, ...]', xListener: 'XPropertiesChangeListener_7a7d1122') -> None:
         """
         fires a sequence of PropertyChangeEvents to the specified listener.
         """
+        ...
     @abstractmethod
     def getPropertySetInfo(self) -> 'XPropertySetInfo_efa90d86':
         """
         """
+        ...
     @abstractmethod
     def getPropertyValues(self, aPropertyNames: 'typing.Tuple[str, ...]') -> 'typing.Tuple[object, ...]':
         """
         The order of the values in the returned sequence will be the same as the order of the names in the argument.
         """
+        ...
     @abstractmethod
     def removePropertiesChangeListener(self, xListener: 'XPropertiesChangeListener_7a7d1122') -> None:
         """
@@ -69,6 +73,7 @@ class XMultiPropertySet(XInterface_8f010a43):
         
         It is suggested to allow multiple registration of the same listener, thus for each time a listener is added, it has to be removed.
         """
+        ...
     @abstractmethod
     def setPropertyValues(self, aPropertyNames: 'typing.Tuple[str, ...]', aValues: 'typing.Tuple[object, ...]') -> None:
         """
@@ -81,6 +86,7 @@ class XMultiPropertySet(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XMultiPropertySet']
 

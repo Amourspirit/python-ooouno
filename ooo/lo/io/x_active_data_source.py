@@ -40,6 +40,7 @@ class XActiveDataSource(XInterface_8f010a43):
     def getOutputStream(self) -> 'XOutputStream_a4e00b35':
         """
         """
+        ...
     @abstractmethod
     def setOutputStream(self, aStream: 'XOutputStream_a4e00b35') -> None:
         """
@@ -47,6 +48,7 @@ class XActiveDataSource(XInterface_8f010a43):
         
         If XConnectable is also implemented, this method should query aStream for a XConnectable and connect both.
         """
+        ...
 
 __all__ = ['XActiveDataSource']
 

@@ -47,6 +47,7 @@ class XDrawPageSupplier(XInterface_8f010a43):
         """
         returns the DrawPage.
         """
+        ...
 
 __all__ = ['XDrawPageSupplier']
 

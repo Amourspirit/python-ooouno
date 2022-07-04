@@ -49,6 +49,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getArrayAtIndex(self, index: int, count: int, typeMap: 'XNameAccess_e2ab0cf6') -> 'typing.Tuple[object, ...]':
         """
@@ -57,6 +58,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getBaseType(self) -> int:
         """
@@ -65,6 +67,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getBaseTypeName(self) -> str:
         """
@@ -75,6 +78,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getResultSet(self, typeMap: 'XNameAccess_e2ab0cf6') -> 'XResultSet_98e30aa7':
         """
@@ -87,6 +91,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getResultSetAtIndex(self, index: int, count: int, typeMap: 'XNameAccess_e2ab0cf6') -> 'XResultSet_98e30aa7':
         """
@@ -99,6 +104,7 @@ class XArray(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XArray']
 

@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.awt.grid
 import typing
+import uno
 from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from .x_grid_selection_listener import XGridSelectionListener as XGridSelectionListener_759e10f2
@@ -44,11 +45,13 @@ class XGridRowSelection(ABC):
         """
         Adds a listener for the GridSelectionEvent posted after the grid changes.
         """
+        ...
     @abstractmethod
     def deselectAllRows(self) -> None:
         """
         Deselects all selected rows.
         """
+        ...
     @abstractmethod
     def deselectRow(self, RowIndex: int) -> None:
         """
@@ -57,31 +60,37 @@ class XGridRowSelection(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
-    def getSelectedRows(self) -> 'typing.Tuple[int, ...]':
+    def getSelectedRows(self) -> uno.ByteSequence:
         """
         Returns the indices of all selected rows.
         """
+        ...
     @abstractmethod
     def hasSelectedRows(self) -> bool:
         """
         Returns whether rows are selected.
         """
+        ...
     @abstractmethod
     def isRowSelected(self, RowIndex: int) -> bool:
         """
         Returns whether a specific row is selected.
         """
+        ...
     @abstractmethod
     def removeSelectionListener(self, listener: 'XGridSelectionListener_759e10f2') -> None:
         """
         Removes a listener previously added with addSelectionListener().
         """
+        ...
     @abstractmethod
     def selectAllRows(self) -> None:
         """
         Selects all rows.
         """
+        ...
     @abstractmethod
     def selectRow(self, RowIndex: int) -> None:
         """
@@ -90,6 +99,7 @@ class XGridRowSelection(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XGridRowSelection']
 

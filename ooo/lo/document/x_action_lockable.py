@@ -38,15 +38,18 @@ class XActionLockable(XInterface_8f010a43):
         """
         increments the lock count of the object by one.
         """
+        ...
     @abstractmethod
     def isActionLocked(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def removeActionLock(self) -> None:
         """
         decrements the lock count of the object by one.
         """
+        ...
     @abstractmethod
     def resetActionLocks(self) -> int:
         """
@@ -54,6 +57,7 @@ class XActionLockable(XInterface_8f010a43):
         
         This method is used for debugging purposes. The debugging environment of a programming language can reset the locks to allow refreshing of the view if a breakpoint is reached or step execution is used.
         """
+        ...
     @abstractmethod
     def setActionLocks(self, nLock: int) -> None:
         """
@@ -61,6 +65,7 @@ class XActionLockable(XInterface_8f010a43):
         
         This method is used for debugging purposes. The programming environment can restore the locking after a break of a debug session.
         """
+        ...
 
 __all__ = ['XActionLockable']
 

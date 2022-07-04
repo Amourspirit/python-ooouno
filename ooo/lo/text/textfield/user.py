@@ -47,24 +47,28 @@ class User(DependentTextField_fed90ded):
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def IsShowFormula(self) -> bool:
         """
         determines if the content is shown as text rather than as value.
         """
+        ...
 
     @abstractproperty
     def IsVisible(self) -> bool:
         """
         determines if the field is visible.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         this is the number format for this field.
         """
+        ...
 
 
 

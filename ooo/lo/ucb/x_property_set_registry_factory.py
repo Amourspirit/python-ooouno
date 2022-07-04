@@ -41,6 +41,7 @@ class XPropertySetRegistryFactory(XInterface_8f010a43):
         """
         creates a property set registry.
         """
+        ...
 
 __all__ = ['XPropertySetRegistryFactory']
 

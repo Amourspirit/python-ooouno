@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import IconSetType as IconSetType
-    if hasattr(IconSetType, '_constants') and isinstance(IconSetType._constants, dict):
-        IconSetType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        IconSetType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.IconSetType'
-        IconSetType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global IconSetTypeEnum
-        ls = [f for f in dir(IconSetType) if not callable(getattr(IconSetType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(IconSetType, name)
-        IconSetTypeEnum = IntEnum('IconSetTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class IconSetType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.IconSetType", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.IconSetType``"""
+        pass
+
+    class IconSetTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.IconSetType", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.IconSetType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.icon_set_type import IconSetType as IconSetType
 

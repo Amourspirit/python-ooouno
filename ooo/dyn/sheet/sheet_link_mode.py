@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.SheetLinkMode import (NONE, NORMAL, VALUE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.SheetLinkMode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.SheetLinkMode",
-            "__ooo_type_name__": "enum",
-            "NONE": NONE,
-            "NORMAL": NORMAL,
-            "VALUE": VALUE,
-        }
-        result = type('SheetLinkMode', (object,), _dict)
-        return result
-
-    SheetLinkMode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class SheetLinkMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.SheetLinkMode", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.SheetLinkMode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.sheet_link_mode import SheetLinkMode as SheetLinkMode
 

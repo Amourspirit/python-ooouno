@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.embed import EmbedMapUnits as EmbedMapUnits
-    if hasattr(EmbedMapUnits, '_constants') and isinstance(EmbedMapUnits._constants, dict):
-        EmbedMapUnits._constants['__ooo_ns__'] = 'com.sun.star.embed'
-        EmbedMapUnits._constants['__ooo_full_ns__'] = 'com.sun.star.embed.EmbedMapUnits'
-        EmbedMapUnits._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EmbedMapUnitsEnum
-        ls = [f for f in dir(EmbedMapUnits) if not callable(getattr(EmbedMapUnits, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EmbedMapUnits, name)
-        EmbedMapUnitsEnum = IntEnum('EmbedMapUnitsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class EmbedMapUnits(metaclass=UnoConstMeta, type_name="com.sun.star.embed.EmbedMapUnits", name_space="com.sun.star.embed"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.embed.EmbedMapUnits``"""
+        pass
+
+    class EmbedMapUnitsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.embed.EmbedMapUnits", name_space="com.sun.star.embed"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.embed.EmbedMapUnits`` as Enum values"""
+        pass
+
 else:
     from ...lo.embed.embed_map_units import EmbedMapUnits as EmbedMapUnits
 

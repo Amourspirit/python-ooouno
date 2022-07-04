@@ -43,21 +43,25 @@ class XLabeledDataSequence(XInterface_8f010a43):
         """
         returns an XDataSequence containing the label for the labeled sequence.
         """
+        ...
     @abstractmethod
     def getValues(self) -> 'XDataSequence_11f00e1f':
         """
         returns an XDataSequence containing the actual data.
         """
+        ...
     @abstractmethod
     def setLabel(self, xSequence: 'XDataSequence_11f00e1f') -> None:
         """
         sets a new XDataSequence containing the label for the labeled sequence.
         """
+        ...
     @abstractmethod
     def setValues(self, xSequence: 'XDataSequence_11f00e1f') -> None:
         """
         sets a new XDataSequence containing the actual data.
         """
+        ...
 
 __all__ = ['XLabeledDataSequence']
 

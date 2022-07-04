@@ -44,16 +44,19 @@ class XUIControllerRegistration(XInterface_8f010a43):
         """
         function to remove a previously defined association between a user interface controller implementation and a command URL and optional module.
         """
+        ...
     @abstractmethod
     def hasController(self, aCommandURL: str, aModelName: str) -> bool:
         """
         function to check if an user interface controller is registered for a command URL and optional module.
         """
+        ...
     @abstractmethod
     def registerController(self, aCommandURL: str, aModelName: str, aControllerImplementationName: str) -> None:
         """
         function to create an association between a user interface controller implementation and a command URL and optional module.
         """
+        ...
 
 __all__ = ['XUIControllerRegistration']
 

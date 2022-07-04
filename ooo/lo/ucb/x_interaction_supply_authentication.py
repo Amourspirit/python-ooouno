@@ -43,21 +43,25 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         """
         Specifies if an \"account\" value can be handed back.
         """
+        ...
     @abstractmethod
     def canSetPassword(self) -> bool:
         """
         Specifies if a \"password\" value can be handed back.
         """
+        ...
     @abstractmethod
     def canSetRealm(self) -> bool:
         """
         Specifies if a new \"realm\" value can be handed back.
         """
+        ...
     @abstractmethod
     def canSetUserName(self) -> bool:
         """
         Specifies if a \"user name\" value can be handed back.
         """
+        ...
     @abstractmethod
     def getRememberAccountModes(self, Default: 'RememberAuthentication_28a80f31') -> 'typing.Tuple[RememberAuthentication_28a80f31, ...]':
         """
@@ -65,6 +69,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
 
         * ``Default`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getRememberPasswordModes(self, Default: 'RememberAuthentication_28a80f31') -> 'typing.Tuple[RememberAuthentication_28a80f31, ...]':
         """
@@ -72,6 +77,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
 
         * ``Default`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def setAccount(self, Account: str) -> None:
         """
@@ -79,6 +85,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.canSetAccount() returned TRUE.
         """
+        ...
     @abstractmethod
     def setPassword(self, Password: str) -> None:
         """
@@ -86,6 +93,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.canSetPassword() returned TRUE.
         """
+        ...
     @abstractmethod
     def setRealm(self, Realm: str) -> None:
         """
@@ -93,6 +101,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.canSetRealm() returned TRUE.
         """
+        ...
     @abstractmethod
     def setRememberAccount(self, Remember: 'RememberAuthentication_28a80f31') -> None:
         """
@@ -100,6 +109,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.setAccount() is also called.
         """
+        ...
     @abstractmethod
     def setRememberPassword(self, Remember: 'RememberAuthentication_28a80f31') -> None:
         """
@@ -107,6 +117,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.setPassword() is also called.
         """
+        ...
     @abstractmethod
     def setUserName(self, UserName: str) -> None:
         """
@@ -114,6 +125,7 @@ class XInteractionSupplyAuthentication(XInteractionContinuation_5af0108e):
         
         This method should be called before com.sun.star.task.XInteractionContinuation.select(), and should only be called if XInteractionSupplyAuthentication.canSetUserName() returned TRUE.
         """
+        ...
 
 __all__ = ['XInteractionSupplyAuthentication']
 

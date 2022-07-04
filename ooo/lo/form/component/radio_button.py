@@ -49,6 +49,7 @@ class RadioButton(UnoControlRadioButtonModel_6ad310c3, FormControlModel_e2990d22
         
         In a group of radio buttons only one button should be checked by default.
         """
+        ...
 
     @abstractproperty
     def RefValue(self) -> str:
@@ -57,15 +58,16 @@ class RadioButton(UnoControlRadioButtonModel_6ad310c3, FormControlModel_e2990d22
         
         If the form the control belongs to is to be submitted (see com.sun.star.form.XSubmit), and the control is checked, this reference value is used for submission.
         """
+        ...
 
     @abstractproperty
     def UncheckedRefValue(self) -> str:
         """
         specifies a value which is to be associated with the control when it's not selected.
         
-        In various situations, the RefValue is associated with the control if and only if it is selected.
-        UncheckedRefValue provides an extension of this concept: If present, the value should be associated with the control when it is not selected.
+        In various situations, the RefValue is associated with the control if and only if it is selected.UncheckedRefValue provides an extension of this concept: If present, the value should be associated with the control when it is not selected.
         """
+        ...
 
 
 

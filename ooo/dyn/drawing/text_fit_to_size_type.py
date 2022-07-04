@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.TextFitToSizeType import (ALLLINES, AUTOFIT, NONE, PROPORTIONAL)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.TextFitToSizeType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.TextFitToSizeType",
-            "__ooo_type_name__": "enum",
-            "ALLLINES": ALLLINES,
-            "AUTOFIT": AUTOFIT,
-            "NONE": NONE,
-            "PROPORTIONAL": PROPORTIONAL,
-        }
-        result = type('TextFitToSizeType', (object,), _dict)
-        return result
-
-    TextFitToSizeType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TextFitToSizeType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextFitToSizeType", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.TextFitToSizeType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.text_fit_to_size_type import TextFitToSizeType as TextFitToSizeType
 

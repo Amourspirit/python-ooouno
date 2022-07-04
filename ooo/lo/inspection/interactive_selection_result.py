@@ -34,6 +34,10 @@ class InteractiveSelectionResult(Enum):
     __ooo_full_ns__: str = 'com.sun.star.inspection.InteractiveSelectionResult'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.inspection.InteractiveSelectionResult'
+
     Cancelled = 'Cancelled'
     """
     The interactive selection of a property value was canceled.

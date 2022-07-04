@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import ParagraphStyleCategory as ParagraphStyleCategory
-    if hasattr(ParagraphStyleCategory, '_constants') and isinstance(ParagraphStyleCategory._constants, dict):
-        ParagraphStyleCategory._constants['__ooo_ns__'] = 'com.sun.star.style'
-        ParagraphStyleCategory._constants['__ooo_full_ns__'] = 'com.sun.star.style.ParagraphStyleCategory'
-        ParagraphStyleCategory._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ParagraphStyleCategoryEnum
-        ls = [f for f in dir(ParagraphStyleCategory) if not callable(getattr(ParagraphStyleCategory, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ParagraphStyleCategory, name)
-        ParagraphStyleCategoryEnum = IntEnum('ParagraphStyleCategoryEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ParagraphStyleCategory(metaclass=UnoConstMeta, type_name="com.sun.star.style.ParagraphStyleCategory", name_space="com.sun.star.style"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.style.ParagraphStyleCategory``"""
+        pass
+
+    class ParagraphStyleCategoryEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.style.ParagraphStyleCategory", name_space="com.sun.star.style"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.style.ParagraphStyleCategory`` as Enum values"""
+        pass
+
 else:
     from ...lo.style.paragraph_style_category import ParagraphStyleCategory as ParagraphStyleCategory
 

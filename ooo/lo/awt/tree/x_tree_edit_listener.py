@@ -45,6 +45,7 @@ class XTreeEditListener(XEventListener_c7230c4a):
         
         Implementations that register a XTreeEditListener must update the display value at the Node.
         """
+        ...
     @abstractmethod
     def nodeEditing(self, Node: 'XTreeNode_baaf0ba0') -> None:
         """
@@ -53,6 +54,7 @@ class XTreeEditListener(XEventListener_c7230c4a):
         Raises:
             com.sun.star.util.VetoException: ``VetoException``
         """
+        ...
 
 __all__ = ['XTreeEditListener']
 

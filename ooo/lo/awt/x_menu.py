@@ -43,76 +43,91 @@ class XMenu(XInterface_8f010a43):
         """
         adds the specified menu listener to receive events from this menu.
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
         removes all items from the menu.
         """
+        ...
     @abstractmethod
     def enableAutoMnemonics(self, bEnable: bool) -> None:
         """
         specifies whether mnemonics are automatically assigned to menu items, or not.
         """
+        ...
     @abstractmethod
     def enableItem(self, nItemId: int, bEnable: bool) -> None:
         """
         enables or disables the menu item.
         """
+        ...
     @abstractmethod
     def getCommand(self, nItemId: int) -> str:
         """
         retrieves the command string for the menu item.
         """
+        ...
     @abstractmethod
     def getHelpCommand(self, nItemId: int) -> str:
         """
         retrieves the help command string for the menu item.
         """
+        ...
     @abstractmethod
     def getHelpText(self, nItemId: int) -> str:
         """
         retrieves the help text for the menu item.
         """
+        ...
     @abstractmethod
     def getItemCount(self) -> int:
         """
         returns the number of items in the menu.
         """
+        ...
     @abstractmethod
     def getItemId(self, nItemPos: int) -> int:
         """
         returns the ID of the item at the specified position.
         """
+        ...
     @abstractmethod
     def getItemPos(self, nItemId: int) -> int:
         """
         returns the position of the item with the specified ID.
         """
+        ...
     @abstractmethod
     def getItemText(self, nItemId: int) -> str:
         """
         returns the string for the given item id.
         """
+        ...
     @abstractmethod
     def getItemType(self, nItemPos: int) -> 'MenuItemType_a4760b1a':
         """
         retrieves the type of the menu item.
         """
+        ...
     @abstractmethod
     def getPopupMenu(self, nItemId: int) -> 'XPopupMenu_8ee90a55':
         """
         returns the popup menu from the menu item.
         """
+        ...
     @abstractmethod
     def getTipHelpText(self, nItemId: int) -> str:
         """
         retrieves the tip help text for the menu item.
         """
+        ...
     @abstractmethod
     def hideDisabledEntries(self, bHide: bool) -> None:
         """
         specifies whether disabled menu entries should be hidden, or not.
         """
+        ...
     @abstractmethod
     def insertItem(self, nItemId: int, aText: str, nItemStyle: int, nItemPos: int) -> None:
         """
@@ -120,56 +135,67 @@ class XMenu(XInterface_8f010a43):
         
         The item is appended if the position is greater than or equal to getItemCount() or if it is negative.
         """
+        ...
     @abstractmethod
     def isItemEnabled(self, nItemId: int) -> bool:
         """
         returns the state of the menu item.
         """
+        ...
     @abstractmethod
     def isPopupMenu(self) -> bool:
         """
         checks whether an XMenu is an XPopupMenu.
         """
+        ...
     @abstractmethod
     def removeItem(self, nItemPos: int, nCount: int) -> None:
         """
         removes one or more items from the menu.
         """
+        ...
     @abstractmethod
     def removeMenuListener(self, xListener: 'XMenuListener_af9e0b87') -> None:
         """
         removes the specified menu listener so that it no longer receives events from this menu.
         """
+        ...
     @abstractmethod
     def setCommand(self, nItemId: int, aCommand: str) -> None:
         """
         sets the command string for the menu item.
         """
+        ...
     @abstractmethod
     def setHelpCommand(self, nItemId: int, aCommand: str) -> None:
         """
         sets the help command string for the menu item.
         """
+        ...
     @abstractmethod
     def setHelpText(self, nItemId: int, sHelpText: str) -> None:
         """
         sets the help text for the menu item.
         """
+        ...
     @abstractmethod
     def setItemText(self, nItemId: int, aText: str) -> None:
         """
         sets the text for the menu item.
         """
+        ...
     @abstractmethod
     def setPopupMenu(self, nItemId: int, aPopupMenu: 'XPopupMenu_8ee90a55') -> None:
         """
         sets the popup menu for a specified menu item.
         """
+        ...
     @abstractmethod
     def setTipHelpText(self, nItemId: int, sTipHelpText: str) -> None:
         """
         sets the tip help text for the menu item.
         """
+        ...
 
 __all__ = ['XMenu']
 

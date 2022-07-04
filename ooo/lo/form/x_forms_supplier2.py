@@ -42,6 +42,7 @@ class XFormsSupplier2(XFormsSupplier_c8f90c6f):
         
         Semantically, hasForms() is equivalent to calling XElementAccess.hasElements() on the container returned by XFormsSupplier.getForms(). But when using the latter, the implementation is forced to create an empty container, which might be potentially expensive.
         """
+        ...
 
 __all__ = ['XFormsSupplier2']
 

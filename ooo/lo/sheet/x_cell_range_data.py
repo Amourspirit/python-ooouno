@@ -43,6 +43,7 @@ class XCellRangeData(XInterface_8f010a43):
         
         Each element of the result contains a double or a string.
         """
+        ...
     @abstractmethod
     def setDataArray(self, aArray: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
@@ -50,6 +51,7 @@ class XCellRangeData(XInterface_8f010a43):
         
         The size of the array must be the same as the size of the cell range. Each element of the array must contain a double or a string.
         """
+        ...
 
 __all__ = ['XCellRangeData']
 

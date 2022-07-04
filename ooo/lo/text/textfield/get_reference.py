@@ -45,6 +45,7 @@ class GetReference(TextField_90260a56):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def ReferenceFieldLanguage(self) -> str:
@@ -59,24 +60,28 @@ class GetReference(TextField_90260a56):
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def ReferenceFieldPart(self) -> int:
         """
         contains the type of the reference.
         """
+        ...
 
     @abstractproperty
     def ReferenceFieldSource(self) -> int:
         """
         contains the source of the reference.
         """
+        ...
 
     @abstractproperty
     def SequenceNumber(self) -> int:
         """
         contains the sequence number of a set expression field that is used as sequence field or the value of the ReferenceId property of a footnote or endnote.
         """
+        ...
 
     @abstractproperty
     def SourceName(self) -> str:
@@ -85,6 +90,7 @@ class GetReference(TextField_90260a56):
         
         Depending on the property ReferenceFieldSource it may be the name of a bookmark, a reference mark.
         """
+        ...
 
 
 

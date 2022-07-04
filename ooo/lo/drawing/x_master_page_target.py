@@ -40,11 +40,13 @@ class XMasterPageTarget(XInterface_8f010a43):
     def getMasterPage(self) -> 'XDrawPage_b07a0b57':
         """
         """
+        ...
     @abstractmethod
     def setMasterPage(self, xMasterPage: 'XDrawPage_b07a0b57') -> None:
         """
         links a MasterPage to this object.
         """
+        ...
 
 __all__ = ['XMasterPageTarget']
 

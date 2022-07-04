@@ -41,6 +41,7 @@ class IndexColumn(Column_7b1d098a):
         """
         is the column sorted in ascending order.
         """
+        ...
 
 
 

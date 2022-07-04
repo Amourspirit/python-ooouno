@@ -38,6 +38,7 @@ class X3DDefaultSetter(XInterface_8f010a43):
         """
         The result may depend on the current chart type and the current shade mode.
         """
+        ...
     @abstractmethod
     def setDefaultIllumination(self) -> None:
         """
@@ -45,6 +46,7 @@ class X3DDefaultSetter(XInterface_8f010a43):
         
         The result may dependent on other 3D settings as rotation or shade mode. It may depend on the current chart type also.
         """
+        ...
     @abstractmethod
     def setDefaultRotation(self) -> None:
         """
@@ -52,6 +54,7 @@ class X3DDefaultSetter(XInterface_8f010a43):
         
         The result may depend on the current chart type.
         """
+        ...
 
 __all__ = ['X3DDefaultSetter']
 

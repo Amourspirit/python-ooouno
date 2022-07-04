@@ -43,6 +43,7 @@ class XCellFormatRangesSupplier(XInterface_8f010a43):
         
         Each cell of the original range is contained in one of the ranges (even unformatted cells). If there is a non-rectangular equal-formatted cell area, it will be split into several rectangular ranges.
         """
+        ...
 
 __all__ = ['XCellFormatRangesSupplier']
 

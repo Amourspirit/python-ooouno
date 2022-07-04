@@ -41,21 +41,25 @@ class XPlayerWindow(XWindow_713b0924):
         """
         gets the current media ratio.
         """
+        ...
     @abstractmethod
     def setPointerType(self, SystemPointerType: int) -> None:
         """
         changes the pointer for the player window.
         """
+        ...
     @abstractmethod
     def setZoomLevel(self, ZoomLevel: 'ZoomLevel_99570aa5') -> bool:
         """
         changes the zoom of the media played by the window.
         """
+        ...
     @abstractmethod
     def update(self) -> None:
         """
         redraws the player window
         """
+        ...
 
 __all__ = ['XPlayerWindow']
 

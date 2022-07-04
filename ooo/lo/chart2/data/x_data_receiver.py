@@ -51,6 +51,7 @@ class XDataReceiver(XInterface_8f010a43):
         
         The previously set data provider will be released.
         """
+        ...
     @abstractmethod
     def attachNumberFormatsSupplier(self, xSupplier: 'XNumberFormatsSupplier_3afb0fb7') -> None:
         """
@@ -58,6 +59,7 @@ class XDataReceiver(XInterface_8f010a43):
         
         The given number formats will be used for display purposes.
         """
+        ...
     @abstractmethod
     def getPopupRequest(self) -> 'XRequestCallback_d4ac0ca2':
         """
@@ -67,6 +69,7 @@ class XDataReceiver(XInterface_8f010a43):
         
             LibreOffice 5.4
         """
+        ...
     @abstractmethod
     def getRangeHighlighter(self) -> 'XRangeHighlighter_4e810fc8':
         """
@@ -76,11 +79,13 @@ class XDataReceiver(XInterface_8f010a43):
         
         The range highlighter is optional, i.e., this method may return an empty object.
         """
+        ...
     @abstractmethod
     def getUsedData(self) -> 'XDataSource_f6340d57':
         """
         Returns the data requested by the most recently attached data provider, that is still used.
         """
+        ...
     @abstractmethod
     def getUsedRangeRepresentations(self) -> 'typing.Tuple[str, ...]':
         """
@@ -88,6 +93,7 @@ class XDataReceiver(XInterface_8f010a43):
         
         This list may be used by the data provider to swap charts out of memory, but still get informed by changes of ranges while the chart is not loaded.
         """
+        ...
     @abstractmethod
     def setArguments(self, aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -95,6 +101,7 @@ class XDataReceiver(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XDataReceiver']
 

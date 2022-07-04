@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import BarCodeErrorCorrection as BarCodeErrorCorrection
-    if hasattr(BarCodeErrorCorrection, '_constants') and isinstance(BarCodeErrorCorrection._constants, dict):
-        BarCodeErrorCorrection._constants['__ooo_ns__'] = 'com.sun.star.drawing'
-        BarCodeErrorCorrection._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.BarCodeErrorCorrection'
-        BarCodeErrorCorrection._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global BarCodeErrorCorrectionEnum
-        ls = [f for f in dir(BarCodeErrorCorrection) if not callable(getattr(BarCodeErrorCorrection, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(BarCodeErrorCorrection, name)
-        BarCodeErrorCorrectionEnum = IntEnum('BarCodeErrorCorrectionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class BarCodeErrorCorrection(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.BarCodeErrorCorrection", name_space="com.sun.star.drawing"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.drawing.BarCodeErrorCorrection``"""
+        pass
+
+    class BarCodeErrorCorrectionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.drawing.BarCodeErrorCorrection", name_space="com.sun.star.drawing"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.drawing.BarCodeErrorCorrection`` as Enum values"""
+        pass
+
 else:
     from ...lo.drawing.bar_code_error_correction import BarCodeErrorCorrection as BarCodeErrorCorrection
 

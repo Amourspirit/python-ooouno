@@ -28,6 +28,6 @@ TypeDef type alias
 Shorthand for the device-dependent color components, and easier to read.
 
 See Also:
-    `API Color <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1rendering.html#a22cfb0d628f89a8edb356ae3231d4e22>`_
+    `API Color <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1rendering.html#a6e6c5d8e54f930a67b20875cb6300ef2>`_
 """
 

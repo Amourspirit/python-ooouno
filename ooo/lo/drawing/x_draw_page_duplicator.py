@@ -41,6 +41,7 @@ class XDrawPageDuplicator(XInterface_8f010a43):
         """
         creates a duplicate of a DrawPage or MasterPage, including the Shapes on that page and inserts it into the same model.
         """
+        ...
 
 __all__ = ['XDrawPageDuplicator']
 

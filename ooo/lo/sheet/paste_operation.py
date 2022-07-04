@@ -34,6 +34,10 @@ class PasteOperation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.PasteOperation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.PasteOperation'
+
     ADD = 'ADD'
     """
     old and new values are added.

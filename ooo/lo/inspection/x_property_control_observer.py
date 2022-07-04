@@ -44,11 +44,13 @@ class XPropertyControlObserver(ABC):
         """
         notifies the observer that a certain XPropertyControl's UI representation gained the focus.
         """
+        ...
     @abstractmethod
     def valueChanged(self, Control: 'XPropertyControl_3f260fe2') -> None:
         """
         notifies the observer that a certain XPropertyControl's value changed.
         """
+        ...
 
 __all__ = ['XPropertyControlObserver']
 

@@ -55,6 +55,7 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         """
         Determines how to stagger the labels at the axis (side by side, even, odd, auto )
         """
+        ...
 
     @abstractproperty
     def BuiltInUnit(self) -> str:
@@ -65,24 +66,28 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         
             LibreOffice 4.3
         """
+        ...
 
     @abstractproperty
     def CrossoverPosition(self) -> 'ChartAxisPosition_fcaa0df6':
         """
         Determines where the axis crosses the other axis.
         """
+        ...
 
     @abstractproperty
     def CrossoverValue(self) -> float:
         """
         Determines the scale value on the other axis when CrossoverPosition is set to VALUE.
         """
+        ...
 
     @abstractproperty
     def DisplayLabels(self) -> bool:
         """
         Determines whether to display text at the axis or not.
         """
+        ...
 
     @abstractproperty
     def DisplayUnits(self) -> bool:
@@ -93,12 +98,14 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         
             LibreOffice 4.3
         """
+        ...
 
     @abstractproperty
     def LabelPosition(self) -> 'ChartAxisLabelPosition_463a0fd6':
         """
         Determines where the axis labels are placed.
         """
+        ...
 
     @abstractproperty
     def MajorOrigin(self) -> int:
@@ -109,24 +116,28 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         
             LibreOffice 7.0
         """
+        ...
 
     @abstractproperty
     def MajorTickmarks(self) -> int:
         """
         determines what kind of tickmarks should be shown for major ticks.
         """
+        ...
 
     @abstractproperty
     def MarkPosition(self) -> 'ChartAxisMarkPosition_373b0f81':
         """
         Determines where the interval marks are placed.
         """
+        ...
 
     @abstractproperty
     def MinorTickmarks(self) -> int:
         """
         determines what kind of tickmarks should be shown for minor ticks.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
@@ -137,41 +148,48 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         
         To determine a source format, the axis can query the XDataSequences used by the data series attached to it (see XDataSequence.getNumberFormatKeyByIndex()).
         """
+        ...
 
     @abstractproperty
     def ReferencePageSize(self) -> 'Size_576707ef':
         """
         """
+        ...
 
     @abstractproperty
     def Show(self) -> bool:
         """
         Determines, whether the axis should be rendered by the view.
         """
+        ...
 
     @abstractproperty
     def StackCharacters(self) -> bool:
         """
         Determines whether the characters in a single labels should be stacked one upon each other.
         """
+        ...
 
     @abstractproperty
     def TextBreak(self) -> bool:
         """
         Determines whether the labels are allowed to break into more than one line.
         """
+        ...
 
     @abstractproperty
     def TextOverlap(self) -> bool:
         """
         Determines whether the labels are allowed to overlap.
         """
+        ...
 
     @abstractproperty
     def TextRotation(self) -> float:
         """
         Determines the rotation of the text labels in degrees.
         """
+        ...
 
     @abstractproperty
     def TryStaggeringFirst(self) -> bool:
@@ -182,6 +200,7 @@ class Axis(PropertySet_b0e70ba2, LineProperties_f13f0da9, CharacterProperties_1d
         
             LibreOffice 5.1
         """
+        ...
 
 
 

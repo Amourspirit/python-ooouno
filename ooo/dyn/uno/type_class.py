@@ -25,54 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.uno.TypeClass import (ANY, ARRAY, BOOLEAN, BYTE, CHAR, CONSTANT, CONSTANTS, DOUBLE, ENUM, EXCEPTION, FLOAT, HYPER, INTERFACE, INTERFACE_ATTRIBUTE, INTERFACE_METHOD, LONG, MODULE, PROPERTY, SEQUENCE, SERVICE, SHORT, SINGLETON, STRING, STRUCT, TYPE, TYPEDEF, UNION, UNKNOWN, UNSIGNED_HYPER, UNSIGNED_LONG, UNSIGNED_SHORT, VOID)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.uno.TypeClass Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.uno",
-            "__ooo_full_ns__": "com.sun.star.uno.TypeClass",
-            "__ooo_type_name__": "enum",
-            "ANY": ANY,
-            "ARRAY": ARRAY,
-            "BOOLEAN": BOOLEAN,
-            "BYTE": BYTE,
-            "CHAR": CHAR,
-            "CONSTANT": CONSTANT,
-            "CONSTANTS": CONSTANTS,
-            "DOUBLE": DOUBLE,
-            "ENUM": ENUM,
-            "EXCEPTION": EXCEPTION,
-            "FLOAT": FLOAT,
-            "HYPER": HYPER,
-            "INTERFACE": INTERFACE,
-            "INTERFACE_ATTRIBUTE": INTERFACE_ATTRIBUTE,
-            "INTERFACE_METHOD": INTERFACE_METHOD,
-            "LONG": LONG,
-            "MODULE": MODULE,
-            "PROPERTY": PROPERTY,
-            "SEQUENCE": SEQUENCE,
-            "SERVICE": SERVICE,
-            "SHORT": SHORT,
-            "SINGLETON": SINGLETON,
-            "STRING": STRING,
-            "STRUCT": STRUCT,
-            "TYPE": TYPE,
-            "TYPEDEF": TYPEDEF,
-            "UNION": UNION,
-            "UNKNOWN": UNKNOWN,
-            "UNSIGNED_HYPER": UNSIGNED_HYPER,
-            "UNSIGNED_LONG": UNSIGNED_LONG,
-            "UNSIGNED_SHORT": UNSIGNED_SHORT,
-            "VOID": VOID,
-        }
-        result = type('TypeClass', (object,), _dict)
-        return result
-
-    TypeClass = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TypeClass(metaclass=UnoEnumMeta, type_name="com.sun.star.uno.TypeClass", name_space="com.sun.star.uno"):
+        """Dynamically created class that represents ``com.sun.star.uno.TypeClass`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.uno.type_class import TypeClass as TypeClass
 

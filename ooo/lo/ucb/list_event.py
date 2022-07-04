@@ -40,7 +40,7 @@ class ListEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.ucb.ListEvent'
     """Literal Constant ``com.sun.star.ucb.ListEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Changes: typing.Optional[typing.Tuple[ListAction_8df40a3c, ...]] = UNO_NONE) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Changes: typing.Optional[typing.Tuple[ListAction_8df40a3c, ...]] = ()) -> None:
         """
         Constructor
 
@@ -59,8 +59,6 @@ class ListEvent(EventObject_a3d70b03):
             "Source": Source,
             "Changes": Changes,
         }
-        if kargs["Changes"] is UNO_NONE:
-            kargs["Changes"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

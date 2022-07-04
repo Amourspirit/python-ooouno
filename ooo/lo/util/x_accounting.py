@@ -41,6 +41,7 @@ class XAccounting(XInterface_8f010a43):
     def estimateUsage(self) -> int:
         """
         """
+        ...
 
 __all__ = ['XAccounting']
 

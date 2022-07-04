@@ -37,7 +37,7 @@ class UrlRecord(object):
     typeName: str = 'com.sun.star.task.UrlRecord'
     """Literal Constant ``com.sun.star.task.UrlRecord``"""
 
-    def __init__(self, UserList: typing.Optional[typing.Tuple[UserRecord_9a2e0ab9, ...]] = UNO_NONE, Url: typing.Optional[str] = '') -> None:
+    def __init__(self, UserList: typing.Optional[typing.Tuple[UserRecord_9a2e0ab9, ...]] = (), Url: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -57,8 +57,6 @@ class UrlRecord(object):
             "UserList": UserList,
             "Url": Url,
         }
-        if kargs["UserList"] is UNO_NONE:
-            kargs["UserList"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -37,15 +37,18 @@ class XStyle(XNamed_a6520b08):
     def getParentStyle(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def isInUse(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def isUserDefined(self) -> bool:
         """
         identifies a style as defined by the user.
         """
+        ...
     @abstractmethod
     def setParentStyle(self, aParentStyle: str) -> None:
         """
@@ -54,6 +57,7 @@ class XStyle(XNamed_a6520b08):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XStyle']
 

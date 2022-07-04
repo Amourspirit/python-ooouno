@@ -51,6 +51,7 @@ class XIeeeDoubleBitmap(XIeeeDoubleReadOnlyBitmap_bfd0126c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setPixel(self, color: 'typing.Tuple[float, ...]', bitmapLayout: 'FloatingPointBitmapLayout_c66812df', pos: 'IntegerPoint2D_8f0dc2') -> None:
         """
@@ -62,6 +63,7 @@ class XIeeeDoubleBitmap(XIeeeDoubleReadOnlyBitmap_bfd0126c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XIeeeDoubleBitmap']
 

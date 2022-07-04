@@ -34,6 +34,10 @@ class FormSubmitMethod(Enum):
     __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitMethod'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.form.FormSubmitMethod'
+
     GET = 'GET'
     """
     specifies to append the input information of a form to the target URL as parameters.

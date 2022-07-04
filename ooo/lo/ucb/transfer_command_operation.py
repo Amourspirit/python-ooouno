@@ -34,6 +34,10 @@ class TransferCommandOperation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.TransferCommandOperation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.TransferCommandOperation'
+
     COPY = 'COPY'
     """
     Copy the source to the target folder.

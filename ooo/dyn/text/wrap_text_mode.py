@@ -25,29 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.text.WrapTextMode import (DYNAMIC, LEFT, NONE, PARALLEL, RIGHT, THROUGH, THROUGHT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.text.WrapTextMode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.text",
-            "__ooo_full_ns__": "com.sun.star.text.WrapTextMode",
-            "__ooo_type_name__": "enum",
-            "DYNAMIC": DYNAMIC,
-            "LEFT": LEFT,
-            "NONE": NONE,
-            "PARALLEL": PARALLEL,
-            "RIGHT": RIGHT,
-            "THROUGH": THROUGH,
-            "THROUGHT": THROUGHT,
-        }
-        result = type('WrapTextMode', (object,), _dict)
-        return result
-
-    WrapTextMode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class WrapTextMode(metaclass=UnoEnumMeta, type_name="com.sun.star.text.WrapTextMode", name_space="com.sun.star.text"):
+        """Dynamically created class that represents ``com.sun.star.text.WrapTextMode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.text.wrap_text_mode import WrapTextMode as WrapTextMode
 

@@ -54,6 +54,7 @@ class NamedRange(XCellRangeReferrer_91c0e23, XNamedRange_af450b4b):
         
             OOo 3.0
         """
+        ...
 
     @abstractproperty
     def TokenIndex(self) -> int:
@@ -66,6 +67,7 @@ class NamedRange(XCellRangeReferrer_91c0e23, XNamedRange_af450b4b):
         
             OOo 3.0
         """
+        ...
 
 
 

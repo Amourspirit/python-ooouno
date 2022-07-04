@@ -41,10 +41,12 @@ class PropertyBag(XPropertyBag_bbd00bd8):
     def createDefault(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithTypes(self, AllowedTypes: 'typing.Tuple[object, ...]', AllowEmptyPropertyName: bool, AutomaticAddition: bool) -> None:
         """
         """
+        ...
 
 
 __all__ = ['PropertyBag']

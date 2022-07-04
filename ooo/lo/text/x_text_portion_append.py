@@ -51,6 +51,7 @@ class XTextPortionAppend(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
+        ...
     @abstractmethod
     def insertTextPortion(self, Text: str, CharacterAndParagraphProperties: 'PropertyValues_d6470ce6', TextRange: 'XTextRange_9a910ab7') -> 'XTextRange_9a910ab7':
         """
@@ -65,6 +66,7 @@ class XTextPortionAppend(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
         """
+        ...
 
 __all__ = ['XTextPortionAppend']
 

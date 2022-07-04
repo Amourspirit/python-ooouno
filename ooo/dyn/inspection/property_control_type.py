@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.inspection import PropertyControlType as PropertyControlType
-    if hasattr(PropertyControlType, '_constants') and isinstance(PropertyControlType._constants, dict):
-        PropertyControlType._constants['__ooo_ns__'] = 'com.sun.star.inspection'
-        PropertyControlType._constants['__ooo_full_ns__'] = 'com.sun.star.inspection.PropertyControlType'
-        PropertyControlType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PropertyControlTypeEnum
-        ls = [f for f in dir(PropertyControlType) if not callable(getattr(PropertyControlType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PropertyControlType, name)
-        PropertyControlTypeEnum = IntEnum('PropertyControlTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class PropertyControlType(metaclass=UnoConstMeta, type_name="com.sun.star.inspection.PropertyControlType", name_space="com.sun.star.inspection"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.inspection.PropertyControlType``"""
+        pass
+
+    class PropertyControlTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.inspection.PropertyControlType", name_space="com.sun.star.inspection"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.inspection.PropertyControlType`` as Enum values"""
+        pass
+
 else:
     from ...lo.inspection.property_control_type import PropertyControlType as PropertyControlType
 

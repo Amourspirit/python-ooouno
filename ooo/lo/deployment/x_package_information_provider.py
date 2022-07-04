@@ -42,16 +42,19 @@ class XPackageInformationProvider(ABC):
         """
         returns a list of all installed extension with their version.
         """
+        ...
     @abstractmethod
     def getPackageLocation(self, extensionId: str) -> str:
         """
         get Package information for a specific extension.
         """
+        ...
     @abstractmethod
     def isUpdateAvailable(self, extensionId: str) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         check if there are updates available for an extension.
         """
+        ...
 
 __all__ = ['XPackageInformationProvider']
 

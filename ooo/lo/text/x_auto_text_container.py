@@ -43,8 +43,7 @@ class XAutoTextContainer(XNameAccess_e2ab0cf6):
         
         The name must follow the pattern groupname*pathid, where:
         
-        If only groupname is specified, the path defaults to 0, the Office Basis layer.
-        Note that in some systems the user may lack of write access to the Office Basis directory.
+        If only groupname is specified, the path defaults to 0, the Office Basis layer.Note that in some systems the user may lack of write access to the Office Basis directory.
         
         Example:
 
@@ -52,6 +51,7 @@ class XAutoTextContainer(XNameAccess_e2ab0cf6):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def removeByName(self, aGroupName: str) -> None:
         """
@@ -60,6 +60,7 @@ class XAutoTextContainer(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XAutoTextContainer']
 

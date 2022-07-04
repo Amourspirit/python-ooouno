@@ -34,6 +34,10 @@ class ZoomLevel(Enum):
     __ooo_full_ns__: str = 'com.sun.star.media.ZoomLevel'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.media.ZoomLevel'
+
     FIT_TO_WINDOW = 'FIT_TO_WINDOW'
     """
     specifies that the video should be zoomed to window size

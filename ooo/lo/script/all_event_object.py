@@ -41,7 +41,7 @@ class AllEventObject(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.script.AllEventObject'
     """Literal Constant ``com.sun.star.script.AllEventObject``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '') -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = (), Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -69,8 +69,6 @@ class AllEventObject(EventObject_a3d70b03):
             "ListenerType": ListenerType,
             "MethodName": MethodName,
         }
-        if kargs["Arguments"] is UNO_NONE:
-            kargs["Arguments"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

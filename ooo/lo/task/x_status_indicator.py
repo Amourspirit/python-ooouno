@@ -42,6 +42,7 @@ class XStatusIndicator(XInterface_8f010a43):
         
         Further calls of XStatusIndicator.setText(), XStatusIndicator.setValue() or XStatusIndicator.reset() must be ignored. Only XStatusIndicator.start() can reactivate this indicator. It's not allowed to destruct the indicator inside this method. The instance must be gone by using ref count or disposing.
         """
+        ...
     @abstractmethod
     def reset(self) -> None:
         """
@@ -49,6 +50,7 @@ class XStatusIndicator(XInterface_8f010a43):
         
         Calling of setValue(0) and setText(\"\") should do the same. Stopped indicators must ignore this call.
         """
+        ...
     @abstractmethod
     def setText(self, Text: str) -> None:
         """
@@ -56,6 +58,7 @@ class XStatusIndicator(XInterface_8f010a43):
         
         Initial value can be set during starting of the progress by calling XStatusIndicator.start(). Stopped indicators must ignore this call.
         """
+        ...
     @abstractmethod
     def setValue(self, Value: int) -> None:
         """
@@ -63,6 +66,7 @@ class XStatusIndicator(XInterface_8f010a43):
         
         Wrong values must be ignored and stopped indicators must ignore this call generally.
         """
+        ...
     @abstractmethod
     def start(self, Text: str, Range: int) -> None:
         """
@@ -70,6 +74,7 @@ class XStatusIndicator(XInterface_8f010a43):
         
         It activates a new created or reactivate an already used indicator (must be finished by calling XStatusIndicator.end() before!). By the way it's possible to set first progress description and the possible range of progress value. That means that a progress can runs from 0 to Range.
         """
+        ...
 
 __all__ = ['XStatusIndicator']
 

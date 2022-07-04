@@ -45,6 +45,7 @@ class XActiveDataControl(XInterface_8f010a43):
         
         It is suggested to allow multiple registration of the same listener, thus for each time a listener is added, it has to be removed.
         """
+        ...
     @abstractmethod
     def removeListener(self, aListener: 'XStreamListener_baf80bea') -> None:
         """
@@ -52,6 +53,7 @@ class XActiveDataControl(XInterface_8f010a43):
         
         It is suggested to allow multiple registration of the same listener, thus for each time a listener is added, it has to be removed.
         """
+        ...
     @abstractmethod
     def start(self) -> None:
         """
@@ -61,6 +63,7 @@ class XActiveDataControl(XInterface_8f010a43):
         
         This method does not block the thread, so reading is generally not finished when the method returns.
         """
+        ...
     @abstractmethod
     def terminate(self) -> None:
         """
@@ -68,6 +71,7 @@ class XActiveDataControl(XInterface_8f010a43):
         
         It closes all connected resources and calls XInputStream.close() or XOutputStream.close() and fires the XStreamListener.terminated()-event.
         """
+        ...
 
 __all__ = ['XActiveDataControl']
 

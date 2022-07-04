@@ -49,6 +49,7 @@ class XStorageRawAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def getRawEncrStreamElement(self, sStreamName: str) -> 'XInputStream_98d40ab4':
         """
@@ -66,6 +67,7 @@ class XStorageRawAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertRawEncrStreamElement(self, sStreamName: str, xInStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -83,6 +85,7 @@ class XStorageRawAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
 
 __all__ = ['XStorageRawAccess']
 

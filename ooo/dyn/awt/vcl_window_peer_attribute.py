@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import VclWindowPeerAttribute as VclWindowPeerAttribute
-    if hasattr(VclWindowPeerAttribute, '_constants') and isinstance(VclWindowPeerAttribute._constants, dict):
-        VclWindowPeerAttribute._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        VclWindowPeerAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.awt.VclWindowPeerAttribute'
-        VclWindowPeerAttribute._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global VclWindowPeerAttributeEnum
-        ls = [f for f in dir(VclWindowPeerAttribute) if not callable(getattr(VclWindowPeerAttribute, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(VclWindowPeerAttribute, name)
-        VclWindowPeerAttributeEnum = IntEnum('VclWindowPeerAttributeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class VclWindowPeerAttribute(metaclass=UnoConstMeta, type_name="com.sun.star.awt.VclWindowPeerAttribute", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.VclWindowPeerAttribute``"""
+        pass
+
+    class VclWindowPeerAttributeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.VclWindowPeerAttribute", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.VclWindowPeerAttribute`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.vcl_window_peer_attribute import VclWindowPeerAttribute as VclWindowPeerAttribute
 

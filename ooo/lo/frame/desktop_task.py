@@ -49,40 +49,47 @@ class DesktopTask(XPropertySet_bc180bfa, XDesktopTask_bb4c0bd8, XFramesSupplier_
     def IsAlwaysVisible(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def IsDesktop(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def IsFloating(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def IsVisible(self) -> bool:
         """
         use th visible state of the frame container window instead of this
         """
+        ...
 
     @abstractproperty
     def Position(self) -> 'Point_5fb2085e':
         """
         use the position of the frame container window instead of this
         """
+        ...
 
     @abstractproperty
     def Size(self) -> 'Size_576707ef':
         """
         use the size of the frame container window instead of this
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         use property Frame.Title instead of that
         """
+        ...
 
 
 

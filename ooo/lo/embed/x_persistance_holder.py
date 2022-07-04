@@ -45,6 +45,7 @@ class XPersistanceHolder(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def disconnectPersistence(self) -> None:
         """
@@ -54,6 +55,7 @@ class XPersistanceHolder(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XPersistanceHolder']
 

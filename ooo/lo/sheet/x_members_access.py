@@ -43,6 +43,7 @@ class XMembersAccess(XNameAccess_e2ab0cf6):
         
         The names returned by this function can NOT be used in calls to com.sun.star.container.XNameAccess.getByName(). However, the order returned in two immediately consecutive calls to getElementNames() and getLocaleIndependentElementNames() maps to the same elements in order.
         """
+        ...
 
 __all__ = ['XMembersAccess']
 

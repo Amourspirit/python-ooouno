@@ -44,6 +44,7 @@ class XPrinterServer(XInterface_8f010a43):
         
         You can get all information from this printer, but the printer cannot really print.
         """
+        ...
     @abstractmethod
     def createPrinter(self, printerName: str) -> 'XPrinter_7ad00990':
         """
@@ -51,11 +52,13 @@ class XPrinterServer(XInterface_8f010a43):
         
         You must call com.sun.star.awt.XPrinter.start() to put the job into the printer spooler.
         """
+        ...
     @abstractmethod
     def getPrinterNames(self) -> 'typing.Tuple[str, ...]':
         """
         returns a list of all available printer names.
         """
+        ...
 
 __all__ = ['XPrinterServer']
 

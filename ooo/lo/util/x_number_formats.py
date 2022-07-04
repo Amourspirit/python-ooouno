@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.util
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -47,6 +48,7 @@ class XNumberFormats(XInterface_8f010a43):
         Raises:
             com.sun.star.util.MalformedNumberFormatException: ``MalformedNumberFormatException``
         """
+        ...
     @abstractmethod
     def addNewConverted(self, aFormat: str, nLocale: 'Locale_70d308fa', nNewLocale: 'Locale_70d308fa') -> int:
         """
@@ -55,29 +57,35 @@ class XNumberFormats(XInterface_8f010a43):
         Raises:
             com.sun.star.util.MalformedNumberFormatException: ``MalformedNumberFormatException``
         """
+        ...
     @abstractmethod
     def generateFormat(self, nBaseKey: int, nLocale: 'Locale_70d308fa', bThousands: bool, bRed: bool, nDecimals: int, nLeading: int) -> str:
         """
         generates a format string from several parameters without creating an actual number format.
         """
+        ...
     @abstractmethod
     def getByKey(self, nKey: int) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def queryKey(self, aFormat: str, nLocale: 'Locale_70d308fa', bScan: bool) -> int:
         """
         finds a number format by its format string and returns its key.
         """
+        ...
     @abstractmethod
-    def queryKeys(self, nType: int, nLocale: 'Locale_70d308fa', bCreate: bool) -> 'typing.Tuple[int, ...]':
+    def queryKeys(self, nType: int, nLocale: 'Locale_70d308fa', bCreate: bool) -> uno.ByteSequence:
         """
         """
+        ...
     @abstractmethod
     def removeByKey(self, nKey: int) -> None:
         """
         removes a number format from the list.
         """
+        ...
 
 __all__ = ['XNumberFormats']
 

@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart2.LegendPosition import (CUSTOM, LINE_END, LINE_START, PAGE_END, PAGE_START)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart2.LegendPosition Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart2",
-            "__ooo_full_ns__": "com.sun.star.chart2.LegendPosition",
-            "__ooo_type_name__": "enum",
-            "CUSTOM": CUSTOM,
-            "LINE_END": LINE_END,
-            "LINE_START": LINE_START,
-            "PAGE_END": PAGE_END,
-            "PAGE_START": PAGE_START,
-        }
-        result = type('LegendPosition', (object,), _dict)
-        return result
-
-    LegendPosition = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class LegendPosition(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.LegendPosition", name_space="com.sun.star.chart2"):
+        """Dynamically created class that represents ``com.sun.star.chart2.LegendPosition`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart2.legend_position import LegendPosition as LegendPosition
 

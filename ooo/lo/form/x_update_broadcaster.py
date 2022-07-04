@@ -43,11 +43,13 @@ class XUpdateBroadcaster(XInterface_8f010a43):
         """
         adds the specified listener to receive the events \"approveUpdate\" and \"updated\".
         """
+        ...
     @abstractmethod
     def removeUpdateListener(self, aListener: 'XUpdateListener_d4eb0cbd') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XUpdateBroadcaster']
 

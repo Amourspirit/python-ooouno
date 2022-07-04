@@ -48,18 +48,21 @@ class TableSortDescriptor2(SortDescriptor2_d7270cbf):
         
         Each entry specifies properties that state the row/column to be sorted and how that should be done.
         """
+        ...
 
     @abstractproperty
     def IsSortColumns(self) -> bool:
         """
         specifies if the columns or rows are to be sorted.
         """
+        ...
 
     @abstractproperty
     def MaxSortFieldsCount(self) -> int:
         """
         contains the maximum number of sort fields the descriptor can hold.
         """
+        ...
 
 
 

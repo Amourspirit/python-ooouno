@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.presentation import EffectPresetClass as EffectPresetClass
-    if hasattr(EffectPresetClass, '_constants') and isinstance(EffectPresetClass._constants, dict):
-        EffectPresetClass._constants['__ooo_ns__'] = 'com.sun.star.presentation'
-        EffectPresetClass._constants['__ooo_full_ns__'] = 'com.sun.star.presentation.EffectPresetClass'
-        EffectPresetClass._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EffectPresetClassEnum
-        ls = [f for f in dir(EffectPresetClass) if not callable(getattr(EffectPresetClass, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EffectPresetClass, name)
-        EffectPresetClassEnum = IntEnum('EffectPresetClassEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class EffectPresetClass(metaclass=UnoConstMeta, type_name="com.sun.star.presentation.EffectPresetClass", name_space="com.sun.star.presentation"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.presentation.EffectPresetClass``"""
+        pass
+
+    class EffectPresetClassEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.presentation.EffectPresetClass", name_space="com.sun.star.presentation"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.presentation.EffectPresetClass`` as Enum values"""
+        pass
+
 else:
     from ...lo.presentation.effect_preset_class import EffectPresetClass as EffectPresetClass
 
@@ -48,8 +46,7 @@ else:
 
         This constants defines the class for a preset animation effect.
         
-        This is stored with the name preset-class inside the com.sun.star.animations.XAnimationNode.UserData sequence.
-        This does not manipulate the timing or synchronization. It can be used to quickly identify preset animations inside an animation hierarchy.
+        This is stored with the name preset-class inside the com.sun.star.animations.XAnimationNode.UserData sequence. This does not manipulate the timing or synchronization. It can be used to quickly identify preset animations inside an animation hierarchy.
         """
         CUSTOM = EffectPresetClass.CUSTOM
         ENTRANCE = EffectPresetClass.ENTRANCE

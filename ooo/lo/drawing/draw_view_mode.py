@@ -34,6 +34,10 @@ class DrawViewMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.DrawViewMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.DrawViewMode'
+
     DRAW = 'DRAW'
     """
     The view shows the drawing pages.

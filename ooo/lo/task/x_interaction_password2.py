@@ -42,6 +42,7 @@ class XInteractionPassword2(XInteractionPassword_1ba00ee6):
         """
         gets \"password to modify\" from the continuation.
         """
+        ...
     @abstractmethod
     def getRecommendReadOnly(self) -> bool:
         """
@@ -49,11 +50,13 @@ class XInteractionPassword2(XInteractionPassword_1ba00ee6):
         
         It specifies whether the document should be loaded readonly per default.
         """
+        ...
     @abstractmethod
     def setPasswordToModify(self, aPasswd: str) -> None:
         """
         stores \"password to modify\" to the continuation.
         """
+        ...
     @abstractmethod
     def setRecommendReadOnly(self, bReadOnly: bool) -> None:
         """
@@ -61,6 +64,7 @@ class XInteractionPassword2(XInteractionPassword_1ba00ee6):
         
         It specifies whether the document should be loaded readonly per default.
         """
+        ...
 
 __all__ = ['XInteractionPassword2']
 

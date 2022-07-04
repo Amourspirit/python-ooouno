@@ -42,6 +42,7 @@ class XActiveDataSink(XInterface_8f010a43):
     def getInputStream(self) -> 'XInputStream_98d40ab4':
         """
         """
+        ...
     @abstractmethod
     def setInputStream(self, aStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -49,6 +50,7 @@ class XActiveDataSink(XInterface_8f010a43):
         
         If XConnectable is also implemented, this method should query aStream for an XConnectable and connect both.
         """
+        ...
 
 __all__ = ['XActiveDataSink']
 

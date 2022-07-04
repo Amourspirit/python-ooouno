@@ -41,6 +41,7 @@ class CurrencyField(UnoControlCurrencyFieldModel_8e351187, FormControlModel_e299
         """
         contains a default value for the control.
         """
+        ...
 
 
 

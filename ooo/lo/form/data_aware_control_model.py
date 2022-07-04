@@ -53,17 +53,18 @@ class DataAwareControlModel(FormControlModel_e2990d22, XBoundComponent_d4830cbf,
         
         Applies only if the form the control model belongs to is loaded and the control is valid bound. The referenced field supports the com.sun.star.sdb.Column service.
         """
+        ...
 
     @abstractproperty
     def DataField(self) -> str:
         """
         specifies the name of the bound database field.
         
-        This property makes sense in the context of the control model only. Normally, a control model is a child of a com.sun.star.form.component.DataForm, which is bound to a higher level object such as a table or query - more general, a result set.
-        This member here describes the column of this result set which the control should act for.
+        This property makes sense in the context of the control model only. Normally, a control model is a child of a com.sun.star.form.component.DataForm, which is bound to a higher level object such as a table or query - more general, a result set.This member here describes the column of this result set which the control should act for.
         
         Not every control model can be bound to every database column. Usually, super services of the DataAwareControlModel restrict the column types they can be used with.
         """
+        ...
 
     @abstractproperty
     def InputRequired(self) -> bool:
@@ -76,18 +77,18 @@ class DataAwareControlModel(FormControlModel_e2990d22, XBoundComponent_d4830cbf,
         
             OOo 3.1
         """
+        ...
 
     @abstractproperty
     def LabelControl(self) -> 'XPropertySet_bc180bfa':
         """
         references to a control model within the same document which should be used as a label.
         
-        Any user interface action which needs to refer to the control is assumed to use this property.
-        A very common design method for forms is to group a data aware control with a label control, with the latter describing the content of the former. For instance, you may have a com.sun.star.form.component.TextField, which is bound to the e-mail column of your data source. Then you will probably add a com.sun.star.form.component.FixedText whose label is \"E-Mail\", and associate it with the TextField by setting it as LabelControl.
-        Now if you imagine a component offering data search in a form, this component will examine the LabelControl property, find the com.sun.star.form.component.FixedText, examine it's label, and use this label to refer to the com.sun.star.form.component.TextField.
+        Any user interface action which needs to refer to the control is assumed to use this property. A very common design method for forms is to group a data aware control with a label control, with the latter describing the content of the former. For instance, you may have a com.sun.star.form.component.TextField, which is bound to the e-mail column of your data source. Then you will probably add a com.sun.star.form.component.FixedText whose label is \"E-Mail\", and associate it with the TextField by setting it as LabelControl.Now if you imagine a component offering data search in a form, this component will examine the LabelControl property, find the com.sun.star.form.component.FixedText, examine it's label, and use this label to refer to the com.sun.star.form.component.TextField.
         
         When setting the property, a number of constraints apply:
         """
+        ...
 
 
 

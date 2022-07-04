@@ -42,6 +42,7 @@ class XPropertyMatcher(XInterface_8f010a43):
         """
         Checks whether a set of properties matches the given search criteria.
         """
+        ...
 
 __all__ = ['XPropertyMatcher']
 

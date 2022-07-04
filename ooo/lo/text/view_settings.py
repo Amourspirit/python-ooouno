@@ -47,6 +47,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 5.1
         """
+        ...
 
     @abstractproperty
     def HorizontalRulerMetric(self) -> int:
@@ -59,6 +60,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 3.1
         """
+        ...
 
     @abstractproperty
     def IsExecuteHyperlinks(self) -> bool:
@@ -67,6 +69,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
         Otherwise they are handled like normal text.
         """
+        ...
 
     @abstractproperty
     def IsRasterVisible(self) -> bool:
@@ -77,6 +80,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def IsSnapToRaster(self) -> bool:
@@ -87,12 +91,14 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def IsVertRulerRightAligned(self) -> bool:
         """
         If this property is TRUE, the vertical ruler is aligned to the right side of the view and the vertical scrollbar is on the left.
         """
+        ...
 
     @abstractproperty
     def RasterResolutionX(self) -> int:
@@ -105,6 +111,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def RasterResolutionY(self) -> int:
@@ -117,6 +124,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def RasterSubdivisionX(self) -> int:
@@ -129,6 +137,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def RasterSubdivisionY(self) -> int:
@@ -141,12 +150,14 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def ShowAnnotations(self) -> bool:
         """
         If this property is TRUE, annotations (notes) are visible.
         """
+        ...
 
     @abstractproperty
     def ShowBookmarks(self) -> bool:
@@ -157,12 +168,14 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 7.0
         """
+        ...
 
     @abstractproperty
     def ShowBreaks(self) -> bool:
         """
         If this property is TRUE, paragraph line breaks are visible.
         """
+        ...
 
     @abstractproperty
     def ShowChangesInMargin(self) -> bool:
@@ -173,6 +186,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 7.1
         """
+        ...
 
     @abstractproperty
     def ShowContentTips(self) -> bool:
@@ -183,30 +197,35 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 4.1
         """
+        ...
 
     @abstractproperty
     def ShowDrawings(self) -> bool:
         """
         If this property is TRUE, shapes are visible.
         """
+        ...
 
     @abstractproperty
     def ShowFieldCommands(self) -> bool:
         """
         If this property is TRUE, text fields are shown with their commands; otherwise the content is visible.
         """
+        ...
 
     @abstractproperty
     def ShowFootnoteBackground(self) -> bool:
         """
         If this property is TRUE, footnotes symbols are displayed with gray background.
         """
+        ...
 
     @abstractproperty
     def ShowGraphics(self) -> bool:
         """
         If this property is TRUE, graphic objects are visible.
         """
+        ...
 
     @abstractproperty
     def ShowHiddenCharacters(self) -> bool:
@@ -217,36 +236,42 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 3.0
         """
+        ...
 
     @abstractproperty
     def ShowHiddenParagraphs(self) -> bool:
         """
         If this property is TRUE, hidden paragraphs are displayed.
         """
+        ...
 
     @abstractproperty
     def ShowHiddenText(self) -> bool:
         """
         If this property is TRUE, hidden text is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowHoriRuler(self) -> bool:
         """
         If this property is TRUE and the property ShowRulers is TRUE, the horizontal ruler is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowHoriScrollBar(self) -> bool:
         """
         If this property is TRUE and the property ShowRulers is TRUE, the horizontal scroll bar is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowIndexMarkBackground(self) -> bool:
         """
         If this property is TRUE, index marks are displayed with gray background.
         """
+        ...
 
     @abstractproperty
     def ShowInlineTooltips(self) -> bool:
@@ -257,6 +282,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def ShowNonprintingCharacters(self) -> bool:
@@ -269,12 +295,14 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 3.0
         """
+        ...
 
     @abstractproperty
     def ShowOnlineLayout(self) -> bool:
         """
         If this property is TRUE the document will be displayed as if it were a HTML document.
         """
+        ...
 
     @abstractproperty
     def ShowOutlineContentVisibilityButton(self) -> bool:
@@ -285,24 +313,28 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 7.1
         """
+        ...
 
     @abstractproperty
     def ShowParaBreaks(self) -> bool:
         """
         If this property is TRUE, paragraph breaks are visible.
         """
+        ...
 
     @abstractproperty
     def ShowProtectedSpaces(self) -> bool:
         """
         If this property is TRUE, protected spaces (hard spaces) are displayed with gray background.
         """
+        ...
 
     @abstractproperty
     def ShowRulers(self) -> bool:
         """
         ShowHoriRuler and ShowVertRuler determine whether a ruler is visible.
         """
+        ...
 
     @abstractproperty
     def ShowScrollBarTips(self) -> bool:
@@ -313,66 +345,77 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 4.2
         """
+        ...
 
     @abstractproperty
     def ShowSoftHyphens(self) -> bool:
         """
         If this property is TRUE, soft hyphens are displayed with gray background.
         """
+        ...
 
     @abstractproperty
     def ShowSpaces(self) -> bool:
         """
         If this property is TRUE, spaces are displayed with dots.
         """
+        ...
 
     @abstractproperty
     def ShowTableBoundaries(self) -> bool:
         """
         If this property is TRUE, table boundaries are displayed.
         """
+        ...
 
     @abstractproperty
     def ShowTables(self) -> bool:
         """
         If this property is TRUE, tables are visible.
         """
+        ...
 
     @abstractproperty
     def ShowTabstops(self) -> bool:
         """
         If this property is TRUE, tab stops are visible.
         """
+        ...
 
     @abstractproperty
     def ShowTextBoundaries(self) -> bool:
         """
         If this property is TRUE, text boundaries are displayed.
         """
+        ...
 
     @abstractproperty
     def ShowTextFieldBackground(self) -> bool:
         """
         If this property is TRUE, text fields are displayed with gray background.
         """
+        ...
 
     @abstractproperty
     def ShowVertRuler(self) -> bool:
         """
         If this property is TRUE, the vertical ruler is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowVertScrollBar(self) -> bool:
         """
         If this property is TRUE, the vertical scroll bar is displayed.
         """
+        ...
 
     @abstractproperty
     def SmoothScrolling(self) -> bool:
         """
         If this property is TRUE, smooth scrolling is active.
         """
+        ...
 
     @abstractproperty
     def TreatSubOutlineLevelsAsContent(self) -> bool:
@@ -383,6 +426,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 7.2
         """
+        ...
 
     @abstractproperty
     def UseHeaderFooterMenu(self) -> bool:
@@ -393,6 +437,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             LibreOffice 6.2
         """
+        ...
 
     @abstractproperty
     def VerticalRulerMetric(self) -> int:
@@ -405,12 +450,14 @@ class ViewSettings(XPropertySet_bc180bfa):
         
             OOo 3.1
         """
+        ...
 
     @abstractproperty
     def ZoomType(self) -> int:
         """
         This property defines the zoom type for the document.
         """
+        ...
 
     @abstractproperty
     def ZoomValue(self) -> int:
@@ -419,6 +466,7 @@ class ViewSettings(XPropertySet_bc180bfa):
         
         Valid only if the ZoomType is set to com.sun.star.view.DocumentZoomType.BY_VALUE.
         """
+        ...
 
 
 

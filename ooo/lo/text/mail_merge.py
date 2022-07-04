@@ -57,6 +57,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def CopiesTo(self) -> 'typing.Tuple[str, ...]':
@@ -69,6 +70,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def PrintOptions(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
@@ -81,19 +83,20 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Selection(self) -> 'typing.Tuple[object, ...]':
         """
         contains a selection that refers to bookmarks of the ResultSet.
         
-        This property is relevant in conjunction with the ResultSet only. A single element of this array describes a bookmark relative to the result set.
-        Note that this implies that the ResultSet needs to support the com.sun.star.sdbcx.XRowLocate interface.
+        This property is relevant in conjunction with the ResultSet only. A single element of this array describes a bookmark relative to the result set.Note that this implies that the ResultSet needs to support the com.sun.star.sdbcx.XRowLocate interface.
         
         If this array is empty, the whole result set, as described by ResultSet respectively the triple (DataSourceName, CommandType, Command).
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def ActiveConnection(self) -> 'XConnection_a36a0b0c':
@@ -102,6 +105,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def AddressFromColumn(self) -> str:
@@ -114,6 +118,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def AttachmentFilter(self) -> str:
@@ -128,6 +133,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def AttachmentName(self) -> str:
@@ -142,6 +148,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Command(self) -> str:
@@ -150,6 +157,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def CommandType(self) -> int:
@@ -158,6 +166,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def DataSourceName(self) -> str:
@@ -166,6 +175,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def DocumentURL(self) -> str:
@@ -174,6 +184,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         If this property is not set an empty document is created.
         """
+        ...
 
     @abstractproperty
     def EscapeProcessing(self) -> bool:
@@ -182,6 +193,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def FileNameFromColumn(self) -> bool:
@@ -190,6 +202,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         This property is only evaluated for file output.
         """
+        ...
 
     @abstractproperty
     def FileNamePrefix(self) -> str:
@@ -202,6 +215,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         This property is only evaluated for file output.
         """
+        ...
 
     @abstractproperty
     def Filter(self) -> str:
@@ -210,6 +224,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def InServerPassword(self) -> str:
@@ -224,6 +239,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def MailBody(self) -> str:
@@ -238,6 +254,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Model(self) -> 'XModel_7a6e095c':
@@ -246,6 +263,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         This property will automatically be set to the documents model if a document URL was set.
         """
+        ...
 
     @abstractproperty
     def OutServerPassword(self) -> str:
@@ -260,12 +278,14 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def OutputType(self) -> int:
         """
         determines the destination of the mail merge action.
         """
+        ...
 
     @abstractproperty
     def OutputURL(self) -> str:
@@ -276,6 +296,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         This property is only evaluated for file output.
         """
+        ...
 
     @abstractproperty
     def ResultSet(self) -> 'XResultSet_98e30aa7':
@@ -286,6 +307,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         For the interaction of this property with other data access relevant properties, see the com.sun.star.sdb.DataAccessDescriptor service.
         """
+        ...
 
     @abstractproperty
     def SaveAsSingleFile(self) -> bool:
@@ -298,6 +320,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def SaveFilter(self) -> str:
@@ -310,6 +333,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def SendAsAttachment(self) -> bool:
@@ -322,6 +346,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def SendAsHTML(self) -> bool:
@@ -336,6 +361,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def SinglePrintJobs(self) -> bool:
@@ -344,6 +370,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
         This property is only evaluated for printer output.
         """
+        ...
 
     @abstractproperty
     def Subject(self) -> str:
@@ -356,6 +383,7 @@ class MailMerge(DataAccessDescriptor_6c50e2c, XPropertySet_bc180bfa, XJob_5fa108
         
             OOo 2.0
         """
+        ...
 
 
 

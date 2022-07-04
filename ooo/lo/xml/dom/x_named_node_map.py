@@ -40,21 +40,25 @@ class XNamedNodeMap(XInterface_8f010a43):
         """
         The number of nodes in this map.
         """
+        ...
     @abstractmethod
     def getNamedItem(self, name: str) -> 'XNode_83fb09a5':
         """
         Retrieves a node specified by local name.
         """
+        ...
     @abstractmethod
     def getNamedItemNS(self, namespaceURI: str, localName: str) -> 'XNode_83fb09a5':
         """
         Retrieves a node specified by local name and namespace URI.
         """
+        ...
     @abstractmethod
     def item(self, index: int) -> 'XNode_83fb09a5':
         """
         Returns a node specified by index.
         """
+        ...
     @abstractmethod
     def removeNamedItem(self, name: str) -> 'XNode_83fb09a5':
         """
@@ -65,6 +69,7 @@ class XNamedNodeMap(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def removeNamedItemNS(self, namespaceURI: str, localName: str) -> 'XNode_83fb09a5':
         """
@@ -75,6 +80,7 @@ class XNamedNodeMap(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setNamedItem(self, arg: 'XNode_83fb09a5') -> 'XNode_83fb09a5':
         """
@@ -85,6 +91,7 @@ class XNamedNodeMap(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setNamedItemNS(self, arg: 'XNode_83fb09a5') -> 'XNode_83fb09a5':
         """
@@ -95,6 +102,7 @@ class XNamedNodeMap(XInterface_8f010a43):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
 
 __all__ = ['XNamedNodeMap']
 

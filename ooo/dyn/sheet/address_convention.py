@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import AddressConvention as AddressConvention
-    if hasattr(AddressConvention, '_constants') and isinstance(AddressConvention._constants, dict):
-        AddressConvention._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        AddressConvention._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.AddressConvention'
-        AddressConvention._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AddressConventionEnum
-        ls = [f for f in dir(AddressConvention) if not callable(getattr(AddressConvention, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AddressConvention, name)
-        AddressConventionEnum = IntEnum('AddressConventionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class AddressConvention(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.AddressConvention", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.AddressConvention``"""
+        pass
+
+    class AddressConventionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.AddressConvention", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.AddressConvention`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.address_convention import AddressConvention as AddressConvention
 

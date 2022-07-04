@@ -34,6 +34,10 @@ class FillMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.FillMode'
+
     AUTO = 'AUTO'
     """
     specifies the use of a user-defined list.

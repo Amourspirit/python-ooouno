@@ -34,6 +34,10 @@ class CellOrientation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.CellOrientation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.CellOrientation'
+
     BOTTOMTOP = 'BOTTOMTOP'
     """
     contents are printed from bottom to top.

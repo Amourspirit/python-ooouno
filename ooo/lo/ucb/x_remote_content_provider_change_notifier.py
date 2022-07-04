@@ -41,11 +41,13 @@ class XRemoteContentProviderChangeNotifier(XInterface_8f010a43):
         """
         Add a listener.
         """
+        ...
     @abstractmethod
     def removeRemoteContentProviderChangeListener(self, Listener: 'XRemoteContentProviderChangeListener_24d814b8') -> None:
         """
         Remove a listener.
         """
+        ...
 
 __all__ = ['XRemoteContentProviderChangeNotifier']
 

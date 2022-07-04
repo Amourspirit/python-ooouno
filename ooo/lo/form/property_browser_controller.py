@@ -52,12 +52,11 @@ class PropertyBrowserController(XFastPropertySet_ee6b0d88, XMultiPropertySet_fd8
         """
         controls the actually visible page.
         
-        The aspects of a DataAwareControlModel which can be browsed and modified using this controller can be separated into 3 groups: common aspects, data-awareness related aspects, and bound events.
-        The appearance of the visual component created by the controller is that 3 tab pages, one for each group, are displayed (of course if the control does not support any aspects of a given group, the group is omitted).
-        With this property, it can be controller which page is currently active.
+        The aspects of a DataAwareControlModel which can be browsed and modified using this controller can be separated into 3 groups: common aspects, data-awareness related aspects, and bound events.The appearance of the visual component created by the controller is that 3 tab pages, one for each group, are displayed (of course if the control does not support any aspects of a given group, the group is omitted).With this property, it can be controller which page is currently active.
         
         Valid values are (this list may be extended in the future):
         """
+        ...
 
     @abstractproperty
     def IntrospectedObject(self) -> 'XPropertySet_bc180bfa':
@@ -66,6 +65,7 @@ class PropertyBrowserController(XFastPropertySet_ee6b0d88, XMultiPropertySet_fd8
         
         Changing this property from outside causes the controller to update its view with the data of the new object
         """
+        ...
 
 
 

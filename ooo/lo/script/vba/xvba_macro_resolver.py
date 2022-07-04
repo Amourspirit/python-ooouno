@@ -40,6 +40,7 @@ class XVBAMacroResolver(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def resolveVBAMacroToScriptURL(self, aVBAMacroName: str) -> str:
         """
@@ -48,6 +49,7 @@ class XVBAMacroResolver(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XVBAMacroResolver']
 

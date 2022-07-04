@@ -47,16 +47,19 @@ class XDatabaseRegistrationsListener(XEventListener_c7230c4a):
         
         Note that this talks about registration data only. That is, if the actual file denoted by the database registration is moved, this is in no way monitored or reported. Only (successful) calls to XDatabaseRegistrations.changeDatabaseLocation() are reported here.
         """
+        ...
     @abstractmethod
     def registeredDatabaseLocation(self, Event: 'DatabaseRegistrationEvent_56721053') -> None:
         """
         called when a database has been registered
         """
+        ...
     @abstractmethod
     def revokedDatabaseLocation(self, Event: 'DatabaseRegistrationEvent_56721053') -> None:
         """
         called when a database registration has been revoked
         """
+        ...
 
 __all__ = ['XDatabaseRegistrationsListener']
 

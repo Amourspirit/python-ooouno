@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import CompareBookmark as CompareBookmark
-    if hasattr(CompareBookmark, '_constants') and isinstance(CompareBookmark._constants, dict):
-        CompareBookmark._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
-        CompareBookmark._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.CompareBookmark'
-        CompareBookmark._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CompareBookmarkEnum
-        ls = [f for f in dir(CompareBookmark) if not callable(getattr(CompareBookmark, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CompareBookmark, name)
-        CompareBookmarkEnum = IntEnum('CompareBookmarkEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class CompareBookmark(metaclass=UnoConstMeta, type_name="com.sun.star.sdbcx.CompareBookmark", name_space="com.sun.star.sdbcx"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbcx.CompareBookmark``"""
+        pass
+
+    class CompareBookmarkEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbcx.CompareBookmark", name_space="com.sun.star.sdbcx"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbcx.CompareBookmark`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbcx.compare_bookmark import CompareBookmark as CompareBookmark
 

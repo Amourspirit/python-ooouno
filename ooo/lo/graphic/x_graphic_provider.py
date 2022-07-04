@@ -50,6 +50,7 @@ class XGraphicProvider(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def queryGraphicDescriptor(self, MediaProperties: 'PropertyValues_d6470ce6') -> 'XPropertySet_bc180bfa':
         """
@@ -62,6 +63,7 @@ class XGraphicProvider(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def storeGraphic(self, Graphic: 'XGraphic_a4da0afc', MediaProperties: 'PropertyValues_d6470ce6') -> None:
         """
@@ -72,6 +74,7 @@ class XGraphicProvider(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XGraphicProvider']
 

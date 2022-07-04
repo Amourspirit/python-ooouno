@@ -40,16 +40,19 @@ class XModifiable2(XModifiable_a4f60b0a):
         """
         disable possibility to change modified state of the document
         """
+        ...
     @abstractmethod
     def enableSetModified(self) -> bool:
         """
         enable possibility to change modified state of the document
         """
+        ...
     @abstractmethod
     def isSetModifiedEnabled(self) -> bool:
         """
         allows to detect whether the modified state change is enabled
         """
+        ...
 
 __all__ = ['XModifiable2']
 

@@ -43,31 +43,37 @@ class XWindow2(XWindow_713b0924):
         """
         returns the inner bounds of the window, also known as the client size.
         """
+        ...
     @abstractmethod
     def hasFocus(self) -> bool:
         """
         returns the focus state of the window
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         returns the activation state of the window
         """
+        ...
     @abstractmethod
     def isEnabled(self) -> bool:
         """
         returns the enabled state of the window
         """
+        ...
     @abstractmethod
     def isVisible(self) -> bool:
         """
         returns the visibility state of the window
         """
+        ...
     @abstractmethod
     def setOutputSize(self, Size: 'Size_576707ef') -> None:
         """
         sets the inner bounds of the window, also known as the client size
         """
+        ...
 
 __all__ = ['XWindow2']
 

@@ -41,11 +41,13 @@ class XFilterManager(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getCurrentFilter(self) -> str:
         """
         Returns the currently selected filter.
         """
+        ...
     @abstractmethod
     def setCurrentFilter(self, aTitle: str) -> None:
         """
@@ -54,6 +56,7 @@ class XFilterManager(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XFilterManager']
 

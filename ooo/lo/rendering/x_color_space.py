@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.rendering
 import typing
+import uno
 from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
     from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
@@ -50,6 +51,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertFromARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
         """
@@ -60,6 +62,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertFromPARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
         """
@@ -70,6 +73,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertFromRGB(self, rgbColor: 'typing.Tuple[RGBColor_bbdf0ba0, ...]') -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
         """
@@ -80,6 +84,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertToARGB(self, deviceColor: 'typing.Tuple[ColorComponent_e4c0e78, ...]') -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
         """
@@ -90,6 +95,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertToPARGB(self, deviceColor: 'typing.Tuple[ColorComponent_e4c0e78, ...]') -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
         """
@@ -100,6 +106,7 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def convertToRGB(self, deviceColor: 'typing.Tuple[ColorComponent_e4c0e78, ...]') -> 'typing.Tuple[RGBColor_bbdf0ba0, ...]':
         """
@@ -110,8 +117,9 @@ class XColorSpace(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def getComponentTags(self) -> 'typing.Tuple[int, ...]':
+    def getComponentTags(self) -> uno.ByteSequence:
         """
         Query the kind for each color component.
         
@@ -119,6 +127,7 @@ class XColorSpace(ABC):
         
         At the same time, the number of elements in this sequence corresponds to the number of color channels for this color space.
         """
+        ...
     @abstractmethod
     def getProperties(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
@@ -126,16 +135,19 @@ class XColorSpace(ABC):
         
         If this color space has an ICC color profile, the sequence contains an element named ICCProfile. Some color spaces also have properties Gamma, Whitepoint and Blackpoint. Background information for these is available here.
         """
+        ...
     @abstractmethod
     def getRenderingIntent(self) -> int:
         """
         Query rendering intent of this color space.
         """
+        ...
     @abstractmethod
     def getType(self) -> int:
         """
         Query type of this color space.
         """
+        ...
 
 __all__ = ['XColorSpace']
 

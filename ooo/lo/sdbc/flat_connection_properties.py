@@ -43,36 +43,42 @@ class FLATConnectionProperties(FILEConnectionProperties_4e7f1001):
         """
         A one character delimiter to separate the decimal.
         """
+        ...
 
     @abstractproperty
     def Extension(self) -> str:
         """
         the extension of the files to be used.
         """
+        ...
 
     @abstractproperty
     def FieldDelimiter(self) -> str:
         """
         A one character delimiter to separate the fields.
         """
+        ...
 
     @abstractproperty
     def HeaderLine(self) -> bool:
         """
         TRUE when the file contains a header line otherwise FALSE
         """
+        ...
 
     @abstractproperty
     def StringDelimiter(self) -> str:
         """
         A one character delimiter to separate the strings.
         """
+        ...
 
     @abstractproperty
     def ThousandDelimiter(self) -> str:
         """
         A one character delimiter to separate the thousands.
         """
+        ...
 
 
 

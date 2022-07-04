@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.svg
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -40,9 +41,10 @@ class XSVGWriter(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.svg.XSVGWriter'
 
     @abstractmethod
-    def write(self, aHandler: 'XDocumentHandler_9b90e28', aMtf: 'typing.Tuple[int, ...]') -> None:
+    def write(self, aHandler: 'XDocumentHandler_9b90e28', aMtf: uno.ByteSequence) -> None:
         """
         """
+        ...
 
 __all__ = ['XSVGWriter']
 

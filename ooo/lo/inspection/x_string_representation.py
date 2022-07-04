@@ -40,6 +40,7 @@ class XStringRepresentation(ABC):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def convertToPropertyValue(self, ControlValue: str, ControlValueType: object) -> object:
         """
@@ -48,6 +49,7 @@ class XStringRepresentation(ABC):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XStringRepresentation']
 

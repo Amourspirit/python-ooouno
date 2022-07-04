@@ -42,7 +42,7 @@ class TableFilterField3(object):
     typeName: str = 'com.sun.star.sheet.TableFilterField3'
     """Literal Constant ``com.sun.star.sheet.TableFilterField3``"""
 
-    def __init__(self, Values: typing.Optional[typing.Tuple[FilterFieldValue_ef2a0d68, ...]] = UNO_NONE, Connection: typing.Optional[FilterConnection_f01f0d97] = FilterConnection_f01f0d97.AND, Field: typing.Optional[int] = 0, Operator: typing.Optional[int] = 0) -> None:
+    def __init__(self, Values: typing.Optional[typing.Tuple[FilterFieldValue_ef2a0d68, ...]] = (), Connection: typing.Optional[FilterConnection_f01f0d97] = FilterConnection_f01f0d97.AND, Field: typing.Optional[int] = 0, Operator: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -68,8 +68,6 @@ class TableFilterField3(object):
             "Field": Field,
             "Operator": Operator,
         }
-        if kargs["Values"] is UNO_NONE:
-            kargs["Values"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

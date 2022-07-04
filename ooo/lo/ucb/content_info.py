@@ -38,7 +38,7 @@ class ContentInfo(object):
     typeName: str = 'com.sun.star.ucb.ContentInfo'
     """Literal Constant ``com.sun.star.ucb.ContentInfo``"""
 
-    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Type: typing.Optional[str] = '', Attributes: typing.Optional[int] = 0) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = (), Type: typing.Optional[str] = '', Attributes: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -61,8 +61,6 @@ class ContentInfo(object):
             "Type": Type,
             "Attributes": Attributes,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

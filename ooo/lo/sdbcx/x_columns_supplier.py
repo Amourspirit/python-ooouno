@@ -41,6 +41,7 @@ class XColumnsSupplier(XInterface_8f010a43):
         """
         returns the container of columns.
         """
+        ...
 
 __all__ = ['XColumnsSupplier']
 

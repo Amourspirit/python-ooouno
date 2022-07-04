@@ -55,6 +55,7 @@ class XDocumentRepository(XRepository_995d0adc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def getStatementsRDFa(self, Subject: 'XResource_842709e4', Predicate: 'XURI_5682078c', Object: 'XNode_5ee40822') -> 'XEnumeration_f2180daa':
         """
@@ -67,6 +68,7 @@ class XDocumentRepository(XRepository_995d0adc):
         Raises:
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def removeStatementRDFa(self, Element: 'XMetadatable_a3000af0') -> None:
         """
@@ -78,6 +80,7 @@ class XDocumentRepository(XRepository_995d0adc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             RepositoryException: ``RepositoryException``
         """
+        ...
     @abstractmethod
     def setStatementRDFa(self, Subject: 'XResource_842709e4', Predicates: 'typing.Tuple[XURI_5682078c, ...]', Object: 'XMetadatable_a3000af0', RDFaContent: str, RDFaDatatype: 'XURI_5682078c') -> None:
         """
@@ -91,6 +94,7 @@ class XDocumentRepository(XRepository_995d0adc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             RepositoryException: ``RepositoryException``
         """
+        ...
 
 __all__ = ['XDocumentRepository']
 

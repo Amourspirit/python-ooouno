@@ -3,6 +3,8 @@ import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
 
+import uno
+
 def test_lo_css_lo():
     from ooo.lo.style.line_spacing import LineSpacing as LoLineSpacing
     from ooo.csslo.style import LineSpacing as CssLineSpacing

@@ -48,12 +48,14 @@ class DatasourceAdministrationDialog(XPropertySet_bc180bfa, XInitialization_d46c
         
         This property can't be set while the dialog is being displayed.
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         the title of the (dialog) window
         """
+        ...
 
 
 

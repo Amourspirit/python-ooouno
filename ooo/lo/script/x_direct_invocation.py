@@ -44,11 +44,13 @@ class XDirectInvocation(XInterface_8f010a43):
             com.sun.star.script.CannotConvertException: ``CannotConvertException``
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
+        ...
     @abstractmethod
     def hasMember(self, aName: str) -> bool:
         """
         returns TRUE if the method or property with the specified name exists, else FALSE.
         """
+        ...
 
 __all__ = ['XDirectInvocation']
 

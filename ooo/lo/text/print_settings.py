@@ -41,54 +41,63 @@ class PrintSettings(ABC):
         """
         determines how notes are printed.
         """
+        ...
 
     @abstractproperty
     def PrintBlackFonts(self) -> bool:
         """
         determines if characters are always printed in black.
         """
+        ...
 
     @abstractproperty
     def PrintControls(self) -> bool:
         """
         determines if control shapes are printed.
         """
+        ...
 
     @abstractproperty
     def PrintDrawings(self) -> bool:
         """
         determines if shapes are printed.
         """
+        ...
 
     @abstractproperty
     def PrintEmptyPages(self) -> bool:
         """
         determines if automatically inserted empty pages are printed.
         """
+        ...
 
     @abstractproperty
     def PrintFaxName(self) -> str:
         """
         contains the name of the fax.
         """
+        ...
 
     @abstractproperty
     def PrintGraphics(self) -> bool:
         """
         determines if graphic objects are printed
         """
+        ...
 
     @abstractproperty
     def PrintLeftPages(self) -> bool:
         """
         determines if left pages are printed.
         """
+        ...
 
     @abstractproperty
     def PrintPageBackground(self) -> bool:
         """
         determines if the background color / background graphic of pages is printed.
         """
+        ...
 
     @abstractproperty
     def PrintPaperFromSetup(self) -> bool:
@@ -97,30 +106,35 @@ class PrintSettings(ABC):
         
         If com.sun.star.view.PrintSettings.PaperFromSetup is FALSE, then the paper tray selection of the page styles is used.
         """
+        ...
 
     @abstractproperty
     def PrintProspect(self) -> bool:
         """
         determines if prospect printing is used.
         """
+        ...
 
     @abstractproperty
     def PrintReversed(self) -> bool:
         """
         determines if the pages are printed in the reverse order, starting with the last page.
         """
+        ...
 
     @abstractproperty
     def PrintRightPages(self) -> bool:
         """
         determines if right pages are printed.
         """
+        ...
 
     @abstractproperty
     def PrintTables(self) -> bool:
         """
         determines if text tables are printed.
         """
+        ...
 
 
 

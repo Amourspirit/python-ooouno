@@ -39,7 +39,7 @@ class SearchInfo(object):
     typeName: str = 'com.sun.star.ucb.SearchInfo'
     """Literal Constant ``com.sun.star.ucb.SearchInfo``"""
 
-    def __init__(self, Criteria: typing.Optional[typing.Tuple[SearchCriterium_c6d30c4c, ...]] = UNO_NONE, Recursion: typing.Optional[SearchRecursion_c7080c52] = SearchRecursion_c7080c52.NONE, IncludeBase: typing.Optional[bool] = False, RespectFolderViewRestrictions: typing.Optional[bool] = False, RespectDocViewRestrictions: typing.Optional[bool] = False, FollowIndirections: typing.Optional[bool] = False) -> None:
+    def __init__(self, Criteria: typing.Optional[typing.Tuple[SearchCriterium_c6d30c4c, ...]] = (), Recursion: typing.Optional[SearchRecursion_c7080c52] = SearchRecursion_c7080c52.NONE, IncludeBase: typing.Optional[bool] = False, RespectFolderViewRestrictions: typing.Optional[bool] = False, RespectDocViewRestrictions: typing.Optional[bool] = False, FollowIndirections: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
@@ -71,8 +71,6 @@ class SearchInfo(object):
             "RespectDocViewRestrictions": RespectDocViewRestrictions,
             "FollowIndirections": FollowIndirections,
         }
-        if kargs["Criteria"] is UNO_NONE:
-            kargs["Criteria"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

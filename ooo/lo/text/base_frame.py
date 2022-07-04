@@ -43,6 +43,7 @@ class BaseFrame(BaseFrameProperties_b990e60, TextContent_a6810b4d, XPropertySet_
         """
         contains the name of the frame style that is applied to this object.
         """
+        ...
 
 
 

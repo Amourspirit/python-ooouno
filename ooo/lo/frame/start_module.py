@@ -44,6 +44,7 @@ class StartModule(XController_b00e0b8f):
     def createWithParentWindow(self, ContainerWindow: 'XWindow_713b0924') -> None:
         """
         """
+        ...
 
 
 __all__ = ['StartModule']

@@ -55,6 +55,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createAttributeNS(self, namespaceURI: str, qualifiedName: str) -> 'XAttr_840309ba':
         """
@@ -65,6 +66,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createCDATASection(self, data: str) -> 'XCDATASection_d9c00c51':
         """
@@ -75,16 +77,19 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createComment(self, data: str) -> 'XComment_a3690af2':
         """
         Creates a Comment node given the specified string.
         """
+        ...
     @abstractmethod
     def createDocumentFragment(self) -> 'XDocumentFragment_17850e92':
         """
         Creates an empty DocumentFragment object.
         """
+        ...
     @abstractmethod
     def createElement(self, tagName: str) -> 'XElement_a33d0ae9':
         """
@@ -95,6 +100,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createElementNS(self, namespaceURI: str, qualifiedName: str) -> 'XElement_a33d0ae9':
         """
@@ -105,6 +111,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createEntityReference(self, name: str) -> 'XEntityReference_9b70e2b':
         """
@@ -115,6 +122,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createProcessingInstruction(self, target: str, data: str) -> 'XProcessingInstruction_691810de':
         """
@@ -125,41 +133,49 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def createTextNode(self, data: str) -> 'XText_842c09c4':
         """
         Creates a Text node given the specified string.
         """
+        ...
     @abstractmethod
     def getDoctype(self) -> 'XDocumentType_e0340d00':
         """
         The Document Type Declaration (see DocumentType) associated with this document.
         """
+        ...
     @abstractmethod
     def getDocumentElement(self) -> 'XElement_a33d0ae9':
         """
         This is a convenience attribute that allows direct access to the child node that is the root element of the document.
         """
+        ...
     @abstractmethod
     def getElementById(self, elementId: str) -> 'XElement_a33d0ae9':
         """
         Returns the Element whose ID is given by elementId.
         """
+        ...
     @abstractmethod
     def getElementsByTagName(self, tagname: str) -> 'XNodeList_ae540b41':
         """
         Returns a NodeList of all the Elements with a given tag name in the order in which they are encountered in a preorder traversal of the Document tree.
         """
+        ...
     @abstractmethod
     def getElementsByTagNameNS(self, namespaceURI: str, localName: str) -> 'XNodeList_ae540b41':
         """
         Returns a NodeList of all the Elements with a given local name and namespace URI in the order in which they are encountered in a preorder traversal of the Document tree.
         """
+        ...
     @abstractmethod
     def getImplementation(self) -> 'XDOMImplementation_22320ec5':
         """
         The DOMImplementation object that handles this document.
         """
+        ...
     @abstractmethod
     def importNode(self, importedNode: 'XNode_83fb09a5', deep: bool) -> 'XNode_83fb09a5':
         """
@@ -170,6 +186,7 @@ class XDocument(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
 
 __all__ = ['XDocument']
 

@@ -42,11 +42,13 @@ class XSheetCellRanges(XIndexAccess_f0910d6d):
         """
         returns the collection of all used cells.
         """
+        ...
     @abstractmethod
     def getRangeAddresses(self) -> 'typing.Tuple[CellRangeAddress_ec450d43, ...]':
         """
         creates a sequence with addresses of all contained cell ranges.
         """
+        ...
     @abstractmethod
     def getRangeAddressesAsString(self) -> str:
         """
@@ -54,6 +56,7 @@ class XSheetCellRanges(XIndexAccess_f0910d6d):
         
         The range addresses are separated with semicolons. For instance the string could have the form \"Sheet1.A1:C3;Sheet2.D5:F8\".
         """
+        ...
 
 __all__ = ['XSheetCellRanges']
 

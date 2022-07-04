@@ -41,6 +41,7 @@ class XRedlinesSupplier(XInterface_8f010a43):
         """
         The returned objects implement at least the interface com.sun.star.beans.XPropertySet. Specific objects may support other interfaces as well.
         """
+        ...
 
 __all__ = ['XRedlinesSupplier']
 

@@ -41,26 +41,31 @@ class XRadioButton(XInterface_8f010a43):
         """
         registers a listener for item events.
         """
+        ...
     @abstractmethod
     def getState(self) -> bool:
         """
         returns TRUE if the button is checked, FALSE otherwise.
         """
+        ...
     @abstractmethod
     def removeItemListener(self, l: 'XItemListener_af710b81') -> None:
         """
         unregisters a listener for item events.
         """
+        ...
     @abstractmethod
     def setLabel(self, Label: str) -> None:
         """
         sets the label of the radio button.
         """
+        ...
     @abstractmethod
     def setState(self, b: bool) -> None:
         """
         sets the state of the radio button.
         """
+        ...
 
 __all__ = ['XRadioButton']
 

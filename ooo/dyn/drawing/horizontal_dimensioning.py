@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.HorizontalDimensioning import (AUTO, CENTERED, LEFT, RIGHT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.HorizontalDimensioning Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.HorizontalDimensioning",
-            "__ooo_type_name__": "enum",
-            "AUTO": AUTO,
-            "CENTERED": CENTERED,
-            "LEFT": LEFT,
-            "RIGHT": RIGHT,
-        }
-        result = type('HorizontalDimensioning', (object,), _dict)
-        return result
-
-    HorizontalDimensioning = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class HorizontalDimensioning(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.HorizontalDimensioning", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.HorizontalDimensioning`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.horizontal_dimensioning import HorizontalDimensioning as HorizontalDimensioning
 

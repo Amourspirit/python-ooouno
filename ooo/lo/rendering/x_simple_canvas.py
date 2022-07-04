@@ -57,71 +57,85 @@ class XSimpleCanvas(XInterface_8f010a43):
         """
         Draws the bitmap on the canvas.
         """
+        ...
     @abstractmethod
     def drawLine(self, aStartPoint: 'RealPoint2D_d6e70c78', aEndPoint: 'RealPoint2D_d6e70c78') -> None:
         """
         Draws a line on the canvas.
         """
+        ...
     @abstractmethod
     def drawPixel(self, aPoint: 'RealPoint2D_d6e70c78') -> None:
         """
         Sets a single pixel on the canvas.
         """
+        ...
     @abstractmethod
     def drawPolyPolygon(self, xPolyPolygon: 'XPolyPolygon2D_e1b0e20') -> None:
         """
         Draws a poly-polygon on the canvas.
         """
+        ...
     @abstractmethod
     def drawRect(self, aRect: 'RealRectangle2D_d9b0e03') -> None:
         """
         Draws a rectangle on the canvas.
         """
+        ...
     @abstractmethod
     def drawText(self, aText: 'StringContext_d50e22', aOutPos: 'RealPoint2D_d6e70c78', nTextDirection: int) -> None:
         """
         Draws text on the canvas.
         """
+        ...
     @abstractmethod
     def getCanvas(self) -> 'XCanvas_b19b0b7a':
         """
         Query the underlying XCanvas.
         """
+        ...
     @abstractmethod
     def getCurrentClipRect(self) -> 'RealRectangle2D_d9b0e03':
         """
         Retrieve current clip rect.
         """
+        ...
     @abstractmethod
     def getCurrentFillColor(self) -> 'Color_68e908c5':
         """
         Retrieve color currently used for fills.
         """
+        ...
     @abstractmethod
     def getCurrentFont(self) -> 'XCanvasFont_e3380d11':
         """
         Retrieve currently selected font.
         """
+        ...
     @abstractmethod
     def getCurrentPenColor(self) -> 'Color_68e908c5':
         """
         Retrieve color currently used for lines.
         """
+        ...
     @abstractmethod
     def getCurrentRenderState(self, bUseFillColor: bool) -> 'RenderState_e4490d27':
         """
         Retrieve render state.
         """
+        ...
     @abstractmethod
     def getCurrentTransformation(self) -> 'AffineMatrix2D_ff040da8':
         """
         Retrieve current transformation matrix.
         """
+        ...
     @abstractmethod
     def getCurrentViewState(self) -> 'ViewState_cab30c62':
         """
         Retrieve view state.
         """
+        ...
     @abstractmethod
     def getDevice(self) -> 'XGraphicDevice_ca80e2c':
         """
@@ -129,11 +143,13 @@ class XSimpleCanvas(XInterface_8f010a43):
         
         A graphic device provides methods specific to the underlying output device capabilities, which are common for all canvases rendering to such a device. This includes device resolution, color space, or bitmap formats.
         """
+        ...
     @abstractmethod
     def getFontMetrics(self) -> 'FontMetrics_e4540d34':
         """
         Request the font metrics of the current font.
         """
+        ...
     @abstractmethod
     def selectFont(self, sFontName: str, size: float, bold: bool, italic: bool) -> None:
         """
@@ -141,6 +157,7 @@ class XSimpleCanvas(XInterface_8f010a43):
         
         This method selects the specified font (or a close substitute) as the current font for text output.
         """
+        ...
     @abstractmethod
     def setFillColor(self, nsRgbaColor: 'Color_68e908c5') -> None:
         """
@@ -148,6 +165,7 @@ class XSimpleCanvas(XInterface_8f010a43):
         
         To disable filling, simply set this color to something with zero alpha (i.e. fully transparent).
         """
+        ...
     @abstractmethod
     def setPenColor(self, nsRgbaColor: 'Color_68e908c5') -> None:
         """
@@ -155,16 +173,19 @@ class XSimpleCanvas(XInterface_8f010a43):
         
         To disable stroking, simply set this color to something with zero alpha (i.e. fully transparent).
         """
+        ...
     @abstractmethod
     def setRectClip(self, aRect: 'RealRectangle2D_d9b0e03') -> None:
         """
         Sets the clip to the specified rectangle.
         """
+        ...
     @abstractmethod
     def setTransformation(self, aTransform: 'AffineMatrix2D_ff040da8') -> None:
         """
         Set the current transform matrix.
         """
+        ...
 
 __all__ = ['XSimpleCanvas']
 

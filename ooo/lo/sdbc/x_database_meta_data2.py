@@ -41,6 +41,7 @@ class XDatabaseMetaData2(XDatabaseMetaData_eafd0d12):
         """
         complements XDatabaseMetaData.getURL by returning the settings which, upon construction of the connection, have been used besides the connection URL.
         """
+        ...
 
 __all__ = ['XDatabaseMetaData2']
 

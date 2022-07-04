@@ -51,6 +51,7 @@ class XTextContentAppend(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def insertTextContentWithProperties(self, TextContent: 'XTextContent_b16e0ba5', CharacterAndParagraphProperties: 'PropertyValues_d6470ce6', TextRange: 'XTextRange_9a910ab7') -> 'XTextRange_9a910ab7':
         """
@@ -64,6 +65,7 @@ class XTextContentAppend(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
 
 __all__ = ['XTextContentAppend']
 

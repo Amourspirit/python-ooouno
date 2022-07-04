@@ -43,6 +43,7 @@ class XFastPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setFastPropertyValue(self, nHandle: int, aValue: object) -> None:
         """
@@ -54,6 +55,7 @@ class XFastPropertySet(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XFastPropertySet']
 

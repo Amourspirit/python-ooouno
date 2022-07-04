@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import HoriOrientation as HoriOrientation
-    if hasattr(HoriOrientation, '_constants') and isinstance(HoriOrientation._constants, dict):
-        HoriOrientation._constants['__ooo_ns__'] = 'com.sun.star.text'
-        HoriOrientation._constants['__ooo_full_ns__'] = 'com.sun.star.text.HoriOrientation'
-        HoriOrientation._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global HoriOrientationEnum
-        ls = [f for f in dir(HoriOrientation) if not callable(getattr(HoriOrientation, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(HoriOrientation, name)
-        HoriOrientationEnum = IntEnum('HoriOrientationEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class HoriOrientation(metaclass=UnoConstMeta, type_name="com.sun.star.text.HoriOrientation", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.HoriOrientation``"""
+        pass
+
+    class HoriOrientationEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.HoriOrientation", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.HoriOrientation`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.hori_orientation import HoriOrientation as HoriOrientation
 

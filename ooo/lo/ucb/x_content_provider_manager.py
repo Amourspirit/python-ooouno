@@ -42,16 +42,19 @@ class XContentProviderManager(XInterface_8f010a43):
         """
         deregisters a content provider.
         """
+        ...
     @abstractmethod
     def queryContentProvider(self, Identifier: str) -> 'XContentProvider_d4150cc0':
         """
         returns the currently active content provider for a content identifier.
         """
+        ...
     @abstractmethod
     def queryContentProviders(self) -> 'typing.Tuple[ContentProviderInfo_fd9c0df4, ...]':
         """
         returns a list of information on all registered content providers.
         """
+        ...
     @abstractmethod
     def registerContentProvider(self, Provider: 'XContentProvider_d4150cc0', Scheme: str, ReplaceExisting: bool) -> 'XContentProvider_d4150cc0':
         """
@@ -68,6 +71,7 @@ class XContentProviderManager(XInterface_8f010a43):
         Raises:
             com.sun.star.ucb.DuplicateProviderException: ``DuplicateProviderException``
         """
+        ...
 
 __all__ = ['XContentProviderManager']
 

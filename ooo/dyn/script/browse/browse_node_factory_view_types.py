@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.browse import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
-    if hasattr(BrowseNodeFactoryViewTypes, '_constants') and isinstance(BrowseNodeFactoryViewTypes._constants, dict):
-        BrowseNodeFactoryViewTypes._constants['__ooo_ns__'] = 'com.sun.star.script.browse'
-        BrowseNodeFactoryViewTypes._constants['__ooo_full_ns__'] = 'com.sun.star.script.browse.BrowseNodeFactoryViewTypes'
-        BrowseNodeFactoryViewTypes._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global BrowseNodeFactoryViewTypesEnum
-        ls = [f for f in dir(BrowseNodeFactoryViewTypes) if not callable(getattr(BrowseNodeFactoryViewTypes, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(BrowseNodeFactoryViewTypes, name)
-        BrowseNodeFactoryViewTypesEnum = IntEnum('BrowseNodeFactoryViewTypesEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class BrowseNodeFactoryViewTypes(metaclass=UnoConstMeta, type_name="com.sun.star.script.browse.BrowseNodeFactoryViewTypes", name_space="com.sun.star.script.browse"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.script.browse.BrowseNodeFactoryViewTypes``"""
+        pass
+
+    class BrowseNodeFactoryViewTypesEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.script.browse.BrowseNodeFactoryViewTypes", name_space="com.sun.star.script.browse"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.script.browse.BrowseNodeFactoryViewTypes`` as Enum values"""
+        pass
+
 else:
     from ....lo.script.browse.browse_node_factory_view_types import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
 

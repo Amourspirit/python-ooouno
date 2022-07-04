@@ -50,6 +50,7 @@ class XMultipleResults(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getResultSet(self) -> 'XResultSet_98e30aa7':
         """
@@ -60,6 +61,7 @@ class XMultipleResults(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getUpdateCount(self) -> int:
         """
@@ -70,6 +72,7 @@ class XMultipleResults(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XMultipleResults']
 

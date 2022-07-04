@@ -34,6 +34,10 @@ class ClickAction(Enum):
     __ooo_full_ns__: str = 'com.sun.star.presentation.ClickAction'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.presentation.ClickAction'
+
     BOOKMARK = 'BOOKMARK'
     """
     The presentation jumps to a bookmark.

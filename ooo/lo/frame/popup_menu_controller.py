@@ -30,8 +30,7 @@ class PopupMenuController(XDispatchProvider_fc690de6, XPopupMenuController_29740
 
     provides access to a pop-up menu controller.
     
-    A pop-up menu controller is used to make special functions available to users, which depend on runtime or context specific conditions.
-    A typical example for a pop-up menu controller can be a recent file list implementation which provides a list of latest files that a user has worked on. This list gets changes consistently during a work session.
+    A pop-up menu controller is used to make special functions available to users, which depend on runtime or context specific conditions.A typical example for a pop-up menu controller can be a recent file list implementation which provides a list of latest files that a user has worked on. This list gets changes consistently during a work session.
     
     **since**
     

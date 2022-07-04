@@ -57,11 +57,13 @@ class XUIElementFactoryRegistration(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getFactory(self, ResourceURL: str, ModuleIdentifier: str) -> 'XUIElementFactory_d0280c7e':
         """
         function to retrieve a previously registered user interface element factory.
         """
+        ...
     @abstractmethod
     def getRegisteredFactories(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
@@ -69,6 +71,7 @@ class XUIElementFactoryRegistration(XInterface_8f010a43):
         
         The following properties are defined:
         """
+        ...
     @abstractmethod
     def registerFactory(self, aType: str, aName: str, aModuleIdentifier: str, aFactoryImplementationName: str) -> None:
         """
@@ -77,6 +80,7 @@ class XUIElementFactoryRegistration(XInterface_8f010a43):
         Raises:
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
 
 __all__ = ['XUIElementFactoryRegistration']
 

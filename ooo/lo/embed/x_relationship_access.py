@@ -46,6 +46,7 @@ class XRelationshipAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getAllRelationships(self) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]':
         """
@@ -54,6 +55,7 @@ class XRelationshipAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getRelationshipByID(self, sID: str) -> 'typing.Tuple[StringPair_a4bc0b14, ...]':
         """
@@ -63,6 +65,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getRelationshipsByType(self, sType: str) -> 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]':
         """
@@ -71,6 +74,7 @@ class XRelationshipAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getTargetByID(self, sID: str) -> str:
         """
@@ -82,6 +86,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getTypeByID(self, sID: str) -> str:
         """
@@ -93,6 +98,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def hasByID(self, sID: str) -> bool:
         """
@@ -101,6 +107,7 @@ class XRelationshipAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def insertRelationshipByID(self, sID: str, aEntry: 'typing.Tuple[StringPair_a4bc0b14, ...]', bReplace: bool) -> None:
         """
@@ -110,6 +117,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def insertRelationships(self, aEntries: 'typing.Tuple[typing.Tuple[StringPair_a4bc0b14, ...], ...]', bReplace: bool) -> None:
         """
@@ -119,6 +127,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def removeRelationshipByID(self, sID: str) -> None:
         """
@@ -128,6 +137,7 @@ class XRelationshipAccess(XInterface_8f010a43):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XRelationshipAccess']
 

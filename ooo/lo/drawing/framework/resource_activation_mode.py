@@ -34,6 +34,10 @@ class ResourceActivationMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.framework.ResourceActivationMode'
+
     ADD = 'ADD'
     """
     A resource is requested in addition to already existing ones.

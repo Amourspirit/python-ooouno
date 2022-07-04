@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
-    if hasattr(DataPilotFieldLayoutMode, '_constants') and isinstance(DataPilotFieldLayoutMode._constants, dict):
-        DataPilotFieldLayoutMode._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataPilotFieldLayoutMode._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldLayoutMode'
-        DataPilotFieldLayoutMode._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataPilotFieldLayoutModeEnum
-        ls = [f for f in dir(DataPilotFieldLayoutMode) if not callable(getattr(DataPilotFieldLayoutMode, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataPilotFieldLayoutMode, name)
-        DataPilotFieldLayoutModeEnum = IntEnum('DataPilotFieldLayoutModeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DataPilotFieldLayoutMode(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldLayoutMode", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldLayoutMode``"""
+        pass
+
+    class DataPilotFieldLayoutModeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataPilotFieldLayoutMode", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldLayoutMode`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_pilot_field_layout_mode import DataPilotFieldLayoutMode as DataPilotFieldLayoutMode
 

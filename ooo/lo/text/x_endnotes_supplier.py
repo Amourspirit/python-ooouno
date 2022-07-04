@@ -43,10 +43,12 @@ class XEndnotesSupplier(XInterface_8f010a43):
     def getEndnoteSettings(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def getEndnotes(self) -> 'XIndexAccess_f0910d6d':
         """
         """
+        ...
 
 __all__ = ['XEndnotesSupplier']
 

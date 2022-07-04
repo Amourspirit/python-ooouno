@@ -34,6 +34,10 @@ class ChartErrorCategory(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorCategory'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartErrorCategory'
+
     CONSTANT_VALUE = 'CONSTANT_VALUE'
     """
     displays the same lower and upper error indicators for all data points.

@@ -43,6 +43,7 @@ class XImageProducer(XInterface_8f010a43):
         
         The image producer may, at its discretion, start delivering the image data to the consumer using the XImageConsumer interface immediately, or when the next available image reconstruction is triggered by a call to the startProduction method.
         """
+        ...
     @abstractmethod
     def removeConsumer(self, xConsumer: 'XImageConsumer_ba790bdb') -> None:
         """
@@ -50,6 +51,7 @@ class XImageProducer(XInterface_8f010a43):
         
         It is not considered an error to remove a consumer that is not currently registered. The image producer should stop sending data to this consumer as soon as it is feasible.
         """
+        ...
     @abstractmethod
     def startProduction(self) -> None:
         """
@@ -57,6 +59,7 @@ class XImageProducer(XInterface_8f010a43):
         
         The image data will then be delivered to this consumer and any other consumer which may have already been registered with the producer. This method differs from the addConsumer method in that a reproduction of the image data should be triggered as soon as possible.
         """
+        ...
 
 __all__ = ['XImageProducer']
 

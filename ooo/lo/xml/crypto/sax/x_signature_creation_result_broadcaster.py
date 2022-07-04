@@ -48,6 +48,7 @@ class XSignatureCreationResultBroadcaster(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def removeSignatureCreationResultListener(self, listener: 'XSignatureCreationResultListener_c35f17a6') -> None:
         """
@@ -55,6 +56,7 @@ class XSignatureCreationResultBroadcaster(XInterface_8f010a43):
         
         After a listener is removed, no result information will be sent to it.
         """
+        ...
 
 __all__ = ['XSignatureCreationResultBroadcaster']
 

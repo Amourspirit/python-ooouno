@@ -38,11 +38,13 @@ class XExecutableDialog(XInterface_8f010a43):
         """
         Executes (shows) the dialog.
         """
+        ...
     @abstractmethod
     def setTitle(self, aTitle: str) -> None:
         """
         Sets the title of the dialog.
         """
+        ...
 
 __all__ = ['XExecutableDialog']
 

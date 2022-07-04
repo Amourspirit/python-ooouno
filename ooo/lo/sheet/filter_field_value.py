@@ -41,7 +41,7 @@ class FilterFieldValue(object):
     typeName: str = 'com.sun.star.sheet.FilterFieldValue'
     """Literal Constant ``com.sun.star.sheet.FilterFieldValue``"""
 
-    def __init__(self, IsNumeric: typing.Optional[bool] = False, NumericValue: typing.Optional[float] = 0.0, StringValue: typing.Optional[str] = '', FilterType: typing.Optional[int] = None, ColorValue: typing.Optional[Color_68e908c5] = None) -> None:
+    def __init__(self, IsNumeric: typing.Optional[bool] = False, NumericValue: typing.Optional[float] = 0.0, StringValue: typing.Optional[str] = '', FilterType: typing.Optional[int] = 0, ColorValue: typing.Optional[Color_68e908c5] = Color_68e908c5(0)) -> None:
         """
         Constructor
 

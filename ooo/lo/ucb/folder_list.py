@@ -39,7 +39,7 @@ class FolderList(object):
     typeName: str = 'com.sun.star.ucb.FolderList'
     """Literal Constant ``com.sun.star.ucb.FolderList``"""
 
-    def __init__(self, List: typing.Optional[typing.Tuple[FolderListEntry_c6c30c4c, ...]] = UNO_NONE, Command: typing.Optional[FolderListCommand_e0140cf9] = FolderListCommand_e0140cf9.GET) -> None:
+    def __init__(self, List: typing.Optional[typing.Tuple[FolderListEntry_c6c30c4c, ...]] = (), Command: typing.Optional[FolderListCommand_e0140cf9] = FolderListCommand_e0140cf9.GET) -> None:
         """
         Constructor
 
@@ -59,8 +59,6 @@ class FolderList(object):
             "List": List,
             "Command": Command,
         }
-        if kargs["List"] is UNO_NONE:
-            kargs["List"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

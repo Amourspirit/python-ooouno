@@ -47,12 +47,14 @@ class UnoControlImageControlModel(UnoControlModel_c8ce0c58):
         """
         specifies the background color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+        ...
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -65,12 +67,14 @@ class UnoControlImageControlModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def Graphic(self) -> 'XGraphic_a4da0afc':
@@ -83,36 +87,42 @@ class UnoControlImageControlModel(UnoControlModel_c8ce0c58):
         
             OOo 2.1
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def ImageURL(self) -> str:
         """
         specifies a URL to an image to use for the control.
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies that the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def ScaleImage(self) -> bool:
         """
         specifies if the image is automatically scaled to the size of the control.
         """
+        ...
 
     @abstractproperty
     def ScaleMode(self) -> int:
@@ -127,6 +137,7 @@ class UnoControlImageControlModel(UnoControlModel_c8ce0c58):
         
             OOo 3.1
         """
+        ...
 
     @abstractproperty
     def Tabstop(self) -> bool:
@@ -137,6 +148,7 @@ class UnoControlImageControlModel(UnoControlModel_c8ce0c58):
         
             OOo 1.1.2
         """
+        ...
 
 
 

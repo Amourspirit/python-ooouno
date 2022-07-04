@@ -41,81 +41,97 @@ class XDateField(XInterface_8f010a43):
         """
         returns the date value which is currently displayed in the date field.
         """
+        ...
     @abstractmethod
     def getFirst(self) -> 'Date_60040844':
         """
         returns the currently set first value which is set on POS1 key.
         """
+        ...
     @abstractmethod
     def getLast(self) -> 'Date_60040844':
         """
         returns the currently set last value which is set on END key.
         """
+        ...
     @abstractmethod
     def getMax(self) -> 'Date_60040844':
         """
         returns the currently set maximum date value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def getMin(self) -> 'Date_60040844':
         """
         returns the currently set minimum date value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def isEmpty(self) -> bool:
         """
         returns whether currently an empty value is set for the date.
         """
+        ...
     @abstractmethod
     def isLongFormat(self) -> bool:
         """
         determines if the long date format is currently used.
         """
+        ...
     @abstractmethod
     def isStrictFormat(self) -> bool:
         """
         returns whether the format is currently checked during user input.
         """
+        ...
     @abstractmethod
     def setDate(self, Date: 'Date_60040844') -> None:
         """
         sets the date value which is displayed in the date field.
         """
+        ...
     @abstractmethod
     def setEmpty(self) -> None:
         """
         sets an empty value for the date.
         """
+        ...
     @abstractmethod
     def setFirst(self, Date: 'Date_60040844') -> None:
         """
         sets the first value to be set on POS1 key.
         """
+        ...
     @abstractmethod
     def setLast(self, Date: 'Date_60040844') -> None:
         """
         sets the last value to be set on END key.
         """
+        ...
     @abstractmethod
     def setLongFormat(self, bLong: bool) -> None:
         """
         determines if the long date format is to be used.
         """
+        ...
     @abstractmethod
     def setMax(self, Date: 'Date_60040844') -> None:
         """
         sets the maximum date value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def setMin(self, Date: 'Date_60040844') -> None:
         """
         sets the minimum date value that can be entered by the user.
         """
+        ...
     @abstractmethod
     def setStrictFormat(self, bStrict: bool) -> None:
         """
         determines if the format is checked during user input.
         """
+        ...
 
 __all__ = ['XDateField']
 

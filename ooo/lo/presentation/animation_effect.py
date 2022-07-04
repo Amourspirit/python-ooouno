@@ -34,6 +34,10 @@ class AnimationEffect(Enum):
     __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationEffect'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.presentation.AnimationEffect'
+
     APPEAR = 'APPEAR'
     """
     use the animation effect \"Appear\".

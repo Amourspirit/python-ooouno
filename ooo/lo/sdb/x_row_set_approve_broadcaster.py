@@ -41,11 +41,13 @@ class XRowSetApproveBroadcaster(XInterface_8f010a43):
         """
         adds the specified listener to receive the events \"approveCursorMove\", \"approveRowChange\", and \"approveRowSetChange\".
         """
+        ...
     @abstractmethod
     def removeRowSetApproveListener(self, listener: 'XRowSetApproveListener_27910f20') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XRowSetApproveBroadcaster']
 

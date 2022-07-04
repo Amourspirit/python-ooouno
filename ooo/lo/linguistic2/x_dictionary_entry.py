@@ -43,6 +43,7 @@ class XDictionaryEntry(XInterface_8f010a43):
     def getDictionaryWord(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def getReplacementText(self) -> str:
         """
@@ -50,10 +51,12 @@ class XDictionaryEntry(XInterface_8f010a43):
         
         It is undefined if the entry is not negative.
         """
+        ...
     @abstractmethod
     def isNegative(self) -> bool:
         """
         """
+        ...
 
 __all__ = ['XDictionaryEntry']
 

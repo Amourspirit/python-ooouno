@@ -57,19 +57,23 @@ class XConnectionPoint(XInterface_8f010a43):
             com.sun.star.lang.ListenerExistException: ``ListenerExistException``
             com.sun.star.lang.InvalidListenerException: ``InvalidListenerException``
         """
+        ...
     @abstractmethod
     def getConnectionPointContainer(self) -> 'XConnectionPointContainer_688110bf':
         """
         """
+        ...
     @abstractmethod
     def getConnectionType(self) -> object:
         """
         Using the XConnectionPointContainer.getConnectionPoints() method, a client can obtain an XConnectionPoint interface. Using that interface and this method, the client can determine the type of each connection point enumerated. The type returned from this method must enable the caller to access this same connection point through XConnectionPointContainer.findConnectionPoint().
         """
+        ...
     @abstractmethod
     def getConnections(self) -> 'typing.Tuple[XInterface_8f010a43, ...]':
         """
         """
+        ...
     @abstractmethod
     def unadvise(self, xListener: 'XInterface_8f010a43') -> None:
         """
@@ -77,6 +81,7 @@ class XConnectionPoint(XInterface_8f010a43):
         
         A few remove...Listener methods need additional parameters to add listeners or throw exceptions. One of these methods is com.sun.star.beans.XPropertySet.removePropertyChangeListener(). We ignore the problem in this interface. A solution must be provided in an additional XConnectionPoint interface.
         """
+        ...
 
 __all__ = ['XConnectionPoint']
 

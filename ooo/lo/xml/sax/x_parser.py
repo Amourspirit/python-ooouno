@@ -54,21 +54,25 @@ class XParser(XInterface_8f010a43):
             com.sun.star.xml.sax.SAXException: ``SAXException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def setDTDHandler(self, xHandler: 'XDTDHandler_c3df0bc5') -> None:
         """
         allows an application to register a DTD-Handler.
         """
+        ...
     @abstractmethod
     def setDocumentHandler(self, xHandler: 'XDocumentHandler_9b90e28') -> None:
         """
         allows an application to register a document event handler.
         """
+        ...
     @abstractmethod
     def setEntityResolver(self, xResolver: 'XEntityResolver_fcf10dfa') -> None:
         """
         allows an application to register a DTD-Handler.
         """
+        ...
     @abstractmethod
     def setErrorHandler(self, xHandler: 'XErrorHandler_e0860cf3') -> None:
         """
@@ -76,6 +80,7 @@ class XParser(XInterface_8f010a43):
         
         Note that the error handler can throw an exception when an error or warning occurs. Note that an exception is thrown by the parser when an unrecoverable (fatal) error occurs.
         """
+        ...
     @abstractmethod
     def setLocale(self, locale: 'Locale_70d308fa') -> None:
         """
@@ -83,6 +88,7 @@ class XParser(XInterface_8f010a43):
         
         Set the language of the error messages. Useful when the parsing errors will be presented to the user.
         """
+        ...
 
 __all__ = ['XParser']
 

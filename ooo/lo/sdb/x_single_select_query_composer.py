@@ -50,6 +50,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def appendGroupByColumn(self, column: 'XPropertySet_bc180bfa') -> None:
         """
@@ -60,6 +61,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def appendHavingClauseByColumn(self, column: 'XPropertySet_bc180bfa', andCriteria: bool, filterOperator: int) -> None:
         """
@@ -69,6 +71,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def appendOrderByColumn(self, column: 'XPropertySet_bc180bfa', ascending: bool) -> None:
         """
@@ -79,6 +82,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setFilter(self, filter: str) -> None:
         """
@@ -87,6 +91,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setGroup(self, group: str) -> None:
         """
@@ -95,6 +100,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setHavingClause(self, filter: str) -> None:
         """
@@ -103,6 +109,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setOrder(self, order: str) -> None:
         """
@@ -111,6 +118,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setStructuredFilter(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]') -> None:
         """
@@ -120,6 +128,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
             com.sun.star.sdbc.SQLException: ``SQLException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setStructuredHavingClause(self, filter: 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]') -> None:
         """
@@ -128,6 +137,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractproperty
     def ElementaryQuery(self) -> str:
         """
@@ -147,6 +157,7 @@ class XSingleSelectQueryComposer(XSingleSelectQueryAnalyzer_66ad10b7):
         
         If you'd be interested in the composed filter, you would set the QueryDefinition.Command as ElementaryQuery, add your filter, and propagate the resulting query (XSingleSelectQueryAnalyzer.getQuery()) to an SingleSelectQueryAnalyzer instance via XSingleSelectQueryAnalyzer.setQuery().
         """
+        ...
 
 
 __all__ = ['XSingleSelectQueryComposer']

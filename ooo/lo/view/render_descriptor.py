@@ -47,6 +47,7 @@ class RenderDescriptor(ABC):
         
         The unit of this page size is 1/100th mm.
         """
+        ...
 
 
 

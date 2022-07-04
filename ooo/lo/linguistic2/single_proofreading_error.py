@@ -42,7 +42,7 @@ class SingleProofreadingError(object):
     typeName: str = 'com.sun.star.linguistic2.SingleProofreadingError'
     """Literal Constant ``com.sun.star.linguistic2.SingleProofreadingError``"""
 
-    def __init__(self, aSuggestions: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, nErrorStart: typing.Optional[int] = 0, nErrorLength: typing.Optional[int] = 0, nErrorType: typing.Optional[int] = 0, aRuleIdentifier: typing.Optional[str] = '', aShortComment: typing.Optional[str] = '', aFullComment: typing.Optional[str] = '') -> None:
+    def __init__(self, aSuggestions: typing.Optional[typing.Tuple[str, ...]] = (), aProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = (), nErrorStart: typing.Optional[int] = 0, nErrorLength: typing.Optional[int] = 0, nErrorType: typing.Optional[int] = 0, aRuleIdentifier: typing.Optional[str] = '', aShortComment: typing.Optional[str] = '', aFullComment: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -80,10 +80,6 @@ class SingleProofreadingError(object):
             "aShortComment": aShortComment,
             "aFullComment": aFullComment,
         }
-        if kargs["aSuggestions"] is UNO_NONE:
-            kargs["aSuggestions"] = None
-        if kargs["aProperties"] is UNO_NONE:
-            kargs["aProperties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

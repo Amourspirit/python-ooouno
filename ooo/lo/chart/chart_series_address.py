@@ -39,7 +39,7 @@ class ChartSeriesAddress(object):
     typeName: str = 'com.sun.star.chart.ChartSeriesAddress'
     """Literal Constant ``com.sun.star.chart.ChartSeriesAddress``"""
 
-    def __init__(self, DomainRangeAddresses: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, DataRangeAddress: typing.Optional[str] = '', LabelAddress: typing.Optional[str] = '') -> None:
+    def __init__(self, DomainRangeAddresses: typing.Optional[typing.Tuple[str, ...]] = (), DataRangeAddress: typing.Optional[str] = '', LabelAddress: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class ChartSeriesAddress(object):
             "DataRangeAddress": DataRangeAddress,
             "LabelAddress": LabelAddress,
         }
-        if kargs["DomainRangeAddresses"] is UNO_NONE:
-            kargs["DomainRangeAddresses"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

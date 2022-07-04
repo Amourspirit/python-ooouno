@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.sdbc
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -51,6 +52,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def allTablesAreSelectable(self) -> bool:
         """
@@ -59,6 +61,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def dataDefinitionCausesTransactionCommit(self) -> bool:
         """
@@ -67,6 +70,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def dataDefinitionIgnoredInTransactions(self) -> bool:
         """
@@ -75,6 +79,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def deletesAreDetected(self, setType: int) -> bool:
         """
@@ -85,6 +90,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def doesMaxRowSizeIncludeBlobs(self) -> bool:
         """
@@ -93,6 +99,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getBestRowIdentifier(self, catalog: object, schema: str, table: str, scope: int, nullable: bool) -> 'XResultSet_98e30aa7':
         """
@@ -105,6 +112,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getCatalogSeparator(self) -> str:
         """
@@ -113,6 +121,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getCatalogTerm(self) -> str:
         """
@@ -121,6 +130,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getCatalogs(self) -> 'XResultSet_98e30aa7':
         """
@@ -133,6 +143,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumnPrivileges(self, catalog: object, schema: str, table: str, columnNamePattern: str) -> 'XResultSet_98e30aa7':
         """
@@ -145,6 +156,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getColumns(self, catalog: object, schemaPattern: str, tableNamePattern: str, columnNamePattern: str) -> 'XResultSet_98e30aa7':
         """
@@ -157,6 +169,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getConnection(self) -> 'XConnection_a36a0b0c':
         """
@@ -165,6 +178,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getCrossReference(self, primaryCatalog: object, primarySchema: str, primaryTable: str, foreignCatalog: object, foreignSchema: str, foreignTable: str) -> 'XResultSet_98e30aa7':
         """
@@ -177,6 +191,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDatabaseProductName(self) -> str:
         """
@@ -185,6 +200,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDatabaseProductVersion(self) -> str:
         """
@@ -193,6 +209,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDefaultTransactionIsolation(self) -> int:
         """
@@ -203,16 +220,19 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDriverMajorVersion(self) -> int:
         """
         returns the SDBC driver major version number.
         """
+        ...
     @abstractmethod
     def getDriverMinorVersion(self) -> int:
         """
         returns the SDBC driver minor version number.
         """
+        ...
     @abstractmethod
     def getDriverName(self) -> str:
         """
@@ -221,6 +241,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDriverVersion(self) -> str:
         """
@@ -229,6 +250,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getExportedKeys(self, catalog: object, schema: str, table: str) -> 'XResultSet_98e30aa7':
         """
@@ -241,6 +263,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getExtraNameCharacters(self) -> str:
         """
@@ -249,6 +272,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getIdentifierQuoteString(self) -> str:
         """
@@ -257,6 +281,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getImportedKeys(self, catalog: object, schema: str, table: str) -> 'XResultSet_98e30aa7':
         """
@@ -269,6 +294,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getIndexInfo(self, catalog: object, schema: str, table: str, unique: bool, approximate: bool) -> 'XResultSet_98e30aa7':
         """
@@ -281,6 +307,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxBinaryLiteralLength(self) -> int:
         """
@@ -289,6 +316,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxCatalogNameLength(self) -> int:
         """
@@ -297,6 +325,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxCharLiteralLength(self) -> int:
         """
@@ -305,6 +334,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnNameLength(self) -> int:
         """
@@ -313,6 +343,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnsInGroupBy(self) -> int:
         """
@@ -321,6 +352,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnsInIndex(self) -> int:
         """
@@ -329,6 +361,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnsInOrderBy(self) -> int:
         """
@@ -337,6 +370,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnsInSelect(self) -> int:
         """
@@ -345,6 +379,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxColumnsInTable(self) -> int:
         """
@@ -353,6 +388,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxConnections(self) -> int:
         """
@@ -361,6 +397,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxCursorNameLength(self) -> int:
         """
@@ -369,6 +406,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxIndexLength(self) -> int:
         """
@@ -377,6 +415,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxProcedureNameLength(self) -> int:
         """
@@ -385,6 +424,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxRowSize(self) -> int:
         """
@@ -393,6 +433,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxSchemaNameLength(self) -> int:
         """
@@ -401,6 +442,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxStatementLength(self) -> int:
         """
@@ -409,6 +451,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxStatements(self) -> int:
         """
@@ -417,6 +460,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxTableNameLength(self) -> int:
         """
@@ -425,6 +469,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxTablesInSelect(self) -> int:
         """
@@ -433,6 +478,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMaxUserNameLength(self) -> int:
         """
@@ -441,6 +487,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getNumericFunctions(self) -> str:
         """
@@ -451,6 +498,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getPrimaryKeys(self, catalog: object, schema: str, table: str) -> 'XResultSet_98e30aa7':
         """
@@ -463,6 +511,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getProcedureColumns(self, catalog: object, schemaPattern: str, procedureNamePattern: str, columnNamePattern: str) -> 'XResultSet_98e30aa7':
         """
@@ -477,6 +526,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getProcedureTerm(self) -> str:
         """
@@ -485,6 +535,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getProcedures(self, catalog: object, schemaPattern: str, procedureNamePattern: str) -> 'XResultSet_98e30aa7':
         """
@@ -497,6 +548,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSQLKeywords(self) -> str:
         """
@@ -505,6 +557,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSchemaTerm(self) -> str:
         """
@@ -513,6 +566,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSchemas(self) -> 'XResultSet_98e30aa7':
         """
@@ -525,6 +579,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSearchStringEscape(self) -> str:
         """
@@ -539,6 +594,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getStringFunctions(self) -> str:
         """
@@ -549,6 +605,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSystemFunctions(self) -> str:
         """
@@ -559,6 +616,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTablePrivileges(self, catalog: object, schemaPattern: str, tableNamePattern: str) -> 'XResultSet_98e30aa7':
         """
@@ -573,6 +631,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTableTypes(self) -> 'XResultSet_98e30aa7':
         """
@@ -585,6 +644,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTables(self, catalog: object, schemaPattern: str, tableNamePattern: str, types: 'typing.Tuple[str, ...]') -> 'XResultSet_98e30aa7':
         """
@@ -599,6 +659,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTimeDateFunctions(self) -> str:
         """
@@ -607,6 +668,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTypeInfo(self) -> 'XResultSet_98e30aa7':
         """
@@ -619,8 +681,9 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
-    def getUDTs(self, catalog: object, schemaPattern: str, typeNamePattern: str, types: 'typing.Tuple[int, ...]') -> 'XResultSet_98e30aa7':
+    def getUDTs(self, catalog: object, schemaPattern: str, typeNamePattern: str, types: uno.ByteSequence) -> 'XResultSet_98e30aa7':
         """
         Gets a description of the user-defined types defined in a particular schema.
         
@@ -635,6 +698,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getURL(self) -> str:
         """
@@ -643,6 +707,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getUserName(self) -> str:
         """
@@ -651,6 +716,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getVersionColumns(self, catalog: object, schema: str, table: str) -> 'XResultSet_98e30aa7':
         """
@@ -663,6 +729,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def insertsAreDetected(self, setType: int) -> bool:
         """
@@ -673,6 +740,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isCatalogAtStart(self) -> bool:
         """
@@ -681,6 +749,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
@@ -689,6 +758,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nullPlusNonNullIsNull(self) -> bool:
         """
@@ -697,6 +767,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nullsAreSortedAtEnd(self) -> bool:
         """
@@ -705,6 +776,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nullsAreSortedAtStart(self) -> bool:
         """
@@ -713,6 +785,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nullsAreSortedHigh(self) -> bool:
         """
@@ -721,6 +794,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nullsAreSortedLow(self) -> bool:
         """
@@ -729,6 +803,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def othersDeletesAreVisible(self, setType: int) -> bool:
         """
@@ -737,6 +812,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def othersInsertsAreVisible(self, setType: int) -> bool:
         """
@@ -745,6 +821,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def othersUpdatesAreVisible(self, setType: int) -> bool:
         """
@@ -753,6 +830,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def ownDeletesAreVisible(self, setType: int) -> bool:
         """
@@ -761,6 +839,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def ownInsertsAreVisible(self, setType: int) -> bool:
         """
@@ -769,6 +848,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def ownUpdatesAreVisible(self, setType: int) -> bool:
         """
@@ -777,6 +857,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesLowerCaseIdentifiers(self) -> bool:
         """
@@ -785,6 +866,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesLowerCaseQuotedIdentifiers(self) -> bool:
         """
@@ -793,6 +875,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesMixedCaseIdentifiers(self) -> bool:
         """
@@ -801,6 +884,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesMixedCaseQuotedIdentifiers(self) -> bool:
         """
@@ -809,6 +893,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesUpperCaseIdentifiers(self) -> bool:
         """
@@ -817,6 +902,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def storesUpperCaseQuotedIdentifiers(self) -> bool:
         """
@@ -825,6 +911,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsANSI92EntryLevelSQL(self) -> bool:
         """
@@ -832,6 +919,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsANSI92FullSQL(self) -> bool:
         """
@@ -839,6 +927,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsANSI92IntermediateSQL(self) -> bool:
         """
@@ -846,6 +935,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsAlterTableWithAddColumn(self) -> bool:
         """
@@ -854,6 +944,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsAlterTableWithDropColumn(self) -> bool:
         """
@@ -862,6 +953,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsBatchUpdates(self) -> bool:
         """
@@ -870,6 +962,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCatalogsInDataManipulation(self) -> bool:
         """
@@ -878,6 +971,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCatalogsInIndexDefinitions(self) -> bool:
         """
@@ -886,6 +980,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCatalogsInPrivilegeDefinitions(self) -> bool:
         """
@@ -894,6 +989,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCatalogsInProcedureCalls(self) -> bool:
         """
@@ -902,6 +998,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCatalogsInTableDefinitions(self) -> bool:
         """
@@ -910,6 +1007,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsColumnAliasing(self) -> bool:
         """
@@ -920,6 +1018,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsConvert(self, fromType: int, toType: int) -> bool:
         """
@@ -928,6 +1027,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCoreSQLGrammar(self) -> bool:
         """
@@ -936,6 +1036,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsCorrelatedSubqueries(self) -> bool:
         """
@@ -944,6 +1045,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsDataDefinitionAndDataManipulationTransactions(self) -> bool:
         """
@@ -952,6 +1054,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsDataManipulationTransactionsOnly(self) -> bool:
         """
@@ -960,6 +1063,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsDifferentTableCorrelationNames(self) -> bool:
         """
@@ -968,6 +1072,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsExpressionsInOrderBy(self) -> bool:
         """
@@ -976,6 +1081,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsExtendedSQLGrammar(self) -> bool:
         """
@@ -983,6 +1089,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsFullOuterJoins(self) -> bool:
         """
@@ -990,6 +1097,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsGroupBy(self) -> bool:
         """
@@ -998,6 +1106,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsGroupByBeyondSelect(self) -> bool:
         """
@@ -1006,6 +1115,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsGroupByUnrelated(self) -> bool:
         """
@@ -1014,6 +1124,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsIntegrityEnhancementFacility(self) -> bool:
         """
@@ -1022,6 +1133,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsLikeEscapeClause(self) -> bool:
         """
@@ -1030,6 +1142,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsLimitedOuterJoins(self) -> bool:
         """
@@ -1037,6 +1150,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsMinimumSQLGrammar(self) -> bool:
         """
@@ -1045,6 +1159,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsMixedCaseIdentifiers(self) -> bool:
         """
@@ -1053,6 +1168,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsMixedCaseQuotedIdentifiers(self) -> bool:
         """
@@ -1061,6 +1177,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsMultipleResultSets(self) -> bool:
         """
@@ -1069,6 +1186,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsMultipleTransactions(self) -> bool:
         """
@@ -1077,6 +1195,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsNonNullableColumns(self) -> bool:
         """
@@ -1085,6 +1204,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOpenCursorsAcrossCommit(self) -> bool:
         """
@@ -1093,6 +1213,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOpenCursorsAcrossRollback(self) -> bool:
         """
@@ -1101,6 +1222,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOpenStatementsAcrossCommit(self) -> bool:
         """
@@ -1109,6 +1231,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOpenStatementsAcrossRollback(self) -> bool:
         """
@@ -1117,6 +1240,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOrderByUnrelated(self) -> bool:
         """
@@ -1125,6 +1249,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsOuterJoins(self) -> bool:
         """
@@ -1132,6 +1257,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsPositionedDelete(self) -> bool:
         """
@@ -1140,6 +1266,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsPositionedUpdate(self) -> bool:
         """
@@ -1148,6 +1275,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsResultSetConcurrency(self, setType: int, concurrency: int) -> bool:
         """
@@ -1156,6 +1284,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsResultSetType(self, setType: int) -> bool:
         """
@@ -1164,6 +1293,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSchemasInDataManipulation(self) -> bool:
         """
@@ -1172,6 +1302,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSchemasInIndexDefinitions(self) -> bool:
         """
@@ -1180,6 +1311,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSchemasInPrivilegeDefinitions(self) -> bool:
         """
@@ -1188,6 +1320,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSchemasInProcedureCalls(self) -> bool:
         """
@@ -1196,6 +1329,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSchemasInTableDefinitions(self) -> bool:
         """
@@ -1204,6 +1338,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSelectForUpdate(self) -> bool:
         """
@@ -1212,6 +1347,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsStoredProcedures(self) -> bool:
         """
@@ -1220,6 +1356,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSubqueriesInComparisons(self) -> bool:
         """
@@ -1228,6 +1365,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSubqueriesInExists(self) -> bool:
         """
@@ -1236,6 +1374,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSubqueriesInIns(self) -> bool:
         """
@@ -1244,6 +1383,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsSubqueriesInQuantifieds(self) -> bool:
         """
@@ -1252,6 +1392,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsTableCorrelationNames(self) -> bool:
         """
@@ -1260,6 +1401,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsTransactionIsolationLevel(self, level: int) -> bool:
         """
@@ -1268,6 +1410,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsTransactions(self) -> bool:
         """
@@ -1276,6 +1419,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsTypeConversion(self) -> bool:
         """
@@ -1284,6 +1428,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsUnion(self) -> bool:
         """
@@ -1292,6 +1437,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def supportsUnionAll(self) -> bool:
         """
@@ -1300,6 +1446,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updatesAreDetected(self, setType: int) -> bool:
         """
@@ -1308,6 +1455,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def usesLocalFilePerTable(self) -> bool:
         """
@@ -1316,6 +1464,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def usesLocalFiles(self) -> bool:
         """
@@ -1324,6 +1473,7 @@ class XDatabaseMetaData(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDatabaseMetaData']
 

@@ -49,6 +49,7 @@ class XBridgeFactory(XInterface_8f010a43):
             : ````
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getBridge(self, sName: str) -> 'XBridge_8e4e0a1a':
         """
@@ -56,11 +57,13 @@ class XBridgeFactory(XInterface_8f010a43):
         
         Cannot be retrieved, when the bridge got disposed before.
         """
+        ...
     @abstractmethod
     def getExistingBridges(self) -> 'typing.Tuple[XBridge_8e4e0a1a, ...]':
         """
         returns the sequence of all named and unnamed UNO interprocess bridges that are instantiated at the time the call is made.
         """
+        ...
 
 __all__ = ['XBridgeFactory']
 

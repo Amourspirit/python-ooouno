@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.PasteOperation import (ADD, DIVIDE, MULTIPLY, NONE, SUBTRACT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.PasteOperation Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.PasteOperation",
-            "__ooo_type_name__": "enum",
-            "ADD": ADD,
-            "DIVIDE": DIVIDE,
-            "MULTIPLY": MULTIPLY,
-            "NONE": NONE,
-            "SUBTRACT": SUBTRACT,
-        }
-        result = type('PasteOperation', (object,), _dict)
-        return result
-
-    PasteOperation = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class PasteOperation(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.PasteOperation", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.PasteOperation`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.paste_operation import PasteOperation as PasteOperation
 

@@ -44,6 +44,7 @@ class AddressBookSourcePilot(XExecutableDialog_450f0fa1):
     def createWithParent(self, ParentWindow: 'XWindow_713b0924') -> None:
         """
         """
+        ...
 
 
 __all__ = ['AddressBookSourcePilot']

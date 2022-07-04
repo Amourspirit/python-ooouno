@@ -43,6 +43,7 @@ class XDialogClosedListener(XEventListener_c7230c4a):
         """
         A client receives this event if a dialog is closed.
         """
+        ...
 
 __all__ = ['XDialogClosedListener']
 

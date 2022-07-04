@@ -38,6 +38,7 @@ class XBridge(XInterface_8f010a43):
         """
         a unique descriptive string: protocol + \":\" + XConnection.getDescription()
         """
+        ...
     @abstractmethod
     def getInstance(self, sInstanceName: str) -> 'XInterface_8f010a43':
         """
@@ -45,11 +46,13 @@ class XBridge(XInterface_8f010a43):
         
         In general, this method is called once to get the initial object from the remote, but it is allowed to call the method multiple times.
         """
+        ...
     @abstractmethod
     def getName(self) -> str:
         """
         name that the bridge got when it was created.
         """
+        ...
 
 __all__ = ['XBridge']
 

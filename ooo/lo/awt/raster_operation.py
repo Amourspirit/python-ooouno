@@ -34,6 +34,10 @@ class RasterOperation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.RasterOperation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.RasterOperation'
+
     ALLBITS = 'ALLBITS'
     """
     All bits which are affected by this operation are set to 1.

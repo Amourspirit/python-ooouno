@@ -40,30 +40,35 @@ class ImageMapObject(XPropertySet_bc180bfa, XEventsSupplier_ecd0e88):
         """
         This is an optional description text for the link.
         """
+        ...
 
     @abstractproperty
     def IsActive(self) -> bool:
         """
         If an object is not active, it is ignored when the user clicks on the ImageMap.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         Optionally, objects could be named.
         """
+        ...
 
     @abstractproperty
     def Target(self) -> str:
         """
         This is the target frame.
         """
+        ...
 
     @abstractproperty
     def URL(self) -> str:
         """
         This is the URL for this object.
         """
+        ...
 
 
 

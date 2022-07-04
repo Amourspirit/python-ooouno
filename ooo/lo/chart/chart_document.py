@@ -48,18 +48,21 @@ class ChartDocument(UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bf
         """
         determines if the legend is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasMainTitle(self) -> bool:
         """
         determines if the main title is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasSubTitle(self) -> bool:
         """
         determines if the subtitle is shown or hidden.
         """
+        ...
 
 
 

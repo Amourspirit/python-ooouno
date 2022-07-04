@@ -40,6 +40,7 @@ class Footnote(XFootnote_901e0a73, XText_690408ca):
         """
         contains an internal identifier for the use as SequenceNumber property in reference fields.
         """
+        ...
 
 
 

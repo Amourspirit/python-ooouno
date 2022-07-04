@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import ControlActions as ControlActions
-    if hasattr(ControlActions, '_constants') and isinstance(ControlActions._constants, dict):
-        ControlActions._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
-        ControlActions._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.ControlActions'
-        ControlActions._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ControlActionsEnum
-        ls = [f for f in dir(ControlActions) if not callable(getattr(ControlActions, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ControlActions, name)
-        ControlActionsEnum = IntEnum('ControlActionsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ControlActions(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.ControlActions", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.dialogs.ControlActions``"""
+        pass
+
+    class ControlActionsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.dialogs.ControlActions", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.dialogs.ControlActions`` as Enum values"""
+        pass
+
 else:
     from ....lo.ui.dialogs.control_actions import ControlActions as ControlActions
 

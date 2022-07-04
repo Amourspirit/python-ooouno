@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.linguistic2 import ConversionDictionaryType as ConversionDictionaryType
-    if hasattr(ConversionDictionaryType, '_constants') and isinstance(ConversionDictionaryType._constants, dict):
-        ConversionDictionaryType._constants['__ooo_ns__'] = 'com.sun.star.linguistic2'
-        ConversionDictionaryType._constants['__ooo_full_ns__'] = 'com.sun.star.linguistic2.ConversionDictionaryType'
-        ConversionDictionaryType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ConversionDictionaryTypeEnum
-        ls = [f for f in dir(ConversionDictionaryType) if not callable(getattr(ConversionDictionaryType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ConversionDictionaryType, name)
-        ConversionDictionaryTypeEnum = IntFlag('ConversionDictionaryTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ConversionDictionaryType(metaclass=UnoConstMeta, type_name="com.sun.star.linguistic2.ConversionDictionaryType", name_space="com.sun.star.linguistic2"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.linguistic2.ConversionDictionaryType``"""
+        pass
+
+    class ConversionDictionaryTypeEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.linguistic2.ConversionDictionaryType", name_space="com.sun.star.linguistic2"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.linguistic2.ConversionDictionaryType`` as Enum values"""
+        pass
+
 else:
     from ...lo.linguistic2.conversion_dictionary_type import ConversionDictionaryType as ConversionDictionaryType
 

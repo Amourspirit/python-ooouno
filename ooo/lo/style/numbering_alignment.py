@@ -43,24 +43,28 @@ class NumberingAlignment(ABC):
         
         Use the com.sun.star.style.HorizontalAlignment enum to change the alignment.
         """
+        ...
 
     @abstractproperty
     def Insertion(self) -> int:
         """
         the distance between the numbering symbol and text.
         """
+        ...
 
     @abstractproperty
     def TextMarginDistance(self) -> int:
         """
         the minimum distance between the numbering symbol and the following text.
         """
+        ...
 
     @abstractproperty
     def TextNumberingDistance(self) -> int:
         """
         the distance between left margin and the numbering symbol.
         """
+        ...
 
 
 

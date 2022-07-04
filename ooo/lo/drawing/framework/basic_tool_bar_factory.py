@@ -48,6 +48,7 @@ class BasicToolBarFactory(XResourceFactory_b3561268):
         """
         Give the controller to new instances so that they have access to the drawing framework controllers.
         """
+        ...
 
 
 __all__ = ['BasicToolBarFactory']

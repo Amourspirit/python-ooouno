@@ -37,6 +37,7 @@ class XFixedText(XReportControlModel_2d800f4a):
         """
         specifies the label of the control.
         """
+        ...
 
 
 __all__ = ['XFixedText']

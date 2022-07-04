@@ -34,6 +34,10 @@ class CellVertJustify(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.CellVertJustify'
+
     BOTTOM = 'BOTTOM'
     """
     contents are aligned to the lower edge of the cell.

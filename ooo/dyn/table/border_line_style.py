@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import BorderLineStyle as BorderLineStyle
-    if hasattr(BorderLineStyle, '_constants') and isinstance(BorderLineStyle._constants, dict):
-        BorderLineStyle._constants['__ooo_ns__'] = 'com.sun.star.table'
-        BorderLineStyle._constants['__ooo_full_ns__'] = 'com.sun.star.table.BorderLineStyle'
-        BorderLineStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global BorderLineStyleEnum
-        ls = [f for f in dir(BorderLineStyle) if not callable(getattr(BorderLineStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(BorderLineStyle, name)
-        BorderLineStyleEnum = IntEnum('BorderLineStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class BorderLineStyle(metaclass=UnoConstMeta, type_name="com.sun.star.table.BorderLineStyle", name_space="com.sun.star.table"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.table.BorderLineStyle``"""
+        pass
+
+    class BorderLineStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.table.BorderLineStyle", name_space="com.sun.star.table"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.table.BorderLineStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.table.border_line_style import BorderLineStyle as BorderLineStyle
 

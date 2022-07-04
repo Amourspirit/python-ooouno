@@ -47,10 +47,12 @@ class FilterDialog(XExecutableDialog_450f0fa1):
     def createDefault(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithQuery(self, QueryComposer: 'XSingleSelectQueryComposer_66e310b9', RowSet: 'XRowSet_7a090960', ParentWindow: 'XWindow_713b0924') -> None:
         """
         """
+        ...
 
 
 __all__ = ['FilterDialog']

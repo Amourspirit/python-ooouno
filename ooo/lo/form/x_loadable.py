@@ -43,11 +43,13 @@ class XLoadable(XInterface_8f010a43):
         """
         adds the specified listener to receive load-related events
         """
+        ...
     @abstractmethod
     def isLoaded(self) -> bool:
         """
         returns if the object is in loaded state.
         """
+        ...
     @abstractmethod
     def load(self) -> None:
         """
@@ -55,6 +57,7 @@ class XLoadable(XInterface_8f010a43):
         
         If the data is already loaded (->isLoaded), then the method returns silently. In this case, you should use ->reload.
         """
+        ...
     @abstractmethod
     def reload(self) -> None:
         """
@@ -62,16 +65,19 @@ class XLoadable(XInterface_8f010a43):
         
         The final state will be the same as if unload and load were called, but reload is the more efficient way to do the same. If the object isn't loaded, nothing happens.
         """
+        ...
     @abstractmethod
     def removeLoadListener(self, aListener: 'XLoadListener_bb200bda') -> None:
         """
         removes the specified listener.
         """
+        ...
     @abstractmethod
     def unload(self) -> None:
         """
         unloads the data.
         """
+        ...
 
 __all__ = ['XLoadable']
 

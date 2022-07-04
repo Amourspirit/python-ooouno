@@ -34,6 +34,10 @@ class BitmapMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.BitmapMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.BitmapMode'
+
     NO_REPEAT = 'NO_REPEAT'
     """
     the bitmap is painted in its original or selected size.

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.gallery import GalleryItemType as GalleryItemType
-    if hasattr(GalleryItemType, '_constants') and isinstance(GalleryItemType._constants, dict):
-        GalleryItemType._constants['__ooo_ns__'] = 'com.sun.star.gallery'
-        GalleryItemType._constants['__ooo_full_ns__'] = 'com.sun.star.gallery.GalleryItemType'
-        GalleryItemType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global GalleryItemTypeEnum
-        ls = [f for f in dir(GalleryItemType) if not callable(getattr(GalleryItemType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(GalleryItemType, name)
-        GalleryItemTypeEnum = IntEnum('GalleryItemTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class GalleryItemType(metaclass=UnoConstMeta, type_name="com.sun.star.gallery.GalleryItemType", name_space="com.sun.star.gallery"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.gallery.GalleryItemType``"""
+        pass
+
+    class GalleryItemTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.gallery.GalleryItemType", name_space="com.sun.star.gallery"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.gallery.GalleryItemType`` as Enum values"""
+        pass
+
 else:
     from ...lo.gallery.gallery_item_type import GalleryItemType as GalleryItemType
 

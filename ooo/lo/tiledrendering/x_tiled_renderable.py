@@ -42,9 +42,7 @@ class XTiledRenderable(XInterface_8f010a43):
         """
         paint a tile to a system-specific window
         
-        You must check the machine ID and the process ID.
-        WIN32: HWND.
-        WIN16: HWND.
+        You must check the machine ID and the process ID.WIN32: HWND.WIN16: HWND.
         
         JAVA: global reference to a java.awt.Component object provided from the JNI-API.
         
@@ -54,6 +52,7 @@ class XTiledRenderable(XInterface_8f010a43):
         
             LibreOffice 5.0
         """
+        ...
 
 __all__ = ['XTiledRenderable']
 

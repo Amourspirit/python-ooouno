@@ -43,12 +43,14 @@ class TextSortDescriptor2(TableSortDescriptor2_27e00ef1):
         """
         contains the character that marks the column separator when a selection of paragraphs is to be sorted.
         """
+        ...
 
     @abstractproperty
     def IsSortInTable(self) -> bool:
         """
         determines if the content of a table or a selection of paragraphs is to be sorted.
         """
+        ...
 
 
 

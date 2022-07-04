@@ -26,8 +26,7 @@ class PathSubstitution(XStringSubstitution_f660eb2):
 
     A service to support the substitution and resubstitution of path variables.
     
-    A path variable must be specified with the following syntax: \"$(\"<variable-name>\")\". Path variables are not case sensitive and are always provided as a UCB-compliant URLs (for example: \"file:///c:/temp\" or \"file:///usr/install\"). This is mandatory to support an optional remote file system.
-    There is a set of variables that have pre-defined values:
+    A path variable must be specified with the following syntax: \"$(\"<variable-name>\")\". Path variables are not case sensitive and are always provided as a UCB-compliant URLs (for example: \"file:///c:/temp\" or \"file:///usr/install\"). This is mandatory to support an optional remote file system.There is a set of variables that have pre-defined values:
     
     Attention: Most predefined variables describe an absolute path. The only exceptions are: $(username), $(langid) and $(vlang). Therefore the service implementation should only substitute variables which are located at the start of a provided path string or are part of a multi-path. This special service is not designed to be a text substitution but shall provide (a) valid substituted path(s).
     

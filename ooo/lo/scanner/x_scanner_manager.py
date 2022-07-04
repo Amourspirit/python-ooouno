@@ -46,11 +46,13 @@ class XScannerManager(XInterface_8f010a43):
         Raises:
             com.sun.star.scanner.ScannerException: ``ScannerException``
         """
+        ...
     @abstractmethod
     def getAvailableScanners(self) -> 'typing.Tuple[ScannerContext_f0c60da1, ...]':
         """
         returns all available scanner devices
         """
+        ...
     @abstractmethod
     def getBitmap(self, scannerContext: 'ScannerContext_f0c60da1') -> 'XBitmap_70cd0909':
         """
@@ -59,6 +61,7 @@ class XScannerManager(XInterface_8f010a43):
         Raises:
             com.sun.star.scanner.ScannerException: ``ScannerException``
         """
+        ...
     @abstractmethod
     def getError(self, scannerContext: 'ScannerContext_f0c60da1') -> 'ScanError_b0d90b81':
         """
@@ -67,6 +70,7 @@ class XScannerManager(XInterface_8f010a43):
         Raises:
             com.sun.star.scanner.ScannerException: ``ScannerException``
         """
+        ...
     @abstractmethod
     def startScan(self, scannerContext: 'ScannerContext_f0c60da1', listener: 'XEventListener_c7230c4a') -> None:
         """
@@ -75,6 +79,7 @@ class XScannerManager(XInterface_8f010a43):
         Raises:
             com.sun.star.scanner.ScannerException: ``ScannerException``
         """
+        ...
 
 __all__ = ['XScannerManager']
 

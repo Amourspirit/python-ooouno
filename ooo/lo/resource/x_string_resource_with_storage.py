@@ -46,6 +46,7 @@ class XStringResourceWithStorage(XStringResourcePersistence_cabc130c):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def storeAsStorage(self, Storage: 'XStorage_8e460a32') -> None:
         """
@@ -58,6 +59,7 @@ class XStringResourceWithStorage(XStringResourcePersistence_cabc130c):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XStringResourceWithStorage']
 

@@ -43,6 +43,7 @@ class XSelectionChangeListener(XEventListener_c7230c4a):
         
         You can get the new selection via XSelectionSupplier from com.sun.star.lang.EventObject.Source.
         """
+        ...
 
 __all__ = ['XSelectionChangeListener']
 

@@ -43,15 +43,18 @@ class XStatisticDisplay(XInterface_8f010a43):
         """
         The DownBar is the box that is drawn between the open and close value of a stock, when the closing value is below the opening value, i.e., the stock price fell.
         """
+        ...
     @abstractmethod
     def getMinMaxLine(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def getUpBar(self) -> 'XPropertySet_bc180bfa':
         """
         The UpBar is the box that is drawn between the open and close value of a stock, when the closing value is above the opening value, i.e., the stock price rose.
         """
+        ...
 
 __all__ = ['XStatisticDisplay']
 

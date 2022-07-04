@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import PropertyAttribute as PropertyAttribute
-    if hasattr(PropertyAttribute, '_constants') and isinstance(PropertyAttribute._constants, dict):
-        PropertyAttribute._constants['__ooo_ns__'] = 'com.sun.star.beans'
-        PropertyAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.beans.PropertyAttribute'
-        PropertyAttribute._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PropertyAttributeEnum
-        ls = [f for f in dir(PropertyAttribute) if not callable(getattr(PropertyAttribute, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PropertyAttribute, name)
-        PropertyAttributeEnum = IntFlag('PropertyAttributeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class PropertyAttribute(metaclass=UnoConstMeta, type_name="com.sun.star.beans.PropertyAttribute", name_space="com.sun.star.beans"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.beans.PropertyAttribute``"""
+        pass
+
+    class PropertyAttributeEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.beans.PropertyAttribute", name_space="com.sun.star.beans"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.beans.PropertyAttribute`` as Enum values"""
+        pass
+
 else:
     from ...lo.beans.property_attribute import PropertyAttribute as PropertyAttribute
 

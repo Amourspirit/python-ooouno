@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import UserFieldFormat as UserFieldFormat
-    if hasattr(UserFieldFormat, '_constants') and isinstance(UserFieldFormat._constants, dict):
-        UserFieldFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
-        UserFieldFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.UserFieldFormat'
-        UserFieldFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global UserFieldFormatEnum
-        ls = [f for f in dir(UserFieldFormat) if not callable(getattr(UserFieldFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(UserFieldFormat, name)
-        UserFieldFormatEnum = IntEnum('UserFieldFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class UserFieldFormat(metaclass=UnoConstMeta, type_name="com.sun.star.text.UserFieldFormat", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.UserFieldFormat``"""
+        pass
+
+    class UserFieldFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.UserFieldFormat", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.UserFieldFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.user_field_format import UserFieldFormat as UserFieldFormat
 

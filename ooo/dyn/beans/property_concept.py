@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import PropertyConcept as PropertyConcept
-    if hasattr(PropertyConcept, '_constants') and isinstance(PropertyConcept._constants, dict):
-        PropertyConcept._constants['__ooo_ns__'] = 'com.sun.star.beans'
-        PropertyConcept._constants['__ooo_full_ns__'] = 'com.sun.star.beans.PropertyConcept'
-        PropertyConcept._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PropertyConceptEnum
-        ls = [f for f in dir(PropertyConcept) if not callable(getattr(PropertyConcept, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PropertyConcept, name)
-        PropertyConceptEnum = IntEnum('PropertyConceptEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class PropertyConcept(metaclass=UnoConstMeta, type_name="com.sun.star.beans.PropertyConcept", name_space="com.sun.star.beans"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.beans.PropertyConcept``"""
+        pass
+
+    class PropertyConceptEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.beans.PropertyConcept", name_space="com.sun.star.beans"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.beans.PropertyConcept`` as Enum values"""
+        pass
+
 else:
     from ...lo.beans.property_concept import PropertyConcept as PropertyConcept
 

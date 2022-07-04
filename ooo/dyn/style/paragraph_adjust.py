@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.style.ParagraphAdjust import (BLOCK, CENTER, LEFT, RIGHT, STRETCH)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.style.ParagraphAdjust Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.style",
-            "__ooo_full_ns__": "com.sun.star.style.ParagraphAdjust",
-            "__ooo_type_name__": "enum",
-            "BLOCK": BLOCK,
-            "CENTER": CENTER,
-            "LEFT": LEFT,
-            "RIGHT": RIGHT,
-            "STRETCH": STRETCH,
-        }
-        result = type('ParagraphAdjust', (object,), _dict)
-        return result
-
-    ParagraphAdjust = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ParagraphAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.style.ParagraphAdjust", name_space="com.sun.star.style"):
+        """Dynamically created class that represents ``com.sun.star.style.ParagraphAdjust`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.style.paragraph_adjust import ParagraphAdjust as ParagraphAdjust
 

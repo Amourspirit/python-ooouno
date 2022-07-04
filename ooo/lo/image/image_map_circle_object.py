@@ -42,12 +42,14 @@ class ImageMapCircleObject(ImageMapObject_d1e20c63):
         """
         This is the center point of the circle in pixels.
         """
+        ...
 
     @abstractproperty
     def Radius(self) -> int:
         """
         This is the radius of the circle in pixels.
         """
+        ...
 
 
 

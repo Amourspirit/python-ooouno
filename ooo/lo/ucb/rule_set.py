@@ -40,7 +40,7 @@ class RuleSet(object):
     typeName: str = 'com.sun.star.ucb.RuleSet'
     """Literal Constant ``com.sun.star.ucb.RuleSet``"""
 
-    def __init__(self, Rules: typing.Optional[typing.Tuple[Rule_571307da, ...]] = UNO_NONE, HandleFolder: typing.Optional[bool] = False) -> None:
+    def __init__(self, Rules: typing.Optional[typing.Tuple[Rule_571307da, ...]] = (), HandleFolder: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
@@ -60,8 +60,6 @@ class RuleSet(object):
             "Rules": Rules,
             "HandleFolder": HandleFolder,
         }
-        if kargs["Rules"] is UNO_NONE:
-            kargs["Rules"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

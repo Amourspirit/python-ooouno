@@ -39,6 +39,7 @@ class RegressionCurve(PropertySet_b0e70ba2, LineProperties_f13f0da9, XRegression
     def MovingAverageType(self) -> int:
         """
         """
+        ...
 
 
 

@@ -56,6 +56,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def cloneStreamElement(self, sStreamName: str) -> 'XStream_678908a4':
         """
@@ -70,6 +71,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyElementTo(self, sElementName: str, xDest: 'XStorage', sNewName: str) -> None:
         """
@@ -85,6 +87,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyLastCommitTo(self, xTargetStorage: 'XStorage') -> None:
         """
@@ -98,6 +101,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyStorageElementLastCommitTo(self, sStorName: str, xTargetStorage: 'XStorage') -> None:
         """
@@ -111,6 +115,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyToStorage(self, xDest: 'XStorage') -> None:
         """
@@ -124,6 +129,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def isStorageElement(self, sElementName: str) -> bool:
         """
@@ -136,6 +142,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.embed.InvalidStorageException: ``InvalidStorageException``
         """
+        ...
     @abstractmethod
     def isStreamElement(self, sElementName: str) -> bool:
         """
@@ -148,6 +155,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.embed.InvalidStorageException: ``InvalidStorageException``
         """
+        ...
     @abstractmethod
     def moveElementTo(self, sElementName: str, xDest: 'XStorage', sNewName: str) -> None:
         """
@@ -163,6 +171,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def openEncryptedStreamElement(self, sStreamName: str, nOpenMode: int, sPassword: str) -> 'XStream_678908a4':
         """
@@ -180,6 +189,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def openStorageElement(self, sStorName: str, nOpenMode: int) -> 'XStorage':
         """
@@ -193,6 +203,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def openStreamElement(self, sStreamName: str, nOpenMode: int) -> 'XStream_678908a4':
         """
@@ -207,6 +218,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeElement(self, sElementName: str) -> None:
         """
@@ -219,6 +231,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def renameElement(self, sElementName: str, sNewName: str) -> None:
         """
@@ -232,6 +245,7 @@ class XStorage(XNameAccess_e2ab0cf6, XComponent_98dc0ab5):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
 
 __all__ = ['XStorage']
 

@@ -43,6 +43,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def deleteRow(self) -> None:
         """
@@ -53,6 +54,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def insertRow(self) -> None:
         """
@@ -63,6 +65,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def moveToCurrentRow(self) -> None:
         """
@@ -73,6 +76,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def moveToInsertRow(self) -> None:
         """
@@ -87,6 +91,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateRow(self) -> None:
         """
@@ -97,6 +102,7 @@ class XResultSetUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XResultSetUpdate']
 

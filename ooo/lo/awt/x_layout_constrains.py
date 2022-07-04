@@ -41,16 +41,19 @@ class XLayoutConstrains(XInterface_8f010a43):
         """
         calculates the adjusted size for a given maximum size.
         """
+        ...
     @abstractmethod
     def getMinimumSize(self) -> 'Size_576707ef':
         """
         returns the minimum size for this component.
         """
+        ...
     @abstractmethod
     def getPreferredSize(self) -> 'Size_576707ef':
         """
         returns the preferred size for this component.
         """
+        ...
 
 __all__ = ['XLayoutConstrains']
 

@@ -41,6 +41,7 @@ class XHierarchiesSupplier(XInterface_8f010a43):
         """
         returns the collection of hierarchies.
         """
+        ...
 
 __all__ = ['XHierarchiesSupplier']
 

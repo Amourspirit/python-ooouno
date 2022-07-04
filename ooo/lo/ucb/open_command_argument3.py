@@ -44,7 +44,7 @@ class OpenCommandArgument3(OpenCommandArgument2_9210e08):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument3'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument3``"""
 
-    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None, SortingInfo: typing.Optional[typing.Tuple[NumberedSortingInfo_fd0e0de6, ...]] = UNO_NONE, OpeningFlags: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = (), Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None, SortingInfo: typing.Optional[typing.Tuple[NumberedSortingInfo_fd0e0de6, ...]] = (), OpeningFlags: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = ()) -> None:
         """
         Constructor
 
@@ -75,12 +75,6 @@ class OpenCommandArgument3(OpenCommandArgument2_9210e08):
             "SortingInfo": SortingInfo,
             "OpeningFlags": OpeningFlags,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
-        if kargs["SortingInfo"] is UNO_NONE:
-            kargs["SortingInfo"] = None
-        if kargs["OpeningFlags"] is UNO_NONE:
-            kargs["OpeningFlags"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

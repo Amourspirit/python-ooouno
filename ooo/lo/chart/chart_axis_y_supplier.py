@@ -39,30 +39,35 @@ class ChartAxisYSupplier(XAxisYSupplier_d4430cb4):
         """
         Determines if the y-axis is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasYAxisDescription(self) -> bool:
         """
         Determines if the description of the y-axis is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasYAxisGrid(self) -> bool:
         """
         Determines if the major grid of the y-axis is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasYAxisHelpGrid(self) -> bool:
         """
         Determines if the minor grid of the y-axis is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasYAxisTitle(self) -> bool:
         """
         Determines if the title of the y-axis is shown or hidden.
         """
+        ...
 
 
 

@@ -44,10 +44,12 @@ class XSheetDataProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createDataSequenceByFormulaTokensPossible(self, aTokens: 'typing.Tuple[FormulaToken_bd1c0bf8, ...]') -> bool:
         """
         """
+        ...
 
 __all__ = ['XSheetDataProvider']
 

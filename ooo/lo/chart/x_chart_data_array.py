@@ -43,31 +43,37 @@ class XChartDataArray(XChartData_a3580ade):
         """
         retrieves the description texts for all columns.
         """
+        ...
     @abstractmethod
     def getData(self) -> 'typing.Tuple[typing.Tuple[float, ...], ...]':
         """
         retrieves the numerical data as a nested sequence of values.
         """
+        ...
     @abstractmethod
     def getRowDescriptions(self) -> 'typing.Tuple[str, ...]':
         """
         retrieves the description texts for all rows.
         """
+        ...
     @abstractmethod
     def setColumnDescriptions(self, aColumnDescriptions: 'typing.Tuple[str, ...]') -> None:
         """
         sets the description texts for all columns.
         """
+        ...
     @abstractmethod
     def setData(self, aData: 'typing.Tuple[typing.Tuple[float, ...], ...]') -> None:
         """
         sets the chart data as an array of numbers.
         """
+        ...
     @abstractmethod
     def setRowDescriptions(self, aRowDescriptions: 'typing.Tuple[str, ...]') -> None:
         """
         sets the description texts for all rows.
         """
+        ...
 
 __all__ = ['XChartDataArray']
 

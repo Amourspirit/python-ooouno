@@ -42,7 +42,7 @@ class DispatchStatement(object):
     typeName: str = 'com.sun.star.frame.DispatchStatement'
     """Literal Constant ``com.sun.star.frame.DispatchStatement``"""
 
-    def __init__(self, aArgs: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, aCommand: typing.Optional[str] = '', aTarget: typing.Optional[str] = '', nFlags: typing.Optional[int] = 0, bIsComment: typing.Optional[bool] = False) -> None:
+    def __init__(self, aArgs: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = (), aCommand: typing.Optional[str] = '', aTarget: typing.Optional[str] = '', nFlags: typing.Optional[int] = 0, bIsComment: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
@@ -71,8 +71,6 @@ class DispatchStatement(object):
             "nFlags": nFlags,
             "bIsComment": bIsComment,
         }
-        if kargs["aArgs"] is UNO_NONE:
-            kargs["aArgs"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

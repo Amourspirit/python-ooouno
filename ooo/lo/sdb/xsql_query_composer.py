@@ -47,6 +47,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def appendOrderByColumn(self, column: 'XPropertySet_bc180bfa', ascending: bool) -> None:
         """
@@ -55,11 +56,13 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getComposedQuery(self) -> str:
         """
         returns the query composed with filters and sort criteria.
         """
+        ...
     @abstractmethod
     def getFilter(self) -> str:
         """
@@ -67,6 +70,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         
         The filter criteria returned is part of the where condition of the select command, but it does not contain the where token.
         """
+        ...
     @abstractmethod
     def getOrder(self) -> str:
         """
@@ -74,11 +78,13 @@ class XSQLQueryComposer(XInterface_8f010a43):
         
         The order criteria returned is part of the ORDER BY clause of the select command, but it does not contain the ORDER BY keyword .
         """
+        ...
     @abstractmethod
     def getQuery(self) -> str:
         """
         returns the query used for composing.
         """
+        ...
     @abstractmethod
     def getStructuredFilter(self) -> 'typing.Tuple[typing.Tuple[PropertyValue_c9610c73, ...], ...]':
         """
@@ -86,6 +92,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         
         The filter criteria is split into levels. Each level represents the OR criteria. Within each level, the filters are provided as an AND criteria with the name of the column and the filter condition. The filter condition is of type string.
         """
+        ...
     @abstractmethod
     def setFilter(self, filter: str) -> None:
         """
@@ -94,6 +101,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setOrder(self, order: str) -> None:
         """
@@ -102,6 +110,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setQuery(self, command: str) -> None:
         """
@@ -110,6 +119,7 @@ class XSQLQueryComposer(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XSQLQueryComposer']
 

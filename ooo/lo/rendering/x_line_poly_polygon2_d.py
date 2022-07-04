@@ -48,6 +48,7 @@ class XLinePolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getPoints(self, nPolygonIndex: int, nNumberOfPolygons: int, nPointIndex: int, nNumberOfPoints: int) -> 'typing.Tuple[typing.Tuple[RealPoint2D_d6e70c78, ...], ...]':
         """
@@ -56,6 +57,7 @@ class XLinePolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setPoint(self, point: 'RealPoint2D_d6e70c78', nPolygonIndex: int, nPointIndex: int) -> None:
         """
@@ -66,6 +68,7 @@ class XLinePolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setPoints(self, points: 'typing.Tuple[typing.Tuple[RealPoint2D_d6e70c78, ...], ...]', nPolygonIndex: int) -> None:
         """
@@ -76,6 +79,7 @@ class XLinePolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XLinePolyPolygon2D']
 

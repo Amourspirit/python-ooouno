@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.script
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -43,6 +44,7 @@ class XInvocation(XInterface_8f010a43):
         """
         returns the introspection from this object or NULL if the object does not provide this information.
         """
+        ...
     @abstractmethod
     def getValue(self, aPropertyName: str) -> object:
         """
@@ -51,6 +53,7 @@ class XInvocation(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def hasMethod(self, aName: str) -> bool:
         """
@@ -58,13 +61,15 @@ class XInvocation(XInterface_8f010a43):
         
         This optimizes the calling sequence ( XInvocation.hasMethod(), XInvocation.invoke() )!
         """
+        ...
     @abstractmethod
     def hasProperty(self, aName: str) -> bool:
         """
         returns TRUE if the property with the specified name exists, else FALSE.
         """
+        ...
     @abstractmethod
-    def invoke(self, aFunctionName: str, aParams: 'typing.Tuple[object, ...]', aOutParamIndex: 'typing.Tuple[int, ...]', aOutParam: 'typing.Tuple[object, ...]') -> object:
+    def invoke(self, aFunctionName: str, aParams: 'typing.Tuple[object, ...]', aOutParamIndex: uno.ByteSequence, aOutParam: 'typing.Tuple[object, ...]') -> object:
         """
         provides access to methods exposed by an object.
         
@@ -78,6 +83,7 @@ class XInvocation(XInterface_8f010a43):
             com.sun.star.script.CannotConvertException: ``CannotConvertException``
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
+        ...
     @abstractmethod
     def setValue(self, aPropertyName: str, aValue: object) -> None:
         """
@@ -90,6 +96,7 @@ class XInvocation(XInterface_8f010a43):
             com.sun.star.script.CannotConvertException: ``CannotConvertException``
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
+        ...
 
 __all__ = ['XInvocation']
 

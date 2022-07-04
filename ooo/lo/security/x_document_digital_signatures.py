@@ -54,10 +54,12 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
     def addAuthorToTrustedSources(self, Author: 'XCertificate_e55b0d3b') -> None:
         """
         """
+        ...
     @abstractmethod
     def addLocationToTrustedSources(self, Location: str) -> None:
         """
         """
+        ...
     @abstractmethod
     def chooseCertificate(self, Description: str) -> 'XCertificate_e55b0d3b':
         """
@@ -69,6 +71,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
 
         * ``Description`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def chooseCertificateWithProps(self, Properties: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XCertificate_e55b0d3b':
         """
@@ -80,6 +83,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
 
         * ``Properties`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def chooseEncryptionCertificate(self) -> 'typing.Tuple[XCertificate_e55b0d3b, ...]':
         """
@@ -91,6 +95,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 6.0
         """
+        ...
     @abstractmethod
     def chooseSigningCertificate(self, Description: str) -> 'XCertificate_e55b0d3b':
         """
@@ -102,34 +107,41 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
 
         * ``Description`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getDocumentContentSignatureDefaultStreamName(self) -> str:
         """
         allows to get the default stream name for storing of the signature of the document content.
         """
+        ...
     @abstractmethod
     def getPackageSignatureDefaultStreamName(self) -> str:
         """
         allows to get the default stream name for storing of the signature of the package.
         """
+        ...
     @abstractmethod
     def getScriptingContentSignatureDefaultStreamName(self) -> str:
         """
         allows to get the default stream name for storing of the signature of the scripting content.
         """
+        ...
     @abstractmethod
     def isAuthorTrusted(self, Author: 'XCertificate_e55b0d3b') -> bool:
         """
         """
+        ...
     @abstractmethod
     def isLocationTrusted(self, Location: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def manageTrustedSources(self) -> None:
         """
         manages trusted sources (Authors and paths )
         """
+        ...
     @abstractmethod
     def selectSigningCertificate(self, Description: str) -> 'XCertificate_e55b0d3b':
         """
@@ -141,6 +153,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
 
         * ``Description`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def selectSigningCertificateWithType(self, certificateKind: 'CertificateKind_ffd0e69', Description: str) -> 'XCertificate_e55b0d3b':
         """
@@ -154,6 +167,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
 
         * ``Description`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def setParentWindow(self, xParentWindow: 'XWindow_713b0924') -> None:
         """
@@ -163,25 +177,30 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 6.3
         """
+        ...
     @abstractmethod
     def showCertificate(self, Certificate: 'XCertificate_e55b0d3b') -> None:
         """
         """
+        ...
     @abstractmethod
     def showDocumentContentSignatures(self, xStorage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> None:
         """
         shows the digital signatures of the document content
         """
+        ...
     @abstractmethod
     def showPackageSignatures(self, xStorage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> None:
         """
         shows the digital signatures of the package
         """
+        ...
     @abstractmethod
     def showScriptingContentSignatures(self, xStorage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> None:
         """
         shows the digital signatures of the scripting content
         """
+        ...
     @abstractmethod
     def signDocumentContent(self, xStorage: 'XStorage_8e460a32', xSignStream: 'XStream_678908a4') -> bool:
         """
@@ -189,6 +208,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
         Macros will not be signed.
         """
+        ...
     @abstractmethod
     def signDocumentWithCertificate(self, xCertificate: 'XCertificate_e55b0d3b', xStorage: 'XStorage_8e460a32', xStream: 'XStream_678908a4') -> bool:
         """
@@ -198,11 +218,13 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 6.2
         """
+        ...
     @abstractmethod
     def signPackage(self, Storage: 'XStorage_8e460a32', xSignStream: 'XStream_678908a4') -> bool:
         """
         signs the full Package, which means everything in the storage except the content of META-INF
         """
+        ...
     @abstractmethod
     def signPackageWithCertificate(self, xCertificate: 'XCertificate_e55b0d3b', xStorage: 'XStorage_8e460a32', xStream: 'XStream_678908a4') -> bool:
         """
@@ -212,6 +234,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 7.0
         """
+        ...
     @abstractmethod
     def signScriptingContent(self, xStorage: 'XStorage_8e460a32', xSignStream: 'XStream_678908a4') -> bool:
         """
@@ -219,6 +242,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
         The rest of document content will not be signed.
         """
+        ...
     @abstractmethod
     def signScriptingContentWithCertificate(self, xCertificate: 'XCertificate_e55b0d3b', xStorage: 'XStorage_8e460a32', xStream: 'XStream_678908a4') -> bool:
         """
@@ -230,6 +254,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 7.0
         """
+        ...
     @abstractmethod
     def signSignatureLine(self, xStorage: 'XStorage_8e460a32', xSignStream: 'XStream_678908a4', signatureLineId: str, xCertificate: 'XCertificate_e55b0d3b', xValidGraphic: 'XGraphic_a4da0afc', xInvalidGraphic: 'XGraphic_a4da0afc', comment: str) -> bool:
         """
@@ -243,6 +268,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
             LibreOffice 6.1
         """
+        ...
     @abstractmethod
     def verifyDocumentContentSignatures(self, xStorage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> 'typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]':
         """
@@ -250,6 +276,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
         Only document content will be checked.
         """
+        ...
     @abstractmethod
     def verifyPackageSignatures(self, Storage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> 'typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]':
         """
@@ -257,6 +284,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
         Only Package content will be checked.
         """
+        ...
     @abstractmethod
     def verifyScriptingContentSignatures(self, xStorage: 'XStorage_8e460a32', xSignInStream: 'XInputStream_98d40ab4') -> 'typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]':
         """
@@ -264,6 +292,7 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         
         Only Scripting content will be checked.
         """
+        ...
 
 __all__ = ['XDocumentDigitalSignatures']
 

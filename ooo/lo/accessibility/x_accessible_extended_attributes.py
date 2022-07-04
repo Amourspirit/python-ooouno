@@ -39,6 +39,7 @@ class XAccessibleExtendedAttributes(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XAccessibleExtendedAttributes']
 

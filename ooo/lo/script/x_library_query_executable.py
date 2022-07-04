@@ -36,6 +36,7 @@ class XLibraryQueryExecutable(XInterface_8f010a43):
     def HasExecutableCode(self, name: str) -> bool:
         """
         """
+        ...
 
 __all__ = ['XLibraryQueryExecutable']
 

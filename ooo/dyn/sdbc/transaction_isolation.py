@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import TransactionIsolation as TransactionIsolation
-    if hasattr(TransactionIsolation, '_constants') and isinstance(TransactionIsolation._constants, dict):
-        TransactionIsolation._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        TransactionIsolation._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.TransactionIsolation'
-        TransactionIsolation._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TransactionIsolationEnum
-        ls = [f for f in dir(TransactionIsolation) if not callable(getattr(TransactionIsolation, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TransactionIsolation, name)
-        TransactionIsolationEnum = IntFlag('TransactionIsolationEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TransactionIsolation(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.TransactionIsolation", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.TransactionIsolation``"""
+        pass
+
+    class TransactionIsolationEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.TransactionIsolation", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.TransactionIsolation`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.transaction_isolation import TransactionIsolation as TransactionIsolation
 

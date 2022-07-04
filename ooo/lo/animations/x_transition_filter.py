@@ -40,6 +40,7 @@ class XTransitionFilter(XAnimate_ca680c52):
         
         The legal values are TRUE for forward and FALSE for reverse. The default value is TRUE. Note that this does not impact the media being transitioned to, but only affects the geometry of the transition. Transitions which do not have a reverse interpretation should ignore the direction attribute and assume the default value of TRUE.
         """
+        ...
 
     @abstractproperty
     def FadeColor(self) -> int:
@@ -48,6 +49,7 @@ class XTransitionFilter(XAnimate_ca680c52):
         
         The default value is 0 (black).
         """
+        ...
 
     @abstractproperty
     def Mode(self) -> bool:
@@ -58,6 +60,7 @@ class XTransitionFilter(XAnimate_ca680c52):
         
         The default value is TRUE.
         """
+        ...
 
     @abstractproperty
     def Subtype(self) -> int:
@@ -66,6 +69,7 @@ class XTransitionFilter(XAnimate_ca680c52):
         
         This must be one of the transition subtypes appropriate for the specified Type as listed in TransitionSubType. TransitionSubType.DEFAULT is the default.
         """
+        ...
 
     @abstractproperty
     def Transition(self) -> int:
@@ -74,6 +78,7 @@ class XTransitionFilter(XAnimate_ca680c52):
         
         This attribute is required and must be one of the transition families listed in TransitionType.
         """
+        ...
 
 
 __all__ = ['XTransitionFilter']

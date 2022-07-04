@@ -44,6 +44,7 @@ class XDatabaseRange(XInterface_8f010a43):
         """
         returns the data area of the database range in the spreadsheet document.
         """
+        ...
     @abstractmethod
     def getFilterDescriptor(self) -> 'XSheetFilterDescriptor_47cc0ff7':
         """
@@ -51,16 +52,19 @@ class XDatabaseRange(XInterface_8f010a43):
         
         If the filter descriptor is modified, the new filtering is carried out when XDatabaseRange.refresh() is called.
         """
+        ...
     @abstractmethod
     def getImportDescriptor(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         returns the database import descriptor stored with this database range.
         """
+        ...
     @abstractmethod
     def getSortDescriptor(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         returns the sort descriptor stored with the database range.
         """
+        ...
     @abstractmethod
     def getSubTotalDescriptor(self) -> 'XSubTotalDescriptor_19fd0ec6':
         """
@@ -68,16 +72,19 @@ class XDatabaseRange(XInterface_8f010a43):
         
         If the subtotal descriptor is modified, the new subtotals are inserted when XDatabaseRange.refresh() is called.
         """
+        ...
     @abstractmethod
     def refresh(self) -> None:
         """
         executes the stored import, filter, sorting, and subtotals descriptors again.
         """
+        ...
     @abstractmethod
     def setDataArea(self, aDataArea: 'CellRangeAddress_ec450d43') -> None:
         """
         sets the data area of the database range.
         """
+        ...
 
 __all__ = ['XDatabaseRange']
 

@@ -34,6 +34,10 @@ class FillRule(Enum):
     __ooo_full_ns__: str = 'com.sun.star.rendering.FillRule'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.rendering.FillRule'
+
     EVEN_ODD = 'EVEN_ODD'
     """
     Fill every area, where, when traveling along a line, an uneven number of intersections with polygon edges have happened.

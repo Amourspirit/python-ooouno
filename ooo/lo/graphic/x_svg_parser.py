@@ -47,6 +47,7 @@ class XSvgParser(XInterface_8f010a43):
         """
         Retrieve decomposed list of simpler primitives.
         """
+        ...
     @abstractmethod
     def getDrawCommands(self, xSvgStream: object, aAbsolutePath: str) -> object:
         """
@@ -56,6 +57,7 @@ class XSvgParser(XInterface_8f010a43):
         
             LibreOffice 6.3
         """
+        ...
 
 __all__ = ['XSvgParser']
 

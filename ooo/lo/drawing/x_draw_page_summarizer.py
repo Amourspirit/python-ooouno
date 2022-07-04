@@ -46,6 +46,7 @@ class XDrawPageSummarizer(XInterface_8f010a43):
         """
         creates a new DrawPage with a summary of all DrawPages in the given collection.
         """
+        ...
 
 __all__ = ['XDrawPageSummarizer']
 

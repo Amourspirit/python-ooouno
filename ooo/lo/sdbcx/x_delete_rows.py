@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.sdbcx
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 
@@ -35,13 +36,14 @@ class XDeleteRows(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.sdbcx.XDeleteRows'
 
     @abstractmethod
-    def deleteRows(self, rows: 'typing.Tuple[object, ...]') -> 'typing.Tuple[int, ...]':
+    def deleteRows(self, rows: 'typing.Tuple[object, ...]') -> uno.ByteSequence:
         """
         deletes one or more rows identified by their bookmarks.
 
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDeleteRows']
 

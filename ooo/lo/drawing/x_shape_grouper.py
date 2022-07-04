@@ -44,11 +44,13 @@ class XShapeGrouper(XInterface_8f010a43):
         
         Grouping of objects in text documents works only if none of the objects has an anchor of type com.sun.star.text.TextContentAnchorType.AS_CHARACTER .
         """
+        ...
     @abstractmethod
     def ungroup(self, aGroup: 'XShapeGroup_c8d30c4a') -> None:
         """
         ungroups a given GroupShape.
         """
+        ...
 
 __all__ = ['XShapeGrouper']
 

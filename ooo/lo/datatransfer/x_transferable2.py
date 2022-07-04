@@ -48,6 +48,7 @@ class XTransferable2(XTransferable_2d800f38):
             UnsupportedFlavorException: ``UnsupportedFlavorException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def isComplex(self) -> bool:
         """
@@ -57,6 +58,7 @@ class XTransferable2(XTransferable_2d800f38):
         
             LibreOffice 6.4
         """
+        ...
 
 __all__ = ['XTransferable2']
 

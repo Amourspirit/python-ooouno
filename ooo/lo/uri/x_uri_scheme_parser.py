@@ -51,6 +51,7 @@ class XUriSchemeParser(XInterface_8f010a43):
         
         If an object is returned, the behaviour of its com.sun.star.uri.XUriReference methods must reflect the fact that the object represents an absolute URI reference with the given scheme and scheme-specific part, and without a fragment part.
         """
+        ...
 
 __all__ = ['XUriSchemeParser']
 

@@ -48,7 +48,7 @@ class FilterOptionsRequest(Exception_85530a09):
     typeName: str = 'com.sun.star.document.FilterOptionsRequest'
     """Literal Constant ``com.sun.star.document.FilterOptionsRequest``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, rProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = UNO_NONE, rModel: typing.Optional[XModel_7a6e095c] = None) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, rProperties: typing.Optional[typing.Tuple[PropertyValue_c9610c73, ...]] = (), rModel: typing.Optional[XModel_7a6e095c] = None) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class FilterOptionsRequest(Exception_85530a09):
             "rProperties": rProperties,
             "rModel": rModel,
         }
-        if kargs["rProperties"] is UNO_NONE:
-            kargs["rProperties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

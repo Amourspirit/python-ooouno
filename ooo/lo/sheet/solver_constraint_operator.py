@@ -34,6 +34,10 @@ class SolverConstraintOperator(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.SolverConstraintOperator'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.SolverConstraintOperator'
+
     BINARY = 'BINARY'
     """
     The cell value is a binary value (0 or 1).

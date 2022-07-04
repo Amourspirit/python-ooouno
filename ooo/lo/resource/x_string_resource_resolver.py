@@ -47,6 +47,7 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         
         If no locale is available, the returned Locale structure only contains empty strings.
         """
+        ...
     @abstractmethod
     def getDefaultLocale(self) -> 'Locale_70d308fa':
         """
@@ -54,16 +55,19 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         
         In many cases this will be the locale of the Office initially used to create the resource.
         """
+        ...
     @abstractmethod
     def getLocales(self) -> 'typing.Tuple[Locale_70d308fa, ...]':
         """
         Returns a sequence of all supported locales.
         """
+        ...
     @abstractmethod
     def getResourceIDs(self) -> 'typing.Tuple[str, ...]':
         """
         Returns a sequence of all valid Resource IDs for the current locale.
         """
+        ...
     @abstractmethod
     def getResourceIDsForLocale(self, locale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
@@ -71,11 +75,13 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         
         It's not recommended to use this method to get the best performance as the implementation may be optimized for the use of the current locale.
         """
+        ...
     @abstractmethod
     def hasEntryForId(self, ResourceID: str) -> bool:
         """
         Checks if the resource contains an entry for the given ResourceID and current locale.
         """
+        ...
     @abstractmethod
     def hasEntryForIdAndLocale(self, ResourceID: str, locale: 'Locale_70d308fa') -> bool:
         """
@@ -83,6 +89,7 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         
         It's not recommended to use this method to get the best performance as the implementation may be optimized for the use of the current locale.
         """
+        ...
     @abstractmethod
     def resolveString(self, ResourceID: str) -> str:
         """
@@ -93,6 +100,7 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         Raises:
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
         """
+        ...
     @abstractmethod
     def resolveStringForLocale(self, ResourceID: str, locale: 'Locale_70d308fa') -> str:
         """
@@ -103,6 +111,7 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
         Raises:
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
         """
+        ...
 
 __all__ = ['XStringResourceResolver']
 

@@ -34,6 +34,10 @@ class TextureProjectionMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextureProjectionMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.TextureProjectionMode'
+
     OBJECTSPECIFIC = 'OBJECTSPECIFIC'
     """
     This value specifies that the standard object projection method is used.

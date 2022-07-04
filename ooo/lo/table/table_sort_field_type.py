@@ -34,6 +34,10 @@ class TableSortFieldType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.TableSortFieldType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.TableSortFieldType'
+
     ALPHANUMERIC = 'ALPHANUMERIC'
     """
     sort field contains text data.

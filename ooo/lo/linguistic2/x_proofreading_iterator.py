@@ -51,16 +51,19 @@ class XProofreadingIterator(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isProofreading(self, xDocument: 'XInterface_8f010a43') -> bool:
         """
         checks if the given document is currently being checked
         """
+        ...
     @abstractmethod
     def resetIgnoreRules(self) -> None:
         """
         clears the list of ignored rules for each proofreader
         """
+        ...
     @abstractmethod
     def startProofreading(self, xDocument: 'XInterface_8f010a43', xIteratorProvider: 'XFlatParagraphIteratorProvider_c37e12d7') -> None:
         """
@@ -69,6 +72,7 @@ class XProofreadingIterator(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XProofreadingIterator']
 

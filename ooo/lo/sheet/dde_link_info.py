@@ -46,7 +46,7 @@ class DDELinkInfo(object):
     typeName: str = 'com.sun.star.sheet.DDELinkInfo'
     """Literal Constant ``com.sun.star.sheet.DDELinkInfo``"""
 
-    def __init__(self, Items: typing.Optional[typing.Tuple[DDEItemInfo_ac870b09, ...]] = UNO_NONE, Service: typing.Optional[str] = '', Topic: typing.Optional[str] = '') -> None:
+    def __init__(self, Items: typing.Optional[typing.Tuple[DDEItemInfo_ac870b09, ...]] = (), Service: typing.Optional[str] = '', Topic: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -69,8 +69,6 @@ class DDELinkInfo(object):
             "Service": Service,
             "Topic": Topic,
         }
-        if kargs["Items"] is UNO_NONE:
-            kargs["Items"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

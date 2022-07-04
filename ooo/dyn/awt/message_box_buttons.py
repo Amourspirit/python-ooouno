@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import MessageBoxButtons as MessageBoxButtons
-    if hasattr(MessageBoxButtons, '_constants') and isinstance(MessageBoxButtons._constants, dict):
-        MessageBoxButtons._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        MessageBoxButtons._constants['__ooo_full_ns__'] = 'com.sun.star.awt.MessageBoxButtons'
-        MessageBoxButtons._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global MessageBoxButtonsEnum
-        ls = [f for f in dir(MessageBoxButtons) if not callable(getattr(MessageBoxButtons, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(MessageBoxButtons, name)
-        MessageBoxButtonsEnum = IntEnum('MessageBoxButtonsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class MessageBoxButtons(metaclass=UnoConstMeta, type_name="com.sun.star.awt.MessageBoxButtons", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.MessageBoxButtons``"""
+        pass
+
+    class MessageBoxButtonsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.MessageBoxButtons", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.MessageBoxButtons`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.message_box_buttons import MessageBoxButtons as MessageBoxButtons
 

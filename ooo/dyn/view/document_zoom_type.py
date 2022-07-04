@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.view import DocumentZoomType as DocumentZoomType
-    if hasattr(DocumentZoomType, '_constants') and isinstance(DocumentZoomType._constants, dict):
-        DocumentZoomType._constants['__ooo_ns__'] = 'com.sun.star.view'
-        DocumentZoomType._constants['__ooo_full_ns__'] = 'com.sun.star.view.DocumentZoomType'
-        DocumentZoomType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DocumentZoomTypeEnum
-        ls = [f for f in dir(DocumentZoomType) if not callable(getattr(DocumentZoomType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DocumentZoomType, name)
-        DocumentZoomTypeEnum = IntEnum('DocumentZoomTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DocumentZoomType(metaclass=UnoConstMeta, type_name="com.sun.star.view.DocumentZoomType", name_space="com.sun.star.view"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.view.DocumentZoomType``"""
+        pass
+
+    class DocumentZoomTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.view.DocumentZoomType", name_space="com.sun.star.view"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.view.DocumentZoomType`` as Enum values"""
+        pass
+
 else:
     from ...lo.view.document_zoom_type import DocumentZoomType as DocumentZoomType
 

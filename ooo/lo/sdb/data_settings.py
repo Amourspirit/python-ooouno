@@ -42,48 +42,56 @@ class DataSettings(ABC):
         """
         indicates whether the filter should be applied or not, default is FALSE.
         """
+        ...
 
     @abstractproperty
     def Filter(self) -> str:
         """
         additional filter for the data object.
         """
+        ...
 
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font attributes for data displaying.
         """
+        ...
 
     @abstractproperty
     def GroupBy(self) -> str:
         """
         additional group by for the data object.
         """
+        ...
 
     @abstractproperty
     def HavingClause(self) -> str:
         """
         additional having clause for the data object.
         """
+        ...
 
     @abstractproperty
     def Order(self) -> str:
         """
         is an additional sort order definition.
         """
+        ...
 
     @abstractproperty
     def RowHeight(self) -> int:
         """
         specifies the height of a data row.
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) for displaying text.
         """
+        ...
 
 
 

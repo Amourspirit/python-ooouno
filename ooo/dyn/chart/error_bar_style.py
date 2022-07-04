@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ErrorBarStyle as ErrorBarStyle
-    if hasattr(ErrorBarStyle, '_constants') and isinstance(ErrorBarStyle._constants, dict):
-        ErrorBarStyle._constants['__ooo_ns__'] = 'com.sun.star.chart'
-        ErrorBarStyle._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ErrorBarStyle'
-        ErrorBarStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ErrorBarStyleEnum
-        ls = [f for f in dir(ErrorBarStyle) if not callable(getattr(ErrorBarStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ErrorBarStyle, name)
-        ErrorBarStyleEnum = IntEnum('ErrorBarStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ErrorBarStyle(metaclass=UnoConstMeta, type_name="com.sun.star.chart.ErrorBarStyle", name_space="com.sun.star.chart"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.chart.ErrorBarStyle``"""
+        pass
+
+    class ErrorBarStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.chart.ErrorBarStyle", name_space="com.sun.star.chart"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.chart.ErrorBarStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.chart.error_bar_style import ErrorBarStyle as ErrorBarStyle
 

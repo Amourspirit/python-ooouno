@@ -39,18 +39,21 @@ class HeaderFooterSettings(XPropertySet_bc180bfa):
         """
         enables or disables the printing of the date in the header or footer
         """
+        ...
 
     @abstractproperty
     def IsPrintPageName(self) -> bool:
         """
         enables or disables the printing of the page name in the header or footer
         """
+        ...
 
     @abstractproperty
     def IsPrintTime(self) -> bool:
         """
         enables or disables the printing of the current time in the header or footer
         """
+        ...
 
 
 

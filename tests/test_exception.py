@@ -3,8 +3,9 @@ import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
 
+import uno
+
 def test_raise_uno_ex():
-    import uno
     from ooo.dyn.uno.exception import Exception as EX
     UnoEx = uno.getClass("com.sun.star.uno.Exception")
     from com.sun.star.uno import Exception as UnoException
@@ -55,7 +56,6 @@ def test_raise_uno_ex():
         raise UnoEx(Message='Hello World')
 
 def test_raise_uno_runtime_ex():
-    import uno
     from ooo.dyn.uno.runtime_exception import RuntimeException as EX
     UnoEx = uno.getClass("com.sun.star.uno.RuntimeException")
     assert (True if EX is UnoEx else False)
@@ -108,7 +108,6 @@ def test_raise_uno_runtime_ex():
         raise UnoEx(Message='Hello World')
 
 def test_no_connect_exception():
-    import uno
     from ooo.dyn.connection.no_connect_exception import NoConnectException as EX
     from com.sun.star.connection import NoConnectException as UnoEx
     try:

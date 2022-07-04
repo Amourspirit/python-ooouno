@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ColumnType as ColumnType
-    if hasattr(ColumnType, '_constants') and isinstance(ColumnType._constants, dict):
-        ColumnType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        ColumnType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ColumnType'
-        ColumnType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ColumnTypeEnum
-        ls = [f for f in dir(ColumnType) if not callable(getattr(ColumnType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ColumnType, name)
-        ColumnTypeEnum = IntEnum('ColumnTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ColumnType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.ColumnType", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.ColumnType``"""
+        pass
+
+    class ColumnTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.ColumnType", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.ColumnType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.column_type import ColumnType as ColumnType
 

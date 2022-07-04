@@ -56,6 +56,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method registers a listener with the view, which will get called every time the mouse is clicked on the view.
         """
+        ...
     @abstractmethod
     def addMouseMotionListener(self, xListener: 'XMouseMotionListener_c6a0e71') -> None:
         """
@@ -63,6 +64,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method registers a listener with the view, which will get called every time the mouse is moved on the view.
         """
+        ...
     @abstractmethod
     def addPaintListener(self, xListener: 'XPaintListener_bb6d0bee') -> None:
         """
@@ -70,6 +72,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method registers a listener with the view, which will get called every time the view needs an update of their screen representation.
         """
+        ...
     @abstractmethod
     def addTransformationChangedListener(self, xListener: 'XModifyListener_d5c60ccc') -> None:
         """
@@ -77,6 +80,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method registers a listener with the view, which will get called every time the transformation matrix changes.
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
@@ -84,6 +88,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         The slide show uses this method to fully erase the view content. Since the slide show has no notion of view size, this is the only reliable way to wholly clear the view.
         """
+        ...
     @abstractmethod
     def getCanvas(self) -> 'XSpriteCanvas_ff8b0df1':
         """
@@ -91,11 +96,13 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method gets the underlying XCanvas to display on this view.
         """
+        ...
     @abstractmethod
     def getCanvasArea(self) -> 'Rectangle_84b109e9':
         """
         Get rectangle defining area inside of canvas device which this slide show view uses.
         """
+        ...
     @abstractmethod
     def getTransformation(self) -> 'AffineMatrix2D_ff040da8':
         """
@@ -103,6 +110,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method returns the transformation matrix of the view. When notified via the transformation change listener, the show will be displayed using the new transformation.
         """
+        ...
     @abstractmethod
     def getTranslationOffset(self) -> 'IntegerSize2D_f2690d53':
         """
@@ -110,26 +118,31 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method returns the translation offset of the view of the view.
         """
+        ...
     @abstractmethod
     def removeMouseListener(self, xListener: 'XMouseListener_bc1d0bfb') -> None:
         """
         Revoke a previously registered mouse listener.
         """
+        ...
     @abstractmethod
     def removeMouseMotionListener(self, xListener: 'XMouseMotionListener_c6a0e71') -> None:
         """
         Revoke a previously registered mouse move listener.
         """
+        ...
     @abstractmethod
     def removePaintListener(self, xListener: 'XPaintListener_bb6d0bee') -> None:
         """
         Revoke a previously registered paint listener.
         """
+        ...
     @abstractmethod
     def removeTransformationChangedListener(self, xListener: 'XModifyListener_d5c60ccc') -> None:
         """
         Revoke a previously registered transformation matrix change listener.
         """
+        ...
     @abstractmethod
     def setMouseCursor(self, nPointerShape: int) -> None:
         """
@@ -137,6 +150,7 @@ class XSlideShowView(XInterface_8f010a43):
         
         This method changes the mouse cursor currently in effect, for this view.
         """
+        ...
 
 __all__ = ['XSlideShowView']
 

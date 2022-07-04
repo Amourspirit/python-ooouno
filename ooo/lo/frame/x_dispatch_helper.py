@@ -48,6 +48,7 @@ class XDispatchHelper(XInterface_8f010a43):
         
         Listeners are not supported here!
         """
+        ...
 
 __all__ = ['XDispatchHelper']
 

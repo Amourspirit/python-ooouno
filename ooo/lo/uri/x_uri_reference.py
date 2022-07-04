@@ -46,26 +46,31 @@ class XUriReference(XInterface_8f010a43):
         """
         clears the fragment part of this URI reference.
         """
+        ...
     @abstractmethod
     def getAuthority(self) -> str:
         """
         returns the authority part of this URI reference.
         """
+        ...
     @abstractmethod
     def getFragment(self) -> str:
         """
         returns the fragment part of this URI reference.
         """
+        ...
     @abstractmethod
     def getPath(self) -> str:
         """
         returns the path part of this URI reference.
         """
+        ...
     @abstractmethod
     def getPathSegment(self, index: int) -> str:
         """
         returns a given path segment of this URI reference.
         """
+        ...
     @abstractmethod
     def getPathSegmentCount(self) -> int:
         """
@@ -73,16 +78,19 @@ class XUriReference(XInterface_8f010a43):
         
         For a URI reference with an empty path, the number of path segments is zero. For a URI reference with an absolute, non-empty path, the number of path segments equals the number of “/” delimiters. For a URI reference with a relative, non-empty path, the number of path segments equals the number of “/” delimiters, plus one.
         """
+        ...
     @abstractmethod
     def getQuery(self) -> str:
         """
         returns the query part of this URI reference.
         """
+        ...
     @abstractmethod
     def getScheme(self) -> str:
         """
         returns the scheme part of this (absolute) URI reference.
         """
+        ...
     @abstractmethod
     def getSchemeSpecificPart(self) -> str:
         """
@@ -90,31 +98,37 @@ class XUriReference(XInterface_8f010a43):
         
         For an absolute URI reference, the scheme-specific part is everything after the scheme part and the delimiting “:”, and before the optional “#” and fragment part. For a relative URI reference, the scheme-specific part is everything before the optional “#” and fragment part.
         """
+        ...
     @abstractmethod
     def getUriReference(self) -> str:
         """
         returns the textual representation of the complete URI reference.
         """
+        ...
     @abstractmethod
     def hasAuthority(self) -> bool:
         """
         returns whether this URI reference has an authority part.
         """
+        ...
     @abstractmethod
     def hasFragment(self) -> bool:
         """
         returns whether this URI reference has a fragment part.
         """
+        ...
     @abstractmethod
     def hasQuery(self) -> bool:
         """
         returns whether this URI reference has a query part.
         """
+        ...
     @abstractmethod
     def hasRelativePath(self) -> bool:
         """
         returns whether this URI reference has a relative path.
         """
+        ...
     @abstractmethod
     def isAbsolute(self) -> bool:
         """
@@ -122,6 +136,7 @@ class XUriReference(XInterface_8f010a43):
         
         A URI is absolute if it has a scheme.
         """
+        ...
     @abstractmethod
     def isHierarchical(self) -> bool:
         """
@@ -129,11 +144,13 @@ class XUriReference(XInterface_8f010a43):
         
         An absolute URI reference is hierarchical if its scheme-specific part starts with “/”. A relative URI reference is always hierarchical.
         """
+        ...
     @abstractmethod
     def setFragment(self, fragment: str) -> None:
         """
         sets the fragment part of this URI reference.
         """
+        ...
 
 __all__ = ['XUriReference']
 

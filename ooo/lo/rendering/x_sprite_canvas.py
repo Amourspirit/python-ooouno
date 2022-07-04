@@ -51,6 +51,7 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createCustomSprite(self, spriteSize: 'RealSize2D_ca1a0c09') -> 'XCustomSprite_3a0e10':
         """
@@ -61,6 +62,7 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createSpriteFromAnimation(self, animation: 'XAnimation_d6910cbe') -> 'XAnimatedSprite_1bc70eb8':
         """
@@ -71,6 +73,7 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createSpriteFromBitmaps(self, animationBitmaps: 'typing.Tuple[XBitmap_b1b70b7b, ...]', interpolationMode: int) -> 'XAnimatedSprite_1bc70eb8':
         """
@@ -82,6 +85,7 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
+        ...
     @abstractmethod
     def updateScreen(self, bUpdateAll: bool) -> bool:
         """
@@ -91,6 +95,7 @@ class XSpriteCanvas(XCanvas_b19b0b7a):
         
         If double buffering is enabled via XBufferController, no explicit call of updateScreen() is necessary, since the XBufferController methods will automatically notify all associated XSpriteCanvas instances.
         """
+        ...
 
 __all__ = ['XSpriteCanvas']
 

@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script.vba import VBAScriptEventId as VBAScriptEventId
-    if hasattr(VBAScriptEventId, '_constants') and isinstance(VBAScriptEventId._constants, dict):
-        VBAScriptEventId._constants['__ooo_ns__'] = 'com.sun.star.script.vba'
-        VBAScriptEventId._constants['__ooo_full_ns__'] = 'com.sun.star.script.vba.VBAScriptEventId'
-        VBAScriptEventId._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global VBAScriptEventIdEnum
-        ls = [f for f in dir(VBAScriptEventId) if not callable(getattr(VBAScriptEventId, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(VBAScriptEventId, name)
-        VBAScriptEventIdEnum = IntEnum('VBAScriptEventIdEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class VBAScriptEventId(metaclass=UnoConstMeta, type_name="com.sun.star.script.vba.VBAScriptEventId", name_space="com.sun.star.script.vba"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.script.vba.VBAScriptEventId``"""
+        pass
+
+    class VBAScriptEventIdEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.script.vba.VBAScriptEventId", name_space="com.sun.star.script.vba"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.script.vba.VBAScriptEventId`` as Enum values"""
+        pass
+
 else:
     from ....lo.script.vba.vba_script_event_id import VBAScriptEventId as VBAScriptEventId
 

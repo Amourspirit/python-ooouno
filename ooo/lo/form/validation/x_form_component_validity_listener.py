@@ -41,6 +41,7 @@ class XFormComponentValidityListener(XEventListener_c7230c4a):
         """
         called when the validity and/or the value of the form component at which the listener is registered changed.
         """
+        ...
 
 __all__ = ['XFormComponentValidityListener']
 

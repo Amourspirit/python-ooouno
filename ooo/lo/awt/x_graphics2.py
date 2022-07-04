@@ -50,6 +50,7 @@ class XGraphics2(XGraphics_842309dd):
         
             LibreOffice 4.1
         """
+        ...
     @abstractmethod
     def drawImage(self, nX: int, nY: int, nWidth: int, nHeight: int, nStyle: int, aGraphic: 'XGraphic_a4da0afc') -> None:
         """
@@ -61,6 +62,7 @@ class XGraphics2(XGraphics_842309dd):
         
             LibreOffice 4.1
         """
+        ...
 
 __all__ = ['XGraphics2']
 

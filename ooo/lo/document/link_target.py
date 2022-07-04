@@ -40,6 +40,7 @@ class LinkTarget(XPropertySet_bc180bfa, XLinkTargetSupplier_4ac21008):
         """
         contains a human readable name for this object that could be displayed in a user interface.
         """
+        ...
 
 
 

@@ -25,35 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.GeneralFunction import (AUTO, AVERAGE, COUNT, COUNTNUMS, MAX, MIN, NONE, PRODUCT, STDEV, STDEVP, SUM, VAR, VARP)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.GeneralFunction Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.GeneralFunction",
-            "__ooo_type_name__": "enum",
-            "AUTO": AUTO,
-            "AVERAGE": AVERAGE,
-            "COUNT": COUNT,
-            "COUNTNUMS": COUNTNUMS,
-            "MAX": MAX,
-            "MIN": MIN,
-            "NONE": NONE,
-            "PRODUCT": PRODUCT,
-            "STDEV": STDEV,
-            "STDEVP": STDEVP,
-            "SUM": SUM,
-            "VAR": VAR,
-            "VARP": VARP,
-        }
-        result = type('GeneralFunction', (object,), _dict)
-        return result
-
-    GeneralFunction = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class GeneralFunction(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.GeneralFunction", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.GeneralFunction`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.general_function import GeneralFunction as GeneralFunction
 

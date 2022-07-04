@@ -34,6 +34,10 @@ class LockType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.LockType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.LockType'
+
     WRITE = 'WRITE'
     """
     specifies a write lock.

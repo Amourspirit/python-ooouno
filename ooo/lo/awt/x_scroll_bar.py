@@ -41,76 +41,91 @@ class XScrollBar(XInterface_8f010a43):
         """
         registers an adjustment event listener.
         """
+        ...
     @abstractmethod
     def getBlockIncrement(self) -> int:
         """
         returns the currently set increment for a block move.
         """
+        ...
     @abstractmethod
     def getLineIncrement(self) -> int:
         """
         returns the currently set increment for a single line move.
         """
+        ...
     @abstractmethod
     def getMaximum(self) -> int:
         """
         returns the currently set maximum scroll value of the scroll bar.
         """
+        ...
     @abstractmethod
     def getOrientation(self) -> int:
         """
         returns the currently set ScrollBarOrientation of the scroll bar.
         """
+        ...
     @abstractmethod
     def getValue(self) -> int:
         """
         returns the current scroll value of the scroll bar.
         """
+        ...
     @abstractmethod
     def getVisibleSize(self) -> int:
         """
         returns the currently visible size of the scroll bar.
         """
+        ...
     @abstractmethod
     def removeAdjustmentListener(self, l: 'XAdjustmentListener_fdfc0e11') -> None:
         """
         unregisters an adjustment event listener.
         """
+        ...
     @abstractmethod
     def setBlockIncrement(self, n: int) -> None:
         """
         sets the increment for a block move.
         """
+        ...
     @abstractmethod
     def setLineIncrement(self, n: int) -> None:
         """
         sets the increment for a single line move.
         """
+        ...
     @abstractmethod
     def setMaximum(self, n: int) -> None:
         """
         sets the maximum scroll value of the scroll bar.
         """
+        ...
     @abstractmethod
     def setOrientation(self, n: int) -> None:
         """
         sets the ScrollBarOrientation of the scroll bar.
         """
+        ...
     @abstractmethod
     def setValue(self, n: int) -> None:
         """
         sets the scroll value of the scroll bar.
         """
+        ...
     @abstractmethod
     def setValues(self, nValue: int, nVisible: int, nMax: int) -> None:
         """
         sets the scroll value, visible area and maximum scroll value of the scroll bar.
         """
+        ...
     @abstractmethod
     def setVisibleSize(self, n: int) -> None:
         """
         sets the visible size of the scroll bar.
         """
+        ...
 
 __all__ = ['XScrollBar']
 

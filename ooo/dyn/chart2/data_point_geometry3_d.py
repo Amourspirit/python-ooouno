@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import DataPointGeometry3D as DataPointGeometry3D
-    if hasattr(DataPointGeometry3D, '_constants') and isinstance(DataPointGeometry3D._constants, dict):
-        DataPointGeometry3D._constants['__ooo_ns__'] = 'com.sun.star.chart2'
-        DataPointGeometry3D._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.DataPointGeometry3D'
-        DataPointGeometry3D._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataPointGeometry3DEnum
-        ls = [f for f in dir(DataPointGeometry3D) if not callable(getattr(DataPointGeometry3D, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataPointGeometry3D, name)
-        DataPointGeometry3DEnum = IntEnum('DataPointGeometry3DEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class DataPointGeometry3D(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.DataPointGeometry3D", name_space="com.sun.star.chart2"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.chart2.DataPointGeometry3D``"""
+        pass
+
+    class DataPointGeometry3DEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.chart2.DataPointGeometry3D", name_space="com.sun.star.chart2"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.chart2.DataPointGeometry3D`` as Enum values"""
+        pass
+
 else:
     from ...lo.chart2.data_point_geometry3_d import DataPointGeometry3D as DataPointGeometry3D
 

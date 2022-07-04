@@ -50,61 +50,73 @@ class XLocaleData(XInterface_8f010a43):
         """
         returns all LC_CALENDAR calendars for a locale.
         """
+        ...
     @abstractmethod
     def getAllCurrencies(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[Currency_80230993, ...]':
         """
         returns all LC_CURRENCY currencies for a locale.
         """
+        ...
     @abstractmethod
     def getAllFormats(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[FormatElement_b4c70b7b, ...]':
         """
         returns all LC_FORMAT format elements for a locale.
         """
+        ...
     @abstractmethod
     def getAllInstalledLocaleNames(self) -> 'typing.Tuple[Locale_70d308fa, ...]':
         """
         returns all available locales.
         """
+        ...
     @abstractmethod
     def getCollationOptions(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         returns all LC_COLLATION collation options for a locale.
         """
+        ...
     @abstractmethod
     def getCollatorImplementations(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[Implementation_c1d50c0e, ...]':
         """
         returns all LC_COLLATION collators for a locale.
         """
+        ...
     @abstractmethod
     def getForbiddenCharacters(self, aLocale: 'Locale_70d308fa') -> 'ForbiddenCharacters_ce0dd5':
         """
         returns all LC_MISC forbidden characters for a locale.
         """
+        ...
     @abstractmethod
     def getLanguageCountryInfo(self, aLocale: 'Locale_70d308fa') -> 'LanguageCountryInfo_1f20dec':
         """
         returns the LC_INFO locale information.
         """
+        ...
     @abstractmethod
     def getLocaleItem(self, aLocale: 'Locale_70d308fa') -> 'LocaleDataItem_beff0ba1':
         """
         returns LC_CTYPE separators and markers.
         """
+        ...
     @abstractmethod
     def getReservedWord(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         returns all LC_MISC reserved words for a locale.
         """
+        ...
     @abstractmethod
     def getSearchOptions(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         returns all LC_SEARCH search options for a locale.
         """
+        ...
     @abstractmethod
     def getTransliterations(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         returns all LC_TRANSLITERATION transliterations for a locale.
         """
+        ...
 
 __all__ = ['XLocaleData']
 

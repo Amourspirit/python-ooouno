@@ -42,11 +42,13 @@ class XDialog2(XDialog_709d08fc):
         """
         hides the dialog and then causes XDialog.execute() to return with the given result value.
         """
+        ...
     @abstractmethod
     def setHelpId(self, Id: str) -> None:
         """
         sets the help id so that the standard help button action will show the appropriate help page.
         """
+        ...
 
 __all__ = ['XDialog2']
 

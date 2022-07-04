@@ -45,11 +45,13 @@ class XCompoundTypeDescription(XTypeDescription_3c210fb1):
         
         If the compound does not have a base type, the method returns a null interface.
         """
+        ...
     @abstractmethod
     def getMemberNames(self) -> 'typing.Tuple[str, ...]':
         """
         Returns the member names of the struct/exception in IDL declaration order.
         """
+        ...
     @abstractmethod
     def getMemberTypes(self) -> 'typing.Tuple[XTypeDescription_3c210fb1, ...]':
         """
@@ -57,6 +59,7 @@ class XCompoundTypeDescription(XTypeDescription_3c210fb1):
         
         For a polymorphic struct type template, a member of parameterized type is represented by an instance of com.sun.star.reflection.XTypeDescription whose type class is UNKNOWN and whose name is the name of the type parameter.
         """
+        ...
 
 __all__ = ['XCompoundTypeDescription']
 

@@ -40,6 +40,7 @@ class XTextTablesSupplier(XInterface_8f010a43):
     def getTextTables(self) -> 'XNameAccess_e2ab0cf6':
         """
         """
+        ...
 
 __all__ = ['XTextTablesSupplier']
 

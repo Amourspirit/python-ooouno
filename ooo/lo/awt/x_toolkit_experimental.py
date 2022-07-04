@@ -43,6 +43,7 @@ class XToolkitExperimental(XToolkit3_84a409c5):
         """
         Get the number of OpenGL buffer swaps.
         """
+        ...
     @abstractmethod
     def getRecordingAndClear(self) -> 'typing.Tuple[str, ...]':
         """
@@ -54,21 +55,25 @@ class XToolkitExperimental(XToolkit3_84a409c5):
         
             LibreOffice 6.0
         """
+        ...
     @abstractmethod
     def pause(self, nMilliseconds: int) -> None:
         """
         Pause the main thread of LibreOffice for the requested amount of time.
         """
+        ...
     @abstractmethod
     def processEventsToIdle(self) -> None:
         """
         Process all pending idle events.
         """
+        ...
     @abstractmethod
     def setDeterministicScheduling(self, bDeterministicMode: bool) -> None:
         """
         Turn on or off deterministic scheduling (off is the default).
         """
+        ...
     @abstractmethod
     def startRecording(self) -> None:
         """
@@ -78,6 +83,7 @@ class XToolkitExperimental(XToolkit3_84a409c5):
         
             LibreOffice 6.0
         """
+        ...
     @abstractmethod
     def stopRecording(self) -> None:
         """
@@ -87,6 +93,7 @@ class XToolkitExperimental(XToolkit3_84a409c5):
         
             LibreOffice 6.0
         """
+        ...
 
 __all__ = ['XToolkitExperimental']
 

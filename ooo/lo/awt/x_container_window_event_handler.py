@@ -46,11 +46,13 @@ class XContainerWindowEventHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getSupportedMethodNames(self) -> 'typing.Tuple[str, ...]':
         """
         returns a sequence of supported method names
         """
+        ...
 
 __all__ = ['XContainerWindowEventHandler']
 

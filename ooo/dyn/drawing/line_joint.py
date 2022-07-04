@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.LineJoint import (BEVEL, MIDDLE, MITER, NONE, ROUND)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.LineJoint Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.LineJoint",
-            "__ooo_type_name__": "enum",
-            "BEVEL": BEVEL,
-            "MIDDLE": MIDDLE,
-            "MITER": MITER,
-            "NONE": NONE,
-            "ROUND": ROUND,
-        }
-        result = type('LineJoint', (object,), _dict)
-        return result
-
-    LineJoint = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class LineJoint(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LineJoint", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.LineJoint`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.line_joint import LineJoint as LineJoint
 

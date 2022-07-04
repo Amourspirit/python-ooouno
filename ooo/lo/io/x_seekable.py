@@ -43,6 +43,7 @@ class XSeekable(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getPosition(self) -> int:
         """
@@ -51,6 +52,7 @@ class XSeekable(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def seek(self, location: int) -> None:
         """
@@ -62,6 +64,7 @@ class XSeekable(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XSeekable']
 

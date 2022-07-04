@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import ImagePosition as ImagePosition
-    if hasattr(ImagePosition, '_constants') and isinstance(ImagePosition._constants, dict):
-        ImagePosition._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        ImagePosition._constants['__ooo_full_ns__'] = 'com.sun.star.awt.ImagePosition'
-        ImagePosition._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ImagePositionEnum
-        ls = [f for f in dir(ImagePosition) if not callable(getattr(ImagePosition, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ImagePosition, name)
-        ImagePositionEnum = IntEnum('ImagePositionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ImagePosition(metaclass=UnoConstMeta, type_name="com.sun.star.awt.ImagePosition", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.ImagePosition``"""
+        pass
+
+    class ImagePositionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.ImagePosition", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.ImagePosition`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.image_position import ImagePosition as ImagePosition
 

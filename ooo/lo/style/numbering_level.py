@@ -47,18 +47,21 @@ class NumberingLevel(ABC):
         """
         This is the name of the font that is used for the bullet.
         """
+        ...
 
     @abstractproperty
     def BulletId(self) -> int:
         """
         The bullet symbol with this code in the assigned font is used.
         """
+        ...
 
     @abstractproperty
     def CharStyleName(self) -> str:
         """
         This is the name of the character style that is used for the symbol(s).
         """
+        ...
 
     @abstractproperty
     def GraphicBitmap(self) -> 'XBitmap_70cd0909':
@@ -69,6 +72,7 @@ class NumberingLevel(ABC):
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def GraphicURL(self) -> str:
@@ -77,6 +81,7 @@ class NumberingLevel(ABC):
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the graphic and set the GraphicBitmap property.
         """
+        ...
 
     @abstractproperty
     def ListFormat(self) -> str:
@@ -93,36 +98,42 @@ class NumberingLevel(ABC):
         
             LibreOffice 7.2
         """
+        ...
 
     @abstractproperty
     def NumberingType(self) -> int:
         """
         specifies the type of numbering.
         """
+        ...
 
     @abstractproperty
     def ParentNumbering(self) -> int:
         """
         specifies the number of higher numbering levels that are included in the representation of the current number.
         """
+        ...
 
     @abstractproperty
     def Prefix(self) -> str:
         """
         This prefix is inserted in front of the numbering symbol(s).
         """
+        ...
 
     @abstractproperty
     def StartWith(self) -> int:
         """
         This specifies the start value for the numbering.
         """
+        ...
 
     @abstractproperty
     def Suffix(self) -> str:
         """
         This suffix is inserted after the numbering symbol(s).
         """
+        ...
 
 
 

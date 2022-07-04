@@ -50,6 +50,7 @@ class XRelativeTextContentRemove(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def removeTextContentBefore(self, xSuccessor: 'XTextContent_b16e0ba5') -> None:
         """
@@ -60,6 +61,7 @@ class XRelativeTextContentRemove(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XRelativeTextContentRemove']
 

@@ -34,6 +34,10 @@ class HorizontalAlignment(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.HorizontalAlignment'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.HorizontalAlignment'
+
     CENTER = 'CENTER'
     """
     set the horizontal alignment to the center between the margins from the container object

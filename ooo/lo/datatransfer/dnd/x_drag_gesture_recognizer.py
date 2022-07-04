@@ -43,11 +43,13 @@ class XDragGestureRecognizer(XInterface_8f010a43):
         """
         Registers a new XDragGestureListener.
         """
+        ...
     @abstractmethod
     def removeDragGestureListener(self, dgl: 'XDragGestureListener_e8b41366') -> None:
         """
         Unregisters the specified XDragGestureListener.
         """
+        ...
     @abstractmethod
     def resetRecognizer(self) -> None:
         """
@@ -55,6 +57,7 @@ class XDragGestureRecognizer(XInterface_8f010a43):
         
         If it is currently recognizing a gesture, ignore it.
         """
+        ...
 
 __all__ = ['XDragGestureRecognizer']
 

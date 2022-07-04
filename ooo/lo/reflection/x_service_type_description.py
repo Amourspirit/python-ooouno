@@ -50,26 +50,31 @@ class XServiceTypeDescription(XTypeDescription_3c210fb1):
         """
         Returns the type descriptions of the mandatory interfaces defined for this service.
         """
+        ...
     @abstractmethod
     def getMandatoryServices(self) -> 'typing.Tuple[XServiceTypeDescription, ...]':
         """
         Returns the type descriptions of the mandatory services defined for this service.
         """
+        ...
     @abstractmethod
     def getOptionalInterfaces(self) -> 'typing.Tuple[XInterfaceTypeDescription_d92e1342, ...]':
         """
         Returns the type descriptions of the optional interface defined for this service.
         """
+        ...
     @abstractmethod
     def getOptionalServices(self) -> 'typing.Tuple[XServiceTypeDescription, ...]':
         """
         Returns the type descriptions of the optional services defined for this service.
         """
+        ...
     @abstractmethod
     def getProperties(self) -> 'typing.Tuple[XPropertyTypeDescription_ca171316, ...]':
         """
         Returns the properties defined for this service.
         """
+        ...
 
 __all__ = ['XServiceTypeDescription']
 

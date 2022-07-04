@@ -41,6 +41,7 @@ class XValidatable(XInterface_8f010a43):
         """
         retrieves the external instance which is currently used to validate the component
         """
+        ...
     @abstractmethod
     def setValidator(self, Validator: 'XValidator_2a5c0f13') -> None:
         """
@@ -51,6 +52,7 @@ class XValidatable(XInterface_8f010a43):
         Raises:
             com.sun.star.util.VetoException: ``VetoException``
         """
+        ...
 
 __all__ = ['XValidatable']
 

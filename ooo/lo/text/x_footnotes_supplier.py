@@ -43,11 +43,13 @@ class XFootnotesSupplier(XInterface_8f010a43):
     def getFootnoteSettings(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def getFootnotes(self) -> 'XIndexAccess_f0910d6d':
         """
         returns a collection of footnotes.
         """
+        ...
 
 __all__ = ['XFootnotesSupplier']
 

@@ -56,6 +56,7 @@ class XHierarchicalStorageAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def openStreamElementByHierarchicalName(self, sStreamPath: str, nOpenMode: int) -> 'XExtendedStorageStream_46750fcf':
         """
@@ -70,6 +71,7 @@ class XHierarchicalStorageAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeStreamElementByHierarchicalName(self, sElementPath: str) -> None:
         """
@@ -82,6 +84,7 @@ class XHierarchicalStorageAccess(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
 
 __all__ = ['XHierarchicalStorageAccess']
 

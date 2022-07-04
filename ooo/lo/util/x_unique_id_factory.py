@@ -38,6 +38,7 @@ class XUniqueIDFactory(XInterface_8f010a43):
         """
         creates a new ID, unique within this container.
         """
+        ...
 
 __all__ = ['XUniqueIDFactory']
 

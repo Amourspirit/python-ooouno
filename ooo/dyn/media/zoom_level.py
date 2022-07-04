@@ -25,31 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.media.ZoomLevel import (FIT_TO_WINDOW, FIT_TO_WINDOW_FIXED_ASPECT, FULLSCREEN, NOT_AVAILABLE, ORIGINAL, ZOOM_1_TO_2, ZOOM_1_TO_4, ZOOM_2_TO_1, ZOOM_4_TO_1)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.media.ZoomLevel Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.media",
-            "__ooo_full_ns__": "com.sun.star.media.ZoomLevel",
-            "__ooo_type_name__": "enum",
-            "FIT_TO_WINDOW": FIT_TO_WINDOW,
-            "FIT_TO_WINDOW_FIXED_ASPECT": FIT_TO_WINDOW_FIXED_ASPECT,
-            "FULLSCREEN": FULLSCREEN,
-            "NOT_AVAILABLE": NOT_AVAILABLE,
-            "ORIGINAL": ORIGINAL,
-            "ZOOM_1_TO_2": ZOOM_1_TO_2,
-            "ZOOM_1_TO_4": ZOOM_1_TO_4,
-            "ZOOM_2_TO_1": ZOOM_2_TO_1,
-            "ZOOM_4_TO_1": ZOOM_4_TO_1,
-        }
-        result = type('ZoomLevel', (object,), _dict)
-        return result
-
-    ZoomLevel = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ZoomLevel(metaclass=UnoEnumMeta, type_name="com.sun.star.media.ZoomLevel", name_space="com.sun.star.media"):
+        """Dynamically created class that represents ``com.sun.star.media.ZoomLevel`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.media.zoom_level import ZoomLevel as ZoomLevel
 

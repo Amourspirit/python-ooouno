@@ -49,7 +49,7 @@ class DependencyException(Exception_85530a09):
     typeName: str = 'com.sun.star.deployment.DependencyException'
     """Literal Constant ``com.sun.star.deployment.DependencyException``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, UnsatisfiedDependencies: typing.Optional[typing.Tuple[XElement_a33d0ae9, ...]] = UNO_NONE) -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, UnsatisfiedDependencies: typing.Optional[typing.Tuple[XElement_a33d0ae9, ...]] = ()) -> None:
         """
         Constructor
 
@@ -63,8 +63,6 @@ class DependencyException(Exception_85530a09):
             "Context": Context,
             "UnsatisfiedDependencies": UnsatisfiedDependencies,
         }
-        if kargs["UnsatisfiedDependencies"] is UNO_NONE:
-            kargs["UnsatisfiedDependencies"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

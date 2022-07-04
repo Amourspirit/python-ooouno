@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import ColorComponentTag as ColorComponentTag
-    if hasattr(ColorComponentTag, '_constants') and isinstance(ColorComponentTag._constants, dict):
-        ColorComponentTag._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        ColorComponentTag._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.ColorComponentTag'
-        ColorComponentTag._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ColorComponentTagEnum
-        ls = [f for f in dir(ColorComponentTag) if not callable(getattr(ColorComponentTag, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ColorComponentTag, name)
-        ColorComponentTagEnum = IntEnum('ColorComponentTagEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ColorComponentTag(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.ColorComponentTag", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.ColorComponentTag``"""
+        pass
+
+    class ColorComponentTagEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.ColorComponentTag", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.ColorComponentTag`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.color_component_tag import ColorComponentTag as ColorComponentTag
 

@@ -41,7 +41,7 @@ class ScriptEvent(AllEventObject_e2c20d0f):
     typeName: str = 'com.sun.star.script.ScriptEvent'
     """Literal Constant ``com.sun.star.script.ScriptEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '', ScriptType: typing.Optional[str] = '', ScriptCode: typing.Optional[str] = '') -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Arguments: typing.Optional[typing.Tuple[object, ...]] = (), Helper: typing.Optional[object] = None, ListenerType: typing.Optional[object] = None, MethodName: typing.Optional[str] = '', ScriptType: typing.Optional[str] = '', ScriptCode: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -75,8 +75,6 @@ class ScriptEvent(AllEventObject_e2c20d0f):
             "ScriptType": ScriptType,
             "ScriptCode": ScriptCode,
         }
-        if kargs["Arguments"] is UNO_NONE:
-            kargs["Arguments"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

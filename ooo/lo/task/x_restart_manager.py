@@ -50,6 +50,7 @@ class XRestartManager(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def requestRestart(self, xInteractionHandler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -58,6 +59,7 @@ class XRestartManager(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XRestartManager']
 

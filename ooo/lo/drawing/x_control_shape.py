@@ -41,11 +41,13 @@ class XControlShape(XShape_8fd00a3d):
         """
         returns the control model of this Shape.
         """
+        ...
     @abstractmethod
     def setControl(self, xControl: 'XControlModel_affc0b7e') -> None:
         """
         sets the control model for this Shape.
         """
+        ...
 
 __all__ = ['XControlShape']
 

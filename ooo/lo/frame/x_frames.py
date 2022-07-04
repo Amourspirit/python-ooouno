@@ -43,11 +43,13 @@ class XFrames(XIndexAccess_f0910d6d):
         """
         appends the specified Frame to the list of sub-frames.
         """
+        ...
     @abstractmethod
     def queryFrames(self, nSearchFlags: int) -> 'typing.Tuple[XFrame_7a570956, ...]':
         """
         provides access to the list of all currently existing frames inside this container and her sub frames
         """
+        ...
     @abstractmethod
     def remove(self, xFrame: 'XFrame_7a570956') -> None:
         """
@@ -55,6 +57,7 @@ class XFrames(XIndexAccess_f0910d6d):
         
         Note:
         """
+        ...
 
 __all__ = ['XFrames']
 

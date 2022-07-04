@@ -41,16 +41,19 @@ class XMenuProxy(XComponent_98dc0ab5):
         """
         Registers an event listener, which will be called when the menu changes.
         """
+        ...
     @abstractmethod
     def executeMenuItem(self, ID: int) -> None:
         """
         Executes dispatch for the given menu id.
         """
+        ...
     @abstractmethod
     def removeMenuProxyListener(self, xListener: 'XMenuProxyListener_2ccf0f55') -> None:
         """
         Unregisters an event listener which was registered with XMenuProxy.addMenuProxyListener().
         """
+        ...
 
 __all__ = ['XMenuProxy']
 

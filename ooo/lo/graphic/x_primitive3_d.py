@@ -48,6 +48,7 @@ class XPrimitive3D(XInterface_8f010a43):
         
         Defines the point in time for which the geometry is defined. This may lead to varied results for animated objects. This value is defined in the range [0.0 .. n[, negative values are not allowed. If not given, a value of 0.0 is implied.
         """
+        ...
     @abstractmethod
     def getRange(self, aViewParameters: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'RealRectangle3D_d9d0e04':
         """
@@ -55,6 +56,7 @@ class XPrimitive3D(XInterface_8f010a43):
         
         This method calculates the actual bound rect of the area in world coordinates. Note that for view-dependent primitives, the necessary pixel adjustments are taken into account. For that reason the ViewParameters need to be given.
         """
+        ...
 
 __all__ = ['XPrimitive3D']
 

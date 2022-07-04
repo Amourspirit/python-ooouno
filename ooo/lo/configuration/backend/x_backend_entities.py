@@ -44,6 +44,7 @@ class XBackendEntities(XInterface_8f010a43):
         
         The admin entity is an entity that should be used to read and manage configuration data that applies to all entities within the backend.
         """
+        ...
     @abstractmethod
     def getOwnerEntity(self) -> str:
         """
@@ -51,6 +52,7 @@ class XBackendEntities(XInterface_8f010a43):
         
         The owner entity is the default entity for the backend. For normal configuration data access the owner entity should always be used.
         """
+        ...
     @abstractmethod
     def isEqualEntity(self, aEntity: str, aOtherEntity: str) -> bool:
         """
@@ -60,6 +62,7 @@ class XBackendEntities(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def supportsEntity(self, aEntity: str) -> bool:
         """
@@ -68,6 +71,7 @@ class XBackendEntities(XInterface_8f010a43):
         Raises:
             BackendAccessException: ``BackendAccessException``
         """
+        ...
 
 __all__ = ['XBackendEntities']
 

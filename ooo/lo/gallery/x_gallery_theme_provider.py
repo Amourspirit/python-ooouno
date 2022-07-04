@@ -48,6 +48,7 @@ class XGalleryThemeProvider(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def removeByName(self, ThemeName: str) -> None:
         """
@@ -56,6 +57,7 @@ class XGalleryThemeProvider(XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XGalleryThemeProvider']
 

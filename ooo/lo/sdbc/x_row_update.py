@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.sdbc
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -47,6 +48,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateBoolean(self, columnIndex: int, x: bool) -> None:
         """
@@ -55,6 +57,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateByte(self, columnIndex: int, x: int) -> None:
         """
@@ -63,14 +66,16 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
-    def updateBytes(self, columnIndex: int, x: 'typing.Tuple[int, ...]') -> None:
+    def updateBytes(self, columnIndex: int, x: uno.ByteSequence) -> None:
         """
         updates a column with a byte array value.
 
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateCharacterStream(self, columnIndex: int, x: 'XInputStream_98d40ab4', length: int) -> None:
         """
@@ -79,6 +84,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateDate(self, columnIndex: int, x: 'Date_60040844') -> None:
         """
@@ -87,6 +93,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateDouble(self, columnIndex: int, x: float) -> None:
         """
@@ -95,6 +102,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateFloat(self, columnIndex: int, x: float) -> None:
         """
@@ -103,6 +111,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateInt(self, columnIndex: int, x: int) -> None:
         """
@@ -111,6 +120,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateLong(self, columnIndex: int, x: int) -> None:
         """
@@ -119,6 +129,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateNull(self, columnIndex: int) -> None:
         """
@@ -127,6 +138,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateNumericObject(self, columnIndex: int, x: object, scale: int) -> None:
         """
@@ -135,6 +147,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateObject(self, columnIndex: int, x: object) -> None:
         """
@@ -143,6 +156,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateShort(self, columnIndex: int, x: int) -> None:
         """
@@ -151,6 +165,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateString(self, columnIndex: int, x: str) -> None:
         """
@@ -159,6 +174,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateTime(self, columnIndex: int, x: 'Time_604e0855') -> None:
         """
@@ -167,6 +183,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def updateTimestamp(self, columnIndex: int, x: 'DateTime_84de09d3') -> None:
         """
@@ -175,6 +192,7 @@ class XRowUpdate(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XRowUpdate']
 

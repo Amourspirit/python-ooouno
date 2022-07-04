@@ -44,6 +44,7 @@ class XCommandEnvironment(XInterface_8f010a43):
         
         If called multiple times, this method should consistently return the same value (to allow caching).
         """
+        ...
     @abstractmethod
     def getProgressHandler(self) -> 'XProgressHandler_d4190cad':
         """
@@ -51,6 +52,7 @@ class XCommandEnvironment(XInterface_8f010a43):
         
         If called multiple times, this method should consistently return the same value (to allow caching).
         """
+        ...
 
 __all__ = ['XCommandEnvironment']
 

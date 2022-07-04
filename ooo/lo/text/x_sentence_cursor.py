@@ -38,31 +38,37 @@ class XSentenceCursor(XTextCursor_a60c0b48):
         """
         moves the cursor to the end of the current sentence.
         """
+        ...
     @abstractmethod
     def gotoNextSentence(self, Expand: bool) -> bool:
         """
         moves the cursor to the start of the next sentence.
         """
+        ...
     @abstractmethod
     def gotoPreviousSentence(self, Expand: bool) -> bool:
         """
         moves the cursor to the start of the previous sentence.
         """
+        ...
     @abstractmethod
     def gotoStartOfSentence(self, Expand: bool) -> bool:
         """
         moves the cursor to the start of the current sentence.
         """
+        ...
     @abstractmethod
     def isEndOfSentence(self) -> bool:
         """
         determines if the cursor is positioned at the end of a sentence.
         """
+        ...
     @abstractmethod
     def isStartOfSentence(self) -> bool:
         """
         determines if the cursor is positioned at the start of a sentence.
         """
+        ...
 
 __all__ = ['XSentenceCursor']
 

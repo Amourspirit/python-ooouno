@@ -52,6 +52,7 @@ class XBitmap(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             VolatileContentDestroyedException: ``VolatileContentDestroyedException``
         """
+        ...
     @abstractmethod
     def getSize(self) -> 'IntegerSize2D_f2690d53':
         """
@@ -59,6 +60,7 @@ class XBitmap(XInterface_8f010a43):
         
         This method queries the bitmap size in pixel.
         """
+        ...
     @abstractmethod
     def hasAlpha(self) -> bool:
         """
@@ -66,6 +68,7 @@ class XBitmap(XInterface_8f010a43):
         
         The method checks, whether the bitmap contains any alpha information. The same information is also available at the XColorSpace associated with this bitmap, though much easier to access here (the color space then has a component flagged ColorComponentTag.ALPHA).
         """
+        ...
 
 __all__ = ['XBitmap']
 

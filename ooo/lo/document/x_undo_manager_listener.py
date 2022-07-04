@@ -46,16 +46,19 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         """
         is called when the top-most action of the Redo stack has been re-applied.
         """
+        ...
     @abstractmethod
     def actionUndone(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
         is called when the top-most action of the undo stack has been undone.
         """
+        ...
     @abstractmethod
     def allActionsCleared(self, iEvent: 'EventObject_a3d70b03') -> None:
         """
         is called when both the Undo and the Redo stack have been cleared from all Undo actions.
         """
+        ...
     @abstractmethod
     def cancelledContext(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -63,6 +66,7 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         In such a case, the context which has just been left will not contribute to the undo stack, but instead be silently removed. Consequently, the UndoManagerEvent.UndoActionTitle is empty.
         """
+        ...
     @abstractmethod
     def enteredContext(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -70,6 +74,7 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         UndoManagerEvent.UndoActionTitle carries the title of the Undo context, and UndoManagerEvent.UndoContextDepth the number of open Undo contexts, including the one just entered.
         """
+        ...
     @abstractmethod
     def enteredHiddenContext(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -77,6 +82,7 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         UndoManagerEvent.UndoActionTitle carries the title of the Undo context, and UndoManagerEvent.UndoContextDepth the number of open Undo contexts, including the one just entered.
         """
+        ...
     @abstractmethod
     def leftContext(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -84,6 +90,7 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         UndoManagerEvent.UndoActionTitle carries the title of the Undo context, and UndoManagerEvent.UndoContextDepth the number of open Undo contexts, excluding the one just left.
         """
+        ...
     @abstractmethod
     def leftHiddenContext(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -91,16 +98,19 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         UndoManagerEvent.UndoActionTitle is empty, as hidden Undo contexts don't have a title.
         """
+        ...
     @abstractmethod
     def redoActionsCleared(self, iEvent: 'EventObject_a3d70b03') -> None:
         """
         is called when the Redo stack has been cleared.
         """
+        ...
     @abstractmethod
     def resetAll(self, iEvent: 'EventObject_a3d70b03') -> None:
         """
         called when the complete undo manager has been reset
         """
+        ...
     @abstractmethod
     def undoActionAdded(self, iEvent: 'UndoManagerEvent_1c2d0eba') -> None:
         """
@@ -108,6 +118,7 @@ class XUndoManagerListener(XEventListener_c7230c4a):
         
         Note that the action must not necessarily be the new top element of the stack: In case there's an open Undo context, UndoManagerEvent.UndoContextDepth will be greater 0, and the newly added action will be subordinate of the context action.
         """
+        ...
 
 __all__ = ['XUndoManagerListener']
 

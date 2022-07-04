@@ -30,9 +30,7 @@ class ErrorMessageDialog(XExecutableDialog_450f0fa1):
 
     provides a dialog for displaying database related exceptions.
     
-    If applications use any of the functionality provided in the modules com.sun.star.sdbc, com.sun.star.sdbcx and com.sun.star.sdb, they will - sooner or later - encounter com.sun.star.sdbc.SQLException 's.
-    These exceptions can be chained, so the information wrapped in one single com.sun.star.sdbc.SQLException can be rather complex (e.g., every instance where such an exception is passing before it is finally caught, could append a com.sun.star.sdb.SQLContext to explain what it was doing), and they should be presented to the user in a consistent way.
-    This can be reached by using this service.
+    If applications use any of the functionality provided in the modules com.sun.star.sdbc, com.sun.star.sdbcx and com.sun.star.sdb, they will - sooner or later - encounter com.sun.star.sdbc.SQLException 's. These exceptions can be chained, so the information wrapped in one single com.sun.star.sdbc.SQLException can be rather complex (e.g., every instance where such an exception is passing before it is finally caught, could append a com.sun.star.sdb.SQLContext to explain what it was doing), and they should be presented to the user in a consistent way. This can be reached by using this service.
 
     See Also:
         `API ErrorMessageDialog <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1sdb_1_1ErrorMessageDialog.html>`_
@@ -48,10 +46,9 @@ class ErrorMessageDialog(XExecutableDialog_450f0fa1):
         
         You do not need to call the initialize method directly, instead you may use the createInstanceWithArguments method of your com.sun.star.lang.XMultiServiceFactory.
         
-        You specify a parameter by passing one (or more) com.sun.star.beans.PropertyValue object(s) to the initialize method, where the Name field contains a string describing which aspect you want to affect, and the Value field containing a value.
-        Imagine the initialization values, as if you use com.sun.star.beans\">XPropertySet.setPropertyValue() of the com.sun.star.beans.XPropertySet interface ...
-        allowed parameters are
+        You specify a parameter by passing one (or more) com.sun.star.beans.PropertyValue object(s) to the initialize method, where the Name field contains a string describing which aspect you want to affect, and the Value field containing a value. Imagine the initialization values, as if you use com.sun.star.beans\">XPropertySet.setPropertyValue() of the com.sun.star.beans.XPropertySet interface ... allowed parameters are
         """
+        ...
 
 
 __all__ = ['ErrorMessageDialog']

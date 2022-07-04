@@ -34,6 +34,10 @@ class CertificateContainerStatus(Enum):
     __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.security.CertificateContainerStatus'
+
     NOCERT = 'NOCERT'
     """
     The certificate was not found.

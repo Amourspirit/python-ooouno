@@ -44,6 +44,7 @@ class XAnimatePhysics(XAnimate_ca680c52):
         
         Takes a value between [0,1], 1 being no energy loss on collisions Has a default value of 0.1
         """
+        ...
 
     @abstractproperty
     def Density(self) -> object:
@@ -52,6 +53,7 @@ class XAnimatePhysics(XAnimate_ca680c52):
         
         Expressed in kg/m^2. Should be non-negative. Has a default value of 1.
         """
+        ...
 
     @abstractproperty
     def StartVelocityX(self) -> object:
@@ -60,6 +62,7 @@ class XAnimatePhysics(XAnimate_ca680c52):
         
         Expressed in 1/100 mm.
         """
+        ...
 
     @abstractproperty
     def StartVelocityY(self) -> object:
@@ -68,6 +71,7 @@ class XAnimatePhysics(XAnimate_ca680c52):
         
         Expressed in 1/100 mm.
         """
+        ...
 
 
 __all__ = ['XAnimatePhysics']

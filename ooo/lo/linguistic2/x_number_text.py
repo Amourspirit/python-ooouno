@@ -46,6 +46,7 @@ class XNumberText(ABC):
         """
         returns a list of all supported languages.
         """
+        ...
     @abstractmethod
     def getNumberText(self, aText: str, aLocale: 'Locale_70d308fa') -> str:
         """
@@ -58,6 +59,7 @@ class XNumberText(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XNumberText']
 

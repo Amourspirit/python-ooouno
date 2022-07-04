@@ -37,11 +37,13 @@ class XSessionManagerListener(XEventListener_c7230c4a):
         """
         approveInteraction is called when an outstanding interaction request was processed by the session manager
         """
+        ...
     @abstractmethod
     def doRestore(self) -> bool:
         """
         returns true, if a session was restored
         """
+        ...
     @abstractmethod
     def doSave(self, bShutdown: bool, bCancelable: bool) -> None:
         """
@@ -53,6 +55,7 @@ class XSessionManagerListener(XEventListener_c7230c4a):
         
         the listener may choose to ignore the saveDone() event in case no real shutdown is in progress. He still has to call XSessionManagerClient.saveDone() in that case.
         """
+        ...
     @abstractmethod
     def shutdownCanceled(self) -> None:
         """
@@ -60,6 +63,7 @@ class XSessionManagerListener(XEventListener_c7230c4a):
         
         No further interaction is necessary and further calls on the session manager client service object will be ignored.
         """
+        ...
 
 __all__ = ['XSessionManagerListener']
 

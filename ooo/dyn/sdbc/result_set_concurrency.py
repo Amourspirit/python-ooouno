@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import ResultSetConcurrency as ResultSetConcurrency
-    if hasattr(ResultSetConcurrency, '_constants') and isinstance(ResultSetConcurrency._constants, dict):
-        ResultSetConcurrency._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        ResultSetConcurrency._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.ResultSetConcurrency'
-        ResultSetConcurrency._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ResultSetConcurrencyEnum
-        ls = [f for f in dir(ResultSetConcurrency) if not callable(getattr(ResultSetConcurrency, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ResultSetConcurrency, name)
-        ResultSetConcurrencyEnum = IntEnum('ResultSetConcurrencyEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ResultSetConcurrency(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.ResultSetConcurrency", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.ResultSetConcurrency``"""
+        pass
+
+    class ResultSetConcurrencyEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.ResultSetConcurrency", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.ResultSetConcurrency`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.result_set_concurrency import ResultSetConcurrency as ResultSetConcurrency
 

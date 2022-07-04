@@ -45,11 +45,13 @@ class XTablePivotCharts(XNameAccess_e2ab0cf6):
         """
         creates a pivot chart and adds it to the collection.
         """
+        ...
     @abstractmethod
     def removeByName(self, aName: str) -> None:
         """
         removes a pivot chart from the collection.
         """
+        ...
 
 __all__ = ['XTablePivotCharts']
 

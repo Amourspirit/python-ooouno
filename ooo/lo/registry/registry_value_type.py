@@ -34,6 +34,10 @@ class RegistryValueType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.registry.RegistryValueType'
+
     ASCII = 'ASCII'
     """
     the type of the key is ASCII.

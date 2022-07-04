@@ -34,6 +34,10 @@ class PolygonFlags(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonFlags'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.PolygonFlags'
+
     CONTROL = 'CONTROL'
     """
     the point is a control point, to control the curve from the user interface.

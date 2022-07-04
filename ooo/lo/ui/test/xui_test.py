@@ -39,22 +39,27 @@ class XUITest(ABC):
     def executeCommand(self, command: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def executeCommandWithParameters(self, command: str, propValues: 'PropertyValues_d6470ce6') -> bool:
         """
         """
+        ...
     @abstractmethod
     def executeDialog(self, command: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def getFloatWindow(self) -> 'XUIObject_ad8a0b21':
         """
         """
+        ...
     @abstractmethod
     def getTopFocusWindow(self) -> 'XUIObject_ad8a0b21':
         """
         """
+        ...
 
 __all__ = ['XUITest']
 

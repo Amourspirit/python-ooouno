@@ -41,11 +41,13 @@ class XWindowListener2(XWindowListener_c8aa0c6a):
         """
         is called when the window has been disabled.
         """
+        ...
     @abstractmethod
     def windowEnabled(self, e: 'EventObject_a3d70b03') -> None:
         """
         is called when the window has been enabled.
         """
+        ...
 
 __all__ = ['XWindowListener2']
 

@@ -46,6 +46,7 @@ class XSimpleRegistry(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
+        ...
     @abstractmethod
     def destroy(self) -> None:
         """
@@ -54,6 +55,7 @@ class XSimpleRegistry(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
+        ...
     @abstractmethod
     def getRootKey(self) -> 'XRegistryKey_e61a0d5b':
         """
@@ -61,11 +63,13 @@ class XSimpleRegistry(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
+        ...
     @abstractmethod
     def getURL(self) -> str:
         """
         returns the URL of the current data source of the registry.
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
@@ -74,11 +78,13 @@ class XSimpleRegistry(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
+        ...
     @abstractmethod
     def isValid(self) -> bool:
         """
         checks if the registry points to a valid data-source.
         """
+        ...
     @abstractmethod
     def mergeKey(self, aKeyName: str, aUrl: str) -> None:
         """
@@ -92,6 +98,7 @@ class XSimpleRegistry(XInterface_8f010a43):
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
             com.sun.star.registry.MergeConflictException: ``MergeConflictException``
         """
+        ...
     @abstractmethod
     def open(self, rURL: str, bReadOnly: bool, bCreate: bool) -> None:
         """
@@ -102,6 +109,7 @@ class XSimpleRegistry(XInterface_8f010a43):
         Raises:
             com.sun.star.registry.InvalidRegistryException: ``InvalidRegistryException``
         """
+        ...
 
 __all__ = ['XSimpleRegistry']
 

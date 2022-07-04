@@ -42,6 +42,7 @@ class XJavaThreadRegister_11(XInterface_8f010a43):
         """
         returns TRUE if the current thread is already attached to the VM otherwise FALSE.
         """
+        ...
     @abstractmethod
     def registerThread(self) -> None:
         """
@@ -49,6 +50,7 @@ class XJavaThreadRegister_11(XInterface_8f010a43):
         
         This method should be called every time a JNI function is called from Java.
         """
+        ...
     @abstractmethod
     def revokeThread(self) -> None:
         """
@@ -56,6 +58,7 @@ class XJavaThreadRegister_11(XInterface_8f010a43):
         
         This method should be called at the end of every JNI call from Java.
         """
+        ...
 
 __all__ = ['XJavaThreadRegister_11']
 

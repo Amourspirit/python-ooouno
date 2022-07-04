@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import TickmarkStyle as TickmarkStyle
-    if hasattr(TickmarkStyle, '_constants') and isinstance(TickmarkStyle._constants, dict):
-        TickmarkStyle._constants['__ooo_ns__'] = 'com.sun.star.chart2'
-        TickmarkStyle._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.TickmarkStyle'
-        TickmarkStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TickmarkStyleEnum
-        ls = [f for f in dir(TickmarkStyle) if not callable(getattr(TickmarkStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TickmarkStyle, name)
-        TickmarkStyleEnum = IntEnum('TickmarkStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class TickmarkStyle(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.TickmarkStyle", name_space="com.sun.star.chart2"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.chart2.TickmarkStyle``"""
+        pass
+
+    class TickmarkStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.chart2.TickmarkStyle", name_space="com.sun.star.chart2"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.chart2.TickmarkStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.chart2.tickmark_style import TickmarkStyle as TickmarkStyle
 

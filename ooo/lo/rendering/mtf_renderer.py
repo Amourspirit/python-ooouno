@@ -40,6 +40,7 @@ class MtfRenderer(XMtfRenderer_f0d90d7c):
     def createWithBitmapCanvas(self, Canvas: 'XBitmapCanvas_fe5f0dd7') -> None:
         """
         """
+        ...
 
 
 __all__ = ['MtfRenderer']

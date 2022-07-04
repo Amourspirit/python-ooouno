@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import FetchDirection as FetchDirection
-    if hasattr(FetchDirection, '_constants') and isinstance(FetchDirection._constants, dict):
-        FetchDirection._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        FetchDirection._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.FetchDirection'
-        FetchDirection._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FetchDirectionEnum
-        ls = [f for f in dir(FetchDirection) if not callable(getattr(FetchDirection, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FetchDirection, name)
-        FetchDirectionEnum = IntEnum('FetchDirectionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class FetchDirection(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.FetchDirection", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.FetchDirection``"""
+        pass
+
+    class FetchDirectionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.FetchDirection", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.FetchDirection`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.fetch_direction import FetchDirection as FetchDirection
 

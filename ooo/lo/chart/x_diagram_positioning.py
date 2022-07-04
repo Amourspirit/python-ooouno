@@ -40,37 +40,45 @@ class XDiagramPositioning(XInterface_8f010a43):
     def calculateDiagramPositionExcludingAxes(self) -> 'Rectangle_84b109e9':
         """
         """
+        ...
     @abstractmethod
     def calculateDiagramPositionIncludingAxes(self) -> 'Rectangle_84b109e9':
         """
         """
+        ...
     @abstractmethod
     def calculateDiagramPositionIncludingAxesAndAxisTitles(self) -> 'Rectangle_84b109e9':
         """
         """
+        ...
     @abstractmethod
     def isAutomaticDiagramPositioning(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def isExcludingDiagramPositioning(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def setAutomaticDiagramPositioning(self) -> None:
         """
         the diagram will be placed automatically
         """
+        ...
     @abstractmethod
     def setDiagramPositionExcludingAxes(self, PositionRect: 'Rectangle_84b109e9') -> None:
         """
         place the inner diagram part excluding any axes, labels and titles
         """
+        ...
     @abstractmethod
     def setDiagramPositionIncludingAxes(self, PositionRect: 'Rectangle_84b109e9') -> None:
         """
         place the outer diagram part including the axes and axes labels, but excluding the axes titles.
         """
+        ...
     @abstractmethod
     def setDiagramPositionIncludingAxesAndAxisTitles(self, PositionRect: 'Rectangle_84b109e9') -> None:
         """
@@ -78,6 +86,7 @@ class XDiagramPositioning(XInterface_8f010a43):
         
         For the placement the current axis titles are taken into account, so the titles must be initialized properly before this method is called.
         """
+        ...
 
 __all__ = ['XDiagramPositioning']
 

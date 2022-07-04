@@ -44,11 +44,13 @@ class XTreeNode(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getChildCount(self) -> int:
         """
         Returns the number of child nodes.
         """
+        ...
     @abstractmethod
     def getCollapsedGraphicURL(self) -> str:
         """
@@ -56,11 +58,13 @@ class XTreeNode(ABC):
         
         If URL is empty, XTreeControl.DefaultCollapsedGraphicURL is used.
         """
+        ...
     @abstractmethod
     def getDisplayValue(self) -> object:
         """
         If not empty, the textual representation of this any is used as the text part of this node.
         """
+        ...
     @abstractmethod
     def getExpandedGraphicURL(self) -> str:
         """
@@ -68,11 +72,13 @@ class XTreeNode(ABC):
         
         If URL is empty, XTreeControl.DefaultExpandedGraphicURL is used.
         """
+        ...
     @abstractmethod
     def getIndex(self, Node: 'XTreeNode') -> int:
         """
         Returns the index of Node in this instances children.
         """
+        ...
     @abstractmethod
     def getNodeGraphicURL(self) -> str:
         """
@@ -80,11 +86,13 @@ class XTreeNode(ABC):
         
         If this URL is empty, no graphic is rendered.
         """
+        ...
     @abstractmethod
     def getParent(self) -> 'XTreeNode':
         """
         Returns the parent node of this node.
         """
+        ...
     @abstractmethod
     def hasChildrenOnDemand(self) -> bool:
         """
@@ -92,6 +100,7 @@ class XTreeNode(ABC):
         
         A TreeControl will handle a node that returns TRUE always like a node that has child nodes, even if getChildCount() returns 0.
         """
+        ...
 
 __all__ = ['XTreeNode']
 

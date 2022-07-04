@@ -42,7 +42,7 @@ class DictionaryListEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.linguistic2.DictionaryListEvent'
     """Literal Constant ``com.sun.star.linguistic2.DictionaryListEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, aDictionaryEvents: typing.Optional[typing.Tuple[DictionaryEvent_3ae00f8d, ...]] = UNO_NONE, nCondensedEvent: typing.Optional[int] = 0) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, aDictionaryEvents: typing.Optional[typing.Tuple[DictionaryEvent_3ae00f8d, ...]] = (), nCondensedEvent: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class DictionaryListEvent(EventObject_a3d70b03):
             "aDictionaryEvents": aDictionaryEvents,
             "nCondensedEvent": nCondensedEvent,
         }
-        if kargs["aDictionaryEvents"] is UNO_NONE:
-            kargs["aDictionaryEvents"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

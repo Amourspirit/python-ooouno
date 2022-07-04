@@ -47,6 +47,7 @@ class XPrintJobListener(XEventListener_c7230c4a):
         """
         informs the user about the creation or the progress of a PrintJob
         """
+        ...
 
 __all__ = ['XPrintJobListener']
 

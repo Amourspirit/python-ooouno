@@ -46,11 +46,13 @@ class XSlideShowController(ABC):
         """
         activates the user interface of this slide show.
         """
+        ...
     @abstractmethod
     def addSlideShowListener(self, Listener: 'XSlideShowListener_81671154') -> None:
         """
         adds a listener that receives events while the slide show is running.
         """
+        ...
     @abstractmethod
     def blankScreen(self, Color: int) -> None:
         """
@@ -58,6 +60,7 @@ class XSlideShowController(ABC):
         
         Change attribute Pause to false to unpause the slide show.
         """
+        ...
     @abstractmethod
     def deactivate(self) -> None:
         """
@@ -65,21 +68,25 @@ class XSlideShowController(ABC):
         
         A deactivated
         """
+        ...
     @abstractmethod
     def getCurrentSlide(self) -> 'XDrawPage_b07a0b57':
         """
         returns slide that is currently displayed
         """
+        ...
     @abstractmethod
     def getCurrentSlideIndex(self) -> int:
         """
         returns the index of the current slide.
         """
+        ...
     @abstractmethod
     def getNextSlideIndex(self) -> int:
         """
         the index for the slide that is displayed next.
         """
+        ...
     @abstractmethod
     def getSlideByIndex(self, Index: int) -> 'XDrawPage_b07a0b57':
         """
@@ -90,10 +97,12 @@ class XSlideShowController(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSlideCount(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getSlideShow(self) -> 'XSlideShow_2a80e0e':
         """
@@ -101,16 +110,19 @@ class XSlideShowController(ABC):
         
         Normally all navigation should be done using this controller and not the XSlideShow itself.
         """
+        ...
     @abstractmethod
     def gotoBookmark(self, Bookmark: str) -> None:
         """
         goto the given textual bookmark
         """
+        ...
     @abstractmethod
     def gotoFirstSlide(self) -> None:
         """
         goto and display first slide
         """
+        ...
     @abstractmethod
     def gotoLastSlide(self) -> None:
         """
@@ -118,6 +130,7 @@ class XSlideShowController(ABC):
         
         Remaining effects on the current slide will be skipped.
         """
+        ...
     @abstractmethod
     def gotoNextEffect(self) -> None:
         """
@@ -125,6 +138,7 @@ class XSlideShowController(ABC):
         
         If no generic triggers are waiting the next slide will be displayed.
         """
+        ...
     @abstractmethod
     def gotoNextSlide(self) -> None:
         """
@@ -132,6 +146,7 @@ class XSlideShowController(ABC):
         
         Remaining effects on the current slide will be skipped.
         """
+        ...
     @abstractmethod
     def gotoPreviousEffect(self) -> None:
         """
@@ -139,6 +154,7 @@ class XSlideShowController(ABC):
         
         If there is no previous effect that can be undone then the previous slide will be displayed.
         """
+        ...
     @abstractmethod
     def gotoPreviousSlide(self) -> None:
         """
@@ -146,6 +162,7 @@ class XSlideShowController(ABC):
         
         Remaining effects on the current slide will be skipped.
         """
+        ...
     @abstractmethod
     def gotoSlide(self, Page: 'XDrawPage_b07a0b57') -> None:
         """
@@ -156,31 +173,37 @@ class XSlideShowController(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def gotoSlideIndex(self, Index: int) -> None:
         """
         jumps to the slide at the given index.
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         determines if the slide show is active.
         """
+        ...
     @abstractmethod
     def isEndless(self) -> bool:
         """
         returns TRUE if the slide show was started to run endlessly.
         """
+        ...
     @abstractmethod
     def isFullScreen(self) -> bool:
         """
         Returns TRUE if the slide show was started in full-screen mode.
         """
+        ...
     @abstractmethod
     def isPaused(self) -> bool:
         """
         returns TRUE if the slide show is currently paused.
         """
+        ...
     @abstractmethod
     def isRunning(self) -> bool:
         """
@@ -188,6 +211,7 @@ class XSlideShowController(ABC):
         
         If this returns false, this component is already disposed. You can start a new slide show and get a new instance of XSlideShowController from XPresentation2
         """
+        ...
     @abstractmethod
     def pause(self) -> None:
         """
@@ -197,16 +221,19 @@ class XSlideShowController(ABC):
         
         The slide show continues on next user input or if resume() is called.
         """
+        ...
     @abstractmethod
     def removeSlideShowListener(self, Listener: 'XSlideShowListener_81671154') -> None:
         """
         removes a listener.
         """
+        ...
     @abstractmethod
     def resume(self) -> None:
         """
         resumes a paused slide show.
         """
+        ...
     @abstractmethod
     def setEraseAllInk(self, EraseAllInk: bool) -> None:
         """
@@ -216,28 +243,33 @@ class XSlideShowController(ABC):
         
             LibreOffice 7.2
         """
+        ...
     @abstractmethod
     def stopSound(self) -> None:
         """
         stop all currently played sounds
         """
+        ...
     @abstractproperty
     def AlwaysOnTop(self) -> bool:
         """
         If this attribute is set to TRUE, the window of the slide show is always on top of all other windows.
         """
+        ...
 
     @abstractproperty
     def MouseVisible(self) -> bool:
         """
         If this attribute is TRUE, the mouse is visible during the slide show.
         """
+        ...
 
     @abstractproperty
     def PenColor(self) -> int:
         """
         This attribute changes the color of the pen.
         """
+        ...
 
     @abstractproperty
     def PenWidth(self) -> float:
@@ -248,6 +280,7 @@ class XSlideShowController(ABC):
         
             LibreOffice 4.2
         """
+        ...
 
     @abstractproperty
     def UsePen(self) -> bool:
@@ -256,6 +289,7 @@ class XSlideShowController(ABC):
         
         You can draw on the presentation with this pen.
         """
+        ...
 
 
 __all__ = ['XSlideShowController']

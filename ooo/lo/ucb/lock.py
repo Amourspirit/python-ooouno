@@ -41,7 +41,7 @@ class Lock(LockEntry_839e09dd):
     typeName: str = 'com.sun.star.ucb.Lock'
     """Literal Constant ``com.sun.star.ucb.Lock``"""
 
-    def __init__(self, Scope: typing.Optional[LockScope_839109c5] = LockScope_839109c5.EXCLUSIVE, Type: typing.Optional[LockType_7a09096d] = LockType_7a09096d.WRITE, LockTokens: typing.Optional[typing.Tuple[str, ...]] = UNO_NONE, Depth: typing.Optional[LockDepth_835c09c0] = LockDepth_835c09c0.ZERO, Owner: typing.Optional[object] = None, Timeout: typing.Optional[int] = 0) -> None:
+    def __init__(self, Scope: typing.Optional[LockScope_839109c5] = LockScope_839109c5.EXCLUSIVE, Type: typing.Optional[LockType_7a09096d] = LockType_7a09096d.WRITE, LockTokens: typing.Optional[typing.Tuple[str, ...]] = (), Depth: typing.Optional[LockDepth_835c09c0] = LockDepth_835c09c0.ZERO, Owner: typing.Optional[object] = None, Timeout: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -72,8 +72,6 @@ class Lock(LockEntry_839e09dd):
             "Owner": Owner,
             "Timeout": Timeout,
         }
-        if kargs["LockTokens"] is UNO_NONE:
-            kargs["LockTokens"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

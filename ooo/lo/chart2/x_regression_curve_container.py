@@ -43,11 +43,13 @@ class XRegressionCurveContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getRegressionCurves(self) -> 'typing.Tuple[XRegressionCurve_fa3c0dca, ...]':
         """
         retrieve all regression curves
         """
+        ...
     @abstractmethod
     def removeRegressionCurve(self, aRegressionCurve: 'XRegressionCurve_fa3c0dca') -> None:
         """
@@ -56,6 +58,7 @@ class XRegressionCurveContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def setRegressionCurves(self, aRegressionCurves: 'typing.Tuple[XRegressionCurve_fa3c0dca, ...]') -> None:
         """
@@ -64,6 +67,7 @@ class XRegressionCurveContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XRegressionCurveContainer']
 

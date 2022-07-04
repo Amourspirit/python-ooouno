@@ -39,7 +39,7 @@ class InvocationInfo(object):
     typeName: str = 'com.sun.star.script.InvocationInfo'
     """Literal Constant ``com.sun.star.script.InvocationInfo``"""
 
-    def __init__(self, aParamTypes: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, aParamModes: typing.Optional[typing.Tuple[ParamMode_d7260ca9, ...]] = UNO_NONE, aName: typing.Optional[str] = '', eMemberType: typing.Optional[MemberType_b1e00b97] = MemberType_b1e00b97.METHOD, PropertyAttribute: typing.Optional[int] = 0, aType: typing.Optional[object] = None) -> None:
+    def __init__(self, aParamTypes: typing.Optional[typing.Tuple[object, ...]] = (), aParamModes: typing.Optional[typing.Tuple[ParamMode_d7260ca9, ...]] = (), aName: typing.Optional[str] = '', eMemberType: typing.Optional[MemberType_b1e00b97] = MemberType_b1e00b97.METHOD, PropertyAttribute: typing.Optional[int] = 0, aType: typing.Optional[object] = None) -> None:
         """
         Constructor
 
@@ -71,10 +71,6 @@ class InvocationInfo(object):
             "PropertyAttribute": PropertyAttribute,
             "aType": aType,
         }
-        if kargs["aParamTypes"] is UNO_NONE:
-            kargs["aParamTypes"] = None
-        if kargs["aParamModes"] is UNO_NONE:
-            kargs["aParamModes"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

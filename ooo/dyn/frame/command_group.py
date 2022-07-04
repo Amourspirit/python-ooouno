@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import CommandGroup as CommandGroup
-    if hasattr(CommandGroup, '_constants') and isinstance(CommandGroup._constants, dict):
-        CommandGroup._constants['__ooo_ns__'] = 'com.sun.star.frame'
-        CommandGroup._constants['__ooo_full_ns__'] = 'com.sun.star.frame.CommandGroup'
-        CommandGroup._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CommandGroupEnum
-        ls = [f for f in dir(CommandGroup) if not callable(getattr(CommandGroup, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CommandGroup, name)
-        CommandGroupEnum = IntEnum('CommandGroupEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class CommandGroup(metaclass=UnoConstMeta, type_name="com.sun.star.frame.CommandGroup", name_space="com.sun.star.frame"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.frame.CommandGroup``"""
+        pass
+
+    class CommandGroupEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.frame.CommandGroup", name_space="com.sun.star.frame"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.frame.CommandGroup`` as Enum values"""
+        pass
+
 else:
     from ...lo.frame.command_group import CommandGroup as CommandGroup
 

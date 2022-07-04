@@ -46,6 +46,7 @@ class BindableDatabaseCheckBox(BindableDataAwareControlModel_47091512, DatabaseC
         
         com.sun.star.form.component.CheckBox.RefValue is transferred to possible external value bindings as soon as the check box is checked. With the member SecondaryRefValue, clients of the check box can also associate a value with the not checked state of the control.
         """
+        ...
 
 
 

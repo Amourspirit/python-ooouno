@@ -45,11 +45,11 @@ class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
         """
         determines if an empty text should be treated as a NULL value.
         
-        When the user enters text into a combo box, and after this, the control content is to be committed into the database field the control is bound to, a decision must be made how to deal with empty strings.
-        This is controlled by ConvertEmptyToNull.
+        When the user enters text into a combo box, and after this, the control content is to be committed into the database field the control is bound to, a decision must be made how to deal with empty strings.This is controlled by ConvertEmptyToNull.
         
         If the property is set to TRUE, and an empty text is to be committed, this is converted into NULL, else it is written as empty string.
         """
+        ...
 
     @abstractproperty
     def ListSource(self) -> str:
@@ -58,6 +58,7 @@ class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
         
         The concrete meaning of this property depends on the value of ListSourceType
         """
+        ...
 
     @abstractproperty
     def ListSourceType(self) -> 'ListSourceType_c9850c6b':
@@ -66,6 +67,7 @@ class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
         
         Note: A value of com.sun.star.form.ListSourceType.VALUELIST is not valid for a combo box. It won't be rejected when setting it, but controls will usually ignore it and leave the list empty.
         """
+        ...
 
 
 

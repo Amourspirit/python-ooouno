@@ -45,6 +45,7 @@ class XPublished(ABC):
         """
         Returns the âpublishedâ status of a UNOIDL entity.
         """
+        ...
 
 __all__ = ['XPublished']
 

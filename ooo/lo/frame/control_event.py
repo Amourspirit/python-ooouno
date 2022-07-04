@@ -43,7 +43,7 @@ class ControlEvent(object):
     typeName: str = 'com.sun.star.frame.ControlEvent'
     """Literal Constant ``com.sun.star.frame.ControlEvent``"""
 
-    def __init__(self, aInformation: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, aURL: typing.Optional[URL_57ad07b9] = UNO_NONE, Event: typing.Optional[str] = '') -> None:
+    def __init__(self, aInformation: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = (), aURL: typing.Optional[URL_57ad07b9] = UNO_NONE, Event: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -66,8 +66,6 @@ class ControlEvent(object):
             "aURL": aURL,
             "Event": Event,
         }
-        if kargs["aInformation"] is UNO_NONE:
-            kargs["aInformation"] = None
         if kargs["aURL"] is UNO_NONE:
             kargs["aURL"] = None
         self._init(**kargs)

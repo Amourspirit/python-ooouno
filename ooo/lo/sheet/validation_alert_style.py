@@ -34,6 +34,10 @@ class ValidationAlertStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationAlertStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.ValidationAlertStyle'
+
     INFO = 'INFO'
     """
     information message is shown and the user is asked whether the change will be accepted (defaulted to \"Yes\").

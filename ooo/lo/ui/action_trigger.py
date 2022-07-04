@@ -44,30 +44,35 @@ class ActionTrigger(ABC):
         """
         contains the command URL for the menu entry.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         contains the a URL that points to a help text.
         """
+        ...
 
     @abstractproperty
     def Image(self) -> 'XBitmap_70cd0909':
         """
         contains the menu item image.
         """
+        ...
 
     @abstractproperty
     def SubContainer(self) -> 'XIndexContainer_1c040ebe':
         """
         contains a sub menu.
         """
+        ...
 
     @abstractproperty
     def Text(self) -> str:
         """
         contains the text of the menu entry.
         """
+        ...
 
 
 

@@ -40,6 +40,7 @@ class XAnimateMotion(XAnimate_ca680c52):
         
         The values and semantics of this attribute are dependent upon the used animation engine.
         """
+        ...
 
     @abstractproperty
     def Path(self) -> object:
@@ -48,6 +49,7 @@ class XAnimateMotion(XAnimate_ca680c52):
         
         If a path is used, the From, To and By members are ignored. The value type of the path depends on the used rendering system. Possible types maybe a svg:d path encoded in a string.
         """
+        ...
 
 
 __all__ = ['XAnimateMotion']

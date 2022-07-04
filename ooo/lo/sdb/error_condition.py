@@ -26,8 +26,7 @@ class ErrorCondition(object):
 
     defines error conditions for OpenOffice.org Base core components
     
-    Core components of OpenOffice.org will use those error conditions as error codes (com.sun.star.sdbc.SQLException.ErrorCode) wherever possible.
-    That is, if an SQLException is raised by such a component, caused by an error condition which is included in the ErrorCondition group, then the respective negative value will be used as ErrorCode.
+    Core components of OpenOffice.org will use those error conditions as error codes (com.sun.star.sdbc.SQLException.ErrorCode) wherever possible.That is, if an SQLException is raised by such a component, caused by an error condition which is included in the ErrorCondition group, then the respective negative value will be used as ErrorCode.
     
     This allows to determine specific error conditions in your client code, and to handle it appropriately.
     

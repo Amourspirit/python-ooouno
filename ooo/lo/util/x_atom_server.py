@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.util
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -29,11 +30,9 @@ class XAtomServer(XInterface_8f010a43):
     """
     an interface to map between strings and ids
     
-    a note on atoms:
-    Atoms are abbreviations for strings. When a string gets registered, it is assigned a numeric id so that said string can always be referred to by this id. This way strings have to be transported only once over remote connections. Valid ids are (in this implementation) non zero, signed 32 bit values. An atom of 0 means that the string in question is not registered
+    a note on atoms:Atoms are abbreviations for strings. When a string gets registered, it is assigned a numeric id so that said string can always be referred to by this id. This way strings have to be transported only once over remote connections. Valid ids are (in this implementation) non zero, signed 32 bit values. An atom of 0 means that the string in question is not registered
     
-    Additionally there is the abstraction of atom class:
-    Atoms are grouped into classes, so that an id can be assigned to multiple strings, depending on the class context. The main advantage of this is that atoms in one class may be kept to small numbers, so that bandwidth can be reduced by sending the atoms only as 16 bit values. Note that it is up to the user in this case to handle overflows.
+    Additionally there is the abstraction of atom class:Atoms are grouped into classes, so that an id can be assigned to multiple strings, depending on the class context. The main advantage of this is that atoms in one class may be kept to small numbers, so that bandwidth can be reduced by sending the atoms only as 16 bit values. Note that it is up to the user in this case to handle overflows.
 
     See Also:
         `API XAtomServer <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1util_1_1XAtomServer.html>`_
@@ -48,21 +47,25 @@ class XAtomServer(XInterface_8f010a43):
         """
         registers or searches for a string
         """
+        ...
     @abstractmethod
     def getAtomDescriptions(self, atoms: 'typing.Tuple[AtomClassRequest_e2a60d36, ...]') -> 'typing.Tuple[str, ...]':
         """
         returns the strings for an arbitrary amount of atoms of multiple classes
         """
+        ...
     @abstractmethod
     def getClass(self, atomClass: int) -> 'typing.Tuple[AtomDescription_d6080cdb, ...]':
         """
         returns a whole atom class
         """
+        ...
     @abstractmethod
-    def getClasses(self, atomClasses: 'typing.Tuple[int, ...]') -> 'typing.Tuple[typing.Tuple[AtomDescription_d6080cdb, ...], ...]':
+    def getClasses(self, atomClasses: uno.ByteSequence) -> 'typing.Tuple[typing.Tuple[AtomDescription_d6080cdb, ...], ...]':
         """
         returns multiple atom classes
         """
+        ...
     @abstractmethod
     def getRecentAtoms(self, atomClass: int, atom: int) -> 'typing.Tuple[AtomDescription_d6080cdb, ...]':
         """
@@ -70,6 +73,7 @@ class XAtomServer(XInterface_8f010a43):
         
         Hint to implementor: using ascending atoms is the easiest way to decide, which atoms are recent.
         """
+        ...
 
 __all__ = ['XAtomServer']
 

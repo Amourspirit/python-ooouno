@@ -50,12 +50,14 @@ class UnoControlSpinButtonModel(UnoControlModel_c8ce0c58):
         """
         specifies the RGB color to be used for the control
         """
+        ...
 
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+        ...
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -68,24 +70,28 @@ class UnoControlSpinButtonModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def MouseWheelBehavior(self) -> int:
@@ -94,18 +100,21 @@ class UnoControlSpinButtonModel(UnoControlModel_c8ce0c58):
         
         Usually, the mouse wheel spins the numeric value displayed in the control. Using this property, and one of the MouseWheelBehavior constants, you can control under which circumstances this is possible.
         """
+        ...
 
     @abstractproperty
     def Orientation(self) -> int:
         """
         specifies the ScrollBarOrientation of the control.
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies whether the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def Repeat(self) -> bool:
@@ -114,6 +123,7 @@ class UnoControlSpinButtonModel(UnoControlModel_c8ce0c58):
         
         repeatedly trigger an action when keeping pressed.
         """
+        ...
 
     @abstractproperty
     def RepeatDelay(self) -> int:
@@ -122,36 +132,42 @@ class UnoControlSpinButtonModel(UnoControlModel_c8ce0c58):
         
         When the user presses a mouse in a control area where this triggers an action (such as spinning the value), then usual control implementations allow to repeatedly trigger this action, without the need to release the mouse button and to press it again. The delay between two such triggers is specified with this property.
         """
+        ...
 
     @abstractproperty
     def SpinIncrement(self) -> int:
         """
         specifies the increment by which the value is changed when using operating the spin button.
         """
+        ...
 
     @abstractproperty
     def SpinValue(self) -> int:
         """
         specifies the current value of the control.
         """
+        ...
 
     @abstractproperty
     def SpinValueMax(self) -> int:
         """
         specifies the maximum value of the control.
         """
+        ...
 
     @abstractproperty
     def SpinValueMin(self) -> int:
         """
         specifies the minimum value of the control.
         """
+        ...
 
     @abstractproperty
     def SymbolColor(self) -> 'Color_68e908c5':
         """
         specifies the RGB color to be used when painting symbols which are part of the control's appearance, such as the arrow buttons.
         """
+        ...
 
 
 

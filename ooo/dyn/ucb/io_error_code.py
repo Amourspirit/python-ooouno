@@ -25,58 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.ucb.IOErrorCode import (ABORT, ACCESS_DENIED, ALREADY_EXISTING, BAD_CRC, CANT_CREATE, CANT_READ, CANT_SEEK, CANT_TELL, CANT_WRITE, CURRENT_DIRECTORY, DEVICE_NOT_READY, DIFFERENT_DEVICES, GENERAL, INVALID_ACCESS, INVALID_CHARACTER, INVALID_DEVICE, INVALID_LENGTH, INVALID_PARAMETER, IS_WILDCARD, LOCKING_VIOLATION, MISPLACED_CHARACTER, NAME_TOO_LONG, NOT_EXISTING, NOT_EXISTING_PATH, NOT_SUPPORTED, NO_DIRECTORY, NO_FILE, OUT_OF_DISK_SPACE, OUT_OF_FILE_HANDLES, OUT_OF_MEMORY, PENDING, RECURSIVE, UNKNOWN, WRITE_PROTECTED, WRONG_FORMAT, WRONG_VERSION)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.ucb.IOErrorCode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.ucb",
-            "__ooo_full_ns__": "com.sun.star.ucb.IOErrorCode",
-            "__ooo_type_name__": "enum",
-            "ABORT": ABORT,
-            "ACCESS_DENIED": ACCESS_DENIED,
-            "ALREADY_EXISTING": ALREADY_EXISTING,
-            "BAD_CRC": BAD_CRC,
-            "CANT_CREATE": CANT_CREATE,
-            "CANT_READ": CANT_READ,
-            "CANT_SEEK": CANT_SEEK,
-            "CANT_TELL": CANT_TELL,
-            "CANT_WRITE": CANT_WRITE,
-            "CURRENT_DIRECTORY": CURRENT_DIRECTORY,
-            "DEVICE_NOT_READY": DEVICE_NOT_READY,
-            "DIFFERENT_DEVICES": DIFFERENT_DEVICES,
-            "GENERAL": GENERAL,
-            "INVALID_ACCESS": INVALID_ACCESS,
-            "INVALID_CHARACTER": INVALID_CHARACTER,
-            "INVALID_DEVICE": INVALID_DEVICE,
-            "INVALID_LENGTH": INVALID_LENGTH,
-            "INVALID_PARAMETER": INVALID_PARAMETER,
-            "IS_WILDCARD": IS_WILDCARD,
-            "LOCKING_VIOLATION": LOCKING_VIOLATION,
-            "MISPLACED_CHARACTER": MISPLACED_CHARACTER,
-            "NAME_TOO_LONG": NAME_TOO_LONG,
-            "NOT_EXISTING": NOT_EXISTING,
-            "NOT_EXISTING_PATH": NOT_EXISTING_PATH,
-            "NOT_SUPPORTED": NOT_SUPPORTED,
-            "NO_DIRECTORY": NO_DIRECTORY,
-            "NO_FILE": NO_FILE,
-            "OUT_OF_DISK_SPACE": OUT_OF_DISK_SPACE,
-            "OUT_OF_FILE_HANDLES": OUT_OF_FILE_HANDLES,
-            "OUT_OF_MEMORY": OUT_OF_MEMORY,
-            "PENDING": PENDING,
-            "RECURSIVE": RECURSIVE,
-            "UNKNOWN": UNKNOWN,
-            "WRITE_PROTECTED": WRITE_PROTECTED,
-            "WRONG_FORMAT": WRONG_FORMAT,
-            "WRONG_VERSION": WRONG_VERSION,
-        }
-        result = type('IOErrorCode', (object,), _dict)
-        return result
-
-    IOErrorCode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class IOErrorCode(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.IOErrorCode", name_space="com.sun.star.ucb"):
+        """Dynamically created class that represents ``com.sun.star.ucb.IOErrorCode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.ucb.io_error_code import IOErrorCode as IOErrorCode
 

@@ -44,7 +44,7 @@ class ChartDataRow(object):
     typeName: str = 'com.sun.star.chart.ChartDataRow'
     """Literal Constant ``com.sun.star.chart.ChartDataRow``"""
 
-    def __init__(self, Points: typing.Optional[typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...]] = UNO_NONE, Name: typing.Optional[str] = '') -> None:
+    def __init__(self, Points: typing.Optional[typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...]] = (), Name: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class ChartDataRow(object):
             "Points": Points,
             "Name": Name,
         }
-        if kargs["Points"] is UNO_NONE:
-            kargs["Points"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

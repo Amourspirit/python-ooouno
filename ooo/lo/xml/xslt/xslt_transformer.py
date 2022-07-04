@@ -45,6 +45,7 @@ class XSLTTransformer(XXSLTTransformer_17b50e88):
     def create(self, args: 'typing.Tuple[object, ...]') -> None:
         """
         """
+        ...
 
 
 __all__ = ['XSLTTransformer']

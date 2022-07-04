@@ -40,11 +40,13 @@ class XClipboardNotifier(XInterface_8f010a43):
         """
         Requests notifications on clipboard content changes.
         """
+        ...
     @abstractmethod
     def removeClipboardListener(self, listener: 'XClipboardListener_3e501513') -> None:
         """
         Removes listener from notification list.
         """
+        ...
 
 __all__ = ['XClipboardNotifier']
 

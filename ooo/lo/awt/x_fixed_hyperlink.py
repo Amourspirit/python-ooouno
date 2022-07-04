@@ -41,41 +41,49 @@ class XFixedHyperlink(XInterface_8f010a43):
         """
         registers an event handler for click action event.
         """
+        ...
     @abstractmethod
     def getAlignment(self) -> int:
         """
         returns the alignment of the text in the control.
         """
+        ...
     @abstractmethod
     def getText(self) -> str:
         """
         returns the text of the control.
         """
+        ...
     @abstractmethod
     def getURL(self) -> str:
         """
         returns the url of the control.
         """
+        ...
     @abstractmethod
     def removeActionListener(self, l: 'XActionListener_c7560c50') -> None:
         """
         unregisters an event handler for click action event.
         """
+        ...
     @abstractmethod
     def setAlignment(self, nAlign: int) -> None:
         """
         sets the alignment of the text in the control.
         """
+        ...
     @abstractmethod
     def setText(self, Text: str) -> None:
         """
         sets the text of the control.
         """
+        ...
     @abstractmethod
     def setURL(self, URL: str) -> None:
         """
         sets the url of the control.
         """
+        ...
 
 __all__ = ['XFixedHyperlink']
 

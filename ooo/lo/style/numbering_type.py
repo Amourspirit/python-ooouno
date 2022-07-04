@@ -437,8 +437,7 @@ class NumberingType(object):
     """
     ARABIC_ZERO = 64
     """
-    Numbering is in Arabic numbers, padded with zero to have a length of at least two, as \"01,
-    02, ..., 10, 11, ...\".
+    Numbering is in Arabic numbers, padded with zero to have a length of at least two, as \"01,02, ..., 10, 11, ...\".
     
     **since**
     

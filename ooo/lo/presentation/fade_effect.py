@@ -34,6 +34,10 @@ class FadeEffect(Enum):
     __ooo_full_ns__: str = 'com.sun.star.presentation.FadeEffect'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.presentation.FadeEffect'
+
     CLOCKWISE = 'CLOCKWISE'
     """
     use the animation effect \"Clockwise\".

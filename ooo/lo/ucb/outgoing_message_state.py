@@ -34,6 +34,10 @@ class OutgoingMessageState(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.OutgoingMessageState'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.OutgoingMessageState'
+
     COMPLETELY_LOCALLY_SENT = 'COMPLETELY_LOCALLY_SENT'
     """
     Message has been sent upstream to all recipients.

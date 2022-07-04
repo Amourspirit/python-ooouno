@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import SizeType as SizeType
-    if hasattr(SizeType, '_constants') and isinstance(SizeType._constants, dict):
-        SizeType._constants['__ooo_ns__'] = 'com.sun.star.text'
-        SizeType._constants['__ooo_full_ns__'] = 'com.sun.star.text.SizeType'
-        SizeType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SizeTypeEnum
-        ls = [f for f in dir(SizeType) if not callable(getattr(SizeType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SizeType, name)
-        SizeTypeEnum = IntEnum('SizeTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class SizeType(metaclass=UnoConstMeta, type_name="com.sun.star.text.SizeType", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.SizeType``"""
+        pass
+
+    class SizeTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.SizeType", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.SizeType`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.size_type import SizeType as SizeType
 

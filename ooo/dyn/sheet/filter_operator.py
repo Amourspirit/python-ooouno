@@ -25,34 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.FilterOperator import (BOTTOM_PERCENT, BOTTOM_VALUES, EMPTY, EQUAL, GREATER, GREATER_EQUAL, LESS, LESS_EQUAL, NOT_EMPTY, NOT_EQUAL, TOP_PERCENT, TOP_VALUES)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.FilterOperator Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.FilterOperator",
-            "__ooo_type_name__": "enum",
-            "BOTTOM_PERCENT": BOTTOM_PERCENT,
-            "BOTTOM_VALUES": BOTTOM_VALUES,
-            "EMPTY": EMPTY,
-            "EQUAL": EQUAL,
-            "GREATER": GREATER,
-            "GREATER_EQUAL": GREATER_EQUAL,
-            "LESS": LESS,
-            "LESS_EQUAL": LESS_EQUAL,
-            "NOT_EMPTY": NOT_EMPTY,
-            "NOT_EQUAL": NOT_EQUAL,
-            "TOP_PERCENT": TOP_PERCENT,
-            "TOP_VALUES": TOP_VALUES,
-        }
-        result = type('FilterOperator', (object,), _dict)
-        return result
-
-    FilterOperator = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FilterOperator(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FilterOperator", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.FilterOperator`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.filter_operator import FilterOperator as FilterOperator
 

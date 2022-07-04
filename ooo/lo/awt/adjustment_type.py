@@ -34,6 +34,10 @@ class AdjustmentType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.AdjustmentType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.AdjustmentType'
+
     ADJUST_ABS = 'ADJUST_ABS'
     """
     adjustment is originated by dragging the thumb.

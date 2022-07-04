@@ -45,6 +45,7 @@ class XFilterAdapter(XInterface_8f010a43):
     def convert(self, xml: 'XInputStream_98d40ab4', device: 'XOutputStream_a4e00b35', convertToOffice: bool, pluginUrl: str, fileName: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XFilterAdapter']
 

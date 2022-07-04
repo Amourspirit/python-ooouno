@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import IndexType as IndexType
-    if hasattr(IndexType, '_constants') and isinstance(IndexType._constants, dict):
-        IndexType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        IndexType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.IndexType'
-        IndexType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global IndexTypeEnum
-        ls = [f for f in dir(IndexType) if not callable(getattr(IndexType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(IndexType, name)
-        IndexTypeEnum = IntEnum('IndexTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class IndexType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.IndexType", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.IndexType``"""
+        pass
+
+    class IndexTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.IndexType", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.IndexType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.index_type import IndexType as IndexType
 

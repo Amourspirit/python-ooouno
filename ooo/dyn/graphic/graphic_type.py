@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.graphic import GraphicType as GraphicType
-    if hasattr(GraphicType, '_constants') and isinstance(GraphicType._constants, dict):
-        GraphicType._constants['__ooo_ns__'] = 'com.sun.star.graphic'
-        GraphicType._constants['__ooo_full_ns__'] = 'com.sun.star.graphic.GraphicType'
-        GraphicType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global GraphicTypeEnum
-        ls = [f for f in dir(GraphicType) if not callable(getattr(GraphicType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(GraphicType, name)
-        GraphicTypeEnum = IntEnum('GraphicTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class GraphicType(metaclass=UnoConstMeta, type_name="com.sun.star.graphic.GraphicType", name_space="com.sun.star.graphic"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.graphic.GraphicType``"""
+        pass
+
+    class GraphicTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.graphic.GraphicType", name_space="com.sun.star.graphic"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.graphic.GraphicType`` as Enum values"""
+        pass
+
 else:
     from ...lo.graphic.graphic_type import GraphicType as GraphicType
 

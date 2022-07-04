@@ -43,6 +43,7 @@ class XTerminateListener2(XTerminateListener_b760e5a):
         
         Termination can be intercepted by throwing TerminationVetoException. But if a listener was queried for termination .. doesn't throw a veto exception ... it doesn't know if termination will be real next time. Because any other listener can throw those exception too ... and so it can happen that after queryTermination() no notifyTermination() will occur. But these listener don't know if it's allowed to start new processes then. Using this optional(!) interface will make it possible to be informed about canceled termination requests also.
         """
+        ...
 
 __all__ = ['XTerminateListener2']
 

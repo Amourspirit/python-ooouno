@@ -34,6 +34,10 @@ class Alignment(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.Alignment'
+
     BOTTOM = 'BOTTOM'
     """
     the connection line leaves the connected object from the bottom,

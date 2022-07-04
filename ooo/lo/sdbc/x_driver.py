@@ -54,6 +54,7 @@ class XDriver(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def connect(self, url: str, info: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XConnection_a36a0b0c':
         """
@@ -68,6 +69,7 @@ class XDriver(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMajorVersion(self) -> int:
         """
@@ -75,6 +77,7 @@ class XDriver(XInterface_8f010a43):
         
         Initially this should be 1.
         """
+        ...
     @abstractmethod
     def getMinorVersion(self) -> int:
         """
@@ -82,6 +85,7 @@ class XDriver(XInterface_8f010a43):
         
         Initially this should be 0.
         """
+        ...
     @abstractmethod
     def getPropertyInfo(self, url: str, info: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'typing.Tuple[DriverPropertyInfo_fd970e01, ...]':
         """
@@ -92,6 +96,7 @@ class XDriver(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDriver']
 

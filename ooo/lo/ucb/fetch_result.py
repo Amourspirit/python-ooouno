@@ -39,7 +39,7 @@ class FetchResult(object):
     typeName: str = 'com.sun.star.ucb.FetchResult'
     """Literal Constant ``com.sun.star.ucb.FetchResult``"""
 
-    def __init__(self, Rows: typing.Optional[typing.Tuple[object, ...]] = UNO_NONE, StartIndex: typing.Optional[int] = 0, Orientation: typing.Optional[bool] = False, FetchError: typing.Optional[int] = 0) -> None:
+    def __init__(self, Rows: typing.Optional[typing.Tuple[object, ...]] = (), StartIndex: typing.Optional[int] = 0, Orientation: typing.Optional[bool] = False, FetchError: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -65,8 +65,6 @@ class FetchResult(object):
             "Orientation": Orientation,
             "FetchError": FetchError,
         }
-        if kargs["Rows"] is UNO_NONE:
-            kargs["Rows"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

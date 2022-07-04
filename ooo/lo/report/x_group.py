@@ -47,60 +47,70 @@ class XGroup(XPropertySet_bc180bfa, XChild_a6390b07, XComponent_98dc0ab5, XFunct
         """
         Defines either a column name or an expression.
         """
+        ...
 
     @abstractproperty
     def Footer(self) -> 'XSection_9b630ad1':
         """
         returns the group footer.
         """
+        ...
 
     @abstractproperty
     def FooterOn(self) -> bool:
         """
         Defines if a group has a footer.
         """
+        ...
 
     @abstractproperty
     def GroupInterval(self) -> int:
         """
         Defines an interval value that rows are grouped by.
         """
+        ...
 
     @abstractproperty
     def GroupOn(self) -> int:
         """
         Specifies how to group data.
         """
+        ...
 
     @abstractproperty
     def Groups(self) -> 'XGroups_90d00a7c':
         """
         Specifies the parent of the group.
         """
+        ...
 
     @abstractproperty
     def Header(self) -> 'XSection_9b630ad1':
         """
         returns the group header.
         """
+        ...
 
     @abstractproperty
     def HeaderOn(self) -> bool:
         """
         Defines if a group has a header.
         """
+        ...
 
     @abstractproperty
     def KeepTogether(self) -> int:
         """
         Specifies if a group header, detail, and footer section is printed on the same page.
         """
+        ...
 
     @abstractproperty
     def ResetPageNumber(self) -> bool:
         """
         Specifies that the group header should always be printed on a new page and the reset of the page number to zero.
         """
+        ...
 
     @abstractproperty
     def SortAscending(self) -> bool:
@@ -109,12 +119,14 @@ class XGroup(XPropertySet_bc180bfa, XChild_a6390b07, XComponent_98dc0ab5, XFunct
         
         The default is TRUE.
         """
+        ...
 
     @abstractproperty
     def StartNewColumn(self) -> bool:
         """
         Specifies that the group header should always be printed on a new column.
         """
+        ...
 
 
 __all__ = ['XGroup']

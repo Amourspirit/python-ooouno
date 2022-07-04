@@ -41,6 +41,7 @@ class XRemoteContentProviderChangeListener(XEventListener_c7230c4a):
         """
         gets called whenever changes to a com.sun.star.ucb.XRemoteContentProviderSupplier occur.
         """
+        ...
 
 __all__ = ['XRemoteContentProviderChangeListener']
 

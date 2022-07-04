@@ -45,21 +45,25 @@ class XDataTransferProviderAccess(XInterface_8f010a43):
         """
         returns the specified clipboard.
         """
+        ...
     @abstractmethod
     def getDragGestureRecognizer(self, window: 'XWindow_713b0924') -> 'XDragGestureRecognizer_10741438':
         """
         returns the drag gesture recognizer of the specified window.
         """
+        ...
     @abstractmethod
     def getDragSource(self, window: 'XWindow_713b0924') -> 'XDragSource_49900fb2':
         """
         returns the drag source of the specified window.
         """
+        ...
     @abstractmethod
     def getDropTarget(self, window: 'XWindow_713b0924') -> 'XDropTarget_49e50fbf':
         """
         returns the drop target of the specified window.
         """
+        ...
 
 __all__ = ['XDataTransferProviderAccess']
 

@@ -51,12 +51,14 @@ class ConfigurableUIElement(UIElement_78af094e, XUIElementSettings_ddbb0cf7):
         
         If the property Persistent is TRUE changes on the structure of the user interface element are written back to configuration source. When this property is changed, afterwards XUIElementSettings.updateSettings() must be called so the user interface element tries to retrieve its settings from the new user interface configuration manager.
         """
+        ...
 
     @abstractproperty
     def Persistent(self) -> bool:
         """
         specifies if the user interface element stores changes of its structure to its creator source defined by the property ConfigurationSource.
         """
+        ...
 
 
 

@@ -40,6 +40,7 @@ class XPrintSettingsSupplier(XInterface_8f010a43):
     def getPrintSettings(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
 
 __all__ = ['XPrintSettingsSupplier']
 

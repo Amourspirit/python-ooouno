@@ -34,6 +34,10 @@ class FillDateMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.FillDateMode'
+
     FILL_DATE_DAY = 'FILL_DATE_DAY'
     """
     for every new value a single day is added.

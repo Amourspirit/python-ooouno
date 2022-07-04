@@ -43,6 +43,7 @@ class XConfigurationChangeListener(XEventListener_c7230c4a):
         
         The order in which listeners are called is the order in which they are registered (First registered, first called.)
         """
+        ...
 
 __all__ = ['XConfigurationChangeListener']
 

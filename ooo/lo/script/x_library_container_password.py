@@ -54,6 +54,7 @@ class XLibraryContainerPassword(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def isLibraryPasswordProtected(self, Name: str) -> bool:
         """
@@ -64,6 +65,7 @@ class XLibraryContainerPassword(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def isLibraryPasswordVerified(self, Name: str) -> bool:
         """
@@ -77,6 +79,7 @@ class XLibraryContainerPassword(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def verifyLibraryPassword(self, Name: str, Password: str) -> bool:
         """
@@ -94,6 +97,7 @@ class XLibraryContainerPassword(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XLibraryContainerPassword']
 

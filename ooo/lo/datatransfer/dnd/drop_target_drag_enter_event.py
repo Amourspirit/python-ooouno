@@ -43,7 +43,7 @@ class DropTargetDragEnterEvent(DropTargetDragEvent_d60612e7):
     typeName: str = 'com.sun.star.datatransfer.dnd.DropTargetDragEnterEvent'
     """Literal Constant ``com.sun.star.datatransfer.dnd.DropTargetDragEnterEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0, Context: typing.Optional[XDropTargetDragContext_10221422] = None, DropAction: typing.Optional[int] = 0, LocationX: typing.Optional[int] = 0, LocationY: typing.Optional[int] = 0, SourceActions: typing.Optional[int] = 0, SupportedDataFlavors: typing.Optional[typing.Tuple[DataFlavor_ffd30deb, ...]] = UNO_NONE) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, Dummy: typing.Optional[int] = 0, Context: typing.Optional[XDropTargetDragContext_10221422] = None, DropAction: typing.Optional[int] = 0, LocationX: typing.Optional[int] = 0, LocationY: typing.Optional[int] = 0, SourceActions: typing.Optional[int] = 0, SupportedDataFlavors: typing.Optional[typing.Tuple[DataFlavor_ffd30deb, ...]] = ()) -> None:
         """
         Constructor
 
@@ -80,8 +80,6 @@ class DropTargetDragEnterEvent(DropTargetDragEvent_d60612e7):
             "SourceActions": SourceActions,
             "SupportedDataFlavors": SupportedDataFlavors,
         }
-        if kargs["SupportedDataFlavors"] is UNO_NONE:
-            kargs["SupportedDataFlavors"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

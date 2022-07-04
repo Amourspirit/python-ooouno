@@ -46,10 +46,12 @@ class XTransition(XInterface_8f010a43):
         """
         Update transition on screen to given time state.
         """
+        ...
     @abstractmethod
     def viewChanged(self, view: 'XSlideShowView_3eb40fa9', leavingBitmap: 'XBitmap_b1b70b7b', enteringBitmap: 'XBitmap_b1b70b7b') -> None:
         """
         """
+        ...
 
 __all__ = ['XTransition']
 

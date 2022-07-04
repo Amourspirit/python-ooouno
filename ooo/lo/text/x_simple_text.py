@@ -42,11 +42,13 @@ class XSimpleText(XTextRange_9a910ab7):
     def createTextCursor(self) -> 'XTextCursor_a60c0b48':
         """
         """
+        ...
     @abstractmethod
     def createTextCursorByRange(self, aTextPosition: 'XTextRange_9a910ab7') -> 'XTextCursor_a60c0b48':
         """
         The initial position is set to aTextPosition.
         """
+        ...
     @abstractmethod
     def insertControlCharacter(self, xRange: 'XTextRange_9a910ab7', nControlCharacter: int, bAbsorb: bool) -> None:
         """
@@ -55,6 +57,7 @@ class XSimpleText(XTextRange_9a910ab7):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def insertString(self, xRange: 'XTextRange_9a910ab7', aString: str, bAbsorb: bool) -> None:
         """
@@ -64,6 +67,7 @@ class XSimpleText(XTextRange_9a910ab7):
         
         If the parameter bAbsorb() was TRUE the text range will contain the new inserted string, otherwise the range (and it's text) will remain unchanged.
         """
+        ...
 
 __all__ = ['XSimpleText']
 

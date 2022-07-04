@@ -48,6 +48,7 @@ class XStruct(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSQLTypeName(self) -> str:
         """
@@ -56,6 +57,7 @@ class XStruct(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XStruct']
 

@@ -19,6 +19,7 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.chart2.data
 import typing
+import uno
 from abc import abstractproperty
 from ...beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_data_sequence import XDataSequence as XDataSequence_11f00e1f
@@ -48,16 +49,18 @@ class DataSequence(XPropertySet_bc180bfa, XDataSequence_11f00e1f, XNumericalData
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
-    def HiddenValues(self) -> 'typing.Tuple[int, ...]':
+    def HiddenValues(self) -> uno.ByteSequence:
         """
         a sequence of indexes that identify values that are hidden in the underlying data provider.
         """
+        ...
 
     @abstractproperty
     def IncludeHiddenCells(self) -> bool:
         """
         If set to false FALSE, values from hidden cells are not returned.
         """
+        ...
 
     @abstractproperty
     def Role(self) -> 'DataSequenceRole_3f520f59':
@@ -68,6 +71,7 @@ class DataSequence(XPropertySet_bc180bfa, XDataSequence_11f00e1f, XNumericalData
         
         The role of the series inside a data series. This may be any string. However some strings are predefined and should always be used in the same way.
         """
+        ...
 
 
 

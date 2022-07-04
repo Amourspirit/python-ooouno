@@ -43,6 +43,7 @@ class XFrameActionListener(XEventListener_c7230c4a):
         """
         is called whenever any action occurs to a component within a frame.
         """
+        ...
 
 __all__ = ['XFrameActionListener']
 

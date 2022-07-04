@@ -47,6 +47,7 @@ class XModel(ABC):
         
         The returned binding still needs to be inserted into the bindings container.
         """
+        ...
     @abstractmethod
     def cloneSubmission(self, submission: 'XPropertySet_bc180bfa') -> 'XSubmission_bf230c2b':
         """
@@ -54,6 +55,7 @@ class XModel(ABC):
         
         The returned submission element still needs to be inserted into the submission container.
         """
+        ...
     @abstractmethod
     def createBinding(self) -> 'XPropertySet_bc180bfa':
         """
@@ -61,6 +63,7 @@ class XModel(ABC):
         
         The returned binding still needs to be inserted into the bindings container.
         """
+        ...
     @abstractmethod
     def createSubmission(self) -> 'XSubmission_bf230c2b':
         """
@@ -68,6 +71,7 @@ class XModel(ABC):
         
         The returned submission element still needs to be inserted into the submission container.
         """
+        ...
     @abstractmethod
     def getBinding(self, id: str) -> 'XPropertySet_bc180bfa':
         """
@@ -75,31 +79,37 @@ class XModel(ABC):
         
         This is a convenience method: the same result can also be obtained through getBindings()
         """
+        ...
     @abstractmethod
     def getBindings(self) -> 'XSet_90c40a4f':
         """
         get a container containing all bindings; also supports XNameAccess
         """
+        ...
     @abstractmethod
     def getDataTypeRepository(self) -> 'XDataTypeRepository_2bbb0f5b':
         """
         provides management access to the XSD data types associated with the model
         """
+        ...
     @abstractmethod
     def getDefaultInstance(self) -> 'XDocument_aebc0b5e':
         """
         get the default instance for this model
         """
+        ...
     @abstractmethod
     def getID(self) -> str:
         """
         get the XForms model ID
         """
+        ...
     @abstractmethod
     def getInstanceDocument(self, id: str) -> 'XDocument_aebc0b5e':
         """
         retrieves the instance with the given id
         """
+        ...
     @abstractmethod
     def getInstances(self) -> 'XSet_90c40a4f':
         """
@@ -107,6 +117,7 @@ class XModel(ABC):
         
         The elements of the set are arrays of com.sun.star.beans.PropertyValues, containing the ID, the URL, and the instance itself.
         """
+        ...
     @abstractmethod
     def getSubmission(self, id: str) -> 'XSubmission_bf230c2b':
         """
@@ -114,41 +125,49 @@ class XModel(ABC):
         
         This is a convenience method: the same result can also be obtained through getSubmissions().
         """
+        ...
     @abstractmethod
     def getSubmissions(self) -> 'XSet_90c40a4f':
         """
         get container containing all submissions; also supports XNameAccess
         """
+        ...
     @abstractmethod
     def initialize(self) -> None:
         """
         initialize the model
         """
+        ...
     @abstractmethod
     def rebuild(self) -> None:
         """
         rebuild the model
         """
+        ...
     @abstractmethod
     def recalculate(self) -> None:
         """
         re-evaluate all calculate attributes
         """
+        ...
     @abstractmethod
     def refresh(self) -> None:
         """
         refresh the model
         """
+        ...
     @abstractmethod
     def revalidate(self) -> None:
         """
         re-evaluate all validity attributes
         """
+        ...
     @abstractmethod
     def setID(self, id: str) -> None:
         """
         set the XForms model ID
         """
+        ...
     @abstractmethod
     def submit(self, id: str) -> None:
         """
@@ -160,6 +179,7 @@ class XModel(ABC):
             com.sun.star.util.VetoException: ``VetoException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def submitWithInteraction(self, id: str, aHandler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -171,6 +191,7 @@ class XModel(ABC):
             com.sun.star.util.VetoException: ``VetoException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XModel']
 

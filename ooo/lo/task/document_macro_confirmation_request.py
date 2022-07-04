@@ -45,7 +45,7 @@ class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
     typeName: str = 'com.sun.star.task.DocumentMacroConfirmationRequest'
     """Literal Constant ``com.sun.star.task.DocumentMacroConfirmationRequest``"""
 
-    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, DocumentSignatureInformation: typing.Optional[typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]] = UNO_NONE, DocumentURL: typing.Optional[str] = '', DocumentStorage: typing.Optional[XStorage_8e460a32] = None, DocumentVersion: typing.Optional[str] = '') -> None:
+    def __init__(self, Message: typing.Optional[str] = '', Context: typing.Optional[XInterface_8f010a43] = None, Classification: typing.Optional[InteractionClassification_6c4d10e7] = InteractionClassification_6c4d10e7.ERROR, DocumentSignatureInformation: typing.Optional[typing.Tuple[DocumentSignatureInformation_f36c13f7, ...]] = (), DocumentURL: typing.Optional[str] = '', DocumentStorage: typing.Optional[XStorage_8e460a32] = None, DocumentVersion: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -67,8 +67,6 @@ class DocumentMacroConfirmationRequest(ClassifiedInteractionRequest_9f72121b):
             "DocumentStorage": DocumentStorage,
             "DocumentVersion": DocumentVersion,
         }
-        if kargs["DocumentSignatureInformation"] is UNO_NONE:
-            kargs["DocumentSignatureInformation"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

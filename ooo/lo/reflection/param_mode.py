@@ -34,6 +34,10 @@ class ParamMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.reflection.ParamMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.reflection.ParamMode'
+
     IN = 'IN'
     """
     parameter serves as pure input for a called method

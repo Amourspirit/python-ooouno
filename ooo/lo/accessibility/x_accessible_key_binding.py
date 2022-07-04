@@ -54,11 +54,13 @@ class XAccessibleKeyBinding(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleKeyBindingCount(self) -> int:
         """
         Return the number of available key bindings.
         """
+        ...
 
 __all__ = ['XAccessibleKeyBinding']
 

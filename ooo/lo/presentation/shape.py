@@ -46,6 +46,7 @@ class Shape(ABC):
         """
         is a generic URL for the property OnClick.
         """
+        ...
 
     @abstractproperty
     def DimColor(self) -> 'Color_68e908c5':
@@ -54,30 +55,35 @@ class Shape(ABC):
         
         This color is used if the property com.sun.star.drawing.Shape.DimPrev is TRUE and com.sun.star.drawing.Shape.DimHide is FALSE.
         """
+        ...
 
     @abstractproperty
     def DimHide(self) -> bool:
         """
         If this property and the property com.sun.star.drawing.Shape.DimPrev are both TRUE, the shape is hidden instead of dimmed to a color.
         """
+        ...
 
     @abstractproperty
     def DimPrevious(self) -> bool:
         """
         If this property is TRUE, this shape is dimmed to the color of property com.sun.star.drawing.Shape.DimColor after executing its animation effect.
         """
+        ...
 
     @abstractproperty
     def Effect(self) -> 'AnimationEffect_4f571011':
         """
         selects the animation effect of this shape.
         """
+        ...
 
     @abstractproperty
     def IsEmptyPresentationObject(self) -> bool:
         """
         If this is a default presentation object and if it is empty, this property is TRUE.
         """
+        ...
 
     @abstractproperty
     def IsPresentationObject(self) -> bool:
@@ -86,12 +92,14 @@ class Shape(ABC):
         
         Presentation objects are objects like TitleTextShape and OutlinerShape.
         """
+        ...
 
     @abstractproperty
     def OnClick(self) -> 'ClickAction_10a30e68':
         """
         selects an action performed after the user clicks on this shape.
         """
+        ...
 
     @abstractproperty
     def PlayFull(self) -> bool:
@@ -100,6 +108,7 @@ class Shape(ABC):
         
         The default behavior is to stop the sound after completing the animation effect.
         """
+        ...
 
     @abstractproperty
     def PresentationOrder(self) -> int:
@@ -108,36 +117,42 @@ class Shape(ABC):
         
         The animations are executed in this order, starting at the shape with the PresentationOrder \"one.\" You can change the order by changing this number. Setting it to \"one\" makes this shape the first shape in the execution order for the animation effects.
         """
+        ...
 
     @abstractproperty
     def Sound(self) -> str:
         """
         This is the URL to a sound file that is played while the animation effect of this shape is running.
         """
+        ...
 
     @abstractproperty
     def SoundOn(self) -> bool:
         """
         If this property is set to TRUE, a sound is played while the animation effect is executed.
         """
+        ...
 
     @abstractproperty
     def Speed(self) -> 'AnimationSpeed_3fb20fb5':
         """
         This is the speed of the animation effect.
         """
+        ...
 
     @abstractproperty
     def TextEffect(self) -> 'AnimationEffect_4f571011':
         """
         This is the animation effect for the text inside this shape.
         """
+        ...
 
     @abstractproperty
     def Verb(self) -> int:
         """
         specifies an \"OLE2\" verb for the ClickAction VERB in the property com.sun.star.drawing.Shape.OnClick.
         """
+        ...
 
 
 

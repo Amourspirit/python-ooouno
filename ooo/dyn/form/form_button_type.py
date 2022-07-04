@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.form.FormButtonType import (PUSH, RESET, SUBMIT, URL)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.form.FormButtonType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.form",
-            "__ooo_full_ns__": "com.sun.star.form.FormButtonType",
-            "__ooo_type_name__": "enum",
-            "PUSH": PUSH,
-            "RESET": RESET,
-            "SUBMIT": SUBMIT,
-            "URL": URL,
-        }
-        result = type('FormButtonType', (object,), _dict)
-        return result
-
-    FormButtonType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FormButtonType(metaclass=UnoEnumMeta, type_name="com.sun.star.form.FormButtonType", name_space="com.sun.star.form"):
+        """Dynamically created class that represents ``com.sun.star.form.FormButtonType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.form.form_button_type import FormButtonType as FormButtonType
 

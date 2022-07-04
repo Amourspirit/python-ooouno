@@ -44,10 +44,12 @@ class XLinguServiceEventBroadcaster(XInterface_8f010a43):
     def addLinguServiceEventListener(self, xLstnr: 'XLinguServiceEventListener_fda313e5') -> bool:
         """
         """
+        ...
     @abstractmethod
     def removeLinguServiceEventListener(self, xLstnr: 'XLinguServiceEventListener_fda313e5') -> bool:
         """
         """
+        ...
 
 __all__ = ['XLinguServiceEventBroadcaster']
 

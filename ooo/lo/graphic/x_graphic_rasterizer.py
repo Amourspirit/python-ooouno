@@ -58,6 +58,7 @@ class XGraphicRasterizer(XInterface_8f010a43):
 
         * ``DefaultSizePixel`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def rasterize(self, Width: int, Height: int, RotateAngle: float, ShearAngleX: float, ShearAngleY: float, RasterizeProperties: 'PropertyValues_d6470ce6') -> 'XGraphic_a4da0afc':
         """
@@ -67,6 +68,7 @@ class XGraphicRasterizer(XInterface_8f010a43):
         
         In case of any fault during the rasterization process, the XGraphic container will be empty afterwards and the method will return false
         """
+        ...
 
 __all__ = ['XGraphicRasterizer']
 

@@ -21,24 +21,22 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import InvalidateStyle as InvalidateStyle
-    if hasattr(InvalidateStyle, '_constants') and isinstance(InvalidateStyle._constants, dict):
-        InvalidateStyle._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        InvalidateStyle._constants['__ooo_full_ns__'] = 'com.sun.star.awt.InvalidateStyle'
-        InvalidateStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global InvalidateStyleEnum
-        ls = [f for f in dir(InvalidateStyle) if not callable(getattr(InvalidateStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(InvalidateStyle, name)
-        InvalidateStyleEnum = IntFlag('InvalidateStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class InvalidateStyle(metaclass=UnoConstMeta, type_name="com.sun.star.awt.InvalidateStyle", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.InvalidateStyle``"""
+        pass
+
+    class InvalidateStyleEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.InvalidateStyle", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.InvalidateStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.invalidate_style import InvalidateStyle as InvalidateStyle
 

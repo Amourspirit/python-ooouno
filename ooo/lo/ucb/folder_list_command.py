@@ -34,6 +34,10 @@ class FolderListCommand(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.FolderListCommand'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.FolderListCommand'
+
     GET = 'GET'
     """
     Get a list of all folders.

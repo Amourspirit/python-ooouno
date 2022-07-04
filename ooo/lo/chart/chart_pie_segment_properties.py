@@ -43,6 +43,7 @@ class ChartPieSegmentProperties(ChartDataPointProperties_677c10bd):
         
         Currently this property is supported by two dimensional pie diagrams only.
         """
+        ...
 
 
 

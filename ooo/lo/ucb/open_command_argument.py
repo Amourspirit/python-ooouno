@@ -39,7 +39,7 @@ class OpenCommandArgument(object):
     typeName: str = 'com.sun.star.ucb.OpenCommandArgument'
     """Literal Constant ``com.sun.star.ucb.OpenCommandArgument``"""
 
-    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = UNO_NONE, Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None) -> None:
+    def __init__(self, Properties: typing.Optional[typing.Tuple[Property_8f4e0a76, ...]] = (), Mode: typing.Optional[int] = 0, Priority: typing.Optional[int] = 0, Sink: typing.Optional[XInterface_8f010a43] = None) -> None:
         """
         Constructor
 
@@ -65,8 +65,6 @@ class OpenCommandArgument(object):
             "Priority": Priority,
             "Sink": Sink,
         }
-        if kargs["Properties"] is UNO_NONE:
-            kargs["Properties"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

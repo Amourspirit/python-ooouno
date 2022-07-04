@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ChapterFormat as ChapterFormat
-    if hasattr(ChapterFormat, '_constants') and isinstance(ChapterFormat._constants, dict):
-        ChapterFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
-        ChapterFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.ChapterFormat'
-        ChapterFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ChapterFormatEnum
-        ls = [f for f in dir(ChapterFormat) if not callable(getattr(ChapterFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ChapterFormat, name)
-        ChapterFormatEnum = IntEnum('ChapterFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class ChapterFormat(metaclass=UnoConstMeta, type_name="com.sun.star.text.ChapterFormat", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.ChapterFormat``"""
+        pass
+
+    class ChapterFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.ChapterFormat", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.ChapterFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.chapter_format import ChapterFormat as ChapterFormat
 

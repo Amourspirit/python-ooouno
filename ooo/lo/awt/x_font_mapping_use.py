@@ -45,11 +45,13 @@ class XFontMappingUse(XInterface_8f010a43):
         """
         Stop tracking of how requested fonts are mapped to available fonts and return the mappings that took place since the call to startTrackingFontMappingUse().
         """
+        ...
     @abstractmethod
     def startTrackingFontMappingUse(self) -> None:
         """
         Activate tracking of how requested fonts are mapped to available fonts.
         """
+        ...
 
 __all__ = ['XFontMappingUse']
 

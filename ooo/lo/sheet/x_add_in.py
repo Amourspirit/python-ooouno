@@ -40,6 +40,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         The argument description is shown to the user when prompting for arguments. It may be translated to the current language of the AddIn.
         """
+        ...
     @abstractmethod
     def getDisplayArgumentName(self, aProgrammaticFunctionName: str, nArgument: int) -> str:
         """
@@ -47,6 +48,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         The argument name is shown to the user when prompting for arguments. It should be a single word and may be translated to the current language of the AddIn.
         """
+        ...
     @abstractmethod
     def getDisplayCategoryName(self, aProgrammaticFunctionName: str) -> str:
         """
@@ -54,6 +56,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         This is used when category names are shown to the user.
         """
+        ...
     @abstractmethod
     def getDisplayFunctionName(self, aProgrammaticName: str) -> str:
         """
@@ -61,6 +64,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         The user-visible name of a function is the name shown to the user. It may be translated to the current language of the AddIn, so it is never stored in files. It should be a single word and is used when entering or displaying formulas.
         """
+        ...
     @abstractmethod
     def getFunctionDescription(self, aProgrammaticName: str) -> str:
         """
@@ -68,6 +72,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         The description is shown to the user when selecting functions. It may be translated to the current language of the AddIn.
         """
+        ...
     @abstractmethod
     def getProgrammaticCategoryName(self, aProgrammaticFunctionName: str) -> str:
         """
@@ -75,6 +80,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         The category name is used to group similar functions together. The programmatic category name should always be in English, it is never shown to the user. It should be one of the following names if the function falls into the corresponding category.
         """
+        ...
     @abstractmethod
     def getProgrammaticFuntionName(self, aDisplayName: str) -> str:
         """
@@ -84,6 +90,7 @@ class XAddIn(XLocalizable_aee00b64):
         
         Attention: The method name contains a spelling error. Due to compatibility reasons the name cannot be changed.
         """
+        ...
 
 __all__ = ['XAddIn']
 

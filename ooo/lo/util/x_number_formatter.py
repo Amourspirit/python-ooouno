@@ -44,11 +44,13 @@ class XNumberFormatter(XInterface_8f010a43):
         
         This NumberFormatter will only use the NumberFormats specified in the attached XNumberFormatsSupplier. Without an attached XNumberFormatsSupplier, no formatting is possible.
         """
+        ...
     @abstractmethod
     def convertNumberToString(self, nKey: int, fValue: float) -> str:
         """
         converts a number into a string.
         """
+        ...
     @abstractmethod
     def convertStringToNumber(self, nKey: int, aString: str) -> float:
         """
@@ -59,6 +61,7 @@ class XNumberFormatter(XInterface_8f010a43):
         Raises:
             com.sun.star.util.NotNumericException: ``NotNumericException``
         """
+        ...
     @abstractmethod
     def detectNumberFormat(self, nKey: int, aString: str) -> int:
         """
@@ -67,11 +70,13 @@ class XNumberFormatter(XInterface_8f010a43):
         Raises:
             com.sun.star.util.NotNumericException: ``NotNumericException``
         """
+        ...
     @abstractmethod
     def formatString(self, nKey: int, aString: str) -> str:
         """
         converts a string into another string.
         """
+        ...
     @abstractmethod
     def getInputString(self, nKey: int, fValue: float) -> str:
         """
@@ -79,18 +84,22 @@ class XNumberFormatter(XInterface_8f010a43):
         
         This string can always be converted back to a number using the same format.
         """
+        ...
     @abstractmethod
     def getNumberFormatsSupplier(self) -> 'XNumberFormatsSupplier_3afb0fb7':
         """
         """
+        ...
     @abstractmethod
     def queryColorForNumber(self, nKey: int, fValue: float, aDefaultColor: 'Color_68e908c5') -> 'Color_68e908c5':
         """
         """
+        ...
     @abstractmethod
     def queryColorForString(self, nKey: int, aString: str, aDefaultColor: 'Color_68e908c5') -> 'Color_68e908c5':
         """
         """
+        ...
 
 __all__ = ['XNumberFormatter']
 

@@ -49,6 +49,7 @@ class XOrdinalSuffix(XInterface_8f010a43):
         
         Examples: for the number '1', the values will be st in English, but er and re in French. All these values may depend on the underlying version of ICU.
         """
+        ...
 
 __all__ = ['XOrdinalSuffix']
 

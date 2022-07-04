@@ -42,26 +42,31 @@ class XCharacterClassification(XInterface_8f010a43):
         """
         Get DirectionProperty of character at position nPos.
         """
+        ...
     @abstractmethod
     def getCharacterType(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa') -> int:
         """
         Get KCharacterType of character at position nPos.
         """
+        ...
     @abstractmethod
     def getScript(self, aText: str, nPos: int) -> int:
         """
         Get UnicodeScript of character at position nPos.
         """
+        ...
     @abstractmethod
     def getStringType(self, aText: str, nPos: int, nCount: int, aLocale: 'Locale_70d308fa') -> int:
         """
         Get accumulated KCharacterTypes of string starting at position nPos of length nCount code points.
         """
+        ...
     @abstractmethod
     def getType(self, aText: str, nPos: int) -> int:
         """
         Get UnicodeType of character at position nPos.
         """
+        ...
     @abstractmethod
     def parseAnyToken(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa', nStartCharFlags: int, aUserDefinedCharactersStart: str, nContCharFlags: int, aUserDefinedCharactersCont: str) -> 'ParseResult_9ea00ac2':
         """
@@ -71,6 +76,7 @@ class XCharacterClassification(XInterface_8f010a43):
         
         If a token may represent either a numeric value or a name according to the passed Start/Cont-Flags/Chars, both KParseType.ASC_NUM (or KParseType.UNI_NUM) and KParseType.IDENTNAME are set in ParseResult.TokenType.
         """
+        ...
     @abstractmethod
     def parsePredefinedToken(self, nTokenType: int, aText: str, nPos: int, aLocale: 'Locale_70d308fa', nStartCharFlags: int, aUserDefinedCharactersStart: str, nContCharFlags: int, aUserDefinedCharactersCont: str) -> 'ParseResult_9ea00ac2':
         """
@@ -78,21 +84,25 @@ class XCharacterClassification(XInterface_8f010a43):
         
         Other parameters are the same as in parseAnyToken(). If the actual token does not match the passed nTokenType a ParseResult.TokenType set to 0 (zero) is returned.
         """
+        ...
     @abstractmethod
     def toLower(self, aText: str, nPos: int, nCount: int, aLocale: 'Locale_70d308fa') -> str:
         """
         Convert upper case alpha to lower case alpha, starting at position nPos for nCount code points.
         """
+        ...
     @abstractmethod
     def toTitle(self, aText: str, nPos: int, nCount: int, aLocale: 'Locale_70d308fa') -> str:
         """
         Convert to title case, starting at position nPos for nCount code points.
         """
+        ...
     @abstractmethod
     def toUpper(self, aText: str, nPos: int, nCount: int, aLocale: 'Locale_70d308fa') -> str:
         """
         Convert lower case alpha to upper case alpha, starting at position nPos for nCount code points.
         """
+        ...
 
 __all__ = ['XCharacterClassification']
 

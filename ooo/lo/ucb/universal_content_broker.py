@@ -47,6 +47,7 @@ class UniversalContentBroker(XUniversalContentBroker_38ce0f93):
         
         (This default constructor is only mentioned explicitly for technical reasons, so that its implementation calls the service implementation's com.sun.star.lang.XInitialization.initialize().)
         """
+        ...
 
 
 __all__ = ['UniversalContentBroker']

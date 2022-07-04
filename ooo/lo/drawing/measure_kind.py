@@ -34,6 +34,10 @@ class MeasureKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.MeasureKind'
+
     RADIUS = 'RADIUS'
     """
     use the radius measurement.

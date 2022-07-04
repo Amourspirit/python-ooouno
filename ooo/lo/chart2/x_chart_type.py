@@ -43,6 +43,7 @@ class XChartType(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getChartType(self) -> str:
         """
@@ -50,11 +51,13 @@ class XChartType(XInterface_8f010a43):
         
         This needs to be the service-name which can be used to create a chart type.
         """
+        ...
     @abstractmethod
     def getRoleOfSequenceForSeriesLabel(self) -> str:
         """
         Returns the role of the XLabeledDataSequence of which the label will be taken to identify the DataSeries in dialogs or the legend.
         """
+        ...
     @abstractmethod
     def getSupportedMandatoryRoles(self) -> 'typing.Tuple[str, ...]':
         """
@@ -64,6 +67,7 @@ class XChartType(XInterface_8f010a43):
         
         Note, that this does not involve optional roles, like error-bars.
         """
+        ...
     @abstractmethod
     def getSupportedOptionalRoles(self) -> 'typing.Tuple[str, ...]':
         """
@@ -71,6 +75,7 @@ class XChartType(XInterface_8f010a43):
         
         An example for an optional role are error-bars.
         """
+        ...
     @abstractmethod
     def getSupportedPropertyRoles(self) -> 'typing.Tuple[str, ...]':
         """
@@ -78,6 +83,7 @@ class XChartType(XInterface_8f010a43):
         
         An example for a property mapping role is FillColor.
         """
+        ...
 
 __all__ = ['XChartType']
 

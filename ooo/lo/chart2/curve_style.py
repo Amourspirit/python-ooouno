@@ -34,6 +34,10 @@ class CurveStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.CurveStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.CurveStyle'
+
     B_SPLINES = 'B_SPLINES'
     """
     Data points are connected via a parametric, interpolating B-spline curve.

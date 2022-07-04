@@ -45,6 +45,7 @@ class DocumentDefinition(DefinitionContent_e0d20d25, XPropertySet_bc180bfa, XSub
         """
         Indicates if the document is to be used as template, for example, if a report is to be filled with data.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
@@ -53,6 +54,7 @@ class DocumentDefinition(DefinitionContent_e0d20d25, XPropertySet_bc180bfa, XSub
         
         If the document is part of the container, it is not possible to alter the name.
         """
+        ...
 
 
 

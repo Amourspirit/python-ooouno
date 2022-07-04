@@ -62,6 +62,7 @@ class PreparedStatement(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_9
         
         Note:  By definition, positioned update/delete execution must be done by a different Statement than the one which generated the ResultSet being used for positioning. Also, cursor names must be unique within a connection.
         """
+        ...
 
     @abstractproperty
     def FetchDirection(self) -> int:
@@ -70,6 +71,7 @@ class PreparedStatement(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_9
         
         If this Statement object has not set a fetch direction, the return value is implementation-specific.
         """
+        ...
 
     @abstractproperty
     def FetchSize(self) -> int:
@@ -78,6 +80,7 @@ class PreparedStatement(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_9
         
         If this Statement object has not set a fetch size, the return value is implementation-specific.
         """
+        ...
 
     @abstractproperty
     def MaxFieldSize(self) -> int:
@@ -88,15 +91,16 @@ class PreparedStatement(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_9
         
         There is no limitation, if set to zero.
         """
+        ...
 
     @abstractproperty
     def MaxRows(self) -> int:
         """
         retrieves the maximum number of rows that a ResultSet can contain.
         
-        If the limit is exceeded, the excess rows are silently dropped.
-        There is no limitation, if set to zero.
+        If the limit is exceeded, the excess rows are silently dropped. There is no limitation, if set to zero.
         """
+        ...
 
     @abstractproperty
     def QueryTimeOut(self) -> int:
@@ -105,18 +109,21 @@ class PreparedStatement(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_9
         
         If the limit is exceeded, a SQLException is thrown. There is no limitation, if set to zero.
         """
+        ...
 
     @abstractproperty
     def ResultSetConcurrency(self) -> int:
         """
         retrieves the result set concurrency.
         """
+        ...
 
     @abstractproperty
     def ResultSetType(self) -> int:
         """
         Determine the result set type.
         """
+        ...
 
 
 

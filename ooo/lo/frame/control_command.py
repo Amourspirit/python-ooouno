@@ -42,7 +42,7 @@ class ControlCommand(object):
     typeName: str = 'com.sun.star.frame.ControlCommand'
     """Literal Constant ``com.sun.star.frame.ControlCommand``"""
 
-    def __init__(self, Arguments: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = UNO_NONE, Command: typing.Optional[str] = '') -> None:
+    def __init__(self, Arguments: typing.Optional[typing.Tuple[NamedValue_a37a0af3, ...]] = (), Command: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -62,8 +62,6 @@ class ControlCommand(object):
             "Arguments": Arguments,
             "Command": Command,
         }
-        if kargs["Arguments"] is UNO_NONE:
-            kargs["Arguments"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

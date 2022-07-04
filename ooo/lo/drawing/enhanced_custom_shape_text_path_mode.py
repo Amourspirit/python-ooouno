@@ -34,6 +34,10 @@ class EnhancedCustomShapeTextPathMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
+
     NORMAL = 'NORMAL'
     """
     the text is drawn along the path without scaling.

@@ -29,8 +29,7 @@ class HiddenControl(FormComponent_bc700c03):
     
     The only sense of a hidden control is to store data in the form which is not visible to the user.
     
-    Usually, hidden controls are used in com.sun.star.form.component.HTMLForms, where they contain data which is to be submitted.
-    Nevertheless, you can use them in your own forms for storing any data, for instance to evaluate it in some scripting macro.
+    Usually, hidden controls are used in com.sun.star.form.component.HTMLForms, where they contain data which is to be submitted.Nevertheless, you can use them in your own forms for storing any data, for instance to evaluate it in some scripting macro.
 
     See Also:
         `API HiddenControl <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1form_1_1component_1_1HiddenControl.html>`_
@@ -44,6 +43,7 @@ class HiddenControl(FormComponent_bc700c03):
         """
         specifies the value of the component.
         """
+        ...
 
 
 

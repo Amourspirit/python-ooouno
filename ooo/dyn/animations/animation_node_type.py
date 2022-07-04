@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import AnimationNodeType as AnimationNodeType
-    if hasattr(AnimationNodeType, '_constants') and isinstance(AnimationNodeType._constants, dict):
-        AnimationNodeType._constants['__ooo_ns__'] = 'com.sun.star.animations'
-        AnimationNodeType._constants['__ooo_full_ns__'] = 'com.sun.star.animations.AnimationNodeType'
-        AnimationNodeType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AnimationNodeTypeEnum
-        ls = [f for f in dir(AnimationNodeType) if not callable(getattr(AnimationNodeType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AnimationNodeType, name)
-        AnimationNodeTypeEnum = IntEnum('AnimationNodeTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class AnimationNodeType(metaclass=UnoConstMeta, type_name="com.sun.star.animations.AnimationNodeType", name_space="com.sun.star.animations"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.animations.AnimationNodeType``"""
+        pass
+
+    class AnimationNodeTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.animations.AnimationNodeType", name_space="com.sun.star.animations"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.animations.AnimationNodeType`` as Enum values"""
+        pass
+
 else:
     from ...lo.animations.animation_node_type import AnimationNodeType as AnimationNodeType
 

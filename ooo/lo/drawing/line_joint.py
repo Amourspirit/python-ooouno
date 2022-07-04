@@ -34,6 +34,10 @@ class LineJoint(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.LineJoint'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.LineJoint'
+
     BEVEL = 'BEVEL'
     """
     the edges of the thick lines will be joined by lines

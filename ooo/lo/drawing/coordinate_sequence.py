@@ -19,13 +19,14 @@
 # Libre Office Version: 7.3
 # Namespace: com.sun.star.drawing
 import typing
+import uno
 
-CoordinateSequence = typing.NewType('CoordinateSequence', typing.Tuple[int, ...])
+CoordinateSequence = typing.NewType('CoordinateSequence', uno.ByteSequence)
 """
 TypeDef type alias
 
 
 See Also:
-    `API CoordinateSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a74f8af1a8832994bee18d13ff6855f87>`_
+    `API CoordinateSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a5fba30ad0b948910e5a46d57bb673a3f>`_
 """
 

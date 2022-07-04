@@ -21,24 +21,22 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PanoseProportion as PanoseProportion
-    if hasattr(PanoseProportion, '_constants') and isinstance(PanoseProportion._constants, dict):
-        PanoseProportion._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        PanoseProportion._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseProportion'
-        PanoseProportion._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PanoseProportionEnum
-        ls = [f for f in dir(PanoseProportion) if not callable(getattr(PanoseProportion, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PanoseProportion, name)
-        PanoseProportionEnum = IntEnum('PanoseProportionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
+    class PanoseProportion(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.PanoseProportion", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.PanoseProportion``"""
+        pass
+
+    class PanoseProportionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.PanoseProportion", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.PanoseProportion`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.panose_proportion import PanoseProportion as PanoseProportion
 

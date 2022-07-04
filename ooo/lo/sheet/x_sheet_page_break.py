@@ -47,6 +47,7 @@ class XSheetPageBreak(XInterface_8f010a43):
         
         This includes manual and automatic page breaks. To add or remove manual breaks, use the com.sun.star.table.TableColumn.IsStartOfNewPage property of the column.
         """
+        ...
     @abstractmethod
     def getRowPageBreaks(self) -> 'typing.Tuple[TablePageBreakData_8ac0de5, ...]':
         """
@@ -54,11 +55,13 @@ class XSheetPageBreak(XInterface_8f010a43):
         
         This includes manual and automatic page breaks. To add or remove manual breaks, use the com.sun.star.table.TableRow.IsStartOfNewPage property of the row.
         """
+        ...
     @abstractmethod
     def removeAllManualPageBreaks(self) -> None:
         """
         removes all manual page breaks on the sheet.
         """
+        ...
 
 __all__ = ['XSheetPageBreak']
 

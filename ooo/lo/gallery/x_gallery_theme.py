@@ -46,6 +46,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         """
         retrieves the name of the Gallery theme
         """
+        ...
     @abstractmethod
     def insertDrawingByIndex(self, Drawing: 'XComponent_98dc0ab5', Index: int) -> int:
         """
@@ -54,6 +55,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertGraphicByIndex(self, Graphic: 'XGraphic_a4da0afc', Index: int) -> int:
         """
@@ -62,6 +64,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertURLByIndex(self, URL: str, Index: int) -> int:
         """
@@ -70,6 +73,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeByIndex(self, Index: int) -> None:
         """
@@ -78,6 +82,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def update(self) -> None:
         """
@@ -85,6 +90,7 @@ class XGalleryTheme(XIndexAccess_f0910d6d):
         
         This method iterates over each item of the Gallery theme and updates it accordingly. Main purpose is to automatically regenerate the thumbnails and to remove invalid items, that is items who have got a URL that has become invalid. This method also optimizes underlying data structures.
         """
+        ...
 
 __all__ = ['XGalleryTheme']
 

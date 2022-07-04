@@ -52,6 +52,7 @@ class XDispatchRecorderSupplier(XInterface_8f010a43):
         
         Parameter Dispatcher is used internally to make the dispatch. If recording isn't enabled it will be a normal XDispatch.dispatch() call. Otherwise follow algorithm is used:
         """
+        ...
     @abstractmethod
     def getDispatchRecorder(self) -> 'XDispatchRecorder_fbd70dd1':
         """
@@ -59,6 +60,7 @@ class XDispatchRecorderSupplier(XInterface_8f010a43):
         
         Returned recorder can be used to record dispatches manually or to get recorded data for further using e.g. saving. He is internally used too due to the method XDispatchRecorderSupplier.dispatchAndRecord().
         """
+        ...
     @abstractmethod
     def setDispatchRecorder(self, Recorder: 'XDispatchRecorder_fbd70dd1') -> None:
         """
@@ -66,6 +68,7 @@ class XDispatchRecorderSupplier(XInterface_8f010a43):
         
         Setting of a new recorder make it possible to change recording mode. May there can exist different implementations of a recorder (e.g. to generate Java, Basic or other formats). Changing between local recording inside one Frame or global one by using more than ones can be forced too.
         """
+        ...
 
 __all__ = ['XDispatchRecorderSupplier']
 

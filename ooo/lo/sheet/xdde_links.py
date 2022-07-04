@@ -48,6 +48,7 @@ class XDDELinks(XNameAccess_e2ab0cf6):
         
         If a DDE link with the specified parameters already exists, the existing DDE link will be returned. Otherwise a new DDE link will be created.
         """
+        ...
 
 __all__ = ['XDDELinks']
 

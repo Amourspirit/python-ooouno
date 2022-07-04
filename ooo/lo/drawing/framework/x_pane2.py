@@ -42,11 +42,13 @@ class XPane2(ABC):
         """
         Return the accessibility object that is currently associated with the windows that implement the pane.
         """
+        ...
     @abstractmethod
     def isVisible(self) -> bool:
         """
         Return whether all windows that are used to implement the pane are visible.
         """
+        ...
     @abstractmethod
     def setAccessible(self, xAccessible: 'XAccessible_1cbc0eb6') -> None:
         """
@@ -54,6 +56,7 @@ class XPane2(ABC):
         
         When there is more than one window used to implement the pane then the given accessibility object is usually set at the topmost window. However, the details are implementation dependent.
         """
+        ...
     @abstractmethod
     def setVisible(self, bIsVisible: bool) -> None:
         """
@@ -61,6 +64,7 @@ class XPane2(ABC):
         
         If there is more than one window used to implement the pane then it is left to the implementation if one, some, or all windows are hidden or shown as long as the pane becomes hidden or visible.
         """
+        ...
 
 __all__ = ['XPane2']
 

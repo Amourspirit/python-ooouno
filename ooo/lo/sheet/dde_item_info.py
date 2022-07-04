@@ -43,7 +43,7 @@ class DDEItemInfo(object):
     typeName: str = 'com.sun.star.sheet.DDEItemInfo'
     """Literal Constant ``com.sun.star.sheet.DDEItemInfo``"""
 
-    def __init__(self, Results: typing.Optional[typing.Tuple[typing.Tuple[object, ...], ...]] = UNO_NONE, Item: typing.Optional[str] = '') -> None:
+    def __init__(self, Results: typing.Optional[typing.Tuple[typing.Tuple[object, ...], ...]] = (), Item: typing.Optional[str] = '') -> None:
         """
         Constructor
 
@@ -63,8 +63,6 @@ class DDEItemInfo(object):
             "Results": Results,
             "Item": Item,
         }
-        if kargs["Results"] is UNO_NONE:
-            kargs["Results"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

@@ -53,6 +53,7 @@ class XAccessController(XInterface_8f010a43):
         Raises:
             AccessControlException: ``AccessControlException``
         """
+        ...
     @abstractmethod
     def doPrivileged(self, action: 'XAction_a72e0b36', restriction: 'XAccessControlContext_6d6a10f0') -> object:
         """
@@ -65,6 +66,7 @@ class XAccessController(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def doRestricted(self, action: 'XAction_a72e0b36', restriction: 'XAccessControlContext_6d6a10f0') -> object:
         """
@@ -77,6 +79,7 @@ class XAccessController(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getContext(self) -> 'XAccessControlContext_6d6a10f0':
         """
@@ -84,6 +87,7 @@ class XAccessController(XInterface_8f010a43):
         
         This context may then be checked at a later point, possibly in another thread.
         """
+        ...
 
 __all__ = ['XAccessController']
 

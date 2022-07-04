@@ -25,86 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.i18n.TransliterationModulesNew import (CharToNumHangul_ko, CharToNumLower_ko, CharToNumLower_zh_CN, CharToNumLower_zh_TW, CharToNumUpper_ko, CharToNumUpper_zh_CN, CharToNumUpper_zh_TW, END_OF_MODULE, FULLWIDTH_HALFWIDTH, HALFWIDTH_FULLWIDTH, HIRAGANA_KATAKANA, IGNORE_CASE, IGNORE_KANA, IGNORE_WIDTH, IgnoreBaFa_ja_JP, IgnoreHyuByu_ja_JP, IgnoreIandEfollowedByYa_ja_JP, IgnoreIterationMark_ja_JP, IgnoreKiKuFollowedBySa_ja_JP, IgnoreMiddleDot_ja_JP, IgnoreMinusSign_ja_JP, IgnoreProlongedSoundMark_ja_JP, IgnoreSeZe_ja_JP, IgnoreSeparator_ja_JP, IgnoreSize_ja_JP, IgnoreSpace_ja_JP, IgnoreTiJi_ja_JP, IgnoreTraditionalKana_ja_JP, IgnoreTraditionalKanji_ja_JP, IgnoreZiZu_ja_JP, KATAKANA_HIRAGANA, LOWERCASE_UPPERCASE, LargeToSmall_ja_JP, NumToCharFullwidth, NumToCharHangul_ko, NumToCharKanjiShort_ja_JP, NumToCharLower_ko, NumToCharLower_zh_CN, NumToCharLower_zh_TW, NumToCharUpper_ko, NumToCharUpper_zh_CN, NumToCharUpper_zh_TW, NumToTextFormalHangul_ko, NumToTextFormalLower_ko, NumToTextFormalUpper_ko, NumToTextInformalHangul_ko, NumToTextInformalLower_ko, NumToTextInformalUpper_ko, NumToTextLower_zh_CN, NumToTextLower_zh_TW, NumToTextUpper_zh_CN, NumToTextUpper_zh_TW, SmallToLarge_ja_JP, TextToNumFormalHangul_ko, TextToNumFormalLower_ko, TextToNumFormalUpper_ko, TextToNumInformalHangul_ko, TextToNumInformalLower_ko, TextToNumInformalUpper_ko, TextToNumLower_zh_CN, TextToNumLower_zh_TW, TextToNumUpper_zh_CN, TextToNumUpper_zh_TW, UPPERCASE_LOWERCASE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.i18n.TransliterationModulesNew Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.i18n",
-            "__ooo_full_ns__": "com.sun.star.i18n.TransliterationModulesNew",
-            "__ooo_type_name__": "enum",
-            "CharToNumHangul_ko": CharToNumHangul_ko,
-            "CharToNumLower_ko": CharToNumLower_ko,
-            "CharToNumLower_zh_CN": CharToNumLower_zh_CN,
-            "CharToNumLower_zh_TW": CharToNumLower_zh_TW,
-            "CharToNumUpper_ko": CharToNumUpper_ko,
-            "CharToNumUpper_zh_CN": CharToNumUpper_zh_CN,
-            "CharToNumUpper_zh_TW": CharToNumUpper_zh_TW,
-            "END_OF_MODULE": END_OF_MODULE,
-            "FULLWIDTH_HALFWIDTH": FULLWIDTH_HALFWIDTH,
-            "HALFWIDTH_FULLWIDTH": HALFWIDTH_FULLWIDTH,
-            "HIRAGANA_KATAKANA": HIRAGANA_KATAKANA,
-            "IGNORE_CASE": IGNORE_CASE,
-            "IGNORE_KANA": IGNORE_KANA,
-            "IGNORE_WIDTH": IGNORE_WIDTH,
-            "IgnoreBaFa_ja_JP": IgnoreBaFa_ja_JP,
-            "IgnoreHyuByu_ja_JP": IgnoreHyuByu_ja_JP,
-            "IgnoreIandEfollowedByYa_ja_JP": IgnoreIandEfollowedByYa_ja_JP,
-            "IgnoreIterationMark_ja_JP": IgnoreIterationMark_ja_JP,
-            "IgnoreKiKuFollowedBySa_ja_JP": IgnoreKiKuFollowedBySa_ja_JP,
-            "IgnoreMiddleDot_ja_JP": IgnoreMiddleDot_ja_JP,
-            "IgnoreMinusSign_ja_JP": IgnoreMinusSign_ja_JP,
-            "IgnoreProlongedSoundMark_ja_JP": IgnoreProlongedSoundMark_ja_JP,
-            "IgnoreSeZe_ja_JP": IgnoreSeZe_ja_JP,
-            "IgnoreSeparator_ja_JP": IgnoreSeparator_ja_JP,
-            "IgnoreSize_ja_JP": IgnoreSize_ja_JP,
-            "IgnoreSpace_ja_JP": IgnoreSpace_ja_JP,
-            "IgnoreTiJi_ja_JP": IgnoreTiJi_ja_JP,
-            "IgnoreTraditionalKana_ja_JP": IgnoreTraditionalKana_ja_JP,
-            "IgnoreTraditionalKanji_ja_JP": IgnoreTraditionalKanji_ja_JP,
-            "IgnoreZiZu_ja_JP": IgnoreZiZu_ja_JP,
-            "KATAKANA_HIRAGANA": KATAKANA_HIRAGANA,
-            "LOWERCASE_UPPERCASE": LOWERCASE_UPPERCASE,
-            "LargeToSmall_ja_JP": LargeToSmall_ja_JP,
-            "NumToCharFullwidth": NumToCharFullwidth,
-            "NumToCharHangul_ko": NumToCharHangul_ko,
-            "NumToCharKanjiShort_ja_JP": NumToCharKanjiShort_ja_JP,
-            "NumToCharLower_ko": NumToCharLower_ko,
-            "NumToCharLower_zh_CN": NumToCharLower_zh_CN,
-            "NumToCharLower_zh_TW": NumToCharLower_zh_TW,
-            "NumToCharUpper_ko": NumToCharUpper_ko,
-            "NumToCharUpper_zh_CN": NumToCharUpper_zh_CN,
-            "NumToCharUpper_zh_TW": NumToCharUpper_zh_TW,
-            "NumToTextFormalHangul_ko": NumToTextFormalHangul_ko,
-            "NumToTextFormalLower_ko": NumToTextFormalLower_ko,
-            "NumToTextFormalUpper_ko": NumToTextFormalUpper_ko,
-            "NumToTextInformalHangul_ko": NumToTextInformalHangul_ko,
-            "NumToTextInformalLower_ko": NumToTextInformalLower_ko,
-            "NumToTextInformalUpper_ko": NumToTextInformalUpper_ko,
-            "NumToTextLower_zh_CN": NumToTextLower_zh_CN,
-            "NumToTextLower_zh_TW": NumToTextLower_zh_TW,
-            "NumToTextUpper_zh_CN": NumToTextUpper_zh_CN,
-            "NumToTextUpper_zh_TW": NumToTextUpper_zh_TW,
-            "SmallToLarge_ja_JP": SmallToLarge_ja_JP,
-            "TextToNumFormalHangul_ko": TextToNumFormalHangul_ko,
-            "TextToNumFormalLower_ko": TextToNumFormalLower_ko,
-            "TextToNumFormalUpper_ko": TextToNumFormalUpper_ko,
-            "TextToNumInformalHangul_ko": TextToNumInformalHangul_ko,
-            "TextToNumInformalLower_ko": TextToNumInformalLower_ko,
-            "TextToNumInformalUpper_ko": TextToNumInformalUpper_ko,
-            "TextToNumLower_zh_CN": TextToNumLower_zh_CN,
-            "TextToNumLower_zh_TW": TextToNumLower_zh_TW,
-            "TextToNumUpper_zh_CN": TextToNumUpper_zh_CN,
-            "TextToNumUpper_zh_TW": TextToNumUpper_zh_TW,
-            "UPPERCASE_LOWERCASE": UPPERCASE_LOWERCASE,
-        }
-        result = type('TransliterationModulesNew', (object,), _dict)
-        return result
-
-    TransliterationModulesNew = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TransliterationModulesNew(metaclass=UnoEnumMeta, type_name="com.sun.star.i18n.TransliterationModulesNew", name_space="com.sun.star.i18n"):
+        """Dynamically created class that represents ``com.sun.star.i18n.TransliterationModulesNew`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.i18n.transliteration_modules_new import TransliterationModulesNew as TransliterationModulesNew
 

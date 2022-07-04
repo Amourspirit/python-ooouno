@@ -49,6 +49,7 @@ class XExternalDocLinks(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d, XNam
         
         If a document instance already exists for the specified URL, then that instance gets returned instead of creating a new one.
         """
+        ...
 
 __all__ = ['XExternalDocLinks']
 

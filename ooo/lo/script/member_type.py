@@ -34,6 +34,10 @@ class MemberType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.script.MemberType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.script.MemberType'
+
     METHOD = 'METHOD'
     """
     """

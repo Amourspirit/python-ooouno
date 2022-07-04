@@ -40,6 +40,7 @@ class XUntitledNumbers(XInterface_8f010a43):
         
         Note: Such string already contains leading spaces/tabs etc. ! The only thing which an outside code has todo then ... adding a leased number to the string.
         """
+        ...
     @abstractmethod
     def leaseNumber(self, xComponent: 'XInterface_8f010a43') -> int:
         """
@@ -50,6 +51,7 @@ class XUntitledNumbers(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def releaseNumber(self, nNumber: int) -> None:
         """
@@ -62,6 +64,7 @@ class XUntitledNumbers(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def releaseNumberForComponent(self, xComponent: 'XInterface_8f010a43') -> None:
         """
@@ -70,6 +73,7 @@ class XUntitledNumbers(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XUntitledNumbers']
 

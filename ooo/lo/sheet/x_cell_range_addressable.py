@@ -43,6 +43,7 @@ class XCellRangeAddressable(XInterface_8f010a43):
         
         The com.sun.star.table.CellRangeAddress can be used to address the range within its document.
         """
+        ...
 
 __all__ = ['XCellRangeAddressable']
 

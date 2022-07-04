@@ -34,6 +34,10 @@ class HorizontalAdjust(Enum):
     __ooo_full_ns__: str = 'com.sun.star.text.HorizontalAdjust'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.text.HorizontalAdjust'
+
     CENTER = 'CENTER'
     """
     the object is adjusted to the center.

@@ -44,7 +44,7 @@ class AccessibleRelation(object):
     typeName: str = 'com.sun.star.accessibility.AccessibleRelation'
     """Literal Constant ``com.sun.star.accessibility.AccessibleRelation``"""
 
-    def __init__(self, TargetSet: typing.Optional[typing.Tuple[XInterface_8f010a43, ...]] = UNO_NONE, RelationType: typing.Optional[int] = 0) -> None:
+    def __init__(self, TargetSet: typing.Optional[typing.Tuple[XInterface_8f010a43, ...]] = (), RelationType: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
@@ -64,8 +64,6 @@ class AccessibleRelation(object):
             "TargetSet": TargetSet,
             "RelationType": RelationType,
         }
-        if kargs["TargetSet"] is UNO_NONE:
-            kargs["TargetSet"] = None
         self._init(**kargs)
 
     def _init(self, **kwargs) -> None:

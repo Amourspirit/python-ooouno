@@ -40,11 +40,13 @@ class XContainerApproveBroadcaster(ABC):
         """
         adds a listener which can veto changes in the container's content
         """
+        ...
     @abstractmethod
     def removeContainerApproveListener(self, Listener: 'XContainerApproveListener_c6d812e9') -> None:
         """
         removes a previously added listener
         """
+        ...
 
 __all__ = ['XContainerApproveBroadcaster']
 

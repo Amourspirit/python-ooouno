@@ -68,6 +68,7 @@ class ResultSet(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_98290a86,
         
         Note:  By definition, positioned update/delete execution must be done by a different Statement than the one which generated the ResultSet being used for positioning. Also, cursor names must be unique within a connection.
         """
+        ...
 
     @abstractproperty
     def FetchDirection(self) -> int:
@@ -76,6 +77,7 @@ class ResultSet(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_98290a86,
         
         If this Statement object has not set a fetch direction, the return value is implementation-specific.
         """
+        ...
 
     @abstractproperty
     def FetchSize(self) -> int:
@@ -84,18 +86,21 @@ class ResultSet(XPropertySet_bc180bfa, XComponent_98dc0ab5, XCloseable_98290a86,
         
         If this com.sun.star.sdbcx.Statement object has not set a fetch size, the return value is implementation-specific.
         """
+        ...
 
     @abstractproperty
     def ResultSetConcurrency(self) -> int:
         """
         retrieves the result set concurrency.
         """
+        ...
 
     @abstractproperty
     def ResultSetType(self) -> int:
         """
         determines the result set type.
         """
+        ...
 
 
 

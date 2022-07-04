@@ -45,26 +45,31 @@ class XDebugging(XInterface_8f010a43):
         """
         clears all breakpoints in the module set by \"setBreakPoint\".
         """
+        ...
     @abstractmethod
     def doContinue(self) -> None:
         """
         continues the program execution.
         """
+        ...
     @abstractmethod
     def dumpVariable(self, aVariableName: str, nCallStackPos: int) -> str:
         """
         returns the value of the variable at the given stack position.
         """
+        ...
     @abstractmethod
     def eval(self, aSourceCode: str, nCallStackPos: int) -> str:
         """
         Evaluates an expression.
         """
+        ...
     @abstractmethod
     def getContextInformation(self, nCallStackPos: int) -> 'ContextInformation_1ece0f08':
         """
         returns more detailed information about a specified stack frame.
         """
+        ...
     @abstractmethod
     def getStackTrace(self) -> 'typing.Tuple[str, ...]':
         """
@@ -72,21 +77,25 @@ class XDebugging(XInterface_8f010a43):
         
         Line break is the delimiter.
         """
+        ...
     @abstractmethod
     def isVariable(self, aVariableName: str, nCallStackPos: int) -> bool:
         """
         returns whether the given variable exists within the specified stack frame.
         """
+        ...
     @abstractmethod
     def setBreakPoint(self, aModuleName: str, nSourceCodeLine: int, bOn: bool) -> int:
         """
         returns the source code line where the breakpoint was set.
         """
+        ...
     @abstractmethod
     def setVariable(self, aVariableName: str, aValue: str, nCallStackPos: int) -> None:
         """
         sets the value of the specified variable within the specified stack frame.
         """
+        ...
     @abstractmethod
     def stepIn(self) -> None:
         """
@@ -94,11 +103,13 @@ class XDebugging(XInterface_8f010a43):
         
         If the next statement is a function call, only the function entered.
         """
+        ...
     @abstractmethod
     def stepOut(self) -> None:
         """
         executes the program until the next return from this stack frame.
         """
+        ...
     @abstractmethod
     def stepOver(self) -> None:
         """
@@ -106,6 +117,7 @@ class XDebugging(XInterface_8f010a43):
         
         If the next statement is a function call, the function is executed completely.
         """
+        ...
     @abstractmethod
     def stop(self) -> None:
         """
@@ -113,6 +125,7 @@ class XDebugging(XInterface_8f010a43):
         
         To continue with the execution, call XDebugging.doContinue().
         """
+        ...
 
 __all__ = ['XDebugging']
 

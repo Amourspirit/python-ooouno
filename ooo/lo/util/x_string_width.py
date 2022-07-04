@@ -40,6 +40,7 @@ class XStringWidth(XInterface_8f010a43):
         
         Depending on the implementation of this interface, the width of a string can be rather different things, like the number of characters in the string, or the width in pixel when displayed with a specific font.
         """
+        ...
 
 __all__ = ['XStringWidth']
 

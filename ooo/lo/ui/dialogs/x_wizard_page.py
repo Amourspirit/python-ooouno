@@ -45,6 +45,7 @@ class XWizardPage(XComponent_98dc0ab5):
         """
         called when the page is activated
         """
+        ...
     @abstractmethod
     def canAdvance(self) -> bool:
         """
@@ -54,6 +55,7 @@ class XWizardPage(XComponent_98dc0ab5):
         
         If checked for validity is expensive, or if you prefer giving your user more detailed feedback on validity than a disabled Next button in the wizard, then move your checks to the commitPage() method.
         """
+        ...
     @abstractmethod
     def commitPage(self, Reason: int) -> bool:
         """
@@ -61,6 +63,7 @@ class XWizardPage(XComponent_98dc0ab5):
         
         An implementation can veto the leave by returning FALSE here. Usually, the decision about this depends on the current state of the page.
         """
+        ...
     @abstractproperty
     def PageId(self) -> int:
         """
@@ -68,12 +71,14 @@ class XWizardPage(XComponent_98dc0ab5):
         
         Within a wizard, no two pages are allowed to have the same ID.
         """
+        ...
 
     @abstractproperty
     def Window(self) -> 'XWindow_713b0924':
         """
         provides read-only access to the window of the page
         """
+        ...
 
 
 __all__ = ['XWizardPage']

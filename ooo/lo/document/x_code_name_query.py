@@ -38,10 +38,12 @@ class XCodeNameQuery(ABC):
     def getCodeNameForContainer(self, aObj: 'XInterface_8f010a43') -> str:
         """
         """
+        ...
     @abstractmethod
     def getCodeNameForObject(self, aObj: 'XInterface_8f010a43') -> str:
         """
         """
+        ...
 
 __all__ = ['XCodeNameQuery']
 

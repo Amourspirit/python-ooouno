@@ -25,24 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.ucb.RemoteContentProviderChangeAction import (ADDED, REMOVED)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.ucb.RemoteContentProviderChangeAction Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.ucb",
-            "__ooo_full_ns__": "com.sun.star.ucb.RemoteContentProviderChangeAction",
-            "__ooo_type_name__": "enum",
-            "ADDED": ADDED,
-            "REMOVED": REMOVED,
-        }
-        result = type('RemoteContentProviderChangeAction', (object,), _dict)
-        return result
-
-    RemoteContentProviderChangeAction = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class RemoteContentProviderChangeAction(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.RemoteContentProviderChangeAction", name_space="com.sun.star.ucb"):
+        """Dynamically created class that represents ``com.sun.star.ucb.RemoteContentProviderChangeAction`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.ucb.remote_content_provider_change_action import RemoteContentProviderChangeAction as RemoteContentProviderChangeAction
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import BlendMode as BlendMode
-    if hasattr(BlendMode, '_constants') and isinstance(BlendMode._constants, dict):
-        BlendMode._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        BlendMode._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.BlendMode'
-        BlendMode._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global BlendModeEnum
-        ls = [f for f in dir(BlendMode) if not callable(getattr(BlendMode, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(BlendMode, name)
-        BlendModeEnum = IntEnum('BlendModeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class BlendMode(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.BlendMode", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.BlendMode``"""
+        pass
+
+    class BlendModeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.BlendMode", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.BlendMode`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.blend_mode import BlendMode as BlendMode
 

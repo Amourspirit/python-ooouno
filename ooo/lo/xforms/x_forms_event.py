@@ -36,6 +36,7 @@ class XFormsEvent(XEvent_e0c30ce4):
     def initXFormsEvent(self, typeArg: str, canBubbleArg: bool, cancelableArg: bool) -> None:
         """
         """
+        ...
 
 __all__ = ['XFormsEvent']
 

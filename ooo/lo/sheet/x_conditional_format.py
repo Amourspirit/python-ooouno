@@ -37,10 +37,12 @@ class XConditionalFormat(XIndexAccess_f0910d6d):
         """
         Creates a new conditional format entry and insert its at the position.
         """
+        ...
     @abstractmethod
     def removeByIndex(self, Index: int) -> None:
         """
         """
+        ...
 
 __all__ = ['XConditionalFormat']
 

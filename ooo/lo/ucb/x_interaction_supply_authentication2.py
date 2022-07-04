@@ -46,11 +46,13 @@ class XInteractionSupplyAuthentication2(XInteractionSupplyAuthentication_d861136
 
         * ``Default`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def setUseSystemCredentials(self, UseSystemCredentials: bool) -> None:
         """
         Set a new \"use system credentials\" value to hand back.
         """
+        ...
 
 __all__ = ['XInteractionSupplyAuthentication2']
 

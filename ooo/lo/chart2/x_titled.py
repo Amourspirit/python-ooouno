@@ -41,11 +41,13 @@ class XTitled(XInterface_8f010a43):
         """
         get the object holding the title's content and formatting
         """
+        ...
     @abstractmethod
     def setTitleObject(self, Title: 'XTitle_833f09a6') -> None:
         """
         set a new title object replacing the former one
         """
+        ...
 
 __all__ = ['XTitled']
 

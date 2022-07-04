@@ -41,6 +41,7 @@ class Database(DependentTextField_fed90ded):
         
         Initially it contains the column name in parenthesis (<>).
         """
+        ...
 
     @abstractproperty
     def CurrentPresentation(self) -> str:
@@ -49,18 +50,21 @@ class Database(DependentTextField_fed90ded):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def DataBaseFormat(self) -> bool:
         """
         determines whether the number format is number display format is read from the database settings.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         this is the number format for this field.
         """
+        ...
 
 
 

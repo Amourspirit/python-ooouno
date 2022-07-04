@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldGroupBy as DataPilotFieldGroupBy
-    if hasattr(DataPilotFieldGroupBy, '_constants') and isinstance(DataPilotFieldGroupBy._constants, dict):
-        DataPilotFieldGroupBy._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataPilotFieldGroupBy._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldGroupBy'
-        DataPilotFieldGroupBy._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataPilotFieldGroupByEnum
-        ls = [f for f in dir(DataPilotFieldGroupBy) if not callable(getattr(DataPilotFieldGroupBy, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataPilotFieldGroupBy, name)
-        DataPilotFieldGroupByEnum = IntFlag('DataPilotFieldGroupByEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DataPilotFieldGroupBy(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldGroupBy", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldGroupBy``"""
+        pass
+
+    class DataPilotFieldGroupByEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataPilotFieldGroupBy", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldGroupBy`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_pilot_field_group_by import DataPilotFieldGroupBy as DataPilotFieldGroupBy
 

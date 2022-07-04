@@ -74,12 +74,14 @@ class GenericTextDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XMulti
         """
         contains the identifier of the default locale of the document.
         """
+        ...
 
     @abstractproperty
     def CharacterCount(self) -> int:
         """
         contains the count of all characters in the document.
         """
+        ...
 
     @abstractproperty
     def IndexAutoMarkFileURL(self) -> str:
@@ -92,12 +94,14 @@ class GenericTextDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XMulti
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def ParagraphCount(self) -> int:
         """
         contains the count of all paragraphs in the document.
         """
+        ...
 
     @abstractproperty
     def RecordChanges(self) -> bool:
@@ -108,6 +112,7 @@ class GenericTextDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XMulti
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def TwoDigitYear(self) -> int:
@@ -120,12 +125,14 @@ class GenericTextDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XMulti
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def WordCount(self) -> int:
         """
         contains the count of all words in the document.
         """
+        ...
 
     @abstractproperty
     def WordSeparator(self) -> str:
@@ -134,6 +141,7 @@ class GenericTextDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XMulti
         
         I.e. slash and backslash. Whitespace (tab stop, space, paragraph break, line break) always separate words.
         """
+        ...
 
 
 

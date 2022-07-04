@@ -43,6 +43,7 @@ class XChartDataChangeEventListener(XEventListener_c7230c4a):
         
         This interface must be implemented by components that wish to get notified of changes in chart data. They can be registered at an XChartData component.
         """
+        ...
 
 __all__ = ['XChartDataChangeEventListener']
 

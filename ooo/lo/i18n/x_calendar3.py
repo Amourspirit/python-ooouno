@@ -48,26 +48,31 @@ class XCalendar3(XExtendedCalendar_e5480ceb):
         """
         returns a sequence of CalendarItem2 describing the day names.
         """
+        ...
     @abstractmethod
     def getGenitiveMonths2(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
         """
         returns a sequence of CalendarItem2 describing the genitive case month names.
         """
+        ...
     @abstractmethod
     def getLoadedCalendar2(self) -> 'Calendar2_88c10994':
         """
         Get the currently loaded Calendar2.
         """
+        ...
     @abstractmethod
     def getMonths2(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
         """
         returns a sequence of CalendarItem2 describing the month names.
         """
+        ...
     @abstractmethod
     def getPartitiveMonths2(self) -> 'typing.Tuple[CalendarItem2_b38f0b23, ...]':
         """
         returns a sequence of CalendarItem2 describing the partitive case month names.
         """
+        ...
 
 __all__ = ['XCalendar3']
 

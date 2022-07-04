@@ -52,6 +52,7 @@ class XProofreader(XSupportedLocales_5bda1056):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def ignoreRule(self, aRuleIdentifier: str, aLocale: 'Locale_70d308fa') -> None:
         """
@@ -62,16 +63,19 @@ class XProofreader(XSupportedLocales_5bda1056):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isSpellChecker(self) -> bool:
         """
         whether is the text checked by the spell checker
         """
+        ...
     @abstractmethod
     def resetIgnoreRules(self) -> None:
         """
         sets all rules back to their default settings.
         """
+        ...
 
 __all__ = ['XProofreader']
 

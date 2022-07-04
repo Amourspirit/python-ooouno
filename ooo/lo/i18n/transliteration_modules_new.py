@@ -34,6 +34,10 @@ class TransliterationModulesNew(Enum):
     __ooo_full_ns__: str = 'com.sun.star.i18n.TransliterationModulesNew'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.i18n.TransliterationModulesNew'
+
     CharToNumHangul_ko = 'CharToNumHangul_ko'
     """
     Transliterate a Korean Hangul number string to ASCII number string.

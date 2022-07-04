@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.text.TextContentAnchorType import (AS_CHARACTER, AT_CHARACTER, AT_FRAME, AT_PAGE, AT_PARAGRAPH)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.text.TextContentAnchorType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.text",
-            "__ooo_full_ns__": "com.sun.star.text.TextContentAnchorType",
-            "__ooo_type_name__": "enum",
-            "AS_CHARACTER": AS_CHARACTER,
-            "AT_CHARACTER": AT_CHARACTER,
-            "AT_FRAME": AT_FRAME,
-            "AT_PAGE": AT_PAGE,
-            "AT_PARAGRAPH": AT_PARAGRAPH,
-        }
-        result = type('TextContentAnchorType', (object,), _dict)
-        return result
-
-    TextContentAnchorType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TextContentAnchorType(metaclass=UnoEnumMeta, type_name="com.sun.star.text.TextContentAnchorType", name_space="com.sun.star.text"):
+        """Dynamically created class that represents ``com.sun.star.text.TextContentAnchorType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.text.text_content_anchor_type import TextContentAnchorType as TextContentAnchorType
 

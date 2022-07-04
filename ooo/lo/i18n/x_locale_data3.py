@@ -48,6 +48,7 @@ class XLocaleData3(XLocaleData2_a7ac0a9c):
         """
         returns all LC_CALENDAR calendars for a locale.
         """
+        ...
 
 __all__ = ['XLocaleData3']
 

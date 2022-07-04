@@ -41,16 +41,19 @@ class XRangeHighlighter(XInterface_8f010a43):
         """
         registers an event listener, which is called when the selection is changed and affects different source ranges
         """
+        ...
     @abstractmethod
     def getSelectedRanges(self) -> 'typing.Tuple[HighlightedRange_403d0f62, ...]':
         """
         Returns a list of ranges that are used by objects that are currently selected.
         """
+        ...
     @abstractmethod
     def removeSelectionChangeListener(self, xListener: 'XSelectionChangeListener_58bf104d') -> None:
         """
         unregisters an event listener which was registered with XRangeHighlighter.addSelectionChangeListener() before.
         """
+        ...
 
 __all__ = ['XRangeHighlighter']
 

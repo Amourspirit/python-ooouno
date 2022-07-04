@@ -44,30 +44,35 @@ class SubTotalDescriptor(XPropertySet_bc180bfa, XEnumerationAccess_4bac0ffc, XIn
         """
         specifies if cell formats are moved with the contents they belong to.
         """
+        ...
 
     @abstractproperty
     def EnableSort(self) -> bool:
         """
         specifies if the contents of the fields will be sorted to groups while performing a subtotal operation.
         """
+        ...
 
     @abstractproperty
     def EnableUserSortList(self) -> bool:
         """
         specifies if a user defined sorting list is used.
         """
+        ...
 
     @abstractproperty
     def InsertPageBreaks(self) -> bool:
         """
         specifies if page breaks are inserted after each group change.
         """
+        ...
 
     @abstractproperty
     def IsCaseSensitive(self) -> bool:
         """
         specifies if the case of letters is important when comparing entries.
         """
+        ...
 
     @abstractproperty
     def MaxFieldCount(self) -> int:
@@ -76,12 +81,14 @@ class SubTotalDescriptor(XPropertySet_bc180bfa, XEnumerationAccess_4bac0ffc, XIn
         
         This read-only property indicates the maximum count of fields the current implementation supports.
         """
+        ...
 
     @abstractproperty
     def SortAscending(self) -> bool:
         """
         specifies the sorting order if SubTotalDescriptor.EnableSort is set to TRUE.
         """
+        ...
 
     @abstractproperty
     def UserSortListIndex(self) -> int:
@@ -90,6 +97,7 @@ class SubTotalDescriptor(XPropertySet_bc180bfa, XEnumerationAccess_4bac0ffc, XIn
         
         This property is only used if SubTotalDescriptor.EnableUserSortList is TRUE.
         """
+        ...
 
 
 

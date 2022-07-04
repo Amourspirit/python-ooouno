@@ -34,6 +34,10 @@ class ColorMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.ColorMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.ColorMode'
+
     GREYS = 'GREYS'
     """
     the graphic is rendered in grayscale on the output device,

@@ -22,7 +22,7 @@
 },
 "workbench.colorTheme": "Monokai",
 "python.formatting.provider": "black",
-"esbonio.server.enabled": true,
+"esbonio.server.enabled": false,
 "esbonio.sphinx.confDir": "${workspaceFolder}/docs",
 "restructuredtext.confPath": ""
 }

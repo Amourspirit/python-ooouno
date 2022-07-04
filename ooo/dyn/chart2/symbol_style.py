@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart2.SymbolStyle import (AUTO, GRAPHIC, NONE, POLYGON, STANDARD)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart2.SymbolStyle Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart2",
-            "__ooo_full_ns__": "com.sun.star.chart2.SymbolStyle",
-            "__ooo_type_name__": "enum",
-            "AUTO": AUTO,
-            "GRAPHIC": GRAPHIC,
-            "NONE": NONE,
-            "POLYGON": POLYGON,
-            "STANDARD": STANDARD,
-        }
-        result = type('SymbolStyle', (object,), _dict)
-        return result
-
-    SymbolStyle = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class SymbolStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.SymbolStyle", name_space="com.sun.star.chart2"):
+        """Dynamically created class that represents ``com.sun.star.chart2.SymbolStyle`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart2.symbol_style import SymbolStyle as SymbolStyle
 

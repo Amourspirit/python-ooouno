@@ -34,6 +34,10 @@ class SnapObjectType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.SnapObjectType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.SnapObjectType'
+
     HORIZONTAL = 'HORIZONTAL'
     """
     mirror to the horizontal axis

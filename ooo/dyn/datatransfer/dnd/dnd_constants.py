@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.datatransfer.dnd import DNDConstants as DNDConstants
-    if hasattr(DNDConstants, '_constants') and isinstance(DNDConstants._constants, dict):
-        DNDConstants._constants['__ooo_ns__'] = 'com.sun.star.datatransfer.dnd'
-        DNDConstants._constants['__ooo_full_ns__'] = 'com.sun.star.datatransfer.dnd.DNDConstants'
-        DNDConstants._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DNDConstantsEnum
-        ls = [f for f in dir(DNDConstants) if not callable(getattr(DNDConstants, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DNDConstants, name)
-        DNDConstantsEnum = IntEnum('DNDConstantsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DNDConstants(metaclass=UnoConstMeta, type_name="com.sun.star.datatransfer.dnd.DNDConstants", name_space="com.sun.star.datatransfer.dnd"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.datatransfer.dnd.DNDConstants``"""
+        pass
+
+    class DNDConstantsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.datatransfer.dnd.DNDConstants", name_space="com.sun.star.datatransfer.dnd"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.datatransfer.dnd.DNDConstants`` as Enum values"""
+        pass
+
 else:
     from ....lo.datatransfer.dnd.dnd_constants import DNDConstants as DNDConstants
 

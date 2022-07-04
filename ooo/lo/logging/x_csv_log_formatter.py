@@ -47,6 +47,7 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
         
         XLoggerInstance.log(1000, XCsvLogFormatterInstance.formatMultiColumn(columnData))
         """
+        ...
     @abstractproperty
     def Columnnames(self) -> 'typing.Tuple[str, ...]':
         """
@@ -54,30 +55,35 @@ class XCsvLogFormatter(XLogFormatter_e23d0d1d):
         
         if this is set to more than one column, the messages need to be preformatted using formatMultiColumn
         """
+        ...
 
     @abstractproperty
     def LogEventNo(self) -> bool:
         """
         Defines if the EventNo should be logged.
         """
+        ...
 
     @abstractproperty
     def LogSource(self) -> bool:
         """
         Defines if the Source should be logged.
         """
+        ...
 
     @abstractproperty
     def LogThread(self) -> bool:
         """
         Defines if the ThreadId should be logged.
         """
+        ...
 
     @abstractproperty
     def LogTimestamp(self) -> bool:
         """
         Defines if the Timestamp should be logged.
         """
+        ...
 
 
 __all__ = ['XCsvLogFormatter']

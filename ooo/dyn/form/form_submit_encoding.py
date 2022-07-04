@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.form.FormSubmitEncoding import (MULTIPART, TEXT, URL)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.form.FormSubmitEncoding Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.form",
-            "__ooo_full_ns__": "com.sun.star.form.FormSubmitEncoding",
-            "__ooo_type_name__": "enum",
-            "MULTIPART": MULTIPART,
-            "TEXT": TEXT,
-            "URL": URL,
-        }
-        result = type('FormSubmitEncoding', (object,), _dict)
-        return result
-
-    FormSubmitEncoding = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FormSubmitEncoding(metaclass=UnoEnumMeta, type_name="com.sun.star.form.FormSubmitEncoding", name_space="com.sun.star.form"):
+        """Dynamically created class that represents ``com.sun.star.form.FormSubmitEncoding`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.form.form_submit_encoding import FormSubmitEncoding as FormSubmitEncoding
 

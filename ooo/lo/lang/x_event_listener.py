@@ -45,6 +45,7 @@ class XEventListener(XInterface_8f010a43):
         
         This method is called for every listener registration of derived listener interfaced, not only for registrations at XComponent.
         """
+        ...
 
 __all__ = ['XEventListener']
 

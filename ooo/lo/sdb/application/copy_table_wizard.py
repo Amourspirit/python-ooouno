@@ -70,6 +70,7 @@ class CopyTableWizard(XCopyTableWizard_89b7114f):
             : ````
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def createWithInteractionHandler(self, Source: 'XPropertySet_bc180bfa', Destination: 'XPropertySet_bc180bfa', InteractionHandler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -84,6 +85,7 @@ class CopyTableWizard(XCopyTableWizard_89b7114f):
             : ````
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 
 __all__ = ['CopyTableWizard']

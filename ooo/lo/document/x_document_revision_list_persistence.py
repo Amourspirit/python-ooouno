@@ -49,6 +49,7 @@ class XDocumentRevisionListPersistence(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def store(self, Storage: 'XStorage_8e460a32', List: 'typing.Tuple[RevisionTag_a6770b31, ...]') -> None:
         """
@@ -60,6 +61,7 @@ class XDocumentRevisionListPersistence(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XDocumentRevisionListPersistence']
 

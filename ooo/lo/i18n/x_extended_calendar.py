@@ -46,6 +46,7 @@ class XExtendedCalendar(XCalendar_888d09ba):
         
         Note that the string returned depends completely on the locale's calendar. It is not predictable if the string will be numeric or a name, or if in case it returns a numeric string how many digits that will have. For example, a short year display string will normally be two digits with a Gregorian calendar, but with a Jewish calendar it will have three digits.
         """
+        ...
 
 __all__ = ['XExtendedCalendar']
 

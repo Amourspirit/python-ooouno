@@ -40,10 +40,12 @@ class XWindowArranger(XInterface_8f010a43):
     def arrange(self, nCommand: int) -> None:
         """
         """
+        ...
     @abstractmethod
     def hasArrangeCommand(self, nCommand: int) -> bool:
         """
         """
+        ...
 
 __all__ = ['XWindowArranger']
 

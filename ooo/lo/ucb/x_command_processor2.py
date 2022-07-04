@@ -40,6 +40,7 @@ class XCommandProcessor2(XCommandProcessor_dfe80d19):
         
         After this call the command identifier cannot be used any longer in calls to XCommandProcessor.execute() and XCommandProcessor.abort(). (But it can happen that a call to XCommandProcessor.createCommandIdentifier() reuses this identifier.)
         """
+        ...
 
 __all__ = ['XCommandProcessor2']
 

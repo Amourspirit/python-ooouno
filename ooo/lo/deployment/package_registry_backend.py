@@ -45,11 +45,13 @@ class PackageRegistryBackend(XPackageRegistry_3be50fa6):
         """
         Creates a persistent registry.
         """
+        ...
     @abstractmethod
     def createTransient(self, context: str) -> None:
         """
         Creates a transient registry.
         """
+        ...
 
 
 __all__ = ['PackageRegistryBackend']

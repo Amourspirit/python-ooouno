@@ -51,6 +51,7 @@ class XAccessible(XInterface_8f010a43):
         
         The idea to let this interface only return an XAccessibleContext instead of directly supporting its functions is to allow the separation of the implementation of the functions that make a class accessible from the implementation of that class. You may, of course, implement XAccessible and XAccessibleContext in one class.
         """
+        ...
 
 __all__ = ['XAccessible']
 

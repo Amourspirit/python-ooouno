@@ -43,6 +43,7 @@ class ComboBox(UnoControlComboBoxModel_39030f71, FormControlModel_e2990d22, XRes
         
         This value is used when the control is initially displayed, and for resetting it.
         """
+        ...
 
 
 

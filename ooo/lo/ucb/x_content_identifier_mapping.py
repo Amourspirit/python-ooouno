@@ -46,21 +46,25 @@ class XContentIdentifierMapping(XInterface_8f010a43):
         """
         Map the XContent identified by an XContentIdentifier.
         """
+        ...
     @abstractmethod
     def mapContentIdentifier(self, Source: 'XContentIdentifier_edc90d78') -> 'XContentIdentifier_edc90d78':
         """
         Map an XContentIdentifier.
         """
+        ...
     @abstractmethod
     def mapContentIdentifierString(self, Source: str) -> str:
         """
         Map the string representation of an XContentIdentifier.
         """
+        ...
     @abstractmethod
     def mapRow(self, Value: object) -> bool:
         """
         Map the content identifiers (or related data) contained in the columns of a com.sun.star.sdbc.XRow.
         """
+        ...
 
 __all__ = ['XContentIdentifierMapping']
 

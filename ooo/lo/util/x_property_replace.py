@@ -40,15 +40,18 @@ class XPropertyReplace(XReplaceDescriptor_fd510df9):
     def getReplaceAttributes(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         """
+        ...
     @abstractmethod
     def getSearchAttributes(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         """
+        ...
     @abstractmethod
     def getValueSearch(self) -> bool:
         """
         provides the information if specific property values are searched, or just the existence of the specified properties.
         """
+        ...
     @abstractmethod
     def setReplaceAttributes(self, aSearchAttribs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -58,6 +61,7 @@ class XPropertyReplace(XReplaceDescriptor_fd510df9):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setSearchAttributes(self, aSearchAttribs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -67,11 +71,13 @@ class XPropertyReplace(XReplaceDescriptor_fd510df9):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setValueSearch(self, bValueSearch: bool) -> None:
         """
         specifies if specific property values are searched, or just the existence of the specified properties.
         """
+        ...
 
 __all__ = ['XPropertyReplace']
 

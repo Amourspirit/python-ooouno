@@ -43,10 +43,12 @@ class XModule(XInterface_8f010a43):
     def getIdentifier(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setIdentifier(self, Identifier: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XModule']
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart import ChartAxisType as ChartAxisType
-    if hasattr(ChartAxisType, '_constants') and isinstance(ChartAxisType._constants, dict):
-        ChartAxisType._constants['__ooo_ns__'] = 'com.sun.star.chart'
-        ChartAxisType._constants['__ooo_full_ns__'] = 'com.sun.star.chart.ChartAxisType'
-        ChartAxisType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ChartAxisTypeEnum
-        ls = [f for f in dir(ChartAxisType) if not callable(getattr(ChartAxisType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ChartAxisType, name)
-        ChartAxisTypeEnum = IntEnum('ChartAxisTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ChartAxisType(metaclass=UnoConstMeta, type_name="com.sun.star.chart.ChartAxisType", name_space="com.sun.star.chart"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.chart.ChartAxisType``"""
+        pass
+
+    class ChartAxisTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.chart.ChartAxisType", name_space="com.sun.star.chart"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.chart.ChartAxisType`` as Enum values"""
+        pass
+
 else:
     from ...lo.chart.chart_axis_type import ChartAxisType as ChartAxisType
 

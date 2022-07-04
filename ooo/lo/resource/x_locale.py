@@ -45,15 +45,18 @@ class XLocale(XInterface_8f010a43):
         
         Note: The Java class Locale returns the old codes.
         """
+        ...
     @abstractmethod
     def equals(self, l1: 'Locale_70d308fa', l2: 'Locale_70d308fa') -> bool:
         """
         A locale is deemed equal to another locale with identical language, country, and variant, and unequal to all other objects.
         """
+        ...
     @abstractmethod
     def getAvailableLocales(self) -> 'typing.Tuple[Locale_70d308fa, ...]':
         """
         """
+        ...
     @abstractmethod
     def getDefault(self) -> 'Locale_70d308fa':
         """
@@ -65,38 +68,47 @@ class XLocale(XInterface_8f010a43):
         
         Note that the initial setting will match the host system.
         """
+        ...
     @abstractmethod
     def getDisplayCountry(self, locale: 'Locale_70d308fa', inLocale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayCountry_Default(self, locale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayLanguage(self, locale: 'Locale_70d308fa', inLocale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayLanguage_Default(self, locale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayName(self, locale: 'Locale_70d308fa', inLocale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayName_Default(self, locale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayVariant(self, locale: 'Locale_70d308fa', inLocale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getDisplayVariant_Default(self, locale: 'Locale_70d308fa') -> str:
         """
         """
+        ...
     @abstractmethod
     def getISO3Country(self, locale: 'Locale_70d308fa') -> str:
         """
@@ -104,6 +116,7 @@ class XLocale(XInterface_8f010a43):
         Raises:
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
         """
+        ...
     @abstractmethod
     def getISO3Language(self, locale: 'Locale_70d308fa') -> str:
         """
@@ -111,18 +124,22 @@ class XLocale(XInterface_8f010a43):
         Raises:
             com.sun.star.resource.MissingResourceException: ``MissingResourceException``
         """
+        ...
     @abstractmethod
     def getISOCountries(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def getISOLanguages(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def getLanguagesForCountry(self, country: str) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def setDefault(self, newLocale: 'Locale_70d308fa') -> None:
         """
@@ -130,6 +147,7 @@ class XLocale(XInterface_8f010a43):
         
         It is normally set once at the beginning of an application, then never reset. setDefault does not reset the host locale.
         """
+        ...
 
 __all__ = ['XLocale']
 

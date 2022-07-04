@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.frame
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -47,11 +48,13 @@ class XDispatchInformationProvider(XInterface_8f010a43):
         """
         returns additional information about supported commands of a given command group.
         """
+        ...
     @abstractmethod
-    def getSupportedCommandGroups(self) -> 'typing.Tuple[int, ...]':
+    def getSupportedCommandGroups(self) -> uno.ByteSequence:
         """
         returns all supported command groups.
         """
+        ...
 
 __all__ = ['XDispatchInformationProvider']
 

@@ -25,36 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.presentation.ClickAction import (BOOKMARK, DOCUMENT, FIRSTPAGE, INVISIBLE, LASTPAGE, MACRO, NEXTPAGE, NONE, PREVPAGE, PROGRAM, SOUND, STOPPRESENTATION, VANISH, VERB)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.presentation.ClickAction Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.presentation",
-            "__ooo_full_ns__": "com.sun.star.presentation.ClickAction",
-            "__ooo_type_name__": "enum",
-            "BOOKMARK": BOOKMARK,
-            "DOCUMENT": DOCUMENT,
-            "FIRSTPAGE": FIRSTPAGE,
-            "INVISIBLE": INVISIBLE,
-            "LASTPAGE": LASTPAGE,
-            "MACRO": MACRO,
-            "NEXTPAGE": NEXTPAGE,
-            "NONE": NONE,
-            "PREVPAGE": PREVPAGE,
-            "PROGRAM": PROGRAM,
-            "SOUND": SOUND,
-            "STOPPRESENTATION": STOPPRESENTATION,
-            "VANISH": VANISH,
-            "VERB": VERB,
-        }
-        result = type('ClickAction', (object,), _dict)
-        return result
-
-    ClickAction = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ClickAction(metaclass=UnoEnumMeta, type_name="com.sun.star.presentation.ClickAction", name_space="com.sun.star.presentation"):
+        """Dynamically created class that represents ``com.sun.star.presentation.ClickAction`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.presentation.click_action import ClickAction as ClickAction
 

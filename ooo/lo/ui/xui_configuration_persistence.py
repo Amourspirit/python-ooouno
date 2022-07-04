@@ -45,6 +45,7 @@ class XUIConfigurationPersistence(XInterface_8f010a43):
         """
         provides the current modify state of the configuration manager instance.
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
@@ -52,6 +53,7 @@ class XUIConfigurationPersistence(XInterface_8f010a43):
         
         Storing a user interface configuration to a read-only storage is not possible. A read-only configuration manager instance will also not support any changes to its configuration settings.
         """
+        ...
     @abstractmethod
     def reload(self) -> None:
         """
@@ -62,6 +64,7 @@ class XUIConfigurationPersistence(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def store(self) -> None:
         """
@@ -72,6 +75,7 @@ class XUIConfigurationPersistence(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def storeToStorage(self, Storage: 'XStorage_8e460a32') -> None:
         """
@@ -82,6 +86,7 @@ class XUIConfigurationPersistence(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XUIConfigurationPersistence']
 

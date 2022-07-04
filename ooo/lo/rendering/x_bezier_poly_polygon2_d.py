@@ -52,6 +52,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getBezierSegments(self, nPolygonIndex: int, nNumberOfPolygons: int, nPointIndex: int, nNumberOfPoints: int) -> 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]':
         """
@@ -62,6 +63,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setBezierSegment(self, point: 'RealBezierSegment2D_4a970fa2', nPolygonIndex: int, nPointIndex: int) -> None:
         """
@@ -72,6 +74,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setBezierSegments(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]', nPolygonIndex: int) -> None:
         """
@@ -82,6 +85,7 @@ class XBezierPolyPolygon2D(XPolyPolygon2D_e1b0e20):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XBezierPolyPolygon2D']
 

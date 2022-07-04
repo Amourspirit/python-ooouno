@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DimensionFlags as DimensionFlags
-    if hasattr(DimensionFlags, '_constants') and isinstance(DimensionFlags._constants, dict):
-        DimensionFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DimensionFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DimensionFlags'
-        DimensionFlags._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DimensionFlagsEnum
-        ls = [f for f in dir(DimensionFlags) if not callable(getattr(DimensionFlags, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DimensionFlags, name)
-        DimensionFlagsEnum = IntFlag('DimensionFlagsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DimensionFlags(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DimensionFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DimensionFlags``"""
+        pass
+
+    class DimensionFlagsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DimensionFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DimensionFlags`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.dimension_flags import DimensionFlags as DimensionFlags
 

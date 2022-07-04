@@ -51,6 +51,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         """
         Clears the selection, so that no children of the object are selected.
         """
+        ...
     @abstractmethod
     def deselectAccessibleChild(self, nChildIndex: int) -> None:
         """
@@ -61,6 +62,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSelectedAccessibleChild(self, nSelectedChildIndex: int) -> 'XAccessible_1cbc0eb6':
         """
@@ -69,6 +71,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSelectedAccessibleChildCount(self) -> int:
         """
@@ -76,6 +79,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         
         This number specifies the valid interval of indices that can be used as arguments for the methods XAccessibleSelection.getSelectedChild() and XAccessibleSelection.deselectSelectedChild().
         """
+        ...
     @abstractmethod
     def isAccessibleChildSelected(self, nChildIndex: int) -> bool:
         """
@@ -84,6 +88,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def selectAccessibleChild(self, nChildIndex: int) -> None:
         """
@@ -94,6 +99,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def selectAllAccessibleChildren(self) -> None:
         """
@@ -101,6 +107,7 @@ class XAccessibleSelection(XInterface_8f010a43):
         
         Causes every child of the object to be selected if the object supports multiple selections. If multiple selection is not supported then the first child, if it exists, is selected and all other children are deselected.
         """
+        ...
 
 __all__ = ['XAccessibleSelection']
 

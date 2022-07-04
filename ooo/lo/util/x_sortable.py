@@ -49,6 +49,7 @@ class XSortable(XInterface_8f010a43):
         """
         The set of properties is specific to the type of object that implements this interface. Therefore they can usually be used only for objects of that same type.
         """
+        ...
     @abstractmethod
     def sort(self, xDescriptor: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -56,6 +57,7 @@ class XSortable(XInterface_8f010a43):
         
         The specified properties are usually the same or a subset of those obtained by calling createSortDescriptor() on the same type of object.
         """
+        ...
 
 __all__ = ['XSortable']
 

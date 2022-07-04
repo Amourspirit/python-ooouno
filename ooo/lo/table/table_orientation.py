@@ -34,6 +34,10 @@ class TableOrientation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.TableOrientation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.TableOrientation'
+
     COLUMNS = 'COLUMNS'
     """
     operations are carried out on columns.

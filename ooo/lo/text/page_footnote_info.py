@@ -41,6 +41,7 @@ class PageFootnoteInfo(ABC):
         """
         contains the distance between the separator line and the footnote section.
         """
+        ...
 
     @abstractproperty
     def FootnoteHeight(self) -> int:
@@ -49,36 +50,42 @@ class PageFootnoteInfo(ABC):
         
         If 0, the maximum is the height of the page.
         """
+        ...
 
     @abstractproperty
     def FootnoteSeparatorLineAdjust(self) -> 'HorizontalAdjust_e57e0d62':
         """
         contains the adjustment of the footnote separator line.
         """
+        ...
 
     @abstractproperty
     def FootnoteSeparatorLinePenWidth(self) -> int:
         """
         contains the width of the pen for the footnote separator line.
         """
+        ...
 
     @abstractproperty
     def FootnoteSeparatorLineWidth(self) -> int:
         """
         contains the relative width of the footnote separator line.
         """
+        ...
 
     @abstractproperty
     def FootnoteSeparatorLineWidthPercent(self) -> int:
         """
         contains the relative width of the footnote separator line.
         """
+        ...
 
     @abstractproperty
     def FootnoteTopDistance(self) -> int:
         """
         contains the distance between the text and footnote section.
         """
+        ...
 
 
 

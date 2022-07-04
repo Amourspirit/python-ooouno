@@ -39,6 +39,7 @@ class XAccessibleTableSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def selectRow(self, row: int) -> bool:
         """
@@ -46,6 +47,7 @@ class XAccessibleTableSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def unselectColumn(self, column: int) -> bool:
         """
@@ -53,6 +55,7 @@ class XAccessibleTableSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def unselectRow(self, row: int) -> bool:
         """
@@ -60,6 +63,7 @@ class XAccessibleTableSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XAccessibleTableSelection']
 

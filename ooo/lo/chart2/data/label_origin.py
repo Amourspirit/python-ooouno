@@ -34,6 +34,10 @@ class LabelOrigin(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.data.LabelOrigin'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.data.LabelOrigin'
+
     COLUMN = 'COLUMN'
     """
     Uses the column name for label generation.

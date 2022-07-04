@@ -52,6 +52,7 @@ class XParagraphAppend(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def finishParagraphInsert(self, CharacterAndParagraphProperties: 'PropertyValues_d6470ce6', TextRange: 'XTextRange_9a910ab7') -> 'XTextRange_9a910ab7':
         """
@@ -67,6 +68,7 @@ class XParagraphAppend(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
 
 __all__ = ['XParagraphAppend']
 

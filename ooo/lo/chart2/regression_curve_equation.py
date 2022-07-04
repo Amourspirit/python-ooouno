@@ -44,36 +44,43 @@ class RegressionCurveEquation(PropertySet_b0e70ba2, FillProperties_f1200da8, Lin
     def NumberFormat(self) -> int:
         """
         """
+        ...
 
     @abstractproperty
     def ReferencePageSize(self) -> 'Size_576707ef':
         """
         """
+        ...
 
     @abstractproperty
     def RelativePosition(self) -> 'RelativePosition_fae10ddd':
         """
         """
+        ...
 
     @abstractproperty
     def ShowCorrelationCoefficient(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def ShowEquation(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def XName(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def YName(self) -> str:
         """
         """
+        ...
 
 
 

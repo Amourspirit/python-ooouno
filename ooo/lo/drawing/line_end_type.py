@@ -34,6 +34,10 @@ class LineEndType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.LineEndType'
+
     ARROW = 'ARROW'
     """
     the line uses an arrow for the line end.

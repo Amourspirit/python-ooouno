@@ -46,11 +46,13 @@ class MailMessage(XMailMessage_ae200b4b):
         """
         Constructs an instance of a mail message.
         """
+        ...
     @abstractmethod
     def createWithAttachment(self, sTo: str, sFrom: str, sSubject: str, xBody: 'XTransferable_2d800f38', aMailAttachment: 'MailAttachment_c6770c37') -> None:
         """
         Constructs an instance of a mail message.
         """
+        ...
 
 
 __all__ = ['MailMessage']

@@ -43,6 +43,7 @@ class XStringResourceSupplier(XInterface_8f010a43):
         
         Depending on the context the returned object may also support com.sun.star.resource.XStringResourceManager or com.sun.star.resource.XStringResourcePersistence or com.sun.star.resource.XStringResourceWithStorage
         """
+        ...
 
 __all__ = ['XStringResourceSupplier']
 

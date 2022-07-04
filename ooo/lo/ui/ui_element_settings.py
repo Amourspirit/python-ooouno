@@ -48,6 +48,7 @@ class UIElementSettings(XIndexAccess_f0910d6d, XSingleComponentFactory_46cc0fef)
         
         A toolbar can show its user interface name on the window title, when it is in floating mode.
         """
+        ...
 
 
 

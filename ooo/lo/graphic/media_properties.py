@@ -43,6 +43,7 @@ class MediaProperties(ABC):
         """
         Additional properties that will be passed to the appropriate filter module.
         """
+        ...
 
     @abstractproperty
     def InputStream(self) -> 'XInputStream_98d40ab4':
@@ -51,6 +52,7 @@ class MediaProperties(ABC):
         
         A InputStream can be used instead of the URL property
         """
+        ...
 
     @abstractproperty
     def MimeType(self) -> str:
@@ -59,6 +61,7 @@ class MediaProperties(ABC):
         
         At the moment, the following mime types are supported for storing graphics:
         """
+        ...
 
     @abstractproperty
     def OutputStream(self) -> 'XStream_678908a4':
@@ -67,6 +70,7 @@ class MediaProperties(ABC):
         
         A OutputStream can be used instead of the URL property
         """
+        ...
 
     @abstractproperty
     def URL(self) -> str:
@@ -79,6 +83,7 @@ class MediaProperties(ABC):
         
         Note: As of LibreOffice 6.1 GraphicObject scheme URLs are not supported anymore. For example:
         """
+        ...
 
 
 

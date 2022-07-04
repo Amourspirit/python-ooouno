@@ -49,6 +49,7 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getCellToolTip(self, Column: int, RowIndex: int) -> object:
         """
@@ -61,6 +62,7 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getRowData(self, RowIndex: int) -> 'typing.Tuple[object, ...]':
         """
@@ -71,6 +73,7 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getRowHeading(self, RowIndex: int) -> object:
         """
@@ -83,17 +86,20 @@ class XGridDataModel(XComponent_98dc0ab5, XCloneable_99d00aa3):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractproperty
     def ColumnCount(self) -> int:
         """
         denotes the number of columns for which the model can provide data
         """
+        ...
 
     @abstractproperty
     def RowCount(self) -> int:
         """
         denotes the number of rows for which the model can provide data
         """
+        ...
 
 
 __all__ = ['XGridDataModel']

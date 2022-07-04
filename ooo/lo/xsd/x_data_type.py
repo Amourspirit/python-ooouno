@@ -38,11 +38,13 @@ class XDataType(XPropertySet_bc180bfa):
         """
         TODO.
         """
+        ...
     @abstractmethod
     def validate(self, value: str) -> bool:
         """
         TODO.
         """
+        ...
     @abstractproperty
     def IsBasic(self) -> bool:
         """
@@ -50,12 +52,14 @@ class XDataType(XPropertySet_bc180bfa):
         
         Basic types are built into the type system, and cannot be changed by the user.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         provides access to the name of the type
         """
+        ...
 
     @abstractproperty
     def Pattern(self) -> str:
@@ -64,12 +68,14 @@ class XDataType(XPropertySet_bc180bfa):
         
         See http://www.w3.org/TR/xmlschema-2/#rf-pattern
         """
+        ...
 
     @abstractproperty
     def TypeClass(self) -> int:
         """
         class of the type
         """
+        ...
 
     @abstractproperty
     def WhiteSpaceTreatment(self) -> int:
@@ -78,6 +84,7 @@ class XDataType(XPropertySet_bc180bfa):
         
         See http://www.w3.org/TR/xmlschema-2/#rf-whiteSpace
         """
+        ...
 
 
 __all__ = ['XDataType']

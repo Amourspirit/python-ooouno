@@ -34,6 +34,10 @@ class DataImportMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.DataImportMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.DataImportMode'
+
     NONE = 'NONE'
     """
     no cells are moved.

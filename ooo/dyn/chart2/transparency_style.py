@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart2.TransparencyStyle import (GRADIENT, LINEAR, NONE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart2.TransparencyStyle Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart2",
-            "__ooo_full_ns__": "com.sun.star.chart2.TransparencyStyle",
-            "__ooo_type_name__": "enum",
-            "GRADIENT": GRADIENT,
-            "LINEAR": LINEAR,
-            "NONE": NONE,
-        }
-        result = type('TransparencyStyle', (object,), _dict)
-        return result
-
-    TransparencyStyle = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class TransparencyStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.TransparencyStyle", name_space="com.sun.star.chart2"):
+        """Dynamically created class that represents ``com.sun.star.chart2.TransparencyStyle`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart2.transparency_style import TransparencyStyle as TransparencyStyle
 

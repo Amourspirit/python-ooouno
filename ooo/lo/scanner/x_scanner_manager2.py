@@ -48,6 +48,7 @@ class XScannerManager2(XScannerManager_fd640dcf):
         Raises:
             com.sun.star.scanner.ScannerException: ``ScannerException``
         """
+        ...
 
 __all__ = ['XScannerManager2']
 

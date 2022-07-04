@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.security import CertificateValidity as CertificateValidity
-    if hasattr(CertificateValidity, '_constants') and isinstance(CertificateValidity._constants, dict):
-        CertificateValidity._constants['__ooo_ns__'] = 'com.sun.star.security'
-        CertificateValidity._constants['__ooo_full_ns__'] = 'com.sun.star.security.CertificateValidity'
-        CertificateValidity._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CertificateValidityEnum
-        ls = [f for f in dir(CertificateValidity) if not callable(getattr(CertificateValidity, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CertificateValidity, name)
-        CertificateValidityEnum = IntFlag('CertificateValidityEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CertificateValidity(metaclass=UnoConstMeta, type_name="com.sun.star.security.CertificateValidity", name_space="com.sun.star.security"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.security.CertificateValidity``"""
+        pass
+
+    class CertificateValidityEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.security.CertificateValidity", name_space="com.sun.star.security"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.security.CertificateValidity`` as Enum values"""
+        pass
+
 else:
     from ...lo.security.certificate_validity import CertificateValidity as CertificateValidity
 

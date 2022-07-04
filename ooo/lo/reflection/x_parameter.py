@@ -48,6 +48,7 @@ class XParameter(XMethodParameter_3b120f8d):
         
         Currently, only service constructors can have rest parameters, and those rest parameters must be in parameters of type any.
         """
+        ...
 
 __all__ = ['XParameter']
 

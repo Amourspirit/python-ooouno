@@ -47,6 +47,7 @@ class XPaneBorderPainter(ABC):
         
         This method can be used to convert an inner bounding box into the center box or the outer bounding box.
         """
+        ...
     @abstractmethod
     def getCalloutOffset(self, sPaneBorderStyleName: str) -> 'Point_5fb2085e':
         """
@@ -54,11 +55,13 @@ class XPaneBorderPainter(ABC):
         
         This value is used when the call out is realized by a fixed bitmap in order to determine the size and/or location of the outer border for a given call out.
         """
+        ...
     @abstractmethod
     def paintBorder(self, sPaneBorderStyleName: str, xCanvas: 'XCanvas_b19b0b7a', aOuterBorderRectangle: 'Rectangle_84b109e9', aRepaintArea: 'Rectangle_84b109e9', sTitle: str) -> None:
         """
         Paint the border around a pane.
         """
+        ...
     @abstractmethod
     def paintBorderWithCallout(self, sPaneBorderStyleName: str, xCanvas: 'XCanvas_b19b0b7a', aOuterBorderRectangle: 'Rectangle_84b109e9', aRepaintArea: 'Rectangle_84b109e9', sTitle: str, aCalloutAnchor: 'Point_5fb2085e') -> None:
         """
@@ -66,6 +69,7 @@ class XPaneBorderPainter(ABC):
         
         Most arguments have the same meaning as in the paintBorder().
         """
+        ...
     @abstractmethod
     def removeBorder(self, sPaneBorderStyleName: str, aRectangle: 'Rectangle_84b109e9', eBorderType: 'BorderType_4b7f0ff0') -> 'Rectangle_84b109e9':
         """
@@ -73,6 +77,7 @@ class XPaneBorderPainter(ABC):
         
         This method can be used to convert an outer bounding box into the center box or the inner bounding box.
         """
+        ...
 
 __all__ = ['XPaneBorderPainter']
 

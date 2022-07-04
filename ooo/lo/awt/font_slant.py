@@ -34,6 +34,10 @@ class FontSlant(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.FontSlant'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.FontSlant'
+
     DONTKNOW = 'DONTKNOW'
     """
     specifies a font with an unknown slant.

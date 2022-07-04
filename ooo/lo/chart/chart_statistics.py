@@ -48,6 +48,7 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         this setting is effective if the ChartStatistics.ErrorCategory is set to ChartErrorCategory.CONSTANT_VALUE.
         """
+        ...
 
     @abstractproperty
     def ConstantErrorLow(self) -> float:
@@ -56,6 +57,7 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         this setting is effective if the ChartStatistics.ErrorCategory is set to ChartErrorCategory.CONSTANT_VALUE.
         """
+        ...
 
     @abstractproperty
     def ErrorBarRangeNegative(self) -> str:
@@ -64,6 +66,7 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         This property is used when the ErrorBarCategory is set to ErrorBarCategory.FROM_DATA.
         """
+        ...
 
     @abstractproperty
     def ErrorBarRangePositive(self) -> str:
@@ -72,6 +75,7 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         This property is used when the ErrorBarCategory is set to ErrorBarCategory.FROM_DATA.
         """
+        ...
 
     @abstractproperty
     def ErrorBarStyle(self) -> int:
@@ -80,12 +84,14 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         Use this instead of ErrorCategory
         """
+        ...
 
     @abstractproperty
     def ErrorCategory(self) -> 'ChartErrorCategory_a9a0e54':
         """
         determines the type of error to indicate.
         """
+        ...
 
     @abstractproperty
     def ErrorIndicator(self) -> 'ChartErrorIndicatorType_58181055':
@@ -94,6 +100,7 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         You can enable indicators pointing up, down or both.
         """
+        ...
 
     @abstractproperty
     def ErrorMargin(self) -> float:
@@ -104,12 +111,14 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         this setting is effective if the ChartStatistics.ErrorCategory is set to ChartErrorCategory.ERROR_MARGIN.
         """
+        ...
 
     @abstractproperty
     def MeanValue(self) -> bool:
         """
         determines if the mean value for a data row is displayed as a line.
         """
+        ...
 
     @abstractproperty
     def PercentageError(self) -> float:
@@ -120,12 +129,14 @@ class ChartStatistics(XPropertySet_bc180bfa):
         
         this setting is effective if the ChartStatistics.ErrorCategory is set to ChartErrorCategory.PERCENT.
         """
+        ...
 
     @abstractproperty
     def RegressionCurves(self) -> 'ChartRegressionCurveType_6a2310d4':
         """
         determines a type of regression for the data row values.
         """
+        ...
 
 
 

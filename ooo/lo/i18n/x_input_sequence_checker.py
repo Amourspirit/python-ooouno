@@ -41,6 +41,7 @@ class XInputSequenceChecker(XInterface_8f010a43):
     def checkInputSequence(self, aText: str, nPos: int, cInputChar: str, nInputCheckMode: int) -> bool:
         """
         """
+        ...
 
 __all__ = ['XInputSequenceChecker']
 

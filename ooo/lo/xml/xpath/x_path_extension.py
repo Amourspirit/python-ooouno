@@ -41,6 +41,7 @@ class XPathExtension(XXPathExtension_194c0ea6):
     def createWithModel(self, Model: 'XModel_865909f0', ContextNode: 'XNode_83fb09a5') -> None:
         """
         """
+        ...
 
 
 __all__ = ['XPathExtension']

@@ -41,6 +41,7 @@ class XChangesListener(XEventListener_c7230c4a):
         """
         is invoked when a batch of changes occurred.
         """
+        ...
 
 __all__ = ['XChangesListener']
 

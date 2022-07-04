@@ -52,30 +52,35 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
         """
         specifies how the captions of data points are displayed.
         """
+        ...
 
     @abstractproperty
     def LabelPlacement(self) -> int:
         """
         specifies a relative position for the data label
         """
+        ...
 
     @abstractproperty
     def LabelSeparator(self) -> str:
         """
         specifies a string that is used to separate the parts of a data label (caption)
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         specifies a number format for the display of the value in the data label
         """
+        ...
 
     @abstractproperty
     def PercentageNumberFormat(self) -> int:
         """
         specifies a number format for the display of the percentage value in the data label
         """
+        ...
 
     @abstractproperty
     def SegmentOffset(self) -> int:
@@ -84,6 +89,7 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
         
         This value is given in percent of the radius.
         """
+        ...
 
     @abstractproperty
     def SymbolBitmap(self) -> 'XGraphic_a4da0afc':
@@ -96,6 +102,7 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def SymbolBitmapURL(self) -> str:
@@ -106,12 +113,14 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
         
         When you query this value you get an internal URL of the embedded graphic.
         """
+        ...
 
     @abstractproperty
     def SymbolType(self) -> int:
         """
         specifies the type of symbols if the current chart type supports the usage of symbols.
         """
+        ...
 
     @abstractproperty
     def TextWordWrap(self) -> bool:
@@ -122,6 +131,7 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
         
             LibreOffice 5.1
         """
+        ...
 
 
 

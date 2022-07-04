@@ -51,97 +51,47 @@ class NativeNumberMode(object):
     """
     NATNUM1 = 1
     """
-    Transliteration in
-    Chinese: Chinese lower case characters; CAL: 1/7/7 [DBNum1]
-    Japanese: short Kanji characters [DBNum1]; CAL: 1/4/4 [DBNum1]
-    Korean: Korean lower case characters [DBNum1]; CAL: 1/7/7 [DBNum1]
-    Hebrew: Hebrew characters
-    Arabic: Arabic-Indic characters
-    Thai: Thai characters
-    Hindi: Indic-Devanagari characters
-    Odia: Odia (Oriya) characters
-    Marathi: Indic-Devanagari characters
-    Bengali: Bengali characters
-    Punjabi: Punjabi (Gurmukhi) characters
-    Gujarati: Gujarati characters
-    Tamil: Tamil characters
-    Telugu: Telugu characters
-    Kannada: Kannada characters
-    Malayalam: Malayalam characters
-    Lao: Lao characters
-    Tibetan: Tibetan characters
-    Burmese: Burmese (Myanmar) characters
-    Khmer: Khmer (Cambodian) characters
-    Mongolian: Mongolian characters
-    Nepali: Indic-Devanagari characters
-    Dzongkha: Tibetan characters
-    Farsi: East Arabic-Indic characters
-    Church Slavic: Cyrillic characters.
+    Transliteration in Chinese: Chinese lower case characters; CAL: 1/7/7 [DBNum1] Japanese: short Kanji characters [DBNum1]; CAL: 1/4/4 [DBNum1] Korean: Korean lower case characters [DBNum1]; CAL: 1/7/7 [DBNum1] Hebrew: Hebrew characters Arabic: Arabic-Indic characters Thai: Thai characters Hindi: Indic-Devanagari characters Odia: Odia (Oriya) charactersMarathi: Indic-Devanagari charactersBengali: Bengali charactersPunjabi: Punjabi (Gurmukhi) charactersGujarati: Gujarati charactersTamil: Tamil charactersTelugu: Telugu charactersKannada: Kannada charactersMalayalam: Malayalam charactersLao: Lao charactersTibetan: Tibetan charactersBurmese: Burmese (Myanmar) charactersKhmer: Khmer (Cambodian) charactersMongolian: Mongolian charactersNepali: Indic-Devanagari charactersDzongkha: Tibetan charactersFarsi: East Arabic-Indic charactersChurch Slavic: Cyrillic characters.
     """
     NATNUM2 = 2
     """
-    Transliteration in
-    Chinese: Chinese upper case characters; CAL: 2/8/8 [DBNum2]
-    Japanese: traditional Kanji characters; CAL: 2/5/5 [DBNum2]
-    Korean: Korean upper case characters [DBNum2]; CAL: 2/8/8 [DBNum2]
-    Hebrew: Hebrew numbering.
+    Transliteration in Chinese: Chinese upper case characters; CAL: 2/8/8 [DBNum2] Japanese: traditional Kanji characters; CAL: 2/5/5 [DBNum2] Korean: Korean upper case characters [DBNum2]; CAL: 2/8/8 [DBNum2] Hebrew: Hebrew numbering.
     """
     NATNUM3 = 3
     """
-    Transliteration in
-    Chinese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3]
-    Japanese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3]
-    Korean: fullwidth Arabic digits [DBNum3]; CAL: 3/3/3 [DBNum3].
+    Transliteration in Chinese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3] Japanese: fullwidth Arabic digits; CAL: 3/3/3 [DBNum3] Korean: fullwidth Arabic digits [DBNum3]; CAL: 3/3/3 [DBNum3].
     """
     NATNUM4 = 4
     """
-    Transliteration in
-    Chinese: lower case text [DBNum1]
-    Japanese: modern long Kanji text [DBNum2]
-    Korean: formal lower case text.
+    Transliteration in Chinese: lower case text [DBNum1] Japanese: modern long Kanji text [DBNum2] Korean: formal lower case text.
     """
     NATNUM5 = 5
     """
-    Transliteration in
-    Chinese: Chinese upper case text [DBNum2]
-    Japanese: traditional long Kanji text [DBNum3]
-    Korean: formal upper case text.
+    Transliteration in Chinese: Chinese upper case text [DBNum2] Japanese: traditional long Kanji text [DBNum3] Korean: formal upper case text.
     """
     NATNUM6 = 6
     """
-    Transliteration in
-    Chinese: fullwidth text [DBNum3]
-    Japanese: fullwidth text
-    Korean: fullwidth text.
+    Transliteration in Chinese: fullwidth text [DBNum3] Japanese: fullwidth text Korean: fullwidth text.
     """
     NATNUM7 = 7
     """
-    Transliteration in
-    Chinese: short lower case text
-    Japanese: modern short Kanji text
-    Korean: informal lower case text.
+    Transliteration in Chinese: short lower case text Japanese: modern short Kanji text Korean: informal lower case text.
     """
     NATNUM8 = 8
     """
-    Transliteration in
-    Chinese: short upper case text
-    Japanese: traditional short Kanji text [DBNum4]
-    Korean: informal upper case text.
+    Transliteration in Chinese: short upper case text Japanese: traditional short Kanji text [DBNum4] Korean: informal upper case text.
     """
     NATNUM9 = 9
     """
-    Transliteration in
-    Korean: Hangul characters.
+    Transliteration in Korean: Hangul characters.
     """
     NATNUM10 = 10
     """
-    Transliteration in
-    Korean: formal Hangul text [DBNum4]; CAL: 9/11/11 [DBNum4].
+    Transliteration in Korean: formal Hangul text [DBNum4]; CAL: 9/11/11 [DBNum4].
     """
     NATNUM11 = 11
     """
-    Transliteration in
-    Korean: informal Hangul text.
+    Transliteration in Korean: informal Hangul text.
     """
     NATNUM12 = 12
     """

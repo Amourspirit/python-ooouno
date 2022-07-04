@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import DocumentStatistic as DocumentStatistic
-    if hasattr(DocumentStatistic, '_constants') and isinstance(DocumentStatistic._constants, dict):
-        DocumentStatistic._constants['__ooo_ns__'] = 'com.sun.star.text'
-        DocumentStatistic._constants['__ooo_full_ns__'] = 'com.sun.star.text.DocumentStatistic'
-        DocumentStatistic._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DocumentStatisticEnum
-        ls = [f for f in dir(DocumentStatistic) if not callable(getattr(DocumentStatistic, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DocumentStatistic, name)
-        DocumentStatisticEnum = IntEnum('DocumentStatisticEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DocumentStatistic(metaclass=UnoConstMeta, type_name="com.sun.star.text.DocumentStatistic", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.DocumentStatistic``"""
+        pass
+
+    class DocumentStatisticEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.DocumentStatistic", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.DocumentStatistic`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.document_statistic import DocumentStatistic as DocumentStatistic
 

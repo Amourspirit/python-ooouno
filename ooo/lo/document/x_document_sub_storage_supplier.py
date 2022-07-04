@@ -43,6 +43,7 @@ class XDocumentSubStorageSupplier(XInterface_8f010a43):
         """
         provides the access to a substorage with specified name
         """
+        ...
     @abstractmethod
     def getDocumentSubStoragesNames(self) -> 'typing.Tuple[str, ...]':
         """
@@ -51,6 +52,7 @@ class XDocumentSubStorageSupplier(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XDocumentSubStorageSupplier']
 

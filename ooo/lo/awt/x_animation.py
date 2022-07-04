@@ -41,16 +41,19 @@ class XAnimation(ABC):
         """
         determines whether the animation is currently running
         """
+        ...
     @abstractmethod
     def startAnimation(self) -> None:
         """
         starts the animation
         """
+        ...
     @abstractmethod
     def stopAnimation(self) -> None:
         """
         stops the animation
         """
+        ...
 
 __all__ = ['XAnimation']
 

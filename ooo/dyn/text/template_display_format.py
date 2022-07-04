@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import TemplateDisplayFormat as TemplateDisplayFormat
-    if hasattr(TemplateDisplayFormat, '_constants') and isinstance(TemplateDisplayFormat._constants, dict):
-        TemplateDisplayFormat._constants['__ooo_ns__'] = 'com.sun.star.text'
-        TemplateDisplayFormat._constants['__ooo_full_ns__'] = 'com.sun.star.text.TemplateDisplayFormat'
-        TemplateDisplayFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TemplateDisplayFormatEnum
-        ls = [f for f in dir(TemplateDisplayFormat) if not callable(getattr(TemplateDisplayFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TemplateDisplayFormat, name)
-        TemplateDisplayFormatEnum = IntEnum('TemplateDisplayFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class TemplateDisplayFormat(metaclass=UnoConstMeta, type_name="com.sun.star.text.TemplateDisplayFormat", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.TemplateDisplayFormat``"""
+        pass
+
+    class TemplateDisplayFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.TemplateDisplayFormat", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.TemplateDisplayFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.template_display_format import TemplateDisplayFormat as TemplateDisplayFormat
 

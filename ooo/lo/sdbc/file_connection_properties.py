@@ -47,6 +47,7 @@ class FILEConnectionProperties(ConnectionProperties_1a9f0ee1):
         
         For internal purposes (e.g., when using an encoding for which no IANA character set name exists), this may also be an UNSIGNED SHORT value representing one of the rtl_TextEncoding values in rtl/textenc.h.
         """
+        ...
 
 
 

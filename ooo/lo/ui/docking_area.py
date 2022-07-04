@@ -34,6 +34,10 @@ class DockingArea(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ui.DockingArea'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ui.DockingArea'
+
     DOCKINGAREA_BOTTOM = 'DOCKINGAREA_BOTTOM'
     """
     the bottom docking area above the status bar.

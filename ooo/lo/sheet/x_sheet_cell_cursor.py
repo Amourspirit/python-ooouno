@@ -40,6 +40,7 @@ class XSheetCellCursor(XSheetCellRange_e09d0cdf):
         
         To get the correct result, the top left cell of the original cursor must point to any cell containing an array formula. If not, the cursor is left unchanged.
         """
+        ...
     @abstractmethod
     def collapseToCurrentRegion(self) -> None:
         """
@@ -47,6 +48,7 @@ class XSheetCellCursor(XSheetCellRange_e09d0cdf):
         
         A region is a cell range bounded by empty cells.
         """
+        ...
     @abstractmethod
     def collapseToMergedArea(self) -> None:
         """
@@ -54,6 +56,7 @@ class XSheetCellCursor(XSheetCellRange_e09d0cdf):
         
         Expands the current cursor range in a way so that all merged cell ranges intersecting the current range will fit completely. If the cursor does not point to any range with merged cells, it is left unchanged.
         """
+        ...
     @abstractmethod
     def collapseToSize(self, nColumns: int, nRows: int) -> None:
         """
@@ -61,16 +64,19 @@ class XSheetCellCursor(XSheetCellRange_e09d0cdf):
         
         The top left cell of the cursor keeps unmodified.
         """
+        ...
     @abstractmethod
     def expandToEntireColumns(self) -> None:
         """
         expands the cursor to include the entire columns of the cells to which it is currently pointing.
         """
+        ...
     @abstractmethod
     def expandToEntireRows(self) -> None:
         """
         expands the cursor to include the entire rows of the cells to which it is currently pointing.
         """
+        ...
 
 __all__ = ['XSheetCellCursor']
 

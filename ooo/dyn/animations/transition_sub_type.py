@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.animations import TransitionSubType as TransitionSubType
-    if hasattr(TransitionSubType, '_constants') and isinstance(TransitionSubType._constants, dict):
-        TransitionSubType._constants['__ooo_ns__'] = 'com.sun.star.animations'
-        TransitionSubType._constants['__ooo_full_ns__'] = 'com.sun.star.animations.TransitionSubType'
-        TransitionSubType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TransitionSubTypeEnum
-        ls = [f for f in dir(TransitionSubType) if not callable(getattr(TransitionSubType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TransitionSubType, name)
-        TransitionSubTypeEnum = IntEnum('TransitionSubTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class TransitionSubType(metaclass=UnoConstMeta, type_name="com.sun.star.animations.TransitionSubType", name_space="com.sun.star.animations"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.animations.TransitionSubType``"""
+        pass
+
+    class TransitionSubTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.animations.TransitionSubType", name_space="com.sun.star.animations"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.animations.TransitionSubType`` as Enum values"""
+        pass
+
 else:
     from ...lo.animations.transition_sub_type import TransitionSubType as TransitionSubType
 

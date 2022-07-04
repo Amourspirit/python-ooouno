@@ -38,16 +38,19 @@ class XPresentation(XInterface_8f010a43):
         """
         The presentation is stopped and the full-screen mode will end.
         """
+        ...
     @abstractmethod
     def rehearseTimings(self) -> None:
         """
         Starts the presentation from the beginning and shows the actual running time to the user.
         """
+        ...
     @abstractmethod
     def start(self) -> None:
         """
         The presentation is shown in full-screen and started from the beginning.
         """
+        ...
 
 __all__ = ['XPresentation']
 

@@ -46,6 +46,7 @@ class XSimpleFileAccess3(XSimpleFileAccess2_ebe60d08):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setHidden(self, FileURL: str, bHidden: bool) -> None:
         """
@@ -55,6 +56,7 @@ class XSimpleFileAccess3(XSimpleFileAccess2_ebe60d08):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XSimpleFileAccess3']
 

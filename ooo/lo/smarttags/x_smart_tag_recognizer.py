@@ -52,16 +52,19 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getDescription(self, aLocale: 'Locale_70d308fa') -> str:
         """
         obtains a detailed description of this recognizer component.
         """
+        ...
     @abstractmethod
     def getName(self, aLocale: 'Locale_70d308fa') -> str:
         """
         obtains a name that describes this recognizer component.
         """
+        ...
     @abstractmethod
     def getSmartTagDownloadURL(self, nSmartTagIndex: int) -> str:
         """
@@ -70,6 +73,7 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSmartTagName(self, nSmartTagIndex: int) -> str:
         """
@@ -78,6 +82,7 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def hasPropertyPage(self, nSmartTagIndex: int, aLocale: 'Locale_70d308fa') -> bool:
         """
@@ -86,16 +91,19 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def recognize(self, aText: str, nStart: int, nLength: int, eDataType: 'SmartTagRecognizerMode_9179119e', aLocale: 'Locale_70d308fa', xTextMarkup: 'XTextMarkup_a5d60b3a', aApplicationName: str, xController: 'XController_b00e0b8f', xTokenizer: 'XBreakIterator_bf270bcf') -> None:
         """
         recognizes smart tags.
         """
+        ...
     @abstractproperty
     def SmartTagCount(self) -> int:
         """
         The number of smart tag types supported by this recognizer component.
         """
+        ...
 
 
 __all__ = ['XSmartTagRecognizer']

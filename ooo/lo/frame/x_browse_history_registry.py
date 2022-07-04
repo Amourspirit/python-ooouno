@@ -43,10 +43,12 @@ class XBrowseHistoryRegistry(XInterface_8f010a43):
     def createNewEntry(self, URL: str, Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]', Title: str) -> None:
         """
         """
+        ...
     @abstractmethod
     def updateViewData(self, Value: object) -> None:
         """
         """
+        ...
 
 __all__ = ['XBrowseHistoryRegistry']
 

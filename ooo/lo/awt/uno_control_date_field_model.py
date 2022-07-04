@@ -49,12 +49,14 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         """
         specifies the background color(RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+        ...
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -67,78 +69,91 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Date(self) -> 'Date_60040844':
         """
         specifies the date displayed in the control.
         """
+        ...
 
     @abstractproperty
     def DateFormat(self) -> int:
         """
         specifies the format of the displayed date.
         """
+        ...
 
     @abstractproperty
     def DateMax(self) -> 'Date_60040844':
         """
         specifies the maximum date that can be entered.
         """
+        ...
 
     @abstractproperty
     def DateMin(self) -> 'Date_60040844':
         """
         specifies the minimum date that can be entered.
         """
+        ...
 
     @abstractproperty
     def DateShowCentury(self) -> bool:
         """
         specifies, if the date century is displayed.
         """
+        ...
 
     @abstractproperty
     def Dropdown(self) -> bool:
         """
         specifies, if the control has a dropdown button.
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font attributes of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontEmphasisMark(self) -> int:
         """
         specifies the com.sun.star.text.FontEmphasis value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def FontRelief(self) -> int:
         """
         specifies the com.sun.star.text.FontRelief value of the text in the control.
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def HideInactiveSelection(self) -> bool:
@@ -149,6 +164,7 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def MouseWheelBehavior(self) -> int:
@@ -157,18 +173,21 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
         Usually, the mouse wheel spins the numeric value displayed in the control. Using this property, and one of the MouseWheelBehavior constants, you can control under which circumstances this is possible.
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies that the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def ReadOnly(self) -> bool:
         """
         specifies that the content of the control cannot be modified by the user.
         """
+        ...
 
     @abstractproperty
     def Repeat(self) -> bool:
@@ -181,6 +200,7 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def RepeatDelay(self) -> int:
@@ -193,24 +213,28 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Spin(self) -> bool:
         """
         specifies that the control has a spin button.
         """
+        ...
 
     @abstractproperty
     def StrictFormat(self) -> bool:
         """
         specifies that the date is checked during the user input.
         """
+        ...
 
     @abstractproperty
     def Tabstop(self) -> bool:
         """
         specifies that the control can be reached with the TAB key.
         """
+        ...
 
     @abstractproperty
     def Text(self) -> str:
@@ -221,18 +245,21 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def TextLineColor(self) -> 'Color_68e908c5':
         """
         specifies the text line color (RGB) of the control.
         """
+        ...
 
     @abstractproperty
     def VerticalAlign(self) -> 'VerticalAlignment_8d0e12':
@@ -243,6 +270,7 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 3.3
         """
+        ...
 
     @abstractproperty
     def WritingMode(self) -> int:
@@ -255,6 +283,7 @@ class UnoControlDateFieldModel(UnoControlModel_c8ce0c58):
         
             OOo 3.1
         """
+        ...
 
 
 

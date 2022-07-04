@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.rendering
 import typing
+import uno
 from abc import abstractmethod
 from .x_integer_read_only_bitmap import XIntegerReadOnlyBitmap as XIntegerReadOnlyBitmap_8cc01167
 if typing.TYPE_CHECKING:
@@ -43,7 +44,7 @@ class XIntegerBitmap(XIntegerReadOnlyBitmap_8cc01167):
     __pyunointerface__: str = 'com.sun.star.rendering.XIntegerBitmap'
 
     @abstractmethod
-    def setData(self, data: 'typing.Tuple[int, ...]', bitmapLayout: 'IntegerBitmapLayout_5b94106f', rect: 'IntegerRectangle2D_3c5c0f4d') -> None:
+    def setData(self, data: uno.ByteSequence, bitmapLayout: 'IntegerBitmapLayout_5b94106f', rect: 'IntegerRectangle2D_3c5c0f4d') -> None:
         """
         Set raw data of a bitmap.
         
@@ -55,8 +56,9 @@ class XIntegerBitmap(XIntegerReadOnlyBitmap_8cc01167):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
-    def setPixel(self, color: 'typing.Tuple[int, ...]', bitmapLayout: 'IntegerBitmapLayout_5b94106f', pos: 'IntegerPoint2D_8f0dc2') -> None:
+    def setPixel(self, color: uno.ByteSequence, bitmapLayout: 'IntegerBitmapLayout_5b94106f', pos: 'IntegerPoint2D_8f0dc2') -> None:
         """
         Set a single pixel of the bitmap with the given color value.
         
@@ -68,6 +70,7 @@ class XIntegerBitmap(XIntegerReadOnlyBitmap_8cc01167):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XIntegerBitmap']
 

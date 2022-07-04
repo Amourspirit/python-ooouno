@@ -59,6 +59,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method adds a listener to the slide show, which will get notified when a mouse click is performed on the given shape. This can be used by clients of the slide show to trigger external actions, such as jumps to different slides.
         """
+        ...
     @abstractmethod
     def addSlideShowListener(self, xListener: 'XSlideShowListener_81671154') -> None:
         """
@@ -66,6 +67,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method adds a listener to the slide show, which will get notified when a registered shape is clicked upon, or a new slide is about to be displayed. Note that the listeners will not be notified, when the slide change is directly requested by one of the nextSlide(), previousSlide() or displaySlide() methods.
         """
+        ...
     @abstractmethod
     def addView(self, xView: 'XSlideShowView_3eb40fa9') -> bool:
         """
@@ -73,6 +75,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method adds a view to the slide show. After successful completion of this method, the slide show will be visible on the added view, scaled according to the view's output area.
         """
+        ...
     @abstractmethod
     def displaySlide(self, xSlide: 'XDrawPage_b07a0b57', xDrawPages: 'XDrawPagesSupplier_29650f1e', AnimationNode: 'XAnimationNode_1cf10eb9', aProperties: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -80,11 +83,13 @@ class XSlideShow(XInterface_8f010a43):
         
         This method ends all effects on the current slide, displays a possible slide transition, followed by the given slide. If the current slide is equal to the requested slide here, this method does nothing (this especially means, that any currently active effects will remain running).
         """
+        ...
     @abstractmethod
     def getCurrentSlide(self) -> 'XDrawPage_b07a0b57':
         """
         Query the currently displayed slide.
         """
+        ...
     @abstractmethod
     def nextEffect(self) -> bool:
         """
@@ -92,6 +97,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method triggers the next effect on the currently displayed slide. If there is currently no slide show running, this method does nothing. If there are no more effects on the current slide, a possible slide transition effect is issued and the next slide is displayed.
         """
+        ...
     @abstractmethod
     def pause(self, bPauseShow: bool) -> bool:
         """
@@ -99,6 +105,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method either pauses the slide show (all currently running effects are stopped), or starts a previously stopped show again (all paused effects start again).
         """
+        ...
     @abstractmethod
     def previousEffect(self) -> bool:
         """
@@ -106,21 +113,25 @@ class XSlideShow(XInterface_8f010a43):
         
         The current slide is displayed as if the last user-triggered effect has never been triggered. If there is no previous effect on the current slide then slideEnded(true) is called at the registered XSlideShowListener objects, which can then trigger a change to the previous slide. Note that this command is executed asynchronously. Multiple calls to update() may be necessary to complete its execution. If there is currently no slide show running, this method does nothing.
         """
+        ...
     @abstractmethod
     def registerUserPaintPolygons(self, xDocFactory: 'XMultiServiceFactory_191e0eb6') -> None:
         """
         Register drawn polygons in presentation mode.
         """
+        ...
     @abstractmethod
     def removeShapeEventListener(self, xListener: 'XShapeEventListener_92a311b5', xShape: 'XShape_8fd00a3d') -> None:
         """
         Revoke a previously registered shape event listener.
         """
+        ...
     @abstractmethod
     def removeSlideShowListener(self, xListener: 'XSlideShowListener_81671154') -> None:
         """
         Revoke a previously registered slide show listener.
         """
+        ...
     @abstractmethod
     def removeView(self, xView: 'XSlideShowView_3eb40fa9') -> bool:
         """
@@ -128,11 +139,13 @@ class XSlideShow(XInterface_8f010a43):
         
         This method removes the given view from the slide show. After successful completion of this method, the slide show will cease to display on this view.
         """
+        ...
     @abstractmethod
     def setProperty(self, aShowProperty: 'PropertyValue_c9610c73') -> bool:
         """
         Change a property of the slide show.
         """
+        ...
     @abstractmethod
     def setShapeCursor(self, xShape: 'XShape_8fd00a3d', nPointerShape: int) -> None:
         """
@@ -140,6 +153,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method requests the slide show to display a special cursor, whenever the mouse is hovering over the given shape.
         """
+        ...
     @abstractmethod
     def startShapeActivity(self, xShape: 'XShape_8fd00a3d') -> bool:
         """
@@ -147,6 +161,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method starts an animation or activity intrinsic to the given shape. Shape-intrinsic activities are things like video playback for multimedia shapes, sounds, GIF animations and drawing layer animations (flipping between shapes in a group, or scroll text).
         """
+        ...
     @abstractmethod
     def stopShapeActivity(self, xShape: 'XShape_8fd00a3d') -> bool:
         """
@@ -154,6 +169,7 @@ class XSlideShow(XInterface_8f010a43):
         
         This method stops an animation or activity intrinsic to the given shape. Shape-intrinsic activities are things like video playback for multimedia shapes, sounds, GIF animations and drawing layer animations (flipping between shapes in a group, or scroll text).
         """
+        ...
     @abstractmethod
     def update(self, nNextTimeout: float) -> bool:
         """
@@ -163,6 +179,7 @@ class XSlideShow(XInterface_8f010a43):
 
         * ``nNextTimeout`` is an out direction argument.
         """
+        ...
 
 __all__ = ['XSlideShow']
 

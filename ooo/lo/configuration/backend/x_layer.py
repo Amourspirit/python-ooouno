@@ -50,6 +50,7 @@ class XLayer(XInterface_8f010a43):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
             MalformedDataException: ``MalformedDataException``
         """
+        ...
 
 __all__ = ['XLayer']
 

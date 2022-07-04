@@ -43,6 +43,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeByte(self, Value: int) -> None:
         """
@@ -51,6 +52,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeChar(self, Value: str) -> None:
         """
@@ -59,6 +61,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeDouble(self, Value: float) -> None:
         """
@@ -67,6 +70,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeFloat(self, Value: float) -> None:
         """
@@ -75,6 +79,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeHyper(self, Value: int) -> None:
         """
@@ -83,6 +88,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeLong(self, Value: int) -> None:
         """
@@ -91,6 +97,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeShort(self, Value: int) -> None:
         """
@@ -99,6 +106,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def writeUTF(self, Value: str) -> None:
         """
@@ -107,6 +115,7 @@ class XDataOutputStream(XOutputStream_a4e00b35):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XDataOutputStream']
 

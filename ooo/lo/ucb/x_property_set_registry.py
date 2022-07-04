@@ -41,11 +41,13 @@ class XPropertySetRegistry(XInterface_8f010a43):
         """
         creates a new or opens an existing property set in the registry.
         """
+        ...
     @abstractmethod
     def removePropertySet(self, key: str) -> None:
         """
         removes a property set from the registry.
         """
+        ...
 
 __all__ = ['XPropertySetRegistry']
 

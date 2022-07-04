@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataPilotFieldReferenceType as DataPilotFieldReferenceType
-    if hasattr(DataPilotFieldReferenceType, '_constants') and isinstance(DataPilotFieldReferenceType._constants, dict):
-        DataPilotFieldReferenceType._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataPilotFieldReferenceType._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataPilotFieldReferenceType'
-        DataPilotFieldReferenceType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataPilotFieldReferenceTypeEnum
-        ls = [f for f in dir(DataPilotFieldReferenceType) if not callable(getattr(DataPilotFieldReferenceType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataPilotFieldReferenceType, name)
-        DataPilotFieldReferenceTypeEnum = IntEnum('DataPilotFieldReferenceTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DataPilotFieldReferenceType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldReferenceType", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldReferenceType``"""
+        pass
+
+    class DataPilotFieldReferenceTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataPilotFieldReferenceType", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataPilotFieldReferenceType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_pilot_field_reference_type import DataPilotFieldReferenceType as DataPilotFieldReferenceType
 

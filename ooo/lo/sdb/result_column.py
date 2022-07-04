@@ -40,72 +40,84 @@ class ResultColumn(ColumnSettings_bbba0c00, Column_7b1d098a):
         """
         gets a column's table's catalog name.
         """
+        ...
 
     @abstractproperty
     def DisplaySize(self) -> int:
         """
         indicates the column's normal max width in chars.
         """
+        ...
 
     @abstractproperty
     def IsCaseSensitive(self) -> bool:
         """
         indicates that a column is case sensitive.
         """
+        ...
 
     @abstractproperty
     def IsDefinitelyWritable(self) -> bool:
         """
         indicates whether a write on the column will definitely succeed.
         """
+        ...
 
     @abstractproperty
     def IsReadOnly(self) -> bool:
         """
         indicates whether a column is definitely, not writable.
         """
+        ...
 
     @abstractproperty
     def IsSearchable(self) -> bool:
         """
         indicates whether the column can be used in a Where clause.
         """
+        ...
 
     @abstractproperty
     def IsSigned(self) -> bool:
         """
         indicates whether values in the column are signed numbers.
         """
+        ...
 
     @abstractproperty
     def IsWritable(self) -> bool:
         """
         indicates whether it is possible for a write on the column to succeed.
         """
+        ...
 
     @abstractproperty
     def Label(self) -> str:
         """
         gets the suggested column title for use in printouts and displays.
         """
+        ...
 
     @abstractproperty
     def SchemaName(self) -> str:
         """
         gets a column's schema name.
         """
+        ...
 
     @abstractproperty
     def ServiceName(self) -> str:
         """
         returns the fully-qualified name of the service whose instances are manufactured if the method com.sun.star.sdbc.XRow.getObject)= is called to retrieve a value from the column.
         """
+        ...
 
     @abstractproperty
     def TableName(self) -> str:
         """
         gets a column's table name.
         """
+        ...
 
 
 

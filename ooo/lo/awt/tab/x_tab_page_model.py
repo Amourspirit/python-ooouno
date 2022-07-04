@@ -41,30 +41,35 @@ class XTabPageModel(ABC):
         """
         determines whether a tab page is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def ImageURL(self) -> str:
         """
         specifies a URL that references a graphic that should be displayed in the tab bar.
         """
+        ...
 
     @abstractproperty
     def TabPageID(self) -> int:
         """
         ID for tab page.
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         specifies the text that is displayed in the tab bar of the tab page.
         """
+        ...
 
     @abstractproperty
     def ToolTip(self) -> str:
         """
         specifies a tooltip text that should be displayed in the tab bar.
         """
+        ...
 
 
 __all__ = ['XTabPageModel']

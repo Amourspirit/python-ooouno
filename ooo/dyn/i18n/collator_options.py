@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import CollatorOptions as CollatorOptions
-    if hasattr(CollatorOptions, '_constants') and isinstance(CollatorOptions._constants, dict):
-        CollatorOptions._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        CollatorOptions._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.CollatorOptions'
-        CollatorOptions._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CollatorOptionsEnum
-        ls = [f for f in dir(CollatorOptions) if not callable(getattr(CollatorOptions, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CollatorOptions, name)
-        CollatorOptionsEnum = IntFlag('CollatorOptionsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CollatorOptions(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.CollatorOptions", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.CollatorOptions``"""
+        pass
+
+    class CollatorOptionsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.CollatorOptions", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.CollatorOptions`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.collator_options import CollatorOptions as CollatorOptions
 

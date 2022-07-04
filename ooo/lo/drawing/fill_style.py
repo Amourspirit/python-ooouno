@@ -34,6 +34,10 @@ class FillStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.FillStyle'
+
     BITMAP = 'BITMAP'
     """
     use a bitmap to fill the area.

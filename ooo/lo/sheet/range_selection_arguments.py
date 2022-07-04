@@ -42,12 +42,14 @@ class RangeSelectionArguments(ABC):
         """
         specifies if the range selection is finished when the mouse button is released, after selecting cells.
         """
+        ...
 
     @abstractproperty
     def InitialValue(self) -> str:
         """
         contains the initial value for the range descriptor.
         """
+        ...
 
     @abstractproperty
     def SingleCellMode(self) -> bool:
@@ -60,12 +62,14 @@ class RangeSelectionArguments(ABC):
         
             OOo 2.0.3
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         contains a title for the operation.
         """
+        ...
 
 
 

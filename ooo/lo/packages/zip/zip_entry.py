@@ -19,6 +19,7 @@
 # Namespace: com.sun.star.packages.zip
 # Libre Office Version: 7.2
 from ooo.oenv.env_const import UNO_NONE
+import uno
 import typing
 
 
@@ -39,12 +40,12 @@ class ZipEntry(object):
     typeName: str = 'com.sun.star.packages.zip.ZipEntry'
     """Literal Constant ``com.sun.star.packages.zip.ZipEntry``"""
 
-    def __init__(self, extra: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, nVersion: typing.Optional[int] = 0, nFlag: typing.Optional[int] = 0, nMethod: typing.Optional[int] = 0, nTime: typing.Optional[int] = 0, nCrc: typing.Optional[int] = 0, nCompressedSize: typing.Optional[int] = 0, nSize: typing.Optional[int] = 0, nOffset: typing.Optional[int] = 0, nDiskNumber: typing.Optional[int] = 0, sName: typing.Optional[str] = '', sComment: typing.Optional[str] = '') -> None:
+    def __init__(self, extra: typing.Optional[uno.ByteSequence] = UNO_NONE, nVersion: typing.Optional[int] = 0, nFlag: typing.Optional[int] = 0, nMethod: typing.Optional[int] = 0, nTime: typing.Optional[int] = 0, nCrc: typing.Optional[int] = 0, nCompressedSize: typing.Optional[int] = 0, nSize: typing.Optional[int] = 0, nOffset: typing.Optional[int] = 0, nDiskNumber: typing.Optional[int] = 0, sName: typing.Optional[str] = '', sComment: typing.Optional[str] = '') -> None:
         """
         Constructor
 
         Arguments:
-            extra (typing.Tuple[int, ...], optional): extra value.
+            extra (uno.ByteSequence, optional): extra value.
             nVersion (int, optional): nVersion value.
             nFlag (int, optional): nFlag value.
             nMethod (int, optional): nMethod value.
@@ -109,14 +110,14 @@ class ZipEntry(object):
 
 
     @property
-    def extra(self) -> typing.Tuple[int, ...]:
+    def extra(self) -> uno.ByteSequence:
         """
         optional extra field data for entry
         """
         return self._extra
     
     @extra.setter
-    def extra(self, value: typing.Tuple[int, ...]) -> None:
+    def extra(self, value: uno.ByteSequence) -> None:
         self._extra = value
 
     @property

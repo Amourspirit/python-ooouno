@@ -41,6 +41,7 @@ class XMarkableStream(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def deleteMark(self, Mark: int) -> None:
         """
@@ -52,6 +53,7 @@ class XMarkableStream(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def jumpToFurthest(self) -> None:
         """
@@ -62,6 +64,7 @@ class XMarkableStream(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def jumpToMark(self, nMark: int) -> None:
         """
@@ -71,6 +74,7 @@ class XMarkableStream(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def offsetToMark(self, nMark: int) -> int:
         """
@@ -79,6 +83,7 @@ class XMarkableStream(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XMarkableStream']
 

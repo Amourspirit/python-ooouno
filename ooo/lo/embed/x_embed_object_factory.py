@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.embed
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -40,7 +41,7 @@ class XEmbedObjectFactory(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.embed.XEmbedObjectFactory'
 
     @abstractmethod
-    def createInstanceUserInit(self, aClassID: 'typing.Tuple[int, ...]', sClassName: str, xStorage: 'XStorage_8e460a32', sEntName: str, nEntryConnectionMode: int, aArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XInterface_8f010a43':
+    def createInstanceUserInit(self, aClassID: uno.ByteSequence, sClassName: str, xStorage: 'XStorage_8e460a32', sEntName: str, nEntryConnectionMode: int, aArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XInterface_8f010a43':
         """
         creates a new object and transport parameters for persistent initialization.
         
@@ -53,6 +54,7 @@ class XEmbedObjectFactory(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XEmbedObjectFactory']
 

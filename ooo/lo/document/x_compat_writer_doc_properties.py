@@ -35,16 +35,19 @@ class XCompatWriterDocProperties(ABC):
     def Category(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Company(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Manager(self) -> str:
         """
         """
+        ...
 
 
 __all__ = ['XCompatWriterDocProperties']

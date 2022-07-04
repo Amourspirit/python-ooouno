@@ -42,10 +42,12 @@ class TableDefinition(XPropertySet_bc180bfa):
     def createDefault(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithName(self, Name: str) -> None:
         """
         """
+        ...
 
 
 __all__ = ['TableDefinition']

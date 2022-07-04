@@ -54,6 +54,7 @@ class QueryDesign(XController_b00e0b8f, XInitialization_d46c0cca):
         """
         reflects the designed SQL command at the moment it was last saved by the user.
         """
+        ...
 
     @abstractproperty
     def EscapeProcessing(self) -> bool:
@@ -64,6 +65,7 @@ class QueryDesign(XController_b00e0b8f, XInitialization_d46c0cca):
         
             OOo 2.4
         """
+        ...
 
 
 

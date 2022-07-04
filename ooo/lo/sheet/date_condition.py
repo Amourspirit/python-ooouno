@@ -38,11 +38,13 @@ class DateCondition(XConditionEntry_e2340d32):
         """
         See com.sun.star.sheet.DateType for possible values.
         """
+        ...
 
     @abstractproperty
     def StyleName(self) -> str:
         """
         """
+        ...
 
 
 

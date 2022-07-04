@@ -51,6 +51,7 @@ class XWeak(XInterface_8f010a43):
         
         It is important that the adapter must know, but not hold the adapted object. If the adapted object dies, all references to the adapter have to be notified to release the adapter.
         """
+        ...
 
 __all__ = ['XWeak']
 

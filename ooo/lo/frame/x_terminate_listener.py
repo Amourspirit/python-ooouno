@@ -43,6 +43,7 @@ class XTerminateListener(XEventListener_c7230c4a):
         
         No veto will be accepted then.
         """
+        ...
     @abstractmethod
     def queryTermination(self, Event: 'EventObject_a3d70b03') -> None:
         """
@@ -53,6 +54,7 @@ class XTerminateListener(XEventListener_c7230c4a):
         Raises:
             TerminationVetoException: ``TerminationVetoException``
         """
+        ...
 
 __all__ = ['XTerminateListener']
 

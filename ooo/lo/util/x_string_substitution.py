@@ -49,6 +49,7 @@ class XStringSubstitution(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def reSubstituteVariables(self, aText: str) -> str:
         """
@@ -56,6 +57,7 @@ class XStringSubstitution(XInterface_8f010a43):
         
         The method iterates through its internal variable list and tries to match parts of the given string Tries to replace parts of aText with variables that represents these sub strings.If more than one variable matches the one with the longest matching sub string will be chosen.
         """
+        ...
     @abstractmethod
     def substituteVariables(self, aText: str, bSubstRequired: bool) -> str:
         """
@@ -66,6 +68,7 @@ class XStringSubstitution(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XStringSubstitution']
 

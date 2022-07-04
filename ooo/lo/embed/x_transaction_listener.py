@@ -41,6 +41,7 @@ class XTransactionListener(XEventListener_c7230c4a):
         """
         is called after the object is committed.
         """
+        ...
     @abstractmethod
     def preCommit(self, aEvent: 'EventObject_a3d70b03') -> None:
         """
@@ -49,6 +50,7 @@ class XTransactionListener(XEventListener_c7230c4a):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def preRevert(self, aEvent: 'EventObject_a3d70b03') -> None:
         """
@@ -57,11 +59,13 @@ class XTransactionListener(XEventListener_c7230c4a):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def reverted(self, aEvent: 'EventObject_a3d70b03') -> None:
         """
         is called after the object is reverted.
         """
+        ...
 
 __all__ = ['XTransactionListener']
 

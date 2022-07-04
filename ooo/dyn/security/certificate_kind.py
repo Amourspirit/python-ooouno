@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.security.CertificateKind import (NONE, OPENPGP, X509)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.security.CertificateKind Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.security",
-            "__ooo_full_ns__": "com.sun.star.security.CertificateKind",
-            "__ooo_type_name__": "enum",
-            "NONE": NONE,
-            "OPENPGP": OPENPGP,
-            "X509": X509,
-        }
-        result = type('CertificateKind', (object,), _dict)
-        return result
-
-    CertificateKind = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class CertificateKind(metaclass=UnoEnumMeta, type_name="com.sun.star.security.CertificateKind", name_space="com.sun.star.security"):
+        """Dynamically created class that represents ``com.sun.star.security.CertificateKind`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.security.certificate_kind import CertificateKind as CertificateKind
 

@@ -69,6 +69,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         \"$Sheet1.$B$2\".
         """
+        ...
 
     @abstractproperty
     def CellContentType(self) -> 'CellContentType_e08c0d0d':
@@ -79,6 +80,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def ConditionalFormat(self) -> 'XSheetConditionalEntries_694810c0':
@@ -87,6 +89,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         After a conditional format has been changed it has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def ConditionalFormatLocal(self) -> 'XSheetConditionalEntries_694810c0':
@@ -95,6 +98,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         After a conditional format has been changed it has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def FormulaLocal(self) -> str:
@@ -103,6 +107,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         This property can also be used to set a new localized formula.
         """
+        ...
 
     @abstractproperty
     def FormulaResultType(self) -> int:
@@ -111,6 +116,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         This property returns not com.sun.star.sheet.FormulaResult but instead com.sun.star.table.CellContentType. Use FormulaResult2 if the correct property is needed.
         """
+        ...
 
     @abstractproperty
     def FormulaResultType2(self) -> int:
@@ -121,6 +127,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def Position(self) -> 'Point_5fb2085e':
@@ -129,12 +136,14 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         This property contains the absolute position in the whole sheet, not the position in the visible area.
         """
+        ...
 
     @abstractproperty
     def Size(self) -> 'Size_576707ef':
         """
         contains the size of this cell (in 1/100 mm).
         """
+        ...
 
     @abstractproperty
     def Validation(self) -> 'XPropertySet_bc180bfa':
@@ -143,6 +152,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         After the data validation settings have been changed the validation has to be reinserted into the property set.
         """
+        ...
 
     @abstractproperty
     def ValidationLocal(self) -> 'XPropertySet_bc180bfa':
@@ -151,6 +161,7 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
         
         After the data validation settings have been changed the validation has to be reinserted into the property set.
         """
+        ...
 
 
 

@@ -19,6 +19,7 @@
 # Namespace: com.sun.star.mozilla
 # Libre Office Version: 7.2
 from ooo.oenv.env_const import UNO_NONE
+import uno
 import typing
 
 
@@ -37,12 +38,12 @@ class MenuMultipleChange(object):
     typeName: str = 'com.sun.star.mozilla.MenuMultipleChange'
     """Literal Constant ``com.sun.star.mozilla.MenuMultipleChange``"""
 
-    def __init__(self, Image: typing.Optional[typing.Tuple[int, ...]] = UNO_NONE, ID: typing.Optional[int] = 0, GroupID: typing.Optional[int] = 0, PreItemID: typing.Optional[int] = 0, ItemText: typing.Optional[str] = '', IsVisible: typing.Optional[bool] = False, IsActive: typing.Optional[bool] = False, IsCheckable: typing.Optional[bool] = False, IsChecked: typing.Optional[bool] = False) -> None:
+    def __init__(self, Image: typing.Optional[uno.ByteSequence] = UNO_NONE, ID: typing.Optional[int] = 0, GroupID: typing.Optional[int] = 0, PreItemID: typing.Optional[int] = 0, ItemText: typing.Optional[str] = '', IsVisible: typing.Optional[bool] = False, IsActive: typing.Optional[bool] = False, IsCheckable: typing.Optional[bool] = False, IsChecked: typing.Optional[bool] = False) -> None:
         """
         Constructor
 
         Arguments:
-            Image (typing.Tuple[int, ...], optional): Image value.
+            Image (uno.ByteSequence, optional): Image value.
             ID (int, optional): ID value.
             GroupID (int, optional): GroupID value.
             PreItemID (int, optional): PreItemID value.
@@ -95,14 +96,14 @@ class MenuMultipleChange(object):
 
 
     @property
-    def Image(self) -> typing.Tuple[int, ...]:
+    def Image(self) -> uno.ByteSequence:
         """
         sequence of bytes representing a possible image
         """
         return self._image
     
     @Image.setter
-    def Image(self, value: typing.Tuple[int, ...]) -> None:
+    def Image(self, value: uno.ByteSequence) -> None:
         self._image = value
 
     @property

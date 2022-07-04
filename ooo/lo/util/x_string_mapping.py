@@ -38,6 +38,7 @@ class XStringMapping(XInterface_8f010a43):
         """
         provides a mapping for a given sequence of strings to a sequence of belonging strings.
         """
+        ...
 
 __all__ = ['XStringMapping']
 

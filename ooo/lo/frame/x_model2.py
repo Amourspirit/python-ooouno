@@ -56,6 +56,7 @@ class XModel2(XModel_7a6e095c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createViewController(self, ViewName: str, Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]', Frame: 'XFrame_7a570956') -> 'XController2_bbcf0bc1':
         """
@@ -67,6 +68,7 @@ class XModel2(XModel_7a6e095c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getAvailableViewControllerNames(self) -> 'typing.Tuple[str, ...]':
         """
@@ -76,6 +78,7 @@ class XModel2(XModel_7a6e095c):
         
         Implementations of this interface might decide to support additional view names, which then are documented in the respective service descriptions.
         """
+        ...
     @abstractmethod
     def getControllers(self) -> 'XEnumeration_f2180daa':
         """
@@ -83,6 +86,7 @@ class XModel2(XModel_7a6e095c):
         
         Please note: Because this interface will might be used inside multi threaded environments those list can contain still disposed items or it new added controller will be missing (if they were added after this enumeration was created).
         """
+        ...
     @abstractmethod
     def setArgs(self, Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -96,6 +100,7 @@ class XModel2(XModel_7a6e095c):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.util.InvalidStateException: ``InvalidStateException``
         """
+        ...
 
 __all__ = ['XModel2']
 

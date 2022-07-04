@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.logging import LogLevel as LogLevel
-    if hasattr(LogLevel, '_constants') and isinstance(LogLevel._constants, dict):
-        LogLevel._constants['__ooo_ns__'] = 'com.sun.star.logging'
-        LogLevel._constants['__ooo_full_ns__'] = 'com.sun.star.logging.LogLevel'
-        LogLevel._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global LogLevelEnum
-        ls = [f for f in dir(LogLevel) if not callable(getattr(LogLevel, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(LogLevel, name)
-        LogLevelEnum = IntEnum('LogLevelEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class LogLevel(metaclass=UnoConstMeta, type_name="com.sun.star.logging.LogLevel", name_space="com.sun.star.logging"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.logging.LogLevel``"""
+        pass
+
+    class LogLevelEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.logging.LogLevel", name_space="com.sun.star.logging"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.logging.LogLevel`` as Enum values"""
+        pass
+
 else:
     from ...lo.logging.log_level import LogLevel as LogLevel
 

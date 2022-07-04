@@ -25,31 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.PolygonKind import (FREEFILL, FREELINE, LINE, PATHFILL, PATHLINE, PATHPLIN, PATHPOLY, PLIN, POLY)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.PolygonKind Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.PolygonKind",
-            "__ooo_type_name__": "enum",
-            "FREEFILL": FREEFILL,
-            "FREELINE": FREELINE,
-            "LINE": LINE,
-            "PATHFILL": PATHFILL,
-            "PATHLINE": PATHLINE,
-            "PATHPLIN": PATHPLIN,
-            "PATHPOLY": PATHPOLY,
-            "PLIN": PLIN,
-            "POLY": POLY,
-        }
-        result = type('PolygonKind', (object,), _dict)
-        return result
-
-    PolygonKind = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class PolygonKind(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.PolygonKind", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.PolygonKind`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.polygon_kind import PolygonKind as PolygonKind
 

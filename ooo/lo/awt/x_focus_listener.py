@@ -43,11 +43,13 @@ class XFocusListener(XEventListener_c7230c4a):
         """
         is invoked when a window gains the keyboard focus.
         """
+        ...
     @abstractmethod
     def focusLost(self, e: 'FocusEvent_8ecf0a56') -> None:
         """
         is invoked when a window loses the keyboard focus.
         """
+        ...
 
 __all__ = ['XFocusListener']
 

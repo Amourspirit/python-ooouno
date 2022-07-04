@@ -46,6 +46,7 @@ class CandleStickChartType(ChartType_a2640ae0):
         
         The com.sun.star.beans.XPropertySet given here must support the services com.sun.star.drawing.FillProperties and com.sun.star.drawing.LineProperties.
         """
+        ...
 
     @abstractproperty
     def Japanese(self) -> bool:
@@ -58,6 +59,7 @@ class CandleStickChartType(ChartType_a2640ae0):
         
         Default is FALSE.
         """
+        ...
 
     @abstractproperty
     def ShowFirst(self) -> bool:
@@ -70,6 +72,7 @@ class CandleStickChartType(ChartType_a2640ae0):
         
         Default is FALSE.
         """
+        ...
 
     @abstractproperty
     def ShowHighLow(self) -> bool:
@@ -80,6 +83,7 @@ class CandleStickChartType(ChartType_a2640ae0):
         
         Default is TRUE.
         """
+        ...
 
     @abstractproperty
     def WhiteDay(self) -> 'XPropertySet_bc180bfa':
@@ -90,6 +94,7 @@ class CandleStickChartType(ChartType_a2640ae0):
         
         The com.sun.star.beans.XPropertySet given here must support the services com.sun.star.drawing.FillProperties and com.sun.star.drawing.LineProperties.
         """
+        ...
 
 
 

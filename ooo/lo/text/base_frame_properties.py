@@ -62,6 +62,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.2
         """
+        ...
 
     @abstractproperty
     def AllowOverlap(self) -> bool:
@@ -72,6 +73,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 6.4
         """
+        ...
 
     @abstractproperty
     def AnchorFrame(self) -> 'XTextFrame_9a7e0ab5':
@@ -80,6 +82,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         The value is valid only if the AnchorType is TextContentAnchorType.AT_FRAME.
         """
+        ...
 
     @abstractproperty
     def AnchorPageNo(self) -> int:
@@ -88,12 +91,14 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         The value is valid only if the AnchorType is TextContentAnchorType.AT_PAGE.
         """
+        ...
 
     @abstractproperty
     def BackColor(self) -> 'Color_68e908c5':
         """
         contains the color of the background of the object.
         """
+        ...
 
     @abstractproperty
     def BackGraphic(self) -> 'XGraphic_a4da0afc':
@@ -104,18 +109,21 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 6.1
         """
+        ...
 
     @abstractproperty
     def BackGraphicFilter(self) -> str:
         """
         contains the name of the file filter for the background graphic.
         """
+        ...
 
     @abstractproperty
     def BackGraphicLocation(self) -> 'GraphicLocation_e3ef0d30':
         """
         determines the position of the background graphic.
         """
+        ...
 
     @abstractproperty
     def BackGraphicURL(self) -> str:
@@ -124,42 +132,49 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the graphic and set the BackGraphic property.
         """
+        ...
 
     @abstractproperty
     def BackTransparent(self) -> bool:
         """
         If TRUE, the \"BackColor\" is ignored.
         """
+        ...
 
     @abstractproperty
     def BorderDistance(self) -> int:
         """
         contains the distance from the border to the object.
         """
+        ...
 
     @abstractproperty
     def BottomBorder(self) -> 'BorderLine_a3f80af6':
         """
         contains the bottom border of the object.
         """
+        ...
 
     @abstractproperty
     def BottomBorderDistance(self) -> int:
         """
         contains the distance from the bottom border to the object.
         """
+        ...
 
     @abstractproperty
     def BottomMargin(self) -> int:
         """
         contains the bottom margin of the object.
         """
+        ...
 
     @abstractproperty
     def ContentProtected(self) -> bool:
         """
         determines if the content is protected.
         """
+        ...
 
     @abstractproperty
     def Description(self) -> str:
@@ -172,6 +187,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             OOo 3.2
         """
+        ...
 
     @abstractproperty
     def FillGradient(self) -> 'Gradient_7a8a0982':
@@ -182,6 +198,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.1
         """
+        ...
 
     @abstractproperty
     def FillGradientName(self) -> str:
@@ -192,6 +209,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.1
         """
+        ...
 
     @abstractproperty
     def FillStyle(self) -> 'FillStyle_b1460b8c':
@@ -204,6 +222,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.1
         """
+        ...
 
     @abstractproperty
     def Height(self) -> int:
@@ -212,12 +231,14 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if TextEmbeddedObject.RelativeHeight is zero.
         """
+        ...
 
     @abstractproperty
     def HoriOrient(self) -> int:
         """
         determines the horizontal orientation of the object.
         """
+        ...
 
     @abstractproperty
     def HoriOrientPosition(self) -> int:
@@ -226,42 +247,49 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if \"HoriOrient\" is HoriOrientation_NONE.
         """
+        ...
 
     @abstractproperty
     def HoriOrientRelation(self) -> int:
         """
         determines the environment of the object to which the orientation is related.
         """
+        ...
 
     @abstractproperty
     def HyperLinkName(self) -> str:
         """
         contains the name of the hyperlink that is set at the object.
         """
+        ...
 
     @abstractproperty
     def HyperLinkTarget(self) -> str:
         """
         contains the name of the target for a hyperlink that is set at the object.
         """
+        ...
 
     @abstractproperty
     def HyperLinkURL(self) -> str:
         """
         contains the URL of a hyperlink that is set at the object.
         """
+        ...
 
     @abstractproperty
     def IsSyncHeightToWidth(self) -> bool:
         """
         determines whether the height follows the width.
         """
+        ...
 
     @abstractproperty
     def IsSyncWidthToHeight(self) -> bool:
         """
         determines whether the width follows the height.
         """
+        ...
 
     @abstractproperty
     def LayoutSize(self) -> 'Size_576707ef':
@@ -274,48 +302,56 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             OOo 2.0.4
         """
+        ...
 
     @abstractproperty
     def LeftBorder(self) -> 'BorderLine_a3f80af6':
         """
         contains the left border of the object.
         """
+        ...
 
     @abstractproperty
     def LeftBorderDistance(self) -> int:
         """
         contains the distance from the left border to the object.
         """
+        ...
 
     @abstractproperty
     def LeftMargin(self) -> int:
         """
         contains the left margin of the object.
         """
+        ...
 
     @abstractproperty
     def Opaque(self) -> bool:
         """
         determines if the object is opaque or transparent for text.
         """
+        ...
 
     @abstractproperty
     def PageToggle(self) -> bool:
         """
         determines if the object is mirrored on even pages.
         """
+        ...
 
     @abstractproperty
     def PositionProtected(self) -> bool:
         """
         determines if the position is protected.
         """
+        ...
 
     @abstractproperty
     def Print(self) -> bool:
         """
         determines if the object is included in printing.
         """
+        ...
 
     @abstractproperty
     def RelativeHeight(self) -> int:
@@ -324,6 +360,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if it is greater than zero.
         """
+        ...
 
     @abstractproperty
     def RelativeHeightRelation(self) -> int:
@@ -336,6 +373,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.3
         """
+        ...
 
     @abstractproperty
     def RelativeWidth(self) -> int:
@@ -344,6 +382,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if it is greater than zero.
         """
+        ...
 
     @abstractproperty
     def RelativeWidthRelation(self) -> int:
@@ -356,36 +395,42 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.3
         """
+        ...
 
     @abstractproperty
     def RightBorder(self) -> 'BorderLine_a3f80af6':
         """
         contains the right border of the object.
         """
+        ...
 
     @abstractproperty
     def RightBorderDistance(self) -> int:
         """
         contains the distance from the right border to the object.
         """
+        ...
 
     @abstractproperty
     def RightMargin(self) -> int:
         """
         contains the right margin of the object.
         """
+        ...
 
     @abstractproperty
     def ServerMap(self) -> bool:
         """
         determines if the object gets an image map from a server.
         """
+        ...
 
     @abstractproperty
     def ShadowFormat(self) -> 'ShadowFormat_bb840bdf':
         """
         contains the type of the shadow of the object.
         """
+        ...
 
     @abstractproperty
     def ShadowTransparence(self) -> int:
@@ -398,30 +443,35 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             LibreOffice 4.2
         """
+        ...
 
     @abstractproperty
     def Size(self) -> 'Size_576707ef':
         """
         contains the size of the object.
         """
+        ...
 
     @abstractproperty
     def SizeProtected(self) -> bool:
         """
         determines if the size is protected.
         """
+        ...
 
     @abstractproperty
     def Surround(self) -> 'WrapTextMode_b1dd0b91':
         """
         determines the type of the surrounding text.
         """
+        ...
 
     @abstractproperty
     def SurroundAnchorOnly(self) -> bool:
         """
         determines if the text of the paragraph in which the object is anchored, wraps around the object.
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
@@ -434,30 +484,35 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             OOo 3.2
         """
+        ...
 
     @abstractproperty
     def TopBorder(self) -> 'BorderLine_a3f80af6':
         """
         contains the top border of the object.
         """
+        ...
 
     @abstractproperty
     def TopBorderDistance(self) -> int:
         """
         contains the distance from the top border to the object.
         """
+        ...
 
     @abstractproperty
     def TopMargin(self) -> int:
         """
         contains the top margin of the object.
         """
+        ...
 
     @abstractproperty
     def VertOrient(self) -> int:
         """
         determines the vertical orientation of the object.
         """
+        ...
 
     @abstractproperty
     def VertOrientPosition(self) -> int:
@@ -466,12 +521,14 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if TextEmbeddedObject.VertOrient is VertOrientation.NONE.
         """
+        ...
 
     @abstractproperty
     def VertOrientRelation(self) -> int:
         """
         determines the environment of the object to which the orientation is related.
         """
+        ...
 
     @abstractproperty
     def Width(self) -> int:
@@ -480,6 +537,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
         It is only valid if TextEmbeddedObject.RelativeWidth is zero.
         """
+        ...
 
     @abstractproperty
     def WrapInfluenceOnPosition(self) -> int:
@@ -492,6 +550,7 @@ class BaseFrameProperties(UserDefinedAttributesSupplier_9fbe1222):
         
             OOo 2.0
         """
+        ...
 
 
 

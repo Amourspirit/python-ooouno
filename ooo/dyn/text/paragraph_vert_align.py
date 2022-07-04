@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ParagraphVertAlign as ParagraphVertAlign
-    if hasattr(ParagraphVertAlign, '_constants') and isinstance(ParagraphVertAlign._constants, dict):
-        ParagraphVertAlign._constants['__ooo_ns__'] = 'com.sun.star.text'
-        ParagraphVertAlign._constants['__ooo_full_ns__'] = 'com.sun.star.text.ParagraphVertAlign'
-        ParagraphVertAlign._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ParagraphVertAlignEnum
-        ls = [f for f in dir(ParagraphVertAlign) if not callable(getattr(ParagraphVertAlign, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ParagraphVertAlign, name)
-        ParagraphVertAlignEnum = IntEnum('ParagraphVertAlignEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ParagraphVertAlign(metaclass=UnoConstMeta, type_name="com.sun.star.text.ParagraphVertAlign", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.ParagraphVertAlign``"""
+        pass
+
+    class ParagraphVertAlignEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.ParagraphVertAlign", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.ParagraphVertAlign`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.paragraph_vert_align import ParagraphVertAlign as ParagraphVertAlign
 

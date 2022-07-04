@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.ui.dialogs
 import typing
+import uno
 from abc import abstractmethod
 from ...uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -43,6 +44,7 @@ class XFilePreview(XInterface_8f010a43):
         
         If a service implementation doesn't support a file preview 0 will be returned.
         """
+        ...
     @abstractmethod
     def getAvailableWidth(self) -> int:
         """
@@ -50,6 +52,7 @@ class XFilePreview(XInterface_8f010a43):
         
         If a service implementation doesn't support a file preview 0 will be returned.
         """
+        ...
     @abstractmethod
     def getShowState(self) -> bool:
         """
@@ -57,16 +60,19 @@ class XFilePreview(XInterface_8f010a43):
         
         A value of FALSE if the preview window is invisible.
         """
+        ...
     @abstractmethod
-    def getSupportedImageFormats(self) -> 'typing.Tuple[int, ...]':
+    def getSupportedImageFormats(self) -> uno.ByteSequence:
         """
         The method returns all image formats that the preview supports.
         """
+        ...
     @abstractmethod
     def getTargetColorDepth(self) -> 'Color_68e908c5':
         """
         The method returns the supported color depth of the target device.
         """
+        ...
     @abstractmethod
     def setImage(self, aImageFormat: int, aImage: object) -> None:
         """
@@ -77,6 +83,7 @@ class XFilePreview(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setShowState(self, bShowState: bool) -> bool:
         """
@@ -88,6 +95,7 @@ class XFilePreview(XInterface_8f010a43):
         
         A value of FALSE if the operation fails for any reason or the preview implementation doesn't support hiding the preview.
         """
+        ...
 
 __all__ = ['XFilePreview']
 

@@ -52,6 +52,7 @@ class XModuleManager(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             UnknownModuleException: ``UnknownModuleException``
         """
+        ...
 
 __all__ = ['XModuleManager']
 

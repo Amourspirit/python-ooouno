@@ -44,10 +44,12 @@ class DialogProvider(XDialogProvider_c70f0c47):
     def createWithModel(self, Model: 'XModel_7a6e095c') -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithModelAndScripting(self, Model: 'XModel_7a6e095c', InStream: 'XInputStream_98d40ab4', DialogLib: 'XNameContainer_cb90e47', ScriptListener: 'XScriptListener_f20b0db0') -> None:
         """
         """
+        ...
 
 
 __all__ = ['DialogProvider']

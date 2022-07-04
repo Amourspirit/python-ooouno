@@ -51,6 +51,7 @@ class XActivationEventListener(XEventListener_c7230c4a):
         
             OOo 2.0
         """
+        ...
 
 __all__ = ['XActivationEventListener']
 

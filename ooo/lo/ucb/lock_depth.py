@@ -34,6 +34,10 @@ class LockDepth(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.LockDepth'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.LockDepth'
+
     INFINITY = 'INFINITY'
     """
     Infinity (includes children and children's children and ...).

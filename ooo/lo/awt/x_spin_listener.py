@@ -41,21 +41,25 @@ class XSpinListener(XEventListener_c7230c4a):
         """
         is invoked when the spin field is spun down.
         """
+        ...
     @abstractmethod
     def first(self, rEvent: 'SpinEvent_84b909f0') -> None:
         """
         is invoked when the spin field is set to the lower value.
         """
+        ...
     @abstractmethod
     def last(self, rEvent: 'SpinEvent_84b909f0') -> None:
         """
         is invoked when the spin field is set to the upper value.
         """
+        ...
     @abstractmethod
     def up(self, rEvent: 'SpinEvent_84b909f0') -> None:
         """
         is invoked when the spin field is spun up.
         """
+        ...
 
 __all__ = ['XSpinListener']
 

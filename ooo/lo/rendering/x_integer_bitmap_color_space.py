@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.rendering
 import typing
+import uno
 from abc import abstractmethod
 from .x_color_space import XColorSpace as XColorSpace_e3940d09
 if typing.TYPE_CHECKING:
@@ -41,7 +42,7 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
     __pyunointerface__: str = 'com.sun.star.rendering.XIntegerBitmapColorSpace'
 
     @abstractmethod
-    def convertFromIntegerColorSpace(self, deviceColor: 'typing.Tuple[int, ...]', targetColorSpace: 'XColorSpace_e3940d09') -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
+    def convertFromIntegerColorSpace(self, deviceColor: uno.ByteSequence, targetColorSpace: 'XColorSpace_e3940d09') -> 'typing.Tuple[ColorComponent_e4c0e78, ...]':
         """
         Convert integer bitmap color to generic IEEE double device color of another color space.
         
@@ -50,8 +51,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerFromARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> 'typing.Tuple[int, ...]':
+    def convertIntegerFromARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> uno.ByteSequence:
         """
         Convert sRGB color with linear alpha into this color space.
         
@@ -60,8 +62,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerFromPARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> 'typing.Tuple[int, ...]':
+    def convertIntegerFromPARGB(self, rgbColor: 'typing.Tuple[ARGBColor_c6ee0be1, ...]') -> uno.ByteSequence:
         """
         Convert premultiplied sRGB color with linear alpha into this color space.
         
@@ -70,8 +73,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerFromRGB(self, rgbColor: 'typing.Tuple[RGBColor_bbdf0ba0, ...]') -> 'typing.Tuple[int, ...]':
+    def convertIntegerFromRGB(self, rgbColor: 'typing.Tuple[RGBColor_bbdf0ba0, ...]') -> uno.ByteSequence:
         """
         Convert sRGB color to an integer representation in this color space.
         
@@ -80,8 +84,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerToARGB(self, deviceColor: 'typing.Tuple[int, ...]') -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
+    def convertIntegerToARGB(self, deviceColor: uno.ByteSequence) -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
         """
         Convert color value in this color space to sRGB color values, with linear alpha.
         
@@ -90,8 +95,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerToPARGB(self, deviceColor: 'typing.Tuple[int, ...]') -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
+    def convertIntegerToPARGB(self, deviceColor: uno.ByteSequence) -> 'typing.Tuple[ARGBColor_c6ee0be1, ...]':
         """
         Convert color value in this color space to premultiplied sRGB color values, with linear alpha.
         
@@ -100,8 +106,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertIntegerToRGB(self, deviceColor: 'typing.Tuple[int, ...]') -> 'typing.Tuple[RGBColor_bbdf0ba0, ...]':
+    def convertIntegerToRGB(self, deviceColor: uno.ByteSequence) -> 'typing.Tuple[RGBColor_bbdf0ba0, ...]':
         """
         Convert color value in this color space to sRGB color values.
         
@@ -110,8 +117,9 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def convertToIntegerColorSpace(self, deviceColor: 'typing.Tuple[int, ...]', targetColorSpace: 'XIntegerBitmapColorSpace') -> 'typing.Tuple[int, ...]':
+    def convertToIntegerColorSpace(self, deviceColor: uno.ByteSequence, targetColorSpace: 'XIntegerBitmapColorSpace') -> uno.ByteSequence:
         """
         Convert integer bitmap color to integer bitmap color of another integer bitmap color space.
         
@@ -120,6 +128,7 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getBitsPerPixel(self) -> int:
         """
@@ -127,18 +136,21 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
         
         This method yields the total number of bits used for a color value. At the associated XIntegerBitmap, the XIntegerBitmap.setPixel() method will expect a sequence of ceil(BitsPerPixel/8) bytes, and the XIntegerReadOnlyBitmap.getPixel() will return that number of bytes. Similarly, the color conversion expect input data in multiples of ceil(BitsPerPixel/8), and also return converted data in chunks of this.
         """
+        ...
     @abstractmethod
-    def getComponentBitCounts(self) -> 'typing.Tuple[int, ...]':
+    def getComponentBitCounts(self) -> uno.ByteSequence:
         """
         Query the number of bits used for each component.
         
         This method returns a sequence of integers, each denoting the number of bits occupied by the respective component. The sum of all component bits must be less or equal than the value returned from getBitsPerPixel(). If the sum is less, excess bits are always kept in the most significant bits of a pixel. Color components will appear in the byte sequences returned from the XIntegerBitmap methods in the order defined here, with the first element starting from the least significant bits of the pixel, etc.
         """
+        ...
     @abstractmethod
     def getEndianness(self) -> int:
         """
         Query whether color data bytes need to be swapped.
         """
+        ...
 
 __all__ = ['XIntegerBitmapColorSpace']
 

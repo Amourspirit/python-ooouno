@@ -45,6 +45,7 @@ class CsvLogFormatter(XCsvLogFormatter_b560e49):
         """
         creates a CsvLogFormatter instance
         """
+        ...
 
 
 __all__ = ['CsvLogFormatter']

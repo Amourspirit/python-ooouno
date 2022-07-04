@@ -30,16 +30,13 @@ class SocketPermission(object):
     
     A SocketPermission consists of a host specification and a set of actions specifying ways to connect to that host. The host is specified as
     
-    The host is expressed as a DNS name, as a numerical IP address, or as \"localhost\" (for the local machine). The wildcard \"*\" may be included once in a DNS name host specification. If it is included, it must be in the leftmost position, as in \"*.sun.com\".
-    The port or portrange is optional. A port specification of the form \"N-\", where N is a port number, signifies all ports numbered N and above, while a specification of the form \"-N\" indicates all ports numbered N and below.
+    The host is expressed as a DNS name, as a numerical IP address, or as \"localhost\" (for the local machine). The wildcard \"*\" may be included once in a DNS name host specification. If it is included, it must be in the leftmost position, as in \"*.sun.com\". The port or portrange is optional. A port specification of the form \"N-\", where N is a port number, signifies all ports numbered N and above, while a specification of the form \"-N\" indicates all ports numbered N and below.
     
     The possible ways to connect to the host are
     
-    The \"listen\" action is only meaningful when used with \"localhost\". The \"resolve\" (resolve host/ip name service lookups) action is implied when any of the other actions are present.
-    As an example of the creation and meaning of SocketPermissions, note that if the following permission
+    The \"listen\" action is only meaningful when used with \"localhost\". The \"resolve\" (resolve host/ip name service lookups) action is implied when any of the other actions are present. As an example of the creation and meaning of SocketPermissions, note that if the following permission
     
-    is granted, it allows to connect to port 7777 on foo.bar.com, and to accept connections on that port.
-    Similarly, if the following permission
+    is granted, it allows to connect to port 7777 on foo.bar.com, and to accept connections on that port. Similarly, if the following permission
     
     is granted, it allows that code to accept connections on, connect to, or listen on any port between 1024 and 65535 on the local host.
     

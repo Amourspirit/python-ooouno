@@ -40,24 +40,28 @@ class PrintOptions(ABC):
         """
         advises the printer to collate the pages of the copies.
         """
+        ...
 
     @abstractproperty
     def CopyCount(self) -> int:
         """
         specifies the number of copies to print.
         """
+        ...
 
     @abstractproperty
     def DuplexMode(self) -> int:
         """
         determines the duplex mode for the print job.
         """
+        ...
 
     @abstractproperty
     def FileName(self) -> str:
         """
         if set, specifies the name of a file to print to.
         """
+        ...
 
     @abstractproperty
     def Pages(self) -> str:
@@ -66,30 +70,35 @@ class PrintOptions(ABC):
         
         This range is given as at the user interface. For example: \"1-4;10\" to print the pages 1 to 4 and 10.
         """
+        ...
 
     @abstractproperty
     def PrinterName(self) -> str:
         """
         if set, specifies name of the printer to use.
         """
+        ...
 
     @abstractproperty
     def SinglePrintJobs(self) -> bool:
         """
         advises the printer to create a single print job for each copy.
         """
+        ...
 
     @abstractproperty
     def Sort(self) -> bool:
         """
         advises the printer to sort the pages of the copies.
         """
+        ...
 
     @abstractproperty
     def Wait(self) -> bool:
         """
         if set to TRUE, the corresponding XPrintable.print() request will be executed synchronous.
         """
+        ...
 
 
 

@@ -48,6 +48,7 @@ class XSingleServiceFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createInstanceWithArguments(self, aArguments: 'typing.Tuple[object, ...]') -> 'XInterface_8f010a43':
         """
@@ -56,6 +57,7 @@ class XSingleServiceFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XSingleServiceFactory']
 

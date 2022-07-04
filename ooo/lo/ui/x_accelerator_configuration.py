@@ -32,8 +32,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
     
     Such configuration set base on:
     
-    Note further:
-    All changes you made on this configuration access modify the configuration set inside memory only. You have to use the com.sun.star.util.XFlushable interface (which must be available at the same implementation object too), to make it persistent.
+    Note further:All changes you made on this configuration access modify the configuration set inside memory only. You have to use the com.sun.star.util.XFlushable interface (which must be available at the same implementation object too), to make it persistent.
     
     **since**
     
@@ -56,6 +55,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
         
         Such key event can be mapped to its bound command, using the method getCommandForKeyEvent().
         """
+        ...
     @abstractmethod
     def getCommandByKeyEvent(self, aKeyEvent: 'KeyEvent_7a78097f') -> str:
         """
@@ -66,6 +66,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getKeyEventsByCommand(self, sCommand: str) -> 'typing.Tuple[KeyEvent_7a78097f, ...]':
         """
@@ -77,6 +78,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
             : ````
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getPreferredKeyEventsForCommandList(self, lCommandList: 'typing.Tuple[str, ...]') -> 'typing.Tuple[object, ...]':
         """
@@ -90,6 +92,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def removeCommandFromAllKeyEvents(self, sCommand: str) -> None:
         """
@@ -103,6 +106,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
             : ````
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def removeKeyEvent(self, aKeyEvent: 'KeyEvent_7a78097f') -> None:
         """
@@ -111,6 +115,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def setKeyEvent(self, aKeyEvent: 'KeyEvent_7a78097f', sCommand: str) -> None:
         """
@@ -126,6 +131,7 @@ class XAcceleratorConfiguration(XUIConfiguration_c4eb0c34, XUIConfigurationPersi
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XAcceleratorConfiguration']
 

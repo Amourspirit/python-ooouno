@@ -51,6 +51,7 @@ class XObjectInspectorUI(ABC):
         
         This is usually used by an XPropertyHandler if it handles properties, where one does only make sense if another one has a certain value.
         """
+        ...
     @abstractmethod
     def enablePropertyUIElements(self, PropertyName: str, Elements: int, Enable: bool) -> None:
         """
@@ -58,16 +59,19 @@ class XObjectInspectorUI(ABC):
         
         Note that the complete UI for the property must be enabled in order for these settings to be evaluated. That is, enablePropertyUIElements() does not have any effect if somebody previously disabled the complete UI for this property with enablePropertyUI().
         """
+        ...
     @abstractmethod
     def getPropertyControl(self, PropertyName: str) -> 'XPropertyControl_3f260fe2':
         """
         retrieves the control currently used to display a given property
         """
+        ...
     @abstractmethod
     def hidePropertyUI(self, PropertyName: str) -> None:
         """
         hides the UI for a given property
         """
+        ...
     @abstractmethod
     def rebuildPropertyUI(self, PropertyName: str) -> None:
         """
@@ -79,6 +83,7 @@ class XObjectInspectorUI(ABC):
         
         Note that the property whose UI should be rebuilt must not necessarily be (though usually is) in the responsibility of the handler which calls this method. The object inspector will look up the handler with the responsibility for PropertyName and call its XPropertyHandler.describePropertyLine()
         """
+        ...
     @abstractmethod
     def registerControlObserver(self, Observer: 'XPropertyControlObserver_cc6d132a') -> None:
         """
@@ -90,6 +95,7 @@ class XObjectInspectorUI(ABC):
         
             OOo 2.2
         """
+        ...
     @abstractmethod
     def revokeControlObserver(self, Observer: 'XPropertyControlObserver_cc6d132a') -> None:
         """
@@ -99,6 +105,7 @@ class XObjectInspectorUI(ABC):
         
             OOo 2.2
         """
+        ...
     @abstractmethod
     def setHelpSectionText(self, HelpText: str) -> None:
         """
@@ -111,16 +118,19 @@ class XObjectInspectorUI(ABC):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def showCategory(self, Category: str, Show: bool) -> None:
         """
         shows or hides all properties belonging to a given category
         """
+        ...
     @abstractmethod
     def showPropertyUI(self, PropertyName: str) -> None:
         """
         shows the UI for a given property
         """
+        ...
 
 __all__ = ['XObjectInspectorUI']
 

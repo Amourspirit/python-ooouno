@@ -47,6 +47,7 @@ class XPropertyState(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getPropertyState(self, PropertyName: str) -> 'PropertyState_c97b0c77':
         """
@@ -54,6 +55,7 @@ class XPropertyState(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def getPropertyStates(self, aPropertyName: 'typing.Tuple[str, ...]') -> 'typing.Tuple[PropertyState_c97b0c77, ...]':
         """
@@ -62,6 +64,7 @@ class XPropertyState(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
     @abstractmethod
     def setPropertyToDefault(self, PropertyName: str) -> None:
         """
@@ -72,6 +75,7 @@ class XPropertyState(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
         """
+        ...
 
 __all__ = ['XPropertyState']
 

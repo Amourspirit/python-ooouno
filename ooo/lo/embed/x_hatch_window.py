@@ -44,10 +44,12 @@ class XHatchWindow(XComponent_98dc0ab5):
         """
         sets the object that will control resizing/moving, if the object is not set the window can not be resized/moved.
         """
+        ...
     @abstractproperty
     def HatchBorderSize(self) -> 'Size_576707ef':
         """
         """
+        ...
 
 
 __all__ = ['XHatchWindow']

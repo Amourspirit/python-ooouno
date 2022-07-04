@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontWidth as FontWidth
-    if hasattr(FontWidth, '_constants') and isinstance(FontWidth._constants, dict):
-        FontWidth._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        FontWidth._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontWidth'
-        FontWidth._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FontWidthEnum
-        ls = [f for f in dir(FontWidth) if not callable(getattr(FontWidth, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FontWidth, name)
-        FontWidthEnum = IntEnum('FontWidthEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FontWidth(metaclass=UnoConstMeta, type_name="com.sun.star.awt.FontWidth", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.FontWidth``"""
+        pass
+
+    class FontWidthEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.FontWidth", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.FontWidth`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.font_width import FontWidth as FontWidth
 

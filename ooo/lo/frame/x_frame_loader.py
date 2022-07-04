@@ -47,11 +47,13 @@ class XFrameLoader(XInterface_8f010a43):
         
         After returning from this call, neither the frame nor the load-event-listener specified in XFrameLoader.load() may be called back. Because only the owner of this process who called load method before can cancel this process. And he doesn't need any notification about that. On the other hand - nobody then this owner himself can be registered as an XLoadEventListener here.
         """
+        ...
     @abstractmethod
     def load(self, Frame: 'XFrame_7a570956', URL: str, Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]', Listener: 'XLoadEventListener_9140e33') -> None:
         """
         starts the loading of the specified resource into the specified Frame.
         """
+        ...
 
 __all__ = ['XFrameLoader']
 

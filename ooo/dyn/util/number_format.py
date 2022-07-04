@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import NumberFormat as NumberFormat
-    if hasattr(NumberFormat, '_constants') and isinstance(NumberFormat._constants, dict):
-        NumberFormat._constants['__ooo_ns__'] = 'com.sun.star.util'
-        NumberFormat._constants['__ooo_full_ns__'] = 'com.sun.star.util.NumberFormat'
-        NumberFormat._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global NumberFormatEnum
-        ls = [f for f in dir(NumberFormat) if not callable(getattr(NumberFormat, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(NumberFormat, name)
-        NumberFormatEnum = IntEnum('NumberFormatEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class NumberFormat(metaclass=UnoConstMeta, type_name="com.sun.star.util.NumberFormat", name_space="com.sun.star.util"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.util.NumberFormat``"""
+        pass
+
+    class NumberFormatEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.util.NumberFormat", name_space="com.sun.star.util"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.util.NumberFormat`` as Enum values"""
+        pass
+
 else:
     from ...lo.util.number_format import NumberFormat as NumberFormat
 

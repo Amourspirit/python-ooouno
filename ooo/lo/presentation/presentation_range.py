@@ -34,6 +34,10 @@ class PresentationRange(Enum):
     __ooo_full_ns__: str = 'com.sun.star.presentation.PresentationRange'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.presentation.PresentationRange'
+
     PRESENTATIONRANGE_ALL = 'PRESENTATIONRANGE_ALL'
     """
     use all slides.

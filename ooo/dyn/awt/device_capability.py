@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import DeviceCapability as DeviceCapability
-    if hasattr(DeviceCapability, '_constants') and isinstance(DeviceCapability._constants, dict):
-        DeviceCapability._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        DeviceCapability._constants['__ooo_full_ns__'] = 'com.sun.star.awt.DeviceCapability'
-        DeviceCapability._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DeviceCapabilityEnum
-        ls = [f for f in dir(DeviceCapability) if not callable(getattr(DeviceCapability, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DeviceCapability, name)
-        DeviceCapabilityEnum = IntFlag('DeviceCapabilityEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DeviceCapability(metaclass=UnoConstMeta, type_name="com.sun.star.awt.DeviceCapability", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.DeviceCapability``"""
+        pass
+
+    class DeviceCapabilityEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.DeviceCapability", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.DeviceCapability`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.device_capability import DeviceCapability as DeviceCapability
 

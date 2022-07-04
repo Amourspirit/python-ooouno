@@ -25,30 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart2.DataPointCustomLabelFieldType import (CATEGORYNAME, CELLRANGE, CELLREF, NEWLINE, PERCENTAGE, SERIESNAME, TEXT, VALUE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart2.DataPointCustomLabelFieldType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart2",
-            "__ooo_full_ns__": "com.sun.star.chart2.DataPointCustomLabelFieldType",
-            "__ooo_type_name__": "enum",
-            "CATEGORYNAME": CATEGORYNAME,
-            "CELLRANGE": CELLRANGE,
-            "CELLREF": CELLREF,
-            "NEWLINE": NEWLINE,
-            "PERCENTAGE": PERCENTAGE,
-            "SERIESNAME": SERIESNAME,
-            "TEXT": TEXT,
-            "VALUE": VALUE,
-        }
-        result = type('DataPointCustomLabelFieldType', (object,), _dict)
-        return result
-
-    DataPointCustomLabelFieldType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class DataPointCustomLabelFieldType(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.DataPointCustomLabelFieldType", name_space="com.sun.star.chart2"):
+        """Dynamically created class that represents ``com.sun.star.chart2.DataPointCustomLabelFieldType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart2.data_point_custom_label_field_type import DataPointCustomLabelFieldType as DataPointCustomLabelFieldType
 

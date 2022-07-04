@@ -34,6 +34,10 @@ class UnicodeScript(Enum):
     __ooo_full_ns__: str = 'com.sun.star.i18n.UnicodeScript'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.i18n.UnicodeScript'
+
     kAlphabeticPresentation = 'kAlphabeticPresentation'
     """
     """

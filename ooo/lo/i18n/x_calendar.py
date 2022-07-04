@@ -47,11 +47,13 @@ class XCalendar(XInterface_8f010a43):
         """
         Add an amount to a field.
         """
+        ...
     @abstractmethod
     def getAllCalendars(self, rLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         Returns all available calendars for the given locale.
         """
+        ...
     @abstractmethod
     def getDateTime(self) -> float:
         """
@@ -59,11 +61,13 @@ class XCalendar(XInterface_8f010a43):
         
         The integer part represents the number of days passed since start date. The fractional part represents fractions of a day, thus 0.5 means 12 hours.
         """
+        ...
     @abstractmethod
     def getDays(self) -> 'typing.Tuple[CalendarItem_a86c0af1, ...]':
         """
         returns a sequence of CalendarItem describing the day names.
         """
+        ...
     @abstractmethod
     def getDisplayName(self, nCalendarDisplayIndex: int, nIdx: int, nNameType: int) -> str:
         """
@@ -77,46 +81,55 @@ class XCalendar(XInterface_8f010a43):
         
             LibreOffice 3.5
         """
+        ...
     @abstractmethod
     def getFirstDayOfWeek(self) -> int:
         """
         returns the first day of a week, one of Weekdays values.
         """
+        ...
     @abstractmethod
     def getLoadedCalendar(self) -> 'Calendar_7f2d0962':
         """
         Get the currently loaded Calendar.
         """
+        ...
     @abstractmethod
     def getMinimumNumberOfDaysForFirstWeek(self) -> int:
         """
         returns how many days of a week must reside in the first week of a year.
         """
+        ...
     @abstractmethod
     def getMonths(self) -> 'typing.Tuple[CalendarItem_a86c0af1, ...]':
         """
         returns a sequence of CalendarItem describing the month names.
         """
+        ...
     @abstractmethod
     def getNumberOfDaysInWeek(self) -> int:
         """
         returns the number of days in a week, e.g. 7
         """
+        ...
     @abstractmethod
     def getNumberOfMonthsInYear(self) -> int:
         """
         returns the number of months in a year, e.g. 12
         """
+        ...
     @abstractmethod
     def getUniqueID(self) -> str:
         """
         Returns the ID string of the loaded calendar, for example, \"Gregorian\"
         """
+        ...
     @abstractmethod
     def getValue(self, nCalendarFieldIndex: int) -> int:
         """
         Get the value of a field.
         """
+        ...
     @abstractmethod
     def isValid(self) -> bool:
         """
@@ -124,16 +137,19 @@ class XCalendar(XInterface_8f010a43):
         
         It has a side-effect because it will internally calculate the final value for the date fields
         """
+        ...
     @abstractmethod
     def loadCalendar(self, uniqueID: str, rLocale: 'Locale_70d308fa') -> None:
         """
         Load a specific calendar for the given locale.
         """
+        ...
     @abstractmethod
     def loadDefaultCalendar(self, rLocale: 'Locale_70d308fa') -> None:
         """
         Load the default calendar for the given locale.
         """
+        ...
     @abstractmethod
     def setDateTime(self, nTimeInDays: float) -> None:
         """
@@ -141,21 +157,25 @@ class XCalendar(XInterface_8f010a43):
         
         The integer part represents the number of days passed since start date. The fractional part represents fractions of a day, thus 0.5 means 12 hours.
         """
+        ...
     @abstractmethod
     def setFirstDayOfWeek(self, nDay: int) -> None:
         """
         Set the first day of a week, one of Weekdays values.
         """
+        ...
     @abstractmethod
     def setMinimumNumberOfDaysForFirstWeek(self, nDays: int) -> None:
         """
         Set how many days of a week must reside in the first week of a year.
         """
+        ...
     @abstractmethod
     def setValue(self, nCalendarFieldIndex: int, nValue: int) -> None:
         """
         Set the value of a field.
         """
+        ...
 
 __all__ = ['XCalendar']
 

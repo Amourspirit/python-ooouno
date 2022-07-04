@@ -50,6 +50,7 @@ class OutlineView(Controller_a5330b37, XWindow_713b0924, XPropertySet_bc180bfa):
         """
         This is the area that is currently visible.
         """
+        ...
 
 
 

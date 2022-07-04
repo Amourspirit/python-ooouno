@@ -43,11 +43,13 @@ class XConfirmDeleteBroadcaster(XInterface_8f010a43):
         
         XConfirmDeleteListener.confirmDelete() is called before a deletion is performed. You may use the event to write your own confirmation messages.
         """
+        ...
     @abstractmethod
     def removeConfirmDeleteListener(self, aListener: 'XConfirmDeleteListener_37920f7b') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XConfirmDeleteBroadcaster']
 

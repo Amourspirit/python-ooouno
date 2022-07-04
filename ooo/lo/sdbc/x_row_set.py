@@ -45,6 +45,7 @@ class XRowSet(XResultSet_98e30aa7):
         """
         adds the specified listener to receive the events \"cursorMoved\", \"rowChanged\", and \"rowSetChanged\".
         """
+        ...
     @abstractmethod
     def execute(self) -> None:
         """
@@ -55,11 +56,13 @@ class XRowSet(XResultSet_98e30aa7):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def removeRowSetListener(self, listener: 'XRowSetListener_d3580ca6') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XRowSet']
 

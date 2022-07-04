@@ -62,6 +62,7 @@ class XExtendedToolkit(XInterface_8f010a43):
         
         Use this focus broadcaster to keep track of the object that currently has the input focus.
         """
+        ...
     @abstractmethod
     def addKeyHandler(self, xHandler: 'XKeyHandler_98520a93') -> None:
         """
@@ -69,6 +70,7 @@ class XExtendedToolkit(XInterface_8f010a43):
         
         Every listener is given the opportunity to consume the event, i.e. prevent the not yet called listeners from being called.
         """
+        ...
     @abstractmethod
     def addTopWindowListener(self, xListener: 'XTopWindowListener_efc20d9d') -> None:
         """
@@ -76,16 +78,19 @@ class XExtendedToolkit(XInterface_8f010a43):
         
         After having obtained the current list of existing top-level windows you can keep this list up-to-date by listening to opened or closed top-level windows. Wait for activations or deactivations of top-level windows to keep track of the currently active frame.
         """
+        ...
     @abstractmethod
     def fireFocusGained(self, source: 'XInterface_8f010a43') -> None:
         """
         Broadcasts the a focusGained on all registered focus listeners.
         """
+        ...
     @abstractmethod
     def fireFocusLost(self, source: 'XInterface_8f010a43') -> None:
         """
         Broadcasts the a focusGained on all registered focus listeners.
         """
+        ...
     @abstractmethod
     def getActiveTopWindow(self) -> 'XTopWindow_8ebb0a57':
         """
@@ -93,6 +98,7 @@ class XExtendedToolkit(XInterface_8f010a43):
         
         which has currently the input focus.
         """
+        ...
     @abstractmethod
     def getTopWindow(self, nIndex: int) -> 'XTopWindow_8ebb0a57':
         """
@@ -103,26 +109,31 @@ class XExtendedToolkit(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getTopWindowCount(self) -> int:
         """
         This function returns the number of currently existing top-level windows.
         """
+        ...
     @abstractmethod
     def removeFocusListener(self, xListener: 'XFocusListener_bb8e0bf2') -> None:
         """
         Remove the specified listener from the list of listeners.
         """
+        ...
     @abstractmethod
     def removeKeyHandler(self, xHandler: 'XKeyHandler_98520a93') -> None:
         """
         Remove the specified listener from the list of listeners.
         """
+        ...
     @abstractmethod
     def removeTopWindowListener(self, xListener: 'XTopWindowListener_efc20d9d') -> None:
         """
         Remove the specified listener from the list of listeners.
         """
+        ...
 
 __all__ = ['XExtendedToolkit']
 

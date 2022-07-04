@@ -48,15 +48,14 @@ class XCloseable(XCloseBroadcaster_ef230d7e):
         
         Before any internal processes will be canceled, all registered XCloseListener must be notified. Any of them can disagree with a CloseVetoException too. It's forbidden to catch this exception inside the called close() method because the caller must get this information!
         
-        If somewhere disagree with a CloseVetoException it will not clear who has to close the object again after still running processes was finished. The parameter DeliverOwnership regulate that. If it is set to FALSE the caller of the method close() will be the owner of this object in every case. Then it's not allowed to call close() from any other place (may a registered XCloseListener). If it is set to TRUE the caller gives up his ownership. If a XCloseListener throw the veto exception he will be the new owner of the closing object. This information is passed to the listener by a parameter of his notification method XCloseListener.queryClosing(). After his operations was finished he MUST try to close it again. If the closing object itself disagree by an exception and the parameter DeliverOwnership was set to TRUE the object will be his own owner with all consequences of that.
-        Note:
-        There is no way to get the ownership back if it was delivered!
+        If somewhere disagree with a CloseVetoException it will not clear who has to close the object again after still running processes was finished. The parameter DeliverOwnership regulate that. If it is set to FALSE the caller of the method close() will be the owner of this object in every case. Then it's not allowed to call close() from any other place (may a registered XCloseListener). If it is set to TRUE the caller gives up his ownership. If a XCloseListener throw the veto exception he will be the new owner of the closing object. This information is passed to the listener by a parameter of his notification method XCloseListener.queryClosing(). After his operations was finished he MUST try to close it again. If the closing object itself disagree by an exception and the parameter DeliverOwnership was set to TRUE the object will be his own owner with all consequences of that. Note:There is no way to get the ownership back if it was delivered!
         
         If this method was already called on an object it should return without any reaction. Normally it's possible to throw a com.sun.star.lang.DisposedException for already disposed or closed objects (which represent a com.sun.star.uno.RuntimeException and can be thrown by every interface call), but it shouldn't be used here. The veto exception should be the only way to indicates the result.
 
         Raises:
             CloseVetoException: ``CloseVetoException``
         """
+        ...
 
 __all__ = ['XCloseable']
 

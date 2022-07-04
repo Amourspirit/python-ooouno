@@ -46,16 +46,19 @@ class XVclContainer(XInterface_8f010a43):
         """
         adds the specified container listener to receive container events from this container.
         """
+        ...
     @abstractmethod
     def getWindows(self) -> 'typing.Tuple[XWindow_713b0924, ...]':
         """
         returns all windows.
         """
+        ...
     @abstractmethod
     def removeVclContainerListener(self, l: 'XVclContainerListener_190e0eba') -> None:
         """
         removes the specified container listener so that it no longer receives container events from this container.
         """
+        ...
 
 __all__ = ['XVclContainer']
 

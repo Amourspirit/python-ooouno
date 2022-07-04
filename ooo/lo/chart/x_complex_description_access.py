@@ -45,21 +45,25 @@ class XComplexDescriptionAccess(XChartDataArray_df4c0cdd):
         """
         retrieves the description texts for all columns.
         """
+        ...
     @abstractmethod
     def getComplexRowDescriptions(self) -> 'typing.Tuple[typing.Tuple[str, ...], ...]':
         """
         retrieves the description texts for all rows.
         """
+        ...
     @abstractmethod
     def setComplexColumnDescriptions(self, rColumnDescriptions: 'typing.Tuple[typing.Tuple[str, ...], ...]') -> None:
         """
         sets the description texts for all columns.
         """
+        ...
     @abstractmethod
     def setComplexRowDescriptions(self, rRowDescriptions: 'typing.Tuple[typing.Tuple[str, ...], ...]') -> None:
         """
         sets the description texts for all rows.
         """
+        ...
 
 __all__ = ['XComplexDescriptionAccess']
 

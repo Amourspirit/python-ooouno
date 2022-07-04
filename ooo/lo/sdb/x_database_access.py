@@ -45,6 +45,7 @@ class XDatabaseAccess(XDataSource_a2990ae7):
     def addDatabaseAccessListener(self, listener: 'XDatabaseAccessListener_32d80f46') -> None:
         """
         """
+        ...
     @abstractmethod
     def getIsolatedConnection(self, user: str, password: str) -> 'XConnection_a36a0b0c':
         """
@@ -52,14 +53,17 @@ class XDatabaseAccess(XDataSource_a2990ae7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def hasConnections(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def removeDatabaseAccessListener(self, listener: 'XDatabaseAccessListener_32d80f46') -> None:
         """
         """
+        ...
     @abstractmethod
     def suspendConnections(self) -> bool:
         """
@@ -67,6 +71,7 @@ class XDatabaseAccess(XDataSource_a2990ae7):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDatabaseAccess']
 

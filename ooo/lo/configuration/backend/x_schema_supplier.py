@@ -49,6 +49,7 @@ class XSchemaSupplier(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XSchemaSupplier']
 

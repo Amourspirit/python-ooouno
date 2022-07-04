@@ -48,6 +48,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def activatingUI(self) -> None:
         """
@@ -56,11 +57,13 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def canInplaceActivate(self) -> bool:
         """
         checks if the container can activate the object inplace.
         """
+        ...
     @abstractmethod
     def changedPlacement(self, aPosRect: 'Rectangle_84b109e9') -> None:
         """
@@ -70,6 +73,7 @@ class XInplaceClient(XInterface_8f010a43):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def deactivatedInplace(self) -> None:
         """
@@ -78,6 +82,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def deactivatedUI(self) -> None:
         """
@@ -88,6 +93,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getClipRectangle(self) -> 'Rectangle_84b109e9':
         """
@@ -98,6 +104,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getInplaceDispatchProvider(self) -> 'XDispatchProvider_fc690de6':
         """
@@ -106,6 +113,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getLayoutManager(self) -> 'XLayoutManager_d4510ca4':
         """
@@ -114,6 +122,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def getPlacement(self) -> 'Rectangle_84b109e9':
         """
@@ -124,6 +133,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def scrollObject(self, aOffset: 'Size_576707ef') -> None:
         """
@@ -132,6 +142,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def translateAccelerators(self, aKeys: 'typing.Tuple[KeyEvent_7a78097f, ...]') -> None:
         """
@@ -140,6 +151,7 @@ class XInplaceClient(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
 
 __all__ = ['XInplaceClient']
 

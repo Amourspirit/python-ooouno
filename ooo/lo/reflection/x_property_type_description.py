@@ -44,10 +44,12 @@ class XPropertyTypeDescription(XTypeDescription_3c210fb1):
         """
         The possible values are defined in com.sun.star.beans.PropertyAttribute
         """
+        ...
     @abstractmethod
     def getPropertyTypeDescription(self) -> 'XTypeDescription_3c210fb1':
         """
         """
+        ...
 
 __all__ = ['XPropertyTypeDescription']
 

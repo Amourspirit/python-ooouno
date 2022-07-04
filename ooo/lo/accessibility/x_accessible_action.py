@@ -50,6 +50,7 @@ class XAccessibleAction(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleActionCount(self) -> int:
         """
@@ -57,6 +58,7 @@ class XAccessibleAction(XInterface_8f010a43):
         
         If there are more than one, the first one is considered the \"default\" action of the object.
         """
+        ...
     @abstractmethod
     def getAccessibleActionDescription(self, nIndex: int) -> str:
         """
@@ -65,6 +67,7 @@ class XAccessibleAction(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleActionKeyBinding(self, nIndex: int) -> 'XAccessibleKeyBinding_c493129a':
         """
@@ -75,6 +78,7 @@ class XAccessibleAction(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XAccessibleAction']
 

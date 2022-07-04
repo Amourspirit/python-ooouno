@@ -52,6 +52,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyElementDirectlyTo(self, sSourceName: str, xTargetStorage: 'XOptimizedStorage', sTargetName: str) -> None:
         """
@@ -65,6 +66,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def copyStreamElementData(self, sStreamName: str, xTargetStream: 'XStream_678908a4') -> None:
         """
@@ -77,6 +79,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def getElementPropertyValue(self, sElementName: str, sPropertyName: str) -> object:
         """
@@ -93,6 +96,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.beans.PropertyVetoException: ``PropertyVetoException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertRawNonEncrStreamElementDirect(self, sStreamName: str, xInStream: 'XInputStream_98d40ab4') -> None:
         """
@@ -106,6 +110,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertStreamElementDirect(self, sStreamName: str, xInStream: 'XInputStream_98d40ab4', aProperties: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -120,6 +125,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
     @abstractmethod
     def writeAndAttachToStream(self, xStream: 'XStream_678908a4') -> None:
         """
@@ -133,6 +139,7 @@ class XOptimizedStorage(ABC):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.embed.StorageWrappedTargetException: ``StorageWrappedTargetException``
         """
+        ...
 
 __all__ = ['XOptimizedStorage']
 

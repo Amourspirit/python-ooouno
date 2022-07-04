@@ -41,6 +41,7 @@ class XAuthorizable(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getPrivileges(self, objName: str, objType: int) -> int:
         """
@@ -49,6 +50,7 @@ class XAuthorizable(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def grantPrivileges(self, objName: str, objType: int, objPrivileges: int) -> None:
         """
@@ -57,6 +59,7 @@ class XAuthorizable(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def revokePrivileges(self, objName: str, objType: int, objPrivileges: int) -> None:
         """
@@ -65,6 +68,7 @@ class XAuthorizable(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XAuthorizable']
 

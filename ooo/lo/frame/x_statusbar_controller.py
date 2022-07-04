@@ -34,8 +34,7 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
     """
     interface to be implemented by a component offering a more complex user interface to users within a status bar.
     
-    A generic status bar field is represented as a simple text field. A status bar controller can be added to a Statusbar and provide information or functions with a more sophisticated user interface.
-    A typical example for status bar controller is a zoom chooser. It shows the current zoom and provides general zoom levels on a pop-up menu that can be activated by a mouse action for context menus.
+    A generic status bar field is represented as a simple text field. A status bar controller can be added to a Statusbar and provide information or functions with a more sophisticated user interface.A typical example for status bar controller is a zoom chooser. It shows the current zoom and provides general zoom levels on a pop-up menu that can be activated by a mouse action for context menus.
     
     **since**
     
@@ -54,16 +53,19 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
         """
         is called by a status bar if the user clicked with mouse into the field of the corresponding control.
         """
+        ...
     @abstractmethod
     def command(self, aPos: 'Point_5fb2085e', nCommand: int, bMouseEvent: bool, aData: object) -> None:
         """
         is called by a status bar if a command event is available for a controller.
         """
+        ...
     @abstractmethod
     def doubleClick(self, aPos: 'Point_5fb2085e') -> None:
         """
         is called by a status bar if the user double-clicked with mouse into the field of the corresponding control.
         """
+        ...
     @abstractmethod
     def mouseButtonDown(self, aMouseEvent: 'MouseEvent_8f430a5f') -> bool:
         """
@@ -71,6 +73,7 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
         
         If the controller has captured the mouse input this function is also called when the mouse position is not within the controller.
         """
+        ...
     @abstractmethod
     def mouseButtonUp(self, aMouseEvent: 'MouseEvent_8f430a5f') -> bool:
         """
@@ -78,6 +81,7 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
         
         If the controller has captured the mouse input this function is also called when the mouse position is not within the controller.
         """
+        ...
     @abstractmethod
     def mouseMove(self, aMouseEvent: 'MouseEvent_8f430a5f') -> bool:
         """
@@ -85,11 +89,13 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
         
         If the controller has captured the mouse input this function is also called when the mouse position is not within the controller.
         """
+        ...
     @abstractmethod
     def paint(self, xGraphics: 'XGraphics_842309dd', OutputRectangle: 'Rectangle_84b109e9', nStyle: int) -> None:
         """
         is called by a status bar if the controller has to update the visual representation.
         """
+        ...
 
 __all__ = ['XStatusbarController']
 

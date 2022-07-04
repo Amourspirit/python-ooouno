@@ -46,11 +46,13 @@ class XView(XInterface_8f010a43):
         
         If the output should be clipped, the caller has to set the clipping region.
         """
+        ...
     @abstractmethod
     def getGraphics(self) -> 'XGraphics_842309dd':
         """
         returns the output device which was set using the method XView.setGraphics().
         """
+        ...
     @abstractmethod
     def getSize(self) -> 'Size_576707ef':
         """
@@ -58,11 +60,13 @@ class XView(XInterface_8f010a43):
         
         A device must be set before.
         """
+        ...
     @abstractmethod
     def setGraphics(self, aDevice: 'XGraphics_842309dd') -> bool:
         """
         sets the output device.
         """
+        ...
     @abstractmethod
     def setZoom(self, fZoomX: float, fZoomY: float) -> None:
         """
@@ -70,6 +74,7 @@ class XView(XInterface_8f010a43):
         
         The zoom factor only affects the content of the view, not the size.
         """
+        ...
 
 __all__ = ['XView']
 

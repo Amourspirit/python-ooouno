@@ -41,26 +41,32 @@ class XAttributeList(XInterface_8f010a43):
     def getLength(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getNameByIndex(self, i: int) -> str:
         """
         """
+        ...
     @abstractmethod
     def getTypeByIndex(self, i: int) -> str:
         """
         """
+        ...
     @abstractmethod
     def getTypeByName(self, aName: str) -> str:
         """
         """
+        ...
     @abstractmethod
     def getValueByIndex(self, i: int) -> str:
         """
         """
+        ...
     @abstractmethod
     def getValueByName(self, aName: str) -> str:
         """
         """
+        ...
 
 __all__ = ['XAttributeList']
 

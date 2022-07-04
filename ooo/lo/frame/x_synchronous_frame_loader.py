@@ -46,11 +46,13 @@ class XSynchronousFrameLoader(XInterface_8f010a43):
         
         No notifications (neither to the frame or the caller) must be notified. Because it's a synchronous process this cancel call can be forced by another thread the loader thread only. Method XSynchronousFrameLoader.load() must return FALSE then and caller of this method XSynchronousFrameLoader.cancel() already knows the state ...
         """
+        ...
     @abstractmethod
     def load(self, Descriptor: 'typing.Tuple[PropertyValue_c9610c73, ...]', Frame: 'XFrame_7a570956') -> bool:
         """
         starts the loading of the specified resource into the specified Frame.
         """
+        ...
 
 __all__ = ['XSynchronousFrameLoader']
 

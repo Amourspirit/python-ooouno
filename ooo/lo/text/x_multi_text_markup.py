@@ -49,6 +49,7 @@ class XMultiTextMarkup(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XMultiTextMarkup']
 

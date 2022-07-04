@@ -38,6 +38,7 @@ class StackableDiagram(ABC):
         """
         If TRUE, the series of the diagram are stacked and each category sums up to 100%.
         """
+        ...
 
     @abstractproperty
     def Stacked(self) -> bool:
@@ -46,6 +47,7 @@ class StackableDiagram(ABC):
         
         If you have a stacked bar chart, you can easily determine the sum of data in each category, by taking the top of the topmost bar.
         """
+        ...
 
 
 

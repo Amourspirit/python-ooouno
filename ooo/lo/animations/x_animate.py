@@ -40,36 +40,42 @@ class XAnimate(XAnimationNode_1cf10eb9):
     def KeyTimes(self) -> 'typing.Tuple[float, ...]':
         """
         """
+        ...
 
     @abstractproperty
     def TimeFilter(self) -> 'typing.Tuple[TimeFilterPair_1d250ebc, ...]':
         """
         todo: timeFilter=\"0,0; 0.14,0.36; 0.43,0.73; 0.71,0.91; 1.0,1.0\" ?
         """
+        ...
 
     @abstractproperty
     def Values(self) -> 'typing.Tuple[object, ...]':
         """
         A sequence of one or more values, each of which must be a legal value for the specified attribute.
         """
+        ...
 
     @abstractproperty
     def Accumulate(self) -> bool:
         """
         Controls whether or not the animation is cumulative.
         """
+        ...
 
     @abstractproperty
     def Additive(self) -> int:
         """
         Controls whether or not the animation is additive.
         """
+        ...
 
     @abstractproperty
     def AttributeName(self) -> str:
         """
         Specifies the target attribute.
         """
+        ...
 
     @abstractproperty
     def By(self) -> object:
@@ -78,6 +84,7 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         Must be a legal value of a domain for which addition to the attributeType domain is defined and which yields a value in the attributeType domain. Ignored if the values attribute is specified. Ignored if the Values attribute is specified.
         """
+        ...
 
     @abstractproperty
     def CalcMode(self) -> int:
@@ -86,6 +93,7 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         If the target attribute does not support linear interpolation (e.g. for strings), or if the values attribute has only one value, the CalcMode attribute is ignored and discrete interpolation is used.
         """
+        ...
 
     @abstractproperty
     def Formula(self) -> str:
@@ -94,6 +102,7 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         All values are used as a parameter for this formula and the computed result will be used.
         """
+        ...
 
     @abstractproperty
     def From(self) -> object:
@@ -102,15 +111,16 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         Must be a legal value for the specified attribute. Ignored if the Values attribute is specified.
         """
+        ...
 
     @abstractproperty
     def SubItem(self) -> int:
         """
         This attribute specifies an optional subitem from the target element that should be animated.
         
-        A value of zero should always be the default and animate the complete target.
-        See documentation of used animation engine for supported subitems.
+        A value of zero should always be the default and animate the complete target. See documentation of used animation engine for supported subitems.
         """
+        ...
 
     @abstractproperty
     def Target(self) -> object:
@@ -119,6 +129,7 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         See documentation of used animation engine for supported targets.
         """
+        ...
 
     @abstractproperty
     def To(self) -> object:
@@ -127,11 +138,13 @@ class XAnimate(XAnimationNode_1cf10eb9):
         
         Must be a legal value for the specified attribute. Ignored if the Values attribute is specified.
         """
+        ...
 
     @abstractproperty
     def ValueType(self) -> int:
         """
         """
+        ...
 
 
 __all__ = ['XAnimate']

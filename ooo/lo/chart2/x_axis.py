@@ -41,10 +41,12 @@ class XAxis(XInterface_8f010a43):
         """
         the returned property set must support the service GridProperties
         """
+        ...
     @abstractmethod
     def getScaleData(self) -> 'ScaleData_a1d90aae':
         """
         """
+        ...
     @abstractmethod
     def getSubGridProperties(self) -> 'typing.Tuple[XPropertySet_bc180bfa, ...]':
         """
@@ -52,15 +54,18 @@ class XAxis(XInterface_8f010a43):
         
         If you do not want to render certain a sub-grid, in the corresponding XPropertySet the property GridProperties.Show must be FALSE.
         """
+        ...
     @abstractmethod
     def getSubTickProperties(self) -> 'typing.Tuple[XPropertySet_bc180bfa, ...]':
         """
         the returned property sets must support the service TickProperties
         """
+        ...
     @abstractmethod
     def setScaleData(self, aScale: 'ScaleData_a1d90aae') -> None:
         """
         """
+        ...
 
 __all__ = ['XAxis']
 

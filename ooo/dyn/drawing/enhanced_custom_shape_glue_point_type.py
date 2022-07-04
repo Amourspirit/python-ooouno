@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
-    if hasattr(EnhancedCustomShapeGluePointType, '_constants') and isinstance(EnhancedCustomShapeGluePointType._constants, dict):
-        EnhancedCustomShapeGluePointType._constants['__ooo_ns__'] = 'com.sun.star.drawing'
-        EnhancedCustomShapeGluePointType._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.EnhancedCustomShapeGluePointType'
-        EnhancedCustomShapeGluePointType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EnhancedCustomShapeGluePointTypeEnum
-        ls = [f for f in dir(EnhancedCustomShapeGluePointType) if not callable(getattr(EnhancedCustomShapeGluePointType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EnhancedCustomShapeGluePointType, name)
-        EnhancedCustomShapeGluePointTypeEnum = IntEnum('EnhancedCustomShapeGluePointTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class EnhancedCustomShapeGluePointType(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeGluePointType", name_space="com.sun.star.drawing"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeGluePointType``"""
+        pass
+
+    class EnhancedCustomShapeGluePointTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeGluePointType", name_space="com.sun.star.drawing"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeGluePointType`` as Enum values"""
+        pass
+
 else:
     from ...lo.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 

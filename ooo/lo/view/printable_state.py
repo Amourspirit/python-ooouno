@@ -34,6 +34,10 @@ class PrintableState(Enum):
     __ooo_full_ns__: str = 'com.sun.star.view.PrintableState'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.view.PrintableState'
+
     JOB_ABORTED = 'JOB_ABORTED'
     """
     printing was aborted (e.g., by the user) while either printing or spooling.

@@ -49,6 +49,7 @@ class XAccessibleExtendedComponent(XAccessibleComponent_b2f21269):
         """
         Returns the font of this object.
         """
+        ...
     @abstractmethod
     def getTitledBorderText(self) -> str:
         """
@@ -56,6 +57,7 @@ class XAccessibleExtendedComponent(XAccessibleComponent_b2f21269):
         
         This method stems from the Java interface AccessibleExtendedComponent.
         """
+        ...
     @abstractmethod
     def getToolTipText(self) -> str:
         """
@@ -63,6 +65,7 @@ class XAccessibleExtendedComponent(XAccessibleComponent_b2f21269):
         
         This method stems from the Java interface AccessibleExtendedComponent.
         """
+        ...
 
 __all__ = ['XAccessibleExtendedComponent']
 

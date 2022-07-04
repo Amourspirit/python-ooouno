@@ -39,18 +39,21 @@ class XTempFile(XSeekable_79540954, XStream_678908a4):
         """
         This attribute controls whether the file will be automatically removed on object destruction.
         """
+        ...
 
     @abstractproperty
     def ResourceName(self) -> str:
         """
         This attribute specifies the temp file name.
         """
+        ...
 
     @abstractproperty
     def Uri(self) -> str:
         """
         This attribute specifies the URL of the temp file.
         """
+        ...
 
 
 __all__ = ['XTempFile']

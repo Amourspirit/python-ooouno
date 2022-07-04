@@ -19,6 +19,7 @@
 # Namespace: com.sun.star.awt.grid
 # Libre Office Version: 7.2
 from ooo.oenv.env_const import UNO_NONE
+import uno
 from ...lang.event_object import EventObject as EventObject_a3d70b03
 from ...uno.x_interface import XInterface as XInterface_8f010a43
 import typing
@@ -39,14 +40,14 @@ class GridSelectionEvent(EventObject_a3d70b03):
     typeName: str = 'com.sun.star.awt.grid.GridSelectionEvent'
     """Literal Constant ``com.sun.star.awt.grid.GridSelectionEvent``"""
 
-    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, SelectedRowIndexes: typing.Optional[typing.Tuple[int, ...]] = (), SelectedColumnIndexes: typing.Optional[typing.Tuple[int, ...]] = ()) -> None:
+    def __init__(self, Source: typing.Optional[XInterface_8f010a43] = None, SelectedRowIndexes: typing.Optional[uno.ByteSequence] = (), SelectedColumnIndexes: typing.Optional[uno.ByteSequence] = ()) -> None:
         """
         Constructor
 
         Arguments:
             Source (XInterface, optional): Source value.
-            SelectedRowIndexes (typing.Tuple[int, ...], optional): SelectedRowIndexes value.
-            SelectedColumnIndexes (typing.Tuple[int, ...], optional): SelectedColumnIndexes value.
+            SelectedRowIndexes (uno.ByteSequence, optional): SelectedRowIndexes value.
+            SelectedColumnIndexes (uno.ByteSequence, optional): SelectedColumnIndexes value.
         """
 
         if isinstance(Source, GridSelectionEvent):
@@ -74,25 +75,25 @@ class GridSelectionEvent(EventObject_a3d70b03):
 
 
     @property
-    def SelectedRowIndexes(self) -> typing.Tuple[int, ...]:
+    def SelectedRowIndexes(self) -> uno.ByteSequence:
         """
         denotes the indexes of the rows being selected at the time the event was fired.
         """
         return self._selected_row_indexes
     
     @SelectedRowIndexes.setter
-    def SelectedRowIndexes(self, value: typing.Tuple[int, ...]) -> None:
+    def SelectedRowIndexes(self, value: uno.ByteSequence) -> None:
         self._selected_row_indexes = value
 
     @property
-    def SelectedColumnIndexes(self) -> typing.Tuple[int, ...]:
+    def SelectedColumnIndexes(self) -> uno.ByteSequence:
         """
         denotes the indexes of the columns being selected at the time the event was fired.
         """
         return self._selected_column_indexes
     
     @SelectedColumnIndexes.setter
-    def SelectedColumnIndexes(self, value: typing.Tuple[int, ...]) -> None:
+    def SelectedColumnIndexes(self, value: uno.ByteSequence) -> None:
         self._selected_column_indexes = value
 
 

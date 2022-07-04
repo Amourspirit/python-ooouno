@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui import UIElementType as UIElementType
-    if hasattr(UIElementType, '_constants') and isinstance(UIElementType._constants, dict):
-        UIElementType._constants['__ooo_ns__'] = 'com.sun.star.ui'
-        UIElementType._constants['__ooo_full_ns__'] = 'com.sun.star.ui.UIElementType'
-        UIElementType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global UIElementTypeEnum
-        ls = [f for f in dir(UIElementType) if not callable(getattr(UIElementType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(UIElementType, name)
-        UIElementTypeEnum = IntEnum('UIElementTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class UIElementType(metaclass=UnoConstMeta, type_name="com.sun.star.ui.UIElementType", name_space="com.sun.star.ui"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.UIElementType``"""
+        pass
+
+    class UIElementTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.UIElementType", name_space="com.sun.star.ui"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.UIElementType`` as Enum values"""
+        pass
+
 else:
     from ...lo.ui.ui_element_type import UIElementType as UIElementType
 

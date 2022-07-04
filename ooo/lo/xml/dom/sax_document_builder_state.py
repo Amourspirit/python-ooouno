@@ -34,6 +34,10 @@ class SAXDocumentBuilderState(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.dom.SAXDocumentBuilderState'
+
     BUILDING_DOCUMENT = 'BUILDING_DOCUMENT'
     """
     """

@@ -34,6 +34,10 @@ class ScanError(Enum):
     __ooo_full_ns__: str = 'com.sun.star.scanner.ScanError'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.scanner.ScanError'
+
     InvalidContext = 'InvalidContext'
     """
     InvalidContext: a device was requested that does not exist.

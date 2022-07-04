@@ -42,10 +42,12 @@ class XAccessibleTextSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSelectedPortionCount(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getSeletedPositionEnd(self, nSelectedPortionIndex: int) -> int:
         """
@@ -53,6 +55,7 @@ class XAccessibleTextSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSeletedPositionStart(self, nSelectedPortionIndex: int) -> int:
         """
@@ -60,6 +63,7 @@ class XAccessibleTextSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def removeSelection(self, selectionIndex: int) -> bool:
         """
@@ -67,6 +71,7 @@ class XAccessibleTextSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def scrollToPosition(self, aPoint: 'Point_5fb2085e', isLeftTop: bool) -> bool:
         """
@@ -74,6 +79,7 @@ class XAccessibleTextSelection(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XAccessibleTextSelection']
 

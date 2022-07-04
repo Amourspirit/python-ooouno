@@ -44,6 +44,7 @@ class XSidebarPanel(ABC):
         
         The height is set via the XWindow interface.
         """
+        ...
     @abstractmethod
     def getMinimalWidth(self) -> int:
         """
@@ -51,6 +52,7 @@ class XSidebarPanel(ABC):
         
         If this value is smaller than the maximum allowed size of the Sidebar (see config option 'org.openoffice.Office.UI.Sidebar.General.MaximumWidth'), the config option will be ignored and the new maximum Sidebar width will be getMinimalWidth() + 100px.
         """
+        ...
 
 __all__ = ['XSidebarPanel']
 

@@ -45,11 +45,13 @@ class XTransferable(XInterface_8f010a43):
             UnsupportedFlavorException: ``UnsupportedFlavorException``
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def getTransferDataFlavors(self) -> 'typing.Tuple[DataFlavor_ffd30deb, ...]':
         """
         Returns a sequence of supported DataFlavor.
         """
+        ...
     @abstractmethod
     def isDataFlavorSupported(self, aFlavor: 'DataFlavor_ffd30deb') -> bool:
         """
@@ -59,6 +61,7 @@ class XTransferable(XInterface_8f010a43):
         
         Note: This method is only for analogy with the JAVA Clipboard interface. To avoid many calls, the caller should instead use com.sun.star.datatransfer.XTransferable.getTransferDataFlavors().
         """
+        ...
 
 __all__ = ['XTransferable']
 

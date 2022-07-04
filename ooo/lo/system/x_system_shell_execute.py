@@ -42,6 +42,7 @@ class XSystemShellExecute(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.system.SystemShellExecuteException: ``SystemShellExecuteException``
         """
+        ...
 
 __all__ = ['XSystemShellExecute']
 

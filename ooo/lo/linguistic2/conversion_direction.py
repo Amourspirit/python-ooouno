@@ -34,6 +34,10 @@ class ConversionDirection(Enum):
     __ooo_full_ns__: str = 'com.sun.star.linguistic2.ConversionDirection'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.linguistic2.ConversionDirection'
+
     FROM_LEFT = 'FROM_LEFT'
     """
     the text to be looked for should match the left part of a dictionary entry.

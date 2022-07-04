@@ -72,6 +72,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def checkPrerequisites(self, extension: 'XPackage_cb1f0c4d', xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> int:
         """
@@ -85,16 +86,19 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createAbortChannel(self) -> 'XAbortChannel_baca0bc4':
         """
         creates a command channel to be used to asynchronously abort a command.
         """
+        ...
     @abstractmethod
     def getContext(self) -> str:
         """
         returns the underlying deployment context, that is, the name of the repository.
         """
+        ...
     @abstractmethod
     def getDeployedPackage(self, identifier: str, fileName: str, xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'XPackage_cb1f0c4d':
         """
@@ -105,6 +109,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandFailedException: ``CommandFailedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDeployedPackages(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[XPackage_cb1f0c4d, ...]':
         """
@@ -116,6 +121,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getExtensionsWithUnacceptedLicenses(self, xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[XPackage_cb1f0c4d, ...]':
         """
@@ -128,11 +134,13 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
         Raises:
             DeploymentException: ``DeploymentException``
         """
+        ...
     @abstractmethod
     def getSupportedPackageTypes(self) -> 'typing.Tuple[XPackageTypeInfo_3bc70f7b, ...]':
         """
         gets the supported XPackageTypeInfos.
         """
+        ...
     @abstractmethod
     def importExtension(self, extension: 'XPackage_cb1f0c4d', xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'XPackage_cb1f0c4d':
         """
@@ -146,6 +154,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
@@ -153,6 +162,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
         
         Normally one would call a method and handle the exception if writing failed. However, a GUI interface may need to know beforehand if writing is allowed. For example, the Extension Manager dialog needs to enable / disable the Add button depending if the user has write permission. Only the XPackageManager implementation knows the location of the installed extensions. Therefore it is not possible to check \"externally\" for write permission.
         """
+        ...
     @abstractmethod
     def reinstallDeployedPackages(self, force: bool, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -168,6 +178,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def removePackage(self, identifier: str, fileName: str, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -179,6 +190,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def synchronize(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> bool:
         """
@@ -192,6 +204,7 @@ class XPackageManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandFailedException: ``CommandFailedException``
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
         """
+        ...
 
 __all__ = ['XPackageManager']
 

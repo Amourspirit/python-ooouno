@@ -47,6 +47,7 @@ class UnoControlModel(UnoControlDialogElement_38ef0f81, XControlModel_affc0b7e, 
         """
         specifies the service name of the default control for this model.
         """
+        ...
 
 
 

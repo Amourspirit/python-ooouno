@@ -39,6 +39,7 @@ class ExtendedUser(TextField_90260a56):
         """
         contains the content.
         """
+        ...
 
     @abstractproperty
     def CurrentPresentation(self) -> str:
@@ -47,18 +48,21 @@ class ExtendedUser(TextField_90260a56):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def IsFixed(self) -> bool:
         """
         If this flag is set to FALSE the content is regularly updated.
         """
+        ...
 
     @abstractproperty
     def UserDataType(self) -> int:
         """
         specifies which part of the user data is displayed as described in com.sun.star.text.UserDataPart.
         """
+        ...
 
 
 

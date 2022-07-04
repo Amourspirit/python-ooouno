@@ -49,6 +49,7 @@ class XResourceId(ABC):
         
         The caller becomes the owner of the new object.
         """
+        ...
     @abstractmethod
     def compareTo(self, xId: 'XResourceId') -> int:
         """
@@ -58,11 +59,13 @@ class XResourceId(ABC):
         
         The algorithm for this comparison is quite simple. It uses a double lexicographic ordering. On the lower level individual URLs are compared via the lexicographic order defined on strings. On the higher level two resource ids are compared via a lexicographic order defined on the URLS. So when there are two resource ids A1.A2 (A1 being the anchor of A2) and B1.B2 then A1.A2<B1.B2 when A1<B1 or A1==B1 and A2<B2. Resource ids may have different lengths: A1 < B1.B2 when A1<B1 or A1==B1 (anchors first then resources linked to them.
         """
+        ...
     @abstractmethod
     def getAnchor(self) -> 'XResourceId':
         """
         Return a new XResourceId that represents the anchor resource.
         """
+        ...
     @abstractmethod
     def getAnchorURLs(self) -> 'typing.Tuple[str, ...]':
         """
@@ -70,11 +73,13 @@ class XResourceId(ABC):
         
         The URLs are ordered so that the one in position 0 is the direct anchor of the resource, while the one in position i+1 is the direct anchor of the one in position i.
         """
+        ...
     @abstractmethod
     def getFullResourceURL(self) -> 'URL_57ad07b9':
         """
         Return a URL object of the resource URL that may contain arguments.
         """
+        ...
     @abstractmethod
     def getResourceTypePrefix(self) -> str:
         """
@@ -82,6 +87,7 @@ class XResourceId(ABC):
         
         This includes all up to and including the second slash.
         """
+        ...
     @abstractmethod
     def getResourceURL(self) -> str:
         """
@@ -89,6 +95,7 @@ class XResourceId(ABC):
         
         Arguments supplied on creation are stripped away. Use getFullResourceURL() to access them.
         """
+        ...
     @abstractmethod
     def hasAnchor(self) -> bool:
         """
@@ -96,6 +103,7 @@ class XResourceId(ABC):
         
         When this method returns FALSE then getAnchorURLs() will return an empty list.
         """
+        ...
     @abstractmethod
     def isBoundTo(self, xAnchorId: 'XResourceId', eMode: 'AnchorBindingMode_c46b128b') -> bool:
         """
@@ -105,6 +113,7 @@ class XResourceId(ABC):
         
         If eMode is DIRECT then the anchor of the called resource id has to be identical to the given anchor. If eMode is INDIRECT then the given anchor has to be a part of the anchor of the called resource.
         """
+        ...
     @abstractmethod
     def isBoundToURL(self, AnchorURL: str, eMode: 'AnchorBindingMode_c46b128b') -> bool:
         """
@@ -112,6 +121,7 @@ class XResourceId(ABC):
         
         This is a convenience variant of the isBoundTo() function that can also be seen as an optimization for the case that the anchor consists of exactly one URL.
         """
+        ...
 
 __all__ = ['XResourceId']
 

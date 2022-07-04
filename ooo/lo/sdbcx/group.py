@@ -41,6 +41,7 @@ class Group(XPropertySet_bc180bfa, XAuthorizable_c8dd0c5e, XUsersSupplier_d6060c
         """
         is the name of the group.
         """
+        ...
 
 
 

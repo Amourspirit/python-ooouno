@@ -34,11 +34,9 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
     
     Additionally, the Undo manager manages a Redo stack: Actions which are undone are moved from the Undo to the Redo stack, so it is possible to re-apply the changes to the document.
     
-    For collecting multiple changes in a single undo action, so-called Undo contexts are provided. When an Undo context is entered, all subsequently added Undo actions are not pushed onto the undo stack directly, but considered a sub action of the Undo context. Once the Undo context is left, a single undo action is pushed onto the undo stack, which comprises all those single Undo actions.
-    Undo contexts can be arbitrarily nested.
+    For collecting multiple changes in a single undo action, so-called Undo contexts are provided. When an Undo context is entered, all subsequently added Undo actions are not pushed onto the undo stack directly, but considered a sub action of the Undo context. Once the Undo context is left, a single undo action is pushed onto the undo stack, which comprises all those single Undo actions.Undo contexts can be arbitrarily nested.
     
-    Hidden Undo actions are those which in no observable way contribute to the undo stack. That is, any method retrieving information about the stack will behave as if the undo action does not exist. Nonetheless, calling undo() respectively redo() will include those actions.
-    Hidden Undo actions can be created by calling enterHiddenUndoContext(), following by leaveUndoContext().
+    Hidden Undo actions are those which in no observable way contribute to the undo stack. That is, any method retrieving information about the stack will behave as if the undo action does not exist. Nonetheless, calling undo() respectively redo() will include those actions.Hidden Undo actions can be created by calling enterHiddenUndoContext(), following by leaveUndoContext().
     
     An Undo manager can be locked and unlocked, using the XLockable.lock() and XLockable.unlock() methods. When it is locked, then every attempt to add an undo action, or to enter or leave an Undo context, will be silently ignored.
     
@@ -68,11 +66,13 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def addUndoManagerListener(self, iListener: 'XUndoManagerListener_5a3b1056') -> None:
         """
         adds a listener to be notified of changes in the Undo/Redo stacks.
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
@@ -83,6 +83,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.document.UndoContextNotClosedException: ``UndoContextNotClosedException``
         """
+        ...
     @abstractmethod
     def clearRedo(self) -> None:
         """
@@ -93,6 +94,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.document.UndoContextNotClosedException: ``UndoContextNotClosedException``
         """
+        ...
     @abstractmethod
     def enterHiddenUndoContext(self) -> None:
         """
@@ -109,6 +111,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             EmptyUndoStackException: ``EmptyUndoStackException``
         """
+        ...
     @abstractmethod
     def enterUndoContext(self, iTitle: str) -> None:
         """
@@ -120,16 +123,19 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         
         Undo contexts can be nested, i.e. it is legitimate to call enterUndoContext and enterHiddenUndoContext() multiple times without calling leaveUndoContext() inbetween.
         """
+        ...
     @abstractmethod
     def getAllRedoActionTitles(self) -> 'typing.Tuple[str, ...]':
         """
         returns the titles of all actions currently on the Redo stack, from top to bottom
         """
+        ...
     @abstractmethod
     def getAllUndoActionTitles(self) -> 'typing.Tuple[str, ...]':
         """
         returns the titles of all actions currently on the undo stack, from top to bottom
         """
+        ...
     @abstractmethod
     def getCurrentRedoActionTitle(self) -> str:
         """
@@ -138,6 +144,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.document.EmptyUndoStackException: ``EmptyUndoStackException``
         """
+        ...
     @abstractmethod
     def getCurrentUndoActionTitle(self) -> str:
         """
@@ -146,16 +153,19 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.document.EmptyUndoStackException: ``EmptyUndoStackException``
         """
+        ...
     @abstractmethod
     def isRedoPossible(self) -> bool:
         """
         determines whether redo() can reasonably be expected to succeed.
         """
+        ...
     @abstractmethod
     def isUndoPossible(self) -> bool:
         """
         determines whether undo() can reasonably be expected to succeed.
         """
+        ...
     @abstractmethod
     def leaveUndoContext(self) -> None:
         """
@@ -168,6 +178,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         Raises:
             com.sun.star.util.InvalidStateException: ``InvalidStateException``
         """
+        ...
     @abstractmethod
     def redo(self) -> None:
         """
@@ -180,11 +191,13 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
             com.sun.star.document.UndoContextNotClosedException: ``UndoContextNotClosedException``
             com.sun.star.document.UndoFailedException: ``UndoFailedException``
         """
+        ...
     @abstractmethod
     def removeUndoManagerListener(self, iListener: 'XUndoManagerListener_5a3b1056') -> None:
         """
         removes a previously added listener
         """
+        ...
     @abstractmethod
     def reset(self) -> None:
         """
@@ -194,6 +207,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
         
         Note that possible listeners will not get notifications for the single parts of the reset, i.e. there will be no single XUndoManagerListener.allActionsCleared(), XUndoManagerListener.leftContext(), etc., notifications. Instead, listeners will be notified of the reset by calling their XUndoManagerListener.resetAll() method.
         """
+        ...
     @abstractmethod
     def undo(self) -> None:
         """
@@ -206,6 +220,7 @@ class XUndoManager(XChild_a6390b07, XLockable_8f330a3b):
             com.sun.star.document.UndoContextNotClosedException: ``UndoContextNotClosedException``
             com.sun.star.document.UndoFailedException: ``UndoFailedException``
         """
+        ...
 
 __all__ = ['XUndoManager']
 

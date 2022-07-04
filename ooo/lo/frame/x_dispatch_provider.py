@@ -43,6 +43,7 @@ class XDispatchProvider(XInterface_8f010a43):
         """
         searches for an XDispatch for the specified URL within the specified target frame.
         """
+        ...
     @abstractmethod
     def queryDispatches(self, Requests: 'typing.Tuple[DispatchDescriptor_b280e62, ...]') -> 'typing.Tuple[XDispatch_98ff0a9b, ...]':
         """
@@ -50,6 +51,7 @@ class XDispatchProvider(XInterface_8f010a43):
         
         It's not allowed to pack it - because every request must match to its real result. Means: don't delete NULL entries inside this list.
         """
+        ...
 
 __all__ = ['XDispatchProvider']
 

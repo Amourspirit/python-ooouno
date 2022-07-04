@@ -34,6 +34,10 @@ class PieChartOffsetMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.PieChartOffsetMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.PieChartOffsetMode'
+
     ALL_EXPLODED = 'ALL_EXPLODED'
     """
     All pies are exploded by a certain percentage.

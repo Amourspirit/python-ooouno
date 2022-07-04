@@ -43,6 +43,7 @@ class XTextFramesSupplier(XInterface_8f010a43):
         """
         returns a collection of text frames.
         """
+        ...
 
 __all__ = ['XTextFramesSupplier']
 

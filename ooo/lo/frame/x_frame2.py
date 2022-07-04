@@ -52,13 +52,13 @@ class XFrame2(XDispatchInformationProvider_afb6126c, XDispatchProvider_fc690de6,
         
         Such recorder can be used to record dispatch requests. The supplier contains a dispatch recorder and provide the functionality to use it for any dispatch object from outside which supports the interface XDispatch. A supplier is available only, if recording was enabled. That means: if someone wishes to enable recoding on a frame he must set a supplier with a recorder object inside of it. Every user of dispatches has to check then if such supplier is available at this frame property. If value of this property is NULL he must call XDispatch.dispatch() on the original dispatch object. If it's a valid value he must use the supplier by calling his method XDispatchRecorderSupplier.dispatchAndRecord() with the original dispatch object as argument.
         
-        Note:
-        It's not recommended to cache an already gotten supplier. Because there exist no possibility to check for enabled/disabled recording then.
+        Note:It's not recommended to cache an already gotten supplier. Because there exist no possibility to check for enabled/disabled recording then.
         
         **since**
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def LayoutManager(self) -> 'XInterface_8f010a43':
@@ -67,6 +67,7 @@ class XFrame2(XDispatchInformationProvider_afb6126c, XDispatchProvider_fc690de6,
         
         This is actually of type XLayoutManager, but this API is still experimental (unpublished).
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
@@ -75,12 +76,14 @@ class XFrame2(XDispatchInformationProvider_afb6126c, XDispatchProvider_fc690de6,
         
         It depends from the type of the frame container window. If it is a system task window all will be OK. Otherwise the title can't be set. Setting/getting of the pure value of this property must be possible in every case. Only showing on the UI can be fail.
         """
+        ...
 
     @abstractproperty
     def UserDefinedAttributes(self) -> 'XNameContainer_cb90e47':
         """
         contains user defined attributes.
         """
+        ...
 
 
 __all__ = ['XFrame2']

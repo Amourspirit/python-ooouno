@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.svg
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -43,14 +44,17 @@ class XSVGPrinter(XInterface_8f010a43):
     def endJob(self) -> None:
         """
         """
+        ...
     @abstractmethod
-    def printPage(self, aPrintPage: 'typing.Tuple[int, ...]') -> None:
+    def printPage(self, aPrintPage: uno.ByteSequence) -> None:
         """
         """
+        ...
     @abstractmethod
-    def startJob(self, aHandler: 'XDocumentHandler_9b90e28', aJobSetup: 'typing.Tuple[int, ...]', aJobName: str, nCopies: int, bCollate: bool) -> bool:
+    def startJob(self, aHandler: 'XDocumentHandler_9b90e28', aJobSetup: uno.ByteSequence, aJobName: str, nCopies: int, bCollate: bool) -> bool:
         """
         """
+        ...
 
 __all__ = ['XSVGPrinter']
 

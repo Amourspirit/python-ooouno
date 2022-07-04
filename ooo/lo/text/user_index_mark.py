@@ -39,6 +39,7 @@ class UserIndexMark(BaseIndexMark_bbb30bcb):
         """
         contains the name of the user index it belongs to.
         """
+        ...
 
 
 

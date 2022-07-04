@@ -38,11 +38,13 @@ class XTitle(XInterface_8f010a43):
         """
         Returns the title of the object.
         """
+        ...
     @abstractmethod
     def setTitle(self, sTitle: str) -> None:
         """
         Sets the title of the object.
         """
+        ...
 
 __all__ = ['XTitle']
 

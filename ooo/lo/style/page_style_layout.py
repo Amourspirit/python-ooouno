@@ -34,6 +34,10 @@ class PageStyleLayout(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.PageStyleLayout'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.PageStyleLayout'
+
     ALL = 'ALL'
     """
     The page style is identically used for left and right pages.

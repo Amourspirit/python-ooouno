@@ -34,6 +34,10 @@ class PolygonKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.PolygonKind'
+
     FREEFILL = 'FREEFILL'
     """
     This is the PolygonKind for a ClosedFreeHandShape.

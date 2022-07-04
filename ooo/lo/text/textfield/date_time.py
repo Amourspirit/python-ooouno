@@ -46,6 +46,7 @@ class DateTime(TextField_90260a56):
         """
         contains an offset to the date or time value in minutes.
         """
+        ...
 
     @abstractproperty
     def DateTimeFormat(self) -> int:
@@ -56,12 +57,14 @@ class DateTime(TextField_90260a56):
         
         This property is deprecated and is here only for components that do not support a com.sun.star.util.NumberFormatter.
         """
+        ...
 
     @abstractproperty
     def DateTimeValue(self) -> 'DateTime_84de09d3':
         """
         the is the content of this field.
         """
+        ...
 
     @abstractproperty
     def IsDate(self) -> bool:
@@ -70,6 +73,7 @@ class DateTime(TextField_90260a56):
         
         If it is set to FALSE only the time is used here.
         """
+        ...
 
     @abstractproperty
     def IsFixed(self) -> bool:
@@ -80,18 +84,21 @@ class DateTime(TextField_90260a56):
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def IsFixedLanguage(self) -> bool:
         """
         determines whether changes in language attributes at the position the text field is located also change the number format as appropriate for this language.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         this is the number format for this field
         """
+        ...
 
 
 

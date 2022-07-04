@@ -41,16 +41,19 @@ class XRowSetListener(XEventListener_c7230c4a):
         """
         is called when a row set's cursor is moved.
         """
+        ...
     @abstractmethod
     def rowChanged(self, event: 'EventObject_a3d70b03') -> None:
         """
         is called when a row is inserted, updated, or deleted.
         """
+        ...
     @abstractmethod
     def rowSetChanged(self, event: 'EventObject_a3d70b03') -> None:
         """
         is called when the row set has changed, or in other words, when the row set has been reexecuted.
         """
+        ...
 
 __all__ = ['XRowSetListener']
 

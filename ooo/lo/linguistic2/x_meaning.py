@@ -40,10 +40,12 @@ class XMeaning(XInterface_8f010a43):
     def getMeaning(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def querySynonyms(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
 
 __all__ = ['XMeaning']
 

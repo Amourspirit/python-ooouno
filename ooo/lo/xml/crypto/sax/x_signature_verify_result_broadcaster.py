@@ -48,6 +48,7 @@ class XSignatureVerifyResultBroadcaster(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def removeSignatureVerifyResultListener(self, listener: 'XSignatureVerifyResultListener_95fc16e6') -> None:
         """
@@ -55,6 +56,7 @@ class XSignatureVerifyResultBroadcaster(XInterface_8f010a43):
         
         After a listener is removed, no result information will be sent to it.
         """
+        ...
 
 __all__ = ['XSignatureVerifyResultBroadcaster']
 

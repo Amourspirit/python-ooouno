@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleTableModelChangeType as AccessibleTableModelChangeType
-    if hasattr(AccessibleTableModelChangeType, '_constants') and isinstance(AccessibleTableModelChangeType._constants, dict):
-        AccessibleTableModelChangeType._constants['__ooo_ns__'] = 'com.sun.star.accessibility'
-        AccessibleTableModelChangeType._constants['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleTableModelChangeType'
-        AccessibleTableModelChangeType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AccessibleTableModelChangeTypeEnum
-        ls = [f for f in dir(AccessibleTableModelChangeType) if not callable(getattr(AccessibleTableModelChangeType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AccessibleTableModelChangeType, name)
-        AccessibleTableModelChangeTypeEnum = IntEnum('AccessibleTableModelChangeTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class AccessibleTableModelChangeType(metaclass=UnoConstMeta, type_name="com.sun.star.accessibility.AccessibleTableModelChangeType", name_space="com.sun.star.accessibility"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.accessibility.AccessibleTableModelChangeType``"""
+        pass
+
+    class AccessibleTableModelChangeTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.accessibility.AccessibleTableModelChangeType", name_space="com.sun.star.accessibility"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.accessibility.AccessibleTableModelChangeType`` as Enum values"""
+        pass
+
 else:
     from ...lo.accessibility.accessible_table_model_change_type import AccessibleTableModelChangeType as AccessibleTableModelChangeType
 

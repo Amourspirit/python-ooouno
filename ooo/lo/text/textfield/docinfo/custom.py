@@ -45,18 +45,21 @@ class Custom(TextField_90260a56):
         
         This property is useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def IsFixed(self) -> bool:
         """
         If this flag is set to FALSE, the content is updated when the document information changes.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         the name of the user-defined property that this field refers to.
         """
+        ...
 
 
 

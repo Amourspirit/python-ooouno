@@ -42,41 +42,49 @@ class XPasswordContainer(XInterface_8f010a43):
         """
         Save passwords into the container.
         """
+        ...
     @abstractmethod
     def addPersistent(self, Url: str, UserName: str, Passwords: 'typing.Tuple[str, ...]', Handler: 'XInteractionHandler_bf80e51') -> None:
         """
         Save passwords into the container, and store them in the file.
         """
+        ...
     @abstractmethod
     def find(self, Url: str, Handler: 'XInteractionHandler_bf80e51') -> 'UrlRecord_8f510a4d':
         """
         Find users with passwords for the url pattern.
         """
+        ...
     @abstractmethod
     def findForName(self, Url: str, UserName: str, Handler: 'XInteractionHandler_bf80e51') -> 'UrlRecord_8f510a4d':
         """
         Find passwords for the url pattern and username.
         """
+        ...
     @abstractmethod
     def getAllPersistent(self, Handler: 'XInteractionHandler_bf80e51') -> 'typing.Tuple[UrlRecord_8f510a4d, ...]':
         """
         Get all records from the file.
         """
+        ...
     @abstractmethod
     def remove(self, Url: str, UserName: str) -> None:
         """
         Remove passwords for the url pattern and username.
         """
+        ...
     @abstractmethod
     def removeAllPersistent(self) -> None:
         """
         Clean the file.
         """
+        ...
     @abstractmethod
     def removePersistent(self, Url: str, UserName: str) -> None:
         """
         Remove passwords for the url pattern and username from the file.
         """
+        ...
 
 __all__ = ['XPasswordContainer']
 

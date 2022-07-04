@@ -42,41 +42,49 @@ class XSheetCondition(XInterface_8f010a43):
         """
         returns either the comparison value, which is used in the condition, or the first value if two values are needed for the operator.
         """
+        ...
     @abstractmethod
     def getFormula2(self) -> str:
         """
         if two values are needed for the operator, this method returns the second one.
         """
+        ...
     @abstractmethod
     def getOperator(self) -> 'ConditionOperator_fec90e14':
         """
         returns the operator in the condition.
         """
+        ...
     @abstractmethod
     def getSourcePosition(self) -> 'CellAddress_ae5f0b56':
         """
         returns the position in the document which is used as a base for relative references in the formulas.
         """
+        ...
     @abstractmethod
     def setFormula1(self, aFormula1: str) -> None:
         """
         sets either the comparison value, which is used in the condition, or the first value if two values are needed for the operator.
         """
+        ...
     @abstractmethod
     def setFormula2(self, aFormula2: str) -> None:
         """
         if two values are needed for the operator, this method sets the second one.
         """
+        ...
     @abstractmethod
     def setOperator(self, nOperator: 'ConditionOperator_fec90e14') -> None:
         """
         sets the operator in the condition.
         """
+        ...
     @abstractmethod
     def setSourcePosition(self, aSourcePosition: 'CellAddress_ae5f0b56') -> None:
         """
         sets the position in the document which is used as a base for relative references in the formulas.
         """
+        ...
 
 __all__ = ['XSheetCondition']
 

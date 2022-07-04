@@ -43,6 +43,7 @@ class XInteractionRequestStringResolver(XInterface_8f010a43):
         
         An informational interaction request contains not more than one interaction continuation (user has no choice; request is just informational). The supplies continuation must either be a XInteractionAbort or XInteractionApprove
         """
+        ...
 
 __all__ = ['XInteractionRequestStringResolver']
 

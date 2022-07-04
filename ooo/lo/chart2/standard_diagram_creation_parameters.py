@@ -38,6 +38,7 @@ class StandardDiagramCreationParameters(ABC):
         """
         States whether the first XLabeledDataSequence in a data-source is used as categories.
         """
+        ...
 
     @abstractproperty
     def UseCategoriesAsX(self) -> bool:
@@ -46,6 +47,7 @@ class StandardDiagramCreationParameters(ABC):
         
         Default is true.
         """
+        ...
 
 
 

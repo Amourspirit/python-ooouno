@@ -49,6 +49,7 @@ class XPreparedStatement(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def executeQuery(self) -> 'XResultSet_98e30aa7':
         """
@@ -57,6 +58,7 @@ class XPreparedStatement(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def executeUpdate(self) -> int:
         """
@@ -67,6 +69,7 @@ class XPreparedStatement(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getConnection(self) -> 'XConnection_a36a0b0c':
         """
@@ -75,6 +78,7 @@ class XPreparedStatement(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XPreparedStatement']
 

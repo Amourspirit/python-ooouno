@@ -50,6 +50,7 @@ class ChartLegend(Shape_85cc09e5, CharacterProperties_1d4f0ef3, UserDefinedAttri
         """
         determines the alignment of the legend relative to the diagram.
         """
+        ...
 
     @abstractproperty
     def AutomaticPosition(self) -> bool:
@@ -58,6 +59,7 @@ class ChartLegend(Shape_85cc09e5, CharacterProperties_1d4f0ef3, UserDefinedAttri
         
         Setting this property to false will have no effect. Instead use the interface com.sun.star.drawing.XShape to set a concrete position.
         """
+        ...
 
 
 

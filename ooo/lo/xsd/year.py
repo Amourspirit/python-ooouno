@@ -39,24 +39,28 @@ class Year(XDataType_83f209cb):
         """
         specifies the exclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MaxInclusiveInt(self) -> int:
         """
         specifies the inclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MinExclusiveInt(self) -> int:
         """
         specifies the exclusive lower bound for the value
         """
+        ...
 
     @abstractproperty
     def MinInclusiveInt(self) -> int:
         """
         specifies the inclusive lower bound for the value
         """
+        ...
 
 
 

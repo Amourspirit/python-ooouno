@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import TemplateDescription as TemplateDescription
-    if hasattr(TemplateDescription, '_constants') and isinstance(TemplateDescription._constants, dict):
-        TemplateDescription._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
-        TemplateDescription._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.TemplateDescription'
-        TemplateDescription._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TemplateDescriptionEnum
-        ls = [f for f in dir(TemplateDescription) if not callable(getattr(TemplateDescription, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TemplateDescription, name)
-        TemplateDescriptionEnum = IntEnum('TemplateDescriptionEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class TemplateDescription(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.TemplateDescription", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.dialogs.TemplateDescription``"""
+        pass
+
+    class TemplateDescriptionEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.dialogs.TemplateDescription", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.dialogs.TemplateDescription`` as Enum values"""
+        pass
+
 else:
     from ....lo.ui.dialogs.template_description import TemplateDescription as TemplateDescription
 

@@ -47,6 +47,7 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         symbols) to all series in the sequence aSeries.
         """
+        ...
     @abstractmethod
     def changeDiagram(self, xDiagram: 'XDiagram_96fe0a59') -> None:
         """
@@ -54,6 +55,7 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         Note, that if matchesTemplate() returns TRUE for the given XDiagram, the latter should not be changed.
         """
+        ...
     @abstractmethod
     def changeDiagramData(self, xDiagram: 'XDiagram_96fe0a59', xDataSource: 'XDataSource_f6340d57', aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -65,6 +67,7 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         For standard parameters that may be used, see the service StandardDiagramCreationParameters.
         """
+        ...
     @abstractmethod
     def createDiagramByDataSource(self, xDataSource: 'XDataSource_f6340d57', aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XDiagram_96fe0a59':
         """
@@ -72,15 +75,18 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         For standard parameters that may be used, see the service StandardDiagramCreationParameters.
         """
+        ...
     @abstractmethod
     def getChartTypeForNewSeries(self, aFormerlyUsedChartTypes: 'typing.Tuple[XChartType_ad200b38, ...]') -> 'XChartType_ad200b38':
         """
         Provides a chart type object that can be used to create new series.
         """
+        ...
     @abstractmethod
     def getDataInterpreter(self) -> 'XDataInterpreter_f84f0db2':
         """
         """
+        ...
     @abstractmethod
     def matchesTemplate(self, xDiagram: 'XDiagram_96fe0a59', bAdaptProperties: bool) -> bool:
         """
@@ -90,6 +96,7 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         For analysis all parts of the diagram may be used, e.g. also properties set at the data series (like symbols)./p>
         """
+        ...
     @abstractmethod
     def resetStyles(self, xDiagram: 'XDiagram_96fe0a59') -> None:
         """
@@ -99,10 +106,12 @@ class XChartTypeTemplate(XInterface_8f010a43):
         
         If for example the template changed the com.sun.star.drawing.LineStyle of all series to NONE, this method should reset all series with LineStyle NONE back to SOLID. If a series has a style DASH, it must not be changed.
         """
+        ...
     @abstractmethod
     def supportsCategories(self) -> bool:
         """
         """
+        ...
 
 __all__ = ['XChartTypeTemplate']
 

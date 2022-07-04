@@ -44,6 +44,7 @@ class XUpdateModel(XInterface_8f010a43):
     def updateModel(self, xModel: 'XModel_7a6e095c') -> None:
         """
         """
+        ...
 
 __all__ = ['XUpdateModel']
 

@@ -37,6 +37,7 @@ class XSet(XEnumerationAccess_4bac0ffc):
     def has(self, aElement: object) -> bool:
         """
         """
+        ...
     @abstractmethod
     def insert(self, aElement: object) -> None:
         """
@@ -46,6 +47,7 @@ class XSet(XEnumerationAccess_4bac0ffc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def remove(self, aElement: object) -> None:
         """
@@ -55,6 +57,7 @@ class XSet(XEnumerationAccess_4bac0ffc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XSet']
 

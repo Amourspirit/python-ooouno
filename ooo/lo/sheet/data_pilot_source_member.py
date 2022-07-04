@@ -46,6 +46,7 @@ class DataPilotSourceMember(XPropertySet_bc180bfa, XNamed_a6520b08):
         """
         specifies whether the member is visible.
         """
+        ...
 
     @abstractproperty
     def Position(self) -> bool:
@@ -56,12 +57,14 @@ class DataPilotSourceMember(XPropertySet_bc180bfa, XNamed_a6520b08):
         
             OOo 2.4
         """
+        ...
 
     @abstractproperty
     def ShowDetails(self) -> bool:
         """
         specifies whether details for the member are shown.
         """
+        ...
 
 
 

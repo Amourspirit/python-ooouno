@@ -45,11 +45,13 @@ class XEnhancedMouseClickHandler(XEventListener_c7230c4a):
         """
         is invoked when a mouse button has been pressed on a window.
         """
+        ...
     @abstractmethod
     def mouseReleased(self, e: 'EnhancedMouseEvent_ee4d0d75') -> bool:
         """
         is invoked when a mouse button has been released on a window.
         """
+        ...
 
 __all__ = ['XEnhancedMouseClickHandler']
 

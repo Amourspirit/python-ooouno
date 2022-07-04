@@ -41,6 +41,7 @@ class XEmbeddedObjectSupplier(XInterface_8f010a43):
         """
         returns the object which is embedded into this object.
         """
+        ...
 
 __all__ = ['XEmbeddedObjectSupplier']
 

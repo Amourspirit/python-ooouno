@@ -38,11 +38,13 @@ class XInterfaceMemberTypeDescription(XTypeDescription_3c210fb1):
         """
         Returns name of member.
         """
+        ...
     @abstractmethod
     def getPosition(self) -> int:
         """
         Returns the position the member including all inherited members of base interfaces.
         """
+        ...
 
 __all__ = ['XInterfaceMemberTypeDescription']
 

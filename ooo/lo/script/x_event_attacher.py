@@ -48,6 +48,7 @@ class XEventAttacher(XInterface_8f010a43):
             com.sun.star.script.CannotCreateAdapterException: ``CannotCreateAdapterException``
             com.sun.star.lang.ServiceNotRegisteredException: ``ServiceNotRegisteredException``
         """
+        ...
     @abstractmethod
     def attachSingleEventListener(self, xTarget: 'XInterface_8f010a43', xAllListener: 'XAllListener_c91b0c54', aHelper: object, aListenerType: str, aAddListenerParam: str, aEventMethod: str) -> 'XEventListener_c7230c4a':
         """
@@ -61,6 +62,7 @@ class XEventAttacher(XInterface_8f010a43):
             com.sun.star.script.CannotCreateAdapterException: ``CannotCreateAdapterException``
             com.sun.star.lang.ServiceNotRegisteredException: ``ServiceNotRegisteredException``
         """
+        ...
     @abstractmethod
     def removeListener(self, xTarget: 'XInterface_8f010a43', aListenerType: str, aRemoveListenerParam: str, xToRemoveListener: 'XEventListener_c7230c4a') -> None:
         """
@@ -72,6 +74,7 @@ class XEventAttacher(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.beans.IntrospectionException: ``IntrospectionException``
         """
+        ...
 
 __all__ = ['XEventAttacher']
 

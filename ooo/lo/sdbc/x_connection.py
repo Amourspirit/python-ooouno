@@ -53,6 +53,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def createStatement(self) -> 'XStatement_98e90ab1':
         """
@@ -67,6 +68,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getAutoCommit(self) -> bool:
         """
@@ -75,6 +77,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getCatalog(self) -> str:
         """
@@ -83,6 +86,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getMetaData(self) -> 'XDatabaseMetaData_eafd0d12':
         """
@@ -93,6 +97,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTransactionIsolation(self) -> int:
         """
@@ -101,6 +106,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getTypeMap(self) -> 'XNameAccess_e2ab0cf6':
         """
@@ -113,6 +119,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isClosed(self) -> bool:
         """
@@ -123,6 +130,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isReadOnly(self) -> bool:
         """
@@ -131,6 +139,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def nativeSQL(self, sql: str) -> str:
         """
@@ -141,6 +150,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def prepareCall(self, sql: str) -> 'XPreparedStatement_fbc80de4':
         """
@@ -148,12 +158,12 @@ class XConnection(XCloseable_98290a86):
         
         The CallableStatement provides methods for setting up its IN and OUT parameters, and methods for executing the call to a stored procedure.
         
-        Note:  This method is optimized for handling stored procedure call statements. Some drivers may send the call statement to the database when the method prepareCall is done;
-        others may wait until the CallableStatement is executed. This has no direct effect on users; however, it does affect which method throws certain SQLExceptions. Result sets created using the returned CallableStatement will have forward-only type and read-only concurrency, by default.
+        Note:  This method is optimized for handling stored procedure call statements. Some drivers may send the call statement to the database when the method prepareCall is done; others may wait until the CallableStatement is executed. This has no direct effect on users; however, it does affect which method throws certain SQLExceptions. Result sets created using the returned CallableStatement will have forward-only type and read-only concurrency, by default.
 
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def prepareStatement(self, sql: str) -> 'XPreparedStatement_fbc80de4':
         """
@@ -170,6 +180,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def rollback(self) -> None:
         """
@@ -180,6 +191,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setAutoCommit(self, autoCommit: bool) -> None:
         """
@@ -192,6 +204,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setCatalog(self, catalog: str) -> None:
         """
@@ -202,6 +215,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setReadOnly(self, readOnly: bool) -> None:
         """
@@ -212,6 +226,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setTransactionIsolation(self, level: int) -> None:
         """
@@ -224,6 +239,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setTypeMap(self, typeMap: 'XNameAccess_e2ab0cf6') -> None:
         """
@@ -236,6 +252,7 @@ class XConnection(XCloseable_98290a86):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XConnection']
 

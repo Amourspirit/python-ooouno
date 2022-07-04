@@ -41,6 +41,7 @@ class User(XPropertySet_bc180bfa, XGroupsSupplier_e3410d48, XUser_718e0913):
         """
         is the name of the user.
         """
+        ...
 
 
 

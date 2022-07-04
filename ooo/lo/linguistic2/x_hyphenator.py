@@ -55,6 +55,7 @@ class XHyphenator(XSupportedLocales_5bda1056):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def hyphenate(self, aWord: str, aLocale: 'Locale_70d308fa', nMaxLeading: int, aProperties: 'PropertyValues_d6470ce6') -> 'XHyphenatedWord_3a880f73':
         """
@@ -69,6 +70,7 @@ class XHyphenator(XSupportedLocales_5bda1056):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def queryAlternativeSpelling(self, aWord: str, aLocale: 'Locale_70d308fa', nIndex: int, aProperties: 'PropertyValues_d6470ce6') -> 'XHyphenatedWord_3a880f73':
         """
@@ -85,6 +87,7 @@ class XHyphenator(XSupportedLocales_5bda1056):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XHyphenator']
 

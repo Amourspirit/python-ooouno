@@ -34,6 +34,10 @@ class NodeType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.dom.NodeType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.dom.NodeType'
+
     ATTRIBUTE_NODE = 'ATTRIBUTE_NODE'
     """
     """

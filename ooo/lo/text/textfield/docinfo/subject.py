@@ -39,6 +39,7 @@ class Subject(TextField_90260a56):
         """
         contains content information.
         """
+        ...
 
     @abstractproperty
     def CurrentPresentation(self) -> str:
@@ -47,12 +48,14 @@ class Subject(TextField_90260a56):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def IsFixed(self) -> bool:
         """
         If this flag is set to FALSE the content updated every time the document information is changed.
         """
+        ...
 
 
 

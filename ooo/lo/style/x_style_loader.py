@@ -40,6 +40,7 @@ class XStyleLoader(XInterface_8f010a43):
     def getStyleLoaderOptions(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         """
+        ...
     @abstractmethod
     def loadStylesFromURL(self, URL: str, aOptions: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -54,6 +55,7 @@ class XStyleLoader(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XStyleLoader']
 

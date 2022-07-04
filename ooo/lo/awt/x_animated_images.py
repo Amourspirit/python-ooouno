@@ -48,11 +48,13 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getImageSetCount(self) -> int:
         """
         returns the number of images sets maintained by the component.
         """
+        ...
     @abstractmethod
     def insertImageSet(self, iIndex: int, iImageURLs: 'typing.Tuple[str, ...]') -> None:
         """
@@ -61,6 +63,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def removeImageSet(self, iIndex: int) -> None:
         """
@@ -69,6 +72,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def replaceImageSet(self, iIndex: int, iImageURLs: 'typing.Tuple[str, ...]') -> None:
         """
@@ -77,6 +81,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractproperty
     def AutoRepeat(self) -> bool:
         """
@@ -84,6 +89,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         
         The default value for this attribute is TRUE.
         """
+        ...
 
     @abstractproperty
     def ScaleMode(self) -> int:
@@ -92,6 +98,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         
         Allowed values are those from the ImageScaleMode constants group.
         """
+        ...
 
     @abstractproperty
     def StepTime(self) -> int:
@@ -100,6 +107,7 @@ class XAnimatedImages(XContainer_d6fb0cc6):
         
         This is the minimum time, the actual value might be longer due to system load. The default value will be 100 ms.
         """
+        ...
 
 
 __all__ = ['XAnimatedImages']

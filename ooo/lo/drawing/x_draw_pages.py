@@ -45,11 +45,13 @@ class XDrawPages(XIndexAccess_f0910d6d):
         """
         creates and inserts a new DrawPage or MasterPage into this container
         """
+        ...
     @abstractmethod
     def remove(self, xPage: 'XDrawPage_b07a0b57') -> None:
         """
         removes a DrawPage or MasterPage from this container.
         """
+        ...
 
 __all__ = ['XDrawPages']
 

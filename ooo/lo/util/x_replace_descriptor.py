@@ -37,11 +37,13 @@ class XReplaceDescriptor(XSearchDescriptor_ef600d93):
     def getReplaceString(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setReplaceString(self, aReplaceString: str) -> None:
         """
         sets the string which replaces the found occurrences.
         """
+        ...
 
 __all__ = ['XReplaceDescriptor']
 

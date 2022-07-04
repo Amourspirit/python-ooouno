@@ -40,24 +40,28 @@ class KeyDescriptor(Descriptor_a5200b3b, XColumnsSupplier_f0600da9):
         """
         is the rule which is applied for deletions; only used for foreign keys.
         """
+        ...
 
     @abstractproperty
     def ReferencedTable(self) -> str:
         """
         is the name of the referenced table, only used for foreign keys.
         """
+        ...
 
     @abstractproperty
     def Type(self) -> int:
         """
         indicates the type of the key.
         """
+        ...
 
     @abstractproperty
     def UpdateRule(self) -> int:
         """
         is the rule which is applied for updates; only used for foreign keys.
         """
+        ...
 
 
 

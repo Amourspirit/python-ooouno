@@ -44,6 +44,7 @@ class XBroadcaster(XInterface_8f010a43):
         
         The calls to XBroadcaster.lockBroadcasts() and XBroadcaster.unlockBroadcasts() may be nested and even overlapping, but they must be in pairs. While there is at least one lock remaining, no broadcasts are sent to registered listeners.
         """
+        ...
     @abstractmethod
     def unlockBroadcasts(self) -> None:
         """
@@ -53,6 +54,7 @@ class XBroadcaster(XInterface_8f010a43):
         
         Pending broadcasts will be sent immediately after the last call to XBroadcaster.lockBroadcasts() is matched by a call to XBroadcaster.unlockBroadcasts(). An implementation can decide to broadcast all pending notification in order or batch them in single broadcasts.
         """
+        ...
 
 __all__ = ['XBroadcaster']
 

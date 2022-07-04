@@ -44,6 +44,7 @@ class XCommonEmbedPersist(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def reload(self, aMediaArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -57,6 +58,7 @@ class XCommonEmbedPersist(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def storeOwn(self) -> None:
         """
@@ -67,6 +69,7 @@ class XCommonEmbedPersist(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XCommonEmbedPersist']
 

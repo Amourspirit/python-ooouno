@@ -45,10 +45,12 @@ class XGroups(XChild_a6390b07, XContainer_d6fb0cc6, XIndexContainer_1c040ebe, XC
         """
         factory method for XGroup.
         """
+        ...
     @abstractproperty
     def ReportDefinition(self) -> 'XReportDefinition_ec30e81':
         """
         """
+        ...
 
 
 __all__ = ['XGroups']

@@ -51,15 +51,13 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
         """
         is used for subforms and contains the names of the columns of the subform which are related to the master fields of the parent form.
         
-        Entries in this sequence can either denote column names in the sub form, or parameter names.
-        For instance, you could base the form on the SQL statement SELECT * FROM invoices WHERE cust_ref = :cid, and add cid to the DetailFields property. In this case, the parameter will be filled from the corresponding master field.
-        Alternatively, you could simply base your form on the table invoices, and add the column name cust_ref to the DetailFields. In this case, and implicit filter clause WHERE cust_ref = :<new_param_name> will be created, and the artificial parameter will be filled from the corresponding master field.
-        If a string in this property denotes both a column name and a parameter name, it is undefined which way it is interpreted, but implementations of the service are required to either decide for the parameter or the column, and proceed as usual.
+        Entries in this sequence can either denote column names in the sub form, or parameter names.For instance, you could base the form on the SQL statement SELECT * FROM invoices WHERE cust_ref = :cid, and add cid to the DetailFields property. In this case, the parameter will be filled from the corresponding master field.Alternatively, you could simply base your form on the table invoices, and add the column name cust_ref to the DetailFields. In this case, and implicit filter clause WHERE cust_ref = :<new_param_name> will be created, and the artificial parameter will be filled from the corresponding master field.If a string in this property denotes both a column name and a parameter name, it is undefined which way it is interpreted, but implementations of the service are required to either decide for the parameter or the column, and proceed as usual.
         
         The columns specified herein typically represent a part of the primary key fields or their aliases of the detail form.
         
         If the form is no sub form (e.g. its parent is not a form itself), this property is not evaluated.
         """
+        ...
 
     @abstractproperty
     def MasterFields(self) -> 'typing.Tuple[str, ...]':
@@ -70,6 +68,7 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
         
         If the form is no sub form (e.g. its parent is not a form itself), this property is not evaluated.
         """
+        ...
 
     @abstractproperty
     def AllowDeletes(self) -> bool:
@@ -78,6 +77,7 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
         
         Note that this is a recommendation for user interface components displaying the form. Form implementations may decide to allow for deletions done via the API, even if the property is set to FALSE, but the user interface should respect the property value.
         """
+        ...
 
     @abstractproperty
     def AllowInserts(self) -> bool:
@@ -86,6 +86,7 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
         
         Note that this is a recommendation for user interface components displaying the form. Form implementations may decide to allow for insertions done via the API, even if the property is set to FALSE, but the user interface should respect the property value.
         """
+        ...
 
     @abstractproperty
     def AllowUpdates(self) -> bool:
@@ -94,18 +95,21 @@ class DataForm(Form_ca1d0c51, RowSet_67d208a5, XDatabaseParameterBroadcaster_ac7
         
         Note that this is a recommendation for user interface components displaying the form. Form implementations may decide to allow for updates done via the API, even if the property is set to FALSE, but the user interface should respect the property value.
         """
+        ...
 
     @abstractproperty
     def Cycle(self) -> 'TabulatorCycle_c9250c5a':
         """
         returns the kind of tabulator controlling.
         """
+        ...
 
     @abstractproperty
     def NavigationBarMode(self) -> 'NavigationBarMode_efbc0d66':
         """
         determines how a navigation bar for this form should act.
         """
+        ...
 
 
 

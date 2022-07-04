@@ -47,6 +47,7 @@ class XOutParameters(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def registerOutParameter(self, parameterIndex: int, sqlType: int, typeName: str) -> None:
         """
@@ -54,8 +55,7 @@ class XOutParameters(XInterface_8f010a43):
         
         This version of the method com.sun.star.sdbc.XOutParameters.registerOutParameter() should be used for a user-named or REF output parameter. Examples of user-named types include: STRUCT, DISTINCT, OBJECT, and named array types.
         
-        Before executing a stored procedure call, you must explicitly call com.sun.star.sdbc.XOutParameters.registerOutParameter() to register the type from com.sun.star.sdbc.DataType for each OUT parameter.
-        For a user-named parameter the fully-qualified SQL type name of the parameter should also be given, while a REF parameter requires that the fully-qualified type name of the referenced type be given. An SDBC driver that does not need the type code and type name information may ignore it. To be portable, however, applications should always provide these values for user-named and REF parameters.
+        Before executing a stored procedure call, you must explicitly call com.sun.star.sdbc.XOutParameters.registerOutParameter() to register the type from com.sun.star.sdbc.DataType for each OUT parameter. For a user-named parameter the fully-qualified SQL type name of the parameter should also be given, while a REF parameter requires that the fully-qualified type name of the referenced type be given. An SDBC driver that does not need the type code and type name information may ignore it. To be portable, however, applications should always provide these values for user-named and REF parameters.
         
         Although it is intended for user-named and REF parameters, this method may be used to register a parameter of any SDBC type. If the parameter does not have a user-named or REF type, the typeName parameter is ignored.
         
@@ -64,6 +64,7 @@ class XOutParameters(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XOutParameters']
 

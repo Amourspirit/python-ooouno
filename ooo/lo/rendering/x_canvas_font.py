@@ -49,6 +49,7 @@ class XCanvasFont(XInterface_8f010a43):
         
         Create a text layout interface for the given string, using this font to generate the glyphs from.
         """
+        ...
     @abstractmethod
     def getAvailableSizes(self) -> 'typing.Tuple[float, ...]':
         """
@@ -56,11 +57,13 @@ class XCanvasFont(XInterface_8f010a43):
         
         This method queries the list of available font sizes (in device units) for this font. For scalable fonts that are not restricted to discrete sizes, this list is empty, meaning that every size is possible. Fonts that do restrict the device size to certain discrete values, setting an overall transformation that scales the FontRequest.CellSize to something not contained in the list returned by this method can lead to visible disturbances.
         """
+        ...
     @abstractmethod
     def getExtraFontProperties(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         Query the list of additional font properties.
         """
+        ...
     @abstractmethod
     def getFontMetrics(self) -> 'FontMetrics_e4540d34':
         """
@@ -68,11 +71,13 @@ class XCanvasFont(XInterface_8f010a43):
         
         Note that the metric values in the returned result are in the font coordinate system, i.e. relative to the corresponding size of this font. That is, when this font was created with a cell size of 20 units, the metrics returned are calculated relative to this size.
         """
+        ...
     @abstractmethod
     def getFontRequest(self) -> 'FontRequest_e4890d46':
         """
         Query the FontRequest that was used to generate this object.
         """
+        ...
 
 __all__ = ['XCanvasFont']
 

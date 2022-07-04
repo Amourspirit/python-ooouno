@@ -51,6 +51,7 @@ class XIntrospection(XInterface_8f010a43):
         
         Methods which do not belong to a property nor which represent a listener access nor which are methods of XPropertySet, com.sun.star.container.XNameAccess, com.sun.star.container.XIndexAccess, or com.sun.star.container.XEnumerationAccess, are considered to be normal methods.
         """
+        ...
 
 __all__ = ['XIntrospection']
 

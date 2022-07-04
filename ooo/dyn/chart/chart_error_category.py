@@ -25,28 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart.ChartErrorCategory import (CONSTANT_VALUE, ERROR_MARGIN, NONE, PERCENT, STANDARD_DEVIATION, VARIANCE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartErrorCategory Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart",
-            "__ooo_full_ns__": "com.sun.star.chart.ChartErrorCategory",
-            "__ooo_type_name__": "enum",
-            "CONSTANT_VALUE": CONSTANT_VALUE,
-            "ERROR_MARGIN": ERROR_MARGIN,
-            "NONE": NONE,
-            "PERCENT": PERCENT,
-            "STANDARD_DEVIATION": STANDARD_DEVIATION,
-            "VARIANCE": VARIANCE,
-        }
-        result = type('ChartErrorCategory', (object,), _dict)
-        return result
-
-    ChartErrorCategory = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ChartErrorCategory(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartErrorCategory", name_space="com.sun.star.chart"):
+        """Dynamically created class that represents ``com.sun.star.chart.ChartErrorCategory`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart.chart_error_category import ChartErrorCategory as ChartErrorCategory
 

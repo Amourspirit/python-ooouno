@@ -43,6 +43,7 @@ class DBASEConnectionProperties(FILEConnectionProperties_4e7f1001):
         """
         TRUE when deleted rows should be shown, otherwise FALSE
         """
+        ...
 
 
 

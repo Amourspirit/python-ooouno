@@ -25,31 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.security.ExtAltNameType import (DIRECTORY_NAME, DNS_NAME, EDI_PARTY_NAME, IP_ADDRESS, OTHER_NAME, REGISTERED_ID, RFC822_NAME, URL, X400_ADDRESS)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.security.ExtAltNameType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.security",
-            "__ooo_full_ns__": "com.sun.star.security.ExtAltNameType",
-            "__ooo_type_name__": "enum",
-            "DIRECTORY_NAME": DIRECTORY_NAME,
-            "DNS_NAME": DNS_NAME,
-            "EDI_PARTY_NAME": EDI_PARTY_NAME,
-            "IP_ADDRESS": IP_ADDRESS,
-            "OTHER_NAME": OTHER_NAME,
-            "REGISTERED_ID": REGISTERED_ID,
-            "RFC822_NAME": RFC822_NAME,
-            "URL": URL,
-            "X400_ADDRESS": X400_ADDRESS,
-        }
-        result = type('ExtAltNameType', (object,), _dict)
-        return result
-
-    ExtAltNameType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ExtAltNameType(metaclass=UnoEnumMeta, type_name="com.sun.star.security.ExtAltNameType", name_space="com.sun.star.security"):
+        """Dynamically created class that represents ``com.sun.star.security.ExtAltNameType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.security.ext_alt_name_type import ExtAltNameType as ExtAltNameType
 

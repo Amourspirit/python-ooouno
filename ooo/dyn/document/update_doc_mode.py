@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import UpdateDocMode as UpdateDocMode
-    if hasattr(UpdateDocMode, '_constants') and isinstance(UpdateDocMode._constants, dict):
-        UpdateDocMode._constants['__ooo_ns__'] = 'com.sun.star.document'
-        UpdateDocMode._constants['__ooo_full_ns__'] = 'com.sun.star.document.UpdateDocMode'
-        UpdateDocMode._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global UpdateDocModeEnum
-        ls = [f for f in dir(UpdateDocMode) if not callable(getattr(UpdateDocMode, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(UpdateDocMode, name)
-        UpdateDocModeEnum = IntEnum('UpdateDocModeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class UpdateDocMode(metaclass=UnoConstMeta, type_name="com.sun.star.document.UpdateDocMode", name_space="com.sun.star.document"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.document.UpdateDocMode``"""
+        pass
+
+    class UpdateDocModeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.document.UpdateDocMode", name_space="com.sun.star.document"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.document.UpdateDocMode`` as Enum values"""
+        pass
+
 else:
     from ...lo.document.update_doc_mode import UpdateDocMode as UpdateDocMode
 

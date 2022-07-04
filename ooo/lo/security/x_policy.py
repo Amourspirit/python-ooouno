@@ -43,16 +43,19 @@ class XPolicy(XInterface_8f010a43):
         """
         Gets the default permissions granted to all users.
         """
+        ...
     @abstractmethod
     def getPermissions(self, userId: str) -> 'typing.Tuple[object, ...]':
         """
         Gets the permissions of the specified user excluding the default permissions granted to all users.
         """
+        ...
     @abstractmethod
     def refresh(self) -> None:
         """
         Refreshes the policy configuration.
         """
+        ...
 
 __all__ = ['XPolicy']
 

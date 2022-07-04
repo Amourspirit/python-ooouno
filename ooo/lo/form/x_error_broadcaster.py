@@ -47,11 +47,13 @@ class XErrorBroadcaster(XInterface_8f010a43):
         """
         adds the specified listener to be notified of errors.
         """
+        ...
     @abstractmethod
     def removeErrorListener(self, aListener: 'XErrorListener_c8a80c64') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XErrorBroadcaster']
 

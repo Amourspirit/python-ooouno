@@ -34,6 +34,10 @@ class NotePrintMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.text.NotePrintMode'
+
     DOC_END = 'DOC_END'
     """
     Notes are collected at the end of the document.

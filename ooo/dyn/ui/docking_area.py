@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.ui.DockingArea import (DOCKINGAREA_BOTTOM, DOCKINGAREA_DEFAULT, DOCKINGAREA_LEFT, DOCKINGAREA_RIGHT, DOCKINGAREA_TOP)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.ui.DockingArea Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.ui",
-            "__ooo_full_ns__": "com.sun.star.ui.DockingArea",
-            "__ooo_type_name__": "enum",
-            "DOCKINGAREA_BOTTOM": DOCKINGAREA_BOTTOM,
-            "DOCKINGAREA_DEFAULT": DOCKINGAREA_DEFAULT,
-            "DOCKINGAREA_LEFT": DOCKINGAREA_LEFT,
-            "DOCKINGAREA_RIGHT": DOCKINGAREA_RIGHT,
-            "DOCKINGAREA_TOP": DOCKINGAREA_TOP,
-        }
-        result = type('DockingArea', (object,), _dict)
-        return result
-
-    DockingArea = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class DockingArea(metaclass=UnoEnumMeta, type_name="com.sun.star.ui.DockingArea", name_space="com.sun.star.ui"):
+        """Dynamically created class that represents ``com.sun.star.ui.DockingArea`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.ui.docking_area import DockingArea as DockingArea
 

@@ -43,11 +43,13 @@ class XChartTypeContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getChartTypes(self) -> 'typing.Tuple[XChartType_ad200b38, ...]':
         """
         retrieve all chart types
         """
+        ...
     @abstractmethod
     def removeChartType(self, aChartType: 'XChartType_ad200b38') -> None:
         """
@@ -56,6 +58,7 @@ class XChartTypeContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def setChartTypes(self, aChartTypes: 'typing.Tuple[XChartType_ad200b38, ...]') -> None:
         """
@@ -64,6 +67,7 @@ class XChartTypeContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XChartTypeContainer']
 

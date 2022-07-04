@@ -45,11 +45,13 @@ class XInteractionFilterOptions(XInteractionContinuation_5af0108e):
         """
         Get results from the continuation.
         """
+        ...
     @abstractmethod
     def setFilterOptions(self, rProperties: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
         Store results to the continuation.
         """
+        ...
 
 __all__ = ['XInteractionFilterOptions']
 

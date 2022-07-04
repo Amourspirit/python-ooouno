@@ -45,21 +45,25 @@ class XStringListControl(XPropertyControl_3f260fe2):
         """
         appends a new entry to the end of the list
         """
+        ...
     @abstractmethod
     def clearList(self) -> None:
         """
         clears the whole list
         """
+        ...
     @abstractmethod
     def getListEntries(self) -> 'typing.Tuple[str, ...]':
         """
         gets all list entries
         """
+        ...
     @abstractmethod
     def prependListEntry(self, NewEntry: str) -> None:
         """
         prepends a new entry to the beginning of the list
         """
+        ...
 
 __all__ = ['XStringListControl']
 

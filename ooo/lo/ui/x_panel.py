@@ -44,66 +44,79 @@ class XPanel(ABC):
         """
         Collapse the panel to only show its title bar.
         """
+        ...
     @abstractmethod
     def expand(self, bCollapseOther: bool) -> None:
         """
         Expand and display the panel.
         """
+        ...
     @abstractmethod
     def getDialog(self) -> 'XWindow_713b0924':
         """
         Get the panel dialog element.
         """
+        ...
     @abstractmethod
     def getId(self) -> str:
         """
         The panel identifier.
         """
+        ...
     @abstractmethod
     def getOrderIndex(self) -> int:
         """
         Get the ordering index of the panel in the deck.
         """
+        ...
     @abstractmethod
     def getTitle(self) -> str:
         """
         Get the panel title string.
         """
+        ...
     @abstractmethod
     def isExpanded(self) -> bool:
         """
         Is the panel expanded.
         """
+        ...
     @abstractmethod
     def moveDown(self) -> None:
         """
         Move the panel one step down in the deck.
         """
+        ...
     @abstractmethod
     def moveFirst(self) -> None:
         """
         Move panel as first item of the deck.
         """
+        ...
     @abstractmethod
     def moveLast(self) -> None:
         """
         Move panel as last item of the deck.
         """
+        ...
     @abstractmethod
     def moveUp(self) -> None:
         """
         Move panel one step up in the deck.
         """
+        ...
     @abstractmethod
     def setOrderIndex(self, newOrderIndex: int) -> None:
         """
         Set the ordering index of the panel in the deck.
         """
+        ...
     @abstractmethod
     def setTitle(self, newTitle: str) -> None:
         """
         Set the panel title string.
         """
+        ...
 
 __all__ = ['XPanel']
 

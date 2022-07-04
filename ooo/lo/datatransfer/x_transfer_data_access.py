@@ -47,6 +47,7 @@ class XTransferDataAccess(XInterface_8f010a43):
         
         For unsupported DataFlavor an empty any will be returned.
         """
+        ...
     @abstractmethod
     def queryDataSize(self, aFlavorList: 'typing.Tuple[DataFlavor_ffd30deb, ...]') -> int:
         """
@@ -54,6 +55,7 @@ class XTransferDataAccess(XInterface_8f010a43):
         
         An unsupported DataFlavor will be ignored.
         """
+        ...
 
 __all__ = ['XTransferDataAccess']
 

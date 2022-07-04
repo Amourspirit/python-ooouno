@@ -49,41 +49,49 @@ class XBreakIterator(XInterface_8f010a43):
         """
         Traverses in Text from nStartPos to the beginning of the specified character type.
         """
+        ...
     @abstractmethod
     def beginOfScript(self, aText: str, nStartPos: int, nScriptType: int) -> int:
         """
         Traverses in Text from nStartPos to the beginning of the specified script type.
         """
+        ...
     @abstractmethod
     def beginOfSentence(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa') -> int:
         """
         Traverses in Text from nStartPos to the start of a sentence.
         """
+        ...
     @abstractmethod
     def endOfCharBlock(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nCharType: int) -> int:
         """
         Traverses in Text from nStartPos to the end of the specified character type.
         """
+        ...
     @abstractmethod
     def endOfScript(self, aText: str, nStartPos: int, nScriptType: int) -> int:
         """
         Traverses in Text from nStartPos to the end of the specified script type.
         """
+        ...
     @abstractmethod
     def endOfSentence(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa') -> int:
         """
         Traverses in Text from nStartPos to the end of a sentence.
         """
+        ...
     @abstractmethod
     def getLineBreak(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nMinBreakPos: int, aHyphOptions: 'LineBreakHyphenationOptions_7d3b1128', aUserOptions: 'LineBreakUserOptions_e440e40') -> 'LineBreakResults_d8200ca7':
         """
         Calculate the line break position in the Text from the specified nStartPos.
         """
+        ...
     @abstractmethod
     def getScriptType(self, aText: str, nPos: int) -> int:
         """
         Get the script type of the character at position nPos.
         """
+        ...
     @abstractmethod
     def getWordBoundary(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa', nWordType: int, bPreferForward: bool) -> 'Boundary_7fe2098c':
         """
@@ -91,11 +99,13 @@ class XBreakIterator(XInterface_8f010a43):
         
         If nPos is the boundary of a word, it is StartPos of one word and EndPos of previous word. In this situation, the outcome of the algorithm can be indeterminate. In this situation the bPreferForward flag is used. If bPreferForward == FALSE, nPos is considered to be the end of the word and we look backwards for beginning of word, otherwise nPos is considered to be the start of the next word and we look forwards for the end of the word.
         """
+        ...
     @abstractmethod
     def getWordType(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa') -> int:
         """
         This method is mis-defined, since WordType is not an attribute of a word, but a way to break words, like excluding or including tail spaces for spell checker or cursor traveling. It returns 0 always.
         """
+        ...
     @abstractmethod
     def isBeginWord(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa', nWordType: int) -> bool:
         """
@@ -103,16 +113,19 @@ class XBreakIterator(XInterface_8f010a43):
         
         It is possible that both of this method and following method isEndWord all return TRUE, since StartPos of a word is inclusive while EndPos of a word is exclusive.
         """
+        ...
     @abstractmethod
     def isEndWord(self, aText: str, nPos: int, aLocale: 'Locale_70d308fa', nWordType: int) -> bool:
         """
         If a word ends at position nPos.
         """
+        ...
     @abstractmethod
     def nextCharBlock(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nCharType: int) -> int:
         """
         Traverses in Text from nStartPos to the next start of the specified character type.
         """
+        ...
     @abstractmethod
     def nextCharacters(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nCharacterIteratorMode: int, nCount: int, nDone: int) -> int:
         """
@@ -122,21 +135,25 @@ class XBreakIterator(XInterface_8f010a43):
 
         * ``nDone`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def nextScript(self, aText: str, nStartPos: int, nScriptType: int) -> int:
         """
         Traverses in Text from nStartPos to the next start of the specified script type.
         """
+        ...
     @abstractmethod
     def nextWord(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nWordType: int) -> 'Boundary_7fe2098c':
         """
         Traverses one word in Text from nStartPos forwards.
         """
+        ...
     @abstractmethod
     def previousCharBlock(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nCharType: int) -> int:
         """
         Traverses in Text from nStartPos to the previous start of the specified character type.
         """
+        ...
     @abstractmethod
     def previousCharacters(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nCharacterIteratorMode: int, nCount: int, nDone: int) -> int:
         """
@@ -146,11 +163,13 @@ class XBreakIterator(XInterface_8f010a43):
 
         * ``nDone`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def previousScript(self, aText: str, nStartPos: int, nScriptType: int) -> int:
         """
         Traverses in Text from nStartPos to the previous start of the specified script type.
         """
+        ...
     @abstractmethod
     def previousWord(self, aText: str, nStartPos: int, aLocale: 'Locale_70d308fa', nWordType: int) -> 'Boundary_7fe2098c':
         """
@@ -160,6 +179,7 @@ class XBreakIterator(XInterface_8f010a43):
         
         Note that the OpenOffice.org 1.0 / StarOffice 6.0 / StarSuite 6.0 i18n framework doesn't behave like this and mixed Western/CJK text may lead to wrong word iteration. This is fixed in later versions.
         """
+        ...
 
 __all__ = ['XBreakIterator']
 

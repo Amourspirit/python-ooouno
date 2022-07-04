@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.text.NotePrintMode import (DOC_END, NOT, ONLY, PAGE_END)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.text.NotePrintMode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.text",
-            "__ooo_full_ns__": "com.sun.star.text.NotePrintMode",
-            "__ooo_type_name__": "enum",
-            "DOC_END": DOC_END,
-            "NOT": NOT,
-            "ONLY": ONLY,
-            "PAGE_END": PAGE_END,
-        }
-        result = type('NotePrintMode', (object,), _dict)
-        return result
-
-    NotePrintMode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class NotePrintMode(metaclass=UnoEnumMeta, type_name="com.sun.star.text.NotePrintMode", name_space="com.sun.star.text"):
+        """Dynamically created class that represents ``com.sun.star.text.NotePrintMode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.text.note_print_mode import NotePrintMode as NotePrintMode
 

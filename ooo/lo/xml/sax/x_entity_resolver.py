@@ -43,6 +43,7 @@ class XEntityResolver(XInterface_8f010a43):
         """
         If aInputStream is a valid reference to an input stream, the parser uses this InputSource. Otherwise the parser seeks for the entity using its default behavior.
         """
+        ...
 
 __all__ = ['XEntityResolver']
 

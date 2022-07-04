@@ -3,6 +3,8 @@ import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
 
+import uno
+
 def test_font_slant_dyn():
     from ooo.cssdyn.awt import FontSlant
     from com.sun.star.awt.FontSlant import (

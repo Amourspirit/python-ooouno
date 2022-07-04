@@ -43,6 +43,7 @@ class XDragSourceListener(XEventListener_c7230c4a):
         """
         This method is invoked to signify that the Drag and Drop operation is complete.
         """
+        ...
     @abstractmethod
     def dragEnter(self, dsde: 'DragSourceDragEvent_d53c12da') -> None:
         """
@@ -50,6 +51,7 @@ class XDragSourceListener(XEventListener_c7230c4a):
         
         NOTE: currently this notification can not be ensured by all implementations. Do not rely on it !
         """
+        ...
     @abstractmethod
     def dragExit(self, dse: 'DragSourceEvent_8ccf115c') -> None:
         """
@@ -57,16 +59,19 @@ class XDragSourceListener(XEventListener_c7230c4a):
         
         NOTE: Currently this notification can not be ensured by all implementations. Do not rely on it !
         """
+        ...
     @abstractmethod
     def dragOver(self, dsde: 'DragSourceDragEvent_d53c12da') -> None:
         """
         Called as the hotspot moves over a platform dependent drop site.
         """
+        ...
     @abstractmethod
     def dropActionChanged(self, dsde: 'DragSourceDragEvent_d53c12da') -> None:
         """
         Called when the user has modified the drop gesture.
         """
+        ...
 
 __all__ = ['XDragSourceListener']
 

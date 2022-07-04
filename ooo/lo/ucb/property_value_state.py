@@ -34,6 +34,10 @@ class PropertyValueState(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.PropertyValueState'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.PropertyValueState'
+
     INVALID_NAME = 'INVALID_NAME'
     """
     The given property name/handle is invalid.

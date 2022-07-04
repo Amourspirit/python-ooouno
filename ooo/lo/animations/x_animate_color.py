@@ -40,6 +40,7 @@ class XAnimateColor(XAnimate_ca680c52):
         """
         defines the color space which is used to perform the interpolation.
         """
+        ...
 
     @abstractproperty
     def Direction(self) -> bool:
@@ -50,6 +51,7 @@ class XAnimateColor(XAnimate_ca680c52):
         
         This attribute will be ignored for color spaces where this does not make any sense.
         """
+        ...
 
 
 __all__ = ['XAnimateColor']

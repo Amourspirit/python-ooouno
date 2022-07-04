@@ -34,6 +34,10 @@ class ExtAltNameType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.security.ExtAltNameType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.security.ExtAltNameType'
+
     DIRECTORY_NAME = 'DIRECTORY_NAME'
     """
     Currently unsupported.

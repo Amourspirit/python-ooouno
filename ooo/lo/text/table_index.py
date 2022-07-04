@@ -39,18 +39,21 @@ class TableIndex(BaseIndex_8f0d0a40):
         """
         determines if the name or the label of an object is used to create the index.
         """
+        ...
 
     @abstractproperty
     def LabelCategory(self) -> str:
         """
         determines the name of the sequence field that is evaluated to create the index.
         """
+        ...
 
     @abstractproperty
     def LabelDisplayType(self) -> int:
         """
         determines the way the paragraph containing a label is included in the index.
         """
+        ...
 
 
 

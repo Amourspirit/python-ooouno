@@ -48,6 +48,7 @@ class XSheetPastable(XInterface_8f010a43):
         """
         pastes the contents of the clipboard at the specified position on the sheet.
         """
+        ...
     @abstractmethod
     def pasteCellRange(self, aDestination: 'CellRangeAddress_ec450d43', nOperation: 'PasteOperation_d5de0ccf', nContents: int, bSkipEmpty: bool, bTranspose: bool, bAsLink: bool, nInsert: 'CellInsertMode_d47d0c9b') -> None:
         """
@@ -55,11 +56,13 @@ class XSheetPastable(XInterface_8f010a43):
         
         The contents of the clipboard must be from a cell range.
         """
+        ...
     @abstractmethod
     def pasteFormat(self, aDestination: 'CellAddress_ae5f0b56', aFormat: str) -> None:
         """
         pastes the contents of the clipboard at the specified position on the sheet, using the specified format.
         """
+        ...
 
 __all__ = ['XSheetPastable']
 

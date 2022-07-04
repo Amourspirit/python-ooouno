@@ -41,6 +41,7 @@ class XPathSettings(XPropertySet_bc180bfa):
         """
         Specifies the directory that contains spreadsheet add-ins which use the old add-in API.
         """
+        ...
 
     @abstractproperty
     def AutoCorrect(self) -> str:
@@ -49,6 +50,7 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def AutoText(self) -> str:
@@ -57,22 +59,26 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def Backup(self) -> str:
         """
         Automatic backup copies of documents are stored here.
         """
+        ...
 
     @abstractproperty
     def BasePathShareLayer(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def BasePathUserLayer(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Basic(self) -> str:
@@ -81,12 +87,14 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def Bitmap(self) -> str:
         """
         This directory contains the icons for the toolbars.
         """
+        ...
 
     @abstractproperty
     def Config(self) -> str:
@@ -95,24 +103,28 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         This entry cannot be changed by the user in Office user interface.
         """
+        ...
 
     @abstractproperty
     def Dictionary(self) -> str:
         """
         The provided dictionaries are stored here.
         """
+        ...
 
     @abstractproperty
     def Favorite(self) -> str:
         """
         Path to save folder bookmarks.
         """
+        ...
 
     @abstractproperty
     def Filter(self) -> str:
         """
         Specifies the directory where all the filters are stored.
         """
+        ...
 
     @abstractproperty
     def Gallery(self) -> str:
@@ -121,30 +133,35 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def Graphic(self) -> str:
         """
         This directory is displayed when the dialog for opening a graphic or for saving a new graphic is called.
         """
+        ...
 
     @abstractproperty
     def Help(self) -> str:
         """
         The path to the Office help files.
         """
+        ...
 
     @abstractproperty
     def Linguistic(self) -> str:
         """
         The files that are necessary for the spell check are saved here.
         """
+        ...
 
     @abstractproperty
     def Module(self) -> str:
         """
         This is the path for the modules.
         """
+        ...
 
     @abstractproperty
     def Palette(self) -> str:
@@ -153,6 +170,7 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def Plugin(self) -> str:
@@ -161,18 +179,21 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def Storage(self) -> str:
         """
         Mail, News files and other information (for example, about FTP Server) are stored here.
         """
+        ...
 
     @abstractproperty
     def Temp(self) -> str:
         """
         The base url to the office temp-files.
         """
+        ...
 
     @abstractproperty
     def Template(self) -> str:
@@ -181,6 +202,7 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def UIConfig(self) -> str:
@@ -189,18 +211,21 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The user interface configuration will be merged with user settings stored in the directory specified by UserConfig. The value can be more than one path separated by a semicolon.
         """
+        ...
 
     @abstractproperty
     def UserConfig(self) -> str:
         """
         Specifies the folder with the user settings.
         """
+        ...
 
     @abstractproperty
     def UserDictionary(self) -> str:
         """
         The custom dictionaries are contained here.
         """
+        ...
 
     @abstractproperty
     def Work(self) -> str:
@@ -209,6 +234,7 @@ class XPathSettings(XPropertySet_bc180bfa):
         
         The path specified here can be seen in the Open or Save dialog.
         """
+        ...
 
 
 __all__ = ['XPathSettings']

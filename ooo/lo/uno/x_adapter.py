@@ -45,16 +45,19 @@ class XAdapter(XInterface_8f010a43):
         
         All added references are called when the adapted object dies.
         """
+        ...
     @abstractmethod
     def queryAdapted(self) -> 'XInterface_8f010a43':
         """
         queries the adapted object if it is alive.
         """
+        ...
     @abstractmethod
     def removeReference(self, xRef: 'XReference_8ecb0a41') -> None:
         """
         removes a reference from the adapter.
         """
+        ...
 
 __all__ = ['XAdapter']
 

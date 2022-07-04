@@ -47,11 +47,13 @@ class XSheetFilterDescriptor3(XInterface_8f010a43):
         """
         returns the collection of filter fields.
         """
+        ...
     @abstractmethod
     def setFilterFields3(self, aFilterFields: 'typing.Tuple[TableFilterField3_fbfc0d86, ...]') -> None:
         """
         sets a new collection of filter fields.
         """
+        ...
 
 __all__ = ['XSheetFilterDescriptor3']
 

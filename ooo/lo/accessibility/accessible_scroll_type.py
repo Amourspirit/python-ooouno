@@ -34,6 +34,10 @@ class AccessibleScrollType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.accessibility.AccessibleScrollType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.accessibility.AccessibleScrollType'
+
     SCROLL_ANYWHERE = 'SCROLL_ANYWHERE'
     """
     Scroll the object or string such that as much as possible of the object or string is within the top level window.

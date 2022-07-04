@@ -43,6 +43,7 @@ class XFilePickerNotifier(XInterface_8f010a43):
         
         Invalid interfaces or NULL values will be ignored.
         """
+        ...
     @abstractmethod
     def removeFilePickerListener(self, xListener: 'XFilePickerListener_64041073') -> None:
         """
@@ -50,6 +51,7 @@ class XFilePickerNotifier(XInterface_8f010a43):
         
         Invalid interfaces or NULL values will be ignored.
         """
+        ...
 
 __all__ = ['XFilePickerNotifier']
 

@@ -43,6 +43,7 @@ class SetExpression(DependentTextField_fed90ded):
         """
         contains the textual content of the field.
         """
+        ...
 
     @abstractproperty
     def CurrentPresentation(self) -> str:
@@ -51,12 +52,14 @@ class SetExpression(DependentTextField_fed90ded):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def Hint(self) -> str:
         """
         contains an informational text that is displayed at the user interface if it's an input field.
         """
+        ...
 
     @abstractproperty
     def IsFixedLanguage(self) -> bool:
@@ -67,60 +70,70 @@ class SetExpression(DependentTextField_fed90ded):
         
             OOo 1.1.2
         """
+        ...
 
     @abstractproperty
     def IsInput(self) -> bool:
         """
         determines whether this field is an input field.
         """
+        ...
 
     @abstractproperty
     def IsShowFormula(self) -> bool:
         """
         determines whether the content is displayed or evaluated.
         """
+        ...
 
     @abstractproperty
     def IsVisible(self) -> bool:
         """
         determines whether the field is visible.
         """
+        ...
 
     @abstractproperty
     def NumberFormat(self) -> int:
         """
         this is the number format for this field.
         """
+        ...
 
     @abstractproperty
     def NumberingType(self) -> int:
         """
         specifies the type of the numbering as com.sun.star.style.NumberingType
         """
+        ...
 
     @abstractproperty
     def SequenceValue(self) -> int:
         """
         contains the sequence value when this field is used as sequence field.
         """
+        ...
 
     @abstractproperty
     def SubType(self) -> int:
         """
         determines the type of the variable as described in com.sun.star.text.SetVariableType
         """
+        ...
 
     @abstractproperty
     def Value(self) -> float:
         """
         contains the numerical value of the field.
         """
+        ...
 
     @abstractproperty
     def VariableName(self) -> str:
         """
         contains the name of the set expression field master this field is connected to.
         """
+        ...
 
 
 

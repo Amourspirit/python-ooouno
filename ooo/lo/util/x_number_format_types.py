@@ -40,23 +40,28 @@ class XNumberFormatTypes(XInterface_8f010a43):
     def getFormatForLocale(self, nKey: int, nLocale: 'Locale_70d308fa') -> int:
         """
         """
+        ...
     @abstractmethod
     def getFormatIndex(self, nIndex: int, nLocale: 'Locale_70d308fa') -> int:
         """
         """
+        ...
     @abstractmethod
     def getStandardFormat(self, nType: int, nLocale: 'Locale_70d308fa') -> int:
         """
         """
+        ...
     @abstractmethod
     def getStandardIndex(self, nLocale: 'Locale_70d308fa') -> int:
         """
         """
+        ...
     @abstractmethod
     def isTypeCompatible(self, nOldType: int, nNewType: int) -> bool:
         """
         verifies if one type of number format is compatible with another type.
         """
+        ...
 
 __all__ = ['XNumberFormatTypes']
 

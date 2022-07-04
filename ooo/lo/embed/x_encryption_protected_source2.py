@@ -45,6 +45,7 @@ class XEncryptionProtectedSource2(XEncryptionProtectedSource_8cdf11a3):
         """
         determine if an encryption data is set for this object.
         """
+        ...
     @abstractmethod
     def setEncryptionData(self, aEncryptionData: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> None:
         """
@@ -53,6 +54,7 @@ class XEncryptionProtectedSource2(XEncryptionProtectedSource_8cdf11a3):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XEncryptionProtectedSource2']
 

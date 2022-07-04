@@ -34,6 +34,10 @@ class HatchStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.HatchStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.HatchStyle'
+
     DOUBLE = 'DOUBLE'
     """
     the hatch has a horizontal and a vertical line

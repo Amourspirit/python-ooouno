@@ -34,6 +34,10 @@ class TextureMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextureMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.TextureMode'
+
     BLEND = 'BLEND'
     """
     This mixes both data sources in a fixed ratio.

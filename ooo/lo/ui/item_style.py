@@ -26,8 +26,7 @@ class ItemStyle(object):
 
     specifies styles which influence the appearance and the behavior of an user interface item.
     
-    These styles are only valid if the item describes a toolbar or statusbar item. The style values can be combined with the OR operator. Styles which are not valid for an item will be ignored by the implementation.
-    There are two styles where only one value is valid: Alignment:
+    These styles are only valid if the item describes a toolbar or statusbar item. The style values can be combined with the OR operator. Styles which are not valid for an item will be ignored by the implementation.There are two styles where only one value is valid: Alignment:
     
     Drawing:
     

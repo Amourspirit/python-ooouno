@@ -43,11 +43,13 @@ class XMouseListener(XEventListener_c7230c4a):
         """
         is invoked when the mouse enters a window.
         """
+        ...
     @abstractmethod
     def mouseExited(self, e: 'MouseEvent_8f430a5f') -> None:
         """
         is invoked when the mouse exits a window.
         """
+        ...
     @abstractmethod
     def mousePressed(self, e: 'MouseEvent_8f430a5f') -> None:
         """
@@ -55,11 +57,13 @@ class XMouseListener(XEventListener_c7230c4a):
         
         Since mouse presses are usually also used to indicate requests for pop-up menus (also known as context menus) on objects, you might receive two events for a single mouse press: For example, if, on your operating system, pressing the right mouse button indicates the request for a context menu, then you will receive one call to mousePressed() indicating the mouse click, and another one indicating the context menu request. For the latter, the MouseEvent.PopupTrigger member of the event will be set to TRUE.
         """
+        ...
     @abstractmethod
     def mouseReleased(self, e: 'MouseEvent_8f430a5f') -> None:
         """
         is invoked when a mouse button has been released on a window.
         """
+        ...
 
 __all__ = ['XMouseListener']
 

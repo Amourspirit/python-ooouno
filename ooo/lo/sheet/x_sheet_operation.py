@@ -43,6 +43,7 @@ class XSheetOperation(XInterface_8f010a43):
         
         clears the specified contents of the current cell range(s).
         """
+        ...
     @abstractmethod
     def computeFunction(self, nFunction: 'GeneralFunction_e2280d25') -> float:
         """
@@ -51,6 +52,7 @@ class XSheetOperation(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XSheetOperation']
 

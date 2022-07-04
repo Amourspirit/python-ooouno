@@ -46,6 +46,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
         """
         retrieves the list of command URLs which have images associated.
         """
+        ...
     @abstractmethod
     def getImages(self, nImageType: int, aCommandURLSequence: 'typing.Tuple[str, ...]') -> 'typing.Tuple[XGraphic_a4da0afc, ...]':
         """
@@ -54,6 +55,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def hasImage(self, nImageType: int, CommandURL: str) -> bool:
         """
@@ -62,6 +64,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def insertImages(self, nImageType: int, aCommandURLSequence: 'typing.Tuple[str, ...]', aGraphicSequence: 'typing.Tuple[XGraphic_a4da0afc, ...]') -> None:
         """
@@ -74,6 +77,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
     @abstractmethod
     def removeImages(self, nImageType: int, CommandURLs: 'typing.Tuple[str, ...]') -> None:
         """
@@ -85,6 +89,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
     @abstractmethod
     def replaceImages(self, nImageType: int, aCommandURLSequence: 'typing.Tuple[str, ...]', aGraphicsSequence: 'typing.Tuple[XGraphic_a4da0afc, ...]') -> None:
         """
@@ -96,6 +101,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
     @abstractmethod
     def reset(self) -> None:
         """
@@ -107,6 +113,7 @@ class XImageManager(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIConfigurat
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
 
 __all__ = ['XImageManager']
 

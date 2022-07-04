@@ -44,11 +44,13 @@ class XDateCategories(ABC):
         """
         retrieves the date values if the category x-axis id a date axis
         """
+        ...
     @abstractmethod
     def setDateCategories(self, rDates: 'typing.Tuple[float, ...]') -> None:
         """
         sets dates as categories
         """
+        ...
 
 __all__ = ['XDateCategories']
 

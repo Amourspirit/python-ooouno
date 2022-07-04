@@ -34,6 +34,10 @@ class StackingDirection(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.StackingDirection'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.StackingDirection'
+
     NO_STACKING = 'NO_STACKING'
     """
     """

@@ -34,6 +34,10 @@ class VerificationMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.VerificationMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.VerificationMode'
+
     ALWAYS = 'ALWAYS'
     """
     Always.

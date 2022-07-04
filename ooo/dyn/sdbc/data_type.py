@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbc import DataType as DataType
-    if hasattr(DataType, '_constants') and isinstance(DataType._constants, dict):
-        DataType._constants['__ooo_ns__'] = 'com.sun.star.sdbc'
-        DataType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbc.DataType'
-        DataType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataTypeEnum
-        ls = [f for f in dir(DataType) if not callable(getattr(DataType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataType, name)
-        DataTypeEnum = IntEnum('DataTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DataType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.DataType", name_space="com.sun.star.sdbc"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.DataType``"""
+        pass
+
+    class DataTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbc.DataType", name_space="com.sun.star.sdbc"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbc.DataType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbc.data_type import DataType as DataType
 

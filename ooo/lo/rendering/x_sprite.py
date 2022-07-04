@@ -53,6 +53,7 @@ class XSprite(XInterface_8f010a43):
         
         Specifying an empty interface denotes no clipping, i.e. everything contained in the sprite will be visible (subject to device-dependent constraints, of course). Specifying an empty XPolyPolygon2D, i.e. a poly-polygon containing zero polygons, or an XPolyPolygon2D with any number of empty sub-polygons, denotes the NULL clip. That means, nothing from the sprite will be visible.
         """
+        ...
     @abstractmethod
     def hide(self) -> None:
         """
@@ -60,6 +61,7 @@ class XSprite(XInterface_8f010a43):
         
         This method makes the sprite invisible.
         """
+        ...
     @abstractmethod
     def move(self, aNewPos: 'RealPoint2D_d6e70c78', aViewState: 'ViewState_cab30c62', aRenderState: 'RenderState_e4490d27') -> None:
         """
@@ -72,6 +74,7 @@ class XSprite(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setAlpha(self, nAlpha: float) -> None:
         """
@@ -84,6 +87,7 @@ class XSprite(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setPriority(self, nPriority: float) -> None:
         """
@@ -91,6 +95,7 @@ class XSprite(XInterface_8f010a43):
         
         The sprite priority determines the order of rendering relative to all other sprites of the associated canvas. The higher the priority, the later will the sprite be rendered, or, in other words, the closer to the screen surface the sprite is shown.
         """
+        ...
     @abstractmethod
     def show(self) -> None:
         """
@@ -98,6 +103,7 @@ class XSprite(XInterface_8f010a43):
         
         This method makes the sprite visible on the canvas it was created on.
         """
+        ...
     @abstractmethod
     def transform(self, aTransformation: 'AffineMatrix2D_ff040da8') -> None:
         """
@@ -110,6 +116,7 @@ class XSprite(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XSprite']
 

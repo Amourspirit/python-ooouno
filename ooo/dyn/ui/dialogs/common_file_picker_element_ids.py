@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import CommonFilePickerElementIds as CommonFilePickerElementIds
-    if hasattr(CommonFilePickerElementIds, '_constants') and isinstance(CommonFilePickerElementIds._constants, dict):
-        CommonFilePickerElementIds._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
-        CommonFilePickerElementIds._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.CommonFilePickerElementIds'
-        CommonFilePickerElementIds._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CommonFilePickerElementIdsEnum
-        ls = [f for f in dir(CommonFilePickerElementIds) if not callable(getattr(CommonFilePickerElementIds, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CommonFilePickerElementIds, name)
-        CommonFilePickerElementIdsEnum = IntEnum('CommonFilePickerElementIdsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CommonFilePickerElementIds(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.CommonFilePickerElementIds", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.dialogs.CommonFilePickerElementIds``"""
+        pass
+
+    class CommonFilePickerElementIdsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.dialogs.CommonFilePickerElementIds", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.dialogs.CommonFilePickerElementIds`` as Enum values"""
+        pass
+
 else:
     from ....lo.ui.dialogs.common_file_picker_element_ids import CommonFilePickerElementIds as CommonFilePickerElementIds
 

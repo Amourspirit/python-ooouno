@@ -51,11 +51,13 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getActionCount(self, aSmartTagName: str, xController: 'XController_b00e0b8f', xProperties: 'XStringKeyMap_ffc60de1') -> int:
         """
         obtains the number of actions provided for a specified smart tag type.
         """
+        ...
     @abstractmethod
     def getActionID(self, aSmartTagName: str, nActionIndex: int, xController: 'XController_b00e0b8f') -> int:
         """
@@ -64,6 +66,7 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getActionNameFromID(self, nActionID: int, xController: 'XController_b00e0b8f') -> str:
         """
@@ -72,16 +75,19 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDescription(self, aLocale: 'Locale_70d308fa') -> str:
         """
         obtains a detailed description of this action component.
         """
+        ...
     @abstractmethod
     def getName(self, aLocale: 'Locale_70d308fa') -> str:
         """
         obtains a name that describes this action component.
         """
+        ...
     @abstractmethod
     def getSmartTagCaption(self, nSmartTagIndex: int, aLocale: 'Locale_70d308fa') -> str:
         """
@@ -90,6 +96,7 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getSmartTagName(self, nSmartTagIndex: int) -> str:
         """
@@ -98,6 +105,7 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def invokeAction(self, nActionID: int, aApplicationName: str, xController: 'XController_b00e0b8f', xTarget: 'XTextRange_9a910ab7', xProperties: 'XStringKeyMap_ffc60de1', aText: str, aXML: str, aLocale: 'Locale_70d308fa') -> None:
         """
@@ -106,6 +114,7 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isCaptionDynamic(self, nActionID: int, aApplicationName: str, xController: 'XController_b00e0b8f', aLocale: 'Locale_70d308fa') -> bool:
         """
@@ -114,6 +123,7 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isShowSmartTagIndicator(self, nActionID: int, aApplicationName: str, xController: 'XController_b00e0b8f', aLocale: 'Locale_70d308fa') -> bool:
         """
@@ -122,11 +132,13 @@ class XSmartTagAction(XInitialization_d46c0cca):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractproperty
     def SmartTagCount(self) -> int:
         """
         the number of smart tag types supported by this action component.
         """
+        ...
 
 
 __all__ = ['XSmartTagAction']

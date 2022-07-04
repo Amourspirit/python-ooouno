@@ -49,6 +49,7 @@ class ChapterNumberingRule(NumberingRule_cb530c78):
         
         It is necessary that each style name appears only once in the sequence of numbering rules.
         """
+        ...
 
 
 

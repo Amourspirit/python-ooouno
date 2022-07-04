@@ -34,6 +34,10 @@ class ChartAxisArrangeOrderType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartAxisArrangeOrderType'
+
     AUTO = 'AUTO'
     """
     The descriptions are arranged automatically.

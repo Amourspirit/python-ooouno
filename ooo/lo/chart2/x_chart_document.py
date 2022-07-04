@@ -43,6 +43,7 @@ class XChartDocument(XModel_7a6e095c):
         """
         Creates a default chart type for a brand-new chart object.
         """
+        ...
     @abstractmethod
     def createInternalDataProvider(self, bCloneExistingData: bool) -> None:
         """
@@ -53,11 +54,13 @@ class XChartDocument(XModel_7a6e095c):
         Raises:
             com.sun.star.util.CloseVetoException: ``CloseVetoException``
         """
+        ...
     @abstractmethod
     def getChartTypeManager(self) -> 'XChartTypeManager_6330df3':
         """
         retrieves the component that is able to create different chart type templates (components of type ChartTypeTemplate)
         """
+        ...
     @abstractmethod
     def getDataProvider(self) -> 'XDataProvider_122f0e31':
         """
@@ -65,11 +68,13 @@ class XChartDocument(XModel_7a6e095c):
         
         This may be an internal one, if createInternalDataProvider() has been called before, or an external one if XDataReceiver.attachDataProvider() has been called.
         """
+        ...
     @abstractmethod
     def getFirstDiagram(self) -> 'XDiagram_96fe0a59':
         """
         Notes: this is preliminary, we need an API that supports more than one diagram. The method name getDiagram exists in the css.chart API, so there is would be no way to chose either this or the other method from Basic (it would chose one or the other by random).
         """
+        ...
     @abstractmethod
     def getPageBackground(self) -> 'XPropertySet_bc180bfa':
         """
@@ -77,21 +82,25 @@ class XChartDocument(XModel_7a6e095c):
         
         The area's extent is equal to the document size. If you want to access properties of the background area of a single diagram (the part where data points are actually plotted in), you have to get its wall. You can get the wall by calling XDiagram.getWall().
         """
+        ...
     @abstractmethod
     def hasInternalDataProvider(self) -> bool:
         """
         This is the case directly after createInternalDataProvider() has been called, but this is not necessary. The chart can also create an internal data provider by other means, e.g. a call to com.sun.star.frame.XModel.initNew().
         """
+        ...
     @abstractmethod
     def setChartTypeManager(self, xNewManager: 'XChartTypeManager_6330df3') -> None:
         """
         sets a new component that is able to create different chart type templates (components of type ChartTypeTemplate)
         """
+        ...
     @abstractmethod
     def setFirstDiagram(self, xDiagram: 'XDiagram_96fe0a59') -> None:
         """
         Notes: this is preliminary, we need an API that supports more than one diagram. The method name setDiagram exists in the css.chart API, so there is would be no way to chose either this or the other method from Basic (it would chose one or the other by random).
         """
+        ...
 
 __all__ = ['XChartDocument']
 

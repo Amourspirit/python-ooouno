@@ -60,6 +60,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getLayers(self, aLayerIds: 'typing.Tuple[str, ...]', aTimestamp: str) -> 'typing.Tuple[XLayer_4cd50fcb, ...]':
         """
@@ -81,6 +82,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getMultipleLayers(self, aLayerIds: 'typing.Tuple[str, ...]', aTimestamps: 'typing.Tuple[str, ...]') -> 'typing.Tuple[XLayer_4cd50fcb, ...]':
         """
@@ -104,6 +106,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getUpdatableLayer(self, aLayerId: str) -> 'XUpdatableLayer_ec97135d':
         """
@@ -116,6 +119,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getUpdateLayerId(self, aComponent: str, aEntity: str) -> str:
         """
@@ -128,6 +132,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def listLayerIds(self, aComponent: str, aEntity: str) -> 'typing.Tuple[str, ...]':
         """
@@ -139,6 +144,7 @@ class XMultiLayerStratum(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XMultiLayerStratum']
 

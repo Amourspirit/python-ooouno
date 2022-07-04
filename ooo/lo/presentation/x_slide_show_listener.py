@@ -42,21 +42,25 @@ class XSlideShowListener(XAnimationListener_5c5a1079):
         """
         Notifies that a hyperlink has been clicked.
         """
+        ...
     @abstractmethod
     def paused(self) -> None:
         """
         Notify that the slide show is paused.
         """
+        ...
     @abstractmethod
     def resumed(self) -> None:
         """
         Notify that the slide show is resumed from a paused state.
         """
+        ...
     @abstractmethod
     def slideAnimationsEnded(self) -> None:
         """
         Notify that the last animation from the main sequence of the current slide has ended.
         """
+        ...
     @abstractmethod
     def slideEnded(self, reverse: bool) -> None:
         """
@@ -64,16 +68,19 @@ class XSlideShowListener(XAnimationListener_5c5a1079):
         
         the user has clicked on the slide. Calling displaySlide() twice will not issue this event.
         """
+        ...
     @abstractmethod
     def slideTransitionEnded(self) -> None:
         """
         Notify that the slide transition of the current slide ended.
         """
+        ...
     @abstractmethod
     def slideTransitionStarted(self) -> None:
         """
         Notify that a new slide starts to become visible.
         """
+        ...
 
 __all__ = ['XSlideShowListener']
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import KNumberFormatType as KNumberFormatType
-    if hasattr(KNumberFormatType, '_constants') and isinstance(KNumberFormatType._constants, dict):
-        KNumberFormatType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        KNumberFormatType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.KNumberFormatType'
-        KNumberFormatType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global KNumberFormatTypeEnum
-        ls = [f for f in dir(KNumberFormatType) if not callable(getattr(KNumberFormatType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(KNumberFormatType, name)
-        KNumberFormatTypeEnum = IntEnum('KNumberFormatTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class KNumberFormatType(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.KNumberFormatType", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.KNumberFormatType``"""
+        pass
+
+    class KNumberFormatTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.KNumberFormatType", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.KNumberFormatType`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.k_number_format_type import KNumberFormatType as KNumberFormatType
 

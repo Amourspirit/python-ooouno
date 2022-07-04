@@ -38,11 +38,13 @@ class XArrayFormulaRange(XInterface_8f010a43):
         """
         returns the array formula of the range or an empty string, if the range does not contain an array formula.
         """
+        ...
     @abstractmethod
     def setArrayFormula(self, aFormula: str) -> None:
         """
         applies the array formula to the entire cell range.
         """
+        ...
 
 __all__ = ['XArrayFormulaRange']
 

@@ -25,24 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.reflection.MethodMode import (ONEWAY, TWOWAY)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.reflection.MethodMode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.reflection",
-            "__ooo_full_ns__": "com.sun.star.reflection.MethodMode",
-            "__ooo_type_name__": "enum",
-            "ONEWAY": ONEWAY,
-            "TWOWAY": TWOWAY,
-        }
-        result = type('MethodMode', (object,), _dict)
-        return result
-
-    MethodMode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class MethodMode(metaclass=UnoEnumMeta, type_name="com.sun.star.reflection.MethodMode", name_space="com.sun.star.reflection"):
+        """Dynamically created class that represents ``com.sun.star.reflection.MethodMode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.reflection.method_mode import MethodMode as MethodMode
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.xsd import DataTypeClass as DataTypeClass
-    if hasattr(DataTypeClass, '_constants') and isinstance(DataTypeClass._constants, dict):
-        DataTypeClass._constants['__ooo_ns__'] = 'com.sun.star.xsd'
-        DataTypeClass._constants['__ooo_full_ns__'] = 'com.sun.star.xsd.DataTypeClass'
-        DataTypeClass._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataTypeClassEnum
-        ls = [f for f in dir(DataTypeClass) if not callable(getattr(DataTypeClass, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataTypeClass, name)
-        DataTypeClassEnum = IntEnum('DataTypeClassEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DataTypeClass(metaclass=UnoConstMeta, type_name="com.sun.star.xsd.DataTypeClass", name_space="com.sun.star.xsd"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.xsd.DataTypeClass``"""
+        pass
+
+    class DataTypeClassEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.xsd.DataTypeClass", name_space="com.sun.star.xsd"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.xsd.DataTypeClass`` as Enum values"""
+        pass
+
 else:
     from ...lo.xsd.data_type_class import DataTypeClass as DataTypeClass
 

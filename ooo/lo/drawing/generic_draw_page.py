@@ -59,36 +59,42 @@ class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70
         
             LibreOffice 7.2
         """
+        ...
 
     @abstractproperty
     def BorderBottom(self) -> int:
         """
         This is the border at the bottom.
         """
+        ...
 
     @abstractproperty
     def BorderLeft(self) -> int:
         """
         This is the border at the left.
         """
+        ...
 
     @abstractproperty
     def BorderRight(self) -> int:
         """
         This is the border at the right.
         """
+        ...
 
     @abstractproperty
     def BorderTop(self) -> int:
         """
         This is the border at the top.
         """
+        ...
 
     @abstractproperty
     def Height(self) -> int:
         """
         This is the height.
         """
+        ...
 
     @abstractproperty
     def IsBackgroundDark(self) -> bool:
@@ -97,6 +103,7 @@ class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70
         
         This can be used to determine the actual value of an auto color.
         """
+        ...
 
     @abstractproperty
     def NavigationOrder(self) -> 'XIndexAccess_f0910d6d':
@@ -105,18 +112,21 @@ class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70
         
         By default this is equal to the index access of the slide itself, making the z-order the default navigation order for top level shapes.
         """
+        ...
 
     @abstractproperty
     def Number(self) -> int:
         """
         This is the number of this page, starting with 1.
         """
+        ...
 
     @abstractproperty
     def Orientation(self) -> 'PaperOrientation_e36f0d47':
         """
         This is the orientation of this page.
         """
+        ...
 
     @abstractproperty
     def UserDefinedAttributes(self) -> 'XNameContainer_cb90e47':
@@ -125,12 +135,14 @@ class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70
         
         They will be saved to and restored from automatic styles inside xml files.
         """
+        ...
 
     @abstractproperty
     def Width(self) -> int:
         """
         This is the width.
         """
+        ...
 
 
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import ListActionType as ListActionType
-    if hasattr(ListActionType, '_constants') and isinstance(ListActionType._constants, dict):
-        ListActionType._constants['__ooo_ns__'] = 'com.sun.star.ucb'
-        ListActionType._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.ListActionType'
-        ListActionType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ListActionTypeEnum
-        ls = [f for f in dir(ListActionType) if not callable(getattr(ListActionType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ListActionType, name)
-        ListActionTypeEnum = IntEnum('ListActionTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ListActionType(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.ListActionType", name_space="com.sun.star.ucb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.ListActionType``"""
+        pass
+
+    class ListActionTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ucb.ListActionType", name_space="com.sun.star.ucb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ucb.ListActionType`` as Enum values"""
+        pass
+
 else:
     from ...lo.ucb.list_action_type import ListActionType as ListActionType
 

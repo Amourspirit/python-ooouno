@@ -44,18 +44,21 @@ class PolyPolygonDescriptor(ABC):
         """
         These are the untransformed points of this polygon.
         """
+        ...
 
     @abstractproperty
     def PolyPolygon(self) -> 'PointSequenceSequence_5c591070':
         """
         These are the reference points for this polygon.
         """
+        ...
 
     @abstractproperty
     def PolygonKind(self) -> 'PolygonKind_ca6f0c62':
         """
         This is the type of polygon.
         """
+        ...
 
 
 

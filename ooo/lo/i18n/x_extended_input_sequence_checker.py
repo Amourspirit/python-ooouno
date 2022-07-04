@@ -43,6 +43,7 @@ class XExtendedInputSequenceChecker(XInputSequenceChecker_1eb00e9e):
     def correctInputSequence(self, aText: object, nPos: int, cInputChar: str, nInputCheckMode: int) -> int:
         """
         """
+        ...
 
 __all__ = ['XExtendedInputSequenceChecker']
 

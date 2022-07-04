@@ -46,6 +46,7 @@ class XConstantTypeDescription(XTypeDescription_3c210fb1):
         """
         Following types are allowed for constants:
         """
+        ...
 
 __all__ = ['XConstantTypeDescription']
 

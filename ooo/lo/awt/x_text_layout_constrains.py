@@ -44,11 +44,13 @@ class XTextLayoutConstrains(XInterface_8f010a43):
         * ``nCols`` is an out direction argument.
         * ``nLines`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getMinimumSize(self, nCols: int, nLines: int) -> 'Size_576707ef':
         """
         returns the minimum size for a given number of columns and lines.
         """
+        ...
 
 __all__ = ['XTextLayoutConstrains']
 

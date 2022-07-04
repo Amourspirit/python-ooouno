@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ui.dialogs import ListboxControlActions as ListboxControlActions
-    if hasattr(ListboxControlActions, '_constants') and isinstance(ListboxControlActions._constants, dict):
-        ListboxControlActions._constants['__ooo_ns__'] = 'com.sun.star.ui.dialogs'
-        ListboxControlActions._constants['__ooo_full_ns__'] = 'com.sun.star.ui.dialogs.ListboxControlActions'
-        ListboxControlActions._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ListboxControlActionsEnum
-        ls = [f for f in dir(ListboxControlActions) if not callable(getattr(ListboxControlActions, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ListboxControlActions, name)
-        ListboxControlActionsEnum = IntEnum('ListboxControlActionsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ListboxControlActions(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.ListboxControlActions", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ui.dialogs.ListboxControlActions``"""
+        pass
+
+    class ListboxControlActionsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ui.dialogs.ListboxControlActions", name_space="com.sun.star.ui.dialogs"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ui.dialogs.ListboxControlActions`` as Enum values"""
+        pass
+
 else:
     from ....lo.ui.dialogs.listbox_control_actions import ListboxControlActions as ListboxControlActions
 

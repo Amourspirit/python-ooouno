@@ -48,11 +48,13 @@ class XSAXEventKeeper(XInterface_8f010a43):
         
         No SAX event starting from the next element will be forwarded until this blocker is removed.
         """
+        ...
     @abstractmethod
     def addElementCollector(self) -> int:
         """
         Adds a new element collector on the next element in the SAX event stream.
         """
+        ...
     @abstractmethod
     def getCurrentBlockingNode(self) -> 'XXMLElementWrapper_66c0107c':
         """
@@ -60,31 +62,37 @@ class XSAXEventKeeper(XInterface_8f010a43):
         
         This element is the working element of the first blocker in tree order.
         """
+        ...
     @abstractmethod
     def getElement(self, id: int) -> 'XXMLElementWrapper_66c0107c':
         """
         Gets the element of an element mark.
         """
+        ...
     @abstractmethod
     def isBlocking(self) -> bool:
         """
         Checks whether the SAX event stream is blocking.
         """
+        ...
     @abstractmethod
     def printBufferNodeTree(self) -> str:
         """
         Prints information about all buffered elements.
         """
+        ...
     @abstractmethod
     def removeBlocker(self, id: int) -> None:
         """
         Removes a blocker.
         """
+        ...
     @abstractmethod
     def removeElementCollector(self, id: int) -> None:
         """
         Removes an element collector.
         """
+        ...
     @abstractmethod
     def setElement(self, id: int, aElement: 'XXMLElementWrapper_66c0107c') -> None:
         """
@@ -92,6 +100,7 @@ class XSAXEventKeeper(XInterface_8f010a43):
         
         When an element is replaced outside of this interface, then uses this method can restore the link between an element mark and its working element.
         """
+        ...
     @abstractmethod
     def setNextHandler(self, nextHandler: 'XDocumentHandler_9b90e28') -> 'XDocumentHandler_9b90e28':
         """
@@ -99,6 +108,7 @@ class XSAXEventKeeper(XInterface_8f010a43):
         
         This handler will receive SAX events forwarded by the SAXEventKeeper.
         """
+        ...
 
 __all__ = ['XSAXEventKeeper']
 

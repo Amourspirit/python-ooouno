@@ -39,6 +39,7 @@ class XDataSourceMetaData(ABC):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDataSourceMetaData']
 

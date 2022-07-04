@@ -25,34 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.xml.dom.NodeType import (ATTRIBUTE_NODE, CDATA_SECTION_NODE, COMMENT_NODE, DOCUMENT_FRAGMENT_NODE, DOCUMENT_NODE, DOCUMENT_TYPE_NODE, ELEMENT_NODE, ENTITY_NODE, ENTITY_REFERENCE_NODE, NOTATION_NODE, PROCESSING_INSTRUCTION_NODE, TEXT_NODE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.NodeType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.xml.dom",
-            "__ooo_full_ns__": "com.sun.star.xml.dom.NodeType",
-            "__ooo_type_name__": "enum",
-            "ATTRIBUTE_NODE": ATTRIBUTE_NODE,
-            "CDATA_SECTION_NODE": CDATA_SECTION_NODE,
-            "COMMENT_NODE": COMMENT_NODE,
-            "DOCUMENT_FRAGMENT_NODE": DOCUMENT_FRAGMENT_NODE,
-            "DOCUMENT_NODE": DOCUMENT_NODE,
-            "DOCUMENT_TYPE_NODE": DOCUMENT_TYPE_NODE,
-            "ELEMENT_NODE": ELEMENT_NODE,
-            "ENTITY_NODE": ENTITY_NODE,
-            "ENTITY_REFERENCE_NODE": ENTITY_REFERENCE_NODE,
-            "NOTATION_NODE": NOTATION_NODE,
-            "PROCESSING_INSTRUCTION_NODE": PROCESSING_INSTRUCTION_NODE,
-            "TEXT_NODE": TEXT_NODE,
-        }
-        result = type('NodeType', (object,), _dict)
-        return result
-
-    NodeType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class NodeType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.NodeType", name_space="com.sun.star.xml.dom"):
+        """Dynamically created class that represents ``com.sun.star.xml.dom.NodeType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ....lo.xml.dom.node_type import NodeType as NodeType
 

@@ -53,6 +53,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def afterLast(self) -> None:
         """
@@ -63,6 +64,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def beforeFirst(self) -> None:
         """
@@ -73,6 +75,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def first(self) -> bool:
         """
@@ -81,6 +84,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getRow(self) -> int:
         """
@@ -91,6 +95,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getStatement(self) -> 'XInterface_8f010a43':
         """
@@ -101,6 +106,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isAfterLast(self) -> bool:
         """
@@ -109,6 +115,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isBeforeFirst(self) -> bool:
         """
@@ -117,6 +124,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isFirst(self) -> bool:
         """
@@ -125,6 +133,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def isLast(self) -> bool:
         """
@@ -135,6 +144,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def last(self) -> bool:
         """
@@ -143,6 +153,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def next(self) -> bool:
         """
@@ -155,6 +166,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def previous(self) -> bool:
         """
@@ -165,6 +177,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def refreshRow(self) -> None:
         """
@@ -175,6 +188,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def relative(self, rows: int) -> bool:
         """
@@ -187,6 +201,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def rowDeleted(self) -> bool:
         """
@@ -197,6 +212,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def rowInserted(self) -> bool:
         """
@@ -207,6 +223,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def rowUpdated(self) -> bool:
         """
@@ -217,6 +234,7 @@ class XResultSet(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XResultSet']
 

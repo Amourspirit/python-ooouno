@@ -34,6 +34,10 @@ class RegistryKeyType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.registry.RegistryKeyType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.registry.RegistryKeyType'
+
     KEY = 'KEY'
     """
     """

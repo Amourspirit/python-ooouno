@@ -47,11 +47,13 @@ class XToolkit(XInterface_8f010a43):
         """
         creates a region.
         """
+        ...
     @abstractmethod
     def createScreenCompatibleDevice(self, Width: int, Height: int) -> 'XDevice_70ba08fc':
         """
         creates a virtual device that is compatible with the screen.
         """
+        ...
     @abstractmethod
     def createWindow(self, Descriptor: 'WindowDescriptor_d61e0ceb') -> 'XWindowPeer_99760ab0':
         """
@@ -60,6 +62,7 @@ class XToolkit(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createWindows(self, Descriptors: 'typing.Tuple[WindowDescriptor_d61e0ceb, ...]') -> 'typing.Tuple[XWindowPeer_99760ab0, ...]':
         """
@@ -68,11 +71,13 @@ class XToolkit(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDesktopWindow(self) -> 'XWindowPeer_99760ab0':
         """
         returns the desktop window.
         """
+        ...
     @abstractmethod
     def getWorkArea(self) -> 'Rectangle_84b109e9':
         """
@@ -80,6 +85,7 @@ class XToolkit(XInterface_8f010a43):
         
         After that, it started returning a valid value.
         """
+        ...
 
 __all__ = ['XToolkit']
 

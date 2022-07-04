@@ -48,6 +48,7 @@ class XInplaceObject(XInterface_8f010a43):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setObjectRectangles(self, aPosRect: 'Rectangle_84b109e9', aClipRect: 'Rectangle_84b109e9') -> None:
         """
@@ -61,6 +62,7 @@ class XInplaceObject(XInterface_8f010a43):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def translateAccelerators(self, aKeys: 'typing.Tuple[KeyEvent_7a78097f, ...]') -> None:
         """
@@ -69,6 +71,7 @@ class XInplaceObject(XInterface_8f010a43):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
 
 __all__ = ['XInplaceObject']
 

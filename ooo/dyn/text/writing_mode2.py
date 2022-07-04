@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import WritingMode2 as WritingMode2
-    if hasattr(WritingMode2, '_constants') and isinstance(WritingMode2._constants, dict):
-        WritingMode2._constants['__ooo_ns__'] = 'com.sun.star.text'
-        WritingMode2._constants['__ooo_full_ns__'] = 'com.sun.star.text.WritingMode2'
-        WritingMode2._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global WritingMode2Enum
-        ls = [f for f in dir(WritingMode2) if not callable(getattr(WritingMode2, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(WritingMode2, name)
-        WritingMode2Enum = IntEnum('WritingMode2Enum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class WritingMode2(metaclass=UnoConstMeta, type_name="com.sun.star.text.WritingMode2", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.WritingMode2``"""
+        pass
+
+    class WritingMode2Enum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.WritingMode2", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.WritingMode2`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.writing_mode2 import WritingMode2 as WritingMode2
 

@@ -46,11 +46,13 @@ class XVclWindowPeer(XWindowPeer_99760ab0):
         """
         enables clipping of sibling windows.
         """
+        ...
     @abstractmethod
     def getProperty(self, PropertyName: str) -> object:
         """
         returns the value of the property with the specified name.
         """
+        ...
     @abstractmethod
     def getStyles(self, nType: int, Font: 'FontDescriptor_bc110c0a', ForegroundColor: 'Color_68e908c5', BackgroundColor: 'Color_68e908c5') -> None:
         """
@@ -60,36 +62,43 @@ class XVclWindowPeer(XWindowPeer_99760ab0):
         * ``ForegroundColor`` is an out direction argument.
         * ``BackgroundColor`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def isChild(self, Peer: 'XWindowPeer_99760ab0') -> bool:
         """
         returns TRUE if the window peer is a child, FALSE otherwise.
         """
+        ...
     @abstractmethod
     def isDesignMode(self) -> bool:
         """
         returns TRUE if the window peer is in design mode, FALSE otherwise.
         """
+        ...
     @abstractmethod
     def setControlFont(self, aFont: 'FontDescriptor_bc110c0a') -> None:
         """
         sets the control font.
         """
+        ...
     @abstractmethod
     def setDesignMode(self, bOn: bool) -> None:
         """
         sets the design mode for use in a design editor.
         """
+        ...
     @abstractmethod
     def setForeground(self, Color: 'Color_68e908c5') -> None:
         """
         sets the foreground color.
         """
+        ...
     @abstractmethod
     def setProperty(self, PropertyName: str, Value: object) -> None:
         """
         sets the value of the property with the specified name.
         """
+        ...
 
 __all__ = ['XVclWindowPeer']
 

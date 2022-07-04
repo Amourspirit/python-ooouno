@@ -41,18 +41,22 @@ class XConditionalFormats(XInterface_8f010a43):
         """
         adds a conditional format to the existing list returns the id of the inserted conditional format
         """
+        ...
     @abstractmethod
     def getConditionalFormats(self) -> 'typing.Tuple[XConditionalFormat_be90e56, ...]':
         """
         """
+        ...
     @abstractmethod
     def getLength(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def removeByID(self, ID: int) -> None:
         """
         """
+        ...
 
 __all__ = ['XConditionalFormats']
 

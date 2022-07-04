@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.configuration.backend import SchemaAttribute as SchemaAttribute
-    if hasattr(SchemaAttribute, '_constants') and isinstance(SchemaAttribute._constants, dict):
-        SchemaAttribute._constants['__ooo_ns__'] = 'com.sun.star.configuration.backend'
-        SchemaAttribute._constants['__ooo_full_ns__'] = 'com.sun.star.configuration.backend.SchemaAttribute'
-        SchemaAttribute._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SchemaAttributeEnum
-        ls = [f for f in dir(SchemaAttribute) if not callable(getattr(SchemaAttribute, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SchemaAttribute, name)
-        SchemaAttributeEnum = IntEnum('SchemaAttributeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class SchemaAttribute(metaclass=UnoConstMeta, type_name="com.sun.star.configuration.backend.SchemaAttribute", name_space="com.sun.star.configuration.backend"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.configuration.backend.SchemaAttribute``"""
+        pass
+
+    class SchemaAttributeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.configuration.backend.SchemaAttribute", name_space="com.sun.star.configuration.backend"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.configuration.backend.SchemaAttribute`` as Enum values"""
+        pass
+
 else:
     from ....lo.configuration.backend.schema_attribute import SchemaAttribute as SchemaAttribute
 

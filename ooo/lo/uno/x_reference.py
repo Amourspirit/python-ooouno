@@ -40,6 +40,7 @@ class XReference(XInterface_8f010a43):
         
         This method is called when the adapted object dies. The implementation of the client-side's weak reference must include removal of all references to the adapter. Otherwise, the adapted object will be destroyed, but the adapter will be alive.
         """
+        ...
 
 __all__ = ['XReference']
 

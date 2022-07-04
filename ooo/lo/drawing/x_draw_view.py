@@ -41,11 +41,13 @@ class XDrawView(XInterface_8f010a43):
         """
         returns the current page.
         """
+        ...
     @abstractmethod
     def setCurrentPage(self, xPage: 'XDrawPage_b07a0b57') -> None:
         """
         changes the current page.
         """
+        ...
 
 __all__ = ['XDrawView']
 

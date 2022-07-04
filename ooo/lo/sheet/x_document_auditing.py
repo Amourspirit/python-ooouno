@@ -40,6 +40,7 @@ class XDocumentAuditing(XInterface_8f010a43):
         
         Dependencies are marked for all the cells that were marked before, but using current formulas.
         """
+        ...
 
 __all__ = ['XDocumentAuditing']
 

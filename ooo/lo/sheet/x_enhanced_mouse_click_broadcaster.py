@@ -49,11 +49,13 @@ class XEnhancedMouseClickBroadcaster(XInterface_8f010a43):
         
         The interfaces in the EnhancedMouseEvent can be XCell or XShape
         """
+        ...
     @abstractmethod
     def removeEnhancedMouseClickHandler(self, aListener: 'XEnhancedMouseClickHandler_653e106f') -> None:
         """
         removes a previously registered listener.
         """
+        ...
 
 __all__ = ['XEnhancedMouseClickBroadcaster']
 

@@ -41,6 +41,7 @@ class XNamingService(XInterface_8f010a43):
         Raises:
             Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def registerObject(self, Name: str, Object: 'XInterface_8f010a43') -> None:
         """
@@ -51,6 +52,7 @@ class XNamingService(XInterface_8f010a43):
         Raises:
             Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def revokeObject(self, Name: str) -> None:
         """
@@ -61,6 +63,7 @@ class XNamingService(XInterface_8f010a43):
         Raises:
             Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XNamingService']
 

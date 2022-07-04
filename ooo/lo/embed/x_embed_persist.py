@@ -47,6 +47,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def hasEntry(self) -> bool:
         """
@@ -55,6 +56,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
     @abstractmethod
     def saveCompleted(self, bUseNew: bool) -> None:
         """
@@ -64,6 +66,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
             com.sun.star.embed.WrongStateException: ``WrongStateException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setPersistentEntry(self, xStorage: 'XStorage_8e460a32', sEntName: str, nEntryConnectionMode: int, aMediaArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -81,6 +84,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def storeAsEntry(self, xStorage: 'XStorage_8e460a32', sEntName: str, aMediaArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -94,6 +98,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def storeToEntry(self, xStorage: 'XStorage_8e460a32', sEntName: str, aMediaArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]', aObjectArgs: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -105,6 +110,7 @@ class XEmbedPersist(XCommonEmbedPersist_16930e8d):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XEmbedPersist']
 

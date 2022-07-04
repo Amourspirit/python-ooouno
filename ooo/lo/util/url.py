@@ -28,8 +28,7 @@ class URL(object):
 
     represents the structure of a Uniform Resource Locator.
     
-    If the structure represents a valid URL or not depends on prior usage of the functions of XURLTransformer. Only after one of the functions returned TRUE this can be assumed.
-    It is not necessary to set all of the fields; either URL.Complete or (some of) the others are set. Additionally, most of the other fields, like URL.Host, URL.Port, URL.User, URL.Password, or URL.Mark, are optional.
+    If the structure represents a valid URL or not depends on prior usage of the functions of XURLTransformer. Only after one of the functions returned TRUE this can be assumed.It is not necessary to set all of the fields; either URL.Complete or (some of) the others are set. Additionally, most of the other fields, like URL.Host, URL.Port, URL.User, URL.Password, or URL.Mark, are optional.
 
     See Also:
         `API URL <https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1util_1_1URL.html>`_

@@ -38,54 +38,63 @@ class PagePrintSettings(ABC):
         """
         contains the right margin of the printer page.
         """
+        ...
 
     @abstractproperty
     def HoriMargin(self) -> int:
         """
         contains the margin between the rows of printed pages.
         """
+        ...
 
     @abstractproperty
     def IsLandscape(self) -> bool:
         """
         defines if the printer page is used in landscape format.
         """
+        ...
 
     @abstractproperty
     def LeftMargin(self) -> int:
         """
         contains the left margin of the printer page.
         """
+        ...
 
     @abstractproperty
     def PageColumns(self) -> int:
         """
         contains the number of pages per printed row of pages.
         """
+        ...
 
     @abstractproperty
     def PageRows(self) -> int:
         """
         contains the number of pages per printed column of pages.
         """
+        ...
 
     @abstractproperty
     def RightMargin(self) -> int:
         """
         contains the right margin of the printer page.
         """
+        ...
 
     @abstractproperty
     def TopMargin(self) -> int:
         """
         contains the top margin of the printer page.
         """
+        ...
 
     @abstractproperty
     def VertMargin(self) -> int:
         """
         contains the margin between the columns of printed pages.
         """
+        ...
 
 
 

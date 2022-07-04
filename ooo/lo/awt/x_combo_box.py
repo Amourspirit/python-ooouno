@@ -42,61 +42,73 @@ class XComboBox(XInterface_8f010a43):
         """
         registers a listener for action events.
         """
+        ...
     @abstractmethod
     def addItem(self, aItem: str, nPos: int) -> None:
         """
         adds an item at the specified position.
         """
+        ...
     @abstractmethod
     def addItemListener(self, l: 'XItemListener_af710b81') -> None:
         """
         registers a listener for item events.
         """
+        ...
     @abstractmethod
     def addItems(self, aItems: 'typing.Tuple[str, ...]', nPos: int) -> None:
         """
         adds multiple items at the specified position.
         """
+        ...
     @abstractmethod
     def getDropDownLineCount(self) -> int:
         """
         returns the number of visible lines in the drop down mode.
         """
+        ...
     @abstractmethod
     def getItem(self, nPos: int) -> str:
         """
         returns the item at the specified position.
         """
+        ...
     @abstractmethod
     def getItemCount(self) -> int:
         """
         returns the number of items in the combo box.
         """
+        ...
     @abstractmethod
     def getItems(self) -> 'typing.Tuple[str, ...]':
         """
         returns all items of the combo box.
         """
+        ...
     @abstractmethod
     def removeActionListener(self, l: 'XActionListener_c7560c50') -> None:
         """
         unregisters a listener for action events.
         """
+        ...
     @abstractmethod
     def removeItemListener(self, l: 'XItemListener_af710b81') -> None:
         """
         unregisters a listener for item events.
         """
+        ...
     @abstractmethod
     def removeItems(self, nPos: int, nCount: int) -> None:
         """
         removes a number of items at the specified position.
         """
+        ...
     @abstractmethod
     def setDropDownLineCount(self, nLines: int) -> None:
         """
         sets the number of visible lines for drop down mode.
         """
+        ...
 
 __all__ = ['XComboBox']
 

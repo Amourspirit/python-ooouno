@@ -59,6 +59,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addOrReplaceNodeFromTemplate(self, aName: str, aTemplate: 'TemplateIdentifier_2aaa14b5', aAttributes: int) -> None:
         """
@@ -76,6 +77,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addProperty(self, aName: str, aAttributes: int, aType: object) -> None:
         """
@@ -93,6 +95,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addPropertyWithValue(self, aName: str, aAttributes: int, aValue: object) -> None:
         """
@@ -112,6 +115,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def dropNode(self, aName: str) -> None:
         """
@@ -125,6 +129,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endLayer(self) -> None:
         """
@@ -138,6 +143,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endNode(self) -> None:
         """
@@ -151,6 +157,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endProperty(self) -> None:
         """
@@ -164,6 +171,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def overrideNode(self, aName: str, aAttributes: int, bClear: bool) -> None:
         """
@@ -181,6 +189,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def overrideProperty(self, aName: str, aAttributes: int, aType: object, bClear: bool) -> None:
         """
@@ -202,6 +211,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setPropertyValue(self, aValue: object) -> None:
         """
@@ -217,6 +227,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setPropertyValueForLocale(self, aValue: object, aLocale: str) -> None:
         """
@@ -230,6 +241,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startLayer(self) -> None:
         """
@@ -241,6 +253,7 @@ class XLayerHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XLayerHandler']
 

@@ -45,12 +45,14 @@ class DatabaseNextSet(DependentTextField_fed90ded):
         """
         determines whether the database selection is set to the next position or not.
         """
+        ...
 
     @abstractproperty
     def DataBaseName(self) -> str:
         """
         specifies the database name.
         """
+        ...
 
     @abstractproperty
     def DataBaseResource(self) -> str:
@@ -61,6 +63,7 @@ class DatabaseNextSet(DependentTextField_fed90ded):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def DataBaseURL(self) -> str:
@@ -71,18 +74,21 @@ class DatabaseNextSet(DependentTextField_fed90ded):
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def DataCommandType(self) -> int:
         """
         determines the interpretation of the property DataTableName.
         """
+        ...
 
     @abstractproperty
     def DataTableName(self) -> str:
         """
         contains the name of the database table, query or a statement depending on the DataCommandType property.
         """
+        ...
 
 
 

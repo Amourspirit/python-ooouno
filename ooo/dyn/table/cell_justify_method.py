@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.table import CellJustifyMethod as CellJustifyMethod
-    if hasattr(CellJustifyMethod, '_constants') and isinstance(CellJustifyMethod._constants, dict):
-        CellJustifyMethod._constants['__ooo_ns__'] = 'com.sun.star.table'
-        CellJustifyMethod._constants['__ooo_full_ns__'] = 'com.sun.star.table.CellJustifyMethod'
-        CellJustifyMethod._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CellJustifyMethodEnum
-        ls = [f for f in dir(CellJustifyMethod) if not callable(getattr(CellJustifyMethod, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CellJustifyMethod, name)
-        CellJustifyMethodEnum = IntEnum('CellJustifyMethodEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CellJustifyMethod(metaclass=UnoConstMeta, type_name="com.sun.star.table.CellJustifyMethod", name_space="com.sun.star.table"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.table.CellJustifyMethod``"""
+        pass
+
+    class CellJustifyMethodEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.table.CellJustifyMethod", name_space="com.sun.star.table"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.table.CellJustifyMethod`` as Enum values"""
+        pass
+
 else:
     from ...lo.table.cell_justify_method import CellJustifyMethod as CellJustifyMethod
 

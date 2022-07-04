@@ -44,6 +44,7 @@ class XIdlArray(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.ArrayIndexOutOfBoundsException: ``ArrayIndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getLen(self, array: object) -> int:
         """
@@ -52,6 +53,7 @@ class XIdlArray(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def realloc(self, array: object, length: int) -> None:
         """
@@ -60,6 +62,7 @@ class XIdlArray(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def set(self, aArray: object, nIndex: int, aNewValue: object) -> None:
         """
@@ -69,6 +72,7 @@ class XIdlArray(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.ArrayIndexOutOfBoundsException: ``ArrayIndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XIdlArray']
 

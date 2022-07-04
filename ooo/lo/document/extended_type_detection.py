@@ -26,8 +26,7 @@ class ExtendedTypeDetection(XExtendedFilterDetection_9ff211f5):
 
     describes a class of service which will be used for deep TypeDetection in a generic way
     
-    Due to the registered types, flat TypeDetection is already possible, i.e. the assignment of types (e.g. to a URL) only on the basis of configuration data. If, however, you imagine special cases (e.g. modifying the file extension of a Writer file from .sdw to .doc), it quickly becomes clear that you cannot always get a correct result with flat detection. To be certain to get correct results, you need deep detection, i.e. the file itself has to be examined. And that is exactly the function of DetectServices. They get all the information collected so far on a document and then decide which type to assign it to. In the new modular model, such a detector is meant as UNO service which registers itself in the office and is requested by the generic type detection if necessary.
-    Therefore you need two pieces of information:
+    Due to the registered types, flat TypeDetection is already possible, i.e. the assignment of types (e.g. to a URL) only on the basis of configuration data. If, however, you imagine special cases (e.g. modifying the file extension of a Writer file from .sdw to .doc), it quickly becomes clear that you cannot always get a correct result with flat detection. To be certain to get correct results, you need deep detection, i.e. the file itself has to be examined. And that is exactly the function of DetectServices. They get all the information collected so far on a document and then decide which type to assign it to. In the new modular model, such a detector is meant as UNO service which registers itself in the office and is requested by the generic type detection if necessary. Therefore you need two pieces of information:
     
     See service TypeDetection and his configuration for further information.
 

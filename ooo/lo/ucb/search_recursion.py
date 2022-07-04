@@ -34,6 +34,10 @@ class SearchRecursion(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.SearchRecursion'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.SearchRecursion'
+
     DEEP = 'DEEP'
     """
     Searches through the complete hierarchy of all sub-objects.

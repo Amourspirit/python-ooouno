@@ -53,6 +53,7 @@ class XDataSink(XInterface_8f010a43):
         
         If one of the derived services is supported by one element of the sequence, it should be available for all elements in the sequence.
         """
+        ...
 
 __all__ = ['XDataSink']
 

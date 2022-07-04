@@ -41,6 +41,7 @@ class OrderColumn(Column_7b1d098a):
         
         The default is TRUE.
         """
+        ...
 
 
 

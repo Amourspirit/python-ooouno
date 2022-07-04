@@ -51,6 +51,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addItemType(self, aItemType: 'TemplateIdentifier_2aaa14b5') -> None:
         """
@@ -62,6 +63,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addProperty(self, aName: str, aAttributes: int, aType: object) -> None:
         """
@@ -77,6 +79,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addPropertyWithDefault(self, aName: str, aAttributes: int, aDefaultValue: object) -> None:
         """
@@ -92,6 +95,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endComponent(self) -> None:
         """
@@ -105,6 +109,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endNode(self) -> None:
         """
@@ -118,6 +123,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endSchema(self) -> None:
         """
@@ -131,6 +137,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def endTemplate(self) -> None:
         """
@@ -144,6 +151,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def importComponent(self, aName: str) -> None:
         """
@@ -155,6 +163,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startComponent(self, aName: str) -> None:
         """
@@ -168,6 +177,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startGroup(self, aName: str, aAttributes: int) -> None:
         """
@@ -185,6 +195,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startGroupTemplate(self, aTemplate: 'TemplateIdentifier_2aaa14b5', aAttributes: int) -> None:
         """
@@ -202,6 +213,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startSchema(self) -> None:
         """
@@ -213,6 +225,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startSet(self, aName: str, aAttributes: int, aItemType: 'TemplateIdentifier_2aaa14b5') -> None:
         """
@@ -230,6 +243,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def startSetTemplate(self, aTemplate: 'TemplateIdentifier_2aaa14b5', aAttributes: int, aItemType: 'TemplateIdentifier_2aaa14b5') -> None:
         """
@@ -247,6 +261,7 @@ class XSchemaHandler(XInterface_8f010a43):
             MalformedDataException: ``MalformedDataException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XSchemaHandler']
 

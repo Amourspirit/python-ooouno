@@ -57,6 +57,7 @@ class GridControl(FormComponents_c8e60c76, FormControlModel_e2990d22, XGridColum
         """
         returns the border style of the control.
         """
+        ...
 
     @abstractproperty
     def BorderColor(self) -> int:
@@ -69,18 +70,21 @@ class GridControl(FormComponents_c8e60c76, FormControlModel_e2990d22, XGridColum
         
             OOo 2.0
         """
+        ...
 
     @abstractproperty
     def Enabled(self) -> bool:
         """
         determines whether the control is enabled or disabled.
         """
+        ...
 
     @abstractproperty
     def FontDescriptor(self) -> 'FontDescriptor_bc110c0a':
         """
         contains the font attributes of the text in the control.
         """
+        ...
 
     @abstractproperty
     def RowHeight(self) -> int:
@@ -89,18 +93,21 @@ class GridControl(FormComponents_c8e60c76, FormControlModel_e2990d22, XGridColum
         
         If the value is set to NULL, the height is determined automatically according to the current font used.
         """
+        ...
 
     @abstractproperty
     def Tabstop(self) -> bool:
         """
         determines whether the control can be reached by the tabulator key.
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color (RGB) of the control.
         """
+        ...
 
 
 

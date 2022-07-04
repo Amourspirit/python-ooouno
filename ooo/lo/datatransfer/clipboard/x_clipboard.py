@@ -41,6 +41,7 @@ class XClipboard(XInterface_8f010a43):
         """
         To get the current content of the clipboard.
         """
+        ...
     @abstractmethod
     def getName(self) -> str:
         """
@@ -48,6 +49,7 @@ class XClipboard(XInterface_8f010a43):
         
         If the returned string is empty the clipboard instance is the system clipboard.
         """
+        ...
     @abstractmethod
     def setContents(self, xTrans: 'XTransferable_2d800f38', xClipboardOwner: 'XClipboardOwner_8713d8') -> None:
         """
@@ -59,6 +61,7 @@ class XClipboard(XInterface_8f010a43):
         
         NULL is an acceptable value and means that the caller is not interested in lost ownership notifications.
         """
+        ...
 
 __all__ = ['XClipboard']
 

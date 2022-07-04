@@ -49,18 +49,21 @@ class TableSortDescriptor(SortDescriptor_ca680c8d):
         """
         specifies the descriptions of the individual sort fields.
         """
+        ...
 
     @abstractproperty
     def ContainsHeader(self) -> bool:
         """
         specifies whether the first row or column (depending on com.sun.star.util.SortDescriptor.SortColumns) is a header which should not be sorted.
         """
+        ...
 
     @abstractproperty
     def MaxFieldCount(self) -> int:
         """
         contains the maximum number of sort fields the descriptor can hold.
         """
+        ...
 
     @abstractproperty
     def Orientation(self) -> 'TableOrientation_ee780d84':
@@ -69,6 +72,7 @@ class TableSortDescriptor(SortDescriptor_ca680c8d):
         
         Some implementations may not support sorting columns.
         """
+        ...
 
 
 

@@ -43,6 +43,7 @@ class XMutableTreeDataModel(XTreeDataModel_f9fc0d85):
         """
         creates a new tree node with the given value and given settings.
         """
+        ...
     @abstractmethod
     def setRoot(self, RootNode: 'XMutableTreeNode_17d80e6a') -> None:
         """
@@ -51,6 +52,7 @@ class XMutableTreeDataModel(XTreeDataModel_f9fc0d85):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XMutableTreeDataModel']
 

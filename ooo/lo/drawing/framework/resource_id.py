@@ -43,6 +43,7 @@ class ResourceId(XResourceId_5be3103d):
         
         This constructor can be used to create resource ids for panes.
         """
+        ...
     @abstractmethod
     def createEmpty(self) -> None:
         """
@@ -50,6 +51,7 @@ class ResourceId(XResourceId_5be3103d):
         
         It does not specify a specific resource but describes the absence of one.
         """
+        ...
     @abstractmethod
     def createWithAnchor(self, sResourceURL: str, xAnchor: 'XResourceId_5be3103d') -> None:
         """
@@ -57,6 +59,7 @@ class ResourceId(XResourceId_5be3103d):
         
         This is the most general of the constructor variants.
         """
+        ...
     @abstractmethod
     def createWithAnchorURL(self, sResourceURL: str, sAnchorURL: str) -> None:
         """
@@ -64,6 +67,7 @@ class ResourceId(XResourceId_5be3103d):
         
         This constructor can be used to create resources ids for views where the anchor is a pane.
         """
+        ...
 
 
 __all__ = ['ResourceId']

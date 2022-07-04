@@ -34,6 +34,10 @@ class DDELinkMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.DDELinkMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.DDELinkMode'
+
     DEFAULT = 'DEFAULT'
     """
     numbers are converted into the default format.

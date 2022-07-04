@@ -41,6 +41,7 @@ class XRemoteContentProviderDoneListener(XInterface_8f010a43):
         """
         A notification that all remote content providers added to the given XRemoteContentProviderAcceptor should be removed, because the acceptor no longer needs them.
         """
+        ...
 
 __all__ = ['XRemoteContentProviderDoneListener']
 

@@ -43,6 +43,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readByte(self) -> int:
         """
@@ -51,6 +52,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readChar(self) -> str:
         """
@@ -59,6 +61,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readDouble(self) -> float:
         """
@@ -67,6 +70,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readFloat(self) -> float:
         """
@@ -75,6 +79,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readHyper(self) -> int:
         """
@@ -83,6 +88,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readLong(self) -> int:
         """
@@ -91,6 +97,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readShort(self) -> int:
         """
@@ -99,6 +106,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readUTF(self) -> str:
         """
@@ -107,6 +115,7 @@ class XDataInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XDataInputStream']
 

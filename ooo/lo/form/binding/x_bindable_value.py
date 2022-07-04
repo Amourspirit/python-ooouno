@@ -41,6 +41,7 @@ class XBindableValue(XInterface_8f010a43):
         """
         retrieves the external instance which currently controls the value of the component
         """
+        ...
     @abstractmethod
     def setValueBinding(self, aBinding: 'XValueBinding_271b0ed5') -> None:
         """
@@ -51,6 +52,7 @@ class XBindableValue(XInterface_8f010a43):
         Raises:
             IncompatibleTypesException: ``IncompatibleTypesException``
         """
+        ...
 
 __all__ = ['XBindableValue']
 

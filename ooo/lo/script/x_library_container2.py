@@ -46,6 +46,7 @@ class XLibraryContainer2(XLibraryContainer_daa0e6d):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def isLibraryLink(self, Name: str) -> bool:
         """
@@ -54,6 +55,7 @@ class XLibraryContainer2(XLibraryContainer_daa0e6d):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def isLibraryReadOnly(self, Name: str) -> bool:
         """
@@ -64,6 +66,7 @@ class XLibraryContainer2(XLibraryContainer_daa0e6d):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def renameLibrary(self, Name: str, NewName: str) -> None:
         """
@@ -75,6 +78,7 @@ class XLibraryContainer2(XLibraryContainer_daa0e6d):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def setLibraryReadOnly(self, Name: str, bReadOnly: bool) -> None:
         """
@@ -83,6 +87,7 @@ class XLibraryContainer2(XLibraryContainer_daa0e6d):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XLibraryContainer2']
 

@@ -46,6 +46,7 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def evalNS(self, contextNode: 'XNode_83fb09a5', expr: str, namespaceNode: 'XNode_83fb09a5') -> 'XXPathObject_ee270d40':
         """
@@ -54,18 +55,22 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def registerExtension(self, serviceName: str) -> None:
         """
         """
+        ...
     @abstractmethod
     def registerExtensionInstance(self, aExtension: 'XXPathExtension_194c0ea6') -> None:
         """
         """
+        ...
     @abstractmethod
     def registerNS(self, prefix: str, url: str) -> None:
         """
         """
+        ...
     @abstractmethod
     def selectNodeList(self, contextNode: 'XNode_83fb09a5', expr: str) -> 'XNodeList_ae540b41':
         """
@@ -74,6 +79,7 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def selectNodeListNS(self, contextNode: 'XNode_83fb09a5', expr: str, namespaceNode: 'XNode_83fb09a5') -> 'XNodeList_ae540b41':
         """
@@ -82,6 +88,7 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def selectSingleNode(self, contextNode: 'XNode_83fb09a5', expr: str) -> 'XNode_83fb09a5':
         """
@@ -90,6 +97,7 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def selectSingleNodeNS(self, contextNode: 'XNode_83fb09a5', expr: str, namespaceNode: 'XNode_83fb09a5') -> 'XNode_83fb09a5':
         """
@@ -98,10 +106,12 @@ class XXPathAPI(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.xpath.XPathException: ``XPathException``
         """
+        ...
     @abstractmethod
     def unregisterNS(self, prefix: str, url: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XXPathAPI']
 

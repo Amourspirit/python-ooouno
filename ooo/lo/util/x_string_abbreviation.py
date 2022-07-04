@@ -45,6 +45,7 @@ class XStringAbbreviation(XInterface_8f010a43):
         
         The width of a string is an abstract concept here, measured via an XStringWidth interface. Examples are the number of characters in the string (XStringWidth will measure the string's length), or the width in pixel when displayed with a specific font (which XStringWidth would encapsulate).
         """
+        ...
 
 __all__ = ['XStringAbbreviation']
 

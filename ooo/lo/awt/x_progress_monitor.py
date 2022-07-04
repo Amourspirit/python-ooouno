@@ -42,16 +42,19 @@ class XProgressMonitor(XProgressBar_a4cb0b16):
         """
         adds a new text line to the control.
         """
+        ...
     @abstractmethod
     def removeText(self, Topic: str, beforeProgress: bool) -> None:
         """
         removes a text line from the control.
         """
+        ...
     @abstractmethod
     def updateText(self, Topic: str, Text: str, beforeProgress: bool) -> None:
         """
         updates an existing text line at the control.
         """
+        ...
 
 __all__ = ['XProgressMonitor']
 

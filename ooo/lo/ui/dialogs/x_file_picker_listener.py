@@ -43,6 +43,7 @@ class XFilePickerListener(XEventListener_c7230c4a):
         """
         A client receives this event if the state of a control within the FilePicker service dialog changes.
         """
+        ...
     @abstractmethod
     def dialogSizeChanged(self) -> None:
         """
@@ -50,21 +51,25 @@ class XFilePickerListener(XEventListener_c7230c4a):
         
         If the FilePicker dialog contains a preview the client may ask for the new dimension of the preview area.
         """
+        ...
     @abstractmethod
     def directoryChanged(self, aEvent: 'FilePickerEvent_25670ed7') -> None:
         """
         A client receives this event if the directory selection within the FilePicker dialog changes.
         """
+        ...
     @abstractmethod
     def fileSelectionChanged(self, aEvent: 'FilePickerEvent_25670ed7') -> None:
         """
         A client receives this event if the file selection within the FilePicker service dialog changes.
         """
+        ...
     @abstractmethod
     def helpRequested(self, aEvent: 'FilePickerEvent_25670ed7') -> str:
         """
         A client receives this event if the F1 key or the help button was pressed.
         """
+        ...
 
 __all__ = ['XFilePickerListener']
 

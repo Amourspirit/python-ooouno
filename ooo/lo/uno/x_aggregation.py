@@ -48,11 +48,13 @@ class XAggregation(XInterface_8f010a43):
         
         This method is only called from within an implementation of XInterface.queryInterface() or XAggregation.queryAggregation(). This method is to be called by the delegator if it does not implement the interface itself. An object which got aggregated cannot depend on getting its own interface when it calls the method XInterface.queryInterface().
         """
+        ...
     @abstractmethod
     def setDelegator(self, pDelegator: 'XInterface_8f010a43') -> None:
         """
         sets the object to which all calls to the method XInterface.queryInterface() have to be forwarded.
         """
+        ...
 
 __all__ = ['XAggregation']
 

@@ -34,6 +34,10 @@ class FieldAccessMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.reflection.FieldAccessMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.reflection.FieldAccessMode'
+
     CONST = 'CONST'
     """
     Deprecated.

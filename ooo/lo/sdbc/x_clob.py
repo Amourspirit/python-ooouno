@@ -50,6 +50,7 @@ class XClob(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getSubString(self, pos: int, length: int) -> str:
         """
@@ -60,6 +61,7 @@ class XClob(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def length(self) -> int:
         """
@@ -68,6 +70,7 @@ class XClob(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def position(self, searchstr: str, start: int) -> int:
         """
@@ -78,6 +81,7 @@ class XClob(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def positionOfClob(self, pattern: 'XClob', start: int) -> int:
         """
@@ -88,6 +92,7 @@ class XClob(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XClob']
 

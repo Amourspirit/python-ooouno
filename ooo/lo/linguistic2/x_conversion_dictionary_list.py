@@ -56,6 +56,7 @@ class XConversionDictionaryList(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def getDictionaryContainer(self) -> 'XNameContainer_cb90e47':
         """
@@ -65,6 +66,7 @@ class XConversionDictionaryList(XInterface_8f010a43):
         
         The com.sun.star.container.XNameReplace.replaceByName function is implemented empty since renaming of dictionaries is not allowed.
         """
+        ...
     @abstractmethod
     def queryConversions(self, aText: str, nStartPos: int, nLength: int, aLocale: 'Locale_70d308fa', nConversionDictionaryType: int, eDirection: 'ConversionDirection_7dfe113c', nTextConversionOptions: int) -> 'typing.Tuple[str, ...]':
         """
@@ -78,6 +80,7 @@ class XConversionDictionaryList(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def queryMaxCharCount(self, aLocale: 'Locale_70d308fa', nConversionDictionaryType: int, eDirection: 'ConversionDirection_7dfe113c') -> int:
         """
@@ -87,6 +90,7 @@ class XConversionDictionaryList(XInterface_8f010a43):
         
         The parameter eDirection specifies if only the left text or the right text from entries should be considered.
         """
+        ...
 
 __all__ = ['XConversionDictionaryList']
 

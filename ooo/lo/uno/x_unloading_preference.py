@@ -41,6 +41,7 @@ class XUnloadingPreference(XInterface_8f010a43):
     def releaseOnNotification(self) -> bool:
         """
         """
+        ...
 
 __all__ = ['XUnloadingPreference']
 

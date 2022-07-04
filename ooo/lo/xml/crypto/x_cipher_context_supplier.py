@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.xml.crypto
 import typing
+import uno
 from abc import abstractmethod
 from ...uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -42,13 +43,14 @@ class XCipherContextSupplier(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.xml.crypto.XCipherContextSupplier'
 
     @abstractmethod
-    def getCipherContext(self, nCipherID: int, aKey: 'typing.Tuple[int, ...]', aInitializationVector: 'typing.Tuple[int, ...]', bEncryption: bool, aParams: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> 'XCipherContext_1b110ec0':
+    def getCipherContext(self, nCipherID: int, aKey: uno.ByteSequence, aInitializationVector: uno.ByteSequence, bEncryption: bool, aParams: 'typing.Tuple[NamedValue_a37a0af3, ...]') -> 'XCipherContext_1b110ec0':
         """
         returns an object that allows to encrypt/decrypt data.
 
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XCipherContextSupplier']
 

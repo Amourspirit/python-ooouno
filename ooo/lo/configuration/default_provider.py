@@ -54,6 +54,7 @@ class DefaultProvider(ConfigurationProvider_cc8d1323, XLocalizable_aee00b64, XFl
         
             OOo 2.0
         """
+        ...
 
 
 

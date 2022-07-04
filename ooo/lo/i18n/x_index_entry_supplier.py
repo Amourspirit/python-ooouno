@@ -26,8 +26,7 @@ if typing.TYPE_CHECKING:
 
 class XIndexEntrySupplier(XInterface_8f010a43):
     """
-    supplies information on index entries to generate a \"table of
-    alphabetical index\" for a given locale.
+    supplies information on index entries to generate a \"table ofalphabetical index\" for a given locale.
 
     See Also:
         `API XIndexEntrySupplier <https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1i18n_1_1XIndexEntrySupplier.html>`_
@@ -44,15 +43,15 @@ class XIndexEntrySupplier(XInterface_8f010a43):
         
         For example, in English locale it returns \"K\" for \"keyboard\"
         """
+        ...
     @abstractmethod
     def getIndexFollowPageWord(self, bMorePages: bool, aLocale: 'Locale_70d308fa') -> str:
         """
         returns the page number word of an index entry, where one page or more pages are combined to one page number entry, for a given com.sun.star.lang.Locale.
         
-        For example, in English locale it returns
-        \"p.\" for bMorePages == FALSE
-        \"pp.\" for bMorePages == TRUE
+        For example, in English locale it returns \"p.\" for bMorePages == FALSE \"pp.\" for bMorePages == TRUE
         """
+        ...
 
 __all__ = ['XIndexEntrySupplier']
 

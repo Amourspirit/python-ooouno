@@ -61,6 +61,7 @@ class XContainerWindowProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XContainerWindowProvider']
 

@@ -43,6 +43,7 @@ class Configuration(XConfiguration_8f0511a0):
         
         This should not be necessary very often. Changes to an existing configuration are more likely.
         """
+        ...
 
 
 __all__ = ['Configuration']

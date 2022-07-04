@@ -44,12 +44,14 @@ class ChartTwoAxisXSupplier(ChartAxisXSupplier_a950e4d, XTwoAxisXSupplier_fcdb0d
         """
         determines if the secondary x-axis is shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasSecondaryXAxisDescription(self) -> bool:
         """
         determines for the secondary x-axis if the labels at the tick marks are shown or hidden.
         """
+        ...
 
     @abstractproperty
     def HasSecondaryXAxisTitle(self) -> bool:
@@ -60,6 +62,7 @@ class ChartTwoAxisXSupplier(ChartAxisXSupplier_a950e4d, XTwoAxisXSupplier_fcdb0d
         
             OOo 3.0
         """
+        ...
 
 
 

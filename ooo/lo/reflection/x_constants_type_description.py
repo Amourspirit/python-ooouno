@@ -47,6 +47,7 @@ class XConstantsTypeDescription(XTypeDescription_3c210fb1):
         """
         Returns the constants defined for this constants group.
         """
+        ...
 
 __all__ = ['XConstantsTypeDescription']
 

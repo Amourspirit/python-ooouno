@@ -46,6 +46,7 @@ class XAlterView(ABC):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XAlterView']
 

@@ -43,11 +43,13 @@ class XCellSeries(XInterface_8f010a43):
         """
         fills all cells in the range in a way that is specified by the first cell(s) in the range.
         """
+        ...
     @abstractmethod
     def fillSeries(self, nFillDirection: 'FillDirection_c7f00c49', nFillMode: 'FillMode_8ee80a2d', nFillDateMode: 'FillDateMode_bb000bab', fStep: float, fEndValue: float) -> None:
         """
         fills all cells in the range based on the specified settings.
         """
+        ...
 
 __all__ = ['XCellSeries']
 

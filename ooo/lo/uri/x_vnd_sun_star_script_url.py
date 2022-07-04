@@ -25,14 +25,7 @@ class XVndSunStarScriptUrl(XInterface_8f010a43):
     """
     represents absolute “vnd.sun.star.script” URLs.
     
-    These URLs are of the form
-    vnd-sun-star-script-url = \"VND.SUN.STAR.SCRIPT:\" name [\"?\" parameter *(\"&\" parameter)]
-    name = 1*schar
-    parameter = key \"=\" value
-    key = 1*schar
-    value = *schar
-    schar = unreserved / escaped / \"$\" / \"+\" / \",\" / \":\" / \";\" / \"@\" / \"[\" / \"]\"
-    See RFC 3986 RFC 2234 for details.
+    These URLs are of the form   vnd-sun-star-script-url = \"VND.SUN.STAR.SCRIPT:\" name [\"?\" parameter *(\"&\" parameter)]   name = 1*schar   parameter = key \"=\" value   key = 1*schar   value = *schar   schar = unreserved / escaped / \"$\" / \"+\" / \",\" / \":\" / \";\" / \"@\" / \"[\" / \"]\"See RFC 3986 RFC 2234 for details.
     
     The names, keys, and values are arbitrary Unicode strings (non-empty Unicode strings in the case of names and keys), encoded as UTF-8 byte sequences. It is an error if any of them does not represent a valid UTF-8 byte sequence. Keys are compared for equality character-by-character, without considering case folding or normalization. There may be multiple parameters with equal keys.
     
@@ -53,16 +46,19 @@ class XVndSunStarScriptUrl(XInterface_8f010a43):
         """
         returns the name part of this URL.
         """
+        ...
     @abstractmethod
     def getParameter(self, key: str) -> str:
         """
         returns the value of a parameter with a given key.
         """
+        ...
     @abstractmethod
     def hasParameter(self, key: str) -> bool:
         """
         returns whether this URL has a parameter with a given key.
         """
+        ...
     @abstractmethod
     def setName(self, name: str) -> None:
         """
@@ -75,6 +71,7 @@ class XVndSunStarScriptUrl(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setParameter(self, key: str, value: str) -> None:
         """
@@ -87,6 +84,7 @@ class XVndSunStarScriptUrl(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XVndSunStarScriptUrl']
 

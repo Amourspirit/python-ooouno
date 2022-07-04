@@ -30,10 +30,7 @@ class JavaInitializationException(DeploymentException_ffd30e2a):
     
     It is presumed that Java is a vital part of an office installation. That is, if Java does work for some reason, it is not guaranteed that the office is functional. A JavaInitializationException is therefore caused by some misconfiguration of Java which is closer described by other exceptions in this namespace which inherit JavaInitializationException. These are:
     
-    com.sun.star.java.JavaDisabledException
-    com.sun.star.java.JavaNotConfiguredException
-    com.sun.star.java.MissingJavaRuntimeException
-    com.sun.star.java.JavaVMCreationFailureException
+    com.sun.star.java.JavaDisabledException com.sun.star.java.JavaNotConfiguredException com.sun.star.java.MissingJavaRuntimeException com.sun.star.java.JavaVMCreationFailureException
     
     **since**
     

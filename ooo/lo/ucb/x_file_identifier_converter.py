@@ -40,16 +40,19 @@ class XFileIdentifierConverter(XInterface_8f010a43):
         
         The returned information can be used to chose the \"best\" among a number of file content providers implementing this interface.
         """
+        ...
     @abstractmethod
     def getFileURLFromSystemPath(self, BaseURL: str, SystemPath: str) -> str:
         """
         converts a file path in system dependent notation to a (file) URL.
         """
+        ...
     @abstractmethod
     def getSystemPathFromFileURL(self, URL: str) -> str:
         """
         converts a (file) URL to a file path in system dependent notation.
         """
+        ...
 
 __all__ = ['XFileIdentifierConverter']
 

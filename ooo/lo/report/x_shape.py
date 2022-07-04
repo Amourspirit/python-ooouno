@@ -45,24 +45,28 @@ class XShape(XReportControlModel_2d800f4a):
         
         If the CustomShapeEngine property is \"com.sun.star.drawing.EnhancedCustomShapeEngine\", then this property is containing properties as they are specified in the service com.sun.star.drawing.EnhancedCustomShapeGeometry
         """
+        ...
 
     @abstractproperty
     def CustomShapeData(self) -> str:
         """
         This property can be used to store data that the CustomShapeEngine may use for rendering.
         """
+        ...
 
     @abstractproperty
     def CustomShapeEngine(self) -> str:
         """
         This property contains the CustomShapeEngine service name that has to be used for rendering.
         """
+        ...
 
     @abstractproperty
     def Opaque(self) -> bool:
         """
         determines if the object is opaque or transparent for text.
         """
+        ...
 
     @abstractproperty
     def Transformation(self) -> 'HomogenMatrix3_f0fb0d69':
@@ -71,12 +75,14 @@ class XShape(XReportControlModel_2d800f4a):
         
         The transformation is a 3x3 homogeneous matrix and can contain translation, rotation, shearing and scaling.
         """
+        ...
 
     @abstractproperty
     def ZOrder(self) -> int:
         """
         is used to query or change the ZOrder of this Shape.
         """
+        ...
 
 
 __all__ = ['XShape']

@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import DataResultFlags as DataResultFlags
-    if hasattr(DataResultFlags, '_constants') and isinstance(DataResultFlags._constants, dict):
-        DataResultFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        DataResultFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.DataResultFlags'
-        DataResultFlags._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global DataResultFlagsEnum
-        ls = [f for f in dir(DataResultFlags) if not callable(getattr(DataResultFlags, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(DataResultFlags, name)
-        DataResultFlagsEnum = IntFlag('DataResultFlagsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class DataResultFlags(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataResultFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.DataResultFlags``"""
+        pass
+
+    class DataResultFlagsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.DataResultFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.DataResultFlags`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.data_result_flags import DataResultFlags as DataResultFlags
 

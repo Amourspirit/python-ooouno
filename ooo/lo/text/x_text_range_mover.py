@@ -45,6 +45,7 @@ class XTextRangeMover(XInterface_8f010a43):
         """
         moves the contents to which xRange refers forward or backward.
         """
+        ...
 
 __all__ = ['XTextRangeMover']
 

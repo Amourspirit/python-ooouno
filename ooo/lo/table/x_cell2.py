@@ -40,6 +40,7 @@ class XCell2(XCell_70d408e8):
         
         When assigned, the formula cell's result will be set to this value and will not be calculated - unless a HardRecalc is executed.
         """
+        ...
     @abstractmethod
     def setFormulaString(self, aFormula: str) -> None:
         """
@@ -47,6 +48,7 @@ class XCell2(XCell_70d408e8):
         
         When assigned, the formula is set into the string. But is not compiled, tokenized or calculated. Its useful when loading a document and setFormulaResult() is used. Otherwise it is compiled on trying to fetch a result value.
         """
+        ...
 
 __all__ = ['XCell2']
 

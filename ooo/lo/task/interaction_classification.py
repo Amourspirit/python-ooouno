@@ -34,6 +34,10 @@ class InteractionClassification(Enum):
     __ooo_full_ns__: str = 'com.sun.star.task.InteractionClassification'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.task.InteractionClassification'
+
     ERROR = 'ERROR'
     """
     An error.

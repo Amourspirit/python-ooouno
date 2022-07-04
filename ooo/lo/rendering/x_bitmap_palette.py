@@ -46,6 +46,7 @@ class XBitmapPalette(XInterface_8f010a43):
         """
         Query associated color space.
         """
+        ...
     @abstractmethod
     def getIndex(self, entry: 'typing.Tuple[ColorComponent_e4c0e78, ...]', nIndex: int) -> bool:
         """
@@ -56,11 +57,13 @@ class XBitmapPalette(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getNumberOfEntries(self) -> int:
         """
         Request the number of palette entries available.
         """
+        ...
     @abstractmethod
     def setIndex(self, color: 'typing.Tuple[ColorComponent_e4c0e78, ...]', transparency: bool, nIndex: int) -> bool:
         """
@@ -70,6 +73,7 @@ class XBitmapPalette(XInterface_8f010a43):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XBitmapPalette']
 

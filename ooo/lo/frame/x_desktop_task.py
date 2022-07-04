@@ -45,11 +45,13 @@ class XDesktopTask(XComponent_98dc0ab5):
         """
         use com.sun.star.util.XCloseable or com.sun.star.lang.XComponent.dispose() instead.
         """
+        ...
     @abstractmethod
     def initialize(self, TaskWindow: 'XWindow_713b0924') -> None:
         """
         use com.sun.star.lang.XInitialization instead.
         """
+        ...
 
 __all__ = ['XDesktopTask']
 

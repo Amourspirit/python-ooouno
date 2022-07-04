@@ -42,16 +42,19 @@ class XRowSetApproveListener(XEventListener_c7230c4a):
         """
         is called before a row set's cursor is moved.
         """
+        ...
     @abstractmethod
     def approveRowChange(self, event: 'RowChangeEvent_ba0c0bc1') -> bool:
         """
         is called before a row is inserted, updated, or deleted.
         """
+        ...
     @abstractmethod
     def approveRowSetChange(self, event: 'EventObject_a3d70b03') -> bool:
         """
         is called before a row set is changed, or in other words before a row set is reexecuted.
         """
+        ...
 
 __all__ = ['XRowSetApproveListener']
 

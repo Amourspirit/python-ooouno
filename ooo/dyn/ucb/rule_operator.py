@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import RuleOperator as RuleOperator
-    if hasattr(RuleOperator, '_constants') and isinstance(RuleOperator._constants, dict):
-        RuleOperator._constants['__ooo_ns__'] = 'com.sun.star.ucb'
-        RuleOperator._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.RuleOperator'
-        RuleOperator._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global RuleOperatorEnum
-        ls = [f for f in dir(RuleOperator) if not callable(getattr(RuleOperator, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(RuleOperator, name)
-        RuleOperatorEnum = IntEnum('RuleOperatorEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class RuleOperator(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.RuleOperator", name_space="com.sun.star.ucb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.RuleOperator``"""
+        pass
+
+    class RuleOperatorEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ucb.RuleOperator", name_space="com.sun.star.ucb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ucb.RuleOperator`` as Enum values"""
+        pass
+
 else:
     from ...lo.ucb.rule_operator import RuleOperator as RuleOperator
 

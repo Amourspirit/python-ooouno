@@ -41,42 +41,52 @@ class XEvent(XInterface_8f010a43):
     def getBubbles(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def getCancelable(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def getCurrentTarget(self) -> 'XEventTarget_36420f4b':
         """
         """
+        ...
     @abstractmethod
     def getEventPhase(self) -> 'PhaseType_a120e1d':
         """
         """
+        ...
     @abstractmethod
     def getTarget(self) -> 'XEventTarget_36420f4b':
         """
         """
+        ...
     @abstractmethod
     def getTimeStamp(self) -> 'Time_604e0855':
         """
         """
+        ...
     @abstractmethod
     def getType(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def initEvent(self, eventTypeArg: str, canBubbleArg: bool, cancelableArg: bool) -> None:
         """
         """
+        ...
     @abstractmethod
     def preventDefault(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def stopPropagation(self) -> None:
         """
         """
+        ...
 
 __all__ = ['XEvent']
 

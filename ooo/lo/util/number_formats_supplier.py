@@ -46,11 +46,13 @@ class NumberFormatsSupplier(XNumberFormatsSupplier_3afb0fb7):
         """
         Create using default locale.
         """
+        ...
     @abstractmethod
     def createWithLocale(self, Locale: 'Locale_70d308fa') -> None:
         """
         Create using specific locale.
         """
+        ...
 
 
 __all__ = ['NumberFormatsSupplier']

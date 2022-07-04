@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import FileSystemNotation as FileSystemNotation
-    if hasattr(FileSystemNotation, '_constants') and isinstance(FileSystemNotation._constants, dict):
-        FileSystemNotation._constants['__ooo_ns__'] = 'com.sun.star.ucb'
-        FileSystemNotation._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.FileSystemNotation'
-        FileSystemNotation._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FileSystemNotationEnum
-        ls = [f for f in dir(FileSystemNotation) if not callable(getattr(FileSystemNotation, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FileSystemNotation, name)
-        FileSystemNotationEnum = IntEnum('FileSystemNotationEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FileSystemNotation(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.FileSystemNotation", name_space="com.sun.star.ucb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.FileSystemNotation``"""
+        pass
+
+    class FileSystemNotationEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ucb.FileSystemNotation", name_space="com.sun.star.ucb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ucb.FileSystemNotation`` as Enum values"""
+        pass
+
 else:
     from ...lo.ucb.file_system_notation import FileSystemNotation as FileSystemNotation
 

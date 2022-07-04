@@ -46,320 +46,375 @@ class XStyleSettings(ABC):
         """
         registers a listener to be notified when the style settings change
         """
+        ...
     @abstractmethod
     def removeStyleChangeListener(self, Listener: 'XStyleChangeListener_ad50e49') -> None:
         """
         registers a listener to be notified when the style settings change
         """
+        ...
     @abstractproperty
     def ActiveBorderColor(self) -> 'Color_68e908c5':
         """
         specifies the color of the border of active windows
         """
+        ...
 
     @abstractproperty
     def ActiveColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def ActiveTabColor(self) -> 'Color_68e908c5':
         """
         specifies the color of the active tab of a tab control
         """
+        ...
 
     @abstractproperty
     def ActiveTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for active UI components
         """
+        ...
 
     @abstractproperty
     def ApplicationFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the application font
         """
+        ...
 
     @abstractproperty
     def ButtonRolloverTextColor(self) -> 'Color_68e908c5':
         """
         specifies the color to use for text on buttons which are hovered with the mouse
         """
+        ...
 
     @abstractproperty
     def ButtonTextColor(self) -> 'Color_68e908c5':
         """
         specifies the color to use for text on buttons
         """
+        ...
 
     @abstractproperty
     def CheckedColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def DarkShadowColor(self) -> 'Color_68e908c5':
         """
         specifies the dark portion of the shadow to use for UI elements
         """
+        ...
 
     @abstractproperty
     def DeactiveBorderColor(self) -> 'Color_68e908c5':
         """
         specifies the color of the border of inactive windows
         """
+        ...
 
     @abstractproperty
     def DeactiveColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def DeactiveTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for inactive UI components
         """
+        ...
 
     @abstractproperty
     def DialogColor(self) -> 'Color_68e908c5':
         """
         specifies the background color of dialogs
         """
+        ...
 
     @abstractproperty
     def DialogTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color of dialogs
         """
+        ...
 
     @abstractproperty
     def DisableColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for disabled UI elements
         """
+        ...
 
     @abstractproperty
     def FaceColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def FaceGradientColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def FieldColor(self) -> 'Color_68e908c5':
         """
         specifies the background color for dialog input controls
         """
+        ...
 
     @abstractproperty
     def FieldFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font for dialog input controls
         """
+        ...
 
     @abstractproperty
     def FieldRolloverTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for dialog input controls which are hovered with the mouse
         """
+        ...
 
     @abstractproperty
     def FieldTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for dialog input controls
         """
+        ...
 
     @abstractproperty
     def FloatTitleFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font to use the title of floating windows
         """
+        ...
 
     @abstractproperty
     def GroupFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font for dialog elements used for grouping other elements
         """
+        ...
 
     @abstractproperty
     def GroupTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for dialog elements used for grouping other elements
         """
+        ...
 
     @abstractproperty
     def HelpColor(self) -> 'Color_68e908c5':
         """
         specifies the background color for dialog elements displaying help content
         """
+        ...
 
     @abstractproperty
     def HelpFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the help font
         """
+        ...
 
     @abstractproperty
     def HelpTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for dialog elements displaying help content
         """
+        ...
 
     @abstractproperty
     def HighContrastMode(self) -> bool:
         """
         controls whether the an UI component should use a high-contrast mode
         """
+        ...
 
     @abstractproperty
     def HighlightColor(self) -> 'Color_68e908c5':
         """
         specifies the background color for UI elements which are highlighted
         """
+        ...
 
     @abstractproperty
     def HighlightTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color for UI elements which are highlighted
         """
+        ...
 
     @abstractproperty
     def InactiveTabColor(self) -> 'Color_68e908c5':
         """
         specifies the color of inactive tabs of a tab control
         """
+        ...
 
     @abstractproperty
     def LabelFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font for label controls
         """
+        ...
 
     @abstractproperty
     def LabelTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color of label elements in dialogs
         """
+        ...
 
     @abstractproperty
     def LightColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def MenuBarColor(self) -> 'Color_68e908c5':
         """
         specifies the background color of menu bars
         """
+        ...
 
     @abstractproperty
     def MenuBarTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color of menu bars
         """
+        ...
 
     @abstractproperty
     def MenuBorderColor(self) -> 'Color_68e908c5':
         """
         specifies the border color of menus
         """
+        ...
 
     @abstractproperty
     def MenuColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def MenuFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font to use for menus
         """
+        ...
 
     @abstractproperty
     def MenuHighlightColor(self) -> 'Color_68e908c5':
         """
         specifies the background color of highlighted menu items
         """
+        ...
 
     @abstractproperty
     def MenuHighlightTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color of highlighted menu items
         """
+        ...
 
     @abstractproperty
     def MenuTextColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def MonoColor(self) -> 'Color_68e908c5':
         """
         specifies the color to use for monochrome control elements such as flat borders of controls
         """
+        ...
 
     @abstractproperty
     def PushButtonFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font of push buttons
         """
+        ...
 
     @abstractproperty
     def RadioCheckFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font of radio buttons and check boxes
         """
+        ...
 
     @abstractproperty
     def RadioCheckTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color of radio buttons and check boxes
         """
+        ...
 
     @abstractproperty
     def SeparatorColor(self) -> 'Color_68e908c5':
         """
         specifies the color of separators between UI elements
         """
+        ...
 
     @abstractproperty
     def ShadowColor(self) -> 'Color_68e908c5':
         """
         specifies the color to use for UI elements
         """
+        ...
 
     @abstractproperty
     def TitleFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font to use for window titles
         """
+        ...
 
     @abstractproperty
     def ToolFont(self) -> 'FontDescriptor_bc110c0a':
         """
         specifies the font to use for tool elements
         """
+        ...
 
     @abstractproperty
     def WindowColor(self) -> 'Color_68e908c5':
         """
         specifies the background color to use for non-dialog windows
         """
+        ...
 
     @abstractproperty
     def WindowTextColor(self) -> 'Color_68e908c5':
         """
         specifies the text color to use for non-dialog windows
         """
+        ...
 
     @abstractproperty
     def WorkspaceColor(self) -> 'Color_68e908c5':
         """
         specifies the background color to use for document workspaces
         """
+        ...
 
 
 __all__ = ['XStyleSettings']

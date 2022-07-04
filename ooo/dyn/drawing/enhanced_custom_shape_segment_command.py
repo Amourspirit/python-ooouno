@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.drawing import EnhancedCustomShapeSegmentCommand as EnhancedCustomShapeSegmentCommand
-    if hasattr(EnhancedCustomShapeSegmentCommand, '_constants') and isinstance(EnhancedCustomShapeSegmentCommand._constants, dict):
-        EnhancedCustomShapeSegmentCommand._constants['__ooo_ns__'] = 'com.sun.star.drawing'
-        EnhancedCustomShapeSegmentCommand._constants['__ooo_full_ns__'] = 'com.sun.star.drawing.EnhancedCustomShapeSegmentCommand'
-        EnhancedCustomShapeSegmentCommand._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global EnhancedCustomShapeSegmentCommandEnum
-        ls = [f for f in dir(EnhancedCustomShapeSegmentCommand) if not callable(getattr(EnhancedCustomShapeSegmentCommand, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(EnhancedCustomShapeSegmentCommand, name)
-        EnhancedCustomShapeSegmentCommandEnum = IntEnum('EnhancedCustomShapeSegmentCommandEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class EnhancedCustomShapeSegmentCommand(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeSegmentCommand", name_space="com.sun.star.drawing"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeSegmentCommand``"""
+        pass
+
+    class EnhancedCustomShapeSegmentCommandEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeSegmentCommand", name_space="com.sun.star.drawing"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.drawing.EnhancedCustomShapeSegmentCommand`` as Enum values"""
+        pass
+
 else:
     from ...lo.drawing.enhanced_custom_shape_segment_command import EnhancedCustomShapeSegmentCommand as EnhancedCustomShapeSegmentCommand
 

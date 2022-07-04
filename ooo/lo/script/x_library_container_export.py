@@ -49,6 +49,7 @@ class XLibraryContainerExport(XInterface_8f010a43):
             com.sun.star.uno.Exception: ``Exception``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XLibraryContainerExport']
 

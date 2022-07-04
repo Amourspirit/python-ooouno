@@ -34,6 +34,10 @@ class ConnectorType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectorType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.ConnectorType'
+
     CURVE = 'CURVE'
     """
     the ConnectorShape is drawn as a curve

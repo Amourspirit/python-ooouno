@@ -43,6 +43,7 @@ class XDragGestureListener(XEventListener_c7230c4a):
         """
         A XDragGestureRecognizer has detected a platform-dependent drag initiating gesture and is notifying this listener in order for it to initiate the action for the user.
         """
+        ...
 
 __all__ = ['XDragGestureListener']
 

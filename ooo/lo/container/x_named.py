@@ -39,11 +39,13 @@ class XNamed(XInterface_8f010a43):
     def getName(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def setName(self, aName: str) -> None:
         """
         sets the programmatic name of the object.
         """
+        ...
 
 __all__ = ['XNamed']
 

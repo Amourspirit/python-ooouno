@@ -38,6 +38,7 @@ class XCloneable(XInterface_8f010a43):
         """
         creates a copy of the object.
         """
+        ...
 
 __all__ = ['XCloneable']
 

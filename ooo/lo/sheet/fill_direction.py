@@ -34,6 +34,10 @@ class FillDirection(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.FillDirection'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.FillDirection'
+
     TO_BOTTOM = 'TO_BOTTOM'
     """
     specifies that rows are filled from top to bottom.

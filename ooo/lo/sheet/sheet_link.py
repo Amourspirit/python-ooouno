@@ -45,18 +45,21 @@ class SheetLink(XPropertySet_bc180bfa, XNamed_a6520b08, XRefreshable_b0d60b81):
         """
         specifies the name of the filter needed to load the source document.
         """
+        ...
 
     @abstractproperty
     def FilterOptions(self) -> str:
         """
         specifies the filter options needed to load the source document.
         """
+        ...
 
     @abstractproperty
     def Url(self) -> str:
         """
         specifies the URL of the source document.
         """
+        ...
 
 
 

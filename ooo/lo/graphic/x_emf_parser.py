@@ -49,6 +49,7 @@ class XEmfParser(XInterface_8f010a43):
         """
         Retrieve decomposed list of simpler primitives.
         """
+        ...
     @abstractmethod
     def setSizeHint(self, Size: 'RealPoint2D_d6e70c78') -> None:
         """
@@ -58,6 +59,7 @@ class XEmfParser(XInterface_8f010a43):
         
             LibreOffice 7.1
         """
+        ...
 
 __all__ = ['XEmfParser']
 

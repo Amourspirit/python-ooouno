@@ -44,6 +44,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def createFastChildContext(self, Element: int, Attribs: 'XFastAttributeList_274d0f09') -> 'XFastContextHandler':
         """
@@ -54,6 +55,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def createUnknownChildContext(self, Namespace: str, Name: str, Attribs: 'XFastAttributeList_274d0f09') -> 'XFastContextHandler':
         """
@@ -62,6 +64,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endFastElement(self, Element: int) -> None:
         """
@@ -70,6 +73,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endUnknownElement(self, Namespace: str, Name: str) -> None:
         """
@@ -78,6 +82,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startFastElement(self, Element: int, Attribs: 'XFastAttributeList_274d0f09') -> None:
         """
@@ -88,6 +93,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startUnknownElement(self, Namespace: str, Name: str, Attribs: 'XFastAttributeList_274d0f09') -> None:
         """
@@ -96,6 +102,7 @@ class XFastContextHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XFastContextHandler']
 

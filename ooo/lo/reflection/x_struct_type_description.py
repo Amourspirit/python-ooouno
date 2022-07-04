@@ -49,11 +49,13 @@ class XStructTypeDescription(XCompoundTypeDescription_c7be12f6):
         """
         Returns the type arguments of an instantiated polymorphic struct type.
         """
+        ...
     @abstractmethod
     def getTypeParameters(self) -> 'typing.Tuple[str, ...]':
         """
         Returns the type parameters of a polymorphic struct type template.
         """
+        ...
 
 __all__ = ['XStructTypeDescription']
 

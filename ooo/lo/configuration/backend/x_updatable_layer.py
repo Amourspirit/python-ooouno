@@ -49,6 +49,7 @@ class XUpdatableLayer(XLayer_4cd50fcb):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
             MalformedDataException: ``MalformedDataException``
         """
+        ...
 
 __all__ = ['XUpdatableLayer']
 

@@ -34,6 +34,10 @@ class TextVerticalAdjust(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextVerticalAdjust'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.TextVerticalAdjust'
+
     BLOCK = 'BLOCK'
     """
     The text extends from the left to the right edge of the shape.

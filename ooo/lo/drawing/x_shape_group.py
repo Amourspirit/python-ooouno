@@ -46,6 +46,7 @@ class XShapeGroup(XShape_8fd00a3d):
         
         This affects only the user interface. The behavior is not specified if this instance is not visible on any view. In this case it may or may not work.
         """
+        ...
     @abstractmethod
     def leaveGroup(self) -> None:
         """
@@ -55,6 +56,7 @@ class XShapeGroup(XShape_8fd00a3d):
         
         This affects only the user interface. The behavior is not specified if this instance is not visible on any view. In this case it may or may not work.
         """
+        ...
 
 __all__ = ['XShapeGroup']
 

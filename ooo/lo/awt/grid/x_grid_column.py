@@ -47,16 +47,19 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         """
         Adds a listener for the GridColumnEvent posted after the grid changes.
         """
+        ...
     @abstractmethod
     def removeGridColumnListener(self, Listener: 'XGridColumnListener_44350fba') -> None:
         """
         Removes a listener previously added with addColumnListener().
         """
+        ...
     @abstractproperty
     def ColumnWidth(self) -> int:
         """
         specifies the current width of the column.
         """
+        ...
 
     @abstractproperty
     def DataColumnIndex(self) -> int:
@@ -69,6 +72,7 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         If DataColumnIndex is negative, the it will be ignored, then the column's index within its column model, as determined by the Index attribute, will be used.
         """
+        ...
 
     @abstractproperty
     def Flexibility(self) -> int:
@@ -83,6 +87,7 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         A column's flexibility cannot be negative, attempts to set a negative value will raise an exception.
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
@@ -91,12 +96,14 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         A grid control will usually display a column's help text as tooltip.
         """
+        ...
 
     @abstractproperty
     def HorizontalAlign(self) -> 'HorizontalAlignment_1f800f02':
         """
         Specifies the horizontal alignment of the content in the control.
         """
+        ...
 
     @abstractproperty
     def Identifier(self) -> object:
@@ -105,6 +112,7 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         This identifier will not be evaluated by the grid control, or its model. It is merely for clients to identify particular columns.
         """
+        ...
 
     @abstractproperty
     def Index(self) -> int:
@@ -113,18 +121,21 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         If the column is not yet part of a column model, Index is -1.
         """
+        ...
 
     @abstractproperty
     def MaxWidth(self) -> int:
         """
         specifies the maximal width the column can have.
         """
+        ...
 
     @abstractproperty
     def MinWidth(self) -> int:
         """
         specifies the minimal width the column can have.
         """
+        ...
 
     @abstractproperty
     def Resizeable(self) -> bool:
@@ -133,12 +144,14 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
         
         If this is TRUE, the user can interactively change the column's width. Also, the column is subject to auto-resizing, if its Flexibility attribute is greater 0.
         """
+        ...
 
     @abstractproperty
     def Title(self) -> str:
         """
         A title is displayed in the column header row if UnoControlGridModel.ShowColumnHeader() is set to TRUE
         """
+        ...
 
 
 __all__ = ['XGridColumn']

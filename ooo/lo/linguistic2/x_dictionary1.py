@@ -45,62 +45,77 @@ class XDictionary1(XNamed_a6520b08):
     def add(self, aWord: str, bIsNegative: bool, aRplcText: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def addDictionaryEventListener(self, xListener: 'XDictionaryEventListener_d74c132b') -> bool:
         """
         """
+        ...
     @abstractmethod
     def addEntry(self, xDicEntry: 'XDictionaryEntry_49ef0ff5') -> bool:
         """
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def getCount(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getDictionaryType(self) -> 'DictionaryType_2ba50f2d':
         """
         """
+        ...
     @abstractmethod
     def getEntries(self) -> 'typing.Tuple[XDictionaryEntry_49ef0ff5, ...]':
         """
         """
+        ...
     @abstractmethod
     def getEntry(self, aWord: str) -> 'XDictionaryEntry_49ef0ff5':
         """
         """
+        ...
     @abstractmethod
     def getLanguage(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def isFull(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def remove(self, aWord: str) -> bool:
         """
         """
+        ...
     @abstractmethod
     def removeDictionaryEventListener(self, xListener: 'XDictionaryEventListener_d74c132b') -> bool:
         """
         """
+        ...
     @abstractmethod
     def setActive(self, bActivate: bool) -> None:
         """
         """
+        ...
     @abstractmethod
     def setLanguage(self, nLang: int) -> None:
         """
         """
+        ...
 
 __all__ = ['XDictionary1']
 

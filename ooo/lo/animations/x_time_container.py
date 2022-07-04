@@ -42,6 +42,7 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertAfter(self, newChild: 'XAnimationNode_1cf10eb9', refChild: 'XAnimationNode_1cf10eb9') -> 'XAnimationNode_1cf10eb9':
         """
@@ -52,6 +53,7 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def insertBefore(self, newChild: 'XAnimationNode_1cf10eb9', refChild: 'XAnimationNode_1cf10eb9') -> 'XAnimationNode_1cf10eb9':
         """
@@ -62,6 +64,7 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeChild(self, oldChild: 'XAnimationNode_1cf10eb9') -> 'XAnimationNode_1cf10eb9':
         """
@@ -71,6 +74,7 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def replaceChild(self, newChild: 'XAnimationNode_1cf10eb9', oldChild: 'XAnimationNode_1cf10eb9') -> 'XAnimationNode_1cf10eb9':
         """
@@ -81,6 +85,7 @@ class XTimeContainer(XAnimationNode_1cf10eb9):
             com.sun.star.container.ElementExistException: ``ElementExistException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XTimeContainer']
 

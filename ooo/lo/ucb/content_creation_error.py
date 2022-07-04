@@ -34,6 +34,10 @@ class ContentCreationError(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.ContentCreationError'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.ContentCreationError'
+
     CONTENT_CREATION_FAILED = 'CONTENT_CREATION_FAILED'
     """
     Provider was unable to create the content instance.

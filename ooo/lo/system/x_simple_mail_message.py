@@ -39,6 +39,7 @@ class XSimpleMailMessage(XInterface_8f010a43):
         """
         To get the attachment of a simple mail message.
         """
+        ...
     @abstractmethod
     def getBccRecipient(self) -> 'typing.Tuple[str, ...]':
         """
@@ -46,6 +47,7 @@ class XSimpleMailMessage(XInterface_8f010a43):
         
         If no BCC recipients have been specified an empty sequence will be returned.
         """
+        ...
     @abstractmethod
     def getCcRecipient(self) -> 'typing.Tuple[str, ...]':
         """
@@ -53,6 +55,7 @@ class XSimpleMailMessage(XInterface_8f010a43):
         
         If no cc recipients have been specified an empty sequence will be returned.
         """
+        ...
     @abstractmethod
     def getOriginator(self) -> str:
         """
@@ -60,11 +63,13 @@ class XSimpleMailMessage(XInterface_8f010a43):
         
         If no originator has been specified an empty string will be returned.
         """
+        ...
     @abstractmethod
     def getRecipient(self) -> str:
         """
         To get the recipient of the simple mail message.
         """
+        ...
     @abstractmethod
     def getSubject(self) -> str:
         """
@@ -72,6 +77,7 @@ class XSimpleMailMessage(XInterface_8f010a43):
         
         If no subject has been specified an empty string will be returned.
         """
+        ...
     @abstractmethod
     def setAttachement(self, aAttachement: 'typing.Tuple[str, ...]') -> None:
         """
@@ -80,11 +86,13 @@ class XSimpleMailMessage(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def setBccRecipient(self, aBccRecipient: 'typing.Tuple[str, ...]') -> None:
         """
         To set the BCC recipient of a simple mail message.
         """
+        ...
     @abstractmethod
     def setCcRecipient(self, aCcRecipient: 'typing.Tuple[str, ...]') -> None:
         """
@@ -92,21 +100,25 @@ class XSimpleMailMessage(XInterface_8f010a43):
         
         The method does not check if the given addresses are valid. An empty sequence means there are no cc recipients.
         """
+        ...
     @abstractmethod
     def setOriginator(self, aOriginator: str) -> None:
         """
         To set the email address of the originator of a simple mail message.
         """
+        ...
     @abstractmethod
     def setRecipient(self, aRecipient: str) -> None:
         """
         To set the recipient of the simple mail message.
         """
+        ...
     @abstractmethod
     def setSubject(self, aSubject: str) -> None:
         """
         To set the subject of a simple mail message.
         """
+        ...
 
 __all__ = ['XSimpleMailMessage']
 

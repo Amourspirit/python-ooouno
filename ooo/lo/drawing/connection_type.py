@@ -34,6 +34,10 @@ class ConnectionType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectionType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.ConnectionType'
+
     AUTO = 'AUTO'
     """
     the connection point is chosen automatically,

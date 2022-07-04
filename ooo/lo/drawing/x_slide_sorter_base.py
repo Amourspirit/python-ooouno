@@ -44,6 +44,7 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
     def BackgroundColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def DocumentSlides(self) -> 'XIndexAccess_f0910d6d':
@@ -52,11 +53,13 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is the set of all slides of the document for which a slide sorter is created.
         """
+        ...
 
     @abstractproperty
     def HighlightColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def IsCenterSelection(self) -> bool:
@@ -67,6 +70,7 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is FALSE.
         """
+        ...
 
     @abstractproperty
     def IsHighlightCurrentSlide(self) -> bool:
@@ -75,12 +79,14 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is FALSE.
         """
+        ...
 
     @abstractproperty
     def IsOrientationVertical(self) -> bool:
         """
         The orientation of a slide sorter can be either vertical (TRUE) or horizontal (FALSE).
         """
+        ...
 
     @abstractproperty
     def IsShowFocus(self) -> bool:
@@ -89,6 +95,7 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is TRUE.
         """
+        ...
 
     @abstractproperty
     def IsShowSelection(self) -> bool:
@@ -97,12 +104,14 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is TRUE.
         """
+        ...
 
     @abstractproperty
     def IsSmoothScrolling(self) -> bool:
         """
         This flag is a hint to make scrolling look smooth.
         """
+        ...
 
     @abstractproperty
     def IsSuspendPreviewUpdatesDuringFullScreenPresentation(self) -> bool:
@@ -113,6 +122,7 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is TRUE.
         """
+        ...
 
     @abstractproperty
     def IsUIReadOnly(self) -> bool:
@@ -121,16 +131,19 @@ class XSlideSorterBase(XDrawView_b0b80b75, XView_ffed0de3):
         
         The default value is TRUE.
         """
+        ...
 
     @abstractproperty
     def SelectionColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
     @abstractproperty
     def TextColor(self) -> 'Color_68e908c5':
         """
         """
+        ...
 
 
 __all__ = ['XSlideSorterBase']

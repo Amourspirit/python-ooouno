@@ -41,47 +41,57 @@ class XCmisDocument(XInterface_8f010a43):
     def canCancelCheckOut(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def canCheckIn(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def canCheckOut(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def cancelCheckOut(self) -> None:
         """
         Cancel checked out document, this will discard all changes since check-out.
         """
+        ...
     @abstractmethod
     def checkIn(self, isMajor: bool, comment: str) -> None:
         """
         Creates a new version of the document from the private working copy.
         """
+        ...
     @abstractmethod
     def checkOut(self) -> None:
         """
         Check out the document into a private working copy on the server, and update the loaded document to reflect this change.
         """
+        ...
     @abstractmethod
     def getAllVersions(self) -> 'typing.Tuple[CmisVersion_d71c0cd9, ...]':
         """
         """
+        ...
     @abstractmethod
     def isVersionable(self) -> bool:
         """
         Tells whether a document can support versioning or not.
         """
+        ...
     @abstractmethod
     def updateCmisProperties(self, cmisProperties: 'typing.Tuple[CmisProperty_e47d0d58, ...]') -> None:
         """
         """
+        ...
     @abstractproperty
     def CmisProperties(self) -> 'typing.Tuple[CmisProperty_e47d0d58, ...]':
         """
         Contains the properties values named after their CMIS ID.
         """
+        ...
 
 
 __all__ = ['XCmisDocument']

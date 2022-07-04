@@ -29,8 +29,7 @@ class DatabaseImageControl(UnoControlImageControlModel_7b36111c, DataAwareContro
 
     specifies the model of a control used for displaying images stored in a database.
     
-    As every com.sun.star.form.DataAwareControlModel, an image control can be bound to a database field. This means that for instance with every record change, the content of the database field is taken, interpreted as image, and displayed in the control.
-    Unlike other more text-based controls, it does not interpret the content of the field as text or double, but as binary stream (see com.sun.star.sdb.XColumn.getBinaryStream()).
+    As every com.sun.star.form.DataAwareControlModel, an image control can be bound to a database field. This means that for instance with every record change, the content of the database field is taken, interpreted as image, and displayed in the control.Unlike other more text-based controls, it does not interpret the content of the field as text or double, but as binary stream (see com.sun.star.sdb.XColumn.getBinaryStream()).
     
     Usually, an image control model can be bound to binary columns only, namely com.sun.star.sdbc.DataType.BINARY, com.sun.star.sdbc.DataType.VARBINARY, com.sun.star.sdbc.DataType.LONGVARBINARY, com.sun.star.sdbc.DataType.OTHER, com.sun.star.sdbc.DataType.LONGVARCHAR
     
@@ -50,6 +49,7 @@ class DatabaseImageControl(UnoControlImageControlModel_7b36111c, DataAwareContro
         """
         indicates if it is possible to change the image being displayed.
         """
+        ...
 
 
 

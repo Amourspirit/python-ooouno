@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import KCharacterType as KCharacterType
-    if hasattr(KCharacterType, '_constants') and isinstance(KCharacterType._constants, dict):
-        KCharacterType._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        KCharacterType._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.KCharacterType'
-        KCharacterType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global KCharacterTypeEnum
-        ls = [f for f in dir(KCharacterType) if not callable(getattr(KCharacterType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(KCharacterType, name)
-        KCharacterTypeEnum = IntEnum('KCharacterTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class KCharacterType(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.KCharacterType", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.KCharacterType``"""
+        pass
+
+    class KCharacterTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.KCharacterType", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.KCharacterType`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.k_character_type import KCharacterType as KCharacterType
 

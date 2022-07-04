@@ -35,10 +35,7 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
     
     This service here extends this mimic. It allows to fill the list from a data source. This means that a second result set is opened, which works on the same connection as the form which the list box belongs to, but can be based on an arbitrary table or SQL statement.
     
-    For instance, you may have a form which is bound to a table invoice, and you use it to enter invoices for your customers. Probably, you will have a second table (say customer), which (among other data) contains a unique key for identifying customers. In your invoice table, you will have a foreign key referring to these customers.
-    Now, besides the result set the form is based on (all your invoices), the list box can be instructed to open a second result set, this time for the customer table, and fill its list with entries from this result set.
-    Additionally, it allows to model the relation between the two tables: When the user selects a customer from the list, this customer has the unique id we just talked about (which is not necessarily visible to the user in any way). The list box then automatically transfers this id into the foreign key column of invoice, thus allowing the user to transparently work with human-readable strings instead of pure numbers.
-    Let's call this result set the list is filled from the list result set here ...
+    For instance, you may have a form which is bound to a table invoice, and you use it to enter invoices for your customers. Probably, you will have a second table (say customer), which (among other data) contains a unique key for identifying customers. In your invoice table, you will have a foreign key referring to these customers.Now, besides the result set the form is based on (all your invoices), the list box can be instructed to open a second result set, this time for the customer table, and fill its list with entries from this result set.Additionally, it allows to model the relation between the two tables: When the user selects a customer from the list, this customer has the unique id we just talked about (which is not necessarily visible to the user in any way). The list box then automatically transfers this id into the foreign key column of invoice, thus allowing the user to transparently work with human-readable strings instead of pure numbers.Let's call this result set the list is filled from the list result set here ...
     
     The display strings are always taken from the first column of that result set, and the corresponding value as per the BoundColumn property.
 
@@ -54,6 +51,7 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
         """
         The selected values.
         """
+        ...
 
     @abstractproperty
     def BoundColumn(self) -> int:
@@ -64,6 +62,7 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
         
         The bound column property is only used if a list source is defined and the list source matches with the types com.sun.star.form.ListSourceType.TABLE, com.sun.star.form.ListSourceType.QUERY, com.sun.star.form.ListSourceType.SQL or com.sun.star.form.ListSourceType.SQLPASSTHROUGH. Otherwise the property is ignored, as there is no result set from which to get the column values.
         """
+        ...
 
     @abstractproperty
     def ListSourceType(self) -> 'ListSourceType_c9850c6b':
@@ -72,12 +71,14 @@ class DatabaseListBox(DataAwareControlModel_27110ef8, ListBox_f1530d82):
         
         Depending on the value of this property, the way the value of ListBox.ListSource is evaluated varies.
         """
+        ...
 
     @abstractproperty
     def SelectedValue(self) -> object:
         """
         The selected value, if there is at most one.
         """
+        ...
 
 
 

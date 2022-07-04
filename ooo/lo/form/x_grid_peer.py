@@ -49,11 +49,13 @@ class XGridPeer(XInterface_8f010a43):
         """
         retrieves the currently used column definitions of the peer.
         """
+        ...
     @abstractmethod
     def setColumns(self, aColumns: 'XIndexContainer_1c040ebe') -> None:
         """
         sets the column definition for the peer.
         """
+        ...
 
 __all__ = ['XGridPeer']
 

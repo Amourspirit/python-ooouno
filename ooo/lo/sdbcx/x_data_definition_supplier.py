@@ -46,6 +46,7 @@ class XDataDefinitionSupplier(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getDataDefinitionByURL(self, url: str, info: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> 'XTablesSupplier_e1ad0d23':
         """
@@ -54,6 +55,7 @@ class XDataDefinitionSupplier(XInterface_8f010a43):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDataDefinitionSupplier']
 

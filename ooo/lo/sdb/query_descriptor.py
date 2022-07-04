@@ -44,24 +44,28 @@ class QueryDescriptor(DataSettings_a3000b0c, Descriptor_a5200b3b, XColumnsSuppli
         """
         is the command of the query, this is typically a select statement.
         """
+        ...
 
     @abstractproperty
     def EscapeProcessing(self) -> bool:
         """
         should we use escape processing for the query.
         """
+        ...
 
     @abstractproperty
     def UpdateCatalogName(self) -> str:
         """
         is the name of the update table catalog.
         """
+        ...
 
     @abstractproperty
     def UpdateSchemaName(self) -> str:
         """
         is the name of the update table schema.
         """
+        ...
 
     @abstractproperty
     def UpdateTableName(self) -> str:
@@ -70,6 +74,7 @@ class QueryDescriptor(DataSettings_a3000b0c, Descriptor_a5200b3b, XColumnsSuppli
         
         This is usually used for queries which relate on more than one table.
         """
+        ...
 
 
 

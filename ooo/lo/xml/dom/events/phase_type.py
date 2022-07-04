@@ -34,6 +34,10 @@ class PhaseType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.xml.dom.events.PhaseType'
+
     AT_TARGET = 'AT_TARGET'
     """
     """

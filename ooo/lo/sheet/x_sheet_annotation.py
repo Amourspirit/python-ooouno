@@ -41,26 +41,31 @@ class XSheetAnnotation(XInterface_8f010a43):
         """
         returns the name of the user who last changed the annotation.
         """
+        ...
     @abstractmethod
     def getDate(self) -> str:
         """
         returns a formatted string representing the date when the annotation was last changed.
         """
+        ...
     @abstractmethod
     def getIsVisible(self) -> bool:
         """
         returns, whether the annotation is permanently visible.
         """
+        ...
     @abstractmethod
     def getPosition(self) -> 'CellAddress_ae5f0b56':
         """
         returns the position of cell in the spreadsheet document that contains this annotation.
         """
+        ...
     @abstractmethod
     def setIsVisible(self, bIsVisible: bool) -> None:
         """
         specifies whether the annotation is permanently visible.
         """
+        ...
 
 __all__ = ['XSheetAnnotation']
 

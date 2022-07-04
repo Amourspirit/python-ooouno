@@ -44,6 +44,7 @@ class XScriptListener(XEventListener_c7230c4a):
         Raises:
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
+        ...
     @abstractmethod
     def firing(self, aEvent: 'ScriptEvent_be710c14') -> None:
         """
@@ -51,6 +52,7 @@ class XScriptListener(XEventListener_c7230c4a):
         
         For that a ScriptEventDescriptor is registered at and attached to an object by an XEventAttacherManager.
         """
+        ...
 
 __all__ = ['XScriptListener']
 

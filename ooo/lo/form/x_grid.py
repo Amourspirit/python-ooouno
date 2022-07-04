@@ -25,8 +25,7 @@ class XGrid(XInterface_8f010a43):
     """
     provides the possibility of setting and retrieving the position of the current cell in a grid control.
     
-    Note that a grid control does not allow free control over the current row: In such a control, every line represents a row of data of the underlying com.sun.star.form.component.DataForm. Thus, the current row of the grid control always equals the current row of the com.sun.star.form.component.DataForm, and can be affected only by changing the latter.
-    The current column of a grid control, whoever, can be freely controlled.
+    Note that a grid control does not allow free control over the current row: In such a control, every line represents a row of data of the underlying com.sun.star.form.component.DataForm. Thus, the current row of the grid control always equals the current row of the com.sun.star.form.component.DataForm, and can be affected only by changing the latter.The current column of a grid control, whoever, can be freely controlled.
     
     .. deprecated::
     
@@ -45,11 +44,13 @@ class XGrid(XInterface_8f010a43):
         """
         retrieves the current column position.
         """
+        ...
     @abstractmethod
     def setCurrentColumnPosition(self, nPos: int) -> None:
         """
         sets the current column position.
         """
+        ...
 
 __all__ = ['XGrid']
 

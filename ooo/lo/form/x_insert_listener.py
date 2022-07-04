@@ -47,11 +47,13 @@ class XInsertListener(XEventListener_c7230c4a):
         """
         is invoked after a database form has inserted a record to a data source.
         """
+        ...
     @abstractmethod
     def inserting(self, aEvent: 'EventObject_a3d70b03') -> None:
         """
         is invoked when a database form starts inserting a record.
         """
+        ...
 
 __all__ = ['XInsertListener']
 

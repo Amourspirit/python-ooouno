@@ -42,6 +42,7 @@ class XDragSourceContext(XInterface_8f010a43):
         """
         Get the identifier of the currently used cursor.
         """
+        ...
     @abstractmethod
     def setCursor(self, cursorId: int) -> None:
         """
@@ -51,16 +52,19 @@ class XDragSourceContext(XInterface_8f010a43):
         
         Invalid cursor identifiers will be ignored.
         """
+        ...
     @abstractmethod
     def setImage(self, imageId: int) -> None:
         """
         This method sets the current drag image.
         """
+        ...
     @abstractmethod
     def transferablesFlavorsChanged(self) -> None:
         """
         This method notifies the context that the com.sun.star.datatransfer.DataFlavor types of the transferable object have changed.
         """
+        ...
 
 __all__ = ['XDragSourceContext']
 

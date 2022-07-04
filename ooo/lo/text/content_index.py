@@ -42,24 +42,28 @@ class ContentIndex(BaseIndex_8f0d0a40):
         """
         contains TRUE if the document index marks are included in this index.
         """
+        ...
 
     @abstractproperty
     def CreateFromOutline(self) -> bool:
         """
         determines if the document index is created from outlines.
         """
+        ...
 
     @abstractproperty
     def Level(self) -> int:
         """
         determines the depth of outline levels that are included into the content index.
         """
+        ...
 
     @abstractproperty
     def LevelParagraphStyles(self) -> 'XIndexReplace_feed0dd7':
         """
         contains the interface to access the paragraph style names that are included in this index.
         """
+        ...
 
 
 

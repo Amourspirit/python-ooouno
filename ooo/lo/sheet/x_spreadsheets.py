@@ -38,16 +38,19 @@ class XSpreadsheets(XNameContainer_cb90e47):
         """
         copies a sheet within the collection.
         """
+        ...
     @abstractmethod
     def insertNewByName(self, aName: str, nPosition: int) -> None:
         """
         inserts a new sheet into the collection.
         """
+        ...
     @abstractmethod
     def moveByName(self, aName: str, nDestination: int) -> None:
         """
         moves a sheet within the collection.
         """
+        ...
 
 __all__ = ['XSpreadsheets']
 

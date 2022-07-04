@@ -34,6 +34,10 @@ class FrameAction(Enum):
     __ooo_full_ns__: str = 'com.sun.star.frame.FrameAction'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.frame.FrameAction'
+
     COMPONENT_ATTACHED = 'COMPONENT_ATTACHED'
     """
     an event of this kind is broadcast whenever a component is attached to a frame

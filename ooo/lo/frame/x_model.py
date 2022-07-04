@@ -49,6 +49,7 @@ class XModel(XComponent_98dc0ab5):
         """
         informs a model about its resource description.
         """
+        ...
     @abstractmethod
     def connectController(self, Controller: 'XController_b00e0b8f') -> None:
         """
@@ -56,6 +57,7 @@ class XModel(XComponent_98dc0ab5):
         
         The com.sun.star.lang.XComponent interface of the controller must be used to recognize when it is deleted.
         """
+        ...
     @abstractmethod
     def disconnectController(self, Controller: 'XController_b00e0b8f') -> None:
         """
@@ -63,26 +65,31 @@ class XModel(XComponent_98dc0ab5):
         
         The com.sun.star.lang.XComponent interface of the controller must be used to recognize when it is deleted.
         """
+        ...
     @abstractmethod
     def getArgs(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         provides read access on currently representation of the com.sun.star.document.MediaDescriptor of this model which describes the model and its state
         """
+        ...
     @abstractmethod
     def getCurrentController(self) -> 'XController_b00e0b8f':
         """
         provides access to the controller which currently controls this model
         """
+        ...
     @abstractmethod
     def getCurrentSelection(self) -> 'XInterface_8f010a43':
         """
         provides read access on current selection on controller
         """
+        ...
     @abstractmethod
     def getURL(self) -> str:
         """
         provides information about the location of this model
         """
+        ...
     @abstractmethod
     def hasControllersLocked(self) -> bool:
         """
@@ -90,6 +97,7 @@ class XModel(XComponent_98dc0ab5):
         
         While there is at least one lock remaining, some notifications for display updates are not broadcasted to the controllers.
         """
+        ...
     @abstractmethod
     def lockControllers(self) -> None:
         """
@@ -97,6 +105,7 @@ class XModel(XComponent_98dc0ab5):
         
         The calls to XModel.lockControllers() and XModel.unlockControllers() may be nested and even overlapping, but they must be in pairs. While there is at least one lock remaining, some notifications for display updates are not broadcasted.
         """
+        ...
     @abstractmethod
     def setCurrentController(self, Controller: 'XController_b00e0b8f') -> None:
         """
@@ -105,6 +114,7 @@ class XModel(XComponent_98dc0ab5):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def unlockControllers(self) -> None:
         """
@@ -112,6 +122,7 @@ class XModel(XComponent_98dc0ab5):
         
         The calls to XModel.lockControllers() and XModel.unlockControllers() may be nested and even overlapping, but they must be in pairs. While there is at least one lock remaining, some notifications for display updates are not broadcasted.
         """
+        ...
 
 __all__ = ['XModel']
 

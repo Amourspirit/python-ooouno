@@ -43,6 +43,7 @@ class XDiagram(XShape_8fd00a3d):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getDataRowProperties(self, nRow: int) -> 'XPropertySet_bc180bfa':
         """
@@ -50,10 +51,12 @@ class XDiagram(XShape_8fd00a3d):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getDiagramType(self) -> str:
         """
         """
+        ...
 
 __all__ = ['XDiagram']
 

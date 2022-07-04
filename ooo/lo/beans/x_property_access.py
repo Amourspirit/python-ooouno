@@ -44,6 +44,7 @@ class XPropertyAccess(XInterface_8f010a43):
     def getPropertyValues(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         """
+        ...
     @abstractmethod
     def setPropertyValues(self, aProps: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -57,6 +58,7 @@ class XPropertyAccess(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XPropertyAccess']
 

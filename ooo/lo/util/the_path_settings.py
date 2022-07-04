@@ -27,8 +27,7 @@ class thePathSettings(XPathSettings_bc930bfc):
 
     Supports read/write access and listener for the paths properties that the Office uses.
     
-    The property names of the Office paths/directories are an exactly match to the configuration entries found in the file (org/openoffice/Office/Common.xml).
-    This service supports the usage of path variables to define paths that a relative to other office or system directories. See PathSubstitution
+    The property names of the Office paths/directories are an exactly match to the configuration entries found in the file (org/openoffice/Office/Common.xml).This service supports the usage of path variables to define paths that a relative to other office or system directories. See PathSubstitution
     
     Prior to LibreOffice 4.3, this singleton was only available as a (single-instance) PathSettings service.
     

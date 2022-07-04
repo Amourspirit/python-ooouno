@@ -39,10 +39,12 @@ class XTitle(XInterface_8f010a43):
     def getText(self) -> 'typing.Tuple[XFormattedString_f9ff0dc1, ...]':
         """
         """
+        ...
     @abstractmethod
     def setText(self, Strings: 'typing.Tuple[XFormattedString_f9ff0dc1, ...]') -> None:
         """
         """
+        ...
 
 __all__ = ['XTitle']
 

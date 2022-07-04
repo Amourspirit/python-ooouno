@@ -40,6 +40,7 @@ class DatabaseDataProvider(XDatabaseDataProvider_8fe51146):
     def createWithConnection(self, connection: 'XConnection_a36a0b0c') -> None:
         """
         """
+        ...
 
 
 __all__ = ['DatabaseDataProvider']

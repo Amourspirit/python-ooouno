@@ -43,6 +43,7 @@ class XReferenceCollector(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def setReferenceId(self, id: int) -> None:
         """
@@ -51,6 +52,7 @@ class XReferenceCollector(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
 
 __all__ = ['XReferenceCollector']
 

@@ -47,16 +47,19 @@ class XSubmit(XInterface_8f010a43):
         """
         adds the specified listener to receive the \"approveSubmit\" event.
         """
+        ...
     @abstractmethod
     def removeSubmitListener(self, aListener: 'XSubmitListener_d5950cce') -> None:
         """
         removes the specified listener.
         """
+        ...
     @abstractmethod
     def submit(self, aControl: 'XControl_7a9c098d', aMouseEvt: 'MouseEvent_8f430a5f') -> None:
         """
         submits the component's data to a specified target.
         """
+        ...
 
 __all__ = ['XSubmit']
 

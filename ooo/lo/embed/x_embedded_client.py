@@ -42,6 +42,7 @@ class XEmbeddedClient(XComponentSupplier_adb0e64):
             com.sun.star.embed.ObjectSaveVetoException: ``ObjectSaveVetoException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def visibilityChanged(self, bVisible: bool) -> None:
         """
@@ -50,6 +51,7 @@ class XEmbeddedClient(XComponentSupplier_adb0e64):
         Raises:
             com.sun.star.embed.WrongStateException: ``WrongStateException``
         """
+        ...
 
 __all__ = ['XEmbeddedClient']
 

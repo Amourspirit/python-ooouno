@@ -48,6 +48,7 @@ class XMailMessage(XInterface_8f010a43):
         
         param aMailAttachment [in] specifies a file which should be attached to this mail message.
         """
+        ...
     @abstractmethod
     def addBccRecipient(self, sRecipientAddress: str) -> None:
         """
@@ -55,6 +56,7 @@ class XMailMessage(XInterface_8f010a43):
         
         If the e-mail address doesn't conform to RFC 822 sending the mail message will fail.
         """
+        ...
     @abstractmethod
     def addCcRecipient(self, sRecipientAddress: str) -> None:
         """
@@ -62,6 +64,7 @@ class XMailMessage(XInterface_8f010a43):
         
         If the e-mail address doesn't conform to RFC 822 sending the mail message will fail.
         """
+        ...
     @abstractmethod
     def addRecipient(self, sRecipientAddress: str) -> None:
         """
@@ -69,26 +72,31 @@ class XMailMessage(XInterface_8f010a43):
         
         If the e-mail address doesn't conform to RFC 822 sending the mail message will fail.
         """
+        ...
     @abstractmethod
     def getAttachments(self) -> 'typing.Tuple[MailAttachment_c6770c37, ...]':
         """
         Return a sequence of MailAttachment's that will be attached to this mail message.
         """
+        ...
     @abstractmethod
     def getBccRecipients(self) -> 'typing.Tuple[str, ...]':
         """
         Return a sequence of the e-mail addresses of all the BCC recipients of this mail message.
         """
+        ...
     @abstractmethod
     def getCcRecipients(self) -> 'typing.Tuple[str, ...]':
         """
         Return a sequence of the e-mail addresses of all the Cc recipients of this mail message.
         """
+        ...
     @abstractmethod
     def getRecipients(self) -> 'typing.Tuple[str, ...]':
         """
         Return a sequence of the e-mail addresses of all recipients of this mail message.
         """
+        ...
     @abstractproperty
     def Body(self) -> 'XTransferable_2d800f38':
         """
@@ -96,6 +104,7 @@ class XMailMessage(XInterface_8f010a43):
         
         It is expected that the transferable delivers the data as a string. Although a transferable may support multiple data flavors only the first data flavor supplied will be used to retrieve the data and it is expected that the data will be provided as a string.
         """
+        ...
 
     @abstractproperty
     def ReplyToAddress(self) -> str:
@@ -104,6 +113,7 @@ class XMailMessage(XInterface_8f010a43):
         
         If the e-mail address doesn't conform to RFC 822 sending the mail message later will fail. If no ReplyToAddress is set replies go to the SenderAddress.
         """
+        ...
 
     @abstractproperty
     def SenderAddress(self) -> str:
@@ -112,18 +122,21 @@ class XMailMessage(XInterface_8f010a43):
         
         The e-mail address has to conform to RFC 822.
         """
+        ...
 
     @abstractproperty
     def SenderName(self) -> str:
         """
         The display name of the sender of this mail message.
         """
+        ...
 
     @abstractproperty
     def Subject(self) -> str:
         """
         The subject of a mail message.
         """
+        ...
 
 
 __all__ = ['XMailMessage']

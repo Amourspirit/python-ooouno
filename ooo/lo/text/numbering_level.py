@@ -48,6 +48,7 @@ class NumberingLevel(ABC):
         """
         adjusts the numbering (HoriOrientation_LEFT/RIGHT/CENTER)
         """
+        ...
 
     @abstractproperty
     def BulletChar(self) -> str:
@@ -56,6 +57,7 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def BulletColor(self) -> 'Color_68e908c5':
@@ -64,12 +66,14 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def BulletFont(self) -> 'FontDescriptor_bc110c0a':
         """
         the font used to paint the bullet.
         """
+        ...
 
     @abstractproperty
     def BulletFontName(self) -> str:
@@ -78,6 +82,7 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def BulletId(self) -> int:
@@ -86,6 +91,7 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def BulletRelSize(self) -> int:
@@ -94,24 +100,28 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def CharStyleName(self) -> str:
         """
         Name of the character style that is used for the numbering symbol.
         """
+        ...
 
     @abstractproperty
     def FirstLineIndent(self) -> int:
         """
         additional line indent for the first text line
         """
+        ...
 
     @abstractproperty
     def FirstLineOffset(self) -> int:
         """
         specifies the offset between the beginning of the first line and the beginning of the following lines of the paragraph.
         """
+        ...
 
     @abstractproperty
     def GraphicBitmap(self) -> 'XBitmap_70cd0909':
@@ -120,12 +130,14 @@ class NumberingLevel(ABC):
         
         This is only valid if the numbering type is com.sun.star.style.NumberingType.BITMAP.
         """
+        ...
 
     @abstractproperty
     def GraphicSize(self) -> 'Size_576707ef':
         """
         size of the graphic that is used as bullet.
         """
+        ...
 
     @abstractproperty
     def GraphicURL(self) -> str:
@@ -136,6 +148,7 @@ class NumberingLevel(ABC):
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When an URL is set, then it will load the bitmap and set the GraphicBitmap property.
         """
+        ...
 
     @abstractproperty
     def HeadingStyleName(self) -> str:
@@ -144,36 +157,42 @@ class NumberingLevel(ABC):
         
         It is only contained in the levels of chapter numbering rules.
         """
+        ...
 
     @abstractproperty
     def IndentAt(self) -> int:
         """
         indentation of the text lines
         """
+        ...
 
     @abstractproperty
     def LabelFollowedBy(self) -> int:
         """
         character following the list label
         """
+        ...
 
     @abstractproperty
     def LeftMargin(self) -> int:
         """
         specifies the left margin of the numbering
         """
+        ...
 
     @abstractproperty
     def ListtabStopPosition(self) -> int:
         """
         list tab position
         """
+        ...
 
     @abstractproperty
     def NumberingType(self) -> int:
         """
         specifies the type of numbering.
         """
+        ...
 
     @abstractproperty
     def ParagraphStyleName(self) -> str:
@@ -186,24 +205,28 @@ class NumberingLevel(ABC):
         
             LibreOffice 3.6
         """
+        ...
 
     @abstractproperty
     def ParentNumbering(self) -> int:
         """
         number of upper levels that are included in the current numbering symbol.
         """
+        ...
 
     @abstractproperty
     def PositionAndSpaceMode(self) -> int:
         """
         position and space mode
         """
+        ...
 
     @abstractproperty
     def Prefix(self) -> str:
         """
         the prefix of the numbering symbol.
         """
+        ...
 
     @abstractproperty
     def StartWith(self) -> int:
@@ -212,18 +235,21 @@ class NumberingLevel(ABC):
         
         This property is only valid if the numbering type is not com.sun.star.style.NumberingType.BITMAP or com.sun.star.style.NumberingType.CHAR_SPECIAL.
         """
+        ...
 
     @abstractproperty
     def Suffix(self) -> str:
         """
         the suffix of the numbering symbol.
         """
+        ...
 
     @abstractproperty
     def SymbolTextDistance(self) -> int:
         """
         specifies the distance between the numbering symbol and the text of the paragraph.
         """
+        ...
 
     @abstractproperty
     def VertOrient(self) -> int:
@@ -232,6 +258,7 @@ class NumberingLevel(ABC):
         
         It is set using com.sun.star.text.VertOrientation.
         """
+        ...
 
 
 

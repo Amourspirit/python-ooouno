@@ -47,6 +47,7 @@ class XCellRangeFormula(XInterface_8f010a43):
         
         Each element of the result contains the same string that would be returned by com.sun.star.table.XCell.getFormula() for the corresponding cell.
         """
+        ...
     @abstractmethod
     def setFormulaArray(self, aArray: 'typing.Tuple[typing.Tuple[str, ...], ...]') -> None:
         """
@@ -54,6 +55,7 @@ class XCellRangeFormula(XInterface_8f010a43):
         
         The size of the array must be the same as the size of the cell range. Each element of the array is interpreted the same way as the argument to a com.sun.star.table.XCell.setFormula() call for the corresponding cell.
         """
+        ...
 
 __all__ = ['XCellRangeFormula']
 

@@ -57,45 +57,54 @@ class XFastShapeContextHandler(XFastContextHandler_361e0f5c):
         
             LibreOffice 7.1
         """
+        ...
     @abstractproperty
     def MediaDescriptor(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         """
+        ...
 
     @abstractproperty
     def DocumentProperties(self) -> 'XDocumentProperties_4c31102b':
         """
         """
+        ...
 
     @abstractproperty
     def DrawPage(self) -> 'XDrawPage_b07a0b57':
         """
         """
+        ...
 
     @abstractproperty
     def Model(self) -> 'XModel_7a6e095c':
         """
         """
+        ...
 
     @abstractproperty
     def Position(self) -> 'Point_5fb2085e':
         """
         """
+        ...
 
     @abstractproperty
     def RelationFragmentPath(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def Shape(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
 
     @abstractproperty
     def StartToken(self) -> int:
         """
         """
+        ...
 
 
 __all__ = ['XFastShapeContextHandler']

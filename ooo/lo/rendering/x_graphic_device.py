@@ -58,11 +58,13 @@ class XGraphicDevice(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createCompatibleBezierPolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealBezierSegment2D_4a970fa2, ...], ...]') -> 'XBezierPolyPolygon2D_6ba01081':
         """
         Create a Bezier poly-polygon which can internally use device-optimized representations already.
         """
+        ...
     @abstractmethod
     def createCompatibleBitmap(self, size: 'IntegerSize2D_f2690d53') -> 'XBitmap_b1b70b7b':
         """
@@ -71,11 +73,13 @@ class XGraphicDevice(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createCompatibleLinePolyPolygon(self, points: 'typing.Tuple[typing.Tuple[RealPoint2D_d6e70c78, ...], ...]') -> 'XLinePolyPolygon2D_4a270fa8':
         """
         Create a line poly-polygon which can internally use device-optimized representations already.
         """
+        ...
     @abstractmethod
     def createVolatileAlphaBitmap(self, size: 'IntegerSize2D_f2690d53') -> 'XVolatileBitmap_1ca40ebb':
         """
@@ -86,6 +90,7 @@ class XGraphicDevice(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createVolatileBitmap(self, size: 'IntegerSize2D_f2690d53') -> 'XVolatileBitmap_1ca40ebb':
         """
@@ -96,6 +101,7 @@ class XGraphicDevice(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def enterFullScreenMode(self, bEnter: bool) -> bool:
         """
@@ -103,6 +109,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         The return value denotes the success of the operation.
         """
+        ...
     @abstractmethod
     def getBufferController(self) -> 'XBufferController_3a970f9c':
         """
@@ -110,6 +117,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         If there is no such functionality available, the NULL reference is returned.
         """
+        ...
     @abstractmethod
     def getDeviceColorSpace(self) -> 'XColorSpace_e3940d09':
         """
@@ -117,6 +125,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         This is to be used when interpreting or setting device color values.
         """
+        ...
     @abstractmethod
     def getParametricPolyPolygonFactory(self) -> 'XMultiServiceFactory_191e0eb6':
         """
@@ -124,6 +133,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         Available services (all canvas implementations should provide this minimal set, though are free to add more; just check the getAvailableServiceNames() on the returned interface):
         """
+        ...
     @abstractmethod
     def getPhysicalResolution(self) -> 'RealSize2D_ca1a0c09':
         """
@@ -131,6 +141,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         A special floating point value of +infinity here indicates \"unknown\", i.e. at the time of rendering undetermined or possibly infinite resolution along the corresponding direction.
         """
+        ...
     @abstractmethod
     def getPhysicalSize(self) -> 'RealSize2D_ca1a0c09':
         """
@@ -138,6 +149,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         A special floating point value of +infinity here indicates \"unknown\", i.e. at the time of rendering undetermined or possibly infinite resolution along the corresponding direction.
         """
+        ...
     @abstractmethod
     def hasFullScreenMode(self) -> bool:
         """
@@ -145,6 +157,7 @@ class XGraphicDevice(XInterface_8f010a43):
         
         whether a window can cover the whole screen exclusively.
         """
+        ...
 
 __all__ = ['XGraphicDevice']
 

@@ -59,6 +59,7 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         Instead, the values in this property have two use cases:
         """
+        ...
 
     @abstractproperty
     def TableFilter(self) -> 'typing.Tuple[str, ...]':
@@ -67,6 +68,7 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         If empty, all tables are rejected.
         """
+        ...
 
     @abstractproperty
     def TableTypeFilter(self) -> 'typing.Tuple[str, ...]':
@@ -75,18 +77,21 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         If empty, all table types are rejected.
         """
+        ...
 
     @abstractproperty
     def IsPasswordRequired(self) -> bool:
         """
         indicates that a password is always necessary.
         """
+        ...
 
     @abstractproperty
     def IsReadOnly(self) -> bool:
         """
         determines whether modifications on the data source are allowed or not.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
@@ -97,12 +102,14 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         If the same data source is registered under different names, the value of the Name property is not defined.
         """
+        ...
 
     @abstractproperty
     def NumberFormatsSupplier(self) -> 'XNumberFormatsSupplier_3afb0fb7':
         """
         provides an object for formatting numbers.
         """
+        ...
 
     @abstractproperty
     def Password(self) -> str:
@@ -111,6 +118,7 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         The password is not persistent.
         """
+        ...
 
     @abstractproperty
     def Settings(self) -> 'XPropertySet_bc180bfa':
@@ -127,9 +135,7 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         Effectively, the property bag represented by Settings contains two classes of properties: Pre-defined ones and user-defined ones.
         
-        Pre-defined properties are properties which are potentially used by the data source, the application UI for the data source, or a particular backend driver employed by the data source. There's a large set of such properties, no all of them are effectively used for a concrete data source, nonetheless, they're all present in the Settings.
-        Such properties are not removable from the bag, that is, their com.sun.star.beans.PropertyAttribute.REMOVABLE attribute is not set.
-        Usually, you'll find that all of this properties have the com.sun.star.beans.PropertyState.PropertyState_DEFAULT_VALUE state.
+        Pre-defined properties are properties which are potentially used by the data source, the application UI for the data source, or a particular backend driver employed by the data source. There's a large set of such properties, no all of them are effectively used for a concrete data source, nonetheless, they're all present in the Settings.Such properties are not removable from the bag, that is, their com.sun.star.beans.PropertyAttribute.REMOVABLE attribute is not set.Usually, you'll find that all of this properties have the com.sun.star.beans.PropertyState.PropertyState_DEFAULT_VALUE state.
         
         User-defined properties are the ones which are added at runtime by any instance. They might or might not be removable, this depends on whether or not the code adding them specifies the com.sun.star.beans.PropertyAttribute.REMOVABLE attribute. Also, they might or might not have a default value, determined by the com.sun.star.beans.PropertyAttribute.MAYBEDEFAULT attribute at the time they're added to the bag.
         
@@ -137,25 +143,28 @@ class DataSource(XPropertySet_bc180bfa, XBookmarksSupplier_ee870d96, XCompletedC
         
         Similar, when you obtain the Info property of a DataSource, the Settings bag is asked for all its property values, and the ones which are removable and in state default are stripped, and not returned in the Info sequence.
         """
+        ...
 
     @abstractproperty
     def SuppressVersionColumns(self) -> bool:
         """
         indicates that components displaying data obtained from this data source should suppress columns used for versioning.
         """
+        ...
 
     @abstractproperty
     def URL(self) -> str:
         """
-        indicates a database url of the form
-        jdbc:subprotocol:subname or sdbc:subprotocol:subname
+        indicates a database url of the form  jdbc:subprotocol:subname or sdbc:subprotocol:subname
         """
+        ...
 
     @abstractproperty
     def User(self) -> str:
         """
         determines a users login name.
         """
+        ...
 
 
 

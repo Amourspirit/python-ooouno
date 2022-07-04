@@ -34,6 +34,10 @@ class Timing(Enum):
     __ooo_full_ns__: str = 'com.sun.star.animations.Timing'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.animations.Timing'
+
     INDEFINITE = 'INDEFINITE'
     """
     specifies that a duration, end or start time is indefinite

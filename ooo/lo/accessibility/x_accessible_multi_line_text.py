@@ -52,6 +52,7 @@ class XAccessibleMultiLineText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getNumberOfLineWithCaret(self) -> int:
         """
@@ -61,6 +62,7 @@ class XAccessibleMultiLineText(XAccessibleText_5b77105b):
         
         Some text implementations place the caret at the end of the current line when the End key gets pressed. Since the index of this position is identical to the one of the first character of the following line, XAccessibleMultiLineText.getLineNumberAtIndex() will return the line following the current one in this case.
         """
+        ...
     @abstractmethod
     def getTextAtLineNumber(self, nLineNo: int) -> 'TextSegment_1e5b0ee8':
         """
@@ -73,6 +75,7 @@ class XAccessibleMultiLineText(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getTextAtLineWithCaret(self) -> 'TextSegment_1e5b0ee8':
         """
@@ -82,6 +85,7 @@ class XAccessibleMultiLineText(XAccessibleText_5b77105b):
         
         Some text implementations place the caret at the end of the current line when the End key gets pressed. Since the index of this position is identical to the one of the first character of the following line, XAccessibleMultiLineText.getLineNumberAtIndex() will return the line following the current one in this case.
         """
+        ...
 
 __all__ = ['XAccessibleMultiLineText']
 

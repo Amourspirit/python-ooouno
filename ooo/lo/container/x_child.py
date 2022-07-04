@@ -40,6 +40,7 @@ class XChild(XInterface_8f010a43):
         """
         grants access to the object containing this content.
         """
+        ...
     @abstractmethod
     def setParent(self, Parent: 'XInterface_8f010a43') -> None:
         """
@@ -48,6 +49,7 @@ class XChild(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
 
 __all__ = ['XChild']
 

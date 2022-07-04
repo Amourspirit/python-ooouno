@@ -40,6 +40,7 @@ class XUniqueIDAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def removeByUniqueID(self, ID: str) -> None:
         """
@@ -48,6 +49,7 @@ class XUniqueIDAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XUniqueIDAccess']
 

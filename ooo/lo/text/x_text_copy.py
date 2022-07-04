@@ -38,6 +38,7 @@ class XTextCopy(XInterface_8f010a43):
         """
         copies the content from another text object.
         """
+        ...
 
 __all__ = ['XTextCopy']
 

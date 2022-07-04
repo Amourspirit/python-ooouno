@@ -43,6 +43,7 @@ class XSheetFilterableEx(XSheetFilterable_eeed0d6c):
         """
         creates a filter descriptor for the specified filterable object from the contents of this object.
         """
+        ...
 
 __all__ = ['XSheetFilterableEx']
 

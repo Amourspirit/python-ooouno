@@ -43,10 +43,12 @@ class XIndexAccess(XElementAccess_cd60e3f):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getCount(self) -> int:
         """
         """
+        ...
 
 __all__ = ['XIndexAccess']
 

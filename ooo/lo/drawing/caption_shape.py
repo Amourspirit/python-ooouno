@@ -51,42 +51,49 @@ class CaptionShape(FillProperties_f1200da8, LineProperties_f13f0da9, RotationDes
         
         It is only used if CaptionIsFixedAngle is set to TRUE
         """
+        ...
 
     @abstractproperty
     def CaptionEscapeAbsolute(self) -> int:
         """
         This property specifies the absolute escape distance for the line of a caption.
         """
+        ...
 
     @abstractproperty
     def CaptionEscapeDirection(self) -> int:
         """
         This property specifies the escape direction for the line of a caption.
         """
+        ...
 
     @abstractproperty
     def CaptionEscapeRelative(self) -> int:
         """
         This property specifies the relative escape distance for the line of a caption.
         """
+        ...
 
     @abstractproperty
     def CaptionGap(self) -> int:
         """
         This property specifies the distance between the text area of the caption and the start of the line.
         """
+        ...
 
     @abstractproperty
     def CaptionIsEscapeRelative(self) -> bool:
         """
         If this property is TRUE, the property CaptionEscapeRelative is used, else the property CaptionEscapeAbsolute is used.
         """
+        ...
 
     @abstractproperty
     def CaptionIsFitLineLength(self) -> bool:
         """
         If this property is TRUE, the application determines the best possible length for the caption line.
         """
+        ...
 
     @abstractproperty
     def CaptionIsFixedAngle(self) -> bool:
@@ -95,12 +102,14 @@ class CaptionShape(FillProperties_f1200da8, LineProperties_f13f0da9, RotationDes
         
         If this is set to FALSE, the application can choose the best possible angle. If not, the value in CaptionAngle is used.
         """
+        ...
 
     @abstractproperty
     def CaptionLineLength(self) -> int:
         """
         This property specifies the length of the caption line.
         """
+        ...
 
     @abstractproperty
     def CaptionPoint(self) -> 'Point_5fb2085e':
@@ -109,18 +118,21 @@ class CaptionShape(FillProperties_f1200da8, LineProperties_f13f0da9, RotationDes
         
         A set of lines are rendered from the caption area.
         """
+        ...
 
     @abstractproperty
     def CaptionType(self) -> int:
         """
         This property specifies the geometry of the line of a caption.
         """
+        ...
 
     @abstractproperty
     def CornerRadius(self) -> int:
         """
         This is the radius of the caption area corners.
         """
+        ...
 
 
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdb.application import CopyTableContinuation as CopyTableContinuation
-    if hasattr(CopyTableContinuation, '_constants') and isinstance(CopyTableContinuation._constants, dict):
-        CopyTableContinuation._constants['__ooo_ns__'] = 'com.sun.star.sdb.application'
-        CopyTableContinuation._constants['__ooo_full_ns__'] = 'com.sun.star.sdb.application.CopyTableContinuation'
-        CopyTableContinuation._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CopyTableContinuationEnum
-        ls = [f for f in dir(CopyTableContinuation) if not callable(getattr(CopyTableContinuation, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CopyTableContinuation, name)
-        CopyTableContinuationEnum = IntEnum('CopyTableContinuationEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CopyTableContinuation(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.application.CopyTableContinuation", name_space="com.sun.star.sdb.application"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdb.application.CopyTableContinuation``"""
+        pass
+
+    class CopyTableContinuationEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdb.application.CopyTableContinuation", name_space="com.sun.star.sdb.application"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdb.application.CopyTableContinuation`` as Enum values"""
+        pass
+
 else:
     from ....lo.sdb.application.copy_table_continuation import CopyTableContinuation as CopyTableContinuation
 

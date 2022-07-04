@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleTextType as AccessibleTextType
-    if hasattr(AccessibleTextType, '_constants') and isinstance(AccessibleTextType._constants, dict):
-        AccessibleTextType._constants['__ooo_ns__'] = 'com.sun.star.accessibility'
-        AccessibleTextType._constants['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleTextType'
-        AccessibleTextType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AccessibleTextTypeEnum
-        ls = [f for f in dir(AccessibleTextType) if not callable(getattr(AccessibleTextType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AccessibleTextType, name)
-        AccessibleTextTypeEnum = IntEnum('AccessibleTextTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class AccessibleTextType(metaclass=UnoConstMeta, type_name="com.sun.star.accessibility.AccessibleTextType", name_space="com.sun.star.accessibility"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.accessibility.AccessibleTextType``"""
+        pass
+
+    class AccessibleTextTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.accessibility.AccessibleTextType", name_space="com.sun.star.accessibility"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.accessibility.AccessibleTextType`` as Enum values"""
+        pass
+
 else:
     from ...lo.accessibility.accessible_text_type import AccessibleTextType as AccessibleTextType
 

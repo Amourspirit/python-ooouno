@@ -50,6 +50,7 @@ class FormComponent(XPropertyBag_bbd00bd8, XPropertySet_bc180bfa, XNamed_a6520b0
         
         Note that the name accessed here is the same as when using the com.sun.star.container.XNamed interface.
         """
+        ...
 
 
 

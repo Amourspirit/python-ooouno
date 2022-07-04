@@ -38,6 +38,7 @@ class XCloseSessionListener(XInterface_8f010a43):
         """
         Notifies a closesession listener that the corresponding session was logged out.
         """
+        ...
 
 __all__ = ['XCloseSessionListener']
 

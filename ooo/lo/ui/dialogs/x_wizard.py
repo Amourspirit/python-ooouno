@@ -66,9 +66,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         You can only activate a path which shares the first k pages with the path which is previously active (if any), where k is the index of the current page within the current path.
         
-        Example: Say you have paths, (0,1,2,5) and (0,1,4,5) (with the numbers denoting page IDs). This means that after page 1, you either continue with page 2 or state 4,and after this, you finish in state 5.
-        Now if the first path is active, and your current state is 1, then you can easily switch to the second path, since both paths start with (0,1).
-        However, if your current state is 2, then you can not switch to the second path anymore.
+        Example: Say you have paths, (0,1,2,5) and (0,1,4,5) (with the numbers denoting page IDs). This means that after page 1, you either continue with page 2 or state 4,and after this, you finish in state 5.Now if the first path is active, and your current state is 1, then you can easily switch to the second path, since both paths start with (0,1).However, if your current state is 2, then you can not switch to the second path anymore.
         
         If TRUE, the path will be completely activated, even if it is a conflicting path (i.e. there is another path which shares the first k states with the to-be-activated path.)
         
@@ -82,6 +80,7 @@ class XWizard(XExecutableDialog_450f0fa1):
             : ````
             com.sun.star.util.InvalidStateException: ``InvalidStateException``
         """
+        ...
     @abstractmethod
     def advanceTo(self, PageId: int) -> bool:
         """
@@ -89,6 +88,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         Calling this method is equivalent to the user repeatedly pressing the Next button, until the given page is reached. Consequently, the method will fail if one of the intermediate pages does not allow advancing to the next page.
         """
+        ...
     @abstractmethod
     def enableButton(self, WizardButton: int, Enable: bool) -> None:
         """
@@ -96,6 +96,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         Normally, you will want to use this method for the Finish button only: The Next and Back buttons are usually maintained automatically, the Help and Cancel buttons are unlikely to ever being disabled.
         """
+        ...
     @abstractmethod
     def enablePage(self, PageID: int, Enable: bool) -> None:
         """
@@ -109,11 +110,13 @@ class XWizard(XExecutableDialog_450f0fa1):
             : ````
             com.sun.star.util.InvalidStateException: ``InvalidStateException``
         """
+        ...
     @abstractmethod
     def getCurrentPage(self) -> 'XWizardPage_ed7c0d3d':
         """
         provides access to the current page of the wizard
         """
+        ...
     @abstractmethod
     def goBackTo(self, PageId: int) -> bool:
         """
@@ -121,6 +124,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         Calling this method is equivalent to the user repeatedly pressing the Back button, until the given page is reached.
         """
+        ...
     @abstractmethod
     def setDefaultButton(self, WizardButton: int) -> None:
         """
@@ -130,6 +134,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         You can use this method, for instance, to make the Next button the default button on all pages except the last one, where Finish should be defaulted.
         """
+        ...
     @abstractmethod
     def travelNext(self) -> bool:
         """
@@ -137,6 +142,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         Calling this method is equivalent to the user pressing the Next button in the wizard. Consequently, the method will fail if in the current state of the wizard, it is not allowed to advance to a next page.
         """
+        ...
     @abstractmethod
     def travelPrevious(self) -> bool:
         """
@@ -144,6 +150,7 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         Calling this method is equivalent to the user pressing the Back button in the wizard.
         """
+        ...
     @abstractmethod
     def updateTravelUI(self) -> None:
         """
@@ -153,16 +160,19 @@ class XWizard(XExecutableDialog_450f0fa1):
         
         You usually call this method from within a wizard page whose state changed in a way that it affects the user's ability to reach other pages.
         """
+        ...
     @abstractproperty
     def DialogWindow(self) -> 'XWindow_713b0924':
         """
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         is the help URL of the wizard's main window.
         """
+        ...
 
 
 __all__ = ['XWizard']

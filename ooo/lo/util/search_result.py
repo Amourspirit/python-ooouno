@@ -19,6 +19,7 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.2
 from ooo.oenv.env_const import UNO_NONE
+import uno
 import typing
 
 
@@ -36,13 +37,13 @@ class SearchResult(object):
     typeName: str = 'com.sun.star.util.SearchResult'
     """Literal Constant ``com.sun.star.util.SearchResult``"""
 
-    def __init__(self, startOffset: typing.Optional[typing.Tuple[int, ...]] = (), endOffset: typing.Optional[typing.Tuple[int, ...]] = (), subRegExpressions: typing.Optional[int] = 0) -> None:
+    def __init__(self, startOffset: typing.Optional[uno.ByteSequence] = (), endOffset: typing.Optional[uno.ByteSequence] = (), subRegExpressions: typing.Optional[int] = 0) -> None:
         """
         Constructor
 
         Arguments:
-            startOffset (typing.Tuple[int, ...], optional): startOffset value.
-            endOffset (typing.Tuple[int, ...], optional): endOffset value.
+            startOffset (uno.ByteSequence, optional): startOffset value.
+            endOffset (uno.ByteSequence, optional): endOffset value.
             subRegExpressions (int, optional): subRegExpressions value.
         """
         super().__init__()
@@ -68,19 +69,19 @@ class SearchResult(object):
 
 
     @property
-    def startOffset(self) -> typing.Tuple[int, ...]:
+    def startOffset(self) -> uno.ByteSequence:
         return self._start_offset
     
     @startOffset.setter
-    def startOffset(self, value: typing.Tuple[int, ...]) -> None:
+    def startOffset(self, value: uno.ByteSequence) -> None:
         self._start_offset = value
 
     @property
-    def endOffset(self) -> typing.Tuple[int, ...]:
+    def endOffset(self) -> uno.ByteSequence:
         return self._end_offset
     
     @endOffset.setter
-    def endOffset(self, value: typing.Tuple[int, ...]) -> None:
+    def endOffset(self, value: uno.ByteSequence) -> None:
         self._end_offset = value
 
     @property

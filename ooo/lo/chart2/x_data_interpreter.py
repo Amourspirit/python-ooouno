@@ -46,6 +46,7 @@ class XDataInterpreter(XInterface_8f010a43):
         
         Supported key strings:
         """
+        ...
     @abstractmethod
     def interpretDataSource(self, xSource: 'XDataSource_f6340d57', aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]', aSeriesToReUse: 'typing.Tuple[XDataSeries_b8150b89, ...]') -> 'InterpretedData_ed4f0d4c':
         """
@@ -53,11 +54,13 @@ class XDataInterpreter(XInterface_8f010a43):
         
         For standard parameters that may be used, see the service StandardDiagramCreationParameters.
         """
+        ...
     @abstractmethod
     def isDataCompatible(self, aInterpretedData: 'InterpretedData_ed4f0d4c') -> bool:
         """
         parses the given data and states, if a reinterpretDataSeries() call can be done without data loss.
         """
+        ...
     @abstractmethod
     def mergeInterpretedData(self, aInterpretedData: 'InterpretedData_ed4f0d4c') -> 'XDataSource_f6340d57':
         """
@@ -65,11 +68,13 @@ class XDataInterpreter(XInterface_8f010a43):
         
         In case aInterpretedData is the result of interpretDataSource()( xSource ), the result of this method should be xSource.
         """
+        ...
     @abstractmethod
     def reinterpretDataSeries(self, aInterpretedData: 'InterpretedData_ed4f0d4c') -> 'InterpretedData_ed4f0d4c':
         """
         Re-interprets the data given in aInterpretedData while keeping the number of data series and the categories.
         """
+        ...
 
 __all__ = ['XDataInterpreter']
 

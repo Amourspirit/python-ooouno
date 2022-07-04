@@ -40,6 +40,7 @@ class XEnumerationAccess(XElementAccess_cd60e3f):
     def createEnumeration(self) -> 'XEnumeration_f2180daa':
         """
         """
+        ...
 
 __all__ = ['XEnumerationAccess']
 

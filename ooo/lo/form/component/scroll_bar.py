@@ -43,6 +43,7 @@ class ScrollBar(UnoControlScrollBarModel_49910fdc, FormControlModel_e2990d22, XR
         
         This value is used when the control is initially displayed, and for resetting it.
         """
+        ...
 
 
 

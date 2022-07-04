@@ -48,12 +48,14 @@ class XURI(XResource_842709e4):
         """
         suffix
         """
+        ...
 
     @abstractproperty
     def Namespace(self) -> str:
         """
         prefix
         """
+        ...
 
 
 __all__ = ['XURI']

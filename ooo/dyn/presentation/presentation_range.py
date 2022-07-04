@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.presentation.PresentationRange import (PRESENTATIONRANGE_ALL, PRESENTATIONRANGE_FROM_PAGE, PRESENTATIONRANGE_INDIVIDUAL)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.presentation.PresentationRange Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.presentation",
-            "__ooo_full_ns__": "com.sun.star.presentation.PresentationRange",
-            "__ooo_type_name__": "enum",
-            "PRESENTATIONRANGE_ALL": PRESENTATIONRANGE_ALL,
-            "PRESENTATIONRANGE_FROM_PAGE": PRESENTATIONRANGE_FROM_PAGE,
-            "PRESENTATIONRANGE_INDIVIDUAL": PRESENTATIONRANGE_INDIVIDUAL,
-        }
-        result = type('PresentationRange', (object,), _dict)
-        return result
-
-    PresentationRange = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class PresentationRange(metaclass=UnoEnumMeta, type_name="com.sun.star.presentation.PresentationRange", name_space="com.sun.star.presentation"):
+        """Dynamically created class that represents ``com.sun.star.presentation.PresentationRange`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.presentation.presentation_range import PresentationRange as PresentationRange
 

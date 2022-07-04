@@ -45,6 +45,7 @@ class CellRangeListSource(ListEntrySource_48260fe4, XInitialization_d46c0cca):
         """
         specifies the cell range within a document to which the component is bound.
         """
+        ...
 
 
 

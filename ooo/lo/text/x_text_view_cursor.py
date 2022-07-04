@@ -40,15 +40,18 @@ class XTextViewCursor(XTextCursor_a60c0b48):
     def getPosition(self) -> 'Point_5fb2085e':
         """
         """
+        ...
     @abstractmethod
     def isVisible(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def setVisible(self, bVisible: bool) -> None:
         """
         shows or hides this cursor for the user.
         """
+        ...
 
 __all__ = ['XTextViewCursor']
 

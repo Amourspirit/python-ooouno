@@ -57,6 +57,7 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def addVetoableChangeListener(self, PropertyName: str, aListener: 'XVetoableChangeListener_55a41027') -> None:
         """
@@ -68,10 +69,12 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def getPropertySetInfo(self) -> 'XPropertySetInfo_efa90d86':
         """
         """
+        ...
     @abstractmethod
     def getPropertyValue(self, PropertyName: str) -> object:
         """
@@ -80,6 +83,7 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removePropertyChangeListener(self, aPropertyName: str, aListener: 'XPropertyChangeListener_58e4105a') -> None:
         """
@@ -93,6 +97,7 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def removeVetoableChangeListener(self, PropertyName: str, aListener: 'XVetoableChangeListener_55a41027') -> None:
         """
@@ -104,6 +109,7 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.beans.UnknownPropertyException: ``UnknownPropertyException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def setPropertyValue(self, aPropertyName: str, aValue: object) -> None:
         """
@@ -117,6 +123,7 @@ class XPropertySet(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XPropertySet']
 

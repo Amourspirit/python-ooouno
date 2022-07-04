@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.script.provider
 import typing
+import uno
 from abc import abstractmethod
 from ...uno.x_interface import XInterface as XInterface_8f010a43
 
@@ -35,15 +36,11 @@ class XScript(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.script.provider.XScript'
 
     @abstractmethod
-    def invoke(self, aParams: 'typing.Tuple[object, ...]', aOutParamIndex: 'typing.Tuple[int, ...]', aOutParam: 'typing.Tuple[object, ...]') -> object:
+    def invoke(self, aParams: 'typing.Tuple[object, ...]', aOutParamIndex: uno.ByteSequence, aOutParam: 'typing.Tuple[object, ...]') -> object:
         """
         invoke the script or function represented by the implementing object
         
-        For example, if the script had the signature
-        long foo( [inout] string a, [in] string b, [out] string c )
-        the call would look like
-        bar.invoke( {\"foo\", \"foo2\", \"this-is-ignored\" }, aOutParamIndex, aOutParam);
-        and after the call the out sequences would contain
+        For example, if the script had the signaturelong foo( [inout] string a, [in] string b, [out] string c ) the call would look likebar.invoke( {\"foo\", \"foo2\", \"this-is-ignored\" }, aOutParamIndex, aOutParam); and after the call the out sequences would contain
 
         * ``aOutParamIndex`` is an out direction argument.
         * ``aOutParam`` is an out direction argument.
@@ -52,6 +49,7 @@ class XScript(XInterface_8f010a43):
             : ````
             com.sun.star.reflection.InvocationTargetException: ``InvocationTargetException``
         """
+        ...
 
 __all__ = ['XScript']
 

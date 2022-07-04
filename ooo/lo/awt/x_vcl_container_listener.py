@@ -47,11 +47,13 @@ class XVclContainerListener(XEventListener_c7230c4a):
         """
         is invoked when a window has been added to the VCL container window.
         """
+        ...
     @abstractmethod
     def windowRemoved(self, e: 'VclContainerEvent_e1800d1e') -> None:
         """
         is invoked when a window has been removed from the VCL container window.
         """
+        ...
 
 __all__ = ['XVclContainerListener']
 

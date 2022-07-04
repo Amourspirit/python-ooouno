@@ -55,11 +55,13 @@ class XCachedDynamicResultSetStubFactory(XInterface_8f010a43):
             : ````
             com.sun.star.ucb.AlreadyInitializedException: ``AlreadyInitializedException``
         """
+        ...
     @abstractmethod
     def createCachedDynamicResultSetStub(self, Source: 'XDynamicResultSet_e0360d0a') -> 'XDynamicResultSet_e0360d0a':
         """
         creates a remote optimizes XDynamicResultSet.
         """
+        ...
 
 __all__ = ['XCachedDynamicResultSetStubFactory']
 

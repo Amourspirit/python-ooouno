@@ -39,6 +39,7 @@ class XAnimationNode(XChild_a6390b07):
     def UserData(self) -> 'typing.Tuple[NamedValue_a37a0af3, ...]':
         """
         """
+        ...
 
     @abstractproperty
     def Acceleration(self) -> float:
@@ -49,6 +50,7 @@ class XAnimationNode(XChild_a6390b07):
         
         Acceleration is a value between 0 (no acceleration) and 1 (acceleration until end of the elements duration).
         """
+        ...
 
     @abstractproperty
     def AutoReverse(self) -> bool:
@@ -57,13 +59,14 @@ class XAnimationNode(XChild_a6390b07):
         
         AutoReverse is
         """
+        ...
 
     @abstractproperty
     def Begin(self) -> object:
         """
-        a sequence of values that define the beginning of this element
-        Begin is
+        a sequence of values that define the beginning of this element Begin is
         """
+        ...
 
     @abstractproperty
     def Decelerate(self) -> float:
@@ -74,6 +77,7 @@ class XAnimationNode(XChild_a6390b07):
         
         Decelerate is a value between 0 (no deceleration) and 1 (deceleration from beginning of the elements duration).
         """
+        ...
 
     @abstractproperty
     def Duration(self) -> object:
@@ -82,13 +86,14 @@ class XAnimationNode(XChild_a6390b07):
         
         Duration is
         """
+        ...
 
     @abstractproperty
     def End(self) -> object:
         """
-        a sequence of values that define the ending of this element
-        End is
+        a sequence of values that define the ending of this element End is
         """
+        ...
 
     @abstractproperty
     def EndSync(self) -> object:
@@ -99,6 +104,7 @@ class XAnimationNode(XChild_a6390b07):
         
         EndSync is either a short constant from EndSync, an interface reference to a child XTimeContainer or VOID.
         """
+        ...
 
     @abstractproperty
     def Fill(self) -> int:
@@ -107,6 +113,7 @@ class XAnimationNode(XChild_a6390b07):
         
         Fill is a value from AnimationFill.
         """
+        ...
 
     @abstractproperty
     def FillDefault(self) -> int:
@@ -115,6 +122,7 @@ class XAnimationNode(XChild_a6390b07):
         
         FillDefault is
         """
+        ...
 
     @abstractproperty
     def RepeatCount(self) -> object:
@@ -123,6 +131,7 @@ class XAnimationNode(XChild_a6390b07):
         
         RepeatCount is
         """
+        ...
 
     @abstractproperty
     def RepeatDuration(self) -> object:
@@ -131,6 +140,7 @@ class XAnimationNode(XChild_a6390b07):
         
         RepeatDuration is
         """
+        ...
 
     @abstractproperty
     def Restart(self) -> int:
@@ -139,18 +149,21 @@ class XAnimationNode(XChild_a6390b07):
         
         Restart is a short value from AnimationRestart.
         """
+        ...
 
     @abstractproperty
     def RestartDefault(self) -> int:
         """
         defines the default restart behavior for this element and all descendants.
         """
+        ...
 
     @abstractproperty
     def Type(self) -> int:
         """
         a value from AnimationNodeType.
         """
+        ...
 
 
 __all__ = ['XAnimationNode']

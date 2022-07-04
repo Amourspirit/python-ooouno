@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.ucb.LockDepth import (INFINITY, ONE, ZERO)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.ucb.LockDepth Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.ucb",
-            "__ooo_full_ns__": "com.sun.star.ucb.LockDepth",
-            "__ooo_type_name__": "enum",
-            "INFINITY": INFINITY,
-            "ONE": ONE,
-            "ZERO": ZERO,
-        }
-        result = type('LockDepth', (object,), _dict)
-        return result
-
-    LockDepth = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class LockDepth(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.LockDepth", name_space="com.sun.star.ucb"):
+        """Dynamically created class that represents ``com.sun.star.ucb.LockDepth`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.ucb.lock_depth import LockDepth as LockDepth
 

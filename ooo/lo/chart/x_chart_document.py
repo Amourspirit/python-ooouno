@@ -52,11 +52,13 @@ class XChartDocument(XModel_7a6e095c):
         
         The given data is copied before it is applied to the chart. So changing xData after this call will have no effect on the chart.
         """
+        ...
     @abstractmethod
     def getArea(self) -> 'XPropertySet_bc180bfa':
         """
         The area's extent is equal to the document size. If you want to access properties of the background area of the diagram, in which the actual data is represented, you have to change the chart wall which you get from the X3DDisplay.
         """
+        ...
     @abstractmethod
     def getData(self) -> 'XChartData_a3580ade':
         """
@@ -66,23 +68,28 @@ class XChartDocument(XModel_7a6e095c):
         
         Since OOo 3.4 the returned object also supports interface XDateCategories.
         """
+        ...
     @abstractmethod
     def getDiagram(self) -> 'XDiagram_8e1e0a27':
         """
         """
+        ...
     @abstractmethod
     def getLegend(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
     @abstractmethod
     def getSubTitle(self) -> 'XShape_8fd00a3d':
         """
         Usually the subtitle is smaller than the main title by default. And it is most commonly placed below the main title by default.
         """
+        ...
     @abstractmethod
     def getTitle(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
     @abstractmethod
     def setDiagram(self, xDiagram: 'XDiagram_8e1e0a27') -> None:
         """
@@ -90,6 +97,7 @@ class XChartDocument(XModel_7a6e095c):
         
         Setting a new diagram implicitly disposes the previous diagram.
         """
+        ...
 
 __all__ = ['XChartDocument']
 

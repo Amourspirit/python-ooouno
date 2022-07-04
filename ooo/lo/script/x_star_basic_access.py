@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.script
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -41,7 +42,7 @@ class XStarBasicAccess(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.script.XStarBasicAccess'
 
     @abstractmethod
-    def addDialog(self, LibraryName: str, DialogName: str, Data: 'typing.Tuple[int, ...]') -> None:
+    def addDialog(self, LibraryName: str, DialogName: str, Data: uno.ByteSequence) -> None:
         """
         Adds an old style basic dialog (SI controls) to an existing (e.g., created by createLibrary) library.
         
@@ -50,6 +51,7 @@ class XStarBasicAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def addModule(self, LibraryName: str, ModuleName: str, Language: str, Source: str) -> None:
         """
@@ -60,6 +62,7 @@ class XStarBasicAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def createLibrary(self, LibName: str, Password: str, ExternalSourceURL: str, LinkTargetURL: str) -> None:
         """
@@ -70,11 +73,13 @@ class XStarBasicAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def getLibraryContainer(self) -> 'XNameContainer_cb90e47':
         """
         returns the library container giving access to the libraries stored in a document or basic library file.
         """
+        ...
 
 __all__ = ['XStarBasicAccess']
 

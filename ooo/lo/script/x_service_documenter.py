@@ -44,23 +44,28 @@ class XServiceDocumenter(ABC):
     def showCoreDocs(self, xService: 'XServiceInfo_af180b5f') -> None:
         """
         """
+        ...
     @abstractmethod
     def showInterfaceDocs(self, xTypeProvider: 'XTypeProvider_bbb40bef') -> None:
         """
         """
+        ...
     @abstractmethod
     def showServiceDocs(self, xService: 'XServiceInfo_af180b5f') -> None:
         """
         """
+        ...
     @abstractproperty
     def CoreBaseUrl(self) -> str:
         """
         """
+        ...
 
     @abstractproperty
     def ServiceBaseUrl(self) -> str:
         """
         """
+        ...
 
 
 __all__ = ['XServiceDocumenter']

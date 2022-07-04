@@ -45,18 +45,21 @@ class TableDescriptor(Descriptor_a5200b3b, XColumnsSupplier_f0600da9, XKeysSuppl
         """
         is the name of the table catalog.
         """
+        ...
 
     @abstractproperty
     def Description(self) -> str:
         """
         supplies a comment on the table, Could be empty if not supported by the driver.
         """
+        ...
 
     @abstractproperty
     def SchemaName(self) -> str:
         """
         is the name of the table schema.
         """
+        ...
 
 
 

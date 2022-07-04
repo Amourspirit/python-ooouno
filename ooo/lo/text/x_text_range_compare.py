@@ -45,6 +45,7 @@ class XTextRangeCompare(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def compareRegionStarts(self, xR1: 'XTextRange_9a910ab7', xR2: 'XTextRange_9a910ab7') -> int:
         """
@@ -52,6 +53,7 @@ class XTextRangeCompare(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XTextRangeCompare']
 

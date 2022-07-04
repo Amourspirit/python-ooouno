@@ -50,11 +50,13 @@ class XDragSource(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isDragImageSupported(self) -> bool:
         """
         In order to query if drag image support is available.
         """
+        ...
     @abstractmethod
     def startDrag(self, trigger: 'DragGestureEvent_9e7211ca', sourceActions: int, cursor: int, image: int, trans: 'XTransferable_2d800f38', listener: 'XDragSourceListener_d56f12f8') -> None:
         """
@@ -62,6 +64,7 @@ class XDragSource(XInterface_8f010a43):
         
         Note: this call does not block until the drag and drop operation ends. If the Drag and Drop system is unable to initiate a drag operation or if the user attempts to start a drag while an existing drag operation is still executing, the action fails immediately. This is indicated by calling com.sun.star.datatransfer.dnd.XDragSourceListener.dragDropEnd() on the parameter listener with a DragSourceDragEvent showing a failure.
         """
+        ...
 
 __all__ = ['XDragSource']
 

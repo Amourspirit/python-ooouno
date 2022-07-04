@@ -46,6 +46,7 @@ class XTreeDataModel(XComponent_98dc0ab5):
         """
         Adds a listener for the TreeDataModelEvent posted after the tree changes.
         """
+        ...
     @abstractmethod
     def getRoot(self) -> 'XTreeNode_baaf0ba0':
         """
@@ -53,11 +54,13 @@ class XTreeDataModel(XComponent_98dc0ab5):
         
         Returns null only if the tree has no nodes.
         """
+        ...
     @abstractmethod
     def removeTreeDataModelListener(self, Listener: 'XTreeDataModelListener_748210cb') -> None:
         """
         Removes a listener previously added with addTreeDataModelListener().
         """
+        ...
 
 __all__ = ['XTreeDataModel']
 

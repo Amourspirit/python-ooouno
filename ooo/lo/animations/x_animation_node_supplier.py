@@ -38,6 +38,7 @@ class XAnimationNodeSupplier(ABC):
     def getAnimationNode(self) -> 'XAnimationNode_1cf10eb9':
         """
         """
+        ...
 
 __all__ = ['XAnimationNodeSupplier']
 

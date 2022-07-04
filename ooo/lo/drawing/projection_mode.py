@@ -34,6 +34,10 @@ class ProjectionMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.ProjectionMode'
+
     PARALLEL = 'PARALLEL'
     """
     the 3D objects are drawn in the parallel projection.

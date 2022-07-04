@@ -47,6 +47,7 @@ class XEventListener(XEventListener_c7230c4a):
         """
         is called whenever a document event (see EventObject) occurs
         """
+        ...
 
 __all__ = ['XEventListener']
 

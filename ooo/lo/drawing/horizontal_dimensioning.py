@@ -34,6 +34,10 @@ class HorizontalDimensioning(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.HorizontalDimensioning'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.HorizontalDimensioning'
+
     AUTO = 'AUTO'
     """
     the connection point is chosen automatically,

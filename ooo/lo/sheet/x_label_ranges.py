@@ -41,11 +41,13 @@ class XLabelRanges(XIndexAccess_f0910d6d):
         """
         adds a new label range to the collection.
         """
+        ...
     @abstractmethod
     def removeByIndex(self, nIndex: int) -> None:
         """
         removes a label range from the collection.
         """
+        ...
 
 __all__ = ['XLabelRanges']
 

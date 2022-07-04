@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import FormulaLanguage as FormulaLanguage
-    if hasattr(FormulaLanguage, '_constants') and isinstance(FormulaLanguage._constants, dict):
-        FormulaLanguage._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        FormulaLanguage._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.FormulaLanguage'
-        FormulaLanguage._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FormulaLanguageEnum
-        ls = [f for f in dir(FormulaLanguage) if not callable(getattr(FormulaLanguage, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FormulaLanguage, name)
-        FormulaLanguageEnum = IntEnum('FormulaLanguageEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FormulaLanguage(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.FormulaLanguage", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.FormulaLanguage``"""
+        pass
+
+    class FormulaLanguageEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.FormulaLanguage", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.FormulaLanguage`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.formula_language import FormulaLanguage as FormulaLanguage
 

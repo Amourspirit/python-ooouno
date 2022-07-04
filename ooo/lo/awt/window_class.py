@@ -34,6 +34,10 @@ class WindowClass(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.WindowClass'
+
     CONTAINER = 'CONTAINER'
     """
     is a container that may contain other components.

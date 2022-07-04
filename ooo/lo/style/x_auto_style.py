@@ -42,6 +42,7 @@ class XAutoStyle(XMultiPropertySet_fd880e05, XMultiPropertyStates_2a3e0f4d):
         """
         returns a sequence of all properties that are set in the style
         """
+        ...
 
 __all__ = ['XAutoStyle']
 

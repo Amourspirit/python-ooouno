@@ -48,6 +48,7 @@ class XAsyncOutputMonitor(ABC):
         Raises:
             IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XAsyncOutputMonitor']
 

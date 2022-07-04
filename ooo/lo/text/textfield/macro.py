@@ -39,18 +39,21 @@ class Macro(TextField_90260a56):
         """
         contains a tip that is displayed at the user interface.
         """
+        ...
 
     @abstractproperty
     def MacroLibrary(self) -> str:
         """
         contains the library name of a StarBASIC macro.
         """
+        ...
 
     @abstractproperty
     def MacroName(self) -> str:
         """
         contains the macro name of a StarBASIC macro.
         """
+        ...
 
 
 

@@ -44,6 +44,7 @@ class XElement(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endElement(self) -> None:
         """
@@ -52,26 +53,31 @@ class XElement(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def getAttributes(self) -> 'XAttributes_e31a0d36':
         """
         Gets the attributes of this element.
         """
+        ...
     @abstractmethod
     def getLocalName(self) -> str:
         """
         Gets the local name of this element.
         """
+        ...
     @abstractmethod
     def getParent(self) -> 'XElement':
         """
         Gets the parent context.
         """
+        ...
     @abstractmethod
     def getUid(self) -> int:
         """
         Gets the namespace uid of this element.
         """
+        ...
     @abstractmethod
     def ignorableWhitespace(self, whitespace: str) -> None:
         """
@@ -80,6 +86,7 @@ class XElement(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def processingInstruction(self, target: str, data: str) -> None:
         """
@@ -88,6 +95,7 @@ class XElement(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startChildElement(self, uid: int, localName: str, xAttributes: 'XAttributes_e31a0d36') -> 'XElement':
         """
@@ -96,6 +104,7 @@ class XElement(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XElement']
 

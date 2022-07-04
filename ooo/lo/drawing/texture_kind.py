@@ -34,6 +34,10 @@ class TextureKind(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.TextureKind'
+
     COLOR = 'COLOR'
     """
     With this mode the lighting is ignored and only the texture color information is used.

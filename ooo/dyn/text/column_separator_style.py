@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ColumnSeparatorStyle as ColumnSeparatorStyle
-    if hasattr(ColumnSeparatorStyle, '_constants') and isinstance(ColumnSeparatorStyle._constants, dict):
-        ColumnSeparatorStyle._constants['__ooo_ns__'] = 'com.sun.star.text'
-        ColumnSeparatorStyle._constants['__ooo_full_ns__'] = 'com.sun.star.text.ColumnSeparatorStyle'
-        ColumnSeparatorStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ColumnSeparatorStyleEnum
-        ls = [f for f in dir(ColumnSeparatorStyle) if not callable(getattr(ColumnSeparatorStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ColumnSeparatorStyle, name)
-        ColumnSeparatorStyleEnum = IntEnum('ColumnSeparatorStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ColumnSeparatorStyle(metaclass=UnoConstMeta, type_name="com.sun.star.text.ColumnSeparatorStyle", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.ColumnSeparatorStyle``"""
+        pass
+
+    class ColumnSeparatorStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.ColumnSeparatorStyle", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.ColumnSeparatorStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.column_separator_style import ColumnSeparatorStyle as ColumnSeparatorStyle
 

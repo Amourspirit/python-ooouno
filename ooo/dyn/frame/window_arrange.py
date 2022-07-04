@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.frame import WindowArrange as WindowArrange
-    if hasattr(WindowArrange, '_constants') and isinstance(WindowArrange._constants, dict):
-        WindowArrange._constants['__ooo_ns__'] = 'com.sun.star.frame'
-        WindowArrange._constants['__ooo_full_ns__'] = 'com.sun.star.frame.WindowArrange'
-        WindowArrange._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global WindowArrangeEnum
-        ls = [f for f in dir(WindowArrange) if not callable(getattr(WindowArrange, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(WindowArrange, name)
-        WindowArrangeEnum = IntEnum('WindowArrangeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class WindowArrange(metaclass=UnoConstMeta, type_name="com.sun.star.frame.WindowArrange", name_space="com.sun.star.frame"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.frame.WindowArrange``"""
+        pass
+
+    class WindowArrangeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.frame.WindowArrange", name_space="com.sun.star.frame"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.frame.WindowArrange`` as Enum values"""
+        pass
+
 else:
     from ...lo.frame.window_arrange import WindowArrange as WindowArrange
 

@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.sheet.FillDirection import (TO_BOTTOM, TO_LEFT, TO_RIGHT, TO_TOP)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.sheet.FillDirection Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.sheet",
-            "__ooo_full_ns__": "com.sun.star.sheet.FillDirection",
-            "__ooo_type_name__": "enum",
-            "TO_BOTTOM": TO_BOTTOM,
-            "TO_LEFT": TO_LEFT,
-            "TO_RIGHT": TO_RIGHT,
-            "TO_TOP": TO_TOP,
-        }
-        result = type('FillDirection', (object,), _dict)
-        return result
-
-    FillDirection = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FillDirection(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FillDirection", name_space="com.sun.star.sheet"):
+        """Dynamically created class that represents ``com.sun.star.sheet.FillDirection`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.sheet.fill_direction import FillDirection as FillDirection
 

@@ -51,6 +51,7 @@ class XIsolatedConnection(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getIsolatedConnectionWithCompletion(self, handler: 'XInteractionHandler_bf80e51') -> 'XConnection_a36a0b0c':
         """
@@ -61,6 +62,7 @@ class XIsolatedConnection(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XIsolatedConnection']
 

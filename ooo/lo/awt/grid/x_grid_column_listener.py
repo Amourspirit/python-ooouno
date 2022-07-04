@@ -45,6 +45,7 @@ class XGridColumnListener(XEventListener_c7230c4a):
         """
         Invoked after a column was modified.
         """
+        ...
 
 __all__ = ['XGridColumnListener']
 

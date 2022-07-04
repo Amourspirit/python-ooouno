@@ -34,6 +34,10 @@ class ConditionOperator(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.ConditionOperator'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.ConditionOperator'
+
     BETWEEN = 'BETWEEN'
     """
     the value has to be between the two specified values.

@@ -25,24 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.registry.RegistryKeyType import (KEY, LINK)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.registry.RegistryKeyType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.registry",
-            "__ooo_full_ns__": "com.sun.star.registry.RegistryKeyType",
-            "__ooo_type_name__": "enum",
-            "KEY": KEY,
-            "LINK": LINK,
-        }
-        result = type('RegistryKeyType', (object,), _dict)
-        return result
-
-    RegistryKeyType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class RegistryKeyType(metaclass=UnoEnumMeta, type_name="com.sun.star.registry.RegistryKeyType", name_space="com.sun.star.registry"):
+        """Dynamically created class that represents ``com.sun.star.registry.RegistryKeyType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.registry.registry_key_type import RegistryKeyType as RegistryKeyType
 

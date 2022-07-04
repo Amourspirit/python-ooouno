@@ -45,6 +45,7 @@ class XUIConfigurationStorage(XInterface_8f010a43):
         """
         checks if an instance has already a storage to load/store its data.
         """
+        ...
     @abstractmethod
     def setStorage(self, Storage: 'XStorage_8e460a32') -> None:
         """
@@ -52,6 +53,7 @@ class XUIConfigurationStorage(XInterface_8f010a43):
         
         This call needs careful usage as data loss can occur. If the implementation has modified data and a new storage is set the implementation is not allowed to write back the data to the old storage. This must be done explicitly with store(). In general a user interface configuration manager instance is created and initialize by the document model or the module user interface configuration supplier. Normally there is no need to set a storage for a user interface configuration manager. If a copy of the configuration data to another storage should be made, use storeToStorage().
         """
+        ...
 
 __all__ = ['XUIConfigurationStorage']
 

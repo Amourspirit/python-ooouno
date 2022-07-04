@@ -43,6 +43,7 @@ class XCell(XInterface_8f010a43):
         
         If the cell does not contain a formula, the error is always zero.
         """
+        ...
     @abstractmethod
     def getFormula(self) -> str:
         """
@@ -50,11 +51,13 @@ class XCell(XInterface_8f010a43):
         
         Even if the cell does not contain a formula, an assignment of this attribute's value to another cell's formula attribute would create the same cell content. This is because this attribute contains the original text value of a string cell. The value of a value cell will be formatted using the number format's default format or the formula string, including \"=\", of a formula cell.
         """
+        ...
     @abstractmethod
     def getType(self) -> 'CellContentType_e08c0d0d':
         """
         returns the type of the cell.
         """
+        ...
     @abstractmethod
     def getValue(self) -> float:
         """
@@ -62,6 +65,7 @@ class XCell(XInterface_8f010a43):
         
         For a value cell the value is returned, for a string cell zero is returned and for a formula cell the result value of a formula is returned.
         """
+        ...
     @abstractmethod
     def setFormula(self, aFormula: str) -> None:
         """
@@ -69,6 +73,7 @@ class XCell(XInterface_8f010a43):
         
         When assigned, the string will be interpreted and a value, text or formula cell is created, depending on the text and the number format.
         """
+        ...
     @abstractmethod
     def setValue(self, nValue: float) -> None:
         """
@@ -76,6 +81,7 @@ class XCell(XInterface_8f010a43):
         
         After a call to this method the type of the cell is CellContentType.VALUE.
         """
+        ...
 
 __all__ = ['XCell']
 

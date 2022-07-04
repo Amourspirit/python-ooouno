@@ -48,16 +48,19 @@ class XServiceTypeDescription2(XServiceTypeDescription_b4481282):
         """
         Returns the constructors of the service.
         """
+        ...
     @abstractmethod
     def getInterface(self) -> 'XTypeDescription_3c210fb1':
         """
         Returns the interface type associated with the service.
         """
+        ...
     @abstractmethod
     def isSingleInterfaceBased(self) -> bool:
         """
         Returns whether this object reflects a single-interface–based service.
         """
+        ...
 
 __all__ = ['XServiceTypeDescription2']
 

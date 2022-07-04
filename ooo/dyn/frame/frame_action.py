@@ -25,30 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.frame.FrameAction import (COMPONENT_ATTACHED, COMPONENT_DETACHING, COMPONENT_REATTACHED, CONTEXT_CHANGED, FRAME_ACTIVATED, FRAME_DEACTIVATING, FRAME_UI_ACTIVATED, FRAME_UI_DEACTIVATING)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.frame.FrameAction Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.frame",
-            "__ooo_full_ns__": "com.sun.star.frame.FrameAction",
-            "__ooo_type_name__": "enum",
-            "COMPONENT_ATTACHED": COMPONENT_ATTACHED,
-            "COMPONENT_DETACHING": COMPONENT_DETACHING,
-            "COMPONENT_REATTACHED": COMPONENT_REATTACHED,
-            "CONTEXT_CHANGED": CONTEXT_CHANGED,
-            "FRAME_ACTIVATED": FRAME_ACTIVATED,
-            "FRAME_DEACTIVATING": FRAME_DEACTIVATING,
-            "FRAME_UI_ACTIVATED": FRAME_UI_ACTIVATED,
-            "FRAME_UI_DEACTIVATING": FRAME_UI_DEACTIVATING,
-        }
-        result = type('FrameAction', (object,), _dict)
-        return result
-
-    FrameAction = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FrameAction(metaclass=UnoEnumMeta, type_name="com.sun.star.frame.FrameAction", name_space="com.sun.star.frame"):
+        """Dynamically created class that represents ``com.sun.star.frame.FrameAction`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.frame.frame_action import FrameAction as FrameAction
 

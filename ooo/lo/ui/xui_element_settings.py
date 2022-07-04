@@ -45,6 +45,7 @@ class XUIElementSettings(XInterface_8f010a43):
         """
         provides a UIElementSettings instance that provides access to the structure of user interface element if the user interface element type supports it.
         """
+        ...
     @abstractmethod
     def setSettings(self, UISettings: 'XIndexAccess_f0910d6d') -> None:
         """
@@ -52,6 +53,7 @@ class XUIElementSettings(XInterface_8f010a43):
         
         User interface elements cannot be changed directly. The changed structure data has to be set again. This speeds up the configuration process if many changes have to be made on the structure. The persistence of changes are controlled by the boolean property Persistent.
         """
+        ...
     @abstractmethod
     def updateSettings(self) -> None:
         """
@@ -59,6 +61,7 @@ class XUIElementSettings(XInterface_8f010a43):
         
         This is not done automatically as configurable user interface elements are controlled by layout managers. It is more efficient to let the responsible layout manager to control the update process in a single task.
         """
+        ...
 
 __all__ = ['XUIElementSettings']
 

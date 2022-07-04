@@ -42,16 +42,19 @@ class XLayerManager(XIndexAccess_f0910d6d):
         """
         attaches a Shape to the given Layer.
         """
+        ...
     @abstractmethod
     def getLayerForShape(self, xShape: 'XShape_8fd00a3d') -> 'XLayer_8fd00a49':
         """
         queries the Layer that a Shape is attached to
         """
+        ...
     @abstractmethod
     def insertNewByIndex(self, nIndex: int) -> 'XLayer_8fd00a49':
         """
         creates a new Layer
         """
+        ...
     @abstractmethod
     def remove(self, xLayer: 'XLayer_8fd00a49') -> None:
         """
@@ -60,6 +63,7 @@ class XLayerManager(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XLayerManager']
 

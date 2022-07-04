@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import ConditionOperator2 as ConditionOperator2
-    if hasattr(ConditionOperator2, '_constants') and isinstance(ConditionOperator2._constants, dict):
-        ConditionOperator2._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        ConditionOperator2._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.ConditionOperator2'
-        ConditionOperator2._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ConditionOperator2Enum
-        ls = [f for f in dir(ConditionOperator2) if not callable(getattr(ConditionOperator2, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ConditionOperator2, name)
-        ConditionOperator2Enum = IntEnum('ConditionOperator2Enum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ConditionOperator2(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.ConditionOperator2", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.ConditionOperator2``"""
+        pass
+
+    class ConditionOperator2Enum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.ConditionOperator2", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.ConditionOperator2`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.condition_operator2 import ConditionOperator2 as ConditionOperator2
 

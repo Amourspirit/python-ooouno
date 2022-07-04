@@ -44,21 +44,25 @@ class XListEntryListener(XEventListener_c7230c4a):
         
         The listener should retrieve the complete new list by calling the XListEntrySource.getAllListEntries() method of the event source (which is denoted by com.sun.star.lang.EventObject.Source).
         """
+        ...
     @abstractmethod
     def entryChanged(self, Source: 'ListEntryEvent_37f10f75') -> None:
         """
         notifies the listener that a single entry in the list has change
         """
+        ...
     @abstractmethod
     def entryRangeInserted(self, Source: 'ListEntryEvent_37f10f75') -> None:
         """
         notifies the listener that a range of entries has been inserted into the list
         """
+        ...
     @abstractmethod
     def entryRangeRemoved(self, Source: 'ListEntryEvent_37f10f75') -> None:
         """
         notifies the listener that a range of entries has been removed from the list
         """
+        ...
 
 __all__ = ['XListEntryListener']
 

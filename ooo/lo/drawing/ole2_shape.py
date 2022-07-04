@@ -44,12 +44,14 @@ class OLE2Shape(Shape_85cc09e5):
         
         If you set it, an empty OLE2 document stream with this CLSID is created within this OLE2 shape.
         """
+        ...
 
     @abstractproperty
     def IsInternal(self) -> bool:
         """
         This property returns TRUE for all OLE2 that are internal Office components.
         """
+        ...
 
     @abstractproperty
     def Model(self) -> 'XModel_7a6e095c':
@@ -58,12 +60,14 @@ class OLE2Shape(Shape_85cc09e5):
         
         This property returns an empty reference if the OLE2 is not an Office component.
         """
+        ...
 
     @abstractproperty
     def PersistName(self) -> str:
         """
         this is the internal storage name that keeps this OLE2 persist.
         """
+        ...
 
 
 

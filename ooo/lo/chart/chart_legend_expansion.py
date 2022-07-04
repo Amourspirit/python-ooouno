@@ -34,6 +34,10 @@ class ChartLegendExpansion(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendExpansion'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartLegendExpansion'
+
     BALANCED = 'BALANCED'
     """
     The legend entries are arranged in a way that the aspect ratio of the resulting legend is as near to 1 as possible.

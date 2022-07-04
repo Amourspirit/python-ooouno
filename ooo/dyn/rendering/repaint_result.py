@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import RepaintResult as RepaintResult
-    if hasattr(RepaintResult, '_constants') and isinstance(RepaintResult._constants, dict):
-        RepaintResult._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        RepaintResult._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.RepaintResult'
-        RepaintResult._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global RepaintResultEnum
-        ls = [f for f in dir(RepaintResult) if not callable(getattr(RepaintResult, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(RepaintResult, name)
-        RepaintResultEnum = IntEnum('RepaintResultEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class RepaintResult(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.RepaintResult", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.RepaintResult``"""
+        pass
+
+    class RepaintResultEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.RepaintResult", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.RepaintResult`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.repaint_result import RepaintResult as RepaintResult
 

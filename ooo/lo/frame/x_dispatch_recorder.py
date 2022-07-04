@@ -51,6 +51,7 @@ class XDispatchRecorder(XInterface_8f010a43):
         
         Must be called in pairs with XDispatchRecorder.startRecording().
         """
+        ...
     @abstractmethod
     def getRecordedMacro(self) -> str:
         """
@@ -58,11 +59,13 @@ class XDispatchRecorder(XInterface_8f010a43):
         
         This method must be used before endRecording() is called! Otherwise the macro will be released.
         """
+        ...
     @abstractmethod
     def recordDispatch(self, URL: 'URL_57ad07b9', Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
         records a single dispatch call identified by its command URL
         """
+        ...
     @abstractmethod
     def recordDispatchAsComment(self, URL: 'URL_57ad07b9', Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -70,11 +73,13 @@ class XDispatchRecorder(XInterface_8f010a43):
         
         This way calls that failed on execution can be documented.
         """
+        ...
     @abstractmethod
     def startRecording(self, Frame: 'XFrame_7a570956') -> None:
         """
         initializes the recorder by passing the frame for which all macro statements shall be recorded
         """
+        ...
 
 __all__ = ['XDispatchRecorder']
 

@@ -34,6 +34,10 @@ class SheetLinkMode(Enum):
     __ooo_full_ns__: str = 'com.sun.star.sheet.SheetLinkMode'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.sheet.SheetLinkMode'
+
     NONE = 'NONE'
     """
     no cells are moved.

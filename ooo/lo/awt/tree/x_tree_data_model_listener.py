@@ -51,6 +51,7 @@ class XTreeDataModelListener(XEventListener_c7230c4a):
         
         To indicate the root has changed, TreeDataModelEvent.Nodes will contain the root node and TreeDataModelEvent.ParentNode will be empty.
         """
+        ...
     @abstractmethod
     def treeNodesInserted(self, Event: 'TreeDataModelEvent_349a0f2f') -> None:
         """
@@ -58,6 +59,7 @@ class XTreeDataModelListener(XEventListener_c7230c4a):
         
         Use TreeDataModelEvent.ParentNode to get the parent of the new node(s). TreeDataModelEvent.Nodes contains the new node(s).
         """
+        ...
     @abstractmethod
     def treeNodesRemoved(self, Event: 'TreeDataModelEvent_349a0f2f') -> None:
         """
@@ -67,6 +69,7 @@ class XTreeDataModelListener(XEventListener_c7230c4a):
         
         Use TreeDataModelEvent.ParentNode to get the former parent of the deleted node(s). TreeDataModelEvent.Nodes contains the removed node(s).
         """
+        ...
     @abstractmethod
     def treeStructureChanged(self, Event: 'TreeDataModelEvent_349a0f2f') -> None:
         """
@@ -74,6 +77,7 @@ class XTreeDataModelListener(XEventListener_c7230c4a):
         
         Use TreeDataModelEvent.ParentNode to get the node which structure has changed. TreeDataModelEvent.Nodes is empty.
         """
+        ...
 
 __all__ = ['XTreeDataModelListener']
 

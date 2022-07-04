@@ -44,21 +44,25 @@ class XSearchable(XInterface_8f010a43):
         """
         creates a SearchDescriptor which contains properties that specify a search in this container.
         """
+        ...
     @abstractmethod
     def findAll(self, xDesc: 'XSearchDescriptor_ef600d93') -> 'XIndexAccess_f0910d6d':
         """
         searches the contained texts for all occurrences of whatever is specified.
         """
+        ...
     @abstractmethod
     def findFirst(self, xDesc: 'XSearchDescriptor_ef600d93') -> 'XInterface_8f010a43':
         """
         searches the contained texts for the next occurrence of whatever is specified.
         """
+        ...
     @abstractmethod
     def findNext(self, xStartAt: 'XInterface_8f010a43', xDesc: 'XSearchDescriptor_ef600d93') -> 'XInterface_8f010a43':
         """
         searches the contained texts for the next occurrence of whatever is specified.
         """
+        ...
 
 __all__ = ['XSearchable']
 

@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import (NORMAL, PATH, SHAPE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.EnhancedCustomShapeTextPathMode Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.EnhancedCustomShapeTextPathMode",
-            "__ooo_type_name__": "enum",
-            "NORMAL": NORMAL,
-            "PATH": PATH,
-            "SHAPE": SHAPE,
-        }
-        result = type('EnhancedCustomShapeTextPathMode', (object,), _dict)
-        return result
-
-    EnhancedCustomShapeTextPathMode = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class EnhancedCustomShapeTextPathMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeTextPathMode", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.EnhancedCustomShapeTextPathMode`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.enhanced_custom_shape_text_path_mode import EnhancedCustomShapeTextPathMode as EnhancedCustomShapeTextPathMode
 

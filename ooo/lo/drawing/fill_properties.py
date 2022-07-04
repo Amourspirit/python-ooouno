@@ -52,12 +52,14 @@ class FillProperties(ABC):
         """
         if this is TRUE, the transparent background of a hatch filled area is drawn in the current background color.
         """
+        ...
 
     @abstractproperty
     def FillBitmap(self) -> 'XBitmap_70cd0909':
         """
         If the property FillStyle is set to FillStyle.BITMAP, this is the bitmap used.
         """
+        ...
 
     @abstractproperty
     def FillBitmapLogicalSize(self) -> bool:
@@ -66,6 +68,7 @@ class FillProperties(ABC):
         
         If this is TRUE, the properties FillBitmapSizeX and FillBitmapSizeY contain the size of the tile in percent of the size of the original bitmap. If this is FALSE, the size of the tile is specified with 1/100th mm.
         """
+        ...
 
     @abstractproperty
     def FillBitmapMode(self) -> 'BitmapMode_bced0bd6':
@@ -80,24 +83,28 @@ class FillProperties(ABC):
         
         If set to BitmapMode.NO_REPEAT, both properties FillBitmapStretch and FillBitmapTile are set to FALSE.
         """
+        ...
 
     @abstractproperty
     def FillBitmapName(self) -> str:
         """
         If the property FillStyle is set to FillStyle.BITMAP, this is the name of the used fill bitmap style.
         """
+        ...
 
     @abstractproperty
     def FillBitmapOffsetX(self) -> int:
         """
         Every second line of tiles is moved the given percent of the width of the bitmap.
         """
+        ...
 
     @abstractproperty
     def FillBitmapOffsetY(self) -> int:
         """
         Every second row of tiles is moved the given percent of the height of the bitmap.
         """
+        ...
 
     @abstractproperty
     def FillBitmapPositionOffsetX(self) -> int:
@@ -106,6 +113,7 @@ class FillProperties(ABC):
         
         It is given in percent in relation to the width of the bitmap.
         """
+        ...
 
     @abstractproperty
     def FillBitmapPositionOffsetY(self) -> int:
@@ -114,12 +122,14 @@ class FillProperties(ABC):
         
         It is given in percent in relation to the height of the bitmap.
         """
+        ...
 
     @abstractproperty
     def FillBitmapRectanglePoint(self) -> 'RectanglePoint_f0ff0d93':
         """
         The RectanglePoint specifies the position inside of the bitmap to use as the top left position for rendering.
         """
+        ...
 
     @abstractproperty
     def FillBitmapSizeX(self) -> int:
@@ -128,6 +138,7 @@ class FillProperties(ABC):
         
         Depending on the property FillBitmapLogicalSize, this is either relative or absolute.
         """
+        ...
 
     @abstractproperty
     def FillBitmapSizeY(self) -> int:
@@ -136,6 +147,7 @@ class FillProperties(ABC):
         
         Depending on the property FillBitmapLogicalSize, this is either relative or absolute.
         """
+        ...
 
     @abstractproperty
     def FillBitmapStretch(self) -> bool:
@@ -148,6 +160,7 @@ class FillProperties(ABC):
         
         If set to FALSE, the value of the FillBitmapMode property changes to BitmapMode.REPEAT or BitmapMode.NO_REPEAT, depending on the current value of the FillBitmapTile property.
         """
+        ...
 
     @abstractproperty
     def FillBitmapTile(self) -> bool:
@@ -160,6 +173,7 @@ class FillProperties(ABC):
         
         If set to FALSE, the value of the FillBitmapMode property changes to BitmapMode.STRETCH or BitmapMode.NO_REPEAT, depending on the current value of the FillBitmapStretch property.
         """
+        ...
 
     @abstractproperty
     def FillBitmapURL(self) -> str:
@@ -168,42 +182,49 @@ class FillProperties(ABC):
         
         Note the new behaviour since it this was deprecated: This property can only be set and only external URLs are supported (no more vnd.sun.star.GraphicObject scheme). When a URL is set, then it will load the bitmap and set the FillBitmap property.
         """
+        ...
 
     @abstractproperty
     def FillColor(self) -> 'Color_68e908c5':
         """
         If the property FillStyle is set to FillStyle.SOLID, this is the color used.
         """
+        ...
 
     @abstractproperty
     def FillGradient(self) -> 'Gradient_7a8a0982':
         """
         If the property FillStyle is set to FillStyle.GRADIENT, this describes the gradient used.
         """
+        ...
 
     @abstractproperty
     def FillGradientName(self) -> str:
         """
         If the property FillStyle is set to FillStyle.GRADIENT, this is the name of the used fill gradient style.
         """
+        ...
 
     @abstractproperty
     def FillHatch(self) -> 'Hatch_859b09dc':
         """
         If the property FillStyle is set to FillStyle.HATCH, this describes the hatch used.
         """
+        ...
 
     @abstractproperty
     def FillHatchName(self) -> str:
         """
         If the property FillStyle is set to FillStyle.HATCH, this is the name of the used fill hatch style.
         """
+        ...
 
     @abstractproperty
     def FillStyle(self) -> 'FillStyle_b1460b8c':
         """
         This enumeration selects the style the area will be filled with.
         """
+        ...
 
     @abstractproperty
     def FillTransparence(self) -> int:
@@ -212,12 +233,14 @@ class FillProperties(ABC):
         
         This property is only valid if the property FillStyle is set to FillStyle.SOLID.
         """
+        ...
 
     @abstractproperty
     def FillTransparenceGradient(self) -> 'Gradient_7a8a0982':
         """
         This describes the transparency of the fill area as a gradient.
         """
+        ...
 
     @abstractproperty
     def FillTransparenceGradientName(self) -> str:
@@ -226,6 +249,7 @@ class FillProperties(ABC):
         
         If you set the name of a transparence gradient style contained in the document, this style used.
         """
+        ...
 
     @abstractproperty
     def GraphicCrop(self) -> 'GraphicCrop_a58e0b1f':
@@ -238,6 +262,7 @@ class FillProperties(ABC):
         
             LibreOffice 4.3
         """
+        ...
 
 
 

@@ -47,6 +47,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endDocument(self) -> None:
         """
@@ -55,6 +56,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def endElement(self, aName: str) -> None:
         """
@@ -63,6 +65,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def ignorableWhitespace(self, aWhitespaces: str) -> None:
         """
@@ -71,6 +74,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def processingInstruction(self, aTarget: str, aData: str) -> None:
         """
@@ -79,6 +83,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def setDocumentLocator(self, xLocator: 'XLocator_a3fb0aff') -> None:
         """
@@ -87,6 +92,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startDocument(self) -> None:
         """
@@ -95,6 +101,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startElement(self, aName: str, xAttribs: 'XAttributeList_eec70d7b') -> None:
         """
@@ -103,6 +110,7 @@ class XDocumentHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XDocumentHandler']
 

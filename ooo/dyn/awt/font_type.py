@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontType as FontType
-    if hasattr(FontType, '_constants') and isinstance(FontType._constants, dict):
-        FontType._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        FontType._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontType'
-        FontType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FontTypeEnum
-        ls = [f for f in dir(FontType) if not callable(getattr(FontType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FontType, name)
-        FontTypeEnum = IntFlag('FontTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FontType(metaclass=UnoConstMeta, type_name="com.sun.star.awt.FontType", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.FontType``"""
+        pass
+
+    class FontTypeEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.FontType", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.FontType`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.font_type import FontType as FontType
 

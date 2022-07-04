@@ -45,16 +45,19 @@ class XRemoteContentProviderDistributor(XInterface_8f010a43):
             com.sun.star.connection.ConnectionSetupException: ``ConnectionSetupException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def disconnectFromAll(self) -> None:
         """
         Undo the offering of the local content broker to all remote content provider acceptors.
         """
+        ...
     @abstractmethod
     def disconnectFromRemoteAcceptor(self, Url: str) -> bool:
         """
         Undo the offering of the local content broker to a specific remote content provider acceptor.
         """
+        ...
 
 __all__ = ['XRemoteContentProviderDistributor']
 

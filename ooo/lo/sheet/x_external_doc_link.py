@@ -49,6 +49,7 @@ class XExternalDocLink(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d, XName
         
         Note that a sheet name lookup is performed in a case-insensitive fashion.
         """
+        ...
     @abstractproperty
     def TokenIndex(self) -> int:
         """
@@ -58,6 +59,7 @@ class XExternalDocLink(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d, XName
         
         Each external document cache instance has a unique index value, and this index value can be used to retrieve the corresponding external document cache from the parent com.sun.star.sheet.ExternalDocLinks instance.
         """
+        ...
 
 
 __all__ = ['XExternalDocLink']

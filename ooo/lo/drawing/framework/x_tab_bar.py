@@ -48,11 +48,13 @@ class XTabBar(ABC):
         """
         Add a tab bar button to the right of another one.
         """
+        ...
     @abstractmethod
     def appendTabBarButton(self, aButton: 'TabBarButton_6ab41098') -> None:
         """
         Add a tab bar button at the right most position.
         """
+        ...
     @abstractmethod
     def getTabBarButtons(self) -> 'typing.Tuple[TabBarButton_6ab41098, ...]':
         """
@@ -62,16 +64,19 @@ class XTabBar(ABC):
         
         This method can be used when addTabBarButtonAfter() does not provide enough control as to where to insert a new button.
         """
+        ...
     @abstractmethod
     def hasTabBarButton(self, aButton: 'TabBarButton_6ab41098') -> bool:
         """
         Test whether the specified button exists in the tab bar.
         """
+        ...
     @abstractmethod
     def removeTabBarButton(self, aButton: 'TabBarButton_6ab41098') -> None:
         """
         Remove a tab bar button.
         """
+        ...
 
 __all__ = ['XTabBar']
 

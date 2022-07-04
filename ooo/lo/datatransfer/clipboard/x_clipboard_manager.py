@@ -45,6 +45,7 @@ class XClipboardManager(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def getClipboard(self, aName: str) -> 'XClipboard_a18a11cd':
         """
@@ -53,16 +54,19 @@ class XClipboardManager(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def listClipboardNames(self) -> 'typing.Tuple[str, ...]':
         """
         Get a list of a managed clipboards.
         """
+        ...
     @abstractmethod
     def removeClipboard(self, aName: str) -> None:
         """
         Removes the clipboard with the specified name from the list.
         """
+        ...
 
 __all__ = ['XClipboardManager']
 

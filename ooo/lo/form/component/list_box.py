@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.form.component
 import typing
+import uno
 from abc import abstractproperty
 from ...awt.uno_control_list_box_model import UnoControlListBoxModel as UnoControlListBoxModel_2a3c0f1d
 from ..form_control_model import FormControlModel as FormControlModel_e2990d22
@@ -38,18 +39,20 @@ class ListBox(UnoControlListBoxModel_2a3c0f1d, FormControlModel_e2990d22, XReset
     __ooo_type_name__: str = 'service'
 
     @abstractproperty
-    def DefaultSelection(self) -> 'typing.Tuple[int, ...]':
+    def DefaultSelection(self) -> uno.ByteSequence:
         """
         contains the indexes of entries of the listbox, which should selected by default.
         
         This selection is used initially or for a reset.
         """
+        ...
 
     @abstractproperty
     def ListSource(self) -> 'typing.Tuple[str, ...]':
         """
         contains the values associated to the strings to be displayed (which are specified by com.sun.star.awt.UnoControlListBoxModel.StringItemList)
         """
+        ...
 
 
 

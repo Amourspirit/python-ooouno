@@ -54,6 +54,7 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createDocumentAlive(self, frame: 'XFrame_7a570956') -> 'XModel_7a6e095c':
         """
@@ -66,6 +67,7 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createDocumentModel(self) -> 'XModel_7a6e095c':
         """
@@ -76,6 +78,7 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def interrupt(self) -> None:
         """
@@ -85,32 +88,36 @@ class XReportEngine(XPropertySet_bc180bfa, XComponent_98dc0ab5):
             com.sun.star.lang.DisposedException: ``DisposedException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractproperty
     def ActiveConnection(self) -> 'XConnection_a36a0b0c':
         """
         specifies the active connection which is used to create the resulting report.
         """
+        ...
 
     @abstractproperty
     def MaxRows(self) -> int:
         """
         defines the maximum number of rows which should be fetched for the report.
         
-        If the limit is exceeded, the excess rows are silently dropped.
-        There is no limitation, if set to zero.
+        If the limit is exceeded, the excess rows are silently dropped. There is no limitation, if set to zero.
         """
+        ...
 
     @abstractproperty
     def ReportDefinition(self) -> 'XReportDefinition_ec30e81':
         """
         specifies the report definition object which is used to create the resulting report.
         """
+        ...
 
     @abstractproperty
     def StatusIndicator(self) -> 'XStatusIndicator_e2d00d34':
         """
         specifies the status indicator which shows the progress of the report generation process.
         """
+        ...
 
 
 __all__ = ['XReportEngine']

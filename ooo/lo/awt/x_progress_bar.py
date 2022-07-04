@@ -41,16 +41,19 @@ class XProgressBar(XInterface_8f010a43):
         """
         returns the current progress value of the progress bar.
         """
+        ...
     @abstractmethod
     def setBackgroundColor(self, Color: 'Color_68e908c5') -> None:
         """
         sets the background color (RGB) of the control.
         """
+        ...
     @abstractmethod
     def setForegroundColor(self, Color: 'Color_68e908c5') -> None:
         """
         sets the foreground color (RGB) of the control.
         """
+        ...
     @abstractmethod
     def setRange(self, Min: int, Max: int) -> None:
         """
@@ -58,11 +61,13 @@ class XProgressBar(XInterface_8f010a43):
         
         If the minimum value is greater than the maximum value, the method exchanges the values automatically.
         """
+        ...
     @abstractmethod
     def setValue(self, Value: int) -> None:
         """
         sets the progress value of the progress bar.
         """
+        ...
 
 __all__ = ['XProgressBar']
 

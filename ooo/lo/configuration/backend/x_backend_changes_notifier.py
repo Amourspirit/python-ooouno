@@ -41,11 +41,13 @@ class XBackendChangesNotifier(XInterface_8f010a43):
         """
         adds the specified listener to receive events when changes occurred.
         """
+        ...
     @abstractmethod
     def removeChangesListener(self, aListener: 'XBackendChangesListener_924c1675', component: str) -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XBackendChangesNotifier']
 

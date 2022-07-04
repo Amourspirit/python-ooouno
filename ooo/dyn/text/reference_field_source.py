@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.text import ReferenceFieldSource as ReferenceFieldSource
-    if hasattr(ReferenceFieldSource, '_constants') and isinstance(ReferenceFieldSource._constants, dict):
-        ReferenceFieldSource._constants['__ooo_ns__'] = 'com.sun.star.text'
-        ReferenceFieldSource._constants['__ooo_full_ns__'] = 'com.sun.star.text.ReferenceFieldSource'
-        ReferenceFieldSource._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ReferenceFieldSourceEnum
-        ls = [f for f in dir(ReferenceFieldSource) if not callable(getattr(ReferenceFieldSource, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ReferenceFieldSource, name)
-        ReferenceFieldSourceEnum = IntEnum('ReferenceFieldSourceEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ReferenceFieldSource(metaclass=UnoConstMeta, type_name="com.sun.star.text.ReferenceFieldSource", name_space="com.sun.star.text"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.text.ReferenceFieldSource``"""
+        pass
+
+    class ReferenceFieldSourceEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.text.ReferenceFieldSource", name_space="com.sun.star.text"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.text.ReferenceFieldSource`` as Enum values"""
+        pass
+
 else:
     from ...lo.text.reference_field_source import ReferenceFieldSource as ReferenceFieldSource
 

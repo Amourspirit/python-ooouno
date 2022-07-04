@@ -25,28 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.ucb.ContentCreationError import (CONTENT_CREATION_FAILED, IDENTIFIER_CREATION_FAILED, NO_CONTENT_BROKER, NO_CONTENT_PROVIDER, NO_IDENTIFIER_FACTORY, UNKNOWN)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.ucb.ContentCreationError Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.ucb",
-            "__ooo_full_ns__": "com.sun.star.ucb.ContentCreationError",
-            "__ooo_type_name__": "enum",
-            "CONTENT_CREATION_FAILED": CONTENT_CREATION_FAILED,
-            "IDENTIFIER_CREATION_FAILED": IDENTIFIER_CREATION_FAILED,
-            "NO_CONTENT_BROKER": NO_CONTENT_BROKER,
-            "NO_CONTENT_PROVIDER": NO_CONTENT_PROVIDER,
-            "NO_IDENTIFIER_FACTORY": NO_IDENTIFIER_FACTORY,
-            "UNKNOWN": UNKNOWN,
-        }
-        result = type('ContentCreationError', (object,), _dict)
-        return result
-
-    ContentCreationError = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ContentCreationError(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.ContentCreationError", name_space="com.sun.star.ucb"):
+        """Dynamically created class that represents ``com.sun.star.ucb.ContentCreationError`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.ucb.content_creation_error import ContentCreationError as ContentCreationError
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PanoseSerifStyle as PanoseSerifStyle
-    if hasattr(PanoseSerifStyle, '_constants') and isinstance(PanoseSerifStyle._constants, dict):
-        PanoseSerifStyle._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        PanoseSerifStyle._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PanoseSerifStyle'
-        PanoseSerifStyle._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PanoseSerifStyleEnum
-        ls = [f for f in dir(PanoseSerifStyle) if not callable(getattr(PanoseSerifStyle, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PanoseSerifStyle, name)
-        PanoseSerifStyleEnum = IntEnum('PanoseSerifStyleEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class PanoseSerifStyle(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.PanoseSerifStyle", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.PanoseSerifStyle``"""
+        pass
+
+    class PanoseSerifStyleEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.PanoseSerifStyle", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.PanoseSerifStyle`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.panose_serif_style import PanoseSerifStyle as PanoseSerifStyle
 

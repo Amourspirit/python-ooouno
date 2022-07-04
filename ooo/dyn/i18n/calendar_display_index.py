@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.i18n import CalendarDisplayIndex as CalendarDisplayIndex
-    if hasattr(CalendarDisplayIndex, '_constants') and isinstance(CalendarDisplayIndex._constants, dict):
-        CalendarDisplayIndex._constants['__ooo_ns__'] = 'com.sun.star.i18n'
-        CalendarDisplayIndex._constants['__ooo_full_ns__'] = 'com.sun.star.i18n.CalendarDisplayIndex'
-        CalendarDisplayIndex._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CalendarDisplayIndexEnum
-        ls = [f for f in dir(CalendarDisplayIndex) if not callable(getattr(CalendarDisplayIndex, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CalendarDisplayIndex, name)
-        CalendarDisplayIndexEnum = IntEnum('CalendarDisplayIndexEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CalendarDisplayIndex(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.CalendarDisplayIndex", name_space="com.sun.star.i18n"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.i18n.CalendarDisplayIndex``"""
+        pass
+
+    class CalendarDisplayIndexEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.i18n.CalendarDisplayIndex", name_space="com.sun.star.i18n"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.i18n.CalendarDisplayIndex`` as Enum values"""
+        pass
+
 else:
     from ...lo.i18n.calendar_display_index import CalendarDisplayIndex as CalendarDisplayIndex
 

@@ -45,11 +45,13 @@ class XLayoutManagerEventBroadcaster(XInterface_8f010a43):
         """
         adds a layout manager event listener to the object's listener list.
         """
+        ...
     @abstractmethod
     def removeLayoutManagerEventListener(self, aLayoutManagerListener: 'XLayoutManagerListener_47cf0fea') -> None:
         """
         removes a layout manager event listener from the object's listener list.
         """
+        ...
 
 __all__ = ['XLayoutManagerEventBroadcaster']
 

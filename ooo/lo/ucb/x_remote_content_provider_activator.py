@@ -49,6 +49,7 @@ class XRemoteContentProviderActivator(XInterface_8f010a43):
         
         This allows for XRemoteContentProviderAcceptor.addRemoteContentProvider() to be implemented in a lazy fashion (remember the remote content providers, but do not register them right away), which can increase performance in certain situations. But it is not required that an implementation of XRemoteContentProviderAcceptor uses this lazy strategy (and thus also implements this interface).
         """
+        ...
 
 __all__ = ['XRemoteContentProviderActivator']
 

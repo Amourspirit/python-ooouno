@@ -41,31 +41,37 @@ class XCheckBox(XInterface_8f010a43):
         """
         registers a listener for item events.
         """
+        ...
     @abstractmethod
     def enableTriState(self, b: bool) -> None:
         """
         enables or disables the tri state mode.
         """
+        ...
     @abstractmethod
     def getState(self) -> int:
         """
         returns the state of the check box.
         """
+        ...
     @abstractmethod
     def removeItemListener(self, l: 'XItemListener_af710b81') -> None:
         """
         unregisters a listener for item events.
         """
+        ...
     @abstractmethod
     def setLabel(self, Label: str) -> None:
         """
         sets the label of the check box.
         """
+        ...
     @abstractmethod
     def setState(self, n: int) -> None:
         """
         sets the state of the check box.
         """
+        ...
 
 __all__ = ['XCheckBox']
 

@@ -49,6 +49,7 @@ class XSlidePreviewCache(ABC):
         """
         Register a listener that is called when a preview has been created asynchronously.
         """
+        ...
     @abstractmethod
     def getSlidePreview(self, nSlideIndex: int, xCanvas: 'XCanvas_b19b0b7a') -> 'XBitmap_b1b70b7b':
         """
@@ -61,6 +62,7 @@ class XSlidePreviewCache(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def pause(self) -> None:
         """
@@ -68,16 +70,19 @@ class XSlidePreviewCache(ABC):
         
         Call resume() to restart it.
         """
+        ...
     @abstractmethod
     def removePreviewCreationNotifyListener(self, xListener: 'XSlidePreviewCacheListener_af761239') -> None:
         """
         Remove a previously registered listener for preview creations.
         """
+        ...
     @abstractmethod
     def resume(self) -> None:
         """
         Resume the asynchronous creation of slide previews.
         """
+        ...
     @abstractmethod
     def setDocumentSlides(self, xSlides: 'XIndexAccess_f0910d6d', xDocument: 'XInterface_8f010a43') -> None:
         """
@@ -85,11 +90,13 @@ class XSlidePreviewCache(ABC):
         
         All slides in the given XIndexAccess are required to come from the given model.
         """
+        ...
     @abstractmethod
     def setPreviewSize(self, aSize: 'IntegerSize2D_f2690d53') -> None:
         """
         Define the size of the previews that are managed by the called cache.
         """
+        ...
     @abstractmethod
     def setVisibleRange(self, nFirstVisibleSlideIndex: int, nLastVisibleSlideIndex: int) -> None:
         """
@@ -97,6 +104,7 @@ class XSlidePreviewCache(ABC):
         
         This information is used for give preview creation for visible slides a higher priority than for those slides that are not visible.
         """
+        ...
 
 __all__ = ['XSlidePreviewCache']
 

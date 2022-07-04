@@ -45,6 +45,7 @@ class XPropertyControlContext(XPropertyControlObserver_cc6d132a):
         """
         instructs the XPropertyControlContext to active the next control
         """
+        ...
 
 __all__ = ['XPropertyControlContext']
 

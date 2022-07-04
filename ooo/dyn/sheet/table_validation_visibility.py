@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import TableValidationVisibility as TableValidationVisibility
-    if hasattr(TableValidationVisibility, '_constants') and isinstance(TableValidationVisibility._constants, dict):
-        TableValidationVisibility._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        TableValidationVisibility._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.TableValidationVisibility'
-        TableValidationVisibility._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global TableValidationVisibilityEnum
-        ls = [f for f in dir(TableValidationVisibility) if not callable(getattr(TableValidationVisibility, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(TableValidationVisibility, name)
-        TableValidationVisibilityEnum = IntEnum('TableValidationVisibilityEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class TableValidationVisibility(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.TableValidationVisibility", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.TableValidationVisibility``"""
+        pass
+
+    class TableValidationVisibilityEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.TableValidationVisibility", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.TableValidationVisibility`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.table_validation_visibility import TableValidationVisibility as TableValidationVisibility
 

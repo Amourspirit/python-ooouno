@@ -41,11 +41,13 @@ class XScenarios(XNameAccess_e2ab0cf6):
         """
         creates a new scenario and adds it to the collection.
         """
+        ...
     @abstractmethod
     def removeByName(self, aName: str) -> None:
         """
         removes a scenario from the collection.
         """
+        ...
 
 __all__ = ['XScenarios']
 

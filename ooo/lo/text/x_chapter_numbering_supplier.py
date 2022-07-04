@@ -41,6 +41,7 @@ class XChapterNumberingSupplier(XInterface_8f010a43):
         """
         This interface allows access to the properties of the numbering level via a sequence of com.sun.star.beans.PropertyValues.
         """
+        ...
 
 __all__ = ['XChapterNumberingSupplier']
 

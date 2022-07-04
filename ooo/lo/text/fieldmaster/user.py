@@ -39,18 +39,21 @@ class User(TextFieldMaster_d6410cc2):
         """
         contains the content.
         """
+        ...
 
     @abstractproperty
     def IsExpression(self) -> bool:
         """
         determines whether the field contains an expression.
         """
+        ...
 
     @abstractproperty
     def Value(self) -> float:
         """
         contains the value.
         """
+        ...
 
 
 

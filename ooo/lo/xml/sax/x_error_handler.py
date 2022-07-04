@@ -45,6 +45,7 @@ class XErrorHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def fatalError(self, aSAXParseException: object) -> None:
         """
@@ -53,6 +54,7 @@ class XErrorHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def warning(self, aSAXParseException: object) -> None:
         """
@@ -61,6 +63,7 @@ class XErrorHandler(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XErrorHandler']
 

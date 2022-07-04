@@ -41,6 +41,7 @@ class XPersist(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def write(self, URL: str) -> None:
         """
@@ -49,6 +50,7 @@ class XPersist(XInterface_8f010a43):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
 
 __all__ = ['XPersist']
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sdbcx import KeyType as KeyType
-    if hasattr(KeyType, '_constants') and isinstance(KeyType._constants, dict):
-        KeyType._constants['__ooo_ns__'] = 'com.sun.star.sdbcx'
-        KeyType._constants['__ooo_full_ns__'] = 'com.sun.star.sdbcx.KeyType'
-        KeyType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global KeyTypeEnum
-        ls = [f for f in dir(KeyType) if not callable(getattr(KeyType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(KeyType, name)
-        KeyTypeEnum = IntEnum('KeyTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class KeyType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbcx.KeyType", name_space="com.sun.star.sdbcx"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbcx.KeyType``"""
+        pass
+
+    class KeyTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.sdbcx.KeyType", name_space="com.sun.star.sdbcx"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sdbcx.KeyType`` as Enum values"""
+        pass
+
 else:
     from ...lo.sdbcx.key_type import KeyType as KeyType
 

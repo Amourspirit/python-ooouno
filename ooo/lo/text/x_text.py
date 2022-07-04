@@ -47,6 +47,7 @@ class XText(XSimpleText_a5ca0b34):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def removeTextContent(self, xContent: 'XTextContent_b16e0ba5') -> None:
         """
@@ -55,6 +56,7 @@ class XText(XSimpleText_a5ca0b34):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
 
 __all__ = ['XText']
 

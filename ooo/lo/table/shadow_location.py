@@ -34,6 +34,10 @@ class ShadowLocation(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.ShadowLocation'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.ShadowLocation'
+
     BOTTOM_LEFT = 'BOTTOM_LEFT'
     """
     shadow is located along the lower and left sides.

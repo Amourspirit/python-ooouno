@@ -53,16 +53,19 @@ class XIntrospectionAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSuchMethodException: ``NoSuchMethodException``
         """
+        ...
     @abstractmethod
     def getMethods(self, nMethodConcepts: int) -> 'typing.Tuple[XIdlMethod_e3740d05, ...]':
         """
         returns a sequence of methods of the introspected object.
         """
+        ...
     @abstractmethod
     def getProperties(self, nPropertyConcepts: int) -> 'typing.Tuple[Property_8f4e0a76, ...]':
         """
         returns a sequence of properties of the introspected object
         """
+        ...
     @abstractmethod
     def getProperty(self, aName: str, nPropertyConcepts: int) -> 'Property_8f4e0a76':
         """
@@ -73,6 +76,7 @@ class XIntrospectionAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getSuppliedMethodConcepts(self) -> int:
         """
@@ -80,6 +84,7 @@ class XIntrospectionAccess(XInterface_8f010a43):
         
         The minimum supported concepts should be:
         """
+        ...
     @abstractmethod
     def getSuppliedPropertyConcepts(self) -> int:
         """
@@ -87,6 +92,7 @@ class XIntrospectionAccess(XInterface_8f010a43):
         
         The minimum supported concepts should be:
         """
+        ...
     @abstractmethod
     def getSupportedListeners(self) -> 'typing.Tuple[object, ...]':
         """
@@ -94,16 +100,19 @@ class XIntrospectionAccess(XInterface_8f010a43):
         
         If the introspected object has the methods addFooListener( XFooListener xFoo ) and removeFooListener( XFooListener xFoo ) the type of XFooListener will be one of the elements in the returned sequence.
         """
+        ...
     @abstractmethod
     def hasMethod(self, aName: str, nMethodConcepts: int) -> bool:
         """
         allows to ask if a method with the demanded name exists and if it accords to one of the demanded MethodConcept.
         """
+        ...
     @abstractmethod
     def hasProperty(self, aName: str, nPropertyConcepts: int) -> bool:
         """
         allows to ask if a property with the demanded name exists and if it accords to one of the demanded PropertyConcept.
         """
+        ...
     @abstractmethod
     def queryAdapter(self, aInterfaceType: object) -> 'XInterface_8f010a43':
         """
@@ -124,6 +133,7 @@ class XIntrospectionAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.beans.IllegalTypeException: ``IllegalTypeException``
         """
+        ...
 
 __all__ = ['XIntrospectionAccess']
 

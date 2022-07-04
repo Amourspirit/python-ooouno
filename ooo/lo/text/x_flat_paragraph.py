@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.text
 import typing
+import uno
 from abc import abstractmethod
 from .x_text_markup import XTextMarkup as XTextMarkup_a5d60b3a
 if typing.TYPE_CHECKING:
@@ -49,6 +50,7 @@ class XFlatParagraph(XTextMarkup_a5d60b3a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def changeText(self, nPos: int, nLen: int, NewText: str, aAttributes: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -57,6 +59,7 @@ class XFlatParagraph(XTextMarkup_a5d60b3a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getLanguageOfText(self, nPos: int, nLen: int) -> 'Locale_70d308fa':
         """
@@ -65,11 +68,13 @@ class XFlatParagraph(XTextMarkup_a5d60b3a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
-    def getLanguagePortions(self) -> 'typing.Tuple[int, ...]':
+    def getLanguagePortions(self) -> uno.ByteSequence:
         """
         get a list of indexes that separate each two different languages
         """
+        ...
     @abstractmethod
     def getPrimaryLanguageOfText(self, nPos: int, nLen: int) -> 'Locale_70d308fa':
         """
@@ -78,26 +83,31 @@ class XFlatParagraph(XTextMarkup_a5d60b3a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getText(self) -> str:
         """
         get the content of the paragraph
         """
+        ...
     @abstractmethod
     def isChecked(self, nType: int) -> bool:
         """
         returns whether the respective text node has already been processed
         """
+        ...
     @abstractmethod
     def isModified(self) -> bool:
         """
         check whether the content has been modified
         """
+        ...
     @abstractmethod
     def setChecked(self, nType: int, bVal: bool) -> None:
         """
         change the \"checked\" flag of the respective text node, i.e., mark the text node as \"processed\"
         """
+        ...
 
 __all__ = ['XFlatParagraph']
 

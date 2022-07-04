@@ -53,6 +53,7 @@ class XSpreadsheets2(XSpreadsheets_c8f50c64):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XSpreadsheets2']
 

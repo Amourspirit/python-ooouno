@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.packages.zip import ZipConstants as ZipConstants
-    if hasattr(ZipConstants, '_constants') and isinstance(ZipConstants._constants, dict):
-        ZipConstants._constants['__ooo_ns__'] = 'com.sun.star.packages.zip'
-        ZipConstants._constants['__ooo_full_ns__'] = 'com.sun.star.packages.zip.ZipConstants'
-        ZipConstants._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ZipConstantsEnum
-        ls = [f for f in dir(ZipConstants) if not callable(getattr(ZipConstants, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ZipConstants, name)
-        ZipConstantsEnum = IntEnum('ZipConstantsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ZipConstants(metaclass=UnoConstMeta, type_name="com.sun.star.packages.zip.ZipConstants", name_space="com.sun.star.packages.zip"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.packages.zip.ZipConstants``"""
+        pass
+
+    class ZipConstantsEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.packages.zip.ZipConstants", name_space="com.sun.star.packages.zip"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.packages.zip.ZipConstants`` as Enum values"""
+        pass
+
 else:
     from ....lo.packages.zip.zip_constants import ZipConstants as ZipConstants
 

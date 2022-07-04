@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.rendering import PathCapType as PathCapType
-    if hasattr(PathCapType, '_constants') and isinstance(PathCapType._constants, dict):
-        PathCapType._constants['__ooo_ns__'] = 'com.sun.star.rendering'
-        PathCapType._constants['__ooo_full_ns__'] = 'com.sun.star.rendering.PathCapType'
-        PathCapType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global PathCapTypeEnum
-        ls = [f for f in dir(PathCapType) if not callable(getattr(PathCapType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(PathCapType, name)
-        PathCapTypeEnum = IntEnum('PathCapTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class PathCapType(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.PathCapType", name_space="com.sun.star.rendering"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.rendering.PathCapType``"""
+        pass
+
+    class PathCapTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.rendering.PathCapType", name_space="com.sun.star.rendering"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.rendering.PathCapType`` as Enum values"""
+        pass
+
 else:
     from ...lo.rendering.path_cap_type import PathCapType as PathCapType
 

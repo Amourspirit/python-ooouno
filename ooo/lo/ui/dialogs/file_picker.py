@@ -47,6 +47,7 @@ class FilePicker(XFilePicker3_f99e0d60):
         
         Note that when creating a file picker, the top window is selected as the parent window for the file picker. Make sure that it does not get closed while opening the file picker, as there is a potential race.
         """
+        ...
 
 
 __all__ = ['FilePicker']

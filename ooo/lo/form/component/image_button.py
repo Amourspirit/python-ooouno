@@ -46,6 +46,7 @@ class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d2
         """
         describes the action to be executed by the button when pressed.
         """
+        ...
 
     @abstractproperty
     def TargetFrame(self) -> str:
@@ -56,6 +57,7 @@ class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d2
         
         As always, there is a number of target names which have a special meaning, and force a special com.sun.star.frame.Frame to be used.
         """
+        ...
 
     @abstractproperty
     def TargetURL(self) -> str:
@@ -64,6 +66,7 @@ class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d2
         
         This property is evaluated if the button is of type URL.
         """
+        ...
 
 
 

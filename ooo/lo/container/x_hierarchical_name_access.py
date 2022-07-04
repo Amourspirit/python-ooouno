@@ -44,11 +44,13 @@ class XHierarchicalNameAccess(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def hasByHierarchicalName(self, aName: str) -> bool:
         """
         In many cases, the next call is XNameAccess.getByName(). You should optimize this case.
         """
+        ...
 
 __all__ = ['XHierarchicalNameAccess']
 

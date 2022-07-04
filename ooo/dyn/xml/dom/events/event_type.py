@@ -25,38 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.xml.dom.events.EventType import (DOMActivate, DOMAttrModified, DOMCharacterDataModified, DOMFocusIn, DOMFocusOut, DOMNodeInserted, DOMNodeInsertedIntoDocument, DOMNodeRemoved, DOMNodeRemovedFromDocument, DOMSubtreeModified, click, mousedown, mousemove, mouseout, mouseover, mouseup)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.events.EventType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.xml.dom.events",
-            "__ooo_full_ns__": "com.sun.star.xml.dom.events.EventType",
-            "__ooo_type_name__": "enum",
-            "DOMActivate": DOMActivate,
-            "DOMAttrModified": DOMAttrModified,
-            "DOMCharacterDataModified": DOMCharacterDataModified,
-            "DOMFocusIn": DOMFocusIn,
-            "DOMFocusOut": DOMFocusOut,
-            "DOMNodeInserted": DOMNodeInserted,
-            "DOMNodeInsertedIntoDocument": DOMNodeInsertedIntoDocument,
-            "DOMNodeRemoved": DOMNodeRemoved,
-            "DOMNodeRemovedFromDocument": DOMNodeRemovedFromDocument,
-            "DOMSubtreeModified": DOMSubtreeModified,
-            "click": click,
-            "mousedown": mousedown,
-            "mousemove": mousemove,
-            "mouseout": mouseout,
-            "mouseover": mouseover,
-            "mouseup": mouseup,
-        }
-        result = type('EventType', (object,), _dict)
-        return result
-
-    EventType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class EventType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.events.EventType", name_space="com.sun.star.xml.dom.events"):
+        """Dynamically created class that represents ``com.sun.star.xml.dom.events.EventType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from .....lo.xml.dom.events.event_type import EventType as EventType
 

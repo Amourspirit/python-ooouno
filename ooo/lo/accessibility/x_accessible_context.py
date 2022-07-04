@@ -55,6 +55,7 @@ class XAccessibleContext(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleChildCount(self) -> int:
         """
@@ -62,6 +63,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         Returns the number of accessible children of the object.
         """
+        ...
     @abstractmethod
     def getAccessibleDescription(self) -> str:
         """
@@ -69,6 +71,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         Returns the object's localized description. The description should complement the more generic descriptions given by an object's role and name.
         """
+        ...
     @abstractmethod
     def getAccessibleIndexInParent(self) -> int:
         """
@@ -76,6 +79,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         If you call getAccessibleChild on the object's parent with the index returned by this function you get a reference to this object.
         """
+        ...
     @abstractmethod
     def getAccessibleName(self) -> str:
         """
@@ -83,6 +87,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         See XAccessibleContext.getAccessibleRole()'s documentation for the relation between an object's name and role. Names should be unique, at least between children of the same parent, although the uniqueness is neither enforced nor used inside the API.
         """
+        ...
     @abstractmethod
     def getAccessibleParent(self) -> 'XAccessible_1cbc0eb6':
         """
@@ -90,6 +95,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         This function may be called for every node, including the root node, of the accessible tree.
         """
+        ...
     @abstractmethod
     def getAccessibleRelationSet(self) -> 'XAccessibleRelationSet_d8961320':
         """
@@ -99,6 +105,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         There are two ways to represent an empty list of relations: Return an empty reference or return a valid object that contains an empty list.
         """
+        ...
     @abstractmethod
     def getAccessibleRole(self) -> int:
         """
@@ -106,6 +113,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         The role is a generic description of an objects function. The relation between role and name is similar to the relation between class and object.
         """
+        ...
     @abstractmethod
     def getAccessibleStateSet(self) -> 'XAccessibleStateSet_a08511e3':
         """
@@ -113,6 +121,7 @@ class XAccessibleContext(XInterface_8f010a43):
         
         The returned state set is a copy: Changing the returned state set will not be reflected by changing the object's set of states. See the documentation of XAccessibleStateSet for a description of the individual states.
         """
+        ...
     @abstractmethod
     def getLocale(self) -> 'Locale_70d308fa':
         """
@@ -123,6 +132,7 @@ class XAccessibleContext(XInterface_8f010a43):
         Raises:
             IllegalAccessibleComponentStateException: ``IllegalAccessibleComponentStateException``
         """
+        ...
 
 __all__ = ['XAccessibleContext']
 

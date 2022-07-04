@@ -41,16 +41,19 @@ class XProfileDiscover(XInterface_8f010a43):
         """
         attempts to get the default profile name for the given product.
         """
+        ...
     @abstractmethod
     def getProfileCount(self, product: 'MozillaProductType_2e210f5b') -> int:
         """
         attempts to get the profiles count.
         """
+        ...
     @abstractmethod
     def getProfileExists(self, product: 'MozillaProductType_2e210f5b', profileName: str) -> bool:
         """
         return true if the given profile exists
         """
+        ...
     @abstractmethod
     def getProfileList(self, product: 'MozillaProductType_2e210f5b', list: 'typing.Tuple[str, ...]') -> int:
         """
@@ -58,16 +61,19 @@ class XProfileDiscover(XInterface_8f010a43):
 
         * ``list`` is an out direction argument.
         """
+        ...
     @abstractmethod
     def getProfilePath(self, product: 'MozillaProductType_2e210f5b', profileName: str) -> str:
         """
         attempts to get the full path for the given profile.
         """
+        ...
     @abstractmethod
     def isProfileLocked(self, product: 'MozillaProductType_2e210f5b', profileName: str) -> bool:
         """
         attempts to get whether profile is locked by other applications.
         """
+        ...
 
 __all__ = ['XProfileDiscover']
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.document import LinkUpdateModes as LinkUpdateModes
-    if hasattr(LinkUpdateModes, '_constants') and isinstance(LinkUpdateModes._constants, dict):
-        LinkUpdateModes._constants['__ooo_ns__'] = 'com.sun.star.document'
-        LinkUpdateModes._constants['__ooo_full_ns__'] = 'com.sun.star.document.LinkUpdateModes'
-        LinkUpdateModes._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global LinkUpdateModesEnum
-        ls = [f for f in dir(LinkUpdateModes) if not callable(getattr(LinkUpdateModes, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(LinkUpdateModes, name)
-        LinkUpdateModesEnum = IntEnum('LinkUpdateModesEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class LinkUpdateModes(metaclass=UnoConstMeta, type_name="com.sun.star.document.LinkUpdateModes", name_space="com.sun.star.document"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.document.LinkUpdateModes``"""
+        pass
+
+    class LinkUpdateModesEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.document.LinkUpdateModes", name_space="com.sun.star.document"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.document.LinkUpdateModes`` as Enum values"""
+        pass
+
 else:
     from ...lo.document.link_update_modes import LinkUpdateModes as LinkUpdateModes
 

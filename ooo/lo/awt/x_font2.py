@@ -42,6 +42,7 @@ class XFont2(XFont_5f480843):
         """
         checks whether or not this font has all the glyphs for the text specified by aText.
         """
+        ...
 
 __all__ = ['XFont2']
 

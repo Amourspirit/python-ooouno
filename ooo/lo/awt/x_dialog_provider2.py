@@ -48,6 +48,7 @@ class XDialogProvider2(XDialogProvider_c70f0c47):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createDialogWithHandler(self, URL: str, xHandler: 'XInterface_8f010a43') -> 'XDialog_709d08fc':
         """
@@ -72,6 +73,7 @@ class XDialogProvider2(XDialogProvider_c70f0c47):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XDialogProvider2']
 

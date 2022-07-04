@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -37,20 +38,23 @@ class XBitmap(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.awt.XBitmap'
 
     @abstractmethod
-    def getDIB(self) -> 'typing.Tuple[int, ...]':
+    def getDIB(self) -> uno.ByteSequence:
         """
         returns the device independent bitmap.
         """
+        ...
     @abstractmethod
-    def getMaskDIB(self) -> 'typing.Tuple[int, ...]':
+    def getMaskDIB(self) -> uno.ByteSequence:
         """
         returns the transparency mask of the device independent bitmap.
         """
+        ...
     @abstractmethod
     def getSize(self) -> 'Size_576707ef':
         """
         returns the size of the bitmap in pixel.
         """
+        ...
 
 __all__ = ['XBitmap']
 

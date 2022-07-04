@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.util import SearchFlags as SearchFlags
-    if hasattr(SearchFlags, '_constants') and isinstance(SearchFlags._constants, dict):
-        SearchFlags._constants['__ooo_ns__'] = 'com.sun.star.util'
-        SearchFlags._constants['__ooo_full_ns__'] = 'com.sun.star.util.SearchFlags'
-        SearchFlags._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global SearchFlagsEnum
-        ls = [f for f in dir(SearchFlags) if not callable(getattr(SearchFlags, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(SearchFlags, name)
-        SearchFlagsEnum = IntFlag('SearchFlagsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class SearchFlags(metaclass=UnoConstMeta, type_name="com.sun.star.util.SearchFlags", name_space="com.sun.star.util"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.util.SearchFlags``"""
+        pass
+
+    class SearchFlagsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.util.SearchFlags", name_space="com.sun.star.util"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.util.SearchFlags`` as Enum values"""
+        pass
+
 else:
     from ...lo.util.search_flags import SearchFlags as SearchFlags
 

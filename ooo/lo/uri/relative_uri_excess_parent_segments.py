@@ -34,6 +34,10 @@ class RelativeUriExcessParentSegments(Enum):
     __ooo_full_ns__: str = 'com.sun.star.uri.RelativeUriExcessParentSegments'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.uri.RelativeUriExcessParentSegments'
+
     ERROR = 'ERROR'
     """
     causes excess special parent segments to be treated as an error.

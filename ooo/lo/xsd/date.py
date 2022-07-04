@@ -42,24 +42,28 @@ class Date(XDataType_83f209cb):
         """
         specifies the exclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MaxInclusiveDate(self) -> 'Date_60040844':
         """
         specifies the inclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MinExclusiveDate(self) -> 'Date_60040844':
         """
         specifies the exclusive lower bound for the value
         """
+        ...
 
     @abstractproperty
     def MinInclusiveDate(self) -> 'Date_60040844':
         """
         specifies the inclusive lower bound for the value
         """
+        ...
 
 
 

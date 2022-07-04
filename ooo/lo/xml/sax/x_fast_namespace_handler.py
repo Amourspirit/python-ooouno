@@ -42,11 +42,13 @@ class XFastNamespaceHandler(XInterface_8f010a43):
         """
         retrieves the namespace URI of a namespace prefix
         """
+        ...
     @abstractmethod
     def registerNamespace(self, NamespacePrefix: str, NamespaceURI: str) -> None:
         """
         receives notification of namespace declarations from a XFastParser.
         """
+        ...
 
 __all__ = ['XFastNamespaceHandler']
 

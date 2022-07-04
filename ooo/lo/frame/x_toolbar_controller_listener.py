@@ -44,6 +44,7 @@ class XToolbarControllerListener(XInterface_8f010a43):
         
         This notification is normally used to implement the toolbar button/sub-toolbar function feature. It exchanges the function of the toolbar button, that opened the sub-toolbar, with the one that has been selected on the sub-toolbar.
         """
+        ...
 
 __all__ = ['XToolbarControllerListener']
 

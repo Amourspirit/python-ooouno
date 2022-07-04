@@ -50,14 +50,17 @@ class XIdlField(XIdlMember_e3400cfc):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getAccessMode(self) -> 'FieldAccessMode_2a300eee':
         """
         """
+        ...
     @abstractmethod
     def getType(self) -> 'XIdlClass_d63a0c9a':
         """
         """
+        ...
     @abstractmethod
     def set(self, obj: object, value: object) -> None:
         """
@@ -66,6 +69,7 @@ class XIdlField(XIdlMember_e3400cfc):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
 
 __all__ = ['XIdlField']
 

@@ -40,6 +40,7 @@ class XLineNumberingProperties(XInterface_8f010a43):
     def getLineNumberingProperties(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
 
 __all__ = ['XLineNumberingProperties']
 

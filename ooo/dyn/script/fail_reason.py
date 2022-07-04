@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.script import FailReason as FailReason
-    if hasattr(FailReason, '_constants') and isinstance(FailReason._constants, dict):
-        FailReason._constants['__ooo_ns__'] = 'com.sun.star.script'
-        FailReason._constants['__ooo_full_ns__'] = 'com.sun.star.script.FailReason'
-        FailReason._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FailReasonEnum
-        ls = [f for f in dir(FailReason) if not callable(getattr(FailReason, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FailReason, name)
-        FailReasonEnum = IntEnum('FailReasonEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FailReason(metaclass=UnoConstMeta, type_name="com.sun.star.script.FailReason", name_space="com.sun.star.script"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.script.FailReason``"""
+        pass
+
+    class FailReasonEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.script.FailReason", name_space="com.sun.star.script"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.script.FailReason`` as Enum values"""
+        pass
+
 else:
     from ...lo.script.fail_reason import FailReason as FailReason
 

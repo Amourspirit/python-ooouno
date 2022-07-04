@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.drawing.MeasureTextVertPos import (AUTO, BREAKEDLINE, CENTERED, EAST, WEST)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.drawing.MeasureTextVertPos Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.drawing",
-            "__ooo_full_ns__": "com.sun.star.drawing.MeasureTextVertPos",
-            "__ooo_type_name__": "enum",
-            "AUTO": AUTO,
-            "BREAKEDLINE": BREAKEDLINE,
-            "CENTERED": CENTERED,
-            "EAST": EAST,
-            "WEST": WEST,
-        }
-        result = type('MeasureTextVertPos', (object,), _dict)
-        return result
-
-    MeasureTextVertPos = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class MeasureTextVertPos(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.MeasureTextVertPos", name_space="com.sun.star.drawing"):
+        """Dynamically created class that represents ``com.sun.star.drawing.MeasureTextVertPos`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.drawing.measure_text_vert_pos import MeasureTextVertPos as MeasureTextVertPos
 

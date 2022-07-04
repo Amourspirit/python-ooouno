@@ -44,18 +44,22 @@ class XAxisXSupplier(XInterface_8f010a43):
         """
         The returned property set contains scaling properties as well as formatting properties.
         """
+        ...
     @abstractmethod
     def getXAxisTitle(self) -> 'XShape_8fd00a3d':
         """
         """
+        ...
     @abstractmethod
     def getXHelpGrid(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
     @abstractmethod
     def getXMainGrid(self) -> 'XPropertySet_bc180bfa':
         """
         """
+        ...
 
 __all__ = ['XAxisXSupplier']
 

@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import NameClash as NameClash
-    if hasattr(NameClash, '_constants') and isinstance(NameClash._constants, dict):
-        NameClash._constants['__ooo_ns__'] = 'com.sun.star.ucb'
-        NameClash._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.NameClash'
-        NameClash._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global NameClashEnum
-        ls = [f for f in dir(NameClash) if not callable(getattr(NameClash, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(NameClash, name)
-        NameClashEnum = IntEnum('NameClashEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class NameClash(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.NameClash", name_space="com.sun.star.ucb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.NameClash``"""
+        pass
+
+    class NameClashEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ucb.NameClash", name_space="com.sun.star.ucb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ucb.NameClash`` as Enum values"""
+        pass
+
 else:
     from ...lo.ucb.name_clash import NameClash as NameClash
 

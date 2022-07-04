@@ -25,28 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.awt.FontSlant import (DONTKNOW, ITALIC, NONE, OBLIQUE, REVERSE_ITALIC, REVERSE_OBLIQUE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.awt.FontSlant Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.awt",
-            "__ooo_full_ns__": "com.sun.star.awt.FontSlant",
-            "__ooo_type_name__": "enum",
-            "DONTKNOW": DONTKNOW,
-            "ITALIC": ITALIC,
-            "NONE": NONE,
-            "OBLIQUE": OBLIQUE,
-            "REVERSE_ITALIC": REVERSE_ITALIC,
-            "REVERSE_OBLIQUE": REVERSE_OBLIQUE,
-        }
-        result = type('FontSlant', (object,), _dict)
-        return result
-
-    FontSlant = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class FontSlant(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.FontSlant", name_space="com.sun.star.awt"):
+        """Dynamically created class that represents ``com.sun.star.awt.FontSlant`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.awt.font_slant import FontSlant as FontSlant
 

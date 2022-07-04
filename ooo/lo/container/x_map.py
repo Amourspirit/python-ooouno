@@ -45,6 +45,7 @@ class XMap(XElementAccess_cd60e3f):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def containsKey(self, Key: object) -> bool:
         """
@@ -54,6 +55,7 @@ class XMap(XElementAccess_cd60e3f):
             com.sun.star.beans.IllegalTypeException: ``IllegalTypeException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def containsValue(self, Value: object) -> bool:
         """
@@ -63,6 +65,7 @@ class XMap(XElementAccess_cd60e3f):
             com.sun.star.beans.IllegalTypeException: ``IllegalTypeException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def get(self, Key: object) -> object:
         """
@@ -73,6 +76,7 @@ class XMap(XElementAccess_cd60e3f):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def put(self, Key: object, Value: object) -> object:
         """
@@ -85,6 +89,7 @@ class XMap(XElementAccess_cd60e3f):
             com.sun.star.beans.IllegalTypeException: ``IllegalTypeException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def remove(self, Key: object) -> object:
         """
@@ -96,6 +101,7 @@ class XMap(XElementAccess_cd60e3f):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractproperty
     def KeyType(self) -> object:
         """
@@ -103,6 +109,7 @@ class XMap(XElementAccess_cd60e3f):
         
         Implementations are free to accept any supertype of KeyType as keys.
         """
+        ...
 
     @abstractproperty
     def ValueType(self) -> object:
@@ -111,6 +118,7 @@ class XMap(XElementAccess_cd60e3f):
         
         Implementations are free to accept any supertype of the ValueType as values.
         """
+        ...
 
 
 __all__ = ['XMap']

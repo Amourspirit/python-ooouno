@@ -47,11 +47,13 @@ class XPresentation2(XPropertySet_bc180bfa, XPresentation_30890f78):
         """
         if the slide show is running, this returns a controller object to control the running slide show.
         """
+        ...
     @abstractmethod
     def isRunning(self) -> bool:
         """
         returns true if the slide show is currently running
         """
+        ...
     @abstractmethod
     def startWithArguments(self, Arguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
@@ -59,6 +61,7 @@ class XPresentation2(XPropertySet_bc180bfa, XPresentation_30890f78):
         
         All arguments override the values from Presentation.
         """
+        ...
 
 __all__ = ['XPresentation2']
 

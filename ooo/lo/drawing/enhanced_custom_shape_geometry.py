@@ -44,48 +44,56 @@ class EnhancedCustomShapeGeometry(ABC):
         """
         This property specifies a sequence of Adjustment values.
         """
+        ...
 
     @abstractproperty
     def Equations(self) -> 'typing.Tuple[str, ...]':
         """
         This property is describing the equations that are used, each equation can be referenced by com.sun.star.drawing.EnhancedCustomShapeParameter which are often used in Path, Extrusion and or Handle descriptions.
         """
+        ...
 
     @abstractproperty
     def Extrusion(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         This property sequence is including the extrusion description, the properties are as same as specified in the service com.sun.star:drawing.EnhancedCustomShapeExtrusion.
         """
+        ...
 
     @abstractproperty
     def Handles(self) -> 'typing.Tuple[PropertyValues_d6470ce6, ...]':
         """
         This property is describing the interaction handles that are used, each inner property sequence is having the same properties as they are specified in the service com.sun.star:drawing.EnhancedCustomShapeHandle.
         """
+        ...
 
     @abstractproperty
     def Path(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         This property sequence is including the path description, the properties are as same as specified in the service com.sun.star:drawing.EnhancedCustomShapePath.
         """
+        ...
 
     @abstractproperty
     def TextPath(self) -> 'typing.Tuple[PropertyValue_c9610c73, ...]':
         """
         This property sequence is including the text path description, the properties are as same as specified in the service com.sun.star:drawing.EnhancedCustomShapeTextPath.
         """
+        ...
 
     @abstractproperty
     def MirroredX(self) -> bool:
         """
         This property specifies if the orientation of the shape is horizontal mirrored.
         """
+        ...
 
     @abstractproperty
     def MirroredY(self) -> bool:
         """
         This property specifies if the orientation of the shape is vertical mirrored.
         """
+        ...
 
     @abstractproperty
     def TextRotateAngle(self) -> float:
@@ -94,6 +102,7 @@ class EnhancedCustomShapeGeometry(ABC):
         
         The text rotation is added to the shape geometry rotation.
         """
+        ...
 
     @abstractproperty
     def Type(self) -> str:
@@ -102,12 +111,14 @@ class EnhancedCustomShapeGeometry(ABC):
         
         This name can be used to offer specialized user interfaces for certain classes of shapes, like for arrows, smileys, etc. The shape type is rendering engine dependent and does not influence the geometry of the shape. If the value of the draw:type attribute is non-primitive, then no shape type is available.
         """
+        ...
 
     @abstractproperty
     def ViewBox(self) -> 'Rectangle_84b109e9':
         """
         This property describes the user space of the shape in its canonical form.
         """
+        ...
 
 
 

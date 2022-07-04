@@ -42,24 +42,28 @@ class Time(XDataType_83f209cb):
         """
         specifies the exclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MaxInclusiveTime(self) -> 'Time_604e0855':
         """
         specifies the inclusive upper bound for the value
         """
+        ...
 
     @abstractproperty
     def MinExclusiveTime(self) -> 'Time_604e0855':
         """
         specifies the exclusive lower bound for the value
         """
+        ...
 
     @abstractproperty
     def MinInclusiveTime(self) -> 'Time_604e0855':
         """
         specifies the inclusive lower bound for the value
         """
+        ...
 
 
 

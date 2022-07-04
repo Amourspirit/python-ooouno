@@ -45,16 +45,19 @@ class XConfigurationControllerBroadcaster(ABC):
         
         The listener is notified only for the specified type of configuration changes. When the listener is interested in more than one event type this method has to be called multiple times. Alternatively it can register as universal listener that will be called for all event types. However, this option is provided primarily to support debugging and monitoring.
         """
+        ...
     @abstractmethod
     def notifyEvent(self, aEvent: 'ConfigurationChangeEvent_55151590') -> None:
         """
         With this method other objects can send events to all the registered listeners.
         """
+        ...
     @abstractmethod
     def removeConfigurationChangeListener(self, xListener: 'XConfigurationChangeListener_adee172c') -> None:
         """
         Remove a listener for configuration changes.
         """
+        ...
 
 __all__ = ['XConfigurationControllerBroadcaster']
 

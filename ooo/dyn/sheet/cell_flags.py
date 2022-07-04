@@ -21,24 +21,21 @@
 from enum import IntFlag
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.sheet import CellFlags as CellFlags
-    if hasattr(CellFlags, '_constants') and isinstance(CellFlags._constants, dict):
-        CellFlags._constants['__ooo_ns__'] = 'com.sun.star.sheet'
-        CellFlags._constants['__ooo_full_ns__'] = 'com.sun.star.sheet.CellFlags'
-        CellFlags._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CellFlagsEnum
-        ls = [f for f in dir(CellFlags) if not callable(getattr(CellFlags, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CellFlags, name)
-        CellFlagsEnum = IntFlag('CellFlagsEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CellFlags(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.CellFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.sheet.CellFlags``"""
+        pass
+
+    class CellFlagsEnum(IntFlag, metaclass=ConstEnumMeta, type_name="com.sun.star.sheet.CellFlags", name_space="com.sun.star.sheet"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.sheet.CellFlags`` as Enum values"""
+        pass
+
 else:
     from ...lo.sheet.cell_flags import CellFlags as CellFlags
 

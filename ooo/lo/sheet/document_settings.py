@@ -44,96 +44,112 @@ class DocumentSettings(Settings_b2bc0bb8):
         """
         specifies the color in which the cell grid is displayed.
         """
+        ...
 
     @abstractproperty
     def HasColumnRowHeaders(self) -> bool:
         """
         enables the column and row headers of the view.
         """
+        ...
 
     @abstractproperty
     def HasSheetTabs(self) -> bool:
         """
         enables the sheet tabs of the view.
         """
+        ...
 
     @abstractproperty
     def IsDocumentShared(self) -> bool:
         """
         enables the document sharing feature (Tools->Share Spreadsheet)
         """
+        ...
 
     @abstractproperty
     def IsOutlineSymbolsSet(self) -> bool:
         """
         enables the display of outline symbols.
         """
+        ...
 
     @abstractproperty
     def IsRasterAxisSynchronized(self) -> bool:
         """
         enables the synchronization of horizontal and vertical grid settings in the user interface.
         """
+        ...
 
     @abstractproperty
     def IsSnapToRaster(self) -> bool:
         """
         enables the restriction of object movement and resizing of drawing objects to the raster.
         """
+        ...
 
     @abstractproperty
     def RasterIsVisible(self) -> bool:
         """
         enables the display of the drawing object raster.
         """
+        ...
 
     @abstractproperty
     def RasterResolutionX(self) -> int:
         """
         specifies the distance between horizontal grid elements in 1/100 mm.
         """
+        ...
 
     @abstractproperty
     def RasterResolutionY(self) -> int:
         """
         specifies the distance between vertical grid elements in 1/100 mm.
         """
+        ...
 
     @abstractproperty
     def RasterSubdivisionX(self) -> int:
         """
         specifies the number of subdivisions between two horizontal grid elements.
         """
+        ...
 
     @abstractproperty
     def RasterSubdivisionY(self) -> int:
         """
         specifies the number of subdivisions between two vertical grid elements.
         """
+        ...
 
     @abstractproperty
     def ShowGrid(self) -> bool:
         """
         enables the display of the cell grid.
         """
+        ...
 
     @abstractproperty
     def ShowNotes(self) -> bool:
         """
         controls whether a marker is shown for notes in cells.
         """
+        ...
 
     @abstractproperty
     def ShowPageBreaks(self) -> bool:
         """
         enables display of page breaks.
         """
+        ...
 
     @abstractproperty
     def ShowZeroValues(self) -> bool:
         """
         enables display of zero-values.
         """
+        ...
 
 
 

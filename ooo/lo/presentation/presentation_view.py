@@ -46,12 +46,14 @@ class PresentationView(Controller_a5330b37, XWindow_713b0924, XPropertySet_bc180
         """
         This is the drawing page that is currently visible.
         """
+        ...
 
     @abstractproperty
     def VisibleArea(self) -> 'Rectangle_84b109e9':
         """
         This is the area that is currently visible.
         """
+        ...
 
 
 

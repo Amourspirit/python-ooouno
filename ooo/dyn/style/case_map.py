@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.style import CaseMap as CaseMap
-    if hasattr(CaseMap, '_constants') and isinstance(CaseMap._constants, dict):
-        CaseMap._constants['__ooo_ns__'] = 'com.sun.star.style'
-        CaseMap._constants['__ooo_full_ns__'] = 'com.sun.star.style.CaseMap'
-        CaseMap._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CaseMapEnum
-        ls = [f for f in dir(CaseMap) if not callable(getattr(CaseMap, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(CaseMap, name)
-        CaseMapEnum = IntEnum('CaseMapEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class CaseMap(metaclass=UnoConstMeta, type_name="com.sun.star.style.CaseMap", name_space="com.sun.star.style"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.style.CaseMap``"""
+        pass
+
+    class CaseMapEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.style.CaseMap", name_space="com.sun.star.style"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.style.CaseMap`` as Enum values"""
+        pass
+
 else:
     from ...lo.style.case_map import CaseMap as CaseMap
 

@@ -36,6 +36,7 @@ class XMarkingAccess(ABC):
     def invalidateMarkings(self, nType: int) -> None:
         """
         """
+        ...
 
 __all__ = ['XMarkingAccess']
 

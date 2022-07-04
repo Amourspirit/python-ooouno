@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import FontPitch as FontPitch
-    if hasattr(FontPitch, '_constants') and isinstance(FontPitch._constants, dict):
-        FontPitch._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        FontPitch._constants['__ooo_full_ns__'] = 'com.sun.star.awt.FontPitch'
-        FontPitch._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FontPitchEnum
-        ls = [f for f in dir(FontPitch) if not callable(getattr(FontPitch, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FontPitch, name)
-        FontPitchEnum = IntEnum('FontPitchEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FontPitch(metaclass=UnoConstMeta, type_name="com.sun.star.awt.FontPitch", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.FontPitch``"""
+        pass
+
+    class FontPitchEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.FontPitch", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.FontPitch`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.font_pitch import FontPitch as FontPitch
 

@@ -42,11 +42,13 @@ class XContentEnumerationAccess(XInterface_8f010a43):
     def createContentEnumeration(self, aServiceName: str) -> 'XEnumeration_f2180daa':
         """
         """
+        ...
     @abstractmethod
     def getAvailableServiceNames(self) -> 'typing.Tuple[str, ...]':
         """
         XContentEnumerationAccess.createContentEnumeration() creates an enumeration for all the service names which are listed here. For all others it creates no enumeration.
         """
+        ...
 
 __all__ = ['XContentEnumerationAccess']
 

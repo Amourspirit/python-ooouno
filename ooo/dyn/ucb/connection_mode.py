@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.ucb import ConnectionMode as ConnectionMode
-    if hasattr(ConnectionMode, '_constants') and isinstance(ConnectionMode._constants, dict):
-        ConnectionMode._constants['__ooo_ns__'] = 'com.sun.star.ucb'
-        ConnectionMode._constants['__ooo_full_ns__'] = 'com.sun.star.ucb.ConnectionMode'
-        ConnectionMode._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global ConnectionModeEnum
-        ls = [f for f in dir(ConnectionMode) if not callable(getattr(ConnectionMode, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(ConnectionMode, name)
-        ConnectionModeEnum = IntEnum('ConnectionModeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class ConnectionMode(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.ConnectionMode", name_space="com.sun.star.ucb"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.ConnectionMode``"""
+        pass
+
+    class ConnectionModeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.ucb.ConnectionMode", name_space="com.sun.star.ucb"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.ucb.ConnectionMode`` as Enum values"""
+        pass
+
 else:
     from ...lo.ucb.connection_mode import ConnectionMode as ConnectionMode
 

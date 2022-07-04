@@ -49,6 +49,7 @@ class CachedContentResultSet(ContentResultSet_d4ee0cc8):
         
         If you set the value to com.sun.star.sdbc.FetchDirection.UNKNOWN an implementation specific direction will be used.
         """
+        ...
 
     @abstractproperty
     def FetchSize(self) -> int:
@@ -59,6 +60,7 @@ class CachedContentResultSet(ContentResultSet_d4ee0cc8):
         
         Every negative value for parameter FetchSize will force an implementation specific value to be set.
         """
+        ...
 
 
 

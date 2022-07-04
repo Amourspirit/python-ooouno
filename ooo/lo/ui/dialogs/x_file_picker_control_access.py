@@ -44,16 +44,19 @@ class XFilePickerControlAccess(XFilePicker_ec3e0d2d):
         
         If FALSE the specified control will be disabled.
         """
+        ...
     @abstractmethod
     def getLabel(self, aControlId: int) -> str:
         """
         Returns the label of the specified element.
         """
+        ...
     @abstractmethod
     def getValue(self, aControlId: int, aControlAction: int) -> object:
         """
         Get the value of an additional element within a FilePicker.
         """
+        ...
     @abstractmethod
     def setLabel(self, aControlId: int, aLabel: str) -> None:
         """
@@ -61,11 +64,13 @@ class XFilePickerControlAccess(XFilePicker_ec3e0d2d):
         
         If the specified element doesn't support setting a label, this method has no effect.
         """
+        ...
     @abstractmethod
     def setValue(self, ControlId: int, aControlAction: int, aValue: object) -> None:
         """
         Set the value of an additional element within a FilePicker.
         """
+        ...
 
 __all__ = ['XFilePickerControlAccess']
 

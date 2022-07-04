@@ -49,6 +49,7 @@ class XStringEscape(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def unescapeString(self, aEscapedString: str) -> str:
         """
@@ -57,6 +58,7 @@ class XStringEscape(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XStringEscape']
 

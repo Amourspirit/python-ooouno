@@ -46,6 +46,7 @@ class XInterfaceTypeDescription(XTypeDescription_3c210fb1):
         
         This method is deprecated, as it only supports single inheritance. See XInterfaceTypeDescription2 for a replacement that supports multiple inheritance.
         """
+        ...
     @abstractmethod
     def getMembers(self) -> 'typing.Tuple[XInterfaceMemberTypeDescription_52ea159a, ...]':
         """
@@ -53,14 +54,15 @@ class XInterfaceTypeDescription(XTypeDescription_3c210fb1):
         
         attributes and methods.
         """
+        ...
     @abstractmethod
     def getUik(self) -> 'Uik_4fac0783':
         """
         Deprecated.
         
-        UIK are not used anymore, a type is uniquely identified by its name.
-        Returns the UIK, i.e. the unique identifier of the interface.
+        UIK are not used anymore, a type is uniquely identified by its name.Returns the UIK, i.e. the unique identifier of the interface.
         """
+        ...
 
 __all__ = ['XInterfaceTypeDescription']
 

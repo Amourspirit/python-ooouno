@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.view.SelectionType import (MULTI, NONE, RANGE, SINGLE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.view.SelectionType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.view",
-            "__ooo_full_ns__": "com.sun.star.view.SelectionType",
-            "__ooo_type_name__": "enum",
-            "MULTI": MULTI,
-            "NONE": NONE,
-            "RANGE": RANGE,
-            "SINGLE": SINGLE,
-        }
-        result = type('SelectionType', (object,), _dict)
-        return result
-
-    SelectionType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class SelectionType(metaclass=UnoEnumMeta, type_name="com.sun.star.view.SelectionType", name_space="com.sun.star.view"):
+        """Dynamically created class that represents ``com.sun.star.view.SelectionType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.view.selection_type import SelectionType as SelectionType
 

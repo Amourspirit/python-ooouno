@@ -45,6 +45,7 @@ class XDockableWindowListener(XEventListener_c7230c4a):
         """
         is invoked when the window was actively closed
         """
+        ...
     @abstractmethod
     def docking(self, e: 'DockingEvent_a4210b15') -> 'DockingData_98da0a8d':
         """
@@ -54,6 +55,7 @@ class XDockableWindowListener(XEventListener_c7230c4a):
         
         Note: the tracking rectangle indicates to the user where the window would be placed if he releases the mouse.
         """
+        ...
     @abstractmethod
     def endDocking(self, e: 'EndDockingEvent_c6400c2c') -> None:
         """
@@ -61,11 +63,13 @@ class XDockableWindowListener(XEventListener_c7230c4a):
         
         aWindowRect contains the new position and size of the window
         """
+        ...
     @abstractmethod
     def endPopupMode(self, e: 'EndPopupModeEvent_e0bd0d06') -> None:
         """
         is invoked when the window currently is in pop-up mode and wants to be undocked or closed
         """
+        ...
     @abstractmethod
     def prepareToggleFloatingMode(self, e: 'EventObject_a3d70b03') -> bool:
         """
@@ -73,16 +77,19 @@ class XDockableWindowListener(XEventListener_c7230c4a):
         
         if returned FALSE the floating mode will not be changed
         """
+        ...
     @abstractmethod
     def startDocking(self, e: 'DockingEvent_a4210b15') -> None:
         """
         is invoked when the docking procedure starts.
         """
+        ...
     @abstractmethod
     def toggleFloatingMode(self, e: 'EventObject_a3d70b03') -> None:
         """
         is invoked when the floating mode is changed between floating and docked or vice versa
         """
+        ...
 
 __all__ = ['XDockableWindowListener']
 

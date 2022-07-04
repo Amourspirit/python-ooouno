@@ -46,6 +46,7 @@ class BindableDatabaseRadioButton(BindableDataAwareControlModel_47091512, Databa
         
         com.sun.star.form.component.RadioButton.RefValue is transferred to possible external value bindings as soon as the radio button is selected. With the member SecondaryRefValue, clients of the radio button can also associate a value with the not selected state of the control.
         """
+        ...
 
 
 

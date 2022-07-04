@@ -43,6 +43,7 @@ class XWarningsSupplier(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getWarnings(self) -> object:
         """
@@ -53,6 +54,7 @@ class XWarningsSupplier(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XWarningsSupplier']
 

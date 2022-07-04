@@ -46,6 +46,7 @@ class XDatabaseRegistrations(ABC):
         """
         registers a listener which is notified of changes in the registered databases
         """
+        ...
     @abstractmethod
     def changeDatabaseLocation(self, Name: str, NewLocation: str) -> None:
         """
@@ -56,6 +57,7 @@ class XDatabaseRegistrations(ABC):
             : ````
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
     @abstractmethod
     def getDatabaseLocation(self, Name: str) -> str:
         """
@@ -65,11 +67,13 @@ class XDatabaseRegistrations(ABC):
             : ````
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getRegistrationNames(self) -> 'typing.Tuple[str, ...]':
         """
         returns the names of all registered databases
         """
+        ...
     @abstractmethod
     def hasRegisteredDatabase(self, Name: str) -> bool:
         """
@@ -78,6 +82,7 @@ class XDatabaseRegistrations(ABC):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def isDatabaseRegistrationReadOnly(self, Name: str) -> bool:
         """
@@ -89,6 +94,7 @@ class XDatabaseRegistrations(ABC):
             : ````
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def registerDatabaseLocation(self, Name: str, Location: str) -> None:
         """
@@ -98,11 +104,13 @@ class XDatabaseRegistrations(ABC):
             : ````
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def removeDatabaseRegistrationsListener(self, Listener: 'XDatabaseRegistrationsListener_acf11262') -> None:
         """
         revokes a previously registered listener
         """
+        ...
     @abstractmethod
     def revokeDatabaseLocation(self, Name: str) -> None:
         """
@@ -113,6 +121,7 @@ class XDatabaseRegistrations(ABC):
             : ````
             com.sun.star.lang.IllegalAccessException: ``IllegalAccessException``
         """
+        ...
 
 __all__ = ['XDatabaseRegistrations']
 

@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.awt.MenuItemType import (DONTKNOW, IMAGE, SEPARATOR, STRING, STRINGIMAGE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.awt.MenuItemType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.awt",
-            "__ooo_full_ns__": "com.sun.star.awt.MenuItemType",
-            "__ooo_type_name__": "enum",
-            "DONTKNOW": DONTKNOW,
-            "IMAGE": IMAGE,
-            "SEPARATOR": SEPARATOR,
-            "STRING": STRING,
-            "STRINGIMAGE": STRINGIMAGE,
-        }
-        result = type('MenuItemType', (object,), _dict)
-        return result
-
-    MenuItemType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class MenuItemType(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.MenuItemType", name_space="com.sun.star.awt"):
+        """Dynamically created class that represents ``com.sun.star.awt.MenuItemType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.awt.menu_item_type import MenuItemType as MenuItemType
 

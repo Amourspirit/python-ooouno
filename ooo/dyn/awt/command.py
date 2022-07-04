@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import Command as Command
-    if hasattr(Command, '_constants') and isinstance(Command._constants, dict):
-        Command._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        Command._constants['__ooo_full_ns__'] = 'com.sun.star.awt.Command'
-        Command._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global CommandEnum
-        ls = [f for f in dir(Command) if not callable(getattr(Command, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(Command, name)
-        CommandEnum = IntEnum('CommandEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class Command(metaclass=UnoConstMeta, type_name="com.sun.star.awt.Command", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.Command``"""
+        pass
+
+    class CommandEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.Command", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.Command`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.command import Command as Command
 

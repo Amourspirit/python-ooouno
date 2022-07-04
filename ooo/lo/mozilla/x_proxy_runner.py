@@ -41,6 +41,7 @@ class XProxyRunner(XInterface_8f010a43):
         """
         attempts to Run XPCOM code in a managed environment
         """
+        ...
 
 __all__ = ['XProxyRunner']
 

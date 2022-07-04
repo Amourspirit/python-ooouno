@@ -41,11 +41,13 @@ class XSubTotalDescriptor(XInterface_8f010a43):
         """
         adds a subtotal field definition to the descriptor.
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
         removes all subtotal field definitions from the descriptor.
         """
+        ...
 
 __all__ = ['XSubTotalDescriptor']
 

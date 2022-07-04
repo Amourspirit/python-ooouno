@@ -25,28 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart.ChartDataChangeType import (ALL, COLUMN_DELETED, COLUMN_INSERTED, DATA_RANGE, ROW_DELETED, ROW_INSERTED)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartDataChangeType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart",
-            "__ooo_full_ns__": "com.sun.star.chart.ChartDataChangeType",
-            "__ooo_type_name__": "enum",
-            "ALL": ALL,
-            "COLUMN_DELETED": COLUMN_DELETED,
-            "COLUMN_INSERTED": COLUMN_INSERTED,
-            "DATA_RANGE": DATA_RANGE,
-            "ROW_DELETED": ROW_DELETED,
-            "ROW_INSERTED": ROW_INSERTED,
-        }
-        result = type('ChartDataChangeType', (object,), _dict)
-        return result
-
-    ChartDataChangeType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ChartDataChangeType(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartDataChangeType", name_space="com.sun.star.chart"):
+        """Dynamically created class that represents ``com.sun.star.chart.ChartDataChangeType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart.chart_data_change_type import ChartDataChangeType as ChartDataChangeType
 

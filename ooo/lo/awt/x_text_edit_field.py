@@ -38,6 +38,7 @@ class XTextEditField(XInterface_8f010a43):
         """
         sets the character to display as a substitute on user input.
         """
+        ...
 
 __all__ = ['XTextEditField']
 

@@ -42,6 +42,7 @@ class XContentProvider(XInterface_8f010a43):
         """
         compares two XContentIdentifiers.
         """
+        ...
     @abstractmethod
     def queryContent(self, Identifier: 'XContentIdentifier_edc90d78') -> 'XContent_79db0975':
         """
@@ -50,6 +51,7 @@ class XContentProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.ucb.IllegalIdentifierException: ``IllegalIdentifierException``
         """
+        ...
 
 __all__ = ['XContentProvider']
 

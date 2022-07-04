@@ -34,6 +34,10 @@ class MessageBoxType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.awt.MessageBoxType'
+
     ERRORBOX = 'ERRORBOX'
     """
     A message box to provide an error message to the user.

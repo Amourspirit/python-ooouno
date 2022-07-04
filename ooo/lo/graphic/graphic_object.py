@@ -39,6 +39,7 @@ class GraphicObject(XGraphicObject_ee970d53):
         """
         Creates a GraphicObject.
         """
+        ...
 
 
 __all__ = ['GraphicObject']

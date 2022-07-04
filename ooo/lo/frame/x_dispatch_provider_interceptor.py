@@ -40,21 +40,25 @@ class XDispatchProviderInterceptor(XDispatchProvider_fc690de6):
         """
         access to the master XDispatchProvider of this interceptor
         """
+        ...
     @abstractmethod
     def getSlaveDispatchProvider(self) -> 'XDispatchProvider_fc690de6':
         """
         access to the slave XDispatchProvider of this interceptor
         """
+        ...
     @abstractmethod
     def setMasterDispatchProvider(self, NewSupplier: 'XDispatchProvider_fc690de6') -> None:
         """
         sets the master XDispatchProvider, which may forward calls to its XDispatchProvider.queryDispatch() to this dispatch provider.
         """
+        ...
     @abstractmethod
     def setSlaveDispatchProvider(self, NewDispatchProvider: 'XDispatchProvider_fc690de6') -> None:
         """
         sets the slave XDispatchProvider to which calls to XDispatchProvider.queryDispatch() can be forwarded under control of this dispatch provider.
         """
+        ...
 
 __all__ = ['XDispatchProviderInterceptor']
 

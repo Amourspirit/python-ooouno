@@ -46,6 +46,7 @@ class XDataSource(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def getLoginTimeout(self) -> int:
         """
@@ -56,6 +57,7 @@ class XDataSource(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
     @abstractmethod
     def setLoginTimeout(self, seconds: int) -> None:
         """
@@ -66,6 +68,7 @@ class XDataSource(XInterface_8f010a43):
         Raises:
             SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XDataSource']
 

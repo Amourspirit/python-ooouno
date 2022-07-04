@@ -48,6 +48,7 @@ class XTableRename(XConnectionSupplier_57f3105c):
         Raises:
             com.sun.star.sdbc.SQLException: ``SQLException``
         """
+        ...
 
 __all__ = ['XTableRename']
 

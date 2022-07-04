@@ -41,46 +41,55 @@ class XSpinValue(XInterface_8f010a43):
         """
         registers an adjustment event listener.
         """
+        ...
     @abstractmethod
     def getMaximum(self) -> int:
         """
         returns the currently set maximum value of the control
         """
+        ...
     @abstractmethod
     def getMinimum(self) -> int:
         """
         returns the currently set minimum value of the control
         """
+        ...
     @abstractmethod
     def getOrientation(self) -> int:
         """
         returns the current orientation of the control
         """
+        ...
     @abstractmethod
     def getSpinIncrement(self) -> int:
         """
         returns the value by which the current value of the control should be incremented or decremented upon spinning.
         """
+        ...
     @abstractmethod
     def getValue(self) -> int:
         """
         returns the current value of the control.
         """
+        ...
     @abstractmethod
     def removeAdjustmentListener(self, listener: 'XAdjustmentListener_fdfc0e11') -> None:
         """
         unregisters an adjustment event listener.
         """
+        ...
     @abstractmethod
     def setMaximum(self, maxValue: int) -> None:
         """
         sets the maximum value which can be set on the control
         """
+        ...
     @abstractmethod
     def setMinimum(self, minValue: int) -> None:
         """
         sets the minimum value which can be set on the control
         """
+        ...
     @abstractmethod
     def setOrientation(self, orientation: int) -> None:
         """
@@ -89,21 +98,25 @@ class XSpinValue(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def setSpinIncrement(self, spinIncrement: int) -> None:
         """
         sets the value by which the current value of the control should be incremented or decremented upon spinning.
         """
+        ...
     @abstractmethod
     def setValue(self, value: int) -> None:
         """
         sets the current value of the control
         """
+        ...
     @abstractmethod
     def setValues(self, minValue: int, maxValue: int, currentValue: int) -> None:
         """
         sets the value and value range of the control
         """
+        ...
 
 __all__ = ['XSpinValue']
 

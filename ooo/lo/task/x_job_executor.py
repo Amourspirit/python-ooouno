@@ -42,6 +42,7 @@ class XJobExecutor(XInterface_8f010a43):
         
         Jobs are registered in configuration and will be started by executor automatically, if they are registered for triggered event. The meaning of given string Event mustn't be known. Because for the executor it's enough to use it for searching a registered job inside his own configuration. So no special events will be defined here.
         """
+        ...
 
 __all__ = ['XJobExecutor']
 

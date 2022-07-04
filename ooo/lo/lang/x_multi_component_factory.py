@@ -44,6 +44,7 @@ class XMultiComponentFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def createInstanceWithContext(self, aServiceSpecifier: str, Context: 'XComponentContext_e2e10d4a') -> 'XInterface_8f010a43':
         """
@@ -52,11 +53,13 @@ class XMultiComponentFactory(XInterface_8f010a43):
         Raises:
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractmethod
     def getAvailableServiceNames(self) -> 'typing.Tuple[str, ...]':
         """
         Gets the names of all supported services.
         """
+        ...
 
 __all__ = ['XMultiComponentFactory']
 

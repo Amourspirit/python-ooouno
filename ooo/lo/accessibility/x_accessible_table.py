@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.accessibility
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -51,6 +52,7 @@ class XAccessibleTable(XInterface_8f010a43):
         """
         Returns the caption for the table.
         """
+        ...
     @abstractmethod
     def getAccessibleCellAt(self, nRow: int, nColumn: int) -> 'XAccessible_1cbc0eb6':
         """
@@ -61,6 +63,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleColumn(self, nChildIndex: int) -> int:
         """
@@ -69,6 +72,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleColumnCount(self) -> int:
         """
@@ -76,6 +80,7 @@ class XAccessibleTable(XInterface_8f010a43):
         
         The implementation, however, may allow the access of columns beyond this number.
         """
+        ...
     @abstractmethod
     def getAccessibleColumnDescription(self, nColumn: int) -> str:
         """
@@ -84,6 +89,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleColumnExtentAt(self, nRow: int, nColumn: int) -> int:
         """
@@ -94,6 +100,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleColumnHeaders(self) -> 'XAccessibleTable':
         """
@@ -101,6 +108,7 @@ class XAccessibleTable(XInterface_8f010a43):
         
         Content and size of the returned table are implementation dependent.
         """
+        ...
     @abstractmethod
     def getAccessibleIndex(self, nRow: int, nColumn: int) -> int:
         """
@@ -111,6 +119,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleRow(self, nChildIndex: int) -> int:
         """
@@ -119,6 +128,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleRowCount(self) -> int:
         """
@@ -126,6 +136,7 @@ class XAccessibleTable(XInterface_8f010a43):
         
         The implementation, however, may allow the access of columns beyond this number.
         """
+        ...
     @abstractmethod
     def getAccessibleRowDescription(self, nRow: int) -> str:
         """
@@ -134,6 +145,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleRowExtentAt(self, nRow: int, nColumn: int) -> int:
         """
@@ -144,6 +156,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleRowHeaders(self) -> 'XAccessibleTable':
         """
@@ -151,21 +164,25 @@ class XAccessibleTable(XInterface_8f010a43):
         
         Content and size of the returned table are implementation dependent.
         """
+        ...
     @abstractmethod
     def getAccessibleSummary(self) -> 'XAccessible_1cbc0eb6':
         """
         Returns the summary description of the table.
         """
+        ...
     @abstractmethod
-    def getSelectedAccessibleColumns(self) -> 'typing.Tuple[int, ...]':
+    def getSelectedAccessibleColumns(self) -> uno.ByteSequence:
         """
         Returns a list of the indices of completely selected columns in a table.
         """
+        ...
     @abstractmethod
-    def getSelectedAccessibleRows(self) -> 'typing.Tuple[int, ...]':
+    def getSelectedAccessibleRows(self) -> uno.ByteSequence:
         """
         Returns a list of the indices of completely selected rows in a table.
         """
+        ...
     @abstractmethod
     def isAccessibleColumnSelected(self, nColumn: int) -> bool:
         """
@@ -174,6 +191,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def isAccessibleRowSelected(self, nRow: int) -> bool:
         """
@@ -182,6 +200,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def isAccessibleSelected(self, nRow: int, nColumn: int) -> bool:
         """
@@ -190,6 +209,7 @@ class XAccessibleTable(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XAccessibleTable']
 

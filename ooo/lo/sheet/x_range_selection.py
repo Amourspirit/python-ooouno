@@ -43,31 +43,37 @@ class XRangeSelection(XInterface_8f010a43):
         """
         aborts the range selection.
         """
+        ...
     @abstractmethod
     def addRangeSelectionChangeListener(self, aListener: 'XRangeSelectionChangeListener_c0021298') -> None:
         """
         adds a listener that is notified when the selected range is changed.
         """
+        ...
     @abstractmethod
     def addRangeSelectionListener(self, aListener: 'XRangeSelectionListener_57ef1052') -> None:
         """
         adds a listener that is notified when range selection is completed or aborted.
         """
+        ...
     @abstractmethod
     def removeRangeSelectionChangeListener(self, aListener: 'XRangeSelectionChangeListener_c0021298') -> None:
         """
         removes the specified listener.
         """
+        ...
     @abstractmethod
     def removeRangeSelectionListener(self, aListener: 'XRangeSelectionListener_57ef1052') -> None:
         """
         removes the specified listener.
         """
+        ...
     @abstractmethod
     def startRangeSelection(self, aArguments: 'typing.Tuple[PropertyValue_c9610c73, ...]') -> None:
         """
         starts the range selection.
         """
+        ...
 
 __all__ = ['XRangeSelection']
 

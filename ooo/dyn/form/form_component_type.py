@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.form import FormComponentType as FormComponentType
-    if hasattr(FormComponentType, '_constants') and isinstance(FormComponentType._constants, dict):
-        FormComponentType._constants['__ooo_ns__'] = 'com.sun.star.form'
-        FormComponentType._constants['__ooo_full_ns__'] = 'com.sun.star.form.FormComponentType'
-        FormComponentType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global FormComponentTypeEnum
-        ls = [f for f in dir(FormComponentType) if not callable(getattr(FormComponentType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(FormComponentType, name)
-        FormComponentTypeEnum = IntEnum('FormComponentTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class FormComponentType(metaclass=UnoConstMeta, type_name="com.sun.star.form.FormComponentType", name_space="com.sun.star.form"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.form.FormComponentType``"""
+        pass
+
+    class FormComponentTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.form.FormComponentType", name_space="com.sun.star.form"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.form.FormComponentType`` as Enum values"""
+        pass
+
 else:
     from ...lo.form.form_component_type import FormComponentType as FormComponentType
 

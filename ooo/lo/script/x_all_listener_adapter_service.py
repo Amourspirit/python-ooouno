@@ -43,6 +43,7 @@ class XAllListenerAdapterService(XInterface_8f010a43):
         
         To get the correct listener interface the returned com.sun.star.uno.XInterface has to be queried for it.
         """
+        ...
 
 __all__ = ['XAllListenerAdapterService']
 

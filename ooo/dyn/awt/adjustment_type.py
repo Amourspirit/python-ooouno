@@ -25,25 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.awt.AdjustmentType import (ADJUST_ABS, ADJUST_LINE, ADJUST_PAGE)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.awt.AdjustmentType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.awt",
-            "__ooo_full_ns__": "com.sun.star.awt.AdjustmentType",
-            "__ooo_type_name__": "enum",
-            "ADJUST_ABS": ADJUST_ABS,
-            "ADJUST_LINE": ADJUST_LINE,
-            "ADJUST_PAGE": ADJUST_PAGE,
-        }
-        result = type('AdjustmentType', (object,), _dict)
-        return result
-
-    AdjustmentType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class AdjustmentType(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.AdjustmentType", name_space="com.sun.star.awt"):
+        """Dynamically created class that represents ``com.sun.star.awt.AdjustmentType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.awt.adjustment_type import AdjustmentType as AdjustmentType
 

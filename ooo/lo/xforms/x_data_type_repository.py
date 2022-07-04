@@ -48,6 +48,7 @@ class XDataTypeRepository(XEnumerationAccess_4bac0ffc, XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def getBasicDataType(self, dataTypeClass: int) -> 'XDataType_83f209cb':
         """
@@ -56,6 +57,7 @@ class XDataTypeRepository(XEnumerationAccess_4bac0ffc, XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getDataType(self, typeName: str) -> 'XDataType_83f209cb':
         """
@@ -63,6 +65,7 @@ class XDataTypeRepository(XEnumerationAccess_4bac0ffc, XNameAccess_e2ab0cf6):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def revokeDataType(self, typeName: str) -> None:
         """
@@ -72,6 +75,7 @@ class XDataTypeRepository(XEnumerationAccess_4bac0ffc, XNameAccess_e2ab0cf6):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.util.VetoException: ``VetoException``
         """
+        ...
 
 __all__ = ['XDataTypeRepository']
 

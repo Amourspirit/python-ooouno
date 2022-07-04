@@ -41,6 +41,7 @@ class XStyleChangeListener(XEventListener_c7230c4a):
         """
         called when the style settings of the observed component changed
         """
+        ...
 
 __all__ = ['XStyleChangeListener']
 

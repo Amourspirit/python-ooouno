@@ -39,30 +39,35 @@ class ViewSettings(XPropertySet_bc180bfa):
         """
         If this property is TRUE, the horizontal ruler is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowHoriScrollBar(self) -> bool:
         """
         If this property is TRUE, the horizontal scroll bar is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowVertRuler(self) -> bool:
         """
         If this property is TRUE, the vertical ruler is displayed.
         """
+        ...
 
     @abstractproperty
     def ShowVertScrollBar(self) -> bool:
         """
         If this property is TRUE, the vertical scroll bar is displayed.
         """
+        ...
 
     @abstractproperty
     def ZoomValue(self) -> int:
         """
         specifies the zoom-value in percent.
         """
+        ...
 
 
 

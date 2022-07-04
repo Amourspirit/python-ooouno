@@ -50,6 +50,7 @@ class XSchema(XInterface_8f010a43):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
             MalformedDataException: ``MalformedDataException``
         """
+        ...
     @abstractmethod
     def readSchema(self, aHandler: 'XSchemaHandler_d83412dd') -> None:
         """
@@ -60,6 +61,7 @@ class XSchema(XInterface_8f010a43):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
             MalformedDataException: ``MalformedDataException``
         """
+        ...
     @abstractmethod
     def readTemplates(self, aHandler: 'XSchemaHandler_d83412dd') -> None:
         """
@@ -70,6 +72,7 @@ class XSchema(XInterface_8f010a43):
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
             MalformedDataException: ``MalformedDataException``
         """
+        ...
 
 __all__ = ['XSchema']
 

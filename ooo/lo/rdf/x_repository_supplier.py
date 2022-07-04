@@ -44,6 +44,7 @@ class XRepositorySupplier(ABC):
         """
         provides the RDF Repository associated with this object.
         """
+        ...
 
 __all__ = ['XRepositorySupplier']
 

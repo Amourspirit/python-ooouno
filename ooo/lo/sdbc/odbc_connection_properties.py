@@ -43,6 +43,7 @@ class ODBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         """
         specifies the statement which should be executed when asking an \"INSERT\" statement for the XGeneratedResultSet (future concept) interface.
         """
+        ...
 
     @abstractproperty
     def CharSet(self) -> str:
@@ -51,6 +52,7 @@ class ODBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         
         See the IANA character set list for a list of valid values.
         """
+        ...
 
     @abstractproperty
     def IsAutoRetrievingEnabled(self) -> bool:
@@ -59,12 +61,14 @@ class ODBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         
         If TRUE than the statement will support the XGeneratedResultSet (future concept) interface, otherwise not.
         """
+        ...
 
     @abstractproperty
     def ParameterNameSubstitution(self) -> bool:
         """
         should the parameter \"?\" in prepared statement be substituted with an distinct name
         """
+        ...
 
     @abstractproperty
     def Silent(self) -> bool:
@@ -73,18 +77,21 @@ class ODBCConnectionProperties(ConnectionProperties_1a9f0ee1):
         
         No user interaction while creating the connection.
         """
+        ...
 
     @abstractproperty
     def Timeout(self) -> int:
         """
         the Timeout after which time a timeout should happen
         """
+        ...
 
     @abstractproperty
     def UseCatalog(self) -> bool:
         """
         should the driver should support a catalog.
         """
+        ...
 
 
 

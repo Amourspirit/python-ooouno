@@ -49,12 +49,14 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
         The Default value is white
         """
+        ...
 
     @abstractproperty
     def Border(self) -> int:
         """
         specifies the border style of the control.
         """
+        ...
 
     @abstractproperty
     def Complete(self) -> bool:
@@ -63,6 +65,7 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
         If it is false than a non - interactive RoadmapItem is appended
         """
+        ...
 
     @abstractproperty
     def CurrentItemID(self) -> int:
@@ -71,6 +74,7 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
         Initially this property is set to \"-1\" which is equal to \"undefined\" If the Roadmap Item that the CurrentItemID refers to is removed the property \"CurrentItemID\" is set to -1
         """
+        ...
 
     @abstractproperty
     def Graphic(self) -> 'XGraphic_a4da0afc':
@@ -83,18 +87,21 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
             OOo 2.1
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         specifies the help text of the control.
         """
+        ...
 
     @abstractproperty
     def HelpURL(self) -> str:
         """
         specifies the help URL of the control.
         """
+        ...
 
     @abstractproperty
     def ImageURL(self) -> str:
@@ -103,6 +110,7 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
         The image is placed in the lower right corner of the control
         """
+        ...
 
     @abstractproperty
     def Interactive(self) -> bool:
@@ -111,18 +119,21 @@ class UnoControlRoadmapModel(UnoControlModel_c8ce0c58, XIndexContainer_1c040ebe)
         
         A roadmap control which is interactive allows selecting its items out-of-order, by simply clicking them.
         """
+        ...
 
     @abstractproperty
     def Printable(self) -> bool:
         """
         specifies whether the control will be printed with the document.
         """
+        ...
 
     @abstractproperty
     def Text(self) -> str:
         """
         specifies the text displayed in the control.
         """
+        ...
 
 
 

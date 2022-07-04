@@ -26,8 +26,7 @@ class EffectNodeType(object):
 
     This constants defines a type for an animation effect node.
     
-    This is stored with the name node-type inside the com.sun.star.animations.XAnimationNode.UserData sequence.
-    This does not manipulate the timing or synchronization. It can be used to quickly identify semantic blocks inside an animation hierarchy.
+    This is stored with the name node-type inside the com.sun.star.animations.XAnimationNode.UserData sequence. This does not manipulate the timing or synchronization. It can be used to quickly identify semantic blocks inside an animation hierarchy.
 
     See Also:
         `API EffectNodeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation_1_1EffectNodeType.html>`_

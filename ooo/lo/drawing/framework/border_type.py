@@ -34,6 +34,10 @@ class BorderType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.drawing.framework.BorderType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.drawing.framework.BorderType'
+
     INNER_BORDER = 'INNER_BORDER'
     """
     """

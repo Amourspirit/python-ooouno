@@ -44,10 +44,12 @@ class XAxisSupplier(XInterface_8f010a43):
     def getAxis(self, nDimensionIndex: int) -> 'XAxis_71210907':
         """
         """
+        ...
     @abstractmethod
     def getSecondaryAxis(self, nDimensionIndex: int) -> 'XAxis_71210907':
         """
         """
+        ...
 
 __all__ = ['XAxisSupplier']
 

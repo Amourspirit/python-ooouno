@@ -39,6 +39,7 @@ class SlideRenderer(XSlideRenderer_efc90d74):
         """
         Create a new SlideRenderer object.
         """
+        ...
 
 
 __all__ = ['SlideRenderer']

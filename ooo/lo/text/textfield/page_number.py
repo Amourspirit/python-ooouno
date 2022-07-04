@@ -42,24 +42,28 @@ class PageNumber(TextField_90260a56):
         """
         determines the type of the numbering.
         """
+        ...
 
     @abstractproperty
     def Offset(self) -> int:
         """
         determines an offset value to show a different page number.
         """
+        ...
 
     @abstractproperty
     def SubType(self) -> 'PageNumberType_c8ed0c55':
         """
         determines which page the field refers to.
         """
+        ...
 
     @abstractproperty
     def UserText(self) -> str:
         """
         if the user text string is set then it is displayed when the value of NumberingType is set to com.sun.star.style.NumberingType.CHAR_SPECIAL
         """
+        ...
 
 
 

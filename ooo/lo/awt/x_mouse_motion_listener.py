@@ -43,11 +43,13 @@ class XMouseMotionListener(XEventListener_c7230c4a):
         
         Mouse drag events will continue to be delivered to the window where the first event originated until the mouse button is released (regardless of whether the mouse position is within the bounds of the window).
         """
+        ...
     @abstractmethod
     def mouseMoved(self, e: 'MouseEvent_8f430a5f') -> None:
         """
         is invoked when the mouse pointer has been moved on a window (with no buttons down).
         """
+        ...
 
 __all__ = ['XMouseMotionListener']
 

@@ -37,6 +37,7 @@ class XErrorQuery(XInterface_8f010a43):
         """
         Returns whether this object has an error.
         """
+        ...
 
 __all__ = ['XErrorQuery']
 

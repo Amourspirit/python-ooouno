@@ -54,19 +54,23 @@ class XConversionDictionary(XInterface_8f010a43):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.container.ElementExistException: ``ElementExistException``
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
         removes all entries from the dictionary.
         """
+        ...
     @abstractmethod
     def getConversionEntries(self, eDirection: 'ConversionDirection_7dfe113c') -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
     @abstractmethod
     def getConversionType(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getConversions(self, aText: str, nStartPos: int, nLength: int, eDirection: 'ConversionDirection_7dfe113c', nTextConversionOptions: int) -> 'typing.Tuple[str, ...]':
         """
@@ -77,23 +81,28 @@ class XConversionDictionary(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getLocale(self) -> 'Locale_70d308fa':
         """
         """
+        ...
     @abstractmethod
     def getMaxCharCount(self, eDirection: 'ConversionDirection_7dfe113c') -> int:
         """
         returns the maximum number of characters used as left or right text in entries.
         """
+        ...
     @abstractmethod
     def getName(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def removeEntry(self, aLeftText: str, aRightText: str) -> None:
         """
@@ -102,11 +111,13 @@ class XConversionDictionary(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def setActive(self, bActivate: bool) -> None:
         """
         specifies whether the dictionary should be used or not .
         """
+        ...
 
 __all__ = ['XConversionDictionary']
 

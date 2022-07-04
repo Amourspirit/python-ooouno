@@ -34,6 +34,10 @@ class BreakType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.BreakType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.BreakType'
+
     COLUMN_AFTER = 'COLUMN_AFTER'
     """
     A column break is applied after the object to which it belongs.

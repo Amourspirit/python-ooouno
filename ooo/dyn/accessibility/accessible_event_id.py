@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.accessibility import AccessibleEventId as AccessibleEventId
-    if hasattr(AccessibleEventId, '_constants') and isinstance(AccessibleEventId._constants, dict):
-        AccessibleEventId._constants['__ooo_ns__'] = 'com.sun.star.accessibility'
-        AccessibleEventId._constants['__ooo_full_ns__'] = 'com.sun.star.accessibility.AccessibleEventId'
-        AccessibleEventId._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global AccessibleEventIdEnum
-        ls = [f for f in dir(AccessibleEventId) if not callable(getattr(AccessibleEventId, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(AccessibleEventId, name)
-        AccessibleEventIdEnum = IntEnum('AccessibleEventIdEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class AccessibleEventId(metaclass=UnoConstMeta, type_name="com.sun.star.accessibility.AccessibleEventId", name_space="com.sun.star.accessibility"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.accessibility.AccessibleEventId``"""
+        pass
+
+    class AccessibleEventIdEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.accessibility.AccessibleEventId", name_space="com.sun.star.accessibility"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.accessibility.AccessibleEventId`` as Enum values"""
+        pass
+
 else:
     from ...lo.accessibility.accessible_event_id import AccessibleEventId as AccessibleEventId
 

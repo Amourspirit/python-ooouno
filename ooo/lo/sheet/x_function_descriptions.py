@@ -46,6 +46,7 @@ class XFunctionDescriptions(XIndexAccess_f0910d6d):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XFunctionDescriptions']
 

@@ -38,6 +38,7 @@ class XFilterFormulaParser(XFormulaParser_d54d0cbc):
         """
         Specifies the namespace URL of the formula language supported by this implementation.
         """
+        ...
 
 
 __all__ = ['XFilterFormulaParser']

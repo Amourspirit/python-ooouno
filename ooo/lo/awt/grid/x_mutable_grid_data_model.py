@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.awt.grid
 import typing
+import uno
 from abc import abstractmethod
 from .x_grid_data_model import XGridDataModel as XGridDataModel_f8b20d71
 if typing.TYPE_CHECKING:
@@ -41,11 +42,13 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         """
         registers listener to be notified of data changes in the model
         """
+        ...
     @abstractmethod
     def addRow(self, Heading: object, Data: 'typing.Tuple[object, ...]') -> None:
         """
         appends a row to the model.
         """
+        ...
     @abstractmethod
     def addRows(self, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
@@ -54,6 +57,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def insertRow(self, Index: int, Heading: object, Data: 'typing.Tuple[object, ...]') -> None:
         """
@@ -62,6 +66,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def insertRows(self, Index: int, Headings: 'typing.Tuple[object, ...]', Data: 'typing.Tuple[typing.Tuple[object, ...], ...]') -> None:
         """
@@ -71,16 +76,19 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
             : ````
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def removeAllRows(self) -> None:
         """
         Removes all rows from the model.
         """
+        ...
     @abstractmethod
     def removeGridDataListener(self, Listener: 'XGridDataListener_23f10ec6') -> None:
         """
         revokes a listener which was previously registered via addGridDataListener()
         """
+        ...
     @abstractmethod
     def removeRow(self, RowIndex: int) -> None:
         """
@@ -89,6 +97,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def updateCellData(self, ColumnIndex: int, RowIndex: int, Value: object) -> None:
         """
@@ -97,6 +106,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def updateCellToolTip(self, ColumnIndex: int, RowIndex: int, Value: object) -> None:
         """
@@ -105,8 +115,9 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
-    def updateRowData(self, ColumnIndexes: 'typing.Tuple[int, ...]', RowIndex: int, Values: 'typing.Tuple[object, ...]') -> None:
+    def updateRowData(self, ColumnIndexes: uno.ByteSequence, RowIndex: int, Values: 'typing.Tuple[object, ...]') -> None:
         """
         updates the content of a given row.
         
@@ -116,6 +127,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
             : ````
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def updateRowHeading(self, RowIndex: int, Heading: object) -> None:
         """
@@ -124,6 +136,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def updateRowToolTip(self, RowIndex: int, Value: object) -> None:
         """
@@ -134,6 +147,7 @@ class XMutableGridDataModel(XGridDataModel_f8b20d71):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
 
 __all__ = ['XMutableGridDataModel']
 

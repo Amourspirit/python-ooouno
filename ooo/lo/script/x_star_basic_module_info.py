@@ -42,11 +42,13 @@ class XStarBasicModuleInfo(XInterface_8f010a43):
         """
         returns the type of the script language as string, for example, \"StarBasic\" or \"JavaScript\".
         """
+        ...
     @abstractmethod
     def getName(self) -> str:
         """
         returns the name of the module
         """
+        ...
     @abstractmethod
     def getSource(self) -> str:
         """
@@ -54,6 +56,7 @@ class XStarBasicModuleInfo(XInterface_8f010a43):
         
         The code has to correspond with the language defined by Language.
         """
+        ...
 
 __all__ = ['XStarBasicModuleInfo']
 

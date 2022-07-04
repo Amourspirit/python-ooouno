@@ -31,8 +31,7 @@ class Controller(XUserInputInterception_2a7e0f4f, XTransferableSupplier_b602128c
 
     is an abstract service for a component which offers a deeper integration of desktop components than a com.sun.star.awt.XWindow can offer
     
-    Such components can be loaded into a Frame inside a Desktop environment. A controller is a richer component then a pure window, but full featured components need a XModel interface too.
-    (see service com.sun.star.document.OfficeDocument for further information)
+    Such components can be loaded into a Frame inside a Desktop environment. A controller is a richer component then a pure window, but full featured components need a XModel interface too. (see service com.sun.star.document.OfficeDocument for further information)
 
     See Also:
         `API Controller <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1frame_1_1Controller.html>`_

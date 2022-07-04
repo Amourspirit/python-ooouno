@@ -44,47 +44,55 @@ class XStatusbarItem(ABC):
         """
         forces repainting the item onto the status bar device
         """
+        ...
     @abstractproperty
     def AccessibleName(self) -> str:
         """
         the accessible name of the status bar item
         """
+        ...
 
     @abstractproperty
     def Command(self) -> str:
         """
         the command of the status bar item
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
         """
         the help text of the status bar item when extended help tips are on
         """
+        ...
 
     @abstractproperty
     def ItemId(self) -> int:
         """
         the unique ID of the control within the status bar
         """
+        ...
 
     @abstractproperty
     def ItemRect(self) -> 'Rectangle_84b109e9':
         """
         the rectangle on the status bar device onto which the item is drawn
         """
+        ...
 
     @abstractproperty
     def Offset(self) -> int:
         """
         the offset between this status bar item and the following
         """
+        ...
 
     @abstractproperty
     def QuickHelpText(self) -> str:
         """
         the help text of the status bar item when help tips are on
         """
+        ...
 
     @abstractproperty
     def Style(self) -> int:
@@ -97,24 +105,28 @@ class XStatusbarItem(ABC):
         
             LibreOffice 6.1)
         """
+        ...
 
     @abstractproperty
     def Text(self) -> str:
         """
         the text of status bar item
         """
+        ...
 
     @abstractproperty
     def Visible(self) -> bool:
         """
         whether the item is visible or not
         """
+        ...
 
     @abstractproperty
     def Width(self) -> int:
         """
         the width of the status bar item
         """
+        ...
 
 
 __all__ = ['XStatusbarItem']

@@ -42,36 +42,42 @@ class XFixedLine(XReportControlModel_2d800f4a):
         """
         This property contains the line color.
         """
+        ...
 
     @abstractproperty
     def LineDash(self) -> 'LineDash_a54e0afc':
         """
         This property contains the dash of the line.
         """
+        ...
 
     @abstractproperty
     def LineStyle(self) -> 'LineStyle_b1600b8d':
         """
         This property contains the type of the line.
         """
+        ...
 
     @abstractproperty
     def LineTransparence(self) -> int:
         """
         This property contains the extent of transparency.
         """
+        ...
 
     @abstractproperty
     def LineWidth(self) -> int:
         """
         This property contains the width of the line in 1/100th mm.
         """
+        ...
 
     @abstractproperty
     def Orientation(self) -> int:
         """
         specifies the orientation of the control.
         """
+        ...
 
 
 __all__ = ['XFixedLine']

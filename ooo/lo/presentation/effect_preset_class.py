@@ -26,8 +26,7 @@ class EffectPresetClass(object):
 
     This constants defines the class for a preset animation effect.
     
-    This is stored with the name preset-class inside the com.sun.star.animations.XAnimationNode.UserData sequence.
-    This does not manipulate the timing or synchronization. It can be used to quickly identify preset animations inside an animation hierarchy.
+    This is stored with the name preset-class inside the com.sun.star.animations.XAnimationNode.UserData sequence. This does not manipulate the timing or synchronization. It can be used to quickly identify preset animations inside an animation hierarchy.
 
     See Also:
         `API EffectPresetClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation_1_1EffectPresetClass.html>`_

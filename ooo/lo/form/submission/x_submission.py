@@ -45,6 +45,7 @@ class XSubmission(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def removeSubmissionVetoListener(self, listener: 'XSubmissionVetoListener_18e1149e') -> None:
         """
@@ -53,6 +54,7 @@ class XSubmission(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.NoSupportException: ``NoSupportException``
         """
+        ...
     @abstractmethod
     def submit(self) -> None:
         """
@@ -62,6 +64,7 @@ class XSubmission(XInterface_8f010a43):
             com.sun.star.util.VetoException: ``VetoException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def submitWithInteraction(self, aHandler: 'XInteractionHandler_bf80e51') -> None:
         """
@@ -71,6 +74,7 @@ class XSubmission(XInterface_8f010a43):
             com.sun.star.util.VetoException: ``VetoException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XSubmission']
 

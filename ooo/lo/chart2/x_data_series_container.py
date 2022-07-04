@@ -43,11 +43,13 @@ class XDataSeriesContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDataSeries(self) -> 'typing.Tuple[XDataSeries_b8150b89, ...]':
         """
         retrieve all data series
         """
+        ...
     @abstractmethod
     def removeDataSeries(self, aDataSeries: 'XDataSeries_b8150b89') -> None:
         """
@@ -56,6 +58,7 @@ class XDataSeriesContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def setDataSeries(self, aDataSeries: 'typing.Tuple[XDataSeries_b8150b89, ...]') -> None:
         """
@@ -64,6 +67,7 @@ class XDataSeriesContainer(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XDataSeriesContainer']
 

@@ -47,6 +47,7 @@ class XSpellChecker1(XSupportedLanguages_7dbd112a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def spell(self, aWord: str, nLanguage: int, aProperties: 'PropertyValues_d6470ce6') -> 'XSpellAlternatives_6ad110bf':
         """
@@ -54,6 +55,7 @@ class XSpellChecker1(XSupportedLanguages_7dbd112a):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XSpellChecker1']
 

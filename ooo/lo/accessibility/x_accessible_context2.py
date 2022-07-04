@@ -46,6 +46,7 @@ class XAccessibleContext2(XAccessibleContext_8eae119b):
         
         This is not meant to be presented to the user, but to be an ID which is stable over application development. Typically, this is the gtkbuilder ID. Such an ID can then be used to identify a given well-known accessible object independently from the current locale, user-visible labelling, or dialog structure. This can then be used for tailored screen reading (e.g. automatically announcing the content of a well-known object), or for automatic regression testing (to check the behavior of well-known objects). Uniqueness within the window is thus desirable when returning a non-empty string.
         """
+        ...
 
 __all__ = ['XAccessibleContext2']
 

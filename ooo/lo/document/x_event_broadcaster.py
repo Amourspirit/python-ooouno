@@ -45,11 +45,13 @@ class XEventBroadcaster(XInterface_8f010a43):
         """
         registers the given listener
         """
+        ...
     @abstractmethod
     def removeEventListener(self, Listener: 'XEventListener_ff7f0e07') -> None:
         """
         unregisters the given listener
         """
+        ...
 
 __all__ = ['XEventBroadcaster']
 

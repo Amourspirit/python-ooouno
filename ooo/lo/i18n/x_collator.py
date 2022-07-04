@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.i18n
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -41,36 +42,43 @@ class XCollator(XInterface_8f010a43):
         """
         Compare 2 strings in specific locale and algorithm.
         """
+        ...
     @abstractmethod
     def compareSubstring(self, aStr1: str, nOff1: int, nLen1: int, aStr2: str, nOff2: int, nLen2: int) -> int:
         """
         Compare 2 substrings in specific locale and algorithm.
         """
+        ...
     @abstractmethod
     def listCollatorAlgorithms(self, aLocale: 'Locale_70d308fa') -> 'typing.Tuple[str, ...]':
         """
         List all collator algorithms for a given locale.
         """
+        ...
     @abstractmethod
-    def listCollatorOptions(self, aAlgorithmName: str) -> 'typing.Tuple[int, ...]':
+    def listCollatorOptions(self, aAlgorithmName: str) -> uno.ByteSequence:
         """
         List all end user collator options for a given algorithm.
         """
+        ...
     @abstractmethod
     def loadCollatorAlgorithm(self, aAlgorithmName: str, aLocale: 'Locale_70d308fa', nCollatorOptions: int) -> int:
         """
         Load a particular collator algorithm for the locale.
         """
+        ...
     @abstractmethod
-    def loadCollatorAlgorithmWithEndUserOption(self, aAlgorithmName: str, aLocale: 'Locale_70d308fa', aCollatorOptions: 'typing.Tuple[int, ...]') -> None:
+    def loadCollatorAlgorithmWithEndUserOption(self, aAlgorithmName: str, aLocale: 'Locale_70d308fa', aCollatorOptions: uno.ByteSequence) -> None:
         """
         Load a collator algorithm with options chosen by end user.
         """
+        ...
     @abstractmethod
     def loadDefaultCollator(self, aLocale: 'Locale_70d308fa', nCollatorOptions: int) -> int:
         """
         Load the collator with default algorithm defined in locale data.
         """
+        ...
 
 __all__ = ['XCollator']
 

@@ -34,6 +34,10 @@ class ParagraphAdjust(Enum):
     __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.style.ParagraphAdjust'
+
     BLOCK = 'BLOCK'
     """
     adjusted to both borders / stretched, except for last line

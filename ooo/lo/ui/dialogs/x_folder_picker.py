@@ -38,6 +38,7 @@ class XFolderPicker(XExecutableDialog_450f0fa1):
         """
         Returns the selected directory as url conforming to Rfc1738.
         """
+        ...
     @abstractmethod
     def getDisplayDirectory(self) -> str:
         """
@@ -45,6 +46,7 @@ class XFolderPicker(XExecutableDialog_450f0fa1):
         
         The return value is undefined if the client did not choose a root directory or the previously specified root directory doesn't exist.
         """
+        ...
     @abstractmethod
     def setDescription(self, aDescription: str) -> None:
         """
@@ -52,6 +54,7 @@ class XFolderPicker(XExecutableDialog_450f0fa1):
         
         \"Please select a directory\". If the client doesn't set a description the dialog may show a default description.
         """
+        ...
     @abstractmethod
     def setDisplayDirectory(self, aDirectory: str) -> None:
         """
@@ -62,6 +65,7 @@ class XFolderPicker(XExecutableDialog_450f0fa1):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XFolderPicker']
 

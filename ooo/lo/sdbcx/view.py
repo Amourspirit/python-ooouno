@@ -45,12 +45,14 @@ class View(XPropertySet_bc180bfa, XAlterView_a42a0b07, XRename_848c09cc):
         """
         is the name of the views catalog, may be empty.
         """
+        ...
 
     @abstractproperty
     def CheckOption(self) -> int:
         """
         indicates if a check option should be used for the view.
         """
+        ...
 
     @abstractproperty
     def Command(self) -> str:
@@ -61,18 +63,21 @@ class View(XPropertySet_bc180bfa, XAlterView_a42a0b07, XRename_848c09cc):
         
         This property might be empty when a backend does not support retrieving the current SQL command of a view. However, if the View supports altering its command via the XAlterView interface, then it's required to also provide the current SQL command in the Command property.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         is the name of the view.
         """
+        ...
 
     @abstractproperty
     def SchemaName(self) -> str:
         """
         is the name of the view's schema, may be empty.
         """
+        ...
 
 
 

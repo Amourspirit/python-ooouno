@@ -34,6 +34,10 @@ class ChartDataChangeType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataChangeType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartDataChangeType'
+
     ALL = 'ALL'
     """
     Major changes were applied to the data.

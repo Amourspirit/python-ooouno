@@ -41,11 +41,13 @@ class XPropertiesChangeNotifier(XInterface_8f010a43):
         """
         adds an XPropertiesChangeListener to the specified properties with the specified names.
         """
+        ...
     @abstractmethod
     def removePropertiesChangeListener(self, PropertyNames: 'typing.Tuple[str, ...]', Listener: 'XPropertiesChangeListener_7a7d1122') -> None:
         """
         removes an XPropertiesChangeListener from the listener list.
         """
+        ...
 
 __all__ = ['XPropertiesChangeNotifier']
 

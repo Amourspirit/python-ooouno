@@ -25,30 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.script.InterruptReason import (BreakPoint, Cancel, CompileError, RuntimeError, Step, StepOut, StepOver, StepStatement)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.script.InterruptReason Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.script",
-            "__ooo_full_ns__": "com.sun.star.script.InterruptReason",
-            "__ooo_type_name__": "enum",
-            "BreakPoint": BreakPoint,
-            "Cancel": Cancel,
-            "CompileError": CompileError,
-            "RuntimeError": RuntimeError,
-            "Step": Step,
-            "StepOut": StepOut,
-            "StepOver": StepOver,
-            "StepStatement": StepStatement,
-        }
-        result = type('InterruptReason', (object,), _dict)
-        return result
-
-    InterruptReason = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class InterruptReason(metaclass=UnoEnumMeta, type_name="com.sun.star.script.InterruptReason", name_space="com.sun.star.script"):
+        """Dynamically created class that represents ``com.sun.star.script.InterruptReason`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.script.interrupt_reason import InterruptReason as InterruptReason
 

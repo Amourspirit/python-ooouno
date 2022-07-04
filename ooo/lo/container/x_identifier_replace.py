@@ -43,6 +43,7 @@ class XIdentifierReplace(XIdentifierAccess_3a5a0f78):
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XIdentifierReplace']
 

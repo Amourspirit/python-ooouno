@@ -30,8 +30,7 @@ class ObjectInspector(XObjectInspector_3c860faa):
 
     describes a com.sun.star.frame.Controller which can be used to browse and modify properties of components.
     
-    The controller can be plugged into a com.sun.star.frame.XFrame, and will provide a visual component for inspecting and modifying component properties.
-    Note that \"property\" here is a generic term - any aspect of a component can be considered a property, as long as some property handler is able to describe this aspect in a property-like way.
+    The controller can be plugged into a com.sun.star.frame.XFrame, and will provide a visual component for inspecting and modifying component properties.Note that \"property\" here is a generic term - any aspect of a component can be considered a property, as long as some property handler is able to describe this aspect in a property-like way.
     
     The basic idea is that one facet of the inspected component is represented by a single line of controls: A label, an input control, and optionally one or two buttons which, when pressed, trigger additional user interaction (e.g. a more sophisticated dialog to enter a property value).
     
@@ -43,8 +42,7 @@ class ObjectInspector(XObjectInspector_3c860faa):
     
     The property handlers, as well as more information about the layout of the inspector, are provided by an inspector model, which has to be implemented by the user of the inspector.
     
-    Since property handlers might have the need to raise UI, they will be created with a context value named \"DialogParentWindow\", which contains an XWindow which should be used as parent of any windows to raise.
-    If the com.sun.star.uno.XComponentContext in which the ObjectInspector was created already contains such a value, it is not overwritten. Only if it doesn't, the inspector will add an own value - which contains the inspector's main window - to the context when creating handlers.
+    Since property handlers might have the need to raise UI, they will be created with a context value named \"DialogParentWindow\", which contains an XWindow which should be used as parent of any windows to raise.If the com.sun.star.uno.XComponentContext in which the ObjectInspector was created already contains such a value, it is not overwritten. Only if it doesn't, the inspector will add an own value - which contains the inspector's main window - to the context when creating handlers.
     
     **since**
     
@@ -66,6 +64,7 @@ class ObjectInspector(XObjectInspector_3c860faa):
         
             OOo 2.2
         """
+        ...
     @abstractmethod
     def createWithModel(self, Model: 'XObjectInspectorModel_9077119b') -> None:
         """
@@ -78,6 +77,7 @@ class ObjectInspector(XObjectInspector_3c860faa):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['ObjectInspector']

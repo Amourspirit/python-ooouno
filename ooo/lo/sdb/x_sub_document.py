@@ -47,6 +47,7 @@ class XSubDocument(ABC):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def open(self) -> 'XComponent_98dc0ab5':
         """
@@ -57,6 +58,7 @@ class XSubDocument(ABC):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def openDesign(self) -> 'XComponent_98dc0ab5':
         """
@@ -65,6 +67,7 @@ class XSubDocument(ABC):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def store(self) -> None:
         """
@@ -73,6 +76,7 @@ class XSubDocument(ABC):
         Raises:
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XSubDocument']
 

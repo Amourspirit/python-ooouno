@@ -50,6 +50,7 @@ class XDictionary(XNamed_a6520b08):
         
         In positive dictionaries only positive entries can be made, and in negative ones only negative entries.
         """
+        ...
     @abstractmethod
     def addDictionaryEventListener(self, xListener: 'XDictionaryEventListener_d74c132b') -> bool:
         """
@@ -57,6 +58,7 @@ class XDictionary(XNamed_a6520b08):
         
         On dictionary events, each entry in the listener list will be notified via a call to com.sun.star.linguistic2.XDictionaryEventListener.processDictionaryEvent().
         """
+        ...
     @abstractmethod
     def addEntry(self, xDicEntry: 'XDictionaryEntry_49ef0ff5') -> bool:
         """
@@ -66,62 +68,75 @@ class XDictionary(XNamed_a6520b08):
         
         In positive dictionaries only positive entries can be made, and in negative ones only negative entries.
         """
+        ...
     @abstractmethod
     def clear(self) -> None:
         """
         removes all entries from the dictionary.
         """
+        ...
     @abstractmethod
     def getCount(self) -> int:
         """
         """
+        ...
     @abstractmethod
     def getDictionaryType(self) -> 'DictionaryType_2ba50f2d':
         """
         returns the type of the dictionary.
         """
+        ...
     @abstractmethod
     def getEntries(self) -> 'typing.Tuple[XDictionaryEntry_49ef0ff5, ...]':
         """
         This function should no longer be used since with the expansion of the maximum number of allowed entries the result may become unreasonable large!
         """
+        ...
     @abstractmethod
     def getEntry(self, aWord: str) -> 'XDictionaryEntry_49ef0ff5':
         """
         searches for an entry that matches the given word.
         """
+        ...
     @abstractmethod
     def getLocale(self) -> 'Locale_70d308fa':
         """
         """
+        ...
     @abstractmethod
     def isActive(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def isFull(self) -> bool:
         """
         """
+        ...
     @abstractmethod
     def remove(self, aWord: str) -> bool:
         """
         removes an entry from the dictionary.
         """
+        ...
     @abstractmethod
     def removeDictionaryEventListener(self, xListener: 'XDictionaryEventListener_d74c132b') -> bool:
         """
         removes an entry from the list of dictionary event listeners.
         """
+        ...
     @abstractmethod
     def setActive(self, bActivate: bool) -> None:
         """
         specifies whether the dictionary should be used or not .
         """
+        ...
     @abstractmethod
     def setLocale(self, aLocale: 'Locale_70d308fa') -> None:
         """
         is used to set the language of the dictionary.
         """
+        ...
 
 __all__ = ['XDictionary']
 

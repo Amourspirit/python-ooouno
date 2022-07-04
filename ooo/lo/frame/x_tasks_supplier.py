@@ -46,11 +46,13 @@ class XTasksSupplier(XInterface_8f010a43):
         """
         use XFramesSupplier.getActiveFrame() instead of this one
         """
+        ...
     @abstractmethod
     def getTasks(self) -> 'XEnumerationAccess_4bac0ffc':
         """
         use XFramesSupplier.getFrames() instead of this one
         """
+        ...
 
 __all__ = ['XTasksSupplier']
 

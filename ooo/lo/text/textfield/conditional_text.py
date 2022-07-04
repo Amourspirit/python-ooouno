@@ -39,6 +39,7 @@ class ConditionalText(TextField_90260a56):
         """
         contains the condition.
         """
+        ...
 
     @abstractproperty
     def CurrentPresentation(self) -> str:
@@ -47,12 +48,14 @@ class ConditionalText(TextField_90260a56):
         
         This property is especially useful for import/export purposes.
         """
+        ...
 
     @abstractproperty
     def FalseContent(self) -> str:
         """
         contains the text that is displayed if the condition evaluates to FALSE.
         """
+        ...
 
     @abstractproperty
     def IsConditionTrue(self) -> bool:
@@ -61,12 +64,14 @@ class ConditionalText(TextField_90260a56):
         
         This property has to be read/written in file export/import to save and restore the result without initiation of a new evaluation.
         """
+        ...
 
     @abstractproperty
     def TrueContent(self) -> str:
         """
         contains the text that is displayed if the condition evaluates to TRUE.
         """
+        ...
 
 
 

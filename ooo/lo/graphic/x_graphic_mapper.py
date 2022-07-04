@@ -44,11 +44,13 @@ class XGraphicMapper(ABC):
         """
         Find if we have the XGraphic for the certain key.
         """
+        ...
     @abstractmethod
     def putGraphic(self, Id: str, Graphic: 'XGraphic_a4da0afc') -> None:
         """
         Insert a new entry to map an id/key to the XGraphic.
         """
+        ...
 
 __all__ = ['XGraphicMapper']
 

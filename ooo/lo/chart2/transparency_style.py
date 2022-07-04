@@ -34,6 +34,10 @@ class TransparencyStyle(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart2.TransparencyStyle'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart2.TransparencyStyle'
+
     GRADIENT = 'GRADIENT'
     """
     The property TransparencyGradient is evaluated, Transparency is ignored.

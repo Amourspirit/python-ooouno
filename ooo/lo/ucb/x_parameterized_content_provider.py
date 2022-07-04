@@ -44,6 +44,7 @@ class XParameterizedContentProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def registerInstance(self, Template: str, Arguments: str, ReplaceExisting: bool) -> 'XContentProvider_d4150cc0':
         """
@@ -52,6 +53,7 @@ class XParameterizedContentProvider(XInterface_8f010a43):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XParameterizedContentProvider']
 

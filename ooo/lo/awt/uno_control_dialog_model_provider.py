@@ -46,6 +46,7 @@ class UnoControlDialogModelProvider(XNameContainer_cb90e47):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 
 __all__ = ['UnoControlDialogModelProvider']

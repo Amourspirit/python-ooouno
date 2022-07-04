@@ -34,6 +34,10 @@ class ChartAxisPosition(Enum):
     __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.chart.ChartAxisPosition'
+
     END = 'END'
     """
     Cross the other axes at their maximum scale value.

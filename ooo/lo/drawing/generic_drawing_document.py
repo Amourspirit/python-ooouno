@@ -53,24 +53,28 @@ class GenericDrawingDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XDr
         """
         contains the identifier of the default locale of the document.
         """
+        ...
 
     @abstractproperty
     def ForbiddenCharacters(self) -> 'XForbiddenCharacters_df60e2d':
         """
         This property gives the XForbiddenCharacters.
         """
+        ...
 
     @abstractproperty
     def TabStop(self) -> int:
         """
         This property specifies the length between the default tab stops inside text in this document in 1/100th mm.
         """
+        ...
 
     @abstractproperty
     def VisibleArea(self) -> 'Rectangle_84b109e9':
         """
         if this document is an OLE client, this is the current visible area in 100th mm
         """
+        ...
 
 
 

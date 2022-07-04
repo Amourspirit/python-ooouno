@@ -34,6 +34,10 @@ class WebDAVHTTPMethod(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ucb.WebDAVHTTPMethod'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ucb.WebDAVHTTPMethod'
+
     CONNECT = 'CONNECT'
     """
     HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1

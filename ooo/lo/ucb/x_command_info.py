@@ -44,6 +44,7 @@ class XCommandInfo(XInterface_8f010a43):
         Raises:
             com.sun.star.ucb.UnsupportedCommandException: ``UnsupportedCommandException``
         """
+        ...
     @abstractmethod
     def getCommandInfoByName(self, Name: str) -> 'CommandInfo_98490a8d':
         """
@@ -52,21 +53,25 @@ class XCommandInfo(XInterface_8f010a43):
         Raises:
             com.sun.star.ucb.UnsupportedCommandException: ``UnsupportedCommandException``
         """
+        ...
     @abstractmethod
     def getCommands(self) -> 'typing.Tuple[CommandInfo_98490a8d, ...]':
         """
         obtains information for all supported commands.
         """
+        ...
     @abstractmethod
     def hasCommandByHandle(self, Handle: int) -> bool:
         """
         checks whether a specific command is supported.
         """
+        ...
     @abstractmethod
     def hasCommandByName(self, Name: str) -> bool:
         """
         checks whether a command specific is supported.
         """
+        ...
 
 __all__ = ['XCommandInfo']
 

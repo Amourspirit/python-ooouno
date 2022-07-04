@@ -48,6 +48,7 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def processingInstruction(self, aTarget: str, aData: str) -> None:
         """
@@ -60,6 +61,7 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def setDocumentLocator(self, xLocator: 'XLocator_a3fb0aff') -> None:
         """
@@ -68,6 +70,7 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startDocument(self) -> None:
         """
@@ -76,6 +79,7 @@ class XFastDocumentHandler(XFastContextHandler_361e0f5c):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XFastDocumentHandler']
 

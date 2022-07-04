@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.awt import VisualEffect as VisualEffect
-    if hasattr(VisualEffect, '_constants') and isinstance(VisualEffect._constants, dict):
-        VisualEffect._constants['__ooo_ns__'] = 'com.sun.star.awt'
-        VisualEffect._constants['__ooo_full_ns__'] = 'com.sun.star.awt.VisualEffect'
-        VisualEffect._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global VisualEffectEnum
-        ls = [f for f in dir(VisualEffect) if not callable(getattr(VisualEffect, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(VisualEffect, name)
-        VisualEffectEnum = IntEnum('VisualEffectEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class VisualEffect(metaclass=UnoConstMeta, type_name="com.sun.star.awt.VisualEffect", name_space="com.sun.star.awt"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.awt.VisualEffect``"""
+        pass
+
+    class VisualEffectEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.awt.VisualEffect", name_space="com.sun.star.awt"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.awt.VisualEffect`` as Enum values"""
+        pass
+
 else:
     from ...lo.awt.visual_effect import VisualEffect as VisualEffect
 

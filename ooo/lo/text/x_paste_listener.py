@@ -47,6 +47,7 @@ class XPasteListener(XInterface_8f010a43):
         
         The following keys may be used:
         """
+        ...
 
 __all__ = ['XPasteListener']
 

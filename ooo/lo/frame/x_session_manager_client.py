@@ -41,31 +41,37 @@ class XSessionManagerClient(XInterface_8f010a43):
         """
         addSessionManagerListener registers a listener for session management events
         """
+        ...
     @abstractmethod
     def cancelShutdown(self) -> bool:
         """
         Call cancelShutdown to try to cancel a desktop shutdown in progress.
         """
+        ...
     @abstractmethod
     def interactionDone(self, xListener: 'XSessionManagerListener_582d1050') -> None:
         """
         interactionDone is called when a listener has finished user interaction
         """
+        ...
     @abstractmethod
     def queryInteraction(self, xListener: 'XSessionManagerListener_582d1050') -> None:
         """
         queryInteraction issues a request for a user interaction slot from the session manager
         """
+        ...
     @abstractmethod
     def removeSessionManagerListener(self, xListener: 'XSessionManagerListener_582d1050') -> None:
         """
         removeSessionManagerListener deregisters a listener for session events
         """
+        ...
     @abstractmethod
     def saveDone(self, xListener: 'XSessionManagerListener_582d1050') -> None:
         """
         saveDone signals that a listener has processed a save request
         """
+        ...
 
 __all__ = ['XSessionManagerClient']
 

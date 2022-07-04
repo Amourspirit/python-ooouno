@@ -34,6 +34,10 @@ class DataEditorEventType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.util.DataEditorEventType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.util.DataEditorEventType'
+
     CANCELED = 'CANCELED'
     """
     specifies that the data editing was canceled by the user (data not stored).

@@ -41,6 +41,7 @@ class XEnhancedCustomShapeDefaulter(XInterface_8f010a43):
         
         SJ: following shape types can't be created with this method, they are part of the gallery (soon they also will be added) gallery: quadrat gallery: round-quadrat gallery: circle gallery: circle-pie gallery: frame gallery: flower gallery: cloud gallery: puzzle gallery: octagon-bevel gallery: diamond-bevel gallery: up-right-arrow gallery: up-right-down-arrow gallery: corner-right-arrow gallery: split-arrow gallery: up-right-arrow-callout gallery: split-round-arrow gallery: s-sharped-arrow Gallery: star6 Gallery: star12 Gallery: concave-star6 Gallery: signet Gallery: doorplate gallery: fontwork-arch-left-curve gallery: fontwork-arch-right-curve gallery: fontwork-arch-left-pour gallery: fontwork-arch-right-pour
         """
+        ...
 
 __all__ = ['XEnhancedCustomShapeDefaulter']
 

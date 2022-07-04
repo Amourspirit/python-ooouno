@@ -46,35 +46,41 @@ class XFunctionDescription(XPropertySet_bc180bfa):
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
             com.sun.star.uno.Exception: ``Exception``
         """
+        ...
     @abstractproperty
     def Arguments(self) -> 'typing.Tuple[FunctionArgument_f1080daa, ...]':
         """
         returns a sequence of localized descriptions of the function's arguments (in the order specified by the function).
         """
+        ...
 
     @abstractproperty
     def Category(self) -> 'XFunctionCategory_59e21055':
         """
         specifies the category number.
         """
+        ...
 
     @abstractproperty
     def Description(self) -> str:
         """
         returns a localized description of the function.
         """
+        ...
 
     @abstractproperty
     def Name(self) -> str:
         """
         returns the localized function's name.
         """
+        ...
 
     @abstractproperty
     def Signature(self) -> str:
         """
         returns the signature of the function.
         """
+        ...
 
 
 __all__ = ['XFunctionDescription']

@@ -48,6 +48,7 @@ class XTextInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readLine(self) -> str:
         """
@@ -58,6 +59,7 @@ class XTextInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def readString(self, Delimiters: 'typing.Tuple[str, ...]', bRemoveDelimiter: bool) -> str:
         """
@@ -68,11 +70,13 @@ class XTextInputStream(XInputStream_98d40ab4):
         Raises:
             com.sun.star.io.IOException: ``IOException``
         """
+        ...
     @abstractmethod
     def setEncoding(self, Encoding: str) -> None:
         """
         sets character encoding.
         """
+        ...
 
 __all__ = ['XTextInputStream']
 

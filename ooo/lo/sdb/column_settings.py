@@ -43,6 +43,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         If the value is VOID , a default alignment should be used according to the datatype of the column.
         """
+        ...
 
     @abstractproperty
     def ControlDefault(self) -> str:
@@ -51,6 +52,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         The default is NULL.
         """
+        ...
 
     @abstractproperty
     def ControlModel(self) -> 'XPropertySet_bc180bfa':
@@ -59,6 +61,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         The default is NULL.
         """
+        ...
 
     @abstractproperty
     def FormatKey(self) -> int:
@@ -69,6 +72,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         If the value is VOID , a default number format should be used according to the datatype of the column.
         """
+        ...
 
     @abstractproperty
     def HelpText(self) -> str:
@@ -77,12 +81,14 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         The default is NULL.
         """
+        ...
 
     @abstractproperty
     def Hidden(self) -> bool:
         """
         determines whether the column should be displayed or not.
         """
+        ...
 
     @abstractproperty
     def Position(self) -> int:
@@ -91,6 +97,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         If the value is VOID , the default position should be taken according.
         """
+        ...
 
     @abstractproperty
     def Width(self) -> int:
@@ -99,6 +106,7 @@ class ColumnSettings(XPropertySet_bc180bfa):
         
         If the value is VOID , a default width should be used according to the label of the column.
         """
+        ...
 
 
 

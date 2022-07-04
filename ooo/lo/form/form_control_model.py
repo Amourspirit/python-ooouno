@@ -44,6 +44,7 @@ class FormControlModel(UnoControlModel_c8ce0c58, FormComponent_bc700c03, XFastPr
         """
         specifies the ID for classification of the component.
         """
+        ...
 
     @abstractproperty
     def TabIndex(self) -> int:
@@ -56,6 +57,7 @@ class FormControlModel(UnoControlModel_c8ce0c58, FormComponent_bc700c03, XFastPr
         
         Normally, a FormController instance is evaluating this property.
         """
+        ...
 
     @abstractproperty
     def Tag(self) -> str:
@@ -64,6 +66,7 @@ class FormControlModel(UnoControlModel_c8ce0c58, FormComponent_bc700c03, XFastPr
         
         No semantics is given for this property, it will usually be used by the creator of a document containing form controls.
         """
+        ...
 
 
 

@@ -37,6 +37,7 @@ class XTransferableSource(XInterface_8f010a43):
     def getDataSourceDescription(self) -> str:
         """
         """
+        ...
 
 __all__ = ['XTransferableSource']
 

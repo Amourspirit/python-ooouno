@@ -41,10 +41,12 @@ class XImplicitIDAccess(XElementAccess_cd60e3f):
         Raises:
             com.sun.star.container.NoSuchElementException: ``NoSuchElementException``
         """
+        ...
     @abstractmethod
     def getImplicitIDs(self) -> 'typing.Tuple[str, ...]':
         """
         """
+        ...
 
 __all__ = ['XImplicitIDAccess']
 

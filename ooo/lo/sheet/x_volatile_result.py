@@ -41,11 +41,13 @@ class XVolatileResult(XInterface_8f010a43):
         """
         adds a listener to be notified when a new value is available.
         """
+        ...
     @abstractmethod
     def removeResultListener(self, aListener: 'XResultListener_e3390d3e') -> None:
         """
         removes the specified listener.
         """
+        ...
 
 __all__ = ['XVolatileResult']
 

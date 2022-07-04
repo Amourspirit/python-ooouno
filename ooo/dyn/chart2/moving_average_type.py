@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.chart2 import MovingAverageType as MovingAverageType
-    if hasattr(MovingAverageType, '_constants') and isinstance(MovingAverageType._constants, dict):
-        MovingAverageType._constants['__ooo_ns__'] = 'com.sun.star.chart2'
-        MovingAverageType._constants['__ooo_full_ns__'] = 'com.sun.star.chart2.MovingAverageType'
-        MovingAverageType._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global MovingAverageTypeEnum
-        ls = [f for f in dir(MovingAverageType) if not callable(getattr(MovingAverageType, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(MovingAverageType, name)
-        MovingAverageTypeEnum = IntEnum('MovingAverageTypeEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class MovingAverageType(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.MovingAverageType", name_space="com.sun.star.chart2"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.chart2.MovingAverageType``"""
+        pass
+
+    class MovingAverageTypeEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.chart2.MovingAverageType", name_space="com.sun.star.chart2"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.chart2.MovingAverageType`` as Enum values"""
+        pass
+
 else:
     from ...lo.chart2.moving_average_type import MovingAverageType as MovingAverageType
 

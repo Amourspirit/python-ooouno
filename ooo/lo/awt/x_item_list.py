@@ -40,11 +40,13 @@ class XItemList(ABC):
         """
         registers a listener which is notified about changes in the item list.
         """
+        ...
     @abstractmethod
     def getAllItems(self) -> 'typing.Tuple[typing.Tuple[str, str], ...]':
         """
         retrieves the texts and images of all items in the list
         """
+        ...
     @abstractmethod
     def getItemData(self, Position: int) -> object:
         """
@@ -53,6 +55,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getItemImage(self, Position: int) -> str:
         """
@@ -61,6 +64,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getItemText(self, Position: int) -> str:
         """
@@ -69,6 +73,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getItemTextAndImage(self, Position: int) -> 'typing.Tuple[str, str]':
         """
@@ -77,6 +82,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def insertItem(self, Position: int, ItemText: str, ItemImageURL: str) -> None:
         """
@@ -85,6 +91,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def insertItemImage(self, Position: int, ItemImageURL: str) -> None:
         """
@@ -93,6 +100,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def insertItemText(self, Position: int, ItemText: str) -> None:
         """
@@ -101,11 +109,13 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def removeAllItems(self) -> None:
         """
         removes all items from the list
         """
+        ...
     @abstractmethod
     def removeItem(self, Position: int) -> None:
         """
@@ -114,11 +124,13 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def removeItemListListener(self, Listener: 'XItemListListener_e1020d1d') -> None:
         """
         revokes a listener which is notified about changes in the item list.
         """
+        ...
     @abstractmethod
     def setItemData(self, Position: int, ItemData: object) -> None:
         """
@@ -129,6 +141,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setItemImage(self, Position: int, ItemImageURL: str) -> None:
         """
@@ -137,6 +150,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setItemText(self, Position: int, ItemText: str) -> None:
         """
@@ -145,6 +159,7 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def setItemTextAndImage(self, Position: int, ItemText: str, ItemImageURL: str) -> None:
         """
@@ -153,11 +168,13 @@ class XItemList(ABC):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractproperty
     def ItemCount(self) -> int:
         """
         is the number of items in the list
         """
+        ...
 
 
 __all__ = ['XItemList']

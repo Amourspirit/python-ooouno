@@ -37,6 +37,7 @@ class XServiceName(XInterface_8f010a43):
     def getServiceName(self) -> str:
         """
         """
+        ...
 
 __all__ = ['XServiceName']
 

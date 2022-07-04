@@ -34,6 +34,10 @@ class ContextMenuInterceptorAction(Enum):
     __ooo_full_ns__: str = 'com.sun.star.ui.ContextMenuInterceptorAction'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.ui.ContextMenuInterceptorAction'
+
     CANCELLED = 'CANCELLED'
     """
     the context menu must not be executed.

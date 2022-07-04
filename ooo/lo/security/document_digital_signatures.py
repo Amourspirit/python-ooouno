@@ -38,14 +38,17 @@ class DocumentDigitalSignatures(XDocumentDigitalSignatures_c8a812fa):
     def createDefault(self) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithVersion(self, ODFVersion: str) -> None:
         """
         """
+        ...
     @abstractmethod
     def createWithVersionAndValidSignature(self, ODFVersion: str, HasValidDocumentSignature: bool) -> None:
         """
         """
+        ...
 
 
 __all__ = ['DocumentDigitalSignatures']

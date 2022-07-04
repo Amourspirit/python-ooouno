@@ -42,6 +42,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def deleteData(self, offset: int, count: int) -> None:
         """
@@ -52,6 +53,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def getData(self) -> str:
         """
@@ -62,11 +64,13 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def getLength(self) -> int:
         """
         The number of 16-bit units that are available through data and the substringData method below.
         """
+        ...
     @abstractmethod
     def insertData(self, offset: int, arg: str) -> None:
         """
@@ -77,6 +81,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def replaceData(self, offset: int, count: int, arg: str) -> None:
         """
@@ -87,6 +92,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def setData(self, data: str) -> None:
         """
@@ -97,6 +103,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
     @abstractmethod
     def subStringData(self, offset: int, count: int) -> str:
         """
@@ -107,6 +114,7 @@ class XCharacterData(XNode_83fb09a5):
         Raises:
             DOMException: ``DOMException``
         """
+        ...
 
 __all__ = ['XCharacterData']
 

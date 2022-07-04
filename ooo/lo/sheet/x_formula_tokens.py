@@ -40,11 +40,13 @@ class XFormulaTokens(ABC):
         """
         returns the formula as sequence of tokens.
         """
+        ...
     @abstractmethod
     def setTokens(self, aTokens: 'typing.Tuple[FormulaToken_bd1c0bf8, ...]') -> None:
         """
         sets the formula as sequence of tokens.
         """
+        ...
 
 __all__ = ['XFormulaTokens']
 

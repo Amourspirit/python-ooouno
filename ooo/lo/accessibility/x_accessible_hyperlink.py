@@ -51,6 +51,7 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getAccessibleActionObject(self, nIndex: int) -> object:
         """
@@ -61,6 +62,7 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         Raises:
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
         """
+        ...
     @abstractmethod
     def getEndIndex(self) -> int:
         """
@@ -68,6 +70,7 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         
         The returned value relates to the XAccessibleText interface that owns this hyperlink.
         """
+        ...
     @abstractmethod
     def getStartIndex(self) -> int:
         """
@@ -75,6 +78,7 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         
         The returned value relates to the XAccessibleText interface that owns this hyperlink.
         """
+        ...
     @abstractmethod
     def isValid(self) -> bool:
         """
@@ -82,6 +86,7 @@ class XAccessibleHyperlink(XAccessibleAction_7ccc1114):
         
         This is a volatile state that may change without further warning like e.g. sending an appropriate event.
         """
+        ...
 
 __all__ = ['XAccessibleHyperlink']
 

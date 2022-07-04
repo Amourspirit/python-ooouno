@@ -41,11 +41,13 @@ class XDatabaseRanges(XNameAccess_e2ab0cf6):
         """
         adds a new database range to the collection.
         """
+        ...
     @abstractmethod
     def removeByName(self, aName: str) -> None:
         """
         removes a database range from the collection.
         """
+        ...
 
 __all__ = ['XDatabaseRanges']
 

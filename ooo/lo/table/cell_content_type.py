@@ -34,6 +34,10 @@ class CellContentType(Enum):
     __ooo_full_ns__: str = 'com.sun.star.table.CellContentType'
     __ooo_type_name__: str = 'enum'
 
+    @property
+    def typeName(self) -> str:
+        return 'com.sun.star.table.CellContentType'
+
     EMPTY = 'EMPTY'
     """
     cell is empty.

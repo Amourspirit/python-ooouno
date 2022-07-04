@@ -45,96 +45,112 @@ class XLinguProperties(XPropertySet_bc180bfa):
         """
         the default western language for new documents.
         """
+        ...
 
     @abstractproperty
     def DefaultLocale_CJK(self) -> 'Locale_70d308fa':
         """
         the default language for CJK languages.
         """
+        ...
 
     @abstractproperty
     def DefaultLocale_CTL(self) -> 'Locale_70d308fa':
         """
         the default language for CTL languages.
         """
+        ...
 
     @abstractproperty
     def HyphMinLeading(self) -> int:
         """
         the minimum number of characters of a word to remain before the hyphen when doing hyphenation.
         """
+        ...
 
     @abstractproperty
     def HyphMinTrailing(self) -> int:
         """
         the minimum number of characters of a word to remain after the hyphen when doing hyphenation.
         """
+        ...
 
     @abstractproperty
     def HyphMinWordLength(self) -> int:
         """
         the minimum length of a word in order to be hyphenated.
         """
+        ...
 
     @abstractproperty
     def IsHyphAuto(self) -> bool:
         """
         defines whether interactive hyphenation should be performed without requiring the user to select every hyphenation position after the user has triggered the hyphenation.
         """
+        ...
 
     @abstractproperty
     def IsHyphSpecial(self) -> bool:
         """
         defines whether hyphenation should be done in special regions of documents or not.
         """
+        ...
 
     @abstractproperty
     def IsIgnoreControlCharacters(self) -> bool:
         """
         defines if control characters should be ignored or not, by the linguistic (i.e., spell checker, hyphenator and thesaurus).
         """
+        ...
 
     @abstractproperty
     def IsSpellAuto(self) -> bool:
         """
         indicates whether spell checking should be done automatically or not.
         """
+        ...
 
     @abstractproperty
     def IsSpellCapitalization(self) -> bool:
         """
         defines if the capitalization of words should be checked or not.
         """
+        ...
 
     @abstractproperty
     def IsSpellSpecial(self) -> bool:
         """
         defines whether spell checking should be done in special regions of documents or not.
         """
+        ...
 
     @abstractproperty
     def IsSpellUpperCase(self) -> bool:
         """
         defines if words with only uppercase letters should be subject to spell checking or not.
         """
+        ...
 
     @abstractproperty
     def IsSpellWithDigits(self) -> bool:
         """
         defines if words containing digits (or numbers) should be subject to spell checking or not.
         """
+        ...
 
     @abstractproperty
     def IsUseDictionaryList(self) -> bool:
         """
         defines if the dictionary-list should be used for spell checking and hyphenation or not.
         """
+        ...
 
     @abstractproperty
     def IsWrapReverse(self) -> bool:
         """
         defines whether spell checking should be done in reverse direction or not.
         """
+        ...
 
 
 __all__ = ['XLinguProperties']

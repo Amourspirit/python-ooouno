@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import (BUILDING_DOCUMENT, BUILDING_FRAGMENT, DOCUMENT_FINISHED, FRAGMENT_FINISHED, READY)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.xml.dom.SAXDocumentBuilderState Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.xml.dom",
-            "__ooo_full_ns__": "com.sun.star.xml.dom.SAXDocumentBuilderState",
-            "__ooo_type_name__": "enum",
-            "BUILDING_DOCUMENT": BUILDING_DOCUMENT,
-            "BUILDING_FRAGMENT": BUILDING_FRAGMENT,
-            "DOCUMENT_FINISHED": DOCUMENT_FINISHED,
-            "FRAGMENT_FINISHED": FRAGMENT_FINISHED,
-            "READY": READY,
-        }
-        result = type('SAXDocumentBuilderState', (object,), _dict)
-        return result
-
-    SAXDocumentBuilderState = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class SAXDocumentBuilderState(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.SAXDocumentBuilderState", name_space="com.sun.star.xml.dom"):
+        """Dynamically created class that represents ``com.sun.star.xml.dom.SAXDocumentBuilderState`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ....lo.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState
 

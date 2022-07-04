@@ -47,6 +47,7 @@ class XRoot(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def processingInstruction(self, target: str, data: str) -> None:
         """
@@ -55,6 +56,7 @@ class XRoot(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def setDocumentLocator(self, locator: 'XLocator_a3fb0aff') -> None:
         """
@@ -63,6 +65,7 @@ class XRoot(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startDocument(self, xMapping: 'XNamespaceMapping_38700f68') -> None:
         """
@@ -71,6 +74,7 @@ class XRoot(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
     @abstractmethod
     def startRootElement(self, uid: int, localName: str, xAttributes: 'XAttributes_e31a0d36') -> 'XElement_bc5b0bd9':
         """
@@ -79,6 +83,7 @@ class XRoot(XInterface_8f010a43):
         Raises:
             com.sun.star.xml.sax.SAXException: ``SAXException``
         """
+        ...
 
 __all__ = ['XRoot']
 

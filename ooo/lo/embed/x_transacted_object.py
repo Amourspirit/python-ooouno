@@ -42,6 +42,7 @@ class XTransactedObject(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
     @abstractmethod
     def revert(self) -> None:
         """
@@ -51,6 +52,7 @@ class XTransactedObject(XInterface_8f010a43):
             com.sun.star.io.IOException: ``IOException``
             com.sun.star.lang.WrappedTargetException: ``WrappedTargetException``
         """
+        ...
 
 __all__ = ['XTransactedObject']
 

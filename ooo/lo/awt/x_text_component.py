@@ -42,61 +42,73 @@ class XTextComponent(XInterface_8f010a43):
         """
         registers a text event listener.
         """
+        ...
     @abstractmethod
     def getMaxTextLen(self) -> int:
         """
         returns the currently set maximum text length.
         """
+        ...
     @abstractmethod
     def getSelectedText(self) -> str:
         """
         returns the currently selected text.
         """
+        ...
     @abstractmethod
     def getSelection(self) -> 'Selection_84d609fa':
         """
         returns the current user selection.
         """
+        ...
     @abstractmethod
     def getText(self) -> str:
         """
         returns the text of the component.
         """
+        ...
     @abstractmethod
     def insertText(self, Sel: 'Selection_84d609fa', Text: str) -> None:
         """
         inserts text at the specified position.
         """
+        ...
     @abstractmethod
     def isEditable(self) -> bool:
         """
         returns if the text is editable by the user.
         """
+        ...
     @abstractmethod
     def removeTextListener(self, l: 'XTextListener_b04d0b97') -> None:
         """
         unregisters a text event listener.
         """
+        ...
     @abstractmethod
     def setEditable(self, bEditable: bool) -> None:
         """
         makes the text editable for the user or read-only.
         """
+        ...
     @abstractmethod
     def setMaxTextLen(self, nLen: int) -> None:
         """
         sets the maximum text length.
         """
+        ...
     @abstractmethod
     def setSelection(self, aSelection: 'Selection_84d609fa') -> None:
         """
         sets the user selection.
         """
+        ...
     @abstractmethod
     def setText(self, aText: str) -> None:
         """
         sets the text of the component.
         """
+        ...
 
 __all__ = ['XTextComponent']
 

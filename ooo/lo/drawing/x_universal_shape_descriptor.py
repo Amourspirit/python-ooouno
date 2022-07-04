@@ -40,6 +40,7 @@ class XUniversalShapeDescriptor(XShapeDescriptor_be80e5c):
     def setShapeType(self, aShapeTypeName: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XUniversalShapeDescriptor']
 

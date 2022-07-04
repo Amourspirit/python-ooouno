@@ -41,6 +41,7 @@ class XInteractionAuthFallback(XInteractionContinuation_5af0108e):
     def setCode(self, code: str) -> None:
         """
         """
+        ...
 
 __all__ = ['XInteractionAuthFallback']
 

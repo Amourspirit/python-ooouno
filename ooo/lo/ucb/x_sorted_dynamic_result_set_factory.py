@@ -43,6 +43,7 @@ class XSortedDynamicResultSetFactory(XInterface_8f010a43):
         """
         creates a sorted XDynamicResultSet depending on internal data, an (unsorted) XDynamicResultSet and the sorting info.
         """
+        ...
 
 __all__ = ['XSortedDynamicResultSetFactory']
 

@@ -41,11 +41,13 @@ class XTextDocument(XModel_7a6e095c):
         """
         This text does not contain texts in TextFrames, or cells of TextTables etc. directly. These are accessible from the contents via X...Supplier (e.g. XTextTablesSupplier).
         """
+        ...
     @abstractmethod
     def reformat(self) -> None:
         """
         reformats the contents of the document.
         """
+        ...
 
 __all__ = ['XTextDocument']
 

@@ -55,6 +55,7 @@ class XAccessibleTextMarkup(XAccessibleText_5b77105b):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getTextMarkupAtIndex(self, CharIndex: int, TextMarkupType: int) -> 'typing.Tuple[TextSegment_1e5b0ee8, ...]':
         """
@@ -68,6 +69,7 @@ class XAccessibleTextMarkup(XAccessibleText_5b77105b):
             com.sun.star.lang.IndexOutOfBoundsException: ``IndexOutOfBoundsException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getTextMarkupCount(self, TextMarkupType: int) -> int:
         """
@@ -78,6 +80,7 @@ class XAccessibleTextMarkup(XAccessibleText_5b77105b):
         Raises:
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XAccessibleTextMarkup']
 

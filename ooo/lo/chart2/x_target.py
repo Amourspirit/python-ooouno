@@ -36,6 +36,7 @@ class XTarget(XInterface_8f010a43):
     def addDrawElement(self) -> None:
         """
         """
+        ...
 
 __all__ = ['XTarget']
 

@@ -47,6 +47,7 @@ class XEngineListener(XEventListener_c7230c4a):
         """
         gets fired when the script execution has finished.
         """
+        ...
     @abstractmethod
     def interrupt(self, Evt: 'InterruptEngineEvent_3e1d0fc2') -> None:
         """
@@ -54,11 +55,13 @@ class XEngineListener(XEventListener_c7230c4a):
         
         If you call the method, the execution stops. So in this situation, the stack and variable values are still available by using the appropriate XDebugging methods.
         """
+        ...
     @abstractmethod
     def running(self, Evt: 'EventObject_a3d70b03') -> None:
         """
         gets fired when the script gets into execution state.
         """
+        ...
 
 __all__ = ['XEngineListener']
 

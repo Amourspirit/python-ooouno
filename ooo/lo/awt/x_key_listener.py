@@ -41,11 +41,13 @@ class XKeyListener(XEventListener_c7230c4a):
         """
         is invoked when a key has been pressed.
         """
+        ...
     @abstractmethod
     def keyReleased(self, e: 'KeyEvent_7a78097f') -> None:
         """
         is invoked when a key has been released.
         """
+        ...
 
 __all__ = ['XKeyListener']
 

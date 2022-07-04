@@ -41,6 +41,7 @@ class XContextMenuInterception(XInterface_8f010a43):
         """
         registers an XContextMenuInterceptor, which will become the first interceptor in the chain of registered interceptors.
         """
+        ...
     @abstractmethod
     def releaseContextMenuInterceptor(self, Interceptor: 'XContextMenuInterceptor_295c0f47') -> None:
         """
@@ -48,6 +49,7 @@ class XContextMenuInterception(XInterface_8f010a43):
         
         The order of removals is arbitrary. It is not necessary to remove the last registered interceptor first.
         """
+        ...
 
 __all__ = ['XContextMenuInterception']
 

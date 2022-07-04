@@ -41,6 +41,7 @@ class XBrowseNodeFactory(XInterface_8f010a43):
         """
         a factory method for the creation of XBrowseNodes ( view ) com.sun.star.script.browse.BrowseNodeFactoryViewTypes specifies the type of view to be returned
         """
+        ...
 
 __all__ = ['XBrowseNodeFactory']
 

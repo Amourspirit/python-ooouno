@@ -19,6 +19,7 @@
 # Libre Office Version: 7.2
 # Namespace: com.sun.star.linguistic2
 import typing
+import uno
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
@@ -39,21 +40,25 @@ class XPossibleHyphens(XInterface_8f010a43):
     __pyunointerface__: str = 'com.sun.star.linguistic2.XPossibleHyphens'
 
     @abstractmethod
-    def getHyphenationPositions(self) -> 'typing.Tuple[int, ...]':
+    def getHyphenationPositions(self) -> uno.ByteSequence:
         """
         """
+        ...
     @abstractmethod
     def getLocale(self) -> 'Locale_70d308fa':
         """
         """
+        ...
     @abstractmethod
     def getPossibleHyphens(self) -> str:
         """
         """
+        ...
     @abstractmethod
     def getWord(self) -> str:
         """
         """
+        ...
 
 __all__ = ['XPossibleHyphens']
 

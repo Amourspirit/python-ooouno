@@ -39,32 +39,38 @@ class ErrorBar(LineProperties_f13f0da9, XDataSink_dbc40c7b, XDataSource_f6340d57
     def ErrorBarStyle(self) -> int:
         """
         """
+        ...
 
     @abstractproperty
     def NegativeError(self) -> float:
         """
         """
+        ...
 
     @abstractproperty
     def PositiveError(self) -> float:
         """
         """
+        ...
 
     @abstractproperty
     def ShowNegativeError(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def ShowPositiveError(self) -> bool:
         """
         """
+        ...
 
     @abstractproperty
     def Weight(self) -> float:
         """
         The weight for the standard deviation.
         """
+        ...
 
 
 

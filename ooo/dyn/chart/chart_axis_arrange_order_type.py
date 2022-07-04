@@ -25,26 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.chart.ChartAxisArrangeOrderType import (AUTO, SIDE_BY_SIDE, STAGGER_EVEN, STAGGER_ODD)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.chart.ChartAxisArrangeOrderType Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.chart",
-            "__ooo_full_ns__": "com.sun.star.chart.ChartAxisArrangeOrderType",
-            "__ooo_type_name__": "enum",
-            "AUTO": AUTO,
-            "SIDE_BY_SIDE": SIDE_BY_SIDE,
-            "STAGGER_EVEN": STAGGER_EVEN,
-            "STAGGER_ODD": STAGGER_ODD,
-        }
-        result = type('ChartAxisArrangeOrderType', (object,), _dict)
-        return result
-
-    ChartAxisArrangeOrderType = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class ChartAxisArrangeOrderType(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartAxisArrangeOrderType", name_space="com.sun.star.chart"):
+        """Dynamically created class that represents ``com.sun.star.chart.ChartAxisArrangeOrderType`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.chart.chart_axis_arrange_order_type import ChartAxisArrangeOrderType as ChartAxisArrangeOrderType
 

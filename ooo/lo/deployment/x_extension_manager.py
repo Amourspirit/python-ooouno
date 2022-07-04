@@ -58,6 +58,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def checkPrerequisitesAndEnable(self, extension: 'XPackage_cb1f0c4d', xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> int:
         """
@@ -69,11 +70,13 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def createAbortChannel(self) -> 'XAbortChannel_baca0bc4':
         """
         creates a command channel to be used to asynchronously abort a command.
         """
+        ...
     @abstractmethod
     def disableExtension(self, extension: 'XPackage_cb1f0c4d', xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -87,6 +90,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def enableExtension(self, extension: 'XPackage_cb1f0c4d', xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -100,6 +104,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getAllExtensions(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[typing.Tuple[XPackage_cb1f0c4d, ...], ...]':
         """
@@ -113,6 +118,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDeployedExtension(self, repository: str, identifier: str, fileName: str, xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'XPackage_cb1f0c4d':
         """
@@ -123,6 +129,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandFailedException: ``CommandFailedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getDeployedExtensions(self, repository: str, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[XPackage_cb1f0c4d, ...]':
         """
@@ -134,6 +141,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getExtensionsWithSameIdentifier(self, identifier: str, fileName: str, xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[XPackage_cb1f0c4d, ...]':
         """
@@ -146,6 +154,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandFailedException: ``CommandFailedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getExtensionsWithUnacceptedLicenses(self, repository: str, xCmdEnv: 'XCommandEnvironment_fb330dee') -> 'typing.Tuple[XPackage_cb1f0c4d, ...]':
         """
@@ -161,16 +170,19 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             DeploymentException: ``DeploymentException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getSupportedPackageTypes(self) -> 'typing.Tuple[XPackageTypeInfo_3bc70f7b, ...]':
         """
         gets the supported XPackageTypeInfos.
         """
+        ...
     @abstractmethod
     def isReadOnlyRepository(self, repository: str) -> bool:
         """
         determines if the current user has write access to the extensions folder of the repository.
         """
+        ...
     @abstractmethod
     def reinstallDeployedExtensions(self, force: bool, repository: str, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -186,6 +198,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def removeExtension(self, identifier: str, fileName: str, repository: str, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> None:
         """
@@ -197,6 +210,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def synchronize(self, xAbortChannel: 'XAbortChannel_baca0bc4', xCmdEnv: 'XCommandEnvironment_fb330dee') -> bool:
         """
@@ -210,6 +224,7 @@ class XExtensionManager(XComponent_98dc0ab5, XModifyBroadcaster_fd990df0):
             com.sun.star.ucb.CommandAbortedException: ``CommandAbortedException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XExtensionManager']
 

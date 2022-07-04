@@ -32,8 +32,7 @@ class DocumentContainer(DefinitionContainer_fc1e0ded, DefinitionContent_e0d20d25
     
     The com.sun.star.lang.XMultiServiceFactory.createInstanceWithArguments() should be used to create sub document container or form, or report objects.
     
-    The embedded documents do not support any particular database related service, instead, they're usual com.sun.star.document.OfficeDocuments.
-    The only thing worth mentioning here is that they support the com.sun.star.container.XChild interface, whose com.sun.star.container.XChild.getParent() method can be used to obtain the database document which the embedded document belongs to.
+    The embedded documents do not support any particular database related service, instead, they're usual com.sun.star.document.OfficeDocuments.The only thing worth mentioning here is that they support the com.sun.star.container.XChild interface, whose com.sun.star.container.XChild.getParent() method can be used to obtain the database document which the embedded document belongs to.
 
     See Also:
         `API DocumentContainer <https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1sdb_1_1DocumentContainer.html>`_

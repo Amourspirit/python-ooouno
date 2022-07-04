@@ -25,27 +25,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import uno_enum_class_new
-    from com.sun.star.text.RubyAdjust import (BLOCK, CENTER, INDENT_BLOCK, LEFT, RIGHT)
-
-    def _get_enum():
-        # Dynamically create class that actually contains UNO enum instances
-        _dict = {
-            "__doc__": "Dynamically created class that represents com.sun.star.text.RubyAdjust Enum. Class loosly mimics Enum",
-            "__new__": uno_enum_class_new,
-            "__ooo_ns__": "com.sun.star.text",
-            "__ooo_full_ns__": "com.sun.star.text.RubyAdjust",
-            "__ooo_type_name__": "enum",
-            "BLOCK": BLOCK,
-            "CENTER": CENTER,
-            "INDENT_BLOCK": INDENT_BLOCK,
-            "LEFT": LEFT,
-            "RIGHT": RIGHT,
-        }
-        result = type('RubyAdjust', (object,), _dict)
-        return result
-
-    RubyAdjust = _get_enum()
+    from ooo.helper.enum_helper import UnoEnumMeta
+    class RubyAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.text.RubyAdjust", name_space="com.sun.star.text"):
+        """Dynamically created class that represents ``com.sun.star.text.RubyAdjust`` Enum. Class loosly mimics Enum"""
+        pass
 else:
     from ...lo.text.ruby_adjust import RubyAdjust as RubyAdjust
 

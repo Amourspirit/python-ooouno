@@ -42,36 +42,43 @@ class XController(XComponent_98dc0ab5):
         """
         is called to attach the controller with its managing frame.
         """
+        ...
     @abstractmethod
     def attachModel(self, Model: 'XModel_7a6e095c') -> bool:
         """
         is called to attach the controller to a new model.
         """
+        ...
     @abstractmethod
     def getFrame(self) -> 'XFrame_7a570956':
         """
         provides access to owner frame of this controller
         """
+        ...
     @abstractmethod
     def getModel(self) -> 'XModel_7a6e095c':
         """
         provides access to currently attached model
         """
+        ...
     @abstractmethod
     def getViewData(self) -> object:
         """
         provides access to current view status
         """
+        ...
     @abstractmethod
     def restoreViewData(self, Data: object) -> None:
         """
         restores the view status using the data gotten from a previous call to XController.getViewData().
         """
+        ...
     @abstractmethod
     def suspend(self, Suspend: bool) -> bool:
         """
         is called to prepare the controller for closing the view
         """
+        ...
 
 __all__ = ['XController']
 

@@ -55,6 +55,7 @@ class XBackend(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def getUpdateHandler(self, aComponent: str, aEntity: str) -> 'XUpdateHandler_d8f512ef':
         """
@@ -65,6 +66,7 @@ class XBackend(XInterface_8f010a43):
             com.sun.star.lang.NoSupportException: ``NoSupportException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def listLayers(self, aComponent: str, aEntity: str) -> 'typing.Tuple[XLayer_4cd50fcb, ...]':
         """
@@ -74,6 +76,7 @@ class XBackend(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
     @abstractmethod
     def listOwnLayers(self, aComponent: str) -> 'typing.Tuple[XLayer_4cd50fcb, ...]':
         """
@@ -83,6 +86,7 @@ class XBackend(XInterface_8f010a43):
             BackendAccessException: ``BackendAccessException``
             com.sun.star.lang.IllegalArgumentException: ``IllegalArgumentException``
         """
+        ...
 
 __all__ = ['XBackend']
 

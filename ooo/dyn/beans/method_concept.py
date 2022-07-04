@@ -21,24 +21,21 @@
 from enum import IntEnum
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
+
 _DYNAMIC = False
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from com.sun.star.beans import MethodConcept as MethodConcept
-    if hasattr(MethodConcept, '_constants') and isinstance(MethodConcept._constants, dict):
-        MethodConcept._constants['__ooo_ns__'] = 'com.sun.star.beans'
-        MethodConcept._constants['__ooo_full_ns__'] = 'com.sun.star.beans.MethodConcept'
-        MethodConcept._constants['__ooo_type_name__'] = 'const'
-    def build_enum():
-        global MethodConceptEnum
-        ls = [f for f in dir(MethodConcept) if not callable(getattr(MethodConcept, f)) and not f.startswith('__')]
-        _dict = {}
-        for name in ls:
-            _dict[name] = getattr(MethodConcept, name)
-        MethodConceptEnum = IntEnum('MethodConceptEnum', _dict)
-    build_enum()
+    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    class MethodConcept(metaclass=UnoConstMeta, type_name="com.sun.star.beans.MethodConcept", name_space="com.sun.star.beans"):
+        """Dynamic Class. Contains all the constant values of ``com.sun.star.beans.MethodConcept``"""
+        pass
+
+    class MethodConceptEnum(IntEnum, metaclass=ConstEnumMeta, type_name="com.sun.star.beans.MethodConcept", name_space="com.sun.star.beans"):
+        """Dynamic Enum. Contains all the constant values of ``com.sun.star.beans.MethodConcept`` as Enum values"""
+        pass
+
 else:
     from ...lo.beans.method_concept import MethodConcept as MethodConcept
 

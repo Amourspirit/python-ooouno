@@ -41,26 +41,31 @@ class XControlContainer(XInterface_8f010a43):
         """
         adds the given control with the specified name to the container.
         """
+        ...
     @abstractmethod
     def getControl(self, aName: str) -> 'XControl_7a9c098d':
         """
         returns the control with the specified name.
         """
+        ...
     @abstractmethod
     def getControls(self) -> 'typing.Tuple[XControl_7a9c098d, ...]':
         """
         returns all controls.
         """
+        ...
     @abstractmethod
     def removeControl(self, Control: 'XControl_7a9c098d') -> None:
         """
         removes the given control from the container.
         """
+        ...
     @abstractmethod
     def setStatusText(self, StatusText: str) -> None:
         """
         sets the status text in the status bar of the container.
         """
+        ...
 
 __all__ = ['XControlContainer']
 

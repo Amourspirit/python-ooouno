@@ -41,6 +41,7 @@ class FrameControl(UnoControl_8f2c0a67):
         """
         contains the type of the component which is loaded into the frame, or the document which implicitly specifies the type
         """
+        ...
 
     @abstractproperty
     def Frame(self) -> str:
@@ -49,6 +50,7 @@ class FrameControl(UnoControl_8f2c0a67):
         
         The Frame is created if the control is shown and the ComponentUrl is set.
         """
+        ...
 
 
 

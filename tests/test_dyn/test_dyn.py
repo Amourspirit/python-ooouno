@@ -1,10 +1,8 @@
 # coding: utf-8
-import os
-import sys
 import pytest
 if __name__ == "__main__":
-    sys.path.insert(0, os.path.abspath('.'))
     pytest.main([__file__])
+
 from ooo.helper import uno_helper
 
 
@@ -147,7 +145,7 @@ def test_const():
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS
     assert DeviceCapability.GETBITS == DeviceCapabilityEnum.GETBITS.value
     assert DeviceCapability.RASTEROPERATIONS == DeviceCapabilityEnum.RASTEROPERATIONS.value
-    assert DeviceCapability.__module__ == 'uno'
+    assert DeviceCapability.__module__ == 'ooo.dyn.awt.device_capability'
 
 def test_excpetion_createUnoStruct():
     from ooo.dyn.ucb.missing_properties_exception import MissingPropertiesException

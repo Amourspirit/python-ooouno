@@ -2,6 +2,7 @@ import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
 
+import uno
 from ooo.helper import uno_helper as helper
 
 def test_property_value():

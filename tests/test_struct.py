@@ -3,7 +3,7 @@ import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
 
-
+import uno
 from enum import Enum
 
 def test_TabStop_is_uno():

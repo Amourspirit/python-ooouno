@@ -2,6 +2,8 @@
 import pytest
 if __name__ == "__main__":
     pytest.main([__file__])
+
+import uno
 from ooo.csslo.beans import PropertyValues
 from ooo.csslo.beans import PropertyValue
 from ooo.csslo.beans import PropertyState

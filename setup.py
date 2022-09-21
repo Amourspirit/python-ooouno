@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import pathlib
-import os
 from setuptools import setup, find_packages
 from ooo import __version__
 PKG_NAME = 'ooouno'

@@ -27,7 +27,8 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
     class CellJustifyMethod(metaclass=UnoConstMeta, type_name="com.sun.star.table.CellJustifyMethod", name_space="com.sun.star.table"):
         """Dynamic Class. Contains all the constant values of ``com.sun.star.table.CellJustifyMethod``"""
         pass

@@ -27,7 +27,8 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
     class ModuleType(metaclass=UnoConstMeta, type_name="com.sun.star.script.ModuleType", name_space="com.sun.star.script"):
         """Dynamic Class. Contains all the constant values of ``com.sun.star.script.ModuleType``"""
         pass

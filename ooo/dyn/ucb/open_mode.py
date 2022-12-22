@@ -27,7 +27,8 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
     class OpenMode(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.OpenMode", name_space="com.sun.star.ucb"):
         """Dynamic Class. Contains all the constant values of ``com.sun.star.ucb.OpenMode``"""
         pass

@@ -27,7 +27,8 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
     class BestRowScope(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.BestRowScope", name_space="com.sun.star.sdbc"):
         """Dynamic Class. Contains all the constant values of ``com.sun.star.sdbc.BestRowScope``"""
         pass

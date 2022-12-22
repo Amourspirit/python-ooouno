@@ -27,7 +27,8 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    from ooo.helper.enum_helper import UnoConstMeta,ConstEnumMeta
+    from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
+
     class DigestID(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.DigestID", name_space="com.sun.star.xml.crypto"):
         """Dynamic Class. Contains all the constant values of ``com.sun.star.xml.crypto.DigestID``"""
         pass

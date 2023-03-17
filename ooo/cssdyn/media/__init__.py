@@ -18,5 +18,7 @@ from ...dyn.media.manager import Manager as Manager
 from ...dyn.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
 from ...dyn.media.x_manager import XManager as XManager
 from ...dyn.media.x_player import XPlayer as XPlayer
+from ...dyn.media.x_player_listener import XPlayerListener as XPlayerListener
+from ...dyn.media.x_player_notifier import XPlayerNotifier as XPlayerNotifier
 from ...dyn.media.x_player_window import XPlayerWindow as XPlayerWindow
 from ...dyn.media.zoom_level import ZoomLevel as ZoomLevel

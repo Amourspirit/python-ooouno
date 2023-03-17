@@ -83,6 +83,7 @@ from ...dyn.util.x_accounting import XAccounting as XAccounting
 from ...dyn.util.x_atom_server import XAtomServer as XAtomServer
 from ...dyn.util.x_binary_data_container import XBinaryDataContainer as XBinaryDataContainer
 from ...dyn.util.x_broadcaster import XBroadcaster as XBroadcaster
+from ...dyn.util.x_cache_info import XCacheInfo as XCacheInfo
 from ...dyn.util.x_cancellable import XCancellable as XCancellable
 from ...dyn.util.x_chainable import XChainable as XChainable
 from ...dyn.util.x_changes_batch import XChangesBatch as XChangesBatch

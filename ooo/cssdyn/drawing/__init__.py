@@ -74,6 +74,8 @@ from ...dyn.drawing.enhanced_custom_shape_geometry import EnhancedCustomShapeGeo
 from ...dyn.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 from ...dyn.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointTypeEnum as EnhancedCustomShapeGluePointTypeEnum
 from ...dyn.drawing.enhanced_custom_shape_handle import EnhancedCustomShapeHandle as EnhancedCustomShapeHandle
+from ...dyn.drawing.enhanced_custom_shape_metal_type import EnhancedCustomShapeMetalType as EnhancedCustomShapeMetalType
+from ...dyn.drawing.enhanced_custom_shape_metal_type import EnhancedCustomShapeMetalTypeEnum as EnhancedCustomShapeMetalTypeEnum
 from ...dyn.drawing.enhanced_custom_shape_parameter import EnhancedCustomShapeParameter as EnhancedCustomShapeParameter
 from ...dyn.drawing.enhanced_custom_shape_parameter_pair import EnhancedCustomShapeParameterPair as EnhancedCustomShapeParameterPair
 from ...dyn.drawing.enhanced_custom_shape_parameter_type import EnhancedCustomShapeParameterType as EnhancedCustomShapeParameterType

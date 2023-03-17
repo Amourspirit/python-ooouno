@@ -44,7 +44,6 @@ from ...lo.chart2.fill_bitmap import FillBitmap as FillBitmap
 from ...lo.chart2.formatted_string import FormattedString as FormattedString
 from ...lo.chart2.grid_properties import GridProperties as GridProperties
 from ...lo.chart2.increment_data import IncrementData as IncrementData
-from ...lo.chart2.interpreted_data import InterpretedData as InterpretedData
 from ...lo.chart2.legend import Legend as Legend
 from ...lo.chart2.legend_position import LegendPosition as LegendPosition
 from ...lo.chart2.light_source import LightSource as LightSource
@@ -89,7 +88,6 @@ from ...lo.chart2.x_chart_type_template import XChartTypeTemplate as XChartTypeT
 from ...lo.chart2.x_color_scheme import XColorScheme as XColorScheme
 from ...lo.chart2.x_coordinate_system import XCoordinateSystem as XCoordinateSystem
 from ...lo.chart2.x_coordinate_system_container import XCoordinateSystemContainer as XCoordinateSystemContainer
-from ...lo.chart2.x_data_interpreter import XDataInterpreter as XDataInterpreter
 from ...lo.chart2.x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField
 from ...lo.chart2.x_data_provider_access import XDataProviderAccess as XDataProviderAccess
 from ...lo.chart2.x_data_series import XDataSeries as XDataSeries
@@ -110,4 +108,3 @@ from ...lo.chart2.x_target import XTarget as XTarget
 from ...lo.chart2.x_time_based import XTimeBased as XTimeBased
 from ...lo.chart2.x_title import XTitle as XTitle
 from ...lo.chart2.x_titled import XTitled as XTitled
-from ...lo.chart2.x_transformation import XTransformation as XTransformation

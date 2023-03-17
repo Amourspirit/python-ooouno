@@ -9,7 +9,7 @@ ooouno
 
 **ooouno** is a library of all *(more than 4300)* classes, typings and types for the LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
 
-**ooouno** is for version ``7.3`` of LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
+**ooouno** is for version ``7.4`` of LibreOffice `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_.
 
 More about `LibreOffice <https://www.libreoffice.org/>`_.
 
@@ -31,6 +31,10 @@ CONDA
     $ conda install -c conda-forge ooouno
 
 
+For LibreOffice <= ``7.3``
+    ``$ conda install -c conda-forge "ooouno>=0.2.5, <1.0"``
+
+
 For LibreOffice <= ``7.2``
     ``$ conda install -c conda-forge "ooouno<0.2"``
 
@@ -43,6 +47,8 @@ PIP
 
     $ pip install ooouno
 
+For LibreOffice <= ``7.3``
+    ``pip install "ooouno>= 0.2.5, < 1.0"``
 
 For LibreOffice <= ``7.2``
     ``pip install "ooouno<0.2"``
@@ -152,15 +158,14 @@ import from ``ooo.dyn`` or ``ooo.cssdyn``.
 Related Projects
 ----------------
 
-
-* `LibreOffice API Typings <https://github.com/Amourspirit/python-types-unopy>`_
-* `ScriptForge Typings <https://github.com/Amourspirit/python-types-scriptforge>`_
-* `Access2base Typings <https://github.com/Amourspirit/python-types-access2base>`_
-* `LibreOffice Python UNO Examples <https://github.com/Amourspirit/python-ooouno-ex>`_
-* `LibreOffice Developer Search <https://github.com/Amourspirit/python_lo_dev_search>`_
-* `LibreOffice UNO Typings <https://github.com/Amourspirit/python-types-uno-script>`_
-* `LibreOffice Developer Search <https://github.com/Amourspirit/python_lo_dev_search>`_
-* `OOO UNO TEMPLATE <https://github.com/Amourspirit/ooo_uno_tmpl>`_
+* `OOO Development Tools <https://github.com/Amourspirit/python_ooo_dev_tools>`__
+* `LibreOffice API Typings <https://github.com/Amourspirit/python-types-unopy>`__
+* `ScriptForge Typings <https://github.com/Amourspirit/python-types-scriptforge>`__
+* `Access2base Typings <https://github.com/Amourspirit/python-types-access2base>`__
+* `LibreOffice Python UNO Examples <https://github.com/Amourspirit/python-ooouno-ex>`__
+* `LibreOffice Developer Search <https://github.com/Amourspirit/python_lo_dev_search>`__
+* `LibreOffice UNO Typings <https://github.com/Amourspirit/python-types-uno-script>`__
+* `OOO UNO TEMPLATE <https://github.com/Amourspirit/ooo_uno_tmpl>`__
 
 .. |lic| image:: https://img.shields.io/github/license/Amourspirit/python-ooouno
     :alt: License Apache

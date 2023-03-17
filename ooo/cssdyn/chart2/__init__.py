@@ -46,7 +46,6 @@ from ...dyn.chart2.fill_bitmap import FillBitmap as FillBitmap
 from ...dyn.chart2.formatted_string import FormattedString as FormattedString
 from ...dyn.chart2.grid_properties import GridProperties as GridProperties
 from ...dyn.chart2.increment_data import IncrementData as IncrementData
-from ...dyn.chart2.interpreted_data import InterpretedData as InterpretedData
 from ...dyn.chart2.legend import Legend as Legend
 from ...dyn.chart2.legend_position import LegendPosition as LegendPosition
 from ...dyn.chart2.light_source import LightSource as LightSource
@@ -93,7 +92,6 @@ from ...dyn.chart2.x_chart_type_template import XChartTypeTemplate as XChartType
 from ...dyn.chart2.x_color_scheme import XColorScheme as XColorScheme
 from ...dyn.chart2.x_coordinate_system import XCoordinateSystem as XCoordinateSystem
 from ...dyn.chart2.x_coordinate_system_container import XCoordinateSystemContainer as XCoordinateSystemContainer
-from ...dyn.chart2.x_data_interpreter import XDataInterpreter as XDataInterpreter
 from ...dyn.chart2.x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField
 from ...dyn.chart2.x_data_provider_access import XDataProviderAccess as XDataProviderAccess
 from ...dyn.chart2.x_data_series import XDataSeries as XDataSeries
@@ -114,4 +112,3 @@ from ...dyn.chart2.x_target import XTarget as XTarget
 from ...dyn.chart2.x_time_based import XTimeBased as XTimeBased
 from ...dyn.chart2.x_title import XTitle as XTitle
 from ...dyn.chart2.x_titled import XTitled as XTitled
-from ...dyn.chart2.x_transformation import XTransformation as XTransformation

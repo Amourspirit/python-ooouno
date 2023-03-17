@@ -78,6 +78,7 @@ from ...lo.util.x_accounting import XAccounting as XAccounting
 from ...lo.util.x_atom_server import XAtomServer as XAtomServer
 from ...lo.util.x_binary_data_container import XBinaryDataContainer as XBinaryDataContainer
 from ...lo.util.x_broadcaster import XBroadcaster as XBroadcaster
+from ...lo.util.x_cache_info import XCacheInfo as XCacheInfo
 from ...lo.util.x_cancellable import XCancellable as XCancellable
 from ...lo.util.x_chainable import XChainable as XChainable
 from ...lo.util.x_changes_batch import XChangesBatch as XChangesBatch

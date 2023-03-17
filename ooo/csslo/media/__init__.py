@@ -18,5 +18,7 @@ from ...lo.media.manager import Manager as Manager
 from ...lo.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
 from ...lo.media.x_manager import XManager as XManager
 from ...lo.media.x_player import XPlayer as XPlayer
+from ...lo.media.x_player_listener import XPlayerListener as XPlayerListener
+from ...lo.media.x_player_notifier import XPlayerNotifier as XPlayerNotifier
 from ...lo.media.x_player_window import XPlayerWindow as XPlayerWindow
 from ...lo.media.zoom_level import ZoomLevel as ZoomLevel

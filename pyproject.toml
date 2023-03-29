@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "ooouno"
+version = "1.0.1"
+description = "Interfaces and classes for LibreOffice (uno)"
+authors = [":Barry-Thomas-Paul: Moss <vibrationoflife@protonmail.com>"]
+license = "Apache Software License"
+readme = "README.rst"
+homepage = "https://github.com/Amourspirit/python-ooouno"
+documentation = "https://github.com/Amourspirit/python-ooouno"
+repository = "https://github.com/Amourspirit/python-ooouno"
+packages = [
+    { include = "ooo" }
+]
+classifiers = [
+    "Topic :: Office/Business",
+    "Environment :: Other Environment",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Office/Business",
+    "Typing :: Typed",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[[tool.poetry.source]]
+name = "pypi-test"
+url = "https://test.pypi.org/legacy/"
+default = false
+secondary = false
+
+[tool.poetry.dependencies]
+python = "^3.7"
+types-unopy = ">=1.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.2.0"
+black = {extras = ["d"], version = ">=23.1.0"}
+oooenv = ">=0.1.0"
+unotools = ">=0.3.3"
+kwargshelper = ">=2.7.1"
+stickytape = "^0.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

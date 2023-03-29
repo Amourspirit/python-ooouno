@@ -158,7 +158,7 @@ import from ``ooo.dyn`` or ``ooo.cssdyn``.
 Development
 -----------
 
-Development environment is configured using [poetry](https://python-poetry.org/).
+Development environment is configured using `poetry <https://python-poetry.org/>`__.
 
 It is recommended to install virtual environment locally.
 

@@ -1,5 +1,5 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/env/bin/python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.testing.pytestArgs": [
     "tests"
   ],
@@ -21,6 +21,5 @@
   "workbench.colorTheme": "Monokai",
   "python.formatting.provider": "black",
   "esbonio.server.enabled": false,
-  "esbonio.sphinx.confDir": "${workspaceFolder}/docs",
-  "restructuredtext.confPath": ""
+  "esbonio.sphinx.confDir": "${workspaceFolder}/docs"
 }

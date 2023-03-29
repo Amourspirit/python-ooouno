@@ -155,6 +155,45 @@ When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
 When using ooo interactivly such as creating structs, enums, singletons, const classes then
 import from ``ooo.dyn`` or ``ooo.cssdyn``.
 
+Development
+-----------
+
+Development environment is configured using `poetry <https://python-poetry.org/>`__.
+
+It is recommended to install virtual environment locally.
+
+To Configure poetry to install virtual environment in local folder:
+
+.. code-block::
+
+    poetry config virtualenvs.in-project true
+
+After virtual environment has been set up.
+
+Linux/Mac
++++++++++
+
+Link UNO files into virtual environment.
+
+.. code-block::
+
+    oooenv cmd-link -a
+
+Windows
++++++++
+
+Run toggle command to set virtual environment.
+
+.. code-block::
+
+    oooenv env -t
+
+See Also
+++++++++
+
+- `oooenv <https://pypi.org/project/oooenv/>`__
+- `OOO Development Tools - Develop Docs <https://python-ooo-dev-tools.readthedocs.io/en/latest/dev_docs/dev_notes.html>`__
+
 Related Projects
 ----------------
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import argparse
 from config import AppConfig, read_config
-from cmd.build_lo_test import builder
+from app_cmd.build_lo_test import builder
 
 def _create_parser(name: str) -> argparse.ArgumentParser:
     return argparse.ArgumentParser(description=name)
@@ -28,7 +28,6 @@ def _args_process_cmd(args: argparse.Namespace, config: AppConfig) -> None:
 
 def main():
     global logger
-    # region Config
     config = read_config('./config.json')
     parser = _create_parser('main')
     subparser = parser.add_subparsers(dest='command')

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class Event(object):
         this is the source for this event.
         """
         return self._source
-    
+
     @Source.setter
     def Source(self, value: object) -> None:
         self._source = value
@@ -89,7 +89,7 @@ class Event(object):
         this is the trigger that fires this event.
         """
         return self._trigger
-    
+
     @Trigger.setter
     def Trigger(self, value: int) -> None:
         self._trigger = value
@@ -102,7 +102,7 @@ class Event(object):
         This is the timespan between the triggering of the event and actually raising the event
         """
         return self._offset
-    
+
     @Offset.setter
     def Offset(self, value: object) -> None:
         self._offset = value
@@ -115,7 +115,7 @@ class Event(object):
         If the Trigger is EventTrigger, this is the number of repeats after which the event is initially raised.
         """
         return self._repeat
-    
+
     @Repeat.setter
     def Repeat(self, value: int) -> None:
         self._repeat = value

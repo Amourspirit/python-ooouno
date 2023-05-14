@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class Hatch(object):
         The HatchStyle defines the kind of lines used to draw this hatch.
         """
         return self._style
-    
+
     @Style.setter
     def Style(self, value: HatchStyle_bcfe0bed) -> None:
         self._style = value
@@ -93,7 +93,7 @@ class Hatch(object):
         This is the color of the hatch lines.
         """
         return self._color
-    
+
     @Color.setter
     def Color(self, value: Color_68e908c5) -> None:
         self._color = value
@@ -104,7 +104,7 @@ class Hatch(object):
         This is the distance between the lines in the hatch.
         """
         return self._distance
-    
+
     @Distance.setter
     def Distance(self, value: int) -> None:
         self._distance = value
@@ -117,7 +117,7 @@ class Hatch(object):
         Specified in tenths of a degree.
         """
         return self._angle
-    
+
     @Angle.setter
     def Angle(self, value: int) -> None:
         self._angle = value

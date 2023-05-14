@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class FastAttribute(object):
         the token corresponding to the attribute
         """
         return self._token
-    
+
     @Token.setter
     def Token(self, value: int) -> None:
         self._token = value
@@ -81,7 +81,7 @@ class FastAttribute(object):
         the attribute value
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: str) -> None:
         self._value = value

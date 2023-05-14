@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class HomogenMatrixLine(object):
     @property
     def Column1(self) -> float:
         return self._column1
-    
+
     @Column1.setter
     def Column1(self, value: float) -> None:
         self._column1 = value
@@ -83,7 +83,7 @@ class HomogenMatrixLine(object):
     @property
     def Column2(self) -> float:
         return self._column2
-    
+
     @Column2.setter
     def Column2(self, value: float) -> None:
         self._column2 = value
@@ -91,7 +91,7 @@ class HomogenMatrixLine(object):
     @property
     def Column3(self) -> float:
         return self._column3
-    
+
     @Column3.setter
     def Column3(self, value: float) -> None:
         self._column3 = value
@@ -99,7 +99,7 @@ class HomogenMatrixLine(object):
     @property
     def Column4(self) -> float:
         return self._column4
-    
+
     @Column4.setter
     def Column4(self, value: float) -> None:
         self._column4 = value

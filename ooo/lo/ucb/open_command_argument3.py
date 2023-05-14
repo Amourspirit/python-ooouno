@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class OpenCommandArgument3(OpenCommandArgument2_9210e08):
         WebDav e.g. uses \"KeepAlive\" to enable/disable the respective http feature.
         """
         return self._opening_flags
-    
+
     @OpeningFlags.setter
     def OpeningFlags(self, value: typing.Tuple[NamedValue_a37a0af3, ...]) -> None:
         self._opening_flags = value

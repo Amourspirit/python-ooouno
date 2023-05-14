@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -225,7 +225,6 @@ class GraphicObjectShape(RotationDescriptor_2cec0f63, ShadowProperties_e350e87, 
         100% is fully transparent, 0% is fully opaque.
         """
         ...
-
 
 
 __all__ = ['GraphicObjectShape']

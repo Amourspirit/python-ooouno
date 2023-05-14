@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,6 @@ class QueryDescriptor(DataSettings_a3000b0c, Descriptor_a5200b3b, XColumnsSuppli
         This is usually used for queries which relate on more than one table.
         """
         ...
-
 
 
 __all__ = ['QueryDescriptor']

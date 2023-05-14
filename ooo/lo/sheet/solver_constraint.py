@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class SolverConstraint(object):
         The address of the cell that is constrained.
         """
         return self._left
-    
+
     @Left.setter
     def Left(self, value: CellAddress_ae5f0b56) -> None:
         self._left = value
@@ -89,7 +89,7 @@ class SolverConstraint(object):
         The type of the constraint.
         """
         return self._operator
-    
+
     @Operator.setter
     def Operator(self, value: SolverConstraintOperator_6e4a110d) -> None:
         self._operator = value
@@ -100,7 +100,7 @@ class SolverConstraint(object):
         The comparison value, of type double or com.sun.star.table.CellAddress.
         """
         return self._right
-    
+
     @Right.setter
     def Right(self, value: object) -> None:
         self._right = value

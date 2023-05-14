@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class CalendarItem(object):
         A unique ID for an entry of this type, usually the lower case abbreviated English name, for example, \"sun\" for Sunday.
         """
         return self._id
-    
+
     @ID.setter
     def ID(self, value: str) -> None:
         self._id = value
@@ -87,7 +87,7 @@ class CalendarItem(object):
         The abbreviated name, for example, \"Sun\".
         """
         return self._abbrev_name
-    
+
     @AbbrevName.setter
     def AbbrevName(self, value: str) -> None:
         self._abbrev_name = value
@@ -98,7 +98,7 @@ class CalendarItem(object):
         The full name, for example, \"Sunday\".
         """
         return self._full_name
-    
+
     @FullName.setter
     def FullName(self, value: str) -> None:
         self._full_name = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class RuleTerm(object):
         the name of the property used to match the term.
         """
         return self._property
-    
+
     @Property.setter
     def Property(self, value: str) -> None:
         self._property = value
@@ -95,7 +95,7 @@ class RuleTerm(object):
         the value of the property used to compare with the document property.
         """
         return self._operand
-    
+
     @Operand.setter
     def Operand(self, value: object) -> None:
         self._operand = value
@@ -110,7 +110,7 @@ class RuleTerm(object):
         The value can be one of the RuleOperator constants.
         """
         return self._operator
-    
+
     @Operator.setter
     def Operator(self, value: int) -> None:
         self._operator = value
@@ -121,7 +121,7 @@ class RuleTerm(object):
         this flag indicates whether a string \"operand\" shall be compared case sensitive.
         """
         return self._case_sensitive
-    
+
     @CaseSensitive.setter
     def CaseSensitive(self, value: bool) -> None:
         self._case_sensitive = value
@@ -132,7 +132,7 @@ class RuleTerm(object):
         this flag indicates whether a string \"operand\" shall be treated as a regular expression.
         """
         return self._regular_expression
-    
+
     @RegularExpression.setter
     def RegularExpression(self, value: bool) -> None:
         self._regular_expression = value

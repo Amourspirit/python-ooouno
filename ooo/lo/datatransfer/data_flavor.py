@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class DataFlavor(object):
         MimeType must conform to Rfc2045 and Rfc2046)
         """
         return self._mime_type
-    
+
     @MimeType.setter
     def MimeType(self, value: str) -> None:
         self._mime_type = value
@@ -87,7 +87,7 @@ class DataFlavor(object):
         A human presentable name for the data format.
         """
         return self._human_presentable_name
-    
+
     @HumanPresentableName.setter
     def HumanPresentableName(self, value: str) -> None:
         self._human_presentable_name = value
@@ -98,7 +98,7 @@ class DataFlavor(object):
         The type of the object to transfer, for example, XOutputStream.
         """
         return self._data_type
-    
+
     @DataType.setter
     def DataType(self, value: object) -> None:
         self._data_type = value

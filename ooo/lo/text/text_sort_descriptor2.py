@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -51,7 +51,6 @@ class TextSortDescriptor2(TableSortDescriptor2_27e00ef1):
         determines if the content of a table or a selection of paragraphs is to be sorted.
         """
         ...
-
 
 
 __all__ = ['TextSortDescriptor2']

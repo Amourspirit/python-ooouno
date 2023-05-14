@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class FrameActionEvent(EventObject_a3d70b03):
         contains the frame in which the event occurred
         """
         return self._frame
-    
+
     @Frame.setter
     def Frame(self, value: XFrame_7a570956) -> None:
         self._frame = value
@@ -92,7 +92,7 @@ class FrameActionEvent(EventObject_a3d70b03):
         specifies the concrete event
         """
         return self._action
-    
+
     @Action.setter
     def Action(self, value: FrameAction_aef40b5c) -> None:
         self._action = value

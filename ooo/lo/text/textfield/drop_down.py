@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -57,7 +57,6 @@ class DropDown(TextField_90260a56):
         If no item is selected this property contains an empty string. If this property is set to a value not present in the items of the dropdown field it is invalidated, i.e. it is set to an empty string.
         """
         ...
-
 
 
 __all__ = ['DropDown']

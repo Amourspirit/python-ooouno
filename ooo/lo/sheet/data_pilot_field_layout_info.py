@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class DataPilotFieldLayoutInfo(object):
         specifies the layout mode.
         """
         return self._layout_mode
-    
+
     @LayoutMode.setter
     def LayoutMode(self, value: int) -> None:
         self._layout_mode = value
@@ -81,7 +81,7 @@ class DataPilotFieldLayoutInfo(object):
         If TRUE, an empty row is inserted in the DataPilotTable result table after the data (including the subtotals) for each item of the field.
         """
         return self._add_empty_lines
-    
+
     @AddEmptyLines.setter
     def AddEmptyLines(self, value: bool) -> None:
         self._add_empty_lines = value

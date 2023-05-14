@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -55,7 +55,6 @@ class CheckBox(UnoControlCheckBoxModel_383d0f5f, FormControlModel_e2990d22, XRes
         When submitting a HTMLForm which contains a check box, which is checked, the RefValue is used for submission.
         """
         ...
-
 
 
 __all__ = ['CheckBox']

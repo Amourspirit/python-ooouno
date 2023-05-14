@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class Libxml2ExtensionHandle(object):
     @property
     def functionLookupFunction(self) -> int:
         return self._function_lookup_function
-    
+
     @functionLookupFunction.setter
     def functionLookupFunction(self, value: int) -> None:
         self._function_lookup_function = value
@@ -82,7 +82,7 @@ class Libxml2ExtensionHandle(object):
     @property
     def functionData(self) -> int:
         return self._function_data
-    
+
     @functionData.setter
     def functionData(self, value: int) -> None:
         self._function_data = value
@@ -90,7 +90,7 @@ class Libxml2ExtensionHandle(object):
     @property
     def variableLookupFunction(self) -> int:
         return self._variable_lookup_function
-    
+
     @variableLookupFunction.setter
     def variableLookupFunction(self, value: int) -> None:
         self._variable_lookup_function = value
@@ -98,7 +98,7 @@ class Libxml2ExtensionHandle(object):
     @property
     def variableData(self) -> int:
         return self._variable_data
-    
+
     @variableData.setter
     def variableData(self, value: int) -> None:
         self._variable_data = value

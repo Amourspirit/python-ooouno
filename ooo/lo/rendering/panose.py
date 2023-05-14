@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class Panose(object):
         PanoseFamilyTypes.
         """
         return self._family_type
-    
+
     @FamilyType.setter
     def FamilyType(self, value: int) -> None:
         self._family_type = value
@@ -112,7 +112,7 @@ class Panose(object):
         PanoseSerifStyle.
         """
         return self._serif_style
-    
+
     @SerifStyle.setter
     def SerifStyle(self, value: int) -> None:
         self._serif_style = value
@@ -123,7 +123,7 @@ class Panose(object):
         PanoseWeight.
         """
         return self._weight
-    
+
     @Weight.setter
     def Weight(self, value: int) -> None:
         self._weight = value
@@ -134,7 +134,7 @@ class Panose(object):
         PanoseProportion.
         """
         return self._proportion
-    
+
     @Proportion.setter
     def Proportion(self, value: int) -> None:
         self._proportion = value
@@ -145,7 +145,7 @@ class Panose(object):
         PanoseContrast.
         """
         return self._contrast
-    
+
     @Contrast.setter
     def Contrast(self, value: int) -> None:
         self._contrast = value
@@ -156,7 +156,7 @@ class Panose(object):
         PanoseStrokeVariation.
         """
         return self._stroke_variation
-    
+
     @StrokeVariation.setter
     def StrokeVariation(self, value: int) -> None:
         self._stroke_variation = value
@@ -167,7 +167,7 @@ class Panose(object):
         PanoseArmStyle.
         """
         return self._arm_style
-    
+
     @ArmStyle.setter
     def ArmStyle(self, value: int) -> None:
         self._arm_style = value
@@ -178,7 +178,7 @@ class Panose(object):
         PanoseLetterForm.
         """
         return self._letterform
-    
+
     @Letterform.setter
     def Letterform(self, value: int) -> None:
         self._letterform = value
@@ -189,7 +189,7 @@ class Panose(object):
         PanoseMidline.
         """
         return self._midline
-    
+
     @Midline.setter
     def Midline(self, value: int) -> None:
         self._midline = value
@@ -200,7 +200,7 @@ class Panose(object):
         PanoseXHeight.
         """
         return self._x_height
-    
+
     @XHeight.setter
     def XHeight(self, value: int) -> None:
         self._x_height = value

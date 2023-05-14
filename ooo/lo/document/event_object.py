@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class EventObject(EventObject_a3d70b03):
         For a list of possible event names see Events.
         """
         return self._event_name
-    
+
     @EventName.setter
     def EventName(self, value: str) -> None:
         self._event_name = value

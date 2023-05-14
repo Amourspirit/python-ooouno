@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class FontRequest(object):
         This member contains the description of the font as returned by the font listing methods.
         """
         return self._font_description
-    
+
     @FontDescription.setter
     def FontDescription(self, value: FontInfo_bded0be9) -> None:
         self._font_description = value
@@ -113,7 +113,7 @@ class FontRequest(object):
         For distorted fonts, the render transformation must be used. That is, the size specified here corresponds to device pixel only if the combined render transformation during text output equals the identity transform. This also applies to all query methods, for both XCanvasFont and XTextLayout.
         """
         return self._cell_size
-    
+
     @CellSize.setter
     def CellSize(self, value: float) -> None:
         self._cell_size = value
@@ -130,7 +130,7 @@ class FontRequest(object):
         This member and the cellSize member are mutually exclusive, one of them has to be set to 0 (which means don't care). For distorted fonts, the font matrix must be used.
         """
         return self._reference_advancement
-    
+
     @ReferenceAdvancement.setter
     def ReferenceAdvancement(self, value: float) -> None:
         self._reference_advancement = value
@@ -143,7 +143,7 @@ class FontRequest(object):
         This member supplements the FontInfo.UnicodeRange0 entry with a specific locale; this is e.g. important when selecting between traditional and simplified Chinese is necessary (since the letters have the same Unicode ranges and character values).
         """
         return self._locale
-    
+
     @Locale.setter
     def Locale(self, value: Locale_70d308fa) -> None:
         self._locale = value

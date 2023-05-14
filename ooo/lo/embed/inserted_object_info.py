@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class InsertedObjectInfo(object):
         A dialog related to embedded object creation usually allows user to make some choices that can be container related. This information can be provided by this member.
         """
         return self._options
-    
+
     @Options.setter
     def Options(self, value: typing.Tuple[NamedValue_a37a0af3, ...]) -> None:
         self._options = value
@@ -85,7 +85,7 @@ class InsertedObjectInfo(object):
         The new created embedded object.
         """
         return self._object
-    
+
     @Object.setter
     def Object(self, value: XEmbeddedObject_ddee0cbe) -> None:
         self._object = value

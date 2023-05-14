@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class MenuEvent(EventObject_a3d70b03):
         contains the item ID.
         """
         return self._menu_id
-    
+
     @MenuId.setter
     def MenuId(self, value: int) -> None:
         self._menu_id = value

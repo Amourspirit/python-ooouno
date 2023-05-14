@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class Template(object):
         specifies a style name.
         """
         return self._style_name
-    
+
     @StyleName.setter
     def StyleName(self, value: str) -> None:
         self._style_name = value
@@ -89,7 +89,7 @@ class Template(object):
         specifies a value that is bound to the style name.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: int) -> None:
         self._value = value
@@ -104,7 +104,7 @@ class Template(object):
             LO 7.2
         """
         return self._style_name_identifier
-    
+
     @StyleNameIdentifier.setter
     def StyleNameIdentifier(self, value: str) -> None:
         self._style_name_identifier = value

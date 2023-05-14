@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -67,7 +67,6 @@ class EmbeddedObjectDescriptor(ABC):
         Setting of this property to true tells the embedded object that controls the document to store or not to store the graphical representation of the document into the object persistence. If this property is not set the object makes the decision itself.
         """
         ...
-
 
 
 __all__ = ['EmbeddedObjectDescriptor']

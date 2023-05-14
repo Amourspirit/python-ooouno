@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class GluePoint2(object):
         Depending on the flag IsRelative, this is either in 1/100cm or in 1/100%.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: Point_5fb2085e) -> None:
         self._position = value
@@ -102,7 +102,7 @@ class GluePoint2(object):
         if this flag is set to true, the position of this gluepoint is given in 1/100% values instead of 1/100cm.
         """
         return self._is_relative
-    
+
     @IsRelative.setter
     def IsRelative(self, value: bool) -> None:
         self._is_relative = value
@@ -115,7 +115,7 @@ class GluePoint2(object):
         The alignment specifies how the gluepoint is moved if the shape is resized.
         """
         return self._position_alignment
-    
+
     @PositionAlignment.setter
     def PositionAlignment(self, value: Alignment_b1400b93) -> None:
         self._position_alignment = value
@@ -128,7 +128,7 @@ class GluePoint2(object):
         The escape direction is the direction the connecting line escapes the shape.
         """
         return self._escape
-    
+
     @Escape.setter
     def Escape(self, value: EscapeDirection_fdc50de6) -> None:
         self._escape = value
@@ -141,7 +141,7 @@ class GluePoint2(object):
         Some shapes may have default gluepoints attached to them which cannot be altered or removed.
         """
         return self._is_user_defined
-    
+
     @IsUserDefined.setter
     def IsUserDefined(self, value: bool) -> None:
         self._is_user_defined = value

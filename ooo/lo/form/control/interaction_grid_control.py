@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ class InteractionGridControl(GridControl_c9d0e52, XDispatch_98ff0a9b):
     __ooo_ns__: str = 'com.sun.star.form.control'
     __ooo_full_ns__: str = 'com.sun.star.form.control.InteractionGridControl'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['InteractionGridControl']

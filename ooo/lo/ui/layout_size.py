@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class LayoutSize(object):
     @property
     def Minimum(self) -> int:
         return self._minimum
-    
+
     @Minimum.setter
     def Minimum(self, value: int) -> None:
         self._minimum = value
@@ -81,7 +81,7 @@ class LayoutSize(object):
     @property
     def Maximum(self) -> int:
         return self._maximum
-    
+
     @Maximum.setter
     def Maximum(self, value: int) -> None:
         self._maximum = value
@@ -89,7 +89,7 @@ class LayoutSize(object):
     @property
     def Preferred(self) -> int:
         return self._preferred
-    
+
     @Preferred.setter
     def Preferred(self, value: int) -> None:
         self._preferred = value

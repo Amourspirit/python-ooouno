@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class SingleReference(object):
         is the absolute column number.
         """
         return self._column
-    
+
     @Column.setter
     def Column(self, value: int) -> None:
         self._column = value
@@ -101,7 +101,7 @@ class SingleReference(object):
         is the relative column number.
         """
         return self._relative_column
-    
+
     @RelativeColumn.setter
     def RelativeColumn(self, value: int) -> None:
         self._relative_column = value
@@ -112,7 +112,7 @@ class SingleReference(object):
         is the absolute row number.
         """
         return self._row
-    
+
     @Row.setter
     def Row(self, value: int) -> None:
         self._row = value
@@ -123,7 +123,7 @@ class SingleReference(object):
         is the relative row number.
         """
         return self._relative_row
-    
+
     @RelativeRow.setter
     def RelativeRow(self, value: int) -> None:
         self._relative_row = value
@@ -134,7 +134,7 @@ class SingleReference(object):
         is the absolute sheet number.
         """
         return self._sheet
-    
+
     @Sheet.setter
     def Sheet(self, value: int) -> None:
         self._sheet = value
@@ -145,7 +145,7 @@ class SingleReference(object):
         is the relative sheet number.
         """
         return self._relative_sheet
-    
+
     @RelativeSheet.setter
     def RelativeSheet(self, value: int) -> None:
         self._relative_sheet = value
@@ -156,7 +156,7 @@ class SingleReference(object):
         contains flags.
         """
         return self._flags
-    
+
     @Flags.setter
     def Flags(self, value: int) -> None:
         self._flags = value

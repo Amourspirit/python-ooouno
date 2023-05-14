@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class CellProtection(object):
         specifies if the cell is locked from modifications by the user.
         """
         return self._is_locked
-    
+
     @IsLocked.setter
     def IsLocked(self, value: bool) -> None:
         self._is_locked = value
@@ -89,7 +89,7 @@ class CellProtection(object):
         specifies if the formula is hidden from the user.
         """
         return self._is_formula_hidden
-    
+
     @IsFormulaHidden.setter
     def IsFormulaHidden(self, value: bool) -> None:
         self._is_formula_hidden = value
@@ -100,7 +100,7 @@ class CellProtection(object):
         specifies if the cell is hidden from the user.
         """
         return self._is_hidden
-    
+
     @IsHidden.setter
     def IsHidden(self, value: bool) -> None:
         self._is_hidden = value
@@ -111,7 +111,7 @@ class CellProtection(object):
         specifies if the cell is hidden on printouts.
         """
         return self._is_print_hidden
-    
+
     @IsPrintHidden.setter
     def IsPrintHidden(self, value: bool) -> None:
         self._is_print_hidden = value

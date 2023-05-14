@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class InvocationInfo(object):
         Types method parameters, for properties this sequence is empty.
         """
         return self._a_param_types
-    
+
     @aParamTypes.setter
     def aParamTypes(self, value: typing.Tuple[object, ...]) -> None:
         self._a_param_types = value
@@ -99,7 +99,7 @@ class InvocationInfo(object):
         Mode of method parameters (IN, OUT, INOUT), for properties this sequence is empty.
         """
         return self._a_param_modes
-    
+
     @aParamModes.setter
     def aParamModes(self, value: typing.Tuple[ParamMode_d7260ca9, ...]) -> None:
         self._a_param_modes = value
@@ -110,7 +110,7 @@ class InvocationInfo(object):
         Name of the method or property.
         """
         return self._a_name
-    
+
     @aName.setter
     def aName(self, value: str) -> None:
         self._a_name = value
@@ -121,7 +121,7 @@ class InvocationInfo(object):
         Kind of the member (method or property).
         """
         return self._e_member_type
-    
+
     @eMemberType.setter
     def eMemberType(self, value: MemberType_b1e00b97) -> None:
         self._e_member_type = value
@@ -136,7 +136,7 @@ class InvocationInfo(object):
         For methods this field is irrelevant and is set to 0.
         """
         return self._property_attribute
-    
+
     @PropertyAttribute.setter
     def PropertyAttribute(self, value: int) -> None:
         self._property_attribute = value
@@ -147,7 +147,7 @@ class InvocationInfo(object):
         Type of the member, for methods the return type.
         """
         return self._a_type
-    
+
     @aType.setter
     def aType(self, value: object) -> None:
         self._a_type = value

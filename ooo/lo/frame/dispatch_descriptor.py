@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class DispatchDescriptor(object):
         Must be a full parsed URL. Use service com.sun.star.util.URLTransformer for that.
         """
         return self._feature_url
-    
+
     @FeatureURL.setter
     def FeatureURL(self, value: URL_57ad07b9) -> None:
         self._feature_url = value
@@ -94,7 +94,7 @@ class DispatchDescriptor(object):
         Special targets (e.g. \"_blank\", \"_self\") or really existing target names can be used.
         """
         return self._frame_name
-    
+
     @FrameName.setter
     def FrameName(self, value: str) -> None:
         self._frame_name = value
@@ -107,7 +107,7 @@ class DispatchDescriptor(object):
         This optional parameter is used if FrameName isn't a special target only.
         """
         return self._search_flags
-    
+
     @SearchFlags.setter
     def SearchFlags(self, value: int) -> None:
         self._search_flags = value

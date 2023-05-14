@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class Decimal(object):
         corresponds to DECIMAL.scale.
         """
         return self._scale
-    
+
     @Scale.setter
     def Scale(self, value: int) -> None:
         self._scale = value
@@ -97,7 +97,7 @@ class Decimal(object):
         corresponds to DECIMAL.sign.
         """
         return self._sign
-    
+
     @Sign.setter
     def Sign(self, value: int) -> None:
         self._sign = value
@@ -108,7 +108,7 @@ class Decimal(object):
         corresponds to DECIMAL.Lo32.
         """
         return self._low_value
-    
+
     @LowValue.setter
     def LowValue(self, value: int) -> None:
         self._low_value = value
@@ -119,7 +119,7 @@ class Decimal(object):
         corresponds to DECIMAL.Mid32.
         """
         return self._middle_value
-    
+
     @MiddleValue.setter
     def MiddleValue(self, value: int) -> None:
         self._middle_value = value
@@ -130,7 +130,7 @@ class Decimal(object):
         corresponds to DECIMAL.Hi32.
         """
         return self._high_value
-    
+
     @HighValue.setter
     def HighValue(self, value: int) -> None:
         self._high_value = value

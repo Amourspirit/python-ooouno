@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class FontHeight(object):
         specifies the current height of the font.
         """
         return self._height
-    
+
     @Height.setter
     def Height(self, value: float) -> None:
         self._height = value
@@ -91,7 +91,7 @@ class FontHeight(object):
         specifies the height of the font in the measure of the destination.
         """
         return self._prop
-    
+
     @Prop.setter
     def Prop(self, value: int) -> None:
         self._prop = value
@@ -102,7 +102,7 @@ class FontHeight(object):
         specifies the width of the font in the measure of the destination.
         """
         return self._diff
-    
+
     @Diff.setter
     def Diff(self, value: float) -> None:
         self._diff = value

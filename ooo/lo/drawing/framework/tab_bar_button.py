@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class TabBarButton(object):
         The label is expected to be localized.
         """
         return self._button_label
-    
+
     @ButtonLabel.setter
     def ButtonLabel(self, value: str) -> None:
         self._button_label = value
@@ -92,7 +92,7 @@ class TabBarButton(object):
         The localized help text that may be displayed in a tool tip.
         """
         return self._help_text
-    
+
     @HelpText.setter
     def HelpText(self, value: str) -> None:
         self._help_text = value
@@ -105,7 +105,7 @@ class TabBarButton(object):
         For some methods of the XTabBar interface only this member is evaluated. That is because only this member is used to identify a tab bar button.
         """
         return self._resource_id
-    
+
     @ResourceId.setter
     def ResourceId(self, value: XResourceId_5be3103d) -> None:
         self._resource_id = value

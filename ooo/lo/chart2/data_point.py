@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -48,7 +48,6 @@ class DataPoint(DataPointProperties_24a00efd, CharacterProperties_1d4f0ef3, Char
         Gives the offset of the data point. For PieDiagrams this would be the percentage by which pies are dragged out of the cake.
         """
         ...
-
 
 
 __all__ = ['DataPoint']

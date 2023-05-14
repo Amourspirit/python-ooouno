@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class RemoteContentProviderChangeEvent(EventObject_a3d70b03):
         The identifier with which the remote content provider is registered at the com.sun.star.ucb.XRemoteContentProviderSupplier.
         """
         return self._identifier
-    
+
     @Identifier.setter
     def Identifier(self, value: str) -> None:
         self._identifier = value
@@ -91,7 +91,7 @@ class RemoteContentProviderChangeEvent(EventObject_a3d70b03):
         An indicator whether a remote content provider has been added or removed.
         """
         return self._action
-    
+
     @Action.setter
     def Action(self, value: RemoteContentProviderChangeAction_e9701378) -> None:
         self._action = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class LanguageCountryInfo(object):
         ISO-639 language code, for example, \"en\" or \"de\".
         """
         return self._language
-    
+
     @Language.setter
     def Language(self, value: str) -> None:
         self._language = value
@@ -93,7 +93,7 @@ class LanguageCountryInfo(object):
         Descriptive language name, for example, \"English\" or \"German\".
         """
         return self._language_default_name
-    
+
     @LanguageDefaultName.setter
     def LanguageDefaultName(self, value: str) -> None:
         self._language_default_name = value
@@ -104,7 +104,7 @@ class LanguageCountryInfo(object):
         ISO-3166 country code, for example, \"US\" or \"DE\".
         """
         return self._country
-    
+
     @Country.setter
     def Country(self, value: str) -> None:
         self._country = value
@@ -115,7 +115,7 @@ class LanguageCountryInfo(object):
         Descriptive country name, for example, \"United States\" or \"Germany\".
         """
         return self._country_default_name
-    
+
     @CountryDefaultName.setter
     def CountryDefaultName(self, value: str) -> None:
         self._country_default_name = value
@@ -126,7 +126,7 @@ class LanguageCountryInfo(object):
         A variant name.
         """
         return self._variant
-    
+
     @Variant.setter
     def Variant(self, value: str) -> None:
         self._variant = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ class NumberingRule(NumberingAlignment_f290e7f, NumberingLevel_d7f70cd8):
     __ooo_ns__: str = 'com.sun.star.style'
     __ooo_full_ns__: str = 'com.sun.star.style.NumberingRule'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['NumberingRule']

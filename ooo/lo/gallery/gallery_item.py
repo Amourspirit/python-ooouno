@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,6 @@ class GalleryItem(XPropertySet_bc180bfa, XGalleryItem_d5730caf):
         The interpretation of the URL depends on the type of the Gallery item. In case of graphic and media items, the URL is a \"real\" URL, in case of drawings it is a private URL
         """
         ...
-
 
 
 __all__ = ['GalleryItem']

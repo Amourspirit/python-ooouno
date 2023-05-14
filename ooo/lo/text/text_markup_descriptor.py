@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class TextMarkupDescriptor(object):
         Type of text markup see TextMarkupType.
         """
         return self._n_type
-    
+
     @nType.setter
     def nType(self, value: int) -> None:
         self._n_type = value
@@ -98,7 +98,7 @@ class TextMarkupDescriptor(object):
         A string used to identify the caller.
         """
         return self._a_identifier
-    
+
     @aIdentifier.setter
     def aIdentifier(self, value: str) -> None:
         self._a_identifier = value
@@ -109,7 +109,7 @@ class TextMarkupDescriptor(object):
         Start of the markup range.
         """
         return self._n_offset
-    
+
     @nOffset.setter
     def nOffset(self, value: int) -> None:
         self._n_offset = value
@@ -120,7 +120,7 @@ class TextMarkupDescriptor(object):
         Length of the markup range.
         """
         return self._n_length
-    
+
     @nLength.setter
     def nLength(self, value: int) -> None:
         self._n_length = value
@@ -139,7 +139,7 @@ class TextMarkupDescriptor(object):
             6.3: BOLDWAVE, BOLD | See: com::sun::star::awt::FontUnderline
         """
         return self._x_markup_info_container
-    
+
     @xMarkupInfoContainer.setter
     def xMarkupInfoContainer(self, value: XStringKeyMap_ffc60de1) -> None:
         self._x_markup_info_container = value

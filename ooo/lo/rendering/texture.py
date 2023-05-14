@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ class Texture(object):
         This member allows arbitrary transformations of the texture, relative to the textured primitive. Thus, the total transformation from the [0,1]x[0,1] texture space to the device coordinate space is the concatenation of texture, render state, and view state transformation (with only render state and view state transformation being applied to the textured primitive).
         """
         return self._affine_transform
-    
+
     @AffineTransform.setter
     def AffineTransform(self, value: AffineMatrix2D_ff040da8) -> None:
         self._affine_transform = value
@@ -129,7 +129,7 @@ class Texture(object):
         The valid range for this value is [0,1], where 0 denotes complete transparency, and 1 denotes fully opaque.
         """
         return self._alpha
-    
+
     @Alpha.setter
     def Alpha(self, value: float) -> None:
         self._alpha = value
@@ -142,7 +142,7 @@ class Texture(object):
         This member specifies the number of polygons the parametric polygon interface is queried. The continuous range [0,1] of the XParametricPolyPolygon.getOutline() method is divided up into numberOfHatchPolygons equal parts, and for everyone of these parts, the start of the interval is plugged into the getOutline method. For example, if numberOfHatchPolygons is 2, then getOutline is called twice, once with 0.0 and once with 0.5. Use this parameter to control the density of the hatching.
         """
         return self._number_of_hatch_polygons
-    
+
     @NumberOfHatchPolygons.setter
     def NumberOfHatchPolygons(self, value: int) -> None:
         self._number_of_hatch_polygons = value
@@ -157,7 +157,7 @@ class Texture(object):
         The bitmap is scaled to a one-by-one rectangle, to cover the same area as both the gradient and the hatching.
         """
         return self._bitmap
-    
+
     @Bitmap.setter
     def Bitmap(self, value: XBitmap_b1b70b7b) -> None:
         self._bitmap = value
@@ -170,7 +170,7 @@ class Texture(object):
         This member can be used together with bitmap and hatching. The parametric polygons color value is used to fill the returned polygonal outlines.
         """
         return self._gradient
-    
+
     @Gradient.setter
     def Gradient(self, value: XParametricPolyPolygon2D_b3511228) -> None:
         self._gradient = value
@@ -183,7 +183,7 @@ class Texture(object):
         This member can be used together with bitmap and gradient. The parametric polygons color value is used to stroke the returned polygonal outlines.
         """
         return self._hatching
-    
+
     @Hatching.setter
     def Hatching(self, value: XParametricPolyPolygon2D_b3511228) -> None:
         self._hatching = value
@@ -196,7 +196,7 @@ class Texture(object):
         Use 0.0 as the strokeWidth here to indicate hair lines.
         """
         return self._hatch_attributes
-    
+
     @HatchAttributes.setter
     def HatchAttributes(self, value: StrokeAttributes_2dd10f65) -> None:
         self._hatch_attributes = value
@@ -209,7 +209,7 @@ class Texture(object):
         The repeat mode is separated into x and y direction, this is the x direction part. Permissible values are from the TexturingMode constants.
         """
         return self._repeat_mode_x
-    
+
     @RepeatModeX.setter
     def RepeatModeX(self, value: int) -> None:
         self._repeat_mode_x = value
@@ -222,7 +222,7 @@ class Texture(object):
         The repeat mode is separated into x and y direction, this is the y direction part. Permissible values are from the TexturingMode constants.
         """
         return self._repeat_mode_y
-    
+
     @RepeatModeY.setter
     def RepeatModeY(self, value: int) -> None:
         self._repeat_mode_y = value

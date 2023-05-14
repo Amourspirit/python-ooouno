@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class GridSelectionEvent(EventObject_a3d70b03):
         denotes the indexes of the rows being selected at the time the event was fired.
         """
         return self._selected_row_indexes
-    
+
     @SelectedRowIndexes.setter
     def SelectedRowIndexes(self, value: uno.ByteSequence) -> None:
         self._selected_row_indexes = value
@@ -91,7 +91,7 @@ class GridSelectionEvent(EventObject_a3d70b03):
         denotes the indexes of the columns being selected at the time the event was fired.
         """
         return self._selected_column_indexes
-    
+
     @SelectedColumnIndexes.setter
     def SelectedColumnIndexes(self, value: uno.ByteSequence) -> None:
         self._selected_column_indexes = value

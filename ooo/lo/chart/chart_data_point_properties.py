@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -132,7 +132,6 @@ class ChartDataPointProperties(Chart3DBarProperties_22f00ec5, FillProperties_f12
             LibreOffice 5.1
         """
         ...
-
 
 
 __all__ = ['ChartDataPointProperties']

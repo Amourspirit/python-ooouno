@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -49,7 +49,6 @@ class Binding(ListEntrySource_48260fe4, ValueBinding_18de0e7d, XValidator_2a5c0f
         The value supports the service com.sun.star.xml.NamespaceContainer
         """
         ...
-
 
 
 __all__ = ['Binding']

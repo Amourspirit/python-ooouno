@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class NumberFormatCode(object):
         One of KNumberFormatType values.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value
@@ -101,7 +101,7 @@ class NumberFormatCode(object):
         One of KNumberFormatUsage values.
         """
         return self._usage
-    
+
     @Usage.setter
     def Usage(self, value: int) -> None:
         self._usage = value
@@ -112,7 +112,7 @@ class NumberFormatCode(object):
         Format code, for example, \"YYYY-MM-DD\".
         """
         return self._code
-    
+
     @Code.setter
     def Code(self, value: str) -> None:
         self._code = value
@@ -123,7 +123,7 @@ class NumberFormatCode(object):
         Descriptive name of the format for this locale.
         """
         return self._default_name
-    
+
     @DefaultName.setter
     def DefaultName(self, value: str) -> None:
         self._default_name = value
@@ -134,7 +134,7 @@ class NumberFormatCode(object):
         Message identifier to be used if the name of the format is localized.
         """
         return self._name_id
-    
+
     @NameID.setter
     def NameID(self, value: str) -> None:
         self._name_id = value
@@ -145,7 +145,7 @@ class NumberFormatCode(object):
         Index of the code as defined in NumberFormatIndex.
         """
         return self._index
-    
+
     @Index.setter
     def Index(self, value: int) -> None:
         self._index = value
@@ -156,7 +156,7 @@ class NumberFormatCode(object):
         If this format is the default format of the Usage group.
         """
         return self._default
-    
+
     @Default.setter
     def Default(self, value: bool) -> None:
         self._default = value

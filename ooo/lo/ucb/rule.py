@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class Rule(object):
         the rule terms describing the objects to which the rule should be applied.
         """
         return self._terms
-    
+
     @Terms.setter
     def Terms(self, value: typing.Tuple[RuleTerm_7a4b0972, ...]) -> None:
         self._terms = value
@@ -88,7 +88,7 @@ class Rule(object):
         Some RuleActions require a parameter.
         """
         return self._parameter
-    
+
     @Parameter.setter
     def Parameter(self, value: str) -> None:
         self._parameter = value
@@ -101,7 +101,7 @@ class Rule(object):
         The value can be one of the RuleAction constants.
         """
         return self._action
-    
+
     @Action.setter
     def Action(self, value: int) -> None:
         self._action = value

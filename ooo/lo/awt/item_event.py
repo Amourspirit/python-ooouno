@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class ItemEvent(EventObject_a3d70b03):
         specifies which item is newly selected.
         """
         return self._selected
-    
+
     @Selected.setter
     def Selected(self, value: int) -> None:
         self._selected = value
@@ -94,7 +94,7 @@ class ItemEvent(EventObject_a3d70b03):
         specifies which item is newly highlighted.
         """
         return self._highlighted
-    
+
     @Highlighted.setter
     def Highlighted(self, value: int) -> None:
         self._highlighted = value
@@ -105,7 +105,7 @@ class ItemEvent(EventObject_a3d70b03):
         specifies the id of the item.
         """
         return self._item_id
-    
+
     @ItemId.setter
     def ItemId(self, value: int) -> None:
         self._item_id = value

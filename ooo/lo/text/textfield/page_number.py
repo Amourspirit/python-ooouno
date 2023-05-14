@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -64,7 +64,6 @@ class PageNumber(TextField_90260a56):
         if the user text string is set then it is displayed when the value of NumberingType is set to com.sun.star.style.NumberingType.CHAR_SPECIAL
         """
         ...
-
 
 
 __all__ = ['PageNumber']

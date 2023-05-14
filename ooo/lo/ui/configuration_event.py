@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
         contains the resource URL of the user interface element or a configuration manager, which has been changed, inserted or replaced.
         """
         return self._resource_url
-    
+
     @ResourceURL.setter
     def ResourceURL(self, value: str) -> None:
         self._resource_url = value
@@ -105,7 +105,7 @@ class ConfigurationEvent(ContainerEvent_ea50e70):
         The type depends on the specific implementation.
         """
         return self._a_info
-    
+
     @aInfo.setter
     def aInfo(self, value: object) -> None:
         self._a_info = value

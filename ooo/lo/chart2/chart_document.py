@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -36,7 +36,6 @@ class ChartDocument(XChartDocument_dd6f0cd5, XTitled_8d490a0a, XDataReceiver_117
     __ooo_ns__: str = 'com.sun.star.chart2'
     __ooo_full_ns__: str = 'com.sun.star.chart2.ChartDocument'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['ChartDocument']

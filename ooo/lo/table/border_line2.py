@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ class BorderLine2(BorderLine_a3f80af6):
         Style of the border.
         """
         return self._line_style
-    
+
     @LineStyle.setter
     def LineStyle(self, value: int) -> None:
         self._line_style = value
@@ -107,7 +107,7 @@ class BorderLine2(BorderLine_a3f80af6):
         This property is prevailing on the old Out, In and Dist width from BorderLine. If this property is set to 0, then the other widths will be used to guess the border width.
         """
         return self._line_width
-    
+
     @LineWidth.setter
     def LineWidth(self, value: int) -> None:
         self._line_width = value

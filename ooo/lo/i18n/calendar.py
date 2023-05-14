@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class Calendar(object):
         the days of the week, see also CalendarItem.
         """
         return self._days
-    
+
     @Days.setter
     def Days(self, value: typing.Tuple[CalendarItem_a86c0af1, ...]) -> None:
         self._days = value
@@ -102,7 +102,7 @@ class Calendar(object):
         the months of the year, see also CalendarItem.
         """
         return self._months
-    
+
     @Months.setter
     def Months(self, value: typing.Tuple[CalendarItem_a86c0af1, ...]) -> None:
         self._months = value
@@ -113,7 +113,7 @@ class Calendar(object):
         the possible eras, see also CalendarItem.
         """
         return self._eras
-    
+
     @Eras.setter
     def Eras(self, value: typing.Tuple[CalendarItem_a86c0af1, ...]) -> None:
         self._eras = value
@@ -124,7 +124,7 @@ class Calendar(object):
         the ID of the day with which the week begins.
         """
         return self._start_of_week
-    
+
     @StartOfWeek.setter
     def StartOfWeek(self, value: str) -> None:
         self._start_of_week = value
@@ -135,7 +135,7 @@ class Calendar(object):
         how many days must reside in the first week of a year.
         """
         return self._minimum_number_of_days_for_first_week
-    
+
     @MinimumNumberOfDaysForFirstWeek.setter
     def MinimumNumberOfDaysForFirstWeek(self, value: int) -> None:
         self._minimum_number_of_days_for_first_week = value
@@ -146,7 +146,7 @@ class Calendar(object):
         if this is the default calendar for a given locale.
         """
         return self._default
-    
+
     @Default.setter
     def Default(self, value: bool) -> None:
         self._default = value
@@ -157,7 +157,7 @@ class Calendar(object):
         the name of the calendar, for example, Gregorian.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value

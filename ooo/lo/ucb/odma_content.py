@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -46,7 +46,6 @@ class ODMAContent(XPropertiesChangeNotifier_7a7b111c, XPropertyContainer_c600e71
     __ooo_ns__: str = 'com.sun.star.ucb'
     __ooo_full_ns__: str = 'com.sun.star.ucb.ODMAContent'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['ODMAContent']

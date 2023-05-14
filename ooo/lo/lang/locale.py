@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class Locale(object):
         Since LibreOffice 4.2, if the locale can not be represented using only ISO 639 and ISO 3166 codes this field contains the ISO 639-3 reserved for local use code \"qlt\" and a BCP 47 language tag is present in the Variant field.
         """
         return self._language
-    
+
     @Language.setter
     def Language(self, value: str) -> None:
         self._language = value
@@ -97,7 +97,7 @@ class Locale(object):
         If this field contains an empty string, the meaning depends on the context.
         """
         return self._country
-    
+
     @Country.setter
     def Country(self, value: str) -> None:
         self._country = value
@@ -114,7 +114,7 @@ class Locale(object):
         Earlier versions of the documentation mentioned \"vendor andbrowser-specific\" codes but that was never supported. Use of any arbitrary strings in the Variant field that do not form a valid BCP 47 language tag is strongly deprecated.
         """
         return self._variant
-    
+
     @Variant.setter
     def Variant(self, value: str) -> None:
         self._variant = value

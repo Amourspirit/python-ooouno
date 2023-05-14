@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class ParamInfo(object):
         name of the parameter
         """
         return self._a_name
-    
+
     @aName.setter
     def aName(self, value: str) -> None:
         self._a_name = value
@@ -87,7 +87,7 @@ class ParamInfo(object):
         parameter mode: in, out, inout
         """
         return self._a_mode
-    
+
     @aMode.setter
     def aMode(self, value: ParamMode_d7260ca9) -> None:
         self._a_mode = value
@@ -98,7 +98,7 @@ class ParamInfo(object):
         formal type of the parameter
         """
         return self._a_type
-    
+
     @aType.setter
     def aType(self, value: XIdlClass_d63a0c9a) -> None:
         self._a_type = value

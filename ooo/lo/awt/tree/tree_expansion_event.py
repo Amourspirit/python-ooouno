@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class TreeExpansionEvent(EventObject_a3d70b03):
     @property
     def Node(self) -> XTreeNode_baaf0ba0:
         return self._node
-    
+
     @Node.setter
     def Node(self, value: XTreeNode_baaf0ba0) -> None:
         self._node = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,6 @@ class UIElement(XComponent_98dc0ab5, XInitialization_d46c0cca, XUIElement_820509
     __ooo_ns__: str = 'com.sun.star.ui'
     __ooo_full_ns__: str = 'com.sun.star.ui.UIElement'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['UIElement']

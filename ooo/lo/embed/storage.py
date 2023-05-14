@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -95,7 +95,6 @@ class Storage(BaseStorage_ae680b55, XEncryptionProtectedSource_8cdf11a3, XTransa
         allows to get and set the version of the format related to the MediaType.
         """
         ...
-
 
 
 __all__ = ['Storage']

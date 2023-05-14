@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ class Gradient(object):
         specifies the style of the gradient.
         """
         return self._style
-    
+
     @Style.setter
     def Style(self, value: GradientStyle_b02b0b93) -> None:
         self._style = value
@@ -117,7 +117,7 @@ class Gradient(object):
         specifies the color at the start point of the gradient.
         """
         return self._start_color
-    
+
     @StartColor.setter
     def StartColor(self, value: Color_68e908c5) -> None:
         self._start_color = value
@@ -128,7 +128,7 @@ class Gradient(object):
         specifies the color at the end point of the gradient.
         """
         return self._end_color
-    
+
     @EndColor.setter
     def EndColor(self, value: Color_68e908c5) -> None:
         self._end_color = value
@@ -139,7 +139,7 @@ class Gradient(object):
         angle of the gradient in 1/10 degree.
         """
         return self._angle
-    
+
     @Angle.setter
     def Angle(self, value: int) -> None:
         self._angle = value
@@ -150,7 +150,7 @@ class Gradient(object):
         per cent of the total width where just the start color is used.
         """
         return self._border
-    
+
     @Border.setter
     def Border(self, value: int) -> None:
         self._border = value
@@ -163,7 +163,7 @@ class Gradient(object):
         This is effectively the center of the RADIAL, ELLIPTICAL, SQUARE and RECT style gradients.
         """
         return self._x_offset
-    
+
     @XOffset.setter
     def XOffset(self, value: int) -> None:
         self._x_offset = value
@@ -176,7 +176,7 @@ class Gradient(object):
         See previous field.
         """
         return self._y_offset
-    
+
     @YOffset.setter
     def YOffset(self, value: int) -> None:
         self._y_offset = value
@@ -189,7 +189,7 @@ class Gradient(object):
         What that means is undefined.
         """
         return self._start_intensity
-    
+
     @StartIntensity.setter
     def StartIntensity(self, value: int) -> None:
         self._start_intensity = value
@@ -200,7 +200,7 @@ class Gradient(object):
         specifies the intensity at the end point of the gradient.
         """
         return self._end_intensity
-    
+
     @EndIntensity.setter
     def EndIntensity(self, value: int) -> None:
         self._end_intensity = value
@@ -213,7 +213,7 @@ class Gradient(object):
         What that means is undefined.
         """
         return self._step_count
-    
+
     @StepCount.setter
     def StepCount(self, value: int) -> None:
         self._step_count = value

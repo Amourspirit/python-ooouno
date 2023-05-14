@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -109,7 +109,6 @@ class ConnectorShape(ConnectorProperties_3c5e0fcc, LineProperties_f13f0da9, Rota
         this property either holds the shape that the start point of this connector is connected to, or is empty when the start point of the connector is not connected to a shape.
         """
         ...
-
 
 
 __all__ = ['ConnectorShape']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class PivotTableFieldEntry(object):
         Name of the field entry.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -93,7 +93,7 @@ class PivotTableFieldEntry(object):
         The index of the field entry.
         """
         return self._dimension_index
-    
+
     @DimensionIndex.setter
     def DimensionIndex(self, value: int) -> None:
         self._dimension_index = value
@@ -104,7 +104,7 @@ class PivotTableFieldEntry(object):
         The output position of the field entry in its field type.
         """
         return self._dimension_position_index
-    
+
     @DimensionPositionIndex.setter
     def DimensionPositionIndex(self, value: int) -> None:
         self._dimension_position_index = value
@@ -115,7 +115,7 @@ class PivotTableFieldEntry(object):
         Does it have some members that are hidden (filtered).
         """
         return self._has_hidden_members
-    
+
     @HasHiddenMembers.setter
     def HasHiddenMembers(self, value: bool) -> None:
         self._has_hidden_members = value

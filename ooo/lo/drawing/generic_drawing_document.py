@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,6 @@ class GenericDrawingDocument(OfficeDocument_fecd0df2, XPropertySet_bc180bfa, XDr
         if this document is an OLE client, this is the current visible area in 100th mm
         """
         ...
-
 
 
 __all__ = ['GenericDrawingDocument']

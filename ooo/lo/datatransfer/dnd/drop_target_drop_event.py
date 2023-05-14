@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         The drop target context of the current drag operation.
         """
         return self._context
-    
+
     @Context.setter
     def Context(self, value: XDropTargetDropContext_10e81439) -> None:
         self._context = value
@@ -115,7 +115,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         If more than one action is specified, the XDropTargetListener should raise a dialog to ask the user which action to use.
         """
         return self._drop_action
-    
+
     @DropAction.setter
     def DropAction(self, value: int) -> None:
         self._drop_action = value
@@ -126,7 +126,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         The cursor's current x location within the window's coordinates.
         """
         return self._location_x
-    
+
     @LocationX.setter
     def LocationX(self, value: int) -> None:
         self._location_x = value
@@ -137,7 +137,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         The cursor's current y location within the window's coordinates.
         """
         return self._location_y
-    
+
     @LocationY.setter
     def LocationY(self, value: int) -> None:
         self._location_y = value
@@ -148,7 +148,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         This value represents the action or actions supported by the source.
         """
         return self._source_actions
-    
+
     @SourceActions.setter
     def SourceActions(self, value: int) -> None:
         self._source_actions = value
@@ -159,7 +159,7 @@ class DropTargetDropEvent(DropTargetEvent_8d651169):
         The transferable object associated with the drop.
         """
         return self._transferable
-    
+
     @Transferable.setter
     def Transferable(self, value: XTransferable_2d800f38) -> None:
         self._transferable = value

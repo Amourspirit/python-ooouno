@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class LightSource(object):
         the light source's color
         """
         return self._n_diffuse_color
-    
+
     @nDiffuseColor.setter
     def nDiffuseColor(self, value: int) -> None:
         self._n_diffuse_color = value
@@ -91,7 +91,7 @@ class LightSource(object):
         the direction into which the light-source points
         """
         return self._a_direction
-    
+
     @aDirection.setter
     def aDirection(self, value: Direction3D_c9370c0c) -> None:
         self._a_direction = value
@@ -99,7 +99,7 @@ class LightSource(object):
     @property
     def bIsEnabled(self) -> bool:
         return self._b_is_enabled
-    
+
     @bIsEnabled.setter
     def bIsEnabled(self, value: bool) -> None:
         self._b_is_enabled = value
@@ -110,7 +110,7 @@ class LightSource(object):
         When TRUE, the specularity of material is taken into account when lighting an object.
         """
         return self._b_specular
-    
+
     @bSpecular.setter
     def bSpecular(self, value: bool) -> None:
         self._b_specular = value

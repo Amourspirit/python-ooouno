@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class WindowDescriptor(object):
         specifies the type of window.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: WindowClass_99f60ac2) -> None:
         self._type = value
@@ -104,7 +104,7 @@ class WindowDescriptor(object):
         A zero length name means that the VCL creates a blank top, a container, or a simple window. The following service names are defined:
         """
         return self._window_service_name
-    
+
     @WindowServiceName.setter
     def WindowServiceName(self, value: str) -> None:
         self._window_service_name = value
@@ -117,7 +117,7 @@ class WindowDescriptor(object):
         If Parent == 0 && ParentIndex == -1, then the window is on the desktop.
         """
         return self._parent
-    
+
     @Parent.setter
     def Parent(self, value: XWindowPeer_99760ab0) -> None:
         self._parent = value
@@ -130,7 +130,7 @@ class WindowDescriptor(object):
         If Parent == 0 and this struct is a member of an array, then this is the offset from the beginning of the array to the parent. A value of -1 means desktop.
         """
         return self._parent_index
-    
+
     @ParentIndex.setter
     def ParentIndex(self, value: int) -> None:
         self._parent_index = value
@@ -143,7 +143,7 @@ class WindowDescriptor(object):
         This member is ignored if the window attribute is com.sun.star.awt.WindowAttribute.FULLSIZE.
         """
         return self._bounds
-    
+
     @Bounds.setter
     def Bounds(self, value: Rectangle_84b109e9) -> None:
         self._bounds = value
@@ -156,7 +156,7 @@ class WindowDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.WindowAttribute.
         """
         return self._window_attributes
-    
+
     @WindowAttributes.setter
     def WindowAttributes(self, value: int) -> None:
         self._window_attributes = value

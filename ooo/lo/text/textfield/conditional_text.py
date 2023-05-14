@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,6 @@ class ConditionalText(TextField_90260a56):
         contains the text that is displayed if the condition evaluates to TRUE.
         """
         ...
-
 
 
 __all__ = ['ConditionalText']

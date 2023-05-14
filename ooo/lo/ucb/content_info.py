@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class ContentInfo(object):
         Important: The required properties must have one of the following basic data types (in order to make it possible to implement client applications with a small set of generic input methods for the values):
         """
         return self._properties
-    
+
     @Properties.setter
     def Properties(self, value: typing.Tuple[Property_8f4e0a76, ...]) -> None:
         self._properties = value
@@ -94,7 +94,7 @@ class ContentInfo(object):
         This is an implementation specific string characterizing the kind of a content (e.g. \"application/vnd.sun.star.hierarchy-link\"). The value of this member should match the value returned by XContent.getContentType() of an appropriate content.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: str) -> None:
         self._type = value
@@ -111,7 +111,7 @@ class ContentInfo(object):
         The value can be one of the ContentInfoAttribute constants.
         """
         return self._attributes
-    
+
     @Attributes.setter
     def Attributes(self, value: int) -> None:
         self._attributes = value

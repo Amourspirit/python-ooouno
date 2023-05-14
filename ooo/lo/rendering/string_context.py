@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class StringContext(object):
         The complete text, from which a subset is selected by the parameters below.
         """
         return self._text
-    
+
     @Text.setter
     def Text(self, value: str) -> None:
         self._text = value
@@ -93,7 +93,7 @@ class StringContext(object):
         The first character has index 0.
         """
         return self._start_position
-    
+
     @StartPosition.setter
     def StartPosition(self, value: int) -> None:
         self._start_position = value
@@ -106,7 +106,7 @@ class StringContext(object):
         Must be within the range [0,INTMAX].
         """
         return self._length
-    
+
     @Length.setter
     def Length(self, value: int) -> None:
         self._length = value

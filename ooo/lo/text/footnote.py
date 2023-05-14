@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,6 @@ class Footnote(XFootnote_901e0a73, XText_690408ca):
         contains an internal identifier for the use as SequenceNumber property in reference fields.
         """
         ...
-
 
 
 __all__ = ['Footnote']

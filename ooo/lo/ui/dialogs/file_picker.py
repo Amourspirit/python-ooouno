@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -48,7 +48,6 @@ class FilePicker(XFilePicker3_f99e0d60):
         Note that when creating a file picker, the top window is selected as the parent window for the file picker. Make sure that it does not get closed while opening the file picker, as there is a potential race.
         """
         ...
-
 
 __all__ = ['FilePicker']
 

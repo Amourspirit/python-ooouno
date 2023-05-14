@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class EnhancedCustomShapeParameter(object):
         the any can be of type long or double
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value
@@ -78,7 +78,7 @@ class EnhancedCustomShapeParameter(object):
     @property
     def Type(self) -> int:
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value

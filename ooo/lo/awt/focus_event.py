@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class FocusEvent(EventObject_a3d70b03):
         specifies the reason for the focus change as an arithmetic-or combination of FocusChangeReason.
         """
         return self._focus_flags
-    
+
     @FocusFlags.setter
     def FocusFlags(self, value: int) -> None:
         self._focus_flags = value
@@ -96,7 +96,7 @@ class FocusEvent(EventObject_a3d70b03):
         contains the window which gets the focus on a lose focus event.
         """
         return self._next_focus
-    
+
     @NextFocus.setter
     def NextFocus(self, value: XInterface_8f010a43) -> None:
         self._next_focus = value
@@ -107,7 +107,7 @@ class FocusEvent(EventObject_a3d70b03):
         specifies if this focus change event is a temporary change.
         """
         return self._temporary
-    
+
     @Temporary.setter
     def Temporary(self, value: bool) -> None:
         self._temporary = value

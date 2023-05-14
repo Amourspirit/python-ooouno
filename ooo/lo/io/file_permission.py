@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class FilePermission(object):
         target file url
         """
         return self._url
-    
+
     @URL.setter
     def URL(self, value: str) -> None:
         self._url = value
@@ -91,7 +91,7 @@ class FilePermission(object):
         comma separated actions list
         """
         return self._actions
-    
+
     @Actions.setter
     def Actions(self, value: str) -> None:
         self._actions = value

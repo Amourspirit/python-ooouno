@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class ControlCommand(object):
         The number and type of arguments depend on the command and control.
         """
         return self._arguments
-    
+
     @Arguments.setter
     def Arguments(self, value: typing.Tuple[NamedValue_a37a0af3, ...]) -> None:
         self._arguments = value
@@ -88,7 +88,7 @@ class ControlCommand(object):
         specifies the command which should be processed by the toolbar control.
         """
         return self._command
-    
+
     @Command.setter
     def Command(self, value: str) -> None:
         self._command = value

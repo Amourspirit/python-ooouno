@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -45,7 +45,6 @@ class UnoControl(XAccessible_1cbc0eb6, XControl_7a9c098d, XView_5f670847, XWindo
     __ooo_ns__: str = 'com.sun.star.awt'
     __ooo_full_ns__: str = 'com.sun.star.awt.UnoControl'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['UnoControl']

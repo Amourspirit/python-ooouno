@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class DataPilotFieldSortInfo(object):
         contains the data field to sort by if the Mode is DATA
         """
         return self._field
-    
+
     @Field.setter
     def Field(self, value: str) -> None:
         self._field = value
@@ -85,7 +85,7 @@ class DataPilotFieldSortInfo(object):
         TRUE if data are sorted in ascending order, FALSE if in descending order.
         """
         return self._is_ascending
-    
+
     @IsAscending.setter
     def IsAscending(self, value: bool) -> None:
         self._is_ascending = value
@@ -96,7 +96,7 @@ class DataPilotFieldSortInfo(object):
         contains the sort mode
         """
         return self._mode
-    
+
     @Mode.setter
     def Mode(self, value: int) -> None:
         self._mode = value

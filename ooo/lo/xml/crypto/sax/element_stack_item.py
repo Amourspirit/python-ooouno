@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class ElementStackItem(object):
         whether it is a startElement event
         """
         return self._is_start_element_event
-    
+
     @isStartElementEvent.setter
     def isStartElementEvent(self, value: bool) -> None:
         self._is_start_element_event = value
@@ -86,7 +86,7 @@ class ElementStackItem(object):
         the name of the element
         """
         return self._element_name
-    
+
     @elementName.setter
     def elementName(self, value: str) -> None:
         self._element_name = value
@@ -97,7 +97,7 @@ class ElementStackItem(object):
         attribute list for a startElement event
         """
         return self._x_attributes
-    
+
     @xAttributes.setter
     def xAttributes(self, value: XAttributeList_eec70d7b) -> None:
         self._x_attributes = value

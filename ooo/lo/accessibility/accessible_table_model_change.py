@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class AccessibleTableModelChange(object):
         The model change either inserted or removed one or more rows or columns or modified the content of a number of cells. See AccessibleTableModelChangeType for details of the type of the model change.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value
@@ -103,7 +103,7 @@ class AccessibleTableModelChange(object):
         The first row that has been changed or that contains modified cells.
         """
         return self._first_row
-    
+
     @FirstRow.setter
     def FirstRow(self, value: int) -> None:
         self._first_row = value
@@ -116,7 +116,7 @@ class AccessibleTableModelChange(object):
         The last row that has been changed or that contains modified cells.
         """
         return self._last_row
-    
+
     @LastRow.setter
     def LastRow(self, value: int) -> None:
         self._last_row = value
@@ -129,7 +129,7 @@ class AccessibleTableModelChange(object):
         The first column that has been changed or contains modified cells.
         """
         return self._first_column
-    
+
     @FirstColumn.setter
     def FirstColumn(self, value: int) -> None:
         self._first_column = value
@@ -142,7 +142,7 @@ class AccessibleTableModelChange(object):
         The last column that has been changed or contains modified cells.
         """
         return self._last_column
-    
+
     @LastColumn.setter
     def LastColumn(self, value: int) -> None:
         self._last_column = value

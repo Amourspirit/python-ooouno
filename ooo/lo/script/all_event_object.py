@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class AllEventObject(EventObject_a3d70b03):
         The arguments of the original method.
         """
         return self._arguments
-    
+
     @Arguments.setter
     def Arguments(self, value: typing.Tuple[object, ...]) -> None:
         self._arguments = value
@@ -102,7 +102,7 @@ class AllEventObject(EventObject_a3d70b03):
         This field reflects the third parameter of the method XAllListenerAdapterService.createAllListerAdapter().
         """
         return self._helper
-    
+
     @Helper.setter
     def Helper(self, value: object) -> None:
         self._helper = value
@@ -113,7 +113,7 @@ class AllEventObject(EventObject_a3d70b03):
         contains the type of the original listener.
         """
         return self._listener_type
-    
+
     @ListenerType.setter
     def ListenerType(self, value: object) -> None:
         self._listener_type = value
@@ -124,7 +124,7 @@ class AllEventObject(EventObject_a3d70b03):
         The original method name on which the event was fired.
         """
         return self._method_name
-    
+
     @MethodName.setter
     def MethodName(self, value: str) -> None:
         self._method_name = value

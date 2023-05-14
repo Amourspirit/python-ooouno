@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -131,7 +131,7 @@ class LocaleDataItem2(LocaleDataItem_beff0ba1):
         This separator is optional, an empty string denotes no alternative decimal separator shall be used.
         """
         return self._decimal_separator_alternative
-    
+
     @decimalSeparatorAlternative.setter
     def decimalSeparatorAlternative(self, value: str) -> None:
         self._decimal_separator_alternative = value

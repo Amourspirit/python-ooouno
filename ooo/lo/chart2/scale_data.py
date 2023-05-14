@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -118,7 +118,7 @@ class ScaleData(object):
         If the maximum is automatic, this means, each view that represents the model containing this scale, has to calculate a maximum by its own means.
         """
         return self._minimum
-    
+
     @Minimum.setter
     def Minimum(self, value: object) -> None:
         self._minimum = value
@@ -133,7 +133,7 @@ class ScaleData(object):
         If the minimum is automatic, this means, each view that represents the model containing this scale, has to calculate a minimum by its own means.
         """
         return self._maximum
-    
+
     @Maximum.setter
     def Maximum(self, value: object) -> None:
         self._maximum = value
@@ -146,7 +146,7 @@ class ScaleData(object):
         If the any contains a double value that value is used. Otherwise an appropriate value has to be calculated by that instances using Origin.
         """
         return self._origin
-    
+
     @Origin.setter
     def Origin(self, value: object) -> None:
         self._origin = value
@@ -161,7 +161,7 @@ class ScaleData(object):
         Note: Is this a good place for the axis orientation? Two axes may use the same scale, but point into two different directions.
         """
         return self._orientation
-    
+
     @Orientation.setter
     def Orientation(self, value: AxisOrientation_ecba0d6d) -> None:
         self._orientation = value
@@ -169,7 +169,7 @@ class ScaleData(object):
     @property
     def Scaling(self) -> XScaling_97500a65:
         return self._scaling
-    
+
     @Scaling.setter
     def Scaling(self, value: XScaling_97500a65) -> None:
         self._scaling = value
@@ -177,7 +177,7 @@ class ScaleData(object):
     @property
     def Categories(self) -> XLabeledDataSequence_7e1a10c8:
         return self._categories
-    
+
     @Categories.setter
     def Categories(self, value: XLabeledDataSequence_7e1a10c8) -> None:
         self._categories = value
@@ -190,7 +190,7 @@ class ScaleData(object):
         It can be a real number axis or a category axis or something else. AxisType is one value out of the constant group AxisType.
         """
         return self._axis_type
-    
+
     @AxisType.setter
     def AxisType(self, value: int) -> None:
         self._axis_type = value
@@ -201,7 +201,7 @@ class ScaleData(object):
         if true an AxisType CATEGORY is interpreted as DATE if the underlying data given in Categories are dates
         """
         return self._auto_date_axis
-    
+
     @AutoDateAxis.setter
     def AutoDateAxis(self, value: bool) -> None:
         self._auto_date_axis = value
@@ -212,7 +212,7 @@ class ScaleData(object):
         describes whether data points on category or date axis are placed between tickmarks or not if true the maximum on the scale will be expanded for one interval
         """
         return self._shifted_category_position
-    
+
     @ShiftedCategoryPosition.setter
     def ShiftedCategoryPosition(self, value: bool) -> None:
         self._shifted_category_position = value
@@ -223,7 +223,7 @@ class ScaleData(object):
         increment data to be used for not date-time axis
         """
         return self._increment_data
-    
+
     @IncrementData.setter
     def IncrementData(self, value: IncrementData_d2000c6b) -> None:
         self._increment_data = value
@@ -234,7 +234,7 @@ class ScaleData(object):
         increment data to be used in case of date-time axis
         """
         return self._time_increment
-    
+
     @TimeIncrement.setter
     def TimeIncrement(self, value: TimeIncrement_c7e70c4e) -> None:
         self._time_increment = value

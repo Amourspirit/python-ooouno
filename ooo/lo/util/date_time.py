@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class DateTime(object):
         contains the nanoseconds (0 - 999 999 999).
         """
         return self._nano_seconds
-    
+
     @NanoSeconds.setter
     def NanoSeconds(self, value: int) -> None:
         self._nano_seconds = value
@@ -109,7 +109,7 @@ class DateTime(object):
         contains the seconds (0-59).
         """
         return self._seconds
-    
+
     @Seconds.setter
     def Seconds(self, value: int) -> None:
         self._seconds = value
@@ -120,7 +120,7 @@ class DateTime(object):
         contains the minutes (0-59).
         """
         return self._minutes
-    
+
     @Minutes.setter
     def Minutes(self, value: int) -> None:
         self._minutes = value
@@ -131,7 +131,7 @@ class DateTime(object):
         contains the hour (0-23).
         """
         return self._hours
-    
+
     @Hours.setter
     def Hours(self, value: int) -> None:
         self._hours = value
@@ -142,7 +142,7 @@ class DateTime(object):
         is the day of month (1-31 or 0 for a void date).
         """
         return self._day
-    
+
     @Day.setter
     def Day(self, value: int) -> None:
         self._day = value
@@ -153,7 +153,7 @@ class DateTime(object):
         is the month of year (1-12 or 0 for a void date).
         """
         return self._month
-    
+
     @Month.setter
     def Month(self, value: int) -> None:
         self._month = value
@@ -164,7 +164,7 @@ class DateTime(object):
         is the year.
         """
         return self._year
-    
+
     @Year.setter
     def Year(self, value: int) -> None:
         self._year = value
@@ -179,7 +179,7 @@ class DateTime(object):
             LibreOffice 4.1
         """
         return self._is_utc
-    
+
     @IsUTC.setter
     def IsUTC(self, value: bool) -> None:
         self._is_utc = value

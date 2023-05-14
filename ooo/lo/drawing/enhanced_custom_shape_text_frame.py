@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class EnhancedCustomShapeTextFrame(object):
     @property
     def TopLeft(self) -> EnhancedCustomShapeParameterPair_262914a3:
         return self._top_left
-    
+
     @TopLeft.setter
     def TopLeft(self, value: EnhancedCustomShapeParameterPair_262914a3) -> None:
         self._top_left = value
@@ -80,7 +80,7 @@ class EnhancedCustomShapeTextFrame(object):
     @property
     def BottomRight(self) -> EnhancedCustomShapeParameterPair_262914a3:
         return self._bottom_right
-    
+
     @BottomRight.setter
     def BottomRight(self, value: EnhancedCustomShapeParameterPair_262914a3) -> None:
         self._bottom_right = value

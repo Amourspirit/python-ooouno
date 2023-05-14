@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ class GridProperties(LineProperties_f13f0da9):
         Determines, whether the grid should be rendered by the view.
         """
         ...
-
 
 
 __all__ = ['GridProperties']

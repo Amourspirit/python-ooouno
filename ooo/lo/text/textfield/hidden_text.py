@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -58,7 +58,6 @@ class HiddenText(TextField_90260a56):
         This property has to be read/written in file export/import to save and restore the result without initiation of a new evaluation.
         """
         ...
-
 
 
 __all__ = ['HiddenText']

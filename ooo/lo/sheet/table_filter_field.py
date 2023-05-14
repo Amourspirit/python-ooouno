@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class TableFilterField(object):
         specifies how the condition is connected to the previous condition.
         """
         return self._connection
-    
+
     @Connection.setter
     def Connection(self, value: FilterConnection_f01f0d97) -> None:
         self._connection = value
@@ -99,7 +99,7 @@ class TableFilterField(object):
         specifies which field (column) is used for the condition.
         """
         return self._field
-    
+
     @Field.setter
     def Field(self, value: int) -> None:
         self._field = value
@@ -110,7 +110,7 @@ class TableFilterField(object):
         specifies the type of the condition.
         """
         return self._operator
-    
+
     @Operator.setter
     def Operator(self, value: FilterOperator_d5c60cd3) -> None:
         self._operator = value
@@ -121,7 +121,7 @@ class TableFilterField(object):
         selects whether the TableFilterField.NumericValue or the TableFilterField.StringValue is used.
         """
         return self._is_numeric
-    
+
     @IsNumeric.setter
     def IsNumeric(self, value: bool) -> None:
         self._is_numeric = value
@@ -132,7 +132,7 @@ class TableFilterField(object):
         specifies a numeric value for the condition.
         """
         return self._numeric_value
-    
+
     @NumericValue.setter
     def NumericValue(self, value: float) -> None:
         self._numeric_value = value
@@ -143,7 +143,7 @@ class TableFilterField(object):
         specifies a string value for the condition.
         """
         return self._string_value
-    
+
     @StringValue.setter
     def StringValue(self, value: str) -> None:
         self._string_value = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,6 @@ class DesktopTask(XPropertySet_bc180bfa, XDesktopTask_bb4c0bd8, XFramesSupplier_
         use property Frame.Title instead of that
         """
         ...
-
 
 
 __all__ = ['DesktopTask']

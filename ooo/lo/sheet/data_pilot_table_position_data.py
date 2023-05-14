@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class DataPilotTablePositionData(object):
         See DataPilotTablePositionType for how to interpret the value of this parameter.
         """
         return self._position_type
-    
+
     @PositionType.setter
     def PositionType(self, value: int) -> None:
         self._position_type = value
@@ -91,7 +91,7 @@ class DataPilotTablePositionData(object):
         When the value of PositionType is DataPilotTablePositionType.RESULT, DataPilotTablePositionData.PositionData contains an instance of type DataPilotTableResultData, whereas when the value of DataPilotTablePositionData.PositionType is either DataPilotTablePositionType.ROW_HEADER or DataPilotTablePositionType.COLUMN_HEADER, then the PositionData member contains an instance of type DataPilotTableHeaderData.
         """
         return self._position_data
-    
+
     @PositionData.setter
     def PositionData(self, value: object) -> None:
         self._position_data = value

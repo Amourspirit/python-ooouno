@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -68,7 +68,6 @@ class RadioButton(UnoControlRadioButtonModel_6ad310c3, FormControlModel_e2990d22
         In various situations, the RefValue is associated with the control if and only if it is selected.UncheckedRefValue provides an extension of this concept: If present, the value should be associated with the control when it is not selected.
         """
         ...
-
 
 
 __all__ = ['RadioButton']

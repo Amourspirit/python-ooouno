@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class GraphicCrop(object):
         contains the top value to cut (if negative) or to extend (if positive)
         """
         return self._top
-    
+
     @Top.setter
     def Top(self, value: int) -> None:
         self._top = value
@@ -95,7 +95,7 @@ class GraphicCrop(object):
         contains the bottom value to cut (if negative) or to extend (if positive)
         """
         return self._bottom
-    
+
     @Bottom.setter
     def Bottom(self, value: int) -> None:
         self._bottom = value
@@ -106,7 +106,7 @@ class GraphicCrop(object):
         contains the left value to cut (if negative) or to extend (if positive)
         """
         return self._left
-    
+
     @Left.setter
     def Left(self, value: int) -> None:
         self._left = value
@@ -117,7 +117,7 @@ class GraphicCrop(object):
         contains the right value to cut (if negative) or to extend (if positive)
         """
         return self._right
-    
+
     @Right.setter
     def Right(self, value: int) -> None:
         self._right = value

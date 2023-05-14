@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class RelativeSize(object):
         For a western Orientation this is the width.
         """
         return self._primary
-    
+
     @Primary.setter
     def Primary(self, value: float) -> None:
         self._primary = value
@@ -99,7 +99,7 @@ class RelativeSize(object):
         For a western Orientation this is the height.
         """
         return self._secondary
-    
+
     @Secondary.setter
     def Secondary(self, value: float) -> None:
         self._secondary = value

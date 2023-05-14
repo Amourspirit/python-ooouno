@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ class ValuePair(object):
     @property
     def First(self) -> object:
         return self._first
-    
+
     @First.setter
     def First(self, value: object) -> None:
         self._first = value
@@ -74,7 +74,7 @@ class ValuePair(object):
     @property
     def Second(self) -> object:
         return self._second
-    
+
     @Second.setter
     def Second(self, value: object) -> None:
         self._second = value

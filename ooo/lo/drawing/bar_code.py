@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class BarCode(object):
         Supported types - 0:\"QR Code\", 1:\"Code 128\"
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value
@@ -95,7 +95,7 @@ class BarCode(object):
         Text for which Bar Code is made.
         """
         return self._payload
-    
+
     @Payload.setter
     def Payload(self, value: str) -> None:
         self._payload = value
@@ -106,7 +106,7 @@ class BarCode(object):
         Bar Code Error Correction Level.
         """
         return self._error_correction
-    
+
     @ErrorCorrection.setter
     def ErrorCorrection(self, value: int) -> None:
         self._error_correction = value
@@ -119,7 +119,7 @@ class BarCode(object):
         One Border unit is equal to one dot in the generated Bar code.
         """
         return self._border
-    
+
     @Border.setter
     def Border(self, value: int) -> None:
         self._border = value

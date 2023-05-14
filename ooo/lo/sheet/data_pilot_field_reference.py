@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class DataPilotFieldReference(object):
         contains the type of the reference.
         """
         return self._reference_type
-    
+
     @ReferenceType.setter
     def ReferenceType(self, value: int) -> None:
         self._reference_type = value
@@ -89,7 +89,7 @@ class DataPilotFieldReference(object):
         contains the reference field
         """
         return self._reference_field
-    
+
     @ReferenceField.setter
     def ReferenceField(self, value: str) -> None:
         self._reference_field = value
@@ -100,7 +100,7 @@ class DataPilotFieldReference(object):
         selects between a named reference item and using the previous or next item for each item from the reference field.
         """
         return self._reference_item_type
-    
+
     @ReferenceItemType.setter
     def ReferenceItemType(self, value: int) -> None:
         self._reference_item_type = value
@@ -111,7 +111,7 @@ class DataPilotFieldReference(object):
         contains the name of the reference item, when the DataPilotFieldReference.ReferenceItemType is NAMED otherwise is empty
         """
         return self._reference_item_name
-    
+
     @ReferenceItemName.setter
     def ReferenceItemName(self, value: str) -> None:
         self._reference_item_name = value

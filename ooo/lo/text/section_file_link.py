@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class SectionFileLink(object):
         contains the URL of the linked file.
         """
         return self._file_url
-    
+
     @FileURL.setter
     def FileURL(self, value: str) -> None:
         self._file_url = value
@@ -87,7 +87,7 @@ class SectionFileLink(object):
         contains the name of the file filter that is used to load the linked file.
         """
         return self._filter_name
-    
+
     @FilterName.setter
     def FilterName(self, value: str) -> None:
         self._filter_name = value

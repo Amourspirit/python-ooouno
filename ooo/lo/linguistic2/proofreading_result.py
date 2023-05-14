@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class ProofreadingResult(object):
     @property
     def aErrors(self) -> typing.Tuple[SingleProofreadingError_c54812c1, ...]:
         return self._a_errors
-    
+
     @aErrors.setter
     def aErrors(self, value: typing.Tuple[SingleProofreadingError_c54812c1, ...]) -> None:
         self._a_errors = value
@@ -118,7 +118,7 @@ class ProofreadingResult(object):
     @property
     def aProperties(self) -> typing.Tuple[PropertyValue_c9610c73, ...]:
         return self._a_properties
-    
+
     @aProperties.setter
     def aProperties(self, value: typing.Tuple[PropertyValue_c9610c73, ...]) -> None:
         self._a_properties = value
@@ -126,7 +126,7 @@ class ProofreadingResult(object):
     @property
     def aDocumentIdentifier(self) -> str:
         return self._a_document_identifier
-    
+
     @aDocumentIdentifier.setter
     def aDocumentIdentifier(self, value: str) -> None:
         self._a_document_identifier = value
@@ -134,7 +134,7 @@ class ProofreadingResult(object):
     @property
     def xFlatParagraph(self) -> XFlatParagraph_c8310c42:
         return self._x_flat_paragraph
-    
+
     @xFlatParagraph.setter
     def xFlatParagraph(self, value: XFlatParagraph_c8310c42) -> None:
         self._x_flat_paragraph = value
@@ -142,7 +142,7 @@ class ProofreadingResult(object):
     @property
     def aText(self) -> str:
         return self._a_text
-    
+
     @aText.setter
     def aText(self, value: str) -> None:
         self._a_text = value
@@ -150,7 +150,7 @@ class ProofreadingResult(object):
     @property
     def aLocale(self) -> Locale_70d308fa:
         return self._a_locale
-    
+
     @aLocale.setter
     def aLocale(self, value: Locale_70d308fa) -> None:
         self._a_locale = value
@@ -158,7 +158,7 @@ class ProofreadingResult(object):
     @property
     def nStartOfSentencePosition(self) -> int:
         return self._n_start_of_sentence_position
-    
+
     @nStartOfSentencePosition.setter
     def nStartOfSentencePosition(self, value: int) -> None:
         self._n_start_of_sentence_position = value
@@ -166,7 +166,7 @@ class ProofreadingResult(object):
     @property
     def nBehindEndOfSentencePosition(self) -> int:
         return self._n_behind_end_of_sentence_position
-    
+
     @nBehindEndOfSentencePosition.setter
     def nBehindEndOfSentencePosition(self, value: int) -> None:
         self._n_behind_end_of_sentence_position = value
@@ -174,7 +174,7 @@ class ProofreadingResult(object):
     @property
     def nStartOfNextSentencePosition(self) -> int:
         return self._n_start_of_next_sentence_position
-    
+
     @nStartOfNextSentencePosition.setter
     def nStartOfNextSentencePosition(self, value: int) -> None:
         self._n_start_of_next_sentence_position = value
@@ -182,7 +182,7 @@ class ProofreadingResult(object):
     @property
     def xProofreader(self) -> XProofreader_dab0e46:
         return self._x_proofreader
-    
+
     @xProofreader.setter
     def xProofreader(self, value: XProofreader_dab0e46) -> None:
         self._x_proofreader = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class ListEntryEvent(EventObject_a3d70b03):
         The concrete semantics of the value depends on the concrete event being notified.
         """
         return self._entries
-    
+
     @Entries.setter
     def Entries(self, value: typing.Tuple[str, ...]) -> None:
         self._entries = value
@@ -98,7 +98,7 @@ class ListEntryEvent(EventObject_a3d70b03):
         The concrete semantics of the value depends on the concrete event being notified.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: int) -> None:
         self._position = value
@@ -109,7 +109,7 @@ class ListEntryEvent(EventObject_a3d70b03):
         denotes the number of changed entries, in case a change of an entry range is being notified.
         """
         return self._count
-    
+
     @Count.setter
     def Count(self, value: int) -> None:
         self._count = value

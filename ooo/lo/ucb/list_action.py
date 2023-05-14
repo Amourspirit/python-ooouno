@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class ListAction(object):
         Its value does not necessary indicate the new position in the new com.sun.star.sdbc.XResultSet, but a position while doing the changes step by step beginning with the old com.sun.star.sdbc.XResultSet.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: int) -> None:
         self._position = value
@@ -91,7 +91,7 @@ class ListAction(object):
         The count of involved rows.
         """
         return self._count
-    
+
     @Count.setter
     def Count(self, value: int) -> None:
         self._count = value
@@ -104,7 +104,7 @@ class ListAction(object):
         The value of the other members of this struct depend on the value of this member:
         """
         return self._list_action_type
-    
+
     @ListActionType.setter
     def ListActionType(self, value: int) -> None:
         self._list_action_type = value
@@ -115,7 +115,7 @@ class ListAction(object):
         depending on the content of ListAction.ListActionType the ListAction.ActionInfo could contain additional information about the changes happened (see table above).
         """
         return self._action_info
-    
+
     @ActionInfo.setter
     def ActionInfo(self, value: object) -> None:
         self._action_info = value

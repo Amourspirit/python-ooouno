@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class BezierPoint(object):
         This is the position of this point.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: Point_5fb2085e) -> None:
         self._position = value
@@ -98,7 +98,7 @@ class BezierPoint(object):
         This is the position of the first control point.
         """
         return self._control_point1
-    
+
     @ControlPoint1.setter
     def ControlPoint1(self, value: Point_5fb2085e) -> None:
         self._control_point1 = value
@@ -109,7 +109,7 @@ class BezierPoint(object):
         This is the position of the second control point.
         """
         return self._control_point2
-    
+
     @ControlPoint2.setter
     def ControlPoint2(self, value: Point_5fb2085e) -> None:
         self._control_point2 = value

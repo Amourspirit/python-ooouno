@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class Symbol(object):
         determines which of the following members determines the appearance of the symbol.
         """
         return self._style
-    
+
     @Style.setter
     def Style(self, value: SymbolStyle_baa20bd3) -> None:
         self._style = value
@@ -109,7 +109,7 @@ class Symbol(object):
         The given polygon is used as symbol.
         """
         return self._polygon_coords
-    
+
     @PolygonCoords.setter
     def PolygonCoords(self, value: PolyPolygonBezierCoords_7ec5114b) -> None:
         self._polygon_coords = value
@@ -124,7 +124,7 @@ class Symbol(object):
         The default implementation for example currently uses 8 different standard symbols that are matched to the numbers 0 to 7.
         """
         return self._standard_symbol
-    
+
     @StandardSymbol.setter
     def StandardSymbol(self, value: int) -> None:
         self._standard_symbol = value
@@ -135,7 +135,7 @@ class Symbol(object):
         use this graphic as symbol
         """
         return self._graphic
-    
+
     @Graphic.setter
     def Graphic(self, value: XGraphic_a4da0afc) -> None:
         self._graphic = value
@@ -146,7 +146,7 @@ class Symbol(object):
         The size of the symbol in 100th of a mm.
         """
         return self._size
-    
+
     @Size.setter
     def Size(self, value: Size_576707ef) -> None:
         self._size = value
@@ -159,7 +159,7 @@ class Symbol(object):
         Only effective if Style is SymbolStyle.AUTO, SymbolStyle.STANDARD or SymbolStyle.POLYGON.
         """
         return self._border_color
-    
+
     @BorderColor.setter
     def BorderColor(self, value: int) -> None:
         self._border_color = value
@@ -172,7 +172,7 @@ class Symbol(object):
         Only effective if Style is SymbolStyle.AUTO, SymbolStyle.STANDARD or SymbolStyle.POLYGON.
         """
         return self._fill_color
-    
+
     @FillColor.setter
     def FillColor(self, value: int) -> None:
         self._fill_color = value

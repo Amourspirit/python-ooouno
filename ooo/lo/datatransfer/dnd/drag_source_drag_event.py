@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class DragSourceDragEvent(DragSourceEvent_8ccf115c):
         The drag action selected by the current drop target.
         """
         return self._drop_action
-    
+
     @DropAction.setter
     def DropAction(self, value: int) -> None:
         self._drop_action = value
@@ -100,7 +100,7 @@ class DragSourceDragEvent(DragSourceEvent_8ccf115c):
         The user's currently selected drop action.
         """
         return self._user_action
-    
+
     @UserAction.setter
     def UserAction(self, value: int) -> None:
         self._user_action = value

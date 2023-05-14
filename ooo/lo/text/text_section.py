@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -300,7 +300,6 @@ class TextSection(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, 
         allows columns to be set into the text section
         """
         ...
-
 
 
 __all__ = ['TextSection']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -126,7 +126,7 @@ class DateTimeRange(object):
         contains the start nanoseconds (0 - 999 999 999) for the range.
         """
         return self._start_nano_seconds
-    
+
     @StartNanoSeconds.setter
     def StartNanoSeconds(self, value: int) -> None:
         self._start_nano_seconds = value
@@ -137,7 +137,7 @@ class DateTimeRange(object):
         contains the start seconds (0-59) for the range.
         """
         return self._start_seconds
-    
+
     @StartSeconds.setter
     def StartSeconds(self, value: int) -> None:
         self._start_seconds = value
@@ -148,7 +148,7 @@ class DateTimeRange(object):
         contains the start minutes (0-59) for the range.
         """
         return self._start_minutes
-    
+
     @StartMinutes.setter
     def StartMinutes(self, value: int) -> None:
         self._start_minutes = value
@@ -159,7 +159,7 @@ class DateTimeRange(object):
         contains the start hour (0-23) for the range.
         """
         return self._start_hours
-    
+
     @StartHours.setter
     def StartHours(self, value: int) -> None:
         self._start_hours = value
@@ -170,7 +170,7 @@ class DateTimeRange(object):
         contains the start day of month (1-31 or 0 for a void date) for the range.
         """
         return self._start_day
-    
+
     @StartDay.setter
     def StartDay(self, value: int) -> None:
         self._start_day = value
@@ -181,7 +181,7 @@ class DateTimeRange(object):
         contains the start month of year (1-12 or 0 for a void date) for the range.
         """
         return self._start_month
-    
+
     @StartMonth.setter
     def StartMonth(self, value: int) -> None:
         self._start_month = value
@@ -192,7 +192,7 @@ class DateTimeRange(object):
         contains the start year for the range.
         """
         return self._start_year
-    
+
     @StartYear.setter
     def StartYear(self, value: int) -> None:
         self._start_year = value
@@ -203,7 +203,7 @@ class DateTimeRange(object):
         contains the end nanoseconds (0 - 999 999 999) for the range.
         """
         return self._end_nano_seconds
-    
+
     @EndNanoSeconds.setter
     def EndNanoSeconds(self, value: int) -> None:
         self._end_nano_seconds = value
@@ -214,7 +214,7 @@ class DateTimeRange(object):
         contains the end seconds (0-59) for the range.
         """
         return self._end_seconds
-    
+
     @EndSeconds.setter
     def EndSeconds(self, value: int) -> None:
         self._end_seconds = value
@@ -225,7 +225,7 @@ class DateTimeRange(object):
         contains the end minutes (0-59) for the range.
         """
         return self._end_minutes
-    
+
     @EndMinutes.setter
     def EndMinutes(self, value: int) -> None:
         self._end_minutes = value
@@ -236,7 +236,7 @@ class DateTimeRange(object):
         contains the end hour (0-23) for the range.
         """
         return self._end_hours
-    
+
     @EndHours.setter
     def EndHours(self, value: int) -> None:
         self._end_hours = value
@@ -247,7 +247,7 @@ class DateTimeRange(object):
         contains the end day of month (1-31 or 0 for a void date) for the range.
         """
         return self._end_day
-    
+
     @EndDay.setter
     def EndDay(self, value: int) -> None:
         self._end_day = value
@@ -258,7 +258,7 @@ class DateTimeRange(object):
         contains the end month of year (1-12 or 0 for a void date) for the range.
         """
         return self._end_month
-    
+
     @EndMonth.setter
     def EndMonth(self, value: int) -> None:
         self._end_month = value
@@ -269,7 +269,7 @@ class DateTimeRange(object):
         contains the end year for the range.
         """
         return self._end_year
-    
+
     @EndYear.setter
     def EndYear(self, value: int) -> None:
         self._end_year = value
@@ -284,7 +284,7 @@ class DateTimeRange(object):
             LibreOffice 4.1
         """
         return self._is_utc
-    
+
     @IsUTC.setter
     def IsUTC(self, value: bool) -> None:
         self._is_utc = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -124,7 +124,7 @@ class AffineMatrix3D(object):
         The top, left matrix entry.
         """
         return self._m00
-    
+
     @m00.setter
     def m00(self, value: float) -> None:
         self._m00 = value
@@ -135,7 +135,7 @@ class AffineMatrix3D(object):
         The top, left middle matrix entry.
         """
         return self._m01
-    
+
     @m01.setter
     def m01(self, value: float) -> None:
         self._m01 = value
@@ -146,7 +146,7 @@ class AffineMatrix3D(object):
         The top, right middle matrix entry.
         """
         return self._m02
-    
+
     @m02.setter
     def m02(self, value: float) -> None:
         self._m02 = value
@@ -157,7 +157,7 @@ class AffineMatrix3D(object):
         The top, right matrix entry.
         """
         return self._m03
-    
+
     @m03.setter
     def m03(self, value: float) -> None:
         self._m03 = value
@@ -168,7 +168,7 @@ class AffineMatrix3D(object):
         The middle, left matrix entry.
         """
         return self._m10
-    
+
     @m10.setter
     def m10(self, value: float) -> None:
         self._m10 = value
@@ -179,7 +179,7 @@ class AffineMatrix3D(object):
         The middle, middle left matrix entry.
         """
         return self._m11
-    
+
     @m11.setter
     def m11(self, value: float) -> None:
         self._m11 = value
@@ -190,7 +190,7 @@ class AffineMatrix3D(object):
         The middle, middle right matrix entry.
         """
         return self._m12
-    
+
     @m12.setter
     def m12(self, value: float) -> None:
         self._m12 = value
@@ -201,7 +201,7 @@ class AffineMatrix3D(object):
         The middle, right matrix entry.
         """
         return self._m13
-    
+
     @m13.setter
     def m13(self, value: float) -> None:
         self._m13 = value
@@ -212,7 +212,7 @@ class AffineMatrix3D(object):
         The bottom, left matrix entry.
         """
         return self._m20
-    
+
     @m20.setter
     def m20(self, value: float) -> None:
         self._m20 = value
@@ -223,7 +223,7 @@ class AffineMatrix3D(object):
         The bottom, middle left matrix entry.
         """
         return self._m21
-    
+
     @m21.setter
     def m21(self, value: float) -> None:
         self._m21 = value
@@ -234,7 +234,7 @@ class AffineMatrix3D(object):
         The bottom, middle right matrix entry.
         """
         return self._m22
-    
+
     @m22.setter
     def m22(self, value: float) -> None:
         self._m22 = value
@@ -245,7 +245,7 @@ class AffineMatrix3D(object):
         The bottom, right matrix entry.
         """
         return self._m23
-    
+
     @m23.setter
     def m23(self, value: float) -> None:
         self._m23 = value

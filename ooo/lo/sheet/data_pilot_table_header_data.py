@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class DataPilotTableHeaderData(object):
         number of dimensions
         """
         return self._dimension
-    
+
     @Dimension.setter
     def Dimension(self, value: int) -> None:
         self._dimension = value
@@ -99,7 +99,7 @@ class DataPilotTableHeaderData(object):
         hierarchy
         """
         return self._hierarchy
-    
+
     @Hierarchy.setter
     def Hierarchy(self, value: int) -> None:
         self._hierarchy = value
@@ -110,7 +110,7 @@ class DataPilotTableHeaderData(object):
         level
         """
         return self._level
-    
+
     @Level.setter
     def Level(self, value: int) -> None:
         self._level = value
@@ -121,7 +121,7 @@ class DataPilotTableHeaderData(object):
         flag
         """
         return self._flags
-    
+
     @Flags.setter
     def Flags(self, value: int) -> None:
         self._flags = value
@@ -132,7 +132,7 @@ class DataPilotTableHeaderData(object):
         member name
         """
         return self._member_name
-    
+
     @MemberName.setter
     def MemberName(self, value: str) -> None:
         self._member_name = value

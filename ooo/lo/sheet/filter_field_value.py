@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class FilterFieldValue(object):
         selects whether the TableFilterFieldValue.NumericValue or the TableFilterFieldValue.StringValue is used.
         """
         return self._is_numeric
-    
+
     @IsNumeric.setter
     def IsNumeric(self, value: bool) -> None:
         self._is_numeric = value
@@ -97,7 +97,7 @@ class FilterFieldValue(object):
         specifies a numeric value for the condition.
         """
         return self._numeric_value
-    
+
     @NumericValue.setter
     def NumericValue(self, value: float) -> None:
         self._numeric_value = value
@@ -108,7 +108,7 @@ class FilterFieldValue(object):
         specifies a string value for the condition.
         """
         return self._string_value
-    
+
     @StringValue.setter
     def StringValue(self, value: str) -> None:
         self._string_value = value
@@ -123,7 +123,7 @@ class FilterFieldValue(object):
             LibreOffice 7.2
         """
         return self._filter_type
-    
+
     @FilterType.setter
     def FilterType(self, value: int) -> None:
         self._filter_type = value
@@ -138,7 +138,7 @@ class FilterFieldValue(object):
             LibreOffice 7.2
         """
         return self._color_value
-    
+
     @ColorValue.setter
     def ColorValue(self, value: Color_68e908c5) -> None:
         self._color_value = value

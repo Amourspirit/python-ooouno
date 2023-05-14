@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class DictionaryEvent(EventObject_a3d70b03):
         This must be the value of a single flag. No combinations are allowed.
         """
         return self._n_event
-    
+
     @nEvent.setter
     def nEvent(self, value: int) -> None:
         self._n_event = value
@@ -97,7 +97,7 @@ class DictionaryEvent(EventObject_a3d70b03):
         It must be set if an entry was added or deleted, otherwise it should be empty.
         """
         return self._x_dictionary_entry
-    
+
     @xDictionaryEntry.setter
     def xDictionaryEntry(self, value: XDictionaryEntry_49ef0ff5) -> None:
         self._x_dictionary_entry = value

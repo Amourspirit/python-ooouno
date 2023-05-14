@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class EllipticalArc(object):
         Start point of the arc.
         """
         return self._start_position
-    
+
     @StartPosition.setter
     def StartPosition(self, value: RealPoint2D_d6e70c78) -> None:
         self._start_position = value
@@ -114,7 +114,7 @@ class EllipticalArc(object):
         End point of the arc.
         """
         return self._end_position
-    
+
     @EndPosition.setter
     def EndPosition(self, value: RealPoint2D_d6e70c78) -> None:
         self._end_position = value
@@ -125,7 +125,7 @@ class EllipticalArc(object):
         Main radius in x direction of the ellipse this arc is part of.
         """
         return self._radius_x
-    
+
     @RadiusX.setter
     def RadiusX(self, value: float) -> None:
         self._radius_x = value
@@ -136,7 +136,7 @@ class EllipticalArc(object):
         Main radius in y direction of the ellipse this arc is part of.
         """
         return self._radius_y
-    
+
     @RadiusY.setter
     def RadiusY(self, value: float) -> None:
         self._radius_y = value
@@ -147,7 +147,7 @@ class EllipticalArc(object):
         Rotation angle of the x axis of the ellipse relative to the x axis of the reference coordinate system.
         """
         return self._x_axis_rotation
-    
+
     @XAxisRotation.setter
     def XAxisRotation(self, value: float) -> None:
         self._x_axis_rotation = value
@@ -158,7 +158,7 @@ class EllipticalArc(object):
         If TRUE, and there's a choice, take the longer one of two arcs connecting start and end point.
         """
         return self._is_large_arc
-    
+
     @IsLargeArc.setter
     def IsLargeArc(self, value: bool) -> None:
         self._is_large_arc = value
@@ -169,7 +169,7 @@ class EllipticalArc(object):
         If TRUE, and there's a choice, take the arc that goes clock-wise from start to end point.
         """
         return self._is_clockwise_sweep
-    
+
     @IsClockwiseSweep.setter
     def IsClockwiseSweep(self, value: bool) -> None:
         self._is_clockwise_sweep = value

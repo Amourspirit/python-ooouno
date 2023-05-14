@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class Matrix2D(object):
         The top, left matrix entry.
         """
         return self._m00
-    
+
     @m00.setter
     def m00(self, value: float) -> None:
         self._m00 = value
@@ -105,7 +105,7 @@ class Matrix2D(object):
         The top, right matrix entry.
         """
         return self._m01
-    
+
     @m01.setter
     def m01(self, value: float) -> None:
         self._m01 = value
@@ -116,7 +116,7 @@ class Matrix2D(object):
         The bottom, left matrix entry.
         """
         return self._m10
-    
+
     @m10.setter
     def m10(self, value: float) -> None:
         self._m10 = value
@@ -127,7 +127,7 @@ class Matrix2D(object):
         The bottom, right matrix entry.
         """
         return self._m11
-    
+
     @m11.setter
     def m11(self, value: float) -> None:
         self._m11 = value

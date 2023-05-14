@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class NamedDatabaseObject(object):
         This member is one of the DatabaseObject or DatabaseObjectContainer constants.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value
@@ -97,7 +97,7 @@ class NamedDatabaseObject(object):
         In case of the virtual folders denoted by DatabaseObjectContainer.TABLES, DatabaseObjectContainer.QUERIES, DatabaseObjectContainer.DATA_SOURCE, DatabaseObjectContainer.FORMS or DatabaseObjectContainer.REPORTS, this denotes the name of the data source (as denoted by com.sun.star.sdb.DataSource.Name)
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -135,7 +135,7 @@ class TableBorder(object):
         determines the line style at the top edge.
         """
         return self._top_line
-    
+
     @TopLine.setter
     def TopLine(self, value: BorderLine_a3f80af6) -> None:
         self._top_line = value
@@ -146,7 +146,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.TopLine is used.
         """
         return self._is_top_line_valid
-    
+
     @IsTopLineValid.setter
     def IsTopLineValid(self, value: bool) -> None:
         self._is_top_line_valid = value
@@ -157,7 +157,7 @@ class TableBorder(object):
         determines the line style at the bottom edge.
         """
         return self._bottom_line
-    
+
     @BottomLine.setter
     def BottomLine(self, value: BorderLine_a3f80af6) -> None:
         self._bottom_line = value
@@ -168,7 +168,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.BottomLine is used.
         """
         return self._is_bottom_line_valid
-    
+
     @IsBottomLineValid.setter
     def IsBottomLineValid(self, value: bool) -> None:
         self._is_bottom_line_valid = value
@@ -179,7 +179,7 @@ class TableBorder(object):
         determines the line style at the left edge.
         """
         return self._left_line
-    
+
     @LeftLine.setter
     def LeftLine(self, value: BorderLine_a3f80af6) -> None:
         self._left_line = value
@@ -190,7 +190,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.LeftLine is used.
         """
         return self._is_left_line_valid
-    
+
     @IsLeftLineValid.setter
     def IsLeftLineValid(self, value: bool) -> None:
         self._is_left_line_valid = value
@@ -201,7 +201,7 @@ class TableBorder(object):
         determines the line style at the right edge.
         """
         return self._right_line
-    
+
     @RightLine.setter
     def RightLine(self, value: BorderLine_a3f80af6) -> None:
         self._right_line = value
@@ -212,7 +212,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.RightLine is used.
         """
         return self._is_right_line_valid
-    
+
     @IsRightLineValid.setter
     def IsRightLineValid(self, value: bool) -> None:
         self._is_right_line_valid = value
@@ -223,7 +223,7 @@ class TableBorder(object):
         determines the line style of horizontal lines for the inner part of a cell range.
         """
         return self._horizontal_line
-    
+
     @HorizontalLine.setter
     def HorizontalLine(self, value: BorderLine_a3f80af6) -> None:
         self._horizontal_line = value
@@ -234,7 +234,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.HorizontalLine is used.
         """
         return self._is_horizontal_line_valid
-    
+
     @IsHorizontalLineValid.setter
     def IsHorizontalLineValid(self, value: bool) -> None:
         self._is_horizontal_line_valid = value
@@ -245,7 +245,7 @@ class TableBorder(object):
         determines the line style of vertical lines for the inner part of a cell range.
         """
         return self._vertical_line
-    
+
     @VerticalLine.setter
     def VerticalLine(self, value: BorderLine_a3f80af6) -> None:
         self._vertical_line = value
@@ -256,7 +256,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.VerticalLine is used.
         """
         return self._is_vertical_line_valid
-    
+
     @IsVerticalLineValid.setter
     def IsVerticalLineValid(self, value: bool) -> None:
         self._is_vertical_line_valid = value
@@ -267,7 +267,7 @@ class TableBorder(object):
         contains the distance between the lines and other contents.
         """
         return self._distance
-    
+
     @Distance.setter
     def Distance(self, value: int) -> None:
         self._distance = value
@@ -278,7 +278,7 @@ class TableBorder(object):
         specifies whether the value of TableBorder.Distance is used.
         """
         return self._is_distance_valid
-    
+
     @IsDistanceValid.setter
     def IsDistanceValid(self, value: bool) -> None:
         self._is_distance_valid = value

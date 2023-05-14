@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class AtomClassRequest(object):
         the atoms requested from class AtomClassRequest.atomClass().
         """
         return self._atoms
-    
+
     @atoms.setter
     def atoms(self, value: uno.ByteSequence) -> None:
         self._atoms = value
@@ -82,7 +82,7 @@ class AtomClassRequest(object):
         the class of the atoms described in member AtomClassRequest.atoms().
         """
         return self._atom_class
-    
+
     @atomClass.setter
     def atomClass(self, value: int) -> None:
         self._atom_class = value

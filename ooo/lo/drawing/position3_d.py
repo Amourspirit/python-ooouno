@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class Position3D(object):
         the position on the X-Axis in the 3D room in 100th of millimeters
         """
         return self._position_x
-    
+
     @PositionX.setter
     def PositionX(self, value: float) -> None:
         self._position_x = value
@@ -85,7 +85,7 @@ class Position3D(object):
         the position on the Y-Axis in the 3D room in 100th of millimeters
         """
         return self._position_y
-    
+
     @PositionY.setter
     def PositionY(self, value: float) -> None:
         self._position_y = value
@@ -96,7 +96,7 @@ class Position3D(object):
         the position on the Z-Axis in the 3D room in 100th of millimeters
         """
         return self._position_z
-    
+
     @PositionZ.setter
     def PositionZ(self, value: float) -> None:
         self._position_z = value

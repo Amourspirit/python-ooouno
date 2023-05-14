@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class DispatchStatement(object):
         That means the Arguments parameter of a corresponding XDispatch.dispatch() request.
         """
         return self._a_args
-    
+
     @aArgs.setter
     def aArgs(self, value: typing.Tuple[PropertyValue_c9610c73, ...]) -> None:
         self._a_args = value
@@ -102,7 +102,7 @@ class DispatchStatement(object):
         That means the URL parameter of a corresponding XDispatchProvider.queryDispatch() request.
         """
         return self._a_command
-    
+
     @aCommand.setter
     def aCommand(self, value: str) -> None:
         self._a_command = value
@@ -115,7 +115,7 @@ class DispatchStatement(object):
         That means the TargetFrameName parameter of a corresponding XDispatchProvider.queryDispatch() request.
         """
         return self._a_target
-    
+
     @aTarget.setter
     def aTarget(self, value: str) -> None:
         self._a_target = value
@@ -128,7 +128,7 @@ class DispatchStatement(object):
         That means the SearchFlags parameter of a corresponding XDispatchProvider.queryDispatch() request.
         """
         return self._n_flags
-    
+
     @nFlags.setter
     def nFlags(self, value: int) -> None:
         self._n_flags = value
@@ -139,7 +139,7 @@ class DispatchStatement(object):
         specifies if this statement should be recorded as commented out or not
         """
         return self._b_is_comment
-    
+
     @bIsComment.setter
     def bIsComment(self, value: bool) -> None:
         self._b_is_comment = value

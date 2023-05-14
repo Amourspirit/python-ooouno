@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -128,7 +128,6 @@ class ParagraphStyle(ParagraphProperties_1e240efc, Style_7336094a, ParaUserDefin
         If the value of ParaTopMarginRelative is 100 the current ParaTopMargin value is used.
         """
         ...
-
 
 
 __all__ = ['ParagraphStyle']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class ForbiddenCharacters(object):
         Characters forbidden at the start of a line.
         """
         return self._begin_line
-    
+
     @beginLine.setter
     def beginLine(self, value: str) -> None:
         self._begin_line = value
@@ -83,7 +83,7 @@ class ForbiddenCharacters(object):
         Characters forbidden at the end of a line.
         """
         return self._end_line
-    
+
     @endLine.setter
     def endLine(self, value: str) -> None:
         self._end_line = value

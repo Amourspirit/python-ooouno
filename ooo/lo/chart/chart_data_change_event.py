@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
         specifies the type of change to the data.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: ChartDataChangeType_16cc0e6e) -> None:
         self._type = value
@@ -103,7 +103,7 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
         specifies the column number in which the changes begin.
         """
         return self._start_column
-    
+
     @StartColumn.setter
     def StartColumn(self, value: int) -> None:
         self._start_column = value
@@ -114,7 +114,7 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
         specifies the column number in which the changes end.
         """
         return self._end_column
-    
+
     @EndColumn.setter
     def EndColumn(self, value: int) -> None:
         self._end_column = value
@@ -125,7 +125,7 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
         specifies the row number in which the changes begin.
         """
         return self._start_row
-    
+
     @StartRow.setter
     def StartRow(self, value: int) -> None:
         self._start_row = value
@@ -136,7 +136,7 @@ class ChartDataChangeEvent(EventObject_a3d70b03):
         specifies the row number in which the changes end.
         """
         return self._end_row
-    
+
     @EndRow.setter
     def EndRow(self, value: int) -> None:
         self._end_row = value

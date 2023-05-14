@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class TableBorderDistances(object):
         contains the distance between the top lines and other contents.
         """
         return self._top_distance
-    
+
     @TopDistance.setter
     def TopDistance(self, value: int) -> None:
         self._top_distance = value
@@ -109,7 +109,7 @@ class TableBorderDistances(object):
         specifies whether the value of TableBorder.TopDistance is used.
         """
         return self._is_top_distance_valid
-    
+
     @IsTopDistanceValid.setter
     def IsTopDistanceValid(self, value: bool) -> None:
         self._is_top_distance_valid = value
@@ -120,7 +120,7 @@ class TableBorderDistances(object):
         contains the distance between the bottom lines and other contents.
         """
         return self._bottom_distance
-    
+
     @BottomDistance.setter
     def BottomDistance(self, value: int) -> None:
         self._bottom_distance = value
@@ -131,7 +131,7 @@ class TableBorderDistances(object):
         specifies whether the value of TableBorder.BottomDistance is used.
         """
         return self._is_bottom_distance_valid
-    
+
     @IsBottomDistanceValid.setter
     def IsBottomDistanceValid(self, value: bool) -> None:
         self._is_bottom_distance_valid = value
@@ -142,7 +142,7 @@ class TableBorderDistances(object):
         contains the distance between the left lines and other contents.
         """
         return self._left_distance
-    
+
     @LeftDistance.setter
     def LeftDistance(self, value: int) -> None:
         self._left_distance = value
@@ -153,7 +153,7 @@ class TableBorderDistances(object):
         specifies whether the value of TableBorder.LeftDistance is used.
         """
         return self._is_left_distance_valid
-    
+
     @IsLeftDistanceValid.setter
     def IsLeftDistanceValid(self, value: bool) -> None:
         self._is_left_distance_valid = value
@@ -164,7 +164,7 @@ class TableBorderDistances(object):
         contains the distance between the right lines and other contents.
         """
         return self._right_distance
-    
+
     @RightDistance.setter
     def RightDistance(self, value: int) -> None:
         self._right_distance = value
@@ -175,7 +175,7 @@ class TableBorderDistances(object):
         specifies whether the value of TableBorder.RightDistance is used.
         """
         return self._is_right_distance_valid
-    
+
     @IsRightDistanceValid.setter
     def IsRightDistanceValid(self, value: bool) -> None:
         self._is_right_distance_valid = value

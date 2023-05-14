@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class ChartDataValue(object):
         value by itself.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: float) -> None:
         self._value = value
@@ -91,7 +91,7 @@ class ChartDataValue(object):
         highest possible error value.
         """
         return self._high_error
-    
+
     @HighError.setter
     def HighError(self, value: float) -> None:
         self._high_error = value
@@ -102,7 +102,7 @@ class ChartDataValue(object):
         lowest possible error value.
         """
         return self._low_error
-    
+
     @LowError.setter
     def LowError(self, value: float) -> None:
         self._low_error = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,6 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
         Determines, whether the legend should be rendered by the view.
         """
         ...
-
 
 
 __all__ = ['Legend']

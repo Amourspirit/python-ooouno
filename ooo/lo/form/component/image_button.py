@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -67,7 +67,6 @@ class ImageButton(UnoControlImageControlModel_7b36111c, FormControlModel_e2990d2
         This property is evaluated if the button is of type URL.
         """
         ...
-
 
 
 __all__ = ['ImageButton']

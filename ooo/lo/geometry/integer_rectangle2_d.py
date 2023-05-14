@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class IntegerRectangle2D(object):
         X coordinate of upper left corner.
         """
         return self._x1
-    
+
     @X1.setter
     def X1(self, value: int) -> None:
         self._x1 = value
@@ -93,7 +93,7 @@ class IntegerRectangle2D(object):
         Y coordinate of upper left corner.
         """
         return self._y1
-    
+
     @Y1.setter
     def Y1(self, value: int) -> None:
         self._y1 = value
@@ -106,7 +106,7 @@ class IntegerRectangle2D(object):
         Must be greater than X1 for non-empty rectangles.
         """
         return self._x2
-    
+
     @X2.setter
     def X2(self, value: int) -> None:
         self._x2 = value
@@ -119,7 +119,7 @@ class IntegerRectangle2D(object):
         Must be greater than y1 for non-empty rectangles.
         """
         return self._y2
-    
+
     @Y2.setter
     def Y2(self, value: int) -> None:
         self._y2 = value

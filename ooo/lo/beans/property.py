@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class Property(object):
         The name is unique within an XPropertySet. Upper and lower case are distinguished.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -95,7 +95,7 @@ class Property(object):
         It may be -1 if the implementation has no handle. You can use this handle to get values from the XFastPropertySet.
         """
         return self._handle
-    
+
     @Handle.setter
     def Handle(self, value: int) -> None:
         self._handle = value
@@ -108,7 +108,7 @@ class Property(object):
         If the property has multiple types or the type is not known, but not an any, then void must be returned.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: object) -> None:
         self._type = value
@@ -119,7 +119,7 @@ class Property(object):
         This field may contain zero or more constants of the PropertyAttribute constants group.
         """
         return self._attributes
-    
+
     @Attributes.setter
     def Attributes(self, value: int) -> None:
         self._attributes = value

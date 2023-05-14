@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -134,7 +134,6 @@ class GraphicDescriptor(XPropertySet_bc180bfa):
         This property is always TRUE for vector graphics. The status of this flag is not always clear if the graphic was not loaded at all, e.g. in case of just querying for the GraphicDescriptor.
         """
         ...
-
 
 
 __all__ = ['GraphicDescriptor']

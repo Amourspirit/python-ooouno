@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -32,7 +32,6 @@ class RemoteAccessContentProvider(ContentProvider_c8530c68):
     __ooo_ns__: str = 'com.sun.star.ucb'
     __ooo_full_ns__: str = 'com.sun.star.ucb.RemoteAccessContentProvider'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['RemoteAccessContentProvider']

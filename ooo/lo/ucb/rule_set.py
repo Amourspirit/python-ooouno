@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class RuleSet(object):
         contains a number of rules.
         """
         return self._rules
-    
+
     @Rules.setter
     def Rules(self, value: typing.Tuple[Rule_571307da, ...]) -> None:
         self._rules = value
@@ -84,7 +84,7 @@ class RuleSet(object):
         is a flag indicating whether the rules apply to folders, too.
         """
         return self._handle_folder
-    
+
     @HandleFolder.setter
     def HandleFolder(self, value: bool) -> None:
         self._handle_folder = value

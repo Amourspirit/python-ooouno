@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class MenuSingleChange(object):
         unique ID of this menu item
         """
         return self._id
-    
+
     @ID.setter
     def ID(self, value: int) -> None:
         self._id = value
@@ -85,7 +85,7 @@ class MenuSingleChange(object):
         ID identifying the type of change in the any type change.
         """
         return self._change_id
-    
+
     @ChangeID.setter
     def ChangeID(self, value: int) -> None:
         self._change_id = value
@@ -96,7 +96,7 @@ class MenuSingleChange(object):
         value of change
         """
         return self._change
-    
+
     @Change.setter
     def Change(self, value: object) -> None:
         self._change = value

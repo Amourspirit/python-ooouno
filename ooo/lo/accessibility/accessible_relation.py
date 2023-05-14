@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class AccessibleRelation(object):
         The content of this set is undefined if the relation's type is INVALID. The set must not contain references to one object more than once.
         """
         return self._target_set
-    
+
     @TargetSet.setter
     def TargetSet(self, value: typing.Tuple[XInterface_8f010a43, ...]) -> None:
         self._target_set = value
@@ -92,7 +92,7 @@ class AccessibleRelation(object):
         Its value has to be one of the constants defined by AccessibleRelationType. If that value is INVALID then the whole relation is regarded as invalid. The content of the TargetSet is then undefined.
         """
         return self._relation_type
-    
+
     @RelationType.setter
     def RelationType(self, value: int) -> None:
         self._relation_type = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
         This is the only member that is always set. The values of the other members depend on the configuration change type and may or may not be set.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: str) -> None:
         self._type = value
@@ -112,7 +112,7 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
         May be an empty reference.
         """
         return self._configuration
-    
+
     @Configuration.setter
     def Configuration(self, value: XConfiguration_8f0511a0) -> None:
         self._configuration = value
@@ -123,7 +123,7 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
         The resource id that is part of the configuration change.
         """
         return self._resource_id
-    
+
     @ResourceId.setter
     def ResourceId(self, value: XResourceId_5be3103d) -> None:
         self._resource_id = value
@@ -136,7 +136,7 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
         May be an empty reference.
         """
         return self._resource_object
-    
+
     @ResourceObject.setter
     def ResourceObject(self, value: XInterface_8f010a43) -> None:
         self._resource_object = value
@@ -147,7 +147,7 @@ class ConfigurationChangeEvent(EventObject_a3d70b03):
         Each listener is called with exactly the UserData that was given when the listener was registered.
         """
         return self._user_data
-    
+
     @UserData.setter
     def UserData(self, value: object) -> None:
         self._user_data = value

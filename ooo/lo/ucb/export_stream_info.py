@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class ExportStreamInfo(object):
         the output stream to export into.
         """
         return self._target
-    
+
     @Target.setter
     def Target(self, value: XOutputStream_a4e00b35) -> None:
         self._target = value
@@ -82,7 +82,7 @@ class ExportStreamInfo(object):
         tries hard to make message (document) bodies available for export.
         """
         return self._force_bodies
-    
+
     @ForceBodies.setter
     def ForceBodies(self, value: bool) -> None:
         self._force_bodies = value

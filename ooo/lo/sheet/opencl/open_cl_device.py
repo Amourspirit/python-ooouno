@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class OpenCLDevice(object):
         The name of the device as returned by OpenCL.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -84,7 +84,7 @@ class OpenCLDevice(object):
         The vendor of the device as returned by OpenCL.
         """
         return self._vendor
-    
+
     @Vendor.setter
     def Vendor(self, value: str) -> None:
         self._vendor = value
@@ -95,7 +95,7 @@ class OpenCLDevice(object):
         The driver version as returned by OpenCL.
         """
         return self._driver
-    
+
     @Driver.setter
     def Driver(self, value: str) -> None:
         self._driver = value

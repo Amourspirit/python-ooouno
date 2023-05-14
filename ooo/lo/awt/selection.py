@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class Selection(object):
         specifies the lower limit of the range.
         """
         return self._min
-    
+
     @Min.setter
     def Min(self, value: int) -> None:
         self._min = value
@@ -81,7 +81,7 @@ class Selection(object):
         specifies the upper limit of the range.
         """
         return self._max
-    
+
     @Max.setter
     def Max(self, value: int) -> None:
         self._max = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class Optional(object):
         Marks this structure instance as having an actual value.
         """
         return self._is_present
-    
+
     @IsPresent.setter
     def IsPresent(self, value: bool) -> None:
         self._is_present = value
@@ -89,7 +89,7 @@ class Optional(object):
         If no actual value is present, a producer of such a structure instance should leave this member defaulted, and a consumer of such a structure instance should ignore the specific value stored in this member.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value

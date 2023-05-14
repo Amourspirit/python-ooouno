@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -48,7 +48,6 @@ class StackableDiagram(ABC):
         If you have a stacked bar chart, you can easily determine the sum of data in each category, by taking the top of the topmost bar.
         """
         ...
-
 
 
 __all__ = ['StackableDiagram']

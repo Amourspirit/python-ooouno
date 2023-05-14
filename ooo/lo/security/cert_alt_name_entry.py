@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class CertAltNameEntry(object):
         With this information you can determine how to interpret the Any value.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: ExtAltNameType_8c0df5) -> None:
         self._type = value
@@ -84,7 +84,7 @@ class CertAltNameEntry(object):
         stores the value of entry.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value

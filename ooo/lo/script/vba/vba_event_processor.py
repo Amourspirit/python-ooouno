@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -31,7 +31,6 @@ class VBAEventProcessor(XVBAEventProcessor_52fa0ff7):
     __ooo_ns__: str = 'com.sun.star.script.vba'
     __ooo_full_ns__: str = 'com.sun.star.script.vba.VBAEventProcessor'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['VBAEventProcessor']

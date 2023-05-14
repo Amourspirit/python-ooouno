@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class Statement(object):
         the subject of the RDF statement.
         """
         return self._subject
-    
+
     @Subject.setter
     def Subject(self, value: XResource_842709e4) -> None:
         self._subject = value
@@ -96,7 +96,7 @@ class Statement(object):
         the predicate of the RDF statement.
         """
         return self._predicate
-    
+
     @Predicate.setter
     def Predicate(self, value: XURI_5682078c) -> None:
         self._predicate = value
@@ -107,7 +107,7 @@ class Statement(object):
         the object of the RDF statement.
         """
         return self._object
-    
+
     @Object.setter
     def Object(self, value: XNode_5ee40822) -> None:
         self._object = value
@@ -118,7 +118,7 @@ class Statement(object):
         the named graph that contains this statement, or NULL.
         """
         return self._graph
-    
+
     @Graph.setter
     def Graph(self, value: XURI_5682078c) -> None:
         self._graph = value

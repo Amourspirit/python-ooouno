@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class LeftRightMargin(object):
         specifies a left side margin in 1/100th mm.
         """
         return self._left
-    
+
     @Left.setter
     def Left(self, value: int) -> None:
         self._left = value
@@ -85,7 +85,7 @@ class LeftRightMargin(object):
         specifies a right side margin in 1/100th mm.
         """
         return self._right
-    
+
     @Right.setter
     def Right(self, value: int) -> None:
         self._right = value

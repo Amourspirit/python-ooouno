@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class TransferResult(object):
         The URL of the source object.
         """
         return self._source
-    
+
     @Source.setter
     def Source(self, value: str) -> None:
         self._source = value
@@ -85,7 +85,7 @@ class TransferResult(object):
         The URL of the target folder into which to transfer (a copy of) the source object.
         """
         return self._target
-    
+
     @Target.setter
     def Target(self, value: str) -> None:
         self._target = value
@@ -96,7 +96,7 @@ class TransferResult(object):
         Either void if the transfer has been carried out successfully, or an exception indicating the kind of failure.
         """
         return self._result
-    
+
     @Result.setter
     def Result(self, value: object) -> None:
         self._result = value

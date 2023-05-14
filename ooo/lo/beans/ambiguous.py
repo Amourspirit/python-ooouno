@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class Ambiguous(object):
         Even if this structure instance is ambiguous, this member should contain a useful value. If there is no useful value for an ambiguous structure instance, com.sun.star.beans.Optional can be used as the type of this member.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value
@@ -89,7 +89,7 @@ class Ambiguous(object):
         Marks this structure instance as ambiguous.
         """
         return self._is_ambiguous
-    
+
     @IsAmbiguous.setter
     def IsAmbiguous(self, value: bool) -> None:
         self._is_ambiguous = value

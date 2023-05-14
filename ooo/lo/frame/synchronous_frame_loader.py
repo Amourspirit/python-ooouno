@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -36,7 +36,6 @@ class SynchronousFrameLoader(XNamed_a6520b08, XSynchronousFrameLoader_5a8d1058, 
     __ooo_ns__: str = 'com.sun.star.frame'
     __ooo_full_ns__: str = 'com.sun.star.frame.SynchronousFrameLoader'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['SynchronousFrameLoader']

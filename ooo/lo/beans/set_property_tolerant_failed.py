@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class SetPropertyTolerantFailed(object):
         specifies the name of the property.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -83,7 +83,7 @@ class SetPropertyTolerantFailed(object):
         Since the property was not successful set the result will never be com.sun.star.beans.TolerantPropertySetResultType.SUCCESS.
         """
         return self._result
-    
+
     @Result.setter
     def Result(self, value: int) -> None:
         self._result = value

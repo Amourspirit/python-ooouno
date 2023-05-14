@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class VBAScriptEvent(EventObject_a3d70b03):
         Identifies the type of the event.
         """
         return self._identifier
-    
+
     @Identifier.setter
     def Identifier(self, value: int) -> None:
         self._identifier = value
@@ -90,7 +90,7 @@ class VBAScriptEvent(EventObject_a3d70b03):
         Contains the name of the involved VBA module.
         """
         return self._module_name
-    
+
     @ModuleName.setter
     def ModuleName(self, value: str) -> None:
         self._module_name = value

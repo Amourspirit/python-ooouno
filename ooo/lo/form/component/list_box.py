@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -53,7 +53,6 @@ class ListBox(UnoControlListBoxModel_2a3c0f1d, FormControlModel_e2990d22, XReset
         contains the values associated to the strings to be displayed (which are specified by com.sun.star.awt.UnoControlListBoxModel.StringItemList)
         """
         ...
-
 
 
 __all__ = ['ListBox']

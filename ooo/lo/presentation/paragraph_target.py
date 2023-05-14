@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ class ParagraphTarget(object):
     @property
     def Shape(self) -> XShape_8fd00a3d:
         return self._shape
-    
+
     @Shape.setter
     def Shape(self, value: XShape_8fd00a3d) -> None:
         self._shape = value
@@ -76,7 +76,7 @@ class ParagraphTarget(object):
     @property
     def Paragraph(self) -> int:
         return self._paragraph
-    
+
     @Paragraph.setter
     def Paragraph(self, value: int) -> None:
         self._paragraph = value

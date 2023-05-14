@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -42,7 +42,6 @@ class User(XPropertySet_bc180bfa, XGroupsSupplier_e3410d48, XUser_718e0913):
         is the name of the user.
         """
         ...
-
 
 
 __all__ = ['User']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -47,7 +47,6 @@ class BindableDatabaseRadioButton(BindableDataAwareControlModel_47091512, Databa
         com.sun.star.form.component.RadioButton.RefValue is transferred to possible external value bindings as soon as the radio button is selected. With the member SecondaryRefValue, clients of the radio button can also associate a value with the not selected state of the control.
         """
         ...
-
 
 
 __all__ = ['BindableDatabaseRadioButton']

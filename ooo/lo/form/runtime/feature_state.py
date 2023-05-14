@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class FeatureState(object):
         available) in the current state of the form.
         """
         return self._enabled
-    
+
     @Enabled.setter
     def Enabled(self, value: bool) -> None:
         self._enabled = value
@@ -89,7 +89,7 @@ class FeatureState(object):
         The concrete semantics depends on the concrete FormFeature.
         """
         return self._state
-    
+
     @State.setter
     def State(self, value: object) -> None:
         self._state = value

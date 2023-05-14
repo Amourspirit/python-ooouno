@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -68,7 +68,6 @@ class DatabaseComboBox(DataAwareControlModel_27110ef8, ComboBox_fecc0dd6):
         Note: A value of com.sun.star.form.ListSourceType.VALUELIST is not valid for a combo box. It won't be rejected when setting it, but controls will usually ignore it and leave the list empty.
         """
         ...
-
 
 
 __all__ = ['DatabaseComboBox']

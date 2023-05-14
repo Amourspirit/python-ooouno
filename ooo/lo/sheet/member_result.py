@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class MemberResult(object):
         the internal name of the field.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -93,7 +93,7 @@ class MemberResult(object):
         the visible name of the field.
         """
         return self._caption
-    
+
     @Caption.setter
     def Caption(self, value: str) -> None:
         self._caption = value
@@ -104,7 +104,7 @@ class MemberResult(object):
         contains flags describing the result.
         """
         return self._flags
-    
+
     @Flags.setter
     def Flags(self, value: int) -> None:
         self._flags = value
@@ -121,7 +121,7 @@ class MemberResult(object):
             LibreOffice 5.3
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: float) -> None:
         self._value = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -95,7 +95,6 @@ class CandleStickChartType(ChartType_a2640ae0):
         The com.sun.star.beans.XPropertySet given here must support the services com.sun.star.drawing.FillProperties and com.sun.star.drawing.LineProperties.
         """
         ...
-
 
 
 __all__ = ['CandleStickChartType']

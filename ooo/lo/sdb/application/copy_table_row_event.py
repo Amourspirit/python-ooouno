@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class CopyTableRowEvent(EventObject_a3d70b03):
         contains the result set which is being copied by the wizard currently.
         """
         return self._source_data
-    
+
     @SourceData.setter
     def SourceData(self, value: XResultSet_98e30aa7) -> None:
         self._source_data = value
@@ -95,7 +95,7 @@ class CopyTableRowEvent(EventObject_a3d70b03):
         Usually, this contains an instance of com.sun.star.sdbc.SQLException.
         """
         return self._error
-    
+
     @Error.setter
     def Error(self, value: object) -> None:
         self._error = value

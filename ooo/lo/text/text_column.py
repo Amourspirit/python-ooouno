@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class TextColumn(object):
         Width isn't a metric value, it's a relative value to the sum of the width of all columns.
         """
         return self._width
-    
+
     @Width.setter
     def Width(self, value: int) -> None:
         self._width = value
@@ -89,7 +89,7 @@ class TextColumn(object):
         This is a metric value.
         """
         return self._left_margin
-    
+
     @LeftMargin.setter
     def LeftMargin(self, value: int) -> None:
         self._left_margin = value
@@ -102,7 +102,7 @@ class TextColumn(object):
         This is a metric value.
         """
         return self._right_margin
-    
+
     @RightMargin.setter
     def RightMargin(self, value: int) -> None:
         self._right_margin = value

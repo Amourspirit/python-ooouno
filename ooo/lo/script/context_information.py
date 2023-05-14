@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class ContextInformation(object):
         Get all names of the local variable in this context.
         """
         return self._local_variable_names
-    
+
     @LocalVariableNames.setter
     def LocalVariableNames(self, value: typing.Tuple[str, ...]) -> None:
         self._local_variable_names = value
@@ -107,7 +107,7 @@ class ContextInformation(object):
         If the module or function can't be addressed by name, e.g., in case that a runtime generated eval-module is executed, this string is empty
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -120,7 +120,7 @@ class ContextInformation(object):
         If the source can be accessed using the ModuleName or if the source is unknown (executing compiled code) this string can be empty.
         """
         return self._source_code
-    
+
     @SourceCode.setter
     def SourceCode(self, value: str) -> None:
         self._source_code = value
@@ -133,7 +133,7 @@ class ContextInformation(object):
         If \"name\" addresses a function, all line and column values are nevertheless given relative to the module's source. If source code is not available, this value addresses a binary position in the compiled code.
         """
         return self._start_line
-    
+
     @StartLine.setter
     def StartLine(self, value: int) -> None:
         self._start_line = value
@@ -144,7 +144,7 @@ class ContextInformation(object):
         contains the first column in the StartLine associated with the context.
         """
         return self._start_column
-    
+
     @StartColumn.setter
     def StartColumn(self, value: int) -> None:
         self._start_column = value
@@ -155,7 +155,7 @@ class ContextInformation(object):
         contains the last line in the module's source code associated with the context.
         """
         return self._end_line
-    
+
     @EndLine.setter
     def EndLine(self, value: int) -> None:
         self._end_line = value
@@ -166,7 +166,7 @@ class ContextInformation(object):
         contains the first column in the EndLine that is NOT associated with the context.
         """
         return self._end_column
-    
+
     @EndColumn.setter
     def EndColumn(self, value: int) -> None:
         self._end_column = value

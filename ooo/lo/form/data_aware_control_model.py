@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,6 @@ class DataAwareControlModel(FormControlModel_e2990d22, XBoundComponent_d4830cbf,
         When setting the property, a number of constraints apply:
         """
         ...
-
 
 
 __all__ = ['DataAwareControlModel']

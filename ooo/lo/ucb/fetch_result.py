@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class FetchResult(object):
         One any contains the data of one whole row. Those methods which use this struct have to specify, what the any has to contain.
         """
         return self._rows
-    
+
     @Rows.setter
     def Rows(self, value: typing.Tuple[object, ...]) -> None:
         self._rows = value
@@ -97,7 +97,7 @@ class FetchResult(object):
         The following rows are one after the other, but the direction depends on the value of FetchResult.Direction
         """
         return self._start_index
-    
+
     @StartIndex.setter
     def StartIndex(self, value: int) -> None:
         self._start_index = value
@@ -110,7 +110,7 @@ class FetchResult(object):
         When FetchResult.Orientation equals TRUE, the rows in FetchResult.Rows are ordered in the same way as in the original result set.
         """
         return self._orientation
-    
+
     @Orientation.setter
     def Orientation(self, value: bool) -> None:
         self._orientation = value
@@ -123,7 +123,7 @@ class FetchResult(object):
         The value may contain zero or more constants of the FetchError constants group.
         """
         return self._fetch_error
-    
+
     @FetchError.setter
     def FetchError(self, value: int) -> None:
         self._fetch_error = value

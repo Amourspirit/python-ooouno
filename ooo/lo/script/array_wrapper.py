@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class ArrayWrapper(object):
         Indicates whether the Array should be have 1 or 0 based indexing.
         """
         return self._is_zero_index
-    
+
     @IsZeroIndex.setter
     def IsZeroIndex(self, value: bool) -> None:
         self._is_zero_index = value
@@ -87,7 +87,7 @@ class ArrayWrapper(object):
         Multi-dimensional arrays can only be represented as a sequence where the elements of the sequence are themselves sequences. N-Levels of indirection are possible, where N is the number of dimensions. Note: its perfectly legal to use this structure with a single dimensioned array just to indicate the array indexing.
         """
         return self._array
-    
+
     @Array.setter
     def Array(self, value: object) -> None:
         self._array = value

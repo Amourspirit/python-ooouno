@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class SystemDependentXWindow(object):
         The XWindow handle if possible, otherwise 0.
         """
         return self._window_handle
-    
+
     @WindowHandle.setter
     def WindowHandle(self, value: int) -> None:
         self._window_handle = value
@@ -87,7 +87,7 @@ class SystemDependentXWindow(object):
         The display pointer.
         """
         return self._display_pointer
-    
+
     @DisplayPointer.setter
     def DisplayPointer(self, value: int) -> None:
         self._display_pointer = value

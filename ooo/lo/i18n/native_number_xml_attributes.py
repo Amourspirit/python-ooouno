@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class NativeNumberXmlAttributes(object):
         The locale of the native number representation.
         """
         return self._locale
-    
+
     @Locale.setter
     def Locale(self, value: Locale_70d308fa) -> None:
         self._locale = value
@@ -94,7 +94,7 @@ class NativeNumberXmlAttributes(object):
         The number \"1\" expressed as a native number string.
         """
         return self._format
-    
+
     @Format.setter
     def Format(self, value: str) -> None:
         self._format = value
@@ -105,7 +105,7 @@ class NativeNumberXmlAttributes(object):
         The type of the number string, for example, \"short\" or \"medium\" or \"long\".
         """
         return self._style
-    
+
     @Style.setter
     def Style(self, value: str) -> None:
         self._style = value

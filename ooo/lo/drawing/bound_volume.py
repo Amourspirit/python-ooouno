@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class BoundVolume(object):
         this is the minimum position inside the boundary volume.
         """
         return self._min
-    
+
     @min.setter
     def min(self, value: Position3D_bddc0bc0) -> None:
         self._min = value
@@ -86,7 +86,7 @@ class BoundVolume(object):
         this is the maximum position inside the boundary volume.
         """
         return self._max
-    
+
     @max.setter
     def max(self, value: Position3D_bddc0bc0) -> None:
         self._max = value

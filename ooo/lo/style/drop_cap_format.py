@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class DropCapFormat(object):
         This is the number of lines used for a drop cap.
         """
         return self._lines
-    
+
     @Lines.setter
     def Lines(self, value: int) -> None:
         self._lines = value
@@ -85,7 +85,7 @@ class DropCapFormat(object):
         This is the number of characters in the drop cap.
         """
         return self._count
-    
+
     @Count.setter
     def Count(self, value: int) -> None:
         self._count = value
@@ -96,7 +96,7 @@ class DropCapFormat(object):
         This is the distance between the drop cap in the following text.
         """
         return self._distance
-    
+
     @Distance.setter
     def Distance(self, value: int) -> None:
         self._distance = value

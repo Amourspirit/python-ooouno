@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -93,7 +93,6 @@ class OfficeDocument(XDocumentEventBroadcaster_b2f1126a, XDocumentPropertiesSupp
         Once calculated, the id must not change until the document has been closed. Upon closing it will not be made persistent. Thus, the document may get a different id every time it gets loaded.
         """
         ...
-
 
 
 __all__ = ['OfficeDocument']

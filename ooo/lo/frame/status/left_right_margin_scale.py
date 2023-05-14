@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class LeftRightMarginScale(object):
         specifies a left text margin in 1/100th mm.
         """
         return self._text_left
-    
+
     @TextLeft.setter
     def TextLeft(self, value: int) -> None:
         self._text_left = value
@@ -109,7 +109,7 @@ class LeftRightMarginScale(object):
         specifies a left margin in 1/100th mm.
         """
         return self._left
-    
+
     @Left.setter
     def Left(self, value: int) -> None:
         self._left = value
@@ -120,7 +120,7 @@ class LeftRightMarginScale(object):
         specifies a right margin in 1/100th mm.
         """
         return self._right
-    
+
     @Right.setter
     def Right(self, value: int) -> None:
         self._right = value
@@ -131,7 +131,7 @@ class LeftRightMarginScale(object):
         specifies a first line indent relative to TextLeft in 1/100th mm.
         """
         return self._first_line
-    
+
     @FirstLine.setter
     def FirstLine(self, value: int) -> None:
         self._first_line = value
@@ -142,7 +142,7 @@ class LeftRightMarginScale(object):
         specifies a scale value for the left margin in percent.
         """
         return self._scale_left
-    
+
     @ScaleLeft.setter
     def ScaleLeft(self, value: int) -> None:
         self._scale_left = value
@@ -153,7 +153,7 @@ class LeftRightMarginScale(object):
         specifies a scale value for the right margin in percent.
         """
         return self._scale_right
-    
+
     @ScaleRight.setter
     def ScaleRight(self, value: int) -> None:
         self._scale_right = value
@@ -164,7 +164,7 @@ class LeftRightMarginScale(object):
         specifies a scale value for the first line margin in percent.
         """
         return self._scale_first_line
-    
+
     @ScaleFirstLine.setter
     def ScaleFirstLine(self, value: int) -> None:
         self._scale_first_line = value
@@ -175,7 +175,7 @@ class LeftRightMarginScale(object):
         specifies if the automatic calculation of the first line indent occurs.
         """
         return self._auto_first_line
-    
+
     @AutoFirstLine.setter
     def AutoFirstLine(self, value: bool) -> None:
         self._auto_first_line = value

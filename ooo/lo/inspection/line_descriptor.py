@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -122,7 +122,7 @@ class LineDescriptor(object):
         denotes the human-readable display name used to present a property to the user
         """
         return self._display_name
-    
+
     @DisplayName.setter
     def DisplayName(self, value: str) -> None:
         self._display_name = value
@@ -133,7 +133,7 @@ class LineDescriptor(object):
         denotes the control which should be used to represent the property at the UI.
         """
         return self._control
-    
+
     @Control.setter
     def Control(self, value: XPropertyControl_3f260fe2) -> None:
         self._control = value
@@ -144,7 +144,7 @@ class LineDescriptor(object):
         specifies the URL to the help topic to be associated with the property
         """
         return self._help_url
-    
+
     @HelpURL.setter
     def HelpURL(self, value: str) -> None:
         self._help_url = value
@@ -157,7 +157,7 @@ class LineDescriptor(object):
         If no image for the primary button is specified, but a primary button is present, the three dots will be displayed on the button.
         """
         return self._has_primary_button
-    
+
     @HasPrimaryButton.setter
     def HasPrimaryButton(self, value: bool) -> None:
         self._has_primary_button = value
@@ -172,7 +172,7 @@ class LineDescriptor(object):
         If a primary button exists for a property's UI representation (HasPrimaryButton), it gets the ID specified herein.
         """
         return self._primary_button_id
-    
+
     @PrimaryButtonId.setter
     def PrimaryButtonId(self, value: str) -> None:
         self._primary_button_id = value
@@ -189,7 +189,7 @@ class LineDescriptor(object):
         If you need to specify a graphic which does not have a URL, but is available as com.sun.star.graphic.XGraphic only, then you must leave PrimaryButtonImageURL empty, and use the PrimaryButtonImage property.
         """
         return self._primary_button_image_url
-    
+
     @PrimaryButtonImageURL.setter
     def PrimaryButtonImageURL(self, value: str) -> None:
         self._primary_button_image_url = value
@@ -202,7 +202,7 @@ class LineDescriptor(object):
         The property will be ignored if HasPrimaryButton is FALSE, or if PrimaryButtonImageURL is a non-empty string.
         """
         return self._primary_button_image
-    
+
     @PrimaryButtonImage.setter
     def PrimaryButtonImage(self, value: XGraphic_a4da0afc) -> None:
         self._primary_button_image = value
@@ -215,7 +215,7 @@ class LineDescriptor(object):
         A secondary button subordinated to the primary button. If no primary button exists (HasPrimaryButton), this member is ignored.
         """
         return self._has_secondary_button
-    
+
     @HasSecondaryButton.setter
     def HasSecondaryButton(self, value: bool) -> None:
         self._has_secondary_button = value
@@ -228,7 +228,7 @@ class LineDescriptor(object):
         If a secondary button exists for a property's UI representation (HasSecondaryButton), it gets the ID specified herein.
         """
         return self._secondary_button_id
-    
+
     @SecondaryButtonId.setter
     def SecondaryButtonId(self, value: str) -> None:
         self._secondary_button_id = value
@@ -245,7 +245,7 @@ class LineDescriptor(object):
         If you need to specify a graphic which does not have a URL, but is available as com.sun.star.graphic.XGraphic only, then you must leave SecondaryButtonImageURL empty, and use the SecondaryButtonImage property.
         """
         return self._secondary_button_image_url
-    
+
     @SecondaryButtonImageURL.setter
     def SecondaryButtonImageURL(self, value: str) -> None:
         self._secondary_button_image_url = value
@@ -258,7 +258,7 @@ class LineDescriptor(object):
         The property will be ignored if HasSecondaryButton is FALSE, or if SecondaryButtonImageURL is a non-empty string.
         """
         return self._secondary_button_image
-    
+
     @SecondaryButtonImage.setter
     def SecondaryButtonImage(self, value: XGraphic_a4da0afc) -> None:
         self._secondary_button_image = value
@@ -273,7 +273,7 @@ class LineDescriptor(object):
         Normally, XPropertyHandlers will set this to 0 when describing the UI for a normal property.
         """
         return self._indent_level
-    
+
     @IndentLevel.setter
     def IndentLevel(self, value: int) -> None:
         self._indent_level = value
@@ -288,7 +288,7 @@ class LineDescriptor(object):
         For your implementation of XPropertyHandler, it's recommended that you document the programmatic names used for property categories. This way, your handler might be re-used in different contexts, where only the XObjectInspectorModel needs to provide consistent UI names for the categories.
         """
         return self._category
-    
+
     @Category.setter
     def Category(self, value: str) -> None:
         self._category = value

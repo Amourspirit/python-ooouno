@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class TabStop(object):
         This field specifies the position of the tabulator in relation to the left border.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: int) -> None:
         self._position = value
@@ -90,7 +90,7 @@ class TabStop(object):
         This field specifies the alignment of the text range before the tabulator.
         """
         return self._alignment
-    
+
     @Alignment.setter
     def Alignment(self, value: TabAlign_8fc90a3b) -> None:
         self._alignment = value
@@ -101,7 +101,7 @@ class TabStop(object):
         This field specifies which delimiter is used for the decimal.
         """
         return self._decimal_char
-    
+
     @DecimalChar.setter
     def DecimalChar(self, value: str) -> None:
         self._decimal_char = value
@@ -112,7 +112,7 @@ class TabStop(object):
         This field specifies the character that is used to fill up the space between the text in the text range and the tabulators.
         """
         return self._fill_char
-    
+
     @FillChar.setter
     def FillChar(self, value: str) -> None:
         self._fill_char = value

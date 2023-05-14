@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class PropertyChangeEvent(EventObject_a3d70b03):
         contains the unique name of the property which changes its value.
         """
         return self._property_name
-    
+
     @PropertyName.setter
     def PropertyName(self, value: str) -> None:
         self._property_name = value
@@ -108,7 +108,7 @@ class PropertyChangeEvent(EventObject_a3d70b03):
         contains TRUE if further events in the same transaction occur.
         """
         return self._further
-    
+
     @Further.setter
     def Further(self, value: bool) -> None:
         self._further = value
@@ -121,7 +121,7 @@ class PropertyChangeEvent(EventObject_a3d70b03):
         May be -1 if the implementation has no handle. You can use this handle to get values from the XFastPropertySet.
         """
         return self._property_handle
-    
+
     @PropertyHandle.setter
     def PropertyHandle(self, value: int) -> None:
         self._property_handle = value
@@ -132,7 +132,7 @@ class PropertyChangeEvent(EventObject_a3d70b03):
         contains the old value of the property.
         """
         return self._old_value
-    
+
     @OldValue.setter
     def OldValue(self, value: object) -> None:
         self._old_value = value
@@ -143,7 +143,7 @@ class PropertyChangeEvent(EventObject_a3d70b03):
         contains the new value of the property.
         """
         return self._new_value
-    
+
     @NewValue.setter
     def NewValue(self, value: object) -> None:
         self._new_value = value

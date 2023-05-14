@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -54,7 +54,6 @@ class JumpEdit(TextField_90260a56):
         determines the type of the place holder as described in com.sun.star.text.PlaceholderType.
         """
         ...
-
 
 
 __all__ = ['JumpEdit']

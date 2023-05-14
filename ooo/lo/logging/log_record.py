@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class LogRecord(object):
         specifies the name of the logger at which the record is logged
         """
         return self._logger_name
-    
+
     @LoggerName.setter
     def LoggerName(self, value: str) -> None:
         self._logger_name = value
@@ -114,7 +114,7 @@ class LogRecord(object):
         This name might be empty, in case the caller to one of the various log methods of XLogger did not specify it.
         """
         return self._source_class_name
-    
+
     @SourceClassName.setter
     def SourceClassName(self, value: str) -> None:
         self._source_class_name = value
@@ -127,7 +127,7 @@ class LogRecord(object):
         This name might be empty, in case the caller to one of the various log methods of XLogger did not specify it.
         """
         return self._source_method_name
-    
+
     @SourceMethodName.setter
     def SourceMethodName(self, value: str) -> None:
         self._source_method_name = value
@@ -138,7 +138,7 @@ class LogRecord(object):
         specifies the to-be-logged message
         """
         return self._message
-    
+
     @Message.setter
     def Message(self, value: str) -> None:
         self._message = value
@@ -149,7 +149,7 @@ class LogRecord(object):
         specifies the time at which the event was logged
         """
         return self._log_time
-    
+
     @LogTime.setter
     def LogTime(self, value: DateTime_84de09d3) -> None:
         self._log_time = value
@@ -162,7 +162,7 @@ class LogRecord(object):
         Subsequent events get assigned increasing sequence numbers by the XLogger at which they're logged.
         """
         return self._sequence_number
-    
+
     @SequenceNumber.setter
     def SequenceNumber(self, value: int) -> None:
         self._sequence_number = value
@@ -173,7 +173,7 @@ class LogRecord(object):
         specifies the ID of the thread in which the event was logged
         """
         return self._thread_id
-    
+
     @ThreadID.setter
     def ThreadID(self, value: str) -> None:
         self._thread_id = value
@@ -184,7 +184,7 @@ class LogRecord(object):
         specifies the level of the log event
         """
         return self._level
-    
+
     @Level.setter
     def Level(self, value: int) -> None:
         self._level = value

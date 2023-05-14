@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class TextHit(object):
         The entry index is the index of the insertion point in the character sequence. The insertion point denotes positions between the actual characters in the string, and can thus have values ranging from 0 up to the number of characters in the string. Hereby, an index of 0 denotes an insertion position before the first character, and an index containing the number of characters denotes an insertion behind the last character.
         """
         return self._entry_index
-    
+
     @EntryIndex.setter
     def EntryIndex(self, value: int) -> None:
         self._entry_index = value
@@ -91,7 +91,7 @@ class TextHit(object):
         Each character is divided in two halves, the leading and the trailing part. The leading edge is the part of the glyph encountered first when reading text of the corresponding language (i.e. the leading edge of an Arabic glyph is the right half of it, whereas it is the left half of a Latin character). If the hit was on the leading edge, this member is set to TRUE.
         """
         return self._is_leading_edge
-    
+
     @IsLeadingEdge.setter
     def IsLeadingEdge(self, value: bool) -> None:
         self._is_leading_edge = value

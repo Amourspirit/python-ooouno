@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class DataPilotFieldFilter(object):
         Field name.
         """
         return self._field_name
-    
+
     @FieldName.setter
     def FieldName(self, value: str) -> None:
         self._field_name = value
@@ -86,7 +86,7 @@ class DataPilotFieldFilter(object):
         This is the value as name/label as also displayed in the filter popup dialog, maybe formatted by user applied number formats.
         """
         return self._match_value_name
-    
+
     @MatchValueName.setter
     def MatchValueName(self, value: str) -> None:
         self._match_value_name = value
@@ -99,7 +99,7 @@ class DataPilotFieldFilter(object):
         This is the underlying value formatted in a standardized way, for example ISO 8601 YYYY-MM-DD for dates.
         """
         return self._match_value
-    
+
     @MatchValue.setter
     def MatchValue(self, value: str) -> None:
         self._match_value = value

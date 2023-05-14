@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class OpenCommandArgument2(OpenCommandArgument_fb0a0dd6):
         The result set implementation may ignore this parameter, if it cannot sort the data by the given criteria in an efficient way (i.e. directly using the underlying data source -> SQL-database -> ORDER BY).
         """
         return self._sorting_info
-    
+
     @SortingInfo.setter
     def SortingInfo(self, value: typing.Tuple[NumberedSortingInfo_fd0e0de6, ...]) -> None:
         self._sorting_info = value

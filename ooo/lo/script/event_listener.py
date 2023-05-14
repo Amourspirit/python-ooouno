@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class EventListener(object):
     @property
     def AllListener(self) -> XAllListener_c91b0c54:
         return self._all_listener
-    
+
     @AllListener.setter
     def AllListener(self, value: XAllListener_c91b0c54) -> None:
         self._all_listener = value
@@ -87,7 +87,7 @@ class EventListener(object):
     @property
     def Helper(self) -> object:
         return self._helper
-    
+
     @Helper.setter
     def Helper(self, value: object) -> None:
         self._helper = value
@@ -95,7 +95,7 @@ class EventListener(object):
     @property
     def ListenerType(self) -> str:
         return self._listener_type
-    
+
     @ListenerType.setter
     def ListenerType(self, value: str) -> None:
         self._listener_type = value
@@ -103,7 +103,7 @@ class EventListener(object):
     @property
     def AddListenerParam(self) -> str:
         return self._add_listener_param
-    
+
     @AddListenerParam.setter
     def AddListenerParam(self, value: str) -> None:
         self._add_listener_param = value
@@ -111,7 +111,7 @@ class EventListener(object):
     @property
     def EventMethod(self) -> str:
         return self._event_method
-    
+
     @EventMethod.setter
     def EventMethod(self, value: str) -> None:
         self._event_method = value

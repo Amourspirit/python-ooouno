@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,6 @@ TypeDef type alias
 
 
 See Also:
-    `API CoordinateSequenceSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a5fba30ad0b948910e5a46d57bb673a3f>`_
+    `API CoordinateSequenceSequence <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a74f8af1a8832994bee18d13ff6855f87>`_
 """
 

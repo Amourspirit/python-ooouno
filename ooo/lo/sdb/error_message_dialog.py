@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -49,7 +49,6 @@ class ErrorMessageDialog(XExecutableDialog_450f0fa1):
         You specify a parameter by passing one (or more) com.sun.star.beans.PropertyValue object(s) to the initialize method, where the Name field contains a string describing which aspect you want to affect, and the Value field containing a value. Imagine the initialization values, as if you use com.sun.star.beans\">XPropertySet.setPropertyValue() of the com.sun.star.beans.XPropertySet interface ... allowed parameters are
         """
         ...
-
 
 __all__ = ['ErrorMessageDialog']
 

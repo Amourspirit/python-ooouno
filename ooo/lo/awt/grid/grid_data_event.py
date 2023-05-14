@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -95,7 +95,7 @@ class GridDataEvent(EventObject_a3d70b03):
         If FirstColumn is -1, the listener should assume that all rows of a grid's data model are affected.
         """
         return self._first_column
-    
+
     @FirstColumn.setter
     def FirstColumn(self, value: int) -> None:
         self._first_column = value
@@ -106,7 +106,7 @@ class GridDataEvent(EventObject_a3d70b03):
         denotes the last column affected by a change
         """
         return self._last_column
-    
+
     @LastColumn.setter
     def LastColumn(self, value: int) -> None:
         self._last_column = value
@@ -119,7 +119,7 @@ class GridDataEvent(EventObject_a3d70b03):
         If FirstRow is -1, the listener should assume that all rows of a grid's data model are affected.
         """
         return self._first_row
-    
+
     @FirstRow.setter
     def FirstRow(self, value: int) -> None:
         self._first_row = value
@@ -130,7 +130,7 @@ class GridDataEvent(EventObject_a3d70b03):
         denotes the last row affected by a change
         """
         return self._last_row
-    
+
     @LastRow.setter
     def LastRow(self, value: int) -> None:
         self._last_row = value

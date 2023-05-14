@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class RevisionTag(object):
         contains the time when the revision was created ( can be invalid )
         """
         return self._time_stamp
-    
+
     @TimeStamp.setter
     def TimeStamp(self, value: DateTime_84de09d3) -> None:
         self._time_stamp = value
@@ -92,7 +92,7 @@ class RevisionTag(object):
         contains an identifier for the author that created the revision( can be empty )
         """
         return self._author
-    
+
     @Author.setter
     def Author(self, value: str) -> None:
         self._author = value
@@ -103,7 +103,7 @@ class RevisionTag(object):
         contains a comment that the author has left for this revision ( can be empty )
         """
         return self._comment
-    
+
     @Comment.setter
     def Comment(self, value: str) -> None:
         self._comment = value
@@ -116,7 +116,7 @@ class RevisionTag(object):
         This identifier can have any form. It can be something like \"1.2.3\" or \"Version 1\" etc. It depends on the revision control system how it names the revisions.
         """
         return self._identifier
-    
+
     @Identifier.setter
     def Identifier(self, value: str) -> None:
         self._identifier = value

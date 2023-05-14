@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -125,7 +125,6 @@ class TextPortion(TextRange_90540a5f, XTolerantMultiPropertySet_7bd4114e):
         For Reference marks, document index marks, etc., 2 text portions will be generated, one for the start position and one for the end position.
         """
         ...
-
 
 
 __all__ = ['TextPortion']

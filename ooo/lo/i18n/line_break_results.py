@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class LineBreakResults(object):
         Type of line break, see BreakType.
         """
         return self._break_type
-    
+
     @breakType.setter
     def breakType(self, value: int) -> None:
         self._break_type = value
@@ -86,7 +86,7 @@ class LineBreakResults(object):
         Position of the calculated line break.
         """
         return self._break_index
-    
+
     @breakIndex.setter
     def breakIndex(self, value: int) -> None:
         self._break_index = value
@@ -97,7 +97,7 @@ class LineBreakResults(object):
         Return value of the hyphenator.
         """
         return self._r_hyphenated_word
-    
+
     @rHyphenatedWord.setter
     def rHyphenatedWord(self, value: XHyphenatedWord_3a880f73) -> None:
         self._r_hyphenated_word = value

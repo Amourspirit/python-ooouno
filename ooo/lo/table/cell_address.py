@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class CellAddress(object):
         is the index of the sheet that contains the cell.
         """
         return self._sheet
-    
+
     @Sheet.setter
     def Sheet(self, value: int) -> None:
         self._sheet = value
@@ -85,7 +85,7 @@ class CellAddress(object):
         is the index of the column where the cell is located.
         """
         return self._column
-    
+
     @Column.setter
     def Column(self, value: int) -> None:
         self._column = value
@@ -96,7 +96,7 @@ class CellAddress(object):
         is the index of the row where the cell is located.
         """
         return self._row
-    
+
     @Row.setter
     def Row(self, value: int) -> None:
         self._row = value

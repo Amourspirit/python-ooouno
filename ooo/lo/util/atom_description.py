@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class AtomDescription(object):
         the atom itself
         """
         return self._atom
-    
+
     @atom.setter
     def atom(self, value: int) -> None:
         self._atom = value
@@ -81,7 +81,7 @@ class AtomDescription(object):
         the string it stands for
         """
         return self._description
-    
+
     @description.setter
     def description(self, value: str) -> None:
         self._description = value

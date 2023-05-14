@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class MouseEvent(InputEvent_8f520a66):
         Zero ore more constants from the com.sun.star.awt.MouseButton group.
         """
         return self._buttons
-    
+
     @Buttons.setter
     def Buttons(self, value: int) -> None:
         self._buttons = value
@@ -109,7 +109,7 @@ class MouseEvent(InputEvent_8f520a66):
         contains the x coordinate location of the mouse.
         """
         return self._x
-    
+
     @X.setter
     def X(self, value: int) -> None:
         self._x = value
@@ -120,7 +120,7 @@ class MouseEvent(InputEvent_8f520a66):
         contains the y coordinate location of the mouse.
         """
         return self._y
-    
+
     @Y.setter
     def Y(self, value: int) -> None:
         self._y = value
@@ -131,7 +131,7 @@ class MouseEvent(InputEvent_8f520a66):
         contains the number of mouse clicks associated with event.
         """
         return self._click_count
-    
+
     @ClickCount.setter
     def ClickCount(self, value: int) -> None:
         self._click_count = value
@@ -146,7 +146,7 @@ class MouseEvent(InputEvent_8f520a66):
         In this case, X and Y describe the position where the request was issued. If those members are -1, then the request was issued using the keyboard, by pressing the operating-system dependent key combination for this purpose.
         """
         return self._popup_trigger
-    
+
     @PopupTrigger.setter
     def PopupTrigger(self, value: bool) -> None:
         self._popup_trigger = value

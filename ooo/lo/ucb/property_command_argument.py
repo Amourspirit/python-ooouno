@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class PropertyCommandArgument(object):
         The property that the command has to add.
         """
         return self._property
-    
+
     @Property.setter
     def Property(self, value: Property_8f4e0a76) -> None:
         self._property = value
@@ -88,7 +88,7 @@ class PropertyCommandArgument(object):
         The default value of the property.
         """
         return self._default_value
-    
+
     @DefaultValue.setter
     def DefaultValue(self, value: object) -> None:
         self._default_value = value

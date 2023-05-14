@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -66,7 +66,6 @@ class QueryDesign(XController_b00e0b8f, XInitialization_d46c0cca):
             OOo 2.4
         """
         ...
-
 
 
 __all__ = ['QueryDesign']

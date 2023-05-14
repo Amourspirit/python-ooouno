@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -115,7 +115,7 @@ class ZipEntry(object):
         optional extra field data for entry
         """
         return self._extra
-    
+
     @extra.setter
     def extra(self, value: uno.ByteSequence) -> None:
         self._extra = value
@@ -126,7 +126,7 @@ class ZipEntry(object):
         version needed to extract
         """
         return self._n_version
-    
+
     @nVersion.setter
     def nVersion(self, value: int) -> None:
         self._n_version = value
@@ -137,7 +137,7 @@ class ZipEntry(object):
         bit flags
         """
         return self._n_flag
-    
+
     @nFlag.setter
     def nFlag(self, value: int) -> None:
         self._n_flag = value
@@ -148,7 +148,7 @@ class ZipEntry(object):
         compression method
         """
         return self._n_method
-    
+
     @nMethod.setter
     def nMethod(self, value: int) -> None:
         self._n_method = value
@@ -159,7 +159,7 @@ class ZipEntry(object):
         modification time
         """
         return self._n_time
-    
+
     @nTime.setter
     def nTime(self, value: int) -> None:
         self._n_time = value
@@ -170,7 +170,7 @@ class ZipEntry(object):
         CRC-32 of entry data.
         """
         return self._n_crc
-    
+
     @nCrc.setter
     def nCrc(self, value: int) -> None:
         self._n_crc = value
@@ -181,7 +181,7 @@ class ZipEntry(object):
         uncompressed size of entry data
         """
         return self._n_compressed_size
-    
+
     @nCompressedSize.setter
     def nCompressedSize(self, value: int) -> None:
         self._n_compressed_size = value
@@ -192,7 +192,7 @@ class ZipEntry(object):
         uncompressed size of entry data
         """
         return self._n_size
-    
+
     @nSize.setter
     def nSize(self, value: int) -> None:
         self._n_size = value
@@ -203,7 +203,7 @@ class ZipEntry(object):
         offset of LOC header
         """
         return self._n_offset
-    
+
     @nOffset.setter
     def nOffset(self, value: int) -> None:
         self._n_offset = value
@@ -214,7 +214,7 @@ class ZipEntry(object):
         The number of the disk this entry is saved on.
         """
         return self._n_disk_number
-    
+
     @nDiskNumber.setter
     def nDiskNumber(self, value: int) -> None:
         self._n_disk_number = value
@@ -225,7 +225,7 @@ class ZipEntry(object):
         the entry name
         """
         return self._s_name
-    
+
     @sName.setter
     def sName(self, value: str) -> None:
         self._s_name = value
@@ -236,7 +236,7 @@ class ZipEntry(object):
         optional comment
         """
         return self._s_comment
-    
+
     @sComment.setter
     def sComment(self, value: str) -> None:
         self._s_comment = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class MenuMultipleChange(object):
         sequence of bytes representing a possible image
         """
         return self._image
-    
+
     @Image.setter
     def Image(self, value: uno.ByteSequence) -> None:
         self._image = value
@@ -112,7 +112,7 @@ class MenuMultipleChange(object):
         unique ID of this menu item
         """
         return self._id
-    
+
     @ID.setter
     def ID(self, value: int) -> None:
         self._id = value
@@ -123,7 +123,7 @@ class MenuMultipleChange(object):
         unique ID of the group this menu item belongs to
         """
         return self._group_id
-    
+
     @GroupID.setter
     def GroupID(self, value: int) -> None:
         self._group_id = value
@@ -134,7 +134,7 @@ class MenuMultipleChange(object):
         unique ID of the item directly above this menu item, used for fuzzy placement
         """
         return self._pre_item_id
-    
+
     @PreItemID.setter
     def PreItemID(self, value: int) -> None:
         self._pre_item_id = value
@@ -145,7 +145,7 @@ class MenuMultipleChange(object):
         text of the menu item
         """
         return self._item_text
-    
+
     @ItemText.setter
     def ItemText(self, value: str) -> None:
         self._item_text = value
@@ -156,7 +156,7 @@ class MenuMultipleChange(object):
         true if visible
         """
         return self._is_visible
-    
+
     @IsVisible.setter
     def IsVisible(self, value: bool) -> None:
         self._is_visible = value
@@ -167,7 +167,7 @@ class MenuMultipleChange(object):
         true if active, so clickable
         """
         return self._is_active
-    
+
     @IsActive.setter
     def IsActive(self, value: bool) -> None:
         self._is_active = value
@@ -178,7 +178,7 @@ class MenuMultipleChange(object):
         true if checkable, so there can be a checkmark
         """
         return self._is_checkable
-    
+
     @IsCheckable.setter
     def IsCheckable(self, value: bool) -> None:
         self._is_checkable = value
@@ -189,7 +189,7 @@ class MenuMultipleChange(object):
         true if there is a checkmark
         """
         return self._is_checked
-    
+
     @IsChecked.setter
     def IsChecked(self, value: bool) -> None:
         self._is_checked = value

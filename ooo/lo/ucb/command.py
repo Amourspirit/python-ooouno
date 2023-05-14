@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class Command(object):
         contains the name of the command.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -87,7 +87,7 @@ class Command(object):
         It must be -1 if the implementation has no handle. 0 is a valid command handle.
         """
         return self._handle
-    
+
     @Handle.setter
     def Handle(self, value: int) -> None:
         self._handle = value
@@ -98,7 +98,7 @@ class Command(object):
         contains the argument of the command
         """
         return self._argument
-    
+
     @Argument.setter
     def Argument(self, value: object) -> None:
         self._argument = value

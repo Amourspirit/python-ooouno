@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,6 @@ class Author(TextField_90260a56):
         If this flag is set to false the author will be overridden by the current author each time the document is saved.
         """
         ...
-
 
 
 __all__ = ['Author']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -159,7 +159,6 @@ class DocumentSettings(Settings_b2bc0bb8, PrintSettings_bea20c2b):
             OOo 2.0
         """
         ...
-
 
 
 __all__ = ['DocumentSettings']

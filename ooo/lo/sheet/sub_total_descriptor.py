@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,6 @@ class SubTotalDescriptor(XPropertySet_bc180bfa, XEnumerationAccess_4bac0ffc, XIn
         This property is only used if SubTotalDescriptor.EnableUserSortList is TRUE.
         """
         ...
-
 
 
 __all__ = ['SubTotalDescriptor']

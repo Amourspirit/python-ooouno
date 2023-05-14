@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class DateWithTimezone(object):
         the date.
         """
         return self._date_in_tz
-    
+
     @DateInTZ.setter
     def DateInTZ(self, value: Date_60040844) -> None:
         self._date_in_tz = value
@@ -88,7 +88,7 @@ class DateWithTimezone(object):
         contains the time zone, as signed offset in minutes from UTC, that is east of UTC, that is the amount of minutes that should be added to UTC time to obtain time in that timezone.
         """
         return self._timezone
-    
+
     @Timezone.setter
     def Timezone(self, value: int) -> None:
         self._timezone = value

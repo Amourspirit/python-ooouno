@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class Boundary(object):
         Start position of a word, inclusive
         """
         return self._start_pos
-    
+
     @startPos.setter
     def startPos(self, value: int) -> None:
         self._start_pos = value
@@ -83,7 +83,7 @@ class Boundary(object):
         End position of a word, exclusive
         """
         return self._end_pos
-    
+
     @endPos.setter
     def endPos(self, value: int) -> None:
         self._end_pos = value

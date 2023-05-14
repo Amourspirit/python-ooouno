@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class DeviceInfo(object):
         contains the width of the device in pixels.
         """
         return self._width
-    
+
     @Width.setter
     def Width(self, value: int) -> None:
         self._width = value
@@ -113,7 +113,7 @@ class DeviceInfo(object):
         contains the height of the device in pixels.
         """
         return self._height
-    
+
     @Height.setter
     def Height(self, value: int) -> None:
         self._height = value
@@ -124,7 +124,7 @@ class DeviceInfo(object):
         contains the inset from the left.
         """
         return self._left_inset
-    
+
     @LeftInset.setter
     def LeftInset(self, value: int) -> None:
         self._left_inset = value
@@ -135,7 +135,7 @@ class DeviceInfo(object):
         contains the inset from the top.
         """
         return self._top_inset
-    
+
     @TopInset.setter
     def TopInset(self, value: int) -> None:
         self._top_inset = value
@@ -146,7 +146,7 @@ class DeviceInfo(object):
         contains the inset from the right.
         """
         return self._right_inset
-    
+
     @RightInset.setter
     def RightInset(self, value: int) -> None:
         self._right_inset = value
@@ -157,7 +157,7 @@ class DeviceInfo(object):
         contains the inset from the bottom.
         """
         return self._bottom_inset
-    
+
     @BottomInset.setter
     def BottomInset(self, value: int) -> None:
         self._bottom_inset = value
@@ -168,7 +168,7 @@ class DeviceInfo(object):
         contains the X-axis resolution of the device in pixel/meter.
         """
         return self._pixel_per_meter_x
-    
+
     @PixelPerMeterX.setter
     def PixelPerMeterX(self, value: float) -> None:
         self._pixel_per_meter_x = value
@@ -179,7 +179,7 @@ class DeviceInfo(object):
         contains the Y-axis resolution of the device in pixel/meter.
         """
         return self._pixel_per_meter_y
-    
+
     @PixelPerMeterY.setter
     def PixelPerMeterY(self, value: float) -> None:
         self._pixel_per_meter_y = value
@@ -190,7 +190,7 @@ class DeviceInfo(object):
         contains the color-depth of the device.
         """
         return self._bits_per_pixel
-    
+
     @BitsPerPixel.setter
     def BitsPerPixel(self, value: int) -> None:
         self._bits_per_pixel = value
@@ -201,7 +201,7 @@ class DeviceInfo(object):
         specifies special operations which are possible on the device.
         """
         return self._capabilities
-    
+
     @Capabilities.setter
     def Capabilities(self, value: int) -> None:
         self._capabilities = value

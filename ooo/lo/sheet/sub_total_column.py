@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class SubTotalColumn(object):
         the index of the column inside the source data area.
         """
         return self._column
-    
+
     @Column.setter
     def Column(self, value: int) -> None:
         self._column = value
@@ -82,7 +82,7 @@ class SubTotalColumn(object):
         specifies what kind of subtotals are calculated.
         """
         return self._function
-    
+
     @Function.setter
     def Function(self, value: GeneralFunction_e2280d25) -> None:
         self._function = value

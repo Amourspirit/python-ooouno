@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class Time(object):
         contains the nanoseconds (0 - 999 999 999).
         """
         return self._nano_seconds
-    
+
     @NanoSeconds.setter
     def NanoSeconds(self, value: int) -> None:
         self._nano_seconds = value
@@ -97,7 +97,7 @@ class Time(object):
         contains the seconds (0-59).
         """
         return self._seconds
-    
+
     @Seconds.setter
     def Seconds(self, value: int) -> None:
         self._seconds = value
@@ -108,7 +108,7 @@ class Time(object):
         contains the minutes (0-59).
         """
         return self._minutes
-    
+
     @Minutes.setter
     def Minutes(self, value: int) -> None:
         self._minutes = value
@@ -119,7 +119,7 @@ class Time(object):
         contains the hour (0-23).
         """
         return self._hours
-    
+
     @Hours.setter
     def Hours(self, value: int) -> None:
         self._hours = value
@@ -134,7 +134,7 @@ class Time(object):
             LibreOffice 4.1
         """
         return self._is_utc
-    
+
     @IsUTC.setter
     def IsUTC(self, value: bool) -> None:
         self._is_utc = value

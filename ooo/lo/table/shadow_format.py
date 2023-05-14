@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class ShadowFormat(object):
         contains the location of the shadow.
         """
         return self._location
-    
+
     @Location.setter
     def Location(self, value: ShadowLocation_d4530caf) -> None:
         self._location = value
@@ -91,7 +91,7 @@ class ShadowFormat(object):
         contains the size of the shadow.
         """
         return self._shadow_width
-    
+
     @ShadowWidth.setter
     def ShadowWidth(self, value: int) -> None:
         self._shadow_width = value
@@ -102,7 +102,7 @@ class ShadowFormat(object):
         is TRUE, if shadow is transparent.
         """
         return self._is_transparent
-    
+
     @IsTransparent.setter
     def IsTransparent(self, value: bool) -> None:
         self._is_transparent = value
@@ -113,7 +113,7 @@ class ShadowFormat(object):
         contains the color value of the shadow.
         """
         return self._color
-    
+
     @Color.setter
     def Color(self, value: Color_68e908c5) -> None:
         self._color = value

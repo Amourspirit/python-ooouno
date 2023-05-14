@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ class TextViewCursor(TextLayoutCursor_e5530d6e, XScreenCursor_bc4a0bf9):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.TextViewCursor'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['TextViewCursor']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -34,7 +34,6 @@ class DrawPage(GenericDrawPage_fd960dbc, XMasterPageTarget_1a670e9c, XFormsSuppl
     __ooo_ns__: str = 'com.sun.star.drawing'
     __ooo_full_ns__: str = 'com.sun.star.drawing.DrawPage'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['DrawPage']

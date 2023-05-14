@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class TablePageBreakData(object):
         the position (column or row index) of the page break.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: int) -> None:
         self._position = value
@@ -81,7 +81,7 @@ class TablePageBreakData(object):
         is TRUE for a manual page break, FALSE for an automatic one.
         """
         return self._manual_break
-    
+
     @ManualBreak.setter
     def ManualBreak(self, value: bool) -> None:
         self._manual_break = value

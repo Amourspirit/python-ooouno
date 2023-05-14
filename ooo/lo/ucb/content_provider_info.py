@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class ContentProviderInfo(object):
         The content provider.
         """
         return self._content_provider
-    
+
     @ContentProvider.setter
     def ContentProvider(self, value: XContentProvider_d4150cc0) -> None:
         self._content_provider = value
@@ -82,7 +82,7 @@ class ContentProviderInfo(object):
         The scheme the Provider is registered for.
         """
         return self._scheme
-    
+
     @Scheme.setter
     def Scheme(self, value: str) -> None:
         self._scheme = value

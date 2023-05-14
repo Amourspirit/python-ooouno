@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class CheckinArgument(object):
         Tells whether to create a new major or minor version during the checkin.
         """
         return self._major_version
-    
+
     @MajorVersion.setter
     def MajorVersion(self, value: bool) -> None:
         self._major_version = value
@@ -99,7 +99,7 @@ class CheckinArgument(object):
         Contains the version comment to set during the checkin.
         """
         return self._version_comment
-    
+
     @VersionComment.setter
     def VersionComment(self, value: str) -> None:
         self._version_comment = value
@@ -112,7 +112,7 @@ class CheckinArgument(object):
         the URL of the temporary file to checkin).
         """
         return self._source_url
-    
+
     @SourceURL.setter
     def SourceURL(self, value: str) -> None:
         self._source_url = value
@@ -123,7 +123,7 @@ class CheckinArgument(object):
         contains the URL of the private working copy to checkin.
         """
         return self._target_url
-    
+
     @TargetURL.setter
     def TargetURL(self, value: str) -> None:
         self._target_url = value
@@ -136,7 +136,7 @@ class CheckinArgument(object):
         If this field is filled, for example, a file will be renamed while it is being checked in.
         """
         return self._new_title
-    
+
     @NewTitle.setter
     def NewTitle(self, value: str) -> None:
         self._new_title = value
@@ -147,7 +147,7 @@ class CheckinArgument(object):
         contains the Mime-Type of the content to check-in as it may be different from the original one.
         """
         return self._mime_type
-    
+
     @MimeType.setter
     def MimeType(self, value: str) -> None:
         self._mime_type = value

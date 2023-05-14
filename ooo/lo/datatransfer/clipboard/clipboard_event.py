@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class ClipboardEvent(EventObject_a3d70b03):
         The current content of the clipboard.
         """
         return self._contents
-    
+
     @Contents.setter
     def Contents(self, value: XTransferable_2d800f38) -> None:
         self._contents = value

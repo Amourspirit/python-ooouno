@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class RelativePosition(object):
         The values are relative to a reference size (for example the page size). Values between 0 and 1 span the complete bounding rectangle.
         """
         return self._primary
-    
+
     @Primary.setter
     def Primary(self, value: float) -> None:
         self._primary = value
@@ -100,7 +100,7 @@ class RelativePosition(object):
         The values are relative to a reference size (for example the page size). Values between 0 and 1 span the complete bounding rectangle.
         """
         return self._secondary
-    
+
     @Secondary.setter
     def Secondary(self, value: float) -> None:
         self._secondary = value
@@ -115,7 +115,7 @@ class RelativePosition(object):
         For example if Anchor is TOP_LEFT the top left corner of an object will be placed at the given coordinates. If Anchor is RIGHT the right middle corner of the object will be placed at the given coordinates.
         """
         return self._anchor
-    
+
     @Anchor.setter
     def Anchor(self, value: Alignment_b1400b93) -> None:
         self._anchor = value

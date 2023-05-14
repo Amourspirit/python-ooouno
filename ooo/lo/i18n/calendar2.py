@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -107,7 +107,7 @@ class Calendar2(object):
         The days of the week.
         """
         return self._days
-    
+
     @Days.setter
     def Days(self, value: typing.Tuple[CalendarItem2_b38f0b23, ...]) -> None:
         self._days = value
@@ -118,7 +118,7 @@ class Calendar2(object):
         The months of the year.
         """
         return self._months
-    
+
     @Months.setter
     def Months(self, value: typing.Tuple[CalendarItem2_b38f0b23, ...]) -> None:
         self._months = value
@@ -129,7 +129,7 @@ class Calendar2(object):
         The months of the year in possessive genitive case.
         """
         return self._genitive_months
-    
+
     @GenitiveMonths.setter
     def GenitiveMonths(self, value: typing.Tuple[CalendarItem2_b38f0b23, ...]) -> None:
         self._genitive_months = value
@@ -140,7 +140,7 @@ class Calendar2(object):
         The months of the year in partitive case.
         """
         return self._partitive_months
-    
+
     @PartitiveMonths.setter
     def PartitiveMonths(self, value: typing.Tuple[CalendarItem2_b38f0b23, ...]) -> None:
         self._partitive_months = value
@@ -151,7 +151,7 @@ class Calendar2(object):
         The possible eras.
         """
         return self._eras
-    
+
     @Eras.setter
     def Eras(self, value: typing.Tuple[CalendarItem2_b38f0b23, ...]) -> None:
         self._eras = value
@@ -162,7 +162,7 @@ class Calendar2(object):
         The ID of the day with which the week begins.
         """
         return self._start_of_week
-    
+
     @StartOfWeek.setter
     def StartOfWeek(self, value: str) -> None:
         self._start_of_week = value
@@ -173,7 +173,7 @@ class Calendar2(object):
         How many days must reside in the first week of a year.
         """
         return self._minimum_number_of_days_for_first_week
-    
+
     @MinimumNumberOfDaysForFirstWeek.setter
     def MinimumNumberOfDaysForFirstWeek(self, value: int) -> None:
         self._minimum_number_of_days_for_first_week = value
@@ -184,7 +184,7 @@ class Calendar2(object):
         If this is the default calendar for a given locale.
         """
         return self._default
-    
+
     @Default.setter
     def Default(self, value: bool) -> None:
         self._default = value
@@ -195,7 +195,7 @@ class Calendar2(object):
         The name of the calendar, for example, Gregorian.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value

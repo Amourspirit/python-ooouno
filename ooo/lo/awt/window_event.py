@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class WindowEvent(EventObject_a3d70b03):
         specifies the outer x position of the window.
         """
         return self._x
-    
+
     @X.setter
     def X(self, value: int) -> None:
         self._x = value
@@ -114,7 +114,7 @@ class WindowEvent(EventObject_a3d70b03):
         specifies the outer y position of the window.
         """
         return self._y
-    
+
     @Y.setter
     def Y(self, value: int) -> None:
         self._y = value
@@ -125,7 +125,7 @@ class WindowEvent(EventObject_a3d70b03):
         specifies the outer (total) width of the window.
         """
         return self._width
-    
+
     @Width.setter
     def Width(self, value: int) -> None:
         self._width = value
@@ -136,7 +136,7 @@ class WindowEvent(EventObject_a3d70b03):
         specifies the outer (total) height of the window.
         """
         return self._height
-    
+
     @Height.setter
     def Height(self, value: int) -> None:
         self._height = value
@@ -149,7 +149,7 @@ class WindowEvent(EventObject_a3d70b03):
         The inset is the distance between the outer and the inner window, that means the left inset is the width of the left border.
         """
         return self._left_inset
-    
+
     @LeftInset.setter
     def LeftInset(self, value: int) -> None:
         self._left_inset = value
@@ -162,7 +162,7 @@ class WindowEvent(EventObject_a3d70b03):
         The inset is the distance between the outer and the inner window, that means the top inset is the height of the top border.
         """
         return self._top_inset
-    
+
     @TopInset.setter
     def TopInset(self, value: int) -> None:
         self._top_inset = value
@@ -175,7 +175,7 @@ class WindowEvent(EventObject_a3d70b03):
         The inset is the distance between the outer and the inner window, that means the right inset is the width of the right border.
         """
         return self._right_inset
-    
+
     @RightInset.setter
     def RightInset(self, value: int) -> None:
         self._right_inset = value
@@ -188,7 +188,7 @@ class WindowEvent(EventObject_a3d70b03):
         The inset is the distance between the outer and the inner window, that means the bottom inset is the height of the bottom border.
         """
         return self._bottom_inset
-    
+
     @BottomInset.setter
     def BottomInset(self, value: int) -> None:
         self._bottom_inset = value

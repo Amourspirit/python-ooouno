@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class DataPointLabel(object):
         if TRUE, the value that is represented by a data point is displayed next to it.
         """
         return self._show_number
-    
+
     @ShowNumber.setter
     def ShowNumber(self, value: bool) -> None:
         self._show_number = value
@@ -104,7 +104,7 @@ class DataPointLabel(object):
         That means, if a data point is the first one of a series, the percentage is calculated by using the first data points of all available series.
         """
         return self._show_number_in_percent
-    
+
     @ShowNumberInPercent.setter
     def ShowNumberInPercent(self, value: bool) -> None:
         self._show_number_in_percent = value
@@ -115,7 +115,7 @@ class DataPointLabel(object):
         The caption contains the category name of the category to which a data point belongs.
         """
         return self._show_category_name
-    
+
     @ShowCategoryName.setter
     def ShowCategoryName(self, value: bool) -> None:
         self._show_category_name = value
@@ -126,7 +126,7 @@ class DataPointLabel(object):
         The symbol of data series is additionally displayed in the caption.
         """
         return self._show_legend_symbol
-    
+
     @ShowLegendSymbol.setter
     def ShowLegendSymbol(self, value: bool) -> None:
         self._show_legend_symbol = value
@@ -141,7 +141,7 @@ class DataPointLabel(object):
             LibreOffice 7.1
         """
         return self._show_custom_label
-    
+
     @ShowCustomLabel.setter
     def ShowCustomLabel(self, value: bool) -> None:
         self._show_custom_label = value
@@ -156,7 +156,7 @@ class DataPointLabel(object):
             LibreOffice 7.2
         """
         return self._show_series_name
-    
+
     @ShowSeriesName.setter
     def ShowSeriesName(self, value: bool) -> None:
         self._show_series_name = value

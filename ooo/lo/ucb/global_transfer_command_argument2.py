@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
         contains the MIME type of the source object.
         """
         return self._mime_type
-    
+
     @MimeType.setter
     def MimeType(self, value: str) -> None:
         self._mime_type = value
@@ -102,7 +102,7 @@ class GlobalTransferCommandArgument2(GlobalTransferCommandArgument_9ae711da):
         contains the DocumentId of the source object.
         """
         return self._document_id
-    
+
     @DocumentId.setter
     def DocumentId(self, value: str) -> None:
         self._document_id = value

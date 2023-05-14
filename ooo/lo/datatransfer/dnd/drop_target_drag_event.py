@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
         The drop target context of the current drag operation.
         """
         return self._context
-    
+
     @Context.setter
     def Context(self, value: XDropTargetDragContext_10221422) -> None:
         self._context = value
@@ -108,7 +108,7 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
         This value represents the currently selected drop action.
         """
         return self._drop_action
-    
+
     @DropAction.setter
     def DropAction(self, value: int) -> None:
         self._drop_action = value
@@ -119,7 +119,7 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
         The cursor's current x location within the window's coordinates.
         """
         return self._location_x
-    
+
     @LocationX.setter
     def LocationX(self, value: int) -> None:
         self._location_x = value
@@ -130,7 +130,7 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
         The cursor's current y location within the window's coordinates.
         """
         return self._location_y
-    
+
     @LocationY.setter
     def LocationY(self, value: int) -> None:
         self._location_y = value
@@ -145,7 +145,7 @@ class DropTargetDragEvent(DropTargetEvent_8d651169):
         To combine different actions use a logical OR.
         """
         return self._source_actions
-    
+
     @SourceActions.setter
     def SourceActions(self, value: int) -> None:
         self._source_actions = value

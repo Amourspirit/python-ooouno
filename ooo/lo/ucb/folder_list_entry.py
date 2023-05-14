@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class FolderListEntry(object):
         The title of the folder.
         """
         return self._title
-    
+
     @Title.setter
     def Title(self, value: str) -> None:
         self._title = value
@@ -97,7 +97,7 @@ class FolderListEntry(object):
         A (unique) identifier for the folder (used by IMAP, where different folders with equal human-readable titles may exist; otherwise, it may be left empty).
         """
         return self._id
-    
+
     @ID.setter
     def ID(self, value: str) -> None:
         self._id = value
@@ -108,7 +108,7 @@ class FolderListEntry(object):
         The folder is subscribed.
         """
         return self._subscribed
-    
+
     @Subscribed.setter
     def Subscribed(self, value: bool) -> None:
         self._subscribed = value
@@ -119,7 +119,7 @@ class FolderListEntry(object):
         The folder is new.
         """
         return self._new
-    
+
     @New.setter
     def New(self, value: bool) -> None:
         self._new = value
@@ -130,7 +130,7 @@ class FolderListEntry(object):
         The folder has been removed.
         """
         return self._removed
-    
+
     @Removed.setter
     def Removed(self, value: bool) -> None:
         self._removed = value
@@ -141,7 +141,7 @@ class FolderListEntry(object):
         The folder shall be purged (only used in conjunction with the FolderListCommand.SET).
         """
         return self._purge
-    
+
     @Purge.setter
     def Purge(self, value: bool) -> None:
         self._purge = value

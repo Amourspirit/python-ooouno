@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -36,7 +36,6 @@ class TextFrames(XContainer_d6fb0cc6, XIndexAccess_f0910d6d, XNameAccess_e2ab0cf
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.TextFrames'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['TextFrames']

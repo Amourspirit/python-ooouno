@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ class Thesaurus(XComponent_98dc0ab5, XInitialization_d46c0cca, XServiceDisplayNa
     __ooo_ns__: str = 'com.sun.star.linguistic2'
     __ooo_full_ns__: str = 'com.sun.star.linguistic2.Thesaurus'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['Thesaurus']

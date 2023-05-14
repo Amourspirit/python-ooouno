@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class Date(object):
         contains the day of month (1-31 or 0 for a void date).
         """
         return self._day
-    
+
     @Day.setter
     def Day(self, value: int) -> None:
         self._day = value
@@ -87,7 +87,7 @@ class Date(object):
         contains the month of year (1-12 or 0 for a void date).
         """
         return self._month
-    
+
     @Month.setter
     def Month(self, value: int) -> None:
         self._month = value
@@ -98,7 +98,7 @@ class Date(object):
         contains the year.
         """
         return self._year
-    
+
     @Year.setter
     def Year(self, value: int) -> None:
         self._year = value

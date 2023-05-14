@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         If the module or function can't be addressed by name (for example, in case that a runtime-generated eval-module is executed), this string is empty.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -123,7 +123,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         If the source can be accessed using the ModuleName, or if the source is unknown (executing compiled code), this string can be empty.
         """
         return self._source_code
-    
+
     @SourceCode.setter
     def SourceCode(self, value: str) -> None:
         self._source_code = value
@@ -136,7 +136,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         If \"name\" addresses a function, all line and column values are nevertheless given relative to the module's source. If source code is not available, this value addresses a binary position in the compiled code.
         """
         return self._start_line
-    
+
     @StartLine.setter
     def StartLine(self, value: int) -> None:
         self._start_line = value
@@ -147,7 +147,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         contains the first column in the \"StartLine\" that is affected by the event that took place.
         """
         return self._start_column
-    
+
     @StartColumn.setter
     def StartColumn(self, value: int) -> None:
         self._start_column = value
@@ -158,7 +158,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         contains the last line in the module's source code that is affected by the event that took place.
         """
         return self._end_line
-    
+
     @EndLine.setter
     def EndLine(self, value: int) -> None:
         self._end_line = value
@@ -169,7 +169,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         contains the first column in the \"EndLine\" which is NOT affected by the event that took place.
         """
         return self._end_column
-    
+
     @EndColumn.setter
     def EndColumn(self, value: int) -> None:
         self._end_column = value
@@ -182,7 +182,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         Only valid if Reason is RuntimeError or CompileError.
         """
         return self._error_message
-    
+
     @ErrorMessage.setter
     def ErrorMessage(self, value: str) -> None:
         self._error_message = value
@@ -193,7 +193,7 @@ class InterruptEngineEvent(EventObject_a3d70b03):
         contains the interrupt reason.
         """
         return self._reason
-    
+
     @Reason.setter
     def Reason(self, value: InterruptReason_f3d00dd2) -> None:
         self._reason = value

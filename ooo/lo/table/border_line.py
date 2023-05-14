@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class BorderLine(object):
         contains the color value of the line.
         """
         return self._color
-    
+
     @Color.setter
     def Color(self, value: Color_68e908c5) -> None:
         self._color = value
@@ -92,7 +92,7 @@ class BorderLine(object):
         If this value is zero, only a single line is drawn.
         """
         return self._inner_line_width
-    
+
     @InnerLineWidth.setter
     def InnerLineWidth(self, value: int) -> None:
         self._inner_line_width = value
@@ -105,7 +105,7 @@ class BorderLine(object):
         If this value is zero, no line is drawn.
         """
         return self._outer_line_width
-    
+
     @OuterLineWidth.setter
     def OuterLineWidth(self, value: int) -> None:
         self._outer_line_width = value
@@ -116,7 +116,7 @@ class BorderLine(object):
         contains the distance between the inner and outer parts of a double line (in 1/100 mm).
         """
         return self._line_distance
-    
+
     @LineDistance.setter
     def LineDistance(self, value: int) -> None:
         self._line_distance = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -59,7 +59,6 @@ class ConfigurableUIElement(UIElement_78af094e, XUIElementSettings_ddbb0cf7):
         specifies if the user interface element stores changes of its structure to its creator source defined by the property ConfigurationSource.
         """
         ...
-
 
 
 __all__ = ['ConfigurableUIElement']

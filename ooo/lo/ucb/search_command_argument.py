@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class SearchCommandArgument(object):
         the properties for which values shall be provided through the ContentResultSet returned by the search command.
         """
         return self._properties
-    
+
     @Properties.setter
     def Properties(self, value: typing.Tuple[Property_8f4e0a76, ...]) -> None:
         self._properties = value
@@ -85,7 +85,7 @@ class SearchCommandArgument(object):
         the search criteria.
         """
         return self._info
-    
+
     @Info.setter
     def Info(self, value: SearchInfo_8daf0a24) -> None:
         self._info = value

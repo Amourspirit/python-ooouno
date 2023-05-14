@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class FunctionArgument(object):
         the name of the argument.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -85,7 +85,7 @@ class FunctionArgument(object):
         a description of the argument.
         """
         return self._description
-    
+
     @Description.setter
     def Description(self, value: str) -> None:
         self._description = value
@@ -96,7 +96,7 @@ class FunctionArgument(object):
         determines whether the argument is optional.
         """
         return self._is_optional
-    
+
     @IsOptional.setter
     def IsOptional(self, value: bool) -> None:
         self._is_optional = value

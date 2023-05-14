@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class SortField(object):
         index of the field in the table; 0-based.
         """
         return self._field
-    
+
     @Field.setter
     def Field(self, value: int) -> None:
         self._field = value
@@ -90,7 +90,7 @@ class SortField(object):
         TRUE if data are sorted in ascending order, FALSE if in descending order.
         """
         return self._sort_ascending
-    
+
     @SortAscending.setter
     def SortAscending(self, value: bool) -> None:
         self._sort_ascending = value
@@ -101,7 +101,7 @@ class SortField(object):
         type of contents in the field.
         """
         return self._field_type
-    
+
     @FieldType.setter
     def FieldType(self, value: SortFieldType_bd500bf4) -> None:
         self._field_type = value

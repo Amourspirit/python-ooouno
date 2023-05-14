@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class TimeIncrement(object):
         Otherwise, if the any is empty or contains an incompatible type, the distance between major tickmarks is calculated automatically by the application.
         """
         return self._major_time_interval
-    
+
     @MajorTimeInterval.setter
     def MajorTimeInterval(self, value: object) -> None:
         self._major_time_interval = value
@@ -93,7 +93,7 @@ class TimeIncrement(object):
         Otherwise, if the any is empty or contains an incompatible type, the distance between minor tickmarks is calculated automatically by the application.
         """
         return self._minor_time_interval
-    
+
     @MinorTimeInterval.setter
     def MinorTimeInterval(self, value: object) -> None:
         self._minor_time_interval = value
@@ -106,7 +106,7 @@ class TimeIncrement(object):
         Otherwise, if the any is empty or contains an incompatible type, the resolution is chosen automatically by the application.
         """
         return self._time_resolution
-    
+
     @TimeResolution.setter
     def TimeResolution(self, value: object) -> None:
         self._time_resolution = value

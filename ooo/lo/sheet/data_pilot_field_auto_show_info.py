@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class DataPilotFieldAutoShowInfo(object):
         specifies whether the AutoShow feature is enabled or not.
         """
         return self._is_enabled
-    
+
     @IsEnabled.setter
     def IsEnabled(self, value: bool) -> None:
         self._is_enabled = value
@@ -91,7 +91,7 @@ class DataPilotFieldAutoShowInfo(object):
         specifies the mode which items have to be shown.
         """
         return self._show_items_mode
-    
+
     @ShowItemsMode.setter
     def ShowItemsMode(self, value: int) -> None:
         self._show_items_mode = value
@@ -102,7 +102,7 @@ class DataPilotFieldAutoShowInfo(object):
         specifies the number of the items to show.
         """
         return self._item_count
-    
+
     @ItemCount.setter
     def ItemCount(self, value: int) -> None:
         self._item_count = value
@@ -113,7 +113,7 @@ class DataPilotFieldAutoShowInfo(object):
         specifies the field where the values to show and select are taken from.
         """
         return self._data_field
-    
+
     @DataField.setter
     def DataField(self, value: str) -> None:
         self._data_field = value

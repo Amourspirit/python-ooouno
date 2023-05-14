@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class CrossReference(object):
         The name of a news group.
         """
         return self._group
-    
+
     @Group.setter
     def Group(self, value: str) -> None:
         self._group = value
@@ -83,7 +83,7 @@ class CrossReference(object):
         The unique identifier (relative to the server) of an article in the given group.
         """
         return self._id
-    
+
     @Id.setter
     def Id(self, value: int) -> None:
         self._id = value

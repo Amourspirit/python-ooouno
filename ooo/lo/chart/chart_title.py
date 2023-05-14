@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -67,7 +67,6 @@ class ChartTitle(Shape_85cc09e5, UserDefinedAttributesSupplier_9fbe1222):
         Especially in three-dimensional charts, this property comes in handy if you want to align the axis titles with the axis, which are usually not vertical or horizontal in the two-dimensional projection.
         """
         ...
-
 
 
 __all__ = ['ChartTitle']

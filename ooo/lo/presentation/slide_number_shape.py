@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ class SlideNumberShape(TextShape_b1b80b8a, Shape_c0c80c15):
     __ooo_ns__: str = 'com.sun.star.presentation'
     __ooo_full_ns__: str = 'com.sun.star.presentation.SlideNumberShape'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['SlideNumberShape']

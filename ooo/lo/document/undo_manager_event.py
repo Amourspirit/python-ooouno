@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class UndoManagerEvent(EventObject_a3d70b03):
         the title of the undo action which is described by the event
         """
         return self._undo_action_title
-    
+
     @UndoActionTitle.setter
     def UndoActionTitle(self, value: str) -> None:
         self._undo_action_title = value
@@ -94,7 +94,7 @@ class UndoManagerEvent(EventObject_a3d70b03):
         denotes the number of Undo contexts which are open, and not yet closed, at the time the event is fired.
         """
         return self._undo_context_depth
-    
+
     @UndoContextDepth.setter
     def UndoContextDepth(self, value: int) -> None:
         self._undo_context_depth = value

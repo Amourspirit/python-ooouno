@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class UpdateInformationEntry(object):
         the DOM representation of an update information entry
         """
         return self._update_document
-    
+
     @UpdateDocument.setter
     def UpdateDocument(self, value: XElement_a33d0ae9) -> None:
         self._update_document = value
@@ -86,7 +86,7 @@ class UpdateInformationEntry(object):
         the (optional) description for an update information entry extracted from the update feed container
         """
         return self._description
-    
+
     @Description.setter
     def Description(self, value: str) -> None:
         self._description = value

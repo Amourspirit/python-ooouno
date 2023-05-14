@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class MailAttachment(object):
         It is expected that the transferable delivers the data as sequence of bytes. Although a transferable may support multiple data flavors only the first data flavor supplied will be used to retrieve the data and it is expected that the type of the data is a sequence of bytes.
         """
         return self._data
-    
+
     @Data.setter
     def Data(self, value: XTransferable_2d800f38) -> None:
         self._data = value
@@ -90,7 +90,7 @@ class MailAttachment(object):
         ReadableName must not be empty.
         """
         return self._readable_name
-    
+
     @ReadableName.setter
     def ReadableName(self, value: str) -> None:
         self._readable_name = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class ControlEvent(object):
         The number and types of named values depend on the event.
         """
         return self._a_information
-    
+
     @aInformation.setter
     def aInformation(self, value: typing.Tuple[NamedValue_a37a0af3, ...]) -> None:
         self._a_information = value
@@ -95,7 +95,7 @@ class ControlEvent(object):
         fully parsed URL describing the control that sends this notification.
         """
         return self._a_url
-    
+
     @aURL.setter
     def aURL(self, value: URL_57ad07b9) -> None:
         self._a_url = value
@@ -106,7 +106,7 @@ class ControlEvent(object):
         specifies the event which has occurred.
         """
         return self._event
-    
+
     @Event.setter
     def Event(self, value: str) -> None:
         self._event = value

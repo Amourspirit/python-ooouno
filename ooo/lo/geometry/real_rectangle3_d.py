@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class RealRectangle3D(object):
         minimum X coordinate.
         """
         return self._x1
-    
+
     @X1.setter
     def X1(self, value: float) -> None:
         self._x1 = value
@@ -101,7 +101,7 @@ class RealRectangle3D(object):
         minimum Y coordinate.
         """
         return self._y1
-    
+
     @Y1.setter
     def Y1(self, value: float) -> None:
         self._y1 = value
@@ -112,7 +112,7 @@ class RealRectangle3D(object):
         minimum Z coordinate.
         """
         return self._z1
-    
+
     @Z1.setter
     def Z1(self, value: float) -> None:
         self._z1 = value
@@ -127,7 +127,7 @@ class RealRectangle3D(object):
         .
         """
         return self._x2
-    
+
     @X2.setter
     def X2(self, value: float) -> None:
         self._x2 = value
@@ -140,7 +140,7 @@ class RealRectangle3D(object):
         Must be greater than Y1 for non-empty cubes.
         """
         return self._y2
-    
+
     @Y2.setter
     def Y2(self, value: float) -> None:
         self._y2 = value
@@ -153,7 +153,7 @@ class RealRectangle3D(object):
         Must be greater than Z1 for non-empty cubes.
         """
         return self._z2
-    
+
     @Z2.setter
     def Z2(self, value: float) -> None:
         self._z2 = value

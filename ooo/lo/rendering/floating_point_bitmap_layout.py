@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class FloatingPointBitmapLayout(object):
         This value must not be negative
         """
         return self._scan_lines
-    
+
     @ScanLines.setter
     def ScanLines(self, value: int) -> None:
         self._scan_lines = value
@@ -116,7 +116,7 @@ class FloatingPointBitmapLayout(object):
         This value must not be negative
         """
         return self._scan_line_bytes
-    
+
     @ScanLineBytes.setter
     def ScanLineBytes(self, value: int) -> None:
         self._scan_line_bytes = value
@@ -129,7 +129,7 @@ class FloatingPointBitmapLayout(object):
         This value is permitted to be negative, denoting a bitmap whose content is flipped at the x axis.
         """
         return self._scan_line_stride
-    
+
     @ScanLineStride.setter
     def ScanLineStride(self, value: int) -> None:
         self._scan_line_stride = value
@@ -142,7 +142,7 @@ class FloatingPointBitmapLayout(object):
         This value is permitted to be negative. If this value is zero, the bitmap is assumed to be in chunky format, otherwise it is assumed to be planar. The difference between chunky and planar layout lies in the way how color channels are interleaved. For a chunky format, all channel data for a single pixel lies consecutively in memory. For a planar layout, the first channel of all pixel is stored consecutive, followed by the second channel, and so forth.
         """
         return self._plane_stride
-    
+
     @PlaneStride.setter
     def PlaneStride(self, value: int) -> None:
         self._plane_stride = value
@@ -153,7 +153,7 @@ class FloatingPointBitmapLayout(object):
         Color space the bitmap colors shall be interpreted within.
         """
         return self._color_space
-    
+
     @ColorSpace.setter
     def ColorSpace(self, value: XColorSpace_e3940d09) -> None:
         self._color_space = value
@@ -166,7 +166,7 @@ class FloatingPointBitmapLayout(object):
         This value must not be negative
         """
         return self._num_components
-    
+
     @NumComponents.setter
     def NumComponents(self, value: int) -> None:
         self._num_components = value
@@ -179,7 +179,7 @@ class FloatingPointBitmapLayout(object):
         This value must be one of the Endianness constants
         """
         return self._endianness
-    
+
     @Endianness.setter
     def Endianness(self, value: int) -> None:
         self._endianness = value
@@ -192,7 +192,7 @@ class FloatingPointBitmapLayout(object):
         This value must be one of the FloatingPointBitmapFormat constants.
         """
         return self._format
-    
+
     @Format.setter
     def Format(self, value: int) -> None:
         self._format = value

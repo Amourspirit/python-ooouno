@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class DocumentSignatureInformation(object):
     @property
     def Signer(self) -> XCertificate_e55b0d3b:
         return self._signer
-    
+
     @Signer.setter
     def Signer(self, value: XCertificate_e55b0d3b) -> None:
         self._signer = value
@@ -111,7 +111,7 @@ class DocumentSignatureInformation(object):
     @property
     def SignatureDate(self) -> int:
         return self._signature_date
-    
+
     @SignatureDate.setter
     def SignatureDate(self, value: int) -> None:
         self._signature_date = value
@@ -122,7 +122,7 @@ class DocumentSignatureInformation(object):
         Time of day, in 100th of seconds.
         """
         return self._signature_time
-    
+
     @SignatureTime.setter
     def SignatureTime(self, value: int) -> None:
         self._signature_time = value
@@ -130,7 +130,7 @@ class DocumentSignatureInformation(object):
     @property
     def SignatureIsValid(self) -> bool:
         return self._signature_is_valid
-    
+
     @SignatureIsValid.setter
     def SignatureIsValid(self, value: bool) -> None:
         self._signature_is_valid = value
@@ -143,7 +143,7 @@ class DocumentSignatureInformation(object):
         Contains a value from the constants of com.sun.star.security.CertificateValidity.
         """
         return self._certificate_status
-    
+
     @CertificateStatus.setter
     def CertificateStatus(self, value: int) -> None:
         self._certificate_status = value
@@ -158,7 +158,7 @@ class DocumentSignatureInformation(object):
         If PartialDocumentSignature is true, then the signature was created by OOo with a version lower than 3.2. In this case, not all files are signed. The signature can still be regarded as valid, as long as SignatureIsValid is true and the certificate could be validated. However, users should be notified about the fact, that not everything in this document is signed.
         """
         return self._partial_document_signature
-    
+
     @PartialDocumentSignature.setter
     def PartialDocumentSignature(self, value: bool) -> None:
         self._partial_document_signature = value
@@ -173,7 +173,7 @@ class DocumentSignatureInformation(object):
             LibreOffice 6.0
         """
         return self._signature_line_id
-    
+
     @SignatureLineId.setter
     def SignatureLineId(self, value: str) -> None:
         self._signature_line_id = value
@@ -188,7 +188,7 @@ class DocumentSignatureInformation(object):
             LibreOffice 6.0
         """
         return self._valid_signature_line_image
-    
+
     @ValidSignatureLineImage.setter
     def ValidSignatureLineImage(self, value: XGraphic_a4da0afc) -> None:
         self._valid_signature_line_image = value
@@ -203,7 +203,7 @@ class DocumentSignatureInformation(object):
             LibreOffice 6.0
         """
         return self._invalid_signature_line_image
-    
+
     @InvalidSignatureLineImage.setter
     def InvalidSignatureLineImage(self, value: XGraphic_a4da0afc) -> None:
         self._invalid_signature_line_image = value

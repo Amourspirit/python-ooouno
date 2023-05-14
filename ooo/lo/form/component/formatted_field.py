@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -34,7 +34,6 @@ class FormattedField(UnoControlFormattedFieldModel_9fb511e2, FormControlModel_e2
     __ooo_ns__: str = 'com.sun.star.form.component'
     __ooo_full_ns__: str = 'com.sun.star.form.component.FormattedField'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['FormattedField']

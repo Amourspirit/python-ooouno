@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,6 @@ class SheetCellRanges(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, C
         After the data validation settings have been changed the validation has to be reinserted into the property set.
         """
         ...
-
 
 
 __all__ = ['SheetCellRanges']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class ScriptEventDescriptor(object):
         listener type as string, same as listener-XIdlClass.getName().
         """
         return self._listener_type
-    
+
     @ListenerType.setter
     def ListenerType(self, value: str) -> None:
         self._listener_type = value
@@ -93,7 +93,7 @@ class ScriptEventDescriptor(object):
         event method as string.
         """
         return self._event_method
-    
+
     @EventMethod.setter
     def EventMethod(self, value: str) -> None:
         self._event_method = value
@@ -106,7 +106,7 @@ class ScriptEventDescriptor(object):
         If the type of this parameter is different from string, it will be converted, when added.
         """
         return self._add_listener_param
-    
+
     @AddListenerParam.setter
     def AddListenerParam(self, value: str) -> None:
         self._add_listener_param = value
@@ -117,7 +117,7 @@ class ScriptEventDescriptor(object):
         type of the script language as string; for example, \"Basic\" or \"StarScript\".
         """
         return self._script_type
-    
+
     @ScriptType.setter
     def ScriptType(self, value: str) -> None:
         self._script_type = value
@@ -128,7 +128,7 @@ class ScriptEventDescriptor(object):
         script code as string (the code has to correspond with the language defined by ScriptType).
         """
         return self._script_code
-    
+
     @ScriptCode.setter
     def ScriptCode(self, value: str) -> None:
         self._script_code = value

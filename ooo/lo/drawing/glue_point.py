@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class GluePoint(object):
         This is the position of this GluePoint.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: Point_5fb2085e) -> None:
         self._position = value
@@ -98,7 +98,7 @@ class GluePoint(object):
         This is the direction in which the connector line leaves the GluePoint.
         """
         return self._escape_direction
-    
+
     @EscapeDirection.setter
     def EscapeDirection(self, value: int) -> None:
         self._escape_direction = value
@@ -109,7 +109,7 @@ class GluePoint(object):
         If this is TRUE, then the position of this GluePoint is absolute on a page and is not relative to a shape.
         """
         return self._position_absolute
-    
+
     @PositionAbsolute.setter
     def PositionAbsolute(self, value: bool) -> None:
         self._position_absolute = value
@@ -120,7 +120,7 @@ class GluePoint(object):
         The alignment of a GluePoint defines how the position of the point is affected by resizing the parent Shape.
         """
         return self._alignment
-    
+
     @Alignment.setter
     def Alignment(self, value: int) -> None:
         self._alignment = value

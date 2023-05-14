@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class UpperLowerMarginScale(object):
         specifies a upper margin in 1/100th mm.
         """
         return self._upper
-    
+
     @Upper.setter
     def Upper(self, value: int) -> None:
         self._upper = value
@@ -93,7 +93,7 @@ class UpperLowerMarginScale(object):
         specifies a lower margin in 1/100th mm.
         """
         return self._lower
-    
+
     @Lower.setter
     def Lower(self, value: int) -> None:
         self._lower = value
@@ -104,7 +104,7 @@ class UpperLowerMarginScale(object):
         specifies a scale value for the upper margin.
         """
         return self._scale_upper
-    
+
     @ScaleUpper.setter
     def ScaleUpper(self, value: int) -> None:
         self._scale_upper = value
@@ -115,7 +115,7 @@ class UpperLowerMarginScale(object):
         specifies a scale value for the lower margin.
         """
         return self._scale_lower
-    
+
     @ScaleLower.setter
     def ScaleLower(self, value: int) -> None:
         self._scale_lower = value

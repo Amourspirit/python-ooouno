@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class ClipboardFormats(object):
         specifies a sequence of format IDs which are contained in the system clipboard.
         """
         return self._identifiers
-    
+
     @Identifiers.setter
     def Identifiers(self, value: uno.ByteSequence) -> None:
         self._identifiers = value
@@ -86,7 +86,7 @@ class ClipboardFormats(object):
         specifies a sequence of format names which are contained in the system clipboard.
         """
         return self._names
-    
+
     @Names.setter
     def Names(self, value: typing.Tuple[str, ...]) -> None:
         self._names = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class TextConversionResult(object):
         A list of replacement candidates for the first convertible word found in the given text.
         """
         return self._candidates
-    
+
     @Candidates.setter
     def Candidates(self, value: typing.Tuple[str, ...]) -> None:
         self._candidates = value
@@ -90,7 +90,7 @@ class TextConversionResult(object):
         If there is no convertible word found in the text, startPos and endPos for Boundary equal 0.
         """
         return self._boundary
-    
+
     @Boundary.setter
     def Boundary(self, value: Boundary_7fe2098c) -> None:
         self._boundary = value

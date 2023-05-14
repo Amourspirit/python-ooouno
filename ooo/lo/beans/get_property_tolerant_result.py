@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class GetPropertyTolerantResult(object):
         specifies a success or error code for the retrieval operation.
         """
         return self._result
-    
+
     @Result.setter
     def Result(self, value: int) -> None:
         self._result = value
@@ -88,7 +88,7 @@ class GetPropertyTolerantResult(object):
         The value is undefined if Result is not com.sun.star.beans.TolerantPropertySetResultType.SUCCESS.
         """
         return self._state
-    
+
     @State.setter
     def State(self, value: PropertyState_c97b0c77) -> None:
         self._state = value
@@ -101,7 +101,7 @@ class GetPropertyTolerantResult(object):
         The value is undefined if Result is not com.sun.star.beans.TolerantPropertySetResultType.SUCCESS.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value

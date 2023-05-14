@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class GlobalTransferCommandArgument(object):
         contains the action to perform ( COPY, MOVE, LINK ).
         """
         return self._operation
-    
+
     @Operation.setter
     def Operation(self, value: TransferCommandOperation_486a0ff7) -> None:
         self._operation = value
@@ -94,7 +94,7 @@ class GlobalTransferCommandArgument(object):
         contains the URL of the source object.
         """
         return self._source_url
-    
+
     @SourceURL.setter
     def SourceURL(self, value: str) -> None:
         self._source_url = value
@@ -105,7 +105,7 @@ class GlobalTransferCommandArgument(object):
         contains the URL of the target folder.
         """
         return self._target_url
-    
+
     @TargetURL.setter
     def TargetURL(self, value: str) -> None:
         self._target_url = value
@@ -118,7 +118,7 @@ class GlobalTransferCommandArgument(object):
         If this field is filled, for example, a file will be renamed while it is being transferred.
         """
         return self._new_title
-    
+
     @NewTitle.setter
     def NewTitle(self, value: str) -> None:
         self._new_title = value
@@ -131,7 +131,7 @@ class GlobalTransferCommandArgument(object):
         A title clash for instance occurs, if a file named \"foo.txt\" is to be transferred to a folder already containing another file named \"foo.txt\". Refer to NameClash for possible values for this field.
         """
         return self._name_clash
-    
+
     @NameClash.setter
     def NameClash(self, value: int) -> None:
         self._name_clash = value

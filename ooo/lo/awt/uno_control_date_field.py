@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ class UnoControlDateField(UnoControlEdit_bc4e0bed, XDateField_8d520a0e, XSpinFie
     __ooo_ns__: str = 'com.sun.star.awt'
     __ooo_full_ns__: str = 'com.sun.star.awt.UnoControlDateField'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['UnoControlDateField']

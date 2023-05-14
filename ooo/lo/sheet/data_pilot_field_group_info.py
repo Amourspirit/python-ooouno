@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ class DataPilotFieldGroupInfo(object):
         specifies whether the start value for the grouping is taken automatically from the minimum of the item values.
         """
         return self._has_auto_start
-    
+
     @HasAutoStart.setter
     def HasAutoStart(self, value: bool) -> None:
         self._has_auto_start = value
@@ -111,7 +111,7 @@ class DataPilotFieldGroupInfo(object):
         specifies whether the end value for the grouping is taken automatically from the maximum of the item values.
         """
         return self._has_auto_end
-    
+
     @HasAutoEnd.setter
     def HasAutoEnd(self, value: bool) -> None:
         self._has_auto_end = value
@@ -122,7 +122,7 @@ class DataPilotFieldGroupInfo(object):
         specifies whether date values are grouped by ranges of days.
         """
         return self._has_date_values
-    
+
     @HasDateValues.setter
     def HasDateValues(self, value: bool) -> None:
         self._has_date_values = value
@@ -133,7 +133,7 @@ class DataPilotFieldGroupInfo(object):
         specifies the start value for the grouping if HasAutoStart is set to FALSE.
         """
         return self._start
-    
+
     @Start.setter
     def Start(self, value: float) -> None:
         self._start = value
@@ -144,7 +144,7 @@ class DataPilotFieldGroupInfo(object):
         specifies the end value for the grouping if HasAutoEnd is set to FALSE.
         """
         return self._end
-    
+
     @End.setter
     def End(self, value: float) -> None:
         self._end = value
@@ -157,7 +157,7 @@ class DataPilotFieldGroupInfo(object):
         Example: With HasAutoStart set to FALSE, Start set to 2, and Step set to 3, the first group will contain all values greater than or equal to 2 and less than 5. The second group will contain all values greater than or equal to 5 and less than 8, and so on.
         """
         return self._step
-    
+
     @Step.setter
     def Step(self, value: float) -> None:
         self._step = value
@@ -168,7 +168,7 @@ class DataPilotFieldGroupInfo(object):
         specifies the grouping of the date values.
         """
         return self._group_by
-    
+
     @GroupBy.setter
     def GroupBy(self, value: int) -> None:
         self._group_by = value
@@ -181,7 +181,7 @@ class DataPilotFieldGroupInfo(object):
         Will be NULL if this field is not grouped or contains numeric grouping.
         """
         return self._source_field
-    
+
     @SourceField.setter
     def SourceField(self, value: XDataPilotField_e0350cdf) -> None:
         self._source_field = value
@@ -194,7 +194,7 @@ class DataPilotFieldGroupInfo(object):
         The returned object is an instance of DataPilotFieldGroups . The collection of groups can be modified by inserting, removing, replacing, or renaming single groups or item names in the groups. When writing back this struct containing such a changed collection of groups to the DataPilotField.GroupInfo property, the modified grouping settings are applied at the DataPilot field.
         """
         return self._groups
-    
+
     @Groups.setter
     def Groups(self, value: XNameAccess_e2ab0cf6) -> None:
         self._groups = value

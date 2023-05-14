@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class EndDockingEvent(EventObject_a3d70b03):
         specifies the new bounding rectangle of the window
         """
         return self._window_rectangle
-    
+
     @WindowRectangle.setter
     def WindowRectangle(self, value: Rectangle_84b109e9) -> None:
         self._window_rectangle = value
@@ -97,7 +97,7 @@ class EndDockingEvent(EventObject_a3d70b03):
         specifies if the window is now floating TRUE or docked FALSE
         """
         return self._b_floating
-    
+
     @bFloating.setter
     def bFloating(self, value: bool) -> None:
         self._b_floating = value
@@ -108,7 +108,7 @@ class EndDockingEvent(EventObject_a3d70b03):
         specifies that the docking procedure was canceled
         """
         return self._b_cancelled
-    
+
     @bCancelled.setter
     def bCancelled(self, value: bool) -> None:
         self._b_cancelled = value

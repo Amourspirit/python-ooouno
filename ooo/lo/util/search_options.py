@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ class SearchOptions(object):
         search type
         """
         return self._algorithm_type
-    
+
     @algorithmType.setter
     def algorithmType(self, value: SearchAlgorithms_e2c00d36) -> None:
         self._algorithm_type = value
@@ -112,7 +112,7 @@ class SearchOptions(object):
         some flags - can be mixed
         """
         return self._search_flag
-    
+
     @searchFlag.setter
     def searchFlag(self, value: int) -> None:
         self._search_flag = value
@@ -123,7 +123,7 @@ class SearchOptions(object):
         The text or pattern to be searched.
         """
         return self._search_string
-    
+
     @searchString.setter
     def searchString(self, value: str) -> None:
         self._search_string = value
@@ -134,7 +134,7 @@ class SearchOptions(object):
         The replacement text (is for optional replacing - SearchOption is only the data container for it)
         """
         return self._replace_string
-    
+
     @replaceString.setter
     def replaceString(self, value: str) -> None:
         self._replace_string = value
@@ -145,7 +145,7 @@ class SearchOptions(object):
         The locale for case insensitive search.
         """
         return self._locale
-    
+
     @Locale.setter
     def Locale(self, value: Locale_70d308fa) -> None:
         self._locale = value
@@ -156,7 +156,7 @@ class SearchOptions(object):
         This many characters can be different (as a replacement) between the found word and the search pattern in a \"Weighted LevenshteinDistance\" search.
         """
         return self._changed_chars
-    
+
     @changedChars.setter
     def changedChars(self, value: int) -> None:
         self._changed_chars = value
@@ -167,7 +167,7 @@ class SearchOptions(object):
         This many characters can be missing in the found word in a \"Weighted Levenshtein Distance\" search.
         """
         return self._deleted_chars
-    
+
     @deletedChars.setter
     def deletedChars(self, value: int) -> None:
         self._deleted_chars = value
@@ -178,7 +178,7 @@ class SearchOptions(object):
         This many characters can be additional in the found word in a \"Weighted Levenshtein Distance\" search.
         """
         return self._inserted_chars
-    
+
     @insertedChars.setter
     def insertedChars(self, value: int) -> None:
         self._inserted_chars = value
@@ -191,7 +191,7 @@ class SearchOptions(object):
         Same meaning as the enum of com.sun.star.i18n.TransliterationModules
         """
         return self._transliterate_flags
-    
+
     @transliterateFlags.setter
     def transliterateFlags(self, value: int) -> None:
         self._transliterate_flags = value

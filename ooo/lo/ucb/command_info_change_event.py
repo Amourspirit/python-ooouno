@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class CommandInfoChangeEvent(EventObject_a3d70b03):
         contains the name of the command.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -98,7 +98,7 @@ class CommandInfoChangeEvent(EventObject_a3d70b03):
         May be -1 if the implementation has no handle.
         """
         return self._handle
-    
+
     @Handle.setter
     def Handle(self, value: int) -> None:
         self._handle = value
@@ -111,7 +111,7 @@ class CommandInfoChangeEvent(EventObject_a3d70b03):
         The value can be one of the CommandInfoChange constants.
         """
         return self._reason
-    
+
     @Reason.setter
     def Reason(self, value: int) -> None:
         self._reason = value

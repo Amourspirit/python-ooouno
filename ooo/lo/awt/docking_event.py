@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -93,7 +93,7 @@ class DockingEvent(EventObject_a3d70b03):
         specifies the current tracking rectangle
         """
         return self._tracking_rectangle
-    
+
     @TrackingRectangle.setter
     def TrackingRectangle(self, value: Rectangle_84b109e9) -> None:
         self._tracking_rectangle = value
@@ -104,7 +104,7 @@ class DockingEvent(EventObject_a3d70b03):
         specifies the current mouse position in frame coordinates
         """
         return self._mouse_pos
-    
+
     @MousePos.setter
     def MousePos(self, value: Point_5fb2085e) -> None:
         self._mouse_pos = value
@@ -115,7 +115,7 @@ class DockingEvent(EventObject_a3d70b03):
         specifies if the layout should be adjusted immediately
         """
         return self._b_live_mode
-    
+
     @bLiveMode.setter
     def bLiveMode(self, value: bool) -> None:
         self._b_live_mode = value
@@ -126,7 +126,7 @@ class DockingEvent(EventObject_a3d70b03):
         specifies if the docking procedure is interactive which means that the user is currently dragging the window to a new position if this member is FALSE the window will be docked or undocked immediately using the returned tracking rectangle
         """
         return self._b_interactive
-    
+
     @bInteractive.setter
     def bInteractive(self, value: bool) -> None:
         self._b_interactive = value

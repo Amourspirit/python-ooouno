@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ class UrlRecord(object):
     @property
     def UserList(self) -> typing.Tuple[UserRecord_9a2e0ab9, ...]:
         return self._user_list
-    
+
     @UserList.setter
     def UserList(self, value: typing.Tuple[UserRecord_9a2e0ab9, ...]) -> None:
         self._user_list = value
@@ -78,7 +78,7 @@ class UrlRecord(object):
         The URL for which these passwords where given.
         """
         return self._url
-    
+
     @Url.setter
     def Url(self, value: str) -> None:
         self._url = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class ExternalReference(object):
         You can get the index value of an external document from the corresponding com.sun.star.sheet.ExternalDocLink instance through its attribute com.sun.star.sheet.ExternalDocLink.TokenIndex.
         """
         return self._index
-    
+
     @Index.setter
     def Index(self, value: int) -> None:
         self._index = value
@@ -95,7 +95,7 @@ class ExternalReference(object):
         The SingleReference.Sheet member shall contain the index of the external sheet cache containing the values of the externally referenced cells.
         """
         return self._reference
-    
+
     @Reference.setter
     def Reference(self, value: object) -> None:
         self._reference = value

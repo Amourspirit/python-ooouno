@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class DockingData(object):
         specifies the position and size where the window would be placed if the user releases the mouse
         """
         return self._tracking_rectangle
-    
+
     @TrackingRectangle.setter
     def TrackingRectangle(self, value: Rectangle_84b109e9) -> None:
         self._tracking_rectangle = value
@@ -84,7 +84,7 @@ class DockingData(object):
         specifies that the window should be floating (TRUE) or docked (FALSE)
         """
         return self._b_floating
-    
+
     @bFloating.setter
     def bFloating(self, value: bool) -> None:
         self._b_floating = value

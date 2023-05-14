@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class TableFilterField3(object):
         Each filter field may have one or more values.
         """
         return self._values
-    
+
     @Values.setter
     def Values(self, value: typing.Tuple[FilterFieldValue_ef2a0d68, ...]) -> None:
         self._values = value
@@ -96,7 +96,7 @@ class TableFilterField3(object):
         specifies how the condition is connected to the previous condition.
         """
         return self._connection
-    
+
     @Connection.setter
     def Connection(self, value: FilterConnection_f01f0d97) -> None:
         self._connection = value
@@ -107,7 +107,7 @@ class TableFilterField3(object):
         specifies which field (column) is used for the condition.
         """
         return self._field
-    
+
     @Field.setter
     def Field(self, value: int) -> None:
         self._field = value
@@ -118,7 +118,7 @@ class TableFilterField3(object):
         specifies the type of the condition as defined in FilterOperator2.
         """
         return self._operator
-    
+
     @Operator.setter
     def Operator(self, value: int) -> None:
         self._operator = value

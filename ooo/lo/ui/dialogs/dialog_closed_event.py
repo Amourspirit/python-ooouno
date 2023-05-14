@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class DialogClosedEvent(EventObject_a3d70b03):
     @property
     def DialogResult(self) -> int:
         return self._dialog_result
-    
+
     @DialogResult.setter
     def DialogResult(self, value: int) -> None:
         self._dialog_result = value

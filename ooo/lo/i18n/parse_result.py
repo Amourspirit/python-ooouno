@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class ParseResult(object):
         Count of ignored leading whitespace, in UTF-16 code units, not Unicode code points.
         """
         return self._leading_white_space
-    
+
     @LeadingWhiteSpace.setter
     def LeadingWhiteSpace(self, value: int) -> None:
         self._leading_white_space = value
@@ -105,7 +105,7 @@ class ParseResult(object):
         UTF-16 code unit index of first unprocessed character.
         """
         return self._end_pos
-    
+
     @EndPos.setter
     def EndPos(self, value: int) -> None:
         self._end_pos = value
@@ -116,7 +116,7 @@ class ParseResult(object):
         Number of code points (not UTF-16 code units) of the parsed token, not including leading whitespace.
         """
         return self._char_len
-    
+
     @CharLen.setter
     def CharLen(self, value: int) -> None:
         self._char_len = value
@@ -127,7 +127,7 @@ class ParseResult(object):
         Value of token in case of numeric.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: float) -> None:
         self._value = value
@@ -138,7 +138,7 @@ class ParseResult(object):
         KParseType token type like KParseType.IDENTNAME.
         """
         return self._token_type
-    
+
     @TokenType.setter
     def TokenType(self, value: int) -> None:
         self._token_type = value
@@ -151,7 +151,7 @@ class ParseResult(object):
         If TokenType is a KParseType.SINGLE_QUOTE_NAME or a KParseType.DOUBLE_QUOTE_STRING the first character is the first character inside the quotes, not the quote itself.
         """
         return self._start_flags
-    
+
     @StartFlags.setter
     def StartFlags(self, value: int) -> None:
         self._start_flags = value
@@ -162,7 +162,7 @@ class ParseResult(object):
         KParseTokens flags of remaining characters of actual token matched.
         """
         return self._cont_flags
-    
+
     @ContFlags.setter
     def ContFlags(self, value: int) -> None:
         self._cont_flags = value
@@ -173,7 +173,7 @@ class ParseResult(object):
         If a quoted name or string is encountered the dequoted result goes here.
         """
         return self._dequoted_name_or_string
-    
+
     @DequotedNameOrString.setter
     def DequotedNameOrString(self, value: str) -> None:
         self._dequoted_name_or_string = value

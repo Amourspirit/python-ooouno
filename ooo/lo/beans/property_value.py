@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class PropertyValue(object):
         The name is unique within a sequence of PropertyValues. Upper and lower case are distinguished.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -94,7 +94,7 @@ class PropertyValue(object):
         It may be -1 if the implementation has no handle. If available it can be used for fast lookups.
         """
         return self._handle
-    
+
     @Handle.setter
     def Handle(self, value: int) -> None:
         self._handle = value
@@ -105,7 +105,7 @@ class PropertyValue(object):
         contains the value of the property or VOID, if no value is available.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value
@@ -116,7 +116,7 @@ class PropertyValue(object):
         determines if the value comes from the object itself or from a default and if the value cannot be determined exactly.
         """
         return self._state
-    
+
     @State.setter
     def State(self, value: PropertyState_c97b0c77) -> None:
         self._state = value

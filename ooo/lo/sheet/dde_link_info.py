@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ class DDELinkInfo(object):
         Each item may contain its results from the last update.
         """
         return self._items
-    
+
     @Items.setter
     def Items(self, value: typing.Tuple[DDEItemInfo_ac870b09, ...]) -> None:
         self._items = value
@@ -96,7 +96,7 @@ class DDELinkInfo(object):
         The DDE service name.
         """
         return self._service
-    
+
     @Service.setter
     def Service(self, value: str) -> None:
         self._service = value
@@ -107,7 +107,7 @@ class DDELinkInfo(object):
         The DDE topic.
         """
         return self._topic
-    
+
     @Topic.setter
     def Topic(self, value: str) -> None:
         self._topic = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class RGBColor(object):
         Red component. Valid range is [0,1.0].
         """
         return self._red
-    
+
     @Red.setter
     def Red(self, value: ColorComponent_e4c0e78) -> None:
         self._red = value
@@ -86,7 +86,7 @@ class RGBColor(object):
         Green component. Valid range is [0,1.0].
         """
         return self._green
-    
+
     @Green.setter
     def Green(self, value: ColorComponent_e4c0e78) -> None:
         self._green = value
@@ -97,7 +97,7 @@ class RGBColor(object):
         Blue component. Valid range is [0,1.0].
         """
         return self._blue
-    
+
     @Blue.setter
     def Blue(self, value: ColorComponent_e4c0e78) -> None:
         self._blue = value

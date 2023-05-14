@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,6 @@ class Scenario(XPropertySet_bc180bfa, XNamed_a6520b08, XScenario_99ac0aad, XScen
         specifies if the scenario shows a border.
         """
         ...
-
 
 
 __all__ = ['Scenario']

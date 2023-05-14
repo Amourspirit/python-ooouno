@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class RowChangeEvent(EventObject_a3d70b03):
         indicates the type of change.
         """
         return self._action
-    
+
     @Action.setter
     def Action(self, value: int) -> None:
         self._action = value
@@ -90,7 +90,7 @@ class RowChangeEvent(EventObject_a3d70b03):
         indicates the number of rows affected by the change.
         """
         return self._rows
-    
+
     @Rows.setter
     def Rows(self, value: int) -> None:
         self._rows = value

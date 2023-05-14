@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ class ValidatableBindableControlModel(BindableControlModel_9a1111a8, Validatable
     __ooo_ns__: str = 'com.sun.star.form.validation'
     __ooo_full_ns__: str = 'com.sun.star.form.validation.ValidatableBindableControlModel'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['ValidatableBindableControlModel']

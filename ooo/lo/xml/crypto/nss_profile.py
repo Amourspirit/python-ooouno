@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class NSSProfile(object):
         Normally the name will reflect the name of the Mozilla profile. But the profile list also contains the following special entries: MANUAL and MOZILLA_CERTIFICATE_FOLDER. These will have a product type of MozillaProductType.Default and might have an empty path, if that value is not available.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -91,7 +91,7 @@ class NSSProfile(object):
         the path to the NSS databases
         """
         return self._path
-    
+
     @Path.setter
     def Path(self, value: str) -> None:
         self._path = value
@@ -102,7 +102,7 @@ class NSSProfile(object):
         the type of the NSS profile
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: MozillaProductType_2e210f5b) -> None:
         self._type = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ class FontMetrics(object):
         Ascent (above the baseline) part of the font.
         """
         return self._ascent
-    
+
     @Ascent.setter
     def Ascent(self, value: float) -> None:
         self._ascent = value
@@ -109,7 +109,7 @@ class FontMetrics(object):
         Descent (below the baseline) part of the font.
         """
         return self._descent
-    
+
     @Descent.setter
     def Descent(self, value: float) -> None:
         self._descent = value
@@ -120,7 +120,7 @@ class FontMetrics(object):
         Extra space above ascent.
         """
         return self._internal_leading
-    
+
     @InternalLeading.setter
     def InternalLeading(self, value: float) -> None:
         self._internal_leading = value
@@ -133,7 +133,7 @@ class FontMetrics(object):
         It should not contain ink marks and is typically used by the font designer to modify the line distance.
         """
         return self._external_leading
-    
+
     @ExternalLeading.setter
     def ExternalLeading(self, value: float) -> None:
         self._external_leading = value
@@ -146,7 +146,7 @@ class FontMetrics(object):
         It's roughly equivalent to the average width of all characters, and if one needs a font with double character width, the referenceCharSize should be doubled.
         """
         return self._reference_char_size
-    
+
     @ReferenceCharSize.setter
     def ReferenceCharSize(self, value: float) -> None:
         self._reference_char_size = value
@@ -157,7 +157,7 @@ class FontMetrics(object):
         Specifies the offset to be added to the baseline when drawing underlined text.
         """
         return self._underline_offset
-    
+
     @UnderlineOffset.setter
     def UnderlineOffset(self, value: float) -> None:
         self._underline_offset = value
@@ -168,7 +168,7 @@ class FontMetrics(object):
         Specifies the offset to be added to the baseline when striking through the text.
         """
         return self._strike_through_offset
-    
+
     @StrikeThroughOffset.setter
     def StrikeThroughOffset(self, value: float) -> None:
         self._strike_through_offset = value

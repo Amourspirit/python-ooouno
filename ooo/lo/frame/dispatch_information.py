@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class DispatchInformation(object):
         command URL of a supported command.
         """
         return self._command
-    
+
     @Command.setter
     def Command(self, value: str) -> None:
         self._command = value
@@ -85,7 +85,7 @@ class DispatchInformation(object):
         group identifier to which the supported command belong.
         """
         return self._group_id
-    
+
     @GroupId.setter
     def GroupId(self, value: int) -> None:
         self._group_id = value

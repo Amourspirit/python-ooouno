@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class DriverPropertyInfo(object):
         contains a sequence of possible values if the value for the field DriverPropertyInfo.value may be selected from a particular set of values; otherwise empty.
         """
         return self._choices
-    
+
     @Choices.setter
     def Choices(self, value: typing.Tuple[str, ...]) -> None:
         self._choices = value
@@ -95,7 +95,7 @@ class DriverPropertyInfo(object):
         is the name of the property.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -106,7 +106,7 @@ class DriverPropertyInfo(object):
         is a brief description of the property, which may be null.
         """
         return self._description
-    
+
     @Description.setter
     def Description(self, value: str) -> None:
         self._description = value
@@ -117,7 +117,7 @@ class DriverPropertyInfo(object):
         is TRUE if a value must be supplied for this property during Driver.connect and FALSE otherwise.
         """
         return self._is_required
-    
+
     @IsRequired.setter
     def IsRequired(self, value: bool) -> None:
         self._is_required = value
@@ -130,7 +130,7 @@ class DriverPropertyInfo(object):
         This field may be empty if no value is known.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: str) -> None:
         self._value = value

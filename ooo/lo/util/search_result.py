@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class SearchResult(object):
     @property
     def startOffset(self) -> uno.ByteSequence:
         return self._start_offset
-    
+
     @startOffset.setter
     def startOffset(self, value: uno.ByteSequence) -> None:
         self._start_offset = value
@@ -79,7 +79,7 @@ class SearchResult(object):
     @property
     def endOffset(self) -> uno.ByteSequence:
         return self._end_offset
-    
+
     @endOffset.setter
     def endOffset(self, value: uno.ByteSequence) -> None:
         self._end_offset = value
@@ -98,7 +98,7 @@ class SearchResult(object):
         For regular expressions it can be greater than 1. If the value is 1, startoffset[0] and endoffset[0] points to the matching sub string if value is > 1, still startoffset[0] and endoffset[0] points to the matching substring for whole regular expression startoffset[i] and endoffset[i] points to the matching substring of i th matching substring.
         """
         return self._sub_reg_expressions
-    
+
     @subRegExpressions.setter
     def subRegExpressions(self, value: int) -> None:
         self._sub_reg_expressions = value

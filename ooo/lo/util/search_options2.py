@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -112,7 +112,7 @@ class SearchOptions2(SearchOptions_bd140c08):
         This is preferred over the content of the SearchAlgorithms SearchOptions.algorithmType enum field.
         """
         return self._algorithm_type2
-    
+
     @AlgorithmType2.setter
     def AlgorithmType2(self, value: int) -> None:
         self._algorithm_type2 = value
@@ -127,7 +127,7 @@ class SearchOptions2(SearchOptions_bd140c08):
         Common values are '\\' (U+005C REVERSE SOLIDUS) aka backslash in text processing context, or '~' (U+007E TILDE) in spreadsheet processing context.
         """
         return self._wildcard_escape_character
-    
+
     @WildcardEscapeCharacter.setter
     def WildcardEscapeCharacter(self, value: int) -> None:
         self._wildcard_escape_character = value

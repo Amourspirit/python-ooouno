@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class FilterEvent(EventObject_a3d70b03):
         denotes the index of the disjunctive term to which the event applies, if any.
         """
         return self._disjunctive_term
-    
+
     @DisjunctiveTerm.setter
     def DisjunctiveTerm(self, value: int) -> None:
         self._disjunctive_term = value
@@ -98,7 +98,7 @@ class FilterEvent(EventObject_a3d70b03):
         denotes the index of the filter component to which the event applies, if any.
         """
         return self._filter_component
-    
+
     @FilterComponent.setter
     def FilterComponent(self, value: int) -> None:
         self._filter_component = value
@@ -109,7 +109,7 @@ class FilterEvent(EventObject_a3d70b03):
         denotes the predicate expression associated with the event.
         """
         return self._predicate_expression
-    
+
     @PredicateExpression.setter
     def PredicateExpression(self, value: str) -> None:
         self._predicate_expression = value

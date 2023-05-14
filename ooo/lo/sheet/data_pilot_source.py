@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,6 @@ class DataPilotSource(XPropertySet_bc180bfa, XDataPilotResults_fc0c0ded, XDimens
         specifies if grand totals for the rows are inserted.
         """
         ...
-
 
 
 __all__ = ['DataPilotSource']

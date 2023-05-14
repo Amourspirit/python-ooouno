@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class Verb(object):
         specifies the Id of the command.
         """
         return self._verb_id
-    
+
     @VerbId.setter
     def VerbId(self, value: int) -> None:
         self._verb_id = value
@@ -97,7 +97,7 @@ class Verb(object):
         The name is localized.
         """
         return self._verb_name
-    
+
     @VerbName.setter
     def VerbName(self, value: str) -> None:
         self._verb_name = value
@@ -108,7 +108,7 @@ class Verb(object):
         specifies if the command should be visible in a menu.
         """
         return self._verb_is_on_menu
-    
+
     @VerbIsOnMenu.setter
     def VerbIsOnMenu(self, value: bool) -> None:
         self._verb_is_on_menu = value
@@ -119,7 +119,7 @@ class Verb(object):
         specifies if the command is available for a constant object.
         """
         return self._verb_is_const
-    
+
     @VerbIsConst.setter
     def VerbIsConst(self, value: bool) -> None:
         self._verb_is_const = value

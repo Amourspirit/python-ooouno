@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class LineBreakHyphenationOptions(object):
         Reference to the specific hyphenator - can be zero.
         """
         return self._r_hyphenator
-    
+
     @rHyphenator.setter
     def rHyphenator(self, value: XHyphenator_ff4e0def) -> None:
         self._r_hyphenator = value
@@ -87,7 +87,7 @@ class LineBreakHyphenationOptions(object):
         Sequence of property values to be used by the hyphenator - can be empty if the default values (from the property set) should be used.
         """
         return self._a_hyphenation_options
-    
+
     @aHyphenationOptions.setter
     def aHyphenationOptions(self, value: PropertyValues_d6470ce6) -> None:
         self._a_hyphenation_options = value
@@ -98,7 +98,7 @@ class LineBreakHyphenationOptions(object):
         The first character not fitting to the current line, considering an additional \"-\" for hyphenation.
         """
         return self._hyphen_index
-    
+
     @hyphenIndex.setter
     def hyphenIndex(self, value: int) -> None:
         self._hyphen_index = value

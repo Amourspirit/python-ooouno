@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
         The media type (mime type) for the data to post.
         """
         return self._media_type
-    
+
     @MediaType.setter
     def MediaType(self, value: str) -> None:
         self._media_type = value
@@ -94,7 +94,7 @@ class PostCommandArgument2(PostCommandArgument_fc590dea):
         The URL of the referrer.
         """
         return self._referer
-    
+
     @Referer.setter
     def Referer(self, value: str) -> None:
         self._referer = value

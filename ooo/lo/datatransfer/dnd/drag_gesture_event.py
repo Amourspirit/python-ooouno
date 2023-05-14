@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class DragGestureEvent(EventObject_a3d70b03):
         It's further possible to combine the ACTION_DEFAULT with one of the other actions defined in com.sun.star.datatransfer.dnd.DNDConstants. This means the user did not press any key during the Drag and Drop operation and the action that was combined with ACTION_DEFAULT is the system default action.
         """
         return self._drag_action
-    
+
     @DragAction.setter
     def DragAction(self, value: int) -> None:
         self._drag_action = value
@@ -107,7 +107,7 @@ class DragGestureEvent(EventObject_a3d70b03):
         The x coordinate where the drag originated in component coordinates.
         """
         return self._drag_origin_x
-    
+
     @DragOriginX.setter
     def DragOriginX(self, value: int) -> None:
         self._drag_origin_x = value
@@ -118,7 +118,7 @@ class DragGestureEvent(EventObject_a3d70b03):
         The y coordinate where the drag originated in component coordinates.
         """
         return self._drag_origin_y
-    
+
     @DragOriginY.setter
     def DragOriginY(self, value: int) -> None:
         self._drag_origin_y = value
@@ -129,7 +129,7 @@ class DragGestureEvent(EventObject_a3d70b03):
         The DragSource associated with this drag action.
         """
         return self._drag_source
-    
+
     @DragSource.setter
     def DragSource(self, value: XDragSource_49900fb2) -> None:
         self._drag_source = value
@@ -142,7 +142,7 @@ class DragGestureEvent(EventObject_a3d70b03):
         The initial trigger event will presumably be a com.sun.star.awt.MouseEvent event. If it is not, the implementation should either react accordingly or presume that the left mouse button was clicked.
         """
         return self._event
-    
+
     @Event.setter
     def Event(self, value: object) -> None:
         self._event = value

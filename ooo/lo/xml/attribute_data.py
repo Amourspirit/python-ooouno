@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class AttributeData(object):
         This string can be empty if you are not using namespaces.
         """
         return self._namespace
-    
+
     @Namespace.setter
     def Namespace(self, value: str) -> None:
         self._namespace = value
@@ -89,7 +89,7 @@ class AttributeData(object):
         For non validating parsers this must be CDATA.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: str) -> None:
         self._type = value
@@ -100,7 +100,7 @@ class AttributeData(object):
         the string value of this XML attribute.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: str) -> None:
         self._value = value

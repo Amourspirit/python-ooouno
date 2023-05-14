@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class PostCommandArgument(object):
         The data source containing the data to post.
         """
         return self._source
-    
+
     @Source.setter
     def Source(self, value: XInputStream_98d40ab4) -> None:
         self._source = value
@@ -83,7 +83,7 @@ class PostCommandArgument(object):
         The data sink receiving the returned contents (supporting either com.sun.star.io.XActiveDataSink or com.sun.star.io.XOutputStream).
         """
         return self._sink
-    
+
     @Sink.setter
     def Sink(self, value: XInterface_8f010a43) -> None:
         self._sink = value

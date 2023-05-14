@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class LineDash(object):
         This sets the style of this LineDash.
         """
         return self._style
-    
+
     @Style.setter
     def Style(self, value: DashStyle_b10d0b85) -> None:
         self._style = value
@@ -98,7 +98,7 @@ class LineDash(object):
         This is the number of dots in this LineDash.
         """
         return self._dots
-    
+
     @Dots.setter
     def Dots(self, value: int) -> None:
         self._dots = value
@@ -109,7 +109,7 @@ class LineDash(object):
         This is the length of a dot.
         """
         return self._dot_len
-    
+
     @DotLen.setter
     def DotLen(self, value: int) -> None:
         self._dot_len = value
@@ -120,7 +120,7 @@ class LineDash(object):
         This is the number of dashes.
         """
         return self._dashes
-    
+
     @Dashes.setter
     def Dashes(self, value: int) -> None:
         self._dashes = value
@@ -131,7 +131,7 @@ class LineDash(object):
         This is the length of a single dash.
         """
         return self._dash_len
-    
+
     @DashLen.setter
     def DashLen(self, value: int) -> None:
         self._dash_len = value
@@ -142,7 +142,7 @@ class LineDash(object):
         This is the distance between the dots.
         """
         return self._distance
-    
+
     @Distance.setter
     def Distance(self, value: int) -> None:
         self._distance = value

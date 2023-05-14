@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class ChartDataRow(object):
         The points contained in this data row.
         """
         return self._points
-    
+
     @Points.setter
     def Points(self, value: typing.Tuple[typing.Tuple[ChartDataValue_d3310c83, ...], ...]) -> None:
         self._points = value
@@ -88,7 +88,7 @@ class ChartDataRow(object):
         The name of the data row.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value

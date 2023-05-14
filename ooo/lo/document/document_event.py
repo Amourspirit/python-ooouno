@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class DocumentEvent(EventObject_a3d70b03):
         It's the responsibility of the component supporting the XDocumentEventBroadcaster interface to specify which events it supports.
         """
         return self._event_name
-    
+
     @EventName.setter
     def EventName(self, value: str) -> None:
         self._event_name = value
@@ -107,7 +107,7 @@ class DocumentEvent(EventObject_a3d70b03):
         Might be NULL if the event is not related to a concrete view of the document.
         """
         return self._view_controller
-    
+
     @ViewController.setter
     def ViewController(self, value: XController2_bbcf0bc1) -> None:
         self._view_controller = value
@@ -120,7 +120,7 @@ class DocumentEvent(EventObject_a3d70b03):
         The semantics of this additional information needs to be specified by the broadcaster of the event.
         """
         return self._supplement
-    
+
     @Supplement.setter
     def Supplement(self, value: object) -> None:
         self._supplement = value

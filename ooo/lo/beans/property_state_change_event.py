@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
         This name identifies the property uniquely within an XPropertySet. Upper and lower case are distinguished.
         """
         return self._property_name
-    
+
     @PropertyName.setter
     def PropertyName(self, value: str) -> None:
         self._property_name = value
@@ -109,7 +109,7 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
         It may be -1 if the implementation has no handle. You can use this handle to get values from the XFastPropertySet interface.
         """
         return self._property_handle
-    
+
     @PropertyHandle.setter
     def PropertyHandle(self, value: int) -> None:
         self._property_handle = value
@@ -120,7 +120,7 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
         contains the old value of the property.
         """
         return self._old_value
-    
+
     @OldValue.setter
     def OldValue(self, value: PropertyState_c97b0c77) -> None:
         self._old_value = value
@@ -131,7 +131,7 @@ class PropertyStateChangeEvent(EventObject_a3d70b03):
         contains the new value of the property.
         """
         return self._new_value
-    
+
     @NewValue.setter
     def NewValue(self, value: PropertyState_c97b0c77) -> None:
         self._new_value = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class LockEntry(object):
         defines the lock's scope.
         """
         return self._scope
-    
+
     @Scope.setter
     def Scope(self, value: LockScope_839109c5) -> None:
         self._scope = value
@@ -83,7 +83,7 @@ class LockEntry(object):
         defines the type of the lock.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: LockType_7a09096d) -> None:
         self._type = value

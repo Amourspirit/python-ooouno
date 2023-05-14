@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class ViewState(object):
         This member is used to transform coordinates of draw operations from user space to screen space.
         """
         return self._affine_transform
-    
+
     @AffineTransform.setter
     def AffineTransform(self, value: AffineMatrix2D_ff040da8) -> None:
         self._affine_transform = value
@@ -97,7 +97,7 @@ class ViewState(object):
         Specifying an empty interface denotes no clipping, i.e. everything rendered to the canvas will be visible (subject to device-dependent constraints, of course). Specifying an empty XPolyPolygon2D, i.e. a poly-polygon containing zero polygons, or an XPolyPolygon2D with any number of empty sub-polygons, denotes the NULL clip. That means, nothing rendered to the canvas will be visible.
         """
         return self._clip
-    
+
     @Clip.setter
     def Clip(self, value: XPolyPolygon2D_e1b0e20) -> None:
         self._clip = value

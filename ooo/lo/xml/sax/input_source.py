@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class InputSource(object):
         contains the byte input stream of the document.
         """
         return self._a_input_stream
-    
+
     @aInputStream.setter
     def aInputStream(self, value: XInputStream_98d40ab4) -> None:
         self._a_input_stream = value
@@ -96,7 +96,7 @@ class InputSource(object):
         Note that in general you do not need to specify an encoding. Either it is UTF-8 or UTF-16 which is recognized by the parser or it is specified in the first line of the XML-File ( e.g. ?xml encoding=\"EUC-JP\"? ).
         """
         return self._s_encoding
-    
+
     @sEncoding.setter
     def sEncoding(self, value: str) -> None:
         self._s_encoding = value
@@ -107,7 +107,7 @@ class InputSource(object):
         contains the public Id of the document, for example, needed in exception-message strings.
         """
         return self._s_public_id
-    
+
     @sPublicId.setter
     def sPublicId(self, value: str) -> None:
         self._s_public_id = value
@@ -118,7 +118,7 @@ class InputSource(object):
         contains the system ID of the document.
         """
         return self._s_system_id
-    
+
     @sSystemId.setter
     def sSystemId(self, value: str) -> None:
         self._s_system_id = value

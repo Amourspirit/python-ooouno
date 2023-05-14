@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -65,7 +65,6 @@ class TableColumn(XPropertySet_bc180bfa, XNamed_a6520b08, XCellRange_a2f70ad5):
         When hidden, it returns the width which the column would have, if it were visible.
         """
         ...
-
 
 
 __all__ = ['TableColumn']

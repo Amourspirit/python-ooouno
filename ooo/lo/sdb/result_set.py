@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ class ResultSet(ResultSet_9a6d0ac7, XColumnsSupplier_f0600da9):
     __ooo_ns__: str = 'com.sun.star.sdb'
     __ooo_full_ns__: str = 'com.sun.star.sdb.ResultSet'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['ResultSet']

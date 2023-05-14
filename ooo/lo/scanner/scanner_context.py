@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class ScannerContext(object):
         ScannerName contains a user readable identification.
         """
         return self._scanner_name
-    
+
     @ScannerName.setter
     def ScannerName(self, value: str) -> None:
         self._scanner_name = value
@@ -81,7 +81,7 @@ class ScannerContext(object):
         InternalData contains service private data and must not be changed.
         """
         return self._internal_data
-    
+
     @InternalData.setter
     def InternalData(self, value: int) -> None:
         self._internal_data = value

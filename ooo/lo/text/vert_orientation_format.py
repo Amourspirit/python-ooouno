@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class VertOrientationFormat(object):
         Only valid if the property VerticalOrientation contains the value VERT_NONE.
         """
         return self._y_pos
-    
+
     @YPos.setter
     def YPos(self, value: int) -> None:
         self._y_pos = value
@@ -91,7 +91,7 @@ class VertOrientationFormat(object):
         The values refer to com.sun.star.VertOrientation.
         """
         return self._vertical_orientation
-    
+
     @VerticalOrientation.setter
     def VerticalOrientation(self, value: int) -> None:
         self._vertical_orientation = value
@@ -102,7 +102,7 @@ class VertOrientationFormat(object):
         determines the reference position of the vertical alignment.
         """
         return self._vertical_relation
-    
+
     @VerticalRelation.setter
     def VerticalRelation(self, value: int) -> None:
         self._vertical_relation = value

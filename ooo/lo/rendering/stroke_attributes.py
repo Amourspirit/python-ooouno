@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class StrokeAttributes(object):
         The first element specifies the length of the first \"on\" segment of the dashing, the second element the length of the first \"off\" segment, and so forth. Give zero elements here for solid strokes. This array always have an even number of elements, with zero, as usual, counting as even here. Furthermore, each entry in this array must have a value that is positive (or 0.0)
         """
         return self._dash_array
-    
+
     @DashArray.setter
     def DashArray(self, value: typing.Tuple[float, ...]) -> None:
         self._dash_array = value
@@ -107,7 +107,7 @@ class StrokeAttributes(object):
         The entries here are relative to the StrokeAttributes.StrokeWidth attribute above, i.e. the total width of all lines and spacings will always equal StrokeAttributes.StrokeWidth. The first element specifies the width of the rightmost line, when traveling from the start point of the path to the end point. The second element specifies the space between the first line and the second line, and so forth. If the array ends with a spacing, this spacing is included in the total width of the multiple-line stroke. That is, the stroke becomes asymmetric.
         """
         return self._line_array
-    
+
     @LineArray.setter
     def LineArray(self, value: typing.Tuple[float, ...]) -> None:
         self._line_array = value
@@ -120,7 +120,7 @@ class StrokeAttributes(object):
         This value must be positive (or 0.0)
         """
         return self._stroke_width
-    
+
     @StrokeWidth.setter
     def StrokeWidth(self, value: float) -> None:
         self._stroke_width = value
@@ -135,7 +135,7 @@ class StrokeAttributes(object):
         Before performing the actual comparison, implementations will multiply the MiterLimit with the current StrokeWidth, such that, with phi being the angle between the two joining segments, MiterLimit=1/sin(phi/2.0).
         """
         return self._miter_limit
-    
+
     @MiterLimit.setter
     def MiterLimit(self, value: float) -> None:
         self._miter_limit = value
@@ -148,7 +148,7 @@ class StrokeAttributes(object):
         The start point is the first point of every polygon of the path poly-polygon.
         """
         return self._start_cap_type
-    
+
     @StartCapType.setter
     def StartCapType(self, value: int) -> None:
         self._start_cap_type = value
@@ -161,7 +161,7 @@ class StrokeAttributes(object):
         The end point is the last point of every polygon of the path poly-polygon.
         """
         return self._end_cap_type
-    
+
     @EndCapType.setter
     def EndCapType(self, value: int) -> None:
         self._end_cap_type = value
@@ -174,7 +174,7 @@ class StrokeAttributes(object):
         After every sub-stroke, i.e. after every line or curve segment within a single path polygon, a shape of this type is inserted into the stroke to glue the segments together. Please note that distinct polygons within the path poly-polygon are not connected, and therefore also not joined via the shape specified here.
         """
         return self._join_type
-    
+
     @JoinType.setter
     def JoinType(self, value: int) -> None:
         self._join_type = value

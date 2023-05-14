@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class RenderState(object):
         Note that this need not be RGB here, but depends on the active device color space.
         """
         return self._device_color
-    
+
     @DeviceColor.setter
     def DeviceColor(self, value: typing.Tuple[ColorComponent_e4c0e78, ...]) -> None:
         self._device_color = value
@@ -104,7 +104,7 @@ class RenderState(object):
         This is used to transform coordinates of canvas primitives from user space to view space (from which they are subsequently transformed to device space by the view transform).
         """
         return self._affine_transform
-    
+
     @AffineTransform.setter
     def AffineTransform(self, value: AffineMatrix2D_ff040da8) -> None:
         self._affine_transform = value
@@ -119,7 +119,7 @@ class RenderState(object):
         Specifying an empty interface denotes no clipping, i.e. everything rendered to the canvas will be visible (subject to device-dependent constraints, of course). Specifying an empty XPolyPolygon2D, i.e. a poly-polygon containing zero polygons, or an XPolyPolygon2D with any number of empty sub-polygons, denotes the NULL clip. That means, nothing rendered to the canvas will be visible.
         """
         return self._clip
-    
+
     @Clip.setter
     def Clip(self, value: XPolyPolygon2D_e1b0e20) -> None:
         self._clip = value
@@ -132,7 +132,7 @@ class RenderState(object):
         The composite mode determines in which way the primitive and possibly existing background is combined. The permissible values must be one out of the CompositeOperation constants.
         """
         return self._composite_operation
-    
+
     @CompositeOperation.setter
     def CompositeOperation(self, value: int) -> None:
         self._composite_operation = value

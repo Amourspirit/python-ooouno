@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class HoriOrientationFormat(object):
         Only valid if the property HorizontalOrientation contains the value HORI_NONE.
         """
         return self._x_pos
-    
+
     @XPos.setter
     def XPos(self, value: int) -> None:
         self._x_pos = value
@@ -97,7 +97,7 @@ class HoriOrientationFormat(object):
         The values refer to com.sun.star.HoriOrientation.
         """
         return self._horizontal_orientation
-    
+
     @HorizontalOrientation.setter
     def HorizontalOrientation(self, value: int) -> None:
         self._horizontal_orientation = value
@@ -108,7 +108,7 @@ class HoriOrientationFormat(object):
         determines the reference position of the horizontal alignment.
         """
         return self._horizontal_relation
-    
+
     @HorizontalRelation.setter
     def HorizontalRelation(self, value: int) -> None:
         self._horizontal_relation = value
@@ -119,7 +119,7 @@ class HoriOrientationFormat(object):
         determines if the orientation toggles between left and right pages.
         """
         return self._position_toggle
-    
+
     @PositionToggle.setter
     def PositionToggle(self, value: bool) -> None:
         self._position_toggle = value

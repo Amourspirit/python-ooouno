@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ class FormComponents(XContainer_d6fb0cc6, XEnumerationAccess_4bac0ffc, XIndexCon
     __ooo_ns__: str = 'com.sun.star.form'
     __ooo_full_ns__: str = 'com.sun.star.form.FormComponents'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['FormComponents']

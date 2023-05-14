@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class NamedValue(object):
         specifies the name part of the pair
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -81,7 +81,7 @@ class NamedValue(object):
         specifies the value part of the pair.
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: object) -> None:
         self._value = value

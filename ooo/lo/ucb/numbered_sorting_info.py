@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class NumberedSortingInfo(object):
         Index starts with 1.
         """
         return self._column_index
-    
+
     @ColumnIndex.setter
     def ColumnIndex(self, value: int) -> None:
         self._column_index = value
@@ -85,7 +85,7 @@ class NumberedSortingInfo(object):
         contains a flag indicating the sort mode (ascending or descending).
         """
         return self._ascending
-    
+
     @Ascending.setter
     def Ascending(self, value: bool) -> None:
         self._ascending = value

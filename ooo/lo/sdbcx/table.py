@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,6 @@ class Table(XPropertySet_bc180bfa, XAlterTable_af4d0b54, XColumnsSupplier_f0600d
         Could be empty, if not supported by the driver.
         """
         ...
-
 
 
 __all__ = ['Table']

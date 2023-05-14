@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class Uik(object):
         specifies a 4 byte data block.
         """
         return self._data1
-    
+
     @Data1.setter
     def Data1(self, value: int) -> None:
         self._data1 = value
@@ -99,7 +99,7 @@ class Uik(object):
         specifies a 2 byte data block.
         """
         return self._data2
-    
+
     @Data2.setter
     def Data2(self, value: int) -> None:
         self._data2 = value
@@ -110,7 +110,7 @@ class Uik(object):
         specifies a 2 byte data block.
         """
         return self._data3
-    
+
     @Data3.setter
     def Data3(self, value: int) -> None:
         self._data3 = value
@@ -121,7 +121,7 @@ class Uik(object):
         specifies a 4 byte data block.
         """
         return self._data4
-    
+
     @Data4.setter
     def Data4(self, value: int) -> None:
         self._data4 = value
@@ -132,7 +132,7 @@ class Uik(object):
         specifies a 4 byte data block.
         """
         return self._data5
-    
+
     @Data5.setter
     def Data5(self, value: int) -> None:
         self._data5 = value

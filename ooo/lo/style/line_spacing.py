@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class LineSpacing(object):
         This value specifies the way the height is specified.
         """
         return self._mode
-    
+
     @Mode.setter
     def Mode(self, value: int) -> None:
         self._mode = value
@@ -81,7 +81,7 @@ class LineSpacing(object):
         This value specifies the height in regard to Mode.
         """
         return self._height
-    
+
     @Height.setter
     def Height(self, value: int) -> None:
         self._height = value

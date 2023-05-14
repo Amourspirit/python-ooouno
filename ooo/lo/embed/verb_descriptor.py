@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class VerbDescriptor(object):
         specifies the id of the verb.
         """
         return self._verb_id
-    
+
     @VerbID.setter
     def VerbID(self, value: int) -> None:
         self._verb_id = value
@@ -89,7 +89,7 @@ class VerbDescriptor(object):
         specifies the name of the verb.
         """
         return self._verb_name
-    
+
     @VerbName.setter
     def VerbName(self, value: str) -> None:
         self._verb_name = value
@@ -102,7 +102,7 @@ class VerbDescriptor(object):
         The flags can be used to build the verb's menu.
         """
         return self._verb_flags
-    
+
     @VerbFlags.setter
     def VerbFlags(self, value: int) -> None:
         self._verb_flags = value
@@ -115,7 +115,7 @@ class VerbDescriptor(object):
         It can take values from VerbAttributes.
         """
         return self._verb_attributes
-    
+
     @VerbAttributes.setter
     def VerbAttributes(self, value: int) -> None:
         self._verb_attributes = value

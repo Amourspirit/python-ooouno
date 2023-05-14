@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class OpenCommandArgument(object):
         The properties, for that the values shall be provided by the DynamicResultSet returned by the command).
         """
         return self._properties
-    
+
     @Properties.setter
     def Properties(self, value: typing.Tuple[Property_8f4e0a76, ...]) -> None:
         self._properties = value
@@ -93,7 +93,7 @@ class OpenCommandArgument(object):
         The value can be one of the OpenMode constants.
         """
         return self._mode
-    
+
     @Mode.setter
     def Mode(self, value: int) -> None:
         self._mode = value
@@ -104,7 +104,7 @@ class OpenCommandArgument(object):
         The command's priority, in the range 0 (highest) to 65535 (lowest).
         """
         return self._priority
-    
+
     @Priority.setter
     def Priority(self, value: int) -> None:
         self._priority = value
@@ -119,7 +119,7 @@ class OpenCommandArgument(object):
         If an XActiveDataSink is supplied, the implementation of the command needs to provide an implementation of an object implementing the interface com.sun.star.io.XInputStream. It is highly recommended that this object also implements the interface com.sun.star.io.XSeekable, if this can be done without wasting resources (i.e. allocating huge memory buffers). The implementation object has to be supplied to the data sink.
         """
         return self._sink
-    
+
     @Sink.setter
     def Sink(self, value: XInterface_8f010a43) -> None:
         self._sink = value

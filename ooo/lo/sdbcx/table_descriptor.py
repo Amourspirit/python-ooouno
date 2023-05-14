@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -60,7 +60,6 @@ class TableDescriptor(Descriptor_a5200b3b, XColumnsSupplier_f0600da9, XKeysSuppl
         is the name of the table schema.
         """
         ...
-
 
 
 __all__ = ['TableDescriptor']

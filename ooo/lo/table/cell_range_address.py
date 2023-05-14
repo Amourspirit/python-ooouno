@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class CellRangeAddress(object):
         is the index of the sheet that contains the cell range.
         """
         return self._sheet
-    
+
     @Sheet.setter
     def Sheet(self, value: int) -> None:
         self._sheet = value
@@ -93,7 +93,7 @@ class CellRangeAddress(object):
         is the index of the column of the left edge of the range.
         """
         return self._start_column
-    
+
     @StartColumn.setter
     def StartColumn(self, value: int) -> None:
         self._start_column = value
@@ -104,7 +104,7 @@ class CellRangeAddress(object):
         is the index of the row of the top edge of the range.
         """
         return self._start_row
-    
+
     @StartRow.setter
     def StartRow(self, value: int) -> None:
         self._start_row = value
@@ -115,7 +115,7 @@ class CellRangeAddress(object):
         is the index of the column of the right edge of the range.
         """
         return self._end_column
-    
+
     @EndColumn.setter
     def EndColumn(self, value: int) -> None:
         self._end_column = value
@@ -126,7 +126,7 @@ class CellRangeAddress(object):
         is the index of the row of the bottom edge of the range.
         """
         return self._end_row
-    
+
     @EndRow.setter
     def EndRow(self, value: int) -> None:
         self._end_row = value

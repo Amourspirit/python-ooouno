@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class ItemListEvent(EventObject_a3d70b03):
         In case the event is not related to a single item, but to the complete list, the value of this member is undefined.
         """
         return self._item_position
-    
+
     @ItemPosition.setter
     def ItemPosition(self, value: int) -> None:
         self._item_position = value
@@ -102,7 +102,7 @@ class ItemListEvent(EventObject_a3d70b03):
         If the event being notified did not touch the text of an item, this member is empty. For instance, upon invocation of XItemList.setItemImage(), only ItemImageURL will be set, and ItemText will be empty.
         """
         return self._item_text
-    
+
     @ItemText.setter
     def ItemText(self, value: object) -> None:
         self._item_text = value
@@ -115,7 +115,7 @@ class ItemListEvent(EventObject_a3d70b03):
         If the event being notified did not touch the image of an item, this member is empty. For instance, upon invocation of XItemList.setItemText(), only ItemText will be set, and ItemImageURL will be empty.
         """
         return self._item_image_url
-    
+
     @ItemImageURL.setter
     def ItemImageURL(self, value: object) -> None:
         self._item_image_url = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class DateTimeWithTimezone(object):
         the date and time (in TimeZone)
         """
         return self._date_time_in_tz
-    
+
     @DateTimeInTZ.setter
     def DateTimeInTZ(self, value: DateTime_84de09d3) -> None:
         self._date_time_in_tz = value
@@ -90,7 +90,7 @@ class DateTimeWithTimezone(object):
         To obtain UTC datetime from DateTimeInTZ, you need to subtract TimeZone minutes.
         """
         return self._timezone
-    
+
     @Timezone.setter
     def Timezone(self, value: int) -> None:
         self._timezone = value

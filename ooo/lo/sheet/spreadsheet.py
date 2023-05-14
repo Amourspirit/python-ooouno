@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -113,7 +113,6 @@ class Spreadsheet(Scenario_8f730a55, SheetCellRange_d4540c87, XNamed_a6520b08, X
         Possible values are com.sun.star.text.WritingMode2.LR_TB to order the columns from left to right, and com.sun.star.text.WritingMode2.RL_TB to order the columns from right to left.
         """
         ...
-
 
 
 __all__ = ['Spreadsheet']

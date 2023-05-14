@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -68,7 +68,6 @@ class ViewSettings(XPropertySet_bc180bfa):
         specifies the zoom-value in percent.
         """
         ...
-
 
 
 __all__ = ['ViewSettings']

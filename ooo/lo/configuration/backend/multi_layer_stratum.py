@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ class MultiLayerStratum(XBackendEntities_fecf13bb, XMultiLayerStratum_2a5314c6):
     __ooo_ns__: str = 'com.sun.star.configuration.backend'
     __ooo_full_ns__: str = 'com.sun.star.configuration.backend.MultiLayerStratum'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['MultiLayerStratum']

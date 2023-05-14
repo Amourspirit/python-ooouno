@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -51,7 +51,6 @@ class FormComponent(XPropertyBag_bbd00bd8, XPropertySet_bc180bfa, XNamed_a6520b0
         Note that the name accessed here is the same as when using the com.sun.star.container.XNamed interface.
         """
         ...
-
 
 
 __all__ = ['FormComponent']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class Lock(LockEntry_839e09dd):
         Each lock token is a URI.
         """
         return self._lock_tokens
-    
+
     @LockTokens.setter
     def LockTokens(self, value: typing.Tuple[str, ...]) -> None:
         self._lock_tokens = value
@@ -105,7 +105,7 @@ class Lock(LockEntry_839e09dd):
         defines the lock's depth.
         """
         return self._depth
-    
+
     @Depth.setter
     def Depth(self, value: LockDepth_835c09c0) -> None:
         self._depth = value
@@ -118,7 +118,7 @@ class Lock(LockEntry_839e09dd):
         This element provides information sufficient for either directly contacting a principal (such as a telephone number or email URI), or for discovering the principal (such as the URL of a homepage) who owns the lock.
         """
         return self._owner
-    
+
     @Owner.setter
     def Owner(self, value: object) -> None:
         self._owner = value
@@ -131,7 +131,7 @@ class Lock(LockEntry_839e09dd):
         This element specifies the number of seconds between granting of the lock and the automatic removal of that lock. The value must not be greater than 2^32-1. A value of -1 stands for an infinite lock, that will never be removed automatically.
         """
         return self._timeout
-    
+
     @Timeout.setter
     def Timeout(self, value: int) -> None:
         self._timeout = value

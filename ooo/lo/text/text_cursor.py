@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,6 @@ class TextCursor(TextRange_90540a5f, XSortable_8ff20a5a, XSentenceCursor_d6590cd
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.TextCursor'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['TextCursor']

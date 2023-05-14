@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class SimpleFontMetric(object):
         The ascent is measured in pixels, thus the font metric is device dependent.
         """
         return self._ascent
-    
+
     @Ascent.setter
     def Ascent(self, value: int) -> None:
         self._ascent = value
@@ -105,7 +105,7 @@ class SimpleFontMetric(object):
         The descent is measured in pixels, thus the font metric is device dependent.
         """
         return self._descent
-    
+
     @Descent.setter
     def Descent(self, value: int) -> None:
         self._descent = value
@@ -118,7 +118,7 @@ class SimpleFontMetric(object):
         The leading is measured in pixels, thus the font metric is device dependent.
         """
         return self._leading
-    
+
     @Leading.setter
     def Leading(self, value: int) -> None:
         self._leading = value
@@ -131,7 +131,7 @@ class SimpleFontMetric(object):
         The slant is measured in degrees from 0 to 359.
         """
         return self._slant
-    
+
     @Slant.setter
     def Slant(self, value: int) -> None:
         self._slant = value
@@ -142,7 +142,7 @@ class SimpleFontMetric(object):
         specifies the code of the first printable character in the font.
         """
         return self._first_char
-    
+
     @FirstChar.setter
     def FirstChar(self, value: str) -> None:
         self._first_char = value
@@ -153,7 +153,7 @@ class SimpleFontMetric(object):
         specifies the code of the last printable character in the font.
         """
         return self._last_char
-    
+
     @LastChar.setter
     def LastChar(self, value: str) -> None:
         self._last_char = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,6 @@ class StorageStream(XPropertySet_bc180bfa, XEncryptionProtectedSource_8cdf11a3, 
         In case stream is encrypted one and the value is set to TRUE the stream becomes non-encrypted until the common storage password holder is committed. The data about previously set password ( if any ) will be removed and the stream can be accessed as non-encrypted stream.
         """
         ...
-
 
 
 __all__ = ['StorageStream']

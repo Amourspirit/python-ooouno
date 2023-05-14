@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -66,7 +66,6 @@ class PropertyBrowserController(XFastPropertySet_ee6b0d88, XMultiPropertySet_fd8
         Changing this property from outside causes the controller to update its view with the data of the new object
         """
         ...
-
 
 
 __all__ = ['PropertyBrowserController']

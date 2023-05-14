@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class TableColumnSeparator(object):
         contains the position of the separator.
         """
         return self._position
-    
+
     @Position.setter
     def Position(self, value: int) -> None:
         self._position = value
@@ -91,7 +91,7 @@ class TableColumnSeparator(object):
         determines if the separator is visible.
         """
         return self._is_visible
-    
+
     @IsVisible.setter
     def IsVisible(self, value: bool) -> None:
         self._is_visible = value

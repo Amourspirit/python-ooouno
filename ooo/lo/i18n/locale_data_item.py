@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -134,7 +134,7 @@ class LocaleDataItem(object):
         internal ID string, not unique, not meaningful to the outer world
         """
         return self._uno_id
-    
+
     @unoID.setter
     def unoID(self, value: str) -> None:
         self._uno_id = value
@@ -145,7 +145,7 @@ class LocaleDataItem(object):
         date separator, for example, \"/\" or \".\" or \"-\"
         """
         return self._date_separator
-    
+
     @dateSeparator.setter
     def dateSeparator(self, value: str) -> None:
         self._date_separator = value
@@ -156,7 +156,7 @@ class LocaleDataItem(object):
         group and thousand separator, for example, \",\" or \".\"
         """
         return self._thousand_separator
-    
+
     @thousandSeparator.setter
     def thousandSeparator(self, value: str) -> None:
         self._thousand_separator = value
@@ -167,7 +167,7 @@ class LocaleDataItem(object):
         decimal separator, for example, \".\" or \",\"
         """
         return self._decimal_separator
-    
+
     @decimalSeparator.setter
     def decimalSeparator(self, value: str) -> None:
         self._decimal_separator = value
@@ -178,7 +178,7 @@ class LocaleDataItem(object):
         time separator, for example, \":\"
         """
         return self._time_separator
-    
+
     @timeSeparator.setter
     def timeSeparator(self, value: str) -> None:
         self._time_separator = value
@@ -189,7 +189,7 @@ class LocaleDataItem(object):
         time 100th seconds separator, for example, \",\"
         """
         return self._time100_sec_separator
-    
+
     @time100SecSeparator.setter
     def time100SecSeparator(self, value: str) -> None:
         self._time100_sec_separator = value
@@ -200,7 +200,7 @@ class LocaleDataItem(object):
         list separator, for example, \";\"
         """
         return self._list_separator
-    
+
     @listSeparator.setter
     def listSeparator(self, value: str) -> None:
         self._list_separator = value
@@ -211,7 +211,7 @@ class LocaleDataItem(object):
         single quotation mark start
         """
         return self._quotation_start
-    
+
     @quotationStart.setter
     def quotationStart(self, value: str) -> None:
         self._quotation_start = value
@@ -222,7 +222,7 @@ class LocaleDataItem(object):
         single quotation mark end
         """
         return self._quotation_end
-    
+
     @quotationEnd.setter
     def quotationEnd(self, value: str) -> None:
         self._quotation_end = value
@@ -233,7 +233,7 @@ class LocaleDataItem(object):
         double quotation mark start
         """
         return self._double_quotation_start
-    
+
     @doubleQuotationStart.setter
     def doubleQuotationStart(self, value: str) -> None:
         self._double_quotation_start = value
@@ -244,7 +244,7 @@ class LocaleDataItem(object):
         double quotation mark end
         """
         return self._double_quotation_end
-    
+
     @doubleQuotationEnd.setter
     def doubleQuotationEnd(self, value: str) -> None:
         self._double_quotation_end = value
@@ -255,7 +255,7 @@ class LocaleDataItem(object):
         time AM symbol, for example, \"AM\" or \"am\"
         """
         return self._time_am
-    
+
     @timeAM.setter
     def timeAM(self, value: str) -> None:
         self._time_am = value
@@ -266,7 +266,7 @@ class LocaleDataItem(object):
         time PM symbol, for example, \"PM\" or \"pm\"
         """
         return self._time_pm
-    
+
     @timePM.setter
     def timePM(self, value: str) -> None:
         self._time_pm = value
@@ -277,7 +277,7 @@ class LocaleDataItem(object):
         measurement system, \"metric\" or \"us\"
         """
         return self._measurement_system
-    
+
     @measurementSystem.setter
     def measurementSystem(self, value: str) -> None:
         self._measurement_system = value
@@ -288,7 +288,7 @@ class LocaleDataItem(object):
         long date day of week separator, for example, \", \"
         """
         return self._long_date_day_of_week_separator
-    
+
     @LongDateDayOfWeekSeparator.setter
     def LongDateDayOfWeekSeparator(self, value: str) -> None:
         self._long_date_day_of_week_separator = value
@@ -299,7 +299,7 @@ class LocaleDataItem(object):
         long date day separator, for example, \", \"
         """
         return self._long_date_day_separator
-    
+
     @LongDateDaySeparator.setter
     def LongDateDaySeparator(self, value: str) -> None:
         self._long_date_day_separator = value
@@ -310,7 +310,7 @@ class LocaleDataItem(object):
         long date month separator, for example, \" \"
         """
         return self._long_date_month_separator
-    
+
     @LongDateMonthSeparator.setter
     def LongDateMonthSeparator(self, value: str) -> None:
         self._long_date_month_separator = value
@@ -321,7 +321,7 @@ class LocaleDataItem(object):
         long date year separator, for example, \" \"
         """
         return self._long_date_year_separator
-    
+
     @LongDateYearSeparator.setter
     def LongDateYearSeparator(self, value: str) -> None:
         self._long_date_year_separator = value

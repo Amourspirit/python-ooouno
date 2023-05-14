@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -114,7 +114,6 @@ class SheetFilterDescriptor(XPropertySet_bc180bfa, XSheetFilterDescriptor2_57f51
         specifies if the TableFilterField.StringValue strings are interpreted as regular expressions.
         """
         ...
-
 
 
 __all__ = ['SheetFilterDescriptor']

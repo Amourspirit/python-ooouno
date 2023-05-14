@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class DropTargetEvent(EventObject_a3d70b03):
         UNO specification does not allow empty struct definitions.
         """
         return self._dummy
-    
+
     @Dummy.setter
     def Dummy(self, value: int) -> None:
         self._dummy = value

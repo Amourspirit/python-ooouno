@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ class SubIncrement(object):
         should contain nothing for auto, or an integer value for an explicit interval count.
         """
         return self._interval_count
-    
+
     @IntervalCount.setter
     def IntervalCount(self, value: object) -> None:
         self._interval_count = value
@@ -80,7 +80,7 @@ class SubIncrement(object):
         should contain nothing for auto, or a boolean value for an explicit setting.
         """
         return self._post_equidistant
-    
+
     @PostEquidistant.setter
     def PostEquidistant(self, value: object) -> None:
         self._post_equidistant = value

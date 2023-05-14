@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ class ItemStatus(object):
         numerical value which describes the current state of an item.
         """
         return self._state
-    
+
     @State.setter
     def State(self, value: int) -> None:
         self._state = value
@@ -87,7 +87,7 @@ class ItemStatus(object):
         The content is dependent on the specific implementation.
         """
         return self._a_state_data
-    
+
     @aStateData.setter
     def aStateData(self, value: object) -> None:
         self._a_state_data = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ class HighlightedRange(object):
         The range representation string of the highlighted range.
         """
         return self._range_representation
-    
+
     @RangeRepresentation.setter
     def RangeRepresentation(self, value: str) -> None:
         self._range_representation = value
@@ -90,7 +90,7 @@ class HighlightedRange(object):
         If this value is -1 take the whole sequence.
         """
         return self._index
-    
+
     @Index.setter
     def Index(self, value: int) -> None:
         self._index = value
@@ -103,7 +103,7 @@ class HighlightedRange(object):
         This color may be ignored and replaced by a better fitting color, if it would be otherwise not well visible.
         """
         return self._preferred_color
-    
+
     @PreferredColor.setter
     def PreferredColor(self, value: int) -> None:
         self._preferred_color = value
@@ -114,7 +114,7 @@ class HighlightedRange(object):
         If the highlighted range is visually highlighted and this member is TRUE, the range given in RangeRepresentation may be included in a merged range rectangle spanning a bigger range.
         """
         return self._allow_merginig_with_other_ranges
-    
+
     @AllowMerginigWithOtherRanges.setter
     def AllowMerginigWithOtherRanges(self, value: bool) -> None:
         self._allow_merginig_with_other_ranges = value

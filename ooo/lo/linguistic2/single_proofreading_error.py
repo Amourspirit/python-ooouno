@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ class SingleProofreadingError(object):
     @property
     def aSuggestions(self) -> typing.Tuple[str, ...]:
         return self._a_suggestions
-    
+
     @aSuggestions.setter
     def aSuggestions(self, value: typing.Tuple[str, ...]) -> None:
         self._a_suggestions = value
@@ -104,7 +104,7 @@ class SingleProofreadingError(object):
     @property
     def aProperties(self) -> typing.Tuple[PropertyValue_c9610c73, ...]:
         return self._a_properties
-    
+
     @aProperties.setter
     def aProperties(self, value: typing.Tuple[PropertyValue_c9610c73, ...]) -> None:
         self._a_properties = value
@@ -112,7 +112,7 @@ class SingleProofreadingError(object):
     @property
     def nErrorStart(self) -> int:
         return self._n_error_start
-    
+
     @nErrorStart.setter
     def nErrorStart(self, value: int) -> None:
         self._n_error_start = value
@@ -120,7 +120,7 @@ class SingleProofreadingError(object):
     @property
     def nErrorLength(self) -> int:
         return self._n_error_length
-    
+
     @nErrorLength.setter
     def nErrorLength(self, value: int) -> None:
         self._n_error_length = value
@@ -128,7 +128,7 @@ class SingleProofreadingError(object):
     @property
     def nErrorType(self) -> int:
         return self._n_error_type
-    
+
     @nErrorType.setter
     def nErrorType(self, value: int) -> None:
         self._n_error_type = value
@@ -136,7 +136,7 @@ class SingleProofreadingError(object):
     @property
     def aRuleIdentifier(self) -> str:
         return self._a_rule_identifier
-    
+
     @aRuleIdentifier.setter
     def aRuleIdentifier(self, value: str) -> None:
         self._a_rule_identifier = value
@@ -144,7 +144,7 @@ class SingleProofreadingError(object):
     @property
     def aShortComment(self) -> str:
         return self._a_short_comment
-    
+
     @aShortComment.setter
     def aShortComment(self, value: str) -> None:
         self._a_short_comment = value
@@ -152,7 +152,7 @@ class SingleProofreadingError(object):
     @property
     def aFullComment(self) -> str:
         return self._a_full_comment
-    
+
     @aFullComment.setter
     def aFullComment(self, value: str) -> None:
         self._a_full_comment = value

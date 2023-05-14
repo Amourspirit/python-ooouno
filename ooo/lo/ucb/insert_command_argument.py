@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class InsertCommandArgument(object):
         This member can be left blank, if no (new) document data shall be written by the implementation of the \"insert\" command.
         """
         return self._data
-    
+
     @Data.setter
     def Data(self, value: XInputStream_98d40ab4) -> None:
         self._data = value
@@ -86,7 +86,7 @@ class InsertCommandArgument(object):
         Implementations that are not able to detect whether there are previous data may ignore this parameter and will always write the new data.
         """
         return self._replace_existing
-    
+
     @ReplaceExisting.setter
     def ReplaceExisting(self, value: bool) -> None:
         self._replace_existing = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class CameraGeometry(object):
         is the camera position
         """
         return self._vrp
-    
+
     @vrp.setter
     def vrp(self, value: Position3D_bddc0bc0) -> None:
         self._vrp = value
@@ -93,7 +93,7 @@ class CameraGeometry(object):
         is the camera view direction
         """
         return self._vpn
-    
+
     @vpn.setter
     def vpn(self, value: Direction3D_c9370c0c) -> None:
         self._vpn = value
@@ -104,7 +104,7 @@ class CameraGeometry(object):
         is the camera up direction
         """
         return self._vup
-    
+
     @vup.setter
     def vup(self, value: Direction3D_c9370c0c) -> None:
         self._vup = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class SearchInfo(object):
         the search criteria.
         """
         return self._criteria
-    
+
     @Criteria.setter
     def Criteria(self, value: typing.Tuple[SearchCriterium_c6d30c4c, ...]) -> None:
         self._criteria = value
@@ -99,7 +99,7 @@ class SearchInfo(object):
         the mode of recursion to use.
         """
         return self._recursion
-    
+
     @Recursion.setter
     def Recursion(self, value: SearchRecursion_c7080c52) -> None:
         self._recursion = value
@@ -110,7 +110,7 @@ class SearchInfo(object):
         whether to include the object itself in the search or only (some of) its sub-objects.
         """
         return self._include_base
-    
+
     @IncludeBase.setter
     def IncludeBase(self, value: bool) -> None:
         self._include_base = value
@@ -121,7 +121,7 @@ class SearchInfo(object):
         whether to respect the \"view restrictions\" specified for the folders hierarchically contained within an object (e.g., only searches through subscribed folders).
         """
         return self._respect_folder_view_restrictions
-    
+
     @RespectFolderViewRestrictions.setter
     def RespectFolderViewRestrictions(self, value: bool) -> None:
         self._respect_folder_view_restrictions = value
@@ -132,7 +132,7 @@ class SearchInfo(object):
         whether to respect the \"view restrictions\" specified for the documents hierarchically contained within an object (e.g., only searches through marked documents).
         """
         return self._respect_doc_view_restrictions
-    
+
     @RespectDocViewRestrictions.setter
     def RespectDocViewRestrictions(self, value: bool) -> None:
         self._respect_doc_view_restrictions = value
@@ -143,7 +143,7 @@ class SearchInfo(object):
         whether to follow indirections (link objects) and search through their respective targets also.
         """
         return self._follow_indirections
-    
+
     @FollowIndirections.setter
     def FollowIndirections(self, value: bool) -> None:
         self._follow_indirections = value

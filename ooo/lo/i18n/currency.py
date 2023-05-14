@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class Currency(object):
         ISO 4217 currency code identifier, for example, EUR or USD.
         """
         return self._id
-    
+
     @ID.setter
     def ID(self, value: str) -> None:
         self._id = value
@@ -101,7 +101,7 @@ class Currency(object):
         Currency symbol, for example, $.
         """
         return self._symbol
-    
+
     @Symbol.setter
     def Symbol(self, value: str) -> None:
         self._symbol = value
@@ -114,7 +114,7 @@ class Currency(object):
         This usually should be identical to the ISO 4217 currency code also used in the ID, but doesn't necessarily have to be.
         """
         return self._bank_symbol
-    
+
     @BankSymbol.setter
     def BankSymbol(self, value: str) -> None:
         self._bank_symbol = value
@@ -127,7 +127,7 @@ class Currency(object):
         Should be the localized name.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -138,7 +138,7 @@ class Currency(object):
         If this currency is the default currency for a given locale.
         """
         return self._default
-    
+
     @Default.setter
     def Default(self, value: bool) -> None:
         self._default = value
@@ -151,7 +151,7 @@ class Currency(object):
         Those format codes are used to generate some old style currency format codes for compatibility with StarOffice5 and StarOffice4.
         """
         return self._used_in_compatible_format_codes
-    
+
     @UsedInCompatibleFormatCodes.setter
     def UsedInCompatibleFormatCodes(self, value: bool) -> None:
         self._used_in_compatible_format_codes = value
@@ -162,7 +162,7 @@ class Currency(object):
         The number of decimal places, for example, 2 for US Dollar or 0 for Italian Lira.
         """
         return self._decimal_places
-    
+
     @DecimalPlaces.setter
     def DecimalPlaces(self, value: int) -> None:
         self._decimal_places = value

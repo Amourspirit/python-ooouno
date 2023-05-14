@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,6 @@ class View(XPropertySet_bc180bfa, XAlterView_a42a0b07, XRename_848c09cc):
         is the name of the view's schema, may be empty.
         """
         ...
-
 
 
 __all__ = ['View']

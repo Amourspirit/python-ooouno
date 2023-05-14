@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class XFontMappingUseItem(object):
         Each font is identified as family name or 'familyName/styleName' (if style name is not empty).
         """
         return self._used_fonts
-    
+
     @usedFonts.setter
     def usedFonts(self, value: typing.Tuple[str, ...]) -> None:
         self._used_fonts = value
@@ -91,7 +91,7 @@ class XFontMappingUseItem(object):
         The family name or 'familyName/styleName' (if style name is not empty) of the requested font.
         """
         return self._original_font
-    
+
     @originalFont.setter
     def originalFont(self, value: str) -> None:
         self._original_font = value
@@ -102,7 +102,7 @@ class XFontMappingUseItem(object):
         The number of times this mapping took place.
         """
         return self._count
-    
+
     @count.setter
     def count(self, value: int) -> None:
         self._count = value

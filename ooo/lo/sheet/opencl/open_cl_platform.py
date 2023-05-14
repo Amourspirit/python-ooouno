@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class OpenCLPlatform(object):
     @property
     def Devices(self) -> typing.Tuple[OpenCLDevice_180d0e41, ...]:
         return self._devices
-    
+
     @Devices.setter
     def Devices(self, value: typing.Tuple[OpenCLDevice_180d0e41, ...]) -> None:
         self._devices = value
@@ -82,7 +82,7 @@ class OpenCLPlatform(object):
         The name of the platform as returned by OpenCL.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -90,7 +90,7 @@ class OpenCLPlatform(object):
     @property
     def Vendor(self) -> str:
         return self._vendor
-    
+
     @Vendor.setter
     def Vendor(self, value: str) -> None:
         self._vendor = value

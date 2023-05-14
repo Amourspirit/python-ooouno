@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class EndPopupModeEvent(EventObject_a3d70b03):
         specifies how the pop-up mode was ended TRUE means the window should be teared-off and positioned at FloatingPosition FALSE means the window was closed
         """
         return self._b_tearoff
-    
+
     @bTearoff.setter
     def bTearoff(self, value: bool) -> None:
         self._b_tearoff = value
@@ -93,7 +93,7 @@ class EndPopupModeEvent(EventObject_a3d70b03):
         specifies the new position of the floating window in frame coordinates if bTearoff is TRUE
         """
         return self._floating_position
-    
+
     @FloatingPosition.setter
     def FloatingPosition(self, value: Point_5fb2085e) -> None:
         self._floating_position = value

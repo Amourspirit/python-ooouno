@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ class LocaleData2(XLocaleData5_a7af0a9f):
     __ooo_ns__: str = 'com.sun.star.i18n'
     __ooo_full_ns__: str = 'com.sun.star.i18n.LocaleData2'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['LocaleData2']

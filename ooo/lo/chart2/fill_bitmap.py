@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class FillBitmap(object):
         This may be an internal URL of the graphics manager.
         """
         return self._a_url
-    
+
     @aURL.setter
     def aURL(self, value: str) -> None:
         self._a_url = value
@@ -115,7 +115,7 @@ class FillBitmap(object):
         It is given in percent in relation to the width of the bitmap.
         """
         return self._a_offset
-    
+
     @aOffset.setter
     def aOffset(self, value: Point_5fb2085e) -> None:
         self._a_offset = value
@@ -126,7 +126,7 @@ class FillBitmap(object):
         Every second line (X) / row (Y) of tiles is moved the given percent of the width of the bitmap.
         """
         return self._a_position_offset
-    
+
     @aPositionOffset.setter
     def aPositionOffset(self, value: Point_5fb2085e) -> None:
         self._a_position_offset = value
@@ -137,7 +137,7 @@ class FillBitmap(object):
         The RectanglePoint specifies the position inside of the bitmap to use as the top left position for rendering.
         """
         return self._a_rectangle_point
-    
+
     @aRectanglePoint.setter
     def aRectanglePoint(self, value: RectanglePoint_f0ff0d93) -> None:
         self._a_rectangle_point = value
@@ -150,7 +150,7 @@ class FillBitmap(object):
         If this is TRUE, the properties SizeX and SizeY contain the size of the tile in percent of the size of the original bitmap. If this is FALSE, the size of the tile is specified with 1/100th mm.
         """
         return self._b_logical_size
-    
+
     @bLogicalSize.setter
     def bLogicalSize(self, value: bool) -> None:
         self._b_logical_size = value
@@ -163,7 +163,7 @@ class FillBitmap(object):
         Depending on the property LogicalSize, this is either relative or absolute.
         """
         return self._a_size
-    
+
     @aSize.setter
     def aSize(self, value: Size_576707ef) -> None:
         self._a_size = value
@@ -176,7 +176,7 @@ class FillBitmap(object):
         It may be repeated, stretched or displayed with blank space around it.
         """
         return self._a_bitmap_mode
-    
+
     @aBitmapMode.setter
     def aBitmapMode(self, value: BitmapMode_bced0bd6) -> None:
         self._a_bitmap_mode = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ class TableSortField(object):
         index of the row or column in the table to be sorted; 0-based.
         """
         return self._field
-    
+
     @Field.setter
     def Field(self, value: int) -> None:
         self._field = value
@@ -105,7 +105,7 @@ class TableSortField(object):
         TRUE if data are sorted in ascending order, FALSE if in descending order.
         """
         return self._is_ascending
-    
+
     @IsAscending.setter
     def IsAscending(self, value: bool) -> None:
         self._is_ascending = value
@@ -116,7 +116,7 @@ class TableSortField(object):
         specifies if the case of letters is important when comparing entries.
         """
         return self._is_case_sensitive
-    
+
     @IsCaseSensitive.setter
     def IsCaseSensitive(self, value: bool) -> None:
         self._is_case_sensitive = value
@@ -129,7 +129,7 @@ class TableSortField(object):
         If the value is com.sun.star.table.TableSortFieldType.AUTOMATIC the algorithm used for sorting is application specific. Especially it may or may not use the values given by \"CollatorLocale\" and \"CollatorAlgorithm\".
         """
         return self._field_type
-    
+
     @FieldType.setter
     def FieldType(self, value: TableSortFieldType_9a50e26) -> None:
         self._field_type = value
@@ -142,7 +142,7 @@ class TableSortField(object):
         This property will not be used when the \"FieldType\" is com.sun.star.table.TableSortFieldType.NUMERIC
         """
         return self._collator_locale
-    
+
     @CollatorLocale.setter
     def CollatorLocale(self, value: Locale_70d308fa) -> None:
         self._collator_locale = value
@@ -155,7 +155,7 @@ class TableSortField(object):
         This property will not be used when the \"FieldType\" is com.sun.star.table.TableSortFieldType.NUMERIC
         """
         return self._collator_algorithm
-    
+
     @CollatorAlgorithm.setter
     def CollatorAlgorithm(self, value: str) -> None:
         self._collator_algorithm = value

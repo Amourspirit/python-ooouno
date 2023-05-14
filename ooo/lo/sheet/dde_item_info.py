@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class DDEItemInfo(object):
         This sequence may be empty.
         """
         return self._results
-    
+
     @Results.setter
     def Results(self, value: typing.Tuple[typing.Tuple[object, ...], ...]) -> None:
         self._results = value
@@ -89,7 +89,7 @@ class DDEItemInfo(object):
         The name of the DDE item.
         """
         return self._item
-    
+
     @Item.setter
     def Item(self, value: str) -> None:
         self._item = value

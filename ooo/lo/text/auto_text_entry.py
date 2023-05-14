@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ class AutoTextEntry(XAutoTextEntry_c96f0c75, XText_690408ca):
     __ooo_ns__: str = 'com.sun.star.text'
     __ooo_full_ns__: str = 'com.sun.star.text.AutoTextEntry'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['AutoTextEntry']

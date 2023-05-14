@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class DataPilotTableResultData(object):
         This is a set of filter criteria that can be used to re-create those data rows that contribute to the value shown in the cell.
         """
         return self._field_filters
-    
+
     @FieldFilters.setter
     def FieldFilters(self, value: typing.Tuple[DataPilotFieldFilter_271e0eed, ...]) -> None:
         self._field_filters = value
@@ -95,7 +95,7 @@ class DataPilotTableResultData(object):
         This is a 0-based index that specifies which data field the data displayed in the cell is for; the value of 0 means the cell is for the first data field, 1 for the second, and so on.
         """
         return self._data_field_index
-    
+
     @DataFieldIndex.setter
     def DataFieldIndex(self, value: int) -> None:
         self._data_field_index = value
@@ -106,7 +106,7 @@ class DataPilotTableResultData(object):
         more information about the result contained in the DataResult type.
         """
         return self._result
-    
+
     @Result.setter
     def Result(self, value: DataResult_a47d0b1a) -> None:
         self._result = value

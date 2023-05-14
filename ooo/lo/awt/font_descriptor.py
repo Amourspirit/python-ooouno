@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -129,7 +129,7 @@ class FontDescriptor(object):
         specifies the exact name of the font.
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -140,7 +140,7 @@ class FontDescriptor(object):
         specifies the height of the font in the measure of the destination.
         """
         return self._height
-    
+
     @Height.setter
     def Height(self, value: int) -> None:
         self._height = value
@@ -151,7 +151,7 @@ class FontDescriptor(object):
         specifies the width of the font in the measure of the destination.
         """
         return self._width
-    
+
     @Width.setter
     def Width(self, value: int) -> None:
         self._width = value
@@ -162,7 +162,7 @@ class FontDescriptor(object):
         specifies the style name of the font.
         """
         return self._style_name
-    
+
     @StyleName.setter
     def StyleName(self, value: str) -> None:
         self._style_name = value
@@ -175,7 +175,7 @@ class FontDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.FontFamily.
         """
         return self._family
-    
+
     @Family.setter
     def Family(self, value: int) -> None:
         self._family = value
@@ -188,7 +188,7 @@ class FontDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.CharSet.
         """
         return self._char_set
-    
+
     @CharSet.setter
     def CharSet(self, value: int) -> None:
         self._char_set = value
@@ -201,7 +201,7 @@ class FontDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.FontPitch.
         """
         return self._pitch
-    
+
     @Pitch.setter
     def Pitch(self, value: int) -> None:
         self._pitch = value
@@ -216,7 +216,7 @@ class FontDescriptor(object):
         The value is expressed as a percentage.
         """
         return self._character_width
-    
+
     @CharacterWidth.setter
     def CharacterWidth(self, value: float) -> None:
         self._character_width = value
@@ -231,7 +231,7 @@ class FontDescriptor(object):
         The value is expressed as a percentage.
         """
         return self._weight
-    
+
     @Weight.setter
     def Weight(self, value: float) -> None:
         self._weight = value
@@ -242,7 +242,7 @@ class FontDescriptor(object):
         specifies the slant of the font.
         """
         return self._slant
-    
+
     @Slant.setter
     def Slant(self, value: FontSlant_849509ed) -> None:
         self._slant = value
@@ -255,7 +255,7 @@ class FontDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.FontUnderline.
         """
         return self._underline
-    
+
     @Underline.setter
     def Underline(self, value: int) -> None:
         self._underline = value
@@ -268,7 +268,7 @@ class FontDescriptor(object):
         Use one value out of the constant group com.sun.star.awt.FontStrikeout.
         """
         return self._strikeout
-    
+
     @Strikeout.setter
     def Strikeout(self, value: int) -> None:
         self._strikeout = value
@@ -281,7 +281,7 @@ class FontDescriptor(object):
         The unit of measure is degrees; 0 is the baseline.
         """
         return self._orientation
-    
+
     @Orientation.setter
     def Orientation(self, value: float) -> None:
         self._orientation = value
@@ -294,7 +294,7 @@ class FontDescriptor(object):
         For selecting, it specifies if the kerning table is to be used.
         """
         return self._kerning
-    
+
     @Kerning.setter
     def Kerning(self, value: bool) -> None:
         self._kerning = value
@@ -309,7 +309,7 @@ class FontDescriptor(object):
         This property is only valid if the property com.sun.star.awt.FontDescriptor.Underline is not FontUnderline.NONE.
         """
         return self._word_line_mode
-    
+
     @WordLineMode.setter
     def WordLineMode(self, value: bool) -> None:
         self._word_line_mode = value
@@ -322,7 +322,7 @@ class FontDescriptor(object):
         One or more values out of the constant group com.sun.star.awt.FontType can be combined by an arithmetical or-operation.
         """
         return self._type
-    
+
     @Type.setter
     def Type(self, value: int) -> None:
         self._type = value

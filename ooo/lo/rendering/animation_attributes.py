@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class AnimationAttributes(object):
         Preferred duration of the animation sequence in seconds.
         """
         return self._duration
-    
+
     @Duration.setter
     def Duration(self, value: float) -> None:
         self._duration = value
@@ -94,7 +94,7 @@ class AnimationAttributes(object):
         This value determines how the [0,1] parameter space of the animation should be swept through. Permissible values are given in AnimationRepeat.
         """
         return self._repeat_mode
-    
+
     @RepeatMode.setter
     def RepeatMode(self, value: int) -> None:
         self._repeat_mode = value
@@ -107,7 +107,7 @@ class AnimationAttributes(object):
         This value specifies the size of the animation when rendered with the identity view transform. This permits e.g. XSprite implementations to cache rendered animation content in finite-sized bitmaps.
         """
         return self._untransformed_size
-    
+
     @UntransformedSize.setter
     def UntransformedSize(self, value: RealSize2D_ca1a0c09) -> None:
         self._untransformed_size = value

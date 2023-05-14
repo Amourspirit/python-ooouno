@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ class GridColumnEvent(EventObject_a3d70b03):
         Contains the name of the attributes whose value changed.
         """
         return self._attribute_name
-    
+
     @AttributeName.setter
     def AttributeName(self, value: str) -> None:
         self._attribute_name = value
@@ -102,7 +102,7 @@ class GridColumnEvent(EventObject_a3d70b03):
         Contains the old value.
         """
         return self._old_value
-    
+
     @OldValue.setter
     def OldValue(self, value: object) -> None:
         self._old_value = value
@@ -113,7 +113,7 @@ class GridColumnEvent(EventObject_a3d70b03):
         Contains the new value.
         """
         return self._new_value
-    
+
     @NewValue.setter
     def NewValue(self, value: object) -> None:
         self._new_value = value
@@ -124,7 +124,7 @@ class GridColumnEvent(EventObject_a3d70b03):
         Contains the index of the changed column.
         """
         return self._column_index
-    
+
     @ColumnIndex.setter
     def ColumnIndex(self, value: int) -> None:
         self._column_index = value

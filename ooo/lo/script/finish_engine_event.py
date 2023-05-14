@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class FinishEngineEvent(EventObject_a3d70b03):
         specifies why the script terminates.
         """
         return self._finish
-    
+
     @Finish.setter
     def Finish(self, value: FinishReason_ca230c66) -> None:
         self._finish = value
@@ -101,7 +101,7 @@ class FinishEngineEvent(EventObject_a3d70b03):
         Only valid if Reason is RuntimeError or CompileError.
         """
         return self._error_message
-    
+
     @ErrorMessage.setter
     def ErrorMessage(self, value: str) -> None:
         self._error_message = value
@@ -114,7 +114,7 @@ class FinishEngineEvent(EventObject_a3d70b03):
         This field is only valid if FinishEngineEvent.Finish is FinishReason.OK.
         """
         return self._return
-    
+
     @Return.setter
     def Return(self, value: object) -> None:
         self._return = value

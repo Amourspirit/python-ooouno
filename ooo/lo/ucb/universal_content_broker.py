@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -48,7 +48,6 @@ class UniversalContentBroker(XUniversalContentBroker_38ce0f93):
         (This default constructor is only mentioned explicitly for technical reasons, so that its implementation calls the service implementation's com.sun.star.lang.XInitialization.initialize().)
         """
         ...
-
 
 __all__ = ['UniversalContentBroker']
 

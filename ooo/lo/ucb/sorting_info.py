@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class SortingInfo(object):
         \"Title\" ).
         """
         return self._property_name
-    
+
     @PropertyName.setter
     def PropertyName(self, value: str) -> None:
         self._property_name = value
@@ -83,7 +83,7 @@ class SortingInfo(object):
         contains a flag indicating the sort mode (ascending or descending).
         """
         return self._ascending
-    
+
     @Ascending.setter
     def Ascending(self, value: bool) -> None:
         self._ascending = value

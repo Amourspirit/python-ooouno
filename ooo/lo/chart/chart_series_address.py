@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ class ChartSeriesAddress(object):
         For XY (scatter) diagrams at least one series has a domain. Most of the other chart types use an empty sequence here.
         """
         return self._domain_range_addresses
-    
+
     @DomainRangeAddresses.setter
     def DomainRangeAddresses(self, value: typing.Tuple[str, ...]) -> None:
         self._domain_range_addresses = value
@@ -89,7 +89,7 @@ class ChartSeriesAddress(object):
         contains the cell range address of the data for this series.
         """
         return self._data_range_address
-    
+
     @DataRangeAddress.setter
     def DataRangeAddress(self, value: str) -> None:
         self._data_range_address = value
@@ -102,7 +102,7 @@ class ChartSeriesAddress(object):
         name) of this series.
         """
         return self._label_address
-    
+
     @LabelAddress.setter
     def LabelAddress(self, value: str) -> None:
         self._label_address = value

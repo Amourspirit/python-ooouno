@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ class FormatElement(object):
         The format code, for example, \"YYYY-MM-DD\".
         """
         return self._format_code
-    
+
     @formatCode.setter
     def formatCode(self, value: str) -> None:
         self._format_code = value
@@ -103,7 +103,7 @@ class FormatElement(object):
         A name or description that is displayed in the number formatter dialog.
         """
         return self._format_name
-    
+
     @formatName.setter
     def formatName(self, value: str) -> None:
         self._format_name = value
@@ -114,7 +114,7 @@ class FormatElement(object):
         A unique (within one locale) identifier.
         """
         return self._format_key
-    
+
     @formatKey.setter
     def formatKey(self, value: str) -> None:
         self._format_key = value
@@ -125,7 +125,7 @@ class FormatElement(object):
         Type may be one of \"short\", \"medium\", \"long\".
         """
         return self._format_type
-    
+
     @formatType.setter
     def formatType(self, value: str) -> None:
         self._format_type = value
@@ -136,7 +136,7 @@ class FormatElement(object):
         Usage category, for example, \"DATE\" or \"FIXED_NUMBER\", corresponding with KNumberFormatUsage values.
         """
         return self._format_usage
-    
+
     @formatUsage.setter
     def formatUsage(self, value: str) -> None:
         self._format_usage = value
@@ -147,7 +147,7 @@ class FormatElement(object):
         The index used by the number formatter, predefined values corresponding with NumberFormatIndex values.
         """
         return self._format_index
-    
+
     @formatIndex.setter
     def formatIndex(self, value: int) -> None:
         self._format_index = value
@@ -158,7 +158,7 @@ class FormatElement(object):
         If a format code is the default code of a formatType group.
         """
         return self._is_default
-    
+
     @isDefault.setter
     def isDefault(self, value: bool) -> None:
         self._is_default = value

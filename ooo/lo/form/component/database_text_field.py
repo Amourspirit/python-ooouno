@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -45,7 +45,6 @@ class DatabaseTextField(DataAwareControlModel_27110ef8, TextField_db00e46):
         If the property is set to TRUE, and an empty text is to be committed, this is converted into NULL, else it is written as empty string.
         """
         ...
-
 
 
 __all__ = ['DatabaseTextField']

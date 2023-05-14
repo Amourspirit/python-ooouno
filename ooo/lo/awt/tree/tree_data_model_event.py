@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class TreeDataModelEvent(EventObject_a3d70b03):
         All nodes must have ParentNode as parent.
         """
         return self._nodes
-    
+
     @Nodes.setter
     def Nodes(self, value: typing.Tuple[XTreeNode_baaf0ba0, ...]) -> None:
         self._nodes = value
@@ -97,7 +97,7 @@ class TreeDataModelEvent(EventObject_a3d70b03):
         If this is null, Nodes must contain only the root node
         """
         return self._parent_node
-    
+
     @ParentNode.setter
     def ParentNode(self, value: XTreeNode_baaf0ba0) -> None:
         self._parent_node = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class AliasProgrammaticPair(object):
         determines the name which is registered as an alias for a programmatic name.
         """
         return self._alias
-    
+
     @Alias.setter
     def Alias(self, value: str) -> None:
         self._alias = value
@@ -81,7 +81,7 @@ class AliasProgrammaticPair(object):
         determines which programmatic name belongs to the alias.
         """
         return self._programmatic_name
-    
+
     @ProgrammaticName.setter
     def ProgrammaticName(self, value: str) -> None:
         self._programmatic_name = value

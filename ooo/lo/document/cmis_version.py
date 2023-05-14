@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class CmisVersion(object):
         unique ID of the Cmis version
         """
         return self._id
-    
+
     @Id.setter
     def Id(self, value: str) -> None:
         self._id = value
@@ -91,7 +91,7 @@ class CmisVersion(object):
         specifies the time when the revision was created.
         """
         return self._time_stamp
-    
+
     @TimeStamp.setter
     def TimeStamp(self, value: object) -> None:
         self._time_stamp = value
@@ -102,7 +102,7 @@ class CmisVersion(object):
         contains the author that created the version.
         """
         return self._author
-    
+
     @Author.setter
     def Author(self, value: str) -> None:
         self._author = value
@@ -113,7 +113,7 @@ class CmisVersion(object):
         contains the comment the author has left.
         """
         return self._comment
-    
+
     @Comment.setter
     def Comment(self, value: str) -> None:
         self._comment = value

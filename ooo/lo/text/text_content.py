@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -62,7 +62,6 @@ class TextContent(XTextContent_b16e0ba5):
         specifies if the text content is a shape and how the text is wrapped around the shape.
         """
         ...
-
 
 
 __all__ = ['TextContent']

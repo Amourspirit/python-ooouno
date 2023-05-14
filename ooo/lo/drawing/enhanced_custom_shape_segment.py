@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ class EnhancedCustomShapeSegment(object):
     @property
     def Command(self) -> int:
         return self._command
-    
+
     @Command.setter
     def Command(self, value: int) -> None:
         self._command = value
@@ -74,7 +74,7 @@ class EnhancedCustomShapeSegment(object):
     @property
     def Count(self) -> int:
         return self._count
-    
+
     @Count.setter
     def Count(self, value: int) -> None:
         self._count = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class IncrementData(object):
         The first SubIncrement in this sequence determines how the distance between two neighboring main tickmarks is divided for positioning of further sub tickmarks. Every following SubIncrement determines the positions of subsequent tickmarks in relation to their parent tickmarks given by the preceding SubIncrement.
         """
         return self._sub_increments
-    
+
     @SubIncrements.setter
     def SubIncrements(self, value: typing.Tuple[SubIncrement_c5630c1b, ...]) -> None:
         self._sub_increments = value
@@ -94,7 +94,7 @@ class IncrementData(object):
         Otherwise, if the any is empty or contains an incompatible type, the Distance is meant to be calculated automatically by the view component representing the model containing this increment.
         """
         return self._distance
-    
+
     @Distance.setter
     def Distance(self, value: object) -> None:
         self._distance = value
@@ -107,7 +107,7 @@ class IncrementData(object):
         If PostEquidistant equals TRUE Distance is given in values after XScaling is applied, thus resulting main tickmarks will always look equidistant on the screen. If PostEquidistant equals FALSE Distance is given in values before XScaling is applied.
         """
         return self._post_equidistant
-    
+
     @PostEquidistant.setter
     def PostEquidistant(self, value: object) -> None:
         self._post_equidistant = value
@@ -120,7 +120,7 @@ class IncrementData(object):
         Otherwise, if the any is empty or contains an incompatible type, the BaseValue is meant to be calculated automatically by the view component representing the model containing this increment.
         """
         return self._base_value
-    
+
     @BaseValue.setter
     def BaseValue(self, value: object) -> None:
         self._base_value = value

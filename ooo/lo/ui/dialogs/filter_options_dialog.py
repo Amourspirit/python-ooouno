@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -45,7 +45,6 @@ class FilterOptionsDialog(XPropertyAccess_e1d40d20, XExecutableDialog_450f0fa1):
     __ooo_ns__: str = 'com.sun.star.ui.dialogs'
     __ooo_full_ns__: str = 'com.sun.star.ui.dialogs.FilterOptionsDialog'
     __ooo_type_name__: str = 'service'
-
 
 
 __all__ = ['FilterOptionsDialog']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class SendMediaTypes(object):
         a list of Internet media types
         """
         return self._value
-    
+
     @Value.setter
     def Value(self, value: typing.Tuple[str, ...]) -> None:
         self._value = value
@@ -83,7 +83,7 @@ class SendMediaTypes(object):
         \"NNTP\", \"SMTP\", \"VIM\").
         """
         return self._protocol_type
-    
+
     @ProtocolType.setter
     def ProtocolType(self, value: str) -> None:
         self._protocol_type = value

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ class FormulaToken(object):
         is the OpCode of the token.
         """
         return self._op_code
-    
+
     @OpCode.setter
     def OpCode(self, value: int) -> None:
         self._op_code = value
@@ -81,7 +81,7 @@ class FormulaToken(object):
         is additional data in the token, depending on the OpCode.
         """
         return self._data
-    
+
     @Data.setter
     def Data(self, value: object) -> None:
         self._data = value

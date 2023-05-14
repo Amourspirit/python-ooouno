@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ class FolderList(object):
         The list of folders (only used in conjunction with FolderListCommand.SET).
         """
         return self._list
-    
+
     @List.setter
     def List(self, value: typing.Tuple[FolderListEntry_c6c30c4c, ...]) -> None:
         self._list = value
@@ -83,7 +83,7 @@ class FolderList(object):
         The command to process on this list of folders.
         """
         return self._command
-    
+
     @Command.setter
     def Command(self, value: FolderListCommand_e0140cf9) -> None:
         self._command = value

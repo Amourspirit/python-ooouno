@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ class TargetProperties(object):
         Global target properties.
         """
         return self._properties
-    
+
     @Properties.setter
     def Properties(self, value: typing.Tuple[NamedValue_a37a0af3, ...]) -> None:
         self._properties = value
@@ -84,7 +84,7 @@ class TargetProperties(object):
         Target for which this struct specifies properties.
         """
         return self._target
-    
+
     @Target.setter
     def Target(self, value: object) -> None:
         self._target = value

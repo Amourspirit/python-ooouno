@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ class LinguServiceEvent(EventObject_a3d70b03):
         The value may be combined via logical OR from those values defined in com.sun.star.linguistic2.LinguServiceEventFlags
         """
         return self._n_event
-    
+
     @nEvent.setter
     def nEvent(self, value: int) -> None:
         self._n_event = value

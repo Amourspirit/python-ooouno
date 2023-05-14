@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class TransferInfo(object):
         contains the flags describing whether the data shall be moved instead of copied.
         """
         return self._move_data
-    
+
     @MoveData.setter
     def MoveData(self, value: bool) -> None:
         self._move_data = value
@@ -93,7 +93,7 @@ class TransferInfo(object):
         the URL of a file to move).
         """
         return self._source_url
-    
+
     @SourceURL.setter
     def SourceURL(self, value: str) -> None:
         self._source_url = value
@@ -106,7 +106,7 @@ class TransferInfo(object):
         If this field is filled, for example, a file will be renamed while it is being transferred.
         """
         return self._new_title
-    
+
     @NewTitle.setter
     def NewTitle(self, value: str) -> None:
         self._new_title = value
@@ -123,7 +123,7 @@ class TransferInfo(object):
         Implementations that are not able to detect whether there is a clashing resource may ignore NameClash.ERROR and NameClash.RENAME always write the new data.
         """
         return self._name_clash
-    
+
     @NameClash.setter
     def NameClash(self, value: int) -> None:
         self._name_clash = value

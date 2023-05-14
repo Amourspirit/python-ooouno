@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ class PropertyCategoryDescriptor(object):
         This programmatic name is used internally: XPropertyHandler.describePropertyLine() sets a programmatic category name at LineDescriptor.Category, and an object inspector uses this to find the proper PropertyCategoryDescriptor.
         """
         return self._programmatic_name
-    
+
     @ProgrammaticName.setter
     def ProgrammaticName(self, value: str) -> None:
         self._programmatic_name = value
@@ -91,7 +91,7 @@ class PropertyCategoryDescriptor(object):
         provides a human-readable name (which can be presented at the UI) for a category.
         """
         return self._ui_name
-    
+
     @UIName.setter
     def UIName(self, value: str) -> None:
         self._ui_name = value
@@ -102,7 +102,7 @@ class PropertyCategoryDescriptor(object):
         provides a help URL to be associated with a category
         """
         return self._help_url
-    
+
     @HelpURL.setter
     def HelpURL(self, value: str) -> None:
         self._help_url = value

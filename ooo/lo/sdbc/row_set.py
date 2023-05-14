@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -136,7 +136,6 @@ class RowSet(ResultSet_8ecf0a4f, XParameters_a36c0b10, XRowSet_7a090960):
         determines the user for whom to open the connection.
         """
         ...
-
 
 
 __all__ = ['RowSet']

@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class DatabaseRegistrationEvent(EventObject_a3d70b03):
         is the name of the database registration affected by the event
         """
         return self._name
-    
+
     @Name.setter
     def Name(self, value: str) -> None:
         self._name = value
@@ -98,7 +98,7 @@ class DatabaseRegistrationEvent(EventObject_a3d70b03):
         is the old location of the database which is affected by the event
         """
         return self._old_location
-    
+
     @OldLocation.setter
     def OldLocation(self, value: str) -> None:
         self._old_location = value
@@ -109,7 +109,7 @@ class DatabaseRegistrationEvent(EventObject_a3d70b03):
         is the new location of the database which is affected by the event
         """
         return self._new_location
-    
+
     @NewLocation.setter
     def NewLocation(self, value: str) -> None:
         self._new_location = value

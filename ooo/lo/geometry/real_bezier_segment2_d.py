@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ class RealBezierSegment2D(object):
         The x coordinate of the start point.
         """
         return self._px
-    
+
     @Px.setter
     def Px(self, value: float) -> None:
         self._px = value
@@ -103,7 +103,7 @@ class RealBezierSegment2D(object):
         The y coordinate of the start point.
         """
         return self._py
-    
+
     @Py.setter
     def Py(self, value: float) -> None:
         self._py = value
@@ -114,7 +114,7 @@ class RealBezierSegment2D(object):
         The x coordinate of the first control point.
         """
         return self._c1x
-    
+
     @C1x.setter
     def C1x(self, value: float) -> None:
         self._c1x = value
@@ -125,7 +125,7 @@ class RealBezierSegment2D(object):
         The y coordinate of the first control point.
         """
         return self._c1y
-    
+
     @C1y.setter
     def C1y(self, value: float) -> None:
         self._c1y = value
@@ -136,7 +136,7 @@ class RealBezierSegment2D(object):
         The x coordinate of the second control point.
         """
         return self._c2x
-    
+
     @C2x.setter
     def C2x(self, value: float) -> None:
         self._c2x = value
@@ -147,7 +147,7 @@ class RealBezierSegment2D(object):
         The y coordinate of the second control point.
         """
         return self._c2y
-    
+
     @C2y.setter
     def C2y(self, value: float) -> None:
         self._c2y = value

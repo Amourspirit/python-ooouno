@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,6 @@ class Shape(Shape_85cc09e5):
         If the underlying table layout direction is right to left the position is the difference of the right top edge of the anchor object and the right top edge of the drawing object.
         """
         ...
-
 
 
 __all__ = ['Shape']

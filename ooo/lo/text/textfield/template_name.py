@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ class TemplateName(TextField_90260a56):
         determines the format the template file name is displayed as specified in com.sun.star.text.FilenameDisplayFormat.
         """
         ...
-
 
 
 __all__ = ['TemplateName']

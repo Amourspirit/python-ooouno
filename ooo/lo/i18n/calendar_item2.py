@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class CalendarItem2(CalendarItem_a86c0af1):
         The narrow name, for example, \"S\" for Sunday or \"J\" for January.
         """
         return self._narrow_name
-    
+
     @NarrowName.setter
     def NarrowName(self, value: str) -> None:
         self._narrow_name = value

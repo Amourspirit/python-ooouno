@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,6 @@ class CharacterStyle(CharacterProperties_1d4f0ef3, Style_7336094a):
         This value contains the character height as percentage value relative to the height of the character in the parent style in complex text.
         """
         ...
-
 
 
 __all__ = ['CharacterStyle']

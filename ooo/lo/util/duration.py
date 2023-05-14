@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class Duration(object):
         explicit sign bit.
         """
         return self._negative
-    
+
     @Negative.setter
     def Negative(self, value: bool) -> None:
         self._negative = value
@@ -113,7 +113,7 @@ class Duration(object):
         contains the years.
         """
         return self._years
-    
+
     @Years.setter
     def Years(self, value: int) -> None:
         self._years = value
@@ -124,7 +124,7 @@ class Duration(object):
         contains the months.
         """
         return self._months
-    
+
     @Months.setter
     def Months(self, value: int) -> None:
         self._months = value
@@ -135,7 +135,7 @@ class Duration(object):
         contains the days.
         """
         return self._days
-    
+
     @Days.setter
     def Days(self, value: int) -> None:
         self._days = value
@@ -146,7 +146,7 @@ class Duration(object):
         contains the hours.
         """
         return self._hours
-    
+
     @Hours.setter
     def Hours(self, value: int) -> None:
         self._hours = value
@@ -157,7 +157,7 @@ class Duration(object):
         contains the minutes.
         """
         return self._minutes
-    
+
     @Minutes.setter
     def Minutes(self, value: int) -> None:
         self._minutes = value
@@ -168,7 +168,7 @@ class Duration(object):
         contains the seconds.
         """
         return self._seconds
-    
+
     @Seconds.setter
     def Seconds(self, value: int) -> None:
         self._seconds = value
@@ -179,7 +179,7 @@ class Duration(object):
         contains the nanoseconds.
         """
         return self._nano_seconds
-    
+
     @NanoSeconds.setter
     def NanoSeconds(self, value: int) -> None:
         self._nano_seconds = value

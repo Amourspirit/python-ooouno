@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ class Caret(object):
         The main caret index corresponds to the insert position when inserting text in the layout's main text direction.
         """
         return self._main_caret_index
-    
+
     @MainCaretIndex.setter
     def MainCaretIndex(self, value: int) -> None:
         self._main_caret_index = value
@@ -95,7 +95,7 @@ class Caret(object):
         The secondary caret index, when different from the main caret index, corresponds to the insert position when inserting text at a direction change opposite to the layout's main text direction.
         """
         return self._secondary_caret_index
-    
+
     @SecondaryCaretIndex.setter
     def SecondaryCaretIndex(self, value: int) -> None:
         self._secondary_caret_index = value
@@ -108,7 +108,7 @@ class Caret(object):
         This member contains the rotation angle of the caret in degrees, with 0 denoting an unrotated caret (the unrotated caret orientation depends on the writing mode, horizontally or vertically). The rotation angle is positive for counter-clockwise rotations.
         """
         return self._caret_angle
-    
+
     @CaretAngle.setter
     def CaretAngle(self, value: float) -> None:
         self._caret_angle = value

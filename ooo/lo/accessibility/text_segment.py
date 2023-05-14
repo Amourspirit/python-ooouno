@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ class TextSegment(object):
         Modifying it does not alter the enclosing text.
         """
         return self._segment_text
-    
+
     @SegmentText.setter
     def SegmentText(self, value: str) -> None:
         self._segment_text = value
@@ -101,7 +101,7 @@ class TextSegment(object):
         The index refers to the enclosing text.
         """
         return self._segment_start
-    
+
     @SegmentStart.setter
     def SegmentStart(self, value: int) -> None:
         self._segment_start = value
@@ -114,7 +114,7 @@ class TextSegment(object):
         The index refers to the enclosing text.
         """
         return self._segment_end
-    
+
     @SegmentEnd.setter
     def SegmentEnd(self, value: int) -> None:
         self._segment_end = value

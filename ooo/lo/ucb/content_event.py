@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ class ContentEvent(EventObject_a3d70b03):
         The value can be one of the ContentAction constants.
         """
         return self._action
-    
+
     @Action.setter
     def Action(self, value: int) -> None:
         self._action = value
@@ -100,7 +100,7 @@ class ContentEvent(EventObject_a3d70b03):
         This member must be filled as follows:
         """
         return self._content
-    
+
     @Content.setter
     def Content(self, value: XContent_79db0975) -> None:
         self._content = value
@@ -113,7 +113,7 @@ class ContentEvent(EventObject_a3d70b03):
         This member must be filled as follows:
         """
         return self._id
-    
+
     @Id.setter
     def Id(self, value: XContentIdentifier_edc90d78) -> None:
         self._id = value

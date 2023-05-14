@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ class DictionaryListEvent(EventObject_a3d70b03):
         It will be empty if all com.sun.star.linguistic2.XDictionaryListEventListener are satisfied with the condensed representation of the com.sun.star.linguistic2.DictionaryListEvent.nCondensedEvent().
         """
         return self._a_dictionary_events
-    
+
     @aDictionaryEvents.setter
     def aDictionaryEvents(self, value: typing.Tuple[DictionaryEvent_3ae00f8d, ...]) -> None:
         self._a_dictionary_events = value
@@ -97,7 +97,7 @@ class DictionaryListEvent(EventObject_a3d70b03):
         The value can be the combination of multiple com.sun.star.linguistic2.DictionaryListEventFlags by applying the logical OR to them.
         """
         return self._n_condensed_event
-    
+
     @nCondensedEvent.setter
     def nCondensedEvent(self, value: int) -> None:
         self._n_condensed_event = value

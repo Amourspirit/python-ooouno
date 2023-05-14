@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-# Copyright 2022 :Barry-Thomas-Paul: Moss
+# Copyright 2023 :Barry-Thomas-Paul: Moss
 #
 # Licensed under the Apache License, Version 2.0 (the "License")
 # you may not use this file except in compliance with the License.
@@ -108,7 +108,7 @@ class FontInfo(object):
         TODO: Document semantics in Panose.idl
         """
         return self._font_description
-    
+
     @FontDescription.setter
     def FontDescription(self, value: Panose_a6bc0b2c) -> None:
         self._font_description = value
@@ -123,7 +123,7 @@ class FontInfo(object):
         Note: outlined fonts are now specified with \"outline\" as part of the family name.
         """
         return self._family_name
-    
+
     @FamilyName.setter
     def FamilyName(self, value: str) -> None:
         self._family_name = value
@@ -136,7 +136,7 @@ class FontInfo(object):
         For example, oblique, italic, or narrow.
         """
         return self._style_name
-    
+
     @StyleName.setter
     def StyleName(self, value: str) -> None:
         self._style_name = value
@@ -151,7 +151,7 @@ class FontInfo(object):
         const int128 UNICODE_RANGE_BASIC_LATIN = 1; const int128 UNICODE_RANGE_LATIN_SUPPLEMENT = 2; const int128 UNICODE_RANGE_LATIN_EXTENDED_A = 4; const int128 UNICODE_RANGE_LATIN_EXTENDED_B = 4; ... const int128 UNICODE_RANGE_MASK_LATIN = 1; const int128 UNICODE_RANGE_MASK_CJK = (31<<48) + (3<<55) + (1<<59); const int128 UNICODE_RANGE_MASK_CTL = (1<<11) + (1<<13) + (0x3FFF<<15) + (0x0FFF<<70);
         """
         return self._unicode_ranges0
-    
+
     @UnicodeRanges0.setter
     def UnicodeRanges0(self, value: int) -> None:
         self._unicode_ranges0 = value
@@ -159,7 +159,7 @@ class FontInfo(object):
     @property
     def UnicodeRanges1(self) -> int:
         return self._unicode_ranges1
-    
+
     @UnicodeRanges1.setter
     def UnicodeRanges1(self, value: int) -> None:
         self._unicode_ranges1 = value
@@ -167,7 +167,7 @@ class FontInfo(object):
     @property
     def UnicodeRanges2(self) -> int:
         return self._unicode_ranges2
-    
+
     @UnicodeRanges2.setter
     def UnicodeRanges2(self, value: int) -> None:
         self._unicode_ranges2 = value
@@ -175,7 +175,7 @@ class FontInfo(object):
     @property
     def UnicodeRanges3(self) -> int:
         return self._unicode_ranges3
-    
+
     @UnicodeRanges3.setter
     def UnicodeRanges3(self, value: int) -> None:
         self._unicode_ranges3 = value
@@ -188,7 +188,7 @@ class FontInfo(object):
         If yes, text written in this symbol font does not have a specified meaning.
         """
         return self._is_symbol_font
-    
+
     @IsSymbolFont.setter
     def IsSymbolFont(self, value: TriState_85af09f6) -> None:
         self._is_symbol_font = value
@@ -201,7 +201,7 @@ class FontInfo(object):
         Vertical fonts have subtle differences to horizontal ones, e.g. rotated or differently shaped glyphs, or special rotated versions of normally upright glyphs (e.g. brackets).
         """
         return self._is_vertical
-    
+
     @IsVertical.setter
     def IsVertical(self, value: TriState_85af09f6) -> None:
         self._is_vertical = value

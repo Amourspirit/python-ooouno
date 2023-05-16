@@ -25,7 +25,6 @@ class BreakType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API BreakType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a3ae28cb49c180ec160a0984600b2b925>`_

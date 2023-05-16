@@ -25,7 +25,6 @@ class HorizontalDimensioning(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API HorizontalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6c20b7eb17d1eb1746fddc52487581f9>`_

@@ -14,4 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.configuration.bootstrap.bootstrap_context import BootstrapContext as BootstrapContext
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.configuration.bootstrap.bootstrap_context import BootstrapContext as BootstrapContext

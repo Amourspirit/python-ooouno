@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.form.submission.x_submission import XSubmission as XSubmission
-from ....dyn.form.submission.x_submission_supplier import XSubmissionSupplier as XSubmissionSupplier
-from ....dyn.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.form.submission.x_submission import XSubmission as XSubmission
+with suppress(ImportError):
+    from ....dyn.form.submission.x_submission_supplier import XSubmissionSupplier as XSubmissionSupplier
+with suppress(ImportError):
+    from ....dyn.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener

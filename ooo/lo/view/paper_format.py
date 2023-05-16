@@ -25,7 +25,6 @@ class PaperFormat(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API PaperFormat <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a12ab04987d08416f8347a9790c7abf3e>`_

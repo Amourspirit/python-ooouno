@@ -14,9 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.scanner.scan_error import ScanError as ScanError
-from ...dyn.scanner.scanner_context import ScannerContext as ScannerContext
-from ...dyn.scanner.scanner_exception import ScannerException as ScannerException
-from ...dyn.scanner.scanner_manager import ScannerManager as ScannerManager
-from ...dyn.scanner.x_scanner_manager import XScannerManager as XScannerManager
-from ...dyn.scanner.x_scanner_manager2 import XScannerManager2 as XScannerManager2
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.scanner.scan_error import ScanError as ScanError
+with suppress(ImportError):
+    from ...dyn.scanner.scanner_context import ScannerContext as ScannerContext
+with suppress(ImportError):
+    from ...dyn.scanner.scanner_exception import ScannerException as ScannerException
+with suppress(ImportError):
+    from ...dyn.scanner.scanner_manager import ScannerManager as ScannerManager
+with suppress(ImportError):
+    from ...dyn.scanner.x_scanner_manager import XScannerManager as XScannerManager
+with suppress(ImportError):
+    from ...dyn.scanner.x_scanner_manager2 import XScannerManager2 as XScannerManager2

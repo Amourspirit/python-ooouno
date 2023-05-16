@@ -25,7 +25,6 @@ class LineEndType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API LineEndType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa4142382acc18a0dd48cc4a563e2d168>`_

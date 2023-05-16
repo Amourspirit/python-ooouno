@@ -25,7 +25,6 @@ class TextureProjectionMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TextureProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ae1e109a5c70543e3b92db3b854fd3acb>`_

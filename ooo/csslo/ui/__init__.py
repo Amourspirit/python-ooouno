@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.ui.action_trigger import ActionTrigger as ActionTrigger
 from ...lo.ui.action_trigger_container import ActionTriggerContainer as ActionTriggerContainer
 from ...lo.ui.action_trigger_separator import ActionTriggerSeparator as ActionTriggerSeparator

@@ -25,7 +25,6 @@ class ListSourceType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ListSourceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a52e06ed91fb133bc98c089a401a724fb>`_

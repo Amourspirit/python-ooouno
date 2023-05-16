@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.script.vba.vba_event_id import VBAEventId as VBAEventId
 from ....lo.script.vba.vba_event_processor import VBAEventProcessor as VBAEventProcessor
 from ....lo.script.vba.vba_macro_resolver import VBAMacroResolver as VBAMacroResolver

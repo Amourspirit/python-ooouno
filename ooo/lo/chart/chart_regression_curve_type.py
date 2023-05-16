@@ -25,7 +25,6 @@ class ChartRegressionCurveType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartRegressionCurveType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a00d1bb45d8b0a2aac5e07cde2f18302b>`_

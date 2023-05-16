@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.awt.accessible_button import AccessibleButton as AccessibleButton
 from ...lo.awt.accessible_check_box import AccessibleCheckBox as AccessibleCheckBox
 from ...lo.awt.accessible_combo_box import AccessibleComboBox as AccessibleComboBox

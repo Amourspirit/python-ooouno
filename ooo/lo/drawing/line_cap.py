@@ -25,7 +25,6 @@ class LineCap(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API LineCap <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6d67f779dcbc9e19f8bc6cdfbb6c23f8>`_

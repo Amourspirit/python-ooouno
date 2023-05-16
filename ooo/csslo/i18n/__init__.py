@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.i18n.am_pm_value import AmPmValue as AmPmValue
 from ...lo.i18n.boundary import Boundary as Boundary
 from ...lo.i18n.break_iterator import BreakIterator as BreakIterator

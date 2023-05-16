@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.mozilla.menu_multiple_change import MenuMultipleChange as MenuMultipleChange
 from ...lo.mozilla.menu_proxy import MenuProxy as MenuProxy
 from ...lo.mozilla.menu_proxy_listener import MenuProxyListener as MenuProxyListener

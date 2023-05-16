@@ -14,59 +14,122 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.sdbcx.check_option import CheckOption as CheckOption
-from ...dyn.sdbcx.check_option import CheckOptionEnum as CheckOptionEnum
-from ...dyn.sdbcx.column import Column as Column
-from ...dyn.sdbcx.column_descriptor import ColumnDescriptor as ColumnDescriptor
-from ...dyn.sdbcx.compare_bookmark import CompareBookmark as CompareBookmark
-from ...dyn.sdbcx.compare_bookmark import CompareBookmarkEnum as CompareBookmarkEnum
-from ...dyn.sdbcx.container import Container as Container
-from ...dyn.sdbcx.database_definition import DatabaseDefinition as DatabaseDefinition
-from ...dyn.sdbcx.descriptor import Descriptor as Descriptor
-from ...dyn.sdbcx.driver import Driver as Driver
-from ...dyn.sdbcx.group import Group as Group
-from ...dyn.sdbcx.group_descriptor import GroupDescriptor as GroupDescriptor
-from ...dyn.sdbcx.index import Index as Index
-from ...dyn.sdbcx.index_column import IndexColumn as IndexColumn
-from ...dyn.sdbcx.index_column_descriptor import IndexColumnDescriptor as IndexColumnDescriptor
-from ...dyn.sdbcx.index_descriptor import IndexDescriptor as IndexDescriptor
-from ...dyn.sdbcx.key import Key as Key
-from ...dyn.sdbcx.key_column import KeyColumn as KeyColumn
-from ...dyn.sdbcx.key_column_descriptor import KeyColumnDescriptor as KeyColumnDescriptor
-from ...dyn.sdbcx.key_descriptor import KeyDescriptor as KeyDescriptor
-from ...dyn.sdbcx.key_type import KeyType as KeyType
-from ...dyn.sdbcx.key_type import KeyTypeEnum as KeyTypeEnum
-from ...dyn.sdbcx.prepared_statement import PreparedStatement as PreparedStatement
-from ...dyn.sdbcx.privilege import Privilege as Privilege
-from ...dyn.sdbcx.privilege import PrivilegeEnum as PrivilegeEnum
-from ...dyn.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
-from ...dyn.sdbcx.privilege_object import PrivilegeObjectEnum as PrivilegeObjectEnum
-from ...dyn.sdbcx.reference_column import ReferenceColumn as ReferenceColumn
-from ...dyn.sdbcx.result_set import ResultSet as ResultSet
-from ...dyn.sdbcx.statement import Statement as Statement
-from ...dyn.sdbcx.table import Table as Table
-from ...dyn.sdbcx.table_descriptor import TableDescriptor as TableDescriptor
-from ...dyn.sdbcx.user import User as User
-from ...dyn.sdbcx.user_descriptor import UserDescriptor as UserDescriptor
-from ...dyn.sdbcx.view import View as View
-from ...dyn.sdbcx.view_descriptor import ViewDescriptor as ViewDescriptor
-from ...dyn.sdbcx.x_alter_table import XAlterTable as XAlterTable
-from ...dyn.sdbcx.x_alter_view import XAlterView as XAlterView
-from ...dyn.sdbcx.x_append import XAppend as XAppend
-from ...dyn.sdbcx.x_authorizable import XAuthorizable as XAuthorizable
-from ...dyn.sdbcx.x_columns_supplier import XColumnsSupplier as XColumnsSupplier
-from ...dyn.sdbcx.x_create_catalog import XCreateCatalog as XCreateCatalog
-from ...dyn.sdbcx.x_data_definition_supplier import XDataDefinitionSupplier as XDataDefinitionSupplier
-from ...dyn.sdbcx.x_data_descriptor_factory import XDataDescriptorFactory as XDataDescriptorFactory
-from ...dyn.sdbcx.x_delete_rows import XDeleteRows as XDeleteRows
-from ...dyn.sdbcx.x_drop import XDrop as XDrop
-from ...dyn.sdbcx.x_drop_catalog import XDropCatalog as XDropCatalog
-from ...dyn.sdbcx.x_groups_supplier import XGroupsSupplier as XGroupsSupplier
-from ...dyn.sdbcx.x_indexes_supplier import XIndexesSupplier as XIndexesSupplier
-from ...dyn.sdbcx.x_keys_supplier import XKeysSupplier as XKeysSupplier
-from ...dyn.sdbcx.x_rename import XRename as XRename
-from ...dyn.sdbcx.x_row_locate import XRowLocate as XRowLocate
-from ...dyn.sdbcx.x_tables_supplier import XTablesSupplier as XTablesSupplier
-from ...dyn.sdbcx.x_user import XUser as XUser
-from ...dyn.sdbcx.x_users_supplier import XUsersSupplier as XUsersSupplier
-from ...dyn.sdbcx.x_views_supplier import XViewsSupplier as XViewsSupplier
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.sdbcx.check_option import CheckOption as CheckOption
+with suppress(ImportError):
+    from ...dyn.sdbcx.check_option import CheckOptionEnum as CheckOptionEnum
+with suppress(ImportError):
+    from ...dyn.sdbcx.column import Column as Column
+with suppress(ImportError):
+    from ...dyn.sdbcx.column_descriptor import ColumnDescriptor as ColumnDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.compare_bookmark import CompareBookmark as CompareBookmark
+with suppress(ImportError):
+    from ...dyn.sdbcx.compare_bookmark import CompareBookmarkEnum as CompareBookmarkEnum
+with suppress(ImportError):
+    from ...dyn.sdbcx.container import Container as Container
+with suppress(ImportError):
+    from ...dyn.sdbcx.database_definition import DatabaseDefinition as DatabaseDefinition
+with suppress(ImportError):
+    from ...dyn.sdbcx.descriptor import Descriptor as Descriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.driver import Driver as Driver
+with suppress(ImportError):
+    from ...dyn.sdbcx.group import Group as Group
+with suppress(ImportError):
+    from ...dyn.sdbcx.group_descriptor import GroupDescriptor as GroupDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.index import Index as Index
+with suppress(ImportError):
+    from ...dyn.sdbcx.index_column import IndexColumn as IndexColumn
+with suppress(ImportError):
+    from ...dyn.sdbcx.index_column_descriptor import IndexColumnDescriptor as IndexColumnDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.index_descriptor import IndexDescriptor as IndexDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.key import Key as Key
+with suppress(ImportError):
+    from ...dyn.sdbcx.key_column import KeyColumn as KeyColumn
+with suppress(ImportError):
+    from ...dyn.sdbcx.key_column_descriptor import KeyColumnDescriptor as KeyColumnDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.key_descriptor import KeyDescriptor as KeyDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.key_type import KeyType as KeyType
+with suppress(ImportError):
+    from ...dyn.sdbcx.key_type import KeyTypeEnum as KeyTypeEnum
+with suppress(ImportError):
+    from ...dyn.sdbcx.prepared_statement import PreparedStatement as PreparedStatement
+with suppress(ImportError):
+    from ...dyn.sdbcx.privilege import Privilege as Privilege
+with suppress(ImportError):
+    from ...dyn.sdbcx.privilege import PrivilegeEnum as PrivilegeEnum
+with suppress(ImportError):
+    from ...dyn.sdbcx.privilege_object import PrivilegeObject as PrivilegeObject
+with suppress(ImportError):
+    from ...dyn.sdbcx.privilege_object import PrivilegeObjectEnum as PrivilegeObjectEnum
+with suppress(ImportError):
+    from ...dyn.sdbcx.reference_column import ReferenceColumn as ReferenceColumn
+with suppress(ImportError):
+    from ...dyn.sdbcx.result_set import ResultSet as ResultSet
+with suppress(ImportError):
+    from ...dyn.sdbcx.statement import Statement as Statement
+with suppress(ImportError):
+    from ...dyn.sdbcx.table import Table as Table
+with suppress(ImportError):
+    from ...dyn.sdbcx.table_descriptor import TableDescriptor as TableDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.user import User as User
+with suppress(ImportError):
+    from ...dyn.sdbcx.user_descriptor import UserDescriptor as UserDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.view import View as View
+with suppress(ImportError):
+    from ...dyn.sdbcx.view_descriptor import ViewDescriptor as ViewDescriptor
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_alter_table import XAlterTable as XAlterTable
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_alter_view import XAlterView as XAlterView
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_append import XAppend as XAppend
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_authorizable import XAuthorizable as XAuthorizable
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_columns_supplier import XColumnsSupplier as XColumnsSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_create_catalog import XCreateCatalog as XCreateCatalog
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_data_definition_supplier import XDataDefinitionSupplier as XDataDefinitionSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_data_descriptor_factory import XDataDescriptorFactory as XDataDescriptorFactory
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_delete_rows import XDeleteRows as XDeleteRows
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_drop import XDrop as XDrop
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_drop_catalog import XDropCatalog as XDropCatalog
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_groups_supplier import XGroupsSupplier as XGroupsSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_indexes_supplier import XIndexesSupplier as XIndexesSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_keys_supplier import XKeysSupplier as XKeysSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_rename import XRename as XRename
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_row_locate import XRowLocate as XRowLocate
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_tables_supplier import XTablesSupplier as XTablesSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_user import XUser as XUser
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_users_supplier import XUsersSupplier as XUsersSupplier
+with suppress(ImportError):
+    from ...dyn.sdbcx.x_views_supplier import XViewsSupplier as XViewsSupplier

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.system.simple_command_mail import SimpleCommandMail as SimpleCommandMail
 from ...lo.system.simple_mail_client_flags import SimpleMailClientFlags as SimpleMailClientFlags
 from ...lo.system.simple_system_mail import SimpleSystemMail as SimpleSystemMail

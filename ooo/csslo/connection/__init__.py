@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.connection.acceptor import Acceptor as Acceptor
 from ...lo.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
 from ...lo.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException

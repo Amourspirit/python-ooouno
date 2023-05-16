@@ -14,13 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.resource.missing_resource_exception import MissingResourceException as MissingResourceException
-from ...dyn.resource.string_resource import StringResource as StringResource
-from ...dyn.resource.string_resource_with_location import StringResourceWithLocation as StringResourceWithLocation
-from ...dyn.resource.string_resource_with_storage import StringResourceWithStorage as StringResourceWithStorage
-from ...dyn.resource.x_string_resource_manager import XStringResourceManager as XStringResourceManager
-from ...dyn.resource.x_string_resource_persistence import XStringResourcePersistence as XStringResourcePersistence
-from ...dyn.resource.x_string_resource_resolver import XStringResourceResolver as XStringResourceResolver
-from ...dyn.resource.x_string_resource_supplier import XStringResourceSupplier as XStringResourceSupplier
-from ...dyn.resource.x_string_resource_with_location import XStringResourceWithLocation as XStringResourceWithLocation
-from ...dyn.resource.x_string_resource_with_storage import XStringResourceWithStorage as XStringResourceWithStorage
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.resource.missing_resource_exception import MissingResourceException as MissingResourceException
+with suppress(ImportError):
+    from ...dyn.resource.string_resource import StringResource as StringResource
+with suppress(ImportError):
+    from ...dyn.resource.string_resource_with_location import StringResourceWithLocation as StringResourceWithLocation
+with suppress(ImportError):
+    from ...dyn.resource.string_resource_with_storage import StringResourceWithStorage as StringResourceWithStorage
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_manager import XStringResourceManager as XStringResourceManager
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_persistence import XStringResourcePersistence as XStringResourcePersistence
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_resolver import XStringResourceResolver as XStringResourceResolver
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_supplier import XStringResourceSupplier as XStringResourceSupplier
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_with_location import XStringResourceWithLocation as XStringResourceWithLocation
+with suppress(ImportError):
+    from ...dyn.resource.x_string_resource_with_storage import XStringResourceWithStorage as XStringResourceWithStorage

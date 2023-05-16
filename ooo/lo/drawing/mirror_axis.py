@@ -25,7 +25,6 @@ class MirrorAxis(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API MirrorAxis <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4a57640f8e0cde4bd2c20b6b00d6affb>`_

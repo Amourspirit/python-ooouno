@@ -14,16 +14,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.text.textfield.docinfo.change_author import ChangeAuthor as ChangeAuthor
-from .....dyn.text.textfield.docinfo.change_date_time import ChangeDateTime as ChangeDateTime
-from .....dyn.text.textfield.docinfo.create_author import CreateAuthor as CreateAuthor
-from .....dyn.text.textfield.docinfo.create_date_time import CreateDateTime as CreateDateTime
-from .....dyn.text.textfield.docinfo.custom import Custom as Custom
-from .....dyn.text.textfield.docinfo.description import Description as Description
-from .....dyn.text.textfield.docinfo.edit_time import EditTime as EditTime
-from .....dyn.text.textfield.docinfo.keywords import Keywords as Keywords
-from .....dyn.text.textfield.docinfo.print_author import PrintAuthor as PrintAuthor
-from .....dyn.text.textfield.docinfo.print_date_time import PrintDateTime as PrintDateTime
-from .....dyn.text.textfield.docinfo.revision import Revision as Revision
-from .....dyn.text.textfield.docinfo.subject import Subject as Subject
-from .....dyn.text.textfield.docinfo.title import Title as Title
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.change_author import ChangeAuthor as ChangeAuthor
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.change_date_time import ChangeDateTime as ChangeDateTime
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.create_author import CreateAuthor as CreateAuthor
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.create_date_time import CreateDateTime as CreateDateTime
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.custom import Custom as Custom
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.description import Description as Description
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.edit_time import EditTime as EditTime
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.keywords import Keywords as Keywords
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.print_author import PrintAuthor as PrintAuthor
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.print_date_time import PrintDateTime as PrintDateTime
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.revision import Revision as Revision
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.subject import Subject as Subject
+with suppress(ImportError):
+    from .....dyn.text.textfield.docinfo.title import Title as Title

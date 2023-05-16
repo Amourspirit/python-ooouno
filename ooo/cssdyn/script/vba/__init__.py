@@ -14,17 +14,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.script.vba.vba_event_id import VBAEventId as VBAEventId
-from ....dyn.script.vba.vba_event_id import VBAEventIdEnum as VBAEventIdEnum
-from ....dyn.script.vba.vba_event_processor import VBAEventProcessor as VBAEventProcessor
-from ....dyn.script.vba.vba_macro_resolver import VBAMacroResolver as VBAMacroResolver
-from ....dyn.script.vba.vba_script_event import VBAScriptEvent as VBAScriptEvent
-from ....dyn.script.vba.vba_script_event_id import VBAScriptEventId as VBAScriptEventId
-from ....dyn.script.vba.vba_script_event_id import VBAScriptEventIdEnum as VBAScriptEventIdEnum
-from ....dyn.script.vba.vba_spreadsheet_event_processor import VBASpreadsheetEventProcessor as VBASpreadsheetEventProcessor
-from ....dyn.script.vba.vba_text_event_processor import VBATextEventProcessor as VBATextEventProcessor
-from ....dyn.script.vba.xvba_compatibility import XVBACompatibility as XVBACompatibility
-from ....dyn.script.vba.xvba_event_processor import XVBAEventProcessor as XVBAEventProcessor
-from ....dyn.script.vba.xvba_macro_resolver import XVBAMacroResolver as XVBAMacroResolver
-from ....dyn.script.vba.xvba_module_info import XVBAModuleInfo as XVBAModuleInfo
-from ....dyn.script.vba.xvba_script_listener import XVBAScriptListener as XVBAScriptListener
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_event_id import VBAEventId as VBAEventId
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_event_id import VBAEventIdEnum as VBAEventIdEnum
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_event_processor import VBAEventProcessor as VBAEventProcessor
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_macro_resolver import VBAMacroResolver as VBAMacroResolver
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_script_event import VBAScriptEvent as VBAScriptEvent
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_script_event_id import VBAScriptEventId as VBAScriptEventId
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_script_event_id import VBAScriptEventIdEnum as VBAScriptEventIdEnum
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_spreadsheet_event_processor import VBASpreadsheetEventProcessor as VBASpreadsheetEventProcessor
+with suppress(ImportError):
+    from ....dyn.script.vba.vba_text_event_processor import VBATextEventProcessor as VBATextEventProcessor
+with suppress(ImportError):
+    from ....dyn.script.vba.xvba_compatibility import XVBACompatibility as XVBACompatibility
+with suppress(ImportError):
+    from ....dyn.script.vba.xvba_event_processor import XVBAEventProcessor as XVBAEventProcessor
+with suppress(ImportError):
+    from ....dyn.script.vba.xvba_macro_resolver import XVBAMacroResolver as XVBAMacroResolver
+with suppress(ImportError):
+    from ....dyn.script.vba.xvba_module_info import XVBAModuleInfo as XVBAModuleInfo
+with suppress(ImportError):
+    from ....dyn.script.vba.xvba_script_listener import XVBAScriptListener as XVBAScriptListener

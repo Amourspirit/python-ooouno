@@ -25,7 +25,6 @@ class DataEditorEventType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API DataEditorEventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a78015743cb8b25dbfc2b64889f6bd261>`_

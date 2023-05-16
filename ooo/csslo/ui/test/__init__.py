@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.ui.test.ui_test import UITest as UITest
 from ....lo.ui.test.xui_object import XUIObject as XUIObject
 from ....lo.ui.test.xui_test import XUITest as XUITest

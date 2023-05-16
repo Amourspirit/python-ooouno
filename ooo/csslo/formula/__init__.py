@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.formula.accessible_formula_text import AccessibleFormulaText as AccessibleFormulaText
 from ...lo.formula.accessible_formula_view import AccessibleFormulaView as AccessibleFormulaView
 from ...lo.formula.formula_properties import FormulaProperties as FormulaProperties

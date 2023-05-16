@@ -25,7 +25,6 @@ class IOErrorCode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API IOErrorCode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ab0378c2985abaca86838ed9936c3a2d5>`_

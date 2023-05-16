@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.ui.test.ui_test import UITest as UITest
-from ....dyn.ui.test.xui_object import XUIObject as XUIObject
-from ....dyn.ui.test.xui_test import XUITest as XUITest
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.ui.test.ui_test import UITest as UITest
+with suppress(ImportError):
+    from ....dyn.ui.test.xui_object import XUIObject as XUIObject
+with suppress(ImportError):
+    from ....dyn.ui.test.xui_test import XUITest as XUITest

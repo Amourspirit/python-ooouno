@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.configuration.backend.authentication_failed_exception import AuthenticationFailedException as AuthenticationFailedException
 from ....lo.configuration.backend.backend import Backend as Backend
 from ....lo.configuration.backend.backend_access_exception import BackendAccessException as BackendAccessException

@@ -21,5 +21,13 @@
   "workbench.colorTheme": "Monokai",
   "python.formatting.provider": "black",
   "esbonio.server.enabled": false,
-  "esbonio.sphinx.confDir": "${workspaceFolder}/docs"
+  "esbonio.sphinx.confDir": "${workspaceFolder}/docs",
+  "cSpell.words": [
+    "cssdyn",
+    "csslo",
+    "oooenv",
+    "ooouno",
+    "stickytape",
+    "Struct"
+  ]
 }

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.script.provider.language_script_provider import LanguageScriptProvider as LanguageScriptProvider
 from ....lo.script.provider.master_script_provider import MasterScriptProvider as MasterScriptProvider
 from ....lo.script.provider.master_script_provider_factory import MasterScriptProviderFactory as MasterScriptProviderFactory

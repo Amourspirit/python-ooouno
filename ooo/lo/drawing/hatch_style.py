@@ -25,7 +25,6 @@ class HatchStyle(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API HatchStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a021284aa8478781ba1b958b81da7b608>`_

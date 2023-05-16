@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.binding.bindable_control_model import BindableControlModel as BindableControlModel
 from ....lo.form.binding.bindable_data_aware_control_model import BindableDataAwareControlModel as BindableDataAwareControlModel
 from ....lo.form.binding.bindable_database_check_box import BindableDatabaseCheckBox as BindableDatabaseCheckBox

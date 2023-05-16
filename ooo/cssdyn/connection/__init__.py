@@ -14,14 +14,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.connection.acceptor import Acceptor as Acceptor
-from ...dyn.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
-from ...dyn.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException
-from ...dyn.connection.connector import Connector as Connector
-from ...dyn.connection.no_connect_exception import NoConnectException as NoConnectException
-from ...dyn.connection.socket_permission import SocketPermission as SocketPermission
-from ...dyn.connection.x_acceptor import XAcceptor as XAcceptor
-from ...dyn.connection.x_connection import XConnection as XConnection
-from ...dyn.connection.x_connection2 import XConnection2 as XConnection2
-from ...dyn.connection.x_connection_broadcaster import XConnectionBroadcaster as XConnectionBroadcaster
-from ...dyn.connection.x_connector import XConnector as XConnector
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.connection.acceptor import Acceptor as Acceptor
+with suppress(ImportError):
+    from ...dyn.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
+with suppress(ImportError):
+    from ...dyn.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException
+with suppress(ImportError):
+    from ...dyn.connection.connector import Connector as Connector
+with suppress(ImportError):
+    from ...dyn.connection.no_connect_exception import NoConnectException as NoConnectException
+with suppress(ImportError):
+    from ...dyn.connection.socket_permission import SocketPermission as SocketPermission
+with suppress(ImportError):
+    from ...dyn.connection.x_acceptor import XAcceptor as XAcceptor
+with suppress(ImportError):
+    from ...dyn.connection.x_connection import XConnection as XConnection
+with suppress(ImportError):
+    from ...dyn.connection.x_connection2 import XConnection2 as XConnection2
+with suppress(ImportError):
+    from ...dyn.connection.x_connection_broadcaster import XConnectionBroadcaster as XConnectionBroadcaster
+with suppress(ImportError):
+    from ...dyn.connection.x_connector import XConnector as XConnector

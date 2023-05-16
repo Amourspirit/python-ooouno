@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.inspection.default_help_provider import DefaultHelpProvider as DefaultHelpProvider
 from ...lo.inspection.generic_property_handler import GenericPropertyHandler as GenericPropertyHandler
 from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult

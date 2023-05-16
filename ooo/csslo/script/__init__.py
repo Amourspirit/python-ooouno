@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.script.all_event_object import AllEventObject as AllEventObject
 from ...lo.script.all_listener_adapter import AllListenerAdapter as AllListenerAdapter
 from ...lo.script.array_wrapper import ArrayWrapper as ArrayWrapper

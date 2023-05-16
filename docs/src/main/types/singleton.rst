@@ -9,8 +9,10 @@ Static
 ======
 
 Singleton classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are static abstract classes.
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
 
 Singleton classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are the same classes.
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
 
 Example:
     .. code-block:: python

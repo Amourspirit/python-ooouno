@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.scanner.scan_error import ScanError as ScanError
 from ...lo.scanner.scanner_context import ScannerContext as ScannerContext
 from ...lo.scanner.scanner_exception import ScannerException as ScannerException

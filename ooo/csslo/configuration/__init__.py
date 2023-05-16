@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.configuration.access_root_element import AccessRootElement as AccessRootElement
 from ...lo.configuration.administration_provider import AdministrationProvider as AdministrationProvider
 from ...lo.configuration.cannot_load_configuration_exception import CannotLoadConfigurationException as CannotLoadConfigurationException

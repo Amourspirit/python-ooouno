@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.deployment.ui.license_dialog import LicenseDialog as LicenseDialog
 from ....lo.deployment.ui.package_manager_dialog import PackageManagerDialog as PackageManagerDialog
 from ....lo.deployment.ui.update_required_dialog import UpdateRequiredDialog as UpdateRequiredDialog

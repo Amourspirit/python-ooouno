@@ -25,7 +25,6 @@ class ElementMarkPriority(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ElementMarkPriority <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a513614abfcc788af5f4afd633a9f5d0a>`_

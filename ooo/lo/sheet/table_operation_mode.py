@@ -25,7 +25,6 @@ class TableOperationMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TableOperationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a91d4f5595c9dc2a8c09e532e59f395d9>`_

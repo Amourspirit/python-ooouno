@@ -25,7 +25,6 @@ class SecurityOperationStatus(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API SecurityOperationStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto.html#ab5d887eb5da1173b766d96d0d863d1dc>`_

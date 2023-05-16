@@ -14,7 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.packages.manifest.manifest_reader import ManifestReader as ManifestReader
-from ....dyn.packages.manifest.manifest_writer import ManifestWriter as ManifestWriter
-from ....dyn.packages.manifest.x_manifest_reader import XManifestReader as XManifestReader
-from ....dyn.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.packages.manifest.manifest_reader import ManifestReader as ManifestReader
+with suppress(ImportError):
+    from ....dyn.packages.manifest.manifest_writer import ManifestWriter as ManifestWriter
+with suppress(ImportError):
+    from ....dyn.packages.manifest.x_manifest_reader import XManifestReader as XManifestReader
+with suppress(ImportError):
+    from ....dyn.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter

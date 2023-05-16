@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.io.already_connected_exception import AlreadyConnectedException as AlreadyConnectedException
 from ...lo.io.buffer_size_exceeded_exception import BufferSizeExceededException as BufferSizeExceededException
 from ...lo.io.connect_exception import ConnectException as ConnectException

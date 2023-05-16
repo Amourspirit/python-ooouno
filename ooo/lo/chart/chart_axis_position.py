@@ -25,7 +25,6 @@ class ChartAxisPosition(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartAxisPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aa2815fba34da31acb139c7be75fda078>`_

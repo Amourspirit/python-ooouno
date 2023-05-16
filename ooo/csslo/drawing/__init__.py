@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.drawing.accessible_draw_document_view import AccessibleDrawDocumentView as AccessibleDrawDocumentView
 from ...lo.drawing.accessible_graph_control import AccessibleGraphControl as AccessibleGraphControl
 from ...lo.drawing.accessible_graphic_shape import AccessibleGraphicShape as AccessibleGraphicShape
@@ -33,7 +36,6 @@ from ...lo.drawing.bitmap_mode import BitmapMode as BitmapMode
 from ...lo.drawing.bitmap_table import BitmapTable as BitmapTable
 from ...lo.drawing.bound_volume import BoundVolume as BoundVolume
 from ...lo.drawing.camera_geometry import CameraGeometry as CameraGeometry
-from ...lo.drawing.canvas_feature import CanvasFeature as CanvasFeature
 from ...lo.drawing.caption_escape_direction import CaptionEscapeDirection as CaptionEscapeDirection
 from ...lo.drawing.caption_shape import CaptionShape as CaptionShape
 from ...lo.drawing.caption_type import CaptionType as CaptionType

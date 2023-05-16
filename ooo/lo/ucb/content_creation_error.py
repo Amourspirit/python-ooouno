@@ -25,7 +25,6 @@ class ContentCreationError(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ContentCreationError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa2e437022c4d519cf5488a06e5e81ef4>`_

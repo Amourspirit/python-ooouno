@@ -25,7 +25,6 @@ class ConditionOperator(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ConditionOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#adab1b2b49825a75bed998dd77963eff9>`_

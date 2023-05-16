@@ -25,7 +25,6 @@ class ParamMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ParamMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#ada880a15fc14bc0e53c3dd7c3c8a34eb>`_

@@ -14,7 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.wrapper.xml_document_wrapper import XMLDocumentWrapper as XMLDocumentWrapper
-from ....dyn.xml.wrapper.xml_element_wrapper import XMLElementWrapper as XMLElementWrapper
-from ....dyn.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
-from ....dyn.xml.wrapper.xxml_element_wrapper import XXMLElementWrapper as XXMLElementWrapper
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.xml.wrapper.xml_document_wrapper import XMLDocumentWrapper as XMLDocumentWrapper
+with suppress(ImportError):
+    from ....dyn.xml.wrapper.xml_element_wrapper import XMLElementWrapper as XMLElementWrapper
+with suppress(ImportError):
+    from ....dyn.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
+with suppress(ImportError):
+    from ....dyn.xml.wrapper.xxml_element_wrapper import XXMLElementWrapper as XXMLElementWrapper

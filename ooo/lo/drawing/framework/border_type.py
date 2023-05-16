@@ -25,7 +25,6 @@ class BorderType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API BorderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a62ba43b838957db08d5ecb9b46b8ca90>`_

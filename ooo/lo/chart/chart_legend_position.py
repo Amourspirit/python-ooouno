@@ -25,7 +25,6 @@ class ChartLegendPosition(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartLegendPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a65c2b55fdf73cbbf2fdcfef7d305b6c3>`_

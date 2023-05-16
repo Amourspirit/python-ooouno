@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.xml.input.sax_document_handler import SaxDocumentHandler as SaxDocumentHandler
 from ....lo.xml.input.x_attributes import XAttributes as XAttributes
 from ....lo.xml.input.x_element import XElement as XElement

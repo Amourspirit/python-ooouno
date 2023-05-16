@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.xsd.boolean import Boolean as Boolean
 from ...lo.xsd.data_type_class import DataTypeClass as DataTypeClass
 from ...lo.xsd.date import Date as Date

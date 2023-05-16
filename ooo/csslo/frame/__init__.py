@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.frame.app_dispatch_provider import AppDispatchProvider as AppDispatchProvider
 from ...lo.frame.auto_recovery import AutoRecovery as AutoRecovery
 from ...lo.frame.bibliography import Bibliography as Bibliography

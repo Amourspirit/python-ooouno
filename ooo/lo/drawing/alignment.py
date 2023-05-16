@@ -25,7 +25,6 @@ class Alignment(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API Alignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#acdfaca60ec19c0265bac2692d7982726>`_

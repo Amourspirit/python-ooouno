@@ -9,6 +9,8 @@ Static
 
 Const classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are static classes.
 
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
+
 Example static:
     .. code-block:: python
 
@@ -35,7 +37,9 @@ Dynamic
 Const classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic classes
 and are changed during runtime.
 
-Each const class in the ``ooo.dyn`` and ``ooo.cssdyn`` namespaces have a corrsponding enum class as well.
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
+
+Each const class in the ``ooo.dyn`` and ``ooo.cssdyn`` namespaces have a corresponding enum class as well.
 The enum class is always the name of the UNO class with ``Enum`` appended.
 
 For instance:
@@ -67,7 +71,7 @@ Example:
         assert same == False
 
 .. note::
-    This library is for Libre Office |lo_version|; However, it is somewhat backwards compatable.
+    This library is for Libre Office |lo_version|; However, it is somewhat backwards compatible.
 
     For instance ``ooo.cssdyn.style.NumberingType`` had the attributes
     **ARABIC_ZERO3**, **ARABIC_ZERO4**, **ARABIC_ZERO5**, **SZEKELY_ROVAS** added in LO 7.x.

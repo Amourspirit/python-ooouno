@@ -14,5 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
 from ...lo.svg.xsvg_writer import XSVGWriter as XSVGWriter

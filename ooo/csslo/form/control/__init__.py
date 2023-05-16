@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.control.check_box import CheckBox as CheckBox
 from ....lo.form.control.combo_box import ComboBox as ComboBox
 from ....lo.form.control.command_button import CommandButton as CommandButton

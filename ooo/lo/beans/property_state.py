@@ -25,7 +25,6 @@ class PropertyState(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API PropertyState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1beans.html#a1a5ccb5c59cace4a214c1e2eae8620b0>`_

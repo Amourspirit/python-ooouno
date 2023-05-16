@@ -14,8 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.input.sax_document_handler import SaxDocumentHandler as SaxDocumentHandler
-from ....dyn.xml.input.x_attributes import XAttributes as XAttributes
-from ....dyn.xml.input.x_element import XElement as XElement
-from ....dyn.xml.input.x_namespace_mapping import XNamespaceMapping as XNamespaceMapping
-from ....dyn.xml.input.x_root import XRoot as XRoot
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.xml.input.sax_document_handler import SaxDocumentHandler as SaxDocumentHandler
+with suppress(ImportError):
+    from ....dyn.xml.input.x_attributes import XAttributes as XAttributes
+with suppress(ImportError):
+    from ....dyn.xml.input.x_element import XElement as XElement
+with suppress(ImportError):
+    from ....dyn.xml.input.x_namespace_mapping import XNamespaceMapping as XNamespaceMapping
+with suppress(ImportError):
+    from ....dyn.xml.input.x_root import XRoot as XRoot

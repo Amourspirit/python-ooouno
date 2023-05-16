@@ -14,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...lo.beans.ambiguous import Ambiguous as Ambiguous
-from ...lo.beans.defaulted import Defaulted as Defaulted
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.beans.get_direct_property_tolerant_result import GetDirectPropertyTolerantResult as GetDirectPropertyTolerantResult
 from ...lo.beans.get_property_tolerant_result import GetPropertyTolerantResult as GetPropertyTolerantResult
 from ...lo.beans.illegal_type_exception import IllegalTypeException as IllegalTypeException
@@ -24,8 +25,6 @@ from ...lo.beans.introspection_exception import IntrospectionException as Intros
 from ...lo.beans.method_concept import MethodConcept as MethodConcept
 from ...lo.beans.named_value import NamedValue as NamedValue
 from ...lo.beans.not_removeable_exception import NotRemoveableException as NotRemoveableException
-from ...lo.beans.optional import Optional as Optional
-from ...lo.beans.pair import Pair as Pair
 from ...lo.beans.property import Property as Property
 from ...lo.beans.property_attribute import PropertyAttribute as PropertyAttribute
 from ...lo.beans.property_bag import PropertyBag as PropertyBag

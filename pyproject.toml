@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ooouno"
-version = "1.0.2"
+version = "2.0.0"
 description = "Interfaces and classes for LibreOffice (uno)"
 authors = [":Barry-Thomas-Paul: Moss <vibrationoflife@protonmail.com>"]
 license = "Apache Software License"
@@ -49,3 +49,9 @@ stickytape = "^0.2.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+extended-select=["ANN", "C4", "N", "SIM", "TCH"]
+ignore=["E502"]
+show-fixes=true
+target="py37"

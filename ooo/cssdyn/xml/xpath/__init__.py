@@ -14,11 +14,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.xpath.libxml2_extension_handle import Libxml2ExtensionHandle as Libxml2ExtensionHandle
-from ....dyn.xml.xpath.x_path_api import XPathAPI as XPathAPI
-from ....dyn.xml.xpath.x_path_exception import XPathException as XPathException
-from ....dyn.xml.xpath.x_path_extension import XPathExtension as XPathExtension
-from ....dyn.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType
-from ....dyn.xml.xpath.xx_path_api import XXPathAPI as XXPathAPI
-from ....dyn.xml.xpath.xx_path_extension import XXPathExtension as XXPathExtension
-from ....dyn.xml.xpath.xx_path_object import XXPathObject as XXPathObject
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.xml.xpath.libxml2_extension_handle import Libxml2ExtensionHandle as Libxml2ExtensionHandle
+with suppress(ImportError):
+    from ....dyn.xml.xpath.x_path_api import XPathAPI as XPathAPI
+with suppress(ImportError):
+    from ....dyn.xml.xpath.x_path_exception import XPathException as XPathException
+with suppress(ImportError):
+    from ....dyn.xml.xpath.x_path_extension import XPathExtension as XPathExtension
+with suppress(ImportError):
+    from ....dyn.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType
+with suppress(ImportError):
+    from ....dyn.xml.xpath.xx_path_api import XXPathAPI as XXPathAPI
+with suppress(ImportError):
+    from ....dyn.xml.xpath.xx_path_extension import XXPathExtension as XXPathExtension
+with suppress(ImportError):
+    from ....dyn.xml.xpath.xx_path_object import XXPathObject as XXPathObject

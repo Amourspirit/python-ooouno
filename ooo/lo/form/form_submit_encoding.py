@@ -25,7 +25,6 @@ class FormSubmitEncoding(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API FormSubmitEncoding <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a4a4c5c07c0618f59711919741a523ab8>`_

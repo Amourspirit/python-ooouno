@@ -14,8 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.image.image_map import ImageMap as ImageMap
-from ...dyn.image.image_map_circle_object import ImageMapCircleObject as ImageMapCircleObject
-from ...dyn.image.image_map_object import ImageMapObject as ImageMapObject
-from ...dyn.image.image_map_polygon_object import ImageMapPolygonObject as ImageMapPolygonObject
-from ...dyn.image.image_map_rectangle_object import ImageMapRectangleObject as ImageMapRectangleObject
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.image.image_map import ImageMap as ImageMap
+with suppress(ImportError):
+    from ...dyn.image.image_map_circle_object import ImageMapCircleObject as ImageMapCircleObject
+with suppress(ImportError):
+    from ...dyn.image.image_map_object import ImageMapObject as ImageMapObject
+with suppress(ImportError):
+    from ...dyn.image.image_map_polygon_object import ImageMapPolygonObject as ImageMapPolygonObject
+with suppress(ImportError):
+    from ...dyn.image.image_map_rectangle_object import ImageMapRectangleObject as ImageMapRectangleObject

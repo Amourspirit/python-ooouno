@@ -14,5 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.xml.csax.x_compressed_document_handler import XCompressedDocumentHandler as XCompressedDocumentHandler
 from ....lo.xml.csax.xml_attribute import XMLAttribute as XMLAttribute

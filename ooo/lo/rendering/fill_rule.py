@@ -25,7 +25,6 @@ class FillRule(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API FillRule <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1rendering.html#a9a534b0377c9ca41983d53b0dae0d5a4>`_

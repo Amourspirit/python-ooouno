@@ -25,7 +25,6 @@ class RegistryValueType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API RegistryValueType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a62fb96939bafde3da828f782a8433ac3>`_

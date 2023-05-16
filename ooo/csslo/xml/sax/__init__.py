@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.xml.sax.fast_parser import FastParser as FastParser
 from ....lo.xml.sax.fast_token import FastToken as FastToken
 from ....lo.xml.sax.fast_token_handler import FastTokenHandler as FastTokenHandler

@@ -14,13 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.awt.tab.tab_page_activated_event import TabPageActivatedEvent as TabPageActivatedEvent
-from ....dyn.awt.tab.uno_control_tab_page import UnoControlTabPage as UnoControlTabPage
-from ....dyn.awt.tab.uno_control_tab_page_container import UnoControlTabPageContainer as UnoControlTabPageContainer
-from ....dyn.awt.tab.uno_control_tab_page_container_model import UnoControlTabPageContainerModel as UnoControlTabPageContainerModel
-from ....dyn.awt.tab.uno_control_tab_page_model import UnoControlTabPageModel as UnoControlTabPageModel
-from ....dyn.awt.tab.x_tab_page import XTabPage as XTabPage
-from ....dyn.awt.tab.x_tab_page_container import XTabPageContainer as XTabPageContainer
-from ....dyn.awt.tab.x_tab_page_container_listener import XTabPageContainerListener as XTabPageContainerListener
-from ....dyn.awt.tab.x_tab_page_container_model import XTabPageContainerModel as XTabPageContainerModel
-from ....dyn.awt.tab.x_tab_page_model import XTabPageModel as XTabPageModel
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.awt.tab.tab_page_activated_event import TabPageActivatedEvent as TabPageActivatedEvent
+with suppress(ImportError):
+    from ....dyn.awt.tab.uno_control_tab_page import UnoControlTabPage as UnoControlTabPage
+with suppress(ImportError):
+    from ....dyn.awt.tab.uno_control_tab_page_container import UnoControlTabPageContainer as UnoControlTabPageContainer
+with suppress(ImportError):
+    from ....dyn.awt.tab.uno_control_tab_page_container_model import UnoControlTabPageContainerModel as UnoControlTabPageContainerModel
+with suppress(ImportError):
+    from ....dyn.awt.tab.uno_control_tab_page_model import UnoControlTabPageModel as UnoControlTabPageModel
+with suppress(ImportError):
+    from ....dyn.awt.tab.x_tab_page import XTabPage as XTabPage
+with suppress(ImportError):
+    from ....dyn.awt.tab.x_tab_page_container import XTabPageContainer as XTabPageContainer
+with suppress(ImportError):
+    from ....dyn.awt.tab.x_tab_page_container_listener import XTabPageContainerListener as XTabPageContainerListener
+with suppress(ImportError):
+    from ....dyn.awt.tab.x_tab_page_container_model import XTabPageContainerModel as XTabPageContainerModel
+with suppress(ImportError):
+    from ....dyn.awt.tab.x_tab_page_model import XTabPageModel as XTabPageModel

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from .....lo.configuration.backend.xml.layer_parser import LayerParser as LayerParser
 from .....lo.configuration.backend.xml.layer_writer import LayerWriter as LayerWriter
 from .....lo.configuration.backend.xml.schema_parser import SchemaParser as SchemaParser

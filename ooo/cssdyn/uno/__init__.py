@@ -14,19 +14,42 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.uno.deployment_exception import DeploymentException as DeploymentException
-from ...dyn.uno.exception import Exception as Exception
-from ...dyn.uno.naming_service import NamingService as NamingService
-from ...dyn.uno.runtime_exception import RuntimeException as RuntimeException
-from ...dyn.uno.security_exception import SecurityException as SecurityException
-from ...dyn.uno.type_class import TypeClass as TypeClass
-from ...dyn.uno.uik import Uik as Uik
-from ...dyn.uno.x_adapter import XAdapter as XAdapter
-from ...dyn.uno.x_aggregation import XAggregation as XAggregation
-from ...dyn.uno.x_component_context import XComponentContext as XComponentContext
-from ...dyn.uno.x_current_context import XCurrentContext as XCurrentContext
-from ...dyn.uno.x_interface import XInterface as XInterface
-from ...dyn.uno.x_naming_service import XNamingService as XNamingService
-from ...dyn.uno.x_reference import XReference as XReference
-from ...dyn.uno.x_unloading_preference import XUnloadingPreference as XUnloadingPreference
-from ...dyn.uno.x_weak import XWeak as XWeak
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.uno.deployment_exception import DeploymentException as DeploymentException
+with suppress(ImportError):
+    from ...dyn.uno.exception import Exception as Exception
+with suppress(ImportError):
+    from ...dyn.uno.naming_service import NamingService as NamingService
+with suppress(ImportError):
+    from ...dyn.uno.runtime_exception import RuntimeException as RuntimeException
+with suppress(ImportError):
+    from ...dyn.uno.security_exception import SecurityException as SecurityException
+with suppress(ImportError):
+    from ...dyn.uno.type_class import TypeClass as TypeClass
+with suppress(ImportError):
+    from ...dyn.uno.uik import Uik as Uik
+with suppress(ImportError):
+    from ...dyn.uno.x_adapter import XAdapter as XAdapter
+with suppress(ImportError):
+    from ...dyn.uno.x_aggregation import XAggregation as XAggregation
+with suppress(ImportError):
+    from ...dyn.uno.x_component_context import XComponentContext as XComponentContext
+with suppress(ImportError):
+    from ...dyn.uno.x_current_context import XCurrentContext as XCurrentContext
+with suppress(ImportError):
+    from ...dyn.uno.x_interface import XInterface as XInterface
+with suppress(ImportError):
+    from ...dyn.uno.x_naming_service import XNamingService as XNamingService
+with suppress(ImportError):
+    from ...dyn.uno.x_reference import XReference as XReference
+with suppress(ImportError):
+    from ...dyn.uno.x_unloading_preference import XUnloadingPreference as XUnloadingPreference
+with suppress(ImportError):
+    from ...dyn.uno.x_weak import XWeak as XWeak

@@ -25,7 +25,6 @@ class InteractiveSelectionResult(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API InteractiveSelectionResult <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1inspection.html#a2c7cbb6dbe76b989188c75ba8e400876>`_

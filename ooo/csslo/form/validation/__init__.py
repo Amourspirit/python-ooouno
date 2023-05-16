@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.validation.validatable_bindable_control_model import ValidatableBindableControlModel as ValidatableBindableControlModel
 from ....lo.form.validation.validatable_control_model import ValidatableControlModel as ValidatableControlModel
 from ....lo.form.validation.x_form_component_validity_listener import XFormComponentValidityListener as XFormComponentValidityListener

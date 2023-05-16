@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.report.inspection.data_provider_handler import DataProviderHandler as DataProviderHandler
-from ....dyn.report.inspection.default_component_inspector_model import DefaultComponentInspectorModel as DefaultComponentInspectorModel
-from ....dyn.report.inspection.report_component_handler import ReportComponentHandler as ReportComponentHandler
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.report.inspection.data_provider_handler import DataProviderHandler as DataProviderHandler
+with suppress(ImportError):
+    from ....dyn.report.inspection.default_component_inspector_model import DefaultComponentInspectorModel as DefaultComponentInspectorModel
+with suppress(ImportError):
+    from ....dyn.report.inspection.report_component_handler import ReportComponentHandler as ReportComponentHandler

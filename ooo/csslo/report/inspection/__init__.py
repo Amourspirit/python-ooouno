@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.report.inspection.data_provider_handler import DataProviderHandler as DataProviderHandler
 from ....lo.report.inspection.default_component_inspector_model import DefaultComponentInspectorModel as DefaultComponentInspectorModel
 from ....lo.report.inspection.report_component_handler import ReportComponentHandler as ReportComponentHandler

@@ -25,7 +25,6 @@ class RememberAuthentication(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API RememberAuthentication <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a7b9847f348fd7f6a0fc461f821c08173>`_

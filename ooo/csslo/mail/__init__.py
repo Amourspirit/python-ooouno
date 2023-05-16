@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.mail.mail_attachment import MailAttachment as MailAttachment
 from ...lo.mail.mail_exception import MailException as MailException
 from ...lo.mail.mail_message import MailMessage as MailMessage

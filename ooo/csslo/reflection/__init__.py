@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.reflection.core_reflection import CoreReflection as CoreReflection
 from ...lo.reflection.field_access_mode import FieldAccessMode as FieldAccessMode
 from ...lo.reflection.invalid_type_name_exception import InvalidTypeNameException as InvalidTypeNameException

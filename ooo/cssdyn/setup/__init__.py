@@ -14,5 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.setup.update_check import UpdateCheck as UpdateCheck
-from ...dyn.setup.update_check_config import UpdateCheckConfig as UpdateCheckConfig
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.setup.update_check import UpdateCheck as UpdateCheck
+with suppress(ImportError):
+    from ...dyn.setup.update_check_config import UpdateCheckConfig as UpdateCheckConfig

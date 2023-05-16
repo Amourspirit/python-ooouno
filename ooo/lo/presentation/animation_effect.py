@@ -25,7 +25,6 @@ class AnimationEffect(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API AnimationEffect <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a10f2a3114ab31c0e6f7dc48f656fd260>`_

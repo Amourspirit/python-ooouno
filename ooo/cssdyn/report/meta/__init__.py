@@ -14,7 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.report.meta.x_formula_parser import XFormulaParser as XFormulaParser
-from ....dyn.report.meta.x_function_category import XFunctionCategory as XFunctionCategory
-from ....dyn.report.meta.x_function_description import XFunctionDescription as XFunctionDescription
-from ....dyn.report.meta.x_function_manager import XFunctionManager as XFunctionManager
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.report.meta.x_formula_parser import XFormulaParser as XFormulaParser
+with suppress(ImportError):
+    from ....dyn.report.meta.x_function_category import XFunctionCategory as XFunctionCategory
+with suppress(ImportError):
+    from ....dyn.report.meta.x_function_description import XFunctionDescription as XFunctionDescription
+with suppress(ImportError):
+    from ....dyn.report.meta.x_function_manager import XFunctionManager as XFunctionManager

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.table.accessible_cell_view import AccessibleCellView as AccessibleCellView
 from ...lo.table.accessible_table_view import AccessibleTableView as AccessibleTableView
 from ...lo.table.border_line import BorderLine as BorderLine

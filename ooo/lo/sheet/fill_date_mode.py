@@ -25,7 +25,6 @@ class FillDateMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API FillDateMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a2ea1aac24b8de3ac28ac5a6ec79a80ca>`_

@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.deployment.ui.license_dialog import LicenseDialog as LicenseDialog
-from ....dyn.deployment.ui.package_manager_dialog import PackageManagerDialog as PackageManagerDialog
-from ....dyn.deployment.ui.update_required_dialog import UpdateRequiredDialog as UpdateRequiredDialog
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.deployment.ui.license_dialog import LicenseDialog as LicenseDialog
+with suppress(ImportError):
+    from ....dyn.deployment.ui.package_manager_dialog import PackageManagerDialog as PackageManagerDialog
+with suppress(ImportError):
+    from ....dyn.deployment.ui.update_required_dialog import UpdateRequiredDialog as UpdateRequiredDialog

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.bridge.oleautomation.application_registration import ApplicationRegistration as ApplicationRegistration
 from ....lo.bridge.oleautomation.bridge_supplier import BridgeSupplier as BridgeSupplier
 from ....lo.bridge.oleautomation.currency import Currency as Currency

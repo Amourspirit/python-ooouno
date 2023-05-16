@@ -25,7 +25,6 @@ class HorizontalAdjust(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API HorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a8105146481666b39ebbd63a934576b6c>`_

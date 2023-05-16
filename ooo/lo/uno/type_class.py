@@ -25,7 +25,6 @@ class TypeClass(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TypeClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uno.html#a00683ed3ec24b47c36ead10a20d6f328>`_

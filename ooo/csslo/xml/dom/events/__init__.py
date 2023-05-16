@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from .....lo.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
 from .....lo.xml.dom.events.event_exception import EventException as EventException
 from .....lo.xml.dom.events.event_type import EventType as EventType

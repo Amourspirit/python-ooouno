@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.xml.dom.dom_exception import DOMException as DOMException
 from ....lo.xml.dom.dom_exception_type import DOMExceptionType as DOMExceptionType
 from ....lo.xml.dom.document_builder import DocumentBuilder as DocumentBuilder

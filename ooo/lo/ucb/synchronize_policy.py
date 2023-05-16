@@ -25,7 +25,6 @@ class SynchronizePolicy(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API SynchronizePolicy <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aaa633f0c45560a4367cb74d393c0c619>`_

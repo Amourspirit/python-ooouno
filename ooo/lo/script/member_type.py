@@ -25,7 +25,6 @@ class MemberType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API MemberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a63e3de542c5d38de617ab78c8c8f5a41>`_

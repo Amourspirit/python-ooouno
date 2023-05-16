@@ -14,5 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.ldap.ldap_connection_exception import LdapConnectionException as LdapConnectionException
-from ...dyn.ldap.ldap_generic_exception import LdapGenericException as LdapGenericException
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.ldap.ldap_connection_exception import LdapConnectionException as LdapConnectionException
+with suppress(ImportError):
+    from ...dyn.ldap.ldap_generic_exception import LdapGenericException as LdapGenericException

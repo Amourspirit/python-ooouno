@@ -25,7 +25,6 @@ class RectanglePoint(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API RectanglePoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4689f50c3960db0e79b179ddfc7d8827>`_

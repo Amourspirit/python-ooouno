@@ -25,7 +25,6 @@ class FormButtonType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API FormButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abd774094fc2fbbdf91448f8a60c1798a>`_

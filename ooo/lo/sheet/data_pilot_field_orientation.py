@@ -25,7 +25,6 @@ class DataPilotFieldOrientation(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API DataPilotFieldOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a686c797e7cb837947558aa11c946245a>`_

@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.configuration.backend.xml.layer_parser import LayerParser as LayerParser
-from .....dyn.configuration.backend.xml.layer_writer import LayerWriter as LayerWriter
-from .....dyn.configuration.backend.xml.schema_parser import SchemaParser as SchemaParser
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from .....dyn.configuration.backend.xml.layer_parser import LayerParser as LayerParser
+with suppress(ImportError):
+    from .....dyn.configuration.backend.xml.layer_writer import LayerWriter as LayerWriter
+with suppress(ImportError):
+    from .....dyn.configuration.backend.xml.schema_parser import SchemaParser as SchemaParser

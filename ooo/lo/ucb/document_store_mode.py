@@ -25,7 +25,6 @@ class DocumentStoreMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API DocumentStoreMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aea1ce806e915d3505569f7679447ecc2>`_

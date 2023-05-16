@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode
 from ....lo.drawing.framework.basic_pane_factory import BasicPaneFactory as BasicPaneFactory
 from ....lo.drawing.framework.basic_tool_bar_factory import BasicToolBarFactory as BasicToolBarFactory

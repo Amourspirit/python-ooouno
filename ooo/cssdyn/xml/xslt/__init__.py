@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
-from ....dyn.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
-from ....dyn.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.xml.xslt.xslt2_transformer import XSLT2Transformer as XSLT2Transformer
+with suppress(ImportError):
+    from ....dyn.xml.xslt.xslt_transformer import XSLTTransformer as XSLTTransformer
+with suppress(ImportError):
+    from ....dyn.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer

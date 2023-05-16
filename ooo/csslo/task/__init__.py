@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.task.async_job import AsyncJob as AsyncJob
 from ...lo.task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest
 from ...lo.task.document_ms_password_request import DocumentMSPasswordRequest as DocumentMSPasswordRequest

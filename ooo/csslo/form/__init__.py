@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.form.control_font_dialog import ControlFontDialog as ControlFontDialog
 from ...lo.form.data_aware_control_model import DataAwareControlModel as DataAwareControlModel
 from ...lo.form.data_selection_type import DataSelectionType as DataSelectionType

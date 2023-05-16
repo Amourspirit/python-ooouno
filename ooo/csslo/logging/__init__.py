@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.logging.console_handler import ConsoleHandler as ConsoleHandler
 from ...lo.logging.csv_log_formatter import CsvLogFormatter as CsvLogFormatter
 from ...lo.logging.file_handler import FileHandler as FileHandler

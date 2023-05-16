@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.system.windows.jump_list import JumpList as JumpList
-from ....dyn.system.windows.jump_list_item import JumpListItem as JumpListItem
-from ....dyn.system.windows.x_jump_list import XJumpList as XJumpList
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.system.windows.jump_list import JumpList as JumpList
+with suppress(ImportError):
+    from ....dyn.system.windows.jump_list_item import JumpListItem as JumpListItem
+with suppress(ImportError):
+    from ....dyn.system.windows.x_jump_list import XJumpList as XJumpList

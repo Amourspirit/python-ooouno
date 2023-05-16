@@ -25,7 +25,6 @@ class ChartLegendExpansion(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartLegendExpansion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#ab1908f844354e32092fdec03c1b9b513>`_

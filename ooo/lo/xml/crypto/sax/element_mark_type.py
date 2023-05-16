@@ -25,7 +25,6 @@ class ElementMarkType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ElementMarkType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a96bd9c0214f2d880b6c938750e6e92d0>`_

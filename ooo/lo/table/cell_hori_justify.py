@@ -25,7 +25,6 @@ class CellHoriJustify(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API CellHoriJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ab3c576b107bd5018643ab5612438fdf2>`_

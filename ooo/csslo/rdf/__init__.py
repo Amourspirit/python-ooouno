@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.rdf.blank_node import BlankNode as BlankNode
 from ...lo.rdf.file_format import FileFormat as FileFormat
 from ...lo.rdf.literal import Literal as Literal

@@ -25,7 +25,6 @@ class ConnectionType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ConnectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa1f0e2efd52935fd01bfece0fbead81f>`_

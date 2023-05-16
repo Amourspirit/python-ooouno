@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
 from ...lo.loader.dynamic import Dynamic as Dynamic
 from ...lo.loader.java import Java as Java

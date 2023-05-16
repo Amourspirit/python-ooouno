@@ -25,7 +25,6 @@ class TriState(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TriState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a20884447391b4598296c73c6fa3d9470>`_

@@ -25,7 +25,6 @@ class DataImportMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API DataImportMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#acf0761f72074fd2e59d1bb3ef690a2e6>`_

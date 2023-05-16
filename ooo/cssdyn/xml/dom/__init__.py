@@ -14,29 +14,62 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.xml.dom.dom_exception import DOMException as DOMException
-from ....dyn.xml.dom.dom_exception_type import DOMExceptionType as DOMExceptionType
-from ....dyn.xml.dom.document_builder import DocumentBuilder as DocumentBuilder
-from ....dyn.xml.dom.node_type import NodeType as NodeType
-from ....dyn.xml.dom.sax_document_builder import SAXDocumentBuilder as SAXDocumentBuilder
-from ....dyn.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState
-from ....dyn.xml.dom.x_attr import XAttr as XAttr
-from ....dyn.xml.dom.xcdata_section import XCDATASection as XCDATASection
-from ....dyn.xml.dom.x_character_data import XCharacterData as XCharacterData
-from ....dyn.xml.dom.x_comment import XComment as XComment
-from ....dyn.xml.dom.xdom_implementation import XDOMImplementation as XDOMImplementation
-from ....dyn.xml.dom.x_document import XDocument as XDocument
-from ....dyn.xml.dom.x_document_builder import XDocumentBuilder as XDocumentBuilder
-from ....dyn.xml.dom.x_document_fragment import XDocumentFragment as XDocumentFragment
-from ....dyn.xml.dom.x_document_type import XDocumentType as XDocumentType
-from ....dyn.xml.dom.x_element import XElement as XElement
-from ....dyn.xml.dom.x_entity import XEntity as XEntity
-from ....dyn.xml.dom.x_entity_reference import XEntityReference as XEntityReference
-from ....dyn.xml.dom.x_named_node_map import XNamedNodeMap as XNamedNodeMap
-from ....dyn.xml.dom.x_node import XNode as XNode
-from ....dyn.xml.dom.x_node_list import XNodeList as XNodeList
-from ....dyn.xml.dom.x_notation import XNotation as XNotation
-from ....dyn.xml.dom.x_processing_instruction import XProcessingInstruction as XProcessingInstruction
-from ....dyn.xml.dom.xsax_document_builder import XSAXDocumentBuilder as XSAXDocumentBuilder
-from ....dyn.xml.dom.xsax_document_builder2 import XSAXDocumentBuilder2 as XSAXDocumentBuilder2
-from ....dyn.xml.dom.x_text import XText as XText
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.xml.dom.dom_exception import DOMException as DOMException
+with suppress(ImportError):
+    from ....dyn.xml.dom.dom_exception_type import DOMExceptionType as DOMExceptionType
+with suppress(ImportError):
+    from ....dyn.xml.dom.document_builder import DocumentBuilder as DocumentBuilder
+with suppress(ImportError):
+    from ....dyn.xml.dom.node_type import NodeType as NodeType
+with suppress(ImportError):
+    from ....dyn.xml.dom.sax_document_builder import SAXDocumentBuilder as SAXDocumentBuilder
+with suppress(ImportError):
+    from ....dyn.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_attr import XAttr as XAttr
+with suppress(ImportError):
+    from ....dyn.xml.dom.xcdata_section import XCDATASection as XCDATASection
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_character_data import XCharacterData as XCharacterData
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_comment import XComment as XComment
+with suppress(ImportError):
+    from ....dyn.xml.dom.xdom_implementation import XDOMImplementation as XDOMImplementation
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_document import XDocument as XDocument
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_document_builder import XDocumentBuilder as XDocumentBuilder
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_document_fragment import XDocumentFragment as XDocumentFragment
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_document_type import XDocumentType as XDocumentType
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_element import XElement as XElement
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_entity import XEntity as XEntity
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_entity_reference import XEntityReference as XEntityReference
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_named_node_map import XNamedNodeMap as XNamedNodeMap
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_node import XNode as XNode
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_node_list import XNodeList as XNodeList
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_notation import XNotation as XNotation
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_processing_instruction import XProcessingInstruction as XProcessingInstruction
+with suppress(ImportError):
+    from ....dyn.xml.dom.xsax_document_builder import XSAXDocumentBuilder as XSAXDocumentBuilder
+with suppress(ImportError):
+    from ....dyn.xml.dom.xsax_document_builder2 import XSAXDocumentBuilder2 as XSAXDocumentBuilder2
+with suppress(ImportError):
+    from ....dyn.xml.dom.x_text import XText as XText

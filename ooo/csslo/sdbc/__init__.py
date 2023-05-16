@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.sdbc.batch_update_exception import BatchUpdateException as BatchUpdateException
 from ...lo.sdbc.best_row_scope import BestRowScope as BestRowScope
 from ...lo.sdbc.best_row_type import BestRowType as BestRowType

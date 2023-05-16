@@ -14,34 +14,72 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode
-from ....dyn.drawing.framework.basic_pane_factory import BasicPaneFactory as BasicPaneFactory
-from ....dyn.drawing.framework.basic_tool_bar_factory import BasicToolBarFactory as BasicToolBarFactory
-from ....dyn.drawing.framework.basic_view_factory import BasicViewFactory as BasicViewFactory
-from ....dyn.drawing.framework.border_type import BorderType as BorderType
-from ....dyn.drawing.framework.configuration import Configuration as Configuration
-from ....dyn.drawing.framework.configuration_change_event import ConfigurationChangeEvent as ConfigurationChangeEvent
-from ....dyn.drawing.framework.configuration_controller import ConfigurationController as ConfigurationController
-from ....dyn.drawing.framework.module_controller import ModuleController as ModuleController
-from ....dyn.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode
-from ....dyn.drawing.framework.resource_id import ResourceId as ResourceId
-from ....dyn.drawing.framework.tab_bar_button import TabBarButton as TabBarButton
-from ....dyn.drawing.framework.x_configuration import XConfiguration as XConfiguration
-from ....dyn.drawing.framework.x_configuration_change_listener import XConfigurationChangeListener as XConfigurationChangeListener
-from ....dyn.drawing.framework.x_configuration_change_request import XConfigurationChangeRequest as XConfigurationChangeRequest
-from ....dyn.drawing.framework.x_configuration_controller import XConfigurationController as XConfigurationController
-from ....dyn.drawing.framework.x_configuration_controller_broadcaster import XConfigurationControllerBroadcaster as XConfigurationControllerBroadcaster
-from ....dyn.drawing.framework.x_configuration_controller_request_queue import XConfigurationControllerRequestQueue as XConfigurationControllerRequestQueue
-from ....dyn.drawing.framework.x_controller_manager import XControllerManager as XControllerManager
-from ....dyn.drawing.framework.x_module_controller import XModuleController as XModuleController
-from ....dyn.drawing.framework.x_pane import XPane as XPane
-from ....dyn.drawing.framework.x_pane2 import XPane2 as XPane2
-from ....dyn.drawing.framework.x_pane_border_painter import XPaneBorderPainter as XPaneBorderPainter
-from ....dyn.drawing.framework.x_relocatable_resource import XRelocatableResource as XRelocatableResource
-from ....dyn.drawing.framework.x_resource import XResource as XResource
-from ....dyn.drawing.framework.x_resource_factory import XResourceFactory as XResourceFactory
-from ....dyn.drawing.framework.x_resource_factory_manager import XResourceFactoryManager as XResourceFactoryManager
-from ....dyn.drawing.framework.x_resource_id import XResourceId as XResourceId
-from ....dyn.drawing.framework.x_tab_bar import XTabBar as XTabBar
-from ....dyn.drawing.framework.x_tool_bar import XToolBar as XToolBar
-from ....dyn.drawing.framework.x_view import XView as XView
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode
+with suppress(ImportError):
+    from ....dyn.drawing.framework.basic_pane_factory import BasicPaneFactory as BasicPaneFactory
+with suppress(ImportError):
+    from ....dyn.drawing.framework.basic_tool_bar_factory import BasicToolBarFactory as BasicToolBarFactory
+with suppress(ImportError):
+    from ....dyn.drawing.framework.basic_view_factory import BasicViewFactory as BasicViewFactory
+with suppress(ImportError):
+    from ....dyn.drawing.framework.border_type import BorderType as BorderType
+with suppress(ImportError):
+    from ....dyn.drawing.framework.configuration import Configuration as Configuration
+with suppress(ImportError):
+    from ....dyn.drawing.framework.configuration_change_event import ConfigurationChangeEvent as ConfigurationChangeEvent
+with suppress(ImportError):
+    from ....dyn.drawing.framework.configuration_controller import ConfigurationController as ConfigurationController
+with suppress(ImportError):
+    from ....dyn.drawing.framework.module_controller import ModuleController as ModuleController
+with suppress(ImportError):
+    from ....dyn.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode
+with suppress(ImportError):
+    from ....dyn.drawing.framework.resource_id import ResourceId as ResourceId
+with suppress(ImportError):
+    from ....dyn.drawing.framework.tab_bar_button import TabBarButton as TabBarButton
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration import XConfiguration as XConfiguration
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration_change_listener import XConfigurationChangeListener as XConfigurationChangeListener
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration_change_request import XConfigurationChangeRequest as XConfigurationChangeRequest
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration_controller import XConfigurationController as XConfigurationController
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration_controller_broadcaster import XConfigurationControllerBroadcaster as XConfigurationControllerBroadcaster
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_configuration_controller_request_queue import XConfigurationControllerRequestQueue as XConfigurationControllerRequestQueue
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_controller_manager import XControllerManager as XControllerManager
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_module_controller import XModuleController as XModuleController
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_pane import XPane as XPane
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_pane2 import XPane2 as XPane2
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_pane_border_painter import XPaneBorderPainter as XPaneBorderPainter
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_relocatable_resource import XRelocatableResource as XRelocatableResource
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_resource import XResource as XResource
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_resource_factory import XResourceFactory as XResourceFactory
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_resource_factory_manager import XResourceFactoryManager as XResourceFactoryManager
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_resource_id import XResourceId as XResourceId
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_tab_bar import XTabBar as XTabBar
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_tool_bar import XToolBar as XToolBar
+with suppress(ImportError):
+    from ....dyn.drawing.framework.x_view import XView as XView

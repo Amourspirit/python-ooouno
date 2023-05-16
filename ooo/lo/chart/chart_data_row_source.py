@@ -25,7 +25,6 @@ class ChartDataRowSource(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartDataRowSource <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a0fb4f8088715abb6eb51a29c4bd79cce>`_

@@ -25,7 +25,6 @@ class TransferCommandOperation(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TransferCommandOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ab7b6f3480b7c1c53e953d42a066614b4>`_

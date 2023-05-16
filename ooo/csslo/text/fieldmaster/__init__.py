@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.text.fieldmaster.bibliography import Bibliography as Bibliography
 from ....lo.text.fieldmaster.dde import DDE as DDE
 from ....lo.text.fieldmaster.database import Database as Database

@@ -25,7 +25,6 @@ class WrapTextMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API WrapTextMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a1ed96de3f2d76e93588f67d506a0b0ae>`_

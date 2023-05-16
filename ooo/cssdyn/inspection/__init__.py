@@ -14,27 +14,58 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.inspection.default_help_provider import DefaultHelpProvider as DefaultHelpProvider
-from ...dyn.inspection.generic_property_handler import GenericPropertyHandler as GenericPropertyHandler
-from ...dyn.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult
-from ...dyn.inspection.line_descriptor import LineDescriptor as LineDescriptor
-from ...dyn.inspection.object_inspector import ObjectInspector as ObjectInspector
-from ...dyn.inspection.object_inspector_model import ObjectInspectorModel as ObjectInspectorModel
-from ...dyn.inspection.property_category_descriptor import PropertyCategoryDescriptor as PropertyCategoryDescriptor
-from ...dyn.inspection.property_control_type import PropertyControlType as PropertyControlType
-from ...dyn.inspection.property_control_type import PropertyControlTypeEnum as PropertyControlTypeEnum
-from ...dyn.inspection.property_line_element import PropertyLineElement as PropertyLineElement
-from ...dyn.inspection.property_line_element import PropertyLineElementEnum as PropertyLineElementEnum
-from ...dyn.inspection.string_representation import StringRepresentation as StringRepresentation
-from ...dyn.inspection.x_hyperlink_control import XHyperlinkControl as XHyperlinkControl
-from ...dyn.inspection.x_numeric_control import XNumericControl as XNumericControl
-from ...dyn.inspection.x_object_inspector import XObjectInspector as XObjectInspector
-from ...dyn.inspection.x_object_inspector_model import XObjectInspectorModel as XObjectInspectorModel
-from ...dyn.inspection.x_object_inspector_ui import XObjectInspectorUI as XObjectInspectorUI
-from ...dyn.inspection.x_property_control import XPropertyControl as XPropertyControl
-from ...dyn.inspection.x_property_control_context import XPropertyControlContext as XPropertyControlContext
-from ...dyn.inspection.x_property_control_factory import XPropertyControlFactory as XPropertyControlFactory
-from ...dyn.inspection.x_property_control_observer import XPropertyControlObserver as XPropertyControlObserver
-from ...dyn.inspection.x_property_handler import XPropertyHandler as XPropertyHandler
-from ...dyn.inspection.x_string_list_control import XStringListControl as XStringListControl
-from ...dyn.inspection.x_string_representation import XStringRepresentation as XStringRepresentation
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.inspection.default_help_provider import DefaultHelpProvider as DefaultHelpProvider
+with suppress(ImportError):
+    from ...dyn.inspection.generic_property_handler import GenericPropertyHandler as GenericPropertyHandler
+with suppress(ImportError):
+    from ...dyn.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult
+with suppress(ImportError):
+    from ...dyn.inspection.line_descriptor import LineDescriptor as LineDescriptor
+with suppress(ImportError):
+    from ...dyn.inspection.object_inspector import ObjectInspector as ObjectInspector
+with suppress(ImportError):
+    from ...dyn.inspection.object_inspector_model import ObjectInspectorModel as ObjectInspectorModel
+with suppress(ImportError):
+    from ...dyn.inspection.property_category_descriptor import PropertyCategoryDescriptor as PropertyCategoryDescriptor
+with suppress(ImportError):
+    from ...dyn.inspection.property_control_type import PropertyControlType as PropertyControlType
+with suppress(ImportError):
+    from ...dyn.inspection.property_control_type import PropertyControlTypeEnum as PropertyControlTypeEnum
+with suppress(ImportError):
+    from ...dyn.inspection.property_line_element import PropertyLineElement as PropertyLineElement
+with suppress(ImportError):
+    from ...dyn.inspection.property_line_element import PropertyLineElementEnum as PropertyLineElementEnum
+with suppress(ImportError):
+    from ...dyn.inspection.string_representation import StringRepresentation as StringRepresentation
+with suppress(ImportError):
+    from ...dyn.inspection.x_hyperlink_control import XHyperlinkControl as XHyperlinkControl
+with suppress(ImportError):
+    from ...dyn.inspection.x_numeric_control import XNumericControl as XNumericControl
+with suppress(ImportError):
+    from ...dyn.inspection.x_object_inspector import XObjectInspector as XObjectInspector
+with suppress(ImportError):
+    from ...dyn.inspection.x_object_inspector_model import XObjectInspectorModel as XObjectInspectorModel
+with suppress(ImportError):
+    from ...dyn.inspection.x_object_inspector_ui import XObjectInspectorUI as XObjectInspectorUI
+with suppress(ImportError):
+    from ...dyn.inspection.x_property_control import XPropertyControl as XPropertyControl
+with suppress(ImportError):
+    from ...dyn.inspection.x_property_control_context import XPropertyControlContext as XPropertyControlContext
+with suppress(ImportError):
+    from ...dyn.inspection.x_property_control_factory import XPropertyControlFactory as XPropertyControlFactory
+with suppress(ImportError):
+    from ...dyn.inspection.x_property_control_observer import XPropertyControlObserver as XPropertyControlObserver
+with suppress(ImportError):
+    from ...dyn.inspection.x_property_handler import XPropertyHandler as XPropertyHandler
+with suppress(ImportError):
+    from ...dyn.inspection.x_string_list_control import XStringListControl as XStringListControl
+with suppress(ImportError):
+    from ...dyn.inspection.x_string_representation import XStringRepresentation as XStringRepresentation

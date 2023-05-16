@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.text.textfield.annotation import Annotation as Annotation
 from ....lo.text.textfield.author import Author as Author
 from ....lo.text.textfield.bibliography import Bibliography as Bibliography

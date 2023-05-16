@@ -25,7 +25,6 @@ class TextAdjust(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TextAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adf031187199b98bb1b6581c7e69d4810>`_

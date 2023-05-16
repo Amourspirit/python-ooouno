@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.packages.zip.x_zip_file_access import XZipFileAccess as XZipFileAccess
 from ....lo.packages.zip.x_zip_file_access2 import XZipFileAccess2 as XZipFileAccess2
 from ....lo.packages.zip.zip_constants import ZipConstants as ZipConstants

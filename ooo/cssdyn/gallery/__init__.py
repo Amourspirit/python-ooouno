@@ -14,11 +14,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.gallery.gallery_item import GalleryItem as GalleryItem
-from ...dyn.gallery.gallery_item_type import GalleryItemType as GalleryItemType
-from ...dyn.gallery.gallery_item_type import GalleryItemTypeEnum as GalleryItemTypeEnum
-from ...dyn.gallery.gallery_theme import GalleryTheme as GalleryTheme
-from ...dyn.gallery.gallery_theme_provider import GalleryThemeProvider as GalleryThemeProvider
-from ...dyn.gallery.x_gallery_item import XGalleryItem as XGalleryItem
-from ...dyn.gallery.x_gallery_theme import XGalleryTheme as XGalleryTheme
-from ...dyn.gallery.x_gallery_theme_provider import XGalleryThemeProvider as XGalleryThemeProvider
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.gallery.gallery_item import GalleryItem as GalleryItem
+with suppress(ImportError):
+    from ...dyn.gallery.gallery_item_type import GalleryItemType as GalleryItemType
+with suppress(ImportError):
+    from ...dyn.gallery.gallery_item_type import GalleryItemTypeEnum as GalleryItemTypeEnum
+with suppress(ImportError):
+    from ...dyn.gallery.gallery_theme import GalleryTheme as GalleryTheme
+with suppress(ImportError):
+    from ...dyn.gallery.gallery_theme_provider import GalleryThemeProvider as GalleryThemeProvider
+with suppress(ImportError):
+    from ...dyn.gallery.x_gallery_item import XGalleryItem as XGalleryItem
+with suppress(ImportError):
+    from ...dyn.gallery.x_gallery_theme import XGalleryTheme as XGalleryTheme
+with suppress(ImportError):
+    from ...dyn.gallery.x_gallery_theme_provider import XGalleryThemeProvider as XGalleryThemeProvider

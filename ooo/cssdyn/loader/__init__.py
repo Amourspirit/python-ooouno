@@ -14,9 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
-from ...dyn.loader.dynamic import Dynamic as Dynamic
-from ...dyn.loader.java import Java as Java
-from ...dyn.loader.java2 import Java2 as Java2
-from ...dyn.loader.shared_library import SharedLibrary as SharedLibrary
-from ...dyn.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
+with suppress(ImportError):
+    from ...dyn.loader.dynamic import Dynamic as Dynamic
+with suppress(ImportError):
+    from ...dyn.loader.java import Java as Java
+with suppress(ImportError):
+    from ...dyn.loader.java2 import Java2 as Java2
+with suppress(ImportError):
+    from ...dyn.loader.shared_library import SharedLibrary as SharedLibrary
+with suppress(ImportError):
+    from ...dyn.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader

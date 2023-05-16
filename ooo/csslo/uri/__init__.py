@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.uri.external_uri_reference_translator import ExternalUriReferenceTranslator as ExternalUriReferenceTranslator
 from ...lo.uri.relative_uri_excess_parent_segments import RelativeUriExcessParentSegments as RelativeUriExcessParentSegments
 from ...lo.uri.uri_reference_factory import UriReferenceFactory as UriReferenceFactory

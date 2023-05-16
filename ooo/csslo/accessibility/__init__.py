@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.accessibility.accessible import Accessible as Accessible
 from ...lo.accessibility.accessible_context import AccessibleContext as AccessibleContext
 from ...lo.accessibility.accessible_event_id import AccessibleEventId as AccessibleEventId

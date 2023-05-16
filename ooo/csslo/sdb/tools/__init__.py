@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.sdb.tools.composition_type import CompositionType as CompositionType
 from ....lo.sdb.tools.connection_tools import ConnectionTools as ConnectionTools
 from ....lo.sdb.tools.x_connection_supplier import XConnectionSupplier as XConnectionSupplier

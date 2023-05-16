@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
 from ...lo.packages.no_encryption_exception import NoEncryptionException as NoEncryptionException
 from ...lo.packages.no_raw_format_exception import NoRawFormatException as NoRawFormatException

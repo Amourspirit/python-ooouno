@@ -14,17 +14,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.geometry.affine_matrix2_d import AffineMatrix2D as AffineMatrix2D
-from ...dyn.geometry.affine_matrix3_d import AffineMatrix3D as AffineMatrix3D
-from ...dyn.geometry.elliptical_arc import EllipticalArc as EllipticalArc
-from ...dyn.geometry.integer_bezier_segment2_d import IntegerBezierSegment2D as IntegerBezierSegment2D
-from ...dyn.geometry.integer_point2_d import IntegerPoint2D as IntegerPoint2D
-from ...dyn.geometry.integer_rectangle2_d import IntegerRectangle2D as IntegerRectangle2D
-from ...dyn.geometry.integer_size2_d import IntegerSize2D as IntegerSize2D
-from ...dyn.geometry.matrix2_d import Matrix2D as Matrix2D
-from ...dyn.geometry.real_bezier_segment2_d import RealBezierSegment2D as RealBezierSegment2D
-from ...dyn.geometry.real_point2_d import RealPoint2D as RealPoint2D
-from ...dyn.geometry.real_rectangle2_d import RealRectangle2D as RealRectangle2D
-from ...dyn.geometry.real_rectangle3_d import RealRectangle3D as RealRectangle3D
-from ...dyn.geometry.real_size2_d import RealSize2D as RealSize2D
-from ...dyn.geometry.x_mapping2_d import XMapping2D as XMapping2D
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.geometry.affine_matrix2_d import AffineMatrix2D as AffineMatrix2D
+with suppress(ImportError):
+    from ...dyn.geometry.affine_matrix3_d import AffineMatrix3D as AffineMatrix3D
+with suppress(ImportError):
+    from ...dyn.geometry.elliptical_arc import EllipticalArc as EllipticalArc
+with suppress(ImportError):
+    from ...dyn.geometry.integer_bezier_segment2_d import IntegerBezierSegment2D as IntegerBezierSegment2D
+with suppress(ImportError):
+    from ...dyn.geometry.integer_point2_d import IntegerPoint2D as IntegerPoint2D
+with suppress(ImportError):
+    from ...dyn.geometry.integer_rectangle2_d import IntegerRectangle2D as IntegerRectangle2D
+with suppress(ImportError):
+    from ...dyn.geometry.integer_size2_d import IntegerSize2D as IntegerSize2D
+with suppress(ImportError):
+    from ...dyn.geometry.matrix2_d import Matrix2D as Matrix2D
+with suppress(ImportError):
+    from ...dyn.geometry.real_bezier_segment2_d import RealBezierSegment2D as RealBezierSegment2D
+with suppress(ImportError):
+    from ...dyn.geometry.real_point2_d import RealPoint2D as RealPoint2D
+with suppress(ImportError):
+    from ...dyn.geometry.real_rectangle2_d import RealRectangle2D as RealRectangle2D
+with suppress(ImportError):
+    from ...dyn.geometry.real_rectangle3_d import RealRectangle3D as RealRectangle3D
+with suppress(ImportError):
+    from ...dyn.geometry.real_size2_d import RealSize2D as RealSize2D
+with suppress(ImportError):
+    from ...dyn.geometry.x_mapping2_d import XMapping2D as XMapping2D

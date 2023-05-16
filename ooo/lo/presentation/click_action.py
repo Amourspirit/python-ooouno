@@ -25,7 +25,6 @@ class ClickAction(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ClickAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a85fe75121d351785616b75b2c5661d8f>`_

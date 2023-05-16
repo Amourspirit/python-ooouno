@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.runtime.feature_state import FeatureState as FeatureState
 from ....lo.form.runtime.filter_event import FilterEvent as FilterEvent
 from ....lo.form.runtime.form_controller import FormController as FormController

@@ -14,13 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.bridge.oleautomation.application_registration import ApplicationRegistration as ApplicationRegistration
-from ....dyn.bridge.oleautomation.bridge_supplier import BridgeSupplier as BridgeSupplier
-from ....dyn.bridge.oleautomation.currency import Currency as Currency
-from ....dyn.bridge.oleautomation.date import Date as Date
-from ....dyn.bridge.oleautomation.decimal import Decimal as Decimal
-from ....dyn.bridge.oleautomation.factory import Factory as Factory
-from ....dyn.bridge.oleautomation.named_argument import NamedArgument as NamedArgument
-from ....dyn.bridge.oleautomation.property_put_argument import PropertyPutArgument as PropertyPutArgument
-from ....dyn.bridge.oleautomation.s_code import SCode as SCode
-from ....dyn.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.application_registration import ApplicationRegistration as ApplicationRegistration
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.bridge_supplier import BridgeSupplier as BridgeSupplier
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.currency import Currency as Currency
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.date import Date as Date
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.decimal import Decimal as Decimal
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.factory import Factory as Factory
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.named_argument import NamedArgument as NamedArgument
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.property_put_argument import PropertyPutArgument as PropertyPutArgument
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.s_code import SCode as SCode
+with suppress(ImportError):
+    from ....dyn.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject

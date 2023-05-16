@@ -14,7 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.formula.accessible_formula_text import AccessibleFormulaText as AccessibleFormulaText
-from ...dyn.formula.accessible_formula_view import AccessibleFormulaView as AccessibleFormulaView
-from ...dyn.formula.formula_properties import FormulaProperties as FormulaProperties
-from ...dyn.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.formula.accessible_formula_text import AccessibleFormulaText as AccessibleFormulaText
+with suppress(ImportError):
+    from ...dyn.formula.accessible_formula_view import AccessibleFormulaView as AccessibleFormulaView
+with suppress(ImportError):
+    from ...dyn.formula.formula_properties import FormulaProperties as FormulaProperties
+with suppress(ImportError):
+    from ...dyn.formula.symbol_descriptor import SymbolDescriptor as SymbolDescriptor

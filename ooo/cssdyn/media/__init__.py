@@ -14,11 +14,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.media.manager import Manager as Manager
-from ...dyn.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
-from ...dyn.media.x_manager import XManager as XManager
-from ...dyn.media.x_player import XPlayer as XPlayer
-from ...dyn.media.x_player_listener import XPlayerListener as XPlayerListener
-from ...dyn.media.x_player_notifier import XPlayerNotifier as XPlayerNotifier
-from ...dyn.media.x_player_window import XPlayerWindow as XPlayerWindow
-from ...dyn.media.zoom_level import ZoomLevel as ZoomLevel
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.media.manager import Manager as Manager
+with suppress(ImportError):
+    from ...dyn.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
+with suppress(ImportError):
+    from ...dyn.media.x_manager import XManager as XManager
+with suppress(ImportError):
+    from ...dyn.media.x_player import XPlayer as XPlayer
+with suppress(ImportError):
+    from ...dyn.media.x_player_listener import XPlayerListener as XPlayerListener
+with suppress(ImportError):
+    from ...dyn.media.x_player_notifier import XPlayerNotifier as XPlayerNotifier
+with suppress(ImportError):
+    from ...dyn.media.x_player_window import XPlayerWindow as XPlayerWindow
+with suppress(ImportError):
+    from ...dyn.media.zoom_level import ZoomLevel as ZoomLevel

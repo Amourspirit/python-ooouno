@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.datatransfer.data_flavor import DataFlavor as DataFlavor
 from ...lo.datatransfer.data_format_translator import DataFormatTranslator as DataFormatTranslator
 from ...lo.datatransfer.mime_content_type_factory import MimeContentTypeFactory as MimeContentTypeFactory

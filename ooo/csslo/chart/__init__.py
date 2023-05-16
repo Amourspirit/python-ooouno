@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.chart.accessible_chart_document_view import AccessibleChartDocumentView as AccessibleChartDocumentView
 from ...lo.chart.accessible_chart_element import AccessibleChartElement as AccessibleChartElement
 from ...lo.chart.area_diagram import AreaDiagram as AreaDiagram

@@ -24,14 +24,14 @@ Example creating service using :doc:`../../helper/uno_helper`.
     assert s == 'application/http-content'
 
 
-Service class in ``ooo`` are the same accross all namespaces and do not have any dynamic generation.
+Service class in ``ooo`` are the same across all namespaces and do not have any dynamic generation.
 
 .. code-block:: python
 
     >>> from ooo.lo.ucb.simple_file_access import SimpleFileAccess as LoSimpleFileAccess
     >>> from ooo.dyn.ucb.simple_file_access import SimpleFileAccess as DynSimpleFileAccess
     >>> from ooo.csslo.ucb import SimpleFileAccess as CssLoSimpleFileAccess
-    >>> from ooo.cssdyn.ucb import SimpleFileAccessas CssDynSimpleFileAccess
+    >>> from ooo.cssdyn.ucb import SimpleFileAccess as CssDynSimpleFileAccess
     >>> LoSimpleFileAccess is DynSimpleFileAccess
     True
     >>> LoSimpleFileAccess is CssLoSimpleFileAccess

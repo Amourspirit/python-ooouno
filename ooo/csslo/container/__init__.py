@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.container.container_event import ContainerEvent as ContainerEvent
 from ...lo.container.element_exist_exception import ElementExistException as ElementExistException
 from ...lo.container.enumerable_map import EnumerableMap as EnumerableMap

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.registry.cannot_register_implementation_exception import CannotRegisterImplementationException as CannotRegisterImplementationException
 from ...lo.registry.default_registry import DefaultRegistry as DefaultRegistry
 from ...lo.registry.implementation_registration import ImplementationRegistration as ImplementationRegistration

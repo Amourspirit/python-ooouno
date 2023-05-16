@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.document.ambigous_filter_request import AmbigousFilterRequest as AmbigousFilterRequest
 from ...lo.document.broken_package_request import BrokenPackageRequest as BrokenPackageRequest
 from ...lo.document.changed_by_others_request import ChangedByOthersRequest as ChangedByOthersRequest

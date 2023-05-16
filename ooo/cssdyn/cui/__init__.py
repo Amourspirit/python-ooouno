@@ -14,5 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.cui.asynchronous_color_picker import AsynchronousColorPicker as AsynchronousColorPicker
-from ...dyn.cui.color_picker import ColorPicker as ColorPicker
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.cui.asynchronous_color_picker import AsynchronousColorPicker as AsynchronousColorPicker
+with suppress(ImportError):
+    from ...dyn.cui.color_picker import ColorPicker as ColorPicker

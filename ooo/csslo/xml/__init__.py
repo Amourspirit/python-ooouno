@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.xml.attribute import Attribute as Attribute
 from ...lo.xml.attribute_container import AttributeContainer as AttributeContainer
 from ...lo.xml.attribute_data import AttributeData as AttributeData

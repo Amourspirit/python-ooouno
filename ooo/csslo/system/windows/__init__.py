@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.system.windows.jump_list import JumpList as JumpList
 from ....lo.system.windows.jump_list_item import JumpListItem as JumpListItem
 from ....lo.system.windows.x_jump_list import XJumpList as XJumpList

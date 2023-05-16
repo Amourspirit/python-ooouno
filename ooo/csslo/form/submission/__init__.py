@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.submission.x_submission import XSubmission as XSubmission
 from ....lo.form.submission.x_submission_supplier import XSubmissionSupplier as XSubmissionSupplier
 from ....lo.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener

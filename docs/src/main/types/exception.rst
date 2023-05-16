@@ -9,6 +9,8 @@ Static
 
 Exception classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are static classes.
 
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
+
 Example static:
     .. code-block:: python
 
@@ -34,6 +36,8 @@ Dynamic
 
 Exception classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic classes
 and are changed during runtime.
+
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
 
 Example dynamic:
     .. code-block:: python

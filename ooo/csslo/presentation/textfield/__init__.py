@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.presentation.textfield.date_time import DateTime as DateTime
 from ....lo.presentation.textfield.footer import Footer as Footer
 from ....lo.presentation.textfield.header import Header as Header

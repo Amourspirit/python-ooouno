@@ -25,7 +25,6 @@ class SolverConstraintOperator(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API SolverConstraintOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a491ab8ed5b7b5809e7be869d26b071cf>`_

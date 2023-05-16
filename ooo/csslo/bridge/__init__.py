@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.bridge.bridge import Bridge as Bridge
 from ...lo.bridge.bridge_exists_exception import BridgeExistsException as BridgeExistsException
 from ...lo.bridge.bridge_factory import BridgeFactory as BridgeFactory

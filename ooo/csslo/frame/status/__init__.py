@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.frame.status.clipboard_formats import ClipboardFormats as ClipboardFormats
 from ....lo.frame.status.font_height import FontHeight as FontHeight
 from ....lo.frame.status.item_state import ItemState as ItemState

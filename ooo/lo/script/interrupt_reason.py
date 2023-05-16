@@ -25,7 +25,6 @@ class InterruptReason(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API InterruptReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a298e9238891ddece524d1b3732aa33e4>`_

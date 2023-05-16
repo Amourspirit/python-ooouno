@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.linguistic2.conversion_dictionary import ConversionDictionary as ConversionDictionary
 from ...lo.linguistic2.conversion_dictionary_list import ConversionDictionaryList as ConversionDictionaryList
 from ...lo.linguistic2.conversion_dictionary_type import ConversionDictionaryType as ConversionDictionaryType

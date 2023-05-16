@@ -25,7 +25,6 @@ class RelativeUriExcessParentSegments(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API RelativeUriExcessParentSegments <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uri.html#ac4782e395626cbc2118cab947e07af22>`_

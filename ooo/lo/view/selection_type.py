@@ -25,7 +25,6 @@ class SelectionType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API SelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#acffca3b33fddce63d3220bc7487e879d>`_

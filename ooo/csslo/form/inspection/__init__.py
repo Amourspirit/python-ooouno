@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.form.inspection.button_navigation_handler import ButtonNavigationHandler as ButtonNavigationHandler
 from ....lo.form.inspection.cell_binding_property_handler import CellBindingPropertyHandler as CellBindingPropertyHandler
 from ....lo.form.inspection.default_form_component_inspector_model import DefaultFormComponentInspectorModel as DefaultFormComponentInspectorModel

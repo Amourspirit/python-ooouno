@@ -8,6 +8,7 @@ Static
 ======
 
 Struct classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are static classes.
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
 
 Example static:
     .. code-block:: python
@@ -25,6 +26,7 @@ Example static:
         assert rect2.Y == 240
 
 Struct classes in ``ooo.lo`` and ``ooo.csslo`` namespaces are the same classes.
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
 
 Example:
     .. code-block:: python
@@ -43,6 +45,7 @@ Dynamic
 
 Struct classes in ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic classes
 and are changed to UNO classes at runtime.
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
 
 Example dynamic:
     .. code-block:: python

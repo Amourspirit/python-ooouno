@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.awt.grid.default_grid_column_model import DefaultGridColumnModel as DefaultGridColumnModel
 from ....lo.awt.grid.default_grid_data_model import DefaultGridDataModel as DefaultGridDataModel
 from ....lo.awt.grid.grid_column import GridColumn as GridColumn

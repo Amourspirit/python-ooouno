@@ -25,7 +25,6 @@ class RemoteContentProviderChangeAction(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API RemoteContentProviderChangeAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#abe4a959f1ea6647971dafe5b6c90c7ec>`_

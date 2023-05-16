@@ -25,7 +25,6 @@ class TabulatorCycle(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TabulatorCycle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#acb5251eb1c7e6ff2149158596346de94>`_

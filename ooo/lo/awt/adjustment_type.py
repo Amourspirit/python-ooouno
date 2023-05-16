@@ -25,7 +25,6 @@ class AdjustmentType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API AdjustmentType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ae54d0c7f4237b639c3f45caa306457fd>`_

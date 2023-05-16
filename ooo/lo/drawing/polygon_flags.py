@@ -25,7 +25,6 @@ class PolygonFlags(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API PolygonFlags <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af3965fa427851bc02bfe32c5d95d7406>`_

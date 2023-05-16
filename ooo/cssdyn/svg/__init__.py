@@ -14,5 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
-from ...dyn.svg.xsvg_writer import XSVGWriter as XSVGWriter
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
+with suppress(ImportError):
+    from ...dyn.svg.xsvg_writer import XSVGWriter as XSVGWriter

@@ -14,14 +14,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .....dyn.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
-from .....dyn.xml.dom.events.event_exception import EventException as EventException
-from .....dyn.xml.dom.events.event_type import EventType as EventType
-from .....dyn.xml.dom.events.phase_type import PhaseType as PhaseType
-from .....dyn.xml.dom.events.x_document_event import XDocumentEvent as XDocumentEvent
-from .....dyn.xml.dom.events.x_event import XEvent as XEvent
-from .....dyn.xml.dom.events.x_event_listener import XEventListener as XEventListener
-from .....dyn.xml.dom.events.x_event_target import XEventTarget as XEventTarget
-from .....dyn.xml.dom.events.x_mouse_event import XMouseEvent as XMouseEvent
-from .....dyn.xml.dom.events.x_mutation_event import XMutationEvent as XMutationEvent
-from .....dyn.xml.dom.events.xui_event import XUIEvent as XUIEvent
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.attr_change_type import AttrChangeType as AttrChangeType
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.event_exception import EventException as EventException
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.event_type import EventType as EventType
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.phase_type import PhaseType as PhaseType
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_document_event import XDocumentEvent as XDocumentEvent
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_event import XEvent as XEvent
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_event_listener import XEventListener as XEventListener
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_event_target import XEventTarget as XEventTarget
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_mouse_event import XMouseEvent as XMouseEvent
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.x_mutation_event import XMutationEvent as XMutationEvent
+with suppress(ImportError):
+    from .....dyn.xml.dom.events.xui_event import XUIEvent as XUIEvent

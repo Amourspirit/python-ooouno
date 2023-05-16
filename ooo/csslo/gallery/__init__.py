@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.gallery.gallery_item import GalleryItem as GalleryItem
 from ...lo.gallery.gallery_item_type import GalleryItemType as GalleryItemType
 from ...lo.gallery.gallery_theme import GalleryTheme as GalleryTheme

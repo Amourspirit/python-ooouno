@@ -19,11 +19,11 @@ os.environ['ooouno_ignore_runtime'] = 'True'
 # -- Project information -----------------------------------------------------
 
 project = 'ooouno'
-copyright = '2021, :Barry-Thomas-Paul: Moss'
+copyright = '2023, :Barry-Thomas-Paul: Moss'
 author = ':Barry-Thomas-Paul: Moss'
 # The full version, including alpha/beta/rc tags
 release = __version__
-lo_ver = '7.2' # Libre Office Version
+lo_ver = '7.4' # Libre Office Version
 
 # -- General configuration ---------------------------------------------------
 

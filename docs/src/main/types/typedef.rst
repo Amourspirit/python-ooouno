@@ -18,7 +18,7 @@ Example:
         result = c1 + c2
         assert result == 240
 
-Typedef's in ``ooo`` are the same accross all namespaces and do not have any dynamic generation.
+Typedef's in ``ooo`` are the same across all namespaces and do not have any dynamic generation.
 
 .. code-block:: python
 

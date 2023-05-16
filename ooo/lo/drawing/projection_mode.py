@@ -25,7 +25,6 @@ class ProjectionMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a635428fef8d6e4afba288610c9c65bd5>`_

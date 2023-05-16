@@ -25,7 +25,6 @@ class TextureKind2(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TextureKind2 <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adaf903dffc9b5178ac0a76faef6142f2>`_

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.sheet.accessible_cell import AccessibleCell as AccessibleCell
 from ...lo.sheet.accessible_csv_cell import AccessibleCsvCell as AccessibleCsvCell
 from ...lo.sheet.accessible_csv_ruler import AccessibleCsvRuler as AccessibleCsvRuler

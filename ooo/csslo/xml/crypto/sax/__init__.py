@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from .....lo.xml.crypto.sax.const_of_security_id import ConstOfSecurityId as ConstOfSecurityId
 from .....lo.xml.crypto.sax.element_mark_priority import ElementMarkPriority as ElementMarkPriority
 from .....lo.xml.crypto.sax.element_mark_type import ElementMarkType as ElementMarkType

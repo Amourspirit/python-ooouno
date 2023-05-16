@@ -14,7 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.office.quickstart import Quickstart as Quickstart
-from ...dyn.office.x_annotation import XAnnotation as XAnnotation
-from ...dyn.office.x_annotation_access import XAnnotationAccess as XAnnotationAccess
-from ...dyn.office.x_annotation_enumeration import XAnnotationEnumeration as XAnnotationEnumeration
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.office.quickstart import Quickstart as Quickstart
+with suppress(ImportError):
+    from ...dyn.office.x_annotation import XAnnotation as XAnnotation
+with suppress(ImportError):
+    from ...dyn.office.x_annotation_access import XAnnotationAccess as XAnnotationAccess
+with suppress(ImportError):
+    from ...dyn.office.x_annotation_enumeration import XAnnotationEnumeration as XAnnotationEnumeration

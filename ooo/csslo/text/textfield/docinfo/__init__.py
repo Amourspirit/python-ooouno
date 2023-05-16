@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from .....lo.text.textfield.docinfo.change_author import ChangeAuthor as ChangeAuthor
 from .....lo.text.textfield.docinfo.change_date_time import ChangeDateTime as ChangeDateTime
 from .....lo.text.textfield.docinfo.create_author import CreateAuthor as CreateAuthor

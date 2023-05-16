@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.ui.dialogs.address_book_source_pilot import AddressBookSourcePilot as AddressBookSourcePilot
 from ....lo.ui.dialogs.common_file_picker_element_ids import CommonFilePickerElementIds as CommonFilePickerElementIds
 from ....lo.ui.dialogs.control_actions import ControlActions as ControlActions

@@ -14,18 +14,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ...dyn.datatransfer.data_flavor import DataFlavor as DataFlavor
-from ...dyn.datatransfer.data_format_translator import DataFormatTranslator as DataFormatTranslator
-from ...dyn.datatransfer.mime_content_type_factory import MimeContentTypeFactory as MimeContentTypeFactory
-from ...dyn.datatransfer.unsupported_flavor_exception import UnsupportedFlavorException as UnsupportedFlavorException
-from ...dyn.datatransfer.x_data_format_translator import XDataFormatTranslator as XDataFormatTranslator
-from ...dyn.datatransfer.x_mime_content_type import XMimeContentType as XMimeContentType
-from ...dyn.datatransfer.x_mime_content_type_factory import XMimeContentTypeFactory as XMimeContentTypeFactory
-from ...dyn.datatransfer.x_system_transferable import XSystemTransferable as XSystemTransferable
-from ...dyn.datatransfer.x_transfer_data_access import XTransferDataAccess as XTransferDataAccess
-from ...dyn.datatransfer.x_transferable import XTransferable as XTransferable
-from ...dyn.datatransfer.x_transferable2 import XTransferable2 as XTransferable2
-from ...dyn.datatransfer.x_transferable_ex import XTransferableEx as XTransferableEx
-from ...dyn.datatransfer.x_transferable_source import XTransferableSource as XTransferableSource
-from ...dyn.datatransfer.x_transferable_supplier import XTransferableSupplier as XTransferableSupplier
-from ...dyn.datatransfer.x_transferable_text_supplier import XTransferableTextSupplier as XTransferableTextSupplier
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ...dyn.datatransfer.data_flavor import DataFlavor as DataFlavor
+with suppress(ImportError):
+    from ...dyn.datatransfer.data_format_translator import DataFormatTranslator as DataFormatTranslator
+with suppress(ImportError):
+    from ...dyn.datatransfer.mime_content_type_factory import MimeContentTypeFactory as MimeContentTypeFactory
+with suppress(ImportError):
+    from ...dyn.datatransfer.unsupported_flavor_exception import UnsupportedFlavorException as UnsupportedFlavorException
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_data_format_translator import XDataFormatTranslator as XDataFormatTranslator
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_mime_content_type import XMimeContentType as XMimeContentType
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_mime_content_type_factory import XMimeContentTypeFactory as XMimeContentTypeFactory
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_system_transferable import XSystemTransferable as XSystemTransferable
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transfer_data_access import XTransferDataAccess as XTransferDataAccess
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable import XTransferable as XTransferable
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable2 import XTransferable2 as XTransferable2
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable_ex import XTransferableEx as XTransferableEx
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable_source import XTransferableSource as XTransferableSource
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable_supplier import XTransferableSupplier as XTransferableSupplier
+with suppress(ImportError):
+    from ...dyn.datatransfer.x_transferable_text_supplier import XTransferableTextSupplier as XTransferableTextSupplier

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.awt.tree.expand_veto_exception import ExpandVetoException as ExpandVetoException
 from ....lo.awt.tree.mutable_tree_data_model import MutableTreeDataModel as MutableTreeDataModel
 from ....lo.awt.tree.mutable_tree_node import MutableTreeNode as MutableTreeNode

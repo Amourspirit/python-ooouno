@@ -25,7 +25,6 @@ class ChartDataChangeType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ChartDataChangeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a37b4d47e7d1600aa406ad115a39fe1da>`_

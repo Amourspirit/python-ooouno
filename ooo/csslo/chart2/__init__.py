@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.chart2.axis import Axis as Axis
 from ...lo.chart2.axis_orientation import AxisOrientation as AxisOrientation
 from ...lo.chart2.axis_type import AxisType as AxisType

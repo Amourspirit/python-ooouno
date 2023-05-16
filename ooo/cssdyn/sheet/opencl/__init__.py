@@ -14,6 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.sheet.opencl.open_cl_device import OpenCLDevice as OpenCLDevice
-from ....dyn.sheet.opencl.open_cl_platform import OpenCLPlatform as OpenCLPlatform
-from ....dyn.sheet.opencl.x_open_cl_selection import XOpenCLSelection as XOpenCLSelection
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.sheet.opencl.open_cl_device import OpenCLDevice as OpenCLDevice
+with suppress(ImportError):
+    from ....dyn.sheet.opencl.open_cl_platform import OpenCLPlatform as OpenCLPlatform
+with suppress(ImportError):
+    from ....dyn.sheet.opencl.x_open_cl_selection import XOpenCLSelection as XOpenCLSelection

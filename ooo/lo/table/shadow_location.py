@@ -25,7 +25,6 @@ class ShadowLocation(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ShadowLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a9ab4ece6abe8ce0c4ad3123d6e3916c0>`_

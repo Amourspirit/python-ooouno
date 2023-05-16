@@ -25,7 +25,6 @@ class FieldAccessMode(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API FieldAccessMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a95a71baf95250ba8716608067ba245f9>`_

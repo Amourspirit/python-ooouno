@@ -13,9 +13,12 @@ Tip:
 
 Interface classes imported from ``ooo.lo`` and ``ooo.csslo`` namespaces are static and not changed during runtime.
 
-Interface classes imported from ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic and are changed
-to UNO clasess at runtime.
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
 
+Interface classes imported from ``ooo.dyn`` and ``ooo.cssdyn`` namespaces are dynamic and are changed
+to UNO classes at runtime.
+
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
 
 Example:
 

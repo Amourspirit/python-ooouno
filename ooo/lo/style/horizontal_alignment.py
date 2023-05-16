@@ -25,7 +25,6 @@ class HorizontalAlignment(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API HorizontalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#aa00e70829e72ff16addc4d9f06fe3bc5>`_

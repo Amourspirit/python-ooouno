@@ -25,7 +25,6 @@ class TransliterationModules(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API TransliterationModules <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a9c57a33dd757352c82923f4c7f6cf93c>`_

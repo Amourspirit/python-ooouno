@@ -14,4 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.deployment.test.smoketest_command_environment import SmoketestCommandEnvironment as SmoketestCommandEnvironment
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.deployment.test.smoketest_command_environment import SmoketestCommandEnvironment as SmoketestCommandEnvironment

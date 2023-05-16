@@ -63,9 +63,6 @@ For instance:
     | ``from ooo.dyn.style.line_spacing import LineSpacing`` is equivalent to
     | ``from com.sun.star.style import LineSpacing``
 
-    | ``from ooo.cssdyn.style import LineSpacing`` is equivalent to
-    | ``from com.sun.star.style import LineSpacing``
-
 
 Namespace
 ---------
@@ -112,6 +109,8 @@ This allows for typings while in design time (working in IDE) and at runtime UNO
 ooo.csslo
 +++++++++
 
+As of version ``2.0.0`` the ``ooo.csslo`` namespace is deprecated. Use the ``ooo.lo`` namespace instead.
+
 | Namespace ``ooo.csslo`` contains static classes as LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ style imports.
 | The format is ``ooo.csslo.<ns>.<PascalCaseName>``
 
@@ -130,6 +129,8 @@ Under some circumstances this may not be desired. Such as packaging with `sticky
 
 ooo.cssdyn
 ++++++++++
+
+As of version ``2.0.0`` the ``ooo.cssdyn`` namespace is deprecated. Use the ``ooo.dyn`` namespace instead.
 
 Namespace ``ooo.cssdyn`` contains static and dynamic classes depending on class type as LO `API <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star.html>`_ style imports.
 
@@ -152,7 +153,7 @@ Generally speaking
 
 When using ooo as typings then import from ``ooo.lo`` or ``ooo.csslo``.
 
-When using ooo interactivly such as creating structs, enums, singletons, const classes then
+When using ooo interactively such as creating struts, enums, singletons, const classes then
 import from ``ooo.dyn`` or ``ooo.cssdyn``.
 
 Development

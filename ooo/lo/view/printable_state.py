@@ -25,7 +25,6 @@ class PrintableState(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API PrintableState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#ad9b0afaffefc166344fd9575516b6626>`_

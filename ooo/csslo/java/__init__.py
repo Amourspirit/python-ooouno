@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.java.invalid_java_settings_exception import InvalidJavaSettingsException as InvalidJavaSettingsException
 from ...lo.java.java_disabled_exception import JavaDisabledException as JavaDisabledException
 from ...lo.java.java_initialization_exception import JavaInitializationException as JavaInitializationException

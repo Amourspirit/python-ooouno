@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.util.alias_programmatic_pair import AliasProgrammaticPair as AliasProgrammaticPair
 from ...lo.util.atom_class_request import AtomClassRequest as AtomClassRequest
 from ...lo.util.atom_description import AtomDescription as AtomDescription

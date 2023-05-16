@@ -25,7 +25,6 @@ class NormalsKind(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API NormalsKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a2f040e92a1488875fb14c6ecc377630b>`_

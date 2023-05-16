@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.text.accessible_endnote_view import AccessibleEndnoteView as AccessibleEndnoteView
 from ...lo.text.accessible_footnote_view import AccessibleFootnoteView as AccessibleFootnoteView
 from ...lo.text.accessible_header_footer_view import AccessibleHeaderFooterView as AccessibleHeaderFooterView

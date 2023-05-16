@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.lang.array_index_out_of_bounds_exception import ArrayIndexOutOfBoundsException as ArrayIndexOutOfBoundsException
 from ...lo.lang.class_not_found_exception import ClassNotFoundException as ClassNotFoundException
 from ...lo.lang.disposed_exception import DisposedException as DisposedException

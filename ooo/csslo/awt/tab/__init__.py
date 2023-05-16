@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.awt.tab.tab_page_activated_event import TabPageActivatedEvent as TabPageActivatedEvent
 from ....lo.awt.tab.uno_control_tab_page import UnoControlTabPage as UnoControlTabPage
 from ....lo.awt.tab.uno_control_tab_page_container import UnoControlTabPageContainer as UnoControlTabPageContainer

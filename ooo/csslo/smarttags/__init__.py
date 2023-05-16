@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.smarttags.smart_tag_action import SmartTagAction as SmartTagAction
 from ...lo.smarttags.smart_tag_recognizer import SmartTagRecognizer as SmartTagRecognizer
 from ...lo.smarttags.smart_tag_recognizer_mode import SmartTagRecognizerMode as SmartTagRecognizerMode

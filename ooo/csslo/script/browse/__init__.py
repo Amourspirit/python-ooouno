@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.script.browse.browse_node import BrowseNode as BrowseNode
 from ....lo.script.browse.browse_node_factory import BrowseNodeFactory as BrowseNodeFactory
 from ....lo.script.browse.browse_node_factory_view_types import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.xml.wrapper.xml_document_wrapper import XMLDocumentWrapper as XMLDocumentWrapper
 from ....lo.xml.wrapper.xml_element_wrapper import XMLElementWrapper as XMLElementWrapper
 from ....lo.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.style.break_type import BreakType as BreakType
 from ...lo.style.case_map import CaseMap as CaseMap
 from ...lo.style.cell_style import CellStyle as CellStyle

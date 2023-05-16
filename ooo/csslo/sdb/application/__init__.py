@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ....lo.sdb.application.copy_table_continuation import CopyTableContinuation as CopyTableContinuation
 from ....lo.sdb.application.copy_table_operation import CopyTableOperation as CopyTableOperation
 from ....lo.sdb.application.copy_table_row_event import CopyTableRowEvent as CopyTableRowEvent

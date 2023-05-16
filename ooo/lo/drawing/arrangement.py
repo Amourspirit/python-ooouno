@@ -25,7 +25,6 @@ class Arrangement(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API Arrangement <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ac4d32be4f663e5f65aa208c47e1faa81>`_

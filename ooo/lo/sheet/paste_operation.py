@@ -25,7 +25,6 @@ class PasteOperation(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API PasteOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af53d63b24461405946937e0b962a8a9b>`_

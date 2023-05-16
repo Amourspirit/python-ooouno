@@ -14,8 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.text.fieldmaster.bibliography import Bibliography as Bibliography
-from ....dyn.text.fieldmaster.dde import DDE as DDE
-from ....dyn.text.fieldmaster.database import Database as Database
-from ....dyn.text.fieldmaster.set_expression import SetExpression as SetExpression
-from ....dyn.text.fieldmaster.user import User as User
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.text.fieldmaster.bibliography import Bibliography as Bibliography
+with suppress(ImportError):
+    from ....dyn.text.fieldmaster.dde import DDE as DDE
+with suppress(ImportError):
+    from ....dyn.text.fieldmaster.database import Database as Database
+with suppress(ImportError):
+    from ....dyn.text.fieldmaster.set_expression import SetExpression as SetExpression
+with suppress(ImportError):
+    from ....dyn.text.fieldmaster.user import User as User

@@ -25,7 +25,6 @@ class ValidationType(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API ValidationType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa5aa6dbecaeb5e18a476b0a58279c57a>`_

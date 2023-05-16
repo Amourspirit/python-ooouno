@@ -14,12 +14,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from ....dyn.form.inspection.button_navigation_handler import ButtonNavigationHandler as ButtonNavigationHandler
-from ....dyn.form.inspection.cell_binding_property_handler import CellBindingPropertyHandler as CellBindingPropertyHandler
-from ....dyn.form.inspection.default_form_component_inspector_model import DefaultFormComponentInspectorModel as DefaultFormComponentInspectorModel
-from ....dyn.form.inspection.edit_property_handler import EditPropertyHandler as EditPropertyHandler
-from ....dyn.form.inspection.event_handler import EventHandler as EventHandler
-from ....dyn.form.inspection.form_component_property_handler import FormComponentPropertyHandler as FormComponentPropertyHandler
-from ....dyn.form.inspection.submission_property_handler import SubmissionPropertyHandler as SubmissionPropertyHandler
-from ....dyn.form.inspection.xml_forms_property_handler import XMLFormsPropertyHandler as XMLFormsPropertyHandler
-from ....dyn.form.inspection.xsd_validation_property_handler import XSDValidationPropertyHandler as XSDValidationPropertyHandler
+
+
+from contextlib import suppress
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The cssdyn namespace is deprecated. Use dyn instead.', DeprecationWarning, stacklevel=2)
+
+with suppress(ImportError):
+    from ....dyn.form.inspection.button_navigation_handler import ButtonNavigationHandler as ButtonNavigationHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.cell_binding_property_handler import CellBindingPropertyHandler as CellBindingPropertyHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.default_form_component_inspector_model import DefaultFormComponentInspectorModel as DefaultFormComponentInspectorModel
+with suppress(ImportError):
+    from ....dyn.form.inspection.edit_property_handler import EditPropertyHandler as EditPropertyHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.event_handler import EventHandler as EventHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.form_component_property_handler import FormComponentPropertyHandler as FormComponentPropertyHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.submission_property_handler import SubmissionPropertyHandler as SubmissionPropertyHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.xml_forms_property_handler import XMLFormsPropertyHandler as XMLFormsPropertyHandler
+with suppress(ImportError):
+    from ....dyn.form.inspection.xsd_validation_property_handler import XSDValidationPropertyHandler as XSDValidationPropertyHandler

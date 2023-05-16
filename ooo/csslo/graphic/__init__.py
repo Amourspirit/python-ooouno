@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.graphic.emf_tools import EmfTools as EmfTools
 from ...lo.graphic.graphic import Graphic as Graphic
 from ...lo.graphic.graphic_color_mode import GraphicColorMode as GraphicColorMode

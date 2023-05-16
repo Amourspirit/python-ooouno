@@ -25,7 +25,6 @@ class LockDepth(Enum):
     """
     Enum Class
 
-    
 
     See Also:
         `API LockDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a01e925906d2f84e461036af17439e9ca>`_

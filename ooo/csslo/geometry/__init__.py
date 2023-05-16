@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import warnings
+warnings.filterwarnings('module')
+warnings.warn('The csslo namespace is deprecated. Use lo instead.', DeprecationWarning, stacklevel=2)
 from ...lo.geometry.affine_matrix2_d import AffineMatrix2D as AffineMatrix2D
 from ...lo.geometry.affine_matrix3_d import AffineMatrix3D as AffineMatrix3D
 from ...lo.geometry.elliptical_arc import EllipticalArc as EllipticalArc

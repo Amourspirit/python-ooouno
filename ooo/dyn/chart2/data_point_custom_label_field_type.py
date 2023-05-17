@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import CATEGORYNAME as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import CELLRANGE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import CELLREF as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import NEWLINE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import PERCENTAGE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import SERIESNAME as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import TEXT as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT
+    from com.sun.star.chart2.DataPointCustomLabelFieldType import VALUE as DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE
 
     class DataPointCustomLabelFieldType(uno.Enum):
         """
@@ -33,36 +42,36 @@ if TYPE_CHECKING:
         See Also:
             `API DataPointCustomLabelFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a364615e20b0759c6c5100f6a47add923>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.DataPointCustomLabelFieldType', value)
 
-        CATEGORYNAME: DataPointCustomLabelFieldType = ...
+        __ooo_ns__: str = 'com.sun.star.chart2'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointCustomLabelFieldType'
+        __ooo_type_name__: str = 'enum'
+
+        CATEGORYNAME: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME
         """
         """
-        CELLRANGE: DataPointCustomLabelFieldType = ...
+        CELLRANGE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE
         """
         """
-        CELLREF: DataPointCustomLabelFieldType = ...
+        CELLREF: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF
         """
         """
-        NEWLINE: DataPointCustomLabelFieldType = ...
+        NEWLINE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE
         """
         """
-        PERCENTAGE: DataPointCustomLabelFieldType = ...
+        PERCENTAGE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE
         """
         """
-        SERIESNAME: DataPointCustomLabelFieldType = ...
+        SERIESNAME: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME
         """
         """
-        TEXT: DataPointCustomLabelFieldType = ...
+        TEXT: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT
         """
         """
-        VALUE: DataPointCustomLabelFieldType = ...
+        VALUE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE
         """
         """
 
@@ -74,4 +83,3 @@ else:
         pass
 
 __all__ = ['DataPointCustomLabelFieldType']
-

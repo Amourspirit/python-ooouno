@@ -20,10 +20,68 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.presentation.FadeEffect import CLOCKWISE as FADE_EFFECT_CLOCKWISE
+    from com.sun.star.presentation.FadeEffect import CLOSE_HORIZONTAL as FADE_EFFECT_CLOSE_HORIZONTAL
+    from com.sun.star.presentation.FadeEffect import CLOSE_VERTICAL as FADE_EFFECT_CLOSE_VERTICAL
+    from com.sun.star.presentation.FadeEffect import COUNTERCLOCKWISE as FADE_EFFECT_COUNTERCLOCKWISE
+    from com.sun.star.presentation.FadeEffect import DISSOLVE as FADE_EFFECT_DISSOLVE
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_BOTTOM as FADE_EFFECT_FADE_FROM_BOTTOM
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_CENTER as FADE_EFFECT_FADE_FROM_CENTER
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_LEFT as FADE_EFFECT_FADE_FROM_LEFT
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_LOWERLEFT as FADE_EFFECT_FADE_FROM_LOWERLEFT
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_LOWERRIGHT as FADE_EFFECT_FADE_FROM_LOWERRIGHT
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_RIGHT as FADE_EFFECT_FADE_FROM_RIGHT
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_TOP as FADE_EFFECT_FADE_FROM_TOP
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_UPPERLEFT as FADE_EFFECT_FADE_FROM_UPPERLEFT
+    from com.sun.star.presentation.FadeEffect import FADE_FROM_UPPERRIGHT as FADE_EFFECT_FADE_FROM_UPPERRIGHT
+    from com.sun.star.presentation.FadeEffect import FADE_TO_CENTER as FADE_EFFECT_FADE_TO_CENTER
+    from com.sun.star.presentation.FadeEffect import HORIZONTAL_CHECKERBOARD as FADE_EFFECT_HORIZONTAL_CHECKERBOARD
+    from com.sun.star.presentation.FadeEffect import HORIZONTAL_LINES as FADE_EFFECT_HORIZONTAL_LINES
+    from com.sun.star.presentation.FadeEffect import HORIZONTAL_STRIPES as FADE_EFFECT_HORIZONTAL_STRIPES
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_BOTTOM as FADE_EFFECT_MOVE_FROM_BOTTOM
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_LEFT as FADE_EFFECT_MOVE_FROM_LEFT
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_LOWERLEFT as FADE_EFFECT_MOVE_FROM_LOWERLEFT
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_LOWERRIGHT as FADE_EFFECT_MOVE_FROM_LOWERRIGHT
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_RIGHT as FADE_EFFECT_MOVE_FROM_RIGHT
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_TOP as FADE_EFFECT_MOVE_FROM_TOP
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_UPPERLEFT as FADE_EFFECT_MOVE_FROM_UPPERLEFT
+    from com.sun.star.presentation.FadeEffect import MOVE_FROM_UPPERRIGHT as FADE_EFFECT_MOVE_FROM_UPPERRIGHT
+    from com.sun.star.presentation.FadeEffect import NONE as FADE_EFFECT_NONE
+    from com.sun.star.presentation.FadeEffect import OPEN_HORIZONTAL as FADE_EFFECT_OPEN_HORIZONTAL
+    from com.sun.star.presentation.FadeEffect import OPEN_VERTICAL as FADE_EFFECT_OPEN_VERTICAL
+    from com.sun.star.presentation.FadeEffect import RANDOM as FADE_EFFECT_RANDOM
+    from com.sun.star.presentation.FadeEffect import ROLL_FROM_BOTTOM as FADE_EFFECT_ROLL_FROM_BOTTOM
+    from com.sun.star.presentation.FadeEffect import ROLL_FROM_LEFT as FADE_EFFECT_ROLL_FROM_LEFT
+    from com.sun.star.presentation.FadeEffect import ROLL_FROM_RIGHT as FADE_EFFECT_ROLL_FROM_RIGHT
+    from com.sun.star.presentation.FadeEffect import ROLL_FROM_TOP as FADE_EFFECT_ROLL_FROM_TOP
+    from com.sun.star.presentation.FadeEffect import SPIRALIN_LEFT as FADE_EFFECT_SPIRALIN_LEFT
+    from com.sun.star.presentation.FadeEffect import SPIRALIN_RIGHT as FADE_EFFECT_SPIRALIN_RIGHT
+    from com.sun.star.presentation.FadeEffect import SPIRALOUT_LEFT as FADE_EFFECT_SPIRALOUT_LEFT
+    from com.sun.star.presentation.FadeEffect import SPIRALOUT_RIGHT as FADE_EFFECT_SPIRALOUT_RIGHT
+    from com.sun.star.presentation.FadeEffect import STRETCH_FROM_BOTTOM as FADE_EFFECT_STRETCH_FROM_BOTTOM
+    from com.sun.star.presentation.FadeEffect import STRETCH_FROM_LEFT as FADE_EFFECT_STRETCH_FROM_LEFT
+    from com.sun.star.presentation.FadeEffect import STRETCH_FROM_RIGHT as FADE_EFFECT_STRETCH_FROM_RIGHT
+    from com.sun.star.presentation.FadeEffect import STRETCH_FROM_TOP as FADE_EFFECT_STRETCH_FROM_TOP
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_BOTTOM as FADE_EFFECT_UNCOVER_TO_BOTTOM
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_LEFT as FADE_EFFECT_UNCOVER_TO_LEFT
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_LOWERLEFT as FADE_EFFECT_UNCOVER_TO_LOWERLEFT
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_LOWERRIGHT as FADE_EFFECT_UNCOVER_TO_LOWERRIGHT
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_RIGHT as FADE_EFFECT_UNCOVER_TO_RIGHT
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_TOP as FADE_EFFECT_UNCOVER_TO_TOP
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_UPPERLEFT as FADE_EFFECT_UNCOVER_TO_UPPERLEFT
+    from com.sun.star.presentation.FadeEffect import UNCOVER_TO_UPPERRIGHT as FADE_EFFECT_UNCOVER_TO_UPPERRIGHT
+    from com.sun.star.presentation.FadeEffect import VERTICAL_CHECKERBOARD as FADE_EFFECT_VERTICAL_CHECKERBOARD
+    from com.sun.star.presentation.FadeEffect import VERTICAL_LINES as FADE_EFFECT_VERTICAL_LINES
+    from com.sun.star.presentation.FadeEffect import VERTICAL_STRIPES as FADE_EFFECT_VERTICAL_STRIPES
+    from com.sun.star.presentation.FadeEffect import WAVYLINE_FROM_BOTTOM as FADE_EFFECT_WAVYLINE_FROM_BOTTOM
+    from com.sun.star.presentation.FadeEffect import WAVYLINE_FROM_LEFT as FADE_EFFECT_WAVYLINE_FROM_LEFT
+    from com.sun.star.presentation.FadeEffect import WAVYLINE_FROM_RIGHT as FADE_EFFECT_WAVYLINE_FROM_RIGHT
+    from com.sun.star.presentation.FadeEffect import WAVYLINE_FROM_TOP as FADE_EFFECT_WAVYLINE_FROM_TOP
 
     class FadeEffect(uno.Enum):
         """
@@ -33,171 +91,171 @@ if TYPE_CHECKING:
         See Also:
             `API FadeEffect <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a9db0b8c5e72e0ae290ff76da0dd53e3d>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.presentation.FadeEffect', value)
 
-        CLOCKWISE: FadeEffect = ...
+        __ooo_ns__: str = 'com.sun.star.presentation'
+        __ooo_full_ns__: str = 'com.sun.star.presentation.FadeEffect'
+        __ooo_type_name__: str = 'enum'
+
+        CLOCKWISE: FadeEffect = FADE_EFFECT_CLOCKWISE
         """
         use the animation effect \"Clockwise\".
         
         use the fade effect \"Clockwise\".
         """
-        CLOSE_HORIZONTAL: FadeEffect = ...
+        CLOSE_HORIZONTAL: FadeEffect = FADE_EFFECT_CLOSE_HORIZONTAL
         """
         use the animation effect \"Close Horizontal\".
         
         use the fade effect \"Close Horizontal\".
         """
-        CLOSE_VERTICAL: FadeEffect = ...
+        CLOSE_VERTICAL: FadeEffect = FADE_EFFECT_CLOSE_VERTICAL
         """
         use the animation effect \"Close Vertical\".
         
         use the fade effect \"Close Vertical\".
         """
-        COUNTERCLOCKWISE: FadeEffect = ...
+        COUNTERCLOCKWISE: FadeEffect = FADE_EFFECT_COUNTERCLOCKWISE
         """
         use the animation effect \"Counter Clockwise\".
         
         use the fade effect \"Counter Clockwise\".
         """
-        DISSOLVE: FadeEffect = ...
+        DISSOLVE: FadeEffect = FADE_EFFECT_DISSOLVE
         """
         use the animation effect \"Spiral Inward Left\".
         
         use the fade effect \"Dissolve\".
         """
-        FADE_FROM_BOTTOM: FadeEffect = ...
+        FADE_FROM_BOTTOM: FadeEffect = FADE_EFFECT_FADE_FROM_BOTTOM
         """
         use the animation effect \"Fade from Bottom\".
         
         use the fade effect \"Fade from Bottom\".
         """
-        FADE_FROM_CENTER: FadeEffect = ...
+        FADE_FROM_CENTER: FadeEffect = FADE_EFFECT_FADE_FROM_CENTER
         """
         use the animation effect \"Fade from Center\".
         
         use the fade effect \"Fade from Center\".
         """
-        FADE_FROM_LEFT: FadeEffect = ...
+        FADE_FROM_LEFT: FadeEffect = FADE_EFFECT_FADE_FROM_LEFT
         """
         use the animation effect \"Fade from Left\".
         
         use the fade effect \"Fade from Left\".
         """
-        FADE_FROM_LOWERLEFT: FadeEffect = ...
+        FADE_FROM_LOWERLEFT: FadeEffect = FADE_EFFECT_FADE_FROM_LOWERLEFT
         """
         use the animation effect \"Fade from Lower Left\".
         
         use the fade effect \"Fade from Lower Left\".
         """
-        FADE_FROM_LOWERRIGHT: FadeEffect = ...
+        FADE_FROM_LOWERRIGHT: FadeEffect = FADE_EFFECT_FADE_FROM_LOWERRIGHT
         """
         use the animation effect \"Fade from Lower Right\".
         
         use the fade effect \"Fade from Lower Right\".
         """
-        FADE_FROM_RIGHT: FadeEffect = ...
+        FADE_FROM_RIGHT: FadeEffect = FADE_EFFECT_FADE_FROM_RIGHT
         """
         use the animation effect \"Fade from Right\".
         
         use the fade effect \"Fade from Right\".
         """
-        FADE_FROM_TOP: FadeEffect = ...
+        FADE_FROM_TOP: FadeEffect = FADE_EFFECT_FADE_FROM_TOP
         """
         use the animation effect \"Fade from Top\".
         
         use the fade effect \"Fade from Top\".
         """
-        FADE_FROM_UPPERLEFT: FadeEffect = ...
+        FADE_FROM_UPPERLEFT: FadeEffect = FADE_EFFECT_FADE_FROM_UPPERLEFT
         """
         use the animation effect \"Fade from Upper Left\".
         
         use the fade effect \"Fade from Upper Left\".
         """
-        FADE_FROM_UPPERRIGHT: FadeEffect = ...
+        FADE_FROM_UPPERRIGHT: FadeEffect = FADE_EFFECT_FADE_FROM_UPPERRIGHT
         """
         use the animation effect \"Fade from Upper Right\".
         
         use the fade effect \"Fade from Upper Right\".
         """
-        FADE_TO_CENTER: FadeEffect = ...
+        FADE_TO_CENTER: FadeEffect = FADE_EFFECT_FADE_TO_CENTER
         """
         use the animation effect \"Fade to Center\".
         
         use the fade effect \"Fade to Center\".
         """
-        HORIZONTAL_CHECKERBOARD: FadeEffect = ...
+        HORIZONTAL_CHECKERBOARD: FadeEffect = FADE_EFFECT_HORIZONTAL_CHECKERBOARD
         """
         use the animation effect \"Horizontal Checkerboard\".
         
         use the fade effect \"Horizontal Checkerboard\".
         """
-        HORIZONTAL_LINES: FadeEffect = ...
+        HORIZONTAL_LINES: FadeEffect = FADE_EFFECT_HORIZONTAL_LINES
         """
         use the animation effect \"Horizontal Lines\".
         
         use the fade effect \"Horizontal Lines\".
         """
-        HORIZONTAL_STRIPES: FadeEffect = ...
+        HORIZONTAL_STRIPES: FadeEffect = FADE_EFFECT_HORIZONTAL_STRIPES
         """
         use the animation effect \"Horizontal Stripes\".
         
         use the fade effect \"Horizontal Stripes\".
         """
-        MOVE_FROM_BOTTOM: FadeEffect = ...
+        MOVE_FROM_BOTTOM: FadeEffect = FADE_EFFECT_MOVE_FROM_BOTTOM
         """
         use the animation effect \"Move from Bottom\".
         
         use the fade effect \"Move from Bottom\".
         """
-        MOVE_FROM_LEFT: FadeEffect = ...
+        MOVE_FROM_LEFT: FadeEffect = FADE_EFFECT_MOVE_FROM_LEFT
         """
         use the animation effect \"Move from Left\".
         
         use the fade effect \"Move from Left\".
         """
-        MOVE_FROM_LOWERLEFT: FadeEffect = ...
+        MOVE_FROM_LOWERLEFT: FadeEffect = FADE_EFFECT_MOVE_FROM_LOWERLEFT
         """
         use the animation effect \"Move from Lower Left\".
         
         use the fade effect \"Move from Lower Left\".
         """
-        MOVE_FROM_LOWERRIGHT: FadeEffect = ...
+        MOVE_FROM_LOWERRIGHT: FadeEffect = FADE_EFFECT_MOVE_FROM_LOWERRIGHT
         """
         use the animation effect \"Move from Lower Right\".
         
         use the fade effect \"Move from Lower Right\".
         """
-        MOVE_FROM_RIGHT: FadeEffect = ...
+        MOVE_FROM_RIGHT: FadeEffect = FADE_EFFECT_MOVE_FROM_RIGHT
         """
         use the animation effect \"Move from Right\".
         
         use the fade effect \"Move from Right\".
         """
-        MOVE_FROM_TOP: FadeEffect = ...
+        MOVE_FROM_TOP: FadeEffect = FADE_EFFECT_MOVE_FROM_TOP
         """
         use the animation effect \"Move from Top\".
         
         use the fade effect \"Move from Top\".
         """
-        MOVE_FROM_UPPERLEFT: FadeEffect = ...
+        MOVE_FROM_UPPERLEFT: FadeEffect = FADE_EFFECT_MOVE_FROM_UPPERLEFT
         """
         use the animation effect \"Move from Upper Left\".
         
         use the fade effect \"Move from Upper Left\".
         """
-        MOVE_FROM_UPPERRIGHT: FadeEffect = ...
+        MOVE_FROM_UPPERRIGHT: FadeEffect = FADE_EFFECT_MOVE_FROM_UPPERRIGHT
         """
         use the animation effect \"Move from Upper Right\".
         
         use the fade effect \"Move from Upper Right\".
         """
-        NONE: FadeEffect = ...
+        NONE: FadeEffect = FADE_EFFECT_NONE
         """
         use no animation effects.
         
@@ -205,157 +263,157 @@ if TYPE_CHECKING:
         
         No action is performed on click.
         """
-        OPEN_HORIZONTAL: FadeEffect = ...
+        OPEN_HORIZONTAL: FadeEffect = FADE_EFFECT_OPEN_HORIZONTAL
         """
         use the animation effect \"Open Horizontal\".
         
         use the fade effect \"Open Horizontal\".
         """
-        OPEN_VERTICAL: FadeEffect = ...
+        OPEN_VERTICAL: FadeEffect = FADE_EFFECT_OPEN_VERTICAL
         """
         use the animation effect \"Open Vertical\".
         
         use the fade effect \"Open Vertical\".
         """
-        RANDOM: FadeEffect = ...
+        RANDOM: FadeEffect = FADE_EFFECT_RANDOM
         """
         use the animation effect \"Random\".
         
         use the fade effect \"Random\".
         """
-        ROLL_FROM_BOTTOM: FadeEffect = ...
+        ROLL_FROM_BOTTOM: FadeEffect = FADE_EFFECT_ROLL_FROM_BOTTOM
         """
         use the fade effect \"Roll from Bottom\".
         """
-        ROLL_FROM_LEFT: FadeEffect = ...
+        ROLL_FROM_LEFT: FadeEffect = FADE_EFFECT_ROLL_FROM_LEFT
         """
         use the fade effect \"Roll from Left\".
         """
-        ROLL_FROM_RIGHT: FadeEffect = ...
+        ROLL_FROM_RIGHT: FadeEffect = FADE_EFFECT_ROLL_FROM_RIGHT
         """
         use the fade effect \"Roll from Right\".
         """
-        ROLL_FROM_TOP: FadeEffect = ...
+        ROLL_FROM_TOP: FadeEffect = FADE_EFFECT_ROLL_FROM_TOP
         """
         use the fade effect \"Roll from Top\".
         """
-        SPIRALIN_LEFT: FadeEffect = ...
+        SPIRALIN_LEFT: FadeEffect = FADE_EFFECT_SPIRALIN_LEFT
         """
         use the animation effect \"Spiral Inward Left\".
         
         use the fade effect \"Spiral Inward Left\".
         """
-        SPIRALIN_RIGHT: FadeEffect = ...
+        SPIRALIN_RIGHT: FadeEffect = FADE_EFFECT_SPIRALIN_RIGHT
         """
         use the animation effect \"Spiral Inward Right\".
         
         use the fade effect \"Spiral Inward Right\".
         """
-        SPIRALOUT_LEFT: FadeEffect = ...
+        SPIRALOUT_LEFT: FadeEffect = FADE_EFFECT_SPIRALOUT_LEFT
         """
         use the animation effect \"Spiral Outward Left\".
         
         use the fade effect \"Spiral Outward Left\".
         """
-        SPIRALOUT_RIGHT: FadeEffect = ...
+        SPIRALOUT_RIGHT: FadeEffect = FADE_EFFECT_SPIRALOUT_RIGHT
         """
         use the animation effect \"Spiral Outward Right\".
         
         use the fade effect \"Spiral Outward Right\".
         """
-        STRETCH_FROM_BOTTOM: FadeEffect = ...
+        STRETCH_FROM_BOTTOM: FadeEffect = FADE_EFFECT_STRETCH_FROM_BOTTOM
         """
         use the animation effect \"Stretch From Bottom\".
         
         use the fade effect \"Stretch from Bottom\".
         """
-        STRETCH_FROM_LEFT: FadeEffect = ...
+        STRETCH_FROM_LEFT: FadeEffect = FADE_EFFECT_STRETCH_FROM_LEFT
         """
         use the animation effect \"Stretch From Left\".
         
         use the fade effect \"Stretch from Left\".
         """
-        STRETCH_FROM_RIGHT: FadeEffect = ...
+        STRETCH_FROM_RIGHT: FadeEffect = FADE_EFFECT_STRETCH_FROM_RIGHT
         """
         use the animation effect \"Stretch From Right\".
         
         use the fade effect \"Stretch from Right\".
         """
-        STRETCH_FROM_TOP: FadeEffect = ...
+        STRETCH_FROM_TOP: FadeEffect = FADE_EFFECT_STRETCH_FROM_TOP
         """
         use the animation effect \"Stretch From Top\".
         
         use the fade effect \"Stretch from Top\".
         """
-        UNCOVER_TO_BOTTOM: FadeEffect = ...
+        UNCOVER_TO_BOTTOM: FadeEffect = FADE_EFFECT_UNCOVER_TO_BOTTOM
         """
         use the fade effect \"Uncover to Bottom\".
         """
-        UNCOVER_TO_LEFT: FadeEffect = ...
+        UNCOVER_TO_LEFT: FadeEffect = FADE_EFFECT_UNCOVER_TO_LEFT
         """
         use the fade effect \"Uncover to Left\".
         """
-        UNCOVER_TO_LOWERLEFT: FadeEffect = ...
+        UNCOVER_TO_LOWERLEFT: FadeEffect = FADE_EFFECT_UNCOVER_TO_LOWERLEFT
         """
         use the fade effect \"Uncover to Lower Left\".
         """
-        UNCOVER_TO_LOWERRIGHT: FadeEffect = ...
+        UNCOVER_TO_LOWERRIGHT: FadeEffect = FADE_EFFECT_UNCOVER_TO_LOWERRIGHT
         """
         use the fade effect \"Uncover to Lower Right\".
         """
-        UNCOVER_TO_RIGHT: FadeEffect = ...
+        UNCOVER_TO_RIGHT: FadeEffect = FADE_EFFECT_UNCOVER_TO_RIGHT
         """
         use the fade effect \"Uncover to Right\".
         """
-        UNCOVER_TO_TOP: FadeEffect = ...
+        UNCOVER_TO_TOP: FadeEffect = FADE_EFFECT_UNCOVER_TO_TOP
         """
         use the fade effect \"Uncover to Top\".
         """
-        UNCOVER_TO_UPPERLEFT: FadeEffect = ...
+        UNCOVER_TO_UPPERLEFT: FadeEffect = FADE_EFFECT_UNCOVER_TO_UPPERLEFT
         """
         use the fade effect \"Uncover to Upper Left\".
         """
-        UNCOVER_TO_UPPERRIGHT: FadeEffect = ...
+        UNCOVER_TO_UPPERRIGHT: FadeEffect = FADE_EFFECT_UNCOVER_TO_UPPERRIGHT
         """
         use the fade effect \"Uncover to Upper Right\".
         """
-        VERTICAL_CHECKERBOARD: FadeEffect = ...
+        VERTICAL_CHECKERBOARD: FadeEffect = FADE_EFFECT_VERTICAL_CHECKERBOARD
         """
         use the animation effect \"Vertical Checkerboard\".
         
         use the fade effect \"Vertical Checkerboard\".
         """
-        VERTICAL_LINES: FadeEffect = ...
+        VERTICAL_LINES: FadeEffect = FADE_EFFECT_VERTICAL_LINES
         """
         use the animation effect \"Vertical Lines\".
         
         use the fade effect \"Vertical Lines\".
         """
-        VERTICAL_STRIPES: FadeEffect = ...
+        VERTICAL_STRIPES: FadeEffect = FADE_EFFECT_VERTICAL_STRIPES
         """
         use the animation effect \"Vertical Stripes\".
         
         use the fade effect \"Vertical Stripes\".
         """
-        WAVYLINE_FROM_BOTTOM: FadeEffect = ...
+        WAVYLINE_FROM_BOTTOM: FadeEffect = FADE_EFFECT_WAVYLINE_FROM_BOTTOM
         """
         use the animation effect \"Wavy Line from Button\".
         
         use the fade effect \"Wavy Line from Bottom\".
         """
-        WAVYLINE_FROM_LEFT: FadeEffect = ...
+        WAVYLINE_FROM_LEFT: FadeEffect = FADE_EFFECT_WAVYLINE_FROM_LEFT
         """
         use the animation effect \"Wavy Line from Left\".
         
         use the fade effect \"Wavy Line from Left\".
         """
-        WAVYLINE_FROM_RIGHT: FadeEffect = ...
+        WAVYLINE_FROM_RIGHT: FadeEffect = FADE_EFFECT_WAVYLINE_FROM_RIGHT
         """
         use the animation effect \"Wavy Line from Right\".
         
         use the fade effect \"Wavy Line from Right\".
         """
-        WAVYLINE_FROM_TOP: FadeEffect = ...
+        WAVYLINE_FROM_TOP: FadeEffect = FADE_EFFECT_WAVYLINE_FROM_TOP
         """
         use the animation effect \"Wavy Line from Top\".
         
@@ -370,4 +428,3 @@ else:
         pass
 
 __all__ = ['FadeEffect']
-

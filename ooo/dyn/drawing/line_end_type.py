@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.LineEndType import ARROW as LINE_END_TYPE_ARROW
+    from com.sun.star.drawing.LineEndType import CIRCLE as LINE_END_TYPE_CIRCLE
+    from com.sun.star.drawing.LineEndType import NONE as LINE_END_TYPE_NONE
+    from com.sun.star.drawing.LineEndType import SPECIAL as LINE_END_TYPE_SPECIAL
+    from com.sun.star.drawing.LineEndType import SQUARE as LINE_END_TYPE_SQUARE
 
     class LineEndType(uno.Enum):
         """
@@ -33,23 +39,23 @@ if TYPE_CHECKING:
         See Also:
             `API LineEndType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa4142382acc18a0dd48cc4a563e2d168>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.LineEndType', value)
 
-        ARROW: LineEndType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
+        __ooo_type_name__: str = 'enum'
+
+        ARROW: LineEndType = LINE_END_TYPE_ARROW
         """
         the line uses an arrow for the line end.
         """
-        CIRCLE: LineEndType = ...
+        CIRCLE: LineEndType = LINE_END_TYPE_CIRCLE
         """
         the line uses a circle for the line end.
         """
-        NONE: LineEndType = ...
+        NONE: LineEndType = LINE_END_TYPE_NONE
         """
         the area is not filled.
         
@@ -63,13 +69,13 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SPECIAL: LineEndType = ...
+        SPECIAL: LineEndType = LINE_END_TYPE_SPECIAL
         """
         not implemented, yet.
         
         deprecated
         """
-        SQUARE: LineEndType = ...
+        SQUARE: LineEndType = LINE_END_TYPE_SQUARE
         """
         the line will get a half square as additional cap
         
@@ -84,4 +90,3 @@ else:
         pass
 
 __all__ = ['LineEndType']
-

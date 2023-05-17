@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.LegendPosition import CUSTOM as LEGEND_POSITION_CUSTOM
+    from com.sun.star.chart2.LegendPosition import LINE_END as LEGEND_POSITION_LINE_END
+    from com.sun.star.chart2.LegendPosition import LINE_START as LEGEND_POSITION_LINE_START
+    from com.sun.star.chart2.LegendPosition import PAGE_END as LEGEND_POSITION_PAGE_END
+    from com.sun.star.chart2.LegendPosition import PAGE_START as LEGEND_POSITION_PAGE_START
 
     class LegendPosition(uno.Enum):
         """
@@ -34,31 +40,31 @@ if TYPE_CHECKING:
         See Also:
             `API LegendPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a85df18f245c9e4d24e32ebb9ee879042>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.LegendPosition', value)
 
-        CUSTOM: LegendPosition = ...
+        __ooo_ns__: str = 'com.sun.star.chart2'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.LegendPosition'
+        __ooo_type_name__: str = 'enum'
+
+        CUSTOM: LegendPosition = LEGEND_POSITION_CUSTOM
         """
         The position of the legend is given by an offset value.
         """
-        LINE_END: LegendPosition = ...
+        LINE_END: LegendPosition = LEGEND_POSITION_LINE_END
         """
         In LTR mode this is the right-hand side.
         """
-        LINE_START: LegendPosition = ...
+        LINE_START: LegendPosition = LEGEND_POSITION_LINE_START
         """
         In LTR mode this is the left-hand side.
         """
-        PAGE_END: LegendPosition = ...
+        PAGE_END: LegendPosition = LEGEND_POSITION_PAGE_END
         """
         In LTR mode this is the bottom side.
         """
-        PAGE_START: LegendPosition = ...
+        PAGE_START: LegendPosition = LEGEND_POSITION_PAGE_START
         """
         In LTR mode this is the top side.
         """
@@ -71,4 +77,3 @@ else:
         pass
 
 __all__ = ['LegendPosition']
-

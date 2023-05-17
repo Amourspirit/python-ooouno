@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.BitmapMode import NO_REPEAT as BITMAP_MODE_NO_REPEAT
+    from com.sun.star.drawing.BitmapMode import REPEAT as BITMAP_MODE_REPEAT
+    from com.sun.star.drawing.BitmapMode import STRETCH as BITMAP_MODE_STRETCH
 
     class BitmapMode(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API BitmapMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ad26489b8cfc631a6aa6a1a59fd2e2356>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.BitmapMode', value)
 
-        NO_REPEAT: BitmapMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.BitmapMode'
+        __ooo_type_name__: str = 'enum'
+
+        NO_REPEAT: BitmapMode = BITMAP_MODE_NO_REPEAT
         """
         the bitmap is painted in its original or selected size.
         """
-        REPEAT: BitmapMode = ...
+        REPEAT: BitmapMode = BITMAP_MODE_REPEAT
         """
         the bitmap is repeated over the fill area.
         """
-        STRETCH: BitmapMode = ...
+        STRETCH: BitmapMode = BITMAP_MODE_STRETCH
         """
         the bitmap is stretched to fill the area.
         
@@ -64,4 +68,3 @@ else:
         pass
 
 __all__ = ['BitmapMode']
-

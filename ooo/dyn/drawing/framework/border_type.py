@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.framework.BorderType import INNER_BORDER as BORDER_TYPE_INNER_BORDER
+    from com.sun.star.drawing.framework.BorderType import OUTER_BORDER as BORDER_TYPE_OUTER_BORDER
+    from com.sun.star.drawing.framework.BorderType import TOTAL_BORDER as BORDER_TYPE_TOTAL_BORDER
 
     class BorderType(uno.Enum):
         """
@@ -33,21 +37,21 @@ if TYPE_CHECKING:
         See Also:
             `API BorderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a62ba43b838957db08d5ecb9b46b8ca90>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.framework.BorderType', value)
 
-        INNER_BORDER: BorderType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing.framework'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.framework.BorderType'
+        __ooo_type_name__: str = 'enum'
+
+        INNER_BORDER: BorderType = BORDER_TYPE_INNER_BORDER
         """
         """
-        OUTER_BORDER: BorderType = ...
+        OUTER_BORDER: BorderType = BORDER_TYPE_OUTER_BORDER
         """
         """
-        TOTAL_BORDER: BorderType = ...
+        TOTAL_BORDER: BorderType = BORDER_TYPE_TOTAL_BORDER
         """
         """
 
@@ -59,4 +63,3 @@ else:
         pass
 
 __all__ = ['BorderType']
-

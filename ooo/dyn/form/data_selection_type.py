@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.form.DataSelectionType import QUERY as DATA_SELECTION_TYPE_QUERY
+    from com.sun.star.form.DataSelectionType import SQL as DATA_SELECTION_TYPE_SQL
+    from com.sun.star.form.DataSelectionType import SQLPASSTHROUGH as DATA_SELECTION_TYPE_SQLPASSTHROUGH
+    from com.sun.star.form.DataSelectionType import TABLE as DATA_SELECTION_TYPE_TABLE
 
     class DataSelectionType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API DataSelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abce772d425e368c8a4f81abe7afa7279>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.form.DataSelectionType', value)
 
-        QUERY: DataSelectionType = ...
+        __ooo_ns__: str = 'com.sun.star.form'
+        __ooo_full_ns__: str = 'com.sun.star.form.DataSelectionType'
+        __ooo_type_name__: str = 'enum'
+
+        QUERY: DataSelectionType = DATA_SELECTION_TYPE_QUERY
         """
         The control should be filled with the results of a database query.
         """
-        SQL: DataSelectionType = ...
+        SQL: DataSelectionType = DATA_SELECTION_TYPE_SQL
         """
         The control should be filled with the results of a database statement.
         """
-        SQLPASSTHROUGH: DataSelectionType = ...
+        SQLPASSTHROUGH: DataSelectionType = DATA_SELECTION_TYPE_SQLPASSTHROUGH
         """
         The control should be filled with the results of a database statement, which is not evaluated by the database engine.
         """
-        TABLE: DataSelectionType = ...
+        TABLE: DataSelectionType = DATA_SELECTION_TYPE_TABLE
         """
         The control should be filled with the data of a table.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['DataSelectionType']
-

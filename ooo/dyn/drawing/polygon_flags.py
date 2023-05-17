@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.PolygonFlags import CONTROL as POLYGON_FLAGS_CONTROL
+    from com.sun.star.drawing.PolygonFlags import NORMAL as POLYGON_FLAGS_NORMAL
+    from com.sun.star.drawing.PolygonFlags import SMOOTH as POLYGON_FLAGS_SMOOTH
+    from com.sun.star.drawing.PolygonFlags import SYMMETRIC as POLYGON_FLAGS_SYMMETRIC
 
     class PolygonFlags(uno.Enum):
         """
@@ -33,31 +38,31 @@ if TYPE_CHECKING:
         See Also:
             `API PolygonFlags <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af3965fa427851bc02bfe32c5d95d7406>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.PolygonFlags', value)
 
-        CONTROL: PolygonFlags = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonFlags'
+        __ooo_type_name__: str = 'enum'
+
+        CONTROL: PolygonFlags = POLYGON_FLAGS_CONTROL
         """
         the point is a control point, to control the curve from the user interface.
         """
-        NORMAL: PolygonFlags = ...
+        NORMAL: PolygonFlags = POLYGON_FLAGS_NORMAL
         """
         the text is drawn along the path without scaling.
         
         the point is normal, from the curve discussion view.
         """
-        SMOOTH: PolygonFlags = ...
+        SMOOTH: PolygonFlags = POLYGON_FLAGS_SMOOTH
         """
         the point is smooth, the first derivation from the curve discussion view.
         
         With SMOOTH shading, the colors of the lit vertices is interpolated.
         """
-        SYMMETRIC: PolygonFlags = ...
+        SYMMETRIC: PolygonFlags = POLYGON_FLAGS_SYMMETRIC
         """
         the point is symmetric, the second derivation from the curve discussion view.
         """
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['PolygonFlags']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartErrorIndicatorType import LOWER as CHART_ERROR_INDICATOR_TYPE_LOWER
+    from com.sun.star.chart.ChartErrorIndicatorType import NONE as CHART_ERROR_INDICATOR_TYPE_NONE
+    from com.sun.star.chart.ChartErrorIndicatorType import TOP_AND_BOTTOM as CHART_ERROR_INDICATOR_TYPE_TOP_AND_BOTTOM
+    from com.sun.star.chart.ChartErrorIndicatorType import UPPER as CHART_ERROR_INDICATOR_TYPE_UPPER
 
     class ChartErrorIndicatorType(uno.Enum):
         """
@@ -33,19 +38,19 @@ if TYPE_CHECKING:
         See Also:
             `API ChartErrorIndicatorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a1391f7495aa3a95d4bc29dbf29a809ea>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartErrorIndicatorType', value)
 
-        LOWER: ChartErrorIndicatorType = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorIndicatorType'
+        __ooo_type_name__: str = 'enum'
+
+        LOWER: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_LOWER
         """
         displays only the lower value.
         """
-        NONE: ChartErrorIndicatorType = ...
+        NONE: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_NONE
         """
         error indicators are not displayed.
         
@@ -55,11 +60,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        TOP_AND_BOTTOM: ChartErrorIndicatorType = ...
+        TOP_AND_BOTTOM: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_TOP_AND_BOTTOM
         """
         displays both the upper and lower values.
         """
-        UPPER: ChartErrorIndicatorType = ...
+        UPPER: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_UPPER
         """
         displays only the upper value.
         """
@@ -72,4 +77,3 @@ else:
         pass
 
 __all__ = ['ChartErrorIndicatorType']
-

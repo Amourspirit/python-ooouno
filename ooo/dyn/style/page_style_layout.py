@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.style.PageStyleLayout import ALL as PAGE_STYLE_LAYOUT_ALL
+    from com.sun.star.style.PageStyleLayout import LEFT as PAGE_STYLE_LAYOUT_LEFT
+    from com.sun.star.style.PageStyleLayout import MIRRORED as PAGE_STYLE_LAYOUT_MIRRORED
+    from com.sun.star.style.PageStyleLayout import RIGHT as PAGE_STYLE_LAYOUT_RIGHT
 
     class PageStyleLayout(uno.Enum):
         """
@@ -33,19 +38,19 @@ if TYPE_CHECKING:
         See Also:
             `API PageStyleLayout <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ae13f8c21c10b194207bb33f84a33d50f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.style.PageStyleLayout', value)
 
-        ALL: PageStyleLayout = ...
+        __ooo_ns__: str = 'com.sun.star.style'
+        __ooo_full_ns__: str = 'com.sun.star.style.PageStyleLayout'
+        __ooo_type_name__: str = 'enum'
+
+        ALL: PageStyleLayout = PAGE_STYLE_LAYOUT_ALL
         """
         The page style is identically used for left and right pages.
         """
-        LEFT: PageStyleLayout = ...
+        LEFT: PageStyleLayout = PAGE_STYLE_LAYOUT_LEFT
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -55,11 +60,11 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        MIRRORED: PageStyleLayout = ...
+        MIRRORED: PageStyleLayout = PAGE_STYLE_LAYOUT_MIRRORED
         """
         The page style is used unchanged for left pages and mirrored for right pages.
         """
-        RIGHT: PageStyleLayout = ...
+        RIGHT: PageStyleLayout = PAGE_STYLE_LAYOUT_RIGHT
         """
         set the horizontal alignment to the right margin from the container object
         
@@ -78,4 +83,3 @@ else:
         pass
 
 __all__ = ['PageStyleLayout']
-

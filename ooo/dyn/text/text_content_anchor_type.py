@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.TextContentAnchorType import AS_CHARACTER as TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER
+    from com.sun.star.text.TextContentAnchorType import AT_CHARACTER as TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER
+    from com.sun.star.text.TextContentAnchorType import AT_FRAME as TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME
+    from com.sun.star.text.TextContentAnchorType import AT_PAGE as TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE
+    from com.sun.star.text.TextContentAnchorType import AT_PARAGRAPH as TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH
 
     class TextContentAnchorType(uno.Enum):
         """
@@ -33,31 +39,31 @@ if TYPE_CHECKING:
         See Also:
             `API TextContentAnchorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a470b1caeda4ff15fee438c8ff9e3d834>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.TextContentAnchorType', value)
 
-        AS_CHARACTER: TextContentAnchorType = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.TextContentAnchorType'
+        __ooo_type_name__: str = 'enum'
+
+        AS_CHARACTER: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER
         """
         The object is anchored instead of a character.
         """
-        AT_CHARACTER: TextContentAnchorType = ...
+        AT_CHARACTER: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER
         """
         The object is anchored to a character.
         """
-        AT_FRAME: TextContentAnchorType = ...
+        AT_FRAME: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME
         """
         The object is anchored to a text frame.
         """
-        AT_PAGE: TextContentAnchorType = ...
+        AT_PAGE: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE
         """
         The object is anchored to the page.
         """
-        AT_PARAGRAPH: TextContentAnchorType = ...
+        AT_PARAGRAPH: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH
         """
         The anchor of the object is set at the top left position of the paragraph.
         """
@@ -70,4 +76,3 @@ else:
         pass
 
 __all__ = ['TextContentAnchorType']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import NORMAL as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
+    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import PATH as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
+    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import SHAPE as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
 
     class EnhancedCustomShapeTextPathMode(uno.Enum):
         """
@@ -34,25 +38,25 @@ if TYPE_CHECKING:
         See Also:
             `API EnhancedCustomShapeTextPathMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0babaeb0d04df312f158184b26a302d6>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.EnhancedCustomShapeTextPathMode', value)
 
-        NORMAL: EnhancedCustomShapeTextPathMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
+        __ooo_type_name__: str = 'enum'
+
+        NORMAL: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
         """
         the text is drawn along the path without scaling.
         
         the point is normal, from the curve discussion view.
         """
-        PATH: EnhancedCustomShapeTextPathMode = ...
+        PATH: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
         """
         the text is fit to the path.
         """
-        SHAPE: EnhancedCustomShapeTextPathMode = ...
+        SHAPE: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
         """
         the text is fit to the bounding box of the shape.
         """
@@ -65,4 +69,3 @@ else:
         pass
 
 __all__ = ['EnhancedCustomShapeTextPathMode']
-

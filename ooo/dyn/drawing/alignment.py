@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.Alignment import BOTTOM as ALIGNMENT_BOTTOM
+    from com.sun.star.drawing.Alignment import BOTTOM_LEFT as ALIGNMENT_BOTTOM_LEFT
+    from com.sun.star.drawing.Alignment import BOTTOM_RIGHT as ALIGNMENT_BOTTOM_RIGHT
+    from com.sun.star.drawing.Alignment import CENTER as ALIGNMENT_CENTER
+    from com.sun.star.drawing.Alignment import LEFT as ALIGNMENT_LEFT
+    from com.sun.star.drawing.Alignment import RIGHT as ALIGNMENT_RIGHT
+    from com.sun.star.drawing.Alignment import TOP as ALIGNMENT_TOP
+    from com.sun.star.drawing.Alignment import TOP_LEFT as ALIGNMENT_TOP_LEFT
+    from com.sun.star.drawing.Alignment import TOP_RIGHT as ALIGNMENT_TOP_RIGHT
 
     class Alignment(uno.Enum):
         """
@@ -33,15 +43,15 @@ if TYPE_CHECKING:
         See Also:
             `API Alignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#acdfaca60ec19c0265bac2692d7982726>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.Alignment', value)
 
-        BOTTOM: Alignment = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
+        __ooo_type_name__: str = 'enum'
+
+        BOTTOM: Alignment = ALIGNMENT_BOTTOM
         """
         the connection line leaves the connected object from the bottom,
         
@@ -49,17 +59,17 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        BOTTOM_LEFT: Alignment = ...
+        BOTTOM_LEFT: Alignment = ALIGNMENT_BOTTOM_LEFT
         """
         """
-        BOTTOM_RIGHT: Alignment = ...
+        BOTTOM_RIGHT: Alignment = ALIGNMENT_BOTTOM_RIGHT
         """
         """
-        CENTER: Alignment = ...
+        CENTER: Alignment = ALIGNMENT_CENTER
         """
         The text is centered inside the shape.
         """
-        LEFT: Alignment = ...
+        LEFT: Alignment = ALIGNMENT_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -67,7 +77,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: Alignment = ...
+        RIGHT: Alignment = ALIGNMENT_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -75,7 +85,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        TOP: Alignment = ...
+        TOP: Alignment = ALIGNMENT_TOP
         """
         the connection line leaves the connected object from the top,
         
@@ -83,10 +93,10 @@ if TYPE_CHECKING:
         
         The top edge of the text is adjusted to the top edge of the shape.
         """
-        TOP_LEFT: Alignment = ...
+        TOP_LEFT: Alignment = ALIGNMENT_TOP_LEFT
         """
         """
-        TOP_RIGHT: Alignment = ...
+        TOP_RIGHT: Alignment = ALIGNMENT_TOP_RIGHT
         """
         """
 
@@ -98,4 +108,3 @@ else:
         pass
 
 __all__ = ['Alignment']
-

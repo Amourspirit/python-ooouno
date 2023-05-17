@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.ShadowLocation import BOTTOM_LEFT as SHADOW_LOCATION_BOTTOM_LEFT
+    from com.sun.star.table.ShadowLocation import BOTTOM_RIGHT as SHADOW_LOCATION_BOTTOM_RIGHT
+    from com.sun.star.table.ShadowLocation import NONE as SHADOW_LOCATION_NONE
+    from com.sun.star.table.ShadowLocation import TOP_LEFT as SHADOW_LOCATION_TOP_LEFT
+    from com.sun.star.table.ShadowLocation import TOP_RIGHT as SHADOW_LOCATION_TOP_RIGHT
 
     class ShadowLocation(uno.Enum):
         """
@@ -33,31 +39,31 @@ if TYPE_CHECKING:
         See Also:
             `API ShadowLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a9ab4ece6abe8ce0c4ad3123d6e3916c0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.ShadowLocation', value)
 
-        BOTTOM_LEFT: ShadowLocation = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.ShadowLocation'
+        __ooo_type_name__: str = 'enum'
+
+        BOTTOM_LEFT: ShadowLocation = SHADOW_LOCATION_BOTTOM_LEFT
         """
         shadow is located along the lower and left sides.
         """
-        BOTTOM_RIGHT: ShadowLocation = ...
+        BOTTOM_RIGHT: ShadowLocation = SHADOW_LOCATION_BOTTOM_RIGHT
         """
         shadow is located along the lower and right sides.
         """
-        NONE: ShadowLocation = ...
+        NONE: ShadowLocation = SHADOW_LOCATION_NONE
         """
         no shadow.
         """
-        TOP_LEFT: ShadowLocation = ...
+        TOP_LEFT: ShadowLocation = SHADOW_LOCATION_TOP_LEFT
         """
         shadow is located along the upper and left sides.
         """
-        TOP_RIGHT: ShadowLocation = ...
+        TOP_RIGHT: ShadowLocation = SHADOW_LOCATION_TOP_RIGHT
         """
         shadow is located along the upper and right sides.
         """
@@ -70,4 +76,3 @@ else:
         pass
 
 __all__ = ['ShadowLocation']
-

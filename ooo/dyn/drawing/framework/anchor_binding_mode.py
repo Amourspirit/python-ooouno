@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.framework.AnchorBindingMode import DIRECT as ANCHOR_BINDING_MODE_DIRECT
+    from com.sun.star.drawing.framework.AnchorBindingMode import INDIRECT as ANCHOR_BINDING_MODE_INDIRECT
 
     class AnchorBindingMode(uno.Enum):
         """
@@ -33,18 +36,18 @@ if TYPE_CHECKING:
         See Also:
             `API AnchorBindingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#af2624f1e14ec2ab7890946d97b26724c>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.framework.AnchorBindingMode', value)
 
-        DIRECT: AnchorBindingMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing.framework'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.framework.AnchorBindingMode'
+        __ooo_type_name__: str = 'enum'
+
+        DIRECT: AnchorBindingMode = ANCHOR_BINDING_MODE_DIRECT
         """
         """
-        INDIRECT: AnchorBindingMode = ...
+        INDIRECT: AnchorBindingMode = ANCHOR_BINDING_MODE_INDIRECT
         """
         """
 
@@ -56,4 +59,3 @@ else:
         pass
 
 __all__ = ['AnchorBindingMode']
-

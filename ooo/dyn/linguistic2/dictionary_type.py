@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.linguistic2.DictionaryType import MIXED as DICTIONARY_TYPE_MIXED
+    from com.sun.star.linguistic2.DictionaryType import NEGATIVE as DICTIONARY_TYPE_NEGATIVE
+    from com.sun.star.linguistic2.DictionaryType import POSITIVE as DICTIONARY_TYPE_POSITIVE
 
     class DictionaryType(uno.Enum):
         """
@@ -33,22 +37,22 @@ if TYPE_CHECKING:
         See Also:
             `API DictionaryType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1linguistic2.html#a281c5a7578308b66c77c9e0de51b806a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.linguistic2.DictionaryType', value)
 
-        MIXED: DictionaryType = ...
+        __ooo_ns__: str = 'com.sun.star.linguistic2'
+        __ooo_full_ns__: str = 'com.sun.star.linguistic2.DictionaryType'
+        __ooo_type_name__: str = 'enum'
+
+        MIXED: DictionaryType = DICTIONARY_TYPE_MIXED
         """
         """
-        NEGATIVE: DictionaryType = ...
+        NEGATIVE: DictionaryType = DICTIONARY_TYPE_NEGATIVE
         """
         all entries in the dictionary are negative.
         """
-        POSITIVE: DictionaryType = ...
+        POSITIVE: DictionaryType = DICTIONARY_TYPE_POSITIVE
         """
         all entries in the dictionary are positive.
         """
@@ -61,4 +65,3 @@ else:
         pass
 
 __all__ = ['DictionaryType']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.DashStyle import RECT as DASH_STYLE_RECT
+    from com.sun.star.drawing.DashStyle import RECTRELATIVE as DASH_STYLE_RECTRELATIVE
+    from com.sun.star.drawing.DashStyle import ROUND as DASH_STYLE_ROUND
+    from com.sun.star.drawing.DashStyle import ROUNDRELATIVE as DASH_STYLE_ROUNDRELATIVE
 
     class DashStyle(uno.Enum):
         """
@@ -33,23 +38,23 @@ if TYPE_CHECKING:
         See Also:
             `API DashStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a89f0dc2e221d6f608088093da27764d1>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.DashStyle', value)
 
-        RECT: DashStyle = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.DashStyle'
+        __ooo_type_name__: str = 'enum'
+
+        RECT: DashStyle = DASH_STYLE_RECT
         """
         the dash is a rectangle
         """
-        RECTRELATIVE: DashStyle = ...
+        RECTRELATIVE: DashStyle = DASH_STYLE_RECTRELATIVE
         """
         the dash is a rectangle, with the size of the dash given in relation to the length of the line
         """
-        ROUND: DashStyle = ...
+        ROUND: DashStyle = DASH_STYLE_ROUND
         """
         the dash is a point
         
@@ -57,7 +62,7 @@ if TYPE_CHECKING:
         
         the line will get a half circle as additional cap
         """
-        ROUNDRELATIVE: DashStyle = ...
+        ROUNDRELATIVE: DashStyle = DASH_STYLE_ROUNDRELATIVE
         """
         the dash is a point, with the size of the dash given in relation to the length of the line
         """
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['DashStyle']
-

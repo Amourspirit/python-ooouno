@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.registry.RegistryKeyType import KEY as REGISTRY_KEY_TYPE_KEY
+    from com.sun.star.registry.RegistryKeyType import LINK as REGISTRY_KEY_TYPE_LINK
 
     class RegistryKeyType(uno.Enum):
         """
@@ -33,18 +36,18 @@ if TYPE_CHECKING:
         See Also:
             `API RegistryKeyType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a096c2bade01504c38ba808bfeadff2b2>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.registry.RegistryKeyType', value)
 
-        KEY: RegistryKeyType = ...
+        __ooo_ns__: str = 'com.sun.star.registry'
+        __ooo_full_ns__: str = 'com.sun.star.registry.RegistryKeyType'
+        __ooo_type_name__: str = 'enum'
+
+        KEY: RegistryKeyType = REGISTRY_KEY_TYPE_KEY
         """
         """
-        LINK: RegistryKeyType = ...
+        LINK: RegistryKeyType = REGISTRY_KEY_TYPE_LINK
         """
         """
 
@@ -56,4 +59,3 @@ else:
         pass
 
 __all__ = ['RegistryKeyType']
-

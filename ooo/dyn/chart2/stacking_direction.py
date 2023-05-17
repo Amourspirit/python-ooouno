@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.StackingDirection import NO_STACKING as STACKING_DIRECTION_NO_STACKING
+    from com.sun.star.chart2.StackingDirection import Y_STACKING as STACKING_DIRECTION_Y_STACKING
+    from com.sun.star.chart2.StackingDirection import Z_STACKING as STACKING_DIRECTION_Z_STACKING
 
     class StackingDirection(uno.Enum):
         """
@@ -34,21 +38,21 @@ if TYPE_CHECKING:
         See Also:
             `API StackingDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#ad5b96f2511266754f439e0cfdbe44545>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.StackingDirection', value)
 
-        NO_STACKING: StackingDirection = ...
+        __ooo_ns__: str = 'com.sun.star.chart2'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.StackingDirection'
+        __ooo_type_name__: str = 'enum'
+
+        NO_STACKING: StackingDirection = STACKING_DIRECTION_NO_STACKING
         """
         """
-        Y_STACKING: StackingDirection = ...
+        Y_STACKING: StackingDirection = STACKING_DIRECTION_Y_STACKING
         """
         """
-        Z_STACKING: StackingDirection = ...
+        Z_STACKING: StackingDirection = STACKING_DIRECTION_Z_STACKING
         """
         """
 
@@ -60,4 +64,3 @@ else:
         pass
 
 __all__ = ['StackingDirection']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextureProjectionMode import OBJECTSPECIFIC as TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC
+    from com.sun.star.drawing.TextureProjectionMode import PARALLEL as TEXTURE_PROJECTION_MODE_PARALLEL
+    from com.sun.star.drawing.TextureProjectionMode import SPHERE as TEXTURE_PROJECTION_MODE_SPHERE
 
     class TextureProjectionMode(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API TextureProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ae1e109a5c70543e3b92db3b854fd3acb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextureProjectionMode', value)
 
-        OBJECTSPECIFIC: TextureProjectionMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextureProjectionMode'
+        __ooo_type_name__: str = 'enum'
+
+        OBJECTSPECIFIC: TextureProjectionMode = TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC
         """
         This value specifies that the standard object projection method is used.
         """
-        PARALLEL: TextureProjectionMode = ...
+        PARALLEL: TextureProjectionMode = TEXTURE_PROJECTION_MODE_PARALLEL
         """
         the 3D objects are drawn in the parallel projection.
         
         This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
         """
-        SPHERE: TextureProjectionMode = ...
+        SPHERE: TextureProjectionMode = TEXTURE_PROJECTION_MODE_SPHERE
         """
         forces normals to think that the object is a sphere.
         
@@ -66,4 +70,3 @@ else:
         pass
 
 __all__ = ['TextureProjectionMode']
-

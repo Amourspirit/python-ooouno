@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.TableOrientation import COLUMNS as TABLE_ORIENTATION_COLUMNS
+    from com.sun.star.table.TableOrientation import ROWS as TABLE_ORIENTATION_ROWS
 
     class TableOrientation(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API TableOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a2b2c6150472f0123357a2273c315401c>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.TableOrientation', value)
 
-        COLUMNS: TableOrientation = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.TableOrientation'
+        __ooo_type_name__: str = 'enum'
+
+        COLUMNS: TableOrientation = TABLE_ORIENTATION_COLUMNS
         """
         operations are carried out on columns.
         """
-        ROWS: TableOrientation = ...
+        ROWS: TableOrientation = TABLE_ORIENTATION_ROWS
         """
         operations are carried out on rows.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['TableOrientation']
-

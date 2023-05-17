@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.PieChartOffsetMode import ALL_EXPLODED as PIE_CHART_OFFSET_MODE_ALL_EXPLODED
+    from com.sun.star.chart2.PieChartOffsetMode import NONE as PIE_CHART_OFFSET_MODE_NONE
 
     class PieChartOffsetMode(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API PieChartOffsetMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aa17c0b28cca2adc2be9b3c5954111489>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.PieChartOffsetMode', value)
 
-        ALL_EXPLODED: PieChartOffsetMode = ...
+        __ooo_ns__: str = 'com.sun.star.chart2'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.PieChartOffsetMode'
+        __ooo_type_name__: str = 'enum'
+
+        ALL_EXPLODED: PieChartOffsetMode = PIE_CHART_OFFSET_MODE_ALL_EXPLODED
         """
         All pies are exploded by a certain percentage.
         
         The default is 10 percent.
         """
-        NONE: PieChartOffsetMode = ...
+        NONE: PieChartOffsetMode = PIE_CHART_OFFSET_MODE_NONE
         """
         Default, no pies are exploded.
         
@@ -64,4 +67,3 @@ else:
         pass
 
 __all__ = ['PieChartOffsetMode']
-

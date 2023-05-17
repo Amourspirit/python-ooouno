@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.AxisOrientation import MATHEMATICAL as AXIS_ORIENTATION_MATHEMATICAL
+    from com.sun.star.chart2.AxisOrientation import REVERSE as AXIS_ORIENTATION_REVERSE
 
     class AxisOrientation(uno.Enum):
         """
@@ -34,19 +37,19 @@ if TYPE_CHECKING:
         See Also:
             `API AxisOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aceb583a87538899d77ffbe62d2176a43>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.AxisOrientation', value)
 
-        MATHEMATICAL: AxisOrientation = ...
+        __ooo_ns__: str = 'com.sun.star.chart2'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
+        __ooo_type_name__: str = 'enum'
+
+        MATHEMATICAL: AxisOrientation = AXIS_ORIENTATION_MATHEMATICAL
         """
         means equal to the primary writing direction
         """
-        REVERSE: AxisOrientation = ...
+        REVERSE: AxisOrientation = AXIS_ORIENTATION_REVERSE
         """
         means the opposite of the primary writing direction
         """
@@ -59,4 +62,3 @@ else:
         pass
 
 __all__ = ['AxisOrientation']
-

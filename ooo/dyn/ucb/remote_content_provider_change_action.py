@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.RemoteContentProviderChangeAction import ADDED as REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_ADDED
+    from com.sun.star.ucb.RemoteContentProviderChangeAction import REMOVED as REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_REMOVED
 
     class RemoteContentProviderChangeAction(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API RemoteContentProviderChangeAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#abe4a959f1ea6647971dafe5b6c90c7ec>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.RemoteContentProviderChangeAction', value)
 
-        ADDED: RemoteContentProviderChangeAction = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.RemoteContentProviderChangeAction'
+        __ooo_type_name__: str = 'enum'
+
+        ADDED: RemoteContentProviderChangeAction = REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_ADDED
         """
         The indicator that a remote content provider has been added.
         """
-        REMOVED: RemoteContentProviderChangeAction = ...
+        REMOVED: RemoteContentProviderChangeAction = REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_REMOVED
         """
         The indicator that a remote content provider has been removed.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['RemoteContentProviderChangeAction']
-

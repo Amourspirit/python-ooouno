@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.LineJoint import BEVEL as LINE_JOINT_BEVEL
+    from com.sun.star.drawing.LineJoint import MIDDLE as LINE_JOINT_MIDDLE
+    from com.sun.star.drawing.LineJoint import MITER as LINE_JOINT_MITER
+    from com.sun.star.drawing.LineJoint import NONE as LINE_JOINT_NONE
+    from com.sun.star.drawing.LineJoint import ROUND as LINE_JOINT_ROUND
 
     class LineJoint(uno.Enum):
         """
@@ -33,27 +39,27 @@ if TYPE_CHECKING:
         See Also:
             `API LineJoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa36e7b530c7d0049f623b0effe54d04f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.LineJoint', value)
 
-        BEVEL: LineJoint = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.LineJoint'
+        __ooo_type_name__: str = 'enum'
+
+        BEVEL: LineJoint = LINE_JOINT_BEVEL
         """
         the edges of the thick lines will be joined by lines
         """
-        MIDDLE: LineJoint = ...
+        MIDDLE: LineJoint = LINE_JOINT_MIDDLE
         """
         the middle value between the joints is used
         """
-        MITER: LineJoint = ...
+        MITER: LineJoint = LINE_JOINT_MITER
         """
         the lines join at intersections
         """
-        NONE: LineJoint = ...
+        NONE: LineJoint = LINE_JOINT_NONE
         """
         the area is not filled.
         
@@ -67,7 +73,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        ROUND: LineJoint = ...
+        ROUND: LineJoint = LINE_JOINT_ROUND
         """
         the dash is a point
         
@@ -84,4 +90,3 @@ else:
         pass
 
 __all__ = ['LineJoint']
-

@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartDataRowSource import COLUMNS as CHART_DATA_ROW_SOURCE_COLUMNS
+    from com.sun.star.chart.ChartDataRowSource import ROWS as CHART_DATA_ROW_SOURCE_ROWS
 
     class ChartDataRowSource(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API ChartDataRowSource <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a0fb4f8088715abb6eb51a29c4bd79cce>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartDataRowSource', value)
 
-        COLUMNS: ChartDataRowSource = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
+        __ooo_type_name__: str = 'enum'
+
+        COLUMNS: ChartDataRowSource = CHART_DATA_ROW_SOURCE_COLUMNS
         """
         values displayed as data rows are taken from the columns of the data source.
         """
-        ROWS: ChartDataRowSource = ...
+        ROWS: ChartDataRowSource = CHART_DATA_ROW_SOURCE_ROWS
         """
         values displayed as data rows are taken from the rows of the data source.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['ChartDataRowSource']
-

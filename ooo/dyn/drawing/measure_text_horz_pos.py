@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.MeasureTextHorzPos import AUTO as MEASURE_TEXT_HORZ_POS_AUTO
+    from com.sun.star.drawing.MeasureTextHorzPos import INSIDE as MEASURE_TEXT_HORZ_POS_INSIDE
+    from com.sun.star.drawing.MeasureTextHorzPos import LEFTOUTSIDE as MEASURE_TEXT_HORZ_POS_LEFTOUTSIDE
+    from com.sun.star.drawing.MeasureTextHorzPos import RIGHTOUTSIDE as MEASURE_TEXT_HORZ_POS_RIGHTOUTSIDE
 
     class MeasureTextHorzPos(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API MeasureTextHorzPos <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a38140d53071a431128aa968be9ce4b7d>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.MeasureTextHorzPos', value)
 
-        AUTO: MeasureTextHorzPos = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextHorzPos'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_AUTO
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        INSIDE: MeasureTextHorzPos = ...
+        INSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_INSIDE
         """
         """
-        LEFTOUTSIDE: MeasureTextHorzPos = ...
+        LEFTOUTSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_LEFTOUTSIDE
         """
         """
-        RIGHTOUTSIDE: MeasureTextHorzPos = ...
+        RIGHTOUTSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_RIGHTOUTSIDE
         """
         """
 
@@ -65,4 +70,3 @@ else:
         pass
 
 __all__ = ['MeasureTextHorzPos']
-

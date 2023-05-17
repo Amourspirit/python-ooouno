@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextAnimationDirection import DOWN as TEXT_ANIMATION_DIRECTION_DOWN
+    from com.sun.star.drawing.TextAnimationDirection import LEFT as TEXT_ANIMATION_DIRECTION_LEFT
+    from com.sun.star.drawing.TextAnimationDirection import RIGHT as TEXT_ANIMATION_DIRECTION_RIGHT
+    from com.sun.star.drawing.TextAnimationDirection import UP as TEXT_ANIMATION_DIRECTION_UP
 
     class TextAnimationDirection(uno.Enum):
         """
@@ -33,18 +38,18 @@ if TYPE_CHECKING:
         See Also:
             `API TextAnimationDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a218f9e180f159784cd3e33cef99bfe86>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextAnimationDirection', value)
 
-        DOWN: TextAnimationDirection = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationDirection'
+        __ooo_type_name__: str = 'enum'
+
+        DOWN: TextAnimationDirection = TEXT_ANIMATION_DIRECTION_DOWN
         """
         """
-        LEFT: TextAnimationDirection = ...
+        LEFT: TextAnimationDirection = TEXT_ANIMATION_DIRECTION_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -52,7 +57,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: TextAnimationDirection = ...
+        RIGHT: TextAnimationDirection = TEXT_ANIMATION_DIRECTION_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -60,7 +65,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        UP: TextAnimationDirection = ...
+        UP: TextAnimationDirection = TEXT_ANIMATION_DIRECTION_UP
         """
         """
 
@@ -72,4 +77,3 @@ else:
         pass
 
 __all__ = ['TextAnimationDirection']
-

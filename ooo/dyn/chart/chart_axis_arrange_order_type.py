@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartAxisArrangeOrderType import AUTO as CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
+    from com.sun.star.chart.ChartAxisArrangeOrderType import SIDE_BY_SIDE as CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
+    from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_EVEN as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
+    from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_ODD as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
 
     class ChartAxisArrangeOrderType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API ChartAxisArrangeOrderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a9c06520c0f143b00b5aaafeb4772dc39>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartAxisArrangeOrderType', value)
 
-        AUTO: ChartAxisArrangeOrderType = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
         """
         The descriptions are arranged automatically.
         """
-        SIDE_BY_SIDE: ChartAxisArrangeOrderType = ...
+        SIDE_BY_SIDE: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
         """
         The descriptions are arranged side by side.
         """
-        STAGGER_EVEN: ChartAxisArrangeOrderType = ...
+        STAGGER_EVEN: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
         """
         The descriptions are alternately put on two lines with the even values out of the normal line.
         """
-        STAGGER_ODD: ChartAxisArrangeOrderType = ...
+        STAGGER_ODD: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
         """
         The descriptions are alternately put on two lines with the odd values out of the normal line.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['ChartAxisArrangeOrderType']
-

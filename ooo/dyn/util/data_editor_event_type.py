@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.util.DataEditorEventType import CANCELED as DATA_EDITOR_EVENT_TYPE_CANCELED
+    from com.sun.star.util.DataEditorEventType import DONE as DATA_EDITOR_EVENT_TYPE_DONE
 
     class DataEditorEventType(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API DataEditorEventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a78015743cb8b25dbfc2b64889f6bd261>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.util.DataEditorEventType', value)
 
-        CANCELED: DataEditorEventType = ...
+        __ooo_ns__: str = 'com.sun.star.util'
+        __ooo_full_ns__: str = 'com.sun.star.util.DataEditorEventType'
+        __ooo_type_name__: str = 'enum'
+
+        CANCELED: DataEditorEventType = DATA_EDITOR_EVENT_TYPE_CANCELED
         """
         specifies that the data editing was canceled by the user (data not stored).
         """
-        DONE: DataEditorEventType = ...
+        DONE: DataEditorEventType = DATA_EDITOR_EVENT_TYPE_DONE
         """
         specifies that the data editing is done (data stored).
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['DataEditorEventType']
-

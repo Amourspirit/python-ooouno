@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.CellHoriJustify import BLOCK as CELL_HORI_JUSTIFY_BLOCK
+    from com.sun.star.table.CellHoriJustify import CENTER as CELL_HORI_JUSTIFY_CENTER
+    from com.sun.star.table.CellHoriJustify import LEFT as CELL_HORI_JUSTIFY_LEFT
+    from com.sun.star.table.CellHoriJustify import REPEAT as CELL_HORI_JUSTIFY_REPEAT
+    from com.sun.star.table.CellHoriJustify import RIGHT as CELL_HORI_JUSTIFY_RIGHT
+    from com.sun.star.table.CellHoriJustify import STANDARD as CELL_HORI_JUSTIFY_STANDARD
 
     class CellHoriJustify(uno.Enum):
         """
@@ -33,37 +40,37 @@ if TYPE_CHECKING:
         See Also:
             `API CellHoriJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ab3c576b107bd5018643ab5612438fdf2>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.CellHoriJustify', value)
 
-        BLOCK: CellHoriJustify = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.CellHoriJustify'
+        __ooo_type_name__: str = 'enum'
+
+        BLOCK: CellHoriJustify = CELL_HORI_JUSTIFY_BLOCK
         """
         contents are justified to the cell width.
         """
-        CENTER: CellHoriJustify = ...
+        CENTER: CellHoriJustify = CELL_HORI_JUSTIFY_CENTER
         """
         contents are horizontally centered.
         
         contents are aligned to the vertical middle of the cell.
         """
-        LEFT: CellHoriJustify = ...
+        LEFT: CellHoriJustify = CELL_HORI_JUSTIFY_LEFT
         """
         contents are aligned to the left edge of the cell.
         """
-        REPEAT: CellHoriJustify = ...
+        REPEAT: CellHoriJustify = CELL_HORI_JUSTIFY_REPEAT
         """
         contents are repeated to fill the cell.
         """
-        RIGHT: CellHoriJustify = ...
+        RIGHT: CellHoriJustify = CELL_HORI_JUSTIFY_RIGHT
         """
         contents are aligned to the right edge of the cell.
         """
-        STANDARD: CellHoriJustify = ...
+        STANDARD: CellHoriJustify = CELL_HORI_JUSTIFY_STANDARD
         """
         default alignment is used (left for numbers, right for text).
         
@@ -80,4 +87,3 @@ else:
         pass
 
 __all__ = ['CellHoriJustify']
-

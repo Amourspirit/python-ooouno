@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.TransferCommandOperation import COPY as TRANSFER_COMMAND_OPERATION_COPY
+    from com.sun.star.ucb.TransferCommandOperation import LINK as TRANSFER_COMMAND_OPERATION_LINK
+    from com.sun.star.ucb.TransferCommandOperation import MOVE as TRANSFER_COMMAND_OPERATION_MOVE
 
     class TransferCommandOperation(uno.Enum):
         """
@@ -33,27 +37,27 @@ if TYPE_CHECKING:
         See Also:
             `API TransferCommandOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ab7b6f3480b7c1c53e953d42a066614b4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.TransferCommandOperation', value)
 
-        COPY: TransferCommandOperation = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.TransferCommandOperation'
+        __ooo_type_name__: str = 'enum'
+
+        COPY: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_COPY
         """
         Copy the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        LINK: TransferCommandOperation = ...
+        LINK: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_LINK
         """
         Create a link in the target folder.
         
         The link's target is the source object.
         """
-        MOVE: TransferCommandOperation = ...
+        MOVE: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_MOVE
         """
         Move the source to the target folder.
         
@@ -68,4 +72,3 @@ else:
         pass
 
 __all__ = ['TransferCommandOperation']
-

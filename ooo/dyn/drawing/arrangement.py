@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.Arrangement import BACK as ARRANGEMENT_BACK
+    from com.sun.star.drawing.Arrangement import FRONT as ARRANGEMENT_FRONT
+    from com.sun.star.drawing.Arrangement import MORE_BACK as ARRANGEMENT_MORE_BACK
+    from com.sun.star.drawing.Arrangement import MORE_FRONT as ARRANGEMENT_MORE_FRONT
 
     class Arrangement(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API Arrangement <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ac4d32be4f663e5f65aa208c47e1faa81>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.Arrangement', value)
 
-        BACK: Arrangement = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.Arrangement'
+        __ooo_type_name__: str = 'enum'
+
+        BACK: Arrangement = ARRANGEMENT_BACK
         """
         Move this object behind all other objects.
         """
-        FRONT: Arrangement = ...
+        FRONT: Arrangement = ARRANGEMENT_FRONT
         """
         Move this object in front of all other objects.
         """
-        MORE_BACK: Arrangement = ...
+        MORE_BACK: Arrangement = ARRANGEMENT_MORE_BACK
         """
         Move this object one object more to the back.
         """
-        MORE_FRONT: Arrangement = ...
+        MORE_FRONT: Arrangement = ARRANGEMENT_MORE_FRONT
         """
         Move this object one object more to the front.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['Arrangement']
-

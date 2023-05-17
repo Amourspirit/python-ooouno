@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.view.SelectionType import MULTI as SELECTION_TYPE_MULTI
+    from com.sun.star.view.SelectionType import NONE as SELECTION_TYPE_NONE
+    from com.sun.star.view.SelectionType import RANGE as SELECTION_TYPE_RANGE
+    from com.sun.star.view.SelectionType import SINGLE as SELECTION_TYPE_SINGLE
 
     class SelectionType(uno.Enum):
         """
@@ -33,31 +38,31 @@ if TYPE_CHECKING:
         See Also:
             `API SelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#acffca3b33fddce63d3220bc7487e879d>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.view.SelectionType', value)
 
-        MULTI: SelectionType = ...
+        __ooo_ns__: str = 'com.sun.star.view'
+        __ooo_full_ns__: str = 'com.sun.star.view.SelectionType'
+        __ooo_type_name__: str = 'enum'
+
+        MULTI: SelectionType = SELECTION_TYPE_MULTI
         """
         The selection can contain zero or more objects.
         """
-        NONE: SelectionType = ...
+        NONE: SelectionType = SELECTION_TYPE_NONE
         """
         No selection is possible.
         
         The selection is always empty.
         """
-        RANGE: SelectionType = ...
+        RANGE: SelectionType = SELECTION_TYPE_RANGE
         """
         The selection can contain zero or more objects.
         
         all selected objects must be part of a continues range
         """
-        SINGLE: SelectionType = ...
+        SINGLE: SelectionType = SELECTION_TYPE_SINGLE
         """
         The selection can only contain one or zero objects.
         """
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['SelectionType']
-

@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.ConnectionType import AUTO as CONNECTION_TYPE_AUTO
+    from com.sun.star.drawing.ConnectionType import BOTTOM as CONNECTION_TYPE_BOTTOM
+    from com.sun.star.drawing.ConnectionType import LEFT as CONNECTION_TYPE_LEFT
+    from com.sun.star.drawing.ConnectionType import RIGHT as CONNECTION_TYPE_RIGHT
+    from com.sun.star.drawing.ConnectionType import SPECIAL as CONNECTION_TYPE_SPECIAL
+    from com.sun.star.drawing.ConnectionType import TOP as CONNECTION_TYPE_TOP
 
     class ConnectionType(uno.Enum):
         """
@@ -33,21 +40,21 @@ if TYPE_CHECKING:
         See Also:
             `API ConnectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa1f0e2efd52935fd01bfece0fbead81f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.ConnectionType', value)
 
-        AUTO: ConnectionType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectionType'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: ConnectionType = CONNECTION_TYPE_AUTO
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BOTTOM: ConnectionType = ...
+        BOTTOM: ConnectionType = CONNECTION_TYPE_BOTTOM
         """
         the connection line leaves the connected object from the bottom,
         
@@ -55,7 +62,7 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        LEFT: ConnectionType = ...
+        LEFT: ConnectionType = CONNECTION_TYPE_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -63,7 +70,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: ConnectionType = ...
+        RIGHT: ConnectionType = CONNECTION_TYPE_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -71,13 +78,13 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        SPECIAL: ConnectionType = ...
+        SPECIAL: ConnectionType = CONNECTION_TYPE_SPECIAL
         """
         not implemented, yet.
         
         deprecated
         """
-        TOP: ConnectionType = ...
+        TOP: ConnectionType = CONNECTION_TYPE_TOP
         """
         the connection line leaves the connected object from the top,
         
@@ -94,4 +101,3 @@ else:
         pass
 
 __all__ = ['ConnectionType']
-

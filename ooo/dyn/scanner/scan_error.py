@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.scanner.ScanError import InvalidContext as SCAN_ERROR_InvalidContext
+    from com.sun.star.scanner.ScanError import ScanCanceled as SCAN_ERROR_ScanCanceled
+    from com.sun.star.scanner.ScanError import ScanErrorNone as SCAN_ERROR_ScanErrorNone
+    from com.sun.star.scanner.ScanError import ScanFailed as SCAN_ERROR_ScanFailed
+    from com.sun.star.scanner.ScanError import ScanInProgress as SCAN_ERROR_ScanInProgress
+    from com.sun.star.scanner.ScanError import ScannerNotAvailable as SCAN_ERROR_ScannerNotAvailable
 
     class ScanError(uno.Enum):
         """
@@ -33,35 +40,35 @@ if TYPE_CHECKING:
         See Also:
             `API ScanError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1scanner.html#abd1619ea132004db8599d9529755e9ab>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.scanner.ScanError', value)
 
-        InvalidContext: ScanError = ...
+        __ooo_ns__: str = 'com.sun.star.scanner'
+        __ooo_full_ns__: str = 'com.sun.star.scanner.ScanError'
+        __ooo_type_name__: str = 'enum'
+
+        InvalidContext: ScanError = SCAN_ERROR_InvalidContext
         """
         InvalidContext: a device was requested that does not exist.
         """
-        ScanCanceled: ScanError = ...
+        ScanCanceled: ScanError = SCAN_ERROR_ScanCanceled
         """
         ScanCanceled: the scan was canceled by the user.
         """
-        ScanErrorNone: ScanError = ...
+        ScanErrorNone: ScanError = SCAN_ERROR_ScanErrorNone
         """
         ScanErrorNone: no error occurred.
         """
-        ScanFailed: ScanError = ...
+        ScanFailed: ScanError = SCAN_ERROR_ScanFailed
         """
         ScanFailed: an error occurred during scanning.
         """
-        ScanInProgress: ScanError = ...
+        ScanInProgress: ScanError = SCAN_ERROR_ScanInProgress
         """
         ScanInProgress: a scan is already in progress on this device that has to end before a new one can be started.
         """
-        ScannerNotAvailable: ScanError = ...
+        ScannerNotAvailable: ScanError = SCAN_ERROR_ScannerNotAvailable
         """
         ScannerNotAvailable: the requested device could not be opened.
         """
@@ -74,4 +81,3 @@ else:
         pass
 
 __all__ = ['ScanError']
-

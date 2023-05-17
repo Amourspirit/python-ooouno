@@ -20,10 +20,43 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.uno.TypeClass import ANY as TYPE_CLASS_ANY
+    from com.sun.star.uno.TypeClass import ARRAY as TYPE_CLASS_ARRAY
+    from com.sun.star.uno.TypeClass import BOOLEAN as TYPE_CLASS_BOOLEAN
+    from com.sun.star.uno.TypeClass import BYTE as TYPE_CLASS_BYTE
+    from com.sun.star.uno.TypeClass import CHAR as TYPE_CLASS_CHAR
+    from com.sun.star.uno.TypeClass import CONSTANT as TYPE_CLASS_CONSTANT
+    from com.sun.star.uno.TypeClass import CONSTANTS as TYPE_CLASS_CONSTANTS
+    from com.sun.star.uno.TypeClass import DOUBLE as TYPE_CLASS_DOUBLE
+    from com.sun.star.uno.TypeClass import ENUM as TYPE_CLASS_ENUM
+    from com.sun.star.uno.TypeClass import EXCEPTION as TYPE_CLASS_EXCEPTION
+    from com.sun.star.uno.TypeClass import FLOAT as TYPE_CLASS_FLOAT
+    from com.sun.star.uno.TypeClass import HYPER as TYPE_CLASS_HYPER
+    from com.sun.star.uno.TypeClass import INTERFACE as TYPE_CLASS_INTERFACE
+    from com.sun.star.uno.TypeClass import INTERFACE_ATTRIBUTE as TYPE_CLASS_INTERFACE_ATTRIBUTE
+    from com.sun.star.uno.TypeClass import INTERFACE_METHOD as TYPE_CLASS_INTERFACE_METHOD
+    from com.sun.star.uno.TypeClass import LONG as TYPE_CLASS_LONG
+    from com.sun.star.uno.TypeClass import MODULE as TYPE_CLASS_MODULE
+    from com.sun.star.uno.TypeClass import PROPERTY as TYPE_CLASS_PROPERTY
+    from com.sun.star.uno.TypeClass import SEQUENCE as TYPE_CLASS_SEQUENCE
+    from com.sun.star.uno.TypeClass import SERVICE as TYPE_CLASS_SERVICE
+    from com.sun.star.uno.TypeClass import SHORT as TYPE_CLASS_SHORT
+    from com.sun.star.uno.TypeClass import SINGLETON as TYPE_CLASS_SINGLETON
+    from com.sun.star.uno.TypeClass import STRING as TYPE_CLASS_STRING
+    from com.sun.star.uno.TypeClass import STRUCT as TYPE_CLASS_STRUCT
+    from com.sun.star.uno.TypeClass import TYPE as TYPE_CLASS_TYPE
+    from com.sun.star.uno.TypeClass import TYPEDEF as TYPE_CLASS_TYPEDEF
+    from com.sun.star.uno.TypeClass import UNION as TYPE_CLASS_UNION
+    from com.sun.star.uno.TypeClass import UNKNOWN as TYPE_CLASS_UNKNOWN
+    from com.sun.star.uno.TypeClass import UNSIGNED_HYPER as TYPE_CLASS_UNSIGNED_HYPER
+    from com.sun.star.uno.TypeClass import UNSIGNED_LONG as TYPE_CLASS_UNSIGNED_LONG
+    from com.sun.star.uno.TypeClass import UNSIGNED_SHORT as TYPE_CLASS_UNSIGNED_SHORT
+    from com.sun.star.uno.TypeClass import VOID as TYPE_CLASS_VOID
 
     class TypeClass(uno.Enum):
         """
@@ -33,139 +66,139 @@ if TYPE_CHECKING:
         See Also:
             `API TypeClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uno.html#a00683ed3ec24b47c36ead10a20d6f328>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.uno.TypeClass', value)
 
-        ANY: TypeClass = ...
+        __ooo_ns__: str = 'com.sun.star.uno'
+        __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
+        __ooo_type_name__: str = 'enum'
+
+        ANY: TypeClass = TYPE_CLASS_ANY
         """
         reflecting the any type; anys can carry any UNO value except of any values
         """
-        ARRAY: TypeClass = ...
+        ARRAY: TypeClass = TYPE_CLASS_ARRAY
         """
         Deprecated, UNOIDL does not have an array concept.
         """
-        BOOLEAN: TypeClass = ...
+        BOOLEAN: TypeClass = TYPE_CLASS_BOOLEAN
         """
         reflecting the boolean type; true and false
         """
-        BYTE: TypeClass = ...
+        BYTE: TypeClass = TYPE_CLASS_BYTE
         """
         reflecting the 8-bit ordinal type
         """
-        CHAR: TypeClass = ...
+        CHAR: TypeClass = TYPE_CLASS_CHAR
         """
         reflecting the 16-bit unicode character type
         """
-        CONSTANT: TypeClass = ...
+        CONSTANT: TypeClass = TYPE_CLASS_CONSTANT
         """
         reflecting constants
         """
-        CONSTANTS: TypeClass = ...
+        CONSTANTS: TypeClass = TYPE_CLASS_CONSTANTS
         """
         reflecting constants groups
         """
-        DOUBLE: TypeClass = ...
+        DOUBLE: TypeClass = TYPE_CLASS_DOUBLE
         """
         reflecting the 64-bit floating point type
         """
-        ENUM: TypeClass = ...
+        ENUM: TypeClass = TYPE_CLASS_ENUM
         """
         reflecting enum types
         """
-        EXCEPTION: TypeClass = ...
+        EXCEPTION: TypeClass = TYPE_CLASS_EXCEPTION
         """
         reflecting exception types
         """
-        FLOAT: TypeClass = ...
+        FLOAT: TypeClass = TYPE_CLASS_FLOAT
         """
         reflecting the 32-bit floating point type
         """
-        HYPER: TypeClass = ...
+        HYPER: TypeClass = TYPE_CLASS_HYPER
         """
         reflecting the signed 64-bit ordinal type
         """
-        INTERFACE: TypeClass = ...
+        INTERFACE: TypeClass = TYPE_CLASS_INTERFACE
         """
         reflecting interface types
         """
-        INTERFACE_ATTRIBUTE: TypeClass = ...
+        INTERFACE_ATTRIBUTE: TypeClass = TYPE_CLASS_INTERFACE_ATTRIBUTE
         """
         reflecting interface attributes
         """
-        INTERFACE_METHOD: TypeClass = ...
+        INTERFACE_METHOD: TypeClass = TYPE_CLASS_INTERFACE_METHOD
         """
         reflecting interface methods
         """
-        LONG: TypeClass = ...
+        LONG: TypeClass = TYPE_CLASS_LONG
         """
         reflecting the signed 32-bit ordinal type
         """
-        MODULE: TypeClass = ...
+        MODULE: TypeClass = TYPE_CLASS_MODULE
         """
         reflecting modules
         """
-        PROPERTY: TypeClass = ...
+        PROPERTY: TypeClass = TYPE_CLASS_PROPERTY
         """
         reflecting properties
         """
-        SEQUENCE: TypeClass = ...
+        SEQUENCE: TypeClass = TYPE_CLASS_SEQUENCE
         """
         reflecting sequence types
         """
-        SERVICE: TypeClass = ...
+        SERVICE: TypeClass = TYPE_CLASS_SERVICE
         """
         reflecting services
         """
-        SHORT: TypeClass = ...
+        SHORT: TypeClass = TYPE_CLASS_SHORT
         """
         reflecting the signed 16-bit ordinal type
         """
-        SINGLETON: TypeClass = ...
+        SINGLETON: TypeClass = TYPE_CLASS_SINGLETON
         """
         reflecting singletons
         """
-        STRING: TypeClass = ...
+        STRING: TypeClass = TYPE_CLASS_STRING
         """
         reflecting the string type; strings of unicode characters
         """
-        STRUCT: TypeClass = ...
+        STRUCT: TypeClass = TYPE_CLASS_STRUCT
         """
         reflecting compound types
         """
-        TYPE: TypeClass = ...
+        TYPE: TypeClass = TYPE_CLASS_TYPE
         """
         reflecting the meta type
         """
-        TYPEDEF: TypeClass = ...
+        TYPEDEF: TypeClass = TYPE_CLASS_TYPEDEF
         """
         reflecting typedefed types referencing other types
         """
-        UNION: TypeClass = ...
+        UNION: TypeClass = TYPE_CLASS_UNION
         """
         Deprecated, UNOIDL does not have a union concept.
         """
-        UNKNOWN: TypeClass = ...
+        UNKNOWN: TypeClass = TYPE_CLASS_UNKNOWN
         """
         reflecting the unreflectable type
         """
-        UNSIGNED_HYPER: TypeClass = ...
+        UNSIGNED_HYPER: TypeClass = TYPE_CLASS_UNSIGNED_HYPER
         """
         reflecting the unsigned 64-bit ordinal type
         """
-        UNSIGNED_LONG: TypeClass = ...
+        UNSIGNED_LONG: TypeClass = TYPE_CLASS_UNSIGNED_LONG
         """
         reflecting the unsigned 32-bit type
         """
-        UNSIGNED_SHORT: TypeClass = ...
+        UNSIGNED_SHORT: TypeClass = TYPE_CLASS_UNSIGNED_SHORT
         """
         reflecting the unsigned 16-bit ordinal type
         """
-        VOID: TypeClass = ...
+        VOID: TypeClass = TYPE_CLASS_VOID
         """
         reflecting the void type; denotes no type
         """
@@ -178,4 +211,3 @@ else:
         pass
 
 __all__ = ['TypeClass']
-

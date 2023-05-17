@@ -20,10 +20,99 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.i18n.UnicodeScript import kAlphabeticPresentation as UNICODE_SCRIPT_kAlphabeticPresentation
+    from com.sun.star.i18n.UnicodeScript import kArabic as UNICODE_SCRIPT_kArabic
+    from com.sun.star.i18n.UnicodeScript import kArabicPresentationA as UNICODE_SCRIPT_kArabicPresentationA
+    from com.sun.star.i18n.UnicodeScript import kArabicPresentationB as UNICODE_SCRIPT_kArabicPresentationB
+    from com.sun.star.i18n.UnicodeScript import kArmenian as UNICODE_SCRIPT_kArmenian
+    from com.sun.star.i18n.UnicodeScript import kArrow as UNICODE_SCRIPT_kArrow
+    from com.sun.star.i18n.UnicodeScript import kBasicLatin as UNICODE_SCRIPT_kBasicLatin
+    from com.sun.star.i18n.UnicodeScript import kBengali as UNICODE_SCRIPT_kBengali
+    from com.sun.star.i18n.UnicodeScript import kBlockElement as UNICODE_SCRIPT_kBlockElement
+    from com.sun.star.i18n.UnicodeScript import kBopomofo as UNICODE_SCRIPT_kBopomofo
+    from com.sun.star.i18n.UnicodeScript import kBopomofoExtended as UNICODE_SCRIPT_kBopomofoExtended
+    from com.sun.star.i18n.UnicodeScript import kBoxDrawing as UNICODE_SCRIPT_kBoxDrawing
+    from com.sun.star.i18n.UnicodeScript import kBraillePatterns as UNICODE_SCRIPT_kBraillePatterns
+    from com.sun.star.i18n.UnicodeScript import kCJKCompatibility as UNICODE_SCRIPT_kCJKCompatibility
+    from com.sun.star.i18n.UnicodeScript import kCJKCompatibilityForm as UNICODE_SCRIPT_kCJKCompatibilityForm
+    from com.sun.star.i18n.UnicodeScript import kCJKCompatibilityIdeograph as UNICODE_SCRIPT_kCJKCompatibilityIdeograph
+    from com.sun.star.i18n.UnicodeScript import kCJKRadicalsSupplement as UNICODE_SCRIPT_kCJKRadicalsSupplement
+    from com.sun.star.i18n.UnicodeScript import kCJKSymbolPunctuation as UNICODE_SCRIPT_kCJKSymbolPunctuation
+    from com.sun.star.i18n.UnicodeScript import kCJKUnifiedIdeograph as UNICODE_SCRIPT_kCJKUnifiedIdeograph
+    from com.sun.star.i18n.UnicodeScript import kCJKUnifiedIdeographsExtensionA as UNICODE_SCRIPT_kCJKUnifiedIdeographsExtensionA
+    from com.sun.star.i18n.UnicodeScript import kCherokee as UNICODE_SCRIPT_kCherokee
+    from com.sun.star.i18n.UnicodeScript import kCombiningDiacritical as UNICODE_SCRIPT_kCombiningDiacritical
+    from com.sun.star.i18n.UnicodeScript import kCombiningHalfMark as UNICODE_SCRIPT_kCombiningHalfMark
+    from com.sun.star.i18n.UnicodeScript import kControlPicture as UNICODE_SCRIPT_kControlPicture
+    from com.sun.star.i18n.UnicodeScript import kCurrencySymbolScript as UNICODE_SCRIPT_kCurrencySymbolScript
+    from com.sun.star.i18n.UnicodeScript import kCyrillic as UNICODE_SCRIPT_kCyrillic
+    from com.sun.star.i18n.UnicodeScript import kDevanagari as UNICODE_SCRIPT_kDevanagari
+    from com.sun.star.i18n.UnicodeScript import kDingbat as UNICODE_SCRIPT_kDingbat
+    from com.sun.star.i18n.UnicodeScript import kEnclosedAlphanumeric as UNICODE_SCRIPT_kEnclosedAlphanumeric
+    from com.sun.star.i18n.UnicodeScript import kEnclosedCJKLetterMonth as UNICODE_SCRIPT_kEnclosedCJKLetterMonth
+    from com.sun.star.i18n.UnicodeScript import kEthiopic as UNICODE_SCRIPT_kEthiopic
+    from com.sun.star.i18n.UnicodeScript import kGeneralPunctuation as UNICODE_SCRIPT_kGeneralPunctuation
+    from com.sun.star.i18n.UnicodeScript import kGeometricShape as UNICODE_SCRIPT_kGeometricShape
+    from com.sun.star.i18n.UnicodeScript import kGeorgian as UNICODE_SCRIPT_kGeorgian
+    from com.sun.star.i18n.UnicodeScript import kGreek as UNICODE_SCRIPT_kGreek
+    from com.sun.star.i18n.UnicodeScript import kGreekExtended as UNICODE_SCRIPT_kGreekExtended
+    from com.sun.star.i18n.UnicodeScript import kGujarati as UNICODE_SCRIPT_kGujarati
+    from com.sun.star.i18n.UnicodeScript import kGurmukhi as UNICODE_SCRIPT_kGurmukhi
+    from com.sun.star.i18n.UnicodeScript import kHalfwidthFullwidthForm as UNICODE_SCRIPT_kHalfwidthFullwidthForm
+    from com.sun.star.i18n.UnicodeScript import kHangulCompatibilityJamo as UNICODE_SCRIPT_kHangulCompatibilityJamo
+    from com.sun.star.i18n.UnicodeScript import kHangulJamo as UNICODE_SCRIPT_kHangulJamo
+    from com.sun.star.i18n.UnicodeScript import kHangulSyllable as UNICODE_SCRIPT_kHangulSyllable
+    from com.sun.star.i18n.UnicodeScript import kHebrew as UNICODE_SCRIPT_kHebrew
+    from com.sun.star.i18n.UnicodeScript import kHighPrivateUseSurrogate as UNICODE_SCRIPT_kHighPrivateUseSurrogate
+    from com.sun.star.i18n.UnicodeScript import kHighSurrogate as UNICODE_SCRIPT_kHighSurrogate
+    from com.sun.star.i18n.UnicodeScript import kHiragana as UNICODE_SCRIPT_kHiragana
+    from com.sun.star.i18n.UnicodeScript import kIPAExtension as UNICODE_SCRIPT_kIPAExtension
+    from com.sun.star.i18n.UnicodeScript import kIdeographicDescriptionCharacters as UNICODE_SCRIPT_kIdeographicDescriptionCharacters
+    from com.sun.star.i18n.UnicodeScript import kKanbun as UNICODE_SCRIPT_kKanbun
+    from com.sun.star.i18n.UnicodeScript import kKangxiRadicals as UNICODE_SCRIPT_kKangxiRadicals
+    from com.sun.star.i18n.UnicodeScript import kKannada as UNICODE_SCRIPT_kKannada
+    from com.sun.star.i18n.UnicodeScript import kKatakana as UNICODE_SCRIPT_kKatakana
+    from com.sun.star.i18n.UnicodeScript import kKhmer as UNICODE_SCRIPT_kKhmer
+    from com.sun.star.i18n.UnicodeScript import kLao as UNICODE_SCRIPT_kLao
+    from com.sun.star.i18n.UnicodeScript import kLatin1Supplement as UNICODE_SCRIPT_kLatin1Supplement
+    from com.sun.star.i18n.UnicodeScript import kLatinExtendedA as UNICODE_SCRIPT_kLatinExtendedA
+    from com.sun.star.i18n.UnicodeScript import kLatinExtendedAdditional as UNICODE_SCRIPT_kLatinExtendedAdditional
+    from com.sun.star.i18n.UnicodeScript import kLatinExtendedB as UNICODE_SCRIPT_kLatinExtendedB
+    from com.sun.star.i18n.UnicodeScript import kLetterlikeSymbol as UNICODE_SCRIPT_kLetterlikeSymbol
+    from com.sun.star.i18n.UnicodeScript import kLowSurrogate as UNICODE_SCRIPT_kLowSurrogate
+    from com.sun.star.i18n.UnicodeScript import kMalayalam as UNICODE_SCRIPT_kMalayalam
+    from com.sun.star.i18n.UnicodeScript import kMathOperator as UNICODE_SCRIPT_kMathOperator
+    from com.sun.star.i18n.UnicodeScript import kMiscSymbol as UNICODE_SCRIPT_kMiscSymbol
+    from com.sun.star.i18n.UnicodeScript import kMiscTechnical as UNICODE_SCRIPT_kMiscTechnical
+    from com.sun.star.i18n.UnicodeScript import kMongolian as UNICODE_SCRIPT_kMongolian
+    from com.sun.star.i18n.UnicodeScript import kMyanmar as UNICODE_SCRIPT_kMyanmar
+    from com.sun.star.i18n.UnicodeScript import kNoScript as UNICODE_SCRIPT_kNoScript
+    from com.sun.star.i18n.UnicodeScript import kNumberForm as UNICODE_SCRIPT_kNumberForm
+    from com.sun.star.i18n.UnicodeScript import kOgham as UNICODE_SCRIPT_kOgham
+    from com.sun.star.i18n.UnicodeScript import kOpticalCharacter as UNICODE_SCRIPT_kOpticalCharacter
+    from com.sun.star.i18n.UnicodeScript import kOriya as UNICODE_SCRIPT_kOriya
+    from com.sun.star.i18n.UnicodeScript import kPrivateUse as UNICODE_SCRIPT_kPrivateUse
+    from com.sun.star.i18n.UnicodeScript import kRunic as UNICODE_SCRIPT_kRunic
+    from com.sun.star.i18n.UnicodeScript import kScriptCount as UNICODE_SCRIPT_kScriptCount
+    from com.sun.star.i18n.UnicodeScript import kSinhala as UNICODE_SCRIPT_kSinhala
+    from com.sun.star.i18n.UnicodeScript import kSmallFormVariant as UNICODE_SCRIPT_kSmallFormVariant
+    from com.sun.star.i18n.UnicodeScript import kSpacingModifier as UNICODE_SCRIPT_kSpacingModifier
+    from com.sun.star.i18n.UnicodeScript import kSuperSubScript as UNICODE_SCRIPT_kSuperSubScript
+    from com.sun.star.i18n.UnicodeScript import kSymbolCombiningMark as UNICODE_SCRIPT_kSymbolCombiningMark
+    from com.sun.star.i18n.UnicodeScript import kSyriac as UNICODE_SCRIPT_kSyriac
+    from com.sun.star.i18n.UnicodeScript import kTamil as UNICODE_SCRIPT_kTamil
+    from com.sun.star.i18n.UnicodeScript import kTelugu as UNICODE_SCRIPT_kTelugu
+    from com.sun.star.i18n.UnicodeScript import kThaana as UNICODE_SCRIPT_kThaana
+    from com.sun.star.i18n.UnicodeScript import kThai as UNICODE_SCRIPT_kThai
+    from com.sun.star.i18n.UnicodeScript import kTibetan as UNICODE_SCRIPT_kTibetan
+    from com.sun.star.i18n.UnicodeScript import kUnifiedCanadianAboriginalSyllabics as UNICODE_SCRIPT_kUnifiedCanadianAboriginalSyllabics
+    from com.sun.star.i18n.UnicodeScript import kYiRadicals as UNICODE_SCRIPT_kYiRadicals
+    from com.sun.star.i18n.UnicodeScript import kYiSyllables as UNICODE_SCRIPT_kYiSyllables
 
     class UnicodeScript(uno.Enum):
         """
@@ -33,276 +122,276 @@ if TYPE_CHECKING:
         See Also:
             `API UnicodeScript <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a47be7d1d06e067d647f387cc160d5e29>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.i18n.UnicodeScript', value)
 
-        kAlphabeticPresentation: UnicodeScript = ...
+        __ooo_ns__: str = 'com.sun.star.i18n'
+        __ooo_full_ns__: str = 'com.sun.star.i18n.UnicodeScript'
+        __ooo_type_name__: str = 'enum'
+
+        kAlphabeticPresentation: UnicodeScript = UNICODE_SCRIPT_kAlphabeticPresentation
         """
         """
-        kArabic: UnicodeScript = ...
+        kArabic: UnicodeScript = UNICODE_SCRIPT_kArabic
         """
         """
-        kArabicPresentationA: UnicodeScript = ...
+        kArabicPresentationA: UnicodeScript = UNICODE_SCRIPT_kArabicPresentationA
         """
         """
-        kArabicPresentationB: UnicodeScript = ...
+        kArabicPresentationB: UnicodeScript = UNICODE_SCRIPT_kArabicPresentationB
         """
         """
-        kArmenian: UnicodeScript = ...
+        kArmenian: UnicodeScript = UNICODE_SCRIPT_kArmenian
         """
         """
-        kArrow: UnicodeScript = ...
+        kArrow: UnicodeScript = UNICODE_SCRIPT_kArrow
         """
         """
-        kBasicLatin: UnicodeScript = ...
+        kBasicLatin: UnicodeScript = UNICODE_SCRIPT_kBasicLatin
         """
         """
-        kBengali: UnicodeScript = ...
+        kBengali: UnicodeScript = UNICODE_SCRIPT_kBengali
         """
         """
-        kBlockElement: UnicodeScript = ...
+        kBlockElement: UnicodeScript = UNICODE_SCRIPT_kBlockElement
         """
         """
-        kBopomofo: UnicodeScript = ...
+        kBopomofo: UnicodeScript = UNICODE_SCRIPT_kBopomofo
         """
         """
-        kBopomofoExtended: UnicodeScript = ...
+        kBopomofoExtended: UnicodeScript = UNICODE_SCRIPT_kBopomofoExtended
         """
         """
-        kBoxDrawing: UnicodeScript = ...
+        kBoxDrawing: UnicodeScript = UNICODE_SCRIPT_kBoxDrawing
         """
         """
-        kBraillePatterns: UnicodeScript = ...
+        kBraillePatterns: UnicodeScript = UNICODE_SCRIPT_kBraillePatterns
         """
         """
-        kCJKCompatibility: UnicodeScript = ...
+        kCJKCompatibility: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibility
         """
         """
-        kCJKCompatibilityForm: UnicodeScript = ...
+        kCJKCompatibilityForm: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibilityForm
         """
         """
-        kCJKCompatibilityIdeograph: UnicodeScript = ...
+        kCJKCompatibilityIdeograph: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibilityIdeograph
         """
         """
-        kCJKRadicalsSupplement: UnicodeScript = ...
+        kCJKRadicalsSupplement: UnicodeScript = UNICODE_SCRIPT_kCJKRadicalsSupplement
         """
         """
-        kCJKSymbolPunctuation: UnicodeScript = ...
+        kCJKSymbolPunctuation: UnicodeScript = UNICODE_SCRIPT_kCJKSymbolPunctuation
         """
         """
-        kCJKUnifiedIdeograph: UnicodeScript = ...
+        kCJKUnifiedIdeograph: UnicodeScript = UNICODE_SCRIPT_kCJKUnifiedIdeograph
         """
         """
-        kCJKUnifiedIdeographsExtensionA: UnicodeScript = ...
+        kCJKUnifiedIdeographsExtensionA: UnicodeScript = UNICODE_SCRIPT_kCJKUnifiedIdeographsExtensionA
         """
         """
-        kCherokee: UnicodeScript = ...
+        kCherokee: UnicodeScript = UNICODE_SCRIPT_kCherokee
         """
         """
-        kCombiningDiacritical: UnicodeScript = ...
+        kCombiningDiacritical: UnicodeScript = UNICODE_SCRIPT_kCombiningDiacritical
         """
         """
-        kCombiningHalfMark: UnicodeScript = ...
+        kCombiningHalfMark: UnicodeScript = UNICODE_SCRIPT_kCombiningHalfMark
         """
         """
-        kControlPicture: UnicodeScript = ...
+        kControlPicture: UnicodeScript = UNICODE_SCRIPT_kControlPicture
         """
         """
-        kCurrencySymbolScript: UnicodeScript = ...
+        kCurrencySymbolScript: UnicodeScript = UNICODE_SCRIPT_kCurrencySymbolScript
         """
         """
-        kCyrillic: UnicodeScript = ...
+        kCyrillic: UnicodeScript = UNICODE_SCRIPT_kCyrillic
         """
         """
-        kDevanagari: UnicodeScript = ...
+        kDevanagari: UnicodeScript = UNICODE_SCRIPT_kDevanagari
         """
         """
-        kDingbat: UnicodeScript = ...
+        kDingbat: UnicodeScript = UNICODE_SCRIPT_kDingbat
         """
         """
-        kEnclosedAlphanumeric: UnicodeScript = ...
+        kEnclosedAlphanumeric: UnicodeScript = UNICODE_SCRIPT_kEnclosedAlphanumeric
         """
         """
-        kEnclosedCJKLetterMonth: UnicodeScript = ...
+        kEnclosedCJKLetterMonth: UnicodeScript = UNICODE_SCRIPT_kEnclosedCJKLetterMonth
         """
         """
-        kEthiopic: UnicodeScript = ...
+        kEthiopic: UnicodeScript = UNICODE_SCRIPT_kEthiopic
         """
         """
-        kGeneralPunctuation: UnicodeScript = ...
+        kGeneralPunctuation: UnicodeScript = UNICODE_SCRIPT_kGeneralPunctuation
         """
         """
-        kGeometricShape: UnicodeScript = ...
+        kGeometricShape: UnicodeScript = UNICODE_SCRIPT_kGeometricShape
         """
         """
-        kGeorgian: UnicodeScript = ...
+        kGeorgian: UnicodeScript = UNICODE_SCRIPT_kGeorgian
         """
         """
-        kGreek: UnicodeScript = ...
+        kGreek: UnicodeScript = UNICODE_SCRIPT_kGreek
         """
         """
-        kGreekExtended: UnicodeScript = ...
+        kGreekExtended: UnicodeScript = UNICODE_SCRIPT_kGreekExtended
         """
         """
-        kGujarati: UnicodeScript = ...
+        kGujarati: UnicodeScript = UNICODE_SCRIPT_kGujarati
         """
         """
-        kGurmukhi: UnicodeScript = ...
+        kGurmukhi: UnicodeScript = UNICODE_SCRIPT_kGurmukhi
         """
         """
-        kHalfwidthFullwidthForm: UnicodeScript = ...
+        kHalfwidthFullwidthForm: UnicodeScript = UNICODE_SCRIPT_kHalfwidthFullwidthForm
         """
         """
-        kHangulCompatibilityJamo: UnicodeScript = ...
+        kHangulCompatibilityJamo: UnicodeScript = UNICODE_SCRIPT_kHangulCompatibilityJamo
         """
         """
-        kHangulJamo: UnicodeScript = ...
+        kHangulJamo: UnicodeScript = UNICODE_SCRIPT_kHangulJamo
         """
         """
-        kHangulSyllable: UnicodeScript = ...
+        kHangulSyllable: UnicodeScript = UNICODE_SCRIPT_kHangulSyllable
         """
         """
-        kHebrew: UnicodeScript = ...
+        kHebrew: UnicodeScript = UNICODE_SCRIPT_kHebrew
         """
         """
-        kHighPrivateUseSurrogate: UnicodeScript = ...
+        kHighPrivateUseSurrogate: UnicodeScript = UNICODE_SCRIPT_kHighPrivateUseSurrogate
         """
         """
-        kHighSurrogate: UnicodeScript = ...
+        kHighSurrogate: UnicodeScript = UNICODE_SCRIPT_kHighSurrogate
         """
         """
-        kHiragana: UnicodeScript = ...
+        kHiragana: UnicodeScript = UNICODE_SCRIPT_kHiragana
         """
         """
-        kIPAExtension: UnicodeScript = ...
+        kIPAExtension: UnicodeScript = UNICODE_SCRIPT_kIPAExtension
         """
         """
-        kIdeographicDescriptionCharacters: UnicodeScript = ...
+        kIdeographicDescriptionCharacters: UnicodeScript = UNICODE_SCRIPT_kIdeographicDescriptionCharacters
         """
         """
-        kKanbun: UnicodeScript = ...
+        kKanbun: UnicodeScript = UNICODE_SCRIPT_kKanbun
         """
         """
-        kKangxiRadicals: UnicodeScript = ...
+        kKangxiRadicals: UnicodeScript = UNICODE_SCRIPT_kKangxiRadicals
         """
         """
-        kKannada: UnicodeScript = ...
+        kKannada: UnicodeScript = UNICODE_SCRIPT_kKannada
         """
         """
-        kKatakana: UnicodeScript = ...
+        kKatakana: UnicodeScript = UNICODE_SCRIPT_kKatakana
         """
         """
-        kKhmer: UnicodeScript = ...
+        kKhmer: UnicodeScript = UNICODE_SCRIPT_kKhmer
         """
         """
-        kLao: UnicodeScript = ...
+        kLao: UnicodeScript = UNICODE_SCRIPT_kLao
         """
         """
-        kLatin1Supplement: UnicodeScript = ...
+        kLatin1Supplement: UnicodeScript = UNICODE_SCRIPT_kLatin1Supplement
         """
         """
-        kLatinExtendedA: UnicodeScript = ...
+        kLatinExtendedA: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedA
         """
         """
-        kLatinExtendedAdditional: UnicodeScript = ...
+        kLatinExtendedAdditional: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedAdditional
         """
         """
-        kLatinExtendedB: UnicodeScript = ...
+        kLatinExtendedB: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedB
         """
         """
-        kLetterlikeSymbol: UnicodeScript = ...
+        kLetterlikeSymbol: UnicodeScript = UNICODE_SCRIPT_kLetterlikeSymbol
         """
         """
-        kLowSurrogate: UnicodeScript = ...
+        kLowSurrogate: UnicodeScript = UNICODE_SCRIPT_kLowSurrogate
         """
         """
-        kMalayalam: UnicodeScript = ...
+        kMalayalam: UnicodeScript = UNICODE_SCRIPT_kMalayalam
         """
         """
-        kMathOperator: UnicodeScript = ...
+        kMathOperator: UnicodeScript = UNICODE_SCRIPT_kMathOperator
         """
         """
-        kMiscSymbol: UnicodeScript = ...
+        kMiscSymbol: UnicodeScript = UNICODE_SCRIPT_kMiscSymbol
         """
         """
-        kMiscTechnical: UnicodeScript = ...
+        kMiscTechnical: UnicodeScript = UNICODE_SCRIPT_kMiscTechnical
         """
         """
-        kMongolian: UnicodeScript = ...
+        kMongolian: UnicodeScript = UNICODE_SCRIPT_kMongolian
         """
         """
-        kMyanmar: UnicodeScript = ...
+        kMyanmar: UnicodeScript = UNICODE_SCRIPT_kMyanmar
         """
         """
-        kNoScript: UnicodeScript = ...
+        kNoScript: UnicodeScript = UNICODE_SCRIPT_kNoScript
         """
         """
-        kNumberForm: UnicodeScript = ...
+        kNumberForm: UnicodeScript = UNICODE_SCRIPT_kNumberForm
         """
         """
-        kOgham: UnicodeScript = ...
+        kOgham: UnicodeScript = UNICODE_SCRIPT_kOgham
         """
         """
-        kOpticalCharacter: UnicodeScript = ...
+        kOpticalCharacter: UnicodeScript = UNICODE_SCRIPT_kOpticalCharacter
         """
         """
-        kOriya: UnicodeScript = ...
+        kOriya: UnicodeScript = UNICODE_SCRIPT_kOriya
         """
         """
-        kPrivateUse: UnicodeScript = ...
+        kPrivateUse: UnicodeScript = UNICODE_SCRIPT_kPrivateUse
         """
         """
-        kRunic: UnicodeScript = ...
+        kRunic: UnicodeScript = UNICODE_SCRIPT_kRunic
         """
         """
-        kScriptCount: UnicodeScript = ...
+        kScriptCount: UnicodeScript = UNICODE_SCRIPT_kScriptCount
         """
         """
-        kSinhala: UnicodeScript = ...
+        kSinhala: UnicodeScript = UNICODE_SCRIPT_kSinhala
         """
         """
-        kSmallFormVariant: UnicodeScript = ...
+        kSmallFormVariant: UnicodeScript = UNICODE_SCRIPT_kSmallFormVariant
         """
         """
-        kSpacingModifier: UnicodeScript = ...
+        kSpacingModifier: UnicodeScript = UNICODE_SCRIPT_kSpacingModifier
         """
         """
-        kSuperSubScript: UnicodeScript = ...
+        kSuperSubScript: UnicodeScript = UNICODE_SCRIPT_kSuperSubScript
         """
         """
-        kSymbolCombiningMark: UnicodeScript = ...
+        kSymbolCombiningMark: UnicodeScript = UNICODE_SCRIPT_kSymbolCombiningMark
         """
         """
-        kSyriac: UnicodeScript = ...
+        kSyriac: UnicodeScript = UNICODE_SCRIPT_kSyriac
         """
         """
-        kTamil: UnicodeScript = ...
+        kTamil: UnicodeScript = UNICODE_SCRIPT_kTamil
         """
         """
-        kTelugu: UnicodeScript = ...
+        kTelugu: UnicodeScript = UNICODE_SCRIPT_kTelugu
         """
         """
-        kThaana: UnicodeScript = ...
+        kThaana: UnicodeScript = UNICODE_SCRIPT_kThaana
         """
         """
-        kThai: UnicodeScript = ...
+        kThai: UnicodeScript = UNICODE_SCRIPT_kThai
         """
         """
-        kTibetan: UnicodeScript = ...
+        kTibetan: UnicodeScript = UNICODE_SCRIPT_kTibetan
         """
         """
-        kUnifiedCanadianAboriginalSyllabics: UnicodeScript = ...
+        kUnifiedCanadianAboriginalSyllabics: UnicodeScript = UNICODE_SCRIPT_kUnifiedCanadianAboriginalSyllabics
         """
         """
-        kYiRadicals: UnicodeScript = ...
+        kYiRadicals: UnicodeScript = UNICODE_SCRIPT_kYiRadicals
         """
         """
-        kYiSyllables: UnicodeScript = ...
+        kYiSyllables: UnicodeScript = UNICODE_SCRIPT_kYiSyllables
         """
         """
 
@@ -314,4 +403,3 @@ else:
         pass
 
 __all__ = ['UnicodeScript']
-

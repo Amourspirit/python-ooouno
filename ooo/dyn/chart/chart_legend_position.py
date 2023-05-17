@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartLegendPosition import BOTTOM as CHART_LEGEND_POSITION_BOTTOM
+    from com.sun.star.chart.ChartLegendPosition import LEFT as CHART_LEGEND_POSITION_LEFT
+    from com.sun.star.chart.ChartLegendPosition import NONE as CHART_LEGEND_POSITION_NONE
+    from com.sun.star.chart.ChartLegendPosition import RIGHT as CHART_LEGEND_POSITION_RIGHT
+    from com.sun.star.chart.ChartLegendPosition import TOP as CHART_LEGEND_POSITION_TOP
 
     class ChartLegendPosition(uno.Enum):
         """
@@ -33,23 +39,23 @@ if TYPE_CHECKING:
         See Also:
             `API ChartLegendPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a65c2b55fdf73cbbf2fdcfef7d305b6c3>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartLegendPosition', value)
 
-        BOTTOM: ChartLegendPosition = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendPosition'
+        __ooo_type_name__: str = 'enum'
+
+        BOTTOM: ChartLegendPosition = CHART_LEGEND_POSITION_BOTTOM
         """
         displays the chart legend beneath the diagram.
         """
-        LEFT: ChartLegendPosition = ...
+        LEFT: ChartLegendPosition = CHART_LEGEND_POSITION_LEFT
         """
         displays the chart legend on the left side of the diagram.
         """
-        NONE: ChartLegendPosition = ...
+        NONE: ChartLegendPosition = CHART_LEGEND_POSITION_NONE
         """
         error indicators are not displayed.
         
@@ -59,11 +65,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        RIGHT: ChartLegendPosition = ...
+        RIGHT: ChartLegendPosition = CHART_LEGEND_POSITION_RIGHT
         """
         displays the chart legend on the right side of the diagram.
         """
-        TOP: ChartLegendPosition = ...
+        TOP: ChartLegendPosition = CHART_LEGEND_POSITION_TOP
         """
         displays the chart legend above the diagram.
         """
@@ -76,4 +82,3 @@ else:
         pass
 
 __all__ = ['ChartLegendPosition']
-

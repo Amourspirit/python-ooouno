@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.mozilla.MozillaProductType import Default as MOZILLA_PRODUCT_TYPE_Default
+    from com.sun.star.mozilla.MozillaProductType import Firefox as MOZILLA_PRODUCT_TYPE_Firefox
+    from com.sun.star.mozilla.MozillaProductType import Mozilla as MOZILLA_PRODUCT_TYPE_Mozilla
+    from com.sun.star.mozilla.MozillaProductType import Thunderbird as MOZILLA_PRODUCT_TYPE_Thunderbird
 
     class MozillaProductType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API MozillaProductType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mozilla.html#a2bcdf854763e98ee224085041ac2ffa5>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.mozilla.MozillaProductType', value)
 
-        Default: MozillaProductType = ...
+        __ooo_ns__: str = 'com.sun.star.mozilla'
+        __ooo_full_ns__: str = 'com.sun.star.mozilla.MozillaProductType'
+        __ooo_type_name__: str = 'enum'
+
+        Default: MozillaProductType = MOZILLA_PRODUCT_TYPE_Default
         """
         Any product.
         """
-        Firefox: MozillaProductType = ...
+        Firefox: MozillaProductType = MOZILLA_PRODUCT_TYPE_Firefox
         """
         Mozilla's next generation web browser.
         """
-        Mozilla: MozillaProductType = ...
+        Mozilla: MozillaProductType = MOZILLA_PRODUCT_TYPE_Mozilla
         """
         Mozilla browse and mail suite.
         """
-        Thunderbird: MozillaProductType = ...
+        Thunderbird: MozillaProductType = MOZILLA_PRODUCT_TYPE_Thunderbird
         """
         Mozilla's next generation e-mail client.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['MozillaProductType']
-

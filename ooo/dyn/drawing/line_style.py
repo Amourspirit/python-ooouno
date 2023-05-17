@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.LineStyle import DASH as LINE_STYLE_DASH
+    from com.sun.star.drawing.LineStyle import NONE as LINE_STYLE_NONE
+    from com.sun.star.drawing.LineStyle import SOLID as LINE_STYLE_SOLID
 
     class LineStyle(uno.Enum):
         """
@@ -33,19 +37,19 @@ if TYPE_CHECKING:
         See Also:
             `API LineStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a86e0f5648542856159bb40775c854aa7>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.LineStyle', value)
 
-        DASH: LineStyle = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.LineStyle'
+        __ooo_type_name__: str = 'enum'
+
+        DASH: LineStyle = LINE_STYLE_DASH
         """
         the line use dashes.
         """
-        NONE: LineStyle = ...
+        NONE: LineStyle = LINE_STYLE_NONE
         """
         the area is not filled.
         
@@ -59,7 +63,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SOLID: LineStyle = ...
+        SOLID: LineStyle = LINE_STYLE_SOLID
         """
         use a solid color to fill the area.
         
@@ -74,4 +78,3 @@ else:
         pass
 
 __all__ = ['LineStyle']
-

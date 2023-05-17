@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.PageNumberType import CURRENT as PAGE_NUMBER_TYPE_CURRENT
+    from com.sun.star.text.PageNumberType import NEXT as PAGE_NUMBER_TYPE_NEXT
+    from com.sun.star.text.PageNumberType import PREV as PAGE_NUMBER_TYPE_PREV
 
     class PageNumberType(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API PageNumberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#aeffd73e249af906f303724f66f1f01c5>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.PageNumberType', value)
 
-        CURRENT: PageNumberType = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
+        __ooo_type_name__: str = 'enum'
+
+        CURRENT: PageNumberType = PAGE_NUMBER_TYPE_CURRENT
         """
         The number of the current page is displayed.
         """
-        NEXT: PageNumberType = ...
+        NEXT: PageNumberType = PAGE_NUMBER_TYPE_NEXT
         """
         The number of the next page is displayed if there is any, otherwise the field is empty.
         """
-        PREV: PageNumberType = ...
+        PREV: PageNumberType = PAGE_NUMBER_TYPE_PREV
         """
         The number of the previous page is displayed if there is any, otherwise the field is empty.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['PageNumberType']
-

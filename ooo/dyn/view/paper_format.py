@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.view.PaperFormat import A3 as PAPER_FORMAT_A3
+    from com.sun.star.view.PaperFormat import A4 as PAPER_FORMAT_A4
+    from com.sun.star.view.PaperFormat import A5 as PAPER_FORMAT_A5
+    from com.sun.star.view.PaperFormat import B4 as PAPER_FORMAT_B4
+    from com.sun.star.view.PaperFormat import B5 as PAPER_FORMAT_B5
+    from com.sun.star.view.PaperFormat import LEGAL as PAPER_FORMAT_LEGAL
+    from com.sun.star.view.PaperFormat import LETTER as PAPER_FORMAT_LETTER
+    from com.sun.star.view.PaperFormat import TABLOID as PAPER_FORMAT_TABLOID
+    from com.sun.star.view.PaperFormat import USER as PAPER_FORMAT_USER
 
     class PaperFormat(uno.Enum):
         """
@@ -33,47 +43,47 @@ if TYPE_CHECKING:
         See Also:
             `API PaperFormat <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a12ab04987d08416f8347a9790c7abf3e>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.view.PaperFormat', value)
 
-        A3: PaperFormat = ...
+        __ooo_ns__: str = 'com.sun.star.view'
+        __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
+        __ooo_type_name__: str = 'enum'
+
+        A3: PaperFormat = PAPER_FORMAT_A3
         """
         specifies the paper format as A3.
         """
-        A4: PaperFormat = ...
+        A4: PaperFormat = PAPER_FORMAT_A4
         """
         specifies the paper format as A4.
         """
-        A5: PaperFormat = ...
+        A5: PaperFormat = PAPER_FORMAT_A5
         """
         specifies the paper format as A5.
         """
-        B4: PaperFormat = ...
+        B4: PaperFormat = PAPER_FORMAT_B4
         """
         specifies the paper format as B4.
         """
-        B5: PaperFormat = ...
+        B5: PaperFormat = PAPER_FORMAT_B5
         """
         specifies the paper format as B5.
         """
-        LEGAL: PaperFormat = ...
+        LEGAL: PaperFormat = PAPER_FORMAT_LEGAL
         """
         specifies the paper format as Legal.
         """
-        LETTER: PaperFormat = ...
+        LETTER: PaperFormat = PAPER_FORMAT_LETTER
         """
         specifies the paper format as Letter.
         """
-        TABLOID: PaperFormat = ...
+        TABLOID: PaperFormat = PAPER_FORMAT_TABLOID
         """
         specifies the paper format as Tabloid.
         """
-        USER: PaperFormat = ...
+        USER: PaperFormat = PAPER_FORMAT_USER
         """
         The real paper size is user defined in 100th mm.
         """
@@ -86,4 +96,3 @@ else:
         pass
 
 __all__ = ['PaperFormat']
-

@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextAnimationKind import ALTERNATE as TEXT_ANIMATION_KIND_ALTERNATE
+    from com.sun.star.drawing.TextAnimationKind import BLINK as TEXT_ANIMATION_KIND_BLINK
+    from com.sun.star.drawing.TextAnimationKind import NONE as TEXT_ANIMATION_KIND_NONE
+    from com.sun.star.drawing.TextAnimationKind import SCROLL as TEXT_ANIMATION_KIND_SCROLL
+    from com.sun.star.drawing.TextAnimationKind import SLIDE as TEXT_ANIMATION_KIND_SLIDE
 
     class TextAnimationKind(uno.Enum):
         """
@@ -33,23 +39,23 @@ if TYPE_CHECKING:
         See Also:
             `API TextAnimationKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a86ab93c592ed65e3f2cd0eebaf5660a2>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextAnimationKind', value)
 
-        ALTERNATE: TextAnimationKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationKind'
+        __ooo_type_name__: str = 'enum'
+
+        ALTERNATE: TextAnimationKind = TEXT_ANIMATION_KIND_ALTERNATE
         """
         Scroll the text from one side to the other and back.
         """
-        BLINK: TextAnimationKind = ...
+        BLINK: TextAnimationKind = TEXT_ANIMATION_KIND_BLINK
         """
         Let this text switch its state from visible to invisible continuously.
         """
-        NONE: TextAnimationKind = ...
+        NONE: TextAnimationKind = TEXT_ANIMATION_KIND_NONE
         """
         the area is not filled.
         
@@ -63,11 +69,11 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SCROLL: TextAnimationKind = ...
+        SCROLL: TextAnimationKind = TEXT_ANIMATION_KIND_SCROLL
         """
         Let this text scroll.
         """
-        SLIDE: TextAnimationKind = ...
+        SLIDE: TextAnimationKind = TEXT_ANIMATION_KIND_SLIDE
         """
         Scroll the text from one side to the final position and stop there.
         """
@@ -80,4 +86,3 @@ else:
         pass
 
 __all__ = ['TextAnimationKind']
-

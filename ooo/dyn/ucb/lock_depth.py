@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.LockDepth import INFINITY as LOCK_DEPTH_INFINITY
+    from com.sun.star.ucb.LockDepth import ONE as LOCK_DEPTH_ONE
+    from com.sun.star.ucb.LockDepth import ZERO as LOCK_DEPTH_ZERO
 
     class LockDepth(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API LockDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a01e925906d2f84e461036af17439e9ca>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.LockDepth', value)
 
-        INFINITY: LockDepth = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.LockDepth'
+        __ooo_type_name__: str = 'enum'
+
+        INFINITY: LockDepth = LOCK_DEPTH_INFINITY
         """
         Infinity (includes children and children's children and ...).
         """
-        ONE: LockDepth = ...
+        ONE: LockDepth = LOCK_DEPTH_ONE
         """
         One (includes children).
         """
-        ZERO: LockDepth = ...
+        ZERO: LockDepth = LOCK_DEPTH_ZERO
         """
         Zero (includes no children).
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['LockDepth']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.TableSortFieldType import ALPHANUMERIC as TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
+    from com.sun.star.table.TableSortFieldType import AUTOMATIC as TABLE_SORT_FIELD_TYPE_AUTOMATIC
+    from com.sun.star.table.TableSortFieldType import NUMERIC as TABLE_SORT_FIELD_TYPE_NUMERIC
 
     class TableSortFieldType(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API TableSortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a8f4f5a263cd762ae00ab0f462ed1ae1c>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.TableSortFieldType', value)
 
-        ALPHANUMERIC: TableSortFieldType = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.TableSortFieldType'
+        __ooo_type_name__: str = 'enum'
+
+        ALPHANUMERIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
         """
         sort field contains text data.
         """
-        AUTOMATIC: TableSortFieldType = ...
+        AUTOMATIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_AUTOMATIC
         """
         type is determined automatically.
         """
-        NUMERIC: TableSortFieldType = ...
+        NUMERIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_NUMERIC
         """
         sort field contains numerical data.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['TableSortFieldType']
-

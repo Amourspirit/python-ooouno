@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.ConnectorType import CURVE as CONNECTOR_TYPE_CURVE
+    from com.sun.star.drawing.ConnectorType import LINE as CONNECTOR_TYPE_LINE
+    from com.sun.star.drawing.ConnectorType import LINES as CONNECTOR_TYPE_LINES
+    from com.sun.star.drawing.ConnectorType import STANDARD as CONNECTOR_TYPE_STANDARD
 
     class ConnectorType(uno.Enum):
         """
@@ -33,29 +38,29 @@ if TYPE_CHECKING:
         See Also:
             `API ConnectorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a086c6f6507c67c8809b218d90998c5d6>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.ConnectorType', value)
 
-        CURVE: ConnectorType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectorType'
+        __ooo_type_name__: str = 'enum'
+
+        CURVE: ConnectorType = CONNECTOR_TYPE_CURVE
         """
         the ConnectorShape is drawn as a curve
         """
-        LINE: ConnectorType = ...
+        LINE: ConnectorType = CONNECTOR_TYPE_LINE
         """
         the ConnectorShape is drawn as a straight line
         
         This is the PolygonKind for a LineShape.
         """
-        LINES: ConnectorType = ...
+        LINES: ConnectorType = CONNECTOR_TYPE_LINES
         """
         the connector is drawn with three lines
         """
-        STANDARD: ConnectorType = ...
+        STANDARD: ConnectorType = CONNECTOR_TYPE_STANDARD
         """
         the graphic is rendered in the default color style of the output device,
         
@@ -72,4 +77,3 @@ else:
         pass
 
 __all__ = ['ConnectorType']
-

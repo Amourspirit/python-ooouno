@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.style.HorizontalAlignment import CENTER as HORIZONTAL_ALIGNMENT_CENTER
+    from com.sun.star.style.HorizontalAlignment import LEFT as HORIZONTAL_ALIGNMENT_LEFT
+    from com.sun.star.style.HorizontalAlignment import RIGHT as HORIZONTAL_ALIGNMENT_RIGHT
 
     class HorizontalAlignment(uno.Enum):
         """
@@ -33,15 +37,15 @@ if TYPE_CHECKING:
         See Also:
             `API HorizontalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#aa00e70829e72ff16addc4d9f06fe3bc5>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.style.HorizontalAlignment', value)
 
-        CENTER: HorizontalAlignment = ...
+        __ooo_ns__: str = 'com.sun.star.style'
+        __ooo_full_ns__: str = 'com.sun.star.style.HorizontalAlignment'
+        __ooo_type_name__: str = 'enum'
+
+        CENTER: HorizontalAlignment = HORIZONTAL_ALIGNMENT_CENTER
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -49,7 +53,7 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        LEFT: HorizontalAlignment = ...
+        LEFT: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -59,7 +63,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: HorizontalAlignment = ...
+        RIGHT: HorizontalAlignment = HORIZONTAL_ALIGNMENT_RIGHT
         """
         set the horizontal alignment to the right margin from the container object
         
@@ -78,4 +82,3 @@ else:
         pass
 
 __all__ = ['HorizontalAlignment']
-

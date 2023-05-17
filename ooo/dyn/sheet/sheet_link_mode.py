@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.SheetLinkMode import NONE as SHEET_LINK_MODE_NONE
+    from com.sun.star.sheet.SheetLinkMode import NORMAL as SHEET_LINK_MODE_NORMAL
+    from com.sun.star.sheet.SheetLinkMode import VALUE as SHEET_LINK_MODE_VALUE
 
     class SheetLinkMode(uno.Enum):
         """
@@ -33,15 +37,15 @@ if TYPE_CHECKING:
         See Also:
             `API SheetLinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a34cdda19a5183f39256021e0c2bc46cc>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.SheetLinkMode', value)
 
-        NONE: SheetLinkMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.SheetLinkMode'
+        __ooo_type_name__: str = 'enum'
+
+        NONE: SheetLinkMode = SHEET_LINK_MODE_NONE
         """
         no cells are moved.
         
@@ -55,11 +59,11 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        NORMAL: SheetLinkMode = ...
+        NORMAL: SheetLinkMode = SHEET_LINK_MODE_NORMAL
         """
         all contents (values and formulas) are copied.
         """
-        VALUE: SheetLinkMode = ...
+        VALUE: SheetLinkMode = SHEET_LINK_MODE_VALUE
         """
         instead of using formulas, the result values are copied.
         """
@@ -72,4 +76,3 @@ else:
         pass
 
 __all__ = ['SheetLinkMode']
-

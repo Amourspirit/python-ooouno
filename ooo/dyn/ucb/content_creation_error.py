@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.ContentCreationError import CONTENT_CREATION_FAILED as CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED
+    from com.sun.star.ucb.ContentCreationError import IDENTIFIER_CREATION_FAILED as CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED
+    from com.sun.star.ucb.ContentCreationError import NO_CONTENT_BROKER as CONTENT_CREATION_ERROR_NO_CONTENT_BROKER
+    from com.sun.star.ucb.ContentCreationError import NO_CONTENT_PROVIDER as CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER
+    from com.sun.star.ucb.ContentCreationError import NO_IDENTIFIER_FACTORY as CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY
+    from com.sun.star.ucb.ContentCreationError import UNKNOWN as CONTENT_CREATION_ERROR_UNKNOWN
 
     class ContentCreationError(uno.Enum):
         """
@@ -33,33 +40,33 @@ if TYPE_CHECKING:
         See Also:
             `API ContentCreationError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa2e437022c4d519cf5488a06e5e81ef4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.ContentCreationError', value)
 
-        CONTENT_CREATION_FAILED: ContentCreationError = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.ContentCreationError'
+        __ooo_type_name__: str = 'enum'
+
+        CONTENT_CREATION_FAILED: ContentCreationError = CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED
         """
         Provider was unable to create the content instance.
         """
-        IDENTIFIER_CREATION_FAILED: ContentCreationError = ...
+        IDENTIFIER_CREATION_FAILED: ContentCreationError = CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED
         """
         Creation of content identifier failed.
         """
-        NO_CONTENT_BROKER: ContentCreationError = ...
+        NO_CONTENT_BROKER: ContentCreationError = CONTENT_CREATION_ERROR_NO_CONTENT_BROKER
         """
         """
-        NO_CONTENT_PROVIDER: ContentCreationError = ...
+        NO_CONTENT_PROVIDER: ContentCreationError = CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER
         """
         No Content Provider for given content identifier available.
         """
-        NO_IDENTIFIER_FACTORY: ContentCreationError = ...
+        NO_IDENTIFIER_FACTORY: ContentCreationError = CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY
         """
         """
-        UNKNOWN: ContentCreationError = ...
+        UNKNOWN: ContentCreationError = CONTENT_CREATION_ERROR_UNKNOWN
         """
         Unknown.
         
@@ -74,4 +81,3 @@ else:
         pass
 
 __all__ = ['ContentCreationError']
-

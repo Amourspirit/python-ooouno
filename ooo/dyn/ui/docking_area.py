@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ui.DockingArea import DOCKINGAREA_BOTTOM as DOCKING_AREA_DOCKINGAREA_BOTTOM
+    from com.sun.star.ui.DockingArea import DOCKINGAREA_DEFAULT as DOCKING_AREA_DOCKINGAREA_DEFAULT
+    from com.sun.star.ui.DockingArea import DOCKINGAREA_LEFT as DOCKING_AREA_DOCKINGAREA_LEFT
+    from com.sun.star.ui.DockingArea import DOCKINGAREA_RIGHT as DOCKING_AREA_DOCKINGAREA_RIGHT
+    from com.sun.star.ui.DockingArea import DOCKINGAREA_TOP as DOCKING_AREA_DOCKINGAREA_TOP
 
     class DockingArea(uno.Enum):
         """
@@ -33,33 +39,33 @@ if TYPE_CHECKING:
         See Also:
             `API DockingArea <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ui.html#abab7084b80a737f798ccebf692878cc1>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ui.DockingArea', value)
 
-        DOCKINGAREA_BOTTOM: DockingArea = ...
+        __ooo_ns__: str = 'com.sun.star.ui'
+        __ooo_full_ns__: str = 'com.sun.star.ui.DockingArea'
+        __ooo_type_name__: str = 'enum'
+
+        DOCKINGAREA_BOTTOM: DockingArea = DOCKING_AREA_DOCKINGAREA_BOTTOM
         """
         the bottom docking area above the status bar.
         """
-        DOCKINGAREA_DEFAULT: DockingArea = ...
+        DOCKINGAREA_DEFAULT: DockingArea = DOCKING_AREA_DOCKINGAREA_DEFAULT
         """
         a default docking area.
         
         It depends on the implementation how to treat this value.
         """
-        DOCKINGAREA_LEFT: DockingArea = ...
+        DOCKINGAREA_LEFT: DockingArea = DOCKING_AREA_DOCKINGAREA_LEFT
         """
         the left side docking area.
         """
-        DOCKINGAREA_RIGHT: DockingArea = ...
+        DOCKINGAREA_RIGHT: DockingArea = DOCKING_AREA_DOCKINGAREA_RIGHT
         """
         the right side docking area.
         """
-        DOCKINGAREA_TOP: DockingArea = ...
+        DOCKINGAREA_TOP: DockingArea = DOCKING_AREA_DOCKINGAREA_TOP
         """
         the top docking area below the menu bar.
         """
@@ -72,4 +78,3 @@ else:
         pass
 
 __all__ = ['DockingArea']
-

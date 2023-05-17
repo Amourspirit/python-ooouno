@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.style.TabAlign import CENTER as TAB_ALIGN_CENTER
+    from com.sun.star.style.TabAlign import DECIMAL as TAB_ALIGN_DECIMAL
+    from com.sun.star.style.TabAlign import DEFAULT as TAB_ALIGN_DEFAULT
+    from com.sun.star.style.TabAlign import LEFT as TAB_ALIGN_LEFT
+    from com.sun.star.style.TabAlign import RIGHT as TAB_ALIGN_RIGHT
 
     class TabAlign(uno.Enum):
         """
@@ -33,15 +39,15 @@ if TYPE_CHECKING:
         See Also:
             `API TabAlign <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a806c06853615662029f86b19111fe0a2>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.style.TabAlign', value)
 
-        CENTER: TabAlign = ...
+        __ooo_ns__: str = 'com.sun.star.style'
+        __ooo_full_ns__: str = 'com.sun.star.style.TabAlign'
+        __ooo_type_name__: str = 'enum'
+
+        CENTER: TabAlign = TAB_ALIGN_CENTER
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -49,15 +55,15 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        DECIMAL: TabAlign = ...
+        DECIMAL: TabAlign = TAB_ALIGN_DECIMAL
         """
         The decimal point of the text range to the left of this tabulator is aligned to the position of this tabulator.
         """
-        DEFAULT: TabAlign = ...
+        DEFAULT: TabAlign = TAB_ALIGN_DEFAULT
         """
         The default alignment for tabulators is applied.
         """
-        LEFT: TabAlign = ...
+        LEFT: TabAlign = TAB_ALIGN_LEFT
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -67,7 +73,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: TabAlign = ...
+        RIGHT: TabAlign = TAB_ALIGN_RIGHT
         """
         set the horizontal alignment to the right margin from the container object
         
@@ -86,4 +92,3 @@ else:
         pass
 
 __all__ = ['TabAlign']
-

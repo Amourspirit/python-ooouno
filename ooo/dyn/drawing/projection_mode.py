@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.ProjectionMode import PARALLEL as PROJECTION_MODE_PARALLEL
+    from com.sun.star.drawing.ProjectionMode import PERSPECTIVE as PROJECTION_MODE_PERSPECTIVE
 
     class ProjectionMode(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API ProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a635428fef8d6e4afba288610c9c65bd5>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.ProjectionMode', value)
 
-        PARALLEL: ProjectionMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
+        __ooo_type_name__: str = 'enum'
+
+        PARALLEL: ProjectionMode = PROJECTION_MODE_PARALLEL
         """
         the 3D objects are drawn in the parallel projection.
         
         This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
         """
-        PERSPECTIVE: ProjectionMode = ...
+        PERSPECTIVE: ProjectionMode = PROJECTION_MODE_PERSPECTIVE
         """
         the 3D objects are drawn in the perspective projection.
         """
@@ -60,4 +63,3 @@ else:
         pass
 
 __all__ = ['ProjectionMode']
-

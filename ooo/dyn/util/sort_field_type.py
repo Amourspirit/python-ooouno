@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.util.SortFieldType import ALPHANUMERIC as SORT_FIELD_TYPE_ALPHANUMERIC
+    from com.sun.star.util.SortFieldType import AUTOMATIC as SORT_FIELD_TYPE_AUTOMATIC
+    from com.sun.star.util.SortFieldType import NUMERIC as SORT_FIELD_TYPE_NUMERIC
 
     class SortFieldType(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API SortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#aa222808b6dd3437074e57760d8e15a83>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.util.SortFieldType', value)
 
-        ALPHANUMERIC: SortFieldType = ...
+        __ooo_ns__: str = 'com.sun.star.util'
+        __ooo_full_ns__: str = 'com.sun.star.util.SortFieldType'
+        __ooo_type_name__: str = 'enum'
+
+        ALPHANUMERIC: SortFieldType = SORT_FIELD_TYPE_ALPHANUMERIC
         """
         sort field contains text data.
         """
-        AUTOMATIC: SortFieldType = ...
+        AUTOMATIC: SortFieldType = SORT_FIELD_TYPE_AUTOMATIC
         """
         type is determined automatically.
         """
-        NUMERIC: SortFieldType = ...
+        NUMERIC: SortFieldType = SORT_FIELD_TYPE_NUMERIC
         """
         sort field contains numerical data.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['SortFieldType']
-

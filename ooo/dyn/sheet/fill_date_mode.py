@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.FillDateMode import FILL_DATE_DAY as FILL_DATE_MODE_FILL_DATE_DAY
+    from com.sun.star.sheet.FillDateMode import FILL_DATE_MONTH as FILL_DATE_MODE_FILL_DATE_MONTH
+    from com.sun.star.sheet.FillDateMode import FILL_DATE_WEEKDAY as FILL_DATE_MODE_FILL_DATE_WEEKDAY
+    from com.sun.star.sheet.FillDateMode import FILL_DATE_YEAR as FILL_DATE_MODE_FILL_DATE_YEAR
 
     class FillDateMode(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API FillDateMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a2ea1aac24b8de3ac28ac5a6ec79a80ca>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.FillDateMode', value)
 
-        FILL_DATE_DAY: FillDateMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
+        __ooo_type_name__: str = 'enum'
+
+        FILL_DATE_DAY: FillDateMode = FILL_DATE_MODE_FILL_DATE_DAY
         """
         for every new value a single day is added.
         """
-        FILL_DATE_MONTH: FillDateMode = ...
+        FILL_DATE_MONTH: FillDateMode = FILL_DATE_MODE_FILL_DATE_MONTH
         """
         for every new value one month is added (day keeps unchanged).
         """
-        FILL_DATE_WEEKDAY: FillDateMode = ...
+        FILL_DATE_WEEKDAY: FillDateMode = FILL_DATE_MODE_FILL_DATE_WEEKDAY
         """
         for every new value a single day is added, but Saturdays and Sundays are skipped.
         """
-        FILL_DATE_YEAR: FillDateMode = ...
+        FILL_DATE_YEAR: FillDateMode = FILL_DATE_MODE_FILL_DATE_YEAR
         """
         for every new value one year is added (day and month keep unchanged).
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['FillDateMode']
-

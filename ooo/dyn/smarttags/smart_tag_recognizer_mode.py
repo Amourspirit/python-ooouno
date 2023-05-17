@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.smarttags.SmartTagRecognizerMode import CELL as SMART_TAG_RECOGNIZER_MODE_CELL
+    from com.sun.star.smarttags.SmartTagRecognizerMode import CHAR as SMART_TAG_RECOGNIZER_MODE_CHAR
+    from com.sun.star.smarttags.SmartTagRecognizerMode import PARAGRAPH as SMART_TAG_RECOGNIZER_MODE_PARAGRAPH
+    from com.sun.star.smarttags.SmartTagRecognizerMode import SINGLE_WORD as SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD
 
     class SmartTagRecognizerMode(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API SmartTagRecognizerMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1smarttags.html#a2eab74f21d11f78b5aa7826b0c60604f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.smarttags.SmartTagRecognizerMode', value)
 
-        CELL: SmartTagRecognizerMode = ...
+        __ooo_ns__: str = 'com.sun.star.smarttags'
+        __ooo_full_ns__: str = 'com.sun.star.smarttags.SmartTagRecognizerMode'
+        __ooo_type_name__: str = 'enum'
+
+        CELL: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_CELL
         """
         Text passed to the recognizer is a cell.
         """
-        CHAR: SmartTagRecognizerMode = ...
+        CHAR: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_CHAR
         """
         Text passed to the recognizer is a single character.
         """
-        PARAGRAPH: SmartTagRecognizerMode = ...
+        PARAGRAPH: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_PARAGRAPH
         """
         Text passed to the recognizer is a paragraph.
         """
-        SINGLE_WORD: SmartTagRecognizerMode = ...
+        SINGLE_WORD: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD
         """
         Text passed to the recognizer is a single word.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['SmartTagRecognizerMode']
-

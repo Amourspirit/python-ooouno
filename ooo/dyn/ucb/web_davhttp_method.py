@@ -20,10 +20,27 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.WebDAVHTTPMethod import CONNECT as WEB_D_A_V_H_T_T_P_METHOD_CONNECT
+    from com.sun.star.ucb.WebDAVHTTPMethod import COPY as WEB_D_A_V_H_T_T_P_METHOD_COPY
+    from com.sun.star.ucb.WebDAVHTTPMethod import DELETE as WEB_D_A_V_H_T_T_P_METHOD_DELETE
+    from com.sun.star.ucb.WebDAVHTTPMethod import GET as WEB_D_A_V_H_T_T_P_METHOD_GET
+    from com.sun.star.ucb.WebDAVHTTPMethod import HEAD as WEB_D_A_V_H_T_T_P_METHOD_HEAD
+    from com.sun.star.ucb.WebDAVHTTPMethod import LOCK as WEB_D_A_V_H_T_T_P_METHOD_LOCK
+    from com.sun.star.ucb.WebDAVHTTPMethod import MKCOL as WEB_D_A_V_H_T_T_P_METHOD_MKCOL
+    from com.sun.star.ucb.WebDAVHTTPMethod import MOVE as WEB_D_A_V_H_T_T_P_METHOD_MOVE
+    from com.sun.star.ucb.WebDAVHTTPMethod import OPTIONS as WEB_D_A_V_H_T_T_P_METHOD_OPTIONS
+    from com.sun.star.ucb.WebDAVHTTPMethod import PATCH as WEB_D_A_V_H_T_T_P_METHOD_PATCH
+    from com.sun.star.ucb.WebDAVHTTPMethod import POST as WEB_D_A_V_H_T_T_P_METHOD_POST
+    from com.sun.star.ucb.WebDAVHTTPMethod import PROPFIND as WEB_D_A_V_H_T_T_P_METHOD_PROPFIND
+    from com.sun.star.ucb.WebDAVHTTPMethod import PROPPATCH as WEB_D_A_V_H_T_T_P_METHOD_PROPPATCH
+    from com.sun.star.ucb.WebDAVHTTPMethod import PUT as WEB_D_A_V_H_T_T_P_METHOD_PUT
+    from com.sun.star.ucb.WebDAVHTTPMethod import TRACE as WEB_D_A_V_H_T_T_P_METHOD_TRACE
+    from com.sun.star.ucb.WebDAVHTTPMethod import UNLOCK as WEB_D_A_V_H_T_T_P_METHOD_UNLOCK
 
     class WebDAVHTTPMethod(uno.Enum):
         """
@@ -33,81 +50,81 @@ if TYPE_CHECKING:
         See Also:
             `API WebDAVHTTPMethod <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a3c143367536e0c519b25183505ae3ed7>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.WebDAVHTTPMethod', value)
 
-        CONNECT: WebDAVHTTPMethod = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.WebDAVHTTPMethod'
+        __ooo_type_name__: str = 'enum'
+
+        CONNECT: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_CONNECT
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        COPY: WebDAVHTTPMethod = ...
+        COPY: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_COPY
         """
         Copy the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        DELETE: WebDAVHTTPMethod = ...
+        DELETE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_DELETE
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        GET: WebDAVHTTPMethod = ...
+        GET: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_GET
         """
         Get a list of all folders.
         
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        HEAD: WebDAVHTTPMethod = ...
+        HEAD: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_HEAD
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        LOCK: WebDAVHTTPMethod = ...
+        LOCK: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_LOCK
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        MKCOL: WebDAVHTTPMethod = ...
+        MKCOL: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_MKCOL
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        MOVE: WebDAVHTTPMethod = ...
+        MOVE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_MOVE
         """
         Move the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        OPTIONS: WebDAVHTTPMethod = ...
+        OPTIONS: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_OPTIONS
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        PATCH: WebDAVHTTPMethod = ...
+        PATCH: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PATCH
         """
         HTTP request method as defined in RFC 5789: PATCH Method for HTTP
         """
-        POST: WebDAVHTTPMethod = ...
+        POST: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_POST
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        PROPFIND: WebDAVHTTPMethod = ...
+        PROPFIND: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PROPFIND
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        PROPPATCH: WebDAVHTTPMethod = ...
+        PROPPATCH: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PROPPATCH
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        PUT: WebDAVHTTPMethod = ...
+        PUT: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PUT
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        TRACE: WebDAVHTTPMethod = ...
+        TRACE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_TRACE
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        UNLOCK: WebDAVHTTPMethod = ...
+        UNLOCK: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_UNLOCK
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
@@ -120,4 +137,3 @@ else:
         pass
 
 __all__ = ['WebDAVHTTPMethod']
-

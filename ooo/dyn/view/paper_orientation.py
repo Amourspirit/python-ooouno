@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.view.PaperOrientation import LANDSCAPE as PAPER_ORIENTATION_LANDSCAPE
+    from com.sun.star.view.PaperOrientation import PORTRAIT as PAPER_ORIENTATION_PORTRAIT
 
     class PaperOrientation(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API PaperOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a5312aa9f24f5483f2a37fd41a47d852a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.view.PaperOrientation', value)
 
-        LANDSCAPE: PaperOrientation = ...
+        __ooo_ns__: str = 'com.sun.star.view'
+        __ooo_full_ns__: str = 'com.sun.star.view.PaperOrientation'
+        __ooo_type_name__: str = 'enum'
+
+        LANDSCAPE: PaperOrientation = PAPER_ORIENTATION_LANDSCAPE
         """
         set the paper orientation to landscape.
         """
-        PORTRAIT: PaperOrientation = ...
+        PORTRAIT: PaperOrientation = PAPER_ORIENTATION_PORTRAIT
         """
         set the paper orientation to portrait.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['PaperOrientation']
-

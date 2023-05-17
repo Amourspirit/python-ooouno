@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.CircleKind import ARC as CIRCLE_KIND_ARC
+    from com.sun.star.drawing.CircleKind import CUT as CIRCLE_KIND_CUT
+    from com.sun.star.drawing.CircleKind import FULL as CIRCLE_KIND_FULL
+    from com.sun.star.drawing.CircleKind import SECTION as CIRCLE_KIND_SECTION
 
     class CircleKind(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API CircleKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6a52201f72a50075b45fea2c19340c0e>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.CircleKind', value)
 
-        ARC: CircleKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.CircleKind'
+        __ooo_type_name__: str = 'enum'
+
+        ARC: CircleKind = CIRCLE_KIND_ARC
         """
         a circle with an open cut
         """
-        CUT: CircleKind = ...
+        CUT: CircleKind = CIRCLE_KIND_CUT
         """
         a circle with a cut connected by two lines
         """
-        FULL: CircleKind = ...
+        FULL: CircleKind = CIRCLE_KIND_FULL
         """
         a full circle
         """
-        SECTION: CircleKind = ...
+        SECTION: CircleKind = CIRCLE_KIND_SECTION
         """
         a circle with a cut connected by a line
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['CircleKind']
-

@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.OutgoingMessageState import COMPLETELY_LOCALLY_SENT as OUTGOING_MESSAGE_STATE_COMPLETELY_LOCALLY_SENT
+    from com.sun.star.ucb.OutgoingMessageState import CONFIRMED as OUTGOING_MESSAGE_STATE_CONFIRMED
+    from com.sun.star.ucb.OutgoingMessageState import EXTERNAL_ERROR as OUTGOING_MESSAGE_STATE_EXTERNAL_ERROR
+    from com.sun.star.ucb.OutgoingMessageState import NONRECOVERABLE_LOCAL_ERROR as OUTGOING_MESSAGE_STATE_NONRECOVERABLE_LOCAL_ERROR
+    from com.sun.star.ucb.OutgoingMessageState import PARTIALLY_LOCALLY_SENT as OUTGOING_MESSAGE_STATE_PARTIALLY_LOCALLY_SENT
+    from com.sun.star.ucb.OutgoingMessageState import RECOVERABLE_LOCAL_ERROR as OUTGOING_MESSAGE_STATE_RECOVERABLE_LOCAL_ERROR
+    from com.sun.star.ucb.OutgoingMessageState import WAITING_CONFIRMATION as OUTGOING_MESSAGE_STATE_WAITING_CONFIRMATION
+    from com.sun.star.ucb.OutgoingMessageState import WRITTEN as OUTGOING_MESSAGE_STATE_WRITTEN
 
     class OutgoingMessageState(uno.Enum):
         """
@@ -33,49 +42,49 @@ if TYPE_CHECKING:
         See Also:
             `API OutgoingMessageState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a8dec3ee1933cc93724b3764b124b8cc1>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.OutgoingMessageState', value)
 
-        COMPLETELY_LOCALLY_SENT: OutgoingMessageState = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.OutgoingMessageState'
+        __ooo_type_name__: str = 'enum'
+
+        COMPLETELY_LOCALLY_SENT: OutgoingMessageState = OUTGOING_MESSAGE_STATE_COMPLETELY_LOCALLY_SENT
         """
         Message has been sent upstream to all recipients.
         """
-        CONFIRMED: OutgoingMessageState = ...
+        CONFIRMED: OutgoingMessageState = OUTGOING_MESSAGE_STATE_CONFIRMED
         """
         Recipient confirmed reading.
         """
-        EXTERNAL_ERROR: OutgoingMessageState = ...
+        EXTERNAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_EXTERNAL_ERROR
         """
         Global fatal error (e.g.
         
         last member in SMTP chain could not deliver the message).
         """
-        NONRECOVERABLE_LOCAL_ERROR: OutgoingMessageState = ...
+        NONRECOVERABLE_LOCAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_NONRECOVERABLE_LOCAL_ERROR
         """
         Local fatal error (e.g.
         
         first SMTP server upstream did not accept the message).
         """
-        PARTIALLY_LOCALLY_SENT: OutgoingMessageState = ...
+        PARTIALLY_LOCALLY_SENT: OutgoingMessageState = OUTGOING_MESSAGE_STATE_PARTIALLY_LOCALLY_SENT
         """
         Message has been sent upstream to some recipients.
         """
-        RECOVERABLE_LOCAL_ERROR: OutgoingMessageState = ...
+        RECOVERABLE_LOCAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_RECOVERABLE_LOCAL_ERROR
         """
         Local, non-fatal error (e.g.
         
         network temporarily not available).
         """
-        WAITING_CONFIRMATION: OutgoingMessageState = ...
+        WAITING_CONFIRMATION: OutgoingMessageState = OUTGOING_MESSAGE_STATE_WAITING_CONFIRMATION
         """
         Message was sent; we are waiting for confirmation.
         """
-        WRITTEN: OutgoingMessageState = ...
+        WRITTEN: OutgoingMessageState = OUTGOING_MESSAGE_STATE_WRITTEN
         """
         Message has just been placed into the out tray.
         """
@@ -88,4 +97,3 @@ else:
         pass
 
 __all__ = ['OutgoingMessageState']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.AdjustmentType import ADJUST_ABS as ADJUSTMENT_TYPE_ADJUST_ABS
+    from com.sun.star.awt.AdjustmentType import ADJUST_LINE as ADJUSTMENT_TYPE_ADJUST_LINE
+    from com.sun.star.awt.AdjustmentType import ADJUST_PAGE as ADJUSTMENT_TYPE_ADJUST_PAGE
 
     class AdjustmentType(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API AdjustmentType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ae54d0c7f4237b639c3f45caa306457fd>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.AdjustmentType', value)
 
-        ADJUST_ABS: AdjustmentType = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.AdjustmentType'
+        __ooo_type_name__: str = 'enum'
+
+        ADJUST_ABS: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_ABS
         """
         adjustment is originated by dragging the thumb.
         """
-        ADJUST_LINE: AdjustmentType = ...
+        ADJUST_LINE: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_LINE
         """
         adjustment is originated by a line jump.
         """
-        ADJUST_PAGE: AdjustmentType = ...
+        ADJUST_PAGE: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_PAGE
         """
         adjustment is originated by a page jump.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['AdjustmentType']
-

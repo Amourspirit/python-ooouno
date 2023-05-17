@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.script.FinishReason import Cancel as FINISH_REASON_Cancel
+    from com.sun.star.script.FinishReason import Error as FINISH_REASON_Error
+    from com.sun.star.script.FinishReason import OK as FINISH_REASON_OK
 
     class FinishReason(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API FinishReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a8ab52fac6ca48179fe55e9a6aa3a345d>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.script.FinishReason', value)
 
-        Cancel: FinishReason = ...
+        __ooo_ns__: str = 'com.sun.star.script'
+        __ooo_full_ns__: str = 'com.sun.star.script.FinishReason'
+        __ooo_type_name__: str = 'enum'
+
+        Cancel: FinishReason = FINISH_REASON_Cancel
         """
         script in the engine was cancelled.
         
         script execution was cancelled.
         """
-        Error: FinishReason = ...
+        Error: FinishReason = FINISH_REASON_Error
         """
         error occurred during script execution or compiling.
         """
-        OK: FinishReason = ...
+        OK: FinishReason = FINISH_REASON_OK
         """
         script in the engine terminated normally.
         """
@@ -64,4 +68,3 @@ else:
         pass
 
 __all__ = ['FinishReason']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.mail.MailServiceType import IMAP as MAIL_SERVICE_TYPE_IMAP
+    from com.sun.star.mail.MailServiceType import POP3 as MAIL_SERVICE_TYPE_POP3
+    from com.sun.star.mail.MailServiceType import SMTP as MAIL_SERVICE_TYPE_SMTP
 
     class MailServiceType(uno.Enum):
         """
@@ -34,23 +38,23 @@ if TYPE_CHECKING:
         See Also:
             `API MailServiceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mail.html#ad93fba9b1c1a9b0a2469f7c1fc392a06>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.mail.MailServiceType', value)
 
-        IMAP: MailServiceType = ...
+        __ooo_ns__: str = 'com.sun.star.mail'
+        __ooo_full_ns__: str = 'com.sun.star.mail.MailServiceType'
+        __ooo_type_name__: str = 'enum'
+
+        IMAP: MailServiceType = MAIL_SERVICE_TYPE_IMAP
         """
         A IMAP service.
         """
-        POP3: MailServiceType = ...
+        POP3: MailServiceType = MAIL_SERVICE_TYPE_POP3
         """
         A POP3 service.
         """
-        SMTP: MailServiceType = ...
+        SMTP: MailServiceType = MAIL_SERVICE_TYPE_SMTP
         """
         A SMTP service.
         """
@@ -63,4 +67,3 @@ else:
         pass
 
 __all__ = ['MailServiceType']
-

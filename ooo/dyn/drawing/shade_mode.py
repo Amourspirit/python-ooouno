@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.ShadeMode import DRAFT as SHADE_MODE_DRAFT
+    from com.sun.star.drawing.ShadeMode import FLAT as SHADE_MODE_FLAT
+    from com.sun.star.drawing.ShadeMode import PHONG as SHADE_MODE_PHONG
+    from com.sun.star.drawing.ShadeMode import SMOOTH as SHADE_MODE_SMOOTH
 
     class ShadeMode(uno.Enum):
         """
@@ -33,29 +38,29 @@ if TYPE_CHECKING:
         See Also:
             `API ShadeMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af49ab4b65513d2c0077f76b2227326e9>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.ShadeMode', value)
 
-        DRAFT: ShadeMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.ShadeMode'
+        __ooo_type_name__: str = 'enum'
+
+        DRAFT: ShadeMode = SHADE_MODE_DRAFT
         """
         DRAFT is a special mode which uses a BSP tree and triangle subdivision for displaying.
         """
-        FLAT: ShadeMode = ...
+        FLAT: ShadeMode = SHADE_MODE_FLAT
         """
         forces one normal per flat part.
         
         With FLAT shading, the faces of the object are rendered in a solid color.
         """
-        PHONG: ShadeMode = ...
+        PHONG: ShadeMode = SHADE_MODE_PHONG
         """
         With PHONG shading, the normal itself is interpolated to get more realistic colors and light reflections.
         """
-        SMOOTH: ShadeMode = ...
+        SMOOTH: ShadeMode = SHADE_MODE_SMOOTH
         """
         the point is smooth, the first derivation from the curve discussion view.
         
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['ShadeMode']
-

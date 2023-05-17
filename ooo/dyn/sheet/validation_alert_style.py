@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.ValidationAlertStyle import INFO as VALIDATION_ALERT_STYLE_INFO
+    from com.sun.star.sheet.ValidationAlertStyle import MACRO as VALIDATION_ALERT_STYLE_MACRO
+    from com.sun.star.sheet.ValidationAlertStyle import STOP as VALIDATION_ALERT_STYLE_STOP
+    from com.sun.star.sheet.ValidationAlertStyle import WARNING as VALIDATION_ALERT_STYLE_WARNING
 
     class ValidationAlertStyle(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API ValidationAlertStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aecf58149730f4c8c5c18c70f3c7c5db7>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.ValidationAlertStyle', value)
 
-        INFO: ValidationAlertStyle = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationAlertStyle'
+        __ooo_type_name__: str = 'enum'
+
+        INFO: ValidationAlertStyle = VALIDATION_ALERT_STYLE_INFO
         """
         information message is shown and the user is asked whether the change will be accepted (defaulted to \"Yes\").
         """
-        MACRO: ValidationAlertStyle = ...
+        MACRO: ValidationAlertStyle = VALIDATION_ALERT_STYLE_MACRO
         """
         macro is executed.
         """
-        STOP: ValidationAlertStyle = ...
+        STOP: ValidationAlertStyle = VALIDATION_ALERT_STYLE_STOP
         """
         error message is shown and the change is rejected.
         """
-        WARNING: ValidationAlertStyle = ...
+        WARNING: ValidationAlertStyle = VALIDATION_ALERT_STYLE_WARNING
         """
         warning message is shown and the user is asked whether the change will be accepted (defaulted to \"No\").
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['ValidationAlertStyle']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.HorizontalDimensioning import AUTO as HORIZONTAL_DIMENSIONING_AUTO
+    from com.sun.star.drawing.HorizontalDimensioning import CENTERED as HORIZONTAL_DIMENSIONING_CENTERED
+    from com.sun.star.drawing.HorizontalDimensioning import LEFT as HORIZONTAL_DIMENSIONING_LEFT
+    from com.sun.star.drawing.HorizontalDimensioning import RIGHT as HORIZONTAL_DIMENSIONING_RIGHT
 
     class HorizontalDimensioning(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API HorizontalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6c20b7eb17d1eb1746fddc52487581f9>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.HorizontalDimensioning', value)
 
-        AUTO: HorizontalDimensioning = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.HorizontalDimensioning'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_AUTO
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        CENTERED: HorizontalDimensioning = ...
+        CENTERED: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_CENTERED
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        LEFT: HorizontalDimensioning = ...
+        LEFT: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -61,7 +66,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: HorizontalDimensioning = ...
+        RIGHT: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -78,4 +83,3 @@ else:
         pass
 
 __all__ = ['HorizontalDimensioning']
-

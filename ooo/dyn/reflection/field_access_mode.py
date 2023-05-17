@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.reflection.FieldAccessMode import CONST as FIELD_ACCESS_MODE_CONST
+    from com.sun.star.reflection.FieldAccessMode import READONLY as FIELD_ACCESS_MODE_READONLY
+    from com.sun.star.reflection.FieldAccessMode import READWRITE as FIELD_ACCESS_MODE_READWRITE
+    from com.sun.star.reflection.FieldAccessMode import WRITEONLY as FIELD_ACCESS_MODE_WRITEONLY
 
     class FieldAccessMode(uno.Enum):
         """
@@ -33,29 +38,29 @@ if TYPE_CHECKING:
         See Also:
             `API FieldAccessMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a95a71baf95250ba8716608067ba245f9>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.reflection.FieldAccessMode', value)
 
-        CONST: FieldAccessMode = ...
+        __ooo_ns__: str = 'com.sun.star.reflection'
+        __ooo_full_ns__: str = 'com.sun.star.reflection.FieldAccessMode'
+        __ooo_type_name__: str = 'enum'
+
+        CONST: FieldAccessMode = FIELD_ACCESS_MODE_CONST
         """
         Deprecated.
         
         Not used anymore.
         """
-        READONLY: FieldAccessMode = ...
+        READONLY: FieldAccessMode = FIELD_ACCESS_MODE_READONLY
         """
         readable only
         """
-        READWRITE: FieldAccessMode = ...
+        READWRITE: FieldAccessMode = FIELD_ACCESS_MODE_READWRITE
         """
         readable and writeable
         """
-        WRITEONLY: FieldAccessMode = ...
+        WRITEONLY: FieldAccessMode = FIELD_ACCESS_MODE_WRITEONLY
         """
         writeable only
         """
@@ -68,4 +73,3 @@ else:
         pass
 
 __all__ = ['FieldAccessMode']
-

@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.animations.Timing import INDEFINITE as TIMING_INDEFINITE
+    from com.sun.star.animations.Timing import MEDIA as TIMING_MEDIA
 
     class Timing(uno.Enum):
         """
@@ -34,19 +37,19 @@ if TYPE_CHECKING:
         See Also:
             `API Timing <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1animations.html#ad073880fe621cbabcd7a7cf904ef332f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.animations.Timing', value)
 
-        INDEFINITE: Timing = ...
+        __ooo_ns__: str = 'com.sun.star.animations'
+        __ooo_full_ns__: str = 'com.sun.star.animations.Timing'
+        __ooo_type_name__: str = 'enum'
+
+        INDEFINITE: Timing = TIMING_INDEFINITE
         """
         specifies that a duration, end or start time is indefinite
         """
-        MEDIA: Timing = ...
+        MEDIA: Timing = TIMING_MEDIA
         """
         specifies a simple duration as the intrinsic media duration.
         
@@ -61,4 +64,3 @@ else:
         pass
 
 __all__ = ['Timing']
-

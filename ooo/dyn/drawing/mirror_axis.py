@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.MirrorAxis import HORIZONTAL as MIRROR_AXIS_HORIZONTAL
+    from com.sun.star.drawing.MirrorAxis import VERTICAL as MIRROR_AXIS_VERTICAL
 
     class MirrorAxis(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API MirrorAxis <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4a57640f8e0cde4bd2c20b6b00d6affb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.MirrorAxis', value)
 
-        HORIZONTAL: MirrorAxis = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.MirrorAxis'
+        __ooo_type_name__: str = 'enum'
+
+        HORIZONTAL: MirrorAxis = MIRROR_AXIS_HORIZONTAL
         """
         mirror to the horizontal axis
         """
-        VERTICAL: MirrorAxis = ...
+        VERTICAL: MirrorAxis = MIRROR_AXIS_VERTICAL
         """
         mirror to the vertical axis
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['MirrorAxis']
-

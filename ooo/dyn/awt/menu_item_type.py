@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.MenuItemType import DONTKNOW as MENU_ITEM_TYPE_DONTKNOW
+    from com.sun.star.awt.MenuItemType import IMAGE as MENU_ITEM_TYPE_IMAGE
+    from com.sun.star.awt.MenuItemType import SEPARATOR as MENU_ITEM_TYPE_SEPARATOR
+    from com.sun.star.awt.MenuItemType import STRING as MENU_ITEM_TYPE_STRING
+    from com.sun.star.awt.MenuItemType import STRINGIMAGE as MENU_ITEM_TYPE_STRINGIMAGE
 
     class MenuItemType(uno.Enum):
         """
@@ -33,33 +39,33 @@ if TYPE_CHECKING:
         See Also:
             `API MenuItemType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a0014b68cdf9686458deff56691368317>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.MenuItemType', value)
 
-        DONTKNOW: MenuItemType = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.MenuItemType'
+        __ooo_type_name__: str = 'enum'
+
+        DONTKNOW: MenuItemType = MENU_ITEM_TYPE_DONTKNOW
         """
         specifies a font with an unknown slant.
         
         specifies that the menu item type is unknown.
         """
-        IMAGE: MenuItemType = ...
+        IMAGE: MenuItemType = MENU_ITEM_TYPE_IMAGE
         """
         specifies that the menu item has an image.
         """
-        SEPARATOR: MenuItemType = ...
+        SEPARATOR: MenuItemType = MENU_ITEM_TYPE_SEPARATOR
         """
         specifies that the menu item is a separator.
         """
-        STRING: MenuItemType = ...
+        STRING: MenuItemType = MENU_ITEM_TYPE_STRING
         """
         specifies that the menu item has a text.
         """
-        STRINGIMAGE: MenuItemType = ...
+        STRINGIMAGE: MenuItemType = MENU_ITEM_TYPE_STRINGIMAGE
         """
         specifies that the menu item has a text and an image.
         """
@@ -72,4 +78,3 @@ else:
         pass
 
 __all__ = ['MenuItemType']
-

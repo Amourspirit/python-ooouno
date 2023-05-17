@@ -20,10 +20,18 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.WrapTextMode import DYNAMIC as WRAP_TEXT_MODE_DYNAMIC
+    from com.sun.star.text.WrapTextMode import LEFT as WRAP_TEXT_MODE_LEFT
+    from com.sun.star.text.WrapTextMode import NONE as WRAP_TEXT_MODE_NONE
+    from com.sun.star.text.WrapTextMode import PARALLEL as WRAP_TEXT_MODE_PARALLEL
+    from com.sun.star.text.WrapTextMode import RIGHT as WRAP_TEXT_MODE_RIGHT
+    from com.sun.star.text.WrapTextMode import THROUGH as WRAP_TEXT_MODE_THROUGH
+    from com.sun.star.text.WrapTextMode import THROUGHT as WRAP_TEXT_MODE_THROUGHT
 
     class WrapTextMode(uno.Enum):
         """
@@ -33,21 +41,21 @@ if TYPE_CHECKING:
         See Also:
             `API WrapTextMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a1ed96de3f2d76e93588f67d506a0b0ae>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.WrapTextMode', value)
 
-        DYNAMIC: WrapTextMode = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.WrapTextMode'
+        __ooo_type_name__: str = 'enum'
+
+        DYNAMIC: WrapTextMode = WRAP_TEXT_MODE_DYNAMIC
         """
         text flow depends on the situation.
         
         The text formatting decides the best way.
         """
-        LEFT: WrapTextMode = ...
+        LEFT: WrapTextMode = WRAP_TEXT_MODE_LEFT
         """
         the object is left adjusted.
         
@@ -55,15 +63,15 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        NONE: WrapTextMode = ...
+        NONE: WrapTextMode = WRAP_TEXT_MODE_NONE
         """
         text does not flow around the object.
         """
-        PARALLEL: WrapTextMode = ...
+        PARALLEL: WrapTextMode = WRAP_TEXT_MODE_PARALLEL
         """
         text flows to the left and right of the object.
         """
-        RIGHT: WrapTextMode = ...
+        RIGHT: WrapTextMode = WRAP_TEXT_MODE_RIGHT
         """
         the object is right adjusted.
         
@@ -71,11 +79,11 @@ if TYPE_CHECKING:
         
         adjusted to the right.
         """
-        THROUGH: WrapTextMode = ...
+        THROUGH: WrapTextMode = WRAP_TEXT_MODE_THROUGH
         """
         text flow ignores the object.
         """
-        THROUGHT: WrapTextMode = ...
+        THROUGHT: WrapTextMode = WRAP_TEXT_MODE_THROUGHT
         """
         text flow ignores the object: errant spelling deprecated in version 5.4
         """
@@ -88,4 +96,3 @@ else:
         pass
 
 __all__ = ['WrapTextMode']
-

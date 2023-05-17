@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.FontSlant import DONTKNOW as FONT_SLANT_DONTKNOW
+    from com.sun.star.awt.FontSlant import ITALIC as FONT_SLANT_ITALIC
+    from com.sun.star.awt.FontSlant import NONE as FONT_SLANT_NONE
+    from com.sun.star.awt.FontSlant import OBLIQUE as FONT_SLANT_OBLIQUE
+    from com.sun.star.awt.FontSlant import REVERSE_ITALIC as FONT_SLANT_REVERSE_ITALIC
+    from com.sun.star.awt.FontSlant import REVERSE_OBLIQUE as FONT_SLANT_REVERSE_OBLIQUE
 
     class FontSlant(uno.Enum):
         """
@@ -33,37 +40,37 @@ if TYPE_CHECKING:
         See Also:
             `API FontSlant <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a362a86d3ebca4a201d13bc3e7b94340e>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.FontSlant', value)
 
-        DONTKNOW: FontSlant = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.FontSlant'
+        __ooo_type_name__: str = 'enum'
+
+        DONTKNOW: FontSlant = FONT_SLANT_DONTKNOW
         """
         specifies a font with an unknown slant.
         
         specifies that the menu item type is unknown.
         """
-        ITALIC: FontSlant = ...
+        ITALIC: FontSlant = FONT_SLANT_ITALIC
         """
         specifies an italic font (slant designed into the font).
         """
-        NONE: FontSlant = ...
+        NONE: FontSlant = FONT_SLANT_NONE
         """
         specifies a font without slant.
         """
-        OBLIQUE: FontSlant = ...
+        OBLIQUE: FontSlant = FONT_SLANT_OBLIQUE
         """
         specifies an oblique font (slant not designed into the font).
         """
-        REVERSE_ITALIC: FontSlant = ...
+        REVERSE_ITALIC: FontSlant = FONT_SLANT_REVERSE_ITALIC
         """
         specifies a reverse italic font (slant designed into the font).
         """
-        REVERSE_OBLIQUE: FontSlant = ...
+        REVERSE_OBLIQUE: FontSlant = FONT_SLANT_REVERSE_OBLIQUE
         """
         specifies a reverse oblique font (slant not designed into the font).
         """
@@ -76,4 +83,3 @@ else:
         pass
 
 __all__ = ['FontSlant']
-

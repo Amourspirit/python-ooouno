@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.frame.FrameAction import COMPONENT_ATTACHED as FRAME_ACTION_COMPONENT_ATTACHED
+    from com.sun.star.frame.FrameAction import COMPONENT_DETACHING as FRAME_ACTION_COMPONENT_DETACHING
+    from com.sun.star.frame.FrameAction import COMPONENT_REATTACHED as FRAME_ACTION_COMPONENT_REATTACHED
+    from com.sun.star.frame.FrameAction import CONTEXT_CHANGED as FRAME_ACTION_CONTEXT_CHANGED
+    from com.sun.star.frame.FrameAction import FRAME_ACTIVATED as FRAME_ACTION_FRAME_ACTIVATED
+    from com.sun.star.frame.FrameAction import FRAME_DEACTIVATING as FRAME_ACTION_FRAME_DEACTIVATING
+    from com.sun.star.frame.FrameAction import FRAME_UI_ACTIVATED as FRAME_ACTION_FRAME_UI_ACTIVATED
+    from com.sun.star.frame.FrameAction import FRAME_UI_DEACTIVATING as FRAME_ACTION_FRAME_UI_DEACTIVATING
 
     class FrameAction(uno.Enum):
         """
@@ -33,55 +42,55 @@ if TYPE_CHECKING:
         See Also:
             `API FrameAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1frame.html#a793fdb3e5cab69d63a9c89b5e4f83dfd>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.frame.FrameAction', value)
 
-        COMPONENT_ATTACHED: FrameAction = ...
+        __ooo_ns__: str = 'com.sun.star.frame'
+        __ooo_full_ns__: str = 'com.sun.star.frame.FrameAction'
+        __ooo_type_name__: str = 'enum'
+
+        COMPONENT_ATTACHED: FrameAction = FRAME_ACTION_COMPONENT_ATTACHED
         """
         an event of this kind is broadcast whenever a component is attached to a frame
         
         This is almost the same as the instantiation of the component within that frame. The component is attached to the frame immediately before this event is broadcast.
         """
-        COMPONENT_DETACHING: FrameAction = ...
+        COMPONENT_DETACHING: FrameAction = FRAME_ACTION_COMPONENT_DETACHING
         """
         an event of this kind is broadcast whenever a component is detaching from a frame
         
         This is quite the same as the destruction of the component which was in that frame. At the moment when the event is broadcast the component is still attached to the frame but in the next moment it won't.
         """
-        COMPONENT_REATTACHED: FrameAction = ...
+        COMPONENT_REATTACHED: FrameAction = FRAME_ACTION_COMPONENT_REATTACHED
         """
         an event of this kind is broadcast whenever a component is attached to a new model.
         
         In this case the component remains the same but operates on a new model component.
         """
-        CONTEXT_CHANGED: FrameAction = ...
+        CONTEXT_CHANGED: FrameAction = FRAME_ACTION_CONTEXT_CHANGED
         """
         an event of this kind is broadcast whenever a component changes its internal context (i.e., the selection).
         
         If the activation status within a frame changes, this counts as a context change too.
         """
-        FRAME_ACTIVATED: FrameAction = ...
+        FRAME_ACTIVATED: FrameAction = FRAME_ACTION_FRAME_ACTIVATED
         """
         an event of this kind is broadcast whenever a component gets activated
         
         Activations are broadcast from the top component which was not active before, down to the inner most component.
         """
-        FRAME_DEACTIVATING: FrameAction = ...
+        FRAME_DEACTIVATING: FrameAction = FRAME_ACTION_FRAME_DEACTIVATING
         """
         an event of this kind is broadcasted immediately before the component is deactivated
         
         Deactivations are broadcast from the innermost component which does not stay active up to the outer most component which does not stay active.
         """
-        FRAME_UI_ACTIVATED: FrameAction = ...
+        FRAME_UI_ACTIVATED: FrameAction = FRAME_ACTION_FRAME_UI_ACTIVATED
         """
         an event of this kind is broadcast by an active frame when it is getting UI control (tool control).
         """
-        FRAME_UI_DEACTIVATING: FrameAction = ...
+        FRAME_UI_DEACTIVATING: FrameAction = FRAME_ACTION_FRAME_UI_DEACTIVATING
         """
         an event of this kind is broadcast by an active frame when it is losing UI control (tool control).
         """
@@ -94,4 +103,3 @@ else:
         pass
 
 __all__ = ['FrameAction']
-

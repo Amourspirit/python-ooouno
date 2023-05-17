@@ -20,10 +20,26 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.dom.DOMExceptionType import DOMSTRING_SIZE_ERR as D_O_M_EXCEPTION_TYPE_DOMSTRING_SIZE_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import HIERARCHY_REQUEST_ERR as D_O_M_EXCEPTION_TYPE_HIERARCHY_REQUEST_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INDEX_SIZE_ERR as D_O_M_EXCEPTION_TYPE_INDEX_SIZE_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INUSE_ATTRIBUTE_ERR as D_O_M_EXCEPTION_TYPE_INUSE_ATTRIBUTE_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INVALID_ACCESS_ERR as D_O_M_EXCEPTION_TYPE_INVALID_ACCESS_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INVALID_CHARACTER_ERR as D_O_M_EXCEPTION_TYPE_INVALID_CHARACTER_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INVALID_MODIFICATION_ERR as D_O_M_EXCEPTION_TYPE_INVALID_MODIFICATION_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import INVALID_STATE_ERR as D_O_M_EXCEPTION_TYPE_INVALID_STATE_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import NAMESPACE_ERR as D_O_M_EXCEPTION_TYPE_NAMESPACE_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import NOT_FOUND_ERR as D_O_M_EXCEPTION_TYPE_NOT_FOUND_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import NOT_SUPPORTED_ERR as D_O_M_EXCEPTION_TYPE_NOT_SUPPORTED_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import NO_DATA_ALLOWED_ERR as D_O_M_EXCEPTION_TYPE_NO_DATA_ALLOWED_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import NO_MODIFICATION_ALLOWED_ERR as D_O_M_EXCEPTION_TYPE_NO_MODIFICATION_ALLOWED_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import SYNTAX_ERR as D_O_M_EXCEPTION_TYPE_SYNTAX_ERR
+    from com.sun.star.xml.dom.DOMExceptionType import WRONG_DOCUMENT_ERR as D_O_M_EXCEPTION_TYPE_WRONG_DOCUMENT_ERR
 
     class DOMExceptionType(uno.Enum):
         """
@@ -34,57 +50,57 @@ if TYPE_CHECKING:
         See Also:
             `API DOMExceptionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#a31e3fb46d584de1cfc4b4c7640a41239>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.dom.DOMExceptionType', value)
 
-        DOMSTRING_SIZE_ERR: DOMExceptionType = ...
+        __ooo_ns__: str = 'com.sun.star.xml.dom'
+        __ooo_full_ns__: str = 'com.sun.star.xml.dom.DOMExceptionType'
+        __ooo_type_name__: str = 'enum'
+
+        DOMSTRING_SIZE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_DOMSTRING_SIZE_ERR
         """
         """
-        HIERARCHY_REQUEST_ERR: DOMExceptionType = ...
+        HIERARCHY_REQUEST_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_HIERARCHY_REQUEST_ERR
         """
         """
-        INDEX_SIZE_ERR: DOMExceptionType = ...
+        INDEX_SIZE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INDEX_SIZE_ERR
         """
         """
-        INUSE_ATTRIBUTE_ERR: DOMExceptionType = ...
+        INUSE_ATTRIBUTE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INUSE_ATTRIBUTE_ERR
         """
         """
-        INVALID_ACCESS_ERR: DOMExceptionType = ...
+        INVALID_ACCESS_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_ACCESS_ERR
         """
         """
-        INVALID_CHARACTER_ERR: DOMExceptionType = ...
+        INVALID_CHARACTER_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_CHARACTER_ERR
         """
         """
-        INVALID_MODIFICATION_ERR: DOMExceptionType = ...
+        INVALID_MODIFICATION_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_MODIFICATION_ERR
         """
         """
-        INVALID_STATE_ERR: DOMExceptionType = ...
+        INVALID_STATE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_STATE_ERR
         """
         """
-        NAMESPACE_ERR: DOMExceptionType = ...
+        NAMESPACE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NAMESPACE_ERR
         """
         """
-        NOT_FOUND_ERR: DOMExceptionType = ...
+        NOT_FOUND_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NOT_FOUND_ERR
         """
         """
-        NOT_SUPPORTED_ERR: DOMExceptionType = ...
+        NOT_SUPPORTED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NOT_SUPPORTED_ERR
         """
         """
-        NO_DATA_ALLOWED_ERR: DOMExceptionType = ...
+        NO_DATA_ALLOWED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NO_DATA_ALLOWED_ERR
         """
         """
-        NO_MODIFICATION_ALLOWED_ERR: DOMExceptionType = ...
+        NO_MODIFICATION_ALLOWED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NO_MODIFICATION_ALLOWED_ERR
         """
         """
-        SYNTAX_ERR: DOMExceptionType = ...
+        SYNTAX_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_SYNTAX_ERR
         """
         """
-        WRONG_DOCUMENT_ERR: DOMExceptionType = ...
+        WRONG_DOCUMENT_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_WRONG_DOCUMENT_ERR
         """
         """
 
@@ -96,4 +112,3 @@ else:
         pass
 
 __all__ = ['DOMExceptionType']
-

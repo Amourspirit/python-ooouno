@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.SynchronizePolicy import CLIENT_IS_MASTER as SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
+    from com.sun.star.ucb.SynchronizePolicy import NONE_IS_MASTER as SYNCHRONIZE_POLICY_NONE_IS_MASTER
+    from com.sun.star.ucb.SynchronizePolicy import SERVER_IS_MASTER as SYNCHRONIZE_POLICY_SERVER_IS_MASTER
 
     class SynchronizePolicy(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API SynchronizePolicy <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aaa633f0c45560a4367cb74d393c0c619>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.SynchronizePolicy', value)
 
-        CLIENT_IS_MASTER: SynchronizePolicy = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
+        __ooo_type_name__: str = 'enum'
+
+        CLIENT_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
         """
         Client is master.
         """
-        NONE_IS_MASTER: SynchronizePolicy = ...
+        NONE_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_NONE_IS_MASTER
         """
         None is master.
         """
-        SERVER_IS_MASTER: SynchronizePolicy = ...
+        SERVER_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_SERVER_IS_MASTER
         """
         Server is master.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['SynchronizePolicy']
-

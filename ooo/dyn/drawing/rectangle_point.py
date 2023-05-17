@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.RectanglePoint import LEFT_BOTTOM as RECTANGLE_POINT_LEFT_BOTTOM
+    from com.sun.star.drawing.RectanglePoint import LEFT_MIDDLE as RECTANGLE_POINT_LEFT_MIDDLE
+    from com.sun.star.drawing.RectanglePoint import LEFT_TOP as RECTANGLE_POINT_LEFT_TOP
+    from com.sun.star.drawing.RectanglePoint import MIDDLE_BOTTOM as RECTANGLE_POINT_MIDDLE_BOTTOM
+    from com.sun.star.drawing.RectanglePoint import MIDDLE_MIDDLE as RECTANGLE_POINT_MIDDLE_MIDDLE
+    from com.sun.star.drawing.RectanglePoint import MIDDLE_TOP as RECTANGLE_POINT_MIDDLE_TOP
+    from com.sun.star.drawing.RectanglePoint import RIGHT_BOTTOM as RECTANGLE_POINT_RIGHT_BOTTOM
+    from com.sun.star.drawing.RectanglePoint import RIGHT_MIDDLE as RECTANGLE_POINT_RIGHT_MIDDLE
+    from com.sun.star.drawing.RectanglePoint import RIGHT_TOP as RECTANGLE_POINT_RIGHT_TOP
 
     class RectanglePoint(uno.Enum):
         """
@@ -33,47 +43,47 @@ if TYPE_CHECKING:
         See Also:
             `API RectanglePoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4689f50c3960db0e79b179ddfc7d8827>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.RectanglePoint', value)
 
-        LEFT_BOTTOM: RectanglePoint = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.RectanglePoint'
+        __ooo_type_name__: str = 'enum'
+
+        LEFT_BOTTOM: RectanglePoint = RECTANGLE_POINT_LEFT_BOTTOM
         """
         specify to the point on the bottom of the left side from the rectangle.
         """
-        LEFT_MIDDLE: RectanglePoint = ...
+        LEFT_MIDDLE: RectanglePoint = RECTANGLE_POINT_LEFT_MIDDLE
         """
         specify to the point on the middle of the left side from the rectangle.
         """
-        LEFT_TOP: RectanglePoint = ...
+        LEFT_TOP: RectanglePoint = RECTANGLE_POINT_LEFT_TOP
         """
         specify to the point on the left side from the top of the rectangle.
         """
-        MIDDLE_BOTTOM: RectanglePoint = ...
+        MIDDLE_BOTTOM: RectanglePoint = RECTANGLE_POINT_MIDDLE_BOTTOM
         """
         specify to the point on the middle of the bottom from the rectangle.
         """
-        MIDDLE_MIDDLE: RectanglePoint = ...
+        MIDDLE_MIDDLE: RectanglePoint = RECTANGLE_POINT_MIDDLE_MIDDLE
         """
         specify to the point on the center from the rectangle.
         """
-        MIDDLE_TOP: RectanglePoint = ...
+        MIDDLE_TOP: RectanglePoint = RECTANGLE_POINT_MIDDLE_TOP
         """
         specify to the point on the middle of the top from the rectangle.
         """
-        RIGHT_BOTTOM: RectanglePoint = ...
+        RIGHT_BOTTOM: RectanglePoint = RECTANGLE_POINT_RIGHT_BOTTOM
         """
         specify to the point on the bottom of the right side from the rectangle.
         """
-        RIGHT_MIDDLE: RectanglePoint = ...
+        RIGHT_MIDDLE: RectanglePoint = RECTANGLE_POINT_RIGHT_MIDDLE
         """
         specify to the point on the middle of the right side from the rectangle.
         """
-        RIGHT_TOP: RectanglePoint = ...
+        RIGHT_TOP: RectanglePoint = RECTANGLE_POINT_RIGHT_TOP
         """
         specify to the point on the right side from the top of the rectangle.
         """
@@ -86,4 +96,3 @@ else:
         pass
 
 __all__ = ['RectanglePoint']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.form.FormSubmitEncoding import MULTIPART as FORM_SUBMIT_ENCODING_MULTIPART
+    from com.sun.star.form.FormSubmitEncoding import TEXT as FORM_SUBMIT_ENCODING_TEXT
+    from com.sun.star.form.FormSubmitEncoding import URL as FORM_SUBMIT_ENCODING_URL
 
     class FormSubmitEncoding(uno.Enum):
         """
@@ -33,27 +37,27 @@ if TYPE_CHECKING:
         See Also:
             `API FormSubmitEncoding <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a4a4c5c07c0618f59711919741a523ab8>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.form.FormSubmitEncoding', value)
 
-        MULTIPART: FormSubmitEncoding = ...
+        __ooo_ns__: str = 'com.sun.star.form'
+        __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitEncoding'
+        __ooo_type_name__: str = 'enum'
+
+        MULTIPART: FormSubmitEncoding = FORM_SUBMIT_ENCODING_MULTIPART
         """
         Specifies to use \"multipart/form-data\" as submit encoding.
         
         Usually used when the form contains a file upload element.
         """
-        TEXT: FormSubmitEncoding = ...
+        TEXT: FormSubmitEncoding = FORM_SUBMIT_ENCODING_TEXT
         """
         specifies to use \"text/plain\"
         
         Usually used if the FormSubmitMethod attribute has the value POST and the content should be reviewed as full text.
         """
-        URL: FormSubmitEncoding = ...
+        URL: FormSubmitEncoding = FORM_SUBMIT_ENCODING_URL
         """
         When the button is clicked, a URL set for the button is opened.
         
@@ -70,4 +74,3 @@ else:
         pass
 
 __all__ = ['FormSubmitEncoding']
-

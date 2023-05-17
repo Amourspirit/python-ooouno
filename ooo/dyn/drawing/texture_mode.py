@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextureMode import BLEND as TEXTURE_MODE_BLEND
+    from com.sun.star.drawing.TextureMode import MODULATE as TEXTURE_MODE_MODULATE
+    from com.sun.star.drawing.TextureMode import REPLACE as TEXTURE_MODE_REPLACE
 
     class TextureMode(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API TextureMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a54e2c5973b14c9a43a7acf8fc80b3edb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextureMode', value)
 
-        BLEND: TextureMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextureMode'
+        __ooo_type_name__: str = 'enum'
+
+        BLEND: TextureMode = TEXTURE_MODE_BLEND
         """
         This mixes both data sources in a fixed ratio.
         """
-        MODULATE: TextureMode = ...
+        MODULATE: TextureMode = TEXTURE_MODE_MODULATE
         """
         This mixes up colors in a way defined by the texture bitmap.
         """
-        REPLACE: TextureMode = ...
+        REPLACE: TextureMode = TEXTURE_MODE_REPLACE
         """
         This is the standard mode.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['TextureMode']
-

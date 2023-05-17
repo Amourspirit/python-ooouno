@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.DDELinkMode import DEFAULT as D_D_E_LINK_MODE_DEFAULT
+    from com.sun.star.sheet.DDELinkMode import ENGLISH as D_D_E_LINK_MODE_ENGLISH
+    from com.sun.star.sheet.DDELinkMode import TEXT as D_D_E_LINK_MODE_TEXT
 
     class DDELinkMode(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API DDELinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a1b95ca535d92ad726d77981ea3d8ef8b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.DDELinkMode', value)
 
-        DEFAULT: DDELinkMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.DDELinkMode'
+        __ooo_type_name__: str = 'enum'
+
+        DEFAULT: DDELinkMode = D_D_E_LINK_MODE_DEFAULT
         """
         numbers are converted into the default format.
         """
-        ENGLISH: DDELinkMode = ...
+        ENGLISH: DDELinkMode = D_D_E_LINK_MODE_ENGLISH
         """
         numbers are converted into the English default format.
         """
-        TEXT: DDELinkMode = ...
+        TEXT: DDELinkMode = D_D_E_LINK_MODE_TEXT
         """
         numbers are not converted, but treated as text.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['DDELinkMode']
-

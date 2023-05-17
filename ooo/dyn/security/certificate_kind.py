@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.security.CertificateKind import NONE as CERTIFICATE_KIND_NONE
+    from com.sun.star.security.CertificateKind import OPENPGP as CERTIFICATE_KIND_OPENPGP
+    from com.sun.star.security.CertificateKind import X509 as CERTIFICATE_KIND_X509
 
     class CertificateKind(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API CertificateKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a15fb2a8475364a68c176c7789e3611cc>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.security.CertificateKind', value)
 
-        NONE: CertificateKind = ...
+        __ooo_ns__: str = 'com.sun.star.security'
+        __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
+        __ooo_type_name__: str = 'enum'
+
+        NONE: CertificateKind = CERTIFICATE_KIND_NONE
         """
         No format specified.
         """
-        OPENPGP: CertificateKind = ...
+        OPENPGP: CertificateKind = CERTIFICATE_KIND_OPENPGP
         """
         OpenPGP format of a certificate.
         """
-        X509: CertificateKind = ...
+        X509: CertificateKind = CERTIFICATE_KIND_X509
         """
         X.509 format of a certificate.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['CertificateKind']
-

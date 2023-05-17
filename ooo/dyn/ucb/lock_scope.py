@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.LockScope import EXCLUSIVE as LOCK_SCOPE_EXCLUSIVE
+    from com.sun.star.ucb.LockScope import SHARED as LOCK_SCOPE_SHARED
 
     class LockScope(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API LockScope <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ae15ecbfc9e84371b6044661d1493e6a5>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.LockScope', value)
 
-        EXCLUSIVE: LockScope = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.LockScope'
+        __ooo_type_name__: str = 'enum'
+
+        EXCLUSIVE: LockScope = LOCK_SCOPE_EXCLUSIVE
         """
         the lock is exclusive.
         """
-        SHARED: LockScope = ...
+        SHARED: LockScope = LOCK_SCOPE_SHARED
         """
         the lock is shared.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['LockScope']
-

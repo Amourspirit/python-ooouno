@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.NormalsKind import FLAT as NORMALS_KIND_FLAT
+    from com.sun.star.drawing.NormalsKind import SPECIFIC as NORMALS_KIND_SPECIFIC
+    from com.sun.star.drawing.NormalsKind import SPHERE as NORMALS_KIND_SPHERE
 
     class NormalsKind(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API NormalsKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a2f040e92a1488875fb14c6ecc377630b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.NormalsKind', value)
 
-        FLAT: NormalsKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.NormalsKind'
+        __ooo_type_name__: str = 'enum'
+
+        FLAT: NormalsKind = NORMALS_KIND_FLAT
         """
         forces one normal per flat part.
         
         With FLAT shading, the faces of the object are rendered in a solid color.
         """
-        SPECIFIC: NormalsKind = ...
+        SPECIFIC: NormalsKind = NORMALS_KIND_SPECIFIC
         """
         does not produce standard normals, but leaves the object-specific ones untouched.
         """
-        SPHERE: NormalsKind = ...
+        SPHERE: NormalsKind = NORMALS_KIND_SPHERE
         """
         forces normals to think that the object is a sphere.
         
@@ -66,4 +70,3 @@ else:
         pass
 
 __all__ = ['NormalsKind']
-

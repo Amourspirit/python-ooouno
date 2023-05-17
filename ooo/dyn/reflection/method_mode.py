@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.reflection.MethodMode import ONEWAY as METHOD_MODE_ONEWAY
+    from com.sun.star.reflection.MethodMode import TWOWAY as METHOD_MODE_TWOWAY
 
     class MethodMode(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API MethodMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a5e114fee85d0f2f8cb01480a474dd9b4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.reflection.MethodMode', value)
 
-        ONEWAY: MethodMode = ...
+        __ooo_ns__: str = 'com.sun.star.reflection'
+        __ooo_full_ns__: str = 'com.sun.star.reflection.MethodMode'
+        __ooo_type_name__: str = 'enum'
+
+        ONEWAY: MethodMode = METHOD_MODE_ONEWAY
         """
         method may be run asynchronously
         """
-        TWOWAY: MethodMode = ...
+        TWOWAY: MethodMode = METHOD_MODE_TWOWAY
         """
         method is run The
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['MethodMode']
-

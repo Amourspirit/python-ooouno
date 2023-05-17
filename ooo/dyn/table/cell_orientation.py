@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.CellOrientation import BOTTOMTOP as CELL_ORIENTATION_BOTTOMTOP
+    from com.sun.star.table.CellOrientation import STACKED as CELL_ORIENTATION_STACKED
+    from com.sun.star.table.CellOrientation import STANDARD as CELL_ORIENTATION_STANDARD
+    from com.sun.star.table.CellOrientation import TOPBOTTOM as CELL_ORIENTATION_TOPBOTTOM
 
     class CellOrientation(uno.Enum):
         """
@@ -33,23 +38,23 @@ if TYPE_CHECKING:
         See Also:
             `API CellOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ae84a4c3547c7628fcc19bdf41cc93c60>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.CellOrientation', value)
 
-        BOTTOMTOP: CellOrientation = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.CellOrientation'
+        __ooo_type_name__: str = 'enum'
+
+        BOTTOMTOP: CellOrientation = CELL_ORIENTATION_BOTTOMTOP
         """
         contents are printed from bottom to top.
         """
-        STACKED: CellOrientation = ...
+        STACKED: CellOrientation = CELL_ORIENTATION_STACKED
         """
         contents are printed from top to bottom with individual characters in normal (horizontal) orientation.
         """
-        STANDARD: CellOrientation = ...
+        STANDARD: CellOrientation = CELL_ORIENTATION_STANDARD
         """
         default alignment is used (left for numbers, right for text).
         
@@ -57,7 +62,7 @@ if TYPE_CHECKING:
         
         contents are printed from left to right.
         """
-        TOPBOTTOM: CellOrientation = ...
+        TOPBOTTOM: CellOrientation = CELL_ORIENTATION_TOPBOTTOM
         """
         contents are printed from top to bottom.
         """
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['CellOrientation']
-

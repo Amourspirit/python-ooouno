@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.script.MemberType import METHOD as MEMBER_TYPE_METHOD
+    from com.sun.star.script.MemberType import PROPERTY as MEMBER_TYPE_PROPERTY
+    from com.sun.star.script.MemberType import UNKNOWN as MEMBER_TYPE_UNKNOWN
 
     class MemberType(uno.Enum):
         """
@@ -33,21 +37,21 @@ if TYPE_CHECKING:
         See Also:
             `API MemberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a63e3de542c5d38de617ab78c8c8f5a41>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.script.MemberType', value)
 
-        METHOD: MemberType = ...
+        __ooo_ns__: str = 'com.sun.star.script'
+        __ooo_full_ns__: str = 'com.sun.star.script.MemberType'
+        __ooo_type_name__: str = 'enum'
+
+        METHOD: MemberType = MEMBER_TYPE_METHOD
         """
         """
-        PROPERTY: MemberType = ...
+        PROPERTY: MemberType = MEMBER_TYPE_PROPERTY
         """
         """
-        UNKNOWN: MemberType = ...
+        UNKNOWN: MemberType = MEMBER_TYPE_UNKNOWN
         """
         """
 
@@ -59,4 +63,3 @@ else:
         pass
 
 __all__ = ['MemberType']
-

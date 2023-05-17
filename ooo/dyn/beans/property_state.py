@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.beans.PropertyState import AMBIGUOUS_VALUE as PROPERTY_STATE_AMBIGUOUS_VALUE
+    from com.sun.star.beans.PropertyState import DEFAULT_VALUE as PROPERTY_STATE_DEFAULT_VALUE
+    from com.sun.star.beans.PropertyState import DIRECT_VALUE as PROPERTY_STATE_DIRECT_VALUE
 
     class PropertyState(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API PropertyState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1beans.html#a1a5ccb5c59cace4a214c1e2eae8620b0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.beans.PropertyState', value)
 
-        AMBIGUOUS_VALUE: PropertyState = ...
+        __ooo_ns__: str = 'com.sun.star.beans'
+        __ooo_full_ns__: str = 'com.sun.star.beans.PropertyState'
+        __ooo_type_name__: str = 'enum'
+
+        AMBIGUOUS_VALUE: PropertyState = PROPERTY_STATE_AMBIGUOUS_VALUE
         """
         The value of the property is only a recommendation because there are multiple values for this property (e.g., from a multi selection).
         
         The PropertyAttribute field in the struct Property must contain the PropertyAttribute.MAYBEAMBIGUOUS flag. The property value must be available and of the specified type. If the Attribute field in the struct Property contains PropertyAttribute.MAYBEVOID, then the value may be void.
         """
-        DEFAULT_VALUE: PropertyState = ...
+        DEFAULT_VALUE: PropertyState = PROPERTY_STATE_DEFAULT_VALUE
         """
         The value of the property is available from a master (e.g., template).
         """
-        DIRECT_VALUE: PropertyState = ...
+        DIRECT_VALUE: PropertyState = PROPERTY_STATE_DIRECT_VALUE
         """
         The value of the property is stored in the PropertySet itself.
         """
@@ -64,4 +68,3 @@ else:
         pass
 
 __all__ = ['PropertyState']
-

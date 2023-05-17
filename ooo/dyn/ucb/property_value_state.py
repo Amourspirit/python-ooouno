@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.PropertyValueState import INVALID_NAME as PROPERTY_VALUE_STATE_INVALID_NAME
+    from com.sun.star.ucb.PropertyValueState import INVALID_TYPE as PROPERTY_VALUE_STATE_INVALID_TYPE
+    from com.sun.star.ucb.PropertyValueState import PROCESSED as PROPERTY_VALUE_STATE_PROCESSED
+    from com.sun.star.ucb.PropertyValueState import UNPROCESSED as PROPERTY_VALUE_STATE_UNPROCESSED
 
     class PropertyValueState(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API PropertyValueState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a82ef3fdcd414866879e7aae1e52748d0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.PropertyValueState', value)
 
-        INVALID_NAME: PropertyValueState = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.PropertyValueState'
+        __ooo_type_name__: str = 'enum'
+
+        INVALID_NAME: PropertyValueState = PROPERTY_VALUE_STATE_INVALID_NAME
         """
         The given property name/handle is invalid.
         """
-        INVALID_TYPE: PropertyValueState = ...
+        INVALID_TYPE: PropertyValueState = PROPERTY_VALUE_STATE_INVALID_TYPE
         """
         The given property type is invalid.
         """
-        PROCESSED: PropertyValueState = ...
+        PROCESSED: PropertyValueState = PROPERTY_VALUE_STATE_PROCESSED
         """
         The value was obtained.
         """
-        UNPROCESSED: PropertyValueState = ...
+        UNPROCESSED: PropertyValueState = PROPERTY_VALUE_STATE_UNPROCESSED
         """
         The property value was not obtained yet.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['PropertyValueState']
-

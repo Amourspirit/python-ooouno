@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.framework.ResourceActivationMode import ADD as RESOURCE_ACTIVATION_MODE_ADD
+    from com.sun.star.drawing.framework.ResourceActivationMode import REPLACE as RESOURCE_ACTIVATION_MODE_REPLACE
 
     class ResourceActivationMode(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API ResourceActivationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a9b6ee17a97f260847a6fa2df1be8f104>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.framework.ResourceActivationMode', value)
 
-        ADD: ResourceActivationMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing.framework'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
+        __ooo_type_name__: str = 'enum'
+
+        ADD: ResourceActivationMode = RESOURCE_ACTIVATION_MODE_ADD
         """
         A resource is requested in addition to already existing ones.
         
         This is used for example for panes.
         """
-        REPLACE: ResourceActivationMode = ...
+        REPLACE: ResourceActivationMode = RESOURCE_ACTIVATION_MODE_REPLACE
         """
         A resource is requested to replace an already existing one of the same class.
         
@@ -62,4 +65,3 @@ else:
         pass
 
 __all__ = ['ResourceActivationMode']
-

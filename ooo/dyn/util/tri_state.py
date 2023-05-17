@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.util.TriState import INDETERMINATE as TRI_STATE_INDETERMINATE
+    from com.sun.star.util.TriState import NO as TRI_STATE_NO
+    from com.sun.star.util.TriState import YES as TRI_STATE_YES
 
     class TriState(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API TriState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a20884447391b4598296c73c6fa3d9470>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.util.TriState', value)
 
-        INDETERMINATE: TriState = ...
+        __ooo_ns__: str = 'com.sun.star.util'
+        __ooo_full_ns__: str = 'com.sun.star.util.TriState'
+        __ooo_type_name__: str = 'enum'
+
+        INDETERMINATE: TriState = TRI_STATE_INDETERMINATE
         """
         The value is indeterminate.
         """
-        NO: TriState = ...
+        NO: TriState = TRI_STATE_NO
         """
         The value is equivalent to FALSE.
         """
-        YES: TriState = ...
+        YES: TriState = TRI_STATE_YES
         """
         The value is equivalent to TRUE.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['TriState']
-

@@ -20,10 +20,27 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.dom.events.EventType import DOMActivate as EVENT_TYPE_DOMActivate
+    from com.sun.star.xml.dom.events.EventType import DOMAttrModified as EVENT_TYPE_DOMAttrModified
+    from com.sun.star.xml.dom.events.EventType import DOMCharacterDataModified as EVENT_TYPE_DOMCharacterDataModified
+    from com.sun.star.xml.dom.events.EventType import DOMFocusIn as EVENT_TYPE_DOMFocusIn
+    from com.sun.star.xml.dom.events.EventType import DOMFocusOut as EVENT_TYPE_DOMFocusOut
+    from com.sun.star.xml.dom.events.EventType import DOMNodeInserted as EVENT_TYPE_DOMNodeInserted
+    from com.sun.star.xml.dom.events.EventType import DOMNodeInsertedIntoDocument as EVENT_TYPE_DOMNodeInsertedIntoDocument
+    from com.sun.star.xml.dom.events.EventType import DOMNodeRemoved as EVENT_TYPE_DOMNodeRemoved
+    from com.sun.star.xml.dom.events.EventType import DOMNodeRemovedFromDocument as EVENT_TYPE_DOMNodeRemovedFromDocument
+    from com.sun.star.xml.dom.events.EventType import DOMSubtreeModified as EVENT_TYPE_DOMSubtreeModified
+    from com.sun.star.xml.dom.events.EventType import click as EVENT_TYPE_click
+    from com.sun.star.xml.dom.events.EventType import mousedown as EVENT_TYPE_mousedown
+    from com.sun.star.xml.dom.events.EventType import mousemove as EVENT_TYPE_mousemove
+    from com.sun.star.xml.dom.events.EventType import mouseout as EVENT_TYPE_mouseout
+    from com.sun.star.xml.dom.events.EventType import mouseover as EVENT_TYPE_mouseover
+    from com.sun.star.xml.dom.events.EventType import mouseup as EVENT_TYPE_mouseup
 
     class EventType(uno.Enum):
         """
@@ -34,60 +51,60 @@ if TYPE_CHECKING:
         See Also:
             `API EventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#a2628ea8d12e8b2563c32f05dc7fff6fa>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.dom.events.EventType', value)
 
-        DOMActivate: EventType = ...
+        __ooo_ns__: str = 'com.sun.star.xml.dom.events'
+        __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.EventType'
+        __ooo_type_name__: str = 'enum'
+
+        DOMActivate: EventType = EVENT_TYPE_DOMActivate
         """
         """
-        DOMAttrModified: EventType = ...
+        DOMAttrModified: EventType = EVENT_TYPE_DOMAttrModified
         """
         """
-        DOMCharacterDataModified: EventType = ...
+        DOMCharacterDataModified: EventType = EVENT_TYPE_DOMCharacterDataModified
         """
         """
-        DOMFocusIn: EventType = ...
+        DOMFocusIn: EventType = EVENT_TYPE_DOMFocusIn
         """
         """
-        DOMFocusOut: EventType = ...
+        DOMFocusOut: EventType = EVENT_TYPE_DOMFocusOut
         """
         """
-        DOMNodeInserted: EventType = ...
+        DOMNodeInserted: EventType = EVENT_TYPE_DOMNodeInserted
         """
         """
-        DOMNodeInsertedIntoDocument: EventType = ...
+        DOMNodeInsertedIntoDocument: EventType = EVENT_TYPE_DOMNodeInsertedIntoDocument
         """
         """
-        DOMNodeRemoved: EventType = ...
+        DOMNodeRemoved: EventType = EVENT_TYPE_DOMNodeRemoved
         """
         """
-        DOMNodeRemovedFromDocument: EventType = ...
+        DOMNodeRemovedFromDocument: EventType = EVENT_TYPE_DOMNodeRemovedFromDocument
         """
         """
-        DOMSubtreeModified: EventType = ...
+        DOMSubtreeModified: EventType = EVENT_TYPE_DOMSubtreeModified
         """
         """
-        click: EventType = ...
+        click: EventType = EVENT_TYPE_click
         """
         """
-        mousedown: EventType = ...
+        mousedown: EventType = EVENT_TYPE_mousedown
         """
         """
-        mousemove: EventType = ...
+        mousemove: EventType = EVENT_TYPE_mousemove
         """
         """
-        mouseout: EventType = ...
+        mouseout: EventType = EVENT_TYPE_mouseout
         """
         """
-        mouseover: EventType = ...
+        mouseover: EventType = EVENT_TYPE_mouseover
         """
         """
-        mouseup: EventType = ...
+        mouseup: EventType = EVENT_TYPE_mouseup
         """
         """
 
@@ -99,4 +116,3 @@ else:
         pass
 
 __all__ = ['EventType']
-

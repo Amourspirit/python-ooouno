@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.ValidationType import ANY as VALIDATION_TYPE_ANY
+    from com.sun.star.sheet.ValidationType import CUSTOM as VALIDATION_TYPE_CUSTOM
+    from com.sun.star.sheet.ValidationType import DATE as VALIDATION_TYPE_DATE
+    from com.sun.star.sheet.ValidationType import DECIMAL as VALIDATION_TYPE_DECIMAL
+    from com.sun.star.sheet.ValidationType import LIST as VALIDATION_TYPE_LIST
+    from com.sun.star.sheet.ValidationType import TEXT_LEN as VALIDATION_TYPE_TEXT_LEN
+    from com.sun.star.sheet.ValidationType import TIME as VALIDATION_TYPE_TIME
+    from com.sun.star.sheet.ValidationType import WHOLE as VALIDATION_TYPE_WHOLE
 
     class ValidationType(uno.Enum):
         """
@@ -33,45 +42,45 @@ if TYPE_CHECKING:
         See Also:
             `API ValidationType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa5aa6dbecaeb5e18a476b0a58279c57a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.ValidationType', value)
 
-        ANY: ValidationType = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationType'
+        __ooo_type_name__: str = 'enum'
+
+        ANY: ValidationType = VALIDATION_TYPE_ANY
         """
         any cell content is valid; no conditions are used.
         """
-        CUSTOM: ValidationType = ...
+        CUSTOM: ValidationType = VALIDATION_TYPE_CUSTOM
         """
         The specified formula determines which contents are valid.
         """
-        DATE: ValidationType = ...
+        DATE: ValidationType = VALIDATION_TYPE_DATE
         """
         specifies an arithmetic series for date values.
         
         any date value matching the specified condition is valid.
         """
-        DECIMAL: ValidationType = ...
+        DECIMAL: ValidationType = VALIDATION_TYPE_DECIMAL
         """
         any number matching the specified condition is valid.
         """
-        LIST: ValidationType = ...
+        LIST: ValidationType = VALIDATION_TYPE_LIST
         """
         Only strings from a specified list are valid.
         """
-        TEXT_LEN: ValidationType = ...
+        TEXT_LEN: ValidationType = VALIDATION_TYPE_TEXT_LEN
         """
         string is valid if its length matches the specified condition.
         """
-        TIME: ValidationType = ...
+        TIME: ValidationType = VALIDATION_TYPE_TIME
         """
         any time value matching the specified condition is valid.
         """
-        WHOLE: ValidationType = ...
+        WHOLE: ValidationType = VALIDATION_TYPE_WHOLE
         """
         any whole number matching the specified condition is valid.
         """
@@ -84,4 +93,3 @@ else:
         pass
 
 __all__ = ['ValidationType']
-

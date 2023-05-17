@@ -20,10 +20,30 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.i18n.DirectionProperty import ARABIC_NUMBER as DIRECTION_PROPERTY_ARABIC_NUMBER
+    from com.sun.star.i18n.DirectionProperty import BLOCK_SEPARATOR as DIRECTION_PROPERTY_BLOCK_SEPARATOR
+    from com.sun.star.i18n.DirectionProperty import BOUNDARY_NEUTRAL as DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
+    from com.sun.star.i18n.DirectionProperty import COMMON_NUMBER_SEPARATOR as DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
+    from com.sun.star.i18n.DirectionProperty import DIR_NON_SPACING_MARK as DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
+    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER as DIRECTION_PROPERTY_EUROPEAN_NUMBER
+    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_SEPARATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
+    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_TERMINATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
+    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT as DIRECTION_PROPERTY_LEFT_TO_RIGHT
+    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_EMBEDDING as DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
+    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_OVERRIDE as DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
+    from com.sun.star.i18n.DirectionProperty import OTHER_NEUTRAL as DIRECTION_PROPERTY_OTHER_NEUTRAL
+    from com.sun.star.i18n.DirectionProperty import POP_DIRECTIONAL_FORMAT as DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
+    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT as DIRECTION_PROPERTY_RIGHT_TO_LEFT
+    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_ARABIC as DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
+    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_EMBEDDING as DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
+    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_OVERRIDE as DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
+    from com.sun.star.i18n.DirectionProperty import SEGMENT_SEPARATOR as DIRECTION_PROPERTY_SEGMENT_SEPARATOR
+    from com.sun.star.i18n.DirectionProperty import WHITE_SPACE_NEUTRAL as DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
 
     class DirectionProperty(uno.Enum):
         """
@@ -33,69 +53,69 @@ if TYPE_CHECKING:
         See Also:
             `API DirectionProperty <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a6e8fd3df14c13e43a44061c70daacd8b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.i18n.DirectionProperty', value)
 
-        ARABIC_NUMBER: DirectionProperty = ...
+        __ooo_ns__: str = 'com.sun.star.i18n'
+        __ooo_full_ns__: str = 'com.sun.star.i18n.DirectionProperty'
+        __ooo_type_name__: str = 'enum'
+
+        ARABIC_NUMBER: DirectionProperty = DIRECTION_PROPERTY_ARABIC_NUMBER
         """
         """
-        BLOCK_SEPARATOR: DirectionProperty = ...
+        BLOCK_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_BLOCK_SEPARATOR
         """
         """
-        BOUNDARY_NEUTRAL: DirectionProperty = ...
+        BOUNDARY_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
         """
         """
-        COMMON_NUMBER_SEPARATOR: DirectionProperty = ...
+        COMMON_NUMBER_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
         """
         """
-        DIR_NON_SPACING_MARK: DirectionProperty = ...
+        DIR_NON_SPACING_MARK: DirectionProperty = DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
         """
         """
-        EUROPEAN_NUMBER: DirectionProperty = ...
+        EUROPEAN_NUMBER: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER
         """
         """
-        EUROPEAN_NUMBER_SEPARATOR: DirectionProperty = ...
+        EUROPEAN_NUMBER_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
         """
         """
-        EUROPEAN_NUMBER_TERMINATOR: DirectionProperty = ...
+        EUROPEAN_NUMBER_TERMINATOR: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
         """
         """
-        LEFT_TO_RIGHT: DirectionProperty = ...
+        LEFT_TO_RIGHT: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT
         """
         """
-        LEFT_TO_RIGHT_EMBEDDING: DirectionProperty = ...
+        LEFT_TO_RIGHT_EMBEDDING: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
         """
         """
-        LEFT_TO_RIGHT_OVERRIDE: DirectionProperty = ...
+        LEFT_TO_RIGHT_OVERRIDE: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
         """
         """
-        OTHER_NEUTRAL: DirectionProperty = ...
+        OTHER_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_OTHER_NEUTRAL
         """
         """
-        POP_DIRECTIONAL_FORMAT: DirectionProperty = ...
+        POP_DIRECTIONAL_FORMAT: DirectionProperty = DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
         """
         """
-        RIGHT_TO_LEFT: DirectionProperty = ...
+        RIGHT_TO_LEFT: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT
         """
         """
-        RIGHT_TO_LEFT_ARABIC: DirectionProperty = ...
+        RIGHT_TO_LEFT_ARABIC: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
         """
         """
-        RIGHT_TO_LEFT_EMBEDDING: DirectionProperty = ...
+        RIGHT_TO_LEFT_EMBEDDING: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
         """
         """
-        RIGHT_TO_LEFT_OVERRIDE: DirectionProperty = ...
+        RIGHT_TO_LEFT_OVERRIDE: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
         """
         """
-        SEGMENT_SEPARATOR: DirectionProperty = ...
+        SEGMENT_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_SEGMENT_SEPARATOR
         """
         """
-        WHITE_SPACE_NEUTRAL: DirectionProperty = ...
+        WHITE_SPACE_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
         """
         """
 
@@ -107,4 +127,3 @@ else:
         pass
 
 __all__ = ['DirectionProperty']
-

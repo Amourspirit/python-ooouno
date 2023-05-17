@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.DataImportMode import NONE as DATA_IMPORT_MODE_NONE
+    from com.sun.star.sheet.DataImportMode import QUERY as DATA_IMPORT_MODE_QUERY
+    from com.sun.star.sheet.DataImportMode import SQL as DATA_IMPORT_MODE_SQL
+    from com.sun.star.sheet.DataImportMode import TABLE as DATA_IMPORT_MODE_TABLE
 
     class DataImportMode(uno.Enum):
         """
@@ -33,15 +38,15 @@ if TYPE_CHECKING:
         See Also:
             `API DataImportMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#acf0761f72074fd2e59d1bb3ef690a2e6>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.DataImportMode', value)
 
-        NONE: DataImportMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.DataImportMode'
+        __ooo_type_name__: str = 'enum'
+
+        NONE: DataImportMode = DATA_IMPORT_MODE_NONE
         """
         no cells are moved.
         
@@ -55,15 +60,15 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        QUERY: DataImportMode = ...
+        QUERY: DataImportMode = DATA_IMPORT_MODE_QUERY
         """
         the name of a database query is supplied.
         """
-        SQL: DataImportMode = ...
+        SQL: DataImportMode = DATA_IMPORT_MODE_SQL
         """
         a SQL query string is supplied.
         """
-        TABLE: DataImportMode = ...
+        TABLE: DataImportMode = DATA_IMPORT_MODE_TABLE
         """
         the name of a database table is supplied.
         """
@@ -76,4 +81,3 @@ else:
         pass
 
 __all__ = ['DataImportMode']
-

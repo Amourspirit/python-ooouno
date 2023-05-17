@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.DocumentStoreMode import LOCAL as DOCUMENT_STORE_MODE_LOCAL
+    from com.sun.star.ucb.DocumentStoreMode import REMOTE as DOCUMENT_STORE_MODE_REMOTE
 
     class DocumentStoreMode(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API DocumentStoreMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aea1ce806e915d3505569f7679447ecc2>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.DocumentStoreMode', value)
 
-        LOCAL: DocumentStoreMode = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.DocumentStoreMode'
+        __ooo_type_name__: str = 'enum'
+
+        LOCAL: DocumentStoreMode = DOCUMENT_STORE_MODE_LOCAL
         """
         Document contents are stored locally.
         """
-        REMOTE: DocumentStoreMode = ...
+        REMOTE: DocumentStoreMode = DOCUMENT_STORE_MODE_REMOTE
         """
         Document contents are not stored locally.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['DocumentStoreMode']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.FolderListCommand import GET as FOLDER_LIST_COMMAND_GET
+    from com.sun.star.ucb.FolderListCommand import GET_SUBSCRIBED as FOLDER_LIST_COMMAND_GET_SUBSCRIBED
+    from com.sun.star.ucb.FolderListCommand import SET as FOLDER_LIST_COMMAND_SET
 
     class FolderListCommand(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API FolderListCommand <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa1260fc093737bd1d1134fba75333247>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.FolderListCommand', value)
 
-        GET: FolderListCommand = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.FolderListCommand'
+        __ooo_type_name__: str = 'enum'
+
+        GET: FolderListCommand = FOLDER_LIST_COMMAND_GET
         """
         Get a list of all folders.
         
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        GET_SUBSCRIBED: FolderListCommand = ...
+        GET_SUBSCRIBED: FolderListCommand = FOLDER_LIST_COMMAND_GET_SUBSCRIBED
         """
         Get a list of subscribed folders.
         """
-        SET: FolderListCommand = ...
+        SET: FolderListCommand = FOLDER_LIST_COMMAND_SET
         """
         Set a list of folders.
         """
@@ -64,4 +68,3 @@ else:
         pass
 
 __all__ = ['FolderListCommand']
-

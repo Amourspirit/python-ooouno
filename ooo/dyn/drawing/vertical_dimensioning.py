@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.VerticalDimensioning import AUTO as VERTICAL_DIMENSIONING_AUTO
+    from com.sun.star.drawing.VerticalDimensioning import BOTTOM as VERTICAL_DIMENSIONING_BOTTOM
+    from com.sun.star.drawing.VerticalDimensioning import CENTERED as VERTICAL_DIMENSIONING_CENTERED
+    from com.sun.star.drawing.VerticalDimensioning import TOP as VERTICAL_DIMENSIONING_TOP
 
     class VerticalDimensioning(uno.Enum):
         """
@@ -33,21 +38,21 @@ if TYPE_CHECKING:
         See Also:
             `API VerticalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a3d694e7ac991a1dc3541f7d166f0b126>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.VerticalDimensioning', value)
 
-        AUTO: VerticalDimensioning = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.VerticalDimensioning'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: VerticalDimensioning = VERTICAL_DIMENSIONING_AUTO
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BOTTOM: VerticalDimensioning = ...
+        BOTTOM: VerticalDimensioning = VERTICAL_DIMENSIONING_BOTTOM
         """
         the connection line leaves the connected object from the bottom,
         
@@ -55,13 +60,13 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        CENTERED: VerticalDimensioning = ...
+        CENTERED: VerticalDimensioning = VERTICAL_DIMENSIONING_CENTERED
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        TOP: VerticalDimensioning = ...
+        TOP: VerticalDimensioning = VERTICAL_DIMENSIONING_TOP
         """
         the connection line leaves the connected object from the top,
         
@@ -78,4 +83,3 @@ else:
         pass
 
 __all__ = ['VerticalDimensioning']
-

@@ -778,14 +778,14 @@ files = [
 
 [[package]]
 name = "types-unopy"
-version = "1.0.4"
+version = "1.0.6"
 description = "Type annotations for LibreOffice API"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "types_unopy-1.0.4-py3-none-any.whl", hash = "sha256:ddf1d99eb3bf8bdbec14a028837e46385bc0b5d568fbc10726a1ed9eef08c0a5"},
-    {file = "types_unopy-1.0.4.tar.gz", hash = "sha256:d0c9ed42ea14796f037000a78af9beac0f21cffc9b11cc8e49514dd2c9adaad5"},
+    {file = "types_unopy-1.0.6-py3-none-any.whl", hash = "sha256:bc018bbb08b3fa712d9b09172ddf84dc8a4a070deb1cb307bcd82c1aa80e871b"},
+    {file = "types_unopy-1.0.6.tar.gz", hash = "sha256:32e12f5c66410d4c33d8d236a5b5f82a0ffaccd85ab9b4f1c6e82f01077a541f"},
 ]
 
 [package.dependencies]

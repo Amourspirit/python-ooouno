@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.MeasureTextVertPos import AUTO as MEASURE_TEXT_VERT_POS_AUTO
+    from com.sun.star.drawing.MeasureTextVertPos import BREAKEDLINE as MEASURE_TEXT_VERT_POS_BREAKEDLINE
+    from com.sun.star.drawing.MeasureTextVertPos import CENTERED as MEASURE_TEXT_VERT_POS_CENTERED
+    from com.sun.star.drawing.MeasureTextVertPos import EAST as MEASURE_TEXT_VERT_POS_EAST
+    from com.sun.star.drawing.MeasureTextVertPos import WEST as MEASURE_TEXT_VERT_POS_WEST
 
     class MeasureTextVertPos(uno.Enum):
         """
@@ -33,33 +39,33 @@ if TYPE_CHECKING:
         See Also:
             `API MeasureTextVertPos <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#afb97f6590316423181878e8f5f79f087>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.MeasureTextVertPos', value)
 
-        AUTO: MeasureTextVertPos = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextVertPos'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_AUTO
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BREAKEDLINE: MeasureTextVertPos = ...
+        BREAKEDLINE: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_BREAKEDLINE
         """
         """
-        CENTERED: MeasureTextVertPos = ...
+        CENTERED: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_CENTERED
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        EAST: MeasureTextVertPos = ...
+        EAST: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_EAST
         """
         """
-        WEST: MeasureTextVertPos = ...
+        WEST: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_WEST
         """
         """
 
@@ -71,4 +77,3 @@ else:
         pass
 
 __all__ = ['MeasureTextVertPos']
-

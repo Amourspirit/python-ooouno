@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.CellVertJustify import BOTTOM as CELL_VERT_JUSTIFY_BOTTOM
+    from com.sun.star.table.CellVertJustify import CENTER as CELL_VERT_JUSTIFY_CENTER
+    from com.sun.star.table.CellVertJustify import STANDARD as CELL_VERT_JUSTIFY_STANDARD
+    from com.sun.star.table.CellVertJustify import TOP as CELL_VERT_JUSTIFY_TOP
 
     class CellVertJustify(uno.Enum):
         """
@@ -33,25 +38,25 @@ if TYPE_CHECKING:
         See Also:
             `API CellVertJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a17834bec5bf9ac4432141dee1c03b50b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.CellVertJustify', value)
 
-        BOTTOM: CellVertJustify = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
+        __ooo_type_name__: str = 'enum'
+
+        BOTTOM: CellVertJustify = CELL_VERT_JUSTIFY_BOTTOM
         """
         contents are aligned to the lower edge of the cell.
         """
-        CENTER: CellVertJustify = ...
+        CENTER: CellVertJustify = CELL_VERT_JUSTIFY_CENTER
         """
         contents are horizontally centered.
         
         contents are aligned to the vertical middle of the cell.
         """
-        STANDARD: CellVertJustify = ...
+        STANDARD: CellVertJustify = CELL_VERT_JUSTIFY_STANDARD
         """
         default alignment is used (left for numbers, right for text).
         
@@ -59,7 +64,7 @@ if TYPE_CHECKING:
         
         contents are printed from left to right.
         """
-        TOP: CellVertJustify = ...
+        TOP: CellVertJustify = CELL_VERT_JUSTIFY_TOP
         """
         contents are aligned with the upper edge of the cell.
         """
@@ -72,4 +77,3 @@ else:
         pass
 
 __all__ = ['CellVertJustify']
-

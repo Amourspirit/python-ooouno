@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextureKind import COLOR as TEXTURE_KIND_COLOR
+    from com.sun.star.drawing.TextureKind import LUMINANCE as TEXTURE_KIND_LUMINANCE
 
     class TextureKind(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API TextureKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a36a384629c2a5cfb1a9d019d30923c2b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextureKind', value)
 
-        COLOR: TextureKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind'
+        __ooo_type_name__: str = 'enum'
+
+        COLOR: TextureKind = TEXTURE_KIND_COLOR
         """
         With this mode the lighting is ignored and only the texture color information is used.
         
         With this mode, the lighting is ignored and only the texture color information is used.
         """
-        LUMINANCE: TextureKind = ...
+        LUMINANCE: TextureKind = TEXTURE_KIND_LUMINANCE
         """
         With TextureKind LUMINANCE, the texture and the lighting information is mixed to produce the image, so a lit, textured object is achieved.
         """
@@ -60,4 +63,3 @@ else:
         pass
 
 __all__ = ['TextureKind']
-

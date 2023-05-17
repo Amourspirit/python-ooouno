@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.RubyAdjust import BLOCK as RUBY_ADJUST_BLOCK
+    from com.sun.star.text.RubyAdjust import CENTER as RUBY_ADJUST_CENTER
+    from com.sun.star.text.RubyAdjust import INDENT_BLOCK as RUBY_ADJUST_INDENT_BLOCK
+    from com.sun.star.text.RubyAdjust import LEFT as RUBY_ADJUST_LEFT
+    from com.sun.star.text.RubyAdjust import RIGHT as RUBY_ADJUST_RIGHT
 
     class RubyAdjust(uno.Enum):
         """
@@ -33,29 +39,29 @@ if TYPE_CHECKING:
         See Also:
             `API RubyAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#adf417fe4b45f486fe88af93ad0b59efb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.RubyAdjust', value)
 
-        BLOCK: RubyAdjust = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.RubyAdjust'
+        __ooo_type_name__: str = 'enum'
+
+        BLOCK: RubyAdjust = RUBY_ADJUST_BLOCK
         """
         adjusted to both borders / stretched
         """
-        CENTER: RubyAdjust = ...
+        CENTER: RubyAdjust = RUBY_ADJUST_CENTER
         """
         the object is adjusted to the center.
         
         centric adjusted.
         """
-        INDENT_BLOCK: RubyAdjust = ...
+        INDENT_BLOCK: RubyAdjust = RUBY_ADJUST_INDENT_BLOCK
         """
         adjusted to both borders except for a small indent on both sides
         """
-        LEFT: RubyAdjust = ...
+        LEFT: RubyAdjust = RUBY_ADJUST_LEFT
         """
         the object is left adjusted.
         
@@ -63,7 +69,7 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        RIGHT: RubyAdjust = ...
+        RIGHT: RubyAdjust = RUBY_ADJUST_RIGHT
         """
         the object is right adjusted.
         
@@ -80,4 +86,3 @@ else:
         pass
 
 __all__ = ['RubyAdjust']
-

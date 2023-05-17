@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartRegressionCurveType import EXPONENTIAL as CHART_REGRESSION_CURVE_TYPE_EXPONENTIAL
+    from com.sun.star.chart.ChartRegressionCurveType import LINEAR as CHART_REGRESSION_CURVE_TYPE_LINEAR
+    from com.sun.star.chart.ChartRegressionCurveType import LOGARITHM as CHART_REGRESSION_CURVE_TYPE_LOGARITHM
+    from com.sun.star.chart.ChartRegressionCurveType import NONE as CHART_REGRESSION_CURVE_TYPE_NONE
+    from com.sun.star.chart.ChartRegressionCurveType import POLYNOMIAL as CHART_REGRESSION_CURVE_TYPE_POLYNOMIAL
+    from com.sun.star.chart.ChartRegressionCurveType import POWER as CHART_REGRESSION_CURVE_TYPE_POWER
 
     class ChartRegressionCurveType(uno.Enum):
         """
@@ -33,27 +40,27 @@ if TYPE_CHECKING:
         See Also:
             `API ChartRegressionCurveType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a00d1bb45d8b0a2aac5e07cde2f18302b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartRegressionCurveType', value)
 
-        EXPONENTIAL: ChartRegressionCurveType = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartRegressionCurveType'
+        __ooo_type_name__: str = 'enum'
+
+        EXPONENTIAL: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_EXPONENTIAL
         """
         displays an exponential regression curve.
         """
-        LINEAR: ChartRegressionCurveType = ...
+        LINEAR: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_LINEAR
         """
         displays a linear regression curve.
         """
-        LOGARITHM: ChartRegressionCurveType = ...
+        LOGARITHM: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_LOGARITHM
         """
         displays a linear logarithmic regression curve.
         """
-        NONE: ChartRegressionCurveType = ...
+        NONE: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_NONE
         """
         error indicators are not displayed.
         
@@ -63,11 +70,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        POLYNOMIAL: ChartRegressionCurveType = ...
+        POLYNOMIAL: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_POLYNOMIAL
         """
         displays a polynomial regression curve.
         """
-        POWER: ChartRegressionCurveType = ...
+        POWER: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_POWER
         """
         displays a regression curve using a power function.
         
@@ -82,4 +89,3 @@ else:
         pass
 
 __all__ = ['ChartRegressionCurveType']
-

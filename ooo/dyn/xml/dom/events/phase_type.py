@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.dom.events.PhaseType import AT_TARGET as PHASE_TYPE_AT_TARGET
+    from com.sun.star.xml.dom.events.PhaseType import BUBBLING_PHASE as PHASE_TYPE_BUBBLING_PHASE
+    from com.sun.star.xml.dom.events.PhaseType import CAPTURING_PHASE as PHASE_TYPE_CAPTURING_PHASE
 
     class PhaseType(uno.Enum):
         """
@@ -34,21 +38,21 @@ if TYPE_CHECKING:
         See Also:
             `API PhaseType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#af00a42ecad444bbda75cde1b64bd7e72>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.dom.events.PhaseType', value)
 
-        AT_TARGET: PhaseType = ...
+        __ooo_ns__: str = 'com.sun.star.xml.dom.events'
+        __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
+        __ooo_type_name__: str = 'enum'
+
+        AT_TARGET: PhaseType = PHASE_TYPE_AT_TARGET
         """
         """
-        BUBBLING_PHASE: PhaseType = ...
+        BUBBLING_PHASE: PhaseType = PHASE_TYPE_BUBBLING_PHASE
         """
         """
-        CAPTURING_PHASE: PhaseType = ...
+        CAPTURING_PHASE: PhaseType = PHASE_TYPE_CAPTURING_PHASE
         """
         """
 
@@ -60,4 +64,3 @@ else:
         pass
 
 __all__ = ['PhaseType']
-

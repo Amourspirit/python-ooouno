@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.FillStyle import BITMAP as FILL_STYLE_BITMAP
+    from com.sun.star.drawing.FillStyle import GRADIENT as FILL_STYLE_GRADIENT
+    from com.sun.star.drawing.FillStyle import HATCH as FILL_STYLE_HATCH
+    from com.sun.star.drawing.FillStyle import NONE as FILL_STYLE_NONE
+    from com.sun.star.drawing.FillStyle import SOLID as FILL_STYLE_SOLID
 
     class FillStyle(uno.Enum):
         """
@@ -33,27 +39,27 @@ if TYPE_CHECKING:
         See Also:
             `API FillStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a93450c852ea0dc97ffc5168069ed1bc0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.FillStyle', value)
 
-        BITMAP: FillStyle = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
+        __ooo_type_name__: str = 'enum'
+
+        BITMAP: FillStyle = FILL_STYLE_BITMAP
         """
         use a bitmap to fill the area.
         """
-        GRADIENT: FillStyle = ...
+        GRADIENT: FillStyle = FILL_STYLE_GRADIENT
         """
         use a gradient color to fill the area.
         """
-        HATCH: FillStyle = ...
+        HATCH: FillStyle = FILL_STYLE_HATCH
         """
         use a hatch to fill the area.
         """
-        NONE: FillStyle = ...
+        NONE: FillStyle = FILL_STYLE_NONE
         """
         the area is not filled.
         
@@ -67,7 +73,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SOLID: FillStyle = ...
+        SOLID: FillStyle = FILL_STYLE_SOLID
         """
         use a solid color to fill the area.
         
@@ -82,4 +88,3 @@ else:
         pass
 
 __all__ = ['FillStyle']
-

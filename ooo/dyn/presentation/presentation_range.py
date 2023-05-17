@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_ALL as PRESENTATION_RANGE_PRESENTATIONRANGE_ALL
+    from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_FROM_PAGE as PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE
+    from com.sun.star.presentation.PresentationRange import PRESENTATIONRANGE_INDIVIDUAL as PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL
 
     class PresentationRange(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API PresentationRange <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a69c71b14b95cc70bce7122a7b8287045>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.presentation.PresentationRange', value)
 
-        PRESENTATIONRANGE_ALL: PresentationRange = ...
+        __ooo_ns__: str = 'com.sun.star.presentation'
+        __ooo_full_ns__: str = 'com.sun.star.presentation.PresentationRange'
+        __ooo_type_name__: str = 'enum'
+
+        PRESENTATIONRANGE_ALL: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_ALL
         """
         use all slides.
         """
-        PRESENTATIONRANGE_FROM_PAGE: PresentationRange = ...
+        PRESENTATIONRANGE_FROM_PAGE: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE
         """
         use only the active slide.
         """
-        PRESENTATIONRANGE_INDIVIDUAL: PresentationRange = ...
+        PRESENTATIONRANGE_INDIVIDUAL: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL
         """
         use an individual choice of slides.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['PresentationRange']
-

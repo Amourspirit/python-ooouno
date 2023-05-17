@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.security.CertificateContainerStatus import NOCERT as CERTIFICATE_CONTAINER_STATUS_NOCERT
+    from com.sun.star.security.CertificateContainerStatus import TRUSTED as CERTIFICATE_CONTAINER_STATUS_TRUSTED
+    from com.sun.star.security.CertificateContainerStatus import UNTRUSTED as CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
 
     class CertificateContainerStatus(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API CertificateContainerStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#abd9126083ddb902b337383198d342e9f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.security.CertificateContainerStatus', value)
 
-        NOCERT: CertificateContainerStatus = ...
+        __ooo_ns__: str = 'com.sun.star.security'
+        __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
+        __ooo_type_name__: str = 'enum'
+
+        NOCERT: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_NOCERT
         """
         The certificate was not found.
         """
-        TRUSTED: CertificateContainerStatus = ...
+        TRUSTED: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_TRUSTED
         """
         The certificate was found and is trusted.
         """
-        UNTRUSTED: CertificateContainerStatus = ...
+        UNTRUSTED: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
         """
         The certificate was found but is untrusted.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['CertificateContainerStatus']
-

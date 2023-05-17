@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.MessageBoxType import ERRORBOX as MESSAGE_BOX_TYPE_ERRORBOX
+    from com.sun.star.awt.MessageBoxType import INFOBOX as MESSAGE_BOX_TYPE_INFOBOX
+    from com.sun.star.awt.MessageBoxType import MESSAGEBOX as MESSAGE_BOX_TYPE_MESSAGEBOX
+    from com.sun.star.awt.MessageBoxType import QUERYBOX as MESSAGE_BOX_TYPE_QUERYBOX
+    from com.sun.star.awt.MessageBoxType import WARNINGBOX as MESSAGE_BOX_TYPE_WARNINGBOX
 
     class MessageBoxType(uno.Enum):
         """
@@ -33,31 +39,31 @@ if TYPE_CHECKING:
         See Also:
             `API MessageBoxType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ad249d76933bdf54c35f4eaf51a5b7965>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.MessageBoxType', value)
 
-        ERRORBOX: MessageBoxType = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
+        __ooo_type_name__: str = 'enum'
+
+        ERRORBOX: MessageBoxType = MESSAGE_BOX_TYPE_ERRORBOX
         """
         A message box to provide an error message to the user.
         """
-        INFOBOX: MessageBoxType = ...
+        INFOBOX: MessageBoxType = MESSAGE_BOX_TYPE_INFOBOX
         """
         A message box to inform the user about a certain event.
         """
-        MESSAGEBOX: MessageBoxType = ...
+        MESSAGEBOX: MessageBoxType = MESSAGE_BOX_TYPE_MESSAGEBOX
         """
         A normal message box.
         """
-        QUERYBOX: MessageBoxType = ...
+        QUERYBOX: MessageBoxType = MESSAGE_BOX_TYPE_QUERYBOX
         """
         A message box to query information from the user.
         """
-        WARNINGBOX: MessageBoxType = ...
+        WARNINGBOX: MessageBoxType = MESSAGE_BOX_TYPE_WARNINGBOX
         """
         A message to warn the user about a certain problem.
         """
@@ -70,4 +76,3 @@ else:
         pass
 
 __all__ = ['MessageBoxType']
-

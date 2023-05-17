@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.TableOperationMode import BOTH as TABLE_OPERATION_MODE_BOTH
+    from com.sun.star.sheet.TableOperationMode import COLUMN as TABLE_OPERATION_MODE_COLUMN
+    from com.sun.star.sheet.TableOperationMode import ROW as TABLE_OPERATION_MODE_ROW
 
     class TableOperationMode(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API TableOperationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a91d4f5595c9dc2a8c09e532e59f395d9>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.TableOperationMode', value)
 
-        BOTH: TableOperationMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.TableOperationMode'
+        __ooo_type_name__: str = 'enum'
+
+        BOTH: TableOperationMode = TABLE_OPERATION_MODE_BOTH
         """
         is applied to rows and columns.
         """
-        COLUMN: TableOperationMode = ...
+        COLUMN: TableOperationMode = TABLE_OPERATION_MODE_COLUMN
         """
         the field is used as a column field.
         
         is applied to the columns.
         """
-        ROW: TableOperationMode = ...
+        ROW: TableOperationMode = TABLE_OPERATION_MODE_ROW
         """
         the field is used as a row field.
         
@@ -66,4 +70,3 @@ else:
         pass
 
 __all__ = ['TableOperationMode']
-

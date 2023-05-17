@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.PasteOperation import ADD as PASTE_OPERATION_ADD
+    from com.sun.star.sheet.PasteOperation import DIVIDE as PASTE_OPERATION_DIVIDE
+    from com.sun.star.sheet.PasteOperation import MULTIPLY as PASTE_OPERATION_MULTIPLY
+    from com.sun.star.sheet.PasteOperation import NONE as PASTE_OPERATION_NONE
+    from com.sun.star.sheet.PasteOperation import SUBTRACT as PASTE_OPERATION_SUBTRACT
 
     class PasteOperation(uno.Enum):
         """
@@ -33,27 +39,27 @@ if TYPE_CHECKING:
         See Also:
             `API PasteOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af53d63b24461405946937e0b962a8a9b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.PasteOperation', value)
 
-        ADD: PasteOperation = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.PasteOperation'
+        __ooo_type_name__: str = 'enum'
+
+        ADD: PasteOperation = PASTE_OPERATION_ADD
         """
         old and new values are added.
         """
-        DIVIDE: PasteOperation = ...
+        DIVIDE: PasteOperation = PASTE_OPERATION_DIVIDE
         """
         new values are divided by the new values.
         """
-        MULTIPLY: PasteOperation = ...
+        MULTIPLY: PasteOperation = PASTE_OPERATION_MULTIPLY
         """
         old and new values are multiplied.
         """
-        NONE: PasteOperation = ...
+        NONE: PasteOperation = PASTE_OPERATION_NONE
         """
         no cells are moved.
         
@@ -67,7 +73,7 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        SUBTRACT: PasteOperation = ...
+        SUBTRACT: PasteOperation = PASTE_OPERATION_SUBTRACT
         """
         new values are subtracted from the old values.
         """
@@ -80,4 +86,3 @@ else:
         pass
 
 __all__ = ['PasteOperation']
-

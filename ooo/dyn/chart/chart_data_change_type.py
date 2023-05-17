@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartDataChangeType import ALL as CHART_DATA_CHANGE_TYPE_ALL
+    from com.sun.star.chart.ChartDataChangeType import COLUMN_DELETED as CHART_DATA_CHANGE_TYPE_COLUMN_DELETED
+    from com.sun.star.chart.ChartDataChangeType import COLUMN_INSERTED as CHART_DATA_CHANGE_TYPE_COLUMN_INSERTED
+    from com.sun.star.chart.ChartDataChangeType import DATA_RANGE as CHART_DATA_CHANGE_TYPE_DATA_RANGE
+    from com.sun.star.chart.ChartDataChangeType import ROW_DELETED as CHART_DATA_CHANGE_TYPE_ROW_DELETED
+    from com.sun.star.chart.ChartDataChangeType import ROW_INSERTED as CHART_DATA_CHANGE_TYPE_ROW_INSERTED
 
     class ChartDataChangeType(uno.Enum):
         """
@@ -33,35 +40,35 @@ if TYPE_CHECKING:
         See Also:
             `API ChartDataChangeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a37b4d47e7d1600aa406ad115a39fe1da>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartDataChangeType', value)
 
-        ALL: ChartDataChangeType = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataChangeType'
+        __ooo_type_name__: str = 'enum'
+
+        ALL: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ALL
         """
         Major changes were applied to the data.
         """
-        COLUMN_DELETED: ChartDataChangeType = ...
+        COLUMN_DELETED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_COLUMN_DELETED
         """
         The column given in the ChartDataChangeEvent, was deleted.
         """
-        COLUMN_INSERTED: ChartDataChangeType = ...
+        COLUMN_INSERTED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_COLUMN_INSERTED
         """
         The column given in the ChartDataChangeEvent, was inserted.
         """
-        DATA_RANGE: ChartDataChangeType = ...
+        DATA_RANGE: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_DATA_RANGE
         """
         The range of columns and rows, given in the ChartDataChangeEvent, has changed.
         """
-        ROW_DELETED: ChartDataChangeType = ...
+        ROW_DELETED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ROW_DELETED
         """
         The row given in the ChartDataChangeEvent, was deleted.
         """
-        ROW_INSERTED: ChartDataChangeType = ...
+        ROW_INSERTED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ROW_INSERTED
         """
         The row given in the ChartDataChangeEvent, was inserted.
         """
@@ -74,4 +81,3 @@ else:
         pass
 
 __all__ = ['ChartDataChangeType']
-

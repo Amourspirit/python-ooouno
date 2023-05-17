@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.style.ParagraphAdjust import BLOCK as PARAGRAPH_ADJUST_BLOCK
+    from com.sun.star.style.ParagraphAdjust import CENTER as PARAGRAPH_ADJUST_CENTER
+    from com.sun.star.style.ParagraphAdjust import LEFT as PARAGRAPH_ADJUST_LEFT
+    from com.sun.star.style.ParagraphAdjust import RIGHT as PARAGRAPH_ADJUST_RIGHT
+    from com.sun.star.style.ParagraphAdjust import STRETCH as PARAGRAPH_ADJUST_STRETCH
 
     class ParagraphAdjust(uno.Enum):
         """
@@ -33,19 +39,19 @@ if TYPE_CHECKING:
         See Also:
             `API ParagraphAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ab9b2806f97ec4c3b5d4e2d92084948f1>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.style.ParagraphAdjust', value)
 
-        BLOCK: ParagraphAdjust = ...
+        __ooo_ns__: str = 'com.sun.star.style'
+        __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
+        __ooo_type_name__: str = 'enum'
+
+        BLOCK: ParagraphAdjust = PARAGRAPH_ADJUST_BLOCK
         """
         adjusted to both borders / stretched, except for last line
         """
-        CENTER: ParagraphAdjust = ...
+        CENTER: ParagraphAdjust = PARAGRAPH_ADJUST_CENTER
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -53,7 +59,7 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        LEFT: ParagraphAdjust = ...
+        LEFT: ParagraphAdjust = PARAGRAPH_ADJUST_LEFT
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -63,7 +69,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: ParagraphAdjust = ...
+        RIGHT: ParagraphAdjust = PARAGRAPH_ADJUST_RIGHT
         """
         set the horizontal alignment to the right margin from the container object
         
@@ -73,7 +79,7 @@ if TYPE_CHECKING:
         
         The page style is only used for right pages.
         """
-        STRETCH: ParagraphAdjust = ...
+        STRETCH: ParagraphAdjust = PARAGRAPH_ADJUST_STRETCH
         """
         adjusted to both borders / stretched, including last line
         """
@@ -86,4 +92,3 @@ else:
         pass
 
 __all__ = ['ParagraphAdjust']
-

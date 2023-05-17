@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.GradientStyle import AXIAL as GRADIENT_STYLE_AXIAL
+    from com.sun.star.awt.GradientStyle import ELLIPTICAL as GRADIENT_STYLE_ELLIPTICAL
+    from com.sun.star.awt.GradientStyle import LINEAR as GRADIENT_STYLE_LINEAR
+    from com.sun.star.awt.GradientStyle import RADIAL as GRADIENT_STYLE_RADIAL
+    from com.sun.star.awt.GradientStyle import RECT as GRADIENT_STYLE_RECT
+    from com.sun.star.awt.GradientStyle import SQUARE as GRADIENT_STYLE_SQUARE
 
     class GradientStyle(uno.Enum):
         """
@@ -33,35 +40,35 @@ if TYPE_CHECKING:
         See Also:
             `API GradientStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa6b9d577a1700f29923f49f7b77d165f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.GradientStyle', value)
 
-        AXIAL: GradientStyle = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.GradientStyle'
+        __ooo_type_name__: str = 'enum'
+
+        AXIAL: GradientStyle = GRADIENT_STYLE_AXIAL
         """
         specifies an axial gradient.
         """
-        ELLIPTICAL: GradientStyle = ...
+        ELLIPTICAL: GradientStyle = GRADIENT_STYLE_ELLIPTICAL
         """
         specifies an elliptical gradient.
         """
-        LINEAR: GradientStyle = ...
+        LINEAR: GradientStyle = GRADIENT_STYLE_LINEAR
         """
         specifies a linear gradient.
         """
-        RADIAL: GradientStyle = ...
+        RADIAL: GradientStyle = GRADIENT_STYLE_RADIAL
         """
         specifies a radial gradient.
         """
-        RECT: GradientStyle = ...
+        RECT: GradientStyle = GRADIENT_STYLE_RECT
         """
         specifies a gradient in the shape of a rectangle.
         """
-        SQUARE: GradientStyle = ...
+        SQUARE: GradientStyle = GRADIENT_STYLE_SQUARE
         """
         specifies a gradient in the shape of a square.
         """
@@ -74,4 +81,3 @@ else:
         pass
 
 __all__ = ['GradientStyle']
-

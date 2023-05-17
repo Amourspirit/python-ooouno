@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextFitToSizeType import ALLLINES as TEXT_FIT_TO_SIZE_TYPE_ALLLINES
+    from com.sun.star.drawing.TextFitToSizeType import AUTOFIT as TEXT_FIT_TO_SIZE_TYPE_AUTOFIT
+    from com.sun.star.drawing.TextFitToSizeType import NONE as TEXT_FIT_TO_SIZE_TYPE_NONE
+    from com.sun.star.drawing.TextFitToSizeType import PROPORTIONAL as TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL
 
     class TextFitToSizeType(uno.Enum):
         """
@@ -33,25 +38,25 @@ if TYPE_CHECKING:
         See Also:
             `API TextFitToSizeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a119322ec5cab271556edacd80f9d780a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextFitToSizeType', value)
 
-        ALLLINES: TextFitToSizeType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextFitToSizeType'
+        __ooo_type_name__: str = 'enum'
+
+        ALLLINES: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_ALLLINES
         """
         Nowadays this is the same as PROPORTIONAL.
         """
-        AUTOFIT: TextFitToSizeType = ...
+        AUTOFIT: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_AUTOFIT
         """
         The font size is scaled down (never up!) isotropically to fit the available space.
         
         Auto line-breaks will keep working.
         """
-        NONE: TextFitToSizeType = ...
+        NONE: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_NONE
         """
         the area is not filled.
         
@@ -65,7 +70,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        PROPORTIONAL: TextFitToSizeType = ...
+        PROPORTIONAL: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL
         """
         The bitmap with the rendered glyphs is scaled up or down proportionally to fit the size of the shape.
         
@@ -82,4 +87,3 @@ else:
         pass
 
 __all__ = ['TextFitToSizeType']
-

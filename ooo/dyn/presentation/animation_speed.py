@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.presentation.AnimationSpeed import FAST as ANIMATION_SPEED_FAST
+    from com.sun.star.presentation.AnimationSpeed import MEDIUM as ANIMATION_SPEED_MEDIUM
+    from com.sun.star.presentation.AnimationSpeed import SLOW as ANIMATION_SPEED_SLOW
 
     class AnimationSpeed(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API AnimationSpeed <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a07b64dc4a366b20ad5052f974ffdbf62>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.presentation.AnimationSpeed', value)
 
-        FAST: AnimationSpeed = ...
+        __ooo_ns__: str = 'com.sun.star.presentation'
+        __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
+        __ooo_type_name__: str = 'enum'
+
+        FAST: AnimationSpeed = ANIMATION_SPEED_FAST
         """
         set the speed from the animation/fade to fast.
         """
-        MEDIUM: AnimationSpeed = ...
+        MEDIUM: AnimationSpeed = ANIMATION_SPEED_MEDIUM
         """
         set the speed from the animation/fade to medium.
         """
-        SLOW: AnimationSpeed = ...
+        SLOW: AnimationSpeed = ANIMATION_SPEED_SLOW
         """
         set the speed from the animation/fade to slow.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['AnimationSpeed']
-

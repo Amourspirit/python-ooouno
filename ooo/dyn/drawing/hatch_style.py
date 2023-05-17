@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.HatchStyle import DOUBLE as HATCH_STYLE_DOUBLE
+    from com.sun.star.drawing.HatchStyle import SINGLE as HATCH_STYLE_SINGLE
+    from com.sun.star.drawing.HatchStyle import TRIPLE as HATCH_STYLE_TRIPLE
 
     class HatchStyle(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API HatchStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a021284aa8478781ba1b958b81da7b608>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.HatchStyle', value)
 
-        DOUBLE: HatchStyle = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.HatchStyle'
+        __ooo_type_name__: str = 'enum'
+
+        DOUBLE: HatchStyle = HATCH_STYLE_DOUBLE
         """
         the hatch has a horizontal and a vertical line
         """
-        SINGLE: HatchStyle = ...
+        SINGLE: HatchStyle = HATCH_STYLE_SINGLE
         """
         the hatch consists of a single horizontal line
         """
-        TRIPLE: HatchStyle = ...
+        TRIPLE: HatchStyle = HATCH_STYLE_TRIPLE
         """
         the hatch has a horizontal, a vertical and a diagonal line
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['HatchStyle']
-

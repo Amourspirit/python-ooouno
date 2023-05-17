@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.media.ZoomLevel import FIT_TO_WINDOW as ZOOM_LEVEL_FIT_TO_WINDOW
+    from com.sun.star.media.ZoomLevel import FIT_TO_WINDOW_FIXED_ASPECT as ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT
+    from com.sun.star.media.ZoomLevel import FULLSCREEN as ZOOM_LEVEL_FULLSCREEN
+    from com.sun.star.media.ZoomLevel import NOT_AVAILABLE as ZOOM_LEVEL_NOT_AVAILABLE
+    from com.sun.star.media.ZoomLevel import ORIGINAL as ZOOM_LEVEL_ORIGINAL
+    from com.sun.star.media.ZoomLevel import ZOOM_1_TO_2 as ZOOM_LEVEL_ZOOM_1_TO_2
+    from com.sun.star.media.ZoomLevel import ZOOM_1_TO_4 as ZOOM_LEVEL_ZOOM_1_TO_4
+    from com.sun.star.media.ZoomLevel import ZOOM_2_TO_1 as ZOOM_LEVEL_ZOOM_2_TO_1
+    from com.sun.star.media.ZoomLevel import ZOOM_4_TO_1 as ZOOM_LEVEL_ZOOM_4_TO_1
 
     class ZoomLevel(uno.Enum):
         """
@@ -34,49 +44,49 @@ if TYPE_CHECKING:
         See Also:
             `API ZoomLevel <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1media.html#aa2569917c2883c1d1c0c0ee02e671ac6>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.media.ZoomLevel', value)
 
-        FIT_TO_WINDOW: ZoomLevel = ...
+        __ooo_ns__: str = 'com.sun.star.media'
+        __ooo_full_ns__: str = 'com.sun.star.media.ZoomLevel'
+        __ooo_type_name__: str = 'enum'
+
+        FIT_TO_WINDOW: ZoomLevel = ZOOM_LEVEL_FIT_TO_WINDOW
         """
         specifies that the video should be zoomed to window size
         """
-        FIT_TO_WINDOW_FIXED_ASPECT: ZoomLevel = ...
+        FIT_TO_WINDOW_FIXED_ASPECT: ZoomLevel = ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT
         """
         specifies that the video should be zoomed to window size with using a fixed aspect ratio
         """
-        FULLSCREEN: ZoomLevel = ...
+        FULLSCREEN: ZoomLevel = ZOOM_LEVEL_FULLSCREEN
         """
         specifies that the video should be displayed in fullscreen mode, if available
         """
-        NOT_AVAILABLE: ZoomLevel = ...
+        NOT_AVAILABLE: ZoomLevel = ZOOM_LEVEL_NOT_AVAILABLE
         """
         specifies that the video window itself is not available at all, e.g.
         
         in cases of pure audio playback
         """
-        ORIGINAL: ZoomLevel = ...
+        ORIGINAL: ZoomLevel = ZOOM_LEVEL_ORIGINAL
         """
         specifies that the video should be displayed with its original size
         """
-        ZOOM_1_TO_2: ZoomLevel = ...
+        ZOOM_1_TO_2: ZoomLevel = ZOOM_LEVEL_ZOOM_1_TO_2
         """
         specifies that the video should be zoomed to a factor of 1:2
         """
-        ZOOM_1_TO_4: ZoomLevel = ...
+        ZOOM_1_TO_4: ZoomLevel = ZOOM_LEVEL_ZOOM_1_TO_4
         """
         specifies that the video should be zoomed to a factor of 1:4
         """
-        ZOOM_2_TO_1: ZoomLevel = ...
+        ZOOM_2_TO_1: ZoomLevel = ZOOM_LEVEL_ZOOM_2_TO_1
         """
         specifies that the video should be zoomed to a factor of 2:1
         """
-        ZOOM_4_TO_1: ZoomLevel = ...
+        ZOOM_4_TO_1: ZoomLevel = ZOOM_LEVEL_ZOOM_4_TO_1
         """
         specifies that the video should be zoomed to a factor of 4:1
         """
@@ -89,4 +99,3 @@ else:
         pass
 
 __all__ = ['ZoomLevel']
-

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,47 +50,47 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.frame.FrameAction'
         __ooo_type_name__: str = 'enum'
 
-        COMPONENT_ATTACHED: FrameAction = FRAME_ACTION_COMPONENT_ATTACHED
+        COMPONENT_ATTACHED = cast("FrameAction", FRAME_ACTION_COMPONENT_ATTACHED)
         """
         an event of this kind is broadcast whenever a component is attached to a frame
         
         This is almost the same as the instantiation of the component within that frame. The component is attached to the frame immediately before this event is broadcast.
         """
-        COMPONENT_DETACHING: FrameAction = FRAME_ACTION_COMPONENT_DETACHING
+        COMPONENT_DETACHING = cast("FrameAction", FRAME_ACTION_COMPONENT_DETACHING)
         """
         an event of this kind is broadcast whenever a component is detaching from a frame
         
         This is quite the same as the destruction of the component which was in that frame. At the moment when the event is broadcast the component is still attached to the frame but in the next moment it won't.
         """
-        COMPONENT_REATTACHED: FrameAction = FRAME_ACTION_COMPONENT_REATTACHED
+        COMPONENT_REATTACHED = cast("FrameAction", FRAME_ACTION_COMPONENT_REATTACHED)
         """
         an event of this kind is broadcast whenever a component is attached to a new model.
         
         In this case the component remains the same but operates on a new model component.
         """
-        CONTEXT_CHANGED: FrameAction = FRAME_ACTION_CONTEXT_CHANGED
+        CONTEXT_CHANGED = cast("FrameAction", FRAME_ACTION_CONTEXT_CHANGED)
         """
         an event of this kind is broadcast whenever a component changes its internal context (i.e., the selection).
         
         If the activation status within a frame changes, this counts as a context change too.
         """
-        FRAME_ACTIVATED: FrameAction = FRAME_ACTION_FRAME_ACTIVATED
+        FRAME_ACTIVATED = cast("FrameAction", FRAME_ACTION_FRAME_ACTIVATED)
         """
         an event of this kind is broadcast whenever a component gets activated
         
         Activations are broadcast from the top component which was not active before, down to the inner most component.
         """
-        FRAME_DEACTIVATING: FrameAction = FRAME_ACTION_FRAME_DEACTIVATING
+        FRAME_DEACTIVATING = cast("FrameAction", FRAME_ACTION_FRAME_DEACTIVATING)
         """
         an event of this kind is broadcasted immediately before the component is deactivated
         
         Deactivations are broadcast from the innermost component which does not stay active up to the outer most component which does not stay active.
         """
-        FRAME_UI_ACTIVATED: FrameAction = FRAME_ACTION_FRAME_UI_ACTIVATED
+        FRAME_UI_ACTIVATED = cast("FrameAction", FRAME_ACTION_FRAME_UI_ACTIVATED)
         """
         an event of this kind is broadcast by an active frame when it is getting UI control (tool control).
         """
-        FRAME_UI_DEACTIVATING: FrameAction = FRAME_ACTION_FRAME_UI_DEACTIVATING
+        FRAME_UI_DEACTIVATING = cast("FrameAction", FRAME_ACTION_FRAME_UI_DEACTIVATING)
         """
         an event of this kind is broadcast by an active frame when it is losing UI control (tool control).
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,37 +50,37 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.script.InterruptReason'
         __ooo_type_name__: str = 'enum'
 
-        BreakPoint: InterruptReason = INTERRUPT_REASON_BreakPoint
+        BreakPoint = cast("InterruptReason", INTERRUPT_REASON_BreakPoint)
         """
         script stopped at a breakpoint.
         """
-        Cancel: InterruptReason = INTERRUPT_REASON_Cancel
+        Cancel = cast("InterruptReason", INTERRUPT_REASON_Cancel)
         """
         script in the engine was cancelled.
         
         script execution was cancelled.
         """
-        CompileError: InterruptReason = INTERRUPT_REASON_CompileError
+        CompileError = cast("InterruptReason", INTERRUPT_REASON_CompileError)
         """
         script has invalid syntax.
         """
-        RuntimeError: InterruptReason = INTERRUPT_REASON_RuntimeError
+        RuntimeError = cast("InterruptReason", INTERRUPT_REASON_RuntimeError)
         """
         runtime error occurred during script execution.
         """
-        Step: InterruptReason = INTERRUPT_REASON_Step
+        Step = cast("InterruptReason", INTERRUPT_REASON_Step)
         """
         script stops because only one scripting engine command was executed.
         """
-        StepOut: InterruptReason = INTERRUPT_REASON_StepOut
+        StepOut = cast("InterruptReason", INTERRUPT_REASON_StepOut)
         """
         script stops because it leaves a function.
         """
-        StepOver: InterruptReason = INTERRUPT_REASON_StepOver
+        StepOver = cast("InterruptReason", INTERRUPT_REASON_StepOver)
         """
         script stops because one step was executed.
         """
-        StepStatement: InterruptReason = INTERRUPT_REASON_StepStatement
+        StepStatement = cast("InterruptReason", INTERRUPT_REASON_StepStatement)
         """
         script stop because one step was executed.
         """

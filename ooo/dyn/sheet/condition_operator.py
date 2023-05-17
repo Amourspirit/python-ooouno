@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -52,27 +52,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.ConditionOperator'
         __ooo_type_name__: str = 'enum'
 
-        BETWEEN: ConditionOperator = CONDITION_OPERATOR_BETWEEN
+        BETWEEN = cast("ConditionOperator", CONDITION_OPERATOR_BETWEEN)
         """
         the value has to be between the two specified values.
         """
-        EQUAL: ConditionOperator = CONDITION_OPERATOR_EQUAL
+        EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_EQUAL)
         """
         value has to be equal to the specified value.
         
         The cell value is equal to the specified value.
         """
-        FORMULA: ConditionOperator = CONDITION_OPERATOR_FORMULA
+        FORMULA = cast("ConditionOperator", CONDITION_OPERATOR_FORMULA)
         """
         the specified formula has to give a non-zero result.
         """
-        GREATER: ConditionOperator = CONDITION_OPERATOR_GREATER
+        GREATER = cast("ConditionOperator", CONDITION_OPERATOR_GREATER)
         """
         the value has to be greater than the specified value.
         
         value has to be greater than the specified value.
         """
-        GREATER_EQUAL: ConditionOperator = CONDITION_OPERATOR_GREATER_EQUAL
+        GREATER_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_GREATER_EQUAL)
         """
         the value has to be greater than or equal to the specified value.
         
@@ -80,13 +80,13 @@ if TYPE_CHECKING:
         
         value has to be greater than or equal to the specified value.
         """
-        LESS: ConditionOperator = CONDITION_OPERATOR_LESS
+        LESS = cast("ConditionOperator", CONDITION_OPERATOR_LESS)
         """
         the value has to be less than the specified value.
         
         value has to be less than the specified value.
         """
-        LESS_EQUAL: ConditionOperator = CONDITION_OPERATOR_LESS_EQUAL
+        LESS_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_LESS_EQUAL)
         """
         the value has to be less than or equal to the specified value.
         
@@ -94,7 +94,7 @@ if TYPE_CHECKING:
         
         value has to be less than or equal to the specified value.
         """
-        NONE: ConditionOperator = CONDITION_OPERATOR_NONE
+        NONE = cast("ConditionOperator", CONDITION_OPERATOR_NONE)
         """
         no cells are moved.
         
@@ -108,11 +108,11 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        NOT_BETWEEN: ConditionOperator = CONDITION_OPERATOR_NOT_BETWEEN
+        NOT_BETWEEN = cast("ConditionOperator", CONDITION_OPERATOR_NOT_BETWEEN)
         """
         the value has to be outside of the two specified values.
         """
-        NOT_EQUAL: ConditionOperator = CONDITION_OPERATOR_NOT_EQUAL
+        NOT_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_NOT_EQUAL)
         """
         the value must not be equal to the specified value.
         

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextureMode'
         __ooo_type_name__: str = 'enum'
 
-        BLEND: TextureMode = TEXTURE_MODE_BLEND
+        BLEND = cast("TextureMode", TEXTURE_MODE_BLEND)
         """
         This mixes both data sources in a fixed ratio.
         """
-        MODULATE: TextureMode = TEXTURE_MODE_MODULATE
+        MODULATE = cast("TextureMode", TEXTURE_MODE_MODULATE)
         """
         This mixes up colors in a way defined by the texture bitmap.
         """
-        REPLACE: TextureMode = TEXTURE_MODE_REPLACE
+        REPLACE = cast("TextureMode", TEXTURE_MODE_REPLACE)
         """
         This is the standard mode.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,27 +48,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.scanner.ScanError'
         __ooo_type_name__: str = 'enum'
 
-        InvalidContext: ScanError = SCAN_ERROR_InvalidContext
+        InvalidContext = cast("ScanError", SCAN_ERROR_InvalidContext)
         """
         InvalidContext: a device was requested that does not exist.
         """
-        ScanCanceled: ScanError = SCAN_ERROR_ScanCanceled
+        ScanCanceled = cast("ScanError", SCAN_ERROR_ScanCanceled)
         """
         ScanCanceled: the scan was canceled by the user.
         """
-        ScanErrorNone: ScanError = SCAN_ERROR_ScanErrorNone
+        ScanErrorNone = cast("ScanError", SCAN_ERROR_ScanErrorNone)
         """
         ScanErrorNone: no error occurred.
         """
-        ScanFailed: ScanError = SCAN_ERROR_ScanFailed
+        ScanFailed = cast("ScanError", SCAN_ERROR_ScanFailed)
         """
         ScanFailed: an error occurred during scanning.
         """
-        ScanInProgress: ScanError = SCAN_ERROR_ScanInProgress
+        ScanInProgress = cast("ScanError", SCAN_ERROR_ScanInProgress)
         """
         ScanInProgress: a scan is already in progress on this device that has to end before a new one can be started.
         """
-        ScannerNotAvailable: ScanError = SCAN_ERROR_ScannerNotAvailable
+        ScannerNotAvailable = cast("ScanError", SCAN_ERROR_ScannerNotAvailable)
         """
         ScannerNotAvailable: the requested device could not be opened.
         """

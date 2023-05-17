@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisMarkPosition'
         __ooo_type_name__: str = 'enum'
 
-        AT_AXIS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_AXIS
+        AT_AXIS = cast("ChartAxisMarkPosition", CHART_AXIS_MARK_POSITION_AT_AXIS)
         """
         The interval marks are drawn at the axis line.
         
         This makes a difference to \"AT_LABELS\" only when the labels are not placed near the axis (
         """
-        AT_LABELS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_LABELS
+        AT_LABELS = cast("ChartAxisMarkPosition", CHART_AXIS_MARK_POSITION_AT_LABELS)
         """
         The interval marks are drawn besides the axis labels.
         """
-        AT_LABELS_AND_AXIS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_LABELS_AND_AXIS
+        AT_LABELS_AND_AXIS = cast("ChartAxisMarkPosition", CHART_AXIS_MARK_POSITION_AT_LABELS_AND_AXIS)
         """
         Interval marks are drawn at the axis line and also besides the axis labels.
         

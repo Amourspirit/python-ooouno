@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.DataSelectionType'
         __ooo_type_name__: str = 'enum'
 
-        QUERY: DataSelectionType = DATA_SELECTION_TYPE_QUERY
+        QUERY = cast("DataSelectionType", DATA_SELECTION_TYPE_QUERY)
         """
         The control should be filled with the results of a database query.
         """
-        SQL: DataSelectionType = DATA_SELECTION_TYPE_SQL
+        SQL = cast("DataSelectionType", DATA_SELECTION_TYPE_SQL)
         """
         The control should be filled with the results of a database statement.
         """
-        SQLPASSTHROUGH: DataSelectionType = DATA_SELECTION_TYPE_SQLPASSTHROUGH
+        SQLPASSTHROUGH = cast("DataSelectionType", DATA_SELECTION_TYPE_SQLPASSTHROUGH)
         """
         The control should be filled with the results of a database statement, which is not evaluated by the database engine.
         """
-        TABLE: DataSelectionType = DATA_SELECTION_TYPE_TABLE
+        TABLE = cast("DataSelectionType", DATA_SELECTION_TYPE_TABLE)
         """
         The control should be filled with the data of a table.
         """

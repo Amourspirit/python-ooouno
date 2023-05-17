@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,14 +46,14 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.SnapObjectType'
         __ooo_type_name__: str = 'enum'
 
-        HORIZONTAL: SnapObjectType = SNAP_OBJECT_TYPE_HORIZONTAL
+        HORIZONTAL = cast("SnapObjectType", SNAP_OBJECT_TYPE_HORIZONTAL)
         """
         mirror to the horizontal axis
         """
-        POINT: SnapObjectType = SNAP_OBJECT_TYPE_POINT
+        POINT = cast("SnapObjectType", SNAP_OBJECT_TYPE_POINT)
         """
         """
-        VERTICAL: SnapObjectType = SNAP_OBJECT_TYPE_VERTICAL
+        VERTICAL = cast("SnapObjectType", SNAP_OBJECT_TYPE_VERTICAL)
         """
         mirror to the vertical axis
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.DrawViewMode'
         __ooo_type_name__: str = 'enum'
 
-        DRAW: DrawViewMode = DRAW_VIEW_MODE_DRAW
+        DRAW = cast("DrawViewMode", DRAW_VIEW_MODE_DRAW)
         """
         The view shows the drawing pages.
         """
-        HANDOUT: DrawViewMode = DRAW_VIEW_MODE_HANDOUT
+        HANDOUT = cast("DrawViewMode", DRAW_VIEW_MODE_HANDOUT)
         """
         The view shows the handout pages,.
         """
-        NOTES: DrawViewMode = DRAW_VIEW_MODE_NOTES
+        NOTES = cast("DrawViewMode", DRAW_VIEW_MODE_NOTES)
         """
         The view shows the notes pages.
         """

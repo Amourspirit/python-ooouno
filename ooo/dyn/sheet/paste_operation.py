@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,19 +47,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.PasteOperation'
         __ooo_type_name__: str = 'enum'
 
-        ADD: PasteOperation = PASTE_OPERATION_ADD
+        ADD = cast("PasteOperation", PASTE_OPERATION_ADD)
         """
         old and new values are added.
         """
-        DIVIDE: PasteOperation = PASTE_OPERATION_DIVIDE
+        DIVIDE = cast("PasteOperation", PASTE_OPERATION_DIVIDE)
         """
         new values are divided by the new values.
         """
-        MULTIPLY: PasteOperation = PASTE_OPERATION_MULTIPLY
+        MULTIPLY = cast("PasteOperation", PASTE_OPERATION_MULTIPLY)
         """
         old and new values are multiplied.
         """
-        NONE: PasteOperation = PASTE_OPERATION_NONE
+        NONE = cast("PasteOperation", PASTE_OPERATION_NONE)
         """
         no cells are moved.
         
@@ -73,7 +73,7 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        SUBTRACT: PasteOperation = PASTE_OPERATION_SUBTRACT
+        SUBTRACT = cast("PasteOperation", PASTE_OPERATION_SUBTRACT)
         """
         new values are subtracted from the old values.
         """

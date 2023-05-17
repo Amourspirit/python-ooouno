@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -51,39 +51,39 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.RectanglePoint'
         __ooo_type_name__: str = 'enum'
 
-        LEFT_BOTTOM: RectanglePoint = RECTANGLE_POINT_LEFT_BOTTOM
+        LEFT_BOTTOM = cast("RectanglePoint", RECTANGLE_POINT_LEFT_BOTTOM)
         """
         specify to the point on the bottom of the left side from the rectangle.
         """
-        LEFT_MIDDLE: RectanglePoint = RECTANGLE_POINT_LEFT_MIDDLE
+        LEFT_MIDDLE = cast("RectanglePoint", RECTANGLE_POINT_LEFT_MIDDLE)
         """
         specify to the point on the middle of the left side from the rectangle.
         """
-        LEFT_TOP: RectanglePoint = RECTANGLE_POINT_LEFT_TOP
+        LEFT_TOP = cast("RectanglePoint", RECTANGLE_POINT_LEFT_TOP)
         """
         specify to the point on the left side from the top of the rectangle.
         """
-        MIDDLE_BOTTOM: RectanglePoint = RECTANGLE_POINT_MIDDLE_BOTTOM
+        MIDDLE_BOTTOM = cast("RectanglePoint", RECTANGLE_POINT_MIDDLE_BOTTOM)
         """
         specify to the point on the middle of the bottom from the rectangle.
         """
-        MIDDLE_MIDDLE: RectanglePoint = RECTANGLE_POINT_MIDDLE_MIDDLE
+        MIDDLE_MIDDLE = cast("RectanglePoint", RECTANGLE_POINT_MIDDLE_MIDDLE)
         """
         specify to the point on the center from the rectangle.
         """
-        MIDDLE_TOP: RectanglePoint = RECTANGLE_POINT_MIDDLE_TOP
+        MIDDLE_TOP = cast("RectanglePoint", RECTANGLE_POINT_MIDDLE_TOP)
         """
         specify to the point on the middle of the top from the rectangle.
         """
-        RIGHT_BOTTOM: RectanglePoint = RECTANGLE_POINT_RIGHT_BOTTOM
+        RIGHT_BOTTOM = cast("RectanglePoint", RECTANGLE_POINT_RIGHT_BOTTOM)
         """
         specify to the point on the bottom of the right side from the rectangle.
         """
-        RIGHT_MIDDLE: RectanglePoint = RECTANGLE_POINT_RIGHT_MIDDLE
+        RIGHT_MIDDLE = cast("RectanglePoint", RECTANGLE_POINT_RIGHT_MIDDLE)
         """
         specify to the point on the middle of the right side from the rectangle.
         """
-        RIGHT_TOP: RectanglePoint = RECTANGLE_POINT_RIGHT_TOP
+        RIGHT_TOP = cast("RectanglePoint", RECTANGLE_POINT_RIGHT_TOP)
         """
         specify to the point on the right side from the top of the rectangle.
         """

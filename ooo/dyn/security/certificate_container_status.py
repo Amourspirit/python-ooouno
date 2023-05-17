@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
         __ooo_type_name__: str = 'enum'
 
-        NOCERT: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_NOCERT
+        NOCERT = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_NOCERT)
         """
         The certificate was not found.
         """
-        TRUSTED: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_TRUSTED
+        TRUSTED = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_TRUSTED)
         """
         The certificate was found and is trusted.
         """
-        UNTRUSTED: CertificateContainerStatus = CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
+        UNTRUSTED = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_UNTRUSTED)
         """
         The certificate was found but is untrusted.
         """

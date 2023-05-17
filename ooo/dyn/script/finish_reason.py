@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.script.FinishReason'
         __ooo_type_name__: str = 'enum'
 
-        Cancel: FinishReason = FINISH_REASON_Cancel
+        Cancel = cast("FinishReason", FINISH_REASON_Cancel)
         """
         script in the engine was cancelled.
         
         script execution was cancelled.
         """
-        Error: FinishReason = FINISH_REASON_Error
+        Error = cast("FinishReason", FINISH_REASON_Error)
         """
         error occurred during script execution or compiling.
         """
-        OK: FinishReason = FINISH_REASON_OK
+        OK = cast("FinishReason", FINISH_REASON_OK)
         """
         script in the engine terminated normally.
         """

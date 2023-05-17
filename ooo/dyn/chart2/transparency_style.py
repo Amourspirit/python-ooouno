@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.TransparencyStyle'
         __ooo_type_name__: str = 'enum'
 
-        GRADIENT: TransparencyStyle = TRANSPARENCY_STYLE_GRADIENT
+        GRADIENT = cast("TransparencyStyle", TRANSPARENCY_STYLE_GRADIENT)
         """
         The property TransparencyGradient is evaluated, Transparency is ignored.
         """
-        LINEAR: TransparencyStyle = TRANSPARENCY_STYLE_LINEAR
+        LINEAR = cast("TransparencyStyle", TRANSPARENCY_STYLE_LINEAR)
         """
         The property Transparency is evaluated, TransparencyGradient is ignored.
         """
-        NONE: TransparencyStyle = TRANSPARENCY_STYLE_NONE
+        NONE = cast("TransparencyStyle", TRANSPARENCY_STYLE_NONE)
         """
         Default, no pies are exploded.
         

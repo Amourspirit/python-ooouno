@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,11 +45,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.LineStyle'
         __ooo_type_name__: str = 'enum'
 
-        DASH: LineStyle = LINE_STYLE_DASH
+        DASH = cast("LineStyle", LINE_STYLE_DASH)
         """
         the line use dashes.
         """
-        NONE: LineStyle = LINE_STYLE_NONE
+        NONE = cast("LineStyle", LINE_STYLE_NONE)
         """
         the area is not filled.
         
@@ -63,7 +63,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SOLID: LineStyle = LINE_STYLE_SOLID
+        SOLID = cast("LineStyle", LINE_STYLE_SOLID)
         """
         use a solid color to fill the area.
         

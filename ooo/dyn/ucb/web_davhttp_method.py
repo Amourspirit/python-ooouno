@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -58,73 +58,73 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.WebDAVHTTPMethod'
         __ooo_type_name__: str = 'enum'
 
-        CONNECT: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_CONNECT
+        CONNECT = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_CONNECT)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        COPY: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_COPY
+        COPY = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_COPY)
         """
         Copy the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        DELETE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_DELETE
+        DELETE = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_DELETE)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        GET: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_GET
+        GET = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_GET)
         """
         Get a list of all folders.
         
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        HEAD: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_HEAD
+        HEAD = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_HEAD)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        LOCK: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_LOCK
+        LOCK = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_LOCK)
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        MKCOL: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_MKCOL
+        MKCOL = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_MKCOL)
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        MOVE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_MOVE
+        MOVE = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_MOVE)
         """
         Move the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        OPTIONS: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_OPTIONS
+        OPTIONS = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_OPTIONS)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        PATCH: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PATCH
+        PATCH = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_PATCH)
         """
         HTTP request method as defined in RFC 5789: PATCH Method for HTTP
         """
-        POST: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_POST
+        POST = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_POST)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        PROPFIND: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PROPFIND
+        PROPFIND = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_PROPFIND)
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        PROPPATCH: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PROPPATCH
+        PROPPATCH = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_PROPPATCH)
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        PUT: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_PUT
+        PUT = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_PUT)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        TRACE: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_TRACE
+        TRACE = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_TRACE)
         """
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        UNLOCK: WebDAVHTTPMethod = WEB_D_A_V_H_T_T_P_METHOD_UNLOCK
+        UNLOCK = cast("WebDAVHTTPMethod", WEB_D_A_V_H_T_T_P_METHOD_UNLOCK)
         """
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """

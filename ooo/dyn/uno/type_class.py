@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -74,131 +74,131 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
         __ooo_type_name__: str = 'enum'
 
-        ANY: TypeClass = TYPE_CLASS_ANY
+        ANY = cast("TypeClass", TYPE_CLASS_ANY)
         """
         reflecting the any type; anys can carry any UNO value except of any values
         """
-        ARRAY: TypeClass = TYPE_CLASS_ARRAY
+        ARRAY = cast("TypeClass", TYPE_CLASS_ARRAY)
         """
         Deprecated, UNOIDL does not have an array concept.
         """
-        BOOLEAN: TypeClass = TYPE_CLASS_BOOLEAN
+        BOOLEAN = cast("TypeClass", TYPE_CLASS_BOOLEAN)
         """
         reflecting the boolean type; true and false
         """
-        BYTE: TypeClass = TYPE_CLASS_BYTE
+        BYTE = cast("TypeClass", TYPE_CLASS_BYTE)
         """
         reflecting the 8-bit ordinal type
         """
-        CHAR: TypeClass = TYPE_CLASS_CHAR
+        CHAR = cast("TypeClass", TYPE_CLASS_CHAR)
         """
         reflecting the 16-bit unicode character type
         """
-        CONSTANT: TypeClass = TYPE_CLASS_CONSTANT
+        CONSTANT = cast("TypeClass", TYPE_CLASS_CONSTANT)
         """
         reflecting constants
         """
-        CONSTANTS: TypeClass = TYPE_CLASS_CONSTANTS
+        CONSTANTS = cast("TypeClass", TYPE_CLASS_CONSTANTS)
         """
         reflecting constants groups
         """
-        DOUBLE: TypeClass = TYPE_CLASS_DOUBLE
+        DOUBLE = cast("TypeClass", TYPE_CLASS_DOUBLE)
         """
         reflecting the 64-bit floating point type
         """
-        ENUM: TypeClass = TYPE_CLASS_ENUM
+        ENUM = cast("TypeClass", TYPE_CLASS_ENUM)
         """
         reflecting enum types
         """
-        EXCEPTION: TypeClass = TYPE_CLASS_EXCEPTION
+        EXCEPTION = cast("TypeClass", TYPE_CLASS_EXCEPTION)
         """
         reflecting exception types
         """
-        FLOAT: TypeClass = TYPE_CLASS_FLOAT
+        FLOAT = cast("TypeClass", TYPE_CLASS_FLOAT)
         """
         reflecting the 32-bit floating point type
         """
-        HYPER: TypeClass = TYPE_CLASS_HYPER
+        HYPER = cast("TypeClass", TYPE_CLASS_HYPER)
         """
         reflecting the signed 64-bit ordinal type
         """
-        INTERFACE: TypeClass = TYPE_CLASS_INTERFACE
+        INTERFACE = cast("TypeClass", TYPE_CLASS_INTERFACE)
         """
         reflecting interface types
         """
-        INTERFACE_ATTRIBUTE: TypeClass = TYPE_CLASS_INTERFACE_ATTRIBUTE
+        INTERFACE_ATTRIBUTE = cast("TypeClass", TYPE_CLASS_INTERFACE_ATTRIBUTE)
         """
         reflecting interface attributes
         """
-        INTERFACE_METHOD: TypeClass = TYPE_CLASS_INTERFACE_METHOD
+        INTERFACE_METHOD = cast("TypeClass", TYPE_CLASS_INTERFACE_METHOD)
         """
         reflecting interface methods
         """
-        LONG: TypeClass = TYPE_CLASS_LONG
+        LONG = cast("TypeClass", TYPE_CLASS_LONG)
         """
         reflecting the signed 32-bit ordinal type
         """
-        MODULE: TypeClass = TYPE_CLASS_MODULE
+        MODULE = cast("TypeClass", TYPE_CLASS_MODULE)
         """
         reflecting modules
         """
-        PROPERTY: TypeClass = TYPE_CLASS_PROPERTY
+        PROPERTY = cast("TypeClass", TYPE_CLASS_PROPERTY)
         """
         reflecting properties
         """
-        SEQUENCE: TypeClass = TYPE_CLASS_SEQUENCE
+        SEQUENCE = cast("TypeClass", TYPE_CLASS_SEQUENCE)
         """
         reflecting sequence types
         """
-        SERVICE: TypeClass = TYPE_CLASS_SERVICE
+        SERVICE = cast("TypeClass", TYPE_CLASS_SERVICE)
         """
         reflecting services
         """
-        SHORT: TypeClass = TYPE_CLASS_SHORT
+        SHORT = cast("TypeClass", TYPE_CLASS_SHORT)
         """
         reflecting the signed 16-bit ordinal type
         """
-        SINGLETON: TypeClass = TYPE_CLASS_SINGLETON
+        SINGLETON = cast("TypeClass", TYPE_CLASS_SINGLETON)
         """
         reflecting singletons
         """
-        STRING: TypeClass = TYPE_CLASS_STRING
+        STRING = cast("TypeClass", TYPE_CLASS_STRING)
         """
         reflecting the string type; strings of unicode characters
         """
-        STRUCT: TypeClass = TYPE_CLASS_STRUCT
+        STRUCT = cast("TypeClass", TYPE_CLASS_STRUCT)
         """
         reflecting compound types
         """
-        TYPE: TypeClass = TYPE_CLASS_TYPE
+        TYPE = cast("TypeClass", TYPE_CLASS_TYPE)
         """
         reflecting the meta type
         """
-        TYPEDEF: TypeClass = TYPE_CLASS_TYPEDEF
+        TYPEDEF = cast("TypeClass", TYPE_CLASS_TYPEDEF)
         """
         reflecting typedefed types referencing other types
         """
-        UNION: TypeClass = TYPE_CLASS_UNION
+        UNION = cast("TypeClass", TYPE_CLASS_UNION)
         """
         Deprecated, UNOIDL does not have a union concept.
         """
-        UNKNOWN: TypeClass = TYPE_CLASS_UNKNOWN
+        UNKNOWN = cast("TypeClass", TYPE_CLASS_UNKNOWN)
         """
         reflecting the unreflectable type
         """
-        UNSIGNED_HYPER: TypeClass = TYPE_CLASS_UNSIGNED_HYPER
+        UNSIGNED_HYPER = cast("TypeClass", TYPE_CLASS_UNSIGNED_HYPER)
         """
         reflecting the unsigned 64-bit ordinal type
         """
-        UNSIGNED_LONG: TypeClass = TYPE_CLASS_UNSIGNED_LONG
+        UNSIGNED_LONG = cast("TypeClass", TYPE_CLASS_UNSIGNED_LONG)
         """
         reflecting the unsigned 32-bit type
         """
-        UNSIGNED_SHORT: TypeClass = TYPE_CLASS_UNSIGNED_SHORT
+        UNSIGNED_SHORT = cast("TypeClass", TYPE_CLASS_UNSIGNED_SHORT)
         """
         reflecting the unsigned 16-bit ordinal type
         """
-        VOID: TypeClass = TYPE_CLASS_VOID
+        VOID = cast("TypeClass", TYPE_CLASS_VOID)
         """
         reflecting the void type; denotes no type
         """

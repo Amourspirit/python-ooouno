@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.LockScope'
         __ooo_type_name__: str = 'enum'
 
-        EXCLUSIVE: LockScope = LOCK_SCOPE_EXCLUSIVE
+        EXCLUSIVE = cast("LockScope", LOCK_SCOPE_EXCLUSIVE)
         """
         the lock is exclusive.
         """
-        SHARED: LockScope = LOCK_SCOPE_SHARED
+        SHARED = cast("LockScope", LOCK_SCOPE_SHARED)
         """
         the lock is shared.
         """

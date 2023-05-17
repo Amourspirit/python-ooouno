@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,7 +47,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.TabAlign'
         __ooo_type_name__: str = 'enum'
 
-        CENTER: TabAlign = TAB_ALIGN_CENTER
+        CENTER = cast("TabAlign", TAB_ALIGN_CENTER)
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -55,15 +55,15 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        DECIMAL: TabAlign = TAB_ALIGN_DECIMAL
+        DECIMAL = cast("TabAlign", TAB_ALIGN_DECIMAL)
         """
         The decimal point of the text range to the left of this tabulator is aligned to the position of this tabulator.
         """
-        DEFAULT: TabAlign = TAB_ALIGN_DEFAULT
+        DEFAULT = cast("TabAlign", TAB_ALIGN_DEFAULT)
         """
         The default alignment for tabulators is applied.
         """
-        LEFT: TabAlign = TAB_ALIGN_LEFT
+        LEFT = cast("TabAlign", TAB_ALIGN_LEFT)
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -73,7 +73,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: TabAlign = TAB_ALIGN_RIGHT
+        RIGHT = cast("TabAlign", TAB_ALIGN_RIGHT)
         """
         set the horizontal alignment to the right margin from the container object
         

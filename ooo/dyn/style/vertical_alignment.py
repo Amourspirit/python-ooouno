@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.VerticalAlignment'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM: VerticalAlignment = VERTICAL_ALIGNMENT_BOTTOM
+        BOTTOM = cast("VerticalAlignment", VERTICAL_ALIGNMENT_BOTTOM)
         """
         set the vertical alignment to the bottom margin from the container object.
         """
-        MIDDLE: VerticalAlignment = VERTICAL_ALIGNMENT_MIDDLE
+        MIDDLE = cast("VerticalAlignment", VERTICAL_ALIGNMENT_MIDDLE)
         """
         set the vertical alignment to the top margin from the container object.
         """
-        TOP: VerticalAlignment = VERTICAL_ALIGNMENT_TOP
+        TOP = cast("VerticalAlignment", VERTICAL_ALIGNMENT_TOP)
         """
         set the vertical alignment to the center between the top and bottom margins from the container object.
         """

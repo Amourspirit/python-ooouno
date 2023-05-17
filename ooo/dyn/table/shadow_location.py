@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,23 +47,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.ShadowLocation'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM_LEFT: ShadowLocation = SHADOW_LOCATION_BOTTOM_LEFT
+        BOTTOM_LEFT = cast("ShadowLocation", SHADOW_LOCATION_BOTTOM_LEFT)
         """
         shadow is located along the lower and left sides.
         """
-        BOTTOM_RIGHT: ShadowLocation = SHADOW_LOCATION_BOTTOM_RIGHT
+        BOTTOM_RIGHT = cast("ShadowLocation", SHADOW_LOCATION_BOTTOM_RIGHT)
         """
         shadow is located along the lower and right sides.
         """
-        NONE: ShadowLocation = SHADOW_LOCATION_NONE
+        NONE = cast("ShadowLocation", SHADOW_LOCATION_NONE)
         """
         no shadow.
         """
-        TOP_LEFT: ShadowLocation = SHADOW_LOCATION_TOP_LEFT
+        TOP_LEFT = cast("ShadowLocation", SHADOW_LOCATION_TOP_LEFT)
         """
         shadow is located along the upper and left sides.
         """
-        TOP_RIGHT: ShadowLocation = SHADOW_LOCATION_TOP_RIGHT
+        TOP_RIGHT = cast("ShadowLocation", SHADOW_LOCATION_TOP_RIGHT)
         """
         shadow is located along the upper and right sides.
         """

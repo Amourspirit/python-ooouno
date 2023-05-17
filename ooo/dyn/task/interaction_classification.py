@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.task.InteractionClassification'
         __ooo_type_name__: str = 'enum'
 
-        ERROR: InteractionClassification = INTERACTION_CLASSIFICATION_ERROR
+        ERROR = cast("InteractionClassification", INTERACTION_CLASSIFICATION_ERROR)
         """
         An error.
         """
-        INFO: InteractionClassification = INTERACTION_CLASSIFICATION_INFO
+        INFO = cast("InteractionClassification", INTERACTION_CLASSIFICATION_INFO)
         """
         Some information for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove continuation).
         """
-        QUERY: InteractionClassification = INTERACTION_CLASSIFICATION_QUERY
+        QUERY = cast("InteractionClassification", INTERACTION_CLASSIFICATION_QUERY)
         """
         A query for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove or com.sun.star.task.XInteractionDisapprove continuation).
         """
-        WARNING: InteractionClassification = INTERACTION_CLASSIFICATION_WARNING
+        WARNING = cast("InteractionClassification", INTERACTION_CLASSIFICATION_WARNING)
         """
         A warning, less severe than an error.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureKind'
         __ooo_type_name__: str = 'enum'
 
-        RADIUS: MeasureKind = MEASURE_KIND_RADIUS
+        RADIUS = cast("MeasureKind", MEASURE_KIND_RADIUS)
         """
         use the radius measurement.
         
         This option cannot be used from the GUI Interface.
         """
-        STANDARD: MeasureKind = MEASURE_KIND_STANDARD
+        STANDARD = cast("MeasureKind", MEASURE_KIND_STANDARD)
         """
         the graphic is rendered in the default color style of the output device,
         

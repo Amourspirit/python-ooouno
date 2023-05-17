@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationAlertStyle'
         __ooo_type_name__: str = 'enum'
 
-        INFO: ValidationAlertStyle = VALIDATION_ALERT_STYLE_INFO
+        INFO = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_INFO)
         """
         information message is shown and the user is asked whether the change will be accepted (defaulted to \"Yes\").
         """
-        MACRO: ValidationAlertStyle = VALIDATION_ALERT_STYLE_MACRO
+        MACRO = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_MACRO)
         """
         macro is executed.
         """
-        STOP: ValidationAlertStyle = VALIDATION_ALERT_STYLE_STOP
+        STOP = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_STOP)
         """
         error message is shown and the change is rejected.
         """
-        WARNING: ValidationAlertStyle = VALIDATION_ALERT_STYLE_WARNING
+        WARNING = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_WARNING)
         """
         warning message is shown and the user is asked whether the change will be accepted (defaulted to \"No\").
         """

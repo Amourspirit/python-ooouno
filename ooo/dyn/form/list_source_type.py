@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,27 +48,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
         __ooo_type_name__: str = 'enum'
 
-        QUERY: ListSourceType = LIST_SOURCE_TYPE_QUERY
+        QUERY = cast("ListSourceType", LIST_SOURCE_TYPE_QUERY)
         """
         The control should be filled with the results of a database query.
         """
-        SQL: ListSourceType = LIST_SOURCE_TYPE_SQL
+        SQL = cast("ListSourceType", LIST_SOURCE_TYPE_SQL)
         """
         The control should be filled with the results of a database statement.
         """
-        SQLPASSTHROUGH: ListSourceType = LIST_SOURCE_TYPE_SQLPASSTHROUGH
+        SQLPASSTHROUGH = cast("ListSourceType", LIST_SOURCE_TYPE_SQLPASSTHROUGH)
         """
         The control should be filled with the results of a database statement, which is not evaluated by the database engine.
         """
-        TABLE: ListSourceType = LIST_SOURCE_TYPE_TABLE
+        TABLE = cast("ListSourceType", LIST_SOURCE_TYPE_TABLE)
         """
         The control should be filled with the data of a table.
         """
-        TABLEFIELDS: ListSourceType = LIST_SOURCE_TYPE_TABLEFIELDS
+        TABLEFIELDS = cast("ListSourceType", LIST_SOURCE_TYPE_TABLEFIELDS)
         """
         The control should be filled with the field names of a database table.
         """
-        VALUELIST: ListSourceType = LIST_SOURCE_TYPE_VALUELIST
+        VALUELIST = cast("ListSourceType", LIST_SOURCE_TYPE_VALUELIST)
         """
         The control should be filled with a list of string values.
         """

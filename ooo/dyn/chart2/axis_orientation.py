@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,11 +45,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
         __ooo_type_name__: str = 'enum'
 
-        MATHEMATICAL: AxisOrientation = AXIS_ORIENTATION_MATHEMATICAL
+        MATHEMATICAL = cast("AxisOrientation", AXIS_ORIENTATION_MATHEMATICAL)
         """
         means equal to the primary writing direction
         """
-        REVERSE: AxisOrientation = AXIS_ORIENTATION_REVERSE
+        REVERSE = cast("AxisOrientation", AXIS_ORIENTATION_REVERSE)
         """
         means the opposite of the primary writing direction
         """

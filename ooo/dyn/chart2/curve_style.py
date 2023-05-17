@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,43 +50,43 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.CurveStyle'
         __ooo_type_name__: str = 'enum'
 
-        B_SPLINES: CurveStyle = CURVE_STYLE_B_SPLINES
+        B_SPLINES = cast("CurveStyle", CURVE_STYLE_B_SPLINES)
         """
         Data points are connected via a parametric, interpolating B-spline curve.
         """
-        CUBIC_SPLINES: CurveStyle = CURVE_STYLE_CUBIC_SPLINES
+        CUBIC_SPLINES = cast("CurveStyle", CURVE_STYLE_CUBIC_SPLINES)
         """
         Data points are connected via a smoothed cubic spline curve.
         
         The data points themselves are part of to the curve.
         """
-        LINES: CurveStyle = CURVE_STYLE_LINES
+        LINES = cast("CurveStyle", CURVE_STYLE_LINES)
         """
         Lines between data points are not smoothed.
         """
-        NURBS: CurveStyle = CURVE_STYLE_NURBS
+        NURBS = cast("CurveStyle", CURVE_STYLE_NURBS)
         """
         Non-uniform rational b-splines.
         """
-        STEP_CENTER_X: CurveStyle = CURVE_STYLE_STEP_CENTER_X
+        STEP_CENTER_X = cast("CurveStyle", CURVE_STYLE_STEP_CENTER_X)
         """
         Data points are connected via a 3-segmented stepped line.
         
         The lines is horizontal till the center of the X values.
         """
-        STEP_CENTER_Y: CurveStyle = CURVE_STYLE_STEP_CENTER_Y
+        STEP_CENTER_Y = cast("CurveStyle", CURVE_STYLE_STEP_CENTER_Y)
         """
         Data points are connected via a 3-segmented stepped line.
         
         The lines is horizontal at the center of the Y values.
         """
-        STEP_END: CurveStyle = CURVE_STYLE_STEP_END
+        STEP_END = cast("CurveStyle", CURVE_STYLE_STEP_END)
         """
         Data points are connected via a 2-segmented stepped line.
         
         The line ends horizontally.
         """
-        STEP_START: CurveStyle = CURVE_STYLE_STEP_START
+        STEP_START = cast("CurveStyle", CURVE_STYLE_STEP_START)
         """
         Data points are connected via a 2-segmented stepped line.
         

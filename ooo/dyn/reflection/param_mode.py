@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.reflection.ParamMode'
         __ooo_type_name__: str = 'enum'
 
-        IN: ParamMode = PARAM_MODE_IN
+        IN = cast("ParamMode", PARAM_MODE_IN)
         """
         parameter serves as pure input for a called method
         """
-        INOUT: ParamMode = PARAM_MODE_INOUT
+        INOUT = cast("ParamMode", PARAM_MODE_INOUT)
         """
         parameter serves as input as well as output; data can transferred in both directions
         """
-        OUT: ParamMode = PARAM_MODE_OUT
+        OUT = cast("ParamMode", PARAM_MODE_OUT)
         """
         parameter serves as pure output for the callee (in addition to the return value)
         """

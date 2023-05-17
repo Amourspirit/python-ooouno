@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.VerificationMode'
         __ooo_type_name__: str = 'enum'
 
-        ALWAYS: VerificationMode = VERIFICATION_MODE_ALWAYS
+        ALWAYS = cast("VerificationMode", VERIFICATION_MODE_ALWAYS)
         """
         Always.
         """
-        NEVER: VerificationMode = VERIFICATION_MODE_NEVER
+        NEVER = cast("VerificationMode", VERIFICATION_MODE_NEVER)
         """
         Never.
         """
-        ONCE: VerificationMode = VERIFICATION_MODE_ONCE
+        ONCE = cast("VerificationMode", VERIFICATION_MODE_ONCE)
         """
         Once.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,41 +50,41 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.OutgoingMessageState'
         __ooo_type_name__: str = 'enum'
 
-        COMPLETELY_LOCALLY_SENT: OutgoingMessageState = OUTGOING_MESSAGE_STATE_COMPLETELY_LOCALLY_SENT
+        COMPLETELY_LOCALLY_SENT = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_COMPLETELY_LOCALLY_SENT)
         """
         Message has been sent upstream to all recipients.
         """
-        CONFIRMED: OutgoingMessageState = OUTGOING_MESSAGE_STATE_CONFIRMED
+        CONFIRMED = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_CONFIRMED)
         """
         Recipient confirmed reading.
         """
-        EXTERNAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_EXTERNAL_ERROR
+        EXTERNAL_ERROR = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_EXTERNAL_ERROR)
         """
         Global fatal error (e.g.
         
         last member in SMTP chain could not deliver the message).
         """
-        NONRECOVERABLE_LOCAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_NONRECOVERABLE_LOCAL_ERROR
+        NONRECOVERABLE_LOCAL_ERROR = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_NONRECOVERABLE_LOCAL_ERROR)
         """
         Local fatal error (e.g.
         
         first SMTP server upstream did not accept the message).
         """
-        PARTIALLY_LOCALLY_SENT: OutgoingMessageState = OUTGOING_MESSAGE_STATE_PARTIALLY_LOCALLY_SENT
+        PARTIALLY_LOCALLY_SENT = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_PARTIALLY_LOCALLY_SENT)
         """
         Message has been sent upstream to some recipients.
         """
-        RECOVERABLE_LOCAL_ERROR: OutgoingMessageState = OUTGOING_MESSAGE_STATE_RECOVERABLE_LOCAL_ERROR
+        RECOVERABLE_LOCAL_ERROR = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_RECOVERABLE_LOCAL_ERROR)
         """
         Local, non-fatal error (e.g.
         
         network temporarily not available).
         """
-        WAITING_CONFIRMATION: OutgoingMessageState = OUTGOING_MESSAGE_STATE_WAITING_CONFIRMATION
+        WAITING_CONFIRMATION = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_WAITING_CONFIRMATION)
         """
         Message was sent; we are waiting for confirmation.
         """
-        WRITTEN: OutgoingMessageState = OUTGOING_MESSAGE_STATE_WRITTEN
+        WRITTEN = cast("OutgoingMessageState", OUTGOING_MESSAGE_STATE_WRITTEN)
         """
         Message has just been placed into the out tray.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,37 +50,37 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationType'
         __ooo_type_name__: str = 'enum'
 
-        ANY: ValidationType = VALIDATION_TYPE_ANY
+        ANY = cast("ValidationType", VALIDATION_TYPE_ANY)
         """
         any cell content is valid; no conditions are used.
         """
-        CUSTOM: ValidationType = VALIDATION_TYPE_CUSTOM
+        CUSTOM = cast("ValidationType", VALIDATION_TYPE_CUSTOM)
         """
         The specified formula determines which contents are valid.
         """
-        DATE: ValidationType = VALIDATION_TYPE_DATE
+        DATE = cast("ValidationType", VALIDATION_TYPE_DATE)
         """
         specifies an arithmetic series for date values.
         
         any date value matching the specified condition is valid.
         """
-        DECIMAL: ValidationType = VALIDATION_TYPE_DECIMAL
+        DECIMAL = cast("ValidationType", VALIDATION_TYPE_DECIMAL)
         """
         any number matching the specified condition is valid.
         """
-        LIST: ValidationType = VALIDATION_TYPE_LIST
+        LIST = cast("ValidationType", VALIDATION_TYPE_LIST)
         """
         Only strings from a specified list are valid.
         """
-        TEXT_LEN: ValidationType = VALIDATION_TYPE_TEXT_LEN
+        TEXT_LEN = cast("ValidationType", VALIDATION_TYPE_TEXT_LEN)
         """
         string is valid if its length matches the specified condition.
         """
-        TIME: ValidationType = VALIDATION_TYPE_TIME
+        TIME = cast("ValidationType", VALIDATION_TYPE_TIME)
         """
         any time value matching the specified condition is valid.
         """
-        WHOLE: ValidationType = VALIDATION_TYPE_WHOLE
+        WHOLE = cast("ValidationType", VALIDATION_TYPE_WHOLE)
         """
         any whole number matching the specified condition is valid.
         """

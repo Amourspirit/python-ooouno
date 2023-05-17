@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,35 +50,35 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
         __ooo_type_name__: str = 'enum'
 
-        ASCII: RegistryValueType = REGISTRY_VALUE_TYPE_ASCII
+        ASCII = cast("RegistryValueType", REGISTRY_VALUE_TYPE_ASCII)
         """
         the type of the key is ASCII.
         """
-        ASCIILIST: RegistryValueType = REGISTRY_VALUE_TYPE_ASCIILIST
+        ASCIILIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_ASCIILIST)
         """
         the type of the key is an ASCIILIST.
         """
-        BINARY: RegistryValueType = REGISTRY_VALUE_TYPE_BINARY
+        BINARY = cast("RegistryValueType", REGISTRY_VALUE_TYPE_BINARY)
         """
         the type of the key is binary.
         """
-        LONG: RegistryValueType = REGISTRY_VALUE_TYPE_LONG
+        LONG = cast("RegistryValueType", REGISTRY_VALUE_TYPE_LONG)
         """
         the type of the key is long.
         """
-        LONGLIST: RegistryValueType = REGISTRY_VALUE_TYPE_LONGLIST
+        LONGLIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_LONGLIST)
         """
         the type of the key is LONGLIST.
         """
-        NOT_DEFINED: RegistryValueType = REGISTRY_VALUE_TYPE_NOT_DEFINED
+        NOT_DEFINED = cast("RegistryValueType", REGISTRY_VALUE_TYPE_NOT_DEFINED)
         """
         the type of the key is not defined.
         """
-        STRING: RegistryValueType = REGISTRY_VALUE_TYPE_STRING
+        STRING = cast("RegistryValueType", REGISTRY_VALUE_TYPE_STRING)
         """
         the type of the key is a string.
         """
-        STRINGLIST: RegistryValueType = REGISTRY_VALUE_TYPE_STRINGLIST
+        STRINGLIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_STRINGLIST)
         """
         the type of the key is a STRINGLIST.
         """

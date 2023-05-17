@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -49,13 +49,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.WrapTextMode'
         __ooo_type_name__: str = 'enum'
 
-        DYNAMIC: WrapTextMode = WRAP_TEXT_MODE_DYNAMIC
+        DYNAMIC = cast("WrapTextMode", WRAP_TEXT_MODE_DYNAMIC)
         """
         text flow depends on the situation.
         
         The text formatting decides the best way.
         """
-        LEFT: WrapTextMode = WRAP_TEXT_MODE_LEFT
+        LEFT = cast("WrapTextMode", WRAP_TEXT_MODE_LEFT)
         """
         the object is left adjusted.
         
@@ -63,15 +63,15 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        NONE: WrapTextMode = WRAP_TEXT_MODE_NONE
+        NONE = cast("WrapTextMode", WRAP_TEXT_MODE_NONE)
         """
         text does not flow around the object.
         """
-        PARALLEL: WrapTextMode = WRAP_TEXT_MODE_PARALLEL
+        PARALLEL = cast("WrapTextMode", WRAP_TEXT_MODE_PARALLEL)
         """
         text flows to the left and right of the object.
         """
-        RIGHT: WrapTextMode = WRAP_TEXT_MODE_RIGHT
+        RIGHT = cast("WrapTextMode", WRAP_TEXT_MODE_RIGHT)
         """
         the object is right adjusted.
         
@@ -79,11 +79,11 @@ if TYPE_CHECKING:
         
         adjusted to the right.
         """
-        THROUGH: WrapTextMode = WRAP_TEXT_MODE_THROUGH
+        THROUGH = cast("WrapTextMode", WRAP_TEXT_MODE_THROUGH)
         """
         text flow ignores the object.
         """
-        THROUGHT: WrapTextMode = WRAP_TEXT_MODE_THROUGHT
+        THROUGHT = cast("WrapTextMode", WRAP_TEXT_MODE_THROUGHT)
         """
         text flow ignores the object: errant spelling deprecated in version 5.4
         """

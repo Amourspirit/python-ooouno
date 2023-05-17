@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.HatchStyle'
         __ooo_type_name__: str = 'enum'
 
-        DOUBLE: HatchStyle = HATCH_STYLE_DOUBLE
+        DOUBLE = cast("HatchStyle", HATCH_STYLE_DOUBLE)
         """
         the hatch has a horizontal and a vertical line
         """
-        SINGLE: HatchStyle = HATCH_STYLE_SINGLE
+        SINGLE = cast("HatchStyle", HATCH_STYLE_SINGLE)
         """
         the hatch consists of a single horizontal line
         """
-        TRIPLE: HatchStyle = HATCH_STYLE_TRIPLE
+        TRIPLE = cast("HatchStyle", HATCH_STYLE_TRIPLE)
         """
         the hatch has a horizontal, a vertical and a diagonal line
         """

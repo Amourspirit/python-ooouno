@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,25 +47,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotFieldOrientation'
         __ooo_type_name__: str = 'enum'
 
-        COLUMN: DataPilotFieldOrientation = DATA_PILOT_FIELD_ORIENTATION_COLUMN
+        COLUMN = cast("DataPilotFieldOrientation", DATA_PILOT_FIELD_ORIENTATION_COLUMN)
         """
         the field is used as a column field.
         
         is applied to the columns.
         """
-        DATA: DataPilotFieldOrientation = DATA_PILOT_FIELD_ORIENTATION_DATA
+        DATA = cast("DataPilotFieldOrientation", DATA_PILOT_FIELD_ORIENTATION_DATA)
         """
         the field is used as a data field.
         """
-        HIDDEN: DataPilotFieldOrientation = DATA_PILOT_FIELD_ORIENTATION_HIDDEN
+        HIDDEN = cast("DataPilotFieldOrientation", DATA_PILOT_FIELD_ORIENTATION_HIDDEN)
         """
         the field is not used in the table.
         """
-        PAGE: DataPilotFieldOrientation = DATA_PILOT_FIELD_ORIENTATION_PAGE
+        PAGE = cast("DataPilotFieldOrientation", DATA_PILOT_FIELD_ORIENTATION_PAGE)
         """
         the field is used as a page field.
         """
-        ROW: DataPilotFieldOrientation = DATA_PILOT_FIELD_ORIENTATION_ROW
+        ROW = cast("DataPilotFieldOrientation", DATA_PILOT_FIELD_ORIENTATION_ROW)
         """
         the field is used as a row field.
         

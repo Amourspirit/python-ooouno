@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -49,33 +49,33 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.BreakType'
         __ooo_type_name__: str = 'enum'
 
-        COLUMN_AFTER: BreakType = BREAK_TYPE_COLUMN_AFTER
+        COLUMN_AFTER = cast("BreakType", BREAK_TYPE_COLUMN_AFTER)
         """
         A column break is applied after the object to which it belongs.
         """
-        COLUMN_BEFORE: BreakType = BREAK_TYPE_COLUMN_BEFORE
+        COLUMN_BEFORE = cast("BreakType", BREAK_TYPE_COLUMN_BEFORE)
         """
         A column break is applied before the object to which it belongs.
         """
-        COLUMN_BOTH: BreakType = BREAK_TYPE_COLUMN_BOTH
+        COLUMN_BOTH = cast("BreakType", BREAK_TYPE_COLUMN_BOTH)
         """
         A column break is applied before and after the object to which it belongs.
         """
-        NONE: BreakType = BREAK_TYPE_NONE
+        NONE = cast("BreakType", BREAK_TYPE_NONE)
         """
         No column or page break is applied.
         
         This value specifies that a location is not yet assigned.
         """
-        PAGE_AFTER: BreakType = BREAK_TYPE_PAGE_AFTER
+        PAGE_AFTER = cast("BreakType", BREAK_TYPE_PAGE_AFTER)
         """
         A page break is applied after the object to which it belongs.
         """
-        PAGE_BEFORE: BreakType = BREAK_TYPE_PAGE_BEFORE
+        PAGE_BEFORE = cast("BreakType", BREAK_TYPE_PAGE_BEFORE)
         """
         A page break is applied before the object to which it belongs.
         """
-        PAGE_BOTH: BreakType = BREAK_TYPE_PAGE_BOTH
+        PAGE_BOTH = cast("BreakType", BREAK_TYPE_PAGE_BOTH)
         """
         A page break is applied before and after the object to which it belongs.
         """

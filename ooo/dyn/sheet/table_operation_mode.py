@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.TableOperationMode'
         __ooo_type_name__: str = 'enum'
 
-        BOTH: TableOperationMode = TABLE_OPERATION_MODE_BOTH
+        BOTH = cast("TableOperationMode", TABLE_OPERATION_MODE_BOTH)
         """
         is applied to rows and columns.
         """
-        COLUMN: TableOperationMode = TABLE_OPERATION_MODE_COLUMN
+        COLUMN = cast("TableOperationMode", TABLE_OPERATION_MODE_COLUMN)
         """
         the field is used as a column field.
         
         is applied to the columns.
         """
-        ROW: TableOperationMode = TABLE_OPERATION_MODE_ROW
+        ROW = cast("TableOperationMode", TABLE_OPERATION_MODE_ROW)
         """
         the field is used as a row field.
         

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,13 +46,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
         __ooo_type_name__: str = 'enum'
 
-        AT_TARGET: PhaseType = PHASE_TYPE_AT_TARGET
+        AT_TARGET = cast("PhaseType", PHASE_TYPE_AT_TARGET)
         """
         """
-        BUBBLING_PHASE: PhaseType = PHASE_TYPE_BUBBLING_PHASE
+        BUBBLING_PHASE = cast("PhaseType", PHASE_TYPE_BUBBLING_PHASE)
         """
         """
-        CAPTURING_PHASE: PhaseType = PHASE_TYPE_CAPTURING_PHASE
+        CAPTURING_PHASE = cast("PhaseType", PHASE_TYPE_CAPTURING_PHASE)
         """
         """
 

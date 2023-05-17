@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.NavigationBarMode'
         __ooo_type_name__: str = 'enum'
 
-        CURRENT: NavigationBarMode = NAVIGATION_BAR_MODE_CURRENT
+        CURRENT = cast("NavigationBarMode", NAVIGATION_BAR_MODE_CURRENT)
         """
         a navigation bar is provided and navigation will be performed on the current/active form.
         
@@ -53,13 +53,13 @@ if TYPE_CHECKING:
         
         This is the default and most often encountered mode.
         """
-        NONE: NavigationBarMode = NAVIGATION_BAR_MODE_NONE
+        NONE = cast("NavigationBarMode", NAVIGATION_BAR_MODE_NONE)
         """
         no navigation bar is provided and navigation on the current form is only possible with the keyboard (TAB/SHIFT TAB).
         
         Note that when this mode is set, a simultaneous TabulatorCycle value of TabulatorCycle.CURRENT means that you cannot travel between records anymore.
         """
-        PARENT: NavigationBarMode = NAVIGATION_BAR_MODE_PARENT
+        PARENT = cast("NavigationBarMode", NAVIGATION_BAR_MODE_PARENT)
         """
         a navigation bar is provided and navigation will be performed on the parent of the current/active form.
         

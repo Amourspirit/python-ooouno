@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,10 +44,10 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
         __ooo_type_name__: str = 'enum'
 
-        ELEMENTCOLLECTOR: ElementMarkType = ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
+        ELEMENTCOLLECTOR = cast("ElementMarkType", ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR)
         """
         """
-        ELEMENTMARK: ElementMarkType = ELEMENT_MARK_TYPE_ELEMENTMARK
+        ELEMENTMARK = cast("ElementMarkType", ELEMENT_MARK_TYPE_ELEMENTMARK)
         """
         """
 

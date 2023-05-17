@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,15 +47,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.SymbolStyle'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: SymbolStyle = SYMBOL_STYLE_AUTO
+        AUTO = cast("SymbolStyle", SYMBOL_STYLE_AUTO)
         """
         The symbol is taken automatically.
         """
-        GRAPHIC: SymbolStyle = SYMBOL_STYLE_GRAPHIC
+        GRAPHIC = cast("SymbolStyle", SYMBOL_STYLE_GRAPHIC)
         """
         uses the graphic given in Symbol.Graphic as symbol.
         """
-        NONE: SymbolStyle = SYMBOL_STYLE_NONE
+        NONE = cast("SymbolStyle", SYMBOL_STYLE_NONE)
         """
         Default, no pies are exploded.
         
@@ -63,11 +63,11 @@ if TYPE_CHECKING:
         
         The symbol is invisible.
         """
-        POLYGON: SymbolStyle = SYMBOL_STYLE_POLYGON
+        POLYGON = cast("SymbolStyle", SYMBOL_STYLE_POLYGON)
         """
         uses the symbol given in the com.sun.star.drawing.PolyPolygonBezierCoords given in Symbol.PolygonCoords.
         """
-        STANDARD: SymbolStyle = SYMBOL_STYLE_STANDARD
+        STANDARD = cast("SymbolStyle", SYMBOL_STYLE_STANDARD)
         """
         uses one of the standard symbols.
         

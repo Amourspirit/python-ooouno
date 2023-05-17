@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -56,35 +56,35 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.presentation.ClickAction'
         __ooo_type_name__: str = 'enum'
 
-        BOOKMARK: ClickAction = CLICK_ACTION_BOOKMARK
+        BOOKMARK = cast("ClickAction", CLICK_ACTION_BOOKMARK)
         """
         The presentation jumps to a bookmark.
         """
-        DOCUMENT: ClickAction = CLICK_ACTION_DOCUMENT
+        DOCUMENT = cast("ClickAction", CLICK_ACTION_DOCUMENT)
         """
         The presentation jumps to another document.
         """
-        FIRSTPAGE: ClickAction = CLICK_ACTION_FIRSTPAGE
+        FIRSTPAGE = cast("ClickAction", CLICK_ACTION_FIRSTPAGE)
         """
         The presentation continues with the first page.
         """
-        INVISIBLE: ClickAction = CLICK_ACTION_INVISIBLE
+        INVISIBLE = cast("ClickAction", CLICK_ACTION_INVISIBLE)
         """
         The object renders itself invisible after a click.
         """
-        LASTPAGE: ClickAction = CLICK_ACTION_LASTPAGE
+        LASTPAGE = cast("ClickAction", CLICK_ACTION_LASTPAGE)
         """
         The presentation continues with the last page.
         """
-        MACRO: ClickAction = CLICK_ACTION_MACRO
+        MACRO = cast("ClickAction", CLICK_ACTION_MACRO)
         """
         A star basic macro is executed after the click.
         """
-        NEXTPAGE: ClickAction = CLICK_ACTION_NEXTPAGE
+        NEXTPAGE = cast("ClickAction", CLICK_ACTION_NEXTPAGE)
         """
         The presentation jumps to the next page.
         """
-        NONE: ClickAction = CLICK_ACTION_NONE
+        NONE = cast("ClickAction", CLICK_ACTION_NONE)
         """
         use no animation effects.
         
@@ -92,27 +92,27 @@ if TYPE_CHECKING:
         
         No action is performed on click.
         """
-        PREVPAGE: ClickAction = CLICK_ACTION_PREVPAGE
+        PREVPAGE = cast("ClickAction", CLICK_ACTION_PREVPAGE)
         """
         The presentation jumps to the previous page.
         """
-        PROGRAM: ClickAction = CLICK_ACTION_PROGRAM
+        PROGRAM = cast("ClickAction", CLICK_ACTION_PROGRAM)
         """
         Another program is executed after a click.
         """
-        SOUND: ClickAction = CLICK_ACTION_SOUND
+        SOUND = cast("ClickAction", CLICK_ACTION_SOUND)
         """
         A sound is played after a click.
         """
-        STOPPRESENTATION: ClickAction = CLICK_ACTION_STOPPRESENTATION
+        STOPPRESENTATION = cast("ClickAction", CLICK_ACTION_STOPPRESENTATION)
         """
         The presentation is stopped after the click.
         """
-        VANISH: ClickAction = CLICK_ACTION_VANISH
+        VANISH = cast("ClickAction", CLICK_ACTION_VANISH)
         """
         The object vanishes with its effect.
         """
-        VERB: ClickAction = CLICK_ACTION_VERB
+        VERB = cast("ClickAction", CLICK_ACTION_VERB)
         """
         An OLE verb is performed on this object.
         """

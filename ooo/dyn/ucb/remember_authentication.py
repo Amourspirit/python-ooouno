@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.RememberAuthentication'
         __ooo_type_name__: str = 'enum'
 
-        NO: RememberAuthentication = REMEMBER_AUTHENTICATION_NO
+        NO = cast("RememberAuthentication", REMEMBER_AUTHENTICATION_NO)
         """
         Do not remember the authentication data (use it once and immediately forget about it).
         """
-        PERSISTENT: RememberAuthentication = REMEMBER_AUTHENTICATION_PERSISTENT
+        PERSISTENT = cast("RememberAuthentication", REMEMBER_AUTHENTICATION_PERSISTENT)
         """
         Remember the authentication data \"forever\".
         """
-        SESSION: RememberAuthentication = REMEMBER_AUTHENTICATION_SESSION
+        SESSION = cast("RememberAuthentication", REMEMBER_AUTHENTICATION_SESSION)
         """
         Remember the authentication data, but only until the end of the current session.
         """

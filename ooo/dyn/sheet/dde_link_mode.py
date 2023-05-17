@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.DDELinkMode'
         __ooo_type_name__: str = 'enum'
 
-        DEFAULT: DDELinkMode = D_D_E_LINK_MODE_DEFAULT
+        DEFAULT = cast("DDELinkMode", D_D_E_LINK_MODE_DEFAULT)
         """
         numbers are converted into the default format.
         """
-        ENGLISH: DDELinkMode = D_D_E_LINK_MODE_ENGLISH
+        ENGLISH = cast("DDELinkMode", D_D_E_LINK_MODE_ENGLISH)
         """
         numbers are converted into the English default format.
         """
-        TEXT: DDELinkMode = D_D_E_LINK_MODE_TEXT
+        TEXT = cast("DDELinkMode", D_D_E_LINK_MODE_TEXT)
         """
         numbers are not converted, but treated as text.
         """

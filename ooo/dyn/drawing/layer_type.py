@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.LayerType'
         __ooo_type_name__: str = 'enum'
 
-        CONTROLSA: LayerType = LAYER_TYPE_CONTROLSA
+        CONTROLSA = cast("LayerType", LAYER_TYPE_CONTROLSA)
         """
         This is the layer for the controls.
         """
-        DIMENSIONIANG_LINES: LayerType = LAYER_TYPE_DIMENSIONIANG_LINES
+        DIMENSIONIANG_LINES = cast("LayerType", LAYER_TYPE_DIMENSIONIANG_LINES)
         """
         This is the layer for all measure shapes.
         """
-        LAYOUT: LayerType = LAYER_TYPE_LAYOUT
+        LAYOUT = cast("LayerType", LAYER_TYPE_LAYOUT)
         """
         This is the layer for all standard shapes.
         """
-        USER_DEFINED: LayerType = LAYER_TYPE_USER_DEFINED
+        USER_DEFINED = cast("LayerType", LAYER_TYPE_USER_DEFINED)
         """
         There can be zero or more layers of this type.
         """

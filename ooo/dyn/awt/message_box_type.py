@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,23 +47,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
         __ooo_type_name__: str = 'enum'
 
-        ERRORBOX: MessageBoxType = MESSAGE_BOX_TYPE_ERRORBOX
+        ERRORBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_ERRORBOX)
         """
         A message box to provide an error message to the user.
         """
-        INFOBOX: MessageBoxType = MESSAGE_BOX_TYPE_INFOBOX
+        INFOBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_INFOBOX)
         """
         A message box to inform the user about a certain event.
         """
-        MESSAGEBOX: MessageBoxType = MESSAGE_BOX_TYPE_MESSAGEBOX
+        MESSAGEBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_MESSAGEBOX)
         """
         A normal message box.
         """
-        QUERYBOX: MessageBoxType = MESSAGE_BOX_TYPE_QUERYBOX
+        QUERYBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_QUERYBOX)
         """
         A message box to query information from the user.
         """
-        WARNINGBOX: MessageBoxType = MESSAGE_BOX_TYPE_WARNINGBOX
+        WARNINGBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_WARNINGBOX)
         """
         A message to warn the user about a certain problem.
         """

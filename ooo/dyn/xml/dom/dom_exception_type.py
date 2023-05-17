@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -58,49 +58,49 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.DOMExceptionType'
         __ooo_type_name__: str = 'enum'
 
-        DOMSTRING_SIZE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_DOMSTRING_SIZE_ERR
+        DOMSTRING_SIZE_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_DOMSTRING_SIZE_ERR)
         """
         """
-        HIERARCHY_REQUEST_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_HIERARCHY_REQUEST_ERR
+        HIERARCHY_REQUEST_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_HIERARCHY_REQUEST_ERR)
         """
         """
-        INDEX_SIZE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INDEX_SIZE_ERR
+        INDEX_SIZE_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INDEX_SIZE_ERR)
         """
         """
-        INUSE_ATTRIBUTE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INUSE_ATTRIBUTE_ERR
+        INUSE_ATTRIBUTE_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INUSE_ATTRIBUTE_ERR)
         """
         """
-        INVALID_ACCESS_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_ACCESS_ERR
+        INVALID_ACCESS_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INVALID_ACCESS_ERR)
         """
         """
-        INVALID_CHARACTER_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_CHARACTER_ERR
+        INVALID_CHARACTER_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INVALID_CHARACTER_ERR)
         """
         """
-        INVALID_MODIFICATION_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_MODIFICATION_ERR
+        INVALID_MODIFICATION_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INVALID_MODIFICATION_ERR)
         """
         """
-        INVALID_STATE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_INVALID_STATE_ERR
+        INVALID_STATE_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_INVALID_STATE_ERR)
         """
         """
-        NAMESPACE_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NAMESPACE_ERR
+        NAMESPACE_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_NAMESPACE_ERR)
         """
         """
-        NOT_FOUND_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NOT_FOUND_ERR
+        NOT_FOUND_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_NOT_FOUND_ERR)
         """
         """
-        NOT_SUPPORTED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NOT_SUPPORTED_ERR
+        NOT_SUPPORTED_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_NOT_SUPPORTED_ERR)
         """
         """
-        NO_DATA_ALLOWED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NO_DATA_ALLOWED_ERR
+        NO_DATA_ALLOWED_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_NO_DATA_ALLOWED_ERR)
         """
         """
-        NO_MODIFICATION_ALLOWED_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_NO_MODIFICATION_ALLOWED_ERR
+        NO_MODIFICATION_ALLOWED_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_NO_MODIFICATION_ALLOWED_ERR)
         """
         """
-        SYNTAX_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_SYNTAX_ERR
+        SYNTAX_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_SYNTAX_ERR)
         """
         """
-        WRONG_DOCUMENT_ERR: DOMExceptionType = D_O_M_EXCEPTION_TYPE_WRONG_DOCUMENT_ERR
+        WRONG_DOCUMENT_ERR = cast("DOMExceptionType", D_O_M_EXCEPTION_TYPE_WRONG_DOCUMENT_ERR)
         """
         """
 

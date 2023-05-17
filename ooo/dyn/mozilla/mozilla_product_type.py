@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.mozilla.MozillaProductType'
         __ooo_type_name__: str = 'enum'
 
-        Default: MozillaProductType = MOZILLA_PRODUCT_TYPE_Default
+        Default = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Default)
         """
         Any product.
         """
-        Firefox: MozillaProductType = MOZILLA_PRODUCT_TYPE_Firefox
+        Firefox = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Firefox)
         """
         Mozilla's next generation web browser.
         """
-        Mozilla: MozillaProductType = MOZILLA_PRODUCT_TYPE_Mozilla
+        Mozilla = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Mozilla)
         """
         Mozilla browse and mail suite.
         """
-        Thunderbird: MozillaProductType = MOZILLA_PRODUCT_TYPE_Thunderbird
+        Thunderbird = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Thunderbird)
         """
         Mozilla's next generation e-mail client.
         """

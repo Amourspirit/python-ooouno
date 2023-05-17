@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.presentation.PresentationRange'
         __ooo_type_name__: str = 'enum'
 
-        PRESENTATIONRANGE_ALL: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_ALL
+        PRESENTATIONRANGE_ALL = cast("PresentationRange", PRESENTATION_RANGE_PRESENTATIONRANGE_ALL)
         """
         use all slides.
         """
-        PRESENTATIONRANGE_FROM_PAGE: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE
+        PRESENTATIONRANGE_FROM_PAGE = cast("PresentationRange", PRESENTATION_RANGE_PRESENTATIONRANGE_FROM_PAGE)
         """
         use only the active slide.
         """
-        PRESENTATIONRANGE_INDIVIDUAL: PresentationRange = PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL
+        PRESENTATIONRANGE_INDIVIDUAL = cast("PresentationRange", PRESENTATION_RANGE_PRESENTATIONRANGE_INDIVIDUAL)
         """
         use an individual choice of slides.
         """

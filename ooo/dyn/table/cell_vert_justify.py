@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,17 +46,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM: CellVertJustify = CELL_VERT_JUSTIFY_BOTTOM
+        BOTTOM = cast("CellVertJustify", CELL_VERT_JUSTIFY_BOTTOM)
         """
         contents are aligned to the lower edge of the cell.
         """
-        CENTER: CellVertJustify = CELL_VERT_JUSTIFY_CENTER
+        CENTER = cast("CellVertJustify", CELL_VERT_JUSTIFY_CENTER)
         """
         contents are horizontally centered.
         
         contents are aligned to the vertical middle of the cell.
         """
-        STANDARD: CellVertJustify = CELL_VERT_JUSTIFY_STANDARD
+        STANDARD = cast("CellVertJustify", CELL_VERT_JUSTIFY_STANDARD)
         """
         default alignment is used (left for numbers, right for text).
         
@@ -64,7 +64,7 @@ if TYPE_CHECKING:
         
         contents are printed from left to right.
         """
-        TOP: CellVertJustify = CELL_VERT_JUSTIFY_TOP
+        TOP = cast("CellVertJustify", CELL_VERT_JUSTIFY_TOP)
         """
         contents are aligned with the upper edge of the cell.
         """

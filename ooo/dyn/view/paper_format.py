@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -51,39 +51,39 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
         __ooo_type_name__: str = 'enum'
 
-        A3: PaperFormat = PAPER_FORMAT_A3
+        A3 = cast("PaperFormat", PAPER_FORMAT_A3)
         """
         specifies the paper format as A3.
         """
-        A4: PaperFormat = PAPER_FORMAT_A4
+        A4 = cast("PaperFormat", PAPER_FORMAT_A4)
         """
         specifies the paper format as A4.
         """
-        A5: PaperFormat = PAPER_FORMAT_A5
+        A5 = cast("PaperFormat", PAPER_FORMAT_A5)
         """
         specifies the paper format as A5.
         """
-        B4: PaperFormat = PAPER_FORMAT_B4
+        B4 = cast("PaperFormat", PAPER_FORMAT_B4)
         """
         specifies the paper format as B4.
         """
-        B5: PaperFormat = PAPER_FORMAT_B5
+        B5 = cast("PaperFormat", PAPER_FORMAT_B5)
         """
         specifies the paper format as B5.
         """
-        LEGAL: PaperFormat = PAPER_FORMAT_LEGAL
+        LEGAL = cast("PaperFormat", PAPER_FORMAT_LEGAL)
         """
         specifies the paper format as Legal.
         """
-        LETTER: PaperFormat = PAPER_FORMAT_LETTER
+        LETTER = cast("PaperFormat", PAPER_FORMAT_LETTER)
         """
         specifies the paper format as Letter.
         """
-        TABLOID: PaperFormat = PAPER_FORMAT_TABLOID
+        TABLOID = cast("PaperFormat", PAPER_FORMAT_TABLOID)
         """
         specifies the paper format as Tabloid.
         """
-        USER: PaperFormat = PAPER_FORMAT_USER
+        USER = cast("PaperFormat", PAPER_FORMAT_USER)
         """
         The real paper size is user defined in 100th mm.
         """

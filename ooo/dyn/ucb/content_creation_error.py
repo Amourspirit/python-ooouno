@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,25 +48,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.ContentCreationError'
         __ooo_type_name__: str = 'enum'
 
-        CONTENT_CREATION_FAILED: ContentCreationError = CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED
+        CONTENT_CREATION_FAILED = cast("ContentCreationError", CONTENT_CREATION_ERROR_CONTENT_CREATION_FAILED)
         """
         Provider was unable to create the content instance.
         """
-        IDENTIFIER_CREATION_FAILED: ContentCreationError = CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED
+        IDENTIFIER_CREATION_FAILED = cast("ContentCreationError", CONTENT_CREATION_ERROR_IDENTIFIER_CREATION_FAILED)
         """
         Creation of content identifier failed.
         """
-        NO_CONTENT_BROKER: ContentCreationError = CONTENT_CREATION_ERROR_NO_CONTENT_BROKER
+        NO_CONTENT_BROKER = cast("ContentCreationError", CONTENT_CREATION_ERROR_NO_CONTENT_BROKER)
         """
         """
-        NO_CONTENT_PROVIDER: ContentCreationError = CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER
+        NO_CONTENT_PROVIDER = cast("ContentCreationError", CONTENT_CREATION_ERROR_NO_CONTENT_PROVIDER)
         """
         No Content Provider for given content identifier available.
         """
-        NO_IDENTIFIER_FACTORY: ContentCreationError = CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY
+        NO_IDENTIFIER_FACTORY = cast("ContentCreationError", CONTENT_CREATION_ERROR_NO_IDENTIFIER_FACTORY)
         """
         """
-        UNKNOWN: ContentCreationError = CONTENT_CREATION_ERROR_UNKNOWN
+        UNKNOWN = cast("ContentCreationError", CONTENT_CREATION_ERROR_UNKNOWN)
         """
         Unknown.
         

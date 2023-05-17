@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,19 +48,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartRegressionCurveType'
         __ooo_type_name__: str = 'enum'
 
-        EXPONENTIAL: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_EXPONENTIAL
+        EXPONENTIAL = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_EXPONENTIAL)
         """
         displays an exponential regression curve.
         """
-        LINEAR: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_LINEAR
+        LINEAR = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_LINEAR)
         """
         displays a linear regression curve.
         """
-        LOGARITHM: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_LOGARITHM
+        LOGARITHM = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_LOGARITHM)
         """
         displays a linear logarithmic regression curve.
         """
-        NONE: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_NONE
+        NONE = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_NONE)
         """
         error indicators are not displayed.
         
@@ -70,11 +70,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        POLYNOMIAL: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_POLYNOMIAL
+        POLYNOMIAL = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_POLYNOMIAL)
         """
         displays a polynomial regression curve.
         """
-        POWER: ChartRegressionCurveType = CHART_REGRESSION_CURVE_TYPE_POWER
+        POWER = cast("ChartRegressionCurveType", CHART_REGRESSION_CURVE_TYPE_POWER)
         """
         displays a regression curve using a power function.
         

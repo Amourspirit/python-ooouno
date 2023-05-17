@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,14 +45,14 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.linguistic2.DictionaryType'
         __ooo_type_name__: str = 'enum'
 
-        MIXED: DictionaryType = DICTIONARY_TYPE_MIXED
+        MIXED = cast("DictionaryType", DICTIONARY_TYPE_MIXED)
         """
         """
-        NEGATIVE: DictionaryType = DICTIONARY_TYPE_NEGATIVE
+        NEGATIVE = cast("DictionaryType", DICTIONARY_TYPE_NEGATIVE)
         """
         all entries in the dictionary are negative.
         """
-        POSITIVE: DictionaryType = DICTIONARY_TYPE_POSITIVE
+        POSITIVE = cast("DictionaryType", DICTIONARY_TYPE_POSITIVE)
         """
         all entries in the dictionary are positive.
         """

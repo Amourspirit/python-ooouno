@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,17 +46,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
         __ooo_type_name__: str = 'enum'
 
-        NORMAL: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
+        NORMAL = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL)
         """
         the text is drawn along the path without scaling.
         
         the point is normal, from the curve discussion view.
         """
-        PATH: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
+        PATH = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH)
         """
         the text is fit to the path.
         """
-        SHAPE: EnhancedCustomShapeTextPathMode = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
+        SHAPE = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE)
         """
         the text is fit to the bounding box of the shape.
         """

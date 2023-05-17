@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,19 +47,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.LineJoint'
         __ooo_type_name__: str = 'enum'
 
-        BEVEL: LineJoint = LINE_JOINT_BEVEL
+        BEVEL = cast("LineJoint", LINE_JOINT_BEVEL)
         """
         the edges of the thick lines will be joined by lines
         """
-        MIDDLE: LineJoint = LINE_JOINT_MIDDLE
+        MIDDLE = cast("LineJoint", LINE_JOINT_MIDDLE)
         """
         the middle value between the joints is used
         """
-        MITER: LineJoint = LINE_JOINT_MITER
+        MITER = cast("LineJoint", LINE_JOINT_MITER)
         """
         the lines join at intersections
         """
-        NONE: LineJoint = LINE_JOINT_NONE
+        NONE = cast("LineJoint", LINE_JOINT_NONE)
         """
         the area is not filled.
         
@@ -73,7 +73,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        ROUND: LineJoint = LINE_JOINT_ROUND
+        ROUND = cast("LineJoint", LINE_JOINT_ROUND)
         """
         the dash is a point
         

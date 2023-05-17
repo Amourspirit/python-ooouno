@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -53,34 +53,34 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.xpath.XPathObjectType'
         __ooo_type_name__: str = 'enum'
 
-        XPATH_BOOLEAN: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_BOOLEAN
+        XPATH_BOOLEAN = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_BOOLEAN)
         """
         """
-        XPATH_LOCATIONSET: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET
+        XPATH_LOCATIONSET = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET)
         """
         """
-        XPATH_NODESET: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_NODESET
+        XPATH_NODESET = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_NODESET)
         """
         """
-        XPATH_NUMBER: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_NUMBER
+        XPATH_NUMBER = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_NUMBER)
         """
         """
-        XPATH_POINT: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_POINT
+        XPATH_POINT = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_POINT)
         """
         """
-        XPATH_RANGE: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_RANGE
+        XPATH_RANGE = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_RANGE)
         """
         """
-        XPATH_STRING: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_STRING
+        XPATH_STRING = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_STRING)
         """
         """
-        XPATH_UNDEFINED: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_UNDEFINED
+        XPATH_UNDEFINED = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_UNDEFINED)
         """
         """
-        XPATH_USERS: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_USERS
+        XPATH_USERS = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_USERS)
         """
         """
-        XPATH_XSLT_TREE: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE
+        XPATH_XSLT_TREE = cast("XPathObjectType", X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE)
         """
         """
 

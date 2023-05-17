@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
         __ooo_type_name__: str = 'enum'
 
-        CLIENT_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
+        CLIENT_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_CLIENT_IS_MASTER)
         """
         Client is master.
         """
-        NONE_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_NONE_IS_MASTER
+        NONE_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_NONE_IS_MASTER)
         """
         None is master.
         """
-        SERVER_IS_MASTER: SynchronizePolicy = SYNCHRONIZE_POLICY_SERVER_IS_MASTER
+        SERVER_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_SERVER_IS_MASTER)
         """
         Server is master.
         """

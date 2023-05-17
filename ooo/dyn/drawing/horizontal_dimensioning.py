@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.HorizontalDimensioning'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_AUTO
+        AUTO = cast("HorizontalDimensioning", HORIZONTAL_DIMENSIONING_AUTO)
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        CENTERED: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_CENTERED
+        CENTERED = cast("HorizontalDimensioning", HORIZONTAL_DIMENSIONING_CENTERED)
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        LEFT: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_LEFT
+        LEFT = cast("HorizontalDimensioning", HORIZONTAL_DIMENSIONING_LEFT)
         """
         the connection line leaves the connected object to the left,
         
@@ -66,7 +66,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: HorizontalDimensioning = HORIZONTAL_DIMENSIONING_RIGHT
+        RIGHT = cast("HorizontalDimensioning", HORIZONTAL_DIMENSIONING_RIGHT)
         """
         the connection line leaves the connected object to the right,
         

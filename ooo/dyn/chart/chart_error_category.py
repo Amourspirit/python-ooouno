@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,17 +48,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorCategory'
         __ooo_type_name__: str = 'enum'
 
-        CONSTANT_VALUE: ChartErrorCategory = CHART_ERROR_CATEGORY_CONSTANT_VALUE
+        CONSTANT_VALUE = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_CONSTANT_VALUE)
         """
         displays the same lower and upper error indicators for all data points.
         
         The values for these are given as absolute numbers in ChartStatistics.ConstantErrorLow and ChartStatistics.ConstantErrorHigh
         """
-        ERROR_MARGIN: ChartErrorCategory = CHART_ERROR_CATEGORY_ERROR_MARGIN
+        ERROR_MARGIN = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_ERROR_MARGIN)
         """
         The length of the error indicators for all data points is calculated by taking the percentage given as ChartStatistics.ErrorMargin of the largest data point value.
         """
-        NONE: ChartErrorCategory = CHART_ERROR_CATEGORY_NONE
+        NONE = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_NONE)
         """
         error indicators are not displayed.
         
@@ -68,15 +68,15 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        PERCENT: ChartErrorCategory = CHART_ERROR_CATEGORY_PERCENT
+        PERCENT = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_PERCENT)
         """
         The length of the error indicators is calculated for each data point by taking the percentage given as ChartStatistics.PercentageError of its value.
         """
-        STANDARD_DEVIATION: ChartErrorCategory = CHART_ERROR_CATEGORY_STANDARD_DEVIATION
+        STANDARD_DEVIATION = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_STANDARD_DEVIATION)
         """
         displays error indicators for the standard deviation (square root of variance) of the data row.
         """
-        VARIANCE: ChartErrorCategory = CHART_ERROR_CATEGORY_VARIANCE
+        VARIANCE = cast("ChartErrorCategory", CHART_ERROR_CATEGORY_VARIANCE)
         """
         displays error indicators for the variance of the data row.
         """

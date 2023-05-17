@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,19 +48,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
         __ooo_type_name__: str = 'enum'
 
-        BUILDING_DOCUMENT: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
+        BUILDING_DOCUMENT = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT)
         """
         """
-        BUILDING_FRAGMENT: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
+        BUILDING_FRAGMENT = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT)
         """
         """
-        DOCUMENT_FINISHED: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
+        DOCUMENT_FINISHED = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED)
         """
         """
-        FRAGMENT_FINISHED: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
+        FRAGMENT_FINISHED = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED)
         """
         """
-        READY: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_READY
+        READY = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_READY)
         """
         """
 

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.linguistic2.ConversionDirection'
         __ooo_type_name__: str = 'enum'
 
-        FROM_LEFT: ConversionDirection = CONVERSION_DIRECTION_FROM_LEFT
+        FROM_LEFT = cast("ConversionDirection", CONVERSION_DIRECTION_FROM_LEFT)
         """
         the text to be looked for should match the left part of a dictionary entry.
         """
-        FROM_RIGHT: ConversionDirection = CONVERSION_DIRECTION_FROM_RIGHT
+        FROM_RIGHT = cast("ConversionDirection", CONVERSION_DIRECTION_FROM_RIGHT)
         """
         the text to be looked for should match the right part of a dictionary entry.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
         __ooo_type_name__: str = 'enum'
 
-        PUSH: FormButtonType = FORM_BUTTON_TYPE_PUSH
+        PUSH = cast("FormButtonType", FORM_BUTTON_TYPE_PUSH)
         """
         requires the button to act like a common push button, means no special action is triggered.
         """
-        RESET: FormButtonType = FORM_BUTTON_TYPE_RESET
+        RESET = cast("FormButtonType", FORM_BUTTON_TYPE_RESET)
         """
         When the button is clicked, it performs a reset on its containing form.
         """
-        SUBMIT: FormButtonType = FORM_BUTTON_TYPE_SUBMIT
+        SUBMIT = cast("FormButtonType", FORM_BUTTON_TYPE_SUBMIT)
         """
         When the button is clicked, it performs a submit on its containing form.
         """
-        URL: FormButtonType = FORM_BUTTON_TYPE_URL
+        URL = cast("FormButtonType", FORM_BUTTON_TYPE_URL)
         """
         When the button is clicked, a URL set for the button is opened.
         

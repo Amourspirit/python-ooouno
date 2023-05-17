@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
         __ooo_type_name__: str = 'enum'
 
-        END: ChartAxisPosition = CHART_AXIS_POSITION_END
+        END = cast("ChartAxisPosition", CHART_AXIS_POSITION_END)
         """
         Cross the other axes at their maximum scale value.
         """
-        START: ChartAxisPosition = CHART_AXIS_POSITION_START
+        START = cast("ChartAxisPosition", CHART_AXIS_POSITION_START)
         """
         Cross the other axes at their minimum scale value.
         """
-        VALUE: ChartAxisPosition = CHART_AXIS_POSITION_VALUE
+        VALUE = cast("ChartAxisPosition", CHART_AXIS_POSITION_VALUE)
         """
         Cross the other axes at the value specified in the property CrossoverValue.
         """
-        ZERO: ChartAxisPosition = CHART_AXIS_POSITION_ZERO
+        ZERO = cast("ChartAxisPosition", CHART_AXIS_POSITION_ZERO)
         """
         Cross the other axes at zero.
         

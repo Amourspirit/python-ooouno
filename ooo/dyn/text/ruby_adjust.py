@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,21 +47,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.RubyAdjust'
         __ooo_type_name__: str = 'enum'
 
-        BLOCK: RubyAdjust = RUBY_ADJUST_BLOCK
+        BLOCK = cast("RubyAdjust", RUBY_ADJUST_BLOCK)
         """
         adjusted to both borders / stretched
         """
-        CENTER: RubyAdjust = RUBY_ADJUST_CENTER
+        CENTER = cast("RubyAdjust", RUBY_ADJUST_CENTER)
         """
         the object is adjusted to the center.
         
         centric adjusted.
         """
-        INDENT_BLOCK: RubyAdjust = RUBY_ADJUST_INDENT_BLOCK
+        INDENT_BLOCK = cast("RubyAdjust", RUBY_ADJUST_INDENT_BLOCK)
         """
         adjusted to both borders except for a small indent on both sides
         """
-        LEFT: RubyAdjust = RUBY_ADJUST_LEFT
+        LEFT = cast("RubyAdjust", RUBY_ADJUST_LEFT)
         """
         the object is left adjusted.
         
@@ -69,7 +69,7 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        RIGHT: RubyAdjust = RUBY_ADJUST_RIGHT
+        RIGHT = cast("RubyAdjust", RUBY_ADJUST_RIGHT)
         """
         the object is right adjusted.
         

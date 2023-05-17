@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -49,31 +49,31 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.accessibility.AccessibleScrollType'
         __ooo_type_name__: str = 'enum'
 
-        SCROLL_ANYWHERE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_ANYWHERE
+        SCROLL_ANYWHERE = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_ANYWHERE)
         """
         Scroll the object or string such that as much as possible of the object or string is within the top level window.
         """
-        SCROLL_BOTTOM_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_EDGE
+        SCROLL_BOTTOM_EDGE = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_EDGE)
         """
         Scroll the bottom edge of the object or string such that the bottom edge is within the top level window.
         """
-        SCROLL_BOTTOM_RIGHT: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_RIGHT
+        SCROLL_BOTTOM_RIGHT = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_RIGHT)
         """
         Scroll the bottom right corner of the object or string such that the bottom right corner is within the top level window.
         """
-        SCROLL_LEFT_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_LEFT_EDGE
+        SCROLL_LEFT_EDGE = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_LEFT_EDGE)
         """
         Scroll the left edge of the object or string such that the left edge is within the top level window.
         """
-        SCROLL_RIGHT_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_RIGHT_EDGE
+        SCROLL_RIGHT_EDGE = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_RIGHT_EDGE)
         """
         Scroll the right edge of the object or string such that the right edge is within the top level window.
         """
-        SCROLL_TOP_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_EDGE
+        SCROLL_TOP_EDGE = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_EDGE)
         """
         Scroll the top edge of the object or string such that the top edge is within the top level window.
         """
-        SCROLL_TOP_LEFT: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_LEFT
+        SCROLL_TOP_LEFT = cast("AccessibleScrollType", ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_LEFT)
         """
         Scroll the top left corner of the object or string such that the top left corner is within the top level window.
         """

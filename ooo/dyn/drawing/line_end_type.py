@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,15 +47,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
         __ooo_type_name__: str = 'enum'
 
-        ARROW: LineEndType = LINE_END_TYPE_ARROW
+        ARROW = cast("LineEndType", LINE_END_TYPE_ARROW)
         """
         the line uses an arrow for the line end.
         """
-        CIRCLE: LineEndType = LINE_END_TYPE_CIRCLE
+        CIRCLE = cast("LineEndType", LINE_END_TYPE_CIRCLE)
         """
         the line uses a circle for the line end.
         """
-        NONE: LineEndType = LINE_END_TYPE_NONE
+        NONE = cast("LineEndType", LINE_END_TYPE_NONE)
         """
         the area is not filled.
         
@@ -69,13 +69,13 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SPECIAL: LineEndType = LINE_END_TYPE_SPECIAL
+        SPECIAL = cast("LineEndType", LINE_END_TYPE_SPECIAL)
         """
         not implemented, yet.
         
         deprecated
         """
-        SQUARE: LineEndType = LINE_END_TYPE_SQUARE
+        SQUARE = cast("LineEndType", LINE_END_TYPE_SQUARE)
         """
         the line will get a half square as additional cap
         

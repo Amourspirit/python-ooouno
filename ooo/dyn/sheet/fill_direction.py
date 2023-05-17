@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.FillDirection'
         __ooo_type_name__: str = 'enum'
 
-        TO_BOTTOM: FillDirection = FILL_DIRECTION_TO_BOTTOM
+        TO_BOTTOM = cast("FillDirection", FILL_DIRECTION_TO_BOTTOM)
         """
         specifies that rows are filled from top to bottom.
         """
-        TO_LEFT: FillDirection = FILL_DIRECTION_TO_LEFT
+        TO_LEFT = cast("FillDirection", FILL_DIRECTION_TO_LEFT)
         """
         specifies that columns are filled from right to left.
         """
-        TO_RIGHT: FillDirection = FILL_DIRECTION_TO_RIGHT
+        TO_RIGHT = cast("FillDirection", FILL_DIRECTION_TO_RIGHT)
         """
         specifies that columns are filled from left to right.
         """
-        TO_TOP: FillDirection = FILL_DIRECTION_TO_TOP
+        TO_TOP = cast("FillDirection", FILL_DIRECTION_TO_TOP)
         """
         specifies that rows are filled from bottom to top.
         """

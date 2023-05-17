@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.SheetLinkMode'
         __ooo_type_name__: str = 'enum'
 
-        NONE: SheetLinkMode = SHEET_LINK_MODE_NONE
+        NONE = cast("SheetLinkMode", SHEET_LINK_MODE_NONE)
         """
         no cells are moved.
         
@@ -59,11 +59,11 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        NORMAL: SheetLinkMode = SHEET_LINK_MODE_NORMAL
+        NORMAL = cast("SheetLinkMode", SHEET_LINK_MODE_NORMAL)
         """
         all contents (values and formulas) are copied.
         """
-        VALUE: SheetLinkMode = SHEET_LINK_MODE_VALUE
+        VALUE = cast("SheetLinkMode", SHEET_LINK_MODE_VALUE)
         """
         instead of using formulas, the result values are copied.
         """

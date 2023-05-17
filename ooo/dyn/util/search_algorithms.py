@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.util.SearchAlgorithms'
         __ooo_type_name__: str = 'enum'
 
-        ABSOLUTE: SearchAlgorithms = SEARCH_ALGORITHMS_ABSOLUTE
+        ABSOLUTE = cast("SearchAlgorithms", SEARCH_ALGORITHMS_ABSOLUTE)
         """
         Literal.
         """
-        APPROXIMATE: SearchAlgorithms = SEARCH_ALGORITHMS_APPROXIMATE
+        APPROXIMATE = cast("SearchAlgorithms", SEARCH_ALGORITHMS_APPROXIMATE)
         """
         Weighted Levenshtein Distance.
         """
-        REGEXP: SearchAlgorithms = SEARCH_ALGORITHMS_REGEXP
+        REGEXP = cast("SearchAlgorithms", SEARCH_ALGORITHMS_REGEXP)
         """
         Regular expression.
         """

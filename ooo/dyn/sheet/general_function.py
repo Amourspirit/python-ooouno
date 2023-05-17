@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -55,33 +55,33 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.GeneralFunction'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: GeneralFunction = GENERAL_FUNCTION_AUTO
+        AUTO = cast("GeneralFunction", GENERAL_FUNCTION_AUTO)
         """
         specifies the use of a user-defined list.
         
         function is determined automatically.
         """
-        AVERAGE: GeneralFunction = GENERAL_FUNCTION_AVERAGE
+        AVERAGE = cast("GeneralFunction", GENERAL_FUNCTION_AVERAGE)
         """
         average of all numerical values is calculated.
         """
-        COUNT: GeneralFunction = GENERAL_FUNCTION_COUNT
+        COUNT = cast("GeneralFunction", GENERAL_FUNCTION_COUNT)
         """
         all values, including non-numerical values, are counted.
         """
-        COUNTNUMS: GeneralFunction = GENERAL_FUNCTION_COUNTNUMS
+        COUNTNUMS = cast("GeneralFunction", GENERAL_FUNCTION_COUNTNUMS)
         """
         numerical values are counted.
         """
-        MAX: GeneralFunction = GENERAL_FUNCTION_MAX
+        MAX = cast("GeneralFunction", GENERAL_FUNCTION_MAX)
         """
         maximum value of all numerical values is calculated.
         """
-        MIN: GeneralFunction = GENERAL_FUNCTION_MIN
+        MIN = cast("GeneralFunction", GENERAL_FUNCTION_MIN)
         """
         minimum value of all numerical values is calculated.
         """
-        NONE: GeneralFunction = GENERAL_FUNCTION_NONE
+        NONE = cast("GeneralFunction", GENERAL_FUNCTION_NONE)
         """
         no cells are moved.
         
@@ -95,27 +95,27 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        PRODUCT: GeneralFunction = GENERAL_FUNCTION_PRODUCT
+        PRODUCT = cast("GeneralFunction", GENERAL_FUNCTION_PRODUCT)
         """
         product of all numerical values is calculated.
         """
-        STDEV: GeneralFunction = GENERAL_FUNCTION_STDEV
+        STDEV = cast("GeneralFunction", GENERAL_FUNCTION_STDEV)
         """
         standard deviation is calculated based on a sample.
         """
-        STDEVP: GeneralFunction = GENERAL_FUNCTION_STDEVP
+        STDEVP = cast("GeneralFunction", GENERAL_FUNCTION_STDEVP)
         """
         standard deviation is calculated based on the entire population.
         """
-        SUM: GeneralFunction = GENERAL_FUNCTION_SUM
+        SUM = cast("GeneralFunction", GENERAL_FUNCTION_SUM)
         """
         sum of all numerical values is calculated.
         """
-        VAR: GeneralFunction = GENERAL_FUNCTION_VAR
+        VAR = cast("GeneralFunction", GENERAL_FUNCTION_VAR)
         """
         variance is calculated based on a sample.
         """
-        VARP: GeneralFunction = GENERAL_FUNCTION_VARP
+        VARP = cast("GeneralFunction", GENERAL_FUNCTION_VARP)
         """
         variance is calculated based on the entire population.
         """

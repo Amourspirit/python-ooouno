@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.SearchRecursion'
         __ooo_type_name__: str = 'enum'
 
-        DEEP: SearchRecursion = SEARCH_RECURSION_DEEP
+        DEEP = cast("SearchRecursion", SEARCH_RECURSION_DEEP)
         """
         Searches through the complete hierarchy of all sub-objects.
         """
-        NONE: SearchRecursion = SEARCH_RECURSION_NONE
+        NONE = cast("SearchRecursion", SEARCH_RECURSION_NONE)
         """
         Does not search through any sub-objects.
         """
-        ONE_LEVEL: SearchRecursion = SEARCH_RECURSION_ONE_LEVEL
+        ONE_LEVEL = cast("SearchRecursion", SEARCH_RECURSION_ONE_LEVEL)
         """
         Only searches through sub-objects of the first hierarchy level.
         """

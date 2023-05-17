@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind'
         __ooo_type_name__: str = 'enum'
 
-        COLOR: TextureKind = TEXTURE_KIND_COLOR
+        COLOR = cast("TextureKind", TEXTURE_KIND_COLOR)
         """
         With this mode the lighting is ignored and only the texture color information is used.
         
         With this mode, the lighting is ignored and only the texture color information is used.
         """
-        LUMINANCE: TextureKind = TEXTURE_KIND_LUMINANCE
+        LUMINANCE = cast("TextureKind", TEXTURE_KIND_LUMINANCE)
         """
         With TextureKind LUMINANCE, the texture and the lighting information is mixed to produce the image, so a lit, textured object is achieved.
         """

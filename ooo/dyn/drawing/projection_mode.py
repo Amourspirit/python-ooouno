@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
         __ooo_type_name__: str = 'enum'
 
-        PARALLEL: ProjectionMode = PROJECTION_MODE_PARALLEL
+        PARALLEL = cast("ProjectionMode", PROJECTION_MODE_PARALLEL)
         """
         the 3D objects are drawn in the parallel projection.
         
         This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
         """
-        PERSPECTIVE: ProjectionMode = PROJECTION_MODE_PERSPECTIVE
+        PERSPECTIVE = cast("ProjectionMode", PROJECTION_MODE_PERSPECTIVE)
         """
         the 3D objects are drawn in the perspective projection.
         """

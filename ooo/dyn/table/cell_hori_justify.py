@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,29 +48,29 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.CellHoriJustify'
         __ooo_type_name__: str = 'enum'
 
-        BLOCK: CellHoriJustify = CELL_HORI_JUSTIFY_BLOCK
+        BLOCK = cast("CellHoriJustify", CELL_HORI_JUSTIFY_BLOCK)
         """
         contents are justified to the cell width.
         """
-        CENTER: CellHoriJustify = CELL_HORI_JUSTIFY_CENTER
+        CENTER = cast("CellHoriJustify", CELL_HORI_JUSTIFY_CENTER)
         """
         contents are horizontally centered.
         
         contents are aligned to the vertical middle of the cell.
         """
-        LEFT: CellHoriJustify = CELL_HORI_JUSTIFY_LEFT
+        LEFT = cast("CellHoriJustify", CELL_HORI_JUSTIFY_LEFT)
         """
         contents are aligned to the left edge of the cell.
         """
-        REPEAT: CellHoriJustify = CELL_HORI_JUSTIFY_REPEAT
+        REPEAT = cast("CellHoriJustify", CELL_HORI_JUSTIFY_REPEAT)
         """
         contents are repeated to fill the cell.
         """
-        RIGHT: CellHoriJustify = CELL_HORI_JUSTIFY_RIGHT
+        RIGHT = cast("CellHoriJustify", CELL_HORI_JUSTIFY_RIGHT)
         """
         contents are aligned to the right edge of the cell.
         """
-        STANDARD: CellHoriJustify = CELL_HORI_JUSTIFY_STANDARD
+        STANDARD = cast("CellHoriJustify", CELL_HORI_JUSTIFY_STANDARD)
         """
         default alignment is used (left for numbers, right for text).
         

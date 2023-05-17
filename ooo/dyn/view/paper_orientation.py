@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.view.PaperOrientation'
         __ooo_type_name__: str = 'enum'
 
-        LANDSCAPE: PaperOrientation = PAPER_ORIENTATION_LANDSCAPE
+        LANDSCAPE = cast("PaperOrientation", PAPER_ORIENTATION_LANDSCAPE)
         """
         set the paper orientation to landscape.
         """
-        PORTRAIT: PaperOrientation = PAPER_ORIENTATION_PORTRAIT
+        PORTRAIT = cast("PaperOrientation", PAPER_ORIENTATION_PORTRAIT)
         """
         set the paper orientation to portrait.
         """

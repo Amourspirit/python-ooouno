@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.reflection.FieldAccessMode'
         __ooo_type_name__: str = 'enum'
 
-        CONST: FieldAccessMode = FIELD_ACCESS_MODE_CONST
+        CONST = cast("FieldAccessMode", FIELD_ACCESS_MODE_CONST)
         """
         Deprecated.
         
         Not used anymore.
         """
-        READONLY: FieldAccessMode = FIELD_ACCESS_MODE_READONLY
+        READONLY = cast("FieldAccessMode", FIELD_ACCESS_MODE_READONLY)
         """
         readable only
         """
-        READWRITE: FieldAccessMode = FIELD_ACCESS_MODE_READWRITE
+        READWRITE = cast("FieldAccessMode", FIELD_ACCESS_MODE_READWRITE)
         """
         readable and writeable
         """
-        WRITEONLY: FieldAccessMode = FIELD_ACCESS_MODE_WRITEONLY
+        WRITEONLY = cast("FieldAccessMode", FIELD_ACCESS_MODE_WRITEONLY)
         """
         writeable only
         """

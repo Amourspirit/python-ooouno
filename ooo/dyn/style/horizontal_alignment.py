@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.HorizontalAlignment'
         __ooo_type_name__: str = 'enum'
 
-        CENTER: HorizontalAlignment = HORIZONTAL_ALIGNMENT_CENTER
+        CENTER = cast("HorizontalAlignment", HORIZONTAL_ALIGNMENT_CENTER)
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -53,7 +53,7 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        LEFT: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT
+        LEFT = cast("HorizontalAlignment", HORIZONTAL_ALIGNMENT_LEFT)
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -63,7 +63,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: HorizontalAlignment = HORIZONTAL_ALIGNMENT_RIGHT
+        RIGHT = cast("HorizontalAlignment", HORIZONTAL_ALIGNMENT_RIGHT)
         """
         set the horizontal alignment to the right margin from the container object
         

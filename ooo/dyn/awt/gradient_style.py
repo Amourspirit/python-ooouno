@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,27 +48,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.GradientStyle'
         __ooo_type_name__: str = 'enum'
 
-        AXIAL: GradientStyle = GRADIENT_STYLE_AXIAL
+        AXIAL = cast("GradientStyle", GRADIENT_STYLE_AXIAL)
         """
         specifies an axial gradient.
         """
-        ELLIPTICAL: GradientStyle = GRADIENT_STYLE_ELLIPTICAL
+        ELLIPTICAL = cast("GradientStyle", GRADIENT_STYLE_ELLIPTICAL)
         """
         specifies an elliptical gradient.
         """
-        LINEAR: GradientStyle = GRADIENT_STYLE_LINEAR
+        LINEAR = cast("GradientStyle", GRADIENT_STYLE_LINEAR)
         """
         specifies a linear gradient.
         """
-        RADIAL: GradientStyle = GRADIENT_STYLE_RADIAL
+        RADIAL = cast("GradientStyle", GRADIENT_STYLE_RADIAL)
         """
         specifies a radial gradient.
         """
-        RECT: GradientStyle = GRADIENT_STYLE_RECT
+        RECT = cast("GradientStyle", GRADIENT_STYLE_RECT)
         """
         specifies a gradient in the shape of a rectangle.
         """
-        SQUARE: GradientStyle = GRADIENT_STYLE_SQUARE
+        SQUARE = cast("GradientStyle", GRADIENT_STYLE_SQUARE)
         """
         specifies a gradient in the shape of a square.
         """

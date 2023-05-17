@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
         __ooo_type_name__: str = 'enum'
 
-        NONE: CertificateKind = CERTIFICATE_KIND_NONE
+        NONE = cast("CertificateKind", CERTIFICATE_KIND_NONE)
         """
         No format specified.
         """
-        OPENPGP: CertificateKind = CERTIFICATE_KIND_OPENPGP
+        OPENPGP = cast("CertificateKind", CERTIFICATE_KIND_OPENPGP)
         """
         OpenPGP format of a certificate.
         """
-        X509: CertificateKind = CERTIFICATE_KIND_X509
+        X509 = cast("CertificateKind", CERTIFICATE_KIND_X509)
         """
         X.509 format of a certificate.
         """

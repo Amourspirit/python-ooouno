@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -51,7 +51,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM: Alignment = ALIGNMENT_BOTTOM
+        BOTTOM = cast("Alignment", ALIGNMENT_BOTTOM)
         """
         the connection line leaves the connected object from the bottom,
         
@@ -59,17 +59,17 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        BOTTOM_LEFT: Alignment = ALIGNMENT_BOTTOM_LEFT
+        BOTTOM_LEFT = cast("Alignment", ALIGNMENT_BOTTOM_LEFT)
         """
         """
-        BOTTOM_RIGHT: Alignment = ALIGNMENT_BOTTOM_RIGHT
+        BOTTOM_RIGHT = cast("Alignment", ALIGNMENT_BOTTOM_RIGHT)
         """
         """
-        CENTER: Alignment = ALIGNMENT_CENTER
+        CENTER = cast("Alignment", ALIGNMENT_CENTER)
         """
         The text is centered inside the shape.
         """
-        LEFT: Alignment = ALIGNMENT_LEFT
+        LEFT = cast("Alignment", ALIGNMENT_LEFT)
         """
         the connection line leaves the connected object to the left,
         
@@ -77,7 +77,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: Alignment = ALIGNMENT_RIGHT
+        RIGHT = cast("Alignment", ALIGNMENT_RIGHT)
         """
         the connection line leaves the connected object to the right,
         
@@ -85,7 +85,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        TOP: Alignment = ALIGNMENT_TOP
+        TOP = cast("Alignment", ALIGNMENT_TOP)
         """
         the connection line leaves the connected object from the top,
         
@@ -93,10 +93,10 @@ if TYPE_CHECKING:
         
         The top edge of the text is adjusted to the top edge of the shape.
         """
-        TOP_LEFT: Alignment = ALIGNMENT_TOP_LEFT
+        TOP_LEFT = cast("Alignment", ALIGNMENT_TOP_LEFT)
         """
         """
-        TOP_RIGHT: Alignment = ALIGNMENT_TOP_RIGHT
+        TOP_RIGHT = cast("Alignment", ALIGNMENT_TOP_RIGHT)
         """
         """
 

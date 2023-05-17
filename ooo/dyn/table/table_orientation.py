@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.TableOrientation'
         __ooo_type_name__: str = 'enum'
 
-        COLUMNS: TableOrientation = TABLE_ORIENTATION_COLUMNS
+        COLUMNS = cast("TableOrientation", TABLE_ORIENTATION_COLUMNS)
         """
         operations are carried out on columns.
         """
-        ROWS: TableOrientation = TABLE_ORIENTATION_ROWS
+        ROWS = cast("TableOrientation", TABLE_ORIENTATION_ROWS)
         """
         operations are carried out on rows.
         """

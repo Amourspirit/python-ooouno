@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,13 +45,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.framework.BorderType'
         __ooo_type_name__: str = 'enum'
 
-        INNER_BORDER: BorderType = BORDER_TYPE_INNER_BORDER
+        INNER_BORDER = cast("BorderType", BORDER_TYPE_INNER_BORDER)
         """
         """
-        OUTER_BORDER: BorderType = BORDER_TYPE_OUTER_BORDER
+        OUTER_BORDER = cast("BorderType", BORDER_TYPE_OUTER_BORDER)
         """
         """
-        TOTAL_BORDER: BorderType = BORDER_TYPE_TOTAL_BORDER
+        TOTAL_BORDER = cast("BorderType", BORDER_TYPE_TOTAL_BORDER)
         """
         """
 

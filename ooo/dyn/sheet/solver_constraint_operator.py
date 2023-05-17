@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,17 +47,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.SolverConstraintOperator'
         __ooo_type_name__: str = 'enum'
 
-        BINARY: SolverConstraintOperator = SOLVER_CONSTRAINT_OPERATOR_BINARY
+        BINARY = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_BINARY)
         """
         The cell value is a binary value (0 or 1).
         """
-        EQUAL: SolverConstraintOperator = SOLVER_CONSTRAINT_OPERATOR_EQUAL
+        EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_EQUAL)
         """
         value has to be equal to the specified value.
         
         The cell value is equal to the specified value.
         """
-        GREATER_EQUAL: SolverConstraintOperator = SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL
+        GREATER_EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL)
         """
         the value has to be greater than or equal to the specified value.
         
@@ -65,11 +65,11 @@ if TYPE_CHECKING:
         
         value has to be greater than or equal to the specified value.
         """
-        INTEGER: SolverConstraintOperator = SOLVER_CONSTRAINT_OPERATOR_INTEGER
+        INTEGER = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_INTEGER)
         """
         The cell value is an integer value.
         """
-        LESS_EQUAL: SolverConstraintOperator = SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL
+        LESS_EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL)
         """
         the value has to be less than or equal to the specified value.
         

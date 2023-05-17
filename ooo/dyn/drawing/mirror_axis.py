@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.MirrorAxis'
         __ooo_type_name__: str = 'enum'
 
-        HORIZONTAL: MirrorAxis = MIRROR_AXIS_HORIZONTAL
+        HORIZONTAL = cast("MirrorAxis", MIRROR_AXIS_HORIZONTAL)
         """
         mirror to the horizontal axis
         """
-        VERTICAL: MirrorAxis = MIRROR_AXIS_VERTICAL
+        VERTICAL = cast("MirrorAxis", MIRROR_AXIS_VERTICAL)
         """
         mirror to the vertical axis
         """

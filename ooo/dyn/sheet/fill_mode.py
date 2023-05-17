@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,27 +47,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: FillMode = FILL_MODE_AUTO
+        AUTO = cast("FillMode", FILL_MODE_AUTO)
         """
         specifies the use of a user-defined list.
         
         function is determined automatically.
         """
-        DATE: FillMode = FILL_MODE_DATE
+        DATE = cast("FillMode", FILL_MODE_DATE)
         """
         specifies an arithmetic series for date values.
         
         any date value matching the specified condition is valid.
         """
-        GROWTH: FillMode = FILL_MODE_GROWTH
+        GROWTH = cast("FillMode", FILL_MODE_GROWTH)
         """
         specifies a geometric series.
         """
-        LINEAR: FillMode = FILL_MODE_LINEAR
+        LINEAR = cast("FillMode", FILL_MODE_LINEAR)
         """
         specifies an arithmetic series.
         """
-        SIMPLE: FillMode = FILL_MODE_SIMPLE
+        SIMPLE = cast("FillMode", FILL_MODE_SIMPLE)
         """
         specifies a constant series.
         """

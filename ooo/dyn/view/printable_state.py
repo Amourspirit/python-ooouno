@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,29 +48,29 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.view.PrintableState'
         __ooo_type_name__: str = 'enum'
 
-        JOB_ABORTED: PrintableState = PRINTABLE_STATE_JOB_ABORTED
+        JOB_ABORTED = cast("PrintableState", PRINTABLE_STATE_JOB_ABORTED)
         """
         printing was aborted (e.g., by the user) while either printing or spooling.
         """
-        JOB_COMPLETED: PrintableState = PRINTABLE_STATE_JOB_COMPLETED
+        JOB_COMPLETED = cast("PrintableState", PRINTABLE_STATE_JOB_COMPLETED)
         """
         printing (rendering the document) has finished, spooling has begun
         """
-        JOB_FAILED: PrintableState = PRINTABLE_STATE_JOB_FAILED
+        JOB_FAILED = cast("PrintableState", PRINTABLE_STATE_JOB_FAILED)
         """
         printing ran into an error.
         """
-        JOB_SPOOLED: PrintableState = PRINTABLE_STATE_JOB_SPOOLED
+        JOB_SPOOLED = cast("PrintableState", PRINTABLE_STATE_JOB_SPOOLED)
         """
         spooling has finished successfully.
         
         This is the only state that can be considered as \"success\" for a print job.
         """
-        JOB_SPOOLING_FAILED: PrintableState = PRINTABLE_STATE_JOB_SPOOLING_FAILED
+        JOB_SPOOLING_FAILED = cast("PrintableState", PRINTABLE_STATE_JOB_SPOOLING_FAILED)
         """
         the document could be printed but not spooled.
         """
-        JOB_STARTED: PrintableState = PRINTABLE_STATE_JOB_STARTED
+        JOB_STARTED = cast("PrintableState", PRINTABLE_STATE_JOB_STARTED)
         """
         printing (rendering the document) has begun
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.reflection.TypeDescriptionSearchDepth'
         __ooo_type_name__: str = 'enum'
 
-        INFINITE: TypeDescriptionSearchDepth = TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
+        INFINITE = cast("TypeDescriptionSearchDepth", TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE)
         """
         Infinite search depth.
         
         Search through all children including direct children, grand children, grand children's children, ...
         """
-        ONE: TypeDescriptionSearchDepth = TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
+        ONE = cast("TypeDescriptionSearchDepth", TYPE_DESCRIPTION_SEARCH_DEPTH_ONE)
         """
         Search only through direct children.
         """

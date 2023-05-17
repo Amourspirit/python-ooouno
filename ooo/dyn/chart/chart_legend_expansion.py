@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendExpansion'
         __ooo_type_name__: str = 'enum'
 
-        BALANCED: ChartLegendExpansion = CHART_LEGEND_EXPANSION_BALANCED
+        BALANCED = cast("ChartLegendExpansion", CHART_LEGEND_EXPANSION_BALANCED)
         """
         The legend entries are arranged in a way that the aspect ratio of the resulting legend is as near to 1 as possible.
         """
-        CUSTOM: ChartLegendExpansion = CHART_LEGEND_EXPANSION_CUSTOM
+        CUSTOM = cast("ChartLegendExpansion", CHART_LEGEND_EXPANSION_CUSTOM)
         """
         The size of the legend is given explicitly.
         """
-        HIGH: ChartLegendExpansion = CHART_LEGEND_EXPANSION_HIGH
+        HIGH = cast("ChartLegendExpansion", CHART_LEGEND_EXPANSION_HIGH)
         """
         The legend entries are stacked in a single column if possible.
         
         If not enough space is available further columns are added.
         """
-        WIDE: ChartLegendExpansion = CHART_LEGEND_EXPANSION_WIDE
+        WIDE = cast("ChartLegendExpansion", CHART_LEGEND_EXPANSION_WIDE)
         """
         The legend entries are arranged in a single row if possible.
         

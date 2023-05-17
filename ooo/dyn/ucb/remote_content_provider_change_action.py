@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.RemoteContentProviderChangeAction'
         __ooo_type_name__: str = 'enum'
 
-        ADDED: RemoteContentProviderChangeAction = REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_ADDED
+        ADDED = cast("RemoteContentProviderChangeAction", REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_ADDED)
         """
         The indicator that a remote content provider has been added.
         """
-        REMOVED: RemoteContentProviderChangeAction = REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_REMOVED
+        REMOVED = cast("RemoteContentProviderChangeAction", REMOTE_CONTENT_PROVIDER_CHANGE_ACTION_REMOVED)
         """
         The indicator that a remote content provider has been removed.
         """

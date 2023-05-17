@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -55,40 +55,40 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.NodeType'
         __ooo_type_name__: str = 'enum'
 
-        ATTRIBUTE_NODE: NodeType = NODE_TYPE_ATTRIBUTE_NODE
+        ATTRIBUTE_NODE = cast("NodeType", NODE_TYPE_ATTRIBUTE_NODE)
         """
         """
-        CDATA_SECTION_NODE: NodeType = NODE_TYPE_CDATA_SECTION_NODE
+        CDATA_SECTION_NODE = cast("NodeType", NODE_TYPE_CDATA_SECTION_NODE)
         """
         """
-        COMMENT_NODE: NodeType = NODE_TYPE_COMMENT_NODE
+        COMMENT_NODE = cast("NodeType", NODE_TYPE_COMMENT_NODE)
         """
         """
-        DOCUMENT_FRAGMENT_NODE: NodeType = NODE_TYPE_DOCUMENT_FRAGMENT_NODE
+        DOCUMENT_FRAGMENT_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_FRAGMENT_NODE)
         """
         """
-        DOCUMENT_NODE: NodeType = NODE_TYPE_DOCUMENT_NODE
+        DOCUMENT_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_NODE)
         """
         """
-        DOCUMENT_TYPE_NODE: NodeType = NODE_TYPE_DOCUMENT_TYPE_NODE
+        DOCUMENT_TYPE_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_TYPE_NODE)
         """
         """
-        ELEMENT_NODE: NodeType = NODE_TYPE_ELEMENT_NODE
+        ELEMENT_NODE = cast("NodeType", NODE_TYPE_ELEMENT_NODE)
         """
         """
-        ENTITY_NODE: NodeType = NODE_TYPE_ENTITY_NODE
+        ENTITY_NODE = cast("NodeType", NODE_TYPE_ENTITY_NODE)
         """
         """
-        ENTITY_REFERENCE_NODE: NodeType = NODE_TYPE_ENTITY_REFERENCE_NODE
+        ENTITY_REFERENCE_NODE = cast("NodeType", NODE_TYPE_ENTITY_REFERENCE_NODE)
         """
         """
-        NOTATION_NODE: NodeType = NODE_TYPE_NOTATION_NODE
+        NOTATION_NODE = cast("NodeType", NODE_TYPE_NOTATION_NODE)
         """
         """
-        PROCESSING_INSTRUCTION_NODE: NodeType = NODE_TYPE_PROCESSING_INSTRUCTION_NODE
+        PROCESSING_INSTRUCTION_NODE = cast("NodeType", NODE_TYPE_PROCESSING_INSTRUCTION_NODE)
         """
         """
-        TEXT_NODE: NodeType = NODE_TYPE_TEXT_NODE
+        TEXT_NODE = cast("NodeType", NODE_TYPE_TEXT_NODE)
         """
         """
 

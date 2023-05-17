@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -43,7 +43,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.LockType'
         __ooo_type_name__: str = 'enum'
 
-        WRITE: LockType = LOCK_TYPE_WRITE
+        WRITE = cast("LockType", LOCK_TYPE_WRITE)
         """
         specifies a write lock.
         """

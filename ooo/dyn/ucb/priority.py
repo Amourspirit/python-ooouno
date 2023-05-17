@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,23 +47,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.Priority'
         __ooo_type_name__: str = 'enum'
 
-        HIGH: Priority = PRIORITY_HIGH
+        HIGH = cast("Priority", PRIORITY_HIGH)
         """
         High priority.
         """
-        HIGHEST: Priority = PRIORITY_HIGHEST
+        HIGHEST = cast("Priority", PRIORITY_HIGHEST)
         """
         Highest priority.
         """
-        LOW: Priority = PRIORITY_LOW
+        LOW = cast("Priority", PRIORITY_LOW)
         """
         Low priority.
         """
-        LOWEST: Priority = PRIORITY_LOWEST
+        LOWEST = cast("Priority", PRIORITY_LOWEST)
         """
         Lowest priority.
         """
-        NORMAL: Priority = PRIORITY_NORMAL
+        NORMAL = cast("Priority", PRIORITY_NORMAL)
         """
         Normal priority.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
+        AUTO = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO)
         """
         The descriptions are arranged automatically.
         """
-        SIDE_BY_SIDE: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
+        SIDE_BY_SIDE = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE)
         """
         The descriptions are arranged side by side.
         """
-        STAGGER_EVEN: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
+        STAGGER_EVEN = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN)
         """
         The descriptions are alternately put on two lines with the even values out of the normal line.
         """
-        STAGGER_ODD: ChartAxisArrangeOrderType = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
+        STAGGER_ODD = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD)
         """
         The descriptions are alternately put on two lines with the odd values out of the normal line.
         """

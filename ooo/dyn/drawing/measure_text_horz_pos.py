@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextHorzPos'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_AUTO
+        AUTO = cast("MeasureTextHorzPos", MEASURE_TEXT_HORZ_POS_AUTO)
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        INSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_INSIDE
+        INSIDE = cast("MeasureTextHorzPos", MEASURE_TEXT_HORZ_POS_INSIDE)
         """
         """
-        LEFTOUTSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_LEFTOUTSIDE
+        LEFTOUTSIDE = cast("MeasureTextHorzPos", MEASURE_TEXT_HORZ_POS_LEFTOUTSIDE)
         """
         """
-        RIGHTOUTSIDE: MeasureTextHorzPos = MEASURE_TEXT_HORZ_POS_RIGHTOUTSIDE
+        RIGHTOUTSIDE = cast("MeasureTextHorzPos", MEASURE_TEXT_HORZ_POS_RIGHTOUTSIDE)
         """
         """
 

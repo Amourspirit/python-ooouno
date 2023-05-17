@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,13 +45,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.HorizontalAdjust'
         __ooo_type_name__: str = 'enum'
 
-        CENTER: HorizontalAdjust = HORIZONTAL_ADJUST_CENTER
+        CENTER = cast("HorizontalAdjust", HORIZONTAL_ADJUST_CENTER)
         """
         the object is adjusted to the center.
         
         centric adjusted.
         """
-        LEFT: HorizontalAdjust = HORIZONTAL_ADJUST_LEFT
+        LEFT = cast("HorizontalAdjust", HORIZONTAL_ADJUST_LEFT)
         """
         the object is left adjusted.
         
@@ -59,7 +59,7 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        RIGHT: HorizontalAdjust = HORIZONTAL_ADJUST_RIGHT
+        RIGHT = cast("HorizontalAdjust", HORIZONTAL_ADJUST_RIGHT)
         """
         the object is right adjusted.
         

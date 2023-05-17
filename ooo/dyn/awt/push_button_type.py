@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.PushButtonType'
         __ooo_type_name__: str = 'enum'
 
-        CANCEL: PushButtonType = PUSH_BUTTON_TYPE_CANCEL
+        CANCEL = cast("PushButtonType", PUSH_BUTTON_TYPE_CANCEL)
         """
         acts like a cancel button.
         """
-        HELP: PushButtonType = PUSH_BUTTON_TYPE_HELP
+        HELP = cast("PushButtonType", PUSH_BUTTON_TYPE_HELP)
         """
         acts like a help button.
         """
-        OK: PushButtonType = PUSH_BUTTON_TYPE_OK
+        OK = cast("PushButtonType", PUSH_BUTTON_TYPE_OK)
         """
         acts like an OK button.
         """
-        STANDARD: PushButtonType = PUSH_BUTTON_TYPE_STANDARD
+        STANDARD = cast("PushButtonType", PUSH_BUTTON_TYPE_STANDARD)
         """
         acts like a standard push button.
         """

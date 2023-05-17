@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
         __ooo_type_name__: str = 'enum'
 
-        DOC_END: NotePrintMode = NOTE_PRINT_MODE_DOC_END
+        DOC_END = cast("NotePrintMode", NOTE_PRINT_MODE_DOC_END)
         """
         Notes are collected at the end of the document.
         """
-        NOT: NotePrintMode = NOTE_PRINT_MODE_NOT
+        NOT = cast("NotePrintMode", NOTE_PRINT_MODE_NOT)
         """
         Notes are not printed.
         """
-        ONLY: NotePrintMode = NOTE_PRINT_MODE_ONLY
+        ONLY = cast("NotePrintMode", NOTE_PRINT_MODE_ONLY)
         """
         Only notes are printed.
         """
-        PAGE_END: NotePrintMode = NOTE_PRINT_MODE_PAGE_END
+        PAGE_END = cast("NotePrintMode", NOTE_PRINT_MODE_PAGE_END)
         """
         Notes are collected at the end of a page and printed on an inserted page.
         """

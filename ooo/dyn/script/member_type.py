@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,13 +45,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.script.MemberType'
         __ooo_type_name__: str = 'enum'
 
-        METHOD: MemberType = MEMBER_TYPE_METHOD
+        METHOD = cast("MemberType", MEMBER_TYPE_METHOD)
         """
         """
-        PROPERTY: MemberType = MEMBER_TYPE_PROPERTY
+        PROPERTY = cast("MemberType", MEMBER_TYPE_PROPERTY)
         """
         """
-        UNKNOWN: MemberType = MEMBER_TYPE_UNKNOWN
+        UNKNOWN = cast("MemberType", MEMBER_TYPE_UNKNOWN)
         """
         """
 

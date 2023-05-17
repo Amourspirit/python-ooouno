@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.ShadeMode'
         __ooo_type_name__: str = 'enum'
 
-        DRAFT: ShadeMode = SHADE_MODE_DRAFT
+        DRAFT = cast("ShadeMode", SHADE_MODE_DRAFT)
         """
         DRAFT is a special mode which uses a BSP tree and triangle subdivision for displaying.
         """
-        FLAT: ShadeMode = SHADE_MODE_FLAT
+        FLAT = cast("ShadeMode", SHADE_MODE_FLAT)
         """
         forces one normal per flat part.
         
         With FLAT shading, the faces of the object are rendered in a solid color.
         """
-        PHONG: ShadeMode = SHADE_MODE_PHONG
+        PHONG = cast("ShadeMode", SHADE_MODE_PHONG)
         """
         With PHONG shading, the normal itself is interpolated to get more realistic colors and light reflections.
         """
-        SMOOTH: ShadeMode = SHADE_MODE_SMOOTH
+        SMOOTH = cast("ShadeMode", SHADE_MODE_SMOOTH)
         """
         the point is smooth, the first derivation from the curve discussion view.
         

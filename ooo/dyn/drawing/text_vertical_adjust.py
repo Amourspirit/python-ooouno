@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,13 +46,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextVerticalAdjust'
         __ooo_type_name__: str = 'enum'
 
-        BLOCK: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_BLOCK
+        BLOCK = cast("TextVerticalAdjust", TEXT_VERTICAL_ADJUST_BLOCK)
         """
         The text extends from the left to the right edge of the shape.
         
         The text extends from the top to the bottom edge of the shape.
         """
-        BOTTOM: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_BOTTOM
+        BOTTOM = cast("TextVerticalAdjust", TEXT_VERTICAL_ADJUST_BOTTOM)
         """
         the connection line leaves the connected object from the bottom,
         
@@ -60,11 +60,11 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        CENTER: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_CENTER
+        CENTER = cast("TextVerticalAdjust", TEXT_VERTICAL_ADJUST_CENTER)
         """
         The text is centered inside the shape.
         """
-        TOP: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_TOP
+        TOP = cast("TextVerticalAdjust", TEXT_VERTICAL_ADJUST_TOP)
         """
         the connection line leaves the connected object from the top,
         

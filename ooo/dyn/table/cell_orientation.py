@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.CellOrientation'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOMTOP: CellOrientation = CELL_ORIENTATION_BOTTOMTOP
+        BOTTOMTOP = cast("CellOrientation", CELL_ORIENTATION_BOTTOMTOP)
         """
         contents are printed from bottom to top.
         """
-        STACKED: CellOrientation = CELL_ORIENTATION_STACKED
+        STACKED = cast("CellOrientation", CELL_ORIENTATION_STACKED)
         """
         contents are printed from top to bottom with individual characters in normal (horizontal) orientation.
         """
-        STANDARD: CellOrientation = CELL_ORIENTATION_STANDARD
+        STANDARD = cast("CellOrientation", CELL_ORIENTATION_STANDARD)
         """
         default alignment is used (left for numbers, right for text).
         
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
         
         contents are printed from left to right.
         """
-        TOPBOTTOM: CellOrientation = CELL_ORIENTATION_TOPBOTTOM
+        TOPBOTTOM = cast("CellOrientation", CELL_ORIENTATION_TOPBOTTOM)
         """
         contents are printed from top to bottom.
         """

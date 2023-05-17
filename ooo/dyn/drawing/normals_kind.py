@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.NormalsKind'
         __ooo_type_name__: str = 'enum'
 
-        FLAT: NormalsKind = NORMALS_KIND_FLAT
+        FLAT = cast("NormalsKind", NORMALS_KIND_FLAT)
         """
         forces one normal per flat part.
         
         With FLAT shading, the faces of the object are rendered in a solid color.
         """
-        SPECIFIC: NormalsKind = NORMALS_KIND_SPECIFIC
+        SPECIFIC = cast("NormalsKind", NORMALS_KIND_SPECIFIC)
         """
         does not produce standard normals, but leaves the object-specific ones untouched.
         """
-        SPHERE: NormalsKind = NORMALS_KIND_SPHERE
+        SPHERE = cast("NormalsKind", NORMALS_KIND_SPHERE)
         """
         forces normals to think that the object is a sphere.
         

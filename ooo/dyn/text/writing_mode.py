@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.WritingMode'
         __ooo_type_name__: str = 'enum'
 
-        LR_TB: WritingMode = WRITING_MODE_LR_TB
+        LR_TB = cast("WritingMode", WRITING_MODE_LR_TB)
         """
         text within lines is written left-to-right.
         
@@ -53,7 +53,7 @@ if TYPE_CHECKING:
         
         Typically, this is the writing mode for normal \"alphabetic\" text.
         """
-        RL_TB: WritingMode = WRITING_MODE_RL_TB
+        RL_TB = cast("WritingMode", WRITING_MODE_RL_TB)
         """
         text within a line are written right-to-left.
         
@@ -61,7 +61,7 @@ if TYPE_CHECKING:
         
         Typically, this writing mode is used in Arabic and Hebrew text.
         """
-        TB_RL: WritingMode = WRITING_MODE_TB_RL
+        TB_RL = cast("WritingMode", WRITING_MODE_TB_RL)
         """
         text within a line is written top-to-bottom.
         

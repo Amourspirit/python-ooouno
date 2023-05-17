@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,15 +47,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendPosition'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM: ChartLegendPosition = CHART_LEGEND_POSITION_BOTTOM
+        BOTTOM = cast("ChartLegendPosition", CHART_LEGEND_POSITION_BOTTOM)
         """
         displays the chart legend beneath the diagram.
         """
-        LEFT: ChartLegendPosition = CHART_LEGEND_POSITION_LEFT
+        LEFT = cast("ChartLegendPosition", CHART_LEGEND_POSITION_LEFT)
         """
         displays the chart legend on the left side of the diagram.
         """
-        NONE: ChartLegendPosition = CHART_LEGEND_POSITION_NONE
+        NONE = cast("ChartLegendPosition", CHART_LEGEND_POSITION_NONE)
         """
         error indicators are not displayed.
         
@@ -65,11 +65,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        RIGHT: ChartLegendPosition = CHART_LEGEND_POSITION_RIGHT
+        RIGHT = cast("ChartLegendPosition", CHART_LEGEND_POSITION_RIGHT)
         """
         displays the chart legend on the right side of the diagram.
         """
-        TOP: ChartLegendPosition = CHART_LEGEND_POSITION_TOP
+        TOP = cast("ChartLegendPosition", CHART_LEGEND_POSITION_TOP)
         """
         displays the chart legend above the diagram.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.rendering.FillRule'
         __ooo_type_name__: str = 'enum'
 
-        EVEN_ODD: FillRule = FILL_RULE_EVEN_ODD
+        EVEN_ODD = cast("FillRule", FILL_RULE_EVEN_ODD)
         """
         Fill every area, where, when traveling along a line, an uneven number of intersections with polygon edges have happened.
         """
-        NON_ZERO: FillRule = FILL_RULE_NON_ZERO
+        NON_ZERO = cast("FillRule", FILL_RULE_NON_ZERO)
         """
         Fill every area, where, when traveling along a line, the summed winding number (that is, -1 for a counter-clockwise-oriented polygon, and +1 for a clockwise-oriented) is non-zero.
         

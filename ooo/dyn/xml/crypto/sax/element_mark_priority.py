@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,13 +45,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkPriority'
         __ooo_type_name__: str = 'enum'
 
-        AFTERMODIFY: ElementMarkPriority = ELEMENT_MARK_PRIORITY_AFTERMODIFY
+        AFTERMODIFY = cast("ElementMarkPriority", ELEMENT_MARK_PRIORITY_AFTERMODIFY)
         """
         """
-        BEFOREMODIFY: ElementMarkPriority = ELEMENT_MARK_PRIORITY_BEFOREMODIFY
+        BEFOREMODIFY = cast("ElementMarkPriority", ELEMENT_MARK_PRIORITY_BEFOREMODIFY)
         """
         """
-        MINIMUM: ElementMarkPriority = ELEMENT_MARK_PRIORITY_MINIMUM
+        MINIMUM = cast("ElementMarkPriority", ELEMENT_MARK_PRIORITY_MINIMUM)
         """
         """
 

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,17 +47,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
         __ooo_type_name__: str = 'enum'
 
-        COLUMNS: CellInsertMode = CELL_INSERT_MODE_COLUMNS
+        COLUMNS = cast("CellInsertMode", CELL_INSERT_MODE_COLUMNS)
         """
         entire columns to the right of the deleted cells are moved left.
         
         entire columns to the right of the inserted cells are moved right.
         """
-        DOWN: CellInsertMode = CELL_INSERT_MODE_DOWN
+        DOWN = cast("CellInsertMode", CELL_INSERT_MODE_DOWN)
         """
         the cells below the inserted cells are moved down.
         """
-        NONE: CellInsertMode = CELL_INSERT_MODE_NONE
+        NONE = cast("CellInsertMode", CELL_INSERT_MODE_NONE)
         """
         no cells are moved.
         
@@ -71,13 +71,13 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        RIGHT: CellInsertMode = CELL_INSERT_MODE_RIGHT
+        RIGHT = cast("CellInsertMode", CELL_INSERT_MODE_RIGHT)
         """
         selects the right border.
         
         the cells to the right of the inserted cells are moved right.
         """
-        ROWS: CellInsertMode = CELL_INSERT_MODE_ROWS
+        ROWS = cast("CellInsertMode", CELL_INSERT_MODE_ROWS)
         """
         entire rows below the deleted cells are moved up.
         

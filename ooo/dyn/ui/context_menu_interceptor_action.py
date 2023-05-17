@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ui.ContextMenuInterceptorAction'
         __ooo_type_name__: str = 'enum'
 
-        CANCELLED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED
+        CANCELLED = cast("ContextMenuInterceptorAction", CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED)
         """
         the context menu must not be executed.
         
         The next registered XContextMenuInterceptor should not be notified.
         """
-        CONTINUE_MODIFIED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED
+        CONTINUE_MODIFIED = cast("ContextMenuInterceptorAction", CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED)
         """
         the menu has been modified and the next registered XContextMenuInterceptor should be notified.
         """
-        EXECUTE_MODIFIED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED
+        EXECUTE_MODIFIED = cast("ContextMenuInterceptorAction", CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED)
         """
         the menu has been modified and should be executed without notifying the next registered XContextMenuInterceptor.
         """
-        IGNORED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED
+        IGNORED = cast("ContextMenuInterceptorAction", CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED)
         """
         the XContextMenuInterceptor has ignored the call.
         

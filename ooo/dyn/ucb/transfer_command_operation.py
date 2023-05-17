@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,19 +45,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.TransferCommandOperation'
         __ooo_type_name__: str = 'enum'
 
-        COPY: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_COPY
+        COPY = cast("TransferCommandOperation", TRANSFER_COMMAND_OPERATION_COPY)
         """
         Copy the source to the target folder.
         
         WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
         """
-        LINK: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_LINK
+        LINK = cast("TransferCommandOperation", TRANSFER_COMMAND_OPERATION_LINK)
         """
         Create a link in the target folder.
         
         The link's target is the source object.
         """
-        MOVE: TransferCommandOperation = TRANSFER_COMMAND_OPERATION_MOVE
+        MOVE = cast("TransferCommandOperation", TRANSFER_COMMAND_OPERATION_MOVE)
         """
         Move the source to the target folder.
         

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.uri.RelativeUriExcessParentSegments'
         __ooo_type_name__: str = 'enum'
 
-        ERROR: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_ERROR
+        ERROR = cast("RelativeUriExcessParentSegments", RELATIVE_URI_EXCESS_PARENT_SEGMENTS_ERROR)
         """
         causes excess special parent segments to be treated as an error.
         """
-        REMOVE: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_REMOVE
+        REMOVE = cast("RelativeUriExcessParentSegments", RELATIVE_URI_EXCESS_PARENT_SEGMENTS_REMOVE)
         """
         causes excess special parent segments to be removed.
         """
-        RETAIN: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_RETAIN
+        RETAIN = cast("RelativeUriExcessParentSegments", RELATIVE_URI_EXCESS_PARENT_SEGMENTS_RETAIN)
         """
         causes excess special parent segments to be retained, treating them like ordinary segments.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -51,49 +51,49 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.security.ExtAltNameType'
         __ooo_type_name__: str = 'enum'
 
-        DIRECTORY_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_DIRECTORY_NAME
+        DIRECTORY_NAME = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_DIRECTORY_NAME)
         """
         Currently unsupported.
         """
-        DNS_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_DNS_NAME
+        DNS_NAME = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_DNS_NAME)
         """
         The entry contains a dns name.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        EDI_PARTY_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_EDI_PARTY_NAME
+        EDI_PARTY_NAME = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_EDI_PARTY_NAME)
         """
         Currently unsupported.
         """
-        IP_ADDRESS: ExtAltNameType = EXT_ALT_NAME_TYPE_IP_ADDRESS
+        IP_ADDRESS = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_IP_ADDRESS)
         """
         The entry contains an IP address.
         
         The value of CertAltNameEntry contains a Sequence of sal_Int8.
         """
-        OTHER_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_OTHER_NAME
+        OTHER_NAME = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_OTHER_NAME)
         """
         Customize name/value pair The value of CertAltNameEntry contains a NamedValue.
         """
-        REGISTERED_ID: ExtAltNameType = EXT_ALT_NAME_TYPE_REGISTERED_ID
+        REGISTERED_ID = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_REGISTERED_ID)
         """
         The entry contains a registered id.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        RFC822_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_RFC822_NAME
+        RFC822_NAME = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_RFC822_NAME)
         """
         The entry contains rfc822 name.
         
         The value of CertAltNameEntry contains an OUString.
         """
-        URL: ExtAltNameType = EXT_ALT_NAME_TYPE_URL
+        URL = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_URL)
         """
         The entry contains a URL.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        X400_ADDRESS: ExtAltNameType = EXT_ALT_NAME_TYPE_X400_ADDRESS
+        X400_ADDRESS = cast("ExtAltNameType", EXT_ALT_NAME_TYPE_X400_ADDRESS)
         """
         Currently unsupported.
         """

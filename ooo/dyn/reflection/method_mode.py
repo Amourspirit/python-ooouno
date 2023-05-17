@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.reflection.MethodMode'
         __ooo_type_name__: str = 'enum'
 
-        ONEWAY: MethodMode = METHOD_MODE_ONEWAY
+        ONEWAY = cast("MethodMode", METHOD_MODE_ONEWAY)
         """
         method may be run asynchronously
         """
-        TWOWAY: MethodMode = METHOD_MODE_TWOWAY
+        TWOWAY = cast("MethodMode", METHOD_MODE_TWOWAY)
         """
         method is run The
         """

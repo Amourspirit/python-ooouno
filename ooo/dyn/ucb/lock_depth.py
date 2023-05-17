@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.LockDepth'
         __ooo_type_name__: str = 'enum'
 
-        INFINITY: LockDepth = LOCK_DEPTH_INFINITY
+        INFINITY = cast("LockDepth", LOCK_DEPTH_INFINITY)
         """
         Infinity (includes children and children's children and ...).
         """
-        ONE: LockDepth = LOCK_DEPTH_ONE
+        ONE = cast("LockDepth", LOCK_DEPTH_ONE)
         """
         One (includes children).
         """
-        ZERO: LockDepth = LOCK_DEPTH_ZERO
+        ZERO = cast("LockDepth", LOCK_DEPTH_ZERO)
         """
         Zero (includes no children).
         """

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.WindowClass import CONTAINER as WINDOW_CLASS_CONTAINER
+    from com.sun.star.awt.WindowClass import MODALTOP as WINDOW_CLASS_MODALTOP
+    from com.sun.star.awt.WindowClass import SIMPLE as WINDOW_CLASS_SIMPLE
+    from com.sun.star.awt.WindowClass import TOP as WINDOW_CLASS_TOP
 
     class WindowClass(uno.Enum):
         """
@@ -33,33 +38,33 @@ if TYPE_CHECKING:
         See Also:
             `API WindowClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#add6041e42e466bb2170771f84663460b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.WindowClass', value)
 
-        CONTAINER: WindowClass = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
+        __ooo_type_name__: str = 'enum'
+
+        CONTAINER: WindowClass = WINDOW_CLASS_CONTAINER
         """
         is a container that may contain other components.
         
         It is not a top window.
         """
-        MODALTOP: WindowClass = ...
+        MODALTOP: WindowClass = WINDOW_CLASS_MODALTOP
         """
         is a modal top level window on the desktop.
         
         It is also a container.
         """
-        SIMPLE: WindowClass = ...
+        SIMPLE: WindowClass = WINDOW_CLASS_SIMPLE
         """
         is the simplest window.
         
         It can be a container.
         """
-        TOP: WindowClass = ...
+        TOP: WindowClass = WINDOW_CLASS_TOP
         """
         specifies a top level window on the desktop.
         
@@ -74,4 +79,3 @@ else:
         pass
 
 __all__ = ['WindowClass']
-

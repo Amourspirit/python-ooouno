@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.WritingMode import LR_TB as WRITING_MODE_LR_TB
+    from com.sun.star.text.WritingMode import RL_TB as WRITING_MODE_RL_TB
+    from com.sun.star.text.WritingMode import TB_RL as WRITING_MODE_TB_RL
 
     class WritingMode(uno.Enum):
         """
@@ -33,15 +37,15 @@ if TYPE_CHECKING:
         See Also:
             `API WritingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a46d11c2d08142ef2d32761c04d1aaa26>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.WritingMode', value)
 
-        LR_TB: WritingMode = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.WritingMode'
+        __ooo_type_name__: str = 'enum'
+
+        LR_TB: WritingMode = WRITING_MODE_LR_TB
         """
         text within lines is written left-to-right.
         
@@ -49,7 +53,7 @@ if TYPE_CHECKING:
         
         Typically, this is the writing mode for normal \"alphabetic\" text.
         """
-        RL_TB: WritingMode = ...
+        RL_TB: WritingMode = WRITING_MODE_RL_TB
         """
         text within a line are written right-to-left.
         
@@ -57,7 +61,7 @@ if TYPE_CHECKING:
         
         Typically, this writing mode is used in Arabic and Hebrew text.
         """
-        TB_RL: WritingMode = ...
+        TB_RL: WritingMode = WRITING_MODE_TB_RL
         """
         text within a line is written top-to-bottom.
         
@@ -74,4 +78,3 @@ else:
         pass
 
 __all__ = ['WritingMode']
-

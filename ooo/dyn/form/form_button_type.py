@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.form.FormButtonType import PUSH as FORM_BUTTON_TYPE_PUSH
+    from com.sun.star.form.FormButtonType import RESET as FORM_BUTTON_TYPE_RESET
+    from com.sun.star.form.FormButtonType import SUBMIT as FORM_BUTTON_TYPE_SUBMIT
+    from com.sun.star.form.FormButtonType import URL as FORM_BUTTON_TYPE_URL
 
     class FormButtonType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API FormButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abd774094fc2fbbdf91448f8a60c1798a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.form.FormButtonType', value)
 
-        PUSH: FormButtonType = ...
+        __ooo_ns__: str = 'com.sun.star.form'
+        __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
+        __ooo_type_name__: str = 'enum'
+
+        PUSH: FormButtonType = FORM_BUTTON_TYPE_PUSH
         """
         requires the button to act like a common push button, means no special action is triggered.
         """
-        RESET: FormButtonType = ...
+        RESET: FormButtonType = FORM_BUTTON_TYPE_RESET
         """
         When the button is clicked, it performs a reset on its containing form.
         """
-        SUBMIT: FormButtonType = ...
+        SUBMIT: FormButtonType = FORM_BUTTON_TYPE_SUBMIT
         """
         When the button is clicked, it performs a submit on its containing form.
         """
-        URL: FormButtonType = ...
+        URL: FormButtonType = FORM_BUTTON_TYPE_URL
         """
         When the button is clicked, a URL set for the button is opened.
         
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['FormButtonType']
-

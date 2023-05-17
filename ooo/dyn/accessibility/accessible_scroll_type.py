@@ -20,10 +20,18 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_ANYWHERE as ACCESSIBLE_SCROLL_TYPE_SCROLL_ANYWHERE
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_BOTTOM_EDGE as ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_EDGE
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_BOTTOM_RIGHT as ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_RIGHT
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_LEFT_EDGE as ACCESSIBLE_SCROLL_TYPE_SCROLL_LEFT_EDGE
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_RIGHT_EDGE as ACCESSIBLE_SCROLL_TYPE_SCROLL_RIGHT_EDGE
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_TOP_EDGE as ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_EDGE
+    from com.sun.star.accessibility.AccessibleScrollType import SCROLL_TOP_LEFT as ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_LEFT
 
     class AccessibleScrollType(uno.Enum):
         """
@@ -33,39 +41,39 @@ if TYPE_CHECKING:
         See Also:
             `API AccessibleScrollType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1accessibility.html#a8c72ce09bd8167944fb5c7a237420e74>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.accessibility.AccessibleScrollType', value)
 
-        SCROLL_ANYWHERE: AccessibleScrollType = ...
+        __ooo_ns__: str = 'com.sun.star.accessibility'
+        __ooo_full_ns__: str = 'com.sun.star.accessibility.AccessibleScrollType'
+        __ooo_type_name__: str = 'enum'
+
+        SCROLL_ANYWHERE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_ANYWHERE
         """
         Scroll the object or string such that as much as possible of the object or string is within the top level window.
         """
-        SCROLL_BOTTOM_EDGE: AccessibleScrollType = ...
+        SCROLL_BOTTOM_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_EDGE
         """
         Scroll the bottom edge of the object or string such that the bottom edge is within the top level window.
         """
-        SCROLL_BOTTOM_RIGHT: AccessibleScrollType = ...
+        SCROLL_BOTTOM_RIGHT: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_BOTTOM_RIGHT
         """
         Scroll the bottom right corner of the object or string such that the bottom right corner is within the top level window.
         """
-        SCROLL_LEFT_EDGE: AccessibleScrollType = ...
+        SCROLL_LEFT_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_LEFT_EDGE
         """
         Scroll the left edge of the object or string such that the left edge is within the top level window.
         """
-        SCROLL_RIGHT_EDGE: AccessibleScrollType = ...
+        SCROLL_RIGHT_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_RIGHT_EDGE
         """
         Scroll the right edge of the object or string such that the right edge is within the top level window.
         """
-        SCROLL_TOP_EDGE: AccessibleScrollType = ...
+        SCROLL_TOP_EDGE: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_EDGE
         """
         Scroll the top edge of the object or string such that the top edge is within the top level window.
         """
-        SCROLL_TOP_LEFT: AccessibleScrollType = ...
+        SCROLL_TOP_LEFT: AccessibleScrollType = ACCESSIBLE_SCROLL_TYPE_SCROLL_TOP_LEFT
         """
         Scroll the top left corner of the object or string such that the top left corner is within the top level window.
         """
@@ -78,4 +86,3 @@ else:
         pass
 
 __all__ = ['AccessibleScrollType']
-

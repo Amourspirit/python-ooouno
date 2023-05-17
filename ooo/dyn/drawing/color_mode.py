@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.ColorMode import GREYS as COLOR_MODE_GREYS
+    from com.sun.star.drawing.ColorMode import MONO as COLOR_MODE_MONO
+    from com.sun.star.drawing.ColorMode import STANDARD as COLOR_MODE_STANDARD
+    from com.sun.star.drawing.ColorMode import WATERMARK as COLOR_MODE_WATERMARK
 
     class ColorMode(uno.Enum):
         """
@@ -33,23 +38,23 @@ if TYPE_CHECKING:
         See Also:
             `API ColorMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0e887cb85702e0dccbf34d7dbe40443f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.ColorMode', value)
 
-        GREYS: ColorMode = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.ColorMode'
+        __ooo_type_name__: str = 'enum'
+
+        GREYS: ColorMode = COLOR_MODE_GREYS
         """
         the graphic is rendered in grayscale on the output device,
         """
-        MONO: ColorMode = ...
+        MONO: ColorMode = COLOR_MODE_MONO
         """
         the graphic is rendered in black and white only,
         """
-        STANDARD: ColorMode = ...
+        STANDARD: ColorMode = COLOR_MODE_STANDARD
         """
         the graphic is rendered in the default color style of the output device,
         
@@ -57,7 +62,7 @@ if TYPE_CHECKING:
         
         the connector is drawn with three lines, with the middle line perpendicular to the other two
         """
-        WATERMARK: ColorMode = ...
+        WATERMARK: ColorMode = COLOR_MODE_WATERMARK
         """
         the graphic is rendered in a watermark like style,
         """
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['ColorMode']
-

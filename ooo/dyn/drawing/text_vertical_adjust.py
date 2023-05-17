@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextVerticalAdjust import BLOCK as TEXT_VERTICAL_ADJUST_BLOCK
+    from com.sun.star.drawing.TextVerticalAdjust import BOTTOM as TEXT_VERTICAL_ADJUST_BOTTOM
+    from com.sun.star.drawing.TextVerticalAdjust import CENTER as TEXT_VERTICAL_ADJUST_CENTER
+    from com.sun.star.drawing.TextVerticalAdjust import TOP as TEXT_VERTICAL_ADJUST_TOP
 
     class TextVerticalAdjust(uno.Enum):
         """
@@ -33,21 +38,21 @@ if TYPE_CHECKING:
         See Also:
             `API TextVerticalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4c2c10f0a1a5fa20d9f200d0fb5707ad>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextVerticalAdjust', value)
 
-        BLOCK: TextVerticalAdjust = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextVerticalAdjust'
+        __ooo_type_name__: str = 'enum'
+
+        BLOCK: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_BLOCK
         """
         The text extends from the left to the right edge of the shape.
         
         The text extends from the top to the bottom edge of the shape.
         """
-        BOTTOM: TextVerticalAdjust = ...
+        BOTTOM: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_BOTTOM
         """
         the connection line leaves the connected object from the bottom,
         
@@ -55,11 +60,11 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        CENTER: TextVerticalAdjust = ...
+        CENTER: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_CENTER
         """
         The text is centered inside the shape.
         """
-        TOP: TextVerticalAdjust = ...
+        TOP: TextVerticalAdjust = TEXT_VERTICAL_ADJUST_TOP
         """
         the connection line leaves the connected object from the top,
         
@@ -76,4 +81,3 @@ else:
         pass
 
 __all__ = ['TextVerticalAdjust']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.reflection.ParamMode import IN as PARAM_MODE_IN
+    from com.sun.star.reflection.ParamMode import INOUT as PARAM_MODE_INOUT
+    from com.sun.star.reflection.ParamMode import OUT as PARAM_MODE_OUT
 
     class ParamMode(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API ParamMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#ada880a15fc14bc0e53c3dd7c3c8a34eb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.reflection.ParamMode', value)
 
-        IN: ParamMode = ...
+        __ooo_ns__: str = 'com.sun.star.reflection'
+        __ooo_full_ns__: str = 'com.sun.star.reflection.ParamMode'
+        __ooo_type_name__: str = 'enum'
+
+        IN: ParamMode = PARAM_MODE_IN
         """
         parameter serves as pure input for a called method
         """
-        INOUT: ParamMode = ...
+        INOUT: ParamMode = PARAM_MODE_INOUT
         """
         parameter serves as input as well as output; data can transferred in both directions
         """
-        OUT: ParamMode = ...
+        OUT: ParamMode = PARAM_MODE_OUT
         """
         parameter serves as pure output for the callee (in addition to the return value)
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['ParamMode']
-

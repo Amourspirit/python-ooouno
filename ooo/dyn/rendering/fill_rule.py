@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.rendering.FillRule import EVEN_ODD as FILL_RULE_EVEN_ODD
+    from com.sun.star.rendering.FillRule import NON_ZERO as FILL_RULE_NON_ZERO
 
     class FillRule(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API FillRule <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1rendering.html#a9a534b0377c9ca41983d53b0dae0d5a4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.rendering.FillRule', value)
 
-        EVEN_ODD: FillRule = ...
+        __ooo_ns__: str = 'com.sun.star.rendering'
+        __ooo_full_ns__: str = 'com.sun.star.rendering.FillRule'
+        __ooo_type_name__: str = 'enum'
+
+        EVEN_ODD: FillRule = FILL_RULE_EVEN_ODD
         """
         Fill every area, where, when traveling along a line, an uneven number of intersections with polygon edges have happened.
         """
-        NON_ZERO: FillRule = ...
+        NON_ZERO: FillRule = FILL_RULE_NON_ZERO
         """
         Fill every area, where, when traveling along a line, the summed winding number (that is, -1 for a counter-clockwise-oriented polygon, and +1 for a clockwise-oriented) is non-zero.
         
@@ -60,4 +63,3 @@ else:
         pass
 
 __all__ = ['FillRule']
-

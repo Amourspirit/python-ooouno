@@ -20,10 +20,21 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_BOOLEAN as X_PATH_OBJECT_TYPE_XPATH_BOOLEAN
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_LOCATIONSET as X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_NODESET as X_PATH_OBJECT_TYPE_XPATH_NODESET
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_NUMBER as X_PATH_OBJECT_TYPE_XPATH_NUMBER
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_POINT as X_PATH_OBJECT_TYPE_XPATH_POINT
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_RANGE as X_PATH_OBJECT_TYPE_XPATH_RANGE
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_STRING as X_PATH_OBJECT_TYPE_XPATH_STRING
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_UNDEFINED as X_PATH_OBJECT_TYPE_XPATH_UNDEFINED
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_USERS as X_PATH_OBJECT_TYPE_XPATH_USERS
+    from com.sun.star.xml.xpath.XPathObjectType import XPATH_XSLT_TREE as X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE
 
     class XPathObjectType(uno.Enum):
         """
@@ -34,42 +45,42 @@ if TYPE_CHECKING:
         See Also:
             `API XPathObjectType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1xpath.html#a4e7de3ae7d09203486b85490e0a6f1a3>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.xpath.XPathObjectType', value)
 
-        XPATH_BOOLEAN: XPathObjectType = ...
+        __ooo_ns__: str = 'com.sun.star.xml.xpath'
+        __ooo_full_ns__: str = 'com.sun.star.xml.xpath.XPathObjectType'
+        __ooo_type_name__: str = 'enum'
+
+        XPATH_BOOLEAN: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_BOOLEAN
         """
         """
-        XPATH_LOCATIONSET: XPathObjectType = ...
+        XPATH_LOCATIONSET: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET
         """
         """
-        XPATH_NODESET: XPathObjectType = ...
+        XPATH_NODESET: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_NODESET
         """
         """
-        XPATH_NUMBER: XPathObjectType = ...
+        XPATH_NUMBER: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_NUMBER
         """
         """
-        XPATH_POINT: XPathObjectType = ...
+        XPATH_POINT: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_POINT
         """
         """
-        XPATH_RANGE: XPathObjectType = ...
+        XPATH_RANGE: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_RANGE
         """
         """
-        XPATH_STRING: XPathObjectType = ...
+        XPATH_STRING: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_STRING
         """
         """
-        XPATH_UNDEFINED: XPathObjectType = ...
+        XPATH_UNDEFINED: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_UNDEFINED
         """
         """
-        XPATH_USERS: XPathObjectType = ...
+        XPATH_USERS: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_USERS
         """
         """
-        XPATH_XSLT_TREE: XPathObjectType = ...
+        XPATH_XSLT_TREE: XPathObjectType = X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE
         """
         """
 
@@ -81,4 +92,3 @@ else:
         pass
 
 __all__ = ['XPathObjectType']
-

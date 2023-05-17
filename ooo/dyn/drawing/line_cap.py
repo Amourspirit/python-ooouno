@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.LineCap import BUTT as LINE_CAP_BUTT
+    from com.sun.star.drawing.LineCap import ROUND as LINE_CAP_ROUND
+    from com.sun.star.drawing.LineCap import SQUARE as LINE_CAP_SQUARE
 
     class LineCap(uno.Enum):
         """
@@ -33,19 +37,19 @@ if TYPE_CHECKING:
         See Also:
             `API LineCap <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6d67f779dcbc9e19f8bc6cdfbb6c23f8>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.LineCap', value)
 
-        BUTT: LineCap = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.LineCap'
+        __ooo_type_name__: str = 'enum'
+
+        BUTT: LineCap = LINE_CAP_BUTT
         """
         the line will end without any additional shape
         """
-        ROUND: LineCap = ...
+        ROUND: LineCap = LINE_CAP_ROUND
         """
         the dash is a point
         
@@ -53,7 +57,7 @@ if TYPE_CHECKING:
         
         the line will get a half circle as additional cap
         """
-        SQUARE: LineCap = ...
+        SQUARE: LineCap = LINE_CAP_SQUARE
         """
         the line will get a half square as additional cap
         
@@ -68,4 +72,3 @@ else:
         pass
 
 __all__ = ['LineCap']
-

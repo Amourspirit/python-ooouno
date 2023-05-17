@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.reflection.TypeDescriptionSearchDepth import INFINITE as TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
+    from com.sun.star.reflection.TypeDescriptionSearchDepth import ONE as TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
 
     class TypeDescriptionSearchDepth(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API TypeDescriptionSearchDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a19627c9e2873087a7d672cd9e0913000>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.reflection.TypeDescriptionSearchDepth', value)
 
-        INFINITE: TypeDescriptionSearchDepth = ...
+        __ooo_ns__: str = 'com.sun.star.reflection'
+        __ooo_full_ns__: str = 'com.sun.star.reflection.TypeDescriptionSearchDepth'
+        __ooo_type_name__: str = 'enum'
+
+        INFINITE: TypeDescriptionSearchDepth = TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
         """
         Infinite search depth.
         
         Search through all children including direct children, grand children, grand children's children, ...
         """
-        ONE: TypeDescriptionSearchDepth = ...
+        ONE: TypeDescriptionSearchDepth = TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
         """
         Search only through direct children.
         """
@@ -60,4 +63,3 @@ else:
         pass
 
 __all__ = ['TypeDescriptionSearchDepth']
-

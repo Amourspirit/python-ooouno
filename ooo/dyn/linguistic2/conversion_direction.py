@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.linguistic2.ConversionDirection import FROM_LEFT as CONVERSION_DIRECTION_FROM_LEFT
+    from com.sun.star.linguistic2.ConversionDirection import FROM_RIGHT as CONVERSION_DIRECTION_FROM_RIGHT
 
     class ConversionDirection(uno.Enum):
         """
@@ -33,19 +36,19 @@ if TYPE_CHECKING:
         See Also:
             `API ConversionDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1linguistic2.html#a884af1a9fc4a39bcfd381c3acaa30997>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.linguistic2.ConversionDirection', value)
 
-        FROM_LEFT: ConversionDirection = ...
+        __ooo_ns__: str = 'com.sun.star.linguistic2'
+        __ooo_full_ns__: str = 'com.sun.star.linguistic2.ConversionDirection'
+        __ooo_type_name__: str = 'enum'
+
+        FROM_LEFT: ConversionDirection = CONVERSION_DIRECTION_FROM_LEFT
         """
         the text to be looked for should match the left part of a dictionary entry.
         """
-        FROM_RIGHT: ConversionDirection = ...
+        FROM_RIGHT: ConversionDirection = CONVERSION_DIRECTION_FROM_RIGHT
         """
         the text to be looked for should match the right part of a dictionary entry.
         """
@@ -58,4 +61,3 @@ else:
         pass
 
 __all__ = ['ConversionDirection']
-

@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTCOLLECTOR as ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
+    from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTMARK as ELEMENT_MARK_TYPE_ELEMENTMARK
 
     class ElementMarkType(uno.Enum):
         """
@@ -33,18 +36,18 @@ if TYPE_CHECKING:
         See Also:
             `API ElementMarkType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a96bd9c0214f2d880b6c938750e6e92d0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.crypto.sax.ElementMarkType', value)
 
-        ELEMENTCOLLECTOR: ElementMarkType = ...
+        __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
+        __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
+        __ooo_type_name__: str = 'enum'
+
+        ELEMENTCOLLECTOR: ElementMarkType = ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
         """
         """
-        ELEMENTMARK: ElementMarkType = ...
+        ELEMENTMARK: ElementMarkType = ELEMENT_MARK_TYPE_ELEMENTMARK
         """
         """
 
@@ -56,4 +59,3 @@ else:
         pass
 
 __all__ = ['ElementMarkType']
-

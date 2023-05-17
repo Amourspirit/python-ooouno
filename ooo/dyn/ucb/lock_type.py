@@ -20,10 +20,12 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.LockType import WRITE as LOCK_TYPE_WRITE
 
     class LockType(uno.Enum):
         """
@@ -33,15 +35,15 @@ if TYPE_CHECKING:
         See Also:
             `API LockType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a5893ac36dd21da7bcd19a505205ea180>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.LockType', value)
 
-        WRITE: LockType = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.LockType'
+        __ooo_type_name__: str = 'enum'
+
+        WRITE: LockType = LOCK_TYPE_WRITE
         """
         specifies a write lock.
         """
@@ -54,4 +56,3 @@ else:
         pass
 
 __all__ = ['LockType']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.table.CellContentType import EMPTY as CELL_CONTENT_TYPE_EMPTY
+    from com.sun.star.table.CellContentType import FORMULA as CELL_CONTENT_TYPE_FORMULA
+    from com.sun.star.table.CellContentType import TEXT as CELL_CONTENT_TYPE_TEXT
+    from com.sun.star.table.CellContentType import VALUE as CELL_CONTENT_TYPE_VALUE
 
     class CellContentType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API CellContentType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#affea688ab9e00781fa35d8a790d10f0e>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.table.CellContentType', value)
 
-        EMPTY: CellContentType = ...
+        __ooo_ns__: str = 'com.sun.star.table'
+        __ooo_full_ns__: str = 'com.sun.star.table.CellContentType'
+        __ooo_type_name__: str = 'enum'
+
+        EMPTY: CellContentType = CELL_CONTENT_TYPE_EMPTY
         """
         cell is empty.
         """
-        FORMULA: CellContentType = ...
+        FORMULA: CellContentType = CELL_CONTENT_TYPE_FORMULA
         """
         cell contains a formula.
         """
-        TEXT: CellContentType = ...
+        TEXT: CellContentType = CELL_CONTENT_TYPE_TEXT
         """
         cell contains text.
         """
-        VALUE: CellContentType = ...
+        VALUE: CellContentType = CELL_CONTENT_TYPE_VALUE
         """
         cell contains a constant value.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['CellContentType']
-

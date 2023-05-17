@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.PushButtonType import CANCEL as PUSH_BUTTON_TYPE_CANCEL
+    from com.sun.star.awt.PushButtonType import HELP as PUSH_BUTTON_TYPE_HELP
+    from com.sun.star.awt.PushButtonType import OK as PUSH_BUTTON_TYPE_OK
+    from com.sun.star.awt.PushButtonType import STANDARD as PUSH_BUTTON_TYPE_STANDARD
 
     class PushButtonType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API PushButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa4e49c7e6c5bf2b4d010ad4a50b90ec0>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.PushButtonType', value)
 
-        CANCEL: PushButtonType = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.PushButtonType'
+        __ooo_type_name__: str = 'enum'
+
+        CANCEL: PushButtonType = PUSH_BUTTON_TYPE_CANCEL
         """
         acts like a cancel button.
         """
-        HELP: PushButtonType = ...
+        HELP: PushButtonType = PUSH_BUTTON_TYPE_HELP
         """
         acts like a help button.
         """
-        OK: PushButtonType = ...
+        OK: PushButtonType = PUSH_BUTTON_TYPE_OK
         """
         acts like an OK button.
         """
-        STANDARD: PushButtonType = ...
+        STANDARD: PushButtonType = PUSH_BUTTON_TYPE_STANDARD
         """
         acts like a standard push button.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['PushButtonType']
-

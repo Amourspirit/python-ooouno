@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.SnapObjectType import HORIZONTAL as SNAP_OBJECT_TYPE_HORIZONTAL
+    from com.sun.star.drawing.SnapObjectType import POINT as SNAP_OBJECT_TYPE_POINT
+    from com.sun.star.drawing.SnapObjectType import VERTICAL as SNAP_OBJECT_TYPE_VERTICAL
 
     class SnapObjectType(uno.Enum):
         """
@@ -34,22 +38,22 @@ if TYPE_CHECKING:
         See Also:
             `API SnapObjectType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aac70ce37cdcc7a4bfcf79309db1a438b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.SnapObjectType', value)
 
-        HORIZONTAL: SnapObjectType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.SnapObjectType'
+        __ooo_type_name__: str = 'enum'
+
+        HORIZONTAL: SnapObjectType = SNAP_OBJECT_TYPE_HORIZONTAL
         """
         mirror to the horizontal axis
         """
-        POINT: SnapObjectType = ...
+        POINT: SnapObjectType = SNAP_OBJECT_TYPE_POINT
         """
         """
-        VERTICAL: SnapObjectType = ...
+        VERTICAL: SnapObjectType = SNAP_OBJECT_TYPE_VERTICAL
         """
         mirror to the vertical axis
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['SnapObjectType']
-

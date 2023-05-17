@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.util.SearchAlgorithms import ABSOLUTE as SEARCH_ALGORITHMS_ABSOLUTE
+    from com.sun.star.util.SearchAlgorithms import APPROXIMATE as SEARCH_ALGORITHMS_APPROXIMATE
+    from com.sun.star.util.SearchAlgorithms import REGEXP as SEARCH_ALGORITHMS_REGEXP
 
     class SearchAlgorithms(uno.Enum):
         """
@@ -34,23 +38,23 @@ if TYPE_CHECKING:
         See Also:
             `API SearchAlgorithms <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a88c44d0f9aaded4e5618f3f8adcde79f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.util.SearchAlgorithms', value)
 
-        ABSOLUTE: SearchAlgorithms = ...
+        __ooo_ns__: str = 'com.sun.star.util'
+        __ooo_full_ns__: str = 'com.sun.star.util.SearchAlgorithms'
+        __ooo_type_name__: str = 'enum'
+
+        ABSOLUTE: SearchAlgorithms = SEARCH_ALGORITHMS_ABSOLUTE
         """
         Literal.
         """
-        APPROXIMATE: SearchAlgorithms = ...
+        APPROXIMATE: SearchAlgorithms = SEARCH_ALGORITHMS_APPROXIMATE
         """
         Weighted Levenshtein Distance.
         """
-        REGEXP: SearchAlgorithms = ...
+        REGEXP: SearchAlgorithms = SEARCH_ALGORITHMS_REGEXP
         """
         Regular expression.
         """
@@ -63,4 +67,3 @@ else:
         pass
 
 __all__ = ['SearchAlgorithms']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.task.InteractionClassification import ERROR as INTERACTION_CLASSIFICATION_ERROR
+    from com.sun.star.task.InteractionClassification import INFO as INTERACTION_CLASSIFICATION_INFO
+    from com.sun.star.task.InteractionClassification import QUERY as INTERACTION_CLASSIFICATION_QUERY
+    from com.sun.star.task.InteractionClassification import WARNING as INTERACTION_CLASSIFICATION_WARNING
 
     class InteractionClassification(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API InteractionClassification <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1task.html#ab0d207be361f7bd99bb18090b7a9e47b>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.task.InteractionClassification', value)
 
-        ERROR: InteractionClassification = ...
+        __ooo_ns__: str = 'com.sun.star.task'
+        __ooo_full_ns__: str = 'com.sun.star.task.InteractionClassification'
+        __ooo_type_name__: str = 'enum'
+
+        ERROR: InteractionClassification = INTERACTION_CLASSIFICATION_ERROR
         """
         An error.
         """
-        INFO: InteractionClassification = ...
+        INFO: InteractionClassification = INTERACTION_CLASSIFICATION_INFO
         """
         Some information for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove continuation).
         """
-        QUERY: InteractionClassification = ...
+        QUERY: InteractionClassification = INTERACTION_CLASSIFICATION_QUERY
         """
         A query for the client/user (which will typically lead to the selection of an com.sun.star.task.XInteractionApprove or com.sun.star.task.XInteractionDisapprove continuation).
         """
-        WARNING: InteractionClassification = ...
+        WARNING: InteractionClassification = INTERACTION_CLASSIFICATION_WARNING
         """
         A warning, less severe than an error.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['InteractionClassification']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.NotePrintMode import DOC_END as NOTE_PRINT_MODE_DOC_END
+    from com.sun.star.text.NotePrintMode import NOT as NOTE_PRINT_MODE_NOT
+    from com.sun.star.text.NotePrintMode import ONLY as NOTE_PRINT_MODE_ONLY
+    from com.sun.star.text.NotePrintMode import PAGE_END as NOTE_PRINT_MODE_PAGE_END
 
     class NotePrintMode(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API NotePrintMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a95d9f731f1389ee9f277e756b476251c>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.NotePrintMode', value)
 
-        DOC_END: NotePrintMode = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
+        __ooo_type_name__: str = 'enum'
+
+        DOC_END: NotePrintMode = NOTE_PRINT_MODE_DOC_END
         """
         Notes are collected at the end of the document.
         """
-        NOT: NotePrintMode = ...
+        NOT: NotePrintMode = NOTE_PRINT_MODE_NOT
         """
         Notes are not printed.
         """
-        ONLY: NotePrintMode = ...
+        ONLY: NotePrintMode = NOTE_PRINT_MODE_ONLY
         """
         Only notes are printed.
         """
-        PAGE_END: NotePrintMode = ...
+        PAGE_END: NotePrintMode = NOTE_PRINT_MODE_PAGE_END
         """
         Notes are collected at the end of a page and printed on an inserted page.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['NotePrintMode']
-

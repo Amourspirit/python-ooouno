@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.form.ListSourceType import QUERY as LIST_SOURCE_TYPE_QUERY
+    from com.sun.star.form.ListSourceType import SQL as LIST_SOURCE_TYPE_SQL
+    from com.sun.star.form.ListSourceType import SQLPASSTHROUGH as LIST_SOURCE_TYPE_SQLPASSTHROUGH
+    from com.sun.star.form.ListSourceType import TABLE as LIST_SOURCE_TYPE_TABLE
+    from com.sun.star.form.ListSourceType import TABLEFIELDS as LIST_SOURCE_TYPE_TABLEFIELDS
+    from com.sun.star.form.ListSourceType import VALUELIST as LIST_SOURCE_TYPE_VALUELIST
 
     class ListSourceType(uno.Enum):
         """
@@ -33,35 +40,35 @@ if TYPE_CHECKING:
         See Also:
             `API ListSourceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a52e06ed91fb133bc98c089a401a724fb>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.form.ListSourceType', value)
 
-        QUERY: ListSourceType = ...
+        __ooo_ns__: str = 'com.sun.star.form'
+        __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
+        __ooo_type_name__: str = 'enum'
+
+        QUERY: ListSourceType = LIST_SOURCE_TYPE_QUERY
         """
         The control should be filled with the results of a database query.
         """
-        SQL: ListSourceType = ...
+        SQL: ListSourceType = LIST_SOURCE_TYPE_SQL
         """
         The control should be filled with the results of a database statement.
         """
-        SQLPASSTHROUGH: ListSourceType = ...
+        SQLPASSTHROUGH: ListSourceType = LIST_SOURCE_TYPE_SQLPASSTHROUGH
         """
         The control should be filled with the results of a database statement, which is not evaluated by the database engine.
         """
-        TABLE: ListSourceType = ...
+        TABLE: ListSourceType = LIST_SOURCE_TYPE_TABLE
         """
         The control should be filled with the data of a table.
         """
-        TABLEFIELDS: ListSourceType = ...
+        TABLEFIELDS: ListSourceType = LIST_SOURCE_TYPE_TABLEFIELDS
         """
         The control should be filled with the field names of a database table.
         """
-        VALUELIST: ListSourceType = ...
+        VALUELIST: ListSourceType = LIST_SOURCE_TYPE_VALUELIST
         """
         The control should be filled with a list of string values.
         """
@@ -74,4 +81,3 @@ else:
         pass
 
 __all__ = ['ListSourceType']
-

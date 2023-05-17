@@ -20,10 +20,18 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.EscapeDirection import DOWN as ESCAPE_DIRECTION_DOWN
+    from com.sun.star.drawing.EscapeDirection import HORIZONTAL as ESCAPE_DIRECTION_HORIZONTAL
+    from com.sun.star.drawing.EscapeDirection import LEFT as ESCAPE_DIRECTION_LEFT
+    from com.sun.star.drawing.EscapeDirection import RIGHT as ESCAPE_DIRECTION_RIGHT
+    from com.sun.star.drawing.EscapeDirection import SMART as ESCAPE_DIRECTION_SMART
+    from com.sun.star.drawing.EscapeDirection import UP as ESCAPE_DIRECTION_UP
+    from com.sun.star.drawing.EscapeDirection import VERTICAL as ESCAPE_DIRECTION_VERTICAL
 
     class EscapeDirection(uno.Enum):
         """
@@ -33,22 +41,22 @@ if TYPE_CHECKING:
         See Also:
             `API EscapeDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a554864869ec34ebdfb5ecde01c5c5670>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.EscapeDirection', value)
 
-        DOWN: EscapeDirection = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.EscapeDirection'
+        __ooo_type_name__: str = 'enum'
+
+        DOWN: EscapeDirection = ESCAPE_DIRECTION_DOWN
         """
         """
-        HORIZONTAL: EscapeDirection = ...
+        HORIZONTAL: EscapeDirection = ESCAPE_DIRECTION_HORIZONTAL
         """
         mirror to the horizontal axis
         """
-        LEFT: EscapeDirection = ...
+        LEFT: EscapeDirection = ESCAPE_DIRECTION_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -56,7 +64,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: EscapeDirection = ...
+        RIGHT: EscapeDirection = ESCAPE_DIRECTION_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -64,13 +72,13 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        SMART: EscapeDirection = ...
+        SMART: EscapeDirection = ESCAPE_DIRECTION_SMART
         """
         """
-        UP: EscapeDirection = ...
+        UP: EscapeDirection = ESCAPE_DIRECTION_UP
         """
         """
-        VERTICAL: EscapeDirection = ...
+        VERTICAL: EscapeDirection = ESCAPE_DIRECTION_VERTICAL
         """
         mirror to the vertical axis
         """
@@ -83,4 +91,3 @@ else:
         pass
 
 __all__ = ['EscapeDirection']
-

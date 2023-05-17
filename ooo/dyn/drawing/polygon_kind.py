@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.PolygonKind import FREEFILL as POLYGON_KIND_FREEFILL
+    from com.sun.star.drawing.PolygonKind import FREELINE as POLYGON_KIND_FREELINE
+    from com.sun.star.drawing.PolygonKind import LINE as POLYGON_KIND_LINE
+    from com.sun.star.drawing.PolygonKind import PATHFILL as POLYGON_KIND_PATHFILL
+    from com.sun.star.drawing.PolygonKind import PATHLINE as POLYGON_KIND_PATHLINE
+    from com.sun.star.drawing.PolygonKind import PATHPLIN as POLYGON_KIND_PATHPLIN
+    from com.sun.star.drawing.PolygonKind import PATHPOLY as POLYGON_KIND_PATHPOLY
+    from com.sun.star.drawing.PolygonKind import PLIN as POLYGON_KIND_PLIN
+    from com.sun.star.drawing.PolygonKind import POLY as POLYGON_KIND_POLY
 
     class PolygonKind(uno.Enum):
         """
@@ -33,49 +43,49 @@ if TYPE_CHECKING:
         See Also:
             `API PolygonKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adec70dcaa1fdfc08f03cf30ccee65ef6>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.PolygonKind', value)
 
-        FREEFILL: PolygonKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonKind'
+        __ooo_type_name__: str = 'enum'
+
+        FREEFILL: PolygonKind = POLYGON_KIND_FREEFILL
         """
         This is the PolygonKind for a ClosedFreeHandShape.
         """
-        FREELINE: PolygonKind = ...
+        FREELINE: PolygonKind = POLYGON_KIND_FREELINE
         """
         This is the PolygonKind for an OpenFreeHandShape.
         """
-        LINE: PolygonKind = ...
+        LINE: PolygonKind = POLYGON_KIND_LINE
         """
         the ConnectorShape is drawn as a straight line
         
         This is the PolygonKind for a LineShape.
         """
-        PATHFILL: PolygonKind = ...
+        PATHFILL: PolygonKind = POLYGON_KIND_PATHFILL
         """
         This is the PolygonKind for a ClosedBezierShape.
         """
-        PATHLINE: PolygonKind = ...
+        PATHLINE: PolygonKind = POLYGON_KIND_PATHLINE
         """
         This is the PolygonKind for an OpenBezierShape.
         """
-        PATHPLIN: PolygonKind = ...
+        PATHPLIN: PolygonKind = POLYGON_KIND_PATHPLIN
         """
         This is the PolygonKind for a PolyLinePathShape.
         """
-        PATHPOLY: PolygonKind = ...
+        PATHPOLY: PolygonKind = POLYGON_KIND_PATHPOLY
         """
         This is the PolygonKind for a PolyPolygonPathShape.
         """
-        PLIN: PolygonKind = ...
+        PLIN: PolygonKind = POLYGON_KIND_PLIN
         """
         This is the PolygonKind for a PolyLineShape.
         """
-        POLY: PolygonKind = ...
+        POLY: PolygonKind = POLYGON_KIND_POLY
         """
         This is the PolygonKind for a PolyPolygonShape.
         """
@@ -88,4 +98,3 @@ else:
         pass
 
 __all__ = ['PolygonKind']
-

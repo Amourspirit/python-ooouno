@@ -20,10 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.crypto.SecurityOperationStatus import ASSERTION as SECURITY_OPERATION_STATUS_ASSERTION
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_HAS_EXPIRED as SECURITY_OPERATION_STATUS_CERT_HAS_EXPIRED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_ISSUER_FAILED as SECURITY_OPERATION_STATUS_CERT_ISSUER_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_NOT_FOUND as SECURITY_OPERATION_STATUS_CERT_NOT_FOUND
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_NOT_YET_VALID as SECURITY_OPERATION_STATUS_CERT_NOT_YET_VALID
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_REVOKED as SECURITY_OPERATION_STATUS_CERT_REVOKED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CERT_VERIFY_FAILED as SECURITY_OPERATION_STATUS_CERT_VERIFY_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import CRYPTO_FAILED as SECURITY_OPERATION_STATUS_CRYPTO_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import DATA_NOT_MATCH as SECURITY_OPERATION_STATUS_DATA_NOT_MATCH
+    from com.sun.star.xml.crypto.SecurityOperationStatus import DISABLED as SECURITY_OPERATION_STATUS_DISABLED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import DSIG_INVALID_REFERENCE as SECURITY_OPERATION_STATUS_DSIG_INVALID_REFERENCE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import DSIG_NO_REFERENCES as SECURITY_OPERATION_STATUS_DSIG_NO_REFERENCES
+    from com.sun.star.xml.crypto.SecurityOperationStatus import ENGINE_FAILED as SECURITY_OPERATION_STATUS_ENGINE_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_DATA as SECURITY_OPERATION_STATUS_INVALID_DATA
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_FORMAT as SECURITY_OPERATION_STATUS_INVALID_FORMAT
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_KEY_DATA as SECURITY_OPERATION_STATUS_INVALID_KEY_DATA
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_KEY_DATA_SIZE as SECURITY_OPERATION_STATUS_INVALID_KEY_DATA_SIZE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_NODE as SECURITY_OPERATION_STATUS_INVALID_NODE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_NODE_ATTRIBUTE as SECURITY_OPERATION_STATUS_INVALID_NODE_ATTRIBUTE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_NODE_CONTENT as SECURITY_OPERATION_STATUS_INVALID_NODE_CONTENT
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_OPERATION as SECURITY_OPERATION_STATUS_INVALID_OPERATION
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_RESULT as SECURITY_OPERATION_STATUS_INVALID_RESULT
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_SIZE as SECURITY_OPERATION_STATUS_INVALID_SIZE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_STATUS as SECURITY_OPERATION_STATUS_INVALID_STATUS
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_TRANSFORM as SECURITY_OPERATION_STATUS_INVALID_TRANSFORM
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_TRANSFORM_KEY as SECURITY_OPERATION_STATUS_INVALID_TRANSFORM_KEY
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_TYPE as SECURITY_OPERATION_STATUS_INVALID_TYPE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import INVALID_URI_TYPE as SECURITY_OPERATION_STATUS_INVALID_URI_TYPE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import IO_FAILED as SECURITY_OPERATION_STATUS_IO_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import KEYDATA_DISABLED as SECURITY_OPERATION_STATUS_KEYDATA_DISABLED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import KEY_DATA_ALREADY_EXIST as SECURITY_OPERATION_STATUS_KEY_DATA_ALREADY_EXIST
+    from com.sun.star.xml.crypto.SecurityOperationStatus import KEY_DATA_NOT_FOUND as SECURITY_OPERATION_STATUS_KEY_DATA_NOT_FOUND
+    from com.sun.star.xml.crypto.SecurityOperationStatus import KEY_NOT_FOUND as SECURITY_OPERATION_STATUS_KEY_NOT_FOUND
+    from com.sun.star.xml.crypto.SecurityOperationStatus import MALLOC_FAILED as SECURITY_OPERATION_STATUS_MALLOC_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import MAX_ENCKEY_LEVEL as SECURITY_OPERATION_STATUS_MAX_ENCKEY_LEVEL
+    from com.sun.star.xml.crypto.SecurityOperationStatus import MAX_RETRIEVALS_LEVEL as SECURITY_OPERATION_STATUS_MAX_RETRIEVALS_LEVEL
+    from com.sun.star.xml.crypto.SecurityOperationStatus import MAX_RETRIEVAL_TYPE_MISMATCH as SECURITY_OPERATION_STATUS_MAX_RETRIEVAL_TYPE_MISMATCH
+    from com.sun.star.xml.crypto.SecurityOperationStatus import MISSING_NODE_ATTRIBUTE as SECURITY_OPERATION_STATUS_MISSING_NODE_ATTRIBUTE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import NODE_ALREADY_PRESENT as SECURITY_OPERATION_STATUS_NODE_ALREADY_PRESENT
+    from com.sun.star.xml.crypto.SecurityOperationStatus import NODE_NOT_FOUND as SECURITY_OPERATION_STATUS_NODE_NOT_FOUND
+    from com.sun.star.xml.crypto.SecurityOperationStatus import NOT_IMPLEMENTED as SECURITY_OPERATION_STATUS_NOT_IMPLEMENTED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import OPERATION_SUCCEEDED as SECURITY_OPERATION_STATUS_OPERATION_SUCCEEDED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import RUNTIMEERROR_FAILED as SECURITY_OPERATION_STATUS_RUNTIMEERROR_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import STRDUP_FAILED as SECURITY_OPERATION_STATUS_STRDUP_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import TRANSFORM_DISABLED as SECURITY_OPERATION_STATUS_TRANSFORM_DISABLED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import TRANSFORM_SAME_DOCUMENT_REQUIRED as SECURITY_OPERATION_STATUS_TRANSFORM_SAME_DOCUMENT_REQUIRED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import UNEXPECTED_NODE as SECURITY_OPERATION_STATUS_UNEXPECTED_NODE
+    from com.sun.star.xml.crypto.SecurityOperationStatus import UNKNOWN as SECURITY_OPERATION_STATUS_UNKNOWN
+    from com.sun.star.xml.crypto.SecurityOperationStatus import XML_FAILED as SECURITY_OPERATION_STATUS_XML_FAILED
+    from com.sun.star.xml.crypto.SecurityOperationStatus import XSLT_FAILED as SECURITY_OPERATION_STATUS_XSLT_FAILED
 
     class SecurityOperationStatus(uno.Enum):
         """
@@ -33,165 +84,165 @@ if TYPE_CHECKING:
         See Also:
             `API SecurityOperationStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto.html#ab5d887eb5da1173b766d96d0d863d1dc>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.crypto.SecurityOperationStatus', value)
 
-        ASSERTION: SecurityOperationStatus = ...
+        __ooo_ns__: str = 'com.sun.star.xml.crypto'
+        __ooo_full_ns__: str = 'com.sun.star.xml.crypto.SecurityOperationStatus'
+        __ooo_type_name__: str = 'enum'
+
+        ASSERTION: SecurityOperationStatus = SECURITY_OPERATION_STATUS_ASSERTION
         """
         """
-        CERT_HAS_EXPIRED: SecurityOperationStatus = ...
+        CERT_HAS_EXPIRED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_HAS_EXPIRED
         """
         """
-        CERT_ISSUER_FAILED: SecurityOperationStatus = ...
+        CERT_ISSUER_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_ISSUER_FAILED
         """
         """
-        CERT_NOT_FOUND: SecurityOperationStatus = ...
+        CERT_NOT_FOUND: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_NOT_FOUND
         """
         """
-        CERT_NOT_YET_VALID: SecurityOperationStatus = ...
+        CERT_NOT_YET_VALID: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_NOT_YET_VALID
         """
         """
-        CERT_REVOKED: SecurityOperationStatus = ...
+        CERT_REVOKED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_REVOKED
         """
         """
-        CERT_VERIFY_FAILED: SecurityOperationStatus = ...
+        CERT_VERIFY_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CERT_VERIFY_FAILED
         """
         """
-        CRYPTO_FAILED: SecurityOperationStatus = ...
+        CRYPTO_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_CRYPTO_FAILED
         """
         """
-        DATA_NOT_MATCH: SecurityOperationStatus = ...
+        DATA_NOT_MATCH: SecurityOperationStatus = SECURITY_OPERATION_STATUS_DATA_NOT_MATCH
         """
         """
-        DISABLED: SecurityOperationStatus = ...
+        DISABLED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_DISABLED
         """
         """
-        DSIG_INVALID_REFERENCE: SecurityOperationStatus = ...
+        DSIG_INVALID_REFERENCE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_DSIG_INVALID_REFERENCE
         """
         """
-        DSIG_NO_REFERENCES: SecurityOperationStatus = ...
+        DSIG_NO_REFERENCES: SecurityOperationStatus = SECURITY_OPERATION_STATUS_DSIG_NO_REFERENCES
         """
         """
-        ENGINE_FAILED: SecurityOperationStatus = ...
+        ENGINE_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_ENGINE_FAILED
         """
         The following constants are derived from XMLSec error definitions, as following:
         
         XMLSEC_ERRORS_R_XMLSEC_FAILED XMLSEC_ERRORS_R_MALLOC_FAILED XMLSEC_ERRORS_R_STRDUP_FAILED XMLSEC_ERRORS_R_CRYPTO_FAILED XMLSEC_ERRORS_R_XML_FAILED XMLSEC_ERRORS_R_XSLT_FAILED XMLSEC_ERRORS_R_IO_FAILED XMLSEC_ERRORS_R_DISABLED XMLSEC_ERRORS_R_NOT_IMPLEMENTED XMLSEC_ERRORS_R_INVALID_SIZE XMLSEC_ERRORS_R_INVALID_DATA XMLSEC_ERRORS_R_INVALID_RESULT XMLSEC_ERRORS_R_INVALID_TYPE XMLSEC_ERRORS_R_INVALID_OPERATION XMLSEC_ERRORS_R_INVALID_STATUS XMLSEC_ERRORS_R_INVALID_FORMAT XMLSEC_ERRORS_R_DATA_NOT_MATCH XMLSEC_ERRORS_R_INVALID_NODE XMLSEC_ERRORS_R_INVALID_NODE_CONTENT XMLSEC_ERRORS_R_INVALID_NODE_ATTRIBUTE XMLSEC_ERRORS_R_MISSING_NODE_ATTRIBUTE XMLSEC_ERRORS_R_NODE_ALREADY_PRESENT XMLSEC_ERRORS_R_UNEXPECTED_NODE XMLSEC_ERRORS_R_NODE_NOT_FOUND XMLSEC_ERRORS_R_INVALID_TRANSFORM XMLSEC_ERRORS_R_INVALID_TRANSFORM_KEY XMLSEC_ERRORS_R_INVALID_URI_TYPE XMLSEC_ERRORS_R_TRANSFORM_SAME_DOCUMENT_REQUIRED XMLSEC_ERRORS_R_TRANSFORM_DISABLED XMLSEC_ERRORS_R_INVALID_KEY_DATA XMLSEC_ERRORS_R_KEY_DATA_NOT_FOUND XMLSEC_ERRORS_R_KEY_DATA_ALREADY_EXIST XMLSEC_ERRORS_R_INVALID_KEY_DATA_SIZE XMLSEC_ERRORS_R_KEY_NOT_FOUND XMLSEC_ERRORS_R_KEYDATA_DISABLED XMLSEC_ERRORS_R_MAX_RETRIEVALS_LEVEL XMLSEC_ERRORS_R_MAX_RETRIEVAL_TYPE_MISMATCH XMLSEC_ERRORS_R_MAX_ENCKEY_LEVEL XMLSEC_ERRORS_R_CERT_VERIFY_FAILED XMLSEC_ERRORS_R_CERT_NOT_FOUND XMLSEC_ERRORS_R_CERT_REVOKED XMLSEC_ERRORS_R_CERT_ISSUER_FAILED XMLSEC_ERRORS_R_CERT_NOT_YET_VALID XMLSEC_ERRORS_R_CERT_HAS_EXPIRED XMLSEC_ERRORS_R_DSIG_NO_REFERENCES XMLSEC_ERRORS_R_DSIG_INVALID_REFERENCE XMLSEC_ERRORS_R_ASSERTION XMLSEC_ERRORS_MAX_NUMBER
         """
-        INVALID_DATA: SecurityOperationStatus = ...
+        INVALID_DATA: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_DATA
         """
         """
-        INVALID_FORMAT: SecurityOperationStatus = ...
+        INVALID_FORMAT: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_FORMAT
         """
         """
-        INVALID_KEY_DATA: SecurityOperationStatus = ...
+        INVALID_KEY_DATA: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_KEY_DATA
         """
         """
-        INVALID_KEY_DATA_SIZE: SecurityOperationStatus = ...
+        INVALID_KEY_DATA_SIZE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_KEY_DATA_SIZE
         """
         """
-        INVALID_NODE: SecurityOperationStatus = ...
+        INVALID_NODE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_NODE
         """
         """
-        INVALID_NODE_ATTRIBUTE: SecurityOperationStatus = ...
+        INVALID_NODE_ATTRIBUTE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_NODE_ATTRIBUTE
         """
         """
-        INVALID_NODE_CONTENT: SecurityOperationStatus = ...
+        INVALID_NODE_CONTENT: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_NODE_CONTENT
         """
         """
-        INVALID_OPERATION: SecurityOperationStatus = ...
+        INVALID_OPERATION: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_OPERATION
         """
         """
-        INVALID_RESULT: SecurityOperationStatus = ...
+        INVALID_RESULT: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_RESULT
         """
         """
-        INVALID_SIZE: SecurityOperationStatus = ...
+        INVALID_SIZE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_SIZE
         """
         """
-        INVALID_STATUS: SecurityOperationStatus = ...
+        INVALID_STATUS: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_STATUS
         """
         """
-        INVALID_TRANSFORM: SecurityOperationStatus = ...
+        INVALID_TRANSFORM: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_TRANSFORM
         """
         """
-        INVALID_TRANSFORM_KEY: SecurityOperationStatus = ...
+        INVALID_TRANSFORM_KEY: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_TRANSFORM_KEY
         """
         """
-        INVALID_TYPE: SecurityOperationStatus = ...
+        INVALID_TYPE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_TYPE
         """
         """
-        INVALID_URI_TYPE: SecurityOperationStatus = ...
+        INVALID_URI_TYPE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_INVALID_URI_TYPE
         """
         """
-        IO_FAILED: SecurityOperationStatus = ...
+        IO_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_IO_FAILED
         """
         """
-        KEYDATA_DISABLED: SecurityOperationStatus = ...
+        KEYDATA_DISABLED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_KEYDATA_DISABLED
         """
         """
-        KEY_DATA_ALREADY_EXIST: SecurityOperationStatus = ...
+        KEY_DATA_ALREADY_EXIST: SecurityOperationStatus = SECURITY_OPERATION_STATUS_KEY_DATA_ALREADY_EXIST
         """
         """
-        KEY_DATA_NOT_FOUND: SecurityOperationStatus = ...
+        KEY_DATA_NOT_FOUND: SecurityOperationStatus = SECURITY_OPERATION_STATUS_KEY_DATA_NOT_FOUND
         """
         """
-        KEY_NOT_FOUND: SecurityOperationStatus = ...
+        KEY_NOT_FOUND: SecurityOperationStatus = SECURITY_OPERATION_STATUS_KEY_NOT_FOUND
         """
         """
-        MALLOC_FAILED: SecurityOperationStatus = ...
+        MALLOC_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_MALLOC_FAILED
         """
         """
-        MAX_ENCKEY_LEVEL: SecurityOperationStatus = ...
+        MAX_ENCKEY_LEVEL: SecurityOperationStatus = SECURITY_OPERATION_STATUS_MAX_ENCKEY_LEVEL
         """
         """
-        MAX_RETRIEVALS_LEVEL: SecurityOperationStatus = ...
+        MAX_RETRIEVALS_LEVEL: SecurityOperationStatus = SECURITY_OPERATION_STATUS_MAX_RETRIEVALS_LEVEL
         """
         """
-        MAX_RETRIEVAL_TYPE_MISMATCH: SecurityOperationStatus = ...
+        MAX_RETRIEVAL_TYPE_MISMATCH: SecurityOperationStatus = SECURITY_OPERATION_STATUS_MAX_RETRIEVAL_TYPE_MISMATCH
         """
         """
-        MISSING_NODE_ATTRIBUTE: SecurityOperationStatus = ...
+        MISSING_NODE_ATTRIBUTE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_MISSING_NODE_ATTRIBUTE
         """
         """
-        NODE_ALREADY_PRESENT: SecurityOperationStatus = ...
+        NODE_ALREADY_PRESENT: SecurityOperationStatus = SECURITY_OPERATION_STATUS_NODE_ALREADY_PRESENT
         """
         """
-        NODE_NOT_FOUND: SecurityOperationStatus = ...
+        NODE_NOT_FOUND: SecurityOperationStatus = SECURITY_OPERATION_STATUS_NODE_NOT_FOUND
         """
         """
-        NOT_IMPLEMENTED: SecurityOperationStatus = ...
+        NOT_IMPLEMENTED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_NOT_IMPLEMENTED
         """
         """
-        OPERATION_SUCCEEDED: SecurityOperationStatus = ...
+        OPERATION_SUCCEEDED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_OPERATION_SUCCEEDED
         """
         """
-        RUNTIMEERROR_FAILED: SecurityOperationStatus = ...
+        RUNTIMEERROR_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_RUNTIMEERROR_FAILED
         """
         """
-        STRDUP_FAILED: SecurityOperationStatus = ...
+        STRDUP_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_STRDUP_FAILED
         """
         """
-        TRANSFORM_DISABLED: SecurityOperationStatus = ...
+        TRANSFORM_DISABLED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_TRANSFORM_DISABLED
         """
         """
-        TRANSFORM_SAME_DOCUMENT_REQUIRED: SecurityOperationStatus = ...
+        TRANSFORM_SAME_DOCUMENT_REQUIRED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_TRANSFORM_SAME_DOCUMENT_REQUIRED
         """
         """
-        UNEXPECTED_NODE: SecurityOperationStatus = ...
+        UNEXPECTED_NODE: SecurityOperationStatus = SECURITY_OPERATION_STATUS_UNEXPECTED_NODE
         """
         """
-        UNKNOWN: SecurityOperationStatus = ...
+        UNKNOWN: SecurityOperationStatus = SECURITY_OPERATION_STATUS_UNKNOWN
         """
         """
-        XML_FAILED: SecurityOperationStatus = ...
+        XML_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_XML_FAILED
         """
         """
-        XSLT_FAILED: SecurityOperationStatus = ...
+        XSLT_FAILED: SecurityOperationStatus = SECURITY_OPERATION_STATUS_XSLT_FAILED
         """
         """
 
@@ -203,4 +254,3 @@ else:
         pass
 
 __all__ = ['SecurityOperationStatus']
-

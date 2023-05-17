@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart2.data.LabelOrigin import COLUMN as LABEL_ORIGIN_COLUMN
+    from com.sun.star.chart2.data.LabelOrigin import LONG_SIDE as LABEL_ORIGIN_LONG_SIDE
+    from com.sun.star.chart2.data.LabelOrigin import ROW as LABEL_ORIGIN_ROW
+    from com.sun.star.chart2.data.LabelOrigin import SHORT_SIDE as LABEL_ORIGIN_SHORT_SIDE
 
     class LabelOrigin(uno.Enum):
         """
@@ -33,15 +38,15 @@ if TYPE_CHECKING:
         See Also:
             `API LabelOrigin <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2_1_1data.html#a2afe9ba95ad4b3631057b40391bed0aa>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart2.data.LabelOrigin', value)
 
-        COLUMN: LabelOrigin = ...
+        __ooo_ns__: str = 'com.sun.star.chart2.data'
+        __ooo_full_ns__: str = 'com.sun.star.chart2.data.LabelOrigin'
+        __ooo_type_name__: str = 'enum'
+
+        COLUMN: LabelOrigin = LABEL_ORIGIN_COLUMN
         """
         Uses the column name for label generation.
         
@@ -49,13 +54,13 @@ if TYPE_CHECKING:
         
         If a range consists of more than one column the result of label generation may be empty. Of course, it could also succeed with a string like \"Columns A to B\".
         """
-        LONG_SIDE: LabelOrigin = ...
+        LONG_SIDE: LabelOrigin = LABEL_ORIGIN_LONG_SIDE
         """
         This is exactly the opposite of SHORT_SIDE.
         
         I.e., if SHORT_SIDE has the same effect as ROW, LONG_SIDE will have the same effect as COLUMN and the other way round.
         """
-        ROW: LabelOrigin = ...
+        ROW: LabelOrigin = LABEL_ORIGIN_ROW
         """
         Uses the column name for label generation.
         
@@ -63,7 +68,7 @@ if TYPE_CHECKING:
         
         If a range consists of more than one row the result of label generation may be empty. Of course, it could also succeed with a string like \"Rows 1-3\".
         """
-        SHORT_SIDE: LabelOrigin = ...
+        SHORT_SIDE: LabelOrigin = LABEL_ORIGIN_SHORT_SIDE
         """
         If a range spans a single row over more than one column, this parameter has the same effect as ROW.
         
@@ -82,4 +87,3 @@ else:
         pass
 
 __all__ = ['LabelOrigin']
-

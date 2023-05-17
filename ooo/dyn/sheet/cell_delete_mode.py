@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.CellDeleteMode import COLUMNS as CELL_DELETE_MODE_COLUMNS
+    from com.sun.star.sheet.CellDeleteMode import LEFT as CELL_DELETE_MODE_LEFT
+    from com.sun.star.sheet.CellDeleteMode import NONE as CELL_DELETE_MODE_NONE
+    from com.sun.star.sheet.CellDeleteMode import ROWS as CELL_DELETE_MODE_ROWS
+    from com.sun.star.sheet.CellDeleteMode import UP as CELL_DELETE_MODE_UP
 
     class CellDeleteMode(uno.Enum):
         """
@@ -33,27 +39,27 @@ if TYPE_CHECKING:
         See Also:
             `API CellDeleteMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af2bbbff47b7abe36f258e59b1351e422>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.CellDeleteMode', value)
 
-        COLUMNS: CellDeleteMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.CellDeleteMode'
+        __ooo_type_name__: str = 'enum'
+
+        COLUMNS: CellDeleteMode = CELL_DELETE_MODE_COLUMNS
         """
         entire columns to the right of the deleted cells are moved left.
         
         entire columns to the right of the inserted cells are moved right.
         """
-        LEFT: CellDeleteMode = ...
+        LEFT: CellDeleteMode = CELL_DELETE_MODE_LEFT
         """
         selects the left border.
         
         the cells to the right of the deleted cells are moved left.
         """
-        NONE: CellDeleteMode = ...
+        NONE: CellDeleteMode = CELL_DELETE_MODE_NONE
         """
         no cells are moved.
         
@@ -67,13 +73,13 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        ROWS: CellDeleteMode = ...
+        ROWS: CellDeleteMode = CELL_DELETE_MODE_ROWS
         """
         entire rows below the deleted cells are moved up.
         
         entire rows below the inserted cells are moved down.
         """
-        UP: CellDeleteMode = ...
+        UP: CellDeleteMode = CELL_DELETE_MODE_UP
         """
         the cells below the deleted cells are moved up.
         """
@@ -86,4 +92,3 @@ else:
         pass
 
 __all__ = ['CellDeleteMode']
-

@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.uri.RelativeUriExcessParentSegments import ERROR as RELATIVE_URI_EXCESS_PARENT_SEGMENTS_ERROR
+    from com.sun.star.uri.RelativeUriExcessParentSegments import REMOVE as RELATIVE_URI_EXCESS_PARENT_SEGMENTS_REMOVE
+    from com.sun.star.uri.RelativeUriExcessParentSegments import RETAIN as RELATIVE_URI_EXCESS_PARENT_SEGMENTS_RETAIN
 
     class RelativeUriExcessParentSegments(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API RelativeUriExcessParentSegments <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uri.html#ac4782e395626cbc2118cab947e07af22>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.uri.RelativeUriExcessParentSegments', value)
 
-        ERROR: RelativeUriExcessParentSegments = ...
+        __ooo_ns__: str = 'com.sun.star.uri'
+        __ooo_full_ns__: str = 'com.sun.star.uri.RelativeUriExcessParentSegments'
+        __ooo_type_name__: str = 'enum'
+
+        ERROR: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_ERROR
         """
         causes excess special parent segments to be treated as an error.
         """
-        REMOVE: RelativeUriExcessParentSegments = ...
+        REMOVE: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_REMOVE
         """
         causes excess special parent segments to be removed.
         """
-        RETAIN: RelativeUriExcessParentSegments = ...
+        RETAIN: RelativeUriExcessParentSegments = RELATIVE_URI_EXCESS_PARENT_SEGMENTS_RETAIN
         """
         causes excess special parent segments to be retained, treating them like ordinary segments.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['RelativeUriExcessParentSegments']
-

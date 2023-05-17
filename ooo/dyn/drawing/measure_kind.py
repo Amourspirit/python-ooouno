@@ -20,10 +20,13 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.MeasureKind import RADIUS as MEASURE_KIND_RADIUS
+    from com.sun.star.drawing.MeasureKind import STANDARD as MEASURE_KIND_STANDARD
 
     class MeasureKind(uno.Enum):
         """
@@ -33,21 +36,21 @@ if TYPE_CHECKING:
         See Also:
             `API MeasureKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aba601430b0385cb6c2e7db8f7814cbff>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.MeasureKind', value)
 
-        RADIUS: MeasureKind = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureKind'
+        __ooo_type_name__: str = 'enum'
+
+        RADIUS: MeasureKind = MEASURE_KIND_RADIUS
         """
         use the radius measurement.
         
         This option cannot be used from the GUI Interface.
         """
-        STANDARD: MeasureKind = ...
+        STANDARD: MeasureKind = MEASURE_KIND_STANDARD
         """
         the graphic is rendered in the default color style of the output device,
         
@@ -64,4 +67,3 @@ else:
         pass
 
 __all__ = ['MeasureKind']
-

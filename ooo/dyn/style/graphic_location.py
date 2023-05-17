@@ -20,10 +20,23 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.style.GraphicLocation import AREA as GRAPHIC_LOCATION_AREA
+    from com.sun.star.style.GraphicLocation import LEFT_BOTTOM as GRAPHIC_LOCATION_LEFT_BOTTOM
+    from com.sun.star.style.GraphicLocation import LEFT_MIDDLE as GRAPHIC_LOCATION_LEFT_MIDDLE
+    from com.sun.star.style.GraphicLocation import LEFT_TOP as GRAPHIC_LOCATION_LEFT_TOP
+    from com.sun.star.style.GraphicLocation import MIDDLE_BOTTOM as GRAPHIC_LOCATION_MIDDLE_BOTTOM
+    from com.sun.star.style.GraphicLocation import MIDDLE_MIDDLE as GRAPHIC_LOCATION_MIDDLE_MIDDLE
+    from com.sun.star.style.GraphicLocation import MIDDLE_TOP as GRAPHIC_LOCATION_MIDDLE_TOP
+    from com.sun.star.style.GraphicLocation import NONE as GRAPHIC_LOCATION_NONE
+    from com.sun.star.style.GraphicLocation import RIGHT_BOTTOM as GRAPHIC_LOCATION_RIGHT_BOTTOM
+    from com.sun.star.style.GraphicLocation import RIGHT_MIDDLE as GRAPHIC_LOCATION_RIGHT_MIDDLE
+    from com.sun.star.style.GraphicLocation import RIGHT_TOP as GRAPHIC_LOCATION_RIGHT_TOP
+    from com.sun.star.style.GraphicLocation import TILED as GRAPHIC_LOCATION_TILED
 
     class GraphicLocation(uno.Enum):
         """
@@ -33,61 +46,61 @@ if TYPE_CHECKING:
         See Also:
             `API GraphicLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ae71ca73feb713866e85597329dfaec2e>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.style.GraphicLocation', value)
 
-        AREA: GraphicLocation = ...
+        __ooo_ns__: str = 'com.sun.star.style'
+        __ooo_full_ns__: str = 'com.sun.star.style.GraphicLocation'
+        __ooo_type_name__: str = 'enum'
+
+        AREA: GraphicLocation = GRAPHIC_LOCATION_AREA
         """
         The graphic is scaled to fill the whole surrounding area.
         """
-        LEFT_BOTTOM: GraphicLocation = ...
+        LEFT_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_LEFT_BOTTOM
         """
         The graphic is located in the bottom left corner.
         """
-        LEFT_MIDDLE: GraphicLocation = ...
+        LEFT_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_LEFT_MIDDLE
         """
         The graphic is located in the middle of the left edge.
         """
-        LEFT_TOP: GraphicLocation = ...
+        LEFT_TOP: GraphicLocation = GRAPHIC_LOCATION_LEFT_TOP
         """
         The graphic is located in the top left corner.
         """
-        MIDDLE_BOTTOM: GraphicLocation = ...
+        MIDDLE_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_BOTTOM
         """
         The graphic is located in the middle of the bottom edge.
         """
-        MIDDLE_MIDDLE: GraphicLocation = ...
+        MIDDLE_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_MIDDLE
         """
         The graphic is located at the center of the surrounding object.
         """
-        MIDDLE_TOP: GraphicLocation = ...
+        MIDDLE_TOP: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_TOP
         """
         The graphic is located in the middle of the top edge.
         """
-        NONE: GraphicLocation = ...
+        NONE: GraphicLocation = GRAPHIC_LOCATION_NONE
         """
         No column or page break is applied.
         
         This value specifies that a location is not yet assigned.
         """
-        RIGHT_BOTTOM: GraphicLocation = ...
+        RIGHT_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_RIGHT_BOTTOM
         """
         The graphic is located in the bottom right corner.
         """
-        RIGHT_MIDDLE: GraphicLocation = ...
+        RIGHT_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_RIGHT_MIDDLE
         """
         The graphic is located in the middle of the right edge.
         """
-        RIGHT_TOP: GraphicLocation = ...
+        RIGHT_TOP: GraphicLocation = GRAPHIC_LOCATION_RIGHT_TOP
         """
         The graphic is located in the top right corner.
         """
-        TILED: GraphicLocation = ...
+        TILED: GraphicLocation = GRAPHIC_LOCATION_TILED
         """
         The graphic is repeatedly spread over the surrounding object like tiles.
         """
@@ -100,4 +113,3 @@ else:
         pass
 
 __all__ = ['GraphicLocation']
-

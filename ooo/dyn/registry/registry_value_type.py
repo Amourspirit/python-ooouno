@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.registry.RegistryValueType import ASCII as REGISTRY_VALUE_TYPE_ASCII
+    from com.sun.star.registry.RegistryValueType import ASCIILIST as REGISTRY_VALUE_TYPE_ASCIILIST
+    from com.sun.star.registry.RegistryValueType import BINARY as REGISTRY_VALUE_TYPE_BINARY
+    from com.sun.star.registry.RegistryValueType import LONG as REGISTRY_VALUE_TYPE_LONG
+    from com.sun.star.registry.RegistryValueType import LONGLIST as REGISTRY_VALUE_TYPE_LONGLIST
+    from com.sun.star.registry.RegistryValueType import NOT_DEFINED as REGISTRY_VALUE_TYPE_NOT_DEFINED
+    from com.sun.star.registry.RegistryValueType import STRING as REGISTRY_VALUE_TYPE_STRING
+    from com.sun.star.registry.RegistryValueType import STRINGLIST as REGISTRY_VALUE_TYPE_STRINGLIST
 
     class RegistryValueType(uno.Enum):
         """
@@ -33,43 +42,43 @@ if TYPE_CHECKING:
         See Also:
             `API RegistryValueType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a62fb96939bafde3da828f782a8433ac3>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.registry.RegistryValueType', value)
 
-        ASCII: RegistryValueType = ...
+        __ooo_ns__: str = 'com.sun.star.registry'
+        __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
+        __ooo_type_name__: str = 'enum'
+
+        ASCII: RegistryValueType = REGISTRY_VALUE_TYPE_ASCII
         """
         the type of the key is ASCII.
         """
-        ASCIILIST: RegistryValueType = ...
+        ASCIILIST: RegistryValueType = REGISTRY_VALUE_TYPE_ASCIILIST
         """
         the type of the key is an ASCIILIST.
         """
-        BINARY: RegistryValueType = ...
+        BINARY: RegistryValueType = REGISTRY_VALUE_TYPE_BINARY
         """
         the type of the key is binary.
         """
-        LONG: RegistryValueType = ...
+        LONG: RegistryValueType = REGISTRY_VALUE_TYPE_LONG
         """
         the type of the key is long.
         """
-        LONGLIST: RegistryValueType = ...
+        LONGLIST: RegistryValueType = REGISTRY_VALUE_TYPE_LONGLIST
         """
         the type of the key is LONGLIST.
         """
-        NOT_DEFINED: RegistryValueType = ...
+        NOT_DEFINED: RegistryValueType = REGISTRY_VALUE_TYPE_NOT_DEFINED
         """
         the type of the key is not defined.
         """
-        STRING: RegistryValueType = ...
+        STRING: RegistryValueType = REGISTRY_VALUE_TYPE_STRING
         """
         the type of the key is a string.
         """
-        STRINGLIST: RegistryValueType = ...
+        STRINGLIST: RegistryValueType = REGISTRY_VALUE_TYPE_STRINGLIST
         """
         the type of the key is a STRINGLIST.
         """
@@ -82,4 +91,3 @@ else:
         pass
 
 __all__ = ['RegistryValueType']
-

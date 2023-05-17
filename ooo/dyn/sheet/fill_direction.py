@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.FillDirection import TO_BOTTOM as FILL_DIRECTION_TO_BOTTOM
+    from com.sun.star.sheet.FillDirection import TO_LEFT as FILL_DIRECTION_TO_LEFT
+    from com.sun.star.sheet.FillDirection import TO_RIGHT as FILL_DIRECTION_TO_RIGHT
+    from com.sun.star.sheet.FillDirection import TO_TOP as FILL_DIRECTION_TO_TOP
 
     class FillDirection(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API FillDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa8eeb1312106b2d89cd26342fa09aac9>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.FillDirection', value)
 
-        TO_BOTTOM: FillDirection = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.FillDirection'
+        __ooo_type_name__: str = 'enum'
+
+        TO_BOTTOM: FillDirection = FILL_DIRECTION_TO_BOTTOM
         """
         specifies that rows are filled from top to bottom.
         """
-        TO_LEFT: FillDirection = ...
+        TO_LEFT: FillDirection = FILL_DIRECTION_TO_LEFT
         """
         specifies that columns are filled from right to left.
         """
-        TO_RIGHT: FillDirection = ...
+        TO_RIGHT: FillDirection = FILL_DIRECTION_TO_RIGHT
         """
         specifies that columns are filled from left to right.
         """
-        TO_TOP: FillDirection = ...
+        TO_TOP: FillDirection = FILL_DIRECTION_TO_TOP
         """
         specifies that rows are filled from bottom to top.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['FillDirection']
-

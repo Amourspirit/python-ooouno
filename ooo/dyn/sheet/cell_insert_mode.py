@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.CellInsertMode import COLUMNS as CELL_INSERT_MODE_COLUMNS
+    from com.sun.star.sheet.CellInsertMode import DOWN as CELL_INSERT_MODE_DOWN
+    from com.sun.star.sheet.CellInsertMode import NONE as CELL_INSERT_MODE_NONE
+    from com.sun.star.sheet.CellInsertMode import RIGHT as CELL_INSERT_MODE_RIGHT
+    from com.sun.star.sheet.CellInsertMode import ROWS as CELL_INSERT_MODE_ROWS
 
     class CellInsertMode(uno.Enum):
         """
@@ -33,25 +39,25 @@ if TYPE_CHECKING:
         See Also:
             `API CellInsertMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a93cdb08109d5d34543f2fe04d1ef605a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.CellInsertMode', value)
 
-        COLUMNS: CellInsertMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
+        __ooo_type_name__: str = 'enum'
+
+        COLUMNS: CellInsertMode = CELL_INSERT_MODE_COLUMNS
         """
         entire columns to the right of the deleted cells are moved left.
         
         entire columns to the right of the inserted cells are moved right.
         """
-        DOWN: CellInsertMode = ...
+        DOWN: CellInsertMode = CELL_INSERT_MODE_DOWN
         """
         the cells below the inserted cells are moved down.
         """
-        NONE: CellInsertMode = ...
+        NONE: CellInsertMode = CELL_INSERT_MODE_NONE
         """
         no cells are moved.
         
@@ -65,13 +71,13 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        RIGHT: CellInsertMode = ...
+        RIGHT: CellInsertMode = CELL_INSERT_MODE_RIGHT
         """
         selects the right border.
         
         the cells to the right of the inserted cells are moved right.
         """
-        ROWS: CellInsertMode = ...
+        ROWS: CellInsertMode = CELL_INSERT_MODE_ROWS
         """
         entire rows below the deleted cells are moved up.
         
@@ -86,4 +92,3 @@ else:
         pass
 
 __all__ = ['CellInsertMode']
-

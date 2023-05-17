@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.view.PrintableState import JOB_ABORTED as PRINTABLE_STATE_JOB_ABORTED
+    from com.sun.star.view.PrintableState import JOB_COMPLETED as PRINTABLE_STATE_JOB_COMPLETED
+    from com.sun.star.view.PrintableState import JOB_FAILED as PRINTABLE_STATE_JOB_FAILED
+    from com.sun.star.view.PrintableState import JOB_SPOOLED as PRINTABLE_STATE_JOB_SPOOLED
+    from com.sun.star.view.PrintableState import JOB_SPOOLING_FAILED as PRINTABLE_STATE_JOB_SPOOLING_FAILED
+    from com.sun.star.view.PrintableState import JOB_STARTED as PRINTABLE_STATE_JOB_STARTED
 
     class PrintableState(uno.Enum):
         """
@@ -33,37 +40,37 @@ if TYPE_CHECKING:
         See Also:
             `API PrintableState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#ad9b0afaffefc166344fd9575516b6626>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.view.PrintableState', value)
 
-        JOB_ABORTED: PrintableState = ...
+        __ooo_ns__: str = 'com.sun.star.view'
+        __ooo_full_ns__: str = 'com.sun.star.view.PrintableState'
+        __ooo_type_name__: str = 'enum'
+
+        JOB_ABORTED: PrintableState = PRINTABLE_STATE_JOB_ABORTED
         """
         printing was aborted (e.g., by the user) while either printing or spooling.
         """
-        JOB_COMPLETED: PrintableState = ...
+        JOB_COMPLETED: PrintableState = PRINTABLE_STATE_JOB_COMPLETED
         """
         printing (rendering the document) has finished, spooling has begun
         """
-        JOB_FAILED: PrintableState = ...
+        JOB_FAILED: PrintableState = PRINTABLE_STATE_JOB_FAILED
         """
         printing ran into an error.
         """
-        JOB_SPOOLED: PrintableState = ...
+        JOB_SPOOLED: PrintableState = PRINTABLE_STATE_JOB_SPOOLED
         """
         spooling has finished successfully.
         
         This is the only state that can be considered as \"success\" for a print job.
         """
-        JOB_SPOOLING_FAILED: PrintableState = ...
+        JOB_SPOOLING_FAILED: PrintableState = PRINTABLE_STATE_JOB_SPOOLING_FAILED
         """
         the document could be printed but not spooled.
         """
-        JOB_STARTED: PrintableState = ...
+        JOB_STARTED: PrintableState = PRINTABLE_STATE_JOB_STARTED
         """
         printing (rendering the document) has begun
         """
@@ -76,4 +83,3 @@ else:
         pass
 
 __all__ = ['PrintableState']
-

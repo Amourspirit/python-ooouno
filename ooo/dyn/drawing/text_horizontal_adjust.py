@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.TextHorizontalAdjust import BLOCK as TEXT_HORIZONTAL_ADJUST_BLOCK
+    from com.sun.star.drawing.TextHorizontalAdjust import CENTER as TEXT_HORIZONTAL_ADJUST_CENTER
+    from com.sun.star.drawing.TextHorizontalAdjust import LEFT as TEXT_HORIZONTAL_ADJUST_LEFT
+    from com.sun.star.drawing.TextHorizontalAdjust import RIGHT as TEXT_HORIZONTAL_ADJUST_RIGHT
 
     class TextHorizontalAdjust(uno.Enum):
         """
@@ -33,25 +38,25 @@ if TYPE_CHECKING:
         See Also:
             `API TextHorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adc845a26c59f91e9ad752a717b3c2386>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.TextHorizontalAdjust', value)
 
-        BLOCK: TextHorizontalAdjust = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
+        __ooo_type_name__: str = 'enum'
+
+        BLOCK: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_BLOCK
         """
         The text extends from the left to the right edge of the shape.
         
         The text extends from the top to the bottom edge of the shape.
         """
-        CENTER: TextHorizontalAdjust = ...
+        CENTER: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_CENTER
         """
         The text is centered inside the shape.
         """
-        LEFT: TextHorizontalAdjust = ...
+        LEFT: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_LEFT
         """
         the connection line leaves the connected object to the left,
         
@@ -59,7 +64,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: TextHorizontalAdjust = ...
+        RIGHT: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_RIGHT
         """
         the connection line leaves the connected object to the right,
         
@@ -76,4 +81,3 @@ else:
         pass
 
 __all__ = ['TextHorizontalAdjust']
-

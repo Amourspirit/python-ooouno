@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartAxisMarkPosition import AT_AXIS as CHART_AXIS_MARK_POSITION_AT_AXIS
+    from com.sun.star.chart.ChartAxisMarkPosition import AT_LABELS as CHART_AXIS_MARK_POSITION_AT_LABELS
+    from com.sun.star.chart.ChartAxisMarkPosition import AT_LABELS_AND_AXIS as CHART_AXIS_MARK_POSITION_AT_LABELS_AND_AXIS
 
     class ChartAxisMarkPosition(uno.Enum):
         """
@@ -33,25 +37,25 @@ if TYPE_CHECKING:
         See Also:
             `API ChartAxisMarkPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aed594287d3f18573f625e8f708a27555>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartAxisMarkPosition', value)
 
-        AT_AXIS: ChartAxisMarkPosition = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisMarkPosition'
+        __ooo_type_name__: str = 'enum'
+
+        AT_AXIS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_AXIS
         """
         The interval marks are drawn at the axis line.
         
         This makes a difference to \"AT_LABELS\" only when the labels are not placed near the axis (
         """
-        AT_LABELS: ChartAxisMarkPosition = ...
+        AT_LABELS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_LABELS
         """
         The interval marks are drawn besides the axis labels.
         """
-        AT_LABELS_AND_AXIS: ChartAxisMarkPosition = ...
+        AT_LABELS_AND_AXIS: ChartAxisMarkPosition = CHART_AXIS_MARK_POSITION_AT_LABELS_AND_AXIS
         """
         Interval marks are drawn at the axis line and also besides the axis labels.
         
@@ -66,4 +70,3 @@ else:
         pass
 
 __all__ = ['ChartAxisMarkPosition']
-

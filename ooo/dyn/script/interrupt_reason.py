@@ -20,10 +20,19 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.script.InterruptReason import BreakPoint as INTERRUPT_REASON_BreakPoint
+    from com.sun.star.script.InterruptReason import Cancel as INTERRUPT_REASON_Cancel
+    from com.sun.star.script.InterruptReason import CompileError as INTERRUPT_REASON_CompileError
+    from com.sun.star.script.InterruptReason import RuntimeError as INTERRUPT_REASON_RuntimeError
+    from com.sun.star.script.InterruptReason import Step as INTERRUPT_REASON_Step
+    from com.sun.star.script.InterruptReason import StepOut as INTERRUPT_REASON_StepOut
+    from com.sun.star.script.InterruptReason import StepOver as INTERRUPT_REASON_StepOver
+    from com.sun.star.script.InterruptReason import StepStatement as INTERRUPT_REASON_StepStatement
 
     class InterruptReason(uno.Enum):
         """
@@ -33,45 +42,45 @@ if TYPE_CHECKING:
         See Also:
             `API InterruptReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a298e9238891ddece524d1b3732aa33e4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.script.InterruptReason', value)
 
-        BreakPoint: InterruptReason = ...
+        __ooo_ns__: str = 'com.sun.star.script'
+        __ooo_full_ns__: str = 'com.sun.star.script.InterruptReason'
+        __ooo_type_name__: str = 'enum'
+
+        BreakPoint: InterruptReason = INTERRUPT_REASON_BreakPoint
         """
         script stopped at a breakpoint.
         """
-        Cancel: InterruptReason = ...
+        Cancel: InterruptReason = INTERRUPT_REASON_Cancel
         """
         script in the engine was cancelled.
         
         script execution was cancelled.
         """
-        CompileError: InterruptReason = ...
+        CompileError: InterruptReason = INTERRUPT_REASON_CompileError
         """
         script has invalid syntax.
         """
-        RuntimeError: InterruptReason = ...
+        RuntimeError: InterruptReason = INTERRUPT_REASON_RuntimeError
         """
         runtime error occurred during script execution.
         """
-        Step: InterruptReason = ...
+        Step: InterruptReason = INTERRUPT_REASON_Step
         """
         script stops because only one scripting engine command was executed.
         """
-        StepOut: InterruptReason = ...
+        StepOut: InterruptReason = INTERRUPT_REASON_StepOut
         """
         script stops because it leaves a function.
         """
-        StepOver: InterruptReason = ...
+        StepOver: InterruptReason = INTERRUPT_REASON_StepOver
         """
         script stops because one step was executed.
         """
-        StepStatement: InterruptReason = ...
+        StepStatement: InterruptReason = INTERRUPT_REASON_StepStatement
         """
         script stop because one step was executed.
         """
@@ -84,4 +93,3 @@ else:
         pass
 
 __all__ = ['InterruptReason']
-

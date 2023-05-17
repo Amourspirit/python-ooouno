@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.SearchRecursion import DEEP as SEARCH_RECURSION_DEEP
+    from com.sun.star.ucb.SearchRecursion import NONE as SEARCH_RECURSION_NONE
+    from com.sun.star.ucb.SearchRecursion import ONE_LEVEL as SEARCH_RECURSION_ONE_LEVEL
 
     class SearchRecursion(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API SearchRecursion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a8f357eda7c29e9601428bdc8834c7bd8>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.SearchRecursion', value)
 
-        DEEP: SearchRecursion = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.SearchRecursion'
+        __ooo_type_name__: str = 'enum'
+
+        DEEP: SearchRecursion = SEARCH_RECURSION_DEEP
         """
         Searches through the complete hierarchy of all sub-objects.
         """
-        NONE: SearchRecursion = ...
+        NONE: SearchRecursion = SEARCH_RECURSION_NONE
         """
         Does not search through any sub-objects.
         """
-        ONE_LEVEL: SearchRecursion = ...
+        ONE_LEVEL: SearchRecursion = SEARCH_RECURSION_ONE_LEVEL
         """
         Only searches through sub-objects of the first hierarchy level.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['SearchRecursion']
-

@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.drawing.LayerType import CONTROLSA as LAYER_TYPE_CONTROLSA
+    from com.sun.star.drawing.LayerType import DIMENSIONIANG_LINES as LAYER_TYPE_DIMENSIONIANG_LINES
+    from com.sun.star.drawing.LayerType import LAYOUT as LAYER_TYPE_LAYOUT
+    from com.sun.star.drawing.LayerType import USER_DEFINED as LAYER_TYPE_USER_DEFINED
 
     class LayerType(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API LayerType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a56943a0946e5f15e5e58054b8e7a04a4>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.drawing.LayerType', value)
 
-        CONTROLSA: LayerType = ...
+        __ooo_ns__: str = 'com.sun.star.drawing'
+        __ooo_full_ns__: str = 'com.sun.star.drawing.LayerType'
+        __ooo_type_name__: str = 'enum'
+
+        CONTROLSA: LayerType = LAYER_TYPE_CONTROLSA
         """
         This is the layer for the controls.
         """
-        DIMENSIONIANG_LINES: LayerType = ...
+        DIMENSIONIANG_LINES: LayerType = LAYER_TYPE_DIMENSIONIANG_LINES
         """
         This is the layer for all measure shapes.
         """
-        LAYOUT: LayerType = ...
+        LAYOUT: LayerType = LAYER_TYPE_LAYOUT
         """
         This is the layer for all standard shapes.
         """
-        USER_DEFINED: LayerType = ...
+        USER_DEFINED: LayerType = LAYER_TYPE_USER_DEFINED
         """
         There can be zero or more layers of this type.
         """
@@ -66,4 +71,3 @@ else:
         pass
 
 __all__ = ['LayerType']
-

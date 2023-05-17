@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.awt.RasterOperation import ALLBITS as RASTER_OPERATION_ALLBITS
+    from com.sun.star.awt.RasterOperation import INVERT as RASTER_OPERATION_INVERT
+    from com.sun.star.awt.RasterOperation import OVERPAINT as RASTER_OPERATION_OVERPAINT
+    from com.sun.star.awt.RasterOperation import XOR as RASTER_OPERATION_XOR
+    from com.sun.star.awt.RasterOperation import ZEROBITS as RASTER_OPERATION_ZEROBITS
 
     class RasterOperation(uno.Enum):
         """
@@ -33,31 +39,31 @@ if TYPE_CHECKING:
         See Also:
             `API RasterOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a54da390665a5b42acc81143cd24926fd>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.awt.RasterOperation', value)
 
-        ALLBITS: RasterOperation = ...
+        __ooo_ns__: str = 'com.sun.star.awt'
+        __ooo_full_ns__: str = 'com.sun.star.awt.RasterOperation'
+        __ooo_type_name__: str = 'enum'
+
+        ALLBITS: RasterOperation = RASTER_OPERATION_ALLBITS
         """
         All bits which are affected by this operation are set to 1.
         """
-        INVERT: RasterOperation = ...
+        INVERT: RasterOperation = RASTER_OPERATION_INVERT
         """
         All bits which are affected by this operation are inverted.
         """
-        OVERPAINT: RasterOperation = ...
+        OVERPAINT: RasterOperation = RASTER_OPERATION_OVERPAINT
         """
         sets all pixel as written in the output operation.
         """
-        XOR: RasterOperation = ...
+        XOR: RasterOperation = RASTER_OPERATION_XOR
         """
         uses the pixel written as one and the current pixel as the other operator of an exclusive or-operation.
         """
-        ZEROBITS: RasterOperation = ...
+        ZEROBITS: RasterOperation = RASTER_OPERATION_ZEROBITS
         """
         All bits which are affected by this operation are set to 0.
         """
@@ -70,4 +76,3 @@ else:
         pass
 
 __all__ = ['RasterOperation']
-

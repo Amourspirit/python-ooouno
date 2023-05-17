@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.Priority import HIGH as PRIORITY_HIGH
+    from com.sun.star.ucb.Priority import HIGHEST as PRIORITY_HIGHEST
+    from com.sun.star.ucb.Priority import LOW as PRIORITY_LOW
+    from com.sun.star.ucb.Priority import LOWEST as PRIORITY_LOWEST
+    from com.sun.star.ucb.Priority import NORMAL as PRIORITY_NORMAL
 
     class Priority(uno.Enum):
         """
@@ -33,31 +39,31 @@ if TYPE_CHECKING:
         See Also:
             `API Priority <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a315655b1bb5848c063491adffde62b15>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.Priority', value)
 
-        HIGH: Priority = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.Priority'
+        __ooo_type_name__: str = 'enum'
+
+        HIGH: Priority = PRIORITY_HIGH
         """
         High priority.
         """
-        HIGHEST: Priority = ...
+        HIGHEST: Priority = PRIORITY_HIGHEST
         """
         Highest priority.
         """
-        LOW: Priority = ...
+        LOW: Priority = PRIORITY_LOW
         """
         Low priority.
         """
-        LOWEST: Priority = ...
+        LOWEST: Priority = PRIORITY_LOWEST
         """
         Lowest priority.
         """
-        NORMAL: Priority = ...
+        NORMAL: Priority = PRIORITY_NORMAL
         """
         Normal priority.
         """
@@ -70,4 +76,3 @@ else:
         pass
 
 __all__ = ['Priority']
-

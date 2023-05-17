@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ucb.RememberAuthentication import NO as REMEMBER_AUTHENTICATION_NO
+    from com.sun.star.ucb.RememberAuthentication import PERSISTENT as REMEMBER_AUTHENTICATION_PERSISTENT
+    from com.sun.star.ucb.RememberAuthentication import SESSION as REMEMBER_AUTHENTICATION_SESSION
 
     class RememberAuthentication(uno.Enum):
         """
@@ -33,23 +37,23 @@ if TYPE_CHECKING:
         See Also:
             `API RememberAuthentication <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a7b9847f348fd7f6a0fc461f821c08173>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ucb.RememberAuthentication', value)
 
-        NO: RememberAuthentication = ...
+        __ooo_ns__: str = 'com.sun.star.ucb'
+        __ooo_full_ns__: str = 'com.sun.star.ucb.RememberAuthentication'
+        __ooo_type_name__: str = 'enum'
+
+        NO: RememberAuthentication = REMEMBER_AUTHENTICATION_NO
         """
         Do not remember the authentication data (use it once and immediately forget about it).
         """
-        PERSISTENT: RememberAuthentication = ...
+        PERSISTENT: RememberAuthentication = REMEMBER_AUTHENTICATION_PERSISTENT
         """
         Remember the authentication data \"forever\".
         """
-        SESSION: RememberAuthentication = ...
+        SESSION: RememberAuthentication = REMEMBER_AUTHENTICATION_SESSION
         """
         Remember the authentication data, but only until the end of the current session.
         """
@@ -62,4 +66,3 @@ else:
         pass
 
 __all__ = ['RememberAuthentication']
-

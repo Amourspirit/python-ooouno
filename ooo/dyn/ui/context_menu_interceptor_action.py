@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.ui.ContextMenuInterceptorAction import CANCELLED as CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED
+    from com.sun.star.ui.ContextMenuInterceptorAction import CONTINUE_MODIFIED as CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED
+    from com.sun.star.ui.ContextMenuInterceptorAction import EXECUTE_MODIFIED as CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED
+    from com.sun.star.ui.ContextMenuInterceptorAction import IGNORED as CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED
 
     class ContextMenuInterceptorAction(uno.Enum):
         """
@@ -33,29 +38,29 @@ if TYPE_CHECKING:
         See Also:
             `API ContextMenuInterceptorAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ui.html#a6e0452a8960be949dce52c427920ebbe>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.ui.ContextMenuInterceptorAction', value)
 
-        CANCELLED: ContextMenuInterceptorAction = ...
+        __ooo_ns__: str = 'com.sun.star.ui'
+        __ooo_full_ns__: str = 'com.sun.star.ui.ContextMenuInterceptorAction'
+        __ooo_type_name__: str = 'enum'
+
+        CANCELLED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_CANCELLED
         """
         the context menu must not be executed.
         
         The next registered XContextMenuInterceptor should not be notified.
         """
-        CONTINUE_MODIFIED: ContextMenuInterceptorAction = ...
+        CONTINUE_MODIFIED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_CONTINUE_MODIFIED
         """
         the menu has been modified and the next registered XContextMenuInterceptor should be notified.
         """
-        EXECUTE_MODIFIED: ContextMenuInterceptorAction = ...
+        EXECUTE_MODIFIED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_EXECUTE_MODIFIED
         """
         the menu has been modified and should be executed without notifying the next registered XContextMenuInterceptor.
         """
-        IGNORED: ContextMenuInterceptorAction = ...
+        IGNORED: ContextMenuInterceptorAction = CONTEXT_MENU_INTERCEPTOR_ACTION_IGNORED
         """
         the XContextMenuInterceptor has ignored the call.
         
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['ContextMenuInterceptorAction']
-

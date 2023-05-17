@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.crypto.sax.ElementMarkPriority import AFTERMODIFY as ELEMENT_MARK_PRIORITY_AFTERMODIFY
+    from com.sun.star.xml.crypto.sax.ElementMarkPriority import BEFOREMODIFY as ELEMENT_MARK_PRIORITY_BEFOREMODIFY
+    from com.sun.star.xml.crypto.sax.ElementMarkPriority import MINIMUM as ELEMENT_MARK_PRIORITY_MINIMUM
 
     class ElementMarkPriority(uno.Enum):
         """
@@ -33,21 +37,21 @@ if TYPE_CHECKING:
         See Also:
             `API ElementMarkPriority <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a513614abfcc788af5f4afd633a9f5d0a>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.crypto.sax.ElementMarkPriority', value)
 
-        AFTERMODIFY: ElementMarkPriority = ...
+        __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
+        __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkPriority'
+        __ooo_type_name__: str = 'enum'
+
+        AFTERMODIFY: ElementMarkPriority = ELEMENT_MARK_PRIORITY_AFTERMODIFY
         """
         """
-        BEFOREMODIFY: ElementMarkPriority = ...
+        BEFOREMODIFY: ElementMarkPriority = ELEMENT_MARK_PRIORITY_BEFOREMODIFY
         """
         """
-        MINIMUM: ElementMarkPriority = ...
+        MINIMUM: ElementMarkPriority = ELEMENT_MARK_PRIORITY_MINIMUM
         """
         """
 
@@ -59,4 +63,3 @@ else:
         pass
 
 __all__ = ['ElementMarkPriority']
-

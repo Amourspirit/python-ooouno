@@ -20,10 +20,17 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartErrorCategory import CONSTANT_VALUE as CHART_ERROR_CATEGORY_CONSTANT_VALUE
+    from com.sun.star.chart.ChartErrorCategory import ERROR_MARGIN as CHART_ERROR_CATEGORY_ERROR_MARGIN
+    from com.sun.star.chart.ChartErrorCategory import NONE as CHART_ERROR_CATEGORY_NONE
+    from com.sun.star.chart.ChartErrorCategory import PERCENT as CHART_ERROR_CATEGORY_PERCENT
+    from com.sun.star.chart.ChartErrorCategory import STANDARD_DEVIATION as CHART_ERROR_CATEGORY_STANDARD_DEVIATION
+    from com.sun.star.chart.ChartErrorCategory import VARIANCE as CHART_ERROR_CATEGORY_VARIANCE
 
     class ChartErrorCategory(uno.Enum):
         """
@@ -33,25 +40,25 @@ if TYPE_CHECKING:
         See Also:
             `API ChartErrorCategory <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a5dc5747cfef559a2185b3400717ee431>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartErrorCategory', value)
 
-        CONSTANT_VALUE: ChartErrorCategory = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorCategory'
+        __ooo_type_name__: str = 'enum'
+
+        CONSTANT_VALUE: ChartErrorCategory = CHART_ERROR_CATEGORY_CONSTANT_VALUE
         """
         displays the same lower and upper error indicators for all data points.
         
         The values for these are given as absolute numbers in ChartStatistics.ConstantErrorLow and ChartStatistics.ConstantErrorHigh
         """
-        ERROR_MARGIN: ChartErrorCategory = ...
+        ERROR_MARGIN: ChartErrorCategory = CHART_ERROR_CATEGORY_ERROR_MARGIN
         """
         The length of the error indicators for all data points is calculated by taking the percentage given as ChartStatistics.ErrorMargin of the largest data point value.
         """
-        NONE: ChartErrorCategory = ...
+        NONE: ChartErrorCategory = CHART_ERROR_CATEGORY_NONE
         """
         error indicators are not displayed.
         
@@ -61,15 +68,15 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        PERCENT: ChartErrorCategory = ...
+        PERCENT: ChartErrorCategory = CHART_ERROR_CATEGORY_PERCENT
         """
         The length of the error indicators is calculated for each data point by taking the percentage given as ChartStatistics.PercentageError of its value.
         """
-        STANDARD_DEVIATION: ChartErrorCategory = ...
+        STANDARD_DEVIATION: ChartErrorCategory = CHART_ERROR_CATEGORY_STANDARD_DEVIATION
         """
         displays error indicators for the standard deviation (square root of variance) of the data row.
         """
-        VARIANCE: ChartErrorCategory = ...
+        VARIANCE: ChartErrorCategory = CHART_ERROR_CATEGORY_VARIANCE
         """
         displays error indicators for the variance of the data row.
         """
@@ -82,4 +89,3 @@ else:
         pass
 
 __all__ = ['ChartErrorCategory']
-

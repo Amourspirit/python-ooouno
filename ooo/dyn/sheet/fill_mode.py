@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.sheet.FillMode import AUTO as FILL_MODE_AUTO
+    from com.sun.star.sheet.FillMode import DATE as FILL_MODE_DATE
+    from com.sun.star.sheet.FillMode import GROWTH as FILL_MODE_GROWTH
+    from com.sun.star.sheet.FillMode import LINEAR as FILL_MODE_LINEAR
+    from com.sun.star.sheet.FillMode import SIMPLE as FILL_MODE_SIMPLE
 
     class FillMode(uno.Enum):
         """
@@ -33,35 +39,35 @@ if TYPE_CHECKING:
         See Also:
             `API FillMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a75a9acd74effffae38daed55136b0980>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.sheet.FillMode', value)
 
-        AUTO: FillMode = ...
+        __ooo_ns__: str = 'com.sun.star.sheet'
+        __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
+        __ooo_type_name__: str = 'enum'
+
+        AUTO: FillMode = FILL_MODE_AUTO
         """
         specifies the use of a user-defined list.
         
         function is determined automatically.
         """
-        DATE: FillMode = ...
+        DATE: FillMode = FILL_MODE_DATE
         """
         specifies an arithmetic series for date values.
         
         any date value matching the specified condition is valid.
         """
-        GROWTH: FillMode = ...
+        GROWTH: FillMode = FILL_MODE_GROWTH
         """
         specifies a geometric series.
         """
-        LINEAR: FillMode = ...
+        LINEAR: FillMode = FILL_MODE_LINEAR
         """
         specifies an arithmetic series.
         """
-        SIMPLE: FillMode = ...
+        SIMPLE: FillMode = FILL_MODE_SIMPLE
         """
         specifies a constant series.
         """
@@ -74,4 +80,3 @@ else:
         pass
 
 __all__ = ['FillMode']
-

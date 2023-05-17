@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartAxisPosition import END as CHART_AXIS_POSITION_END
+    from com.sun.star.chart.ChartAxisPosition import START as CHART_AXIS_POSITION_START
+    from com.sun.star.chart.ChartAxisPosition import VALUE as CHART_AXIS_POSITION_VALUE
+    from com.sun.star.chart.ChartAxisPosition import ZERO as CHART_AXIS_POSITION_ZERO
 
     class ChartAxisPosition(uno.Enum):
         """
@@ -33,27 +38,27 @@ if TYPE_CHECKING:
         See Also:
             `API ChartAxisPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aa2815fba34da31acb139c7be75fda078>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartAxisPosition', value)
 
-        END: ChartAxisPosition = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
+        __ooo_type_name__: str = 'enum'
+
+        END: ChartAxisPosition = CHART_AXIS_POSITION_END
         """
         Cross the other axes at their maximum scale value.
         """
-        START: ChartAxisPosition = ...
+        START: ChartAxisPosition = CHART_AXIS_POSITION_START
         """
         Cross the other axes at their minimum scale value.
         """
-        VALUE: ChartAxisPosition = ...
+        VALUE: ChartAxisPosition = CHART_AXIS_POSITION_VALUE
         """
         Cross the other axes at the value specified in the property CrossoverValue.
         """
-        ZERO: ChartAxisPosition = ...
+        ZERO: ChartAxisPosition = CHART_AXIS_POSITION_ZERO
         """
         Cross the other axes at zero.
         
@@ -68,4 +73,3 @@ else:
         pass
 
 __all__ = ['ChartAxisPosition']
-

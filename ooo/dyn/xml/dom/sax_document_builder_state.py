@@ -20,10 +20,16 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_DOCUMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_FRAGMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import DOCUMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import FRAGMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import READY as S_A_X_DOCUMENT_BUILDER_STATE_READY
 
     class SAXDocumentBuilderState(uno.Enum):
         """
@@ -34,27 +40,27 @@ if TYPE_CHECKING:
         See Also:
             `API SAXDocumentBuilderState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#a8e1d723b2d19d95078879bf81b535b36>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.xml.dom.SAXDocumentBuilderState', value)
 
-        BUILDING_DOCUMENT: SAXDocumentBuilderState = ...
+        __ooo_ns__: str = 'com.sun.star.xml.dom'
+        __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
+        __ooo_type_name__: str = 'enum'
+
+        BUILDING_DOCUMENT: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
         """
         """
-        BUILDING_FRAGMENT: SAXDocumentBuilderState = ...
+        BUILDING_FRAGMENT: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
         """
         """
-        DOCUMENT_FINISHED: SAXDocumentBuilderState = ...
+        DOCUMENT_FINISHED: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
         """
         """
-        FRAGMENT_FINISHED: SAXDocumentBuilderState = ...
+        FRAGMENT_FINISHED: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
         """
         """
-        READY: SAXDocumentBuilderState = ...
+        READY: SAXDocumentBuilderState = S_A_X_DOCUMENT_BUILDER_STATE_READY
         """
         """
 
@@ -66,4 +72,3 @@ else:
         pass
 
 __all__ = ['SAXDocumentBuilderState']
-

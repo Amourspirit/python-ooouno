@@ -20,10 +20,14 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.text.HorizontalAdjust import CENTER as HORIZONTAL_ADJUST_CENTER
+    from com.sun.star.text.HorizontalAdjust import LEFT as HORIZONTAL_ADJUST_LEFT
+    from com.sun.star.text.HorizontalAdjust import RIGHT as HORIZONTAL_ADJUST_RIGHT
 
     class HorizontalAdjust(uno.Enum):
         """
@@ -33,21 +37,21 @@ if TYPE_CHECKING:
         See Also:
             `API HorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a8105146481666b39ebbd63a934576b6c>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.text.HorizontalAdjust', value)
 
-        CENTER: HorizontalAdjust = ...
+        __ooo_ns__: str = 'com.sun.star.text'
+        __ooo_full_ns__: str = 'com.sun.star.text.HorizontalAdjust'
+        __ooo_type_name__: str = 'enum'
+
+        CENTER: HorizontalAdjust = HORIZONTAL_ADJUST_CENTER
         """
         the object is adjusted to the center.
         
         centric adjusted.
         """
-        LEFT: HorizontalAdjust = ...
+        LEFT: HorizontalAdjust = HORIZONTAL_ADJUST_LEFT
         """
         the object is left adjusted.
         
@@ -55,7 +59,7 @@ if TYPE_CHECKING:
         
         adjusted to the left.
         """
-        RIGHT: HorizontalAdjust = ...
+        RIGHT: HorizontalAdjust = HORIZONTAL_ADJUST_RIGHT
         """
         the object is right adjusted.
         
@@ -72,4 +76,3 @@ else:
         pass
 
 __all__ = ['HorizontalAdjust']
-

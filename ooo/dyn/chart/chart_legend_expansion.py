@@ -20,10 +20,15 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.chart.ChartLegendExpansion import BALANCED as CHART_LEGEND_EXPANSION_BALANCED
+    from com.sun.star.chart.ChartLegendExpansion import CUSTOM as CHART_LEGEND_EXPANSION_CUSTOM
+    from com.sun.star.chart.ChartLegendExpansion import HIGH as CHART_LEGEND_EXPANSION_HIGH
+    from com.sun.star.chart.ChartLegendExpansion import WIDE as CHART_LEGEND_EXPANSION_WIDE
 
     class ChartLegendExpansion(uno.Enum):
         """
@@ -33,29 +38,29 @@ if TYPE_CHECKING:
         See Also:
             `API ChartLegendExpansion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#ab1908f844354e32092fdec03c1b9b513>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.chart.ChartLegendExpansion', value)
 
-        BALANCED: ChartLegendExpansion = ...
+        __ooo_ns__: str = 'com.sun.star.chart'
+        __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendExpansion'
+        __ooo_type_name__: str = 'enum'
+
+        BALANCED: ChartLegendExpansion = CHART_LEGEND_EXPANSION_BALANCED
         """
         The legend entries are arranged in a way that the aspect ratio of the resulting legend is as near to 1 as possible.
         """
-        CUSTOM: ChartLegendExpansion = ...
+        CUSTOM: ChartLegendExpansion = CHART_LEGEND_EXPANSION_CUSTOM
         """
         The size of the legend is given explicitly.
         """
-        HIGH: ChartLegendExpansion = ...
+        HIGH: ChartLegendExpansion = CHART_LEGEND_EXPANSION_HIGH
         """
         The legend entries are stacked in a single column if possible.
         
         If not enough space is available further columns are added.
         """
-        WIDE: ChartLegendExpansion = ...
+        WIDE: ChartLegendExpansion = CHART_LEGEND_EXPANSION_WIDE
         """
         The legend entries are arranged in a single row if possible.
         
@@ -70,4 +75,3 @@ else:
         pass
 
 __all__ = ['ChartLegendExpansion']
-

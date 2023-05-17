@@ -20,10 +20,20 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
+
+    from com.sun.star.security.ExtAltNameType import DIRECTORY_NAME as EXT_ALT_NAME_TYPE_DIRECTORY_NAME
+    from com.sun.star.security.ExtAltNameType import DNS_NAME as EXT_ALT_NAME_TYPE_DNS_NAME
+    from com.sun.star.security.ExtAltNameType import EDI_PARTY_NAME as EXT_ALT_NAME_TYPE_EDI_PARTY_NAME
+    from com.sun.star.security.ExtAltNameType import IP_ADDRESS as EXT_ALT_NAME_TYPE_IP_ADDRESS
+    from com.sun.star.security.ExtAltNameType import OTHER_NAME as EXT_ALT_NAME_TYPE_OTHER_NAME
+    from com.sun.star.security.ExtAltNameType import REGISTERED_ID as EXT_ALT_NAME_TYPE_REGISTERED_ID
+    from com.sun.star.security.ExtAltNameType import RFC822_NAME as EXT_ALT_NAME_TYPE_RFC822_NAME
+    from com.sun.star.security.ExtAltNameType import URL as EXT_ALT_NAME_TYPE_URL
+    from com.sun.star.security.ExtAltNameType import X400_ADDRESS as EXT_ALT_NAME_TYPE_X400_ADDRESS
 
     class ExtAltNameType(uno.Enum):
         """
@@ -33,57 +43,57 @@ if TYPE_CHECKING:
         See Also:
             `API ExtAltNameType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a5c5a31742567126d2ba88393b05efa3f>`_
         """
-        __ooo_ns__: str = ...
-        __ooo_full_ns__: str = ...
-        __ooo_type_name__: str = ...
 
-        @property
-        def typeName(self) -> str:
-            ...
+        def __init__(self, value: Any) -> None:
+            super().__init__('com.sun.star.security.ExtAltNameType', value)
 
-        DIRECTORY_NAME: ExtAltNameType = ...
+        __ooo_ns__: str = 'com.sun.star.security'
+        __ooo_full_ns__: str = 'com.sun.star.security.ExtAltNameType'
+        __ooo_type_name__: str = 'enum'
+
+        DIRECTORY_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_DIRECTORY_NAME
         """
         Currently unsupported.
         """
-        DNS_NAME: ExtAltNameType = ...
+        DNS_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_DNS_NAME
         """
         The entry contains a dns name.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        EDI_PARTY_NAME: ExtAltNameType = ...
+        EDI_PARTY_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_EDI_PARTY_NAME
         """
         Currently unsupported.
         """
-        IP_ADDRESS: ExtAltNameType = ...
+        IP_ADDRESS: ExtAltNameType = EXT_ALT_NAME_TYPE_IP_ADDRESS
         """
         The entry contains an IP address.
         
         The value of CertAltNameEntry contains a Sequence of sal_Int8.
         """
-        OTHER_NAME: ExtAltNameType = ...
+        OTHER_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_OTHER_NAME
         """
         Customize name/value pair The value of CertAltNameEntry contains a NamedValue.
         """
-        REGISTERED_ID: ExtAltNameType = ...
+        REGISTERED_ID: ExtAltNameType = EXT_ALT_NAME_TYPE_REGISTERED_ID
         """
         The entry contains a registered id.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        RFC822_NAME: ExtAltNameType = ...
+        RFC822_NAME: ExtAltNameType = EXT_ALT_NAME_TYPE_RFC822_NAME
         """
         The entry contains rfc822 name.
         
         The value of CertAltNameEntry contains an OUString.
         """
-        URL: ExtAltNameType = ...
+        URL: ExtAltNameType = EXT_ALT_NAME_TYPE_URL
         """
         The entry contains a URL.
         
         The value of CertAltNameEntry contains a OUString.
         """
-        X400_ADDRESS: ExtAltNameType = ...
+        X400_ADDRESS: ExtAltNameType = EXT_ALT_NAME_TYPE_X400_ADDRESS
         """
         Currently unsupported.
         """
@@ -96,4 +106,3 @@ else:
         pass
 
 __all__ = ['ExtAltNameType']
-

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.PieChartOffsetMode'
         __ooo_type_name__: str = 'enum'
 
-        ALL_EXPLODED: PieChartOffsetMode = PIE_CHART_OFFSET_MODE_ALL_EXPLODED
+        ALL_EXPLODED = cast("PieChartOffsetMode", PIE_CHART_OFFSET_MODE_ALL_EXPLODED)
         """
         All pies are exploded by a certain percentage.
         
         The default is 10 percent.
         """
-        NONE: PieChartOffsetMode = PIE_CHART_OFFSET_MODE_NONE
+        NONE = cast("PieChartOffsetMode", PIE_CHART_OFFSET_MODE_NONE)
         """
         Default, no pies are exploded.
         

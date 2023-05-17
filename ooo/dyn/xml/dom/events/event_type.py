@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -59,52 +59,52 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.EventType'
         __ooo_type_name__: str = 'enum'
 
-        DOMActivate: EventType = EVENT_TYPE_DOMActivate
+        DOMActivate = cast("EventType", EVENT_TYPE_DOMActivate)
         """
         """
-        DOMAttrModified: EventType = EVENT_TYPE_DOMAttrModified
+        DOMAttrModified = cast("EventType", EVENT_TYPE_DOMAttrModified)
         """
         """
-        DOMCharacterDataModified: EventType = EVENT_TYPE_DOMCharacterDataModified
+        DOMCharacterDataModified = cast("EventType", EVENT_TYPE_DOMCharacterDataModified)
         """
         """
-        DOMFocusIn: EventType = EVENT_TYPE_DOMFocusIn
+        DOMFocusIn = cast("EventType", EVENT_TYPE_DOMFocusIn)
         """
         """
-        DOMFocusOut: EventType = EVENT_TYPE_DOMFocusOut
+        DOMFocusOut = cast("EventType", EVENT_TYPE_DOMFocusOut)
         """
         """
-        DOMNodeInserted: EventType = EVENT_TYPE_DOMNodeInserted
+        DOMNodeInserted = cast("EventType", EVENT_TYPE_DOMNodeInserted)
         """
         """
-        DOMNodeInsertedIntoDocument: EventType = EVENT_TYPE_DOMNodeInsertedIntoDocument
+        DOMNodeInsertedIntoDocument = cast("EventType", EVENT_TYPE_DOMNodeInsertedIntoDocument)
         """
         """
-        DOMNodeRemoved: EventType = EVENT_TYPE_DOMNodeRemoved
+        DOMNodeRemoved = cast("EventType", EVENT_TYPE_DOMNodeRemoved)
         """
         """
-        DOMNodeRemovedFromDocument: EventType = EVENT_TYPE_DOMNodeRemovedFromDocument
+        DOMNodeRemovedFromDocument = cast("EventType", EVENT_TYPE_DOMNodeRemovedFromDocument)
         """
         """
-        DOMSubtreeModified: EventType = EVENT_TYPE_DOMSubtreeModified
+        DOMSubtreeModified = cast("EventType", EVENT_TYPE_DOMSubtreeModified)
         """
         """
-        click: EventType = EVENT_TYPE_click
+        click = cast("EventType", EVENT_TYPE_click)
         """
         """
-        mousedown: EventType = EVENT_TYPE_mousedown
+        mousedown = cast("EventType", EVENT_TYPE_mousedown)
         """
         """
-        mousemove: EventType = EVENT_TYPE_mousemove
+        mousemove = cast("EventType", EVENT_TYPE_mousemove)
         """
         """
-        mouseout: EventType = EVENT_TYPE_mouseout
+        mouseout = cast("EventType", EVENT_TYPE_mouseout)
         """
         """
-        mouseover: EventType = EVENT_TYPE_mouseover
+        mouseover = cast("EventType", EVENT_TYPE_mouseover)
         """
         """
-        mouseup: EventType = EVENT_TYPE_mouseup
+        mouseup = cast("EventType", EVENT_TYPE_mouseup)
         """
         """
 

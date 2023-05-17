@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,27 +48,27 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataChangeType'
         __ooo_type_name__: str = 'enum'
 
-        ALL: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ALL
+        ALL = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_ALL)
         """
         Major changes were applied to the data.
         """
-        COLUMN_DELETED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_COLUMN_DELETED
+        COLUMN_DELETED = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_COLUMN_DELETED)
         """
         The column given in the ChartDataChangeEvent, was deleted.
         """
-        COLUMN_INSERTED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_COLUMN_INSERTED
+        COLUMN_INSERTED = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_COLUMN_INSERTED)
         """
         The column given in the ChartDataChangeEvent, was inserted.
         """
-        DATA_RANGE: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_DATA_RANGE
+        DATA_RANGE = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_DATA_RANGE)
         """
         The range of columns and rows, given in the ChartDataChangeEvent, has changed.
         """
-        ROW_DELETED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ROW_DELETED
+        ROW_DELETED = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_ROW_DELETED)
         """
         The row given in the ChartDataChangeEvent, was deleted.
         """
-        ROW_INSERTED: ChartDataChangeType = CHART_DATA_CHANGE_TYPE_ROW_INSERTED
+        ROW_INSERTED = cast("ChartDataChangeType", CHART_DATA_CHANGE_TYPE_ROW_INSERTED)
         """
         The row given in the ChartDataChangeEvent, was inserted.
         """

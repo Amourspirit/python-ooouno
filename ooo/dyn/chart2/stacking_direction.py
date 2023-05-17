@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,13 +46,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.StackingDirection'
         __ooo_type_name__: str = 'enum'
 
-        NO_STACKING: StackingDirection = STACKING_DIRECTION_NO_STACKING
+        NO_STACKING = cast("StackingDirection", STACKING_DIRECTION_NO_STACKING)
         """
         """
-        Y_STACKING: StackingDirection = STACKING_DIRECTION_Y_STACKING
+        Y_STACKING = cast("StackingDirection", STACKING_DIRECTION_Y_STACKING)
         """
         """
-        Z_STACKING: StackingDirection = STACKING_DIRECTION_Z_STACKING
+        Z_STACKING = cast("StackingDirection", STACKING_DIRECTION_Z_STACKING)
         """
         """
 

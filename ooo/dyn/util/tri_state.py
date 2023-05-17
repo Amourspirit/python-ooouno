@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.util.TriState'
         __ooo_type_name__: str = 'enum'
 
-        INDETERMINATE: TriState = TRI_STATE_INDETERMINATE
+        INDETERMINATE = cast("TriState", TRI_STATE_INDETERMINATE)
         """
         The value is indeterminate.
         """
-        NO: TriState = TRI_STATE_NO
+        NO = cast("TriState", TRI_STATE_NO)
         """
         The value is equivalent to FALSE.
         """
-        YES: TriState = TRI_STATE_YES
+        YES = cast("TriState", TRI_STATE_YES)
         """
         The value is equivalent to TRUE.
         """

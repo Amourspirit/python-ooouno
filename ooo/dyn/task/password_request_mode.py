@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.task.PasswordRequestMode'
         __ooo_type_name__: str = 'enum'
 
-        PASSWORD_CREATE: PasswordRequestMode = PASSWORD_REQUEST_MODE_PASSWORD_CREATE
+        PASSWORD_CREATE = cast("PasswordRequestMode", PASSWORD_REQUEST_MODE_PASSWORD_CREATE)
         """
         Password creation.
         """
-        PASSWORD_ENTER: PasswordRequestMode = PASSWORD_REQUEST_MODE_PASSWORD_ENTER
+        PASSWORD_ENTER = cast("PasswordRequestMode", PASSWORD_REQUEST_MODE_PASSWORD_ENTER)
         """
         Ask for a password.
         """
-        PASSWORD_REENTER: PasswordRequestMode = PASSWORD_REQUEST_MODE_PASSWORD_REENTER
+        PASSWORD_REENTER = cast("PasswordRequestMode", PASSWORD_REQUEST_MODE_PASSWORD_REENTER)
         """
         Wrong password was entered, ask again.
         """

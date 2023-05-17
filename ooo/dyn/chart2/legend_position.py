@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,23 +48,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.LegendPosition'
         __ooo_type_name__: str = 'enum'
 
-        CUSTOM: LegendPosition = LEGEND_POSITION_CUSTOM
+        CUSTOM = cast("LegendPosition", LEGEND_POSITION_CUSTOM)
         """
         The position of the legend is given by an offset value.
         """
-        LINE_END: LegendPosition = LEGEND_POSITION_LINE_END
+        LINE_END = cast("LegendPosition", LEGEND_POSITION_LINE_END)
         """
         In LTR mode this is the right-hand side.
         """
-        LINE_START: LegendPosition = LEGEND_POSITION_LINE_START
+        LINE_START = cast("LegendPosition", LEGEND_POSITION_LINE_START)
         """
         In LTR mode this is the left-hand side.
         """
-        PAGE_END: LegendPosition = LEGEND_POSITION_PAGE_END
+        PAGE_END = cast("LegendPosition", LEGEND_POSITION_PAGE_END)
         """
         In LTR mode this is the bottom side.
         """
-        PAGE_START: LegendPosition = LEGEND_POSITION_PAGE_START
+        PAGE_START = cast("LegendPosition", LEGEND_POSITION_PAGE_START)
         """
         In LTR mode this is the top side.
         """

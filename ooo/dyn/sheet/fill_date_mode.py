@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
         __ooo_type_name__: str = 'enum'
 
-        FILL_DATE_DAY: FillDateMode = FILL_DATE_MODE_FILL_DATE_DAY
+        FILL_DATE_DAY = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_DAY)
         """
         for every new value a single day is added.
         """
-        FILL_DATE_MONTH: FillDateMode = FILL_DATE_MODE_FILL_DATE_MONTH
+        FILL_DATE_MONTH = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_MONTH)
         """
         for every new value one month is added (day keeps unchanged).
         """
-        FILL_DATE_WEEKDAY: FillDateMode = FILL_DATE_MODE_FILL_DATE_WEEKDAY
+        FILL_DATE_WEEKDAY = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_WEEKDAY)
         """
         for every new value a single day is added, but Saturdays and Sundays are skipped.
         """
-        FILL_DATE_YEAR: FillDateMode = FILL_DATE_MODE_FILL_DATE_YEAR
+        FILL_DATE_YEAR = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_YEAR)
         """
         for every new value one year is added (day and month keep unchanged).
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -61,61 +61,61 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.i18n.DirectionProperty'
         __ooo_type_name__: str = 'enum'
 
-        ARABIC_NUMBER: DirectionProperty = DIRECTION_PROPERTY_ARABIC_NUMBER
+        ARABIC_NUMBER = cast("DirectionProperty", DIRECTION_PROPERTY_ARABIC_NUMBER)
         """
         """
-        BLOCK_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_BLOCK_SEPARATOR
+        BLOCK_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_BLOCK_SEPARATOR)
         """
         """
-        BOUNDARY_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
+        BOUNDARY_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_BOUNDARY_NEUTRAL)
         """
         """
-        COMMON_NUMBER_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
+        COMMON_NUMBER_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR)
         """
         """
-        DIR_NON_SPACING_MARK: DirectionProperty = DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
+        DIR_NON_SPACING_MARK = cast("DirectionProperty", DIRECTION_PROPERTY_DIR_NON_SPACING_MARK)
         """
         """
-        EUROPEAN_NUMBER: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER
+        EUROPEAN_NUMBER = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER)
         """
         """
-        EUROPEAN_NUMBER_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
+        EUROPEAN_NUMBER_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR)
         """
         """
-        EUROPEAN_NUMBER_TERMINATOR: DirectionProperty = DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
+        EUROPEAN_NUMBER_TERMINATOR = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR)
         """
         """
-        LEFT_TO_RIGHT: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT
+        LEFT_TO_RIGHT = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT)
         """
         """
-        LEFT_TO_RIGHT_EMBEDDING: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
+        LEFT_TO_RIGHT_EMBEDDING = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING)
         """
         """
-        LEFT_TO_RIGHT_OVERRIDE: DirectionProperty = DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
+        LEFT_TO_RIGHT_OVERRIDE = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE)
         """
         """
-        OTHER_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_OTHER_NEUTRAL
+        OTHER_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_OTHER_NEUTRAL)
         """
         """
-        POP_DIRECTIONAL_FORMAT: DirectionProperty = DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
+        POP_DIRECTIONAL_FORMAT = cast("DirectionProperty", DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT)
         """
         """
-        RIGHT_TO_LEFT: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT
+        RIGHT_TO_LEFT = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT)
         """
         """
-        RIGHT_TO_LEFT_ARABIC: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
+        RIGHT_TO_LEFT_ARABIC = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC)
         """
         """
-        RIGHT_TO_LEFT_EMBEDDING: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
+        RIGHT_TO_LEFT_EMBEDDING = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING)
         """
         """
-        RIGHT_TO_LEFT_OVERRIDE: DirectionProperty = DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
+        RIGHT_TO_LEFT_OVERRIDE = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE)
         """
         """
-        SEGMENT_SEPARATOR: DirectionProperty = DIRECTION_PROPERTY_SEGMENT_SEPARATOR
+        SEGMENT_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_SEGMENT_SEPARATOR)
         """
         """
-        WHITE_SPACE_NEUTRAL: DirectionProperty = DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
+        WHITE_SPACE_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL)
         """
         """
 

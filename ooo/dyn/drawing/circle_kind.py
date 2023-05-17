@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.CircleKind'
         __ooo_type_name__: str = 'enum'
 
-        ARC: CircleKind = CIRCLE_KIND_ARC
+        ARC = cast("CircleKind", CIRCLE_KIND_ARC)
         """
         a circle with an open cut
         """
-        CUT: CircleKind = CIRCLE_KIND_CUT
+        CUT = cast("CircleKind", CIRCLE_KIND_CUT)
         """
         a circle with a cut connected by two lines
         """
-        FULL: CircleKind = CIRCLE_KIND_FULL
+        FULL = cast("CircleKind", CIRCLE_KIND_FULL)
         """
         a full circle
         """
-        SECTION: CircleKind = CIRCLE_KIND_SECTION
+        SECTION = cast("CircleKind", CIRCLE_KIND_SECTION)
         """
         a circle with a cut connected by a line
         """

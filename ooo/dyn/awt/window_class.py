@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,25 +46,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
         __ooo_type_name__: str = 'enum'
 
-        CONTAINER: WindowClass = WINDOW_CLASS_CONTAINER
+        CONTAINER = cast("WindowClass", WINDOW_CLASS_CONTAINER)
         """
         is a container that may contain other components.
         
         It is not a top window.
         """
-        MODALTOP: WindowClass = WINDOW_CLASS_MODALTOP
+        MODALTOP = cast("WindowClass", WINDOW_CLASS_MODALTOP)
         """
         is a modal top level window on the desktop.
         
         It is also a container.
         """
-        SIMPLE: WindowClass = WINDOW_CLASS_SIMPLE
+        SIMPLE = cast("WindowClass", WINDOW_CLASS_SIMPLE)
         """
         is the simplest window.
         
         It can be a container.
         """
-        TOP: WindowClass = WINDOW_CLASS_TOP
+        TOP = cast("WindowClass", WINDOW_CLASS_TOP)
         """
         specifies a top level window on the desktop.
         

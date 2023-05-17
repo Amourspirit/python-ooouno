@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.mail.MailServiceType'
         __ooo_type_name__: str = 'enum'
 
-        IMAP: MailServiceType = MAIL_SERVICE_TYPE_IMAP
+        IMAP = cast("MailServiceType", MAIL_SERVICE_TYPE_IMAP)
         """
         A IMAP service.
         """
-        POP3: MailServiceType = MAIL_SERVICE_TYPE_POP3
+        POP3 = cast("MailServiceType", MAIL_SERVICE_TYPE_POP3)
         """
         A POP3 service.
         """
-        SMTP: MailServiceType = MAIL_SERVICE_TYPE_SMTP
+        SMTP = cast("MailServiceType", MAIL_SERVICE_TYPE_SMTP)
         """
         A SMTP service.
         """

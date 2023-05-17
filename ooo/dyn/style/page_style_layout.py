@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,11 +46,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.PageStyleLayout'
         __ooo_type_name__: str = 'enum'
 
-        ALL: PageStyleLayout = PAGE_STYLE_LAYOUT_ALL
+        ALL = cast("PageStyleLayout", PAGE_STYLE_LAYOUT_ALL)
         """
         The page style is identically used for left and right pages.
         """
-        LEFT: PageStyleLayout = PAGE_STYLE_LAYOUT_LEFT
+        LEFT = cast("PageStyleLayout", PAGE_STYLE_LAYOUT_LEFT)
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -60,11 +60,11 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        MIRRORED: PageStyleLayout = PAGE_STYLE_LAYOUT_MIRRORED
+        MIRRORED = cast("PageStyleLayout", PAGE_STYLE_LAYOUT_MIRRORED)
         """
         The page style is used unchanged for left pages and mirrored for right pages.
         """
-        RIGHT: PageStyleLayout = PAGE_STYLE_LAYOUT_RIGHT
+        RIGHT = cast("PageStyleLayout", PAGE_STYLE_LAYOUT_RIGHT)
         """
         set the horizontal alignment to the right margin from the container object
         

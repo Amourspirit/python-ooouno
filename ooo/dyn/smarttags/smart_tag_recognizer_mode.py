@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.smarttags.SmartTagRecognizerMode'
         __ooo_type_name__: str = 'enum'
 
-        CELL: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_CELL
+        CELL = cast("SmartTagRecognizerMode", SMART_TAG_RECOGNIZER_MODE_CELL)
         """
         Text passed to the recognizer is a cell.
         """
-        CHAR: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_CHAR
+        CHAR = cast("SmartTagRecognizerMode", SMART_TAG_RECOGNIZER_MODE_CHAR)
         """
         Text passed to the recognizer is a single character.
         """
-        PARAGRAPH: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_PARAGRAPH
+        PARAGRAPH = cast("SmartTagRecognizerMode", SMART_TAG_RECOGNIZER_MODE_PARAGRAPH)
         """
         Text passed to the recognizer is a paragraph.
         """
-        SINGLE_WORD: SmartTagRecognizerMode = SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD
+        SINGLE_WORD = cast("SmartTagRecognizerMode", SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD)
         """
         Text passed to the recognizer is a single word.
         """

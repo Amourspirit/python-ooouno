@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.FilterConnection'
         __ooo_type_name__: str = 'enum'
 
-        AND: FilterConnection = FILTER_CONNECTION_AND
+        AND = cast("FilterConnection", FILTER_CONNECTION_AND)
         """
         both conditions have to be fulfilled.
         """
-        OR: FilterConnection = FILTER_CONNECTION_OR
+        OR = cast("FilterConnection", FILTER_CONNECTION_OR)
         """
         at least one of the conditions has to be fulfilled.
         """

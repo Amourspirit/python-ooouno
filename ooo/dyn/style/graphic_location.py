@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -54,53 +54,53 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.GraphicLocation'
         __ooo_type_name__: str = 'enum'
 
-        AREA: GraphicLocation = GRAPHIC_LOCATION_AREA
+        AREA = cast("GraphicLocation", GRAPHIC_LOCATION_AREA)
         """
         The graphic is scaled to fill the whole surrounding area.
         """
-        LEFT_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_LEFT_BOTTOM
+        LEFT_BOTTOM = cast("GraphicLocation", GRAPHIC_LOCATION_LEFT_BOTTOM)
         """
         The graphic is located in the bottom left corner.
         """
-        LEFT_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_LEFT_MIDDLE
+        LEFT_MIDDLE = cast("GraphicLocation", GRAPHIC_LOCATION_LEFT_MIDDLE)
         """
         The graphic is located in the middle of the left edge.
         """
-        LEFT_TOP: GraphicLocation = GRAPHIC_LOCATION_LEFT_TOP
+        LEFT_TOP = cast("GraphicLocation", GRAPHIC_LOCATION_LEFT_TOP)
         """
         The graphic is located in the top left corner.
         """
-        MIDDLE_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_BOTTOM
+        MIDDLE_BOTTOM = cast("GraphicLocation", GRAPHIC_LOCATION_MIDDLE_BOTTOM)
         """
         The graphic is located in the middle of the bottom edge.
         """
-        MIDDLE_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_MIDDLE
+        MIDDLE_MIDDLE = cast("GraphicLocation", GRAPHIC_LOCATION_MIDDLE_MIDDLE)
         """
         The graphic is located at the center of the surrounding object.
         """
-        MIDDLE_TOP: GraphicLocation = GRAPHIC_LOCATION_MIDDLE_TOP
+        MIDDLE_TOP = cast("GraphicLocation", GRAPHIC_LOCATION_MIDDLE_TOP)
         """
         The graphic is located in the middle of the top edge.
         """
-        NONE: GraphicLocation = GRAPHIC_LOCATION_NONE
+        NONE = cast("GraphicLocation", GRAPHIC_LOCATION_NONE)
         """
         No column or page break is applied.
         
         This value specifies that a location is not yet assigned.
         """
-        RIGHT_BOTTOM: GraphicLocation = GRAPHIC_LOCATION_RIGHT_BOTTOM
+        RIGHT_BOTTOM = cast("GraphicLocation", GRAPHIC_LOCATION_RIGHT_BOTTOM)
         """
         The graphic is located in the bottom right corner.
         """
-        RIGHT_MIDDLE: GraphicLocation = GRAPHIC_LOCATION_RIGHT_MIDDLE
+        RIGHT_MIDDLE = cast("GraphicLocation", GRAPHIC_LOCATION_RIGHT_MIDDLE)
         """
         The graphic is located in the middle of the right edge.
         """
-        RIGHT_TOP: GraphicLocation = GRAPHIC_LOCATION_RIGHT_TOP
+        RIGHT_TOP = cast("GraphicLocation", GRAPHIC_LOCATION_RIGHT_TOP)
         """
         The graphic is located in the top right corner.
         """
-        TILED: GraphicLocation = GRAPHIC_LOCATION_TILED
+        TILED = cast("GraphicLocation", GRAPHIC_LOCATION_TILED)
         """
         The graphic is repeatedly spread over the surrounding object like tiles.
         """

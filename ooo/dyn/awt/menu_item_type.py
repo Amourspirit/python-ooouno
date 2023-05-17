@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,25 +47,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.MenuItemType'
         __ooo_type_name__: str = 'enum'
 
-        DONTKNOW: MenuItemType = MENU_ITEM_TYPE_DONTKNOW
+        DONTKNOW = cast("MenuItemType", MENU_ITEM_TYPE_DONTKNOW)
         """
         specifies a font with an unknown slant.
         
         specifies that the menu item type is unknown.
         """
-        IMAGE: MenuItemType = MENU_ITEM_TYPE_IMAGE
+        IMAGE = cast("MenuItemType", MENU_ITEM_TYPE_IMAGE)
         """
         specifies that the menu item has an image.
         """
-        SEPARATOR: MenuItemType = MENU_ITEM_TYPE_SEPARATOR
+        SEPARATOR = cast("MenuItemType", MENU_ITEM_TYPE_SEPARATOR)
         """
         specifies that the menu item is a separator.
         """
-        STRING: MenuItemType = MENU_ITEM_TYPE_STRING
+        STRING = cast("MenuItemType", MENU_ITEM_TYPE_STRING)
         """
         specifies that the menu item has a text.
         """
-        STRINGIMAGE: MenuItemType = MENU_ITEM_TYPE_STRINGIMAGE
+        STRINGIMAGE = cast("MenuItemType", MENU_ITEM_TYPE_STRINGIMAGE)
         """
         specifies that the menu item has a text and an image.
         """

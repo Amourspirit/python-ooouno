@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,13 +46,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.VerticalDimensioning'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: VerticalDimensioning = VERTICAL_DIMENSIONING_AUTO
+        AUTO = cast("VerticalDimensioning", VERTICAL_DIMENSIONING_AUTO)
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BOTTOM: VerticalDimensioning = VERTICAL_DIMENSIONING_BOTTOM
+        BOTTOM = cast("VerticalDimensioning", VERTICAL_DIMENSIONING_BOTTOM)
         """
         the connection line leaves the connected object from the bottom,
         
@@ -60,13 +60,13 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        CENTERED: VerticalDimensioning = VERTICAL_DIMENSIONING_CENTERED
+        CENTERED = cast("VerticalDimensioning", VERTICAL_DIMENSIONING_CENTERED)
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        TOP: VerticalDimensioning = VERTICAL_DIMENSIONING_TOP
+        TOP = cast("VerticalDimensioning", VERTICAL_DIMENSIONING_TOP)
         """
         the connection line leaves the connected object from the top,
         

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,19 +47,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.CellDeleteMode'
         __ooo_type_name__: str = 'enum'
 
-        COLUMNS: CellDeleteMode = CELL_DELETE_MODE_COLUMNS
+        COLUMNS = cast("CellDeleteMode", CELL_DELETE_MODE_COLUMNS)
         """
         entire columns to the right of the deleted cells are moved left.
         
         entire columns to the right of the inserted cells are moved right.
         """
-        LEFT: CellDeleteMode = CELL_DELETE_MODE_LEFT
+        LEFT = cast("CellDeleteMode", CELL_DELETE_MODE_LEFT)
         """
         selects the left border.
         
         the cells to the right of the deleted cells are moved left.
         """
-        NONE: CellDeleteMode = CELL_DELETE_MODE_NONE
+        NONE = cast("CellDeleteMode", CELL_DELETE_MODE_NONE)
         """
         no cells are moved.
         
@@ -73,13 +73,13 @@ if TYPE_CHECKING:
         
         no condition is specified.
         """
-        ROWS: CellDeleteMode = CELL_DELETE_MODE_ROWS
+        ROWS = cast("CellDeleteMode", CELL_DELETE_MODE_ROWS)
         """
         entire rows below the deleted cells are moved up.
         
         entire rows below the inserted cells are moved down.
         """
-        UP: CellDeleteMode = CELL_DELETE_MODE_UP
+        UP = cast("CellDeleteMode", CELL_DELETE_MODE_UP)
         """
         the cells below the deleted cells are moved up.
         """

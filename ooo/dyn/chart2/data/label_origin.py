@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,7 +46,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.data.LabelOrigin'
         __ooo_type_name__: str = 'enum'
 
-        COLUMN: LabelOrigin = LABEL_ORIGIN_COLUMN
+        COLUMN = cast("LabelOrigin", LABEL_ORIGIN_COLUMN)
         """
         Uses the column name for label generation.
         
@@ -54,13 +54,13 @@ if TYPE_CHECKING:
         
         If a range consists of more than one column the result of label generation may be empty. Of course, it could also succeed with a string like \"Columns A to B\".
         """
-        LONG_SIDE: LabelOrigin = LABEL_ORIGIN_LONG_SIDE
+        LONG_SIDE = cast("LabelOrigin", LABEL_ORIGIN_LONG_SIDE)
         """
         This is exactly the opposite of SHORT_SIDE.
         
         I.e., if SHORT_SIDE has the same effect as ROW, LONG_SIDE will have the same effect as COLUMN and the other way round.
         """
-        ROW: LabelOrigin = LABEL_ORIGIN_ROW
+        ROW = cast("LabelOrigin", LABEL_ORIGIN_ROW)
         """
         Uses the column name for label generation.
         
@@ -68,7 +68,7 @@ if TYPE_CHECKING:
         
         If a range consists of more than one row the result of label generation may be empty. Of course, it could also succeed with a string like \"Rows 1-3\".
         """
-        SHORT_SIDE: LabelOrigin = LABEL_ORIGIN_SHORT_SIDE
+        SHORT_SIDE = cast("LabelOrigin", LABEL_ORIGIN_SHORT_SIDE)
         """
         If a range spans a single row over more than one column, this parameter has the same effect as ROW.
         

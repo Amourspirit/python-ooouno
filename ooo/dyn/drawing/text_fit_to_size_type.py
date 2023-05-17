@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,17 +46,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextFitToSizeType'
         __ooo_type_name__: str = 'enum'
 
-        ALLLINES: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_ALLLINES
+        ALLLINES = cast("TextFitToSizeType", TEXT_FIT_TO_SIZE_TYPE_ALLLINES)
         """
         Nowadays this is the same as PROPORTIONAL.
         """
-        AUTOFIT: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_AUTOFIT
+        AUTOFIT = cast("TextFitToSizeType", TEXT_FIT_TO_SIZE_TYPE_AUTOFIT)
         """
         The font size is scaled down (never up!) isotropically to fit the available space.
         
         Auto line-breaks will keep working.
         """
-        NONE: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_NONE
+        NONE = cast("TextFitToSizeType", TEXT_FIT_TO_SIZE_TYPE_NONE)
         """
         the area is not filled.
         
@@ -70,7 +70,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        PROPORTIONAL: TextFitToSizeType = TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL
+        PROPORTIONAL = cast("TextFitToSizeType", TEXT_FIT_TO_SIZE_TYPE_PROPORTIONAL)
         """
         The bitmap with the rendered glyphs is scaled up or down proportionally to fit the size of the shape.
         

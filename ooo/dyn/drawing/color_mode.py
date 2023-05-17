@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.ColorMode'
         __ooo_type_name__: str = 'enum'
 
-        GREYS: ColorMode = COLOR_MODE_GREYS
+        GREYS = cast("ColorMode", COLOR_MODE_GREYS)
         """
         the graphic is rendered in grayscale on the output device,
         """
-        MONO: ColorMode = COLOR_MODE_MONO
+        MONO = cast("ColorMode", COLOR_MODE_MONO)
         """
         the graphic is rendered in black and white only,
         """
-        STANDARD: ColorMode = COLOR_MODE_STANDARD
+        STANDARD = cast("ColorMode", COLOR_MODE_STANDARD)
         """
         the graphic is rendered in the default color style of the output device,
         
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
         
         the connector is drawn with three lines, with the middle line perpendicular to the other two
         """
-        WATERMARK: ColorMode = COLOR_MODE_WATERMARK
+        WATERMARK = cast("ColorMode", COLOR_MODE_WATERMARK)
         """
         the graphic is rendered in a watermark like style,
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.DocumentStoreMode'
         __ooo_type_name__: str = 'enum'
 
-        LOCAL: DocumentStoreMode = DOCUMENT_STORE_MODE_LOCAL
+        LOCAL = cast("DocumentStoreMode", DOCUMENT_STORE_MODE_LOCAL)
         """
         Document contents are stored locally.
         """
-        REMOTE: DocumentStoreMode = DOCUMENT_STORE_MODE_REMOTE
+        REMOTE = cast("DocumentStoreMode", DOCUMENT_STORE_MODE_REMOTE)
         """
         Document contents are not stored locally.
         """

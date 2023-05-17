@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.CellContentType'
         __ooo_type_name__: str = 'enum'
 
-        EMPTY: CellContentType = CELL_CONTENT_TYPE_EMPTY
+        EMPTY = cast("CellContentType", CELL_CONTENT_TYPE_EMPTY)
         """
         cell is empty.
         """
-        FORMULA: CellContentType = CELL_CONTENT_TYPE_FORMULA
+        FORMULA = cast("CellContentType", CELL_CONTENT_TYPE_FORMULA)
         """
         cell contains a formula.
         """
-        TEXT: CellContentType = CELL_CONTENT_TYPE_TEXT
+        TEXT = cast("CellContentType", CELL_CONTENT_TYPE_TEXT)
         """
         cell contains text.
         """
-        VALUE: CellContentType = CELL_CONTENT_TYPE_VALUE
+        VALUE = cast("CellContentType", CELL_CONTENT_TYPE_VALUE)
         """
         cell contains a constant value.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.beans.PropertyState'
         __ooo_type_name__: str = 'enum'
 
-        AMBIGUOUS_VALUE: PropertyState = PROPERTY_STATE_AMBIGUOUS_VALUE
+        AMBIGUOUS_VALUE = cast("PropertyState", PROPERTY_STATE_AMBIGUOUS_VALUE)
         """
         The value of the property is only a recommendation because there are multiple values for this property (e.g., from a multi selection).
         
         The PropertyAttribute field in the struct Property must contain the PropertyAttribute.MAYBEAMBIGUOUS flag. The property value must be available and of the specified type. If the Attribute field in the struct Property contains PropertyAttribute.MAYBEVOID, then the value may be void.
         """
-        DEFAULT_VALUE: PropertyState = PROPERTY_STATE_DEFAULT_VALUE
+        DEFAULT_VALUE = cast("PropertyState", PROPERTY_STATE_DEFAULT_VALUE)
         """
         The value of the property is available from a master (e.g., template).
         """
-        DIRECT_VALUE: PropertyState = PROPERTY_STATE_DIRECT_VALUE
+        DIRECT_VALUE = cast("PropertyState", PROPERTY_STATE_DIRECT_VALUE)
         """
         The value of the property is stored in the PropertySet itself.
         """

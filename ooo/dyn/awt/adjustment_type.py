@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.AdjustmentType'
         __ooo_type_name__: str = 'enum'
 
-        ADJUST_ABS: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_ABS
+        ADJUST_ABS = cast("AdjustmentType", ADJUSTMENT_TYPE_ADJUST_ABS)
         """
         adjustment is originated by dragging the thumb.
         """
-        ADJUST_LINE: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_LINE
+        ADJUST_LINE = cast("AdjustmentType", ADJUSTMENT_TYPE_ADJUST_LINE)
         """
         adjustment is originated by a line jump.
         """
-        ADJUST_PAGE: AdjustmentType = ADJUSTMENT_TYPE_ADJUST_PAGE
+        ADJUST_PAGE = cast("AdjustmentType", ADJUSTMENT_TYPE_ADJUST_PAGE)
         """
         adjustment is originated by a page jump.
         """

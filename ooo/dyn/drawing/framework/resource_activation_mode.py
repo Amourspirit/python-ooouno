@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,13 +44,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
         __ooo_type_name__: str = 'enum'
 
-        ADD: ResourceActivationMode = RESOURCE_ACTIVATION_MODE_ADD
+        ADD = cast("ResourceActivationMode", RESOURCE_ACTIVATION_MODE_ADD)
         """
         A resource is requested in addition to already existing ones.
         
         This is used for example for panes.
         """
-        REPLACE: ResourceActivationMode = RESOURCE_ACTIVATION_MODE_REPLACE
+        REPLACE = cast("ResourceActivationMode", RESOURCE_ACTIVATION_MODE_REPLACE)
         """
         A resource is requested to replace an already existing one of the same class.
         

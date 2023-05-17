@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,15 +47,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationKind'
         __ooo_type_name__: str = 'enum'
 
-        ALTERNATE: TextAnimationKind = TEXT_ANIMATION_KIND_ALTERNATE
+        ALTERNATE = cast("TextAnimationKind", TEXT_ANIMATION_KIND_ALTERNATE)
         """
         Scroll the text from one side to the other and back.
         """
-        BLINK: TextAnimationKind = TEXT_ANIMATION_KIND_BLINK
+        BLINK = cast("TextAnimationKind", TEXT_ANIMATION_KIND_BLINK)
         """
         Let this text switch its state from visible to invisible continuously.
         """
-        NONE: TextAnimationKind = TEXT_ANIMATION_KIND_NONE
+        NONE = cast("TextAnimationKind", TEXT_ANIMATION_KIND_NONE)
         """
         the area is not filled.
         
@@ -69,11 +69,11 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SCROLL: TextAnimationKind = TEXT_ANIMATION_KIND_SCROLL
+        SCROLL = cast("TextAnimationKind", TEXT_ANIMATION_KIND_SCROLL)
         """
         Let this text scroll.
         """
-        SLIDE: TextAnimationKind = TEXT_ANIMATION_KIND_SLIDE
+        SLIDE = cast("TextAnimationKind", TEXT_ANIMATION_KIND_SLIDE)
         """
         Scroll the text from one side to the final position and stop there.
         """

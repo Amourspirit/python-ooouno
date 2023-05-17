@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.table.TableSortFieldType'
         __ooo_type_name__: str = 'enum'
 
-        ALPHANUMERIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
+        ALPHANUMERIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_ALPHANUMERIC)
         """
         sort field contains text data.
         """
-        AUTOMATIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_AUTOMATIC
+        AUTOMATIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_AUTOMATIC)
         """
         type is determined automatically.
         """
-        NUMERIC: TableSortFieldType = TABLE_SORT_FIELD_TYPE_NUMERIC
+        NUMERIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_NUMERIC)
         """
         sort field contains numerical data.
         """

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,13 +46,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.AttrChangeType'
         __ooo_type_name__: str = 'enum'
 
-        ADDITION: AttrChangeType = ATTR_CHANGE_TYPE_ADDITION
+        ADDITION = cast("AttrChangeType", ATTR_CHANGE_TYPE_ADDITION)
         """
         """
-        MODIFICATION: AttrChangeType = ATTR_CHANGE_TYPE_MODIFICATION
+        MODIFICATION = cast("AttrChangeType", ATTR_CHANGE_TYPE_MODIFICATION)
         """
         """
-        REMOVAL: AttrChangeType = ATTR_CHANGE_TYPE_REMOVAL
+        REMOVAL = cast("AttrChangeType", ATTR_CHANGE_TYPE_REMOVAL)
         """
         """
 

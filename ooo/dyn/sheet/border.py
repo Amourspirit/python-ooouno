@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,23 +46,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.Border'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM: Border = BORDER_BOTTOM
+        BOTTOM = cast("Border", BORDER_BOTTOM)
         """
         selects the bottom border.
         """
-        LEFT: Border = BORDER_LEFT
+        LEFT = cast("Border", BORDER_LEFT)
         """
         selects the left border.
         
         the cells to the right of the deleted cells are moved left.
         """
-        RIGHT: Border = BORDER_RIGHT
+        RIGHT = cast("Border", BORDER_RIGHT)
         """
         selects the right border.
         
         the cells to the right of the inserted cells are moved right.
         """
-        TOP: Border = BORDER_TOP
+        TOP = cast("Border", BORDER_TOP)
         """
         selects the top border.
         """

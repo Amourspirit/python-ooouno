@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,17 +46,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
         __ooo_type_name__: str = 'enum'
 
-        BLOCK: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_BLOCK
+        BLOCK = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_BLOCK)
         """
         The text extends from the left to the right edge of the shape.
         
         The text extends from the top to the bottom edge of the shape.
         """
-        CENTER: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_CENTER
+        CENTER = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_CENTER)
         """
         The text is centered inside the shape.
         """
-        LEFT: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_LEFT
+        LEFT = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_LEFT)
         """
         the connection line leaves the connected object to the left,
         
@@ -64,7 +64,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: TextHorizontalAdjust = TEXT_HORIZONTAL_ADJUST_RIGHT
+        RIGHT = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_RIGHT)
         """
         the connection line leaves the connected object to the right,
         

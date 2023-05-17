@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,23 +47,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.RasterOperation'
         __ooo_type_name__: str = 'enum'
 
-        ALLBITS: RasterOperation = RASTER_OPERATION_ALLBITS
+        ALLBITS = cast("RasterOperation", RASTER_OPERATION_ALLBITS)
         """
         All bits which are affected by this operation are set to 1.
         """
-        INVERT: RasterOperation = RASTER_OPERATION_INVERT
+        INVERT = cast("RasterOperation", RASTER_OPERATION_INVERT)
         """
         All bits which are affected by this operation are inverted.
         """
-        OVERPAINT: RasterOperation = RASTER_OPERATION_OVERPAINT
+        OVERPAINT = cast("RasterOperation", RASTER_OPERATION_OVERPAINT)
         """
         sets all pixel as written in the output operation.
         """
-        XOR: RasterOperation = RASTER_OPERATION_XOR
+        XOR = cast("RasterOperation", RASTER_OPERATION_XOR)
         """
         uses the pixel written as one and the current pixel as the other operator of an exclusive or-operation.
         """
-        ZEROBITS: RasterOperation = RASTER_OPERATION_ZEROBITS
+        ZEROBITS = cast("RasterOperation", RASTER_OPERATION_ZEROBITS)
         """
         All bits which are affected by this operation are set to 0.
         """

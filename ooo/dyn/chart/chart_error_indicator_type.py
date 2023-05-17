@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,11 +46,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartErrorIndicatorType'
         __ooo_type_name__: str = 'enum'
 
-        LOWER: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_LOWER
+        LOWER = cast("ChartErrorIndicatorType", CHART_ERROR_INDICATOR_TYPE_LOWER)
         """
         displays only the lower value.
         """
-        NONE: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_NONE
+        NONE = cast("ChartErrorIndicatorType", CHART_ERROR_INDICATOR_TYPE_NONE)
         """
         error indicators are not displayed.
         
@@ -60,11 +60,11 @@ if TYPE_CHECKING:
         
         displays no error indicators.
         """
-        TOP_AND_BOTTOM: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_TOP_AND_BOTTOM
+        TOP_AND_BOTTOM = cast("ChartErrorIndicatorType", CHART_ERROR_INDICATOR_TYPE_TOP_AND_BOTTOM)
         """
         displays both the upper and lower values.
         """
-        UPPER: ChartErrorIndicatorType = CHART_ERROR_INDICATOR_TYPE_UPPER
+        UPPER = cast("ChartErrorIndicatorType", CHART_ERROR_INDICATOR_TYPE_UPPER)
         """
         displays only the upper value.
         """

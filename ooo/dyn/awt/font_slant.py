@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,29 +48,29 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.awt.FontSlant'
         __ooo_type_name__: str = 'enum'
 
-        DONTKNOW: FontSlant = FONT_SLANT_DONTKNOW
+        DONTKNOW = cast("FontSlant", FONT_SLANT_DONTKNOW)
         """
         specifies a font with an unknown slant.
         
         specifies that the menu item type is unknown.
         """
-        ITALIC: FontSlant = FONT_SLANT_ITALIC
+        ITALIC = cast("FontSlant", FONT_SLANT_ITALIC)
         """
         specifies an italic font (slant designed into the font).
         """
-        NONE: FontSlant = FONT_SLANT_NONE
+        NONE = cast("FontSlant", FONT_SLANT_NONE)
         """
         specifies a font without slant.
         """
-        OBLIQUE: FontSlant = FONT_SLANT_OBLIQUE
+        OBLIQUE = cast("FontSlant", FONT_SLANT_OBLIQUE)
         """
         specifies an oblique font (slant not designed into the font).
         """
-        REVERSE_ITALIC: FontSlant = FONT_SLANT_REVERSE_ITALIC
+        REVERSE_ITALIC = cast("FontSlant", FONT_SLANT_REVERSE_ITALIC)
         """
         specifies a reverse italic font (slant designed into the font).
         """
-        REVERSE_OBLIQUE: FontSlant = FONT_SLANT_REVERSE_OBLIQUE
+        REVERSE_OBLIQUE = cast("FontSlant", FONT_SLANT_REVERSE_OBLIQUE)
         """
         specifies a reverse oblique font (slant not designed into the font).
         """

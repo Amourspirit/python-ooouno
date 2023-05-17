@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -51,41 +51,41 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonKind'
         __ooo_type_name__: str = 'enum'
 
-        FREEFILL: PolygonKind = POLYGON_KIND_FREEFILL
+        FREEFILL = cast("PolygonKind", POLYGON_KIND_FREEFILL)
         """
         This is the PolygonKind for a ClosedFreeHandShape.
         """
-        FREELINE: PolygonKind = POLYGON_KIND_FREELINE
+        FREELINE = cast("PolygonKind", POLYGON_KIND_FREELINE)
         """
         This is the PolygonKind for an OpenFreeHandShape.
         """
-        LINE: PolygonKind = POLYGON_KIND_LINE
+        LINE = cast("PolygonKind", POLYGON_KIND_LINE)
         """
         the ConnectorShape is drawn as a straight line
         
         This is the PolygonKind for a LineShape.
         """
-        PATHFILL: PolygonKind = POLYGON_KIND_PATHFILL
+        PATHFILL = cast("PolygonKind", POLYGON_KIND_PATHFILL)
         """
         This is the PolygonKind for a ClosedBezierShape.
         """
-        PATHLINE: PolygonKind = POLYGON_KIND_PATHLINE
+        PATHLINE = cast("PolygonKind", POLYGON_KIND_PATHLINE)
         """
         This is the PolygonKind for an OpenBezierShape.
         """
-        PATHPLIN: PolygonKind = POLYGON_KIND_PATHPLIN
+        PATHPLIN = cast("PolygonKind", POLYGON_KIND_PATHPLIN)
         """
         This is the PolygonKind for a PolyLinePathShape.
         """
-        PATHPOLY: PolygonKind = POLYGON_KIND_PATHPOLY
+        PATHPOLY = cast("PolygonKind", POLYGON_KIND_PATHPOLY)
         """
         This is the PolygonKind for a PolyPolygonPathShape.
         """
-        PLIN: PolygonKind = POLYGON_KIND_PLIN
+        PLIN = cast("PolygonKind", POLYGON_KIND_PLIN)
         """
         This is the PolygonKind for a PolyLineShape.
         """
-        POLY: PolygonKind = POLYGON_KIND_POLY
+        POLY = cast("PolygonKind", POLYGON_KIND_POLY)
         """
         This is the PolygonKind for a PolyPolygonShape.
         """

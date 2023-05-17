@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
         __ooo_type_name__: str = 'enum'
 
-        CURRENT: PageNumberType = PAGE_NUMBER_TYPE_CURRENT
+        CURRENT = cast("PageNumberType", PAGE_NUMBER_TYPE_CURRENT)
         """
         The number of the current page is displayed.
         """
-        NEXT: PageNumberType = PAGE_NUMBER_TYPE_NEXT
+        NEXT = cast("PageNumberType", PAGE_NUMBER_TYPE_NEXT)
         """
         The number of the next page is displayed if there is any, otherwise the field is empty.
         """
-        PREV: PageNumberType = PAGE_NUMBER_TYPE_PREV
+        PREV = cast("PageNumberType", PAGE_NUMBER_TYPE_PREV)
         """
         The number of the previous page is displayed if there is any, otherwise the field is empty.
         """

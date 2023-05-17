@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -78,149 +78,149 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.IOErrorCode'
         __ooo_type_name__: str = 'enum'
 
-        ABORT: IOErrorCode = I_O_ERROR_CODE_ABORT
+        ABORT = cast("IOErrorCode", I_O_ERROR_CODE_ABORT)
         """
         An operation was aborted.
         """
-        ACCESS_DENIED: IOErrorCode = I_O_ERROR_CODE_ACCESS_DENIED
+        ACCESS_DENIED = cast("IOErrorCode", I_O_ERROR_CODE_ACCESS_DENIED)
         """
         An object cannot be accessed due to insufficient user rights.
         """
-        ALREADY_EXISTING: IOErrorCode = I_O_ERROR_CODE_ALREADY_EXISTING
+        ALREADY_EXISTING = cast("IOErrorCode", I_O_ERROR_CODE_ALREADY_EXISTING)
         """
         An object already exists.
         """
-        BAD_CRC: IOErrorCode = I_O_ERROR_CODE_BAD_CRC
+        BAD_CRC = cast("IOErrorCode", I_O_ERROR_CODE_BAD_CRC)
         """
         A bad checksum.
         """
-        CANT_CREATE: IOErrorCode = I_O_ERROR_CODE_CANT_CREATE
+        CANT_CREATE = cast("IOErrorCode", I_O_ERROR_CODE_CANT_CREATE)
         """
         An object could not be created.
         """
-        CANT_READ: IOErrorCode = I_O_ERROR_CODE_CANT_READ
+        CANT_READ = cast("IOErrorCode", I_O_ERROR_CODE_CANT_READ)
         """
         Data could not be read from a file.
         """
-        CANT_SEEK: IOErrorCode = I_O_ERROR_CODE_CANT_SEEK
+        CANT_SEEK = cast("IOErrorCode", I_O_ERROR_CODE_CANT_SEEK)
         """
         A seek operation could not be run.
         """
-        CANT_TELL: IOErrorCode = I_O_ERROR_CODE_CANT_TELL
+        CANT_TELL = cast("IOErrorCode", I_O_ERROR_CODE_CANT_TELL)
         """
         A tell operation could not be run.
         """
-        CANT_WRITE: IOErrorCode = I_O_ERROR_CODE_CANT_WRITE
+        CANT_WRITE = cast("IOErrorCode", I_O_ERROR_CODE_CANT_WRITE)
         """
         Data could not be written to a file.
         """
-        CURRENT_DIRECTORY: IOErrorCode = I_O_ERROR_CODE_CURRENT_DIRECTORY
+        CURRENT_DIRECTORY = cast("IOErrorCode", I_O_ERROR_CODE_CURRENT_DIRECTORY)
         """
         A function is not possible because the path contains the current directory.
         """
-        DEVICE_NOT_READY: IOErrorCode = I_O_ERROR_CODE_DEVICE_NOT_READY
+        DEVICE_NOT_READY = cast("IOErrorCode", I_O_ERROR_CODE_DEVICE_NOT_READY)
         """
         A device (drive) not ready.
         """
-        DIFFERENT_DEVICES: IOErrorCode = I_O_ERROR_CODE_DIFFERENT_DEVICES
+        DIFFERENT_DEVICES = cast("IOErrorCode", I_O_ERROR_CODE_DIFFERENT_DEVICES)
         """
         A function is not possible because the devices (drives) are not identical.
         """
-        GENERAL: IOErrorCode = I_O_ERROR_CODE_GENERAL
+        GENERAL = cast("IOErrorCode", I_O_ERROR_CODE_GENERAL)
         """
         A general input/output error.
         """
-        INVALID_ACCESS: IOErrorCode = I_O_ERROR_CODE_INVALID_ACCESS
+        INVALID_ACCESS = cast("IOErrorCode", I_O_ERROR_CODE_INVALID_ACCESS)
         """
         An invalid attempt was made to access an object.
         """
-        INVALID_CHARACTER: IOErrorCode = I_O_ERROR_CODE_INVALID_CHARACTER
+        INVALID_CHARACTER = cast("IOErrorCode", I_O_ERROR_CODE_INVALID_CHARACTER)
         """
         A file name contains invalid characters.
         """
-        INVALID_DEVICE: IOErrorCode = I_O_ERROR_CODE_INVALID_DEVICE
+        INVALID_DEVICE = cast("IOErrorCode", I_O_ERROR_CODE_INVALID_DEVICE)
         """
         A specified device is invalid.
         """
-        INVALID_LENGTH: IOErrorCode = I_O_ERROR_CODE_INVALID_LENGTH
+        INVALID_LENGTH = cast("IOErrorCode", I_O_ERROR_CODE_INVALID_LENGTH)
         """
         Invalid data length.
         """
-        INVALID_PARAMETER: IOErrorCode = I_O_ERROR_CODE_INVALID_PARAMETER
+        INVALID_PARAMETER = cast("IOErrorCode", I_O_ERROR_CODE_INVALID_PARAMETER)
         """
         An operation was started with an invalid parameter.
         """
-        IS_WILDCARD: IOErrorCode = I_O_ERROR_CODE_IS_WILDCARD
+        IS_WILDCARD = cast("IOErrorCode", I_O_ERROR_CODE_IS_WILDCARD)
         """
         An operation cannot be run on file names containing wildcards.
         """
-        LOCKING_VIOLATION: IOErrorCode = I_O_ERROR_CODE_LOCKING_VIOLATION
+        LOCKING_VIOLATION = cast("IOErrorCode", I_O_ERROR_CODE_LOCKING_VIOLATION)
         """
         A locking problem.
         """
-        MISPLACED_CHARACTER: IOErrorCode = I_O_ERROR_CODE_MISPLACED_CHARACTER
+        MISPLACED_CHARACTER = cast("IOErrorCode", I_O_ERROR_CODE_MISPLACED_CHARACTER)
         """
         An invalid file name.
         """
-        NAME_TOO_LONG: IOErrorCode = I_O_ERROR_CODE_NAME_TOO_LONG
+        NAME_TOO_LONG = cast("IOErrorCode", I_O_ERROR_CODE_NAME_TOO_LONG)
         """
         A file name is too long.
         """
-        NOT_EXISTING: IOErrorCode = I_O_ERROR_CODE_NOT_EXISTING
+        NOT_EXISTING = cast("IOErrorCode", I_O_ERROR_CODE_NOT_EXISTING)
         """
         A nonexistent object.
         """
-        NOT_EXISTING_PATH: IOErrorCode = I_O_ERROR_CODE_NOT_EXISTING_PATH
+        NOT_EXISTING_PATH = cast("IOErrorCode", I_O_ERROR_CODE_NOT_EXISTING_PATH)
         """
         The path to a file does not exist.
         """
-        NOT_SUPPORTED: IOErrorCode = I_O_ERROR_CODE_NOT_SUPPORTED
+        NOT_SUPPORTED = cast("IOErrorCode", I_O_ERROR_CODE_NOT_SUPPORTED)
         """
         An action is not supported.
         """
-        NO_DIRECTORY: IOErrorCode = I_O_ERROR_CODE_NO_DIRECTORY
+        NO_DIRECTORY = cast("IOErrorCode", I_O_ERROR_CODE_NO_DIRECTORY)
         """
         An object is not a directory.
         """
-        NO_FILE: IOErrorCode = I_O_ERROR_CODE_NO_FILE
+        NO_FILE = cast("IOErrorCode", I_O_ERROR_CODE_NO_FILE)
         """
         An object is not a file.
         """
-        OUT_OF_DISK_SPACE: IOErrorCode = I_O_ERROR_CODE_OUT_OF_DISK_SPACE
+        OUT_OF_DISK_SPACE = cast("IOErrorCode", I_O_ERROR_CODE_OUT_OF_DISK_SPACE)
         """
         No more space on a device.
         """
-        OUT_OF_FILE_HANDLES: IOErrorCode = I_O_ERROR_CODE_OUT_OF_FILE_HANDLES
+        OUT_OF_FILE_HANDLES = cast("IOErrorCode", I_O_ERROR_CODE_OUT_OF_FILE_HANDLES)
         """
         No more file handles available.
         """
-        OUT_OF_MEMORY: IOErrorCode = I_O_ERROR_CODE_OUT_OF_MEMORY
+        OUT_OF_MEMORY = cast("IOErrorCode", I_O_ERROR_CODE_OUT_OF_MEMORY)
         """
         An operation could not be run due to insufficient memory.
         """
-        PENDING: IOErrorCode = I_O_ERROR_CODE_PENDING
+        PENDING = cast("IOErrorCode", I_O_ERROR_CODE_PENDING)
         """
         An operation is still pending.
         """
-        RECURSIVE: IOErrorCode = I_O_ERROR_CODE_RECURSIVE
+        RECURSIVE = cast("IOErrorCode", I_O_ERROR_CODE_RECURSIVE)
         """
         An object cannot be copied into itself.
         """
-        UNKNOWN: IOErrorCode = I_O_ERROR_CODE_UNKNOWN
+        UNKNOWN = cast("IOErrorCode", I_O_ERROR_CODE_UNKNOWN)
         """
         Unknown.
         
         An unknown I/O error has occurred.
         """
-        WRITE_PROTECTED: IOErrorCode = I_O_ERROR_CODE_WRITE_PROTECTED
+        WRITE_PROTECTED = cast("IOErrorCode", I_O_ERROR_CODE_WRITE_PROTECTED)
         """
         A function is not possible because the object is write protected.
         """
-        WRONG_FORMAT: IOErrorCode = I_O_ERROR_CODE_WRONG_FORMAT
+        WRONG_FORMAT = cast("IOErrorCode", I_O_ERROR_CODE_WRONG_FORMAT)
         """
         An incorrect file format.
         """
-        WRONG_VERSION: IOErrorCode = I_O_ERROR_CODE_WRONG_VERSION
+        WRONG_VERSION = cast("IOErrorCode", I_O_ERROR_CODE_WRONG_VERSION)
         """
         An incorrect file version.
         """

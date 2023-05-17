@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.BitmapMode'
         __ooo_type_name__: str = 'enum'
 
-        NO_REPEAT: BitmapMode = BITMAP_MODE_NO_REPEAT
+        NO_REPEAT = cast("BitmapMode", BITMAP_MODE_NO_REPEAT)
         """
         the bitmap is painted in its original or selected size.
         """
-        REPEAT: BitmapMode = BITMAP_MODE_REPEAT
+        REPEAT = cast("BitmapMode", BITMAP_MODE_REPEAT)
         """
         the bitmap is repeated over the fill area.
         """
-        STRETCH: BitmapMode = BITMAP_MODE_STRETCH
+        STRETCH = cast("BitmapMode", BITMAP_MODE_STRETCH)
         """
         the bitmap is stretched to fill the area.
         

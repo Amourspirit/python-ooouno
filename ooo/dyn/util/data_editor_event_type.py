@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.util.DataEditorEventType'
         __ooo_type_name__: str = 'enum'
 
-        CANCELED: DataEditorEventType = DATA_EDITOR_EVENT_TYPE_CANCELED
+        CANCELED = cast("DataEditorEventType", DATA_EDITOR_EVENT_TYPE_CANCELED)
         """
         specifies that the data editing was canceled by the user (data not stored).
         """
-        DONE: DataEditorEventType = DATA_EDITOR_EVENT_TYPE_DONE
+        DONE = cast("DataEditorEventType", DATA_EDITOR_EVENT_TYPE_DONE)
         """
         specifies that the data editing is done (data stored).
         """

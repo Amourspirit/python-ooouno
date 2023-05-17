@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,25 +47,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ui.DockingArea'
         __ooo_type_name__: str = 'enum'
 
-        DOCKINGAREA_BOTTOM: DockingArea = DOCKING_AREA_DOCKINGAREA_BOTTOM
+        DOCKINGAREA_BOTTOM = cast("DockingArea", DOCKING_AREA_DOCKINGAREA_BOTTOM)
         """
         the bottom docking area above the status bar.
         """
-        DOCKINGAREA_DEFAULT: DockingArea = DOCKING_AREA_DOCKINGAREA_DEFAULT
+        DOCKINGAREA_DEFAULT = cast("DockingArea", DOCKING_AREA_DOCKINGAREA_DEFAULT)
         """
         a default docking area.
         
         It depends on the implementation how to treat this value.
         """
-        DOCKINGAREA_LEFT: DockingArea = DOCKING_AREA_DOCKINGAREA_LEFT
+        DOCKINGAREA_LEFT = cast("DockingArea", DOCKING_AREA_DOCKINGAREA_LEFT)
         """
         the left side docking area.
         """
-        DOCKINGAREA_RIGHT: DockingArea = DOCKING_AREA_DOCKINGAREA_RIGHT
+        DOCKINGAREA_RIGHT = cast("DockingArea", DOCKING_AREA_DOCKINGAREA_RIGHT)
         """
         the right side docking area.
         """
-        DOCKINGAREA_TOP: DockingArea = DOCKING_AREA_DOCKINGAREA_TOP
+        DOCKINGAREA_TOP = cast("DockingArea", DOCKING_AREA_DOCKINGAREA_TOP)
         """
         the top docking area below the menu bar.
         """

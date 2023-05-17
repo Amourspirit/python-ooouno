@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,15 +46,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.DashStyle'
         __ooo_type_name__: str = 'enum'
 
-        RECT: DashStyle = DASH_STYLE_RECT
+        RECT = cast("DashStyle", DASH_STYLE_RECT)
         """
         the dash is a rectangle
         """
-        RECTRELATIVE: DashStyle = DASH_STYLE_RECTRELATIVE
+        RECTRELATIVE = cast("DashStyle", DASH_STYLE_RECTRELATIVE)
         """
         the dash is a rectangle, with the size of the dash given in relation to the length of the line
         """
-        ROUND: DashStyle = DASH_STYLE_ROUND
+        ROUND = cast("DashStyle", DASH_STYLE_ROUND)
         """
         the dash is a point
         
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
         
         the line will get a half circle as additional cap
         """
-        ROUNDRELATIVE: DashStyle = DASH_STYLE_ROUNDRELATIVE
+        ROUNDRELATIVE = cast("DashStyle", DASH_STYLE_ROUNDRELATIVE)
         """
         the dash is a point, with the size of the dash given in relation to the length of the line
         """

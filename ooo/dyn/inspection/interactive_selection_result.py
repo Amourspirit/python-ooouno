@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.inspection.InteractiveSelectionResult'
         __ooo_type_name__: str = 'enum'
 
-        Cancelled: InteractiveSelectionResult = INTERACTIVE_SELECTION_RESULT_Cancelled
+        Cancelled = cast("InteractiveSelectionResult", INTERACTIVE_SELECTION_RESULT_Cancelled)
         """
         The interactive selection of a property value was canceled.
         """
-        ObtainedValue: InteractiveSelectionResult = INTERACTIVE_SELECTION_RESULT_ObtainedValue
+        ObtainedValue = cast("InteractiveSelectionResult", INTERACTIVE_SELECTION_RESULT_ObtainedValue)
         """
         The interactive selection of a property value succeeded, a new property value has been obtained, but not yet set at the inspected component.
         
         In this case, the obtained value is passed to the caller of XPropertyHandler.onInteractivePropertySelection(), which is responsible for forwarding this value to the inspected component.
         """
-        Pending: InteractiveSelectionResult = INTERACTIVE_SELECTION_RESULT_Pending
+        Pending = cast("InteractiveSelectionResult", INTERACTIVE_SELECTION_RESULT_Pending)
         """
         The interactive selection of a property value is still pending.
         """
-        Success: InteractiveSelectionResult = INTERACTIVE_SELECTION_RESULT_Success
+        Success = cast("InteractiveSelectionResult", INTERACTIVE_SELECTION_RESULT_Success)
         """
         The interactive selection of a property value succeeded, and the new property value chosen by the user has already been set at the inspected component.
         """

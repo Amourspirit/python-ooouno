@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,11 +47,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
         __ooo_type_name__: str = 'enum'
 
-        BLOCK: ParagraphAdjust = PARAGRAPH_ADJUST_BLOCK
+        BLOCK = cast("ParagraphAdjust", PARAGRAPH_ADJUST_BLOCK)
         """
         adjusted to both borders / stretched, except for last line
         """
-        CENTER: ParagraphAdjust = PARAGRAPH_ADJUST_CENTER
+        CENTER = cast("ParagraphAdjust", PARAGRAPH_ADJUST_CENTER)
         """
         set the horizontal alignment to the center between the margins from the container object
         
@@ -59,7 +59,7 @@ if TYPE_CHECKING:
         
         adjusted to the center
         """
-        LEFT: ParagraphAdjust = PARAGRAPH_ADJUST_LEFT
+        LEFT = cast("ParagraphAdjust", PARAGRAPH_ADJUST_LEFT)
         """
         set the horizontal alignment to the left margin from the container object
         
@@ -69,7 +69,7 @@ if TYPE_CHECKING:
         
         The page style is only used for left pages.
         """
-        RIGHT: ParagraphAdjust = PARAGRAPH_ADJUST_RIGHT
+        RIGHT = cast("ParagraphAdjust", PARAGRAPH_ADJUST_RIGHT)
         """
         set the horizontal alignment to the right margin from the container object
         
@@ -79,7 +79,7 @@ if TYPE_CHECKING:
         
         The page style is only used for right pages.
         """
-        STRETCH: ParagraphAdjust = PARAGRAPH_ADJUST_STRETCH
+        STRETCH = cast("ParagraphAdjust", PARAGRAPH_ADJUST_STRETCH)
         """
         adjusted to both borders / stretched, including last line
         """

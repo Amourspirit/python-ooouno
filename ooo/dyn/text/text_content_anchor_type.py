@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,23 +47,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.text.TextContentAnchorType'
         __ooo_type_name__: str = 'enum'
 
-        AS_CHARACTER: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER
+        AS_CHARACTER = cast("TextContentAnchorType", TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER)
         """
         The object is anchored instead of a character.
         """
-        AT_CHARACTER: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER
+        AT_CHARACTER = cast("TextContentAnchorType", TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER)
         """
         The object is anchored to a character.
         """
-        AT_FRAME: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME
+        AT_FRAME = cast("TextContentAnchorType", TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME)
         """
         The object is anchored to a text frame.
         """
-        AT_PAGE: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE
+        AT_PAGE = cast("TextContentAnchorType", TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE)
         """
         The object is anchored to the page.
         """
-        AT_PARAGRAPH: TextContentAnchorType = TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH
+        AT_PARAGRAPH = cast("TextContentAnchorType", TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH)
         """
         The anchor of the object is set at the top left position of the paragraph.
         """

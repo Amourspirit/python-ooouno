@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.FolderListCommand'
         __ooo_type_name__: str = 'enum'
 
-        GET: FolderListCommand = FOLDER_LIST_COMMAND_GET
+        GET = cast("FolderListCommand", FOLDER_LIST_COMMAND_GET)
         """
         Get a list of all folders.
         
         HTTP request method as defined in RFC 2616: Hypertext Transfer Protocol – HTTP/1.1
         """
-        GET_SUBSCRIBED: FolderListCommand = FOLDER_LIST_COMMAND_GET_SUBSCRIBED
+        GET_SUBSCRIBED = cast("FolderListCommand", FOLDER_LIST_COMMAND_GET_SUBSCRIBED)
         """
         Get a list of subscribed folders.
         """
-        SET: FolderListCommand = FOLDER_LIST_COMMAND_SET
+        SET = cast("FolderListCommand", FOLDER_LIST_COMMAND_SET)
         """
         Set a list of folders.
         """

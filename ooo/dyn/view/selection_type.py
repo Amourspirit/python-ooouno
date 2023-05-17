@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,23 +46,23 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.view.SelectionType'
         __ooo_type_name__: str = 'enum'
 
-        MULTI: SelectionType = SELECTION_TYPE_MULTI
+        MULTI = cast("SelectionType", SELECTION_TYPE_MULTI)
         """
         The selection can contain zero or more objects.
         """
-        NONE: SelectionType = SELECTION_TYPE_NONE
+        NONE = cast("SelectionType", SELECTION_TYPE_NONE)
         """
         No selection is possible.
         
         The selection is always empty.
         """
-        RANGE: SelectionType = SELECTION_TYPE_RANGE
+        RANGE = cast("SelectionType", SELECTION_TYPE_RANGE)
         """
         The selection can contain zero or more objects.
         
         all selected objects must be part of a continues range
         """
-        SINGLE: SelectionType = SELECTION_TYPE_SINGLE
+        SINGLE = cast("SelectionType", SELECTION_TYPE_SINGLE)
         """
         The selection can only contain one or zero objects.
         """

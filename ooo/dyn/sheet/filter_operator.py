@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -54,31 +54,31 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.sheet.FilterOperator'
         __ooo_type_name__: str = 'enum'
 
-        BOTTOM_PERCENT: FilterOperator = FILTER_OPERATOR_BOTTOM_PERCENT
+        BOTTOM_PERCENT = cast("FilterOperator", FILTER_OPERATOR_BOTTOM_PERCENT)
         """
         selects a specified percentage of entries with the lowest values.
         """
-        BOTTOM_VALUES: FilterOperator = FILTER_OPERATOR_BOTTOM_VALUES
+        BOTTOM_VALUES = cast("FilterOperator", FILTER_OPERATOR_BOTTOM_VALUES)
         """
         selects a specified number of entries with the lowest values.
         """
-        EMPTY: FilterOperator = FILTER_OPERATOR_EMPTY
+        EMPTY = cast("FilterOperator", FILTER_OPERATOR_EMPTY)
         """
         selects empty entries.
         """
-        EQUAL: FilterOperator = FILTER_OPERATOR_EQUAL
+        EQUAL = cast("FilterOperator", FILTER_OPERATOR_EQUAL)
         """
         value has to be equal to the specified value.
         
         The cell value is equal to the specified value.
         """
-        GREATER: FilterOperator = FILTER_OPERATOR_GREATER
+        GREATER = cast("FilterOperator", FILTER_OPERATOR_GREATER)
         """
         the value has to be greater than the specified value.
         
         value has to be greater than the specified value.
         """
-        GREATER_EQUAL: FilterOperator = FILTER_OPERATOR_GREATER_EQUAL
+        GREATER_EQUAL = cast("FilterOperator", FILTER_OPERATOR_GREATER_EQUAL)
         """
         the value has to be greater than or equal to the specified value.
         
@@ -86,13 +86,13 @@ if TYPE_CHECKING:
         
         value has to be greater than or equal to the specified value.
         """
-        LESS: FilterOperator = FILTER_OPERATOR_LESS
+        LESS = cast("FilterOperator", FILTER_OPERATOR_LESS)
         """
         the value has to be less than the specified value.
         
         value has to be less than the specified value.
         """
-        LESS_EQUAL: FilterOperator = FILTER_OPERATOR_LESS_EQUAL
+        LESS_EQUAL = cast("FilterOperator", FILTER_OPERATOR_LESS_EQUAL)
         """
         the value has to be less than or equal to the specified value.
         
@@ -100,21 +100,21 @@ if TYPE_CHECKING:
         
         value has to be less than or equal to the specified value.
         """
-        NOT_EMPTY: FilterOperator = FILTER_OPERATOR_NOT_EMPTY
+        NOT_EMPTY = cast("FilterOperator", FILTER_OPERATOR_NOT_EMPTY)
         """
         selects non-empty entries.
         """
-        NOT_EQUAL: FilterOperator = FILTER_OPERATOR_NOT_EQUAL
+        NOT_EQUAL = cast("FilterOperator", FILTER_OPERATOR_NOT_EQUAL)
         """
         the value must not be equal to the specified value.
         
         value must not be equal to the specified value.
         """
-        TOP_PERCENT: FilterOperator = FILTER_OPERATOR_TOP_PERCENT
+        TOP_PERCENT = cast("FilterOperator", FILTER_OPERATOR_TOP_PERCENT)
         """
         selects a specified percentage of entries with the greatest values.
         """
-        TOP_VALUES: FilterOperator = FILTER_OPERATOR_TOP_VALUES
+        TOP_VALUES = cast("FilterOperator", FILTER_OPERATOR_TOP_VALUES)
         """
         selects a specified number of entries with the greatest values.
         """

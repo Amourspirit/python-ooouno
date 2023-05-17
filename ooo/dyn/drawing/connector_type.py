@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,21 +46,21 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectorType'
         __ooo_type_name__: str = 'enum'
 
-        CURVE: ConnectorType = CONNECTOR_TYPE_CURVE
+        CURVE = cast("ConnectorType", CONNECTOR_TYPE_CURVE)
         """
         the ConnectorShape is drawn as a curve
         """
-        LINE: ConnectorType = CONNECTOR_TYPE_LINE
+        LINE = cast("ConnectorType", CONNECTOR_TYPE_LINE)
         """
         the ConnectorShape is drawn as a straight line
         
         This is the PolygonKind for a LineShape.
         """
-        LINES: ConnectorType = CONNECTOR_TYPE_LINES
+        LINES = cast("ConnectorType", CONNECTOR_TYPE_LINES)
         """
         the connector is drawn with three lines
         """
-        STANDARD: ConnectorType = CONNECTOR_TYPE_STANDARD
+        STANDARD = cast("ConnectorType", CONNECTOR_TYPE_STANDARD)
         """
         the graphic is rendered in the default color style of the output device,
         

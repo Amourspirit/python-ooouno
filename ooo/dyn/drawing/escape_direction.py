@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -49,14 +49,14 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.EscapeDirection'
         __ooo_type_name__: str = 'enum'
 
-        DOWN: EscapeDirection = ESCAPE_DIRECTION_DOWN
+        DOWN = cast("EscapeDirection", ESCAPE_DIRECTION_DOWN)
         """
         """
-        HORIZONTAL: EscapeDirection = ESCAPE_DIRECTION_HORIZONTAL
+        HORIZONTAL = cast("EscapeDirection", ESCAPE_DIRECTION_HORIZONTAL)
         """
         mirror to the horizontal axis
         """
-        LEFT: EscapeDirection = ESCAPE_DIRECTION_LEFT
+        LEFT = cast("EscapeDirection", ESCAPE_DIRECTION_LEFT)
         """
         the connection line leaves the connected object to the left,
         
@@ -64,7 +64,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: EscapeDirection = ESCAPE_DIRECTION_RIGHT
+        RIGHT = cast("EscapeDirection", ESCAPE_DIRECTION_RIGHT)
         """
         the connection line leaves the connected object to the right,
         
@@ -72,13 +72,13 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        SMART: EscapeDirection = ESCAPE_DIRECTION_SMART
+        SMART = cast("EscapeDirection", ESCAPE_DIRECTION_SMART)
         """
         """
-        UP: EscapeDirection = ESCAPE_DIRECTION_UP
+        UP = cast("EscapeDirection", ESCAPE_DIRECTION_UP)
         """
         """
-        VERTICAL: EscapeDirection = ESCAPE_DIRECTION_VERTICAL
+        VERTICAL = cast("EscapeDirection", ESCAPE_DIRECTION_VERTICAL)
         """
         mirror to the vertical axis
         """

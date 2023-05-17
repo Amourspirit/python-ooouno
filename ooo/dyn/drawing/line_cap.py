@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,11 +45,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.LineCap'
         __ooo_type_name__: str = 'enum'
 
-        BUTT: LineCap = LINE_CAP_BUTT
+        BUTT = cast("LineCap", LINE_CAP_BUTT)
         """
         the line will end without any additional shape
         """
-        ROUND: LineCap = LINE_CAP_ROUND
+        ROUND = cast("LineCap", LINE_CAP_ROUND)
         """
         the dash is a point
         
@@ -57,7 +57,7 @@ if TYPE_CHECKING:
         
         the line will get a half circle as additional cap
         """
-        SQUARE: LineCap = LINE_CAP_SQUARE
+        SQUARE = cast("LineCap", LINE_CAP_SQUARE)
         """
         the line will get a half square as additional cap
         

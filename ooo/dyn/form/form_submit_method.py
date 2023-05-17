@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitMethod'
         __ooo_type_name__: str = 'enum'
 
-        GET: FormSubmitMethod = FORM_SUBMIT_METHOD_GET
+        GET = cast("FormSubmitMethod", FORM_SUBMIT_METHOD_GET)
         """
         specifies to append the input information of a form to the target URL as parameters.
         """
-        POST: FormSubmitMethod = FORM_SUBMIT_METHOD_POST
+        POST = cast("FormSubmitMethod", FORM_SUBMIT_METHOD_POST)
         """
         specifies to send the input information in a data body.
         """

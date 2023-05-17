@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,19 +47,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
         __ooo_type_name__: str = 'enum'
 
-        BITMAP: FillStyle = FILL_STYLE_BITMAP
+        BITMAP = cast("FillStyle", FILL_STYLE_BITMAP)
         """
         use a bitmap to fill the area.
         """
-        GRADIENT: FillStyle = FILL_STYLE_GRADIENT
+        GRADIENT = cast("FillStyle", FILL_STYLE_GRADIENT)
         """
         use a gradient color to fill the area.
         """
-        HATCH: FillStyle = FILL_STYLE_HATCH
+        HATCH = cast("FillStyle", FILL_STYLE_HATCH)
         """
         use a hatch to fill the area.
         """
-        NONE: FillStyle = FILL_STYLE_NONE
+        NONE = cast("FillStyle", FILL_STYLE_NONE)
         """
         the area is not filled.
         
@@ -73,7 +73,7 @@ if TYPE_CHECKING:
         
         the line has no special end.
         """
-        SOLID: FillStyle = FILL_STYLE_SOLID
+        SOLID = cast("FillStyle", FILL_STYLE_SOLID)
         """
         use a solid color to fill the area.
         

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.Arrangement'
         __ooo_type_name__: str = 'enum'
 
-        BACK: Arrangement = ARRANGEMENT_BACK
+        BACK = cast("Arrangement", ARRANGEMENT_BACK)
         """
         Move this object behind all other objects.
         """
-        FRONT: Arrangement = ARRANGEMENT_FRONT
+        FRONT = cast("Arrangement", ARRANGEMENT_FRONT)
         """
         Move this object in front of all other objects.
         """
-        MORE_BACK: Arrangement = ARRANGEMENT_MORE_BACK
+        MORE_BACK = cast("Arrangement", ARRANGEMENT_MORE_BACK)
         """
         Move this object one object more to the back.
         """
-        MORE_FRONT: Arrangement = ARRANGEMENT_MORE_FRONT
+        MORE_FRONT = cast("Arrangement", ARRANGEMENT_MORE_FRONT)
         """
         Move this object one object more to the front.
         """

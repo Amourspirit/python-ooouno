@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -48,13 +48,13 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectionType'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: ConnectionType = CONNECTION_TYPE_AUTO
+        AUTO = cast("ConnectionType", CONNECTION_TYPE_AUTO)
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BOTTOM: ConnectionType = CONNECTION_TYPE_BOTTOM
+        BOTTOM = cast("ConnectionType", CONNECTION_TYPE_BOTTOM)
         """
         the connection line leaves the connected object from the bottom,
         
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
         
         The bottom edge of the text is adjusted to the bottom edge of the shape.
         """
-        LEFT: ConnectionType = CONNECTION_TYPE_LEFT
+        LEFT = cast("ConnectionType", CONNECTION_TYPE_LEFT)
         """
         the connection line leaves the connected object to the left,
         
@@ -70,7 +70,7 @@ if TYPE_CHECKING:
         
         The text is positioned to the left.
         """
-        RIGHT: ConnectionType = CONNECTION_TYPE_RIGHT
+        RIGHT = cast("ConnectionType", CONNECTION_TYPE_RIGHT)
         """
         the connection line leaves the connected object to the right,
         
@@ -78,13 +78,13 @@ if TYPE_CHECKING:
         
         The text is positioned to the right.
         """
-        SPECIAL: ConnectionType = CONNECTION_TYPE_SPECIAL
+        SPECIAL = cast("ConnectionType", CONNECTION_TYPE_SPECIAL)
         """
         not implemented, yet.
         
         deprecated
         """
-        TOP: ConnectionType = CONNECTION_TYPE_TOP
+        TOP = cast("ConnectionType", CONNECTION_TYPE_TOP)
         """
         the connection line leaves the connected object from the top,
         

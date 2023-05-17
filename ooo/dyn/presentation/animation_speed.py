@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,15 +45,15 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
         __ooo_type_name__: str = 'enum'
 
-        FAST: AnimationSpeed = ANIMATION_SPEED_FAST
+        FAST = cast("AnimationSpeed", ANIMATION_SPEED_FAST)
         """
         set the speed from the animation/fade to fast.
         """
-        MEDIUM: AnimationSpeed = ANIMATION_SPEED_MEDIUM
+        MEDIUM = cast("AnimationSpeed", ANIMATION_SPEED_MEDIUM)
         """
         set the speed from the animation/fade to medium.
         """
-        SLOW: AnimationSpeed = ANIMATION_SPEED_SLOW
+        SLOW = cast("AnimationSpeed", ANIMATION_SPEED_SLOW)
         """
         set the speed from the animation/fade to slow.
         """

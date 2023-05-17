@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -47,25 +47,25 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureTextVertPos'
         __ooo_type_name__: str = 'enum'
 
-        AUTO: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_AUTO
+        AUTO = cast("MeasureTextVertPos", MEASURE_TEXT_VERT_POS_AUTO)
         """
         the connection point is chosen automatically,
         
         Set this to have the application select the best horizontal position for the text.
         """
-        BREAKEDLINE: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_BREAKEDLINE
+        BREAKEDLINE = cast("MeasureTextVertPos", MEASURE_TEXT_VERT_POS_BREAKEDLINE)
         """
         """
-        CENTERED: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_CENTERED
+        CENTERED = cast("MeasureTextVertPos", MEASURE_TEXT_VERT_POS_CENTERED)
         """
         The text is positioned at the center.
         
         The text is positioned over the main line.
         """
-        EAST: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_EAST
+        EAST = cast("MeasureTextVertPos", MEASURE_TEXT_VERT_POS_EAST)
         """
         """
-        WEST: MeasureTextVertPos = MEASURE_TEXT_VERT_POS_WEST
+        WEST = cast("MeasureTextVertPos", MEASURE_TEXT_VERT_POS_WEST)
         """
         """
 

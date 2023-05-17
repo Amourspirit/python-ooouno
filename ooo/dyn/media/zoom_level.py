@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -52,41 +52,41 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.media.ZoomLevel'
         __ooo_type_name__: str = 'enum'
 
-        FIT_TO_WINDOW: ZoomLevel = ZOOM_LEVEL_FIT_TO_WINDOW
+        FIT_TO_WINDOW = cast("ZoomLevel", ZOOM_LEVEL_FIT_TO_WINDOW)
         """
         specifies that the video should be zoomed to window size
         """
-        FIT_TO_WINDOW_FIXED_ASPECT: ZoomLevel = ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT
+        FIT_TO_WINDOW_FIXED_ASPECT = cast("ZoomLevel", ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT)
         """
         specifies that the video should be zoomed to window size with using a fixed aspect ratio
         """
-        FULLSCREEN: ZoomLevel = ZOOM_LEVEL_FULLSCREEN
+        FULLSCREEN = cast("ZoomLevel", ZOOM_LEVEL_FULLSCREEN)
         """
         specifies that the video should be displayed in fullscreen mode, if available
         """
-        NOT_AVAILABLE: ZoomLevel = ZOOM_LEVEL_NOT_AVAILABLE
+        NOT_AVAILABLE = cast("ZoomLevel", ZOOM_LEVEL_NOT_AVAILABLE)
         """
         specifies that the video window itself is not available at all, e.g.
         
         in cases of pure audio playback
         """
-        ORIGINAL: ZoomLevel = ZOOM_LEVEL_ORIGINAL
+        ORIGINAL = cast("ZoomLevel", ZOOM_LEVEL_ORIGINAL)
         """
         specifies that the video should be displayed with its original size
         """
-        ZOOM_1_TO_2: ZoomLevel = ZOOM_LEVEL_ZOOM_1_TO_2
+        ZOOM_1_TO_2 = cast("ZoomLevel", ZOOM_LEVEL_ZOOM_1_TO_2)
         """
         specifies that the video should be zoomed to a factor of 1:2
         """
-        ZOOM_1_TO_4: ZoomLevel = ZOOM_LEVEL_ZOOM_1_TO_4
+        ZOOM_1_TO_4 = cast("ZoomLevel", ZOOM_LEVEL_ZOOM_1_TO_4)
         """
         specifies that the video should be zoomed to a factor of 1:4
         """
-        ZOOM_2_TO_1: ZoomLevel = ZOOM_LEVEL_ZOOM_2_TO_1
+        ZOOM_2_TO_1 = cast("ZoomLevel", ZOOM_LEVEL_ZOOM_2_TO_1)
         """
         specifies that the video should be zoomed to a factor of 2:1
         """
-        ZOOM_4_TO_1: ZoomLevel = ZOOM_LEVEL_ZOOM_4_TO_1
+        ZOOM_4_TO_1 = cast("ZoomLevel", ZOOM_LEVEL_ZOOM_4_TO_1)
         """
         specifies that the video should be zoomed to a factor of 4:1
         """

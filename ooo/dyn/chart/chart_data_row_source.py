@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -44,11 +44,11 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
         __ooo_type_name__: str = 'enum'
 
-        COLUMNS: ChartDataRowSource = CHART_DATA_ROW_SOURCE_COLUMNS
+        COLUMNS = cast("ChartDataRowSource", CHART_DATA_ROW_SOURCE_COLUMNS)
         """
         values displayed as data rows are taken from the columns of the data source.
         """
-        ROWS: ChartDataRowSource = CHART_DATA_ROW_SOURCE_ROWS
+        ROWS = cast("ChartDataRowSource", CHART_DATA_ROW_SOURCE_ROWS)
         """
         values displayed as data rows are taken from the rows of the data source.
         """

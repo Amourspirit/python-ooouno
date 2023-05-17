@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.TabulatorCycle'
         __ooo_type_name__: str = 'enum'
 
-        CURRENT: TabulatorCycle = TABULATOR_CYCLE_CURRENT
+        CURRENT = cast("TabulatorCycle", TABULATOR_CYCLE_CURRENT)
         """
         a navigation bar is provided and navigation will be performed on the current/active form.
         
@@ -53,11 +53,11 @@ if TYPE_CHECKING:
         
         This is the default and most often encountered mode.
         """
-        PAGE: TabulatorCycle = TABULATOR_CYCLE_PAGE
+        PAGE = cast("TabulatorCycle", TABULATOR_CYCLE_PAGE)
         """
         pressing the TAB key from the last control of a form moves the focus to the first control of the next form in the tab order.
         """
-        RECORDS: TabulatorCycle = TABULATOR_CYCLE_RECORDS
+        RECORDS = cast("TabulatorCycle", TABULATOR_CYCLE_RECORDS)
         """
         pressing the TAB key from the last control moves the focus to the first control in the tab order of the next record.
         """

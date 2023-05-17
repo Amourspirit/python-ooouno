@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,19 +45,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitEncoding'
         __ooo_type_name__: str = 'enum'
 
-        MULTIPART: FormSubmitEncoding = FORM_SUBMIT_ENCODING_MULTIPART
+        MULTIPART = cast("FormSubmitEncoding", FORM_SUBMIT_ENCODING_MULTIPART)
         """
         Specifies to use \"multipart/form-data\" as submit encoding.
         
         Usually used when the form contains a file upload element.
         """
-        TEXT: FormSubmitEncoding = FORM_SUBMIT_ENCODING_TEXT
+        TEXT = cast("FormSubmitEncoding", FORM_SUBMIT_ENCODING_TEXT)
         """
         specifies to use \"text/plain\"
         
         Usually used if the FormSubmitMethod attribute has the value POST and the content should be reviewed as full text.
         """
-        URL: FormSubmitEncoding = FORM_SUBMIT_ENCODING_URL
+        URL = cast("FormSubmitEncoding", FORM_SUBMIT_ENCODING_URL)
         """
         When the button is clicked, a URL set for the button is opened.
         

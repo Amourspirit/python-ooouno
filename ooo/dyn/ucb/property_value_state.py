@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -46,19 +46,19 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.ucb.PropertyValueState'
         __ooo_type_name__: str = 'enum'
 
-        INVALID_NAME: PropertyValueState = PROPERTY_VALUE_STATE_INVALID_NAME
+        INVALID_NAME = cast("PropertyValueState", PROPERTY_VALUE_STATE_INVALID_NAME)
         """
         The given property name/handle is invalid.
         """
-        INVALID_TYPE: PropertyValueState = PROPERTY_VALUE_STATE_INVALID_TYPE
+        INVALID_TYPE = cast("PropertyValueState", PROPERTY_VALUE_STATE_INVALID_TYPE)
         """
         The given property type is invalid.
         """
-        PROCESSED: PropertyValueState = PROPERTY_VALUE_STATE_PROCESSED
+        PROCESSED = cast("PropertyValueState", PROPERTY_VALUE_STATE_PROCESSED)
         """
         The value was obtained.
         """
-        UNPROCESSED: PropertyValueState = PROPERTY_VALUE_STATE_UNPROCESSED
+        UNPROCESSED = cast("PropertyValueState", PROPERTY_VALUE_STATE_UNPROCESSED)
         """
         The property value was not obtained yet.
         """

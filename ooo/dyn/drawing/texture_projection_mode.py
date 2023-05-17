@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -45,17 +45,17 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.drawing.TextureProjectionMode'
         __ooo_type_name__: str = 'enum'
 
-        OBJECTSPECIFIC: TextureProjectionMode = TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC
+        OBJECTSPECIFIC = cast("TextureProjectionMode", TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC)
         """
         This value specifies that the standard object projection method is used.
         """
-        PARALLEL: TextureProjectionMode = TEXTURE_PROJECTION_MODE_PARALLEL
+        PARALLEL = cast("TextureProjectionMode", TEXTURE_PROJECTION_MODE_PARALLEL)
         """
         the 3D objects are drawn in the parallel projection.
         
         This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
         """
-        SPHERE: TextureProjectionMode = TEXTURE_PROJECTION_MODE_SPHERE
+        SPHERE = cast("TextureProjectionMode", TEXTURE_PROJECTION_MODE_SPHERE)
         """
         forces normals to think that the object is a sphere.
         

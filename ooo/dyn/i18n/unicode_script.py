@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -130,268 +130,268 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.i18n.UnicodeScript'
         __ooo_type_name__: str = 'enum'
 
-        kAlphabeticPresentation: UnicodeScript = UNICODE_SCRIPT_kAlphabeticPresentation
+        kAlphabeticPresentation = cast("UnicodeScript", UNICODE_SCRIPT_kAlphabeticPresentation)
         """
         """
-        kArabic: UnicodeScript = UNICODE_SCRIPT_kArabic
+        kArabic = cast("UnicodeScript", UNICODE_SCRIPT_kArabic)
         """
         """
-        kArabicPresentationA: UnicodeScript = UNICODE_SCRIPT_kArabicPresentationA
+        kArabicPresentationA = cast("UnicodeScript", UNICODE_SCRIPT_kArabicPresentationA)
         """
         """
-        kArabicPresentationB: UnicodeScript = UNICODE_SCRIPT_kArabicPresentationB
+        kArabicPresentationB = cast("UnicodeScript", UNICODE_SCRIPT_kArabicPresentationB)
         """
         """
-        kArmenian: UnicodeScript = UNICODE_SCRIPT_kArmenian
+        kArmenian = cast("UnicodeScript", UNICODE_SCRIPT_kArmenian)
         """
         """
-        kArrow: UnicodeScript = UNICODE_SCRIPT_kArrow
+        kArrow = cast("UnicodeScript", UNICODE_SCRIPT_kArrow)
         """
         """
-        kBasicLatin: UnicodeScript = UNICODE_SCRIPT_kBasicLatin
+        kBasicLatin = cast("UnicodeScript", UNICODE_SCRIPT_kBasicLatin)
         """
         """
-        kBengali: UnicodeScript = UNICODE_SCRIPT_kBengali
+        kBengali = cast("UnicodeScript", UNICODE_SCRIPT_kBengali)
         """
         """
-        kBlockElement: UnicodeScript = UNICODE_SCRIPT_kBlockElement
+        kBlockElement = cast("UnicodeScript", UNICODE_SCRIPT_kBlockElement)
         """
         """
-        kBopomofo: UnicodeScript = UNICODE_SCRIPT_kBopomofo
+        kBopomofo = cast("UnicodeScript", UNICODE_SCRIPT_kBopomofo)
         """
         """
-        kBopomofoExtended: UnicodeScript = UNICODE_SCRIPT_kBopomofoExtended
+        kBopomofoExtended = cast("UnicodeScript", UNICODE_SCRIPT_kBopomofoExtended)
         """
         """
-        kBoxDrawing: UnicodeScript = UNICODE_SCRIPT_kBoxDrawing
+        kBoxDrawing = cast("UnicodeScript", UNICODE_SCRIPT_kBoxDrawing)
         """
         """
-        kBraillePatterns: UnicodeScript = UNICODE_SCRIPT_kBraillePatterns
+        kBraillePatterns = cast("UnicodeScript", UNICODE_SCRIPT_kBraillePatterns)
         """
         """
-        kCJKCompatibility: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibility
+        kCJKCompatibility = cast("UnicodeScript", UNICODE_SCRIPT_kCJKCompatibility)
         """
         """
-        kCJKCompatibilityForm: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibilityForm
+        kCJKCompatibilityForm = cast("UnicodeScript", UNICODE_SCRIPT_kCJKCompatibilityForm)
         """
         """
-        kCJKCompatibilityIdeograph: UnicodeScript = UNICODE_SCRIPT_kCJKCompatibilityIdeograph
+        kCJKCompatibilityIdeograph = cast("UnicodeScript", UNICODE_SCRIPT_kCJKCompatibilityIdeograph)
         """
         """
-        kCJKRadicalsSupplement: UnicodeScript = UNICODE_SCRIPT_kCJKRadicalsSupplement
+        kCJKRadicalsSupplement = cast("UnicodeScript", UNICODE_SCRIPT_kCJKRadicalsSupplement)
         """
         """
-        kCJKSymbolPunctuation: UnicodeScript = UNICODE_SCRIPT_kCJKSymbolPunctuation
+        kCJKSymbolPunctuation = cast("UnicodeScript", UNICODE_SCRIPT_kCJKSymbolPunctuation)
         """
         """
-        kCJKUnifiedIdeograph: UnicodeScript = UNICODE_SCRIPT_kCJKUnifiedIdeograph
+        kCJKUnifiedIdeograph = cast("UnicodeScript", UNICODE_SCRIPT_kCJKUnifiedIdeograph)
         """
         """
-        kCJKUnifiedIdeographsExtensionA: UnicodeScript = UNICODE_SCRIPT_kCJKUnifiedIdeographsExtensionA
+        kCJKUnifiedIdeographsExtensionA = cast("UnicodeScript", UNICODE_SCRIPT_kCJKUnifiedIdeographsExtensionA)
         """
         """
-        kCherokee: UnicodeScript = UNICODE_SCRIPT_kCherokee
+        kCherokee = cast("UnicodeScript", UNICODE_SCRIPT_kCherokee)
         """
         """
-        kCombiningDiacritical: UnicodeScript = UNICODE_SCRIPT_kCombiningDiacritical
+        kCombiningDiacritical = cast("UnicodeScript", UNICODE_SCRIPT_kCombiningDiacritical)
         """
         """
-        kCombiningHalfMark: UnicodeScript = UNICODE_SCRIPT_kCombiningHalfMark
+        kCombiningHalfMark = cast("UnicodeScript", UNICODE_SCRIPT_kCombiningHalfMark)
         """
         """
-        kControlPicture: UnicodeScript = UNICODE_SCRIPT_kControlPicture
+        kControlPicture = cast("UnicodeScript", UNICODE_SCRIPT_kControlPicture)
         """
         """
-        kCurrencySymbolScript: UnicodeScript = UNICODE_SCRIPT_kCurrencySymbolScript
+        kCurrencySymbolScript = cast("UnicodeScript", UNICODE_SCRIPT_kCurrencySymbolScript)
         """
         """
-        kCyrillic: UnicodeScript = UNICODE_SCRIPT_kCyrillic
+        kCyrillic = cast("UnicodeScript", UNICODE_SCRIPT_kCyrillic)
         """
         """
-        kDevanagari: UnicodeScript = UNICODE_SCRIPT_kDevanagari
+        kDevanagari = cast("UnicodeScript", UNICODE_SCRIPT_kDevanagari)
         """
         """
-        kDingbat: UnicodeScript = UNICODE_SCRIPT_kDingbat
+        kDingbat = cast("UnicodeScript", UNICODE_SCRIPT_kDingbat)
         """
         """
-        kEnclosedAlphanumeric: UnicodeScript = UNICODE_SCRIPT_kEnclosedAlphanumeric
+        kEnclosedAlphanumeric = cast("UnicodeScript", UNICODE_SCRIPT_kEnclosedAlphanumeric)
         """
         """
-        kEnclosedCJKLetterMonth: UnicodeScript = UNICODE_SCRIPT_kEnclosedCJKLetterMonth
+        kEnclosedCJKLetterMonth = cast("UnicodeScript", UNICODE_SCRIPT_kEnclosedCJKLetterMonth)
         """
         """
-        kEthiopic: UnicodeScript = UNICODE_SCRIPT_kEthiopic
+        kEthiopic = cast("UnicodeScript", UNICODE_SCRIPT_kEthiopic)
         """
         """
-        kGeneralPunctuation: UnicodeScript = UNICODE_SCRIPT_kGeneralPunctuation
+        kGeneralPunctuation = cast("UnicodeScript", UNICODE_SCRIPT_kGeneralPunctuation)
         """
         """
-        kGeometricShape: UnicodeScript = UNICODE_SCRIPT_kGeometricShape
+        kGeometricShape = cast("UnicodeScript", UNICODE_SCRIPT_kGeometricShape)
         """
         """
-        kGeorgian: UnicodeScript = UNICODE_SCRIPT_kGeorgian
+        kGeorgian = cast("UnicodeScript", UNICODE_SCRIPT_kGeorgian)
         """
         """
-        kGreek: UnicodeScript = UNICODE_SCRIPT_kGreek
+        kGreek = cast("UnicodeScript", UNICODE_SCRIPT_kGreek)
         """
         """
-        kGreekExtended: UnicodeScript = UNICODE_SCRIPT_kGreekExtended
+        kGreekExtended = cast("UnicodeScript", UNICODE_SCRIPT_kGreekExtended)
         """
         """
-        kGujarati: UnicodeScript = UNICODE_SCRIPT_kGujarati
+        kGujarati = cast("UnicodeScript", UNICODE_SCRIPT_kGujarati)
         """
         """
-        kGurmukhi: UnicodeScript = UNICODE_SCRIPT_kGurmukhi
+        kGurmukhi = cast("UnicodeScript", UNICODE_SCRIPT_kGurmukhi)
         """
         """
-        kHalfwidthFullwidthForm: UnicodeScript = UNICODE_SCRIPT_kHalfwidthFullwidthForm
+        kHalfwidthFullwidthForm = cast("UnicodeScript", UNICODE_SCRIPT_kHalfwidthFullwidthForm)
         """
         """
-        kHangulCompatibilityJamo: UnicodeScript = UNICODE_SCRIPT_kHangulCompatibilityJamo
+        kHangulCompatibilityJamo = cast("UnicodeScript", UNICODE_SCRIPT_kHangulCompatibilityJamo)
         """
         """
-        kHangulJamo: UnicodeScript = UNICODE_SCRIPT_kHangulJamo
+        kHangulJamo = cast("UnicodeScript", UNICODE_SCRIPT_kHangulJamo)
         """
         """
-        kHangulSyllable: UnicodeScript = UNICODE_SCRIPT_kHangulSyllable
+        kHangulSyllable = cast("UnicodeScript", UNICODE_SCRIPT_kHangulSyllable)
         """
         """
-        kHebrew: UnicodeScript = UNICODE_SCRIPT_kHebrew
+        kHebrew = cast("UnicodeScript", UNICODE_SCRIPT_kHebrew)
         """
         """
-        kHighPrivateUseSurrogate: UnicodeScript = UNICODE_SCRIPT_kHighPrivateUseSurrogate
+        kHighPrivateUseSurrogate = cast("UnicodeScript", UNICODE_SCRIPT_kHighPrivateUseSurrogate)
         """
         """
-        kHighSurrogate: UnicodeScript = UNICODE_SCRIPT_kHighSurrogate
+        kHighSurrogate = cast("UnicodeScript", UNICODE_SCRIPT_kHighSurrogate)
         """
         """
-        kHiragana: UnicodeScript = UNICODE_SCRIPT_kHiragana
+        kHiragana = cast("UnicodeScript", UNICODE_SCRIPT_kHiragana)
         """
         """
-        kIPAExtension: UnicodeScript = UNICODE_SCRIPT_kIPAExtension
+        kIPAExtension = cast("UnicodeScript", UNICODE_SCRIPT_kIPAExtension)
         """
         """
-        kIdeographicDescriptionCharacters: UnicodeScript = UNICODE_SCRIPT_kIdeographicDescriptionCharacters
+        kIdeographicDescriptionCharacters = cast("UnicodeScript", UNICODE_SCRIPT_kIdeographicDescriptionCharacters)
         """
         """
-        kKanbun: UnicodeScript = UNICODE_SCRIPT_kKanbun
+        kKanbun = cast("UnicodeScript", UNICODE_SCRIPT_kKanbun)
         """
         """
-        kKangxiRadicals: UnicodeScript = UNICODE_SCRIPT_kKangxiRadicals
+        kKangxiRadicals = cast("UnicodeScript", UNICODE_SCRIPT_kKangxiRadicals)
         """
         """
-        kKannada: UnicodeScript = UNICODE_SCRIPT_kKannada
+        kKannada = cast("UnicodeScript", UNICODE_SCRIPT_kKannada)
         """
         """
-        kKatakana: UnicodeScript = UNICODE_SCRIPT_kKatakana
+        kKatakana = cast("UnicodeScript", UNICODE_SCRIPT_kKatakana)
         """
         """
-        kKhmer: UnicodeScript = UNICODE_SCRIPT_kKhmer
+        kKhmer = cast("UnicodeScript", UNICODE_SCRIPT_kKhmer)
         """
         """
-        kLao: UnicodeScript = UNICODE_SCRIPT_kLao
+        kLao = cast("UnicodeScript", UNICODE_SCRIPT_kLao)
         """
         """
-        kLatin1Supplement: UnicodeScript = UNICODE_SCRIPT_kLatin1Supplement
+        kLatin1Supplement = cast("UnicodeScript", UNICODE_SCRIPT_kLatin1Supplement)
         """
         """
-        kLatinExtendedA: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedA
+        kLatinExtendedA = cast("UnicodeScript", UNICODE_SCRIPT_kLatinExtendedA)
         """
         """
-        kLatinExtendedAdditional: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedAdditional
+        kLatinExtendedAdditional = cast("UnicodeScript", UNICODE_SCRIPT_kLatinExtendedAdditional)
         """
         """
-        kLatinExtendedB: UnicodeScript = UNICODE_SCRIPT_kLatinExtendedB
+        kLatinExtendedB = cast("UnicodeScript", UNICODE_SCRIPT_kLatinExtendedB)
         """
         """
-        kLetterlikeSymbol: UnicodeScript = UNICODE_SCRIPT_kLetterlikeSymbol
+        kLetterlikeSymbol = cast("UnicodeScript", UNICODE_SCRIPT_kLetterlikeSymbol)
         """
         """
-        kLowSurrogate: UnicodeScript = UNICODE_SCRIPT_kLowSurrogate
+        kLowSurrogate = cast("UnicodeScript", UNICODE_SCRIPT_kLowSurrogate)
         """
         """
-        kMalayalam: UnicodeScript = UNICODE_SCRIPT_kMalayalam
+        kMalayalam = cast("UnicodeScript", UNICODE_SCRIPT_kMalayalam)
         """
         """
-        kMathOperator: UnicodeScript = UNICODE_SCRIPT_kMathOperator
+        kMathOperator = cast("UnicodeScript", UNICODE_SCRIPT_kMathOperator)
         """
         """
-        kMiscSymbol: UnicodeScript = UNICODE_SCRIPT_kMiscSymbol
+        kMiscSymbol = cast("UnicodeScript", UNICODE_SCRIPT_kMiscSymbol)
         """
         """
-        kMiscTechnical: UnicodeScript = UNICODE_SCRIPT_kMiscTechnical
+        kMiscTechnical = cast("UnicodeScript", UNICODE_SCRIPT_kMiscTechnical)
         """
         """
-        kMongolian: UnicodeScript = UNICODE_SCRIPT_kMongolian
+        kMongolian = cast("UnicodeScript", UNICODE_SCRIPT_kMongolian)
         """
         """
-        kMyanmar: UnicodeScript = UNICODE_SCRIPT_kMyanmar
+        kMyanmar = cast("UnicodeScript", UNICODE_SCRIPT_kMyanmar)
         """
         """
-        kNoScript: UnicodeScript = UNICODE_SCRIPT_kNoScript
+        kNoScript = cast("UnicodeScript", UNICODE_SCRIPT_kNoScript)
         """
         """
-        kNumberForm: UnicodeScript = UNICODE_SCRIPT_kNumberForm
+        kNumberForm = cast("UnicodeScript", UNICODE_SCRIPT_kNumberForm)
         """
         """
-        kOgham: UnicodeScript = UNICODE_SCRIPT_kOgham
+        kOgham = cast("UnicodeScript", UNICODE_SCRIPT_kOgham)
         """
         """
-        kOpticalCharacter: UnicodeScript = UNICODE_SCRIPT_kOpticalCharacter
+        kOpticalCharacter = cast("UnicodeScript", UNICODE_SCRIPT_kOpticalCharacter)
         """
         """
-        kOriya: UnicodeScript = UNICODE_SCRIPT_kOriya
+        kOriya = cast("UnicodeScript", UNICODE_SCRIPT_kOriya)
         """
         """
-        kPrivateUse: UnicodeScript = UNICODE_SCRIPT_kPrivateUse
+        kPrivateUse = cast("UnicodeScript", UNICODE_SCRIPT_kPrivateUse)
         """
         """
-        kRunic: UnicodeScript = UNICODE_SCRIPT_kRunic
+        kRunic = cast("UnicodeScript", UNICODE_SCRIPT_kRunic)
         """
         """
-        kScriptCount: UnicodeScript = UNICODE_SCRIPT_kScriptCount
+        kScriptCount = cast("UnicodeScript", UNICODE_SCRIPT_kScriptCount)
         """
         """
-        kSinhala: UnicodeScript = UNICODE_SCRIPT_kSinhala
+        kSinhala = cast("UnicodeScript", UNICODE_SCRIPT_kSinhala)
         """
         """
-        kSmallFormVariant: UnicodeScript = UNICODE_SCRIPT_kSmallFormVariant
+        kSmallFormVariant = cast("UnicodeScript", UNICODE_SCRIPT_kSmallFormVariant)
         """
         """
-        kSpacingModifier: UnicodeScript = UNICODE_SCRIPT_kSpacingModifier
+        kSpacingModifier = cast("UnicodeScript", UNICODE_SCRIPT_kSpacingModifier)
         """
         """
-        kSuperSubScript: UnicodeScript = UNICODE_SCRIPT_kSuperSubScript
+        kSuperSubScript = cast("UnicodeScript", UNICODE_SCRIPT_kSuperSubScript)
         """
         """
-        kSymbolCombiningMark: UnicodeScript = UNICODE_SCRIPT_kSymbolCombiningMark
+        kSymbolCombiningMark = cast("UnicodeScript", UNICODE_SCRIPT_kSymbolCombiningMark)
         """
         """
-        kSyriac: UnicodeScript = UNICODE_SCRIPT_kSyriac
+        kSyriac = cast("UnicodeScript", UNICODE_SCRIPT_kSyriac)
         """
         """
-        kTamil: UnicodeScript = UNICODE_SCRIPT_kTamil
+        kTamil = cast("UnicodeScript", UNICODE_SCRIPT_kTamil)
         """
         """
-        kTelugu: UnicodeScript = UNICODE_SCRIPT_kTelugu
+        kTelugu = cast("UnicodeScript", UNICODE_SCRIPT_kTelugu)
         """
         """
-        kThaana: UnicodeScript = UNICODE_SCRIPT_kThaana
+        kThaana = cast("UnicodeScript", UNICODE_SCRIPT_kThaana)
         """
         """
-        kThai: UnicodeScript = UNICODE_SCRIPT_kThai
+        kThai = cast("UnicodeScript", UNICODE_SCRIPT_kThai)
         """
         """
-        kTibetan: UnicodeScript = UNICODE_SCRIPT_kTibetan
+        kTibetan = cast("UnicodeScript", UNICODE_SCRIPT_kTibetan)
         """
         """
-        kUnifiedCanadianAboriginalSyllabics: UnicodeScript = UNICODE_SCRIPT_kUnifiedCanadianAboriginalSyllabics
+        kUnifiedCanadianAboriginalSyllabics = cast("UnicodeScript", UNICODE_SCRIPT_kUnifiedCanadianAboriginalSyllabics)
         """
         """
-        kYiRadicals: UnicodeScript = UNICODE_SCRIPT_kYiRadicals
+        kYiRadicals = cast("UnicodeScript", UNICODE_SCRIPT_kYiRadicals)
         """
         """
-        kYiSyllables: UnicodeScript = UNICODE_SCRIPT_kYiSyllables
+        kYiSyllables = cast("UnicodeScript", UNICODE_SCRIPT_kYiSyllables)
         """
         """
 

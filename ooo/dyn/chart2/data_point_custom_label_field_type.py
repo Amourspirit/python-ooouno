@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 
 if TYPE_CHECKING:
@@ -50,28 +50,28 @@ if TYPE_CHECKING:
         __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointCustomLabelFieldType'
         __ooo_type_name__: str = 'enum'
 
-        CATEGORYNAME: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME
+        CATEGORYNAME = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CATEGORYNAME)
         """
         """
-        CELLRANGE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE
+        CELLRANGE = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLRANGE)
         """
         """
-        CELLREF: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF
+        CELLREF = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_CELLREF)
         """
         """
-        NEWLINE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE
+        NEWLINE = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_NEWLINE)
         """
         """
-        PERCENTAGE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE
+        PERCENTAGE = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_PERCENTAGE)
         """
         """
-        SERIESNAME: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME
+        SERIESNAME = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_SERIESNAME)
         """
         """
-        TEXT: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT
+        TEXT = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_TEXT)
         """
         """
-        VALUE: DataPointCustomLabelFieldType = DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE
+        VALUE = cast("DataPointCustomLabelFieldType", DATA_POINT_CUSTOM_LABEL_FIELD_TYPE_VALUE)
         """
         """
 

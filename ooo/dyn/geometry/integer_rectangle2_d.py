@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('X1', 'Y1', 'X2', 'Y2')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IntegerRectangle2D = _get_class()
 
 else:
-    from com.sun.star.geometry import IntegerRectangle2D as IntegerRectangle2D
+    if TYPE_CHECKING:
+        from com.sun.star.geometry import IntegerRectangle2D as IntegerRectangle2D
+    else:
+        # keep document generators happy
+        from ...lo.geometry.integer_rectangle2_d import IntegerRectangle2D as IntegerRectangle2D
 
 __all__ = ['IntegerRectangle2D']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XShapeBinder as XShapeBinder
     setattr(XShapeBinder, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XShapeBinder, '__ooo_full_ns__', 'com.sun.star.drawing.XShapeBinder')
     setattr(XShapeBinder, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XShapeBinder as XShapeBinder
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XShapeBinder as XShapeBinder
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_shape_binder import XShapeBinder as XShapeBinder
 
 __all__ = ['XShapeBinder']
 

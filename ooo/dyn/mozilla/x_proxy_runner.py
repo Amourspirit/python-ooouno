@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.mozilla import XProxyRunner as XProxyRunner
     setattr(XProxyRunner, '__ooo_ns__', 'com.sun.star.mozilla')
     setattr(XProxyRunner, '__ooo_full_ns__', 'com.sun.star.mozilla.XProxyRunner')
     setattr(XProxyRunner, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.mozilla import XProxyRunner as XProxyRunner
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla import XProxyRunner as XProxyRunner
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.x_proxy_runner import XProxyRunner as XProxyRunner
 
 __all__ = ['XProxyRunner']
 

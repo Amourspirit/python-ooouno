@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.office import XAnnotationAccess as XAnnotationAccess
     setattr(XAnnotationAccess, '__ooo_ns__', 'com.sun.star.office')
     setattr(XAnnotationAccess, '__ooo_full_ns__', 'com.sun.star.office.XAnnotationAccess')
     setattr(XAnnotationAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.office import XAnnotationAccess as XAnnotationAccess
+    if TYPE_CHECKING:
+        from com.sun.star.office import XAnnotationAccess as XAnnotationAccess
+    else:
+        # keep document generators happy
+        from ...lo.office.x_annotation_access import XAnnotationAccess as XAnnotationAccess
 
 __all__ = ['XAnnotationAccess']
 

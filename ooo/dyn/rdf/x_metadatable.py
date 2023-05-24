@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rdf import XMetadatable as XMetadatable
     setattr(XMetadatable, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XMetadatable, '__ooo_full_ns__', 'com.sun.star.rdf.XMetadatable')
     setattr(XMetadatable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rdf import XMetadatable as XMetadatable
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import XMetadatable as XMetadatable
+    else:
+        # keep document generators happy
+        from ...lo.rdf.x_metadatable import XMetadatable as XMetadatable
 
 __all__ = ['XMetadatable']
 

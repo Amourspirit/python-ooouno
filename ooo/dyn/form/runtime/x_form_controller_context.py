@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.runtime import XFormControllerContext as XFormControllerContext
     setattr(XFormControllerContext, '__ooo_ns__', 'com.sun.star.form.runtime')
     setattr(XFormControllerContext, '__ooo_full_ns__', 'com.sun.star.form.runtime.XFormControllerContext')
     setattr(XFormControllerContext, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.runtime import XFormControllerContext as XFormControllerContext
+    if TYPE_CHECKING:
+        from com.sun.star.form.runtime import XFormControllerContext as XFormControllerContext
+    else:
+        # keep document generators happy
+        from ....lo.form.runtime.x_form_controller_context import XFormControllerContext as XFormControllerContext
 
 __all__ = ['XFormControllerContext']
 

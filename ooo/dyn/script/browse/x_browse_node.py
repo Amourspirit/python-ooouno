@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script.browse import XBrowseNode as XBrowseNode
     setattr(XBrowseNode, '__ooo_ns__', 'com.sun.star.script.browse')
     setattr(XBrowseNode, '__ooo_full_ns__', 'com.sun.star.script.browse.XBrowseNode')
     setattr(XBrowseNode, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script.browse import XBrowseNode as XBrowseNode
+    if TYPE_CHECKING:
+        from com.sun.star.script.browse import XBrowseNode as XBrowseNode
+    else:
+        # keep document generators happy
+        from ....lo.script.browse.x_browse_node import XBrowseNode as XBrowseNode
 
 __all__ = ['XBrowseNode']
 

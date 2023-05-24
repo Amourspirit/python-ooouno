@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xsd import XDataType as XDataType
     setattr(XDataType, '__ooo_ns__', 'com.sun.star.xsd')
     setattr(XDataType, '__ooo_full_ns__', 'com.sun.star.xsd.XDataType')
     setattr(XDataType, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xsd import XDataType as XDataType
+    if TYPE_CHECKING:
+        from com.sun.star.xsd import XDataType as XDataType
+    else:
+        # keep document generators happy
+        from ...lo.xsd.x_data_type import XDataType as XDataType
 
 __all__ = ['XDataType']
 

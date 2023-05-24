@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SystemShellExecuteException = _get_class()
 
 else:
-    from com.sun.star.system import SystemShellExecuteException as SystemShellExecuteException
+    if TYPE_CHECKING:
+        from com.sun.star.system import SystemShellExecuteException as SystemShellExecuteException
+    else:
+        from ...lo.system.system_shell_execute_exception import SystemShellExecuteException as SystemShellExecuteException
 
 __all__ = ['SystemShellExecuteException']
 

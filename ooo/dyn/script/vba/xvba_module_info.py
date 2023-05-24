@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script.vba import XVBAModuleInfo as XVBAModuleInfo
     setattr(XVBAModuleInfo, '__ooo_ns__', 'com.sun.star.script.vba')
     setattr(XVBAModuleInfo, '__ooo_full_ns__', 'com.sun.star.script.vba.XVBAModuleInfo')
     setattr(XVBAModuleInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script.vba import XVBAModuleInfo as XVBAModuleInfo
+    if TYPE_CHECKING:
+        from com.sun.star.script.vba import XVBAModuleInfo as XVBAModuleInfo
+    else:
+        # keep document generators happy
+        from ....lo.script.vba.xvba_module_info import XVBAModuleInfo as XVBAModuleInfo
 
 __all__ = ['XVBAModuleInfo']
 

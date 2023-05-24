@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.bridge import XInstanceProvider as XInstanceProvider
     setattr(XInstanceProvider, '__ooo_ns__', 'com.sun.star.bridge')
     setattr(XInstanceProvider, '__ooo_full_ns__', 'com.sun.star.bridge.XInstanceProvider')
     setattr(XInstanceProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.bridge import XInstanceProvider as XInstanceProvider
+    if TYPE_CHECKING:
+        from com.sun.star.bridge import XInstanceProvider as XInstanceProvider
+    else:
+        # keep document generators happy
+        from ...lo.bridge.x_instance_provider import XInstanceProvider as XInstanceProvider
 
 __all__ = ['XInstanceProvider']
 

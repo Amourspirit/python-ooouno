@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.style.VerticalAlignment import BOTTOM as VERTICAL_ALIGNMENT_BOTTOM
-    from com.sun.star.style.VerticalAlignment import MIDDLE as VERTICAL_ALIGNMENT_MIDDLE
-    from com.sun.star.style.VerticalAlignment import TOP as VERTICAL_ALIGNMENT_TOP
-
-    class VerticalAlignment(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API VerticalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a9c2ed22cfbd21f13df24ea193b310aee>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.style.VerticalAlignment', value)
-
-        __ooo_ns__: str = 'com.sun.star.style'
-        __ooo_full_ns__: str = 'com.sun.star.style.VerticalAlignment'
-        __ooo_type_name__: str = 'enum'
-
-        BOTTOM = cast("VerticalAlignment", VERTICAL_ALIGNMENT_BOTTOM)
-        """
-        set the vertical alignment to the bottom margin from the container object.
-        """
-        MIDDLE = cast("VerticalAlignment", VERTICAL_ALIGNMENT_MIDDLE)
-        """
-        set the vertical alignment to the top margin from the container object.
-        """
-        TOP = cast("VerticalAlignment", VERTICAL_ALIGNMENT_TOP)
-        """
-        set the vertical alignment to the center between the top and bottom margins from the container object.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class VerticalAlignment(metaclass=UnoEnumMeta, type_name="com.sun.star.style.VerticalAlignment", name_space="com.sun.star.style"):
         """Dynamically created class that represents ``com.sun.star.style.VerticalAlignment`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.style.VerticalAlignment import BOTTOM as VERTICAL_ALIGNMENT_BOTTOM
+        from com.sun.star.style.VerticalAlignment import MIDDLE as VERTICAL_ALIGNMENT_MIDDLE
+        from com.sun.star.style.VerticalAlignment import TOP as VERTICAL_ALIGNMENT_TOP
+
+        class VerticalAlignment(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API VerticalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a9c2ed22cfbd21f13df24ea193b310aee>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.style.VerticalAlignment', value)
+
+            __ooo_ns__: str = 'com.sun.star.style'
+            __ooo_full_ns__: str = 'com.sun.star.style.VerticalAlignment'
+            __ooo_type_name__: str = 'enum'
+
+            BOTTOM = VERTICAL_ALIGNMENT_BOTTOM
+            """
+            set the vertical alignment to the bottom margin from the container object.
+            """
+            MIDDLE = VERTICAL_ALIGNMENT_MIDDLE
+            """
+            set the vertical alignment to the top margin from the container object.
+            """
+            TOP = VERTICAL_ALIGNMENT_TOP
+            """
+            set the vertical alignment to the center between the top and bottom margins from the container object.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.style.vertical_alignment import VerticalAlignment as VerticalAlignment
+
 
 __all__ = ['VerticalAlignment']

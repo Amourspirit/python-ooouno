@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui import XSidebarPanel as XSidebarPanel
     setattr(XSidebarPanel, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XSidebarPanel, '__ooo_full_ns__', 'com.sun.star.ui.XSidebarPanel')
     setattr(XSidebarPanel, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui import XSidebarPanel as XSidebarPanel
+    if TYPE_CHECKING:
+        from com.sun.star.ui import XSidebarPanel as XSidebarPanel
+    else:
+        # keep document generators happy
+        from ...lo.ui.x_sidebar_panel import XSidebarPanel as XSidebarPanel
 
 __all__ = ['XSidebarPanel']
 

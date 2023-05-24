@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.auth import XSSOPasswordCache as XSSOPasswordCache
     setattr(XSSOPasswordCache, '__ooo_ns__', 'com.sun.star.auth')
     setattr(XSSOPasswordCache, '__ooo_full_ns__', 'com.sun.star.auth.XSSOPasswordCache')
     setattr(XSSOPasswordCache, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.auth import XSSOPasswordCache as XSSOPasswordCache
+    if TYPE_CHECKING:
+        from com.sun.star.auth import XSSOPasswordCache as XSSOPasswordCache
+    else:
+        # keep document generators happy
+        from ...lo.auth.xsso_password_cache import XSSOPasswordCache as XSSOPasswordCache
 
 __all__ = ['XSSOPasswordCache']
 

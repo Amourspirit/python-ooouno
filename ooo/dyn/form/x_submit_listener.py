@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XSubmitListener as XSubmitListener
     setattr(XSubmitListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XSubmitListener, '__ooo_full_ns__', 'com.sun.star.form.XSubmitListener')
     setattr(XSubmitListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XSubmitListener as XSubmitListener
+    if TYPE_CHECKING:
+        from com.sun.star.form import XSubmitListener as XSubmitListener
+    else:
+        # keep document generators happy
+        from ...lo.form.x_submit_listener import XSubmitListener as XSubmitListener
 
 __all__ = ['XSubmitListener']
 

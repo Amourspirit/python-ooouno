@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XProgressBar as XProgressBar
     setattr(XProgressBar, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XProgressBar, '__ooo_full_ns__', 'com.sun.star.awt.XProgressBar')
     setattr(XProgressBar, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XProgressBar as XProgressBar
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XProgressBar as XProgressBar
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_progress_bar import XProgressBar as XProgressBar
 
 __all__ = ['XProgressBar']
 

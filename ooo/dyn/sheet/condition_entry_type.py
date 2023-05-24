@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ConditionEntryType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.ConditionEntryType", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import ConditionEntryType as ConditionEntryType
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import ConditionEntryType as ConditionEntryType
+    else:
+        # keep document generators happy
+        from ...lo.sheet.condition_entry_type import ConditionEntryType as ConditionEntryType
 
     class ConditionEntryTypeEnum(IntEnum):
         """

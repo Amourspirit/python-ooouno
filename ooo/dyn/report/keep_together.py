@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class KeepTogether(metaclass=UnoConstMeta, type_name="com.sun.star.report.KeepTogether", name_space="com.sun.star.report"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.report import KeepTogether as KeepTogether
+    if TYPE_CHECKING:
+        from com.sun.star.report import KeepTogether as KeepTogether
+    else:
+        # keep document generators happy
+        from ...lo.report.keep_together import KeepTogether as KeepTogether
 
     class KeepTogetherEnum(IntEnum):
         """

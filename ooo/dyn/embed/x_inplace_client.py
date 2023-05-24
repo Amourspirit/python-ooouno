@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XInplaceClient as XInplaceClient
     setattr(XInplaceClient, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XInplaceClient, '__ooo_full_ns__', 'com.sun.star.embed.XInplaceClient')
     setattr(XInplaceClient, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XInplaceClient as XInplaceClient
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XInplaceClient as XInplaceClient
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_inplace_client import XInplaceClient as XInplaceClient
 
 __all__ = ['XInplaceClient']
 

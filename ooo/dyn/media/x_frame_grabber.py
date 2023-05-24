@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.media import XFrameGrabber as XFrameGrabber
     setattr(XFrameGrabber, '__ooo_ns__', 'com.sun.star.media')
     setattr(XFrameGrabber, '__ooo_full_ns__', 'com.sun.star.media.XFrameGrabber')
     setattr(XFrameGrabber, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.media import XFrameGrabber as XFrameGrabber
+    if TYPE_CHECKING:
+        from com.sun.star.media import XFrameGrabber as XFrameGrabber
+    else:
+        # keep document generators happy
+        from ...lo.media.x_frame_grabber import XFrameGrabber as XFrameGrabber
 
 __all__ = ['XFrameGrabber']
 

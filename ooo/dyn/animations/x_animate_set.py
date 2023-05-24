@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.animations import XAnimateSet as XAnimateSet
     setattr(XAnimateSet, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XAnimateSet, '__ooo_full_ns__', 'com.sun.star.animations.XAnimateSet')
     setattr(XAnimateSet, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.animations import XAnimateSet as XAnimateSet
+    if TYPE_CHECKING:
+        from com.sun.star.animations import XAnimateSet as XAnimateSet
+    else:
+        # keep document generators happy
+        from ...lo.animations.x_animate_set import XAnimateSet as XAnimateSet
 
 __all__ = ['XAnimateSet']
 

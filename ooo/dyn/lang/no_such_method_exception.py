@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoSuchMethodException = _get_class()
 
 else:
-    from com.sun.star.lang import NoSuchMethodException as NoSuchMethodException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import NoSuchMethodException as NoSuchMethodException
+    else:
+        from ...lo.lang.no_such_method_exception import NoSuchMethodException as NoSuchMethodException
 
 __all__ = ['NoSuchMethodException']
 

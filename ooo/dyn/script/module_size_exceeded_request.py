@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ModuleSizeExceededRequest = _get_class()
 
 else:
-    from com.sun.star.script import ModuleSizeExceededRequest as ModuleSizeExceededRequest
+    if TYPE_CHECKING:
+        from com.sun.star.script import ModuleSizeExceededRequest as ModuleSizeExceededRequest
+    else:
+        from ...lo.script.module_size_exceeded_request import ModuleSizeExceededRequest as ModuleSizeExceededRequest
 
 __all__ = ['ModuleSizeExceededRequest']
 

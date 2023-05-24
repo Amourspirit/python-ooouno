@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer import XDataFormatTranslator as XDataFormatTranslator
     setattr(XDataFormatTranslator, '__ooo_ns__', 'com.sun.star.datatransfer')
     setattr(XDataFormatTranslator, '__ooo_full_ns__', 'com.sun.star.datatransfer.XDataFormatTranslator')
     setattr(XDataFormatTranslator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer import XDataFormatTranslator as XDataFormatTranslator
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer import XDataFormatTranslator as XDataFormatTranslator
+    else:
+        # keep document generators happy
+        from ...lo.datatransfer.x_data_format_translator import XDataFormatTranslator as XDataFormatTranslator
 
 __all__ = ['XDataFormatTranslator']
 

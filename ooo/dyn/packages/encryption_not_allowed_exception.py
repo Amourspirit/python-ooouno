@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     EncryptionNotAllowedException = _get_class()
 
 else:
-    from com.sun.star.packages import EncryptionNotAllowedException as EncryptionNotAllowedException
+    if TYPE_CHECKING:
+        from com.sun.star.packages import EncryptionNotAllowedException as EncryptionNotAllowedException
+    else:
+        from ...lo.packages.encryption_not_allowed_exception import EncryptionNotAllowedException as EncryptionNotAllowedException
 
 __all__ = ['EncryptionNotAllowedException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XDrawPagesSupplier as XDrawPagesSupplier
     setattr(XDrawPagesSupplier, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XDrawPagesSupplier, '__ooo_full_ns__', 'com.sun.star.drawing.XDrawPagesSupplier')
     setattr(XDrawPagesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XDrawPagesSupplier as XDrawPagesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XDrawPagesSupplier as XDrawPagesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_draw_pages_supplier import XDrawPagesSupplier as XDrawPagesSupplier
 
 __all__ = ['XDrawPagesSupplier']
 

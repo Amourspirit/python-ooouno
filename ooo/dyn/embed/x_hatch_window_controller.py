@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XHatchWindowController as XHatchWindowController
     setattr(XHatchWindowController, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XHatchWindowController, '__ooo_full_ns__', 'com.sun.star.embed.XHatchWindowController')
     setattr(XHatchWindowController, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XHatchWindowController as XHatchWindowController
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XHatchWindowController as XHatchWindowController
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_hatch_window_controller import XHatchWindowController as XHatchWindowController
 
 __all__ = ['XHatchWindowController']
 

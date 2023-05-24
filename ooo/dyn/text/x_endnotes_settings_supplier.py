@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XEndnotesSettingsSupplier as XEndnotesSettingsSupplier
     setattr(XEndnotesSettingsSupplier, '__ooo_ns__', 'com.sun.star.text')
     setattr(XEndnotesSettingsSupplier, '__ooo_full_ns__', 'com.sun.star.text.XEndnotesSettingsSupplier')
     setattr(XEndnotesSettingsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XEndnotesSettingsSupplier as XEndnotesSettingsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.text import XEndnotesSettingsSupplier as XEndnotesSettingsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.text.x_endnotes_settings_supplier import XEndnotesSettingsSupplier as XEndnotesSettingsSupplier
 
 __all__ = ['XEndnotesSettingsSupplier']
 

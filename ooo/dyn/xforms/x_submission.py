@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xforms import XSubmission as XSubmission
     setattr(XSubmission, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XSubmission, '__ooo_full_ns__', 'com.sun.star.xforms.XSubmission')
     setattr(XSubmission, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xforms import XSubmission as XSubmission
+    if TYPE_CHECKING:
+        from com.sun.star.xforms import XSubmission as XSubmission
+    else:
+        # keep document generators happy
+        from ...lo.xforms.x_submission import XSubmission as XSubmission
 
 __all__ = ['XSubmission']
 

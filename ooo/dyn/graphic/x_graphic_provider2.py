@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.graphic import XGraphicProvider2 as XGraphicProvider2
     setattr(XGraphicProvider2, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XGraphicProvider2, '__ooo_full_ns__', 'com.sun.star.graphic.XGraphicProvider2')
     setattr(XGraphicProvider2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.graphic import XGraphicProvider2 as XGraphicProvider2
+    if TYPE_CHECKING:
+        from com.sun.star.graphic import XGraphicProvider2 as XGraphicProvider2
+    else:
+        # keep document generators happy
+        from ...lo.graphic.x_graphic_provider2 import XGraphicProvider2 as XGraphicProvider2
 
 __all__ = ['XGraphicProvider2']
 

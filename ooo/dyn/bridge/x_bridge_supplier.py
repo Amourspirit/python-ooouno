@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.bridge import XBridgeSupplier as XBridgeSupplier
     setattr(XBridgeSupplier, '__ooo_ns__', 'com.sun.star.bridge')
     setattr(XBridgeSupplier, '__ooo_full_ns__', 'com.sun.star.bridge.XBridgeSupplier')
     setattr(XBridgeSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.bridge import XBridgeSupplier as XBridgeSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.bridge import XBridgeSupplier as XBridgeSupplier
+    else:
+        # keep document generators happy
+        from ...lo.bridge.x_bridge_supplier import XBridgeSupplier as XBridgeSupplier
 
 __all__ = ['XBridgeSupplier']
 

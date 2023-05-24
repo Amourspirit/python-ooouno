@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XDDELinks as XDDELinks
     setattr(XDDELinks, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDDELinks, '__ooo_full_ns__', 'com.sun.star.sheet.XDDELinks')
     setattr(XDDELinks, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XDDELinks as XDDELinks
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XDDELinks as XDDELinks
+    else:
+        # keep document generators happy
+        from ...lo.sheet.xdde_links import XDDELinks as XDDELinks
 
 __all__ = ['XDDELinks']
 

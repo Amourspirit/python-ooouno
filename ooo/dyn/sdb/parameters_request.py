@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ParametersRequest = _get_class()
 
 else:
-    from com.sun.star.sdb import ParametersRequest as ParametersRequest
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import ParametersRequest as ParametersRequest
+    else:
+        from ...lo.sdb.parameters_request import ParametersRequest as ParametersRequest
 
 __all__ = ['ParametersRequest']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoRouteToHostException = _get_class()
 
 else:
-    from com.sun.star.io import NoRouteToHostException as NoRouteToHostException
+    if TYPE_CHECKING:
+        from com.sun.star.io import NoRouteToHostException as NoRouteToHostException
+    else:
+        from ...lo.io.no_route_to_host_exception import NoRouteToHostException as NoRouteToHostException
 
 __all__ = ['NoRouteToHostException']
 

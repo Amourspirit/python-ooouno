@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XLoadListener as XLoadListener
     setattr(XLoadListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XLoadListener, '__ooo_full_ns__', 'com.sun.star.form.XLoadListener')
     setattr(XLoadListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XLoadListener as XLoadListener
+    if TYPE_CHECKING:
+        from com.sun.star.form import XLoadListener as XLoadListener
+    else:
+        # keep document generators happy
+        from ...lo.form.x_load_listener import XLoadListener as XLoadListener
 
 __all__ = ['XLoadListener']
 

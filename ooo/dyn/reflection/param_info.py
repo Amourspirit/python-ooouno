@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('aName', 'aMode', 'aType')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ParamInfo = _get_class()
 
 else:
-    from com.sun.star.reflection import ParamInfo as ParamInfo
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import ParamInfo as ParamInfo
+    else:
+        # keep document generators happy
+        from ...lo.reflection.param_info import ParamInfo as ParamInfo
 
 __all__ = ['ParamInfo']
 

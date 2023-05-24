@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class KNumberFormatUsage(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.KNumberFormatUsage", name_space="com.sun.star.i18n"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.i18n import KNumberFormatUsage as KNumberFormatUsage
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import KNumberFormatUsage as KNumberFormatUsage
+    else:
+        # keep document generators happy
+        from ...lo.i18n.k_number_format_usage import KNumberFormatUsage as KNumberFormatUsage
 
     class KNumberFormatUsageEnum(IntEnum):
         """

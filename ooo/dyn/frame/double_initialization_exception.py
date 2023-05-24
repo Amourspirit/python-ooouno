@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DoubleInitializationException = _get_class()
 
 else:
-    from com.sun.star.frame import DoubleInitializationException as DoubleInitializationException
+    if TYPE_CHECKING:
+        from com.sun.star.frame import DoubleInitializationException as DoubleInitializationException
+    else:
+        from ...lo.frame.double_initialization_exception import DoubleInitializationException as DoubleInitializationException
 
 __all__ = ['DoubleInitializationException']
 

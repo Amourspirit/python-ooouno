@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XLinePolyPolygon2D as XLinePolyPolygon2D
     setattr(XLinePolyPolygon2D, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XLinePolyPolygon2D, '__ooo_full_ns__', 'com.sun.star.rendering.XLinePolyPolygon2D')
     setattr(XLinePolyPolygon2D, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XLinePolyPolygon2D as XLinePolyPolygon2D
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XLinePolyPolygon2D as XLinePolyPolygon2D
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_line_poly_polygon2_d import XLinePolyPolygon2D as XLinePolyPolygon2D
 
 __all__ = ['XLinePolyPolygon2D']
 

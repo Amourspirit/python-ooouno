@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ZipIOException = _get_class()
 
 else:
-    from com.sun.star.packages.zip import ZipIOException as ZipIOException
+    if TYPE_CHECKING:
+        from com.sun.star.packages.zip import ZipIOException as ZipIOException
+    else:
+        from ....lo.packages.zip.zip_io_exception import ZipIOException as ZipIOException
 
 __all__ = ['ZipIOException']
 

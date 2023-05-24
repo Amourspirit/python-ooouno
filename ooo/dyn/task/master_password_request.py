@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MasterPasswordRequest = _get_class()
 
 else:
-    from com.sun.star.task import MasterPasswordRequest as MasterPasswordRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import MasterPasswordRequest as MasterPasswordRequest
+    else:
+        from ...lo.task.master_password_request import MasterPasswordRequest as MasterPasswordRequest
 
 __all__ = ['MasterPasswordRequest']
 

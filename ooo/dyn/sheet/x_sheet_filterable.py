@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSheetFilterable as XSheetFilterable
     setattr(XSheetFilterable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetFilterable, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetFilterable')
     setattr(XSheetFilterable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSheetFilterable as XSheetFilterable
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSheetFilterable as XSheetFilterable
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sheet_filterable import XSheetFilterable as XSheetFilterable
 
 __all__ = ['XSheetFilterable']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class EnhancedCustomShapeMetalType(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeMetalType", name_space="com.sun.star.drawing"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.drawing import EnhancedCustomShapeMetalType as EnhancedCustomShapeMetalType
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import EnhancedCustomShapeMetalType as EnhancedCustomShapeMetalType
+    else:
+        # keep document generators happy
+        from ...lo.drawing.enhanced_custom_shape_metal_type import EnhancedCustomShapeMetalType as EnhancedCustomShapeMetalType
 
     class EnhancedCustomShapeMetalTypeEnum(IntEnum):
         """

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveIOException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveIOException as InteractiveIOException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveIOException as InteractiveIOException
+    else:
+        from ...lo.ucb.interactive_io_exception import InteractiveIOException as InteractiveIOException
 
 __all__ = ['InteractiveIOException']
 

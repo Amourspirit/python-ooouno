@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FocusChangeReason(metaclass=UnoConstMeta, type_name="com.sun.star.awt.FocusChangeReason", name_space="com.sun.star.awt"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.awt import FocusChangeReason as FocusChangeReason
+    if TYPE_CHECKING:
+        from com.sun.star.awt import FocusChangeReason as FocusChangeReason
+    else:
+        # keep document generators happy
+        from ...lo.awt.focus_change_reason import FocusChangeReason as FocusChangeReason
 
     class FocusChangeReasonEnum(IntFlag):
         """

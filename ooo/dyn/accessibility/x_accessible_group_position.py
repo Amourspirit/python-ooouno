@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.accessibility import XAccessibleGroupPosition as XAccessibleGroupPosition
     setattr(XAccessibleGroupPosition, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleGroupPosition, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleGroupPosition')
     setattr(XAccessibleGroupPosition, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.accessibility import XAccessibleGroupPosition as XAccessibleGroupPosition
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import XAccessibleGroupPosition as XAccessibleGroupPosition
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.x_accessible_group_position import XAccessibleGroupPosition as XAccessibleGroupPosition
 
 __all__ = ['XAccessibleGroupPosition']
 

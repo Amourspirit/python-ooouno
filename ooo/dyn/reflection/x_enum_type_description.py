@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.reflection import XEnumTypeDescription as XEnumTypeDescription
     setattr(XEnumTypeDescription, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XEnumTypeDescription, '__ooo_full_ns__', 'com.sun.star.reflection.XEnumTypeDescription')
     setattr(XEnumTypeDescription, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.reflection import XEnumTypeDescription as XEnumTypeDescription
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import XEnumTypeDescription as XEnumTypeDescription
+    else:
+        # keep document generators happy
+        from ...lo.reflection.x_enum_type_description import XEnumTypeDescription as XEnumTypeDescription
 
 __all__ = ['XEnumTypeDescription']
 

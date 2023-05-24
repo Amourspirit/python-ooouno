@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InsufficientAccessRightsException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import InsufficientAccessRightsException as InsufficientAccessRightsException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import InsufficientAccessRightsException as InsufficientAccessRightsException
+    else:
+        from ....lo.configuration.backend.insufficient_access_rights_exception import InsufficientAccessRightsException as InsufficientAccessRightsException
 
 __all__ = ['InsufficientAccessRightsException']
 

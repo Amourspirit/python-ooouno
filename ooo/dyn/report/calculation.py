@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class Calculation(metaclass=UnoConstMeta, type_name="com.sun.star.report.Calculation", name_space="com.sun.star.report"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.report import Calculation as Calculation
+    if TYPE_CHECKING:
+        from com.sun.star.report import Calculation as Calculation
+    else:
+        # keep document generators happy
+        from ...lo.report.calculation import Calculation as Calculation
 
     class CalculationEnum(IntEnum):
         """

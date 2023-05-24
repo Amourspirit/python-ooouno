@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt.tab import XTabPage as XTabPage
     setattr(XTabPage, '__ooo_ns__', 'com.sun.star.awt.tab')
     setattr(XTabPage, '__ooo_full_ns__', 'com.sun.star.awt.tab.XTabPage')
     setattr(XTabPage, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt.tab import XTabPage as XTabPage
+    if TYPE_CHECKING:
+        from com.sun.star.awt.tab import XTabPage as XTabPage
+    else:
+        # keep document generators happy
+        from ....lo.awt.tab.x_tab_page import XTabPage as XTabPage
 
 __all__ = ['XTabPage']
 

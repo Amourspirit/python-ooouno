@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalAccessException = _get_class()
 
 else:
-    from com.sun.star.lang import IllegalAccessException as IllegalAccessException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import IllegalAccessException as IllegalAccessException
+    else:
+        from ...lo.lang.illegal_access_exception import IllegalAccessException as IllegalAccessException
 
 __all__ = ['IllegalAccessException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XCachedContentResultSetStubFactory as XCachedContentResultSetStubFactory
     setattr(XCachedContentResultSetStubFactory, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XCachedContentResultSetStubFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XCachedContentResultSetStubFactory')
     setattr(XCachedContentResultSetStubFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XCachedContentResultSetStubFactory as XCachedContentResultSetStubFactory
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XCachedContentResultSetStubFactory as XCachedContentResultSetStubFactory
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_cached_content_result_set_stub_factory import XCachedContentResultSetStubFactory as XCachedContentResultSetStubFactory
 
 __all__ = ['XCachedContentResultSetStubFactory']
 

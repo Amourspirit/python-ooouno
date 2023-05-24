@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class UntitledNumbersConst(metaclass=UnoConstMeta, type_name="com.sun.star.frame.UntitledNumbersConst", name_space="com.sun.star.frame"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.frame import UntitledNumbersConst as UntitledNumbersConst
+    if TYPE_CHECKING:
+        from com.sun.star.frame import UntitledNumbersConst as UntitledNumbersConst
+    else:
+        # keep document generators happy
+        from ...lo.frame.untitled_numbers_const import UntitledNumbersConst as UntitledNumbersConst
 
     class UntitledNumbersConstEnum(IntEnum):
         """

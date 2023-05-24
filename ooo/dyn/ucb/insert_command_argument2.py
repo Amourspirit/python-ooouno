@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Data', 'ReplaceExisting', 'MimeType', 'DocumentId')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InsertCommandArgument2 = _get_class()
 
 else:
-    from com.sun.star.ucb import InsertCommandArgument2 as InsertCommandArgument2
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InsertCommandArgument2 as InsertCommandArgument2
+    else:
+        # keep document generators happy
+        from ...lo.ucb.insert_command_argument2 import InsertCommandArgument2 as InsertCommandArgument2
 
 __all__ = ['InsertCommandArgument2']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XProofreadingIterator as XProofreadingIterator
     setattr(XProofreadingIterator, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XProofreadingIterator, '__ooo_full_ns__', 'com.sun.star.linguistic2.XProofreadingIterator')
     setattr(XProofreadingIterator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XProofreadingIterator as XProofreadingIterator
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XProofreadingIterator as XProofreadingIterator
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_proofreading_iterator import XProofreadingIterator as XProofreadingIterator
 
 __all__ = ['XProofreadingIterator']
 

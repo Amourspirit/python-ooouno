@@ -20,62 +20,69 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.awt.WindowClass import CONTAINER as WINDOW_CLASS_CONTAINER
-    from com.sun.star.awt.WindowClass import MODALTOP as WINDOW_CLASS_MODALTOP
-    from com.sun.star.awt.WindowClass import SIMPLE as WINDOW_CLASS_SIMPLE
-    from com.sun.star.awt.WindowClass import TOP as WINDOW_CLASS_TOP
-
-    class WindowClass(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API WindowClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#add6041e42e466bb2170771f84663460b>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.awt.WindowClass', value)
-
-        __ooo_ns__: str = 'com.sun.star.awt'
-        __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
-        __ooo_type_name__: str = 'enum'
-
-        CONTAINER = cast("WindowClass", WINDOW_CLASS_CONTAINER)
-        """
-        is a container that may contain other components.
-        
-        It is not a top window.
-        """
-        MODALTOP = cast("WindowClass", WINDOW_CLASS_MODALTOP)
-        """
-        is a modal top level window on the desktop.
-        
-        It is also a container.
-        """
-        SIMPLE = cast("WindowClass", WINDOW_CLASS_SIMPLE)
-        """
-        is the simplest window.
-        
-        It can be a container.
-        """
-        TOP = cast("WindowClass", WINDOW_CLASS_TOP)
-        """
-        specifies a top level window on the desktop.
-        
-        It is also a container.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class WindowClass(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.WindowClass", name_space="com.sun.star.awt"):
         """Dynamically created class that represents ``com.sun.star.awt.WindowClass`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.awt.WindowClass import CONTAINER as WINDOW_CLASS_CONTAINER
+        from com.sun.star.awt.WindowClass import MODALTOP as WINDOW_CLASS_MODALTOP
+        from com.sun.star.awt.WindowClass import SIMPLE as WINDOW_CLASS_SIMPLE
+        from com.sun.star.awt.WindowClass import TOP as WINDOW_CLASS_TOP
+
+        class WindowClass(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API WindowClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#add6041e42e466bb2170771f84663460b>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.awt.WindowClass', value)
+
+            __ooo_ns__: str = 'com.sun.star.awt'
+            __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
+            __ooo_type_name__: str = 'enum'
+
+            CONTAINER = WINDOW_CLASS_CONTAINER
+            """
+            is a container that may contain other components.
+
+            It is not a top window.
+            """
+            MODALTOP = WINDOW_CLASS_MODALTOP
+            """
+            is a modal top level window on the desktop.
+
+            It is also a container.
+            """
+            SIMPLE = WINDOW_CLASS_SIMPLE
+            """
+            is the simplest window.
+
+            It can be a container.
+            """
+            TOP = WINDOW_CLASS_TOP
+            """
+            specifies a top level window on the desktop.
+
+            It is also a container.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.awt.window_class import WindowClass as WindowClass
+
 
 __all__ = ['WindowClass']

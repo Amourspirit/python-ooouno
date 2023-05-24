@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.table import XMergeableCellRange as XMergeableCellRange
     setattr(XMergeableCellRange, '__ooo_ns__', 'com.sun.star.table')
     setattr(XMergeableCellRange, '__ooo_full_ns__', 'com.sun.star.table.XMergeableCellRange')
     setattr(XMergeableCellRange, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.table import XMergeableCellRange as XMergeableCellRange
+    if TYPE_CHECKING:
+        from com.sun.star.table import XMergeableCellRange as XMergeableCellRange
+    else:
+        # keep document generators happy
+        from ...lo.table.x_mergeable_cell_range import XMergeableCellRange as XMergeableCellRange
 
 __all__ = ['XMergeableCellRange']
 

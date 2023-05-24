@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class PosSize(metaclass=UnoConstMeta, type_name="com.sun.star.awt.PosSize", name_space="com.sun.star.awt"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.awt import PosSize as PosSize
+    if TYPE_CHECKING:
+        from com.sun.star.awt import PosSize as PosSize
+    else:
+        # keep document generators happy
+        from ...lo.awt.pos_size import PosSize as PosSize
 
     class PosSizeEnum(IntEnum):
         """

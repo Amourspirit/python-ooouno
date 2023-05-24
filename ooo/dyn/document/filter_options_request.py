@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     FilterOptionsRequest = _get_class()
 
 else:
-    from com.sun.star.document import FilterOptionsRequest as FilterOptionsRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import FilterOptionsRequest as FilterOptionsRequest
+    else:
+        from ...lo.document.filter_options_request import FilterOptionsRequest as FilterOptionsRequest
 
 __all__ = ['FilterOptionsRequest']
 

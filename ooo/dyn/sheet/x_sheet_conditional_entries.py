@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSheetConditionalEntries as XSheetConditionalEntries
     setattr(XSheetConditionalEntries, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetConditionalEntries, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetConditionalEntries')
     setattr(XSheetConditionalEntries, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSheetConditionalEntries as XSheetConditionalEntries
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSheetConditionalEntries as XSheetConditionalEntries
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sheet_conditional_entries import XSheetConditionalEntries as XSheetConditionalEntries
 
 __all__ = ['XSheetConditionalEntries']
 

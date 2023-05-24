@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.inspection import XStringRepresentation as XStringRepresentation
     setattr(XStringRepresentation, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XStringRepresentation, '__ooo_full_ns__', 'com.sun.star.inspection.XStringRepresentation')
     setattr(XStringRepresentation, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.inspection import XStringRepresentation as XStringRepresentation
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import XStringRepresentation as XStringRepresentation
+    else:
+        # keep document generators happy
+        from ...lo.inspection.x_string_representation import XStringRepresentation as XStringRepresentation
 
 __all__ = ['XStringRepresentation']
 

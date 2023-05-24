@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XMimeTypeInfo as XMimeTypeInfo
     setattr(XMimeTypeInfo, '__ooo_ns__', 'com.sun.star.document')
     setattr(XMimeTypeInfo, '__ooo_full_ns__', 'com.sun.star.document.XMimeTypeInfo')
     setattr(XMimeTypeInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XMimeTypeInfo as XMimeTypeInfo
+    if TYPE_CHECKING:
+        from com.sun.star.document import XMimeTypeInfo as XMimeTypeInfo
+    else:
+        # keep document generators happy
+        from ...lo.document.x_mime_type_info import XMimeTypeInfo as XMimeTypeInfo
 
 __all__ = ['XMimeTypeInfo']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class RowChangeAction(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.RowChangeAction", name_space="com.sun.star.sdb"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdb import RowChangeAction as RowChangeAction
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import RowChangeAction as RowChangeAction
+    else:
+        # keep document generators happy
+        from ...lo.sdb.row_change_action import RowChangeAction as RowChangeAction
 
     class RowChangeActionEnum(IntEnum):
         """

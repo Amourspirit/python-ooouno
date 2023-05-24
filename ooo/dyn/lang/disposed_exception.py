@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DisposedException = _get_class()
 
 else:
-    from com.sun.star.lang import DisposedException as DisposedException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import DisposedException as DisposedException
+    else:
+        from ...lo.lang.disposed_exception import DisposedException as DisposedException
 
 __all__ = ['DisposedException']
 

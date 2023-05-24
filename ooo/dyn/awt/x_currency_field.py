@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XCurrencyField as XCurrencyField
     setattr(XCurrencyField, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XCurrencyField, '__ooo_full_ns__', 'com.sun.star.awt.XCurrencyField')
     setattr(XCurrencyField, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XCurrencyField as XCurrencyField
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XCurrencyField as XCurrencyField
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_currency_field import XCurrencyField as XCurrencyField
 
 __all__ = ['XCurrencyField']
 

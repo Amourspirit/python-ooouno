@@ -20,47 +20,54 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.xml.dom.events.PhaseType import AT_TARGET as PHASE_TYPE_AT_TARGET
-    from com.sun.star.xml.dom.events.PhaseType import BUBBLING_PHASE as PHASE_TYPE_BUBBLING_PHASE
-    from com.sun.star.xml.dom.events.PhaseType import CAPTURING_PHASE as PHASE_TYPE_CAPTURING_PHASE
-
-    class PhaseType(uno.Enum):
-        """
-        Enum Class
-
-        ENUM PhaseType
-
-        See Also:
-            `API PhaseType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#af00a42ecad444bbda75cde1b64bd7e72>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.xml.dom.events.PhaseType', value)
-
-        __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-        __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
-        __ooo_type_name__: str = 'enum'
-
-        AT_TARGET = cast("PhaseType", PHASE_TYPE_AT_TARGET)
-        """
-        """
-        BUBBLING_PHASE = cast("PhaseType", PHASE_TYPE_BUBBLING_PHASE)
-        """
-        """
-        CAPTURING_PHASE = cast("PhaseType", PHASE_TYPE_CAPTURING_PHASE)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PhaseType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.events.PhaseType", name_space="com.sun.star.xml.dom.events"):
         """Dynamically created class that represents ``com.sun.star.xml.dom.events.PhaseType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.events.PhaseType import AT_TARGET as PHASE_TYPE_AT_TARGET
+        from com.sun.star.xml.dom.events.PhaseType import BUBBLING_PHASE as PHASE_TYPE_BUBBLING_PHASE
+        from com.sun.star.xml.dom.events.PhaseType import CAPTURING_PHASE as PHASE_TYPE_CAPTURING_PHASE
+
+        class PhaseType(uno.Enum):
+            """
+            Enum Class
+
+            ENUM PhaseType
+
+            See Also:
+                `API PhaseType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#af00a42ecad444bbda75cde1b64bd7e72>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.xml.dom.events.PhaseType', value)
+
+            __ooo_ns__: str = 'com.sun.star.xml.dom.events'
+            __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.PhaseType'
+            __ooo_type_name__: str = 'enum'
+
+            AT_TARGET = PHASE_TYPE_AT_TARGET
+            """
+            """
+            BUBBLING_PHASE = PHASE_TYPE_BUBBLING_PHASE
+            """
+            """
+            CAPTURING_PHASE = PHASE_TYPE_CAPTURING_PHASE
+            """
+            """
+    else:
+        # keep document generators happy
+        from .....lo.xml.dom.events.phase_type import PhaseType as PhaseType
+
 
 __all__ = ['PhaseType']

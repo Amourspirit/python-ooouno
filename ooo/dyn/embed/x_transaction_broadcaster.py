@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XTransactionBroadcaster as XTransactionBroadcaster
     setattr(XTransactionBroadcaster, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XTransactionBroadcaster, '__ooo_full_ns__', 'com.sun.star.embed.XTransactionBroadcaster')
     setattr(XTransactionBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XTransactionBroadcaster as XTransactionBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XTransactionBroadcaster as XTransactionBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_transaction_broadcaster import XTransactionBroadcaster as XTransactionBroadcaster
 
 __all__ = ['XTransactionBroadcaster']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CorruptedFilterConfigurationException = _get_class()
 
 else:
-    from com.sun.star.document import CorruptedFilterConfigurationException as CorruptedFilterConfigurationException
+    if TYPE_CHECKING:
+        from com.sun.star.document import CorruptedFilterConfigurationException as CorruptedFilterConfigurationException
+    else:
+        from ...lo.document.corrupted_filter_configuration_exception import CorruptedFilterConfigurationException as CorruptedFilterConfigurationException
 
 __all__ = ['CorruptedFilterConfigurationException']
 

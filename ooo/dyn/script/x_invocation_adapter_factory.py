@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XInvocationAdapterFactory as XInvocationAdapterFactory
     setattr(XInvocationAdapterFactory, '__ooo_ns__', 'com.sun.star.script')
     setattr(XInvocationAdapterFactory, '__ooo_full_ns__', 'com.sun.star.script.XInvocationAdapterFactory')
     setattr(XInvocationAdapterFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XInvocationAdapterFactory as XInvocationAdapterFactory
+    if TYPE_CHECKING:
+        from com.sun.star.script import XInvocationAdapterFactory as XInvocationAdapterFactory
+    else:
+        # keep document generators happy
+        from ...lo.script.x_invocation_adapter_factory import XInvocationAdapterFactory as XInvocationAdapterFactory
 
 __all__ = ['XInvocationAdapterFactory']
 

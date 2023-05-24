@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidDataOnSubmitException = _get_class()
 
 else:
-    from com.sun.star.xforms import InvalidDataOnSubmitException as InvalidDataOnSubmitException
+    if TYPE_CHECKING:
+        from com.sun.star.xforms import InvalidDataOnSubmitException as InvalidDataOnSubmitException
+    else:
+        from ...lo.xforms.invalid_data_on_submit_exception import InvalidDataOnSubmitException as InvalidDataOnSubmitException
 
 __all__ = ['InvalidDataOnSubmitException']
 

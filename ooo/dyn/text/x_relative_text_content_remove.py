@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XRelativeTextContentRemove as XRelativeTextContentRemove
     setattr(XRelativeTextContentRemove, '__ooo_ns__', 'com.sun.star.text')
     setattr(XRelativeTextContentRemove, '__ooo_full_ns__', 'com.sun.star.text.XRelativeTextContentRemove')
     setattr(XRelativeTextContentRemove, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XRelativeTextContentRemove as XRelativeTextContentRemove
+    if TYPE_CHECKING:
+        from com.sun.star.text import XRelativeTextContentRemove as XRelativeTextContentRemove
+    else:
+        # keep document generators happy
+        from ...lo.text.x_relative_text_content_remove import XRelativeTextContentRemove as XRelativeTextContentRemove
 
 __all__ = ['XRelativeTextContentRemove']
 

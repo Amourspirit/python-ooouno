@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RepositoryException = _get_class()
 
 else:
-    from com.sun.star.rdf import RepositoryException as RepositoryException
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import RepositoryException as RepositoryException
+    else:
+        from ...lo.rdf.repository_exception import RepositoryException as RepositoryException
 
 __all__ = ['RepositoryException']
 

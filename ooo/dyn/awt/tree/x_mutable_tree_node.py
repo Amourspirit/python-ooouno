@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt.tree import XMutableTreeNode as XMutableTreeNode
     setattr(XMutableTreeNode, '__ooo_ns__', 'com.sun.star.awt.tree')
     setattr(XMutableTreeNode, '__ooo_full_ns__', 'com.sun.star.awt.tree.XMutableTreeNode')
     setattr(XMutableTreeNode, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt.tree import XMutableTreeNode as XMutableTreeNode
+    if TYPE_CHECKING:
+        from com.sun.star.awt.tree import XMutableTreeNode as XMutableTreeNode
+    else:
+        # keep document generators happy
+        from ....lo.awt.tree.x_mutable_tree_node import XMutableTreeNode as XMutableTreeNode
 
 __all__ = ['XMutableTreeNode']
 

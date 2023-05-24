@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidAuthenticationMechanismException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import InvalidAuthenticationMechanismException as InvalidAuthenticationMechanismException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import InvalidAuthenticationMechanismException as InvalidAuthenticationMechanismException
+    else:
+        from ....lo.configuration.backend.invalid_authentication_mechanism_exception import InvalidAuthenticationMechanismException as InvalidAuthenticationMechanismException
 
 __all__ = ['InvalidAuthenticationMechanismException']
 

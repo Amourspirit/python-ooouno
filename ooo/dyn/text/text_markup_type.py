@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class TextMarkupType(metaclass=UnoConstMeta, type_name="com.sun.star.text.TextMarkupType", name_space="com.sun.star.text"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text import TextMarkupType as TextMarkupType
+    if TYPE_CHECKING:
+        from com.sun.star.text import TextMarkupType as TextMarkupType
+    else:
+        # keep document generators happy
+        from ...lo.text.text_markup_type import TextMarkupType as TextMarkupType
 
     class TextMarkupTypeEnum(IntEnum):
         """

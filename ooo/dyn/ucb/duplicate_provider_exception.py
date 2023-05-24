@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DuplicateProviderException = _get_class()
 
 else:
-    from com.sun.star.ucb import DuplicateProviderException as DuplicateProviderException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import DuplicateProviderException as DuplicateProviderException
+    else:
+        from ...lo.ucb.duplicate_provider_exception import DuplicateProviderException as DuplicateProviderException
 
 __all__ = ['DuplicateProviderException']
 

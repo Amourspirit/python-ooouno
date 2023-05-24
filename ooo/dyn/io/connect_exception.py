@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ConnectException = _get_class()
 
 else:
-    from com.sun.star.io import ConnectException as ConnectException
+    if TYPE_CHECKING:
+        from com.sun.star.io import ConnectException as ConnectException
+    else:
+        from ...lo.io.connect_exception import ConnectException as ConnectException
 
 __all__ = ['ConnectException']
 

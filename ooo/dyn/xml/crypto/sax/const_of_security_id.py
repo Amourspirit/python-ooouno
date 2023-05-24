@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ConstOfSecurityId(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.sax.ConstOfSecurityId", name_space="com.sun.star.xml.crypto.sax"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.xml.crypto.sax import ConstOfSecurityId as ConstOfSecurityId
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax import ConstOfSecurityId as ConstOfSecurityId
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.const_of_security_id import ConstOfSecurityId as ConstOfSecurityId
 
     class ConstOfSecurityIdEnum(IntEnum):
         """

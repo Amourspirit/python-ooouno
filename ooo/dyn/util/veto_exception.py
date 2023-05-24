@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     VetoException = _get_class()
 
 else:
-    from com.sun.star.util import VetoException as VetoException
+    if TYPE_CHECKING:
+        from com.sun.star.util import VetoException as VetoException
+    else:
+        from ...lo.util.veto_exception import VetoException as VetoException
 
 __all__ = ['VetoException']
 

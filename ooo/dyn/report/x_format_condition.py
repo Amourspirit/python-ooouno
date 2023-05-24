@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.report import XFormatCondition as XFormatCondition
     setattr(XFormatCondition, '__ooo_ns__', 'com.sun.star.report')
     setattr(XFormatCondition, '__ooo_full_ns__', 'com.sun.star.report.XFormatCondition')
     setattr(XFormatCondition, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.report import XFormatCondition as XFormatCondition
+    if TYPE_CHECKING:
+        from com.sun.star.report import XFormatCondition as XFormatCondition
+    else:
+        # keep document generators happy
+        from ...lo.report.x_format_condition import XFormatCondition as XFormatCondition
 
 __all__ = ['XFormatCondition']
 

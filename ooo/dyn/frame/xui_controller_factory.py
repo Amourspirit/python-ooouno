@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XUIControllerFactory as XUIControllerFactory
     setattr(XUIControllerFactory, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XUIControllerFactory, '__ooo_full_ns__', 'com.sun.star.frame.XUIControllerFactory')
     setattr(XUIControllerFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XUIControllerFactory as XUIControllerFactory
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XUIControllerFactory as XUIControllerFactory
+    else:
+        # keep document generators happy
+        from ...lo.frame.xui_controller_factory import XUIControllerFactory as XUIControllerFactory
 
 __all__ = ['XUIControllerFactory']
 

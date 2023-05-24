@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSpreadsheetView as XSpreadsheetView
     setattr(XSpreadsheetView, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSpreadsheetView, '__ooo_full_ns__', 'com.sun.star.sheet.XSpreadsheetView')
     setattr(XSpreadsheetView, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSpreadsheetView as XSpreadsheetView
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSpreadsheetView as XSpreadsheetView
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_spreadsheet_view import XSpreadsheetView as XSpreadsheetView
 
 __all__ = ['XSpreadsheetView']
 

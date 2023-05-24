@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MissingBootstrapFileException = _get_class()
 
 else:
-    from com.sun.star.configuration import MissingBootstrapFileException as MissingBootstrapFileException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import MissingBootstrapFileException as MissingBootstrapFileException
+    else:
+        from ...lo.configuration.missing_bootstrap_file_exception import MissingBootstrapFileException as MissingBootstrapFileException
 
 __all__ = ['MissingBootstrapFileException']
 

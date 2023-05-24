@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XScreenCursor as XScreenCursor
     setattr(XScreenCursor, '__ooo_ns__', 'com.sun.star.view')
     setattr(XScreenCursor, '__ooo_full_ns__', 'com.sun.star.view.XScreenCursor')
     setattr(XScreenCursor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XScreenCursor as XScreenCursor
+    if TYPE_CHECKING:
+        from com.sun.star.view import XScreenCursor as XScreenCursor
+    else:
+        # keep document generators happy
+        from ...lo.view.x_screen_cursor import XScreenCursor as XScreenCursor
 
 __all__ = ['XScreenCursor']
 

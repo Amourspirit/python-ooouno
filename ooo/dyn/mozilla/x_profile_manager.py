@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.mozilla import XProfileManager as XProfileManager
     setattr(XProfileManager, '__ooo_ns__', 'com.sun.star.mozilla')
     setattr(XProfileManager, '__ooo_full_ns__', 'com.sun.star.mozilla.XProfileManager')
     setattr(XProfileManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.mozilla import XProfileManager as XProfileManager
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla import XProfileManager as XProfileManager
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.x_profile_manager import XProfileManager as XProfileManager
 
 __all__ = ['XProfileManager']
 

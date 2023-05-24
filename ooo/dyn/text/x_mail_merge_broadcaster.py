@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XMailMergeBroadcaster as XMailMergeBroadcaster
     setattr(XMailMergeBroadcaster, '__ooo_ns__', 'com.sun.star.text')
     setattr(XMailMergeBroadcaster, '__ooo_full_ns__', 'com.sun.star.text.XMailMergeBroadcaster')
     setattr(XMailMergeBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XMailMergeBroadcaster as XMailMergeBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.text import XMailMergeBroadcaster as XMailMergeBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.text.x_mail_merge_broadcaster import XMailMergeBroadcaster as XMailMergeBroadcaster
 
 __all__ = ['XMailMergeBroadcaster']
 

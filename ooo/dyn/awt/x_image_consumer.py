@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XImageConsumer as XImageConsumer
     setattr(XImageConsumer, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XImageConsumer, '__ooo_full_ns__', 'com.sun.star.awt.XImageConsumer')
     setattr(XImageConsumer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XImageConsumer as XImageConsumer
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XImageConsumer as XImageConsumer
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_image_consumer import XImageConsumer as XImageConsumer
 
 __all__ = ['XImageConsumer']
 

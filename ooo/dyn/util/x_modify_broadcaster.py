@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XModifyBroadcaster as XModifyBroadcaster
     setattr(XModifyBroadcaster, '__ooo_ns__', 'com.sun.star.util')
     setattr(XModifyBroadcaster, '__ooo_full_ns__', 'com.sun.star.util.XModifyBroadcaster')
     setattr(XModifyBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XModifyBroadcaster as XModifyBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.util import XModifyBroadcaster as XModifyBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.util.x_modify_broadcaster import XModifyBroadcaster as XModifyBroadcaster
 
 __all__ = ['XModifyBroadcaster']
 

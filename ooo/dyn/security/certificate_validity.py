@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class CertificateValidity(metaclass=UnoConstMeta, type_name="com.sun.star.security.CertificateValidity", name_space="com.sun.star.security"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.security import CertificateValidity as CertificateValidity
+    if TYPE_CHECKING:
+        from com.sun.star.security import CertificateValidity as CertificateValidity
+    else:
+        # keep document generators happy
+        from ...lo.security.certificate_validity import CertificateValidity as CertificateValidity
 
     class CertificateValidityEnum(IntFlag):
         """

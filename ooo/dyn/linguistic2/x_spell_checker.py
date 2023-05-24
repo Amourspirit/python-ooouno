@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XSpellChecker as XSpellChecker
     setattr(XSpellChecker, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XSpellChecker, '__ooo_full_ns__', 'com.sun.star.linguistic2.XSpellChecker')
     setattr(XSpellChecker, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XSpellChecker as XSpellChecker
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XSpellChecker as XSpellChecker
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_spell_checker import XSpellChecker as XSpellChecker
 
 __all__ = ['XSpellChecker']
 

@@ -20,91 +20,98 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.Alignment import BOTTOM as ALIGNMENT_BOTTOM
-    from com.sun.star.drawing.Alignment import BOTTOM_LEFT as ALIGNMENT_BOTTOM_LEFT
-    from com.sun.star.drawing.Alignment import BOTTOM_RIGHT as ALIGNMENT_BOTTOM_RIGHT
-    from com.sun.star.drawing.Alignment import CENTER as ALIGNMENT_CENTER
-    from com.sun.star.drawing.Alignment import LEFT as ALIGNMENT_LEFT
-    from com.sun.star.drawing.Alignment import RIGHT as ALIGNMENT_RIGHT
-    from com.sun.star.drawing.Alignment import TOP as ALIGNMENT_TOP
-    from com.sun.star.drawing.Alignment import TOP_LEFT as ALIGNMENT_TOP_LEFT
-    from com.sun.star.drawing.Alignment import TOP_RIGHT as ALIGNMENT_TOP_RIGHT
-
-    class Alignment(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API Alignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#acdfaca60ec19c0265bac2692d7982726>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.Alignment', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
-        __ooo_type_name__: str = 'enum'
-
-        BOTTOM = cast("Alignment", ALIGNMENT_BOTTOM)
-        """
-        the connection line leaves the connected object from the bottom,
-        
-        The text is positioned below the main line.
-        
-        The bottom edge of the text is adjusted to the bottom edge of the shape.
-        """
-        BOTTOM_LEFT = cast("Alignment", ALIGNMENT_BOTTOM_LEFT)
-        """
-        """
-        BOTTOM_RIGHT = cast("Alignment", ALIGNMENT_BOTTOM_RIGHT)
-        """
-        """
-        CENTER = cast("Alignment", ALIGNMENT_CENTER)
-        """
-        The text is centered inside the shape.
-        """
-        LEFT = cast("Alignment", ALIGNMENT_LEFT)
-        """
-        the connection line leaves the connected object to the left,
-        
-        The left edge of the text is adjusted to the left edge of the shape.
-        
-        The text is positioned to the left.
-        """
-        RIGHT = cast("Alignment", ALIGNMENT_RIGHT)
-        """
-        the connection line leaves the connected object to the right,
-        
-        The right edge of the text is adjusted to the right edge of the shape.
-        
-        The text is positioned to the right.
-        """
-        TOP = cast("Alignment", ALIGNMENT_TOP)
-        """
-        the connection line leaves the connected object from the top,
-        
-        The text is positioned above the main line.
-        
-        The top edge of the text is adjusted to the top edge of the shape.
-        """
-        TOP_LEFT = cast("Alignment", ALIGNMENT_TOP_LEFT)
-        """
-        """
-        TOP_RIGHT = cast("Alignment", ALIGNMENT_TOP_RIGHT)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class Alignment(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.Alignment", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.Alignment`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.Alignment import BOTTOM as ALIGNMENT_BOTTOM
+        from com.sun.star.drawing.Alignment import BOTTOM_LEFT as ALIGNMENT_BOTTOM_LEFT
+        from com.sun.star.drawing.Alignment import BOTTOM_RIGHT as ALIGNMENT_BOTTOM_RIGHT
+        from com.sun.star.drawing.Alignment import CENTER as ALIGNMENT_CENTER
+        from com.sun.star.drawing.Alignment import LEFT as ALIGNMENT_LEFT
+        from com.sun.star.drawing.Alignment import RIGHT as ALIGNMENT_RIGHT
+        from com.sun.star.drawing.Alignment import TOP as ALIGNMENT_TOP
+        from com.sun.star.drawing.Alignment import TOP_LEFT as ALIGNMENT_TOP_LEFT
+        from com.sun.star.drawing.Alignment import TOP_RIGHT as ALIGNMENT_TOP_RIGHT
+
+        class Alignment(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API Alignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#acdfaca60ec19c0265bac2692d7982726>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.Alignment', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
+            __ooo_type_name__: str = 'enum'
+
+            BOTTOM = ALIGNMENT_BOTTOM
+            """
+            the connection line leaves the connected object from the bottom,
+
+            The text is positioned below the main line.
+
+            The bottom edge of the text is adjusted to the bottom edge of the shape.
+            """
+            BOTTOM_LEFT = ALIGNMENT_BOTTOM_LEFT
+            """
+            """
+            BOTTOM_RIGHT = ALIGNMENT_BOTTOM_RIGHT
+            """
+            """
+            CENTER = ALIGNMENT_CENTER
+            """
+            The text is centered inside the shape.
+            """
+            LEFT = ALIGNMENT_LEFT
+            """
+            the connection line leaves the connected object to the left,
+
+            The left edge of the text is adjusted to the left edge of the shape.
+
+            The text is positioned to the left.
+            """
+            RIGHT = ALIGNMENT_RIGHT
+            """
+            the connection line leaves the connected object to the right,
+
+            The right edge of the text is adjusted to the right edge of the shape.
+
+            The text is positioned to the right.
+            """
+            TOP = ALIGNMENT_TOP
+            """
+            the connection line leaves the connected object from the top,
+
+            The text is positioned above the main line.
+
+            The top edge of the text is adjusted to the top edge of the shape.
+            """
+            TOP_LEFT = ALIGNMENT_TOP_LEFT
+            """
+            """
+            TOP_RIGHT = ALIGNMENT_TOP_RIGHT
+            """
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.alignment import Alignment as Alignment
+
 
 __all__ = ['Alignment']

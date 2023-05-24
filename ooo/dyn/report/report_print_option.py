@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ReportPrintOption(metaclass=UnoConstMeta, type_name="com.sun.star.report.ReportPrintOption", name_space="com.sun.star.report"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.report import ReportPrintOption as ReportPrintOption
+    if TYPE_CHECKING:
+        from com.sun.star.report import ReportPrintOption as ReportPrintOption
+    else:
+        # keep document generators happy
+        from ...lo.report.report_print_option import ReportPrintOption as ReportPrintOption
 
     class ReportPrintOptionEnum(IntEnum):
         """

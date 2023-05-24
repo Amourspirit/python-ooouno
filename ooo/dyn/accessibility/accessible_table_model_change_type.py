@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class AccessibleTableModelChangeType(metaclass=UnoConstMeta, type_name="com.sun.star.accessibility.AccessibleTableModelChangeType", name_space="com.sun.star.accessibility"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.accessibility import AccessibleTableModelChangeType as AccessibleTableModelChangeType
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import AccessibleTableModelChangeType as AccessibleTableModelChangeType
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.accessible_table_model_change_type import AccessibleTableModelChangeType as AccessibleTableModelChangeType
 
     class AccessibleTableModelChangeTypeEnum(IntEnum):
         """

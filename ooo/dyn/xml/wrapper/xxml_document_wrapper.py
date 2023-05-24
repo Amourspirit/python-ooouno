@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
     setattr(XXMLDocumentWrapper, '__ooo_ns__', 'com.sun.star.xml.wrapper')
     setattr(XXMLDocumentWrapper, '__ooo_full_ns__', 'com.sun.star.xml.wrapper.XXMLDocumentWrapper')
     setattr(XXMLDocumentWrapper, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
+    if TYPE_CHECKING:
+        from com.sun.star.xml.wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
+    else:
+        # keep document generators happy
+        from ....lo.xml.wrapper.xxml_document_wrapper import XXMLDocumentWrapper as XXMLDocumentWrapper
 
 __all__ = ['XXMLDocumentWrapper']
 

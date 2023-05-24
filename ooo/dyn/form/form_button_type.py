@@ -20,58 +20,65 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.form.FormButtonType import PUSH as FORM_BUTTON_TYPE_PUSH
-    from com.sun.star.form.FormButtonType import RESET as FORM_BUTTON_TYPE_RESET
-    from com.sun.star.form.FormButtonType import SUBMIT as FORM_BUTTON_TYPE_SUBMIT
-    from com.sun.star.form.FormButtonType import URL as FORM_BUTTON_TYPE_URL
-
-    class FormButtonType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API FormButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abd774094fc2fbbdf91448f8a60c1798a>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.form.FormButtonType', value)
-
-        __ooo_ns__: str = 'com.sun.star.form'
-        __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
-        __ooo_type_name__: str = 'enum'
-
-        PUSH = cast("FormButtonType", FORM_BUTTON_TYPE_PUSH)
-        """
-        requires the button to act like a common push button, means no special action is triggered.
-        """
-        RESET = cast("FormButtonType", FORM_BUTTON_TYPE_RESET)
-        """
-        When the button is clicked, it performs a reset on its containing form.
-        """
-        SUBMIT = cast("FormButtonType", FORM_BUTTON_TYPE_SUBMIT)
-        """
-        When the button is clicked, it performs a submit on its containing form.
-        """
-        URL = cast("FormButtonType", FORM_BUTTON_TYPE_URL)
-        """
-        When the button is clicked, a URL set for the button is opened.
-        
-        Specifies to use \"application/x-www-form-urlencoded\" as submit encoding.
-        
-        Usually used if the FormSubmitMethod attribute has the value POST.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FormButtonType(metaclass=UnoEnumMeta, type_name="com.sun.star.form.FormButtonType", name_space="com.sun.star.form"):
         """Dynamically created class that represents ``com.sun.star.form.FormButtonType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.form.FormButtonType import PUSH as FORM_BUTTON_TYPE_PUSH
+        from com.sun.star.form.FormButtonType import RESET as FORM_BUTTON_TYPE_RESET
+        from com.sun.star.form.FormButtonType import SUBMIT as FORM_BUTTON_TYPE_SUBMIT
+        from com.sun.star.form.FormButtonType import URL as FORM_BUTTON_TYPE_URL
+
+        class FormButtonType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API FormButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#abd774094fc2fbbdf91448f8a60c1798a>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.form.FormButtonType', value)
+
+            __ooo_ns__: str = 'com.sun.star.form'
+            __ooo_full_ns__: str = 'com.sun.star.form.FormButtonType'
+            __ooo_type_name__: str = 'enum'
+
+            PUSH = FORM_BUTTON_TYPE_PUSH
+            """
+            requires the button to act like a common push button, means no special action is triggered.
+            """
+            RESET = FORM_BUTTON_TYPE_RESET
+            """
+            When the button is clicked, it performs a reset on its containing form.
+            """
+            SUBMIT = FORM_BUTTON_TYPE_SUBMIT
+            """
+            When the button is clicked, it performs a submit on its containing form.
+            """
+            URL = FORM_BUTTON_TYPE_URL
+            """
+            When the button is clicked, a URL set for the button is opened.
+
+            Specifies to use \"application/x-www-form-urlencoded\" as submit encoding.
+
+            Usually used if the FormSubmitMethod attribute has the value POST.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.form.form_button_type import FormButtonType as FormButtonType
+
 
 __all__ = ['FormButtonType']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XSlidePreviewCacheListener as XSlidePreviewCacheListener
     setattr(XSlidePreviewCacheListener, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XSlidePreviewCacheListener, '__ooo_full_ns__', 'com.sun.star.drawing.XSlidePreviewCacheListener')
     setattr(XSlidePreviewCacheListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XSlidePreviewCacheListener as XSlidePreviewCacheListener
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XSlidePreviewCacheListener as XSlidePreviewCacheListener
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_slide_preview_cache_listener import XSlidePreviewCacheListener as XSlidePreviewCacheListener
 
 __all__ = ['XSlidePreviewCacheListener']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DocumentPasswordRequest = _get_class()
 
 else:
-    from com.sun.star.task import DocumentPasswordRequest as DocumentPasswordRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import DocumentPasswordRequest as DocumentPasswordRequest
+    else:
+        from ...lo.task.document_password_request import DocumentPasswordRequest as DocumentPasswordRequest
 
 __all__ = ['DocumentPasswordRequest']
 

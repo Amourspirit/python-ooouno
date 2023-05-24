@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XCommandProcessor2 as XCommandProcessor2
     setattr(XCommandProcessor2, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XCommandProcessor2, '__ooo_full_ns__', 'com.sun.star.ucb.XCommandProcessor2')
     setattr(XCommandProcessor2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XCommandProcessor2 as XCommandProcessor2
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XCommandProcessor2 as XCommandProcessor2
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_command_processor2 import XCommandProcessor2 as XCommandProcessor2
 
 __all__ = ['XCommandProcessor2']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RuntimeException = _get_class()
 
 else:
-    from com.sun.star.uno import RuntimeException as RuntimeException
+    if TYPE_CHECKING:
+        from com.sun.star.uno import RuntimeException as RuntimeException
+    else:
+        from ...lo.uno.runtime_exception import RuntimeException as RuntimeException
 
 __all__ = ['RuntimeException']
 

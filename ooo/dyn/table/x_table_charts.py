@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.table import XTableCharts as XTableCharts
     setattr(XTableCharts, '__ooo_ns__', 'com.sun.star.table')
     setattr(XTableCharts, '__ooo_full_ns__', 'com.sun.star.table.XTableCharts')
     setattr(XTableCharts, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.table import XTableCharts as XTableCharts
+    if TYPE_CHECKING:
+        from com.sun.star.table import XTableCharts as XTableCharts
+    else:
+        # keep document generators happy
+        from ...lo.table.x_table_charts import XTableCharts as XTableCharts
 
 __all__ = ['XTableCharts']
 

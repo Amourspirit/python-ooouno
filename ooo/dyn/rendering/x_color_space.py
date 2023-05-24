@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XColorSpace as XColorSpace
     setattr(XColorSpace, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XColorSpace, '__ooo_full_ns__', 'com.sun.star.rendering.XColorSpace')
     setattr(XColorSpace, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XColorSpace as XColorSpace
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XColorSpace as XColorSpace
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_color_space import XColorSpace as XColorSpace
 
 __all__ = ['XColorSpace']
 

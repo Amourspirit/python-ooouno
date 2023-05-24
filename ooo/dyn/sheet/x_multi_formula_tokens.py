@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XMultiFormulaTokens as XMultiFormulaTokens
     setattr(XMultiFormulaTokens, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XMultiFormulaTokens, '__ooo_full_ns__', 'com.sun.star.sheet.XMultiFormulaTokens')
     setattr(XMultiFormulaTokens, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XMultiFormulaTokens as XMultiFormulaTokens
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XMultiFormulaTokens as XMultiFormulaTokens
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_multi_formula_tokens import XMultiFormulaTokens as XMultiFormulaTokens
 
 __all__ = ['XMultiFormulaTokens']
 

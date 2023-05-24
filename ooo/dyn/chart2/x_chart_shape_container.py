@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XChartShapeContainer as XChartShapeContainer
     setattr(XChartShapeContainer, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XChartShapeContainer, '__ooo_full_ns__', 'com.sun.star.chart2.XChartShapeContainer')
     setattr(XChartShapeContainer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XChartShapeContainer as XChartShapeContainer
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XChartShapeContainer as XChartShapeContainer
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_chart_shape_container import XChartShapeContainer as XChartShapeContainer
 
 __all__ = ['XChartShapeContainer']
 

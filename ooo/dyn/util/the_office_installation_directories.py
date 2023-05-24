@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theOfficeInstallationDirectories = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.util.the_office_installation_directories import theOfficeInstallationDirectories as theOfficeInstallationDirectories
+    if TYPE_CHECKING
+        from com.sun.star.util import theOfficeInstallationDirectories as theOfficeInstallationDirectories
+    else:
+        from ...lo.util.the_office_installation_directories import theOfficeInstallationDirectories as theOfficeInstallationDirectories
 
 __all__ = ['theOfficeInstallationDirectories']

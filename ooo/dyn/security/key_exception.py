@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     KeyException = _get_class()
 
 else:
-    from com.sun.star.security import KeyException as KeyException
+    if TYPE_CHECKING:
+        from com.sun.star.security import KeyException as KeyException
+    else:
+        from ...lo.security.key_exception import KeyException as KeyException
 
 __all__ = ['KeyException']
 

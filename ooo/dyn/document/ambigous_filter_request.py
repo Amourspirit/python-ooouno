@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AmbigousFilterRequest = _get_class()
 
 else:
-    from com.sun.star.document import AmbigousFilterRequest as AmbigousFilterRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import AmbigousFilterRequest as AmbigousFilterRequest
+    else:
+        from ...lo.document.ambigous_filter_request import AmbigousFilterRequest as AmbigousFilterRequest
 
 __all__ = ['AmbigousFilterRequest']
 

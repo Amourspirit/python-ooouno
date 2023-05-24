@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XRowLocate as XRowLocate
     setattr(XRowLocate, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XRowLocate, '__ooo_full_ns__', 'com.sun.star.sdbcx.XRowLocate')
     setattr(XRowLocate, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XRowLocate as XRowLocate
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XRowLocate as XRowLocate
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_row_locate import XRowLocate as XRowLocate
 
 __all__ = ['XRowLocate']
 

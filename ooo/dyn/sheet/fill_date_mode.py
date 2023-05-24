@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.FillDateMode import FILL_DATE_DAY as FILL_DATE_MODE_FILL_DATE_DAY
-    from com.sun.star.sheet.FillDateMode import FILL_DATE_MONTH as FILL_DATE_MODE_FILL_DATE_MONTH
-    from com.sun.star.sheet.FillDateMode import FILL_DATE_WEEKDAY as FILL_DATE_MODE_FILL_DATE_WEEKDAY
-    from com.sun.star.sheet.FillDateMode import FILL_DATE_YEAR as FILL_DATE_MODE_FILL_DATE_YEAR
-
-    class FillDateMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API FillDateMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a2ea1aac24b8de3ac28ac5a6ec79a80ca>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.FillDateMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
-        __ooo_type_name__: str = 'enum'
-
-        FILL_DATE_DAY = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_DAY)
-        """
-        for every new value a single day is added.
-        """
-        FILL_DATE_MONTH = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_MONTH)
-        """
-        for every new value one month is added (day keeps unchanged).
-        """
-        FILL_DATE_WEEKDAY = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_WEEKDAY)
-        """
-        for every new value a single day is added, but Saturdays and Sundays are skipped.
-        """
-        FILL_DATE_YEAR = cast("FillDateMode", FILL_DATE_MODE_FILL_DATE_YEAR)
-        """
-        for every new value one year is added (day and month keep unchanged).
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FillDateMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FillDateMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.FillDateMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.FillDateMode import FILL_DATE_DAY as FILL_DATE_MODE_FILL_DATE_DAY
+        from com.sun.star.sheet.FillDateMode import FILL_DATE_MONTH as FILL_DATE_MODE_FILL_DATE_MONTH
+        from com.sun.star.sheet.FillDateMode import FILL_DATE_WEEKDAY as FILL_DATE_MODE_FILL_DATE_WEEKDAY
+        from com.sun.star.sheet.FillDateMode import FILL_DATE_YEAR as FILL_DATE_MODE_FILL_DATE_YEAR
+
+        class FillDateMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API FillDateMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a2ea1aac24b8de3ac28ac5a6ec79a80ca>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.FillDateMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.FillDateMode'
+            __ooo_type_name__: str = 'enum'
+
+            FILL_DATE_DAY = FILL_DATE_MODE_FILL_DATE_DAY
+            """
+            for every new value a single day is added.
+            """
+            FILL_DATE_MONTH = FILL_DATE_MODE_FILL_DATE_MONTH
+            """
+            for every new value one month is added (day keeps unchanged).
+            """
+            FILL_DATE_WEEKDAY = FILL_DATE_MODE_FILL_DATE_WEEKDAY
+            """
+            for every new value a single day is added, but Saturdays and Sundays are skipped.
+            """
+            FILL_DATE_YEAR = FILL_DATE_MODE_FILL_DATE_YEAR
+            """
+            for every new value one year is added (day and month keep unchanged).
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.fill_date_mode import FillDateMode as FillDateMode
+
 
 __all__ = ['FillDateMode']

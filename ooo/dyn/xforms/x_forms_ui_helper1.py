@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xforms import XFormsUIHelper1 as XFormsUIHelper1
     setattr(XFormsUIHelper1, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XFormsUIHelper1, '__ooo_full_ns__', 'com.sun.star.xforms.XFormsUIHelper1')
     setattr(XFormsUIHelper1, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xforms import XFormsUIHelper1 as XFormsUIHelper1
+    if TYPE_CHECKING:
+        from com.sun.star.xforms import XFormsUIHelper1 as XFormsUIHelper1
+    else:
+        # keep document generators happy
+        from ...lo.xforms.x_forms_ui_helper1 import XFormsUIHelper1 as XFormsUIHelper1
 
 __all__ = ['XFormsUIHelper1']
 

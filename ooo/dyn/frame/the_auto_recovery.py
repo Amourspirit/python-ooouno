@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theAutoRecovery = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.frame.the_auto_recovery import theAutoRecovery as theAutoRecovery
+    if TYPE_CHECKING
+        from com.sun.star.frame import theAutoRecovery as theAutoRecovery
+    else:
+        from ...lo.frame.the_auto_recovery import theAutoRecovery as theAutoRecovery
 
 __all__ = ['theAutoRecovery']

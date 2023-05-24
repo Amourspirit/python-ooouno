@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RowSetVetoException = _get_class()
 
 else:
-    from com.sun.star.sdb import RowSetVetoException as RowSetVetoException
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import RowSetVetoException as RowSetVetoException
+    else:
+        from ...lo.sdb.row_set_veto_exception import RowSetVetoException as RowSetVetoException
 
 __all__ = ['RowSetVetoException']
 

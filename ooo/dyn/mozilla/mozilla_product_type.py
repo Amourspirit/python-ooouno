@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.mozilla.MozillaProductType import Default as MOZILLA_PRODUCT_TYPE_Default
-    from com.sun.star.mozilla.MozillaProductType import Firefox as MOZILLA_PRODUCT_TYPE_Firefox
-    from com.sun.star.mozilla.MozillaProductType import Mozilla as MOZILLA_PRODUCT_TYPE_Mozilla
-    from com.sun.star.mozilla.MozillaProductType import Thunderbird as MOZILLA_PRODUCT_TYPE_Thunderbird
-
-    class MozillaProductType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API MozillaProductType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mozilla.html#a2bcdf854763e98ee224085041ac2ffa5>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.mozilla.MozillaProductType', value)
-
-        __ooo_ns__: str = 'com.sun.star.mozilla'
-        __ooo_full_ns__: str = 'com.sun.star.mozilla.MozillaProductType'
-        __ooo_type_name__: str = 'enum'
-
-        Default = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Default)
-        """
-        Any product.
-        """
-        Firefox = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Firefox)
-        """
-        Mozilla's next generation web browser.
-        """
-        Mozilla = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Mozilla)
-        """
-        Mozilla browse and mail suite.
-        """
-        Thunderbird = cast("MozillaProductType", MOZILLA_PRODUCT_TYPE_Thunderbird)
-        """
-        Mozilla's next generation e-mail client.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MozillaProductType(metaclass=UnoEnumMeta, type_name="com.sun.star.mozilla.MozillaProductType", name_space="com.sun.star.mozilla"):
         """Dynamically created class that represents ``com.sun.star.mozilla.MozillaProductType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla.MozillaProductType import Default as MOZILLA_PRODUCT_TYPE_Default
+        from com.sun.star.mozilla.MozillaProductType import Firefox as MOZILLA_PRODUCT_TYPE_Firefox
+        from com.sun.star.mozilla.MozillaProductType import Mozilla as MOZILLA_PRODUCT_TYPE_Mozilla
+        from com.sun.star.mozilla.MozillaProductType import Thunderbird as MOZILLA_PRODUCT_TYPE_Thunderbird
+
+        class MozillaProductType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API MozillaProductType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mozilla.html#a2bcdf854763e98ee224085041ac2ffa5>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.mozilla.MozillaProductType', value)
+
+            __ooo_ns__: str = 'com.sun.star.mozilla'
+            __ooo_full_ns__: str = 'com.sun.star.mozilla.MozillaProductType'
+            __ooo_type_name__: str = 'enum'
+
+            Default = MOZILLA_PRODUCT_TYPE_Default
+            """
+            Any product.
+            """
+            Firefox = MOZILLA_PRODUCT_TYPE_Firefox
+            """
+            Mozilla's next generation web browser.
+            """
+            Mozilla = MOZILLA_PRODUCT_TYPE_Mozilla
+            """
+            Mozilla browse and mail suite.
+            """
+            Thunderbird = MOZILLA_PRODUCT_TYPE_Thunderbird
+            """
+            Mozilla's next generation e-mail client.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.mozilla_product_type import MozillaProductType as MozillaProductType
+
 
 __all__ = ['MozillaProductType']

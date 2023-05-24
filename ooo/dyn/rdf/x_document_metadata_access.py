@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rdf import XDocumentMetadataAccess as XDocumentMetadataAccess
     setattr(XDocumentMetadataAccess, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XDocumentMetadataAccess, '__ooo_full_ns__', 'com.sun.star.rdf.XDocumentMetadataAccess')
     setattr(XDocumentMetadataAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rdf import XDocumentMetadataAccess as XDocumentMetadataAccess
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import XDocumentMetadataAccess as XDocumentMetadataAccess
+    else:
+        # keep document generators happy
+        from ...lo.rdf.x_document_metadata_access import XDocumentMetadataAccess as XDocumentMetadataAccess
 
 __all__ = ['XDocumentMetadataAccess']
 

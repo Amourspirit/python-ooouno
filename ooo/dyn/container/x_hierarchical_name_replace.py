@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XHierarchicalNameReplace as XHierarchicalNameReplace
     setattr(XHierarchicalNameReplace, '__ooo_ns__', 'com.sun.star.container')
     setattr(XHierarchicalNameReplace, '__ooo_full_ns__', 'com.sun.star.container.XHierarchicalNameReplace')
     setattr(XHierarchicalNameReplace, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XHierarchicalNameReplace as XHierarchicalNameReplace
+    if TYPE_CHECKING:
+        from com.sun.star.container import XHierarchicalNameReplace as XHierarchicalNameReplace
+    else:
+        # keep document generators happy
+        from ...lo.container.x_hierarchical_name_replace import XHierarchicalNameReplace as XHierarchicalNameReplace
 
 __all__ = ['XHierarchicalNameReplace']
 

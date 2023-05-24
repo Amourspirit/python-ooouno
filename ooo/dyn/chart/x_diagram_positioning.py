@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart import XDiagramPositioning as XDiagramPositioning
     setattr(XDiagramPositioning, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XDiagramPositioning, '__ooo_full_ns__', 'com.sun.star.chart.XDiagramPositioning')
     setattr(XDiagramPositioning, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart import XDiagramPositioning as XDiagramPositioning
+    if TYPE_CHECKING:
+        from com.sun.star.chart import XDiagramPositioning as XDiagramPositioning
+    else:
+        # keep document generators happy
+        from ...lo.chart.x_diagram_positioning import XDiagramPositioning as XDiagramPositioning
 
 __all__ = ['XDiagramPositioning']
 

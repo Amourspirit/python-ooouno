@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.dom.events import XMouseEvent as XMouseEvent
     setattr(XMouseEvent, '__ooo_ns__', 'com.sun.star.xml.dom.events')
     setattr(XMouseEvent, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.XMouseEvent')
     setattr(XMouseEvent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.dom.events import XMouseEvent as XMouseEvent
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.events import XMouseEvent as XMouseEvent
+    else:
+        # keep document generators happy
+        from .....lo.xml.dom.events.x_mouse_event import XMouseEvent as XMouseEvent
 
 __all__ = ['XMouseEvent']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XControl as XControl
     setattr(XControl, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XControl, '__ooo_full_ns__', 'com.sun.star.awt.XControl')
     setattr(XControl, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XControl as XControl
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XControl as XControl
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_control import XControl as XControl
 
 __all__ = ['XControl']
 

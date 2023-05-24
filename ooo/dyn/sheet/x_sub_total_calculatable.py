@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSubTotalCalculatable as XSubTotalCalculatable
     setattr(XSubTotalCalculatable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSubTotalCalculatable, '__ooo_full_ns__', 'com.sun.star.sheet.XSubTotalCalculatable')
     setattr(XSubTotalCalculatable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSubTotalCalculatable as XSubTotalCalculatable
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSubTotalCalculatable as XSubTotalCalculatable
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sub_total_calculatable import XSubTotalCalculatable as XSubTotalCalculatable
 
 __all__ = ['XSubTotalCalculatable']
 

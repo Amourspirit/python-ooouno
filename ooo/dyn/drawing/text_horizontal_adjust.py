@@ -20,64 +20,71 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.TextHorizontalAdjust import BLOCK as TEXT_HORIZONTAL_ADJUST_BLOCK
-    from com.sun.star.drawing.TextHorizontalAdjust import CENTER as TEXT_HORIZONTAL_ADJUST_CENTER
-    from com.sun.star.drawing.TextHorizontalAdjust import LEFT as TEXT_HORIZONTAL_ADJUST_LEFT
-    from com.sun.star.drawing.TextHorizontalAdjust import RIGHT as TEXT_HORIZONTAL_ADJUST_RIGHT
-
-    class TextHorizontalAdjust(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TextHorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adc845a26c59f91e9ad752a717b3c2386>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.TextHorizontalAdjust', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
-        __ooo_type_name__: str = 'enum'
-
-        BLOCK = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_BLOCK)
-        """
-        The text extends from the left to the right edge of the shape.
-        
-        The text extends from the top to the bottom edge of the shape.
-        """
-        CENTER = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_CENTER)
-        """
-        The text is centered inside the shape.
-        """
-        LEFT = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_LEFT)
-        """
-        the connection line leaves the connected object to the left,
-        
-        The left edge of the text is adjusted to the left edge of the shape.
-        
-        The text is positioned to the left.
-        """
-        RIGHT = cast("TextHorizontalAdjust", TEXT_HORIZONTAL_ADJUST_RIGHT)
-        """
-        the connection line leaves the connected object to the right,
-        
-        The right edge of the text is adjusted to the right edge of the shape.
-        
-        The text is positioned to the right.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextHorizontalAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextHorizontalAdjust", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextHorizontalAdjust`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.TextHorizontalAdjust import BLOCK as TEXT_HORIZONTAL_ADJUST_BLOCK
+        from com.sun.star.drawing.TextHorizontalAdjust import CENTER as TEXT_HORIZONTAL_ADJUST_CENTER
+        from com.sun.star.drawing.TextHorizontalAdjust import LEFT as TEXT_HORIZONTAL_ADJUST_LEFT
+        from com.sun.star.drawing.TextHorizontalAdjust import RIGHT as TEXT_HORIZONTAL_ADJUST_RIGHT
+
+        class TextHorizontalAdjust(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TextHorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adc845a26c59f91e9ad752a717b3c2386>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.TextHorizontalAdjust', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.TextHorizontalAdjust'
+            __ooo_type_name__: str = 'enum'
+
+            BLOCK = TEXT_HORIZONTAL_ADJUST_BLOCK
+            """
+            The text extends from the left to the right edge of the shape.
+
+            The text extends from the top to the bottom edge of the shape.
+            """
+            CENTER = TEXT_HORIZONTAL_ADJUST_CENTER
+            """
+            The text is centered inside the shape.
+            """
+            LEFT = TEXT_HORIZONTAL_ADJUST_LEFT
+            """
+            the connection line leaves the connected object to the left,
+
+            The left edge of the text is adjusted to the left edge of the shape.
+
+            The text is positioned to the left.
+            """
+            RIGHT = TEXT_HORIZONTAL_ADJUST_RIGHT
+            """
+            the connection line leaves the connected object to the right,
+
+            The right edge of the text is adjusted to the right edge of the shape.
+
+            The text is positioned to the right.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.text_horizontal_adjust import TextHorizontalAdjust as TextHorizontalAdjust
+
 
 __all__ = ['TextHorizontalAdjust']

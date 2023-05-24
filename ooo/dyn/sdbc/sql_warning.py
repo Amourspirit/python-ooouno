@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SQLWarning = _get_class()
 
 else:
-    from com.sun.star.sdbc import SQLWarning as SQLWarning
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import SQLWarning as SQLWarning
+    else:
+        from ...lo.sdbc.sql_warning import SQLWarning as SQLWarning
 
 __all__ = ['SQLWarning']
 

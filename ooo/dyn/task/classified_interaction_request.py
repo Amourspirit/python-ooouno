@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ClassifiedInteractionRequest = _get_class()
 
 else:
-    from com.sun.star.task import ClassifiedInteractionRequest as ClassifiedInteractionRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import ClassifiedInteractionRequest as ClassifiedInteractionRequest
+    else:
+        from ...lo.task.classified_interaction_request import ClassifiedInteractionRequest as ClassifiedInteractionRequest
 
 __all__ = ['ClassifiedInteractionRequest']
 

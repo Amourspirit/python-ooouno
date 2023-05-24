@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XInvocation as XInvocation
     setattr(XInvocation, '__ooo_ns__', 'com.sun.star.script')
     setattr(XInvocation, '__ooo_full_ns__', 'com.sun.star.script.XInvocation')
     setattr(XInvocation, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XInvocation as XInvocation
+    if TYPE_CHECKING:
+        from com.sun.star.script import XInvocation as XInvocation
+    else:
+        # keep document generators happy
+        from ...lo.script.x_invocation import XInvocation as XInvocation
 
 __all__ = ['XInvocation']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ServiceNotFoundException = _get_class()
 
 else:
-    from com.sun.star.ucb import ServiceNotFoundException as ServiceNotFoundException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import ServiceNotFoundException as ServiceNotFoundException
+    else:
+        from ...lo.ucb.service_not_found_exception import ServiceNotFoundException as ServiceNotFoundException
 
 __all__ = ['ServiceNotFoundException']
 

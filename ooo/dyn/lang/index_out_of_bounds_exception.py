@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IndexOutOfBoundsException = _get_class()
 
 else:
-    from com.sun.star.lang import IndexOutOfBoundsException as IndexOutOfBoundsException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import IndexOutOfBoundsException as IndexOutOfBoundsException
+    else:
+        from ...lo.lang.index_out_of_bounds_exception import IndexOutOfBoundsException as IndexOutOfBoundsException
 
 __all__ = ['IndexOutOfBoundsException']
 

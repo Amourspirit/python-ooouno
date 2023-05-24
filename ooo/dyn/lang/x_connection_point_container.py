@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XConnectionPointContainer as XConnectionPointContainer
     setattr(XConnectionPointContainer, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XConnectionPointContainer, '__ooo_full_ns__', 'com.sun.star.lang.XConnectionPointContainer')
     setattr(XConnectionPointContainer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XConnectionPointContainer as XConnectionPointContainer
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XConnectionPointContainer as XConnectionPointContainer
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_connection_point_container import XConnectionPointContainer as XConnectionPointContainer
 
 __all__ = ['XConnectionPointContainer']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NotLockedException = _get_class()
 
 else:
-    from com.sun.star.util import NotLockedException as NotLockedException
+    if TYPE_CHECKING:
+        from com.sun.star.util import NotLockedException as NotLockedException
+    else:
+        from ...lo.util.not_locked_exception import NotLockedException as NotLockedException
 
 __all__ = ['NotLockedException']
 

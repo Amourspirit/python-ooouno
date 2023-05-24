@@ -20,48 +20,55 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.framework.ResourceActivationMode import ADD as RESOURCE_ACTIVATION_MODE_ADD
-    from com.sun.star.drawing.framework.ResourceActivationMode import REPLACE as RESOURCE_ACTIVATION_MODE_REPLACE
-
-    class ResourceActivationMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ResourceActivationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a9b6ee17a97f260847a6fa2df1be8f104>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.framework.ResourceActivationMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing.framework'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
-        __ooo_type_name__: str = 'enum'
-
-        ADD = cast("ResourceActivationMode", RESOURCE_ACTIVATION_MODE_ADD)
-        """
-        A resource is requested in addition to already existing ones.
-        
-        This is used for example for panes.
-        """
-        REPLACE = cast("ResourceActivationMode", RESOURCE_ACTIVATION_MODE_REPLACE)
-        """
-        A resource is requested to replace an already existing one of the same class.
-        
-        This is used for example for views.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ResourceActivationMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.framework.ResourceActivationMode", name_space="com.sun.star.drawing.framework"):
         """Dynamically created class that represents ``com.sun.star.drawing.framework.ResourceActivationMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.framework.ResourceActivationMode import ADD as RESOURCE_ACTIVATION_MODE_ADD
+        from com.sun.star.drawing.framework.ResourceActivationMode import REPLACE as RESOURCE_ACTIVATION_MODE_REPLACE
+
+        class ResourceActivationMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ResourceActivationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a9b6ee17a97f260847a6fa2df1be8f104>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.framework.ResourceActivationMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing.framework'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
+            __ooo_type_name__: str = 'enum'
+
+            ADD = RESOURCE_ACTIVATION_MODE_ADD
+            """
+            A resource is requested in addition to already existing ones.
+
+            This is used for example for panes.
+            """
+            REPLACE = RESOURCE_ACTIVATION_MODE_REPLACE
+            """
+            A resource is requested to replace an already existing one of the same class.
+
+            This is used for example for views.
+            """
+    else:
+        # keep document generators happy
+        from ....lo.drawing.framework.resource_activation_mode import ResourceActivationMode as ResourceActivationMode
+
 
 __all__ = ['ResourceActivationMode']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.logging import XCsvLogFormatter as XCsvLogFormatter
     setattr(XCsvLogFormatter, '__ooo_ns__', 'com.sun.star.logging')
     setattr(XCsvLogFormatter, '__ooo_full_ns__', 'com.sun.star.logging.XCsvLogFormatter')
     setattr(XCsvLogFormatter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.logging import XCsvLogFormatter as XCsvLogFormatter
+    if TYPE_CHECKING:
+        from com.sun.star.logging import XCsvLogFormatter as XCsvLogFormatter
+    else:
+        # keep document generators happy
+        from ...lo.logging.x_csv_log_formatter import XCsvLogFormatter as XCsvLogFormatter
 
 __all__ = ['XCsvLogFormatter']
 

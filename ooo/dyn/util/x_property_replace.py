@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XPropertyReplace as XPropertyReplace
     setattr(XPropertyReplace, '__ooo_ns__', 'com.sun.star.util')
     setattr(XPropertyReplace, '__ooo_full_ns__', 'com.sun.star.util.XPropertyReplace')
     setattr(XPropertyReplace, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XPropertyReplace as XPropertyReplace
+    if TYPE_CHECKING:
+        from com.sun.star.util import XPropertyReplace as XPropertyReplace
+    else:
+        # keep document generators happy
+        from ...lo.util.x_property_replace import XPropertyReplace as XPropertyReplace
 
 __all__ = ['XPropertyReplace']
 

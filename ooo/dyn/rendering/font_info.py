@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('FontDescription', 'FamilyName', 'StyleName', 'UnicodeRanges0', 'UnicodeRanges1', 'UnicodeRanges2', 'UnicodeRanges3', 'IsSymbolFont', 'IsVertical')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     FontInfo = _get_class()
 
 else:
-    from com.sun.star.rendering import FontInfo as FontInfo
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import FontInfo as FontInfo
+    else:
+        # keep document generators happy
+        from ...lo.rendering.font_info import FontInfo as FontInfo
 
 __all__ = ['FontInfo']
 

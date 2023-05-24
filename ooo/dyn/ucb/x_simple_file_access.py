@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XSimpleFileAccess as XSimpleFileAccess
     setattr(XSimpleFileAccess, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XSimpleFileAccess, '__ooo_full_ns__', 'com.sun.star.ucb.XSimpleFileAccess')
     setattr(XSimpleFileAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XSimpleFileAccess as XSimpleFileAccess
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XSimpleFileAccess as XSimpleFileAccess
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_simple_file_access import XSimpleFileAccess as XSimpleFileAccess
 
 __all__ = ['XSimpleFileAccess']
 

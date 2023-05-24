@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidValueException = _get_class()
 
 else:
-    from com.sun.star.registry import InvalidValueException as InvalidValueException
+    if TYPE_CHECKING:
+        from com.sun.star.registry import InvalidValueException as InvalidValueException
+    else:
+        from ...lo.registry.invalid_value_exception import InvalidValueException as InvalidValueException
 
 __all__ = ['InvalidValueException']
 

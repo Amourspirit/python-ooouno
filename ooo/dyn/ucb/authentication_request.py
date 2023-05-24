@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AuthenticationRequest = _get_class()
 
 else:
-    from com.sun.star.ucb import AuthenticationRequest as AuthenticationRequest
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import AuthenticationRequest as AuthenticationRequest
+    else:
+        from ...lo.ucb.authentication_request import AuthenticationRequest as AuthenticationRequest
 
 __all__ = ['AuthenticationRequest']
 

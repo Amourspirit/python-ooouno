@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalAccessibleComponentStateException = _get_class()
 
 else:
-    from com.sun.star.accessibility import IllegalAccessibleComponentStateException as IllegalAccessibleComponentStateException
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import IllegalAccessibleComponentStateException as IllegalAccessibleComponentStateException
+    else:
+        from ...lo.accessibility.illegal_accessible_component_state_exception import IllegalAccessibleComponentStateException as IllegalAccessibleComponentStateException
 
 __all__ = ['IllegalAccessibleComponentStateException']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NameClashException = _get_class()
 
 else:
-    from com.sun.star.ucb import NameClashException as NameClashException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import NameClashException as NameClashException
+    else:
+        from ...lo.ucb.name_clash_exception import NameClashException as NameClashException
 
 __all__ = ['NameClashException']
 

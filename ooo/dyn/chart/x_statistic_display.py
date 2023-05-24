@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart import XStatisticDisplay as XStatisticDisplay
     setattr(XStatisticDisplay, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XStatisticDisplay, '__ooo_full_ns__', 'com.sun.star.chart.XStatisticDisplay')
     setattr(XStatisticDisplay, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart import XStatisticDisplay as XStatisticDisplay
+    if TYPE_CHECKING:
+        from com.sun.star.chart import XStatisticDisplay as XStatisticDisplay
+    else:
+        # keep document generators happy
+        from ...lo.chart.x_statistic_display import XStatisticDisplay as XStatisticDisplay
 
 __all__ = ['XStatisticDisplay']
 

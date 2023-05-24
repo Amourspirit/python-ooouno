@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.security.CertificateKind import NONE as CERTIFICATE_KIND_NONE
-    from com.sun.star.security.CertificateKind import OPENPGP as CERTIFICATE_KIND_OPENPGP
-    from com.sun.star.security.CertificateKind import X509 as CERTIFICATE_KIND_X509
-
-    class CertificateKind(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API CertificateKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a15fb2a8475364a68c176c7789e3611cc>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.security.CertificateKind', value)
-
-        __ooo_ns__: str = 'com.sun.star.security'
-        __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
-        __ooo_type_name__: str = 'enum'
-
-        NONE = cast("CertificateKind", CERTIFICATE_KIND_NONE)
-        """
-        No format specified.
-        """
-        OPENPGP = cast("CertificateKind", CERTIFICATE_KIND_OPENPGP)
-        """
-        OpenPGP format of a certificate.
-        """
-        X509 = cast("CertificateKind", CERTIFICATE_KIND_X509)
-        """
-        X.509 format of a certificate.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CertificateKind(metaclass=UnoEnumMeta, type_name="com.sun.star.security.CertificateKind", name_space="com.sun.star.security"):
         """Dynamically created class that represents ``com.sun.star.security.CertificateKind`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.security.CertificateKind import NONE as CERTIFICATE_KIND_NONE
+        from com.sun.star.security.CertificateKind import OPENPGP as CERTIFICATE_KIND_OPENPGP
+        from com.sun.star.security.CertificateKind import X509 as CERTIFICATE_KIND_X509
+
+        class CertificateKind(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API CertificateKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a15fb2a8475364a68c176c7789e3611cc>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.security.CertificateKind', value)
+
+            __ooo_ns__: str = 'com.sun.star.security'
+            __ooo_full_ns__: str = 'com.sun.star.security.CertificateKind'
+            __ooo_type_name__: str = 'enum'
+
+            NONE = CERTIFICATE_KIND_NONE
+            """
+            No format specified.
+            """
+            OPENPGP = CERTIFICATE_KIND_OPENPGP
+            """
+            OpenPGP format of a certificate.
+            """
+            X509 = CERTIFICATE_KIND_X509
+            """
+            X.509 format of a certificate.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.security.certificate_kind import CertificateKind as CertificateKind
+
 
 __all__ = ['CertificateKind']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.table import XTableColumns as XTableColumns
     setattr(XTableColumns, '__ooo_ns__', 'com.sun.star.table')
     setattr(XTableColumns, '__ooo_full_ns__', 'com.sun.star.table.XTableColumns')
     setattr(XTableColumns, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.table import XTableColumns as XTableColumns
+    if TYPE_CHECKING:
+        from com.sun.star.table import XTableColumns as XTableColumns
+    else:
+        # keep document generators happy
+        from ...lo.table.x_table_columns import XTableColumns as XTableColumns
 
 __all__ = ['XTableColumns']
 

@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theModuleUIConfigurationManagerSupplier = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.ui.the_module_ui_configuration_manager_supplier import theModuleUIConfigurationManagerSupplier as theModuleUIConfigurationManagerSupplier
+    if TYPE_CHECKING
+        from com.sun.star.ui import theModuleUIConfigurationManagerSupplier as theModuleUIConfigurationManagerSupplier
+    else:
+        from ...lo.ui.the_module_ui_configuration_manager_supplier import theModuleUIConfigurationManagerSupplier as theModuleUIConfigurationManagerSupplier
 
 __all__ = ['theModuleUIConfigurationManagerSupplier']

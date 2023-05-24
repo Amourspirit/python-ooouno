@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XSortedDynamicResultSetFactory as XSortedDynamicResultSetFactory
     setattr(XSortedDynamicResultSetFactory, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XSortedDynamicResultSetFactory, '__ooo_full_ns__', 'com.sun.star.ucb.XSortedDynamicResultSetFactory')
     setattr(XSortedDynamicResultSetFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XSortedDynamicResultSetFactory as XSortedDynamicResultSetFactory
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XSortedDynamicResultSetFactory as XSortedDynamicResultSetFactory
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_sorted_dynamic_result_set_factory import XSortedDynamicResultSetFactory as XSortedDynamicResultSetFactory
 
 __all__ = ['XSortedDynamicResultSetFactory']
 

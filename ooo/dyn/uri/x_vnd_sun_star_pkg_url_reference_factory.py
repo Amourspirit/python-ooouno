@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uri import XVndSunStarPkgUrlReferenceFactory as XVndSunStarPkgUrlReferenceFactory
     setattr(XVndSunStarPkgUrlReferenceFactory, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XVndSunStarPkgUrlReferenceFactory, '__ooo_full_ns__', 'com.sun.star.uri.XVndSunStarPkgUrlReferenceFactory')
     setattr(XVndSunStarPkgUrlReferenceFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uri import XVndSunStarPkgUrlReferenceFactory as XVndSunStarPkgUrlReferenceFactory
+    if TYPE_CHECKING:
+        from com.sun.star.uri import XVndSunStarPkgUrlReferenceFactory as XVndSunStarPkgUrlReferenceFactory
+    else:
+        # keep document generators happy
+        from ...lo.uri.x_vnd_sun_star_pkg_url_reference_factory import XVndSunStarPkgUrlReferenceFactory as XVndSunStarPkgUrlReferenceFactory
 
 __all__ = ['XVndSunStarPkgUrlReferenceFactory']
 

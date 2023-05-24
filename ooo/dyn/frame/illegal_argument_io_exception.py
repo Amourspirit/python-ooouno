@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalArgumentIOException = _get_class()
 
 else:
-    from com.sun.star.frame import IllegalArgumentIOException as IllegalArgumentIOException
+    if TYPE_CHECKING:
+        from com.sun.star.frame import IllegalArgumentIOException as IllegalArgumentIOException
+    else:
+        from ...lo.frame.illegal_argument_io_exception import IllegalArgumentIOException as IllegalArgumentIOException
 
 __all__ = ['IllegalArgumentIOException']
 

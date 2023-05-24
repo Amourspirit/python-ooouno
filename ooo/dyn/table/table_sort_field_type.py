@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.table.TableSortFieldType import ALPHANUMERIC as TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
-    from com.sun.star.table.TableSortFieldType import AUTOMATIC as TABLE_SORT_FIELD_TYPE_AUTOMATIC
-    from com.sun.star.table.TableSortFieldType import NUMERIC as TABLE_SORT_FIELD_TYPE_NUMERIC
-
-    class TableSortFieldType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TableSortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a8f4f5a263cd762ae00ab0f462ed1ae1c>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.table.TableSortFieldType', value)
-
-        __ooo_ns__: str = 'com.sun.star.table'
-        __ooo_full_ns__: str = 'com.sun.star.table.TableSortFieldType'
-        __ooo_type_name__: str = 'enum'
-
-        ALPHANUMERIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_ALPHANUMERIC)
-        """
-        sort field contains text data.
-        """
-        AUTOMATIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_AUTOMATIC)
-        """
-        type is determined automatically.
-        """
-        NUMERIC = cast("TableSortFieldType", TABLE_SORT_FIELD_TYPE_NUMERIC)
-        """
-        sort field contains numerical data.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TableSortFieldType(metaclass=UnoEnumMeta, type_name="com.sun.star.table.TableSortFieldType", name_space="com.sun.star.table"):
         """Dynamically created class that represents ``com.sun.star.table.TableSortFieldType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.table.TableSortFieldType import ALPHANUMERIC as TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
+        from com.sun.star.table.TableSortFieldType import AUTOMATIC as TABLE_SORT_FIELD_TYPE_AUTOMATIC
+        from com.sun.star.table.TableSortFieldType import NUMERIC as TABLE_SORT_FIELD_TYPE_NUMERIC
+
+        class TableSortFieldType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TableSortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a8f4f5a263cd762ae00ab0f462ed1ae1c>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.table.TableSortFieldType', value)
+
+            __ooo_ns__: str = 'com.sun.star.table'
+            __ooo_full_ns__: str = 'com.sun.star.table.TableSortFieldType'
+            __ooo_type_name__: str = 'enum'
+
+            ALPHANUMERIC = TABLE_SORT_FIELD_TYPE_ALPHANUMERIC
+            """
+            sort field contains text data.
+            """
+            AUTOMATIC = TABLE_SORT_FIELD_TYPE_AUTOMATIC
+            """
+            type is determined automatically.
+            """
+            NUMERIC = TABLE_SORT_FIELD_TYPE_NUMERIC
+            """
+            sort field contains numerical data.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.table.table_sort_field_type import TableSortFieldType as TableSortFieldType
+
 
 __all__ = ['TableSortFieldType']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XNotifyingDispatch as XNotifyingDispatch
     setattr(XNotifyingDispatch, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XNotifyingDispatch, '__ooo_full_ns__', 'com.sun.star.frame.XNotifyingDispatch')
     setattr(XNotifyingDispatch, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XNotifyingDispatch as XNotifyingDispatch
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XNotifyingDispatch as XNotifyingDispatch
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_notifying_dispatch import XNotifyingDispatch as XNotifyingDispatch
 
 __all__ = ['XNotifyingDispatch']
 

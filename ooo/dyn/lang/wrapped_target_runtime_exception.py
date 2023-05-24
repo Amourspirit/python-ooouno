@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WrappedTargetRuntimeException = _get_class()
 
 else:
-    from com.sun.star.lang import WrappedTargetRuntimeException as WrappedTargetRuntimeException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import WrappedTargetRuntimeException as WrappedTargetRuntimeException
+    else:
+        from ...lo.lang.wrapped_target_runtime_exception import WrappedTargetRuntimeException as WrappedTargetRuntimeException
 
 __all__ = ['WrappedTargetRuntimeException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XTextAppend as XTextAppend
     setattr(XTextAppend, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextAppend, '__ooo_full_ns__', 'com.sun.star.text.XTextAppend')
     setattr(XTextAppend, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XTextAppend as XTextAppend
+    if TYPE_CHECKING:
+        from com.sun.star.text import XTextAppend as XTextAppend
+    else:
+        # keep document generators happy
+        from ...lo.text.x_text_append import XTextAppend as XTextAppend
 
 __all__ = ['XTextAppend']
 

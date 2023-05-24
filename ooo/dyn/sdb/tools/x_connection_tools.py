@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.tools import XConnectionTools as XConnectionTools
     setattr(XConnectionTools, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XConnectionTools, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XConnectionTools')
     setattr(XConnectionTools, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.tools import XConnectionTools as XConnectionTools
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.tools import XConnectionTools as XConnectionTools
+    else:
+        # keep document generators happy
+        from ....lo.sdb.tools.x_connection_tools import XConnectionTools as XConnectionTools
 
 __all__ = ['XConnectionTools']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uno import XUnloadingPreference as XUnloadingPreference
     setattr(XUnloadingPreference, '__ooo_ns__', 'com.sun.star.uno')
     setattr(XUnloadingPreference, '__ooo_full_ns__', 'com.sun.star.uno.XUnloadingPreference')
     setattr(XUnloadingPreference, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uno import XUnloadingPreference as XUnloadingPreference
+    if TYPE_CHECKING:
+        from com.sun.star.uno import XUnloadingPreference as XUnloadingPreference
+    else:
+        # keep document generators happy
+        from ...lo.uno.x_unloading_preference import XUnloadingPreference as XUnloadingPreference
 
 __all__ = ['XUnloadingPreference']
 

@@ -20,44 +20,51 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart.ChartDataRowSource import COLUMNS as CHART_DATA_ROW_SOURCE_COLUMNS
-    from com.sun.star.chart.ChartDataRowSource import ROWS as CHART_DATA_ROW_SOURCE_ROWS
-
-    class ChartDataRowSource(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ChartDataRowSource <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a0fb4f8088715abb6eb51a29c4bd79cce>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart.ChartDataRowSource', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart'
-        __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
-        __ooo_type_name__: str = 'enum'
-
-        COLUMNS = cast("ChartDataRowSource", CHART_DATA_ROW_SOURCE_COLUMNS)
-        """
-        values displayed as data rows are taken from the columns of the data source.
-        """
-        ROWS = cast("ChartDataRowSource", CHART_DATA_ROW_SOURCE_ROWS)
-        """
-        values displayed as data rows are taken from the rows of the data source.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartDataRowSource(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartDataRowSource", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartDataRowSource`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart.ChartDataRowSource import COLUMNS as CHART_DATA_ROW_SOURCE_COLUMNS
+        from com.sun.star.chart.ChartDataRowSource import ROWS as CHART_DATA_ROW_SOURCE_ROWS
+
+        class ChartDataRowSource(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ChartDataRowSource <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a0fb4f8088715abb6eb51a29c4bd79cce>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart.ChartDataRowSource', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart'
+            __ooo_full_ns__: str = 'com.sun.star.chart.ChartDataRowSource'
+            __ooo_type_name__: str = 'enum'
+
+            COLUMNS = CHART_DATA_ROW_SOURCE_COLUMNS
+            """
+            values displayed as data rows are taken from the columns of the data source.
+            """
+            ROWS = CHART_DATA_ROW_SOURCE_ROWS
+            """
+            values displayed as data rows are taken from the rows of the data source.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart.chart_data_row_source import ChartDataRowSource as ChartDataRowSource
+
 
 __all__ = ['ChartDataRowSource']

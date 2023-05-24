@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.bridge import XProtocolProperties as XProtocolProperties
     setattr(XProtocolProperties, '__ooo_ns__', 'com.sun.star.bridge')
     setattr(XProtocolProperties, '__ooo_full_ns__', 'com.sun.star.bridge.XProtocolProperties')
     setattr(XProtocolProperties, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.bridge import XProtocolProperties as XProtocolProperties
+    if TYPE_CHECKING:
+        from com.sun.star.bridge import XProtocolProperties as XProtocolProperties
+    else:
+        # keep document generators happy
+        from ...lo.bridge.x_protocol_properties import XProtocolProperties as XProtocolProperties
 
 __all__ = ['XProtocolProperties']
 

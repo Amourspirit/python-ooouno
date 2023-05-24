@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.logging import XConsoleHandler as XConsoleHandler
     setattr(XConsoleHandler, '__ooo_ns__', 'com.sun.star.logging')
     setattr(XConsoleHandler, '__ooo_full_ns__', 'com.sun.star.logging.XConsoleHandler')
     setattr(XConsoleHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.logging import XConsoleHandler as XConsoleHandler
+    if TYPE_CHECKING:
+        from com.sun.star.logging import XConsoleHandler as XConsoleHandler
+    else:
+        # keep document generators happy
+        from ...lo.logging.x_console_handler import XConsoleHandler as XConsoleHandler
 
 __all__ = ['XConsoleHandler']
 

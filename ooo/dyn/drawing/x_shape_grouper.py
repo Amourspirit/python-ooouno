@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XShapeGrouper as XShapeGrouper
     setattr(XShapeGrouper, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XShapeGrouper, '__ooo_full_ns__', 'com.sun.star.drawing.XShapeGrouper')
     setattr(XShapeGrouper, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XShapeGrouper as XShapeGrouper
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XShapeGrouper as XShapeGrouper
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_shape_grouper import XShapeGrouper as XShapeGrouper
 
 __all__ = ['XShapeGrouper']
 

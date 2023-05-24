@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.dialogs import XWizardController as XWizardController
     setattr(XWizardController, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XWizardController, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XWizardController')
     setattr(XWizardController, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.dialogs import XWizardController as XWizardController
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import XWizardController as XWizardController
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.x_wizard_controller import XWizardController as XWizardController
 
 __all__ = ['XWizardController']
 

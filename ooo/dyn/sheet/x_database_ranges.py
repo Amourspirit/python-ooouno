@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XDatabaseRanges as XDatabaseRanges
     setattr(XDatabaseRanges, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDatabaseRanges, '__ooo_full_ns__', 'com.sun.star.sheet.XDatabaseRanges')
     setattr(XDatabaseRanges, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XDatabaseRanges as XDatabaseRanges
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XDatabaseRanges as XDatabaseRanges
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_database_ranges import XDatabaseRanges as XDatabaseRanges
 
 __all__ = ['XDatabaseRanges']
 

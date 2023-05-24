@@ -20,60 +20,67 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.table.CellVertJustify import BOTTOM as CELL_VERT_JUSTIFY_BOTTOM
-    from com.sun.star.table.CellVertJustify import CENTER as CELL_VERT_JUSTIFY_CENTER
-    from com.sun.star.table.CellVertJustify import STANDARD as CELL_VERT_JUSTIFY_STANDARD
-    from com.sun.star.table.CellVertJustify import TOP as CELL_VERT_JUSTIFY_TOP
-
-    class CellVertJustify(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API CellVertJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a17834bec5bf9ac4432141dee1c03b50b>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.table.CellVertJustify', value)
-
-        __ooo_ns__: str = 'com.sun.star.table'
-        __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
-        __ooo_type_name__: str = 'enum'
-
-        BOTTOM = cast("CellVertJustify", CELL_VERT_JUSTIFY_BOTTOM)
-        """
-        contents are aligned to the lower edge of the cell.
-        """
-        CENTER = cast("CellVertJustify", CELL_VERT_JUSTIFY_CENTER)
-        """
-        contents are horizontally centered.
-        
-        contents are aligned to the vertical middle of the cell.
-        """
-        STANDARD = cast("CellVertJustify", CELL_VERT_JUSTIFY_STANDARD)
-        """
-        default alignment is used (left for numbers, right for text).
-        
-        default alignment is used.
-        
-        contents are printed from left to right.
-        """
-        TOP = cast("CellVertJustify", CELL_VERT_JUSTIFY_TOP)
-        """
-        contents are aligned with the upper edge of the cell.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CellVertJustify(metaclass=UnoEnumMeta, type_name="com.sun.star.table.CellVertJustify", name_space="com.sun.star.table"):
         """Dynamically created class that represents ``com.sun.star.table.CellVertJustify`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.table.CellVertJustify import BOTTOM as CELL_VERT_JUSTIFY_BOTTOM
+        from com.sun.star.table.CellVertJustify import CENTER as CELL_VERT_JUSTIFY_CENTER
+        from com.sun.star.table.CellVertJustify import STANDARD as CELL_VERT_JUSTIFY_STANDARD
+        from com.sun.star.table.CellVertJustify import TOP as CELL_VERT_JUSTIFY_TOP
+
+        class CellVertJustify(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API CellVertJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a17834bec5bf9ac4432141dee1c03b50b>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.table.CellVertJustify', value)
+
+            __ooo_ns__: str = 'com.sun.star.table'
+            __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
+            __ooo_type_name__: str = 'enum'
+
+            BOTTOM = CELL_VERT_JUSTIFY_BOTTOM
+            """
+            contents are aligned to the lower edge of the cell.
+            """
+            CENTER = CELL_VERT_JUSTIFY_CENTER
+            """
+            contents are horizontally centered.
+
+            contents are aligned to the vertical middle of the cell.
+            """
+            STANDARD = CELL_VERT_JUSTIFY_STANDARD
+            """
+            default alignment is used (left for numbers, right for text).
+
+            default alignment is used.
+
+            contents are printed from left to right.
+            """
+            TOP = CELL_VERT_JUSTIFY_TOP
+            """
+            contents are aligned with the upper edge of the cell.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.table.cell_vert_justify import CellVertJustify as CellVertJustify
+
 
 __all__ = ['CellVertJustify']

@@ -20,110 +20,117 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.ConditionOperator import BETWEEN as CONDITION_OPERATOR_BETWEEN
-    from com.sun.star.sheet.ConditionOperator import EQUAL as CONDITION_OPERATOR_EQUAL
-    from com.sun.star.sheet.ConditionOperator import FORMULA as CONDITION_OPERATOR_FORMULA
-    from com.sun.star.sheet.ConditionOperator import GREATER as CONDITION_OPERATOR_GREATER
-    from com.sun.star.sheet.ConditionOperator import GREATER_EQUAL as CONDITION_OPERATOR_GREATER_EQUAL
-    from com.sun.star.sheet.ConditionOperator import LESS as CONDITION_OPERATOR_LESS
-    from com.sun.star.sheet.ConditionOperator import LESS_EQUAL as CONDITION_OPERATOR_LESS_EQUAL
-    from com.sun.star.sheet.ConditionOperator import NONE as CONDITION_OPERATOR_NONE
-    from com.sun.star.sheet.ConditionOperator import NOT_BETWEEN as CONDITION_OPERATOR_NOT_BETWEEN
-    from com.sun.star.sheet.ConditionOperator import NOT_EQUAL as CONDITION_OPERATOR_NOT_EQUAL
-
-    class ConditionOperator(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ConditionOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#adab1b2b49825a75bed998dd77963eff9>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.ConditionOperator', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.ConditionOperator'
-        __ooo_type_name__: str = 'enum'
-
-        BETWEEN = cast("ConditionOperator", CONDITION_OPERATOR_BETWEEN)
-        """
-        the value has to be between the two specified values.
-        """
-        EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_EQUAL)
-        """
-        value has to be equal to the specified value.
-        
-        The cell value is equal to the specified value.
-        """
-        FORMULA = cast("ConditionOperator", CONDITION_OPERATOR_FORMULA)
-        """
-        the specified formula has to give a non-zero result.
-        """
-        GREATER = cast("ConditionOperator", CONDITION_OPERATOR_GREATER)
-        """
-        the value has to be greater than the specified value.
-        
-        value has to be greater than the specified value.
-        """
-        GREATER_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_GREATER_EQUAL)
-        """
-        the value has to be greater than or equal to the specified value.
-        
-        The cell value is greater or equal to the specified value.
-        
-        value has to be greater than or equal to the specified value.
-        """
-        LESS = cast("ConditionOperator", CONDITION_OPERATOR_LESS)
-        """
-        the value has to be less than the specified value.
-        
-        value has to be less than the specified value.
-        """
-        LESS_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_LESS_EQUAL)
-        """
-        the value has to be less than or equal to the specified value.
-        
-        The cell value is less or equal to the specified value.
-        
-        value has to be less than or equal to the specified value.
-        """
-        NONE = cast("ConditionOperator", CONDITION_OPERATOR_NONE)
-        """
-        no cells are moved.
-        
-        sheet is not linked.
-        
-        new values are used without changes.
-        
-        nothing is calculated.
-        
-        nothing is imported.
-        
-        no condition is specified.
-        """
-        NOT_BETWEEN = cast("ConditionOperator", CONDITION_OPERATOR_NOT_BETWEEN)
-        """
-        the value has to be outside of the two specified values.
-        """
-        NOT_EQUAL = cast("ConditionOperator", CONDITION_OPERATOR_NOT_EQUAL)
-        """
-        the value must not be equal to the specified value.
-        
-        value must not be equal to the specified value.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ConditionOperator(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.ConditionOperator", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.ConditionOperator`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.ConditionOperator import BETWEEN as CONDITION_OPERATOR_BETWEEN
+        from com.sun.star.sheet.ConditionOperator import EQUAL as CONDITION_OPERATOR_EQUAL
+        from com.sun.star.sheet.ConditionOperator import FORMULA as CONDITION_OPERATOR_FORMULA
+        from com.sun.star.sheet.ConditionOperator import GREATER as CONDITION_OPERATOR_GREATER
+        from com.sun.star.sheet.ConditionOperator import GREATER_EQUAL as CONDITION_OPERATOR_GREATER_EQUAL
+        from com.sun.star.sheet.ConditionOperator import LESS as CONDITION_OPERATOR_LESS
+        from com.sun.star.sheet.ConditionOperator import LESS_EQUAL as CONDITION_OPERATOR_LESS_EQUAL
+        from com.sun.star.sheet.ConditionOperator import NONE as CONDITION_OPERATOR_NONE
+        from com.sun.star.sheet.ConditionOperator import NOT_BETWEEN as CONDITION_OPERATOR_NOT_BETWEEN
+        from com.sun.star.sheet.ConditionOperator import NOT_EQUAL as CONDITION_OPERATOR_NOT_EQUAL
+
+        class ConditionOperator(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ConditionOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#adab1b2b49825a75bed998dd77963eff9>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.ConditionOperator', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.ConditionOperator'
+            __ooo_type_name__: str = 'enum'
+
+            BETWEEN = CONDITION_OPERATOR_BETWEEN
+            """
+            the value has to be between the two specified values.
+            """
+            EQUAL = CONDITION_OPERATOR_EQUAL
+            """
+            value has to be equal to the specified value.
+
+            The cell value is equal to the specified value.
+            """
+            FORMULA = CONDITION_OPERATOR_FORMULA
+            """
+            the specified formula has to give a non-zero result.
+            """
+            GREATER = CONDITION_OPERATOR_GREATER
+            """
+            the value has to be greater than the specified value.
+
+            value has to be greater than the specified value.
+            """
+            GREATER_EQUAL = CONDITION_OPERATOR_GREATER_EQUAL
+            """
+            the value has to be greater than or equal to the specified value.
+
+            The cell value is greater or equal to the specified value.
+
+            value has to be greater than or equal to the specified value.
+            """
+            LESS = CONDITION_OPERATOR_LESS
+            """
+            the value has to be less than the specified value.
+
+            value has to be less than the specified value.
+            """
+            LESS_EQUAL = CONDITION_OPERATOR_LESS_EQUAL
+            """
+            the value has to be less than or equal to the specified value.
+
+            The cell value is less or equal to the specified value.
+
+            value has to be less than or equal to the specified value.
+            """
+            NONE = CONDITION_OPERATOR_NONE
+            """
+            no cells are moved.
+
+            sheet is not linked.
+
+            new values are used without changes.
+
+            nothing is calculated.
+
+            nothing is imported.
+
+            no condition is specified.
+            """
+            NOT_BETWEEN = CONDITION_OPERATOR_NOT_BETWEEN
+            """
+            the value has to be outside of the two specified values.
+            """
+            NOT_EQUAL = CONDITION_OPERATOR_NOT_EQUAL
+            """
+            the value must not be equal to the specified value.
+
+            value must not be equal to the specified value.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.condition_operator import ConditionOperator as ConditionOperator
+
 
 __all__ = ['ConditionOperator']

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ServiceNotRegisteredException = _get_class()
 
 else:
-    from com.sun.star.lang import ServiceNotRegisteredException as ServiceNotRegisteredException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import ServiceNotRegisteredException as ServiceNotRegisteredException
+    else:
+        from ...lo.lang.service_not_registered_exception import ServiceNotRegisteredException as ServiceNotRegisteredException
 
 __all__ = ['ServiceNotRegisteredException']
 

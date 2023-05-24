@@ -20,84 +20,91 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart2.CurveStyle import B_SPLINES as CURVE_STYLE_B_SPLINES
-    from com.sun.star.chart2.CurveStyle import CUBIC_SPLINES as CURVE_STYLE_CUBIC_SPLINES
-    from com.sun.star.chart2.CurveStyle import LINES as CURVE_STYLE_LINES
-    from com.sun.star.chart2.CurveStyle import NURBS as CURVE_STYLE_NURBS
-    from com.sun.star.chart2.CurveStyle import STEP_CENTER_X as CURVE_STYLE_STEP_CENTER_X
-    from com.sun.star.chart2.CurveStyle import STEP_CENTER_Y as CURVE_STYLE_STEP_CENTER_Y
-    from com.sun.star.chart2.CurveStyle import STEP_END as CURVE_STYLE_STEP_END
-    from com.sun.star.chart2.CurveStyle import STEP_START as CURVE_STYLE_STEP_START
-
-    class CurveStyle(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API CurveStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a6eee32347565343ce84b84adb82da419>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart2.CurveStyle', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart2'
-        __ooo_full_ns__: str = 'com.sun.star.chart2.CurveStyle'
-        __ooo_type_name__: str = 'enum'
-
-        B_SPLINES = cast("CurveStyle", CURVE_STYLE_B_SPLINES)
-        """
-        Data points are connected via a parametric, interpolating B-spline curve.
-        """
-        CUBIC_SPLINES = cast("CurveStyle", CURVE_STYLE_CUBIC_SPLINES)
-        """
-        Data points are connected via a smoothed cubic spline curve.
-        
-        The data points themselves are part of to the curve.
-        """
-        LINES = cast("CurveStyle", CURVE_STYLE_LINES)
-        """
-        Lines between data points are not smoothed.
-        """
-        NURBS = cast("CurveStyle", CURVE_STYLE_NURBS)
-        """
-        Non-uniform rational b-splines.
-        """
-        STEP_CENTER_X = cast("CurveStyle", CURVE_STYLE_STEP_CENTER_X)
-        """
-        Data points are connected via a 3-segmented stepped line.
-        
-        The lines is horizontal till the center of the X values.
-        """
-        STEP_CENTER_Y = cast("CurveStyle", CURVE_STYLE_STEP_CENTER_Y)
-        """
-        Data points are connected via a 3-segmented stepped line.
-        
-        The lines is horizontal at the center of the Y values.
-        """
-        STEP_END = cast("CurveStyle", CURVE_STYLE_STEP_END)
-        """
-        Data points are connected via a 2-segmented stepped line.
-        
-        The line ends horizontally.
-        """
-        STEP_START = cast("CurveStyle", CURVE_STYLE_STEP_START)
-        """
-        Data points are connected via a 2-segmented stepped line.
-        
-        The line starts horizontally.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CurveStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.CurveStyle", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.CurveStyle`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.CurveStyle import B_SPLINES as CURVE_STYLE_B_SPLINES
+        from com.sun.star.chart2.CurveStyle import CUBIC_SPLINES as CURVE_STYLE_CUBIC_SPLINES
+        from com.sun.star.chart2.CurveStyle import LINES as CURVE_STYLE_LINES
+        from com.sun.star.chart2.CurveStyle import NURBS as CURVE_STYLE_NURBS
+        from com.sun.star.chart2.CurveStyle import STEP_CENTER_X as CURVE_STYLE_STEP_CENTER_X
+        from com.sun.star.chart2.CurveStyle import STEP_CENTER_Y as CURVE_STYLE_STEP_CENTER_Y
+        from com.sun.star.chart2.CurveStyle import STEP_END as CURVE_STYLE_STEP_END
+        from com.sun.star.chart2.CurveStyle import STEP_START as CURVE_STYLE_STEP_START
+
+        class CurveStyle(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API CurveStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a6eee32347565343ce84b84adb82da419>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart2.CurveStyle', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart2'
+            __ooo_full_ns__: str = 'com.sun.star.chart2.CurveStyle'
+            __ooo_type_name__: str = 'enum'
+
+            B_SPLINES = CURVE_STYLE_B_SPLINES
+            """
+            Data points are connected via a parametric, interpolating B-spline curve.
+            """
+            CUBIC_SPLINES = CURVE_STYLE_CUBIC_SPLINES
+            """
+            Data points are connected via a smoothed cubic spline curve.
+
+            The data points themselves are part of to the curve.
+            """
+            LINES = CURVE_STYLE_LINES
+            """
+            Lines between data points are not smoothed.
+            """
+            NURBS = CURVE_STYLE_NURBS
+            """
+            Non-uniform rational b-splines.
+            """
+            STEP_CENTER_X = CURVE_STYLE_STEP_CENTER_X
+            """
+            Data points are connected via a 3-segmented stepped line.
+
+            The lines is horizontal till the center of the X values.
+            """
+            STEP_CENTER_Y = CURVE_STYLE_STEP_CENTER_Y
+            """
+            Data points are connected via a 3-segmented stepped line.
+
+            The lines is horizontal at the center of the Y values.
+            """
+            STEP_END = CURVE_STYLE_STEP_END
+            """
+            Data points are connected via a 2-segmented stepped line.
+
+            The line ends horizontally.
+            """
+            STEP_START = CURVE_STYLE_STEP_START
+            """
+            Data points are connected via a 2-segmented stepped line.
+
+            The line starts horizontally.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart2.curve_style import CurveStyle as CurveStyle
+
 
 __all__ = ['CurveStyle']

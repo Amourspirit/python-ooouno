@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uno import XNamingService as XNamingService
     setattr(XNamingService, '__ooo_ns__', 'com.sun.star.uno')
     setattr(XNamingService, '__ooo_full_ns__', 'com.sun.star.uno.XNamingService')
     setattr(XNamingService, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uno import XNamingService as XNamingService
+    if TYPE_CHECKING:
+        from com.sun.star.uno import XNamingService as XNamingService
+    else:
+        # keep document generators happy
+        from ...lo.uno.x_naming_service import XNamingService as XNamingService
 
 __all__ = ['XNamingService']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.inspection import XObjectInspectorUI as XObjectInspectorUI
     setattr(XObjectInspectorUI, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XObjectInspectorUI, '__ooo_full_ns__', 'com.sun.star.inspection.XObjectInspectorUI')
     setattr(XObjectInspectorUI, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.inspection import XObjectInspectorUI as XObjectInspectorUI
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import XObjectInspectorUI as XObjectInspectorUI
+    else:
+        # keep document generators happy
+        from ...lo.inspection.x_object_inspector_ui import XObjectInspectorUI as XObjectInspectorUI
 
 __all__ = ['XObjectInspectorUI']
 

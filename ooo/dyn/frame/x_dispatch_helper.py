@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XDispatchHelper as XDispatchHelper
     setattr(XDispatchHelper, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XDispatchHelper, '__ooo_full_ns__', 'com.sun.star.frame.XDispatchHelper')
     setattr(XDispatchHelper, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XDispatchHelper as XDispatchHelper
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XDispatchHelper as XDispatchHelper
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_dispatch_helper import XDispatchHelper as XDispatchHelper
 
 __all__ = ['XDispatchHelper']
 

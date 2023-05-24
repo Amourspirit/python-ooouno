@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.report import XReportDefinition as XReportDefinition
     setattr(XReportDefinition, '__ooo_ns__', 'com.sun.star.report')
     setattr(XReportDefinition, '__ooo_full_ns__', 'com.sun.star.report.XReportDefinition')
     setattr(XReportDefinition, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.report import XReportDefinition as XReportDefinition
+    if TYPE_CHECKING:
+        from com.sun.star.report import XReportDefinition as XReportDefinition
+    else:
+        # keep document generators happy
+        from ...lo.report.x_report_definition import XReportDefinition as XReportDefinition
 
 __all__ = ['XReportDefinition']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class EnhancedCustomShapeGluePointType(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeGluePointType", name_space="com.sun.star.drawing"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.drawing import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
+    else:
+        # keep document generators happy
+        from ...lo.drawing.enhanced_custom_shape_glue_point_type import EnhancedCustomShapeGluePointType as EnhancedCustomShapeGluePointType
 
     class EnhancedCustomShapeGluePointTypeEnum(IntEnum):
         """

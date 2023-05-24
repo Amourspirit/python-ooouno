@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.system import XSimpleMailMessage2 as XSimpleMailMessage2
     setattr(XSimpleMailMessage2, '__ooo_ns__', 'com.sun.star.system')
     setattr(XSimpleMailMessage2, '__ooo_full_ns__', 'com.sun.star.system.XSimpleMailMessage2')
     setattr(XSimpleMailMessage2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.system import XSimpleMailMessage2 as XSimpleMailMessage2
+    if TYPE_CHECKING:
+        from com.sun.star.system import XSimpleMailMessage2 as XSimpleMailMessage2
+    else:
+        # keep document generators happy
+        from ...lo.system.x_simple_mail_message2 import XSimpleMailMessage2 as XSimpleMailMessage2
 
 __all__ = ['XSimpleMailMessage2']
 

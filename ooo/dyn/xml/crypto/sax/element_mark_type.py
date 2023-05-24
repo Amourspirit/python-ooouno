@@ -20,42 +20,49 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTCOLLECTOR as ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
-    from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTMARK as ELEMENT_MARK_TYPE_ELEMENTMARK
-
-    class ElementMarkType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ElementMarkType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a96bd9c0214f2d880b6c938750e6e92d0>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.xml.crypto.sax.ElementMarkType', value)
-
-        __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
-        __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
-        __ooo_type_name__: str = 'enum'
-
-        ELEMENTCOLLECTOR = cast("ElementMarkType", ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR)
-        """
-        """
-        ELEMENTMARK = cast("ElementMarkType", ELEMENT_MARK_TYPE_ELEMENTMARK)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ElementMarkType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.crypto.sax.ElementMarkType", name_space="com.sun.star.xml.crypto.sax"):
         """Dynamically created class that represents ``com.sun.star.xml.crypto.sax.ElementMarkType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTCOLLECTOR as ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
+        from com.sun.star.xml.crypto.sax.ElementMarkType import ELEMENTMARK as ELEMENT_MARK_TYPE_ELEMENTMARK
+
+        class ElementMarkType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ElementMarkType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a96bd9c0214f2d880b6c938750e6e92d0>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.xml.crypto.sax.ElementMarkType', value)
+
+            __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
+            __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
+            __ooo_type_name__: str = 'enum'
+
+            ELEMENTCOLLECTOR = ELEMENT_MARK_TYPE_ELEMENTCOLLECTOR
+            """
+            """
+            ELEMENTMARK = ELEMENT_MARK_TYPE_ELEMENTMARK
+            """
+            """
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.element_mark_type import ElementMarkType as ElementMarkType
+
 
 __all__ = ['ElementMarkType']

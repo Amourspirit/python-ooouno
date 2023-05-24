@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotRegisterImplementationException = _get_class()
 
 else:
-    from com.sun.star.registry import CannotRegisterImplementationException as CannotRegisterImplementationException
+    if TYPE_CHECKING:
+        from com.sun.star.registry import CannotRegisterImplementationException as CannotRegisterImplementationException
+    else:
+        from ...lo.registry.cannot_register_implementation_exception import CannotRegisterImplementationException as CannotRegisterImplementationException
 
 __all__ = ['CannotRegisterImplementationException']
 

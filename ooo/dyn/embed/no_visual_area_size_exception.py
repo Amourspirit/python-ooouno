@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoVisualAreaSizeException = _get_class()
 
 else:
-    from com.sun.star.embed import NoVisualAreaSizeException as NoVisualAreaSizeException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import NoVisualAreaSizeException as NoVisualAreaSizeException
+    else:
+        from ...lo.embed.no_visual_area_size_exception import NoVisualAreaSizeException as NoVisualAreaSizeException
 
 __all__ = ['NoVisualAreaSizeException']
 

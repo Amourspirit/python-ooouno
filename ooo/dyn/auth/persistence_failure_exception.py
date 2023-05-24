@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PersistenceFailureException = _get_class()
 
 else:
-    from com.sun.star.auth import PersistenceFailureException as PersistenceFailureException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import PersistenceFailureException as PersistenceFailureException
+    else:
+        from ...lo.auth.persistence_failure_exception import PersistenceFailureException as PersistenceFailureException
 
 __all__ = ['PersistenceFailureException']
 

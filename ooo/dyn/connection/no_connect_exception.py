@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoConnectException = _get_class()
 
 else:
-    from com.sun.star.connection import NoConnectException as NoConnectException
+    if TYPE_CHECKING:
+        from com.sun.star.connection import NoConnectException as NoConnectException
+    else:
+        from ...lo.connection.no_connect_exception import NoConnectException as NoConnectException
 
 __all__ = ['NoConnectException']
 

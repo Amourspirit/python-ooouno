@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class Type(metaclass=UnoConstMeta, type_name="com.sun.star.text.textfield.Type", name_space="com.sun.star.text.textfield"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text.textfield import Type as Type
+    if TYPE_CHECKING:
+        from com.sun.star.text.textfield import Type as Type
+    else:
+        # keep document generators happy
+        from ....lo.text.textfield.type import Type as Type
 
     class TypeEnum(IntEnum):
         """

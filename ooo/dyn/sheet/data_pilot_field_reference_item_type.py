@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DataPilotFieldReferenceItemType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldReferenceItemType", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import DataPilotFieldReferenceItemType as DataPilotFieldReferenceItemType
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import DataPilotFieldReferenceItemType as DataPilotFieldReferenceItemType
+    else:
+        # keep document generators happy
+        from ...lo.sheet.data_pilot_field_reference_item_type import DataPilotFieldReferenceItemType as DataPilotFieldReferenceItemType
 
     class DataPilotFieldReferenceItemTypeEnum(IntEnum):
         """

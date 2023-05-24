@@ -20,79 +20,86 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.view.PaperFormat import A3 as PAPER_FORMAT_A3
-    from com.sun.star.view.PaperFormat import A4 as PAPER_FORMAT_A4
-    from com.sun.star.view.PaperFormat import A5 as PAPER_FORMAT_A5
-    from com.sun.star.view.PaperFormat import B4 as PAPER_FORMAT_B4
-    from com.sun.star.view.PaperFormat import B5 as PAPER_FORMAT_B5
-    from com.sun.star.view.PaperFormat import LEGAL as PAPER_FORMAT_LEGAL
-    from com.sun.star.view.PaperFormat import LETTER as PAPER_FORMAT_LETTER
-    from com.sun.star.view.PaperFormat import TABLOID as PAPER_FORMAT_TABLOID
-    from com.sun.star.view.PaperFormat import USER as PAPER_FORMAT_USER
-
-    class PaperFormat(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API PaperFormat <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a12ab04987d08416f8347a9790c7abf3e>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.view.PaperFormat', value)
-
-        __ooo_ns__: str = 'com.sun.star.view'
-        __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
-        __ooo_type_name__: str = 'enum'
-
-        A3 = cast("PaperFormat", PAPER_FORMAT_A3)
-        """
-        specifies the paper format as A3.
-        """
-        A4 = cast("PaperFormat", PAPER_FORMAT_A4)
-        """
-        specifies the paper format as A4.
-        """
-        A5 = cast("PaperFormat", PAPER_FORMAT_A5)
-        """
-        specifies the paper format as A5.
-        """
-        B4 = cast("PaperFormat", PAPER_FORMAT_B4)
-        """
-        specifies the paper format as B4.
-        """
-        B5 = cast("PaperFormat", PAPER_FORMAT_B5)
-        """
-        specifies the paper format as B5.
-        """
-        LEGAL = cast("PaperFormat", PAPER_FORMAT_LEGAL)
-        """
-        specifies the paper format as Legal.
-        """
-        LETTER = cast("PaperFormat", PAPER_FORMAT_LETTER)
-        """
-        specifies the paper format as Letter.
-        """
-        TABLOID = cast("PaperFormat", PAPER_FORMAT_TABLOID)
-        """
-        specifies the paper format as Tabloid.
-        """
-        USER = cast("PaperFormat", PAPER_FORMAT_USER)
-        """
-        The real paper size is user defined in 100th mm.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PaperFormat(metaclass=UnoEnumMeta, type_name="com.sun.star.view.PaperFormat", name_space="com.sun.star.view"):
         """Dynamically created class that represents ``com.sun.star.view.PaperFormat`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.view.PaperFormat import A3 as PAPER_FORMAT_A3
+        from com.sun.star.view.PaperFormat import A4 as PAPER_FORMAT_A4
+        from com.sun.star.view.PaperFormat import A5 as PAPER_FORMAT_A5
+        from com.sun.star.view.PaperFormat import B4 as PAPER_FORMAT_B4
+        from com.sun.star.view.PaperFormat import B5 as PAPER_FORMAT_B5
+        from com.sun.star.view.PaperFormat import LEGAL as PAPER_FORMAT_LEGAL
+        from com.sun.star.view.PaperFormat import LETTER as PAPER_FORMAT_LETTER
+        from com.sun.star.view.PaperFormat import TABLOID as PAPER_FORMAT_TABLOID
+        from com.sun.star.view.PaperFormat import USER as PAPER_FORMAT_USER
+
+        class PaperFormat(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API PaperFormat <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a12ab04987d08416f8347a9790c7abf3e>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.view.PaperFormat', value)
+
+            __ooo_ns__: str = 'com.sun.star.view'
+            __ooo_full_ns__: str = 'com.sun.star.view.PaperFormat'
+            __ooo_type_name__: str = 'enum'
+
+            A3 = PAPER_FORMAT_A3
+            """
+            specifies the paper format as A3.
+            """
+            A4 = PAPER_FORMAT_A4
+            """
+            specifies the paper format as A4.
+            """
+            A5 = PAPER_FORMAT_A5
+            """
+            specifies the paper format as A5.
+            """
+            B4 = PAPER_FORMAT_B4
+            """
+            specifies the paper format as B4.
+            """
+            B5 = PAPER_FORMAT_B5
+            """
+            specifies the paper format as B5.
+            """
+            LEGAL = PAPER_FORMAT_LEGAL
+            """
+            specifies the paper format as Legal.
+            """
+            LETTER = PAPER_FORMAT_LETTER
+            """
+            specifies the paper format as Letter.
+            """
+            TABLOID = PAPER_FORMAT_TABLOID
+            """
+            specifies the paper format as Tabloid.
+            """
+            USER = PAPER_FORMAT_USER
+            """
+            The real paper size is user defined in 100th mm.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.view.paper_format import PaperFormat as PaperFormat
+
 
 __all__ = ['PaperFormat']

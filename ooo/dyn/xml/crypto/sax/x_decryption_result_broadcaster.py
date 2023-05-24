@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.crypto.sax import XDecryptionResultBroadcaster as XDecryptionResultBroadcaster
     setattr(XDecryptionResultBroadcaster, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XDecryptionResultBroadcaster, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XDecryptionResultBroadcaster')
     setattr(XDecryptionResultBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.crypto.sax import XDecryptionResultBroadcaster as XDecryptionResultBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax import XDecryptionResultBroadcaster as XDecryptionResultBroadcaster
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.x_decryption_result_broadcaster import XDecryptionResultBroadcaster as XDecryptionResultBroadcaster
 
 __all__ = ['XDecryptionResultBroadcaster']
 

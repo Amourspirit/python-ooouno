@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ListboxControlActions(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.ListboxControlActions", name_space="com.sun.star.ui.dialogs"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ui.dialogs import ListboxControlActions as ListboxControlActions
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import ListboxControlActions as ListboxControlActions
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.listbox_control_actions import ListboxControlActions as ListboxControlActions
 
     class ListboxControlActionsEnum(IntEnum):
         """

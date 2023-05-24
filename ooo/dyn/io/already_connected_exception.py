@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AlreadyConnectedException = _get_class()
 
 else:
-    from com.sun.star.io import AlreadyConnectedException as AlreadyConnectedException
+    if TYPE_CHECKING:
+        from com.sun.star.io import AlreadyConnectedException as AlreadyConnectedException
+    else:
+        from ...lo.io.already_connected_exception import AlreadyConnectedException as AlreadyConnectedException
 
 __all__ = ['AlreadyConnectedException']
 

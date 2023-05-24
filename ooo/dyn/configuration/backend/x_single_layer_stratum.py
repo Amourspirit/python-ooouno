@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.configuration.backend import XSingleLayerStratum as XSingleLayerStratum
     setattr(XSingleLayerStratum, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XSingleLayerStratum, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XSingleLayerStratum')
     setattr(XSingleLayerStratum, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.configuration.backend import XSingleLayerStratum as XSingleLayerStratum
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import XSingleLayerStratum as XSingleLayerStratum
+    else:
+        # keep document generators happy
+        from ....lo.configuration.backend.x_single_layer_stratum import XSingleLayerStratum as XSingleLayerStratum
 
 __all__ = ['XSingleLayerStratum']
 

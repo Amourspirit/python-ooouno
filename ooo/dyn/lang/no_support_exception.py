@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoSupportException = _get_class()
 
 else:
-    from com.sun.star.lang import NoSupportException as NoSupportException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import NoSupportException as NoSupportException
+    else:
+        from ...lo.lang.no_support_exception import NoSupportException as NoSupportException
 
 __all__ = ['NoSupportException']
 

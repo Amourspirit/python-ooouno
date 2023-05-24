@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.packages import XDataSinkEncrSupport as XDataSinkEncrSupport
     setattr(XDataSinkEncrSupport, '__ooo_ns__', 'com.sun.star.packages')
     setattr(XDataSinkEncrSupport, '__ooo_full_ns__', 'com.sun.star.packages.XDataSinkEncrSupport')
     setattr(XDataSinkEncrSupport, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.packages import XDataSinkEncrSupport as XDataSinkEncrSupport
+    if TYPE_CHECKING:
+        from com.sun.star.packages import XDataSinkEncrSupport as XDataSinkEncrSupport
+    else:
+        # keep document generators happy
+        from ...lo.packages.x_data_sink_encr_support import XDataSinkEncrSupport as XDataSinkEncrSupport
 
 __all__ = ['XDataSinkEncrSupport']
 

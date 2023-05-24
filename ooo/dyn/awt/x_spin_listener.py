@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XSpinListener as XSpinListener
     setattr(XSpinListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XSpinListener, '__ooo_full_ns__', 'com.sun.star.awt.XSpinListener')
     setattr(XSpinListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XSpinListener as XSpinListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XSpinListener as XSpinListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_spin_listener import XSpinListener as XSpinListener
 
 __all__ = ['XSpinListener']
 

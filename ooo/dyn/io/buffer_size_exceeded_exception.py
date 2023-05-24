@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BufferSizeExceededException = _get_class()
 
 else:
-    from com.sun.star.io import BufferSizeExceededException as BufferSizeExceededException
+    if TYPE_CHECKING:
+        from com.sun.star.io import BufferSizeExceededException as BufferSizeExceededException
+    else:
+        from ...lo.io.buffer_size_exceeded_exception import BufferSizeExceededException as BufferSizeExceededException
 
 __all__ = ['BufferSizeExceededException']
 

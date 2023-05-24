@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveLockingException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveLockingException as InteractiveLockingException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveLockingException as InteractiveLockingException
+    else:
+        from ...lo.ucb.interactive_locking_exception import InteractiveLockingException as InteractiveLockingException
 
 __all__ = ['InteractiveLockingException']
 

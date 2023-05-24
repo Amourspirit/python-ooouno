@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MailException = _get_class()
 
 else:
-    from com.sun.star.mail import MailException as MailException
+    if TYPE_CHECKING:
+        from com.sun.star.mail import MailException as MailException
+    else:
+        from ...lo.mail.mail_exception import MailException as MailException
 
 __all__ = ['MailException']
 

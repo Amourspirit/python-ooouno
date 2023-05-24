@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.gallery import XGalleryTheme as XGalleryTheme
     setattr(XGalleryTheme, '__ooo_ns__', 'com.sun.star.gallery')
     setattr(XGalleryTheme, '__ooo_full_ns__', 'com.sun.star.gallery.XGalleryTheme')
     setattr(XGalleryTheme, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.gallery import XGalleryTheme as XGalleryTheme
+    if TYPE_CHECKING:
+        from com.sun.star.gallery import XGalleryTheme as XGalleryTheme
+    else:
+        # keep document generators happy
+        from ...lo.gallery.x_gallery_theme import XGalleryTheme as XGalleryTheme
 
 __all__ = ['XGalleryTheme']
 

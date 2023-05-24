@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoSuchFilterRequest = _get_class()
 
 else:
-    from com.sun.star.document import NoSuchFilterRequest as NoSuchFilterRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import NoSuchFilterRequest as NoSuchFilterRequest
+    else:
+        from ...lo.document.no_such_filter_request import NoSuchFilterRequest as NoSuchFilterRequest
 
 __all__ = ['NoSuchFilterRequest']
 

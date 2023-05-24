@@ -20,73 +20,80 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.LineEndType import ARROW as LINE_END_TYPE_ARROW
-    from com.sun.star.drawing.LineEndType import CIRCLE as LINE_END_TYPE_CIRCLE
-    from com.sun.star.drawing.LineEndType import NONE as LINE_END_TYPE_NONE
-    from com.sun.star.drawing.LineEndType import SPECIAL as LINE_END_TYPE_SPECIAL
-    from com.sun.star.drawing.LineEndType import SQUARE as LINE_END_TYPE_SQUARE
-
-    class LineEndType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API LineEndType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa4142382acc18a0dd48cc4a563e2d168>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.LineEndType', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
-        __ooo_type_name__: str = 'enum'
-
-        ARROW = cast("LineEndType", LINE_END_TYPE_ARROW)
-        """
-        the line uses an arrow for the line end.
-        """
-        CIRCLE = cast("LineEndType", LINE_END_TYPE_CIRCLE)
-        """
-        the line uses a circle for the line end.
-        """
-        NONE = cast("LineEndType", LINE_END_TYPE_NONE)
-        """
-        the area is not filled.
-        
-        The text size is only defined by the font properties.
-        
-        Don't animate this text.
-        
-        the line is hidden.
-        
-        the joint between lines will not be connected
-        
-        the line has no special end.
-        """
-        SPECIAL = cast("LineEndType", LINE_END_TYPE_SPECIAL)
-        """
-        not implemented, yet.
-        
-        deprecated
-        """
-        SQUARE = cast("LineEndType", LINE_END_TYPE_SQUARE)
-        """
-        the line will get a half square as additional cap
-        
-        the line uses a square for the line end.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LineEndType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LineEndType", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.LineEndType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.LineEndType import ARROW as LINE_END_TYPE_ARROW
+        from com.sun.star.drawing.LineEndType import CIRCLE as LINE_END_TYPE_CIRCLE
+        from com.sun.star.drawing.LineEndType import NONE as LINE_END_TYPE_NONE
+        from com.sun.star.drawing.LineEndType import SPECIAL as LINE_END_TYPE_SPECIAL
+        from com.sun.star.drawing.LineEndType import SQUARE as LINE_END_TYPE_SQUARE
+
+        class LineEndType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API LineEndType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aa4142382acc18a0dd48cc4a563e2d168>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.LineEndType', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.LineEndType'
+            __ooo_type_name__: str = 'enum'
+
+            ARROW = LINE_END_TYPE_ARROW
+            """
+            the line uses an arrow for the line end.
+            """
+            CIRCLE = LINE_END_TYPE_CIRCLE
+            """
+            the line uses a circle for the line end.
+            """
+            NONE = LINE_END_TYPE_NONE
+            """
+            the area is not filled.
+
+            The text size is only defined by the font properties.
+
+            Don't animate this text.
+
+            the line is hidden.
+
+            the joint between lines will not be connected
+
+            the line has no special end.
+            """
+            SPECIAL = LINE_END_TYPE_SPECIAL
+            """
+            not implemented, yet.
+
+            deprecated
+            """
+            SQUARE = LINE_END_TYPE_SQUARE
+            """
+            the line will get a half square as additional cap
+
+            the line uses a square for the line end.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.line_end_type import LineEndType as LineEndType
+
 
 __all__ = ['LineEndType']

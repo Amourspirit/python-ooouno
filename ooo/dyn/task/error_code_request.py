@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ErrorCodeRequest = _get_class()
 
 else:
-    from com.sun.star.task import ErrorCodeRequest as ErrorCodeRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import ErrorCodeRequest as ErrorCodeRequest
+    else:
+        from ...lo.task.error_code_request import ErrorCodeRequest as ErrorCodeRequest
 
 __all__ = ['ErrorCodeRequest']
 

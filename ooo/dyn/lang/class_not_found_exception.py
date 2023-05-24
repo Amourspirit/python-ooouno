@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ClassNotFoundException = _get_class()
 
 else:
-    from com.sun.star.lang import ClassNotFoundException as ClassNotFoundException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import ClassNotFoundException as ClassNotFoundException
+    else:
+        from ...lo.lang.class_not_found_exception import ClassNotFoundException as ClassNotFoundException
 
 __all__ = ['ClassNotFoundException']
 

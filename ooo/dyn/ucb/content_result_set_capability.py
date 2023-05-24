@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ContentResultSetCapability(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.ContentResultSetCapability", name_space="com.sun.star.ucb"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ucb import ContentResultSetCapability as ContentResultSetCapability
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import ContentResultSetCapability as ContentResultSetCapability
+    else:
+        # keep document generators happy
+        from ...lo.ucb.content_result_set_capability import ContentResultSetCapability as ContentResultSetCapability
 
     class ContentResultSetCapabilityEnum(IntEnum):
         """

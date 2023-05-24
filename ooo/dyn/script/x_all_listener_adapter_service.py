@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XAllListenerAdapterService as XAllListenerAdapterService
     setattr(XAllListenerAdapterService, '__ooo_ns__', 'com.sun.star.script')
     setattr(XAllListenerAdapterService, '__ooo_full_ns__', 'com.sun.star.script.XAllListenerAdapterService')
     setattr(XAllListenerAdapterService, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XAllListenerAdapterService as XAllListenerAdapterService
+    if TYPE_CHECKING:
+        from com.sun.star.script import XAllListenerAdapterService as XAllListenerAdapterService
+    else:
+        # keep document generators happy
+        from ...lo.script.x_all_listener_adapter_service import XAllListenerAdapterService as XAllListenerAdapterService
 
 __all__ = ['XAllListenerAdapterService']
 

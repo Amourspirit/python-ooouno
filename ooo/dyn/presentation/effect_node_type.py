@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class EffectNodeType(metaclass=UnoConstMeta, type_name="com.sun.star.presentation.EffectNodeType", name_space="com.sun.star.presentation"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.presentation import EffectNodeType as EffectNodeType
+    if TYPE_CHECKING:
+        from com.sun.star.presentation import EffectNodeType as EffectNodeType
+    else:
+        # keep document generators happy
+        from ...lo.presentation.effect_node_type import EffectNodeType as EffectNodeType
 
     class EffectNodeTypeEnum(IntEnum):
         """

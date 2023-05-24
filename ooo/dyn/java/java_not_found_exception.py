@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     JavaNotFoundException = _get_class()
 
 else:
-    from com.sun.star.java import JavaNotFoundException as JavaNotFoundException
+    if TYPE_CHECKING:
+        from com.sun.star.java import JavaNotFoundException as JavaNotFoundException
+    else:
+        from ...lo.java.java_not_found_exception import JavaNotFoundException as JavaNotFoundException
 
 __all__ = ['JavaNotFoundException']
 

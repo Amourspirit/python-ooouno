@@ -20,45 +20,52 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart2.AxisOrientation import MATHEMATICAL as AXIS_ORIENTATION_MATHEMATICAL
-    from com.sun.star.chart2.AxisOrientation import REVERSE as AXIS_ORIENTATION_REVERSE
-
-    class AxisOrientation(uno.Enum):
-        """
-        Enum Class
-
-        ENUM AxisOrientation
-
-        See Also:
-            `API AxisOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aceb583a87538899d77ffbe62d2176a43>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart2.AxisOrientation', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart2'
-        __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
-        __ooo_type_name__: str = 'enum'
-
-        MATHEMATICAL = cast("AxisOrientation", AXIS_ORIENTATION_MATHEMATICAL)
-        """
-        means equal to the primary writing direction
-        """
-        REVERSE = cast("AxisOrientation", AXIS_ORIENTATION_REVERSE)
-        """
-        means the opposite of the primary writing direction
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class AxisOrientation(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.AxisOrientation", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.AxisOrientation`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.AxisOrientation import MATHEMATICAL as AXIS_ORIENTATION_MATHEMATICAL
+        from com.sun.star.chart2.AxisOrientation import REVERSE as AXIS_ORIENTATION_REVERSE
+
+        class AxisOrientation(uno.Enum):
+            """
+            Enum Class
+
+            ENUM AxisOrientation
+
+            See Also:
+                `API AxisOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aceb583a87538899d77ffbe62d2176a43>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart2.AxisOrientation', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart2'
+            __ooo_full_ns__: str = 'com.sun.star.chart2.AxisOrientation'
+            __ooo_type_name__: str = 'enum'
+
+            MATHEMATICAL = AXIS_ORIENTATION_MATHEMATICAL
+            """
+            means equal to the primary writing direction
+            """
+            REVERSE = AXIS_ORIENTATION_REVERSE
+            """
+            means the opposite of the primary writing direction
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart2.axis_orientation import AxisOrientation as AxisOrientation
+
 
 __all__ = ['AxisOrientation']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer.clipboard import XClipboardNotifier as XClipboardNotifier
     setattr(XClipboardNotifier, '__ooo_ns__', 'com.sun.star.datatransfer.clipboard')
     setattr(XClipboardNotifier, '__ooo_full_ns__', 'com.sun.star.datatransfer.clipboard.XClipboardNotifier')
     setattr(XClipboardNotifier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer.clipboard import XClipboardNotifier as XClipboardNotifier
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.clipboard import XClipboardNotifier as XClipboardNotifier
+    else:
+        # keep document generators happy
+        from ....lo.datatransfer.clipboard.x_clipboard_notifier import XClipboardNotifier as XClipboardNotifier
 
 __all__ = ['XClipboardNotifier']
 

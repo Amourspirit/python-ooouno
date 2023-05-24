@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XProgressMonitor as XProgressMonitor
     setattr(XProgressMonitor, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XProgressMonitor, '__ooo_full_ns__', 'com.sun.star.awt.XProgressMonitor')
     setattr(XProgressMonitor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XProgressMonitor as XProgressMonitor
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XProgressMonitor as XProgressMonitor
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_progress_monitor import XProgressMonitor as XProgressMonitor
 
 __all__ = ['XProgressMonitor']
 

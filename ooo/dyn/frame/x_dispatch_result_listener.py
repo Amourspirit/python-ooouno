@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XDispatchResultListener as XDispatchResultListener
     setattr(XDispatchResultListener, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XDispatchResultListener, '__ooo_full_ns__', 'com.sun.star.frame.XDispatchResultListener')
     setattr(XDispatchResultListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XDispatchResultListener as XDispatchResultListener
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XDispatchResultListener as XDispatchResultListener
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_dispatch_result_listener import XDispatchResultListener as XDispatchResultListener
 
 __all__ = ['XDispatchResultListener']
 

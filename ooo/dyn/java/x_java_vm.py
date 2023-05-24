@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.java import XJavaVM as XJavaVM
     setattr(XJavaVM, '__ooo_ns__', 'com.sun.star.java')
     setattr(XJavaVM, '__ooo_full_ns__', 'com.sun.star.java.XJavaVM')
     setattr(XJavaVM, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.java import XJavaVM as XJavaVM
+    if TYPE_CHECKING:
+        from com.sun.star.java import XJavaVM as XJavaVM
+    else:
+        # keep document generators happy
+        from ...lo.java.x_java_vm import XJavaVM as XJavaVM
 
 __all__ = ['XJavaVM']
 

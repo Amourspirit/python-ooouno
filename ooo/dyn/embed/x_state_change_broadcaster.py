@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XStateChangeBroadcaster as XStateChangeBroadcaster
     setattr(XStateChangeBroadcaster, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XStateChangeBroadcaster, '__ooo_full_ns__', 'com.sun.star.embed.XStateChangeBroadcaster')
     setattr(XStateChangeBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XStateChangeBroadcaster as XStateChangeBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XStateChangeBroadcaster as XStateChangeBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_state_change_broadcaster import XStateChangeBroadcaster as XStateChangeBroadcaster
 
 __all__ = ['XStateChangeBroadcaster']
 

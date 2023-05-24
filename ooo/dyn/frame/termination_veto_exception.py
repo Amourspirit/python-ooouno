@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     TerminationVetoException = _get_class()
 
 else:
-    from com.sun.star.frame import TerminationVetoException as TerminationVetoException
+    if TYPE_CHECKING:
+        from com.sun.star.frame import TerminationVetoException as TerminationVetoException
+    else:
+        from ...lo.frame.termination_veto_exception import TerminationVetoException as TerminationVetoException
 
 __all__ = ['TerminationVetoException']
 

@@ -20,61 +20,68 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.text.WritingMode import LR_TB as WRITING_MODE_LR_TB
-    from com.sun.star.text.WritingMode import RL_TB as WRITING_MODE_RL_TB
-    from com.sun.star.text.WritingMode import TB_RL as WRITING_MODE_TB_RL
-
-    class WritingMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API WritingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a46d11c2d08142ef2d32761c04d1aaa26>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.text.WritingMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.text'
-        __ooo_full_ns__: str = 'com.sun.star.text.WritingMode'
-        __ooo_type_name__: str = 'enum'
-
-        LR_TB = cast("WritingMode", WRITING_MODE_LR_TB)
-        """
-        text within lines is written left-to-right.
-        
-        lines and blocks are placed top-to-bottom.
-        
-        Typically, this is the writing mode for normal \"alphabetic\" text.
-        """
-        RL_TB = cast("WritingMode", WRITING_MODE_RL_TB)
-        """
-        text within a line are written right-to-left.
-        
-        Lines and blocks are placed top-to-bottom.
-        
-        Typically, this writing mode is used in Arabic and Hebrew text.
-        """
-        TB_RL = cast("WritingMode", WRITING_MODE_TB_RL)
-        """
-        text within a line is written top-to-bottom.
-        
-        Lines and blocks are placed right-to-left.
-        
-        Typically, this writing mode is used in Chinese and Japanese text.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class WritingMode(metaclass=UnoEnumMeta, type_name="com.sun.star.text.WritingMode", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.WritingMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.text.WritingMode import LR_TB as WRITING_MODE_LR_TB
+        from com.sun.star.text.WritingMode import RL_TB as WRITING_MODE_RL_TB
+        from com.sun.star.text.WritingMode import TB_RL as WRITING_MODE_TB_RL
+
+        class WritingMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API WritingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a46d11c2d08142ef2d32761c04d1aaa26>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.text.WritingMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.text'
+            __ooo_full_ns__: str = 'com.sun.star.text.WritingMode'
+            __ooo_type_name__: str = 'enum'
+
+            LR_TB = WRITING_MODE_LR_TB
+            """
+            text within lines is written left-to-right.
+
+            lines and blocks are placed top-to-bottom.
+
+            Typically, this is the writing mode for normal \"alphabetic\" text.
+            """
+            RL_TB = WRITING_MODE_RL_TB
+            """
+            text within a line are written right-to-left.
+
+            Lines and blocks are placed top-to-bottom.
+
+            Typically, this writing mode is used in Arabic and Hebrew text.
+            """
+            TB_RL = WRITING_MODE_TB_RL
+            """
+            text within a line is written top-to-bottom.
+
+            Lines and blocks are placed right-to-left.
+
+            Typically, this writing mode is used in Chinese and Japanese text.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.text.writing_mode import WritingMode as WritingMode
+
 
 __all__ = ['WritingMode']

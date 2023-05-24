@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.application import XTableUIProvider as XTableUIProvider
     setattr(XTableUIProvider, '__ooo_ns__', 'com.sun.star.sdb.application')
     setattr(XTableUIProvider, '__ooo_full_ns__', 'com.sun.star.sdb.application.XTableUIProvider')
     setattr(XTableUIProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.application import XTableUIProvider as XTableUIProvider
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.application import XTableUIProvider as XTableUIProvider
+    else:
+        # keep document generators happy
+        from ....lo.sdb.application.x_table_ui_provider import XTableUIProvider as XTableUIProvider
 
 __all__ = ['XTableUIProvider']
 

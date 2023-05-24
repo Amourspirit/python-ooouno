@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveNetworkWriteException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveNetworkWriteException as InteractiveNetworkWriteException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveNetworkWriteException as InteractiveNetworkWriteException
+    else:
+        from ...lo.ucb.interactive_network_write_exception import InteractiveNetworkWriteException as InteractiveNetworkWriteException
 
 __all__ = ['InteractiveNetworkWriteException']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class NumberFormat(metaclass=UnoConstMeta, type_name="com.sun.star.util.NumberFormat", name_space="com.sun.star.util"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.util import NumberFormat as NumberFormat
+    if TYPE_CHECKING:
+        from com.sun.star.util import NumberFormat as NumberFormat
+    else:
+        # keep document generators happy
+        from ...lo.util.number_format import NumberFormat as NumberFormat
 
     class NumberFormatEnum(IntEnum):
         """

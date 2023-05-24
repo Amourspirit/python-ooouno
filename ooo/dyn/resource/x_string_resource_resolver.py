@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.resource import XStringResourceResolver as XStringResourceResolver
     setattr(XStringResourceResolver, '__ooo_ns__', 'com.sun.star.resource')
     setattr(XStringResourceResolver, '__ooo_full_ns__', 'com.sun.star.resource.XStringResourceResolver')
     setattr(XStringResourceResolver, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.resource import XStringResourceResolver as XStringResourceResolver
+    if TYPE_CHECKING:
+        from com.sun.star.resource import XStringResourceResolver as XStringResourceResolver
+    else:
+        # keep document generators happy
+        from ...lo.resource.x_string_resource_resolver import XStringResourceResolver as XStringResourceResolver
 
 __all__ = ['XStringResourceResolver']
 

@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.DrawViewMode import DRAW as DRAW_VIEW_MODE_DRAW
-    from com.sun.star.drawing.DrawViewMode import HANDOUT as DRAW_VIEW_MODE_HANDOUT
-    from com.sun.star.drawing.DrawViewMode import NOTES as DRAW_VIEW_MODE_NOTES
-
-    class DrawViewMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API DrawViewMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a15072729125e991609f3df469a03f611>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.DrawViewMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.DrawViewMode'
-        __ooo_type_name__: str = 'enum'
-
-        DRAW = cast("DrawViewMode", DRAW_VIEW_MODE_DRAW)
-        """
-        The view shows the drawing pages.
-        """
-        HANDOUT = cast("DrawViewMode", DRAW_VIEW_MODE_HANDOUT)
-        """
-        The view shows the handout pages,.
-        """
-        NOTES = cast("DrawViewMode", DRAW_VIEW_MODE_NOTES)
-        """
-        The view shows the notes pages.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DrawViewMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.DrawViewMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.DrawViewMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.DrawViewMode import DRAW as DRAW_VIEW_MODE_DRAW
+        from com.sun.star.drawing.DrawViewMode import HANDOUT as DRAW_VIEW_MODE_HANDOUT
+        from com.sun.star.drawing.DrawViewMode import NOTES as DRAW_VIEW_MODE_NOTES
+
+        class DrawViewMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API DrawViewMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a15072729125e991609f3df469a03f611>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.DrawViewMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.DrawViewMode'
+            __ooo_type_name__: str = 'enum'
+
+            DRAW = DRAW_VIEW_MODE_DRAW
+            """
+            The view shows the drawing pages.
+            """
+            HANDOUT = DRAW_VIEW_MODE_HANDOUT
+            """
+            The view shows the handout pages,.
+            """
+            NOTES = DRAW_VIEW_MODE_NOTES
+            """
+            The view shows the notes pages.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.draw_view_mode import DrawViewMode as DrawViewMode
+
 
 __all__ = ['DrawViewMode']

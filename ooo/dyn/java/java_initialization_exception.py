@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     JavaInitializationException = _get_class()
 
 else:
-    from com.sun.star.java import JavaInitializationException as JavaInitializationException
+    if TYPE_CHECKING:
+        from com.sun.star.java import JavaInitializationException as JavaInitializationException
+    else:
+        from ...lo.java.java_initialization_exception import JavaInitializationException as JavaInitializationException
 
 __all__ = ['JavaInitializationException']
 

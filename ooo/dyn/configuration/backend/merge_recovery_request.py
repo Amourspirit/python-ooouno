@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MergeRecoveryRequest = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import MergeRecoveryRequest as MergeRecoveryRequest
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import MergeRecoveryRequest as MergeRecoveryRequest
+    else:
+        from ....lo.configuration.backend.merge_recovery_request import MergeRecoveryRequest as MergeRecoveryRequest
 
 __all__ = ['MergeRecoveryRequest']
 

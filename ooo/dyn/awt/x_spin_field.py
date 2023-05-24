@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XSpinField as XSpinField
     setattr(XSpinField, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XSpinField, '__ooo_full_ns__', 'com.sun.star.awt.XSpinField')
     setattr(XSpinField, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XSpinField as XSpinField
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XSpinField as XSpinField
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_spin_field import XSpinField as XSpinField
 
 __all__ = ['XSpinField']
 

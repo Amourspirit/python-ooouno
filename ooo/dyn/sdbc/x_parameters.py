@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XParameters as XParameters
     setattr(XParameters, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XParameters, '__ooo_full_ns__', 'com.sun.star.sdbc.XParameters')
     setattr(XParameters, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XParameters as XParameters
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XParameters as XParameters
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_parameters import XParameters as XParameters
 
 __all__ = ['XParameters']
 

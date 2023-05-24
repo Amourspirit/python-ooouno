@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         PackageInformationProvider = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.deployment.package_information_provider import PackageInformationProvider as PackageInformationProvider
+    if TYPE_CHECKING
+        from com.sun.star.deployment import PackageInformationProvider as PackageInformationProvider
+    else:
+        from ...lo.deployment.package_information_provider import PackageInformationProvider as PackageInformationProvider
 
 __all__ = ['PackageInformationProvider']

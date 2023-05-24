@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     XMLEncryptionException = _get_class()
 
 else:
-    from com.sun.star.xml.crypto import XMLEncryptionException as XMLEncryptionException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import XMLEncryptionException as XMLEncryptionException
+    else:
+        from ....lo.xml.crypto.xml_encryption_exception import XMLEncryptionException as XMLEncryptionException
 
 __all__ = ['XMLEncryptionException']
 

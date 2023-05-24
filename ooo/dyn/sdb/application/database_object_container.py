@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DatabaseObjectContainer(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.application.DatabaseObjectContainer", name_space="com.sun.star.sdb.application"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdb.application import DatabaseObjectContainer as DatabaseObjectContainer
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.application import DatabaseObjectContainer as DatabaseObjectContainer
+    else:
+        # keep document generators happy
+        from ....lo.sdb.application.database_object_container import DatabaseObjectContainer as DatabaseObjectContainer
 
     class DatabaseObjectContainerEnum(IntEnum):
         """

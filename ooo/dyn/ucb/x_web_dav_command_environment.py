@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XWebDAVCommandEnvironment as XWebDAVCommandEnvironment
     setattr(XWebDAVCommandEnvironment, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XWebDAVCommandEnvironment, '__ooo_full_ns__', 'com.sun.star.ucb.XWebDAVCommandEnvironment')
     setattr(XWebDAVCommandEnvironment, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XWebDAVCommandEnvironment as XWebDAVCommandEnvironment
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XWebDAVCommandEnvironment as XWebDAVCommandEnvironment
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_web_dav_command_environment import XWebDAVCommandEnvironment as XWebDAVCommandEnvironment
 
 __all__ = ['XWebDAVCommandEnvironment']
 

@@ -20,69 +20,76 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.SolverConstraintOperator import BINARY as SOLVER_CONSTRAINT_OPERATOR_BINARY
-    from com.sun.star.sheet.SolverConstraintOperator import EQUAL as SOLVER_CONSTRAINT_OPERATOR_EQUAL
-    from com.sun.star.sheet.SolverConstraintOperator import GREATER_EQUAL as SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL
-    from com.sun.star.sheet.SolverConstraintOperator import INTEGER as SOLVER_CONSTRAINT_OPERATOR_INTEGER
-    from com.sun.star.sheet.SolverConstraintOperator import LESS_EQUAL as SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL
-
-    class SolverConstraintOperator(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API SolverConstraintOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a491ab8ed5b7b5809e7be869d26b071cf>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.SolverConstraintOperator', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.SolverConstraintOperator'
-        __ooo_type_name__: str = 'enum'
-
-        BINARY = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_BINARY)
-        """
-        The cell value is a binary value (0 or 1).
-        """
-        EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_EQUAL)
-        """
-        value has to be equal to the specified value.
-        
-        The cell value is equal to the specified value.
-        """
-        GREATER_EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL)
-        """
-        the value has to be greater than or equal to the specified value.
-        
-        The cell value is greater or equal to the specified value.
-        
-        value has to be greater than or equal to the specified value.
-        """
-        INTEGER = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_INTEGER)
-        """
-        The cell value is an integer value.
-        """
-        LESS_EQUAL = cast("SolverConstraintOperator", SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL)
-        """
-        the value has to be less than or equal to the specified value.
-        
-        The cell value is less or equal to the specified value.
-        
-        value has to be less than or equal to the specified value.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SolverConstraintOperator(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.SolverConstraintOperator", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.SolverConstraintOperator`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.SolverConstraintOperator import BINARY as SOLVER_CONSTRAINT_OPERATOR_BINARY
+        from com.sun.star.sheet.SolverConstraintOperator import EQUAL as SOLVER_CONSTRAINT_OPERATOR_EQUAL
+        from com.sun.star.sheet.SolverConstraintOperator import GREATER_EQUAL as SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL
+        from com.sun.star.sheet.SolverConstraintOperator import INTEGER as SOLVER_CONSTRAINT_OPERATOR_INTEGER
+        from com.sun.star.sheet.SolverConstraintOperator import LESS_EQUAL as SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL
+
+        class SolverConstraintOperator(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API SolverConstraintOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a491ab8ed5b7b5809e7be869d26b071cf>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.SolverConstraintOperator', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.SolverConstraintOperator'
+            __ooo_type_name__: str = 'enum'
+
+            BINARY = SOLVER_CONSTRAINT_OPERATOR_BINARY
+            """
+            The cell value is a binary value (0 or 1).
+            """
+            EQUAL = SOLVER_CONSTRAINT_OPERATOR_EQUAL
+            """
+            value has to be equal to the specified value.
+
+            The cell value is equal to the specified value.
+            """
+            GREATER_EQUAL = SOLVER_CONSTRAINT_OPERATOR_GREATER_EQUAL
+            """
+            the value has to be greater than or equal to the specified value.
+
+            The cell value is greater or equal to the specified value.
+
+            value has to be greater than or equal to the specified value.
+            """
+            INTEGER = SOLVER_CONSTRAINT_OPERATOR_INTEGER
+            """
+            The cell value is an integer value.
+            """
+            LESS_EQUAL = SOLVER_CONSTRAINT_OPERATOR_LESS_EQUAL
+            """
+            the value has to be less than or equal to the specified value.
+
+            The cell value is less or equal to the specified value.
+
+            value has to be less than or equal to the specified value.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.solver_constraint_operator import SolverConstraintOperator as SolverConstraintOperator
+
 
 __all__ = ['SolverConstraintOperator']

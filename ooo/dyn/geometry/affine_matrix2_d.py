@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('m00', 'm01', 'm02', 'm10', 'm11', 'm12')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AffineMatrix2D = _get_class()
 
 else:
-    from com.sun.star.geometry import AffineMatrix2D as AffineMatrix2D
+    if TYPE_CHECKING:
+        from com.sun.star.geometry import AffineMatrix2D as AffineMatrix2D
+    else:
+        # keep document generators happy
+        from ...lo.geometry.affine_matrix2_d import AffineMatrix2D as AffineMatrix2D
 
 __all__ = ['AffineMatrix2D']
 

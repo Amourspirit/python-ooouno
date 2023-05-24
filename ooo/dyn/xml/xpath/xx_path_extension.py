@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.xpath import XXPathExtension as XXPathExtension
     setattr(XXPathExtension, '__ooo_ns__', 'com.sun.star.xml.xpath')
     setattr(XXPathExtension, '__ooo_full_ns__', 'com.sun.star.xml.xpath.XXPathExtension')
     setattr(XXPathExtension, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.xpath import XXPathExtension as XXPathExtension
+    if TYPE_CHECKING:
+        from com.sun.star.xml.xpath import XXPathExtension as XXPathExtension
+    else:
+        # keep document generators happy
+        from ....lo.xml.xpath.xx_path_extension import XXPathExtension as XXPathExtension
 
 __all__ = ['XXPathExtension']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XCustomSprite as XCustomSprite
     setattr(XCustomSprite, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XCustomSprite, '__ooo_full_ns__', 'com.sun.star.rendering.XCustomSprite')
     setattr(XCustomSprite, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XCustomSprite as XCustomSprite
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XCustomSprite as XCustomSprite
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_custom_sprite import XCustomSprite as XCustomSprite
 
 __all__ = ['XCustomSprite']
 

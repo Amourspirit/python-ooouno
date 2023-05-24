@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ErrorBarStyle(metaclass=UnoConstMeta, type_name="com.sun.star.chart.ErrorBarStyle", name_space="com.sun.star.chart"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.chart import ErrorBarStyle as ErrorBarStyle
+    if TYPE_CHECKING:
+        from com.sun.star.chart import ErrorBarStyle as ErrorBarStyle
+    else:
+        # keep document generators happy
+        from ...lo.chart.error_bar_style import ErrorBarStyle as ErrorBarStyle
 
     class ErrorBarStyleEnum(IntEnum):
         """

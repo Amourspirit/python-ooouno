@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XDatabaseAccessListener as XDatabaseAccessListener
     setattr(XDatabaseAccessListener, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XDatabaseAccessListener, '__ooo_full_ns__', 'com.sun.star.sdb.XDatabaseAccessListener')
     setattr(XDatabaseAccessListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XDatabaseAccessListener as XDatabaseAccessListener
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XDatabaseAccessListener as XDatabaseAccessListener
+    else:
+        # keep document generators happy
+        from ...lo.sdb.x_database_access_listener import XDatabaseAccessListener as XDatabaseAccessListener
 
 __all__ = ['XDatabaseAccessListener']
 

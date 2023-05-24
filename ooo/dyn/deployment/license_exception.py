@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LicenseException = _get_class()
 
 else:
-    from com.sun.star.deployment import LicenseException as LicenseException
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import LicenseException as LicenseException
+    else:
+        from ...lo.deployment.license_exception import LicenseException as LicenseException
 
 __all__ = ['LicenseException']
 

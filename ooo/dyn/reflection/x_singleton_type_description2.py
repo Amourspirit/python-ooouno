@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.reflection import XSingletonTypeDescription2 as XSingletonTypeDescription2
     setattr(XSingletonTypeDescription2, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XSingletonTypeDescription2, '__ooo_full_ns__', 'com.sun.star.reflection.XSingletonTypeDescription2')
     setattr(XSingletonTypeDescription2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.reflection import XSingletonTypeDescription2 as XSingletonTypeDescription2
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import XSingletonTypeDescription2 as XSingletonTypeDescription2
+    else:
+        # keep document generators happy
+        from ...lo.reflection.x_singleton_type_description2 import XSingletonTypeDescription2 as XSingletonTypeDescription2
 
 __all__ = ['XSingletonTypeDescription2']
 

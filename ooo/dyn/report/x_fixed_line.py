@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.report import XFixedLine as XFixedLine
     setattr(XFixedLine, '__ooo_ns__', 'com.sun.star.report')
     setattr(XFixedLine, '__ooo_full_ns__', 'com.sun.star.report.XFixedLine')
     setattr(XFixedLine, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.report import XFixedLine as XFixedLine
+    if TYPE_CHECKING:
+        from com.sun.star.report import XFixedLine as XFixedLine
+    else:
+        # keep document generators happy
+        from ...lo.report.x_fixed_line import XFixedLine as XFixedLine
 
 __all__ = ['XFixedLine']
 

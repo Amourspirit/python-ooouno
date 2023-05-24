@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.crypto import XXMLEncryption as XXMLEncryption
     setattr(XXMLEncryption, '__ooo_ns__', 'com.sun.star.xml.crypto')
     setattr(XXMLEncryption, '__ooo_full_ns__', 'com.sun.star.xml.crypto.XXMLEncryption')
     setattr(XXMLEncryption, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.crypto import XXMLEncryption as XXMLEncryption
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import XXMLEncryption as XXMLEncryption
+    else:
+        # keep document generators happy
+        from ....lo.xml.crypto.xxml_encryption import XXMLEncryption as XXMLEncryption
 
 __all__ = ['XXMLEncryption']
 

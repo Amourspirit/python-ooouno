@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FilterOperator2(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.FilterOperator2", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import FilterOperator2 as FilterOperator2
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import FilterOperator2 as FilterOperator2
+    else:
+        # keep document generators happy
+        from ...lo.sheet.filter_operator2 import FilterOperator2 as FilterOperator2
 
     class FilterOperator2Enum(IntEnum):
         """

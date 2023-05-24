@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnsupportedFlavorException = _get_class()
 
 else:
-    from com.sun.star.datatransfer import UnsupportedFlavorException as UnsupportedFlavorException
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer import UnsupportedFlavorException as UnsupportedFlavorException
+    else:
+        from ...lo.datatransfer.unsupported_flavor_exception import UnsupportedFlavorException as UnsupportedFlavorException
 
 __all__ = ['UnsupportedFlavorException']
 

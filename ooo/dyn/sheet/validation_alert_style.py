@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.ValidationAlertStyle import INFO as VALIDATION_ALERT_STYLE_INFO
-    from com.sun.star.sheet.ValidationAlertStyle import MACRO as VALIDATION_ALERT_STYLE_MACRO
-    from com.sun.star.sheet.ValidationAlertStyle import STOP as VALIDATION_ALERT_STYLE_STOP
-    from com.sun.star.sheet.ValidationAlertStyle import WARNING as VALIDATION_ALERT_STYLE_WARNING
-
-    class ValidationAlertStyle(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ValidationAlertStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aecf58149730f4c8c5c18c70f3c7c5db7>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.ValidationAlertStyle', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationAlertStyle'
-        __ooo_type_name__: str = 'enum'
-
-        INFO = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_INFO)
-        """
-        information message is shown and the user is asked whether the change will be accepted (defaulted to \"Yes\").
-        """
-        MACRO = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_MACRO)
-        """
-        macro is executed.
-        """
-        STOP = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_STOP)
-        """
-        error message is shown and the change is rejected.
-        """
-        WARNING = cast("ValidationAlertStyle", VALIDATION_ALERT_STYLE_WARNING)
-        """
-        warning message is shown and the user is asked whether the change will be accepted (defaulted to \"No\").
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ValidationAlertStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.ValidationAlertStyle", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.ValidationAlertStyle`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.ValidationAlertStyle import INFO as VALIDATION_ALERT_STYLE_INFO
+        from com.sun.star.sheet.ValidationAlertStyle import MACRO as VALIDATION_ALERT_STYLE_MACRO
+        from com.sun.star.sheet.ValidationAlertStyle import STOP as VALIDATION_ALERT_STYLE_STOP
+        from com.sun.star.sheet.ValidationAlertStyle import WARNING as VALIDATION_ALERT_STYLE_WARNING
+
+        class ValidationAlertStyle(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ValidationAlertStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aecf58149730f4c8c5c18c70f3c7c5db7>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.ValidationAlertStyle', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationAlertStyle'
+            __ooo_type_name__: str = 'enum'
+
+            INFO = VALIDATION_ALERT_STYLE_INFO
+            """
+            information message is shown and the user is asked whether the change will be accepted (defaulted to \"Yes\").
+            """
+            MACRO = VALIDATION_ALERT_STYLE_MACRO
+            """
+            macro is executed.
+            """
+            STOP = VALIDATION_ALERT_STYLE_STOP
+            """
+            error message is shown and the change is rejected.
+            """
+            WARNING = VALIDATION_ALERT_STYLE_WARNING
+            """
+            warning message is shown and the user is asked whether the change will be accepted (defaulted to \"No\").
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.validation_alert_style import ValidationAlertStyle as ValidationAlertStyle
+
 
 __all__ = ['ValidationAlertStyle']

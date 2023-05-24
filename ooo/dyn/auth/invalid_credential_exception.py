@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidCredentialException = _get_class()
 
 else:
-    from com.sun.star.auth import InvalidCredentialException as InvalidCredentialException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import InvalidCredentialException as InvalidCredentialException
+    else:
+        from ...lo.auth.invalid_credential_exception import InvalidCredentialException as InvalidCredentialException
 
 __all__ = ['InvalidCredentialException']
 

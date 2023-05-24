@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.inspection import XPropertyControlContext as XPropertyControlContext
     setattr(XPropertyControlContext, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XPropertyControlContext, '__ooo_full_ns__', 'com.sun.star.inspection.XPropertyControlContext')
     setattr(XPropertyControlContext, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.inspection import XPropertyControlContext as XPropertyControlContext
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import XPropertyControlContext as XPropertyControlContext
+    else:
+        # keep document generators happy
+        from ...lo.inspection.x_property_control_context import XPropertyControlContext as XPropertyControlContext
 
 __all__ = ['XPropertyControlContext']
 

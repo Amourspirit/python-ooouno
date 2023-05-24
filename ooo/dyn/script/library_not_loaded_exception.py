@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LibraryNotLoadedException = _get_class()
 
 else:
-    from com.sun.star.script import LibraryNotLoadedException as LibraryNotLoadedException
+    if TYPE_CHECKING:
+        from com.sun.star.script import LibraryNotLoadedException as LibraryNotLoadedException
+    else:
+        from ...lo.script.library_not_loaded_exception import LibraryNotLoadedException as LibraryNotLoadedException
 
 __all__ = ['LibraryNotLoadedException']
 

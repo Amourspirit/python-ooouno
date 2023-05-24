@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     JavaVMCreationFailureException = _get_class()
 
 else:
-    from com.sun.star.java import JavaVMCreationFailureException as JavaVMCreationFailureException
+    if TYPE_CHECKING:
+        from com.sun.star.java import JavaVMCreationFailureException as JavaVMCreationFailureException
+    else:
+        from ...lo.java.java_vm_creation_failure_exception import JavaVMCreationFailureException as JavaVMCreationFailureException
 
 __all__ = ['JavaVMCreationFailureException']
 

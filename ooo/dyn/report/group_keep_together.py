@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class GroupKeepTogether(metaclass=UnoConstMeta, type_name="com.sun.star.report.GroupKeepTogether", name_space="com.sun.star.report"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.report import GroupKeepTogether as GroupKeepTogether
+    if TYPE_CHECKING:
+        from com.sun.star.report import GroupKeepTogether as GroupKeepTogether
+    else:
+        # keep document generators happy
+        from ...lo.report.group_keep_together import GroupKeepTogether as GroupKeepTogether
 
     class GroupKeepTogetherEnum(IntEnum):
         """

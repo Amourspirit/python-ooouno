@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XExtendedToolkit as XExtendedToolkit
     setattr(XExtendedToolkit, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XExtendedToolkit, '__ooo_full_ns__', 'com.sun.star.awt.XExtendedToolkit')
     setattr(XExtendedToolkit, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XExtendedToolkit as XExtendedToolkit
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XExtendedToolkit as XExtendedToolkit
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_extended_toolkit import XExtendedToolkit as XExtendedToolkit
 
 __all__ = ['XExtendedToolkit']
 

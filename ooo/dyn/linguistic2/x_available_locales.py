@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XAvailableLocales as XAvailableLocales
     setattr(XAvailableLocales, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XAvailableLocales, '__ooo_full_ns__', 'com.sun.star.linguistic2.XAvailableLocales')
     setattr(XAvailableLocales, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XAvailableLocales as XAvailableLocales
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XAvailableLocales as XAvailableLocales
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_available_locales import XAvailableLocales as XAvailableLocales
 
 __all__ = ['XAvailableLocales']
 

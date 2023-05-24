@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XPossibleHyphens as XPossibleHyphens
     setattr(XPossibleHyphens, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XPossibleHyphens, '__ooo_full_ns__', 'com.sun.star.linguistic2.XPossibleHyphens')
     setattr(XPossibleHyphens, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XPossibleHyphens as XPossibleHyphens
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XPossibleHyphens as XPossibleHyphens
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_possible_hyphens import XPossibleHyphens as XPossibleHyphens
 
 __all__ = ['XPossibleHyphens']
 

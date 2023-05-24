@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MissingInputStreamException = _get_class()
 
 else:
-    from com.sun.star.ucb import MissingInputStreamException as MissingInputStreamException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import MissingInputStreamException as MissingInputStreamException
+    else:
+        from ...lo.ucb.missing_input_stream_exception import MissingInputStreamException as MissingInputStreamException
 
 __all__ = ['MissingInputStreamException']
 

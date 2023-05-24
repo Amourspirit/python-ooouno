@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.application import XDatabaseDocumentUI as XDatabaseDocumentUI
     setattr(XDatabaseDocumentUI, '__ooo_ns__', 'com.sun.star.sdb.application')
     setattr(XDatabaseDocumentUI, '__ooo_full_ns__', 'com.sun.star.sdb.application.XDatabaseDocumentUI')
     setattr(XDatabaseDocumentUI, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.application import XDatabaseDocumentUI as XDatabaseDocumentUI
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.application import XDatabaseDocumentUI as XDatabaseDocumentUI
+    else:
+        # keep document generators happy
+        from ....lo.sdb.application.x_database_document_ui import XDatabaseDocumentUI as XDatabaseDocumentUI
 
 __all__ = ['XDatabaseDocumentUI']
 

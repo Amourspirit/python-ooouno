@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XInsertObjectDialog as XInsertObjectDialog
     setattr(XInsertObjectDialog, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XInsertObjectDialog, '__ooo_full_ns__', 'com.sun.star.embed.XInsertObjectDialog')
     setattr(XInsertObjectDialog, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XInsertObjectDialog as XInsertObjectDialog
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XInsertObjectDialog as XInsertObjectDialog
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_insert_object_dialog import XInsertObjectDialog as XInsertObjectDialog
 
 __all__ = ['XInsertObjectDialog']
 

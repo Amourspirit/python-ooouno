@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class BibliographyDataType(metaclass=UnoConstMeta, type_name="com.sun.star.text.BibliographyDataType", name_space="com.sun.star.text"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text import BibliographyDataType as BibliographyDataType
+    if TYPE_CHECKING:
+        from com.sun.star.text import BibliographyDataType as BibliographyDataType
+    else:
+        # keep document generators happy
+        from ...lo.text.bibliography_data_type import BibliographyDataType as BibliographyDataType
 
     class BibliographyDataTypeEnum(IntEnum):
         """

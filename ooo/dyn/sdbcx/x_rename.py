@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XRename as XRename
     setattr(XRename, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XRename, '__ooo_full_ns__', 'com.sun.star.sdbcx.XRename')
     setattr(XRename, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XRename as XRename
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XRename as XRename
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_rename import XRename as XRename
 
 __all__ = ['XRename']
 

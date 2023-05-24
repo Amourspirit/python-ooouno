@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.packages.zip import XZipFileAccess as XZipFileAccess
     setattr(XZipFileAccess, '__ooo_ns__', 'com.sun.star.packages.zip')
     setattr(XZipFileAccess, '__ooo_full_ns__', 'com.sun.star.packages.zip.XZipFileAccess')
     setattr(XZipFileAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.packages.zip import XZipFileAccess as XZipFileAccess
+    if TYPE_CHECKING:
+        from com.sun.star.packages.zip import XZipFileAccess as XZipFileAccess
+    else:
+        # keep document generators happy
+        from ....lo.packages.zip.x_zip_file_access import XZipFileAccess as XZipFileAccess
 
 __all__ = ['XZipFileAccess']
 

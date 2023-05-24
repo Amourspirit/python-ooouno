@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.Arrangement import BACK as ARRANGEMENT_BACK
-    from com.sun.star.drawing.Arrangement import FRONT as ARRANGEMENT_FRONT
-    from com.sun.star.drawing.Arrangement import MORE_BACK as ARRANGEMENT_MORE_BACK
-    from com.sun.star.drawing.Arrangement import MORE_FRONT as ARRANGEMENT_MORE_FRONT
-
-    class Arrangement(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API Arrangement <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ac4d32be4f663e5f65aa208c47e1faa81>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.Arrangement', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.Arrangement'
-        __ooo_type_name__: str = 'enum'
-
-        BACK = cast("Arrangement", ARRANGEMENT_BACK)
-        """
-        Move this object behind all other objects.
-        """
-        FRONT = cast("Arrangement", ARRANGEMENT_FRONT)
-        """
-        Move this object in front of all other objects.
-        """
-        MORE_BACK = cast("Arrangement", ARRANGEMENT_MORE_BACK)
-        """
-        Move this object one object more to the back.
-        """
-        MORE_FRONT = cast("Arrangement", ARRANGEMENT_MORE_FRONT)
-        """
-        Move this object one object more to the front.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class Arrangement(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.Arrangement", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.Arrangement`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.Arrangement import BACK as ARRANGEMENT_BACK
+        from com.sun.star.drawing.Arrangement import FRONT as ARRANGEMENT_FRONT
+        from com.sun.star.drawing.Arrangement import MORE_BACK as ARRANGEMENT_MORE_BACK
+        from com.sun.star.drawing.Arrangement import MORE_FRONT as ARRANGEMENT_MORE_FRONT
+
+        class Arrangement(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API Arrangement <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ac4d32be4f663e5f65aa208c47e1faa81>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.Arrangement', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.Arrangement'
+            __ooo_type_name__: str = 'enum'
+
+            BACK = ARRANGEMENT_BACK
+            """
+            Move this object behind all other objects.
+            """
+            FRONT = ARRANGEMENT_FRONT
+            """
+            Move this object in front of all other objects.
+            """
+            MORE_BACK = ARRANGEMENT_MORE_BACK
+            """
+            Move this object one object more to the back.
+            """
+            MORE_FRONT = ARRANGEMENT_MORE_FRONT
+            """
+            Move this object one object more to the front.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.arrangement import Arrangement as Arrangement
+
 
 __all__ = ['Arrangement']

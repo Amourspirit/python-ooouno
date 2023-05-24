@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XActivationEventListener as XActivationEventListener
     setattr(XActivationEventListener, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XActivationEventListener, '__ooo_full_ns__', 'com.sun.star.sheet.XActivationEventListener')
     setattr(XActivationEventListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XActivationEventListener as XActivationEventListener
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XActivationEventListener as XActivationEventListener
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_activation_event_listener import XActivationEventListener as XActivationEventListener
 
 __all__ = ['XActivationEventListener']
 

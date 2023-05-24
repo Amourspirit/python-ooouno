@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LockedDocumentRequest = _get_class()
 
 else:
-    from com.sun.star.document import LockedDocumentRequest as LockedDocumentRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import LockedDocumentRequest as LockedDocumentRequest
+    else:
+        from ...lo.document.locked_document_request import LockedDocumentRequest as LockedDocumentRequest
 
 __all__ = ['LockedDocumentRequest']
 

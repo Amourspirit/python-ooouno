@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveBadTransferURLException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveBadTransferURLException as InteractiveBadTransferURLException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveBadTransferURLException as InteractiveBadTransferURLException
+    else:
+        from ...lo.ucb.interactive_bad_transfer_url_exception import InteractiveBadTransferURLException as InteractiveBadTransferURLException
 
 __all__ = ['InteractiveBadTransferURLException']
 

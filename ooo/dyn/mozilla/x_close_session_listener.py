@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.mozilla import XCloseSessionListener as XCloseSessionListener
     setattr(XCloseSessionListener, '__ooo_ns__', 'com.sun.star.mozilla')
     setattr(XCloseSessionListener, '__ooo_full_ns__', 'com.sun.star.mozilla.XCloseSessionListener')
     setattr(XCloseSessionListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.mozilla import XCloseSessionListener as XCloseSessionListener
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla import XCloseSessionListener as XCloseSessionListener
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.x_close_session_listener import XCloseSessionListener as XCloseSessionListener
 
 __all__ = ['XCloseSessionListener']
 

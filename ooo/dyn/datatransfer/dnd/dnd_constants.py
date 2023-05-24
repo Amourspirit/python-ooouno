@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DNDConstants(metaclass=UnoConstMeta, type_name="com.sun.star.datatransfer.dnd.DNDConstants", name_space="com.sun.star.datatransfer.dnd"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.datatransfer.dnd import DNDConstants as DNDConstants
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.dnd import DNDConstants as DNDConstants
+    else:
+        # keep document generators happy
+        from ....lo.datatransfer.dnd.dnd_constants import DNDConstants as DNDConstants
 
     class DNDConstantsEnum(IntEnum):
         """

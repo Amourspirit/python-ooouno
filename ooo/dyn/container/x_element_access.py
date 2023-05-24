@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XElementAccess as XElementAccess
     setattr(XElementAccess, '__ooo_ns__', 'com.sun.star.container')
     setattr(XElementAccess, '__ooo_full_ns__', 'com.sun.star.container.XElementAccess')
     setattr(XElementAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XElementAccess as XElementAccess
+    if TYPE_CHECKING:
+        from com.sun.star.container import XElementAccess as XElementAccess
+    else:
+        # keep document generators happy
+        from ...lo.container.x_element_access import XElementAccess as XElementAccess
 
 __all__ = ['XElementAccess']
 

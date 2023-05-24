@@ -20,60 +20,67 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.ConnectorType import CURVE as CONNECTOR_TYPE_CURVE
-    from com.sun.star.drawing.ConnectorType import LINE as CONNECTOR_TYPE_LINE
-    from com.sun.star.drawing.ConnectorType import LINES as CONNECTOR_TYPE_LINES
-    from com.sun.star.drawing.ConnectorType import STANDARD as CONNECTOR_TYPE_STANDARD
-
-    class ConnectorType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ConnectorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a086c6f6507c67c8809b218d90998c5d6>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.ConnectorType', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectorType'
-        __ooo_type_name__: str = 'enum'
-
-        CURVE = cast("ConnectorType", CONNECTOR_TYPE_CURVE)
-        """
-        the ConnectorShape is drawn as a curve
-        """
-        LINE = cast("ConnectorType", CONNECTOR_TYPE_LINE)
-        """
-        the ConnectorShape is drawn as a straight line
-        
-        This is the PolygonKind for a LineShape.
-        """
-        LINES = cast("ConnectorType", CONNECTOR_TYPE_LINES)
-        """
-        the connector is drawn with three lines
-        """
-        STANDARD = cast("ConnectorType", CONNECTOR_TYPE_STANDARD)
-        """
-        the graphic is rendered in the default color style of the output device,
-        
-        use the length measurement.
-        
-        the connector is drawn with three lines, with the middle line perpendicular to the other two
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ConnectorType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.ConnectorType", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.ConnectorType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.ConnectorType import CURVE as CONNECTOR_TYPE_CURVE
+        from com.sun.star.drawing.ConnectorType import LINE as CONNECTOR_TYPE_LINE
+        from com.sun.star.drawing.ConnectorType import LINES as CONNECTOR_TYPE_LINES
+        from com.sun.star.drawing.ConnectorType import STANDARD as CONNECTOR_TYPE_STANDARD
+
+        class ConnectorType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ConnectorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a086c6f6507c67c8809b218d90998c5d6>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.ConnectorType', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.ConnectorType'
+            __ooo_type_name__: str = 'enum'
+
+            CURVE = CONNECTOR_TYPE_CURVE
+            """
+            the ConnectorShape is drawn as a curve
+            """
+            LINE = CONNECTOR_TYPE_LINE
+            """
+            the ConnectorShape is drawn as a straight line
+
+            This is the PolygonKind for a LineShape.
+            """
+            LINES = CONNECTOR_TYPE_LINES
+            """
+            the connector is drawn with three lines
+            """
+            STANDARD = CONNECTOR_TYPE_STANDARD
+            """
+            the graphic is rendered in the default color style of the output device,
+
+            use the length measurement.
+
+            the connector is drawn with three lines, with the middle line perpendicular to the other two
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.connector_type import ConnectorType as ConnectorType
+
 
 __all__ = ['ConnectorType']

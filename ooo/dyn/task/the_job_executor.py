@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theJobExecutor = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.task.the_job_executor import theJobExecutor as theJobExecutor
+    if TYPE_CHECKING
+        from com.sun.star.task import theJobExecutor as theJobExecutor
+    else:
+        from ...lo.task.the_job_executor import theJobExecutor as theJobExecutor
 
 __all__ = ['theJobExecutor']

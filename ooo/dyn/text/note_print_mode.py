@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.text.NotePrintMode import DOC_END as NOTE_PRINT_MODE_DOC_END
-    from com.sun.star.text.NotePrintMode import NOT as NOTE_PRINT_MODE_NOT
-    from com.sun.star.text.NotePrintMode import ONLY as NOTE_PRINT_MODE_ONLY
-    from com.sun.star.text.NotePrintMode import PAGE_END as NOTE_PRINT_MODE_PAGE_END
-
-    class NotePrintMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API NotePrintMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a95d9f731f1389ee9f277e756b476251c>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.text.NotePrintMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.text'
-        __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
-        __ooo_type_name__: str = 'enum'
-
-        DOC_END = cast("NotePrintMode", NOTE_PRINT_MODE_DOC_END)
-        """
-        Notes are collected at the end of the document.
-        """
-        NOT = cast("NotePrintMode", NOTE_PRINT_MODE_NOT)
-        """
-        Notes are not printed.
-        """
-        ONLY = cast("NotePrintMode", NOTE_PRINT_MODE_ONLY)
-        """
-        Only notes are printed.
-        """
-        PAGE_END = cast("NotePrintMode", NOTE_PRINT_MODE_PAGE_END)
-        """
-        Notes are collected at the end of a page and printed on an inserted page.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class NotePrintMode(metaclass=UnoEnumMeta, type_name="com.sun.star.text.NotePrintMode", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.NotePrintMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.text.NotePrintMode import DOC_END as NOTE_PRINT_MODE_DOC_END
+        from com.sun.star.text.NotePrintMode import NOT as NOTE_PRINT_MODE_NOT
+        from com.sun.star.text.NotePrintMode import ONLY as NOTE_PRINT_MODE_ONLY
+        from com.sun.star.text.NotePrintMode import PAGE_END as NOTE_PRINT_MODE_PAGE_END
+
+        class NotePrintMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API NotePrintMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a95d9f731f1389ee9f277e756b476251c>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.text.NotePrintMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.text'
+            __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
+            __ooo_type_name__: str = 'enum'
+
+            DOC_END = NOTE_PRINT_MODE_DOC_END
+            """
+            Notes are collected at the end of the document.
+            """
+            NOT = NOTE_PRINT_MODE_NOT
+            """
+            Notes are not printed.
+            """
+            ONLY = NOTE_PRINT_MODE_ONLY
+            """
+            Only notes are printed.
+            """
+            PAGE_END = NOTE_PRINT_MODE_PAGE_END
+            """
+            Notes are collected at the end of a page and printed on an inserted page.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.text.note_print_mode import NotePrintMode as NotePrintMode
+
 
 __all__ = ['NotePrintMode']

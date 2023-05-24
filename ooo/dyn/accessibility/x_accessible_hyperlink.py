@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.accessibility import XAccessibleHyperlink as XAccessibleHyperlink
     setattr(XAccessibleHyperlink, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleHyperlink, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleHyperlink')
     setattr(XAccessibleHyperlink, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.accessibility import XAccessibleHyperlink as XAccessibleHyperlink
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import XAccessibleHyperlink as XAccessibleHyperlink
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.x_accessible_hyperlink import XAccessibleHyperlink as XAccessibleHyperlink
 
 __all__ = ['XAccessibleHyperlink']
 

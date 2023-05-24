@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.tools import XKeyAlteration as XKeyAlteration
     setattr(XKeyAlteration, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XKeyAlteration, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XKeyAlteration')
     setattr(XKeyAlteration, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.tools import XKeyAlteration as XKeyAlteration
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.tools import XKeyAlteration as XKeyAlteration
+    else:
+        # keep document generators happy
+        from ....lo.sdb.tools.x_key_alteration import XKeyAlteration as XKeyAlteration
 
 __all__ = ['XKeyAlteration']
 

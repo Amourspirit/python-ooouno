@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XUntitledNumbers as XUntitledNumbers
     setattr(XUntitledNumbers, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XUntitledNumbers, '__ooo_full_ns__', 'com.sun.star.frame.XUntitledNumbers')
     setattr(XUntitledNumbers, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XUntitledNumbers as XUntitledNumbers
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XUntitledNumbers as XUntitledNumbers
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_untitled_numbers import XUntitledNumbers as XUntitledNumbers
 
 __all__ = ['XUntitledNumbers']
 

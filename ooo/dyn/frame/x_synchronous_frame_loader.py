@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XSynchronousFrameLoader as XSynchronousFrameLoader
     setattr(XSynchronousFrameLoader, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XSynchronousFrameLoader, '__ooo_full_ns__', 'com.sun.star.frame.XSynchronousFrameLoader')
     setattr(XSynchronousFrameLoader, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XSynchronousFrameLoader as XSynchronousFrameLoader
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XSynchronousFrameLoader as XSynchronousFrameLoader
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_synchronous_frame_loader import XSynchronousFrameLoader as XSynchronousFrameLoader
 
 __all__ = ['XSynchronousFrameLoader']
 

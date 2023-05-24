@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XGroupsSupplier as XGroupsSupplier
     setattr(XGroupsSupplier, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XGroupsSupplier, '__ooo_full_ns__', 'com.sun.star.sdbcx.XGroupsSupplier')
     setattr(XGroupsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XGroupsSupplier as XGroupsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XGroupsSupplier as XGroupsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_groups_supplier import XGroupsSupplier as XGroupsSupplier
 
 __all__ = ['XGroupsSupplier']
 

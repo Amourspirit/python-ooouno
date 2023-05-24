@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoSuchElementException = _get_class()
 
 else:
-    from com.sun.star.container import NoSuchElementException as NoSuchElementException
+    if TYPE_CHECKING:
+        from com.sun.star.container import NoSuchElementException as NoSuchElementException
+    else:
+        from ...lo.container.no_such_element_exception import NoSuchElementException as NoSuchElementException
 
 __all__ = ['NoSuchElementException']
 

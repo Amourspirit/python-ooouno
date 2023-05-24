@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.dialogs import XControlAccess as XControlAccess
     setattr(XControlAccess, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XControlAccess, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XControlAccess')
     setattr(XControlAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.dialogs import XControlAccess as XControlAccess
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import XControlAccess as XControlAccess
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.x_control_access import XControlAccess as XControlAccess
 
 __all__ = ['XControlAccess']
 

@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Line1', 'Line2', 'Line3', 'Line4')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     HomogenMatrix = _get_class()
 
 else:
-    from com.sun.star.drawing import HomogenMatrix as HomogenMatrix
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import HomogenMatrix as HomogenMatrix
+    else:
+        # keep document generators happy
+        from ...lo.drawing.homogen_matrix import HomogenMatrix as HomogenMatrix
 
 __all__ = ['HomogenMatrix']
 

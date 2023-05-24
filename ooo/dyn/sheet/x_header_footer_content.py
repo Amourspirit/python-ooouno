@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XHeaderFooterContent as XHeaderFooterContent
     setattr(XHeaderFooterContent, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XHeaderFooterContent, '__ooo_full_ns__', 'com.sun.star.sheet.XHeaderFooterContent')
     setattr(XHeaderFooterContent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XHeaderFooterContent as XHeaderFooterContent
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XHeaderFooterContent as XHeaderFooterContent
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_header_footer_content import XHeaderFooterContent as XHeaderFooterContent
 
 __all__ = ['XHeaderFooterContent']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XRemoteContentProviderChangeNotifier as XRemoteContentProviderChangeNotifier
     setattr(XRemoteContentProviderChangeNotifier, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XRemoteContentProviderChangeNotifier, '__ooo_full_ns__', 'com.sun.star.ucb.XRemoteContentProviderChangeNotifier')
     setattr(XRemoteContentProviderChangeNotifier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XRemoteContentProviderChangeNotifier as XRemoteContentProviderChangeNotifier
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XRemoteContentProviderChangeNotifier as XRemoteContentProviderChangeNotifier
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_remote_content_provider_change_notifier import XRemoteContentProviderChangeNotifier as XRemoteContentProviderChangeNotifier
 
 __all__ = ['XRemoteContentProviderChangeNotifier']
 

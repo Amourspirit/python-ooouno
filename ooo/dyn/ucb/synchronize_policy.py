@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.ucb.SynchronizePolicy import CLIENT_IS_MASTER as SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
-    from com.sun.star.ucb.SynchronizePolicy import NONE_IS_MASTER as SYNCHRONIZE_POLICY_NONE_IS_MASTER
-    from com.sun.star.ucb.SynchronizePolicy import SERVER_IS_MASTER as SYNCHRONIZE_POLICY_SERVER_IS_MASTER
-
-    class SynchronizePolicy(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API SynchronizePolicy <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aaa633f0c45560a4367cb74d393c0c619>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.ucb.SynchronizePolicy', value)
-
-        __ooo_ns__: str = 'com.sun.star.ucb'
-        __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
-        __ooo_type_name__: str = 'enum'
-
-        CLIENT_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_CLIENT_IS_MASTER)
-        """
-        Client is master.
-        """
-        NONE_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_NONE_IS_MASTER)
-        """
-        None is master.
-        """
-        SERVER_IS_MASTER = cast("SynchronizePolicy", SYNCHRONIZE_POLICY_SERVER_IS_MASTER)
-        """
-        Server is master.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SynchronizePolicy(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.SynchronizePolicy", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.SynchronizePolicy`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.ucb.SynchronizePolicy import CLIENT_IS_MASTER as SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
+        from com.sun.star.ucb.SynchronizePolicy import NONE_IS_MASTER as SYNCHRONIZE_POLICY_NONE_IS_MASTER
+        from com.sun.star.ucb.SynchronizePolicy import SERVER_IS_MASTER as SYNCHRONIZE_POLICY_SERVER_IS_MASTER
+
+        class SynchronizePolicy(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API SynchronizePolicy <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aaa633f0c45560a4367cb74d393c0c619>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.ucb.SynchronizePolicy', value)
+
+            __ooo_ns__: str = 'com.sun.star.ucb'
+            __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
+            __ooo_type_name__: str = 'enum'
+
+            CLIENT_IS_MASTER = SYNCHRONIZE_POLICY_CLIENT_IS_MASTER
+            """
+            Client is master.
+            """
+            NONE_IS_MASTER = SYNCHRONIZE_POLICY_NONE_IS_MASTER
+            """
+            None is master.
+            """
+            SERVER_IS_MASTER = SYNCHRONIZE_POLICY_SERVER_IS_MASTER
+            """
+            Server is master.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.ucb.synchronize_policy import SynchronizePolicy as SynchronizePolicy
+
 
 __all__ = ['SynchronizePolicy']

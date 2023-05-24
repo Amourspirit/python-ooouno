@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XActivationBroadcaster as XActivationBroadcaster
     setattr(XActivationBroadcaster, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XActivationBroadcaster, '__ooo_full_ns__', 'com.sun.star.sheet.XActivationBroadcaster')
     setattr(XActivationBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XActivationBroadcaster as XActivationBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XActivationBroadcaster as XActivationBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_activation_broadcaster import XActivationBroadcaster as XActivationBroadcaster
 
 __all__ = ['XActivationBroadcaster']
 

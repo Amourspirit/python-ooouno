@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XContentEventListener as XContentEventListener
     setattr(XContentEventListener, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XContentEventListener, '__ooo_full_ns__', 'com.sun.star.ucb.XContentEventListener')
     setattr(XContentEventListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XContentEventListener as XContentEventListener
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XContentEventListener as XContentEventListener
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_content_event_listener import XContentEventListener as XContentEventListener
 
 __all__ = ['XContentEventListener']
 

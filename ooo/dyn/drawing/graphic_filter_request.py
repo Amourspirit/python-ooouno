@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     GraphicFilterRequest = _get_class()
 
 else:
-    from com.sun.star.drawing import GraphicFilterRequest as GraphicFilterRequest
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import GraphicFilterRequest as GraphicFilterRequest
+    else:
+        from ...lo.drawing.graphic_filter_request import GraphicFilterRequest as GraphicFilterRequest
 
 __all__ = ['GraphicFilterRequest']
 

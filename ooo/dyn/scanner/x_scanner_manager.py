@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.scanner import XScannerManager as XScannerManager
     setattr(XScannerManager, '__ooo_ns__', 'com.sun.star.scanner')
     setattr(XScannerManager, '__ooo_full_ns__', 'com.sun.star.scanner.XScannerManager')
     setattr(XScannerManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.scanner import XScannerManager as XScannerManager
+    if TYPE_CHECKING:
+        from com.sun.star.scanner import XScannerManager as XScannerManager
+    else:
+        # keep document generators happy
+        from ...lo.scanner.x_scanner_manager import XScannerManager as XScannerManager
 
 __all__ = ['XScannerManager']
 

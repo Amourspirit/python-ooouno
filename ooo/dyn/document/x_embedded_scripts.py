@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XEmbeddedScripts as XEmbeddedScripts
     setattr(XEmbeddedScripts, '__ooo_ns__', 'com.sun.star.document')
     setattr(XEmbeddedScripts, '__ooo_full_ns__', 'com.sun.star.document.XEmbeddedScripts')
     setattr(XEmbeddedScripts, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XEmbeddedScripts as XEmbeddedScripts
+    if TYPE_CHECKING:
+        from com.sun.star.document import XEmbeddedScripts as XEmbeddedScripts
+    else:
+        # keep document generators happy
+        from ...lo.document.x_embedded_scripts import XEmbeddedScripts as XEmbeddedScripts
 
 __all__ = ['XEmbeddedScripts']
 

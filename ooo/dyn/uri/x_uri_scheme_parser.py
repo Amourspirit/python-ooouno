@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uri import XUriSchemeParser as XUriSchemeParser
     setattr(XUriSchemeParser, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XUriSchemeParser, '__ooo_full_ns__', 'com.sun.star.uri.XUriSchemeParser')
     setattr(XUriSchemeParser, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uri import XUriSchemeParser as XUriSchemeParser
+    if TYPE_CHECKING:
+        from com.sun.star.uri import XUriSchemeParser as XUriSchemeParser
+    else:
+        # keep document generators happy
+        from ...lo.uri.x_uri_scheme_parser import XUriSchemeParser as XUriSchemeParser
 
 __all__ = ['XUriSchemeParser']
 

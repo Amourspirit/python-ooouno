@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XEventBroadcaster as XEventBroadcaster
     setattr(XEventBroadcaster, '__ooo_ns__', 'com.sun.star.document')
     setattr(XEventBroadcaster, '__ooo_full_ns__', 'com.sun.star.document.XEventBroadcaster')
     setattr(XEventBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XEventBroadcaster as XEventBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.document import XEventBroadcaster as XEventBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.document.x_event_broadcaster import XEventBroadcaster as XEventBroadcaster
 
 __all__ = ['XEventBroadcaster']
 

@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theStatusbarControllerFactory = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.frame.the_statusbar_controller_factory import theStatusbarControllerFactory as theStatusbarControllerFactory
+    if TYPE_CHECKING
+        from com.sun.star.frame import theStatusbarControllerFactory as theStatusbarControllerFactory
+    else:
+        from ...lo.frame.the_statusbar_controller_factory import theStatusbarControllerFactory as theStatusbarControllerFactory
 
 __all__ = ['theStatusbarControllerFactory']

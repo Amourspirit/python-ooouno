@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class SearchFlags(metaclass=UnoConstMeta, type_name="com.sun.star.util.SearchFlags", name_space="com.sun.star.util"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.util import SearchFlags as SearchFlags
+    if TYPE_CHECKING:
+        from com.sun.star.util import SearchFlags as SearchFlags
+    else:
+        # keep document generators happy
+        from ...lo.util.search_flags import SearchFlags as SearchFlags
 
     class SearchFlagsEnum(IntFlag):
         """

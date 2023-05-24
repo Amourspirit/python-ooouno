@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XReplaceable as XReplaceable
     setattr(XReplaceable, '__ooo_ns__', 'com.sun.star.util')
     setattr(XReplaceable, '__ooo_full_ns__', 'com.sun.star.util.XReplaceable')
     setattr(XReplaceable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XReplaceable as XReplaceable
+    if TYPE_CHECKING:
+        from com.sun.star.util import XReplaceable as XReplaceable
+    else:
+        # keep document generators happy
+        from ...lo.util.x_replaceable import XReplaceable as XReplaceable
 
 __all__ = ['XReplaceable']
 

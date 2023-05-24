@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.beans import XHierarchicalPropertySet as XHierarchicalPropertySet
     setattr(XHierarchicalPropertySet, '__ooo_ns__', 'com.sun.star.beans')
     setattr(XHierarchicalPropertySet, '__ooo_full_ns__', 'com.sun.star.beans.XHierarchicalPropertySet')
     setattr(XHierarchicalPropertySet, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.beans import XHierarchicalPropertySet as XHierarchicalPropertySet
+    if TYPE_CHECKING:
+        from com.sun.star.beans import XHierarchicalPropertySet as XHierarchicalPropertySet
+    else:
+        # keep document generators happy
+        from ...lo.beans.x_hierarchical_property_set import XHierarchicalPropertySet as XHierarchicalPropertySet
 
 __all__ = ['XHierarchicalPropertySet']
 

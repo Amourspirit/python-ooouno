@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XVclContainerPeer as XVclContainerPeer
     setattr(XVclContainerPeer, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XVclContainerPeer, '__ooo_full_ns__', 'com.sun.star.awt.XVclContainerPeer')
     setattr(XVclContainerPeer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XVclContainerPeer as XVclContainerPeer
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XVclContainerPeer as XVclContainerPeer
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_vcl_container_peer import XVclContainerPeer as XVclContainerPeer
 
 __all__ = ['XVclContainerPeer']
 

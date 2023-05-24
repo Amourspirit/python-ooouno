@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class SimpleMailClientFlags(metaclass=UnoConstMeta, type_name="com.sun.star.system.SimpleMailClientFlags", name_space="com.sun.star.system"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.system import SimpleMailClientFlags as SimpleMailClientFlags
+    if TYPE_CHECKING:
+        from com.sun.star.system import SimpleMailClientFlags as SimpleMailClientFlags
+    else:
+        # keep document generators happy
+        from ...lo.system.simple_mail_client_flags import SimpleMailClientFlags as SimpleMailClientFlags
 
     class SimpleMailClientFlagsEnum(IntEnum):
         """

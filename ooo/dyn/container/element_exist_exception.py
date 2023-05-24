@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ElementExistException = _get_class()
 
 else:
-    from com.sun.star.container import ElementExistException as ElementExistException
+    if TYPE_CHECKING:
+        from com.sun.star.container import ElementExistException as ElementExistException
+    else:
+        from ...lo.container.element_exist_exception import ElementExistException as ElementExistException
 
 __all__ = ['ElementExistException']
 

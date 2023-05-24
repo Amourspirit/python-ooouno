@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XCollator as XCollator
     setattr(XCollator, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XCollator, '__ooo_full_ns__', 'com.sun.star.i18n.XCollator')
     setattr(XCollator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XCollator as XCollator
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XCollator as XCollator
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_collator import XCollator as XCollator
 
 __all__ = ['XCollator']
 

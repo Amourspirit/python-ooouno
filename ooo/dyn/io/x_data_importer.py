@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.io import XDataImporter as XDataImporter
     setattr(XDataImporter, '__ooo_ns__', 'com.sun.star.io')
     setattr(XDataImporter, '__ooo_full_ns__', 'com.sun.star.io.XDataImporter')
     setattr(XDataImporter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.io import XDataImporter as XDataImporter
+    if TYPE_CHECKING:
+        from com.sun.star.io import XDataImporter as XDataImporter
+    else:
+        # keep document generators happy
+        from ...lo.io.x_data_importer import XDataImporter as XDataImporter
 
 __all__ = ['XDataImporter']
 

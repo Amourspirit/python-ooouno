@@ -20,52 +20,59 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import NORMAL as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import PATH as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import SHAPE as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
-
-    class EnhancedCustomShapeTextPathMode(uno.Enum):
-        """
-        Enum Class
-
-        ENUM EnhancedCustomShapeTextPathMode
-
-        See Also:
-            `API EnhancedCustomShapeTextPathMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0babaeb0d04df312f158184b26a302d6>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.EnhancedCustomShapeTextPathMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
-        __ooo_type_name__: str = 'enum'
-
-        NORMAL = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL)
-        """
-        the text is drawn along the path without scaling.
-        
-        the point is normal, from the curve discussion view.
-        """
-        PATH = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH)
-        """
-        the text is fit to the path.
-        """
-        SHAPE = cast("EnhancedCustomShapeTextPathMode", ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE)
-        """
-        the text is fit to the bounding box of the shape.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class EnhancedCustomShapeTextPathMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeTextPathMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.EnhancedCustomShapeTextPathMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import NORMAL as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
+        from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import PATH as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
+        from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import SHAPE as ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
+
+        class EnhancedCustomShapeTextPathMode(uno.Enum):
+            """
+            Enum Class
+
+            ENUM EnhancedCustomShapeTextPathMode
+
+            See Also:
+                `API EnhancedCustomShapeTextPathMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0babaeb0d04df312f158184b26a302d6>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.EnhancedCustomShapeTextPathMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
+            __ooo_type_name__: str = 'enum'
+
+            NORMAL = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_NORMAL
+            """
+            the text is drawn along the path without scaling.
+
+            the point is normal, from the curve discussion view.
+            """
+            PATH = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_PATH
+            """
+            the text is fit to the path.
+            """
+            SHAPE = ENHANCED_CUSTOM_SHAPE_TEXT_PATH_MODE_SHAPE
+            """
+            the text is fit to the bounding box of the shape.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.enhanced_custom_shape_text_path_mode import EnhancedCustomShapeTextPathMode as EnhancedCustomShapeTextPathMode
+
 
 __all__ = ['EnhancedCustomShapeTextPathMode']

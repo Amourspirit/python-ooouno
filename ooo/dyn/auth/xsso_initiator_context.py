@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.auth import XSSOInitiatorContext as XSSOInitiatorContext
     setattr(XSSOInitiatorContext, '__ooo_ns__', 'com.sun.star.auth')
     setattr(XSSOInitiatorContext, '__ooo_full_ns__', 'com.sun.star.auth.XSSOInitiatorContext')
     setattr(XSSOInitiatorContext, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.auth import XSSOInitiatorContext as XSSOInitiatorContext
+    if TYPE_CHECKING:
+        from com.sun.star.auth import XSSOInitiatorContext as XSSOInitiatorContext
+    else:
+        # keep document generators happy
+        from ...lo.auth.xsso_initiator_context import XSSOInitiatorContext as XSSOInitiatorContext
 
 __all__ = ['XSSOInitiatorContext']
 

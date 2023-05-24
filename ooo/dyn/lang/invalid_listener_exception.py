@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidListenerException = _get_class()
 
 else:
-    from com.sun.star.lang import InvalidListenerException as InvalidListenerException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import InvalidListenerException as InvalidListenerException
+    else:
+        from ...lo.lang.invalid_listener_exception import InvalidListenerException as InvalidListenerException
 
 __all__ = ['InvalidListenerException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XVbaMethodParameter as XVbaMethodParameter
     setattr(XVbaMethodParameter, '__ooo_ns__', 'com.sun.star.document')
     setattr(XVbaMethodParameter, '__ooo_full_ns__', 'com.sun.star.document.XVbaMethodParameter')
     setattr(XVbaMethodParameter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XVbaMethodParameter as XVbaMethodParameter
+    if TYPE_CHECKING:
+        from com.sun.star.document import XVbaMethodParameter as XVbaMethodParameter
+    else:
+        # keep document generators happy
+        from ...lo.document.x_vba_method_parameter import XVbaMethodParameter as XVbaMethodParameter
 
 __all__ = ['XVbaMethodParameter']
 

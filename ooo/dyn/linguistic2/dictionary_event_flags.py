@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DictionaryEventFlags(metaclass=UnoConstMeta, type_name="com.sun.star.linguistic2.DictionaryEventFlags", name_space="com.sun.star.linguistic2"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.linguistic2 import DictionaryEventFlags as DictionaryEventFlags
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import DictionaryEventFlags as DictionaryEventFlags
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.dictionary_event_flags import DictionaryEventFlags as DictionaryEventFlags
 
     class DictionaryEventFlagsEnum(IntFlag):
         """

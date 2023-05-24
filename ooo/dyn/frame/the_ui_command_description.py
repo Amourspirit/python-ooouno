@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theUICommandDescription = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.frame.the_ui_command_description import theUICommandDescription as theUICommandDescription
+    if TYPE_CHECKING
+        from com.sun.star.frame import theUICommandDescription as theUICommandDescription
+    else:
+        from ...lo.frame.the_ui_command_description import theUICommandDescription as theUICommandDescription
 
 __all__ = ['theUICommandDescription']

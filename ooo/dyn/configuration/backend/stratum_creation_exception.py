@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     StratumCreationException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import StratumCreationException as StratumCreationException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import StratumCreationException as StratumCreationException
+    else:
+        from ....lo.configuration.backend.stratum_creation_exception import StratumCreationException as StratumCreationException
 
 __all__ = ['StratumCreationException']
 

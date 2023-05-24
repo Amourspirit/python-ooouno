@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class BrowseNodeFactoryViewTypes(metaclass=UnoConstMeta, type_name="com.sun.star.script.browse.BrowseNodeFactoryViewTypes", name_space="com.sun.star.script.browse"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.script.browse import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
+    if TYPE_CHECKING:
+        from com.sun.star.script.browse import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
+    else:
+        # keep document generators happy
+        from ....lo.script.browse.browse_node_factory_view_types import BrowseNodeFactoryViewTypes as BrowseNodeFactoryViewTypes
 
     class BrowseNodeFactoryViewTypesEnum(IntEnum):
         """

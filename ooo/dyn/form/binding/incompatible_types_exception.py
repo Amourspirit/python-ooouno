@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IncompatibleTypesException = _get_class()
 
 else:
-    from com.sun.star.form.binding import IncompatibleTypesException as IncompatibleTypesException
+    if TYPE_CHECKING:
+        from com.sun.star.form.binding import IncompatibleTypesException as IncompatibleTypesException
+    else:
+        from ....lo.form.binding.incompatible_types_exception import IncompatibleTypesException as IncompatibleTypesException
 
 __all__ = ['IncompatibleTypesException']
 

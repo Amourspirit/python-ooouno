@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XRubySelection as XRubySelection
     setattr(XRubySelection, '__ooo_ns__', 'com.sun.star.text')
     setattr(XRubySelection, '__ooo_full_ns__', 'com.sun.star.text.XRubySelection')
     setattr(XRubySelection, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XRubySelection as XRubySelection
+    if TYPE_CHECKING:
+        from com.sun.star.text import XRubySelection as XRubySelection
+    else:
+        # keep document generators happy
+        from ...lo.text.x_ruby_selection import XRubySelection as XRubySelection
 
 __all__ = ['XRubySelection']
 

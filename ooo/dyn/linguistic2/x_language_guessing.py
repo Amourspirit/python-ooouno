@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XLanguageGuessing as XLanguageGuessing
     setattr(XLanguageGuessing, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XLanguageGuessing, '__ooo_full_ns__', 'com.sun.star.linguistic2.XLanguageGuessing')
     setattr(XLanguageGuessing, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XLanguageGuessing as XLanguageGuessing
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XLanguageGuessing as XLanguageGuessing
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_language_guessing import XLanguageGuessing as XLanguageGuessing
 
 __all__ = ['XLanguageGuessing']
 

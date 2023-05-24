@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class WhiteSpaceTreatment(metaclass=UnoConstMeta, type_name="com.sun.star.xsd.WhiteSpaceTreatment", name_space="com.sun.star.xsd"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.xsd import WhiteSpaceTreatment as WhiteSpaceTreatment
+    if TYPE_CHECKING:
+        from com.sun.star.xsd import WhiteSpaceTreatment as WhiteSpaceTreatment
+    else:
+        # keep document generators happy
+        from ...lo.xsd.white_space_treatment import WhiteSpaceTreatment as WhiteSpaceTreatment
 
     class WhiteSpaceTreatmentEnum(IntEnum):
         """

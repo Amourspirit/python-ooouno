@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XMasterPageTarget as XMasterPageTarget
     setattr(XMasterPageTarget, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XMasterPageTarget, '__ooo_full_ns__', 'com.sun.star.drawing.XMasterPageTarget')
     setattr(XMasterPageTarget, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XMasterPageTarget as XMasterPageTarget
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XMasterPageTarget as XMasterPageTarget
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_master_page_target import XMasterPageTarget as XMasterPageTarget
 
 __all__ = ['XMasterPageTarget']
 

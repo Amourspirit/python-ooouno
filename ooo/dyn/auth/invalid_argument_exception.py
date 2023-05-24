@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidArgumentException = _get_class()
 
 else:
-    from com.sun.star.auth import InvalidArgumentException as InvalidArgumentException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import InvalidArgumentException as InvalidArgumentException
+    else:
+        from ...lo.auth.invalid_argument_exception import InvalidArgumentException as InvalidArgumentException
 
 __all__ = ['InvalidArgumentException']
 

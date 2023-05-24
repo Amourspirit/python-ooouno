@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.validation import XValidityConstraintListener as XValidityConstraintListener
     setattr(XValidityConstraintListener, '__ooo_ns__', 'com.sun.star.form.validation')
     setattr(XValidityConstraintListener, '__ooo_full_ns__', 'com.sun.star.form.validation.XValidityConstraintListener')
     setattr(XValidityConstraintListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.validation import XValidityConstraintListener as XValidityConstraintListener
+    if TYPE_CHECKING:
+        from com.sun.star.form.validation import XValidityConstraintListener as XValidityConstraintListener
+    else:
+        # keep document generators happy
+        from ....lo.form.validation.x_validity_constraint_listener import XValidityConstraintListener as XValidityConstraintListener
 
 __all__ = ['XValidityConstraintListener']
 

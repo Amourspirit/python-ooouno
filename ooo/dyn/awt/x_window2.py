@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XWindow2 as XWindow2
     setattr(XWindow2, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XWindow2, '__ooo_full_ns__', 'com.sun.star.awt.XWindow2')
     setattr(XWindow2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XWindow2 as XWindow2
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XWindow2 as XWindow2
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_window2 import XWindow2 as XWindow2
 
 __all__ = ['XWindow2']
 

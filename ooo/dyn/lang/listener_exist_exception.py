@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ListenerExistException = _get_class()
 
 else:
-    from com.sun.star.lang import ListenerExistException as ListenerExistException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import ListenerExistException as ListenerExistException
+    else:
+        from ...lo.lang.listener_exist_exception import ListenerExistException as ListenerExistException
 
 __all__ = ['ListenerExistException']
 

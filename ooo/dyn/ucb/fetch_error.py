@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FetchError(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.FetchError", name_space="com.sun.star.ucb"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ucb import FetchError as FetchError
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import FetchError as FetchError
+    else:
+        # keep document generators happy
+        from ...lo.ucb.fetch_error import FetchError as FetchError
 
     class FetchErrorEnum(IntEnum):
         """

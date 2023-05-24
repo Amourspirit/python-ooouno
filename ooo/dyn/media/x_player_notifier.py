@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.media import XPlayerNotifier as XPlayerNotifier
     setattr(XPlayerNotifier, '__ooo_ns__', 'com.sun.star.media')
     setattr(XPlayerNotifier, '__ooo_full_ns__', 'com.sun.star.media.XPlayerNotifier')
     setattr(XPlayerNotifier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.media import XPlayerNotifier as XPlayerNotifier
+    if TYPE_CHECKING:
+        from com.sun.star.media import XPlayerNotifier as XPlayerNotifier
+    else:
+        # keep document generators happy
+        from ...lo.media.x_player_notifier import XPlayerNotifier as XPlayerNotifier
 
 __all__ = ['XPlayerNotifier']
 

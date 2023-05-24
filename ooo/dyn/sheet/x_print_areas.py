@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XPrintAreas as XPrintAreas
     setattr(XPrintAreas, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XPrintAreas, '__ooo_full_ns__', 'com.sun.star.sheet.XPrintAreas')
     setattr(XPrintAreas, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XPrintAreas as XPrintAreas
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XPrintAreas as XPrintAreas
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_print_areas import XPrintAreas as XPrintAreas
 
 __all__ = ['XPrintAreas']
 

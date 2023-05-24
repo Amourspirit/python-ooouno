@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XCompatWriterDocProperties as XCompatWriterDocProperties
     setattr(XCompatWriterDocProperties, '__ooo_ns__', 'com.sun.star.document')
     setattr(XCompatWriterDocProperties, '__ooo_full_ns__', 'com.sun.star.document.XCompatWriterDocProperties')
     setattr(XCompatWriterDocProperties, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XCompatWriterDocProperties as XCompatWriterDocProperties
+    if TYPE_CHECKING:
+        from com.sun.star.document import XCompatWriterDocProperties as XCompatWriterDocProperties
+    else:
+        # keep document generators happy
+        from ...lo.document.x_compat_writer_doc_properties import XCompatWriterDocProperties as XCompatWriterDocProperties
 
 __all__ = ['XCompatWriterDocProperties']
 

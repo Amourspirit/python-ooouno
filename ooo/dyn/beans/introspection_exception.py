@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IntrospectionException = _get_class()
 
 else:
-    from com.sun.star.beans import IntrospectionException as IntrospectionException
+    if TYPE_CHECKING:
+        from com.sun.star.beans import IntrospectionException as IntrospectionException
+    else:
+        from ...lo.beans.introspection_exception import IntrospectionException as IntrospectionException
 
 __all__ = ['IntrospectionException']
 

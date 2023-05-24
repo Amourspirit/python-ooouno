@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XOutParameters as XOutParameters
     setattr(XOutParameters, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XOutParameters, '__ooo_full_ns__', 'com.sun.star.sdbc.XOutParameters')
     setattr(XOutParameters, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XOutParameters as XOutParameters
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XOutParameters as XOutParameters
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_out_parameters import XOutParameters as XOutParameters
 
 __all__ = ['XOutParameters']
 

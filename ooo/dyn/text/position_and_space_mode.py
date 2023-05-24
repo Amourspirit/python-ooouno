@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class PositionAndSpaceMode(metaclass=UnoConstMeta, type_name="com.sun.star.text.PositionAndSpaceMode", name_space="com.sun.star.text"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text import PositionAndSpaceMode as PositionAndSpaceMode
+    if TYPE_CHECKING:
+        from com.sun.star.text import PositionAndSpaceMode as PositionAndSpaceMode
+    else:
+        # keep document generators happy
+        from ...lo.text.position_and_space_mode import PositionAndSpaceMode as PositionAndSpaceMode
 
     class PositionAndSpaceModeEnum(IntEnum):
         """

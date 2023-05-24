@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ShapeAnimationSubType(metaclass=UnoConstMeta, type_name="com.sun.star.presentation.ShapeAnimationSubType", name_space="com.sun.star.presentation"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.presentation import ShapeAnimationSubType as ShapeAnimationSubType
+    if TYPE_CHECKING:
+        from com.sun.star.presentation import ShapeAnimationSubType as ShapeAnimationSubType
+    else:
+        # keep document generators happy
+        from ...lo.presentation.shape_animation_sub_type import ShapeAnimationSubType as ShapeAnimationSubType
 
     class ShapeAnimationSubTypeEnum(IntEnum):
         """

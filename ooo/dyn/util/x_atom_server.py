@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XAtomServer as XAtomServer
     setattr(XAtomServer, '__ooo_ns__', 'com.sun.star.util')
     setattr(XAtomServer, '__ooo_full_ns__', 'com.sun.star.util.XAtomServer')
     setattr(XAtomServer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XAtomServer as XAtomServer
+    if TYPE_CHECKING:
+        from com.sun.star.util import XAtomServer as XAtomServer
+    else:
+        # keep document generators happy
+        from ...lo.util.x_atom_server import XAtomServer as XAtomServer
 
 __all__ = ['XAtomServer']
 

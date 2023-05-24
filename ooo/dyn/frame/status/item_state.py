@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ItemState(metaclass=UnoConstMeta, type_name="com.sun.star.frame.status.ItemState", name_space="com.sun.star.frame.status"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.frame.status import ItemState as ItemState
+    if TYPE_CHECKING:
+        from com.sun.star.frame.status import ItemState as ItemState
+    else:
+        # keep document generators happy
+        from ....lo.frame.status.item_state import ItemState as ItemState
 
     class ItemStateEnum(IntFlag):
         """

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XMtfRenderer as XMtfRenderer
     setattr(XMtfRenderer, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XMtfRenderer, '__ooo_full_ns__', 'com.sun.star.rendering.XMtfRenderer')
     setattr(XMtfRenderer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XMtfRenderer as XMtfRenderer
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XMtfRenderer as XMtfRenderer
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_mtf_renderer import XMtfRenderer as XMtfRenderer
 
 __all__ = ['XMtfRenderer']
 

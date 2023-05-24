@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XTextLayout as XTextLayout
     setattr(XTextLayout, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XTextLayout, '__ooo_full_ns__', 'com.sun.star.rendering.XTextLayout')
     setattr(XTextLayout, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XTextLayout as XTextLayout
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XTextLayout as XTextLayout
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_text_layout import XTextLayout as XTextLayout
 
 __all__ = ['XTextLayout']
 

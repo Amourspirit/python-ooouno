@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnknownPropertyException = _get_class()
 
 else:
-    from com.sun.star.beans import UnknownPropertyException as UnknownPropertyException
+    if TYPE_CHECKING:
+        from com.sun.star.beans import UnknownPropertyException as UnknownPropertyException
+    else:
+        from ...lo.beans.unknown_property_exception import UnknownPropertyException as UnknownPropertyException
 
 __all__ = ['UnknownPropertyException']
 

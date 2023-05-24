@@ -20,99 +20,106 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.xml.dom.events.EventType import DOMActivate as EVENT_TYPE_DOMActivate
-    from com.sun.star.xml.dom.events.EventType import DOMAttrModified as EVENT_TYPE_DOMAttrModified
-    from com.sun.star.xml.dom.events.EventType import DOMCharacterDataModified as EVENT_TYPE_DOMCharacterDataModified
-    from com.sun.star.xml.dom.events.EventType import DOMFocusIn as EVENT_TYPE_DOMFocusIn
-    from com.sun.star.xml.dom.events.EventType import DOMFocusOut as EVENT_TYPE_DOMFocusOut
-    from com.sun.star.xml.dom.events.EventType import DOMNodeInserted as EVENT_TYPE_DOMNodeInserted
-    from com.sun.star.xml.dom.events.EventType import DOMNodeInsertedIntoDocument as EVENT_TYPE_DOMNodeInsertedIntoDocument
-    from com.sun.star.xml.dom.events.EventType import DOMNodeRemoved as EVENT_TYPE_DOMNodeRemoved
-    from com.sun.star.xml.dom.events.EventType import DOMNodeRemovedFromDocument as EVENT_TYPE_DOMNodeRemovedFromDocument
-    from com.sun.star.xml.dom.events.EventType import DOMSubtreeModified as EVENT_TYPE_DOMSubtreeModified
-    from com.sun.star.xml.dom.events.EventType import click as EVENT_TYPE_click
-    from com.sun.star.xml.dom.events.EventType import mousedown as EVENT_TYPE_mousedown
-    from com.sun.star.xml.dom.events.EventType import mousemove as EVENT_TYPE_mousemove
-    from com.sun.star.xml.dom.events.EventType import mouseout as EVENT_TYPE_mouseout
-    from com.sun.star.xml.dom.events.EventType import mouseover as EVENT_TYPE_mouseover
-    from com.sun.star.xml.dom.events.EventType import mouseup as EVENT_TYPE_mouseup
-
-    class EventType(uno.Enum):
-        """
-        Enum Class
-
-        ENUM EventType
-
-        See Also:
-            `API EventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#a2628ea8d12e8b2563c32f05dc7fff6fa>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.xml.dom.events.EventType', value)
-
-        __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-        __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.EventType'
-        __ooo_type_name__: str = 'enum'
-
-        DOMActivate = cast("EventType", EVENT_TYPE_DOMActivate)
-        """
-        """
-        DOMAttrModified = cast("EventType", EVENT_TYPE_DOMAttrModified)
-        """
-        """
-        DOMCharacterDataModified = cast("EventType", EVENT_TYPE_DOMCharacterDataModified)
-        """
-        """
-        DOMFocusIn = cast("EventType", EVENT_TYPE_DOMFocusIn)
-        """
-        """
-        DOMFocusOut = cast("EventType", EVENT_TYPE_DOMFocusOut)
-        """
-        """
-        DOMNodeInserted = cast("EventType", EVENT_TYPE_DOMNodeInserted)
-        """
-        """
-        DOMNodeInsertedIntoDocument = cast("EventType", EVENT_TYPE_DOMNodeInsertedIntoDocument)
-        """
-        """
-        DOMNodeRemoved = cast("EventType", EVENT_TYPE_DOMNodeRemoved)
-        """
-        """
-        DOMNodeRemovedFromDocument = cast("EventType", EVENT_TYPE_DOMNodeRemovedFromDocument)
-        """
-        """
-        DOMSubtreeModified = cast("EventType", EVENT_TYPE_DOMSubtreeModified)
-        """
-        """
-        click = cast("EventType", EVENT_TYPE_click)
-        """
-        """
-        mousedown = cast("EventType", EVENT_TYPE_mousedown)
-        """
-        """
-        mousemove = cast("EventType", EVENT_TYPE_mousemove)
-        """
-        """
-        mouseout = cast("EventType", EVENT_TYPE_mouseout)
-        """
-        """
-        mouseover = cast("EventType", EVENT_TYPE_mouseover)
-        """
-        """
-        mouseup = cast("EventType", EVENT_TYPE_mouseup)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class EventType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.events.EventType", name_space="com.sun.star.xml.dom.events"):
         """Dynamically created class that represents ``com.sun.star.xml.dom.events.EventType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.events.EventType import DOMActivate as EVENT_TYPE_DOMActivate
+        from com.sun.star.xml.dom.events.EventType import DOMAttrModified as EVENT_TYPE_DOMAttrModified
+        from com.sun.star.xml.dom.events.EventType import DOMCharacterDataModified as EVENT_TYPE_DOMCharacterDataModified
+        from com.sun.star.xml.dom.events.EventType import DOMFocusIn as EVENT_TYPE_DOMFocusIn
+        from com.sun.star.xml.dom.events.EventType import DOMFocusOut as EVENT_TYPE_DOMFocusOut
+        from com.sun.star.xml.dom.events.EventType import DOMNodeInserted as EVENT_TYPE_DOMNodeInserted
+        from com.sun.star.xml.dom.events.EventType import DOMNodeInsertedIntoDocument as EVENT_TYPE_DOMNodeInsertedIntoDocument
+        from com.sun.star.xml.dom.events.EventType import DOMNodeRemoved as EVENT_TYPE_DOMNodeRemoved
+        from com.sun.star.xml.dom.events.EventType import DOMNodeRemovedFromDocument as EVENT_TYPE_DOMNodeRemovedFromDocument
+        from com.sun.star.xml.dom.events.EventType import DOMSubtreeModified as EVENT_TYPE_DOMSubtreeModified
+        from com.sun.star.xml.dom.events.EventType import click as EVENT_TYPE_click
+        from com.sun.star.xml.dom.events.EventType import mousedown as EVENT_TYPE_mousedown
+        from com.sun.star.xml.dom.events.EventType import mousemove as EVENT_TYPE_mousemove
+        from com.sun.star.xml.dom.events.EventType import mouseout as EVENT_TYPE_mouseout
+        from com.sun.star.xml.dom.events.EventType import mouseover as EVENT_TYPE_mouseover
+        from com.sun.star.xml.dom.events.EventType import mouseup as EVENT_TYPE_mouseup
+
+        class EventType(uno.Enum):
+            """
+            Enum Class
+
+            ENUM EventType
+
+            See Also:
+                `API EventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#a2628ea8d12e8b2563c32f05dc7fff6fa>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.xml.dom.events.EventType', value)
+
+            __ooo_ns__: str = 'com.sun.star.xml.dom.events'
+            __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.EventType'
+            __ooo_type_name__: str = 'enum'
+
+            DOMActivate = EVENT_TYPE_DOMActivate
+            """
+            """
+            DOMAttrModified = EVENT_TYPE_DOMAttrModified
+            """
+            """
+            DOMCharacterDataModified = EVENT_TYPE_DOMCharacterDataModified
+            """
+            """
+            DOMFocusIn = EVENT_TYPE_DOMFocusIn
+            """
+            """
+            DOMFocusOut = EVENT_TYPE_DOMFocusOut
+            """
+            """
+            DOMNodeInserted = EVENT_TYPE_DOMNodeInserted
+            """
+            """
+            DOMNodeInsertedIntoDocument = EVENT_TYPE_DOMNodeInsertedIntoDocument
+            """
+            """
+            DOMNodeRemoved = EVENT_TYPE_DOMNodeRemoved
+            """
+            """
+            DOMNodeRemovedFromDocument = EVENT_TYPE_DOMNodeRemovedFromDocument
+            """
+            """
+            DOMSubtreeModified = EVENT_TYPE_DOMSubtreeModified
+            """
+            """
+            click = EVENT_TYPE_click
+            """
+            """
+            mousedown = EVENT_TYPE_mousedown
+            """
+            """
+            mousemove = EVENT_TYPE_mousemove
+            """
+            """
+            mouseout = EVENT_TYPE_mouseout
+            """
+            """
+            mouseover = EVENT_TYPE_mouseover
+            """
+            """
+            mouseup = EVENT_TYPE_mouseup
+            """
+            """
+    else:
+        # keep document generators happy
+        from .....lo.xml.dom.events.event_type import EventType as EventType
+
 
 __all__ = ['EventType']

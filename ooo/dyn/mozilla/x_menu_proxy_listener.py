@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.mozilla import XMenuProxyListener as XMenuProxyListener
     setattr(XMenuProxyListener, '__ooo_ns__', 'com.sun.star.mozilla')
     setattr(XMenuProxyListener, '__ooo_full_ns__', 'com.sun.star.mozilla.XMenuProxyListener')
     setattr(XMenuProxyListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.mozilla import XMenuProxyListener as XMenuProxyListener
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla import XMenuProxyListener as XMenuProxyListener
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.x_menu_proxy_listener import XMenuProxyListener as XMenuProxyListener
 
 __all__ = ['XMenuProxyListener']
 

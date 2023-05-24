@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidRemovedParameterException = _get_class()
 
 else:
-    from com.sun.star.deployment import InvalidRemovedParameterException as InvalidRemovedParameterException
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import InvalidRemovedParameterException as InvalidRemovedParameterException
+    else:
+        from ...lo.deployment.invalid_removed_parameter_exception import InvalidRemovedParameterException as InvalidRemovedParameterException
 
 __all__ = ['InvalidRemovedParameterException']
 

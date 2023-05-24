@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LdapGenericException = _get_class()
 
 else:
-    from com.sun.star.ldap import LdapGenericException as LdapGenericException
+    if TYPE_CHECKING:
+        from com.sun.star.ldap import LdapGenericException as LdapGenericException
+    else:
+        from ...lo.ldap.ldap_generic_exception import LdapGenericException as LdapGenericException
 
 __all__ = ['LdapGenericException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.bridge.oleautomation import XAutomationObject as XAutomationObject
     setattr(XAutomationObject, '__ooo_ns__', 'com.sun.star.bridge.oleautomation')
     setattr(XAutomationObject, '__ooo_full_ns__', 'com.sun.star.bridge.oleautomation.XAutomationObject')
     setattr(XAutomationObject, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.bridge.oleautomation import XAutomationObject as XAutomationObject
+    if TYPE_CHECKING:
+        from com.sun.star.bridge.oleautomation import XAutomationObject as XAutomationObject
+    else:
+        # keep document generators happy
+        from ....lo.bridge.oleautomation.x_automation_object import XAutomationObject as XAutomationObject
 
 __all__ = ['XAutomationObject']
 

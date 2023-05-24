@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XReschedule as XReschedule
     setattr(XReschedule, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XReschedule, '__ooo_full_ns__', 'com.sun.star.awt.XReschedule')
     setattr(XReschedule, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XReschedule as XReschedule
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XReschedule as XReschedule
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_reschedule import XReschedule as XReschedule
 
 __all__ = ['XReschedule']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XUndoAction as XUndoAction
     setattr(XUndoAction, '__ooo_ns__', 'com.sun.star.document')
     setattr(XUndoAction, '__ooo_full_ns__', 'com.sun.star.document.XUndoAction')
     setattr(XUndoAction, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XUndoAction as XUndoAction
+    if TYPE_CHECKING:
+        from com.sun.star.document import XUndoAction as XUndoAction
+    else:
+        # keep document generators happy
+        from ...lo.document.x_undo_action import XUndoAction as XUndoAction
 
 __all__ = ['XUndoAction']
 

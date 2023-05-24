@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.task import XMasterPasswordHandling as XMasterPasswordHandling
     setattr(XMasterPasswordHandling, '__ooo_ns__', 'com.sun.star.task')
     setattr(XMasterPasswordHandling, '__ooo_full_ns__', 'com.sun.star.task.XMasterPasswordHandling')
     setattr(XMasterPasswordHandling, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.task import XMasterPasswordHandling as XMasterPasswordHandling
+    if TYPE_CHECKING:
+        from com.sun.star.task import XMasterPasswordHandling as XMasterPasswordHandling
+    else:
+        # keep document generators happy
+        from ...lo.task.x_master_password_handling import XMasterPasswordHandling as XMasterPasswordHandling
 
 __all__ = ['XMasterPasswordHandling']
 

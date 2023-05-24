@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ColorSpaceType(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.ColorSpaceType", name_space="com.sun.star.rendering"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.rendering import ColorSpaceType as ColorSpaceType
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import ColorSpaceType as ColorSpaceType
+    else:
+        # keep document generators happy
+        from ...lo.rendering.color_space_type import ColorSpaceType as ColorSpaceType
 
     class ColorSpaceTypeEnum(IntEnum):
         """

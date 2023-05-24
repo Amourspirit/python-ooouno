@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalArgumentException = _get_class()
 
 else:
-    from com.sun.star.lang import IllegalArgumentException as IllegalArgumentException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import IllegalArgumentException as IllegalArgumentException
+    else:
+        from ...lo.lang.illegal_argument_exception import IllegalArgumentException as IllegalArgumentException
 
 __all__ = ['IllegalArgumentException']
 

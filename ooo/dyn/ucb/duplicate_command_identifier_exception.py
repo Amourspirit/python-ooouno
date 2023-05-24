@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DuplicateCommandIdentifierException = _get_class()
 
 else:
-    from com.sun.star.ucb import DuplicateCommandIdentifierException as DuplicateCommandIdentifierException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import DuplicateCommandIdentifierException as DuplicateCommandIdentifierException
+    else:
+        from ...lo.ucb.duplicate_command_identifier_exception import DuplicateCommandIdentifierException as DuplicateCommandIdentifierException
 
 __all__ = ['DuplicateCommandIdentifierException']
 

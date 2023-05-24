@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Image', 'ID', 'GroupID', 'PreItemID', 'ItemText', 'IsVisible', 'IsActive', 'IsCheckable', 'IsChecked')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MenuMultipleChange = _get_class()
 
 else:
-    from com.sun.star.mozilla import MenuMultipleChange as MenuMultipleChange
+    if TYPE_CHECKING:
+        from com.sun.star.mozilla import MenuMultipleChange as MenuMultipleChange
+    else:
+        # keep document generators happy
+        from ...lo.mozilla.menu_multiple_change import MenuMultipleChange as MenuMultipleChange
 
 __all__ = ['MenuMultipleChange']
 

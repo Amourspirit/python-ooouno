@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Type', 'FirstRow', 'LastRow', 'FirstColumn', 'LastColumn')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AccessibleTableModelChange = _get_class()
 
 else:
-    from com.sun.star.accessibility import AccessibleTableModelChange as AccessibleTableModelChange
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import AccessibleTableModelChange as AccessibleTableModelChange
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.accessible_table_model_change import AccessibleTableModelChange as AccessibleTableModelChange
 
 __all__ = ['AccessibleTableModelChange']
 

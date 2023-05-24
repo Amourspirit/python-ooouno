@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.io import XActiveDataStreamer as XActiveDataStreamer
     setattr(XActiveDataStreamer, '__ooo_ns__', 'com.sun.star.io')
     setattr(XActiveDataStreamer, '__ooo_full_ns__', 'com.sun.star.io.XActiveDataStreamer')
     setattr(XActiveDataStreamer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.io import XActiveDataStreamer as XActiveDataStreamer
+    if TYPE_CHECKING:
+        from com.sun.star.io import XActiveDataStreamer as XActiveDataStreamer
+    else:
+        # keep document generators happy
+        from ...lo.io.x_active_data_streamer import XActiveDataStreamer as XActiveDataStreamer
 
 __all__ = ['XActiveDataStreamer']
 

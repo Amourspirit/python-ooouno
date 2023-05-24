@@ -20,194 +20,201 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.uno.TypeClass import ANY as TYPE_CLASS_ANY
-    from com.sun.star.uno.TypeClass import ARRAY as TYPE_CLASS_ARRAY
-    from com.sun.star.uno.TypeClass import BOOLEAN as TYPE_CLASS_BOOLEAN
-    from com.sun.star.uno.TypeClass import BYTE as TYPE_CLASS_BYTE
-    from com.sun.star.uno.TypeClass import CHAR as TYPE_CLASS_CHAR
-    from com.sun.star.uno.TypeClass import CONSTANT as TYPE_CLASS_CONSTANT
-    from com.sun.star.uno.TypeClass import CONSTANTS as TYPE_CLASS_CONSTANTS
-    from com.sun.star.uno.TypeClass import DOUBLE as TYPE_CLASS_DOUBLE
-    from com.sun.star.uno.TypeClass import ENUM as TYPE_CLASS_ENUM
-    from com.sun.star.uno.TypeClass import EXCEPTION as TYPE_CLASS_EXCEPTION
-    from com.sun.star.uno.TypeClass import FLOAT as TYPE_CLASS_FLOAT
-    from com.sun.star.uno.TypeClass import HYPER as TYPE_CLASS_HYPER
-    from com.sun.star.uno.TypeClass import INTERFACE as TYPE_CLASS_INTERFACE
-    from com.sun.star.uno.TypeClass import INTERFACE_ATTRIBUTE as TYPE_CLASS_INTERFACE_ATTRIBUTE
-    from com.sun.star.uno.TypeClass import INTERFACE_METHOD as TYPE_CLASS_INTERFACE_METHOD
-    from com.sun.star.uno.TypeClass import LONG as TYPE_CLASS_LONG
-    from com.sun.star.uno.TypeClass import MODULE as TYPE_CLASS_MODULE
-    from com.sun.star.uno.TypeClass import PROPERTY as TYPE_CLASS_PROPERTY
-    from com.sun.star.uno.TypeClass import SEQUENCE as TYPE_CLASS_SEQUENCE
-    from com.sun.star.uno.TypeClass import SERVICE as TYPE_CLASS_SERVICE
-    from com.sun.star.uno.TypeClass import SHORT as TYPE_CLASS_SHORT
-    from com.sun.star.uno.TypeClass import SINGLETON as TYPE_CLASS_SINGLETON
-    from com.sun.star.uno.TypeClass import STRING as TYPE_CLASS_STRING
-    from com.sun.star.uno.TypeClass import STRUCT as TYPE_CLASS_STRUCT
-    from com.sun.star.uno.TypeClass import TYPE as TYPE_CLASS_TYPE
-    from com.sun.star.uno.TypeClass import TYPEDEF as TYPE_CLASS_TYPEDEF
-    from com.sun.star.uno.TypeClass import UNION as TYPE_CLASS_UNION
-    from com.sun.star.uno.TypeClass import UNKNOWN as TYPE_CLASS_UNKNOWN
-    from com.sun.star.uno.TypeClass import UNSIGNED_HYPER as TYPE_CLASS_UNSIGNED_HYPER
-    from com.sun.star.uno.TypeClass import UNSIGNED_LONG as TYPE_CLASS_UNSIGNED_LONG
-    from com.sun.star.uno.TypeClass import UNSIGNED_SHORT as TYPE_CLASS_UNSIGNED_SHORT
-    from com.sun.star.uno.TypeClass import VOID as TYPE_CLASS_VOID
-
-    class TypeClass(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TypeClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uno.html#a00683ed3ec24b47c36ead10a20d6f328>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.uno.TypeClass', value)
-
-        __ooo_ns__: str = 'com.sun.star.uno'
-        __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
-        __ooo_type_name__: str = 'enum'
-
-        ANY = cast("TypeClass", TYPE_CLASS_ANY)
-        """
-        reflecting the any type; anys can carry any UNO value except of any values
-        """
-        ARRAY = cast("TypeClass", TYPE_CLASS_ARRAY)
-        """
-        Deprecated, UNOIDL does not have an array concept.
-        """
-        BOOLEAN = cast("TypeClass", TYPE_CLASS_BOOLEAN)
-        """
-        reflecting the boolean type; true and false
-        """
-        BYTE = cast("TypeClass", TYPE_CLASS_BYTE)
-        """
-        reflecting the 8-bit ordinal type
-        """
-        CHAR = cast("TypeClass", TYPE_CLASS_CHAR)
-        """
-        reflecting the 16-bit unicode character type
-        """
-        CONSTANT = cast("TypeClass", TYPE_CLASS_CONSTANT)
-        """
-        reflecting constants
-        """
-        CONSTANTS = cast("TypeClass", TYPE_CLASS_CONSTANTS)
-        """
-        reflecting constants groups
-        """
-        DOUBLE = cast("TypeClass", TYPE_CLASS_DOUBLE)
-        """
-        reflecting the 64-bit floating point type
-        """
-        ENUM = cast("TypeClass", TYPE_CLASS_ENUM)
-        """
-        reflecting enum types
-        """
-        EXCEPTION = cast("TypeClass", TYPE_CLASS_EXCEPTION)
-        """
-        reflecting exception types
-        """
-        FLOAT = cast("TypeClass", TYPE_CLASS_FLOAT)
-        """
-        reflecting the 32-bit floating point type
-        """
-        HYPER = cast("TypeClass", TYPE_CLASS_HYPER)
-        """
-        reflecting the signed 64-bit ordinal type
-        """
-        INTERFACE = cast("TypeClass", TYPE_CLASS_INTERFACE)
-        """
-        reflecting interface types
-        """
-        INTERFACE_ATTRIBUTE = cast("TypeClass", TYPE_CLASS_INTERFACE_ATTRIBUTE)
-        """
-        reflecting interface attributes
-        """
-        INTERFACE_METHOD = cast("TypeClass", TYPE_CLASS_INTERFACE_METHOD)
-        """
-        reflecting interface methods
-        """
-        LONG = cast("TypeClass", TYPE_CLASS_LONG)
-        """
-        reflecting the signed 32-bit ordinal type
-        """
-        MODULE = cast("TypeClass", TYPE_CLASS_MODULE)
-        """
-        reflecting modules
-        """
-        PROPERTY = cast("TypeClass", TYPE_CLASS_PROPERTY)
-        """
-        reflecting properties
-        """
-        SEQUENCE = cast("TypeClass", TYPE_CLASS_SEQUENCE)
-        """
-        reflecting sequence types
-        """
-        SERVICE = cast("TypeClass", TYPE_CLASS_SERVICE)
-        """
-        reflecting services
-        """
-        SHORT = cast("TypeClass", TYPE_CLASS_SHORT)
-        """
-        reflecting the signed 16-bit ordinal type
-        """
-        SINGLETON = cast("TypeClass", TYPE_CLASS_SINGLETON)
-        """
-        reflecting singletons
-        """
-        STRING = cast("TypeClass", TYPE_CLASS_STRING)
-        """
-        reflecting the string type; strings of unicode characters
-        """
-        STRUCT = cast("TypeClass", TYPE_CLASS_STRUCT)
-        """
-        reflecting compound types
-        """
-        TYPE = cast("TypeClass", TYPE_CLASS_TYPE)
-        """
-        reflecting the meta type
-        """
-        TYPEDEF = cast("TypeClass", TYPE_CLASS_TYPEDEF)
-        """
-        reflecting typedefed types referencing other types
-        """
-        UNION = cast("TypeClass", TYPE_CLASS_UNION)
-        """
-        Deprecated, UNOIDL does not have a union concept.
-        """
-        UNKNOWN = cast("TypeClass", TYPE_CLASS_UNKNOWN)
-        """
-        reflecting the unreflectable type
-        """
-        UNSIGNED_HYPER = cast("TypeClass", TYPE_CLASS_UNSIGNED_HYPER)
-        """
-        reflecting the unsigned 64-bit ordinal type
-        """
-        UNSIGNED_LONG = cast("TypeClass", TYPE_CLASS_UNSIGNED_LONG)
-        """
-        reflecting the unsigned 32-bit type
-        """
-        UNSIGNED_SHORT = cast("TypeClass", TYPE_CLASS_UNSIGNED_SHORT)
-        """
-        reflecting the unsigned 16-bit ordinal type
-        """
-        VOID = cast("TypeClass", TYPE_CLASS_VOID)
-        """
-        reflecting the void type; denotes no type
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TypeClass(metaclass=UnoEnumMeta, type_name="com.sun.star.uno.TypeClass", name_space="com.sun.star.uno"):
         """Dynamically created class that represents ``com.sun.star.uno.TypeClass`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.uno.TypeClass import ANY as TYPE_CLASS_ANY
+        from com.sun.star.uno.TypeClass import ARRAY as TYPE_CLASS_ARRAY
+        from com.sun.star.uno.TypeClass import BOOLEAN as TYPE_CLASS_BOOLEAN
+        from com.sun.star.uno.TypeClass import BYTE as TYPE_CLASS_BYTE
+        from com.sun.star.uno.TypeClass import CHAR as TYPE_CLASS_CHAR
+        from com.sun.star.uno.TypeClass import CONSTANT as TYPE_CLASS_CONSTANT
+        from com.sun.star.uno.TypeClass import CONSTANTS as TYPE_CLASS_CONSTANTS
+        from com.sun.star.uno.TypeClass import DOUBLE as TYPE_CLASS_DOUBLE
+        from com.sun.star.uno.TypeClass import ENUM as TYPE_CLASS_ENUM
+        from com.sun.star.uno.TypeClass import EXCEPTION as TYPE_CLASS_EXCEPTION
+        from com.sun.star.uno.TypeClass import FLOAT as TYPE_CLASS_FLOAT
+        from com.sun.star.uno.TypeClass import HYPER as TYPE_CLASS_HYPER
+        from com.sun.star.uno.TypeClass import INTERFACE as TYPE_CLASS_INTERFACE
+        from com.sun.star.uno.TypeClass import INTERFACE_ATTRIBUTE as TYPE_CLASS_INTERFACE_ATTRIBUTE
+        from com.sun.star.uno.TypeClass import INTERFACE_METHOD as TYPE_CLASS_INTERFACE_METHOD
+        from com.sun.star.uno.TypeClass import LONG as TYPE_CLASS_LONG
+        from com.sun.star.uno.TypeClass import MODULE as TYPE_CLASS_MODULE
+        from com.sun.star.uno.TypeClass import PROPERTY as TYPE_CLASS_PROPERTY
+        from com.sun.star.uno.TypeClass import SEQUENCE as TYPE_CLASS_SEQUENCE
+        from com.sun.star.uno.TypeClass import SERVICE as TYPE_CLASS_SERVICE
+        from com.sun.star.uno.TypeClass import SHORT as TYPE_CLASS_SHORT
+        from com.sun.star.uno.TypeClass import SINGLETON as TYPE_CLASS_SINGLETON
+        from com.sun.star.uno.TypeClass import STRING as TYPE_CLASS_STRING
+        from com.sun.star.uno.TypeClass import STRUCT as TYPE_CLASS_STRUCT
+        from com.sun.star.uno.TypeClass import TYPE as TYPE_CLASS_TYPE
+        from com.sun.star.uno.TypeClass import TYPEDEF as TYPE_CLASS_TYPEDEF
+        from com.sun.star.uno.TypeClass import UNION as TYPE_CLASS_UNION
+        from com.sun.star.uno.TypeClass import UNKNOWN as TYPE_CLASS_UNKNOWN
+        from com.sun.star.uno.TypeClass import UNSIGNED_HYPER as TYPE_CLASS_UNSIGNED_HYPER
+        from com.sun.star.uno.TypeClass import UNSIGNED_LONG as TYPE_CLASS_UNSIGNED_LONG
+        from com.sun.star.uno.TypeClass import UNSIGNED_SHORT as TYPE_CLASS_UNSIGNED_SHORT
+        from com.sun.star.uno.TypeClass import VOID as TYPE_CLASS_VOID
+
+        class TypeClass(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TypeClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uno.html#a00683ed3ec24b47c36ead10a20d6f328>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.uno.TypeClass', value)
+
+            __ooo_ns__: str = 'com.sun.star.uno'
+            __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
+            __ooo_type_name__: str = 'enum'
+
+            ANY = TYPE_CLASS_ANY
+            """
+            reflecting the any type; anys can carry any UNO value except of any values
+            """
+            ARRAY = TYPE_CLASS_ARRAY
+            """
+            Deprecated, UNOIDL does not have an array concept.
+            """
+            BOOLEAN = TYPE_CLASS_BOOLEAN
+            """
+            reflecting the boolean type; true and false
+            """
+            BYTE = TYPE_CLASS_BYTE
+            """
+            reflecting the 8-bit ordinal type
+            """
+            CHAR = TYPE_CLASS_CHAR
+            """
+            reflecting the 16-bit unicode character type
+            """
+            CONSTANT = TYPE_CLASS_CONSTANT
+            """
+            reflecting constants
+            """
+            CONSTANTS = TYPE_CLASS_CONSTANTS
+            """
+            reflecting constants groups
+            """
+            DOUBLE = TYPE_CLASS_DOUBLE
+            """
+            reflecting the 64-bit floating point type
+            """
+            ENUM = TYPE_CLASS_ENUM
+            """
+            reflecting enum types
+            """
+            EXCEPTION = TYPE_CLASS_EXCEPTION
+            """
+            reflecting exception types
+            """
+            FLOAT = TYPE_CLASS_FLOAT
+            """
+            reflecting the 32-bit floating point type
+            """
+            HYPER = TYPE_CLASS_HYPER
+            """
+            reflecting the signed 64-bit ordinal type
+            """
+            INTERFACE = TYPE_CLASS_INTERFACE
+            """
+            reflecting interface types
+            """
+            INTERFACE_ATTRIBUTE = TYPE_CLASS_INTERFACE_ATTRIBUTE
+            """
+            reflecting interface attributes
+            """
+            INTERFACE_METHOD = TYPE_CLASS_INTERFACE_METHOD
+            """
+            reflecting interface methods
+            """
+            LONG = TYPE_CLASS_LONG
+            """
+            reflecting the signed 32-bit ordinal type
+            """
+            MODULE = TYPE_CLASS_MODULE
+            """
+            reflecting modules
+            """
+            PROPERTY = TYPE_CLASS_PROPERTY
+            """
+            reflecting properties
+            """
+            SEQUENCE = TYPE_CLASS_SEQUENCE
+            """
+            reflecting sequence types
+            """
+            SERVICE = TYPE_CLASS_SERVICE
+            """
+            reflecting services
+            """
+            SHORT = TYPE_CLASS_SHORT
+            """
+            reflecting the signed 16-bit ordinal type
+            """
+            SINGLETON = TYPE_CLASS_SINGLETON
+            """
+            reflecting singletons
+            """
+            STRING = TYPE_CLASS_STRING
+            """
+            reflecting the string type; strings of unicode characters
+            """
+            STRUCT = TYPE_CLASS_STRUCT
+            """
+            reflecting compound types
+            """
+            TYPE = TYPE_CLASS_TYPE
+            """
+            reflecting the meta type
+            """
+            TYPEDEF = TYPE_CLASS_TYPEDEF
+            """
+            reflecting typedefed types referencing other types
+            """
+            UNION = TYPE_CLASS_UNION
+            """
+            Deprecated, UNOIDL does not have a union concept.
+            """
+            UNKNOWN = TYPE_CLASS_UNKNOWN
+            """
+            reflecting the unreflectable type
+            """
+            UNSIGNED_HYPER = TYPE_CLASS_UNSIGNED_HYPER
+            """
+            reflecting the unsigned 64-bit ordinal type
+            """
+            UNSIGNED_LONG = TYPE_CLASS_UNSIGNED_LONG
+            """
+            reflecting the unsigned 32-bit type
+            """
+            UNSIGNED_SHORT = TYPE_CLASS_UNSIGNED_SHORT
+            """
+            reflecting the unsigned 16-bit ordinal type
+            """
+            VOID = TYPE_CLASS_VOID
+            """
+            reflecting the void type; denotes no type
+            """
+    else:
+        # keep document generators happy
+        from ...lo.uno.type_class import TypeClass as TypeClass
+
 
 __all__ = ['TypeClass']

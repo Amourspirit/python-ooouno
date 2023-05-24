@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.accessibility import XAccessibleMultiLineText as XAccessibleMultiLineText
     setattr(XAccessibleMultiLineText, '__ooo_ns__', 'com.sun.star.accessibility')
     setattr(XAccessibleMultiLineText, '__ooo_full_ns__', 'com.sun.star.accessibility.XAccessibleMultiLineText')
     setattr(XAccessibleMultiLineText, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.accessibility import XAccessibleMultiLineText as XAccessibleMultiLineText
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import XAccessibleMultiLineText as XAccessibleMultiLineText
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.x_accessible_multi_line_text import XAccessibleMultiLineText as XAccessibleMultiLineText
 
 __all__ = ['XAccessibleMultiLineText']
 

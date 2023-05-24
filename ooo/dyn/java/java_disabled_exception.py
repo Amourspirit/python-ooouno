@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     JavaDisabledException = _get_class()
 
 else:
-    from com.sun.star.java import JavaDisabledException as JavaDisabledException
+    if TYPE_CHECKING:
+        from com.sun.star.java import JavaDisabledException as JavaDisabledException
+    else:
+        from ...lo.java.java_disabled_exception import JavaDisabledException as JavaDisabledException
 
 __all__ = ['JavaDisabledException']
 

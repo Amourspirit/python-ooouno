@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class PropertyControlType(metaclass=UnoConstMeta, type_name="com.sun.star.inspection.PropertyControlType", name_space="com.sun.star.inspection"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.inspection import PropertyControlType as PropertyControlType
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import PropertyControlType as PropertyControlType
+    else:
+        # keep document generators happy
+        from ...lo.inspection.property_control_type import PropertyControlType as PropertyControlType
 
     class PropertyControlTypeEnum(IntEnum):
         """

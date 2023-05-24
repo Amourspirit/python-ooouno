@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PropertyExistException = _get_class()
 
 else:
-    from com.sun.star.beans import PropertyExistException as PropertyExistException
+    if TYPE_CHECKING:
+        from com.sun.star.beans import PropertyExistException as PropertyExistException
+    else:
+        from ...lo.beans.property_exist_exception import PropertyExistException as PropertyExistException
 
 __all__ = ['PropertyExistException']
 

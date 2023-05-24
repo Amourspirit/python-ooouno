@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XUnoControlDialog as XUnoControlDialog
     setattr(XUnoControlDialog, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XUnoControlDialog, '__ooo_full_ns__', 'com.sun.star.awt.XUnoControlDialog')
     setattr(XUnoControlDialog, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XUnoControlDialog as XUnoControlDialog
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XUnoControlDialog as XUnoControlDialog
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_uno_control_dialog import XUnoControlDialog as XUnoControlDialog
 
 __all__ = ['XUnoControlDialog']
 

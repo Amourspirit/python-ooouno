@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XNumberFormatsSupplier as XNumberFormatsSupplier
     setattr(XNumberFormatsSupplier, '__ooo_ns__', 'com.sun.star.util')
     setattr(XNumberFormatsSupplier, '__ooo_full_ns__', 'com.sun.star.util.XNumberFormatsSupplier')
     setattr(XNumberFormatsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XNumberFormatsSupplier as XNumberFormatsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.util import XNumberFormatsSupplier as XNumberFormatsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.util.x_number_formats_supplier import XNumberFormatsSupplier as XNumberFormatsSupplier
 
 __all__ = ['XNumberFormatsSupplier']
 

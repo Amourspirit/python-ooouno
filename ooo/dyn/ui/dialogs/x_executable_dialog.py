@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.dialogs import XExecutableDialog as XExecutableDialog
     setattr(XExecutableDialog, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XExecutableDialog, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XExecutableDialog')
     setattr(XExecutableDialog, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.dialogs import XExecutableDialog as XExecutableDialog
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import XExecutableDialog as XExecutableDialog
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.x_executable_dialog import XExecutableDialog as XExecutableDialog
 
 __all__ = ['XExecutableDialog']
 

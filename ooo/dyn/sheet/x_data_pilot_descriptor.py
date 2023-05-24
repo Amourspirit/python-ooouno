@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XDataPilotDescriptor as XDataPilotDescriptor
     setattr(XDataPilotDescriptor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDataPilotDescriptor, '__ooo_full_ns__', 'com.sun.star.sheet.XDataPilotDescriptor')
     setattr(XDataPilotDescriptor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XDataPilotDescriptor as XDataPilotDescriptor
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XDataPilotDescriptor as XDataPilotDescriptor
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_data_pilot_descriptor import XDataPilotDescriptor as XDataPilotDescriptor
 
 __all__ = ['XDataPilotDescriptor']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FilenameDisplayFormat(metaclass=UnoConstMeta, type_name="com.sun.star.text.FilenameDisplayFormat", name_space="com.sun.star.text"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text import FilenameDisplayFormat as FilenameDisplayFormat
+    if TYPE_CHECKING:
+        from com.sun.star.text import FilenameDisplayFormat as FilenameDisplayFormat
+    else:
+        # keep document generators happy
+        from ...lo.text.filename_display_format import FilenameDisplayFormat as FilenameDisplayFormat
 
     class FilenameDisplayFormatEnum(IntEnum):
         """

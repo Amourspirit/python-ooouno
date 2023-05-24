@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XGridFieldDataSupplier as XGridFieldDataSupplier
     setattr(XGridFieldDataSupplier, '__ooo_ns__', 'com.sun.star.form')
     setattr(XGridFieldDataSupplier, '__ooo_full_ns__', 'com.sun.star.form.XGridFieldDataSupplier')
     setattr(XGridFieldDataSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XGridFieldDataSupplier as XGridFieldDataSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.form import XGridFieldDataSupplier as XGridFieldDataSupplier
+    else:
+        # keep document generators happy
+        from ...lo.form.x_grid_field_data_supplier import XGridFieldDataSupplier as XGridFieldDataSupplier
 
 __all__ = ['XGridFieldDataSupplier']
 

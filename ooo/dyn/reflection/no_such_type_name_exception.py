@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoSuchTypeNameException = _get_class()
 
 else:
-    from com.sun.star.reflection import NoSuchTypeNameException as NoSuchTypeNameException
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import NoSuchTypeNameException as NoSuchTypeNameException
+    else:
+        from ...lo.reflection.no_such_type_name_exception import NoSuchTypeNameException as NoSuchTypeNameException
 
 __all__ = ['NoSuchTypeNameException']
 

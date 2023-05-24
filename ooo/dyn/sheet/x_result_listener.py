@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XResultListener as XResultListener
     setattr(XResultListener, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XResultListener, '__ooo_full_ns__', 'com.sun.star.sheet.XResultListener')
     setattr(XResultListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XResultListener as XResultListener
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XResultListener as XResultListener
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_result_listener import XResultListener as XResultListener
 
 __all__ = ['XResultListener']
 

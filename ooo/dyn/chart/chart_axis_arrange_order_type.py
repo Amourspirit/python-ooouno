@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart.ChartAxisArrangeOrderType import AUTO as CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
-    from com.sun.star.chart.ChartAxisArrangeOrderType import SIDE_BY_SIDE as CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
-    from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_EVEN as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
-    from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_ODD as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
-
-    class ChartAxisArrangeOrderType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ChartAxisArrangeOrderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a9c06520c0f143b00b5aaafeb4772dc39>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart.ChartAxisArrangeOrderType', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart'
-        __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
-        __ooo_type_name__: str = 'enum'
-
-        AUTO = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO)
-        """
-        The descriptions are arranged automatically.
-        """
-        SIDE_BY_SIDE = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE)
-        """
-        The descriptions are arranged side by side.
-        """
-        STAGGER_EVEN = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN)
-        """
-        The descriptions are alternately put on two lines with the even values out of the normal line.
-        """
-        STAGGER_ODD = cast("ChartAxisArrangeOrderType", CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD)
-        """
-        The descriptions are alternately put on two lines with the odd values out of the normal line.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartAxisArrangeOrderType(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartAxisArrangeOrderType", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartAxisArrangeOrderType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart.ChartAxisArrangeOrderType import AUTO as CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
+        from com.sun.star.chart.ChartAxisArrangeOrderType import SIDE_BY_SIDE as CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
+        from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_EVEN as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
+        from com.sun.star.chart.ChartAxisArrangeOrderType import STAGGER_ODD as CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
+
+        class ChartAxisArrangeOrderType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ChartAxisArrangeOrderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a9c06520c0f143b00b5aaafeb4772dc39>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart.ChartAxisArrangeOrderType', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart'
+            __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
+            __ooo_type_name__: str = 'enum'
+
+            AUTO = CHART_AXIS_ARRANGE_ORDER_TYPE_AUTO
+            """
+            The descriptions are arranged automatically.
+            """
+            SIDE_BY_SIDE = CHART_AXIS_ARRANGE_ORDER_TYPE_SIDE_BY_SIDE
+            """
+            The descriptions are arranged side by side.
+            """
+            STAGGER_EVEN = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_EVEN
+            """
+            The descriptions are alternately put on two lines with the even values out of the normal line.
+            """
+            STAGGER_ODD = CHART_AXIS_ARRANGE_ORDER_TYPE_STAGGER_ODD
+            """
+            The descriptions are alternately put on two lines with the odd values out of the normal line.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart.chart_axis_arrange_order_type import ChartAxisArrangeOrderType as ChartAxisArrangeOrderType
+
 
 __all__ = ['ChartAxisArrangeOrderType']

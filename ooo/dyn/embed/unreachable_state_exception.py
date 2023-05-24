@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnreachableStateException = _get_class()
 
 else:
-    from com.sun.star.embed import UnreachableStateException as UnreachableStateException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import UnreachableStateException as UnreachableStateException
+    else:
+        from ...lo.embed.unreachable_state_exception import UnreachableStateException as UnreachableStateException
 
 __all__ = ['UnreachableStateException']
 

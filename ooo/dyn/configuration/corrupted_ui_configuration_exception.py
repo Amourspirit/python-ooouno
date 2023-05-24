@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CorruptedUIConfigurationException = _get_class()
 
 else:
-    from com.sun.star.configuration import CorruptedUIConfigurationException as CorruptedUIConfigurationException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import CorruptedUIConfigurationException as CorruptedUIConfigurationException
+    else:
+        from ...lo.configuration.corrupted_ui_configuration_exception import CorruptedUIConfigurationException as CorruptedUIConfigurationException
 
 __all__ = ['CorruptedUIConfigurationException']
 

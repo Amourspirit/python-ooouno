@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XClassifiedObject as XClassifiedObject
     setattr(XClassifiedObject, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XClassifiedObject, '__ooo_full_ns__', 'com.sun.star.embed.XClassifiedObject')
     setattr(XClassifiedObject, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XClassifiedObject as XClassifiedObject
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XClassifiedObject as XClassifiedObject
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_classified_object import XClassifiedObject as XClassifiedObject
 
 __all__ = ['XClassifiedObject']
 

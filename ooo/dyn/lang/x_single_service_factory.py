@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XSingleServiceFactory as XSingleServiceFactory
     setattr(XSingleServiceFactory, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XSingleServiceFactory, '__ooo_full_ns__', 'com.sun.star.lang.XSingleServiceFactory')
     setattr(XSingleServiceFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XSingleServiceFactory as XSingleServiceFactory
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XSingleServiceFactory as XSingleServiceFactory
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_single_service_factory import XSingleServiceFactory as XSingleServiceFactory
 
 __all__ = ['XSingleServiceFactory']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.animations import XTransitionFilter as XTransitionFilter
     setattr(XTransitionFilter, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XTransitionFilter, '__ooo_full_ns__', 'com.sun.star.animations.XTransitionFilter')
     setattr(XTransitionFilter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.animations import XTransitionFilter as XTransitionFilter
+    if TYPE_CHECKING:
+        from com.sun.star.animations import XTransitionFilter as XTransitionFilter
+    else:
+        # keep document generators happy
+        from ...lo.animations.x_transition_filter import XTransitionFilter as XTransitionFilter
 
 __all__ = ['XTransitionFilter']
 

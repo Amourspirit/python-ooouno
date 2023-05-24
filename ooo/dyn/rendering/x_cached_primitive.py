@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XCachedPrimitive as XCachedPrimitive
     setattr(XCachedPrimitive, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XCachedPrimitive, '__ooo_full_ns__', 'com.sun.star.rendering.XCachedPrimitive')
     setattr(XCachedPrimitive, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XCachedPrimitive as XCachedPrimitive
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XCachedPrimitive as XCachedPrimitive
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_cached_primitive import XCachedPrimitive as XCachedPrimitive
 
 __all__ = ['XCachedPrimitive']
 

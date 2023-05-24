@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XFilterFormulaParser as XFilterFormulaParser
     setattr(XFilterFormulaParser, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XFilterFormulaParser, '__ooo_full_ns__', 'com.sun.star.sheet.XFilterFormulaParser')
     setattr(XFilterFormulaParser, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XFilterFormulaParser as XFilterFormulaParser
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XFilterFormulaParser as XFilterFormulaParser
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_filter_formula_parser import XFilterFormulaParser as XFilterFormulaParser
 
 __all__ = ['XFilterFormulaParser']
 

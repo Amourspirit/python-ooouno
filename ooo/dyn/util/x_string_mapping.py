@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XStringMapping as XStringMapping
     setattr(XStringMapping, '__ooo_ns__', 'com.sun.star.util')
     setattr(XStringMapping, '__ooo_full_ns__', 'com.sun.star.util.XStringMapping')
     setattr(XStringMapping, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XStringMapping as XStringMapping
+    if TYPE_CHECKING:
+        from com.sun.star.util import XStringMapping as XStringMapping
+    else:
+        # keep document generators happy
+        from ...lo.util.x_string_mapping import XStringMapping as XStringMapping
 
 __all__ = ['XStringMapping']
 

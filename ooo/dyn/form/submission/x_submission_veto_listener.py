@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.submission import XSubmissionVetoListener as XSubmissionVetoListener
     setattr(XSubmissionVetoListener, '__ooo_ns__', 'com.sun.star.form.submission')
     setattr(XSubmissionVetoListener, '__ooo_full_ns__', 'com.sun.star.form.submission.XSubmissionVetoListener')
     setattr(XSubmissionVetoListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.submission import XSubmissionVetoListener as XSubmissionVetoListener
+    if TYPE_CHECKING:
+        from com.sun.star.form.submission import XSubmissionVetoListener as XSubmissionVetoListener
+    else:
+        # keep document generators happy
+        from ....lo.form.submission.x_submission_veto_listener import XSubmissionVetoListener as XSubmissionVetoListener
 
 __all__ = ['XSubmissionVetoListener']
 

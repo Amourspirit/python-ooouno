@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XEmbedObjectClipboardCreator as XEmbedObjectClipboardCreator
     setattr(XEmbedObjectClipboardCreator, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XEmbedObjectClipboardCreator, '__ooo_full_ns__', 'com.sun.star.embed.XEmbedObjectClipboardCreator')
     setattr(XEmbedObjectClipboardCreator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XEmbedObjectClipboardCreator as XEmbedObjectClipboardCreator
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XEmbedObjectClipboardCreator as XEmbedObjectClipboardCreator
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_embed_object_clipboard_creator import XEmbedObjectClipboardCreator as XEmbedObjectClipboardCreator
 
 __all__ = ['XEmbedObjectClipboardCreator']
 

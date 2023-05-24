@@ -20,76 +20,83 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.script.InterruptReason import BreakPoint as INTERRUPT_REASON_BreakPoint
-    from com.sun.star.script.InterruptReason import Cancel as INTERRUPT_REASON_Cancel
-    from com.sun.star.script.InterruptReason import CompileError as INTERRUPT_REASON_CompileError
-    from com.sun.star.script.InterruptReason import RuntimeError as INTERRUPT_REASON_RuntimeError
-    from com.sun.star.script.InterruptReason import Step as INTERRUPT_REASON_Step
-    from com.sun.star.script.InterruptReason import StepOut as INTERRUPT_REASON_StepOut
-    from com.sun.star.script.InterruptReason import StepOver as INTERRUPT_REASON_StepOver
-    from com.sun.star.script.InterruptReason import StepStatement as INTERRUPT_REASON_StepStatement
-
-    class InterruptReason(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API InterruptReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a298e9238891ddece524d1b3732aa33e4>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.script.InterruptReason', value)
-
-        __ooo_ns__: str = 'com.sun.star.script'
-        __ooo_full_ns__: str = 'com.sun.star.script.InterruptReason'
-        __ooo_type_name__: str = 'enum'
-
-        BreakPoint = cast("InterruptReason", INTERRUPT_REASON_BreakPoint)
-        """
-        script stopped at a breakpoint.
-        """
-        Cancel = cast("InterruptReason", INTERRUPT_REASON_Cancel)
-        """
-        script in the engine was cancelled.
-        
-        script execution was cancelled.
-        """
-        CompileError = cast("InterruptReason", INTERRUPT_REASON_CompileError)
-        """
-        script has invalid syntax.
-        """
-        RuntimeError = cast("InterruptReason", INTERRUPT_REASON_RuntimeError)
-        """
-        runtime error occurred during script execution.
-        """
-        Step = cast("InterruptReason", INTERRUPT_REASON_Step)
-        """
-        script stops because only one scripting engine command was executed.
-        """
-        StepOut = cast("InterruptReason", INTERRUPT_REASON_StepOut)
-        """
-        script stops because it leaves a function.
-        """
-        StepOver = cast("InterruptReason", INTERRUPT_REASON_StepOver)
-        """
-        script stops because one step was executed.
-        """
-        StepStatement = cast("InterruptReason", INTERRUPT_REASON_StepStatement)
-        """
-        script stop because one step was executed.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class InterruptReason(metaclass=UnoEnumMeta, type_name="com.sun.star.script.InterruptReason", name_space="com.sun.star.script"):
         """Dynamically created class that represents ``com.sun.star.script.InterruptReason`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.script.InterruptReason import BreakPoint as INTERRUPT_REASON_BreakPoint
+        from com.sun.star.script.InterruptReason import Cancel as INTERRUPT_REASON_Cancel
+        from com.sun.star.script.InterruptReason import CompileError as INTERRUPT_REASON_CompileError
+        from com.sun.star.script.InterruptReason import RuntimeError as INTERRUPT_REASON_RuntimeError
+        from com.sun.star.script.InterruptReason import Step as INTERRUPT_REASON_Step
+        from com.sun.star.script.InterruptReason import StepOut as INTERRUPT_REASON_StepOut
+        from com.sun.star.script.InterruptReason import StepOver as INTERRUPT_REASON_StepOver
+        from com.sun.star.script.InterruptReason import StepStatement as INTERRUPT_REASON_StepStatement
+
+        class InterruptReason(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API InterruptReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a298e9238891ddece524d1b3732aa33e4>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.script.InterruptReason', value)
+
+            __ooo_ns__: str = 'com.sun.star.script'
+            __ooo_full_ns__: str = 'com.sun.star.script.InterruptReason'
+            __ooo_type_name__: str = 'enum'
+
+            BreakPoint = INTERRUPT_REASON_BreakPoint
+            """
+            script stopped at a breakpoint.
+            """
+            Cancel = INTERRUPT_REASON_Cancel
+            """
+            script in the engine was cancelled.
+
+            script execution was cancelled.
+            """
+            CompileError = INTERRUPT_REASON_CompileError
+            """
+            script has invalid syntax.
+            """
+            RuntimeError = INTERRUPT_REASON_RuntimeError
+            """
+            runtime error occurred during script execution.
+            """
+            Step = INTERRUPT_REASON_Step
+            """
+            script stops because only one scripting engine command was executed.
+            """
+            StepOut = INTERRUPT_REASON_StepOut
+            """
+            script stops because it leaves a function.
+            """
+            StepOver = INTERRUPT_REASON_StepOver
+            """
+            script stops because one step was executed.
+            """
+            StepStatement = INTERRUPT_REASON_StepStatement
+            """
+            script stop because one step was executed.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.script.interrupt_reason import InterruptReason as InterruptReason
+
 
 __all__ = ['InterruptReason']

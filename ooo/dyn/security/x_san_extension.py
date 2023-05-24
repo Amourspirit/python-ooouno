@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.security import XSanExtension as XSanExtension
     setattr(XSanExtension, '__ooo_ns__', 'com.sun.star.security')
     setattr(XSanExtension, '__ooo_full_ns__', 'com.sun.star.security.XSanExtension')
     setattr(XSanExtension, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.security import XSanExtension as XSanExtension
+    if TYPE_CHECKING:
+        from com.sun.star.security import XSanExtension as XSanExtension
+    else:
+        # keep document generators happy
+        from ...lo.security.x_san_extension import XSanExtension as XSanExtension
 
 __all__ = ['XSanExtension']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SAXException = _get_class()
 
 else:
-    from com.sun.star.xml.sax import SAXException as SAXException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import SAXException as SAXException
+    else:
+        from ....lo.xml.sax.sax_exception import SAXException as SAXException
 
 __all__ = ['SAXException']
 

@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.text.PageNumberType import CURRENT as PAGE_NUMBER_TYPE_CURRENT
-    from com.sun.star.text.PageNumberType import NEXT as PAGE_NUMBER_TYPE_NEXT
-    from com.sun.star.text.PageNumberType import PREV as PAGE_NUMBER_TYPE_PREV
-
-    class PageNumberType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API PageNumberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#aeffd73e249af906f303724f66f1f01c5>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.text.PageNumberType', value)
-
-        __ooo_ns__: str = 'com.sun.star.text'
-        __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
-        __ooo_type_name__: str = 'enum'
-
-        CURRENT = cast("PageNumberType", PAGE_NUMBER_TYPE_CURRENT)
-        """
-        The number of the current page is displayed.
-        """
-        NEXT = cast("PageNumberType", PAGE_NUMBER_TYPE_NEXT)
-        """
-        The number of the next page is displayed if there is any, otherwise the field is empty.
-        """
-        PREV = cast("PageNumberType", PAGE_NUMBER_TYPE_PREV)
-        """
-        The number of the previous page is displayed if there is any, otherwise the field is empty.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PageNumberType(metaclass=UnoEnumMeta, type_name="com.sun.star.text.PageNumberType", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.PageNumberType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.text.PageNumberType import CURRENT as PAGE_NUMBER_TYPE_CURRENT
+        from com.sun.star.text.PageNumberType import NEXT as PAGE_NUMBER_TYPE_NEXT
+        from com.sun.star.text.PageNumberType import PREV as PAGE_NUMBER_TYPE_PREV
+
+        class PageNumberType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API PageNumberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#aeffd73e249af906f303724f66f1f01c5>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.text.PageNumberType', value)
+
+            __ooo_ns__: str = 'com.sun.star.text'
+            __ooo_full_ns__: str = 'com.sun.star.text.PageNumberType'
+            __ooo_type_name__: str = 'enum'
+
+            CURRENT = PAGE_NUMBER_TYPE_CURRENT
+            """
+            The number of the current page is displayed.
+            """
+            NEXT = PAGE_NUMBER_TYPE_NEXT
+            """
+            The number of the next page is displayed if there is any, otherwise the field is empty.
+            """
+            PREV = PAGE_NUMBER_TYPE_PREV
+            """
+            The number of the previous page is displayed if there is any, otherwise the field is empty.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.text.page_number_type import PageNumberType as PageNumberType
+
 
 __all__ = ['PageNumberType']

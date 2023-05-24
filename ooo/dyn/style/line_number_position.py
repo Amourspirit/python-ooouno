@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class LineNumberPosition(metaclass=UnoConstMeta, type_name="com.sun.star.style.LineNumberPosition", name_space="com.sun.star.style"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.style import LineNumberPosition as LineNumberPosition
+    if TYPE_CHECKING:
+        from com.sun.star.style import LineNumberPosition as LineNumberPosition
+    else:
+        # keep document generators happy
+        from ...lo.style.line_number_position import LineNumberPosition as LineNumberPosition
 
     class LineNumberPositionEnum(IntEnum):
         """

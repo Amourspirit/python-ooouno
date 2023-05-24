@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XTextShapesSupplier as XTextShapesSupplier
     setattr(XTextShapesSupplier, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextShapesSupplier, '__ooo_full_ns__', 'com.sun.star.text.XTextShapesSupplier')
     setattr(XTextShapesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XTextShapesSupplier as XTextShapesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.text import XTextShapesSupplier as XTextShapesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.text.x_text_shapes_supplier import XTextShapesSupplier as XTextShapesSupplier
 
 __all__ = ['XTextShapesSupplier']
 

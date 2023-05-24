@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.registry import XSimpleRegistry as XSimpleRegistry
     setattr(XSimpleRegistry, '__ooo_ns__', 'com.sun.star.registry')
     setattr(XSimpleRegistry, '__ooo_full_ns__', 'com.sun.star.registry.XSimpleRegistry')
     setattr(XSimpleRegistry, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.registry import XSimpleRegistry as XSimpleRegistry
+    if TYPE_CHECKING:
+        from com.sun.star.registry import XSimpleRegistry as XSimpleRegistry
+    else:
+        # keep document generators happy
+        from ...lo.registry.x_simple_registry import XSimpleRegistry as XSimpleRegistry
 
 __all__ = ['XSimpleRegistry']
 

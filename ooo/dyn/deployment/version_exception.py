@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     VersionException = _get_class()
 
 else:
-    from com.sun.star.deployment import VersionException as VersionException
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import VersionException as VersionException
+    else:
+        from ...lo.deployment.version_exception import VersionException as VersionException
 
 __all__ = ['VersionException']
 

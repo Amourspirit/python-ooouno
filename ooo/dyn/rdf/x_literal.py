@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rdf import XLiteral as XLiteral
     setattr(XLiteral, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XLiteral, '__ooo_full_ns__', 'com.sun.star.rdf.XLiteral')
     setattr(XLiteral, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rdf import XLiteral as XLiteral
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import XLiteral as XLiteral
+    else:
+        # keep document generators happy
+        from ...lo.rdf.x_literal import XLiteral as XLiteral
 
 __all__ = ['XLiteral']
 

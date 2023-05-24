@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SocketException = _get_class()
 
 else:
-    from com.sun.star.io import SocketException as SocketException
+    if TYPE_CHECKING:
+        from com.sun.star.io import SocketException as SocketException
+    else:
+        from ...lo.io.socket_exception import SocketException as SocketException
 
 __all__ = ['SocketException']
 

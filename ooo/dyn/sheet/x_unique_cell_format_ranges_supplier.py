@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XUniqueCellFormatRangesSupplier as XUniqueCellFormatRangesSupplier
     setattr(XUniqueCellFormatRangesSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XUniqueCellFormatRangesSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XUniqueCellFormatRangesSupplier')
     setattr(XUniqueCellFormatRangesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XUniqueCellFormatRangesSupplier as XUniqueCellFormatRangesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XUniqueCellFormatRangesSupplier as XUniqueCellFormatRangesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_unique_cell_format_ranges_supplier import XUniqueCellFormatRangesSupplier as XUniqueCellFormatRangesSupplier
 
 __all__ = ['XUniqueCellFormatRangesSupplier']
 

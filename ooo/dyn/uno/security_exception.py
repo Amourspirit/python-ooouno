@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SecurityException = _get_class()
 
 else:
-    from com.sun.star.uno import SecurityException as SecurityException
+    if TYPE_CHECKING:
+        from com.sun.star.uno import SecurityException as SecurityException
+    else:
+        from ...lo.uno.security_exception import SecurityException as SecurityException
 
 __all__ = ['SecurityException']
 

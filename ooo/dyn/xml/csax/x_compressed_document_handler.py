@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.csax import XCompressedDocumentHandler as XCompressedDocumentHandler
     setattr(XCompressedDocumentHandler, '__ooo_ns__', 'com.sun.star.xml.csax')
     setattr(XCompressedDocumentHandler, '__ooo_full_ns__', 'com.sun.star.xml.csax.XCompressedDocumentHandler')
     setattr(XCompressedDocumentHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.csax import XCompressedDocumentHandler as XCompressedDocumentHandler
+    if TYPE_CHECKING:
+        from com.sun.star.xml.csax import XCompressedDocumentHandler as XCompressedDocumentHandler
+    else:
+        # keep document generators happy
+        from ....lo.xml.csax.x_compressed_document_handler import XCompressedDocumentHandler as XCompressedDocumentHandler
 
 __all__ = ['XCompressedDocumentHandler']
 

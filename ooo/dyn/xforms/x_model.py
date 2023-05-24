@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xforms import XModel as XModel
     setattr(XModel, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XModel, '__ooo_full_ns__', 'com.sun.star.xforms.XModel')
     setattr(XModel, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xforms import XModel as XModel
+    if TYPE_CHECKING:
+        from com.sun.star.xforms import XModel as XModel
+    else:
+        # keep document generators happy
+        from ...lo.xforms.x_model import XModel as XModel
 
 __all__ = ['XModel']
 

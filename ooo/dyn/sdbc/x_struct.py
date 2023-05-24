@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XStruct as XStruct
     setattr(XStruct, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XStruct, '__ooo_full_ns__', 'com.sun.star.sdbc.XStruct')
     setattr(XStruct, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XStruct as XStruct
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XStruct as XStruct
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_struct import XStruct as XStruct
 
 __all__ = ['XStruct']
 

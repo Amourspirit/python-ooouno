@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.sax import XFastNamespaceHandler as XFastNamespaceHandler
     setattr(XFastNamespaceHandler, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XFastNamespaceHandler, '__ooo_full_ns__', 'com.sun.star.xml.sax.XFastNamespaceHandler')
     setattr(XFastNamespaceHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.sax import XFastNamespaceHandler as XFastNamespaceHandler
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import XFastNamespaceHandler as XFastNamespaceHandler
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.x_fast_namespace_handler import XFastNamespaceHandler as XFastNamespaceHandler
 
 __all__ = ['XFastNamespaceHandler']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.deployment import XExtensionManager as XExtensionManager
     setattr(XExtensionManager, '__ooo_ns__', 'com.sun.star.deployment')
     setattr(XExtensionManager, '__ooo_full_ns__', 'com.sun.star.deployment.XExtensionManager')
     setattr(XExtensionManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.deployment import XExtensionManager as XExtensionManager
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import XExtensionManager as XExtensionManager
+    else:
+        # keep document generators happy
+        from ...lo.deployment.x_extension_manager import XExtensionManager as XExtensionManager
 
 __all__ = ['XExtensionManager']
 

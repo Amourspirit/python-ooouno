@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SecurityInfrastructureException = _get_class()
 
 else:
-    from com.sun.star.security import SecurityInfrastructureException as SecurityInfrastructureException
+    if TYPE_CHECKING:
+        from com.sun.star.security import SecurityInfrastructureException as SecurityInfrastructureException
+    else:
+        from ...lo.security.security_infrastructure_exception import SecurityInfrastructureException as SecurityInfrastructureException
 
 __all__ = ['SecurityInfrastructureException']
 

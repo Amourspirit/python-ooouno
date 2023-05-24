@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.security import XCertificateExtension as XCertificateExtension
     setattr(XCertificateExtension, '__ooo_ns__', 'com.sun.star.security')
     setattr(XCertificateExtension, '__ooo_full_ns__', 'com.sun.star.security.XCertificateExtension')
     setattr(XCertificateExtension, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.security import XCertificateExtension as XCertificateExtension
+    if TYPE_CHECKING:
+        from com.sun.star.security import XCertificateExtension as XCertificateExtension
+    else:
+        # keep document generators happy
+        from ...lo.security.x_certificate_extension import XCertificateExtension as XCertificateExtension
 
 __all__ = ['XCertificateExtension']
 

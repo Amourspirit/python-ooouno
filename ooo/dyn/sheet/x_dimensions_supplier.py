@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XDimensionsSupplier as XDimensionsSupplier
     setattr(XDimensionsSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XDimensionsSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XDimensionsSupplier')
     setattr(XDimensionsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XDimensionsSupplier as XDimensionsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XDimensionsSupplier as XDimensionsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_dimensions_supplier import XDimensionsSupplier as XDimensionsSupplier
 
 __all__ = ['XDimensionsSupplier']
 

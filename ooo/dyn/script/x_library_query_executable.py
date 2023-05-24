@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XLibraryQueryExecutable as XLibraryQueryExecutable
     setattr(XLibraryQueryExecutable, '__ooo_ns__', 'com.sun.star.script')
     setattr(XLibraryQueryExecutable, '__ooo_full_ns__', 'com.sun.star.script.XLibraryQueryExecutable')
     setattr(XLibraryQueryExecutable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XLibraryQueryExecutable as XLibraryQueryExecutable
+    if TYPE_CHECKING:
+        from com.sun.star.script import XLibraryQueryExecutable as XLibraryQueryExecutable
+    else:
+        # keep document generators happy
+        from ...lo.script.x_library_query_executable import XLibraryQueryExecutable as XLibraryQueryExecutable
 
 __all__ = ['XLibraryQueryExecutable']
 

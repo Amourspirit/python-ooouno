@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnexpectedEOFException = _get_class()
 
 else:
-    from com.sun.star.io import UnexpectedEOFException as UnexpectedEOFException
+    if TYPE_CHECKING:
+        from com.sun.star.io import UnexpectedEOFException as UnexpectedEOFException
+    else:
+        from ...lo.io.unexpected_eof_exception import UnexpectedEOFException as UnexpectedEOFException
 
 __all__ = ['UnexpectedEOFException']
 

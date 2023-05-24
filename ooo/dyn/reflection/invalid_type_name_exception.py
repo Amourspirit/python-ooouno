@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidTypeNameException = _get_class()
 
 else:
-    from com.sun.star.reflection import InvalidTypeNameException as InvalidTypeNameException
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import InvalidTypeNameException as InvalidTypeNameException
+    else:
+        from ...lo.reflection.invalid_type_name_exception import InvalidTypeNameException as InvalidTypeNameException
 
 __all__ = ['InvalidTypeNameException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.task import XInteractionRetry as XInteractionRetry
     setattr(XInteractionRetry, '__ooo_ns__', 'com.sun.star.task')
     setattr(XInteractionRetry, '__ooo_full_ns__', 'com.sun.star.task.XInteractionRetry')
     setattr(XInteractionRetry, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.task import XInteractionRetry as XInteractionRetry
+    if TYPE_CHECKING:
+        from com.sun.star.task import XInteractionRetry as XInteractionRetry
+    else:
+        # keep document generators happy
+        from ...lo.task.x_interaction_retry import XInteractionRetry as XInteractionRetry
 
 __all__ = ['XInteractionRetry']
 

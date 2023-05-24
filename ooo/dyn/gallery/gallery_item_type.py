@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class GalleryItemType(metaclass=UnoConstMeta, type_name="com.sun.star.gallery.GalleryItemType", name_space="com.sun.star.gallery"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.gallery import GalleryItemType as GalleryItemType
+    if TYPE_CHECKING:
+        from com.sun.star.gallery import GalleryItemType as GalleryItemType
+    else:
+        # keep document generators happy
+        from ...lo.gallery.gallery_item_type import GalleryItemType as GalleryItemType
 
     class GalleryItemTypeEnum(IntEnum):
         """

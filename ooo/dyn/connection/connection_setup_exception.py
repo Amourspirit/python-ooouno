@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ConnectionSetupException = _get_class()
 
 else:
-    from com.sun.star.connection import ConnectionSetupException as ConnectionSetupException
+    if TYPE_CHECKING:
+        from com.sun.star.connection import ConnectionSetupException as ConnectionSetupException
+    else:
+        from ...lo.connection.connection_setup_exception import ConnectionSetupException as ConnectionSetupException
 
 __all__ = ['ConnectionSetupException']
 

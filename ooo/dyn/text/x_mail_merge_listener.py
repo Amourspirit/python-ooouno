@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XMailMergeListener as XMailMergeListener
     setattr(XMailMergeListener, '__ooo_ns__', 'com.sun.star.text')
     setattr(XMailMergeListener, '__ooo_full_ns__', 'com.sun.star.text.XMailMergeListener')
     setattr(XMailMergeListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XMailMergeListener as XMailMergeListener
+    if TYPE_CHECKING:
+        from com.sun.star.text import XMailMergeListener as XMailMergeListener
+    else:
+        # keep document generators happy
+        from ...lo.text.x_mail_merge_listener import XMailMergeListener as XMailMergeListener
 
 __all__ = ['XMailMergeListener']
 

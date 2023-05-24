@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XPooledConnection as XPooledConnection
     setattr(XPooledConnection, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XPooledConnection, '__ooo_full_ns__', 'com.sun.star.sdbc.XPooledConnection')
     setattr(XPooledConnection, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XPooledConnection as XPooledConnection
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XPooledConnection as XPooledConnection
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_pooled_connection import XPooledConnection as XPooledConnection
 
 __all__ = ['XPooledConnection']
 

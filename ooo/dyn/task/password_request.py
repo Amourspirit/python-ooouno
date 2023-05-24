@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PasswordRequest = _get_class()
 
 else:
-    from com.sun.star.task import PasswordRequest as PasswordRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import PasswordRequest as PasswordRequest
+    else:
+        from ...lo.task.password_request import PasswordRequest as PasswordRequest
 
 __all__ = ['PasswordRequest']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ScriptFrameworkErrorException = _get_class()
 
 else:
-    from com.sun.star.script.provider import ScriptFrameworkErrorException as ScriptFrameworkErrorException
+    if TYPE_CHECKING:
+        from com.sun.star.script.provider import ScriptFrameworkErrorException as ScriptFrameworkErrorException
+    else:
+        from ....lo.script.provider.script_framework_error_exception import ScriptFrameworkErrorException as ScriptFrameworkErrorException
 
 __all__ = ['ScriptFrameworkErrorException']
 

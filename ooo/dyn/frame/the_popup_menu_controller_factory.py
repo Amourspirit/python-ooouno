@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         thePopupMenuControllerFactory = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.frame.the_popup_menu_controller_factory import thePopupMenuControllerFactory as thePopupMenuControllerFactory
+    if TYPE_CHECKING
+        from com.sun.star.frame import thePopupMenuControllerFactory as thePopupMenuControllerFactory
+    else:
+        from ...lo.frame.the_popup_menu_controller_factory import thePopupMenuControllerFactory as thePopupMenuControllerFactory
 
 __all__ = ['thePopupMenuControllerFactory']

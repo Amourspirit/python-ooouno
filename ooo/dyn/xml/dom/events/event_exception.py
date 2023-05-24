@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     EventException = _get_class()
 
 else:
-    from com.sun.star.xml.dom.events import EventException as EventException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.events import EventException as EventException
+    else:
+        from .....lo.xml.dom.events.event_exception import EventException as EventException
 
 __all__ = ['EventException']
 

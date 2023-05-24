@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FastToken(metaclass=UnoConstMeta, type_name="com.sun.star.xml.sax.FastToken", name_space="com.sun.star.xml.sax"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.xml.sax import FastToken as FastToken
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import FastToken as FastToken
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.fast_token import FastToken as FastToken
 
     class FastTokenEnum(IntEnum):
         """

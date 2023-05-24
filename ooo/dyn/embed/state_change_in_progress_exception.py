@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     StateChangeInProgressException = _get_class()
 
 else:
-    from com.sun.star.embed import StateChangeInProgressException as StateChangeInProgressException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import StateChangeInProgressException as StateChangeInProgressException
+    else:
+        from ...lo.embed.state_change_in_progress_exception import StateChangeInProgressException as StateChangeInProgressException
 
 __all__ = ['StateChangeInProgressException']
 

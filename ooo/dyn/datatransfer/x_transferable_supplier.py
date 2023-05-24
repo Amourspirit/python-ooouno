@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer import XTransferableSupplier as XTransferableSupplier
     setattr(XTransferableSupplier, '__ooo_ns__', 'com.sun.star.datatransfer')
     setattr(XTransferableSupplier, '__ooo_full_ns__', 'com.sun.star.datatransfer.XTransferableSupplier')
     setattr(XTransferableSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer import XTransferableSupplier as XTransferableSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer import XTransferableSupplier as XTransferableSupplier
+    else:
+        # keep document generators happy
+        from ...lo.datatransfer.x_transferable_supplier import XTransferableSupplier as XTransferableSupplier
 
 __all__ = ['XTransferableSupplier']
 

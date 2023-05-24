@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSheetPageBreak as XSheetPageBreak
     setattr(XSheetPageBreak, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetPageBreak, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetPageBreak')
     setattr(XSheetPageBreak, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSheetPageBreak as XSheetPageBreak
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSheetPageBreak as XSheetPageBreak
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sheet_page_break import XSheetPageBreak as XSheetPageBreak
 
 __all__ = ['XSheetPageBreak']
 

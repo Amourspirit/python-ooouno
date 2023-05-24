@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AuthenticationFallbackRequest = _get_class()
 
 else:
-    from com.sun.star.ucb import AuthenticationFallbackRequest as AuthenticationFallbackRequest
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import AuthenticationFallbackRequest as AuthenticationFallbackRequest
+    else:
+        from ...lo.ucb.authentication_fallback_request import AuthenticationFallbackRequest as AuthenticationFallbackRequest
 
 __all__ = ['AuthenticationFallbackRequest']
 

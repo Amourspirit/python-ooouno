@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.security.CertificateContainerStatus import NOCERT as CERTIFICATE_CONTAINER_STATUS_NOCERT
-    from com.sun.star.security.CertificateContainerStatus import TRUSTED as CERTIFICATE_CONTAINER_STATUS_TRUSTED
-    from com.sun.star.security.CertificateContainerStatus import UNTRUSTED as CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
-
-    class CertificateContainerStatus(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API CertificateContainerStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#abd9126083ddb902b337383198d342e9f>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.security.CertificateContainerStatus', value)
-
-        __ooo_ns__: str = 'com.sun.star.security'
-        __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
-        __ooo_type_name__: str = 'enum'
-
-        NOCERT = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_NOCERT)
-        """
-        The certificate was not found.
-        """
-        TRUSTED = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_TRUSTED)
-        """
-        The certificate was found and is trusted.
-        """
-        UNTRUSTED = cast("CertificateContainerStatus", CERTIFICATE_CONTAINER_STATUS_UNTRUSTED)
-        """
-        The certificate was found but is untrusted.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CertificateContainerStatus(metaclass=UnoEnumMeta, type_name="com.sun.star.security.CertificateContainerStatus", name_space="com.sun.star.security"):
         """Dynamically created class that represents ``com.sun.star.security.CertificateContainerStatus`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.security.CertificateContainerStatus import NOCERT as CERTIFICATE_CONTAINER_STATUS_NOCERT
+        from com.sun.star.security.CertificateContainerStatus import TRUSTED as CERTIFICATE_CONTAINER_STATUS_TRUSTED
+        from com.sun.star.security.CertificateContainerStatus import UNTRUSTED as CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
+
+        class CertificateContainerStatus(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API CertificateContainerStatus <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#abd9126083ddb902b337383198d342e9f>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.security.CertificateContainerStatus', value)
+
+            __ooo_ns__: str = 'com.sun.star.security'
+            __ooo_full_ns__: str = 'com.sun.star.security.CertificateContainerStatus'
+            __ooo_type_name__: str = 'enum'
+
+            NOCERT = CERTIFICATE_CONTAINER_STATUS_NOCERT
+            """
+            The certificate was not found.
+            """
+            TRUSTED = CERTIFICATE_CONTAINER_STATUS_TRUSTED
+            """
+            The certificate was found and is trusted.
+            """
+            UNTRUSTED = CERTIFICATE_CONTAINER_STATUS_UNTRUSTED
+            """
+            The certificate was found but is untrusted.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.security.certificate_container_status import CertificateContainerStatus as CertificateContainerStatus
+
 
 __all__ = ['CertificateContainerStatus']

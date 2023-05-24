@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XExtendedTransliteration as XExtendedTransliteration
     setattr(XExtendedTransliteration, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XExtendedTransliteration, '__ooo_full_ns__', 'com.sun.star.i18n.XExtendedTransliteration')
     setattr(XExtendedTransliteration, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XExtendedTransliteration as XExtendedTransliteration
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XExtendedTransliteration as XExtendedTransliteration
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_extended_transliteration import XExtendedTransliteration as XExtendedTransliteration
 
 __all__ = ['XExtendedTransliteration']
 

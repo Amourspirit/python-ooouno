@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BasicErrorException = _get_class()
 
 else:
-    from com.sun.star.script import BasicErrorException as BasicErrorException
+    if TYPE_CHECKING:
+        from com.sun.star.script import BasicErrorException as BasicErrorException
+    else:
+        from ...lo.script.basic_error_exception import BasicErrorException as BasicErrorException
 
 __all__ = ['BasicErrorException']
 

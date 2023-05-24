@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WrongJavaVersionException = _get_class()
 
 else:
-    from com.sun.star.java import WrongJavaVersionException as WrongJavaVersionException
+    if TYPE_CHECKING:
+        from com.sun.star.java import WrongJavaVersionException as WrongJavaVersionException
+    else:
+        from ...lo.java.wrong_java_version_exception import WrongJavaVersionException as WrongJavaVersionException
 
 __all__ = ['WrongJavaVersionException']
 

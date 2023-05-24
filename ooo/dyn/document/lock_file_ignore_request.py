@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LockFileIgnoreRequest = _get_class()
 
 else:
-    from com.sun.star.document import LockFileIgnoreRequest as LockFileIgnoreRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import LockFileIgnoreRequest as LockFileIgnoreRequest
+    else:
+        from ...lo.document.lock_file_ignore_request import LockFileIgnoreRequest as LockFileIgnoreRequest
 
 __all__ = ['LockFileIgnoreRequest']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CommandFailedException = _get_class()
 
 else:
-    from com.sun.star.ucb import CommandFailedException as CommandFailedException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import CommandFailedException as CommandFailedException
+    else:
+        from ...lo.ucb.command_failed_exception import CommandFailedException as CommandFailedException
 
 __all__ = ['CommandFailedException']
 

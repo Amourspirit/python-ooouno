@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XEnhancedMouseClickHandler as XEnhancedMouseClickHandler
     setattr(XEnhancedMouseClickHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XEnhancedMouseClickHandler, '__ooo_full_ns__', 'com.sun.star.awt.XEnhancedMouseClickHandler')
     setattr(XEnhancedMouseClickHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XEnhancedMouseClickHandler as XEnhancedMouseClickHandler
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XEnhancedMouseClickHandler as XEnhancedMouseClickHandler
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_enhanced_mouse_click_handler import XEnhancedMouseClickHandler as XEnhancedMouseClickHandler
 
 __all__ = ['XEnhancedMouseClickHandler']
 

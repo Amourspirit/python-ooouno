@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotConvertException = _get_class()
 
 else:
-    from com.sun.star.script import CannotConvertException as CannotConvertException
+    if TYPE_CHECKING:
+        from com.sun.star.script import CannotConvertException as CannotConvertException
+    else:
+        from ...lo.script.cannot_convert_exception import CannotConvertException as CannotConvertException
 
 __all__ = ['CannotConvertException']
 

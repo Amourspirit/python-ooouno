@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XFileIdentifierConverter as XFileIdentifierConverter
     setattr(XFileIdentifierConverter, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XFileIdentifierConverter, '__ooo_full_ns__', 'com.sun.star.ucb.XFileIdentifierConverter')
     setattr(XFileIdentifierConverter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XFileIdentifierConverter as XFileIdentifierConverter
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XFileIdentifierConverter as XFileIdentifierConverter
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_file_identifier_converter import XFileIdentifierConverter as XFileIdentifierConverter
 
 __all__ = ['XFileIdentifierConverter']
 

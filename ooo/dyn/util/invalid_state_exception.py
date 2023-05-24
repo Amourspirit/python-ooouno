@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidStateException = _get_class()
 
 else:
-    from com.sun.star.util import InvalidStateException as InvalidStateException
+    if TYPE_CHECKING:
+        from com.sun.star.util import InvalidStateException as InvalidStateException
+    else:
+        from ...lo.util.invalid_state_exception import InvalidStateException as InvalidStateException
 
 __all__ = ['InvalidStateException']
 

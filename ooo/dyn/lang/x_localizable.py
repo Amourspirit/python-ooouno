@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XLocalizable as XLocalizable
     setattr(XLocalizable, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XLocalizable, '__ooo_full_ns__', 'com.sun.star.lang.XLocalizable')
     setattr(XLocalizable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XLocalizable as XLocalizable
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XLocalizable as XLocalizable
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_localizable import XLocalizable as XLocalizable
 
 __all__ = ['XLocalizable']
 

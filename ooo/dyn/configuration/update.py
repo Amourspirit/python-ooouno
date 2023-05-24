@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         Update = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.configuration.update import Update as Update
+    if TYPE_CHECKING
+        from com.sun.star.configuration import Update as Update
+    else:
+        from ...lo.configuration.update import Update as Update
 
 __all__ = ['Update']

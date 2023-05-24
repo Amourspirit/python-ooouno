@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AlreadyAcceptingException = _get_class()
 
 else:
-    from com.sun.star.connection import AlreadyAcceptingException as AlreadyAcceptingException
+    if TYPE_CHECKING:
+        from com.sun.star.connection import AlreadyAcceptingException as AlreadyAcceptingException
+    else:
+        from ...lo.connection.already_accepting_exception import AlreadyAcceptingException as AlreadyAcceptingException
 
 __all__ = ['AlreadyAcceptingException']
 

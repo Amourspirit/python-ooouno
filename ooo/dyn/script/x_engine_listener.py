@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XEngineListener as XEngineListener
     setattr(XEngineListener, '__ooo_ns__', 'com.sun.star.script')
     setattr(XEngineListener, '__ooo_full_ns__', 'com.sun.star.script.XEngineListener')
     setattr(XEngineListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XEngineListener as XEngineListener
+    if TYPE_CHECKING:
+        from com.sun.star.script import XEngineListener as XEngineListener
+    else:
+        # keep document generators happy
+        from ...lo.script.x_engine_listener import XEngineListener as XEngineListener
 
 __all__ = ['XEngineListener']
 

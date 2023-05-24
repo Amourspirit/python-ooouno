@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ZipConstants(metaclass=UnoConstMeta, type_name="com.sun.star.packages.zip.ZipConstants", name_space="com.sun.star.packages.zip"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.packages.zip import ZipConstants as ZipConstants
+    if TYPE_CHECKING:
+        from com.sun.star.packages.zip import ZipConstants as ZipConstants
+    else:
+        # keep document generators happy
+        from ....lo.packages.zip.zip_constants import ZipConstants as ZipConstants
 
     class ZipConstantsEnum(IntEnum):
         """

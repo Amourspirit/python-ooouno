@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XTopWindowListener as XTopWindowListener
     setattr(XTopWindowListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XTopWindowListener, '__ooo_full_ns__', 'com.sun.star.awt.XTopWindowListener')
     setattr(XTopWindowListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XTopWindowListener as XTopWindowListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XTopWindowListener as XTopWindowListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_top_window_listener import XTopWindowListener as XTopWindowListener
 
 __all__ = ['XTopWindowListener']
 

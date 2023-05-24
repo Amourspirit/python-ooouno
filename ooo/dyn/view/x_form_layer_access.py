@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XFormLayerAccess as XFormLayerAccess
     setattr(XFormLayerAccess, '__ooo_ns__', 'com.sun.star.view')
     setattr(XFormLayerAccess, '__ooo_full_ns__', 'com.sun.star.view.XFormLayerAccess')
     setattr(XFormLayerAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XFormLayerAccess as XFormLayerAccess
+    if TYPE_CHECKING:
+        from com.sun.star.view import XFormLayerAccess as XFormLayerAccess
+    else:
+        # keep document generators happy
+        from ...lo.view.x_form_layer_access import XFormLayerAccess as XFormLayerAccess
 
 __all__ = ['XFormLayerAccess']
 

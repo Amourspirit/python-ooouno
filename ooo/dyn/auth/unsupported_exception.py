@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnsupportedException = _get_class()
 
 else:
-    from com.sun.star.auth import UnsupportedException as UnsupportedException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import UnsupportedException as UnsupportedException
+    else:
+        from ...lo.auth.unsupported_exception import UnsupportedException as UnsupportedException
 
 __all__ = ['UnsupportedException']
 

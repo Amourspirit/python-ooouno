@@ -20,58 +20,65 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.PolygonFlags import CONTROL as POLYGON_FLAGS_CONTROL
-    from com.sun.star.drawing.PolygonFlags import NORMAL as POLYGON_FLAGS_NORMAL
-    from com.sun.star.drawing.PolygonFlags import SMOOTH as POLYGON_FLAGS_SMOOTH
-    from com.sun.star.drawing.PolygonFlags import SYMMETRIC as POLYGON_FLAGS_SYMMETRIC
-
-    class PolygonFlags(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API PolygonFlags <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af3965fa427851bc02bfe32c5d95d7406>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.PolygonFlags', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonFlags'
-        __ooo_type_name__: str = 'enum'
-
-        CONTROL = cast("PolygonFlags", POLYGON_FLAGS_CONTROL)
-        """
-        the point is a control point, to control the curve from the user interface.
-        """
-        NORMAL = cast("PolygonFlags", POLYGON_FLAGS_NORMAL)
-        """
-        the text is drawn along the path without scaling.
-        
-        the point is normal, from the curve discussion view.
-        """
-        SMOOTH = cast("PolygonFlags", POLYGON_FLAGS_SMOOTH)
-        """
-        the point is smooth, the first derivation from the curve discussion view.
-        
-        With SMOOTH shading, the colors of the lit vertices is interpolated.
-        """
-        SYMMETRIC = cast("PolygonFlags", POLYGON_FLAGS_SYMMETRIC)
-        """
-        the point is symmetric, the second derivation from the curve discussion view.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PolygonFlags(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.PolygonFlags", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.PolygonFlags`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.PolygonFlags import CONTROL as POLYGON_FLAGS_CONTROL
+        from com.sun.star.drawing.PolygonFlags import NORMAL as POLYGON_FLAGS_NORMAL
+        from com.sun.star.drawing.PolygonFlags import SMOOTH as POLYGON_FLAGS_SMOOTH
+        from com.sun.star.drawing.PolygonFlags import SYMMETRIC as POLYGON_FLAGS_SYMMETRIC
+
+        class PolygonFlags(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API PolygonFlags <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af3965fa427851bc02bfe32c5d95d7406>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.PolygonFlags', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.PolygonFlags'
+            __ooo_type_name__: str = 'enum'
+
+            CONTROL = POLYGON_FLAGS_CONTROL
+            """
+            the point is a control point, to control the curve from the user interface.
+            """
+            NORMAL = POLYGON_FLAGS_NORMAL
+            """
+            the text is drawn along the path without scaling.
+
+            the point is normal, from the curve discussion view.
+            """
+            SMOOTH = POLYGON_FLAGS_SMOOTH
+            """
+            the point is smooth, the first derivation from the curve discussion view.
+
+            With SMOOTH shading, the colors of the lit vertices is interpolated.
+            """
+            SYMMETRIC = POLYGON_FLAGS_SYMMETRIC
+            """
+            the point is symmetric, the second derivation from the curve discussion view.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.polygon_flags import PolygonFlags as PolygonFlags
+
 
 __all__ = ['PolygonFlags']

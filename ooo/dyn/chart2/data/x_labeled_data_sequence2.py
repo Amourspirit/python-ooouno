@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2.data import XLabeledDataSequence2 as XLabeledDataSequence2
     setattr(XLabeledDataSequence2, '__ooo_ns__', 'com.sun.star.chart2.data')
     setattr(XLabeledDataSequence2, '__ooo_full_ns__', 'com.sun.star.chart2.data.XLabeledDataSequence2')
     setattr(XLabeledDataSequence2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2.data import XLabeledDataSequence2 as XLabeledDataSequence2
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.data import XLabeledDataSequence2 as XLabeledDataSequence2
+    else:
+        # keep document generators happy
+        from ....lo.chart2.data.x_labeled_data_sequence2 import XLabeledDataSequence2 as XLabeledDataSequence2
 
 __all__ = ['XLabeledDataSequence2']
 

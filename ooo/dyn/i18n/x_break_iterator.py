@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XBreakIterator as XBreakIterator
     setattr(XBreakIterator, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XBreakIterator, '__ooo_full_ns__', 'com.sun.star.i18n.XBreakIterator')
     setattr(XBreakIterator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XBreakIterator as XBreakIterator
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XBreakIterator as XBreakIterator
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_break_iterator import XBreakIterator as XBreakIterator
 
 __all__ = ['XBreakIterator']
 

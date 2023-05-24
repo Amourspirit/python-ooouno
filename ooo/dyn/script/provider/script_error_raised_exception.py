@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ScriptErrorRaisedException = _get_class()
 
 else:
-    from com.sun.star.script.provider import ScriptErrorRaisedException as ScriptErrorRaisedException
+    if TYPE_CHECKING:
+        from com.sun.star.script.provider import ScriptErrorRaisedException as ScriptErrorRaisedException
+    else:
+        from ....lo.script.provider.script_error_raised_exception import ScriptErrorRaisedException as ScriptErrorRaisedException
 
 __all__ = ['ScriptErrorRaisedException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt.grid import XGridSelectionListener as XGridSelectionListener
     setattr(XGridSelectionListener, '__ooo_ns__', 'com.sun.star.awt.grid')
     setattr(XGridSelectionListener, '__ooo_full_ns__', 'com.sun.star.awt.grid.XGridSelectionListener')
     setattr(XGridSelectionListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt.grid import XGridSelectionListener as XGridSelectionListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt.grid import XGridSelectionListener as XGridSelectionListener
+    else:
+        # keep document generators happy
+        from ....lo.awt.grid.x_grid_selection_listener import XGridSelectionListener as XGridSelectionListener
 
 __all__ = ['XGridSelectionListener']
 

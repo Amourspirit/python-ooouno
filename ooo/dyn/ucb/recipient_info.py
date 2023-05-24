@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('ProtocolType', 'State', 'To', 'CC', 'BCC', 'Newsgroups', 'Server', 'Username', 'Password', 'VIMPostOfficePath', 'ProtocolErrorString', 'ProtocolErrorNumber', 'SendTries')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RecipientInfo = _get_class()
 
 else:
-    from com.sun.star.ucb import RecipientInfo as RecipientInfo
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import RecipientInfo as RecipientInfo
+    else:
+        # keep document generators happy
+        from ...lo.ucb.recipient_info import RecipientInfo as RecipientInfo
 
 __all__ = ['RecipientInfo']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XPackageStructureCreator as XPackageStructureCreator
     setattr(XPackageStructureCreator, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XPackageStructureCreator, '__ooo_full_ns__', 'com.sun.star.embed.XPackageStructureCreator')
     setattr(XPackageStructureCreator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XPackageStructureCreator as XPackageStructureCreator
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XPackageStructureCreator as XPackageStructureCreator
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_package_structure_creator import XPackageStructureCreator as XPackageStructureCreator
 
 __all__ = ['XPackageStructureCreator']
 

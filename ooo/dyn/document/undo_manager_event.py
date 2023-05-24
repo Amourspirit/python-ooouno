@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Source', 'UndoActionTitle', 'UndoContextDepth')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UndoManagerEvent = _get_class()
 
 else:
-    from com.sun.star.document import UndoManagerEvent as UndoManagerEvent
+    if TYPE_CHECKING:
+        from com.sun.star.document import UndoManagerEvent as UndoManagerEvent
+    else:
+        # keep document generators happy
+        from ...lo.document.undo_manager_event import UndoManagerEvent as UndoManagerEvent
 
 __all__ = ['UndoManagerEvent']
 

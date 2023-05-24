@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnknownModuleException = _get_class()
 
 else:
-    from com.sun.star.frame import UnknownModuleException as UnknownModuleException
+    if TYPE_CHECKING:
+        from com.sun.star.frame import UnknownModuleException as UnknownModuleException
+    else:
+        from ...lo.frame.unknown_module_exception import UnknownModuleException as UnknownModuleException
 
 __all__ = ['UnknownModuleException']
 

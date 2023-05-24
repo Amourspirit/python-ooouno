@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoRawFormatException = _get_class()
 
 else:
-    from com.sun.star.packages import NoRawFormatException as NoRawFormatException
+    if TYPE_CHECKING:
+        from com.sun.star.packages import NoRawFormatException as NoRawFormatException
+    else:
+        from ...lo.packages.no_raw_format_exception import NoRawFormatException as NoRawFormatException
 
 __all__ = ['NoRawFormatException']
 

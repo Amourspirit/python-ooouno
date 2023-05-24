@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XTextViewTextRangeSupplier as XTextViewTextRangeSupplier
     setattr(XTextViewTextRangeSupplier, '__ooo_ns__', 'com.sun.star.text')
     setattr(XTextViewTextRangeSupplier, '__ooo_full_ns__', 'com.sun.star.text.XTextViewTextRangeSupplier')
     setattr(XTextViewTextRangeSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XTextViewTextRangeSupplier as XTextViewTextRangeSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.text import XTextViewTextRangeSupplier as XTextViewTextRangeSupplier
+    else:
+        # keep document generators happy
+        from ...lo.text.x_text_view_text_range_supplier import XTextViewTextRangeSupplier as XTextViewTextRangeSupplier
 
 __all__ = ['XTextViewTextRangeSupplier']
 

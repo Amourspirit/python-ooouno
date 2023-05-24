@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XBinaryDataContainer as XBinaryDataContainer
     setattr(XBinaryDataContainer, '__ooo_ns__', 'com.sun.star.util')
     setattr(XBinaryDataContainer, '__ooo_full_ns__', 'com.sun.star.util.XBinaryDataContainer')
     setattr(XBinaryDataContainer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XBinaryDataContainer as XBinaryDataContainer
+    if TYPE_CHECKING:
+        from com.sun.star.util import XBinaryDataContainer as XBinaryDataContainer
+    else:
+        # keep document generators happy
+        from ...lo.util.x_binary_data_container import XBinaryDataContainer as XBinaryDataContainer
 
 __all__ = ['XBinaryDataContainer']
 

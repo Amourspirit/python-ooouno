@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSheetAnnotationShapeSupplier as XSheetAnnotationShapeSupplier
     setattr(XSheetAnnotationShapeSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetAnnotationShapeSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetAnnotationShapeSupplier')
     setattr(XSheetAnnotationShapeSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSheetAnnotationShapeSupplier as XSheetAnnotationShapeSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSheetAnnotationShapeSupplier as XSheetAnnotationShapeSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sheet_annotation_shape_supplier import XSheetAnnotationShapeSupplier as XSheetAnnotationShapeSupplier
 
 __all__ = ['XSheetAnnotationShapeSupplier']
 

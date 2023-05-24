@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.dom import XDocumentType as XDocumentType
     setattr(XDocumentType, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XDocumentType, '__ooo_full_ns__', 'com.sun.star.xml.dom.XDocumentType')
     setattr(XDocumentType, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.dom import XDocumentType as XDocumentType
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom import XDocumentType as XDocumentType
+    else:
+        # keep document generators happy
+        from ....lo.xml.dom.x_document_type import XDocumentType as XDocumentType
 
 __all__ = ['XDocumentType']
 

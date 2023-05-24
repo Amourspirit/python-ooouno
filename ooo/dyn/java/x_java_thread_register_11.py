@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.java import XJavaThreadRegister_11 as XJavaThreadRegister_11
     setattr(XJavaThreadRegister_11, '__ooo_ns__', 'com.sun.star.java')
     setattr(XJavaThreadRegister_11, '__ooo_full_ns__', 'com.sun.star.java.XJavaThreadRegister_11')
     setattr(XJavaThreadRegister_11, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.java import XJavaThreadRegister_11 as XJavaThreadRegister_11
+    if TYPE_CHECKING:
+        from com.sun.star.java import XJavaThreadRegister_11 as XJavaThreadRegister_11
+    else:
+        # keep document generators happy
+        from ...lo.java.x_java_thread_register_11 import XJavaThreadRegister_11 as XJavaThreadRegister_11
 
 __all__ = ['XJavaThreadRegister_11']
 

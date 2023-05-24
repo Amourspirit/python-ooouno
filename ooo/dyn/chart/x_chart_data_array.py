@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart import XChartDataArray as XChartDataArray
     setattr(XChartDataArray, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XChartDataArray, '__ooo_full_ns__', 'com.sun.star.chart.XChartDataArray')
     setattr(XChartDataArray, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart import XChartDataArray as XChartDataArray
+    if TYPE_CHECKING:
+        from com.sun.star.chart import XChartDataArray as XChartDataArray
+    else:
+        # keep document generators happy
+        from ...lo.chart.x_chart_data_array import XChartDataArray as XChartDataArray
 
 __all__ = ['XChartDataArray']
 

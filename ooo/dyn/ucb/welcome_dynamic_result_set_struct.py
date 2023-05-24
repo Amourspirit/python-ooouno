@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Old', 'New')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WelcomeDynamicResultSetStruct = _get_class()
 
 else:
-    from com.sun.star.ucb import WelcomeDynamicResultSetStruct as WelcomeDynamicResultSetStruct
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import WelcomeDynamicResultSetStruct as WelcomeDynamicResultSetStruct
+    else:
+        # keep document generators happy
+        from ...lo.ucb.welcome_dynamic_result_set_struct import WelcomeDynamicResultSetStruct as WelcomeDynamicResultSetStruct
 
 __all__ = ['WelcomeDynamicResultSetStruct']
 

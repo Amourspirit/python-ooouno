@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DocumentMacroConfirmationRequest = _get_class()
 
 else:
-    from com.sun.star.task import DocumentMacroConfirmationRequest as DocumentMacroConfirmationRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import DocumentMacroConfirmationRequest as DocumentMacroConfirmationRequest
+    else:
+        from ...lo.task.document_macro_confirmation_request import DocumentMacroConfirmationRequest as DocumentMacroConfirmationRequest
 
 __all__ = ['DocumentMacroConfirmationRequest']
 

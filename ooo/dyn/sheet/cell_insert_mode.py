@@ -20,75 +20,82 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.CellInsertMode import COLUMNS as CELL_INSERT_MODE_COLUMNS
-    from com.sun.star.sheet.CellInsertMode import DOWN as CELL_INSERT_MODE_DOWN
-    from com.sun.star.sheet.CellInsertMode import NONE as CELL_INSERT_MODE_NONE
-    from com.sun.star.sheet.CellInsertMode import RIGHT as CELL_INSERT_MODE_RIGHT
-    from com.sun.star.sheet.CellInsertMode import ROWS as CELL_INSERT_MODE_ROWS
-
-    class CellInsertMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API CellInsertMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a93cdb08109d5d34543f2fe04d1ef605a>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.CellInsertMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
-        __ooo_type_name__: str = 'enum'
-
-        COLUMNS = cast("CellInsertMode", CELL_INSERT_MODE_COLUMNS)
-        """
-        entire columns to the right of the deleted cells are moved left.
-        
-        entire columns to the right of the inserted cells are moved right.
-        """
-        DOWN = cast("CellInsertMode", CELL_INSERT_MODE_DOWN)
-        """
-        the cells below the inserted cells are moved down.
-        """
-        NONE = cast("CellInsertMode", CELL_INSERT_MODE_NONE)
-        """
-        no cells are moved.
-        
-        sheet is not linked.
-        
-        new values are used without changes.
-        
-        nothing is calculated.
-        
-        nothing is imported.
-        
-        no condition is specified.
-        """
-        RIGHT = cast("CellInsertMode", CELL_INSERT_MODE_RIGHT)
-        """
-        selects the right border.
-        
-        the cells to the right of the inserted cells are moved right.
-        """
-        ROWS = cast("CellInsertMode", CELL_INSERT_MODE_ROWS)
-        """
-        entire rows below the deleted cells are moved up.
-        
-        entire rows below the inserted cells are moved down.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CellInsertMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.CellInsertMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.CellInsertMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.CellInsertMode import COLUMNS as CELL_INSERT_MODE_COLUMNS
+        from com.sun.star.sheet.CellInsertMode import DOWN as CELL_INSERT_MODE_DOWN
+        from com.sun.star.sheet.CellInsertMode import NONE as CELL_INSERT_MODE_NONE
+        from com.sun.star.sheet.CellInsertMode import RIGHT as CELL_INSERT_MODE_RIGHT
+        from com.sun.star.sheet.CellInsertMode import ROWS as CELL_INSERT_MODE_ROWS
+
+        class CellInsertMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API CellInsertMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a93cdb08109d5d34543f2fe04d1ef605a>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.CellInsertMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
+            __ooo_type_name__: str = 'enum'
+
+            COLUMNS = CELL_INSERT_MODE_COLUMNS
+            """
+            entire columns to the right of the deleted cells are moved left.
+
+            entire columns to the right of the inserted cells are moved right.
+            """
+            DOWN = CELL_INSERT_MODE_DOWN
+            """
+            the cells below the inserted cells are moved down.
+            """
+            NONE = CELL_INSERT_MODE_NONE
+            """
+            no cells are moved.
+
+            sheet is not linked.
+
+            new values are used without changes.
+
+            nothing is calculated.
+
+            nothing is imported.
+
+            no condition is specified.
+            """
+            RIGHT = CELL_INSERT_MODE_RIGHT
+            """
+            selects the right border.
+
+            the cells to the right of the inserted cells are moved right.
+            """
+            ROWS = CELL_INSERT_MODE_ROWS
+            """
+            entire rows below the deleted cells are moved up.
+
+            entire rows below the inserted cells are moved down.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.cell_insert_mode import CellInsertMode as CellInsertMode
+
 
 __all__ = ['CellInsertMode']

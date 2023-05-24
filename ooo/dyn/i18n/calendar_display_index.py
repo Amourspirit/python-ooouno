@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class CalendarDisplayIndex(metaclass=UnoConstMeta, type_name="com.sun.star.i18n.CalendarDisplayIndex", name_space="com.sun.star.i18n"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.i18n import CalendarDisplayIndex as CalendarDisplayIndex
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import CalendarDisplayIndex as CalendarDisplayIndex
+    else:
+        # keep document generators happy
+        from ...lo.i18n.calendar_display_index import CalendarDisplayIndex as CalendarDisplayIndex
 
     class CalendarDisplayIndexEnum(IntEnum):
         """

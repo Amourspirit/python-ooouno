@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XRowSetListener as XRowSetListener
     setattr(XRowSetListener, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XRowSetListener, '__ooo_full_ns__', 'com.sun.star.sdbc.XRowSetListener')
     setattr(XRowSetListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XRowSetListener as XRowSetListener
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XRowSetListener as XRowSetListener
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_row_set_listener import XRowSetListener as XRowSetListener
 
 __all__ = ['XRowSetListener']
 

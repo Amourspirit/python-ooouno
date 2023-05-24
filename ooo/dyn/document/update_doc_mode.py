@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class UpdateDocMode(metaclass=UnoConstMeta, type_name="com.sun.star.document.UpdateDocMode", name_space="com.sun.star.document"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.document import UpdateDocMode as UpdateDocMode
+    if TYPE_CHECKING:
+        from com.sun.star.document import UpdateDocMode as UpdateDocMode
+    else:
+        # keep document generators happy
+        from ...lo.document.update_doc_mode import UpdateDocMode as UpdateDocMode
 
     class UpdateDocModeEnum(IntEnum):
         """

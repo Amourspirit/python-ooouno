@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XDeleteRows as XDeleteRows
     setattr(XDeleteRows, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XDeleteRows, '__ooo_full_ns__', 'com.sun.star.sdbcx.XDeleteRows')
     setattr(XDeleteRows, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XDeleteRows as XDeleteRows
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XDeleteRows as XDeleteRows
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_delete_rows import XDeleteRows as XDeleteRows
 
 __all__ = ['XDeleteRows']
 

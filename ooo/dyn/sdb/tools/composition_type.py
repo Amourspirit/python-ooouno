@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class CompositionType(metaclass=UnoConstMeta, type_name="com.sun.star.sdb.tools.CompositionType", name_space="com.sun.star.sdb.tools"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdb.tools import CompositionType as CompositionType
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.tools import CompositionType as CompositionType
+    else:
+        # keep document generators happy
+        from ....lo.sdb.tools.composition_type import CompositionType as CompositionType
 
     class CompositionTypeEnum(IntEnum):
         """

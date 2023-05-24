@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ChartSymbolType(metaclass=UnoConstMeta, type_name="com.sun.star.chart.ChartSymbolType", name_space="com.sun.star.chart"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.chart import ChartSymbolType as ChartSymbolType
+    if TYPE_CHECKING:
+        from com.sun.star.chart import ChartSymbolType as ChartSymbolType
+    else:
+        # keep document generators happy
+        from ...lo.chart.chart_symbol_type import ChartSymbolType as ChartSymbolType
 
     class ChartSymbolTypeEnum(IntEnum):
         """

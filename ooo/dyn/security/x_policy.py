@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.security import XPolicy as XPolicy
     setattr(XPolicy, '__ooo_ns__', 'com.sun.star.security')
     setattr(XPolicy, '__ooo_full_ns__', 'com.sun.star.security.XPolicy')
     setattr(XPolicy, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.security import XPolicy as XPolicy
+    if TYPE_CHECKING:
+        from com.sun.star.security import XPolicy as XPolicy
+    else:
+        # keep document generators happy
+        from ...lo.security.x_policy import XPolicy as XPolicy
 
 __all__ = ['XPolicy']
 

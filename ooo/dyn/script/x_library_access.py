@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XLibraryAccess as XLibraryAccess
     setattr(XLibraryAccess, '__ooo_ns__', 'com.sun.star.script')
     setattr(XLibraryAccess, '__ooo_full_ns__', 'com.sun.star.script.XLibraryAccess')
     setattr(XLibraryAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XLibraryAccess as XLibraryAccess
+    if TYPE_CHECKING:
+        from com.sun.star.script import XLibraryAccess as XLibraryAccess
+    else:
+        # keep document generators happy
+        from ...lo.script.x_library_access import XLibraryAccess as XLibraryAccess
 
 __all__ = ['XLibraryAccess']
 

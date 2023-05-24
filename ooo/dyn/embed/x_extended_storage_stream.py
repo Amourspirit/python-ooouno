@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XExtendedStorageStream as XExtendedStorageStream
     setattr(XExtendedStorageStream, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XExtendedStorageStream, '__ooo_full_ns__', 'com.sun.star.embed.XExtendedStorageStream')
     setattr(XExtendedStorageStream, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XExtendedStorageStream as XExtendedStorageStream
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XExtendedStorageStream as XExtendedStorageStream
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_extended_storage_stream import XExtendedStorageStream as XExtendedStorageStream
 
 __all__ = ['XExtendedStorageStream']
 

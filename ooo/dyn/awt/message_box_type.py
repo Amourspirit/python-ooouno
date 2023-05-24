@@ -20,59 +20,66 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.awt.MessageBoxType import ERRORBOX as MESSAGE_BOX_TYPE_ERRORBOX
-    from com.sun.star.awt.MessageBoxType import INFOBOX as MESSAGE_BOX_TYPE_INFOBOX
-    from com.sun.star.awt.MessageBoxType import MESSAGEBOX as MESSAGE_BOX_TYPE_MESSAGEBOX
-    from com.sun.star.awt.MessageBoxType import QUERYBOX as MESSAGE_BOX_TYPE_QUERYBOX
-    from com.sun.star.awt.MessageBoxType import WARNINGBOX as MESSAGE_BOX_TYPE_WARNINGBOX
-
-    class MessageBoxType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API MessageBoxType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ad249d76933bdf54c35f4eaf51a5b7965>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.awt.MessageBoxType', value)
-
-        __ooo_ns__: str = 'com.sun.star.awt'
-        __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
-        __ooo_type_name__: str = 'enum'
-
-        ERRORBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_ERRORBOX)
-        """
-        A message box to provide an error message to the user.
-        """
-        INFOBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_INFOBOX)
-        """
-        A message box to inform the user about a certain event.
-        """
-        MESSAGEBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_MESSAGEBOX)
-        """
-        A normal message box.
-        """
-        QUERYBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_QUERYBOX)
-        """
-        A message box to query information from the user.
-        """
-        WARNINGBOX = cast("MessageBoxType", MESSAGE_BOX_TYPE_WARNINGBOX)
-        """
-        A message to warn the user about a certain problem.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MessageBoxType(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.MessageBoxType", name_space="com.sun.star.awt"):
         """Dynamically created class that represents ``com.sun.star.awt.MessageBoxType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.awt.MessageBoxType import ERRORBOX as MESSAGE_BOX_TYPE_ERRORBOX
+        from com.sun.star.awt.MessageBoxType import INFOBOX as MESSAGE_BOX_TYPE_INFOBOX
+        from com.sun.star.awt.MessageBoxType import MESSAGEBOX as MESSAGE_BOX_TYPE_MESSAGEBOX
+        from com.sun.star.awt.MessageBoxType import QUERYBOX as MESSAGE_BOX_TYPE_QUERYBOX
+        from com.sun.star.awt.MessageBoxType import WARNINGBOX as MESSAGE_BOX_TYPE_WARNINGBOX
+
+        class MessageBoxType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API MessageBoxType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ad249d76933bdf54c35f4eaf51a5b7965>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.awt.MessageBoxType', value)
+
+            __ooo_ns__: str = 'com.sun.star.awt'
+            __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
+            __ooo_type_name__: str = 'enum'
+
+            ERRORBOX = MESSAGE_BOX_TYPE_ERRORBOX
+            """
+            A message box to provide an error message to the user.
+            """
+            INFOBOX = MESSAGE_BOX_TYPE_INFOBOX
+            """
+            A message box to inform the user about a certain event.
+            """
+            MESSAGEBOX = MESSAGE_BOX_TYPE_MESSAGEBOX
+            """
+            A normal message box.
+            """
+            QUERYBOX = MESSAGE_BOX_TYPE_QUERYBOX
+            """
+            A message box to query information from the user.
+            """
+            WARNINGBOX = MESSAGE_BOX_TYPE_WARNINGBOX
+            """
+            A message to warn the user about a certain problem.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.awt.message_box_type import MessageBoxType as MessageBoxType
+
 
 __all__ = ['MessageBoxType']

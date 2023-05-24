@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SQLException = _get_class()
 
 else:
-    from com.sun.star.sdbc import SQLException as SQLException
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import SQLException as SQLException
+    else:
+        from ...lo.sdbc.sql_exception import SQLException as SQLException
 
 __all__ = ['SQLException']
 

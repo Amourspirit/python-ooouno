@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XIntegerBitmapColorSpace as XIntegerBitmapColorSpace
     setattr(XIntegerBitmapColorSpace, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XIntegerBitmapColorSpace, '__ooo_full_ns__', 'com.sun.star.rendering.XIntegerBitmapColorSpace')
     setattr(XIntegerBitmapColorSpace, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XIntegerBitmapColorSpace as XIntegerBitmapColorSpace
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XIntegerBitmapColorSpace as XIntegerBitmapColorSpace
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_integer_bitmap_color_space import XIntegerBitmapColorSpace as XIntegerBitmapColorSpace
 
 __all__ = ['XIntegerBitmapColorSpace']
 

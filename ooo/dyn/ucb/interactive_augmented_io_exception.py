@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveAugmentedIOException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveAugmentedIOException as InteractiveAugmentedIOException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveAugmentedIOException as InteractiveAugmentedIOException
+    else:
+        from ...lo.ucb.interactive_augmented_io_exception import InteractiveAugmentedIOException as InteractiveAugmentedIOException
 
 __all__ = ['InteractiveAugmentedIOException']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ElementModes(metaclass=UnoConstMeta, type_name="com.sun.star.embed.ElementModes", name_space="com.sun.star.embed"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.embed import ElementModes as ElementModes
+    if TYPE_CHECKING:
+        from com.sun.star.embed import ElementModes as ElementModes
+    else:
+        # keep document generators happy
+        from ...lo.embed.element_modes import ElementModes as ElementModes
 
     class ElementModesEnum(IntEnum):
         """

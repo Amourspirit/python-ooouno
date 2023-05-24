@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveWrongMediumException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveWrongMediumException as InteractiveWrongMediumException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveWrongMediumException as InteractiveWrongMediumException
+    else:
+        from ...lo.ucb.interactive_wrong_medium_exception import InteractiveWrongMediumException as InteractiveWrongMediumException
 
 __all__ = ['InteractiveWrongMediumException']
 

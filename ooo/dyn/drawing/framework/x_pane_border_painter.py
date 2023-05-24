@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing.framework import XPaneBorderPainter as XPaneBorderPainter
     setattr(XPaneBorderPainter, '__ooo_ns__', 'com.sun.star.drawing.framework')
     setattr(XPaneBorderPainter, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XPaneBorderPainter')
     setattr(XPaneBorderPainter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing.framework import XPaneBorderPainter as XPaneBorderPainter
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.framework import XPaneBorderPainter as XPaneBorderPainter
+    else:
+        # keep document generators happy
+        from ....lo.drawing.framework.x_pane_border_painter import XPaneBorderPainter as XPaneBorderPainter
 
 __all__ = ['XPaneBorderPainter']
 

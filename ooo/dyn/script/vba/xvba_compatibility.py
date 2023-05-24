@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script.vba import XVBACompatibility as XVBACompatibility
     setattr(XVBACompatibility, '__ooo_ns__', 'com.sun.star.script.vba')
     setattr(XVBACompatibility, '__ooo_full_ns__', 'com.sun.star.script.vba.XVBACompatibility')
     setattr(XVBACompatibility, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script.vba import XVBACompatibility as XVBACompatibility
+    if TYPE_CHECKING:
+        from com.sun.star.script.vba import XVBACompatibility as XVBACompatibility
+    else:
+        # keep document generators happy
+        from ....lo.script.vba.xvba_compatibility import XVBACompatibility as XVBACompatibility
 
 __all__ = ['XVBACompatibility']
 

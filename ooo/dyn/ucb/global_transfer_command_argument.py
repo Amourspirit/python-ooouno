@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Operation', 'SourceURL', 'TargetURL', 'NewTitle', 'NameClash')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     GlobalTransferCommandArgument = _get_class()
 
 else:
-    from com.sun.star.ucb import GlobalTransferCommandArgument as GlobalTransferCommandArgument
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import GlobalTransferCommandArgument as GlobalTransferCommandArgument
+    else:
+        # keep document generators happy
+        from ...lo.ucb.global_transfer_command_argument import GlobalTransferCommandArgument as GlobalTransferCommandArgument
 
 __all__ = ['GlobalTransferCommandArgument']
 

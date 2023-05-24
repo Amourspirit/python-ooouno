@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class RedlineDisplayType(metaclass=UnoConstMeta, type_name="com.sun.star.document.RedlineDisplayType", name_space="com.sun.star.document"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.document import RedlineDisplayType as RedlineDisplayType
+    if TYPE_CHECKING:
+        from com.sun.star.document import RedlineDisplayType as RedlineDisplayType
+    else:
+        # keep document generators happy
+        from ...lo.document.redline_display_type import RedlineDisplayType as RedlineDisplayType
 
     class RedlineDisplayTypeEnum(IntEnum):
         """

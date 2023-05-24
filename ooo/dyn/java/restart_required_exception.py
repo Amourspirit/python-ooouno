@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RestartRequiredException = _get_class()
 
 else:
-    from com.sun.star.java import RestartRequiredException as RestartRequiredException
+    if TYPE_CHECKING:
+        from com.sun.star.java import RestartRequiredException as RestartRequiredException
+    else:
+        from ...lo.java.restart_required_exception import RestartRequiredException as RestartRequiredException
 
 __all__ = ['RestartRequiredException']
 

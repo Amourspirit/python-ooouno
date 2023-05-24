@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ResultSetException = _get_class()
 
 else:
-    from com.sun.star.ucb import ResultSetException as ResultSetException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import ResultSetException as ResultSetException
+    else:
+        from ...lo.ucb.result_set_exception import ResultSetException as ResultSetException
 
 __all__ = ['ResultSetException']
 

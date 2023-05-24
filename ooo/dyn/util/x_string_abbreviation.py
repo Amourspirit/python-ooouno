@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XStringAbbreviation as XStringAbbreviation
     setattr(XStringAbbreviation, '__ooo_ns__', 'com.sun.star.util')
     setattr(XStringAbbreviation, '__ooo_full_ns__', 'com.sun.star.util.XStringAbbreviation')
     setattr(XStringAbbreviation, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XStringAbbreviation as XStringAbbreviation
+    if TYPE_CHECKING:
+        from com.sun.star.util import XStringAbbreviation as XStringAbbreviation
+    else:
+        # keep document generators happy
+        from ...lo.util.x_string_abbreviation import XStringAbbreviation as XStringAbbreviation
 
 __all__ = ['XStringAbbreviation']
 

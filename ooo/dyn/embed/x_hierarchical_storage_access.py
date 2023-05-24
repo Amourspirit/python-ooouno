@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XHierarchicalStorageAccess as XHierarchicalStorageAccess
     setattr(XHierarchicalStorageAccess, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XHierarchicalStorageAccess, '__ooo_full_ns__', 'com.sun.star.embed.XHierarchicalStorageAccess')
     setattr(XHierarchicalStorageAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XHierarchicalStorageAccess as XHierarchicalStorageAccess
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XHierarchicalStorageAccess as XHierarchicalStorageAccess
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_hierarchical_storage_access import XHierarchicalStorageAccess as XHierarchicalStorageAccess
 
 __all__ = ['XHierarchicalStorageAccess']
 

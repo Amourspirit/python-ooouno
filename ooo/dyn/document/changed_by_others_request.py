@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ChangedByOthersRequest = _get_class()
 
 else:
-    from com.sun.star.document import ChangedByOthersRequest as ChangedByOthersRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import ChangedByOthersRequest as ChangedByOthersRequest
+    else:
+        from ...lo.document.changed_by_others_request import ChangedByOthersRequest as ChangedByOthersRequest
 
 __all__ = ['ChangedByOthersRequest']
 

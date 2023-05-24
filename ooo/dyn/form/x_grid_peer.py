@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XGridPeer as XGridPeer
     setattr(XGridPeer, '__ooo_ns__', 'com.sun.star.form')
     setattr(XGridPeer, '__ooo_full_ns__', 'com.sun.star.form.XGridPeer')
     setattr(XGridPeer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XGridPeer as XGridPeer
+    if TYPE_CHECKING:
+        from com.sun.star.form import XGridPeer as XGridPeer
+    else:
+        # keep document generators happy
+        from ...lo.form.x_grid_peer import XGridPeer as XGridPeer
 
 __all__ = ['XGridPeer']
 

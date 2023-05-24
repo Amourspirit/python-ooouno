@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XSimpleText as XSimpleText
     setattr(XSimpleText, '__ooo_ns__', 'com.sun.star.text')
     setattr(XSimpleText, '__ooo_full_ns__', 'com.sun.star.text.XSimpleText')
     setattr(XSimpleText, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XSimpleText as XSimpleText
+    if TYPE_CHECKING:
+        from com.sun.star.text import XSimpleText as XSimpleText
+    else:
+        # keep document generators happy
+        from ...lo.text.x_simple_text import XSimpleText as XSimpleText
 
 __all__ = ['XSimpleText']
 

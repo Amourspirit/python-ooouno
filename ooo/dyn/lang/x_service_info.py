@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XServiceInfo as XServiceInfo
     setattr(XServiceInfo, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XServiceInfo, '__ooo_full_ns__', 'com.sun.star.lang.XServiceInfo')
     setattr(XServiceInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XServiceInfo as XServiceInfo
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XServiceInfo as XServiceInfo
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_service_info import XServiceInfo as XServiceInfo
 
 __all__ = ['XServiceInfo']
 

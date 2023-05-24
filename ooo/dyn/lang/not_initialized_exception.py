@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NotInitializedException = _get_class()
 
 else:
-    from com.sun.star.lang import NotInitializedException as NotInitializedException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import NotInitializedException as NotInitializedException
+    else:
+        from ...lo.lang.not_initialized_exception import NotInitializedException as NotInitializedException
 
 __all__ = ['NotInitializedException']
 

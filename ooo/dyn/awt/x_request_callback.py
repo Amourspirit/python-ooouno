@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XRequestCallback as XRequestCallback
     setattr(XRequestCallback, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XRequestCallback, '__ooo_full_ns__', 'com.sun.star.awt.XRequestCallback')
     setattr(XRequestCallback, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XRequestCallback as XRequestCallback
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XRequestCallback as XRequestCallback
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_request_callback import XRequestCallback as XRequestCallback
 
 __all__ = ['XRequestCallback']
 

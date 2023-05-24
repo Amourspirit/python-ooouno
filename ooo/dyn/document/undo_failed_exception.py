@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UndoFailedException = _get_class()
 
 else:
-    from com.sun.star.document import UndoFailedException as UndoFailedException
+    if TYPE_CHECKING:
+        from com.sun.star.document import UndoFailedException as UndoFailedException
+    else:
+        from ...lo.document.undo_failed_exception import UndoFailedException as UndoFailedException
 
 __all__ = ['UndoFailedException']
 

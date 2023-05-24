@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XPageCursor as XPageCursor
     setattr(XPageCursor, '__ooo_ns__', 'com.sun.star.text')
     setattr(XPageCursor, '__ooo_full_ns__', 'com.sun.star.text.XPageCursor')
     setattr(XPageCursor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XPageCursor as XPageCursor
+    if TYPE_CHECKING:
+        from com.sun.star.text import XPageCursor as XPageCursor
+    else:
+        # keep document generators happy
+        from ...lo.text.x_page_cursor import XPageCursor as XPageCursor
 
 __all__ = ['XPageCursor']
 

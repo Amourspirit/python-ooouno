@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class VBAEventId(metaclass=UnoConstMeta, type_name="com.sun.star.script.vba.VBAEventId", name_space="com.sun.star.script.vba"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.script.vba import VBAEventId as VBAEventId
+    if TYPE_CHECKING:
+        from com.sun.star.script.vba import VBAEventId as VBAEventId
+    else:
+        # keep document generators happy
+        from ....lo.script.vba.vba_event_id import VBAEventId as VBAEventId
 
     class VBAEventIdEnum(IntEnum):
         """

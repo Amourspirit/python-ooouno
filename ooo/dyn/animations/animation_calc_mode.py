@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class AnimationCalcMode(metaclass=UnoConstMeta, type_name="com.sun.star.animations.AnimationCalcMode", name_space="com.sun.star.animations"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.animations import AnimationCalcMode as AnimationCalcMode
+    if TYPE_CHECKING:
+        from com.sun.star.animations import AnimationCalcMode as AnimationCalcMode
+    else:
+        # keep document generators happy
+        from ...lo.animations.animation_calc_mode import AnimationCalcMode as AnimationCalcMode
 
     class AnimationCalcModeEnum(IntEnum):
         """

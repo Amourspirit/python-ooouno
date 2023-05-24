@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CorruptedConfigurationException = _get_class()
 
 else:
-    from com.sun.star.configuration import CorruptedConfigurationException as CorruptedConfigurationException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import CorruptedConfigurationException as CorruptedConfigurationException
+    else:
+        from ...lo.configuration.corrupted_configuration_exception import CorruptedConfigurationException as CorruptedConfigurationException
 
 __all__ = ['CorruptedConfigurationException']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ReloadEditableRequest = _get_class()
 
 else:
-    from com.sun.star.document import ReloadEditableRequest as ReloadEditableRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import ReloadEditableRequest as ReloadEditableRequest
+    else:
+        from ...lo.document.reload_editable_request import ReloadEditableRequest as ReloadEditableRequest
 
 __all__ = ['ReloadEditableRequest']
 

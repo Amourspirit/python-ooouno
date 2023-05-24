@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Name', 'Type', 'Value', 'Protected')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PropertyInfo = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import PropertyInfo as PropertyInfo
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import PropertyInfo as PropertyInfo
+    else:
+        # keep document generators happy
+        from ....lo.configuration.backend.property_info import PropertyInfo as PropertyInfo
 
 __all__ = ['PropertyInfo']
 

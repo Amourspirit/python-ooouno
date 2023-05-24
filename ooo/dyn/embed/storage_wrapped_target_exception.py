@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     StorageWrappedTargetException = _get_class()
 
 else:
-    from com.sun.star.embed import StorageWrappedTargetException as StorageWrappedTargetException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import StorageWrappedTargetException as StorageWrappedTargetException
+    else:
+        from ...lo.embed.storage_wrapped_target_exception import StorageWrappedTargetException as StorageWrappedTargetException
 
 __all__ = ['StorageWrappedTargetException']
 

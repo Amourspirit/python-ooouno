@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theToolbarControllerFactory = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.frame.the_toolbar_controller_factory import theToolbarControllerFactory as theToolbarControllerFactory
+    if TYPE_CHECKING
+        from com.sun.star.frame import theToolbarControllerFactory as theToolbarControllerFactory
+    else:
+        from ...lo.frame.the_toolbar_controller_factory import theToolbarControllerFactory as theToolbarControllerFactory
 
 __all__ = ['theToolbarControllerFactory']

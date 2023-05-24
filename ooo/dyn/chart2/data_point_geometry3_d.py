@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DataPointGeometry3D(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.DataPointGeometry3D", name_space="com.sun.star.chart2"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.chart2 import DataPointGeometry3D as DataPointGeometry3D
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import DataPointGeometry3D as DataPointGeometry3D
+    else:
+        # keep document generators happy
+        from ...lo.chart2.data_point_geometry3_d import DataPointGeometry3D as DataPointGeometry3D
 
     class DataPointGeometry3DEnum(IntEnum):
         """

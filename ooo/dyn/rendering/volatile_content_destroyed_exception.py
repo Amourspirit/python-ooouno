@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     VolatileContentDestroyedException = _get_class()
 
 else:
-    from com.sun.star.rendering import VolatileContentDestroyedException as VolatileContentDestroyedException
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import VolatileContentDestroyedException as VolatileContentDestroyedException
+    else:
+        from ...lo.rendering.volatile_content_destroyed_exception import VolatileContentDestroyedException as VolatileContentDestroyedException
 
 __all__ = ['VolatileContentDestroyedException']
 

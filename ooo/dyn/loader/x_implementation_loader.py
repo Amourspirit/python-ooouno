@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.loader import XImplementationLoader as XImplementationLoader
     setattr(XImplementationLoader, '__ooo_ns__', 'com.sun.star.loader')
     setattr(XImplementationLoader, '__ooo_full_ns__', 'com.sun.star.loader.XImplementationLoader')
     setattr(XImplementationLoader, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.loader import XImplementationLoader as XImplementationLoader
+    if TYPE_CHECKING:
+        from com.sun.star.loader import XImplementationLoader as XImplementationLoader
+    else:
+        # keep document generators happy
+        from ...lo.loader.x_implementation_loader import XImplementationLoader as XImplementationLoader
 
 __all__ = ['XImplementationLoader']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class RenderingCapabilities(metaclass=UnoConstMeta, type_name="com.sun.star.datatransfer.clipboard.RenderingCapabilities", name_space="com.sun.star.datatransfer.clipboard"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.datatransfer.clipboard import RenderingCapabilities as RenderingCapabilities
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.clipboard import RenderingCapabilities as RenderingCapabilities
+    else:
+        # keep document generators happy
+        from ....lo.datatransfer.clipboard.rendering_capabilities import RenderingCapabilities as RenderingCapabilities
 
     class RenderingCapabilitiesEnum(IntEnum):
         """

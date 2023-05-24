@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XPopupMenu as XPopupMenu
     setattr(XPopupMenu, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XPopupMenu, '__ooo_full_ns__', 'com.sun.star.awt.XPopupMenu')
     setattr(XPopupMenu, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XPopupMenu as XPopupMenu
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XPopupMenu as XPopupMenu
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_popup_menu import XPopupMenu as XPopupMenu
 
 __all__ = ['XPopupMenu']
 

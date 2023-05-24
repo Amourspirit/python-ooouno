@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DataPilotFieldShowItemsMode(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataPilotFieldShowItemsMode", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import DataPilotFieldShowItemsMode as DataPilotFieldShowItemsMode
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import DataPilotFieldShowItemsMode as DataPilotFieldShowItemsMode
+    else:
+        # keep document generators happy
+        from ...lo.sheet.data_pilot_field_show_items_mode import DataPilotFieldShowItemsMode as DataPilotFieldShowItemsMode
 
     class DataPilotFieldShowItemsModeEnum(IntEnum):
         """

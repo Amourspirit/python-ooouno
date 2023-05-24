@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MissingPropertiesException = _get_class()
 
 else:
-    from com.sun.star.ucb import MissingPropertiesException as MissingPropertiesException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import MissingPropertiesException as MissingPropertiesException
+    else:
+        from ...lo.ucb.missing_properties_exception import MissingPropertiesException as MissingPropertiesException
 
 __all__ = ['MissingPropertiesException']
 

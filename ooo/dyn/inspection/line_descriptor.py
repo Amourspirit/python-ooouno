@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('DisplayName', 'Control', 'HelpURL', 'HasPrimaryButton', 'PrimaryButtonId', 'PrimaryButtonImageURL', 'PrimaryButtonImage', 'HasSecondaryButton', 'SecondaryButtonId', 'SecondaryButtonImageURL', 'SecondaryButtonImage', 'IndentLevel', 'Category')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LineDescriptor = _get_class()
 
 else:
-    from com.sun.star.inspection import LineDescriptor as LineDescriptor
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import LineDescriptor as LineDescriptor
+    else:
+        # keep document generators happy
+        from ...lo.inspection.line_descriptor import LineDescriptor as LineDescriptor
 
 __all__ = ['LineDescriptor']
 

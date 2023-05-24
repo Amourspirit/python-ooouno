@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.graphic import XEmfParser as XEmfParser
     setattr(XEmfParser, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XEmfParser, '__ooo_full_ns__', 'com.sun.star.graphic.XEmfParser')
     setattr(XEmfParser, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.graphic import XEmfParser as XEmfParser
+    if TYPE_CHECKING:
+        from com.sun.star.graphic import XEmfParser as XEmfParser
+    else:
+        # keep document generators happy
+        from ...lo.graphic.x_emf_parser import XEmfParser as XEmfParser
 
 __all__ = ['XEmfParser']
 

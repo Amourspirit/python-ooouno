@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LinkageMisuseException = _get_class()
 
 else:
-    from com.sun.star.embed import LinkageMisuseException as LinkageMisuseException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import LinkageMisuseException as LinkageMisuseException
+    else:
+        from ...lo.embed.linkage_misuse_exception import LinkageMisuseException as LinkageMisuseException
 
 __all__ = ['LinkageMisuseException']
 

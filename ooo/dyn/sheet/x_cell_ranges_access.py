@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XCellRangesAccess as XCellRangesAccess
     setattr(XCellRangesAccess, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCellRangesAccess, '__ooo_full_ns__', 'com.sun.star.sheet.XCellRangesAccess')
     setattr(XCellRangesAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XCellRangesAccess as XCellRangesAccess
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XCellRangesAccess as XCellRangesAccess
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_cell_ranges_access import XCellRangesAccess as XCellRangesAccess
 
 __all__ = ['XCellRangesAccess']
 

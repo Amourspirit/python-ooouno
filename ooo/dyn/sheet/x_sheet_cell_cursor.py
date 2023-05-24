@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSheetCellCursor as XSheetCellCursor
     setattr(XSheetCellCursor, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSheetCellCursor, '__ooo_full_ns__', 'com.sun.star.sheet.XSheetCellCursor')
     setattr(XSheetCellCursor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSheetCellCursor as XSheetCellCursor
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSheetCellCursor as XSheetCellCursor
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_sheet_cell_cursor import XSheetCellCursor as XSheetCellCursor
 
 __all__ = ['XSheetCellCursor']
 

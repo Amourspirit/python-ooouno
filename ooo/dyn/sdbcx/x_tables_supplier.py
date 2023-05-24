@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XTablesSupplier as XTablesSupplier
     setattr(XTablesSupplier, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XTablesSupplier, '__ooo_full_ns__', 'com.sun.star.sdbcx.XTablesSupplier')
     setattr(XTablesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XTablesSupplier as XTablesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XTablesSupplier as XTablesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_tables_supplier import XTablesSupplier as XTablesSupplier
 
 __all__ = ['XTablesSupplier']
 

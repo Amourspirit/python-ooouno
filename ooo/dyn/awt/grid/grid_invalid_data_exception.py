@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     GridInvalidDataException = _get_class()
 
 else:
-    from com.sun.star.awt.grid import GridInvalidDataException as GridInvalidDataException
+    if TYPE_CHECKING:
+        from com.sun.star.awt.grid import GridInvalidDataException as GridInvalidDataException
+    else:
+        from ....lo.awt.grid.grid_invalid_data_exception import GridInvalidDataException as GridInvalidDataException
 
 __all__ = ['GridInvalidDataException']
 

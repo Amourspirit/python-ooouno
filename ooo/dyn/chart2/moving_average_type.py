@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class MovingAverageType(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.MovingAverageType", name_space="com.sun.star.chart2"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.chart2 import MovingAverageType as MovingAverageType
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import MovingAverageType as MovingAverageType
+    else:
+        # keep document generators happy
+        from ...lo.chart2.moving_average_type import MovingAverageType as MovingAverageType
 
     class MovingAverageTypeEnum(IntEnum):
         """

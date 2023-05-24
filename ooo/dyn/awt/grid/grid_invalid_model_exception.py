@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     GridInvalidModelException = _get_class()
 
 else:
-    from com.sun.star.awt.grid import GridInvalidModelException as GridInvalidModelException
+    if TYPE_CHECKING:
+        from com.sun.star.awt.grid import GridInvalidModelException as GridInvalidModelException
+    else:
+        from ....lo.awt.grid.grid_invalid_model_exception import GridInvalidModelException as GridInvalidModelException
 
 __all__ = ['GridInvalidModelException']
 

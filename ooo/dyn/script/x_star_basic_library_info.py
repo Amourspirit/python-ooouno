@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XStarBasicLibraryInfo as XStarBasicLibraryInfo
     setattr(XStarBasicLibraryInfo, '__ooo_ns__', 'com.sun.star.script')
     setattr(XStarBasicLibraryInfo, '__ooo_full_ns__', 'com.sun.star.script.XStarBasicLibraryInfo')
     setattr(XStarBasicLibraryInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XStarBasicLibraryInfo as XStarBasicLibraryInfo
+    if TYPE_CHECKING:
+        from com.sun.star.script import XStarBasicLibraryInfo as XStarBasicLibraryInfo
+    else:
+        # keep document generators happy
+        from ...lo.script.x_star_basic_library_info import XStarBasicLibraryInfo as XStarBasicLibraryInfo
 
 __all__ = ['XStarBasicLibraryInfo']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DOMException = _get_class()
 
 else:
-    from com.sun.star.xml.dom import DOMException as DOMException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom import DOMException as DOMException
+    else:
+        from ....lo.xml.dom.dom_exception import DOMException as DOMException
 
 __all__ = ['DOMException']
 

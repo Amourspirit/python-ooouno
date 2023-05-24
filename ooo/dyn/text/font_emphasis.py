@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FontEmphasis(metaclass=UnoConstMeta, type_name="com.sun.star.text.FontEmphasis", name_space="com.sun.star.text"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.text import FontEmphasis as FontEmphasis
+    if TYPE_CHECKING:
+        from com.sun.star.text import FontEmphasis as FontEmphasis
+    else:
+        # keep document generators happy
+        from ...lo.text.font_emphasis import FontEmphasis as FontEmphasis
 
     class FontEmphasisEnum(IntEnum):
         """

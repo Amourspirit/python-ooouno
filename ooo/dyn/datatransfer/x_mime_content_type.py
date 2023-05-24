@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer import XMimeContentType as XMimeContentType
     setattr(XMimeContentType, '__ooo_ns__', 'com.sun.star.datatransfer')
     setattr(XMimeContentType, '__ooo_full_ns__', 'com.sun.star.datatransfer.XMimeContentType')
     setattr(XMimeContentType, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer import XMimeContentType as XMimeContentType
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer import XMimeContentType as XMimeContentType
+    else:
+        # keep document generators happy
+        from ...lo.datatransfer.x_mime_content_type import XMimeContentType as XMimeContentType
 
 __all__ = ['XMimeContentType']
 

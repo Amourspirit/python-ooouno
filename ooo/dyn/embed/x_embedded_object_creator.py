@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XEmbeddedObjectCreator as XEmbeddedObjectCreator
     setattr(XEmbeddedObjectCreator, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XEmbeddedObjectCreator, '__ooo_full_ns__', 'com.sun.star.embed.XEmbeddedObjectCreator')
     setattr(XEmbeddedObjectCreator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XEmbeddedObjectCreator as XEmbeddedObjectCreator
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XEmbeddedObjectCreator as XEmbeddedObjectCreator
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_embedded_object_creator import XEmbeddedObjectCreator as XEmbeddedObjectCreator
 
 __all__ = ['XEmbeddedObjectCreator']
 

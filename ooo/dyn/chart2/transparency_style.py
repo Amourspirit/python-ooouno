@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart2.TransparencyStyle import GRADIENT as TRANSPARENCY_STYLE_GRADIENT
-    from com.sun.star.chart2.TransparencyStyle import LINEAR as TRANSPARENCY_STYLE_LINEAR
-    from com.sun.star.chart2.TransparencyStyle import NONE as TRANSPARENCY_STYLE_NONE
-
-    class TransparencyStyle(uno.Enum):
-        """
-        Enum Class
-
-        ENUM TransparencyStyle
-
-        See Also:
-            `API TransparencyStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#acc7ba74ba6531a134bb92607b8616cb6>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart2.TransparencyStyle', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart2'
-        __ooo_full_ns__: str = 'com.sun.star.chart2.TransparencyStyle'
-        __ooo_type_name__: str = 'enum'
-
-        GRADIENT = cast("TransparencyStyle", TRANSPARENCY_STYLE_GRADIENT)
-        """
-        The property TransparencyGradient is evaluated, Transparency is ignored.
-        """
-        LINEAR = cast("TransparencyStyle", TRANSPARENCY_STYLE_LINEAR)
-        """
-        The property Transparency is evaluated, TransparencyGradient is ignored.
-        """
-        NONE = cast("TransparencyStyle", TRANSPARENCY_STYLE_NONE)
-        """
-        Default, no pies are exploded.
-        
-        no transparency attribute is evaluated
-        
-        The symbol is invisible.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TransparencyStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.TransparencyStyle", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.TransparencyStyle`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.TransparencyStyle import GRADIENT as TRANSPARENCY_STYLE_GRADIENT
+        from com.sun.star.chart2.TransparencyStyle import LINEAR as TRANSPARENCY_STYLE_LINEAR
+        from com.sun.star.chart2.TransparencyStyle import NONE as TRANSPARENCY_STYLE_NONE
+
+        class TransparencyStyle(uno.Enum):
+            """
+            Enum Class
+
+            ENUM TransparencyStyle
+
+            See Also:
+                `API TransparencyStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#acc7ba74ba6531a134bb92607b8616cb6>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart2.TransparencyStyle', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart2'
+            __ooo_full_ns__: str = 'com.sun.star.chart2.TransparencyStyle'
+            __ooo_type_name__: str = 'enum'
+
+            GRADIENT = TRANSPARENCY_STYLE_GRADIENT
+            """
+            The property TransparencyGradient is evaluated, Transparency is ignored.
+            """
+            LINEAR = TRANSPARENCY_STYLE_LINEAR
+            """
+            The property Transparency is evaluated, TransparencyGradient is ignored.
+            """
+            NONE = TRANSPARENCY_STYLE_NONE
+            """
+            Default, no pies are exploded.
+
+            no transparency attribute is evaluated
+
+            The symbol is invisible.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart2.transparency_style import TransparencyStyle as TransparencyStyle
+
 
 __all__ = ['TransparencyStyle']

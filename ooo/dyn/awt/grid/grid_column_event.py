@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Source', 'AttributeName', 'OldValue', 'NewValue', 'ColumnIndex')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     GridColumnEvent = _get_class()
 
 else:
-    from com.sun.star.awt.grid import GridColumnEvent as GridColumnEvent
+    if TYPE_CHECKING:
+        from com.sun.star.awt.grid import GridColumnEvent as GridColumnEvent
+    else:
+        # keep document generators happy
+        from ....lo.awt.grid.grid_column_event import GridColumnEvent as GridColumnEvent
 
 __all__ = ['GridColumnEvent']
 

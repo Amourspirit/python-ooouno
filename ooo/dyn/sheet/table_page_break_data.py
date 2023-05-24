@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Position', 'ManualBreak')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     TablePageBreakData = _get_class()
 
 else:
-    from com.sun.star.sheet import TablePageBreakData as TablePageBreakData
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import TablePageBreakData as TablePageBreakData
+    else:
+        # keep document generators happy
+        from ...lo.sheet.table_page_break_data import TablePageBreakData as TablePageBreakData
 
 __all__ = ['TablePageBreakData']
 

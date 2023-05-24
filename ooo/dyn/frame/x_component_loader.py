@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XComponentLoader as XComponentLoader
     setattr(XComponentLoader, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XComponentLoader, '__ooo_full_ns__', 'com.sun.star.frame.XComponentLoader')
     setattr(XComponentLoader, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XComponentLoader as XComponentLoader
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XComponentLoader as XComponentLoader
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_component_loader import XComponentLoader as XComponentLoader
 
 __all__ = ['XComponentLoader']
 

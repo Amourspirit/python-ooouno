@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ExpandVetoException = _get_class()
 
 else:
-    from com.sun.star.awt.tree import ExpandVetoException as ExpandVetoException
+    if TYPE_CHECKING:
+        from com.sun.star.awt.tree import ExpandVetoException as ExpandVetoException
+    else:
+        from ....lo.awt.tree.expand_veto_exception import ExpandVetoException as ExpandVetoException
 
 __all__ = ['ExpandVetoException']
 

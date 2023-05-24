@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uri import XUriReferenceFactory as XUriReferenceFactory
     setattr(XUriReferenceFactory, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XUriReferenceFactory, '__ooo_full_ns__', 'com.sun.star.uri.XUriReferenceFactory')
     setattr(XUriReferenceFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uri import XUriReferenceFactory as XUriReferenceFactory
+    if TYPE_CHECKING:
+        from com.sun.star.uri import XUriReferenceFactory as XUriReferenceFactory
+    else:
+        # keep document generators happy
+        from ...lo.uri.x_uri_reference_factory import XUriReferenceFactory as XUriReferenceFactory
 
 __all__ = ['XUriReferenceFactory']
 

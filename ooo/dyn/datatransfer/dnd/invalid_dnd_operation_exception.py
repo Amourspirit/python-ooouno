@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidDNDOperationException = _get_class()
 
 else:
-    from com.sun.star.datatransfer.dnd import InvalidDNDOperationException as InvalidDNDOperationException
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.dnd import InvalidDNDOperationException as InvalidDNDOperationException
+    else:
+        from ....lo.datatransfer.dnd.invalid_dnd_operation_exception import InvalidDNDOperationException as InvalidDNDOperationException
 
 __all__ = ['InvalidDNDOperationException']
 

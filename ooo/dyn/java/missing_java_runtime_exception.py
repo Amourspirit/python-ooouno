@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MissingJavaRuntimeException = _get_class()
 
 else:
-    from com.sun.star.java import MissingJavaRuntimeException as MissingJavaRuntimeException
+    if TYPE_CHECKING:
+        from com.sun.star.java import MissingJavaRuntimeException as MissingJavaRuntimeException
+    else:
+        from ...lo.java.missing_java_runtime_exception import MissingJavaRuntimeException as MissingJavaRuntimeException
 
 __all__ = ['MissingJavaRuntimeException']
 

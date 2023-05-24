@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XCanvas as XCanvas
     setattr(XCanvas, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XCanvas, '__ooo_full_ns__', 'com.sun.star.rendering.XCanvas')
     setattr(XCanvas, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XCanvas as XCanvas
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XCanvas as XCanvas
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_canvas import XCanvas as XCanvas
 
 __all__ = ['XCanvas']
 

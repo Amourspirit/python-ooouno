@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ImageType(metaclass=UnoConstMeta, type_name="com.sun.star.ui.ImageType", name_space="com.sun.star.ui"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ui import ImageType as ImageType
+    if TYPE_CHECKING:
+        from com.sun.star.ui import ImageType as ImageType
+    else:
+        # keep document generators happy
+        from ...lo.ui.image_type import ImageType as ImageType
 
     class ImageTypeEnum(IntFlag):
         """

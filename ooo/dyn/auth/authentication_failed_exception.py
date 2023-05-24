@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     AuthenticationFailedException = _get_class()
 
 else:
-    from com.sun.star.auth import AuthenticationFailedException as AuthenticationFailedException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import AuthenticationFailedException as AuthenticationFailedException
+    else:
+        from ...lo.auth.authentication_failed_exception import AuthenticationFailedException as AuthenticationFailedException
 
 __all__ = ['AuthenticationFailedException']
 

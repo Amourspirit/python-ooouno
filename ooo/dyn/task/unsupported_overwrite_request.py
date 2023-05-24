@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnsupportedOverwriteRequest = _get_class()
 
 else:
-    from com.sun.star.task import UnsupportedOverwriteRequest as UnsupportedOverwriteRequest
+    if TYPE_CHECKING:
+        from com.sun.star.task import UnsupportedOverwriteRequest as UnsupportedOverwriteRequest
+    else:
+        from ...lo.task.unsupported_overwrite_request import UnsupportedOverwriteRequest as UnsupportedOverwriteRequest
 
 __all__ = ['UnsupportedOverwriteRequest']
 

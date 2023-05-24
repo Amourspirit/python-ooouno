@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XTabControllerModel as XTabControllerModel
     setattr(XTabControllerModel, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XTabControllerModel, '__ooo_full_ns__', 'com.sun.star.awt.XTabControllerModel')
     setattr(XTabControllerModel, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XTabControllerModel as XTabControllerModel
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XTabControllerModel as XTabControllerModel
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_tab_controller_model import XTabControllerModel as XTabControllerModel
 
 __all__ = ['XTabControllerModel']
 

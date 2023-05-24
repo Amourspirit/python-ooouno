@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XInfobarProvider as XInfobarProvider
     setattr(XInfobarProvider, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XInfobarProvider, '__ooo_full_ns__', 'com.sun.star.frame.XInfobarProvider')
     setattr(XInfobarProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XInfobarProvider as XInfobarProvider
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XInfobarProvider as XInfobarProvider
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_infobar_provider import XInfobarProvider as XInfobarProvider
 
 __all__ = ['XInfobarProvider']
 

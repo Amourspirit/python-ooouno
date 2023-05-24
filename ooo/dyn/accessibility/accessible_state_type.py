@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class AccessibleStateType(metaclass=UnoConstMeta, type_name="com.sun.star.accessibility.AccessibleStateType", name_space="com.sun.star.accessibility"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.accessibility import AccessibleStateType as AccessibleStateType
+    if TYPE_CHECKING:
+        from com.sun.star.accessibility import AccessibleStateType as AccessibleStateType
+    else:
+        # keep document generators happy
+        from ...lo.accessibility.accessible_state_type import AccessibleStateType as AccessibleStateType
 
     class AccessibleStateTypeEnum(IntEnum):
         """

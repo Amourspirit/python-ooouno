@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XCellRangeAddressable as XCellRangeAddressable
     setattr(XCellRangeAddressable, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCellRangeAddressable, '__ooo_full_ns__', 'com.sun.star.sheet.XCellRangeAddressable')
     setattr(XCellRangeAddressable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XCellRangeAddressable as XCellRangeAddressable
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XCellRangeAddressable as XCellRangeAddressable
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_cell_range_addressable import XCellRangeAddressable as XCellRangeAddressable
 
 __all__ = ['XCellRangeAddressable']
 

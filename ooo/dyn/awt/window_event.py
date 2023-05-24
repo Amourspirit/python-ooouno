@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Source', 'X', 'Y', 'Width', 'Height', 'LeftInset', 'TopInset', 'RightInset', 'BottomInset')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WindowEvent = _get_class()
 
 else:
-    from com.sun.star.awt import WindowEvent as WindowEvent
+    if TYPE_CHECKING:
+        from com.sun.star.awt import WindowEvent as WindowEvent
+    else:
+        # keep document generators happy
+        from ...lo.awt.window_event import WindowEvent as WindowEvent
 
 __all__ = ['WindowEvent']
 

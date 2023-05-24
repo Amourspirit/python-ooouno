@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     XPathException = _get_class()
 
 else:
-    from com.sun.star.xml.xpath import XPathException as XPathException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.xpath import XPathException as XPathException
+    else:
+        from ....lo.xml.xpath.x_path_exception import XPathException as XPathException
 
 __all__ = ['XPathException']
 

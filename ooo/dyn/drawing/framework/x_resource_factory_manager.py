@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing.framework import XResourceFactoryManager as XResourceFactoryManager
     setattr(XResourceFactoryManager, '__ooo_ns__', 'com.sun.star.drawing.framework')
     setattr(XResourceFactoryManager, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XResourceFactoryManager')
     setattr(XResourceFactoryManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing.framework import XResourceFactoryManager as XResourceFactoryManager
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.framework import XResourceFactoryManager as XResourceFactoryManager
+    else:
+        # keep document generators happy
+        from ....lo.drawing.framework.x_resource_factory_manager import XResourceFactoryManager as XResourceFactoryManager
 
 __all__ = ['XResourceFactoryManager']
 

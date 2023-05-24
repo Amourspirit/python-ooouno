@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XLocaleData5 as XLocaleData5
     setattr(XLocaleData5, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XLocaleData5, '__ooo_full_ns__', 'com.sun.star.i18n.XLocaleData5')
     setattr(XLocaleData5, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XLocaleData5 as XLocaleData5
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XLocaleData5 as XLocaleData5
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_locale_data5 import XLocaleData5 as XLocaleData5
 
 __all__ = ['XLocaleData5']
 

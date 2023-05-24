@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class Error(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.Error", name_space="com.sun.star.ucb"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ucb import Error as Error
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import Error as Error
+    else:
+        # keep document generators happy
+        from ...lo.ucb.error import Error as Error
 
     class ErrorEnum(IntEnum):
         """

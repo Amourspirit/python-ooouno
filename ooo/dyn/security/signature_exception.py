@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SignatureException = _get_class()
 
 else:
-    from com.sun.star.security import SignatureException as SignatureException
+    if TYPE_CHECKING:
+        from com.sun.star.security import SignatureException as SignatureException
+    else:
+        from ...lo.security.signature_exception import SignatureException as SignatureException
 
 __all__ = ['SignatureException']
 

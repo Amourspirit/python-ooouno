@@ -778,14 +778,14 @@ files = [
 
 [[package]]
 name = "types-unopy"
-version = "1.0.6"
+version = "1.2.1"
 description = "Type annotations for LibreOffice API"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "types_unopy-1.0.6-py3-none-any.whl", hash = "sha256:bc018bbb08b3fa712d9b09172ddf84dc8a4a070deb1cb307bcd82c1aa80e871b"},
-    {file = "types_unopy-1.0.6.tar.gz", hash = "sha256:32e12f5c66410d4c33d8d236a5b5f82a0ffaccd85ab9b4f1c6e82f01077a541f"},
+    {file = "types_unopy-1.2.1-py3-none-any.whl", hash = "sha256:2baafc7e92c1d22d3ebf1ae6bc3e42b9805602541820c89507d4bc8ed5f8bada"},
+    {file = "types_unopy-1.2.1.tar.gz", hash = "sha256:8d33780a3cd89cd94c09d0bb5e11331d0c8520d1a6b2985239da313320c729e2"},
 ]
 
 [package.dependencies]
@@ -793,14 +793,14 @@ types-uno-script = ">=0.1.1"
 
 [[package]]
 name = "typing-extensions"
-version = "4.5.0"
+version = "4.6.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "typing_extensions-4.5.0-py3-none-any.whl", hash = "sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4"},
-    {file = "typing_extensions-4.5.0.tar.gz", hash = "sha256:5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb"},
+    {file = "typing_extensions-4.6.0-py3-none-any.whl", hash = "sha256:6ad00b63f849b7dcc313b70b6b304ed67b2b2963b3098a33efe18056b1a9a223"},
+    {file = "typing_extensions-4.6.0.tar.gz", hash = "sha256:ff6b238610c747e44c268aa4bb23c8c735d665a63726df3f9431ce707f2aa768"},
 ]
 
 [[package]]
@@ -925,4 +925,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "696dc19a5835b8aeab18a39dfabe49301c4a288d9d66336666bf52e52e8482b0"
+content-hash = "89f96a9afb7b5e171bcaea0d8c23f150a5aa277baf2f465e6c815d4da5709398"

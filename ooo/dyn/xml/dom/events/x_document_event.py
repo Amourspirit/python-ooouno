@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.dom.events import XDocumentEvent as XDocumentEvent
     setattr(XDocumentEvent, '__ooo_ns__', 'com.sun.star.xml.dom.events')
     setattr(XDocumentEvent, '__ooo_full_ns__', 'com.sun.star.xml.dom.events.XDocumentEvent')
     setattr(XDocumentEvent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.dom.events import XDocumentEvent as XDocumentEvent
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.events import XDocumentEvent as XDocumentEvent
+    else:
+        # keep document generators happy
+        from .....lo.xml.dom.events.x_document_event import XDocumentEvent as XDocumentEvent
 
 __all__ = ['XDocumentEvent']
 

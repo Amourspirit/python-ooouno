@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XFormField as XFormField
     setattr(XFormField, '__ooo_ns__', 'com.sun.star.text')
     setattr(XFormField, '__ooo_full_ns__', 'com.sun.star.text.XFormField')
     setattr(XFormField, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XFormField as XFormField
+    if TYPE_CHECKING:
+        from com.sun.star.text import XFormField as XFormField
+    else:
+        # keep document generators happy
+        from ...lo.text.x_form_field import XFormField as XFormField
 
 __all__ = ['XFormField']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XFocusListener as XFocusListener
     setattr(XFocusListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XFocusListener, '__ooo_full_ns__', 'com.sun.star.awt.XFocusListener')
     setattr(XFocusListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XFocusListener as XFocusListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XFocusListener as XFocusListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_focus_listener import XFocusListener as XFocusListener
 
 __all__ = ['XFocusListener']
 

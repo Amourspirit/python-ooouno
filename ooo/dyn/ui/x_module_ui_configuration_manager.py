@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui import XModuleUIConfigurationManager as XModuleUIConfigurationManager
     setattr(XModuleUIConfigurationManager, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XModuleUIConfigurationManager, '__ooo_full_ns__', 'com.sun.star.ui.XModuleUIConfigurationManager')
     setattr(XModuleUIConfigurationManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui import XModuleUIConfigurationManager as XModuleUIConfigurationManager
+    if TYPE_CHECKING:
+        from com.sun.star.ui import XModuleUIConfigurationManager as XModuleUIConfigurationManager
+    else:
+        # keep document generators happy
+        from ...lo.ui.x_module_ui_configuration_manager import XModuleUIConfigurationManager as XModuleUIConfigurationManager
 
 __all__ = ['XModuleUIConfigurationManager']
 

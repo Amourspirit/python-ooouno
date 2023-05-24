@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XInteractionSupplyParameters as XInteractionSupplyParameters
     setattr(XInteractionSupplyParameters, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XInteractionSupplyParameters, '__ooo_full_ns__', 'com.sun.star.sdb.XInteractionSupplyParameters')
     setattr(XInteractionSupplyParameters, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XInteractionSupplyParameters as XInteractionSupplyParameters
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XInteractionSupplyParameters as XInteractionSupplyParameters
+    else:
+        # keep document generators happy
+        from ...lo.sdb.x_interaction_supply_parameters import XInteractionSupplyParameters as XInteractionSupplyParameters
 
 __all__ = ['XInteractionSupplyParameters']
 

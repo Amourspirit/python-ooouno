@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class StorageFormats(metaclass=UnoConstMeta, type_name="com.sun.star.embed.StorageFormats", name_space="com.sun.star.embed"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.embed import StorageFormats as StorageFormats
+    if TYPE_CHECKING:
+        from com.sun.star.embed import StorageFormats as StorageFormats
+    else:
+        # keep document generators happy
+        from ...lo.embed.storage_formats import StorageFormats as StorageFormats
 
     class StorageFormatsEnum(IntEnum):
         """

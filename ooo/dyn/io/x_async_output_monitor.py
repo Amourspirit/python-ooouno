@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.io import XAsyncOutputMonitor as XAsyncOutputMonitor
     setattr(XAsyncOutputMonitor, '__ooo_ns__', 'com.sun.star.io')
     setattr(XAsyncOutputMonitor, '__ooo_full_ns__', 'com.sun.star.io.XAsyncOutputMonitor')
     setattr(XAsyncOutputMonitor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.io import XAsyncOutputMonitor as XAsyncOutputMonitor
+    if TYPE_CHECKING:
+        from com.sun.star.io import XAsyncOutputMonitor as XAsyncOutputMonitor
+    else:
+        # keep document generators happy
+        from ...lo.io.x_async_output_monitor import XAsyncOutputMonitor as XAsyncOutputMonitor
 
 __all__ = ['XAsyncOutputMonitor']
 

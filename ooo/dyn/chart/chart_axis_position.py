@@ -20,56 +20,63 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.chart.ChartAxisPosition import END as CHART_AXIS_POSITION_END
-    from com.sun.star.chart.ChartAxisPosition import START as CHART_AXIS_POSITION_START
-    from com.sun.star.chart.ChartAxisPosition import VALUE as CHART_AXIS_POSITION_VALUE
-    from com.sun.star.chart.ChartAxisPosition import ZERO as CHART_AXIS_POSITION_ZERO
-
-    class ChartAxisPosition(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ChartAxisPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aa2815fba34da31acb139c7be75fda078>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.chart.ChartAxisPosition', value)
-
-        __ooo_ns__: str = 'com.sun.star.chart'
-        __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
-        __ooo_type_name__: str = 'enum'
-
-        END = cast("ChartAxisPosition", CHART_AXIS_POSITION_END)
-        """
-        Cross the other axes at their maximum scale value.
-        """
-        START = cast("ChartAxisPosition", CHART_AXIS_POSITION_START)
-        """
-        Cross the other axes at their minimum scale value.
-        """
-        VALUE = cast("ChartAxisPosition", CHART_AXIS_POSITION_VALUE)
-        """
-        Cross the other axes at the value specified in the property CrossoverValue.
-        """
-        ZERO = cast("ChartAxisPosition", CHART_AXIS_POSITION_ZERO)
-        """
-        Cross the other axes at zero.
-        
-        If zero is not contained in the current scale the value is used which is nearest to zero.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartAxisPosition(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartAxisPosition", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartAxisPosition`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.chart.ChartAxisPosition import END as CHART_AXIS_POSITION_END
+        from com.sun.star.chart.ChartAxisPosition import START as CHART_AXIS_POSITION_START
+        from com.sun.star.chart.ChartAxisPosition import VALUE as CHART_AXIS_POSITION_VALUE
+        from com.sun.star.chart.ChartAxisPosition import ZERO as CHART_AXIS_POSITION_ZERO
+
+        class ChartAxisPosition(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ChartAxisPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#aa2815fba34da31acb139c7be75fda078>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.chart.ChartAxisPosition', value)
+
+            __ooo_ns__: str = 'com.sun.star.chart'
+            __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisPosition'
+            __ooo_type_name__: str = 'enum'
+
+            END = CHART_AXIS_POSITION_END
+            """
+            Cross the other axes at their maximum scale value.
+            """
+            START = CHART_AXIS_POSITION_START
+            """
+            Cross the other axes at their minimum scale value.
+            """
+            VALUE = CHART_AXIS_POSITION_VALUE
+            """
+            Cross the other axes at the value specified in the property CrossoverValue.
+            """
+            ZERO = CHART_AXIS_POSITION_ZERO
+            """
+            Cross the other axes at zero.
+
+            If zero is not contained in the current scale the value is used which is nearest to zero.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.chart.chart_axis_position import ChartAxisPosition as ChartAxisPosition
+
 
 __all__ = ['ChartAxisPosition']

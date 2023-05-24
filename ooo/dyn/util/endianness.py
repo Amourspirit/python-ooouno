@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class Endianness(metaclass=UnoConstMeta, type_name="com.sun.star.util.Endianness", name_space="com.sun.star.util"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.util import Endianness as Endianness
+    if TYPE_CHECKING:
+        from com.sun.star.util import Endianness as Endianness
+    else:
+        # keep document generators happy
+        from ...lo.util.endianness import Endianness as Endianness
 
     class EndiannessEnum(IntEnum):
         """

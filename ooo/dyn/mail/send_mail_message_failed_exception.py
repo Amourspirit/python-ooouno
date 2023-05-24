@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SendMailMessageFailedException = _get_class()
 
 else:
-    from com.sun.star.mail import SendMailMessageFailedException as SendMailMessageFailedException
+    if TYPE_CHECKING:
+        from com.sun.star.mail import SendMailMessageFailedException as SendMailMessageFailedException
+    else:
+        from ...lo.mail.send_mail_message_failed_exception import SendMailMessageFailedException as SendMailMessageFailedException
 
 __all__ = ['SendMailMessageFailedException']
 

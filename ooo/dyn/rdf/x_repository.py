@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rdf import XRepository as XRepository
     setattr(XRepository, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XRepository, '__ooo_full_ns__', 'com.sun.star.rdf.XRepository')
     setattr(XRepository, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rdf import XRepository as XRepository
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import XRepository as XRepository
+    else:
+        # keep document generators happy
+        from ...lo.rdf.x_repository import XRepository as XRepository
 
 __all__ = ['XRepository']
 

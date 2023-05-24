@@ -20,83 +20,90 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.xml.dom.NodeType import ATTRIBUTE_NODE as NODE_TYPE_ATTRIBUTE_NODE
-    from com.sun.star.xml.dom.NodeType import CDATA_SECTION_NODE as NODE_TYPE_CDATA_SECTION_NODE
-    from com.sun.star.xml.dom.NodeType import COMMENT_NODE as NODE_TYPE_COMMENT_NODE
-    from com.sun.star.xml.dom.NodeType import DOCUMENT_FRAGMENT_NODE as NODE_TYPE_DOCUMENT_FRAGMENT_NODE
-    from com.sun.star.xml.dom.NodeType import DOCUMENT_NODE as NODE_TYPE_DOCUMENT_NODE
-    from com.sun.star.xml.dom.NodeType import DOCUMENT_TYPE_NODE as NODE_TYPE_DOCUMENT_TYPE_NODE
-    from com.sun.star.xml.dom.NodeType import ELEMENT_NODE as NODE_TYPE_ELEMENT_NODE
-    from com.sun.star.xml.dom.NodeType import ENTITY_NODE as NODE_TYPE_ENTITY_NODE
-    from com.sun.star.xml.dom.NodeType import ENTITY_REFERENCE_NODE as NODE_TYPE_ENTITY_REFERENCE_NODE
-    from com.sun.star.xml.dom.NodeType import NOTATION_NODE as NODE_TYPE_NOTATION_NODE
-    from com.sun.star.xml.dom.NodeType import PROCESSING_INSTRUCTION_NODE as NODE_TYPE_PROCESSING_INSTRUCTION_NODE
-    from com.sun.star.xml.dom.NodeType import TEXT_NODE as NODE_TYPE_TEXT_NODE
-
-    class NodeType(uno.Enum):
-        """
-        Enum Class
-
-        ENUM NodeType
-
-        See Also:
-            `API NodeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#acac9cbaeea226ed297804c012dc12b16>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.xml.dom.NodeType', value)
-
-        __ooo_ns__: str = 'com.sun.star.xml.dom'
-        __ooo_full_ns__: str = 'com.sun.star.xml.dom.NodeType'
-        __ooo_type_name__: str = 'enum'
-
-        ATTRIBUTE_NODE = cast("NodeType", NODE_TYPE_ATTRIBUTE_NODE)
-        """
-        """
-        CDATA_SECTION_NODE = cast("NodeType", NODE_TYPE_CDATA_SECTION_NODE)
-        """
-        """
-        COMMENT_NODE = cast("NodeType", NODE_TYPE_COMMENT_NODE)
-        """
-        """
-        DOCUMENT_FRAGMENT_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_FRAGMENT_NODE)
-        """
-        """
-        DOCUMENT_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_NODE)
-        """
-        """
-        DOCUMENT_TYPE_NODE = cast("NodeType", NODE_TYPE_DOCUMENT_TYPE_NODE)
-        """
-        """
-        ELEMENT_NODE = cast("NodeType", NODE_TYPE_ELEMENT_NODE)
-        """
-        """
-        ENTITY_NODE = cast("NodeType", NODE_TYPE_ENTITY_NODE)
-        """
-        """
-        ENTITY_REFERENCE_NODE = cast("NodeType", NODE_TYPE_ENTITY_REFERENCE_NODE)
-        """
-        """
-        NOTATION_NODE = cast("NodeType", NODE_TYPE_NOTATION_NODE)
-        """
-        """
-        PROCESSING_INSTRUCTION_NODE = cast("NodeType", NODE_TYPE_PROCESSING_INSTRUCTION_NODE)
-        """
-        """
-        TEXT_NODE = cast("NodeType", NODE_TYPE_TEXT_NODE)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class NodeType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.NodeType", name_space="com.sun.star.xml.dom"):
         """Dynamically created class that represents ``com.sun.star.xml.dom.NodeType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.NodeType import ATTRIBUTE_NODE as NODE_TYPE_ATTRIBUTE_NODE
+        from com.sun.star.xml.dom.NodeType import CDATA_SECTION_NODE as NODE_TYPE_CDATA_SECTION_NODE
+        from com.sun.star.xml.dom.NodeType import COMMENT_NODE as NODE_TYPE_COMMENT_NODE
+        from com.sun.star.xml.dom.NodeType import DOCUMENT_FRAGMENT_NODE as NODE_TYPE_DOCUMENT_FRAGMENT_NODE
+        from com.sun.star.xml.dom.NodeType import DOCUMENT_NODE as NODE_TYPE_DOCUMENT_NODE
+        from com.sun.star.xml.dom.NodeType import DOCUMENT_TYPE_NODE as NODE_TYPE_DOCUMENT_TYPE_NODE
+        from com.sun.star.xml.dom.NodeType import ELEMENT_NODE as NODE_TYPE_ELEMENT_NODE
+        from com.sun.star.xml.dom.NodeType import ENTITY_NODE as NODE_TYPE_ENTITY_NODE
+        from com.sun.star.xml.dom.NodeType import ENTITY_REFERENCE_NODE as NODE_TYPE_ENTITY_REFERENCE_NODE
+        from com.sun.star.xml.dom.NodeType import NOTATION_NODE as NODE_TYPE_NOTATION_NODE
+        from com.sun.star.xml.dom.NodeType import PROCESSING_INSTRUCTION_NODE as NODE_TYPE_PROCESSING_INSTRUCTION_NODE
+        from com.sun.star.xml.dom.NodeType import TEXT_NODE as NODE_TYPE_TEXT_NODE
+
+        class NodeType(uno.Enum):
+            """
+            Enum Class
+
+            ENUM NodeType
+
+            See Also:
+                `API NodeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#acac9cbaeea226ed297804c012dc12b16>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.xml.dom.NodeType', value)
+
+            __ooo_ns__: str = 'com.sun.star.xml.dom'
+            __ooo_full_ns__: str = 'com.sun.star.xml.dom.NodeType'
+            __ooo_type_name__: str = 'enum'
+
+            ATTRIBUTE_NODE = NODE_TYPE_ATTRIBUTE_NODE
+            """
+            """
+            CDATA_SECTION_NODE = NODE_TYPE_CDATA_SECTION_NODE
+            """
+            """
+            COMMENT_NODE = NODE_TYPE_COMMENT_NODE
+            """
+            """
+            DOCUMENT_FRAGMENT_NODE = NODE_TYPE_DOCUMENT_FRAGMENT_NODE
+            """
+            """
+            DOCUMENT_NODE = NODE_TYPE_DOCUMENT_NODE
+            """
+            """
+            DOCUMENT_TYPE_NODE = NODE_TYPE_DOCUMENT_TYPE_NODE
+            """
+            """
+            ELEMENT_NODE = NODE_TYPE_ELEMENT_NODE
+            """
+            """
+            ENTITY_NODE = NODE_TYPE_ENTITY_NODE
+            """
+            """
+            ENTITY_REFERENCE_NODE = NODE_TYPE_ENTITY_REFERENCE_NODE
+            """
+            """
+            NOTATION_NODE = NODE_TYPE_NOTATION_NODE
+            """
+            """
+            PROCESSING_INSTRUCTION_NODE = NODE_TYPE_PROCESSING_INSTRUCTION_NODE
+            """
+            """
+            TEXT_NODE = NODE_TYPE_TEXT_NODE
+            """
+            """
+    else:
+        # keep document generators happy
+        from ....lo.xml.dom.node_type import NodeType as NodeType
+
 
 __all__ = ['NodeType']

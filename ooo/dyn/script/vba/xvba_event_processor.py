@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script.vba import XVBAEventProcessor as XVBAEventProcessor
     setattr(XVBAEventProcessor, '__ooo_ns__', 'com.sun.star.script.vba')
     setattr(XVBAEventProcessor, '__ooo_full_ns__', 'com.sun.star.script.vba.XVBAEventProcessor')
     setattr(XVBAEventProcessor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script.vba import XVBAEventProcessor as XVBAEventProcessor
+    if TYPE_CHECKING:
+        from com.sun.star.script.vba import XVBAEventProcessor as XVBAEventProcessor
+    else:
+        # keep document generators happy
+        from ....lo.script.vba.xvba_event_processor import XVBAEventProcessor as XVBAEventProcessor
 
 __all__ = ['XVBAEventProcessor']
 

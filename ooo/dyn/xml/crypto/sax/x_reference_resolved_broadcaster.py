@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.crypto.sax import XReferenceResolvedBroadcaster as XReferenceResolvedBroadcaster
     setattr(XReferenceResolvedBroadcaster, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XReferenceResolvedBroadcaster, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XReferenceResolvedBroadcaster')
     setattr(XReferenceResolvedBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.crypto.sax import XReferenceResolvedBroadcaster as XReferenceResolvedBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax import XReferenceResolvedBroadcaster as XReferenceResolvedBroadcaster
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.x_reference_resolved_broadcaster import XReferenceResolvedBroadcaster as XReferenceResolvedBroadcaster
 
 __all__ = ['XReferenceResolvedBroadcaster']
 

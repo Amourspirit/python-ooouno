@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BackendAccessException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import BackendAccessException as BackendAccessException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import BackendAccessException as BackendAccessException
+    else:
+        from ....lo.configuration.backend.backend_access_exception import BackendAccessException as BackendAccessException
 
 __all__ = ['BackendAccessException']
 

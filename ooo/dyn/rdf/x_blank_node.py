@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rdf import XBlankNode as XBlankNode
     setattr(XBlankNode, '__ooo_ns__', 'com.sun.star.rdf')
     setattr(XBlankNode, '__ooo_full_ns__', 'com.sun.star.rdf.XBlankNode')
     setattr(XBlankNode, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rdf import XBlankNode as XBlankNode
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import XBlankNode as XBlankNode
+    else:
+        # keep document generators happy
+        from ...lo.rdf.x_blank_node import XBlankNode as XBlankNode
 
 __all__ = ['XBlankNode']
 

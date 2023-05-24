@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XActionLockable as XActionLockable
     setattr(XActionLockable, '__ooo_ns__', 'com.sun.star.document')
     setattr(XActionLockable, '__ooo_full_ns__', 'com.sun.star.document.XActionLockable')
     setattr(XActionLockable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XActionLockable as XActionLockable
+    if TYPE_CHECKING:
+        from com.sun.star.document import XActionLockable as XActionLockable
+    else:
+        # keep document generators happy
+        from ...lo.document.x_action_lockable import XActionLockable as XActionLockable
 
 __all__ = ['XActionLockable']
 

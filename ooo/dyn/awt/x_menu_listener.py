@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XMenuListener as XMenuListener
     setattr(XMenuListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XMenuListener, '__ooo_full_ns__', 'com.sun.star.awt.XMenuListener')
     setattr(XMenuListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XMenuListener as XMenuListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XMenuListener as XMenuListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_menu_listener import XMenuListener as XMenuListener
 
 __all__ = ['XMenuListener']
 

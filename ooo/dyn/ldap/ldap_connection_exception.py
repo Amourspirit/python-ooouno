@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LdapConnectionException = _get_class()
 
 else:
-    from com.sun.star.ldap import LdapConnectionException as LdapConnectionException
+    if TYPE_CHECKING:
+        from com.sun.star.ldap import LdapConnectionException as LdapConnectionException
+    else:
+        from ...lo.ldap.ldap_connection_exception import LdapConnectionException as LdapConnectionException
 
 __all__ = ['LdapConnectionException']
 

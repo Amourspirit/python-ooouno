@@ -20,55 +20,62 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_DOCUMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_FRAGMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import DOCUMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import FRAGMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import READY as S_A_X_DOCUMENT_BUILDER_STATE_READY
-
-    class SAXDocumentBuilderState(uno.Enum):
-        """
-        Enum Class
-
-        ENUM SAXDocumentBuilderState
-
-        See Also:
-            `API SAXDocumentBuilderState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#a8e1d723b2d19d95078879bf81b535b36>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.xml.dom.SAXDocumentBuilderState', value)
-
-        __ooo_ns__: str = 'com.sun.star.xml.dom'
-        __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
-        __ooo_type_name__: str = 'enum'
-
-        BUILDING_DOCUMENT = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT)
-        """
-        """
-        BUILDING_FRAGMENT = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT)
-        """
-        """
-        DOCUMENT_FINISHED = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED)
-        """
-        """
-        FRAGMENT_FINISHED = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED)
-        """
-        """
-        READY = cast("SAXDocumentBuilderState", S_A_X_DOCUMENT_BUILDER_STATE_READY)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SAXDocumentBuilderState(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.dom.SAXDocumentBuilderState", name_space="com.sun.star.xml.dom"):
         """Dynamically created class that represents ``com.sun.star.xml.dom.SAXDocumentBuilderState`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_DOCUMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
+        from com.sun.star.xml.dom.SAXDocumentBuilderState import BUILDING_FRAGMENT as S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
+        from com.sun.star.xml.dom.SAXDocumentBuilderState import DOCUMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
+        from com.sun.star.xml.dom.SAXDocumentBuilderState import FRAGMENT_FINISHED as S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
+        from com.sun.star.xml.dom.SAXDocumentBuilderState import READY as S_A_X_DOCUMENT_BUILDER_STATE_READY
+
+        class SAXDocumentBuilderState(uno.Enum):
+            """
+            Enum Class
+
+            ENUM SAXDocumentBuilderState
+
+            See Also:
+                `API SAXDocumentBuilderState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#a8e1d723b2d19d95078879bf81b535b36>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.xml.dom.SAXDocumentBuilderState', value)
+
+            __ooo_ns__: str = 'com.sun.star.xml.dom'
+            __ooo_full_ns__: str = 'com.sun.star.xml.dom.SAXDocumentBuilderState'
+            __ooo_type_name__: str = 'enum'
+
+            BUILDING_DOCUMENT = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_DOCUMENT
+            """
+            """
+            BUILDING_FRAGMENT = S_A_X_DOCUMENT_BUILDER_STATE_BUILDING_FRAGMENT
+            """
+            """
+            DOCUMENT_FINISHED = S_A_X_DOCUMENT_BUILDER_STATE_DOCUMENT_FINISHED
+            """
+            """
+            FRAGMENT_FINISHED = S_A_X_DOCUMENT_BUILDER_STATE_FRAGMENT_FINISHED
+            """
+            """
+            READY = S_A_X_DOCUMENT_BUILDER_STATE_READY
+            """
+            """
+    else:
+        # keep document generators happy
+        from ....lo.xml.dom.sax_document_builder_state import SAXDocumentBuilderState as SAXDocumentBuilderState
+
 
 __all__ = ['SAXDocumentBuilderState']

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ConnectionLostException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import ConnectionLostException as ConnectionLostException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import ConnectionLostException as ConnectionLostException
+    else:
+        from ....lo.configuration.backend.connection_lost_exception import ConnectionLostException as ConnectionLostException
 
 __all__ = ['ConnectionLostException']
 

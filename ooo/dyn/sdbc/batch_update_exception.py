@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BatchUpdateException = _get_class()
 
 else:
-    from com.sun.star.sdbc import BatchUpdateException as BatchUpdateException
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import BatchUpdateException as BatchUpdateException
+    else:
+        from ...lo.sdbc.batch_update_exception import BatchUpdateException as BatchUpdateException
 
 __all__ = ['BatchUpdateException']
 

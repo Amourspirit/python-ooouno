@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class TolerantPropertySetResultType(metaclass=UnoConstMeta, type_name="com.sun.star.beans.TolerantPropertySetResultType", name_space="com.sun.star.beans"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.beans import TolerantPropertySetResultType as TolerantPropertySetResultType
+    if TYPE_CHECKING:
+        from com.sun.star.beans import TolerantPropertySetResultType as TolerantPropertySetResultType
+    else:
+        # keep document generators happy
+        from ...lo.beans.tolerant_property_set_result_type import TolerantPropertySetResultType as TolerantPropertySetResultType
 
     class TolerantPropertySetResultTypeEnum(IntEnum):
         """

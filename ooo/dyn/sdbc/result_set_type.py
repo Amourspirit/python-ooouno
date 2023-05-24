@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ResultSetType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.ResultSetType", name_space="com.sun.star.sdbc"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbc import ResultSetType as ResultSetType
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import ResultSetType as ResultSetType
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.result_set_type import ResultSetType as ResultSetType
 
     class ResultSetTypeEnum(IntEnum):
         """

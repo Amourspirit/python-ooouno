@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script.provider import XScriptProviderFactory as XScriptProviderFactory
     setattr(XScriptProviderFactory, '__ooo_ns__', 'com.sun.star.script.provider')
     setattr(XScriptProviderFactory, '__ooo_full_ns__', 'com.sun.star.script.provider.XScriptProviderFactory')
     setattr(XScriptProviderFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script.provider import XScriptProviderFactory as XScriptProviderFactory
+    if TYPE_CHECKING:
+        from com.sun.star.script.provider import XScriptProviderFactory as XScriptProviderFactory
+    else:
+        # keep document generators happy
+        from ....lo.script.provider.x_script_provider_factory import XScriptProviderFactory as XScriptProviderFactory
 
 __all__ = ['XScriptProviderFactory']
 

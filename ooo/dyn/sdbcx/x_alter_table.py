@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XAlterTable as XAlterTable
     setattr(XAlterTable, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XAlterTable, '__ooo_full_ns__', 'com.sun.star.sdbcx.XAlterTable')
     setattr(XAlterTable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XAlterTable as XAlterTable
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XAlterTable as XAlterTable
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_alter_table import XAlterTable as XAlterTable
 
 __all__ = ['XAlterTable']
 

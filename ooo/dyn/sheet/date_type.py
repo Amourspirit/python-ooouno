@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DateType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DateType", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import DateType as DateType
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import DateType as DateType
+    else:
+        # keep document generators happy
+        from ...lo.sheet.date_type import DateType as DateType
 
     class DateTypeEnum(IntEnum):
         """

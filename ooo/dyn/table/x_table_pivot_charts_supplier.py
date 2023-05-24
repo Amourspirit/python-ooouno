@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.table import XTablePivotChartsSupplier as XTablePivotChartsSupplier
     setattr(XTablePivotChartsSupplier, '__ooo_ns__', 'com.sun.star.table')
     setattr(XTablePivotChartsSupplier, '__ooo_full_ns__', 'com.sun.star.table.XTablePivotChartsSupplier')
     setattr(XTablePivotChartsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.table import XTablePivotChartsSupplier as XTablePivotChartsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.table import XTablePivotChartsSupplier as XTablePivotChartsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.table.x_table_pivot_charts_supplier import XTablePivotChartsSupplier as XTablePivotChartsSupplier
 
 __all__ = ['XTablePivotChartsSupplier']
 

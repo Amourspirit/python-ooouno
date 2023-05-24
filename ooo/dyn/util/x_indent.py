@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XIndent as XIndent
     setattr(XIndent, '__ooo_ns__', 'com.sun.star.util')
     setattr(XIndent, '__ooo_full_ns__', 'com.sun.star.util.XIndent')
     setattr(XIndent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XIndent as XIndent
+    if TYPE_CHECKING:
+        from com.sun.star.util import XIndent as XIndent
+    else:
+        # keep document generators happy
+        from ...lo.util.x_indent import XIndent as XIndent
 
 __all__ = ['XIndent']
 

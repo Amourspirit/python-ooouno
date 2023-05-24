@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XStorage as XStorage
     setattr(XStorage, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XStorage, '__ooo_full_ns__', 'com.sun.star.embed.XStorage')
     setattr(XStorage, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XStorage as XStorage
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XStorage as XStorage
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_storage import XStorage as XStorage
 
 __all__ = ['XStorage']
 

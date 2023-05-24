@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XUniqueIDAccess as XUniqueIDAccess
     setattr(XUniqueIDAccess, '__ooo_ns__', 'com.sun.star.container')
     setattr(XUniqueIDAccess, '__ooo_full_ns__', 'com.sun.star.container.XUniqueIDAccess')
     setattr(XUniqueIDAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XUniqueIDAccess as XUniqueIDAccess
+    if TYPE_CHECKING:
+        from com.sun.star.container import XUniqueIDAccess as XUniqueIDAccess
+    else:
+        # keep document generators happy
+        from ...lo.container.x_unique_id_access import XUniqueIDAccess as XUniqueIDAccess
 
 __all__ = ['XUniqueIDAccess']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ScannerException = _get_class()
 
 else:
-    from com.sun.star.scanner import ScannerException as ScannerException
+    if TYPE_CHECKING:
+        from com.sun.star.scanner import ScannerException as ScannerException
+    else:
+        from ...lo.scanner.scanner_exception import ScannerException as ScannerException
 
 __all__ = ['ScannerException']
 

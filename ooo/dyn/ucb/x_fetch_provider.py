@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XFetchProvider as XFetchProvider
     setattr(XFetchProvider, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XFetchProvider, '__ooo_full_ns__', 'com.sun.star.ucb.XFetchProvider')
     setattr(XFetchProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XFetchProvider as XFetchProvider
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XFetchProvider as XFetchProvider
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_fetch_provider import XFetchProvider as XFetchProvider
 
 __all__ = ['XFetchProvider']
 

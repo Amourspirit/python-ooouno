@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XTimeBased as XTimeBased
     setattr(XTimeBased, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XTimeBased, '__ooo_full_ns__', 'com.sun.star.chart2.XTimeBased')
     setattr(XTimeBased, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XTimeBased as XTimeBased
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XTimeBased as XTimeBased
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_time_based import XTimeBased as XTimeBased
 
 __all__ = ['XTimeBased']
 

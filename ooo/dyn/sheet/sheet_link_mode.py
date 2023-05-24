@@ -20,59 +20,66 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.SheetLinkMode import NONE as SHEET_LINK_MODE_NONE
-    from com.sun.star.sheet.SheetLinkMode import NORMAL as SHEET_LINK_MODE_NORMAL
-    from com.sun.star.sheet.SheetLinkMode import VALUE as SHEET_LINK_MODE_VALUE
-
-    class SheetLinkMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API SheetLinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a34cdda19a5183f39256021e0c2bc46cc>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.SheetLinkMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.SheetLinkMode'
-        __ooo_type_name__: str = 'enum'
-
-        NONE = cast("SheetLinkMode", SHEET_LINK_MODE_NONE)
-        """
-        no cells are moved.
-        
-        sheet is not linked.
-        
-        new values are used without changes.
-        
-        nothing is calculated.
-        
-        nothing is imported.
-        
-        no condition is specified.
-        """
-        NORMAL = cast("SheetLinkMode", SHEET_LINK_MODE_NORMAL)
-        """
-        all contents (values and formulas) are copied.
-        """
-        VALUE = cast("SheetLinkMode", SHEET_LINK_MODE_VALUE)
-        """
-        instead of using formulas, the result values are copied.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SheetLinkMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.SheetLinkMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.SheetLinkMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.SheetLinkMode import NONE as SHEET_LINK_MODE_NONE
+        from com.sun.star.sheet.SheetLinkMode import NORMAL as SHEET_LINK_MODE_NORMAL
+        from com.sun.star.sheet.SheetLinkMode import VALUE as SHEET_LINK_MODE_VALUE
+
+        class SheetLinkMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API SheetLinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a34cdda19a5183f39256021e0c2bc46cc>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.SheetLinkMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.SheetLinkMode'
+            __ooo_type_name__: str = 'enum'
+
+            NONE = SHEET_LINK_MODE_NONE
+            """
+            no cells are moved.
+
+            sheet is not linked.
+
+            new values are used without changes.
+
+            nothing is calculated.
+
+            nothing is imported.
+
+            no condition is specified.
+            """
+            NORMAL = SHEET_LINK_MODE_NORMAL
+            """
+            all contents (values and formulas) are copied.
+            """
+            VALUE = SHEET_LINK_MODE_VALUE
+            """
+            instead of using formulas, the result values are copied.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.sheet_link_mode import SheetLinkMode as SheetLinkMode
+
 
 __all__ = ['SheetLinkMode']

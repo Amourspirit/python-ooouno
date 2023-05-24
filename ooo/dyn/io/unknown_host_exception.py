@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnknownHostException = _get_class()
 
 else:
-    from com.sun.star.io import UnknownHostException as UnknownHostException
+    if TYPE_CHECKING:
+        from com.sun.star.io import UnknownHostException as UnknownHostException
+    else:
+        from ...lo.io.unknown_host_exception import UnknownHostException as UnknownHostException
 
 __all__ = ['UnknownHostException']
 

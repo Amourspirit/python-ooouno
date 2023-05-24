@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         thePackageManagerFactory = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.deployment import thePackageManagerFactory as thePackageManagerFactory
     else:
         from ...lo.deployment.the_package_manager_factory import thePackageManagerFactory as thePackageManagerFactory

@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theUIElementFactoryManager = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.ui import theUIElementFactoryManager as theUIElementFactoryManager
     else:
         from ...lo.ui.the_ui_element_factory_manager import theUIElementFactoryManager as theUIElementFactoryManager

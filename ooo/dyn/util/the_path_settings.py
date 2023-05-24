@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         thePathSettings = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.util import thePathSettings as thePathSettings
     else:
         from ...lo.util.the_path_settings import thePathSettings as thePathSettings

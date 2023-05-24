@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         ContextChangeEventMultiplexer = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.ui import ContextChangeEventMultiplexer as ContextChangeEventMultiplexer
     else:
         from ...lo.ui.context_change_event_multiplexer import ContextChangeEventMultiplexer as ContextChangeEventMultiplexer

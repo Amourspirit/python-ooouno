@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theDesktop = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.frame import theDesktop as theDesktop
     else:
         from ...lo.frame.the_desktop import theDesktop as theDesktop

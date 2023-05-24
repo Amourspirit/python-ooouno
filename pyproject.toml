@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ooouno"
-version = "2.1.0"
+version = "2.1.1"
 description = "Interfaces and classes for LibreOffice (uno)"
 authors = [":Barry-Thomas-Paul: Moss <vibrationoflife@protonmail.com>"]
 license = "Apache Software License"

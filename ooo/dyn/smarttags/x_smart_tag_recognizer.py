@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.smarttags import XSmartTagRecognizer as XSmartTagRecognizer
     setattr(XSmartTagRecognizer, '__ooo_ns__', 'com.sun.star.smarttags')
     setattr(XSmartTagRecognizer, '__ooo_full_ns__', 'com.sun.star.smarttags.XSmartTagRecognizer')
     setattr(XSmartTagRecognizer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.smarttags import XSmartTagRecognizer as XSmartTagRecognizer
+    if TYPE_CHECKING:
+        from com.sun.star.smarttags import XSmartTagRecognizer as XSmartTagRecognizer
+    else:
+        # keep document generators happy
+        from ...lo.smarttags.x_smart_tag_recognizer import XSmartTagRecognizer as XSmartTagRecognizer
 
 __all__ = ['XSmartTagRecognizer']
 

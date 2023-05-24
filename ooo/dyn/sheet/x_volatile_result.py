@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XVolatileResult as XVolatileResult
     setattr(XVolatileResult, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XVolatileResult, '__ooo_full_ns__', 'com.sun.star.sheet.XVolatileResult')
     setattr(XVolatileResult, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XVolatileResult as XVolatileResult
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XVolatileResult as XVolatileResult
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_volatile_result import XVolatileResult as XVolatileResult
 
 __all__ = ['XVolatileResult']
 

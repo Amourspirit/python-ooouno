@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XProgressHandler as XProgressHandler
     setattr(XProgressHandler, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XProgressHandler, '__ooo_full_ns__', 'com.sun.star.ucb.XProgressHandler')
     setattr(XProgressHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XProgressHandler as XProgressHandler
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XProgressHandler as XProgressHandler
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_progress_handler import XProgressHandler as XProgressHandler
 
 __all__ = ['XProgressHandler']
 

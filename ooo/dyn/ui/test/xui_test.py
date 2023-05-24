@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.test import XUITest as XUITest
     setattr(XUITest, '__ooo_ns__', 'com.sun.star.ui.test')
     setattr(XUITest, '__ooo_full_ns__', 'com.sun.star.ui.test.XUITest')
     setattr(XUITest, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.test import XUITest as XUITest
+    if TYPE_CHECKING:
+        from com.sun.star.ui.test import XUITest as XUITest
+    else:
+        # keep document generators happy
+        from ....lo.ui.test.xui_test import XUITest as XUITest
 
 __all__ = ['XUITest']
 

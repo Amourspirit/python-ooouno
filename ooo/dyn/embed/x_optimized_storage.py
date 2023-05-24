@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XOptimizedStorage as XOptimizedStorage
     setattr(XOptimizedStorage, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XOptimizedStorage, '__ooo_full_ns__', 'com.sun.star.embed.XOptimizedStorage')
     setattr(XOptimizedStorage, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XOptimizedStorage as XOptimizedStorage
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XOptimizedStorage as XOptimizedStorage
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_optimized_storage import XOptimizedStorage as XOptimizedStorage
 
 __all__ = ['XOptimizedStorage']
 

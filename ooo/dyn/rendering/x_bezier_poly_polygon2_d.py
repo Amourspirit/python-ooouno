@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XBezierPolyPolygon2D as XBezierPolyPolygon2D
     setattr(XBezierPolyPolygon2D, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XBezierPolyPolygon2D, '__ooo_full_ns__', 'com.sun.star.rendering.XBezierPolyPolygon2D')
     setattr(XBezierPolyPolygon2D, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XBezierPolyPolygon2D as XBezierPolyPolygon2D
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XBezierPolyPolygon2D as XBezierPolyPolygon2D
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_bezier_poly_polygon2_d import XBezierPolyPolygon2D as XBezierPolyPolygon2D
 
 __all__ = ['XBezierPolyPolygon2D']
 

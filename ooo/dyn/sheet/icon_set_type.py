@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class IconSetType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.IconSetType", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import IconSetType as IconSetType
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import IconSetType as IconSetType
+    else:
+        # keep document generators happy
+        from ...lo.sheet.icon_set_type import IconSetType as IconSetType
 
     class IconSetTypeEnum(IntEnum):
         """

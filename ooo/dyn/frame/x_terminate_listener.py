@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XTerminateListener as XTerminateListener
     setattr(XTerminateListener, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XTerminateListener, '__ooo_full_ns__', 'com.sun.star.frame.XTerminateListener')
     setattr(XTerminateListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XTerminateListener as XTerminateListener
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XTerminateListener as XTerminateListener
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_terminate_listener import XTerminateListener as XTerminateListener
 
 __all__ = ['XTerminateListener']
 

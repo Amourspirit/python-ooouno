@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PrinterException = _get_class()
 
 else:
-    from com.sun.star.awt import PrinterException as PrinterException
+    if TYPE_CHECKING:
+        from com.sun.star.awt import PrinterException as PrinterException
+    else:
+        from ...lo.awt.printer_exception import PrinterException as PrinterException
 
 __all__ = ['PrinterException']
 

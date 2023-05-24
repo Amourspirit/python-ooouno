@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.xslt import XXSLTTransformer as XXSLTTransformer
     setattr(XXSLTTransformer, '__ooo_ns__', 'com.sun.star.xml.xslt')
     setattr(XXSLTTransformer, '__ooo_full_ns__', 'com.sun.star.xml.xslt.XXSLTTransformer')
     setattr(XXSLTTransformer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.xslt import XXSLTTransformer as XXSLTTransformer
+    if TYPE_CHECKING:
+        from com.sun.star.xml.xslt import XXSLTTransformer as XXSLTTransformer
+    else:
+        # keep document generators happy
+        from ....lo.xml.xslt.xxslt_transformer import XXSLTTransformer as XXSLTTransformer
 
 __all__ = ['XXSLTTransformer']
 

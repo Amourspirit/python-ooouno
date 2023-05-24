@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer.clipboard import XClipboardManager as XClipboardManager
     setattr(XClipboardManager, '__ooo_ns__', 'com.sun.star.datatransfer.clipboard')
     setattr(XClipboardManager, '__ooo_full_ns__', 'com.sun.star.datatransfer.clipboard.XClipboardManager')
     setattr(XClipboardManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer.clipboard import XClipboardManager as XClipboardManager
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.clipboard import XClipboardManager as XClipboardManager
+    else:
+        # keep document generators happy
+        from ....lo.datatransfer.clipboard.x_clipboard_manager import XClipboardManager as XClipboardManager
 
 __all__ = ['XClipboardManager']
 

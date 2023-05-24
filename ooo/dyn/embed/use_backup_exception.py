@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UseBackupException = _get_class()
 
 else:
-    from com.sun.star.embed import UseBackupException as UseBackupException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import UseBackupException as UseBackupException
+    else:
+        from ...lo.embed.use_backup_exception import UseBackupException as UseBackupException
 
 __all__ = ['UseBackupException']
 

@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('URL', 'Actions')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     FilePermission = _get_class()
 
 else:
-    from com.sun.star.io import FilePermission as FilePermission
+    if TYPE_CHECKING:
+        from com.sun.star.io import FilePermission as FilePermission
+    else:
+        # keep document generators happy
+        from ...lo.io.file_permission import FilePermission as FilePermission
 
 __all__ = ['FilePermission']
 

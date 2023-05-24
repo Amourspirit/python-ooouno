@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InstallationIncompleteException = _get_class()
 
 else:
-    from com.sun.star.configuration import InstallationIncompleteException as InstallationIncompleteException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import InstallationIncompleteException as InstallationIncompleteException
+    else:
+        from ...lo.configuration.installation_incomplete_exception import InstallationIncompleteException as InstallationIncompleteException
 
 __all__ = ['InstallationIncompleteException']
 

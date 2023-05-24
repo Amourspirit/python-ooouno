@@ -20,64 +20,71 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.form.ListSourceType import QUERY as LIST_SOURCE_TYPE_QUERY
-    from com.sun.star.form.ListSourceType import SQL as LIST_SOURCE_TYPE_SQL
-    from com.sun.star.form.ListSourceType import SQLPASSTHROUGH as LIST_SOURCE_TYPE_SQLPASSTHROUGH
-    from com.sun.star.form.ListSourceType import TABLE as LIST_SOURCE_TYPE_TABLE
-    from com.sun.star.form.ListSourceType import TABLEFIELDS as LIST_SOURCE_TYPE_TABLEFIELDS
-    from com.sun.star.form.ListSourceType import VALUELIST as LIST_SOURCE_TYPE_VALUELIST
-
-    class ListSourceType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ListSourceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a52e06ed91fb133bc98c089a401a724fb>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.form.ListSourceType', value)
-
-        __ooo_ns__: str = 'com.sun.star.form'
-        __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
-        __ooo_type_name__: str = 'enum'
-
-        QUERY = cast("ListSourceType", LIST_SOURCE_TYPE_QUERY)
-        """
-        The control should be filled with the results of a database query.
-        """
-        SQL = cast("ListSourceType", LIST_SOURCE_TYPE_SQL)
-        """
-        The control should be filled with the results of a database statement.
-        """
-        SQLPASSTHROUGH = cast("ListSourceType", LIST_SOURCE_TYPE_SQLPASSTHROUGH)
-        """
-        The control should be filled with the results of a database statement, which is not evaluated by the database engine.
-        """
-        TABLE = cast("ListSourceType", LIST_SOURCE_TYPE_TABLE)
-        """
-        The control should be filled with the data of a table.
-        """
-        TABLEFIELDS = cast("ListSourceType", LIST_SOURCE_TYPE_TABLEFIELDS)
-        """
-        The control should be filled with the field names of a database table.
-        """
-        VALUELIST = cast("ListSourceType", LIST_SOURCE_TYPE_VALUELIST)
-        """
-        The control should be filled with a list of string values.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ListSourceType(metaclass=UnoEnumMeta, type_name="com.sun.star.form.ListSourceType", name_space="com.sun.star.form"):
         """Dynamically created class that represents ``com.sun.star.form.ListSourceType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.form.ListSourceType import QUERY as LIST_SOURCE_TYPE_QUERY
+        from com.sun.star.form.ListSourceType import SQL as LIST_SOURCE_TYPE_SQL
+        from com.sun.star.form.ListSourceType import SQLPASSTHROUGH as LIST_SOURCE_TYPE_SQLPASSTHROUGH
+        from com.sun.star.form.ListSourceType import TABLE as LIST_SOURCE_TYPE_TABLE
+        from com.sun.star.form.ListSourceType import TABLEFIELDS as LIST_SOURCE_TYPE_TABLEFIELDS
+        from com.sun.star.form.ListSourceType import VALUELIST as LIST_SOURCE_TYPE_VALUELIST
+
+        class ListSourceType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ListSourceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#a52e06ed91fb133bc98c089a401a724fb>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.form.ListSourceType', value)
+
+            __ooo_ns__: str = 'com.sun.star.form'
+            __ooo_full_ns__: str = 'com.sun.star.form.ListSourceType'
+            __ooo_type_name__: str = 'enum'
+
+            QUERY = LIST_SOURCE_TYPE_QUERY
+            """
+            The control should be filled with the results of a database query.
+            """
+            SQL = LIST_SOURCE_TYPE_SQL
+            """
+            The control should be filled with the results of a database statement.
+            """
+            SQLPASSTHROUGH = LIST_SOURCE_TYPE_SQLPASSTHROUGH
+            """
+            The control should be filled with the results of a database statement, which is not evaluated by the database engine.
+            """
+            TABLE = LIST_SOURCE_TYPE_TABLE
+            """
+            The control should be filled with the data of a table.
+            """
+            TABLEFIELDS = LIST_SOURCE_TYPE_TABLEFIELDS
+            """
+            The control should be filled with the field names of a database table.
+            """
+            VALUELIST = LIST_SOURCE_TYPE_VALUELIST
+            """
+            The control should be filled with a list of string values.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.form.list_source_type import ListSourceType as ListSourceType
+
 
 __all__ = ['ListSourceType']

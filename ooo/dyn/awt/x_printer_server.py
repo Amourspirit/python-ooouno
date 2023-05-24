@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XPrinterServer as XPrinterServer
     setattr(XPrinterServer, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XPrinterServer, '__ooo_full_ns__', 'com.sun.star.awt.XPrinterServer')
     setattr(XPrinterServer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XPrinterServer as XPrinterServer
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XPrinterServer as XPrinterServer
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_printer_server import XPrinterServer as XPrinterServer
 
 __all__ = ['XPrinterServer']
 

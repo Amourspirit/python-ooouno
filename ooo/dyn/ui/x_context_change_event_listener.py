@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui import XContextChangeEventListener as XContextChangeEventListener
     setattr(XContextChangeEventListener, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XContextChangeEventListener, '__ooo_full_ns__', 'com.sun.star.ui.XContextChangeEventListener')
     setattr(XContextChangeEventListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui import XContextChangeEventListener as XContextChangeEventListener
+    if TYPE_CHECKING:
+        from com.sun.star.ui import XContextChangeEventListener as XContextChangeEventListener
+    else:
+        # keep document generators happy
+        from ...lo.ui.x_context_change_event_listener import XContextChangeEventListener as XContextChangeEventListener
 
 __all__ = ['XContextChangeEventListener']
 

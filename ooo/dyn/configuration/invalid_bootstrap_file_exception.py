@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidBootstrapFileException = _get_class()
 
 else:
-    from com.sun.star.configuration import InvalidBootstrapFileException as InvalidBootstrapFileException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import InvalidBootstrapFileException as InvalidBootstrapFileException
+    else:
+        from ...lo.configuration.invalid_bootstrap_file_exception import InvalidBootstrapFileException as InvalidBootstrapFileException
 
 __all__ = ['InvalidBootstrapFileException']
 

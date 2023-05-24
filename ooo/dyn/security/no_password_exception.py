@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoPasswordException = _get_class()
 
 else:
-    from com.sun.star.security import NoPasswordException as NoPasswordException
+    if TYPE_CHECKING:
+        from com.sun.star.security import NoPasswordException as NoPasswordException
+    else:
+        from ...lo.security.no_password_exception import NoPasswordException as NoPasswordException
 
 __all__ = ['NoPasswordException']
 

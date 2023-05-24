@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NeedsRunningStateException = _get_class()
 
 else:
-    from com.sun.star.embed import NeedsRunningStateException as NeedsRunningStateException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import NeedsRunningStateException as NeedsRunningStateException
+    else:
+        from ...lo.embed.needs_running_state_exception import NeedsRunningStateException as NeedsRunningStateException
 
 __all__ = ['NeedsRunningStateException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uri import XVndSunStarScriptUrl as XVndSunStarScriptUrl
     setattr(XVndSunStarScriptUrl, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XVndSunStarScriptUrl, '__ooo_full_ns__', 'com.sun.star.uri.XVndSunStarScriptUrl')
     setattr(XVndSunStarScriptUrl, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uri import XVndSunStarScriptUrl as XVndSunStarScriptUrl
+    if TYPE_CHECKING:
+        from com.sun.star.uri import XVndSunStarScriptUrl as XVndSunStarScriptUrl
+    else:
+        # keep document generators happy
+        from ...lo.uri.x_vnd_sun_star_script_url import XVndSunStarScriptUrl as XVndSunStarScriptUrl
 
 __all__ = ['XVndSunStarScriptUrl']
 

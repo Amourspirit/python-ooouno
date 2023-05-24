@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.dom import XEntityReference as XEntityReference
     setattr(XEntityReference, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XEntityReference, '__ooo_full_ns__', 'com.sun.star.xml.dom.XEntityReference')
     setattr(XEntityReference, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.dom import XEntityReference as XEntityReference
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom import XEntityReference as XEntityReference
+    else:
+        # keep document generators happy
+        from ....lo.xml.dom.x_entity_reference import XEntityReference as XEntityReference
 
 __all__ = ['XEntityReference']
 

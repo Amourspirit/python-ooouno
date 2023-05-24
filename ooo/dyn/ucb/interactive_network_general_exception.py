@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InteractiveNetworkGeneralException = _get_class()
 
 else:
-    from com.sun.star.ucb import InteractiveNetworkGeneralException as InteractiveNetworkGeneralException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import InteractiveNetworkGeneralException as InteractiveNetworkGeneralException
+    else:
+        from ...lo.ucb.interactive_network_general_exception import InteractiveNetworkGeneralException as InteractiveNetworkGeneralException
 
 __all__ = ['InteractiveNetworkGeneralException']
 

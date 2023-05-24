@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnsupportedOpenModeException = _get_class()
 
 else:
-    from com.sun.star.ucb import UnsupportedOpenModeException as UnsupportedOpenModeException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import UnsupportedOpenModeException as UnsupportedOpenModeException
+    else:
+        from ...lo.ucb.unsupported_open_mode_exception import UnsupportedOpenModeException as UnsupportedOpenModeException
 
 __all__ = ['UnsupportedOpenModeException']
 

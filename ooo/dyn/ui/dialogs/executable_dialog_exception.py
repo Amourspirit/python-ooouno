@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ExecutableDialogException = _get_class()
 
 else:
-    from com.sun.star.ui.dialogs import ExecutableDialogException as ExecutableDialogException
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import ExecutableDialogException as ExecutableDialogException
+    else:
+        from ....lo.ui.dialogs.executable_dialog_exception import ExecutableDialogException as ExecutableDialogException
 
 __all__ = ['ExecutableDialogException']
 

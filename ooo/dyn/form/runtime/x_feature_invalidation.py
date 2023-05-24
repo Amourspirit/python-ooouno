@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.runtime import XFeatureInvalidation as XFeatureInvalidation
     setattr(XFeatureInvalidation, '__ooo_ns__', 'com.sun.star.form.runtime')
     setattr(XFeatureInvalidation, '__ooo_full_ns__', 'com.sun.star.form.runtime.XFeatureInvalidation')
     setattr(XFeatureInvalidation, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.runtime import XFeatureInvalidation as XFeatureInvalidation
+    if TYPE_CHECKING:
+        from com.sun.star.form.runtime import XFeatureInvalidation as XFeatureInvalidation
+    else:
+        # keep document generators happy
+        from ....lo.form.runtime.x_feature_invalidation import XFeatureInvalidation as XFeatureInvalidation
 
 __all__ = ['XFeatureInvalidation']
 

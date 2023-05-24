@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XRecentFunctions as XRecentFunctions
     setattr(XRecentFunctions, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XRecentFunctions, '__ooo_full_ns__', 'com.sun.star.sheet.XRecentFunctions')
     setattr(XRecentFunctions, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XRecentFunctions as XRecentFunctions
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XRecentFunctions as XRecentFunctions
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_recent_functions import XRecentFunctions as XRecentFunctions
 
 __all__ = ['XRecentFunctions']
 

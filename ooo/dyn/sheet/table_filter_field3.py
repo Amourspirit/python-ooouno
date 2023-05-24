@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Values', 'Connection', 'Field', 'Operator')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     TableFilterField3 = _get_class()
 
 else:
-    from com.sun.star.sheet import TableFilterField3 as TableFilterField3
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import TableFilterField3 as TableFilterField3
+    else:
+        # keep document generators happy
+        from ...lo.sheet.table_filter_field3 import TableFilterField3 as TableFilterField3
 
 __all__ = ['TableFilterField3']
 

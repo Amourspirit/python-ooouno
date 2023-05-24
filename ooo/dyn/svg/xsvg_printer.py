@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.svg import XSVGPrinter as XSVGPrinter
     setattr(XSVGPrinter, '__ooo_ns__', 'com.sun.star.svg')
     setattr(XSVGPrinter, '__ooo_full_ns__', 'com.sun.star.svg.XSVGPrinter')
     setattr(XSVGPrinter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.svg import XSVGPrinter as XSVGPrinter
+    if TYPE_CHECKING:
+        from com.sun.star.svg import XSVGPrinter as XSVGPrinter
+    else:
+        # keep document generators happy
+        from ...lo.svg.xsvg_printer import XSVGPrinter as XSVGPrinter
 
 __all__ = ['XSVGPrinter']
 

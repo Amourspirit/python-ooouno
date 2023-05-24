@@ -20,49 +20,56 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.presentation.AnimationSpeed import FAST as ANIMATION_SPEED_FAST
-    from com.sun.star.presentation.AnimationSpeed import MEDIUM as ANIMATION_SPEED_MEDIUM
-    from com.sun.star.presentation.AnimationSpeed import SLOW as ANIMATION_SPEED_SLOW
-
-    class AnimationSpeed(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API AnimationSpeed <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a07b64dc4a366b20ad5052f974ffdbf62>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.presentation.AnimationSpeed', value)
-
-        __ooo_ns__: str = 'com.sun.star.presentation'
-        __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
-        __ooo_type_name__: str = 'enum'
-
-        FAST = cast("AnimationSpeed", ANIMATION_SPEED_FAST)
-        """
-        set the speed from the animation/fade to fast.
-        """
-        MEDIUM = cast("AnimationSpeed", ANIMATION_SPEED_MEDIUM)
-        """
-        set the speed from the animation/fade to medium.
-        """
-        SLOW = cast("AnimationSpeed", ANIMATION_SPEED_SLOW)
-        """
-        set the speed from the animation/fade to slow.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class AnimationSpeed(metaclass=UnoEnumMeta, type_name="com.sun.star.presentation.AnimationSpeed", name_space="com.sun.star.presentation"):
         """Dynamically created class that represents ``com.sun.star.presentation.AnimationSpeed`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.presentation.AnimationSpeed import FAST as ANIMATION_SPEED_FAST
+        from com.sun.star.presentation.AnimationSpeed import MEDIUM as ANIMATION_SPEED_MEDIUM
+        from com.sun.star.presentation.AnimationSpeed import SLOW as ANIMATION_SPEED_SLOW
+
+        class AnimationSpeed(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API AnimationSpeed <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1presentation.html#a07b64dc4a366b20ad5052f974ffdbf62>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.presentation.AnimationSpeed', value)
+
+            __ooo_ns__: str = 'com.sun.star.presentation'
+            __ooo_full_ns__: str = 'com.sun.star.presentation.AnimationSpeed'
+            __ooo_type_name__: str = 'enum'
+
+            FAST = ANIMATION_SPEED_FAST
+            """
+            set the speed from the animation/fade to fast.
+            """
+            MEDIUM = ANIMATION_SPEED_MEDIUM
+            """
+            set the speed from the animation/fade to medium.
+            """
+            SLOW = ANIMATION_SPEED_SLOW
+            """
+            set the speed from the animation/fade to slow.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.presentation.animation_speed import AnimationSpeed as AnimationSpeed
+
 
 __all__ = ['AnimationSpeed']

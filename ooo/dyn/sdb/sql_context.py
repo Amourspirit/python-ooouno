@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SQLContext = _get_class()
 
 else:
-    from com.sun.star.sdb import SQLContext as SQLContext
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import SQLContext as SQLContext
+    else:
+        from ...lo.sdb.sql_context import SQLContext as SQLContext
 
 __all__ = ['SQLContext']
 

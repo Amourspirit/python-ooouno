@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.beans import XPropertySet as XPropertySet
     setattr(XPropertySet, '__ooo_ns__', 'com.sun.star.beans')
     setattr(XPropertySet, '__ooo_full_ns__', 'com.sun.star.beans.XPropertySet')
     setattr(XPropertySet, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.beans import XPropertySet as XPropertySet
+    if TYPE_CHECKING:
+        from com.sun.star.beans import XPropertySet as XPropertySet
+    else:
+        # keep document generators happy
+        from ...lo.beans.x_property_set import XPropertySet as XPropertySet
 
 __all__ = ['XPropertySet']
 

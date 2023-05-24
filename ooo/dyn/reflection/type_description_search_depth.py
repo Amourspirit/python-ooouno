@@ -20,46 +20,53 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.reflection.TypeDescriptionSearchDepth import INFINITE as TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
-    from com.sun.star.reflection.TypeDescriptionSearchDepth import ONE as TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
-
-    class TypeDescriptionSearchDepth(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TypeDescriptionSearchDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a19627c9e2873087a7d672cd9e0913000>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.reflection.TypeDescriptionSearchDepth', value)
-
-        __ooo_ns__: str = 'com.sun.star.reflection'
-        __ooo_full_ns__: str = 'com.sun.star.reflection.TypeDescriptionSearchDepth'
-        __ooo_type_name__: str = 'enum'
-
-        INFINITE = cast("TypeDescriptionSearchDepth", TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE)
-        """
-        Infinite search depth.
-        
-        Search through all children including direct children, grand children, grand children's children, ...
-        """
-        ONE = cast("TypeDescriptionSearchDepth", TYPE_DESCRIPTION_SEARCH_DEPTH_ONE)
-        """
-        Search only through direct children.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TypeDescriptionSearchDepth(metaclass=UnoEnumMeta, type_name="com.sun.star.reflection.TypeDescriptionSearchDepth", name_space="com.sun.star.reflection"):
         """Dynamically created class that represents ``com.sun.star.reflection.TypeDescriptionSearchDepth`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.reflection.TypeDescriptionSearchDepth import INFINITE as TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
+        from com.sun.star.reflection.TypeDescriptionSearchDepth import ONE as TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
+
+        class TypeDescriptionSearchDepth(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TypeDescriptionSearchDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a19627c9e2873087a7d672cd9e0913000>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.reflection.TypeDescriptionSearchDepth', value)
+
+            __ooo_ns__: str = 'com.sun.star.reflection'
+            __ooo_full_ns__: str = 'com.sun.star.reflection.TypeDescriptionSearchDepth'
+            __ooo_type_name__: str = 'enum'
+
+            INFINITE = TYPE_DESCRIPTION_SEARCH_DEPTH_INFINITE
+            """
+            Infinite search depth.
+
+            Search through all children including direct children, grand children, grand children's children, ...
+            """
+            ONE = TYPE_DESCRIPTION_SEARCH_DEPTH_ONE
+            """
+            Search only through direct children.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.reflection.type_description_search_depth import TypeDescriptionSearchDepth as TypeDescriptionSearchDepth
+
 
 __all__ = ['TypeDescriptionSearchDepth']

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MalformedDataException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import MalformedDataException as MalformedDataException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import MalformedDataException as MalformedDataException
+    else:
+        from ....lo.configuration.backend.malformed_data_exception import MalformedDataException as MalformedDataException
 
 __all__ = ['MalformedDataException']
 

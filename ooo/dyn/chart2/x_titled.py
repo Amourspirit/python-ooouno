@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XTitled as XTitled
     setattr(XTitled, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XTitled, '__ooo_full_ns__', 'com.sun.star.chart2.XTitled')
     setattr(XTitled, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XTitled as XTitled
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XTitled as XTitled
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_titled import XTitled as XTitled
 
 __all__ = ['XTitled']
 

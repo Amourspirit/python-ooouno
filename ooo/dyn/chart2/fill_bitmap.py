@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('aURL', 'aOffset', 'aPositionOffset', 'aRectanglePoint', 'bLogicalSize', 'aSize', 'aBitmapMode')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     FillBitmap = _get_class()
 
 else:
-    from com.sun.star.chart2 import FillBitmap as FillBitmap
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import FillBitmap as FillBitmap
+    else:
+        # keep document generators happy
+        from ...lo.chart2.fill_bitmap import FillBitmap as FillBitmap
 
 __all__ = ['FillBitmap']
 

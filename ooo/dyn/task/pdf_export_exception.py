@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     PDFExportException = _get_class()
 
 else:
-    from com.sun.star.task import PDFExportException as PDFExportException
+    if TYPE_CHECKING:
+        from com.sun.star.task import PDFExportException as PDFExportException
+    else:
+        from ...lo.task.pdf_export_exception import PDFExportException as PDFExportException
 
 __all__ = ['PDFExportException']
 

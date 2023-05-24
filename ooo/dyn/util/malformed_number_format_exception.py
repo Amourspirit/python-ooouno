@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MalformedNumberFormatException = _get_class()
 
 else:
-    from com.sun.star.util import MalformedNumberFormatException as MalformedNumberFormatException
+    if TYPE_CHECKING:
+        from com.sun.star.util import MalformedNumberFormatException as MalformedNumberFormatException
+    else:
+        from ...lo.util.malformed_number_format_exception import MalformedNumberFormatException as MalformedNumberFormatException
 
 __all__ = ['MalformedNumberFormatException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XTimeStamped as XTimeStamped
     setattr(XTimeStamped, '__ooo_ns__', 'com.sun.star.util')
     setattr(XTimeStamped, '__ooo_full_ns__', 'com.sun.star.util.XTimeStamped')
     setattr(XTimeStamped, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XTimeStamped as XTimeStamped
+    if TYPE_CHECKING:
+        from com.sun.star.util import XTimeStamped as XTimeStamped
+    else:
+        # keep document generators happy
+        from ...lo.util.x_time_stamped import XTimeStamped as XTimeStamped
 
 __all__ = ['XTimeStamped']
 

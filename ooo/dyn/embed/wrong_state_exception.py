@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WrongStateException = _get_class()
 
 else:
-    from com.sun.star.embed import WrongStateException as WrongStateException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import WrongStateException as WrongStateException
+    else:
+        from ...lo.embed.wrong_state_exception import WrongStateException as WrongStateException
 
 __all__ = ['WrongStateException']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ArrayIndexOutOfBoundsException = _get_class()
 
 else:
-    from com.sun.star.lang import ArrayIndexOutOfBoundsException as ArrayIndexOutOfBoundsException
+    if TYPE_CHECKING:
+        from com.sun.star.lang import ArrayIndexOutOfBoundsException as ArrayIndexOutOfBoundsException
+    else:
+        from ...lo.lang.array_index_out_of_bounds_exception import ArrayIndexOutOfBoundsException as ArrayIndexOutOfBoundsException
 
 __all__ = ['ArrayIndexOutOfBoundsException']
 

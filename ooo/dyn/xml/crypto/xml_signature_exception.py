@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     XMLSignatureException = _get_class()
 
 else:
-    from com.sun.star.xml.crypto import XMLSignatureException as XMLSignatureException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import XMLSignatureException as XMLSignatureException
+    else:
+        from ....lo.xml.crypto.xml_signature_exception import XMLSignatureException as XMLSignatureException
 
 __all__ = ['XMLSignatureException']
 

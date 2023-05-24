@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class TemplateDescription(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.TemplateDescription", name_space="com.sun.star.ui.dialogs"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ui.dialogs import TemplateDescription as TemplateDescription
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import TemplateDescription as TemplateDescription
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.template_description import TemplateDescription as TemplateDescription
 
     class TemplateDescriptionEnum(IntEnum):
         """

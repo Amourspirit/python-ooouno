@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XBatchExecution as XBatchExecution
     setattr(XBatchExecution, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XBatchExecution, '__ooo_full_ns__', 'com.sun.star.sdbc.XBatchExecution')
     setattr(XBatchExecution, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XBatchExecution as XBatchExecution
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XBatchExecution as XBatchExecution
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_batch_execution import XBatchExecution as XBatchExecution
 
 __all__ = ['XBatchExecution']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BackendSetupException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import BackendSetupException as BackendSetupException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import BackendSetupException as BackendSetupException
+    else:
+        from ....lo.configuration.backend.backend_setup_exception import BackendSetupException as BackendSetupException
 
 __all__ = ['BackendSetupException']
 

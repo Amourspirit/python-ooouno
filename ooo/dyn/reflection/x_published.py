@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.reflection import XPublished as XPublished
     setattr(XPublished, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XPublished, '__ooo_full_ns__', 'com.sun.star.reflection.XPublished')
     setattr(XPublished, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.reflection import XPublished as XPublished
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import XPublished as XPublished
+    else:
+        # keep document generators happy
+        from ...lo.reflection.x_published import XPublished as XPublished
 
 __all__ = ['XPublished']
 

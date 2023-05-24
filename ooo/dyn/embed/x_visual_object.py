@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XVisualObject as XVisualObject
     setattr(XVisualObject, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XVisualObject, '__ooo_full_ns__', 'com.sun.star.embed.XVisualObject')
     setattr(XVisualObject, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XVisualObject as XVisualObject
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XVisualObject as XVisualObject
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_visual_object import XVisualObject as XVisualObject
 
 __all__ = ['XVisualObject']
 

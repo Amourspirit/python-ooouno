@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XDisplayBitmap as XDisplayBitmap
     setattr(XDisplayBitmap, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XDisplayBitmap, '__ooo_full_ns__', 'com.sun.star.awt.XDisplayBitmap')
     setattr(XDisplayBitmap, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XDisplayBitmap as XDisplayBitmap
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XDisplayBitmap as XDisplayBitmap
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_display_bitmap import XDisplayBitmap as XDisplayBitmap
 
 __all__ = ['XDisplayBitmap']
 

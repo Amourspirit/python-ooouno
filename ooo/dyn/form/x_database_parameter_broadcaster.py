@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XDatabaseParameterBroadcaster as XDatabaseParameterBroadcaster
     setattr(XDatabaseParameterBroadcaster, '__ooo_ns__', 'com.sun.star.form')
     setattr(XDatabaseParameterBroadcaster, '__ooo_full_ns__', 'com.sun.star.form.XDatabaseParameterBroadcaster')
     setattr(XDatabaseParameterBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XDatabaseParameterBroadcaster as XDatabaseParameterBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.form import XDatabaseParameterBroadcaster as XDatabaseParameterBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.form.x_database_parameter_broadcaster import XDatabaseParameterBroadcaster as XDatabaseParameterBroadcaster
 
 __all__ = ['XDatabaseParameterBroadcaster']
 

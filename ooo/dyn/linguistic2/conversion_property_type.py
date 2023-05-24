@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ConversionPropertyType(metaclass=UnoConstMeta, type_name="com.sun.star.linguistic2.ConversionPropertyType", name_space="com.sun.star.linguistic2"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.linguistic2 import ConversionPropertyType as ConversionPropertyType
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import ConversionPropertyType as ConversionPropertyType
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.conversion_property_type import ConversionPropertyType as ConversionPropertyType
 
     class ConversionPropertyTypeEnum(IntEnum):
         """

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class RenderingIntent(metaclass=UnoConstMeta, type_name="com.sun.star.rendering.RenderingIntent", name_space="com.sun.star.rendering"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.rendering import RenderingIntent as RenderingIntent
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import RenderingIntent as RenderingIntent
+    else:
+        # keep document generators happy
+        from ...lo.rendering.rendering_intent import RenderingIntent as RenderingIntent
 
     class RenderingIntentEnum(IntEnum):
         """

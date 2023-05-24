@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui import XPanels as XPanels
     setattr(XPanels, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XPanels, '__ooo_full_ns__', 'com.sun.star.ui.XPanels')
     setattr(XPanels, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui import XPanels as XPanels
+    if TYPE_CHECKING:
+        from com.sun.star.ui import XPanels as XPanels
+    else:
+        # keep document generators happy
+        from ...lo.ui.x_panels import XPanels as XPanels
 
 __all__ = ['XPanels']
 

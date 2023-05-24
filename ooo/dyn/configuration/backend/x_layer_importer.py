@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.configuration.backend import XLayerImporter as XLayerImporter
     setattr(XLayerImporter, '__ooo_ns__', 'com.sun.star.configuration.backend')
     setattr(XLayerImporter, '__ooo_full_ns__', 'com.sun.star.configuration.backend.XLayerImporter')
     setattr(XLayerImporter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.configuration.backend import XLayerImporter as XLayerImporter
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import XLayerImporter as XLayerImporter
+    else:
+        # keep document generators happy
+        from ....lo.configuration.backend.x_layer_importer import XLayerImporter as XLayerImporter
 
 __all__ = ['XLayerImporter']
 

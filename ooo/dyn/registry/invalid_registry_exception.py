@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidRegistryException = _get_class()
 
 else:
-    from com.sun.star.registry import InvalidRegistryException as InvalidRegistryException
+    if TYPE_CHECKING:
+        from com.sun.star.registry import InvalidRegistryException as InvalidRegistryException
+    else:
+        from ...lo.registry.invalid_registry_exception import InvalidRegistryException as InvalidRegistryException
 
 __all__ = ['InvalidRegistryException']
 

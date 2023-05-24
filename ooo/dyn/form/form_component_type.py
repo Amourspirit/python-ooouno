@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FormComponentType(metaclass=UnoConstMeta, type_name="com.sun.star.form.FormComponentType", name_space="com.sun.star.form"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.form import FormComponentType as FormComponentType
+    if TYPE_CHECKING:
+        from com.sun.star.form import FormComponentType as FormComponentType
+    else:
+        # keep document generators happy
+        from ...lo.form.form_component_type import FormComponentType as FormComponentType
 
     class FormComponentTypeEnum(IntEnum):
         """

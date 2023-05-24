@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XForbiddenCharacters as XForbiddenCharacters
     setattr(XForbiddenCharacters, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XForbiddenCharacters, '__ooo_full_ns__', 'com.sun.star.i18n.XForbiddenCharacters')
     setattr(XForbiddenCharacters, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XForbiddenCharacters as XForbiddenCharacters
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XForbiddenCharacters as XForbiddenCharacters
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_forbidden_characters import XForbiddenCharacters as XForbiddenCharacters
 
 __all__ = ['XForbiddenCharacters']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XHalfFloatReadOnlyBitmap as XHalfFloatReadOnlyBitmap
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XHalfFloatReadOnlyBitmap')
     setattr(XHalfFloatReadOnlyBitmap, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XHalfFloatReadOnlyBitmap as XHalfFloatReadOnlyBitmap
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XHalfFloatReadOnlyBitmap as XHalfFloatReadOnlyBitmap
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_half_float_read_only_bitmap import XHalfFloatReadOnlyBitmap as XHalfFloatReadOnlyBitmap
 
 __all__ = ['XHalfFloatReadOnlyBitmap']
 

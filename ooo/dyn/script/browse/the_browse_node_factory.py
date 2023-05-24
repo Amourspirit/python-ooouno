@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theBrowseNodeFactory = _singleton_init
     _dynamic_singleton()
 else:
-    from ....lo.script.browse.the_browse_node_factory import theBrowseNodeFactory as theBrowseNodeFactory
+    if TYPE_CHECKING
+        from com.sun.star.script.browse import theBrowseNodeFactory as theBrowseNodeFactory
+    else:
+        from ....lo.script.browse.the_browse_node_factory import theBrowseNodeFactory as theBrowseNodeFactory
 
 __all__ = ['theBrowseNodeFactory']

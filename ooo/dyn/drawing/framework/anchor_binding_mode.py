@@ -20,42 +20,49 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.framework.AnchorBindingMode import DIRECT as ANCHOR_BINDING_MODE_DIRECT
-    from com.sun.star.drawing.framework.AnchorBindingMode import INDIRECT as ANCHOR_BINDING_MODE_INDIRECT
-
-    class AnchorBindingMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API AnchorBindingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#af2624f1e14ec2ab7890946d97b26724c>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.framework.AnchorBindingMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing.framework'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.framework.AnchorBindingMode'
-        __ooo_type_name__: str = 'enum'
-
-        DIRECT = cast("AnchorBindingMode", ANCHOR_BINDING_MODE_DIRECT)
-        """
-        """
-        INDIRECT = cast("AnchorBindingMode", ANCHOR_BINDING_MODE_INDIRECT)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class AnchorBindingMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.framework.AnchorBindingMode", name_space="com.sun.star.drawing.framework"):
         """Dynamically created class that represents ``com.sun.star.drawing.framework.AnchorBindingMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.framework.AnchorBindingMode import DIRECT as ANCHOR_BINDING_MODE_DIRECT
+        from com.sun.star.drawing.framework.AnchorBindingMode import INDIRECT as ANCHOR_BINDING_MODE_INDIRECT
+
+        class AnchorBindingMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API AnchorBindingMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#af2624f1e14ec2ab7890946d97b26724c>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.framework.AnchorBindingMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing.framework'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.framework.AnchorBindingMode'
+            __ooo_type_name__: str = 'enum'
+
+            DIRECT = ANCHOR_BINDING_MODE_DIRECT
+            """
+            """
+            INDIRECT = ANCHOR_BINDING_MODE_INDIRECT
+            """
+            """
+    else:
+        # keep document generators happy
+        from ....lo.drawing.framework.anchor_binding_mode import AnchorBindingMode as AnchorBindingMode
+
 
 __all__ = ['AnchorBindingMode']

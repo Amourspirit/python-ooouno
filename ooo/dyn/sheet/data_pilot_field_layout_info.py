@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('LayoutMode', 'AddEmptyLines')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DataPilotFieldLayoutInfo = _get_class()
 
 else:
-    from com.sun.star.sheet import DataPilotFieldLayoutInfo as DataPilotFieldLayoutInfo
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import DataPilotFieldLayoutInfo as DataPilotFieldLayoutInfo
+    else:
+        # keep document generators happy
+        from ...lo.sheet.data_pilot_field_layout_info import DataPilotFieldLayoutInfo as DataPilotFieldLayoutInfo
 
 __all__ = ['DataPilotFieldLayoutInfo']
 

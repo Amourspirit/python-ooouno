@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XDriverManager2 as XDriverManager2
     setattr(XDriverManager2, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XDriverManager2, '__ooo_full_ns__', 'com.sun.star.sdbc.XDriverManager2')
     setattr(XDriverManager2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XDriverManager2 as XDriverManager2
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XDriverManager2 as XDriverManager2
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_driver_manager2 import XDriverManager2 as XDriverManager2
 
 __all__ = ['XDriverManager2']
 

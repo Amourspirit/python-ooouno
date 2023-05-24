@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XImageProducerSupplier as XImageProducerSupplier
     setattr(XImageProducerSupplier, '__ooo_ns__', 'com.sun.star.form')
     setattr(XImageProducerSupplier, '__ooo_full_ns__', 'com.sun.star.form.XImageProducerSupplier')
     setattr(XImageProducerSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XImageProducerSupplier as XImageProducerSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.form import XImageProducerSupplier as XImageProducerSupplier
+    else:
+        # keep document generators happy
+        from ...lo.form.x_image_producer_supplier import XImageProducerSupplier as XImageProducerSupplier
 
 __all__ = ['XImageProducerSupplier']
 

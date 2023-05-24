@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart import XAxisYSupplier as XAxisYSupplier
     setattr(XAxisYSupplier, '__ooo_ns__', 'com.sun.star.chart')
     setattr(XAxisYSupplier, '__ooo_full_ns__', 'com.sun.star.chart.XAxisYSupplier')
     setattr(XAxisYSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart import XAxisYSupplier as XAxisYSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.chart import XAxisYSupplier as XAxisYSupplier
+    else:
+        # keep document generators happy
+        from ...lo.chart.x_axis_y_supplier import XAxisYSupplier as XAxisYSupplier
 
 __all__ = ['XAxisYSupplier']
 

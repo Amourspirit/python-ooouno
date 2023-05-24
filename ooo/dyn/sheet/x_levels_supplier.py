@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XLevelsSupplier as XLevelsSupplier
     setattr(XLevelsSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XLevelsSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XLevelsSupplier')
     setattr(XLevelsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XLevelsSupplier as XLevelsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XLevelsSupplier as XLevelsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_levels_supplier import XLevelsSupplier as XLevelsSupplier
 
 __all__ = ['XLevelsSupplier']
 

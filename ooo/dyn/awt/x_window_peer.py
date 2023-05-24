@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XWindowPeer as XWindowPeer
     setattr(XWindowPeer, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XWindowPeer, '__ooo_full_ns__', 'com.sun.star.awt.XWindowPeer')
     setattr(XWindowPeer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XWindowPeer as XWindowPeer
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XWindowPeer as XWindowPeer
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_window_peer import XWindowPeer as XWindowPeer
 
 __all__ = ['XWindowPeer']
 

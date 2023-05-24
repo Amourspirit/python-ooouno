@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.packages.manifest import XManifestWriter as XManifestWriter
     setattr(XManifestWriter, '__ooo_ns__', 'com.sun.star.packages.manifest')
     setattr(XManifestWriter, '__ooo_full_ns__', 'com.sun.star.packages.manifest.XManifestWriter')
     setattr(XManifestWriter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.packages.manifest import XManifestWriter as XManifestWriter
+    if TYPE_CHECKING:
+        from com.sun.star.packages.manifest import XManifestWriter as XManifestWriter
+    else:
+        # keep document generators happy
+        from ....lo.packages.manifest.x_manifest_writer import XManifestWriter as XManifestWriter
 
 __all__ = ['XManifestWriter']
 

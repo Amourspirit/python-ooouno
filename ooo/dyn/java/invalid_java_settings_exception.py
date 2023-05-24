@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidJavaSettingsException = _get_class()
 
 else:
-    from com.sun.star.java import InvalidJavaSettingsException as InvalidJavaSettingsException
+    if TYPE_CHECKING:
+        from com.sun.star.java import InvalidJavaSettingsException as InvalidJavaSettingsException
+    else:
+        from ...lo.java.invalid_java_settings_exception import InvalidJavaSettingsException as InvalidJavaSettingsException
 
 __all__ = ['InvalidJavaSettingsException']
 

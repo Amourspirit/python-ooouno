@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     QueryException = _get_class()
 
 else:
-    from com.sun.star.rdf import QueryException as QueryException
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import QueryException as QueryException
+    else:
+        from ...lo.rdf.query_exception import QueryException as QueryException
 
 __all__ = ['QueryException']
 

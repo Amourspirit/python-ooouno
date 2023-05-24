@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XInterceptorInfo as XInterceptorInfo
     setattr(XInterceptorInfo, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XInterceptorInfo, '__ooo_full_ns__', 'com.sun.star.frame.XInterceptorInfo')
     setattr(XInterceptorInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XInterceptorInfo as XInterceptorInfo
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XInterceptorInfo as XInterceptorInfo
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_interceptor_info import XInterceptorInfo as XInterceptorInfo
 
 __all__ = ['XInterceptorInfo']
 

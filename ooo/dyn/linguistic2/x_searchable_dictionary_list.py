@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XSearchableDictionaryList as XSearchableDictionaryList
     setattr(XSearchableDictionaryList, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XSearchableDictionaryList, '__ooo_full_ns__', 'com.sun.star.linguistic2.XSearchableDictionaryList')
     setattr(XSearchableDictionaryList, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XSearchableDictionaryList as XSearchableDictionaryList
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XSearchableDictionaryList as XSearchableDictionaryList
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_searchable_dictionary_list import XSearchableDictionaryList as XSearchableDictionaryList
 
 __all__ = ['XSearchableDictionaryList']
 

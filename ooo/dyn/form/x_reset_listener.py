@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XResetListener as XResetListener
     setattr(XResetListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XResetListener, '__ooo_full_ns__', 'com.sun.star.form.XResetListener')
     setattr(XResetListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XResetListener as XResetListener
+    if TYPE_CHECKING:
+        from com.sun.star.form import XResetListener as XResetListener
+    else:
+        # keep document generators happy
+        from ...lo.form.x_reset_listener import XResetListener as XResetListener
 
 __all__ = ['XResetListener']
 

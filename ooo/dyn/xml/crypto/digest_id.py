@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DigestID(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.DigestID", name_space="com.sun.star.xml.crypto"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.xml.crypto import DigestID as DigestID
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import DigestID as DigestID
+    else:
+        # keep document generators happy
+        from ....lo.xml.crypto.digest_id import DigestID as DigestID
 
     class DigestIDEnum(IntEnum):
         """

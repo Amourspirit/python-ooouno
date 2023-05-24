@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XAdjustmentListener as XAdjustmentListener
     setattr(XAdjustmentListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XAdjustmentListener, '__ooo_full_ns__', 'com.sun.star.awt.XAdjustmentListener')
     setattr(XAdjustmentListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XAdjustmentListener as XAdjustmentListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XAdjustmentListener as XAdjustmentListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_adjustment_listener import XAdjustmentListener as XAdjustmentListener
 
 __all__ = ['XAdjustmentListener']
 

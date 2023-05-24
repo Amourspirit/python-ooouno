@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XLineCursor as XLineCursor
     setattr(XLineCursor, '__ooo_ns__', 'com.sun.star.view')
     setattr(XLineCursor, '__ooo_full_ns__', 'com.sun.star.view.XLineCursor')
     setattr(XLineCursor, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XLineCursor as XLineCursor
+    if TYPE_CHECKING:
+        from com.sun.star.view import XLineCursor as XLineCursor
+    else:
+        # keep document generators happy
+        from ...lo.view.x_line_cursor import XLineCursor as XLineCursor
 
 __all__ = ['XLineCursor']
 

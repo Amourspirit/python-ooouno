@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.mail import XSmtpService as XSmtpService
     setattr(XSmtpService, '__ooo_ns__', 'com.sun.star.mail')
     setattr(XSmtpService, '__ooo_full_ns__', 'com.sun.star.mail.XSmtpService')
     setattr(XSmtpService, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.mail import XSmtpService as XSmtpService
+    if TYPE_CHECKING:
+        from com.sun.star.mail import XSmtpService as XSmtpService
+    else:
+        # keep document generators happy
+        from ...lo.mail.x_smtp_service import XSmtpService as XSmtpService
 
 __all__ = ['XSmtpService']
 

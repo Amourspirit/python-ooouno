@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     EmptyUndoStackException = _get_class()
 
 else:
-    from com.sun.star.document import EmptyUndoStackException as EmptyUndoStackException
+    if TYPE_CHECKING:
+        from com.sun.star.document import EmptyUndoStackException as EmptyUndoStackException
+    else:
+        from ...lo.document.empty_undo_stack_exception import EmptyUndoStackException as EmptyUndoStackException
 
 __all__ = ['EmptyUndoStackException']
 

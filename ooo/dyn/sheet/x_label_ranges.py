@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XLabelRanges as XLabelRanges
     setattr(XLabelRanges, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XLabelRanges, '__ooo_full_ns__', 'com.sun.star.sheet.XLabelRanges')
     setattr(XLabelRanges, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XLabelRanges as XLabelRanges
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XLabelRanges as XLabelRanges
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_label_ranges import XLabelRanges as XLabelRanges
 
 __all__ = ['XLabelRanges']
 

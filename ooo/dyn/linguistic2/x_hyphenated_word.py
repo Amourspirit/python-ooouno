@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XHyphenatedWord as XHyphenatedWord
     setattr(XHyphenatedWord, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XHyphenatedWord, '__ooo_full_ns__', 'com.sun.star.linguistic2.XHyphenatedWord')
     setattr(XHyphenatedWord, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XHyphenatedWord as XHyphenatedWord
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XHyphenatedWord as XHyphenatedWord
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_hyphenated_word import XHyphenatedWord as XHyphenatedWord
 
 __all__ = ['XHyphenatedWord']
 

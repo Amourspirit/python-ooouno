@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XMultiComponentFactory as XMultiComponentFactory
     setattr(XMultiComponentFactory, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XMultiComponentFactory, '__ooo_full_ns__', 'com.sun.star.lang.XMultiComponentFactory')
     setattr(XMultiComponentFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XMultiComponentFactory as XMultiComponentFactory
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XMultiComponentFactory as XMultiComponentFactory
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_multi_component_factory import XMultiComponentFactory as XMultiComponentFactory
 
 __all__ = ['XMultiComponentFactory']
 

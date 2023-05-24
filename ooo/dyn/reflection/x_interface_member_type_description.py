@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.reflection import XInterfaceMemberTypeDescription as XInterfaceMemberTypeDescription
     setattr(XInterfaceMemberTypeDescription, '__ooo_ns__', 'com.sun.star.reflection')
     setattr(XInterfaceMemberTypeDescription, '__ooo_full_ns__', 'com.sun.star.reflection.XInterfaceMemberTypeDescription')
     setattr(XInterfaceMemberTypeDescription, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.reflection import XInterfaceMemberTypeDescription as XInterfaceMemberTypeDescription
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import XInterfaceMemberTypeDescription as XInterfaceMemberTypeDescription
+    else:
+        # keep document generators happy
+        from ...lo.reflection.x_interface_member_type_description import XInterfaceMemberTypeDescription as XInterfaceMemberTypeDescription
 
 __all__ = ['XInterfaceMemberTypeDescription']
 

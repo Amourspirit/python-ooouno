@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XColumn as XColumn
     setattr(XColumn, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XColumn, '__ooo_full_ns__', 'com.sun.star.sdb.XColumn')
     setattr(XColumn, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XColumn as XColumn
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XColumn as XColumn
+    else:
+        # keep document generators happy
+        from ...lo.sdb.x_column import XColumn as XColumn
 
 __all__ = ['XColumn']
 

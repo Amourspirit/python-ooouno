@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.io import XStream as XStream
     setattr(XStream, '__ooo_ns__', 'com.sun.star.io')
     setattr(XStream, '__ooo_full_ns__', 'com.sun.star.io.XStream')
     setattr(XStream, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.io import XStream as XStream
+    if TYPE_CHECKING:
+        from com.sun.star.io import XStream as XStream
+    else:
+        # keep document generators happy
+        from ...lo.io.x_stream import XStream as XStream
 
 __all__ = ['XStream']
 

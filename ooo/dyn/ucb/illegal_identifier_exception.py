@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalIdentifierException = _get_class()
 
 else:
-    from com.sun.star.ucb import IllegalIdentifierException as IllegalIdentifierException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import IllegalIdentifierException as IllegalIdentifierException
+    else:
+        from ...lo.ucb.illegal_identifier_exception import IllegalIdentifierException as IllegalIdentifierException
 
 __all__ = ['IllegalIdentifierException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.runtime import XFilterControllerListener as XFilterControllerListener
     setattr(XFilterControllerListener, '__ooo_ns__', 'com.sun.star.form.runtime')
     setattr(XFilterControllerListener, '__ooo_full_ns__', 'com.sun.star.form.runtime.XFilterControllerListener')
     setattr(XFilterControllerListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.runtime import XFilterControllerListener as XFilterControllerListener
+    if TYPE_CHECKING:
+        from com.sun.star.form.runtime import XFilterControllerListener as XFilterControllerListener
+    else:
+        # keep document generators happy
+        from ....lo.form.runtime.x_filter_controller_listener import XFilterControllerListener as XFilterControllerListener
 
 __all__ = ['XFilterControllerListener']
 

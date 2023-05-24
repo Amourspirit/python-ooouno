@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class EnhancedCustomShapeSegmentCommand(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.EnhancedCustomShapeSegmentCommand", name_space="com.sun.star.drawing"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.drawing import EnhancedCustomShapeSegmentCommand as EnhancedCustomShapeSegmentCommand
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import EnhancedCustomShapeSegmentCommand as EnhancedCustomShapeSegmentCommand
+    else:
+        # keep document generators happy
+        from ...lo.drawing.enhanced_custom_shape_segment_command import EnhancedCustomShapeSegmentCommand as EnhancedCustomShapeSegmentCommand
 
     class EnhancedCustomShapeSegmentCommandEnum(IntEnum):
         """

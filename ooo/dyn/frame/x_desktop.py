@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XDesktop as XDesktop
     setattr(XDesktop, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XDesktop, '__ooo_full_ns__', 'com.sun.star.frame.XDesktop')
     setattr(XDesktop, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XDesktop as XDesktop
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XDesktop as XDesktop
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_desktop import XDesktop as XDesktop
 
 __all__ = ['XDesktop']
 

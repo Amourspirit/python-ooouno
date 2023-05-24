@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XInteractionReplaceExistingData as XInteractionReplaceExistingData
     setattr(XInteractionReplaceExistingData, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XInteractionReplaceExistingData, '__ooo_full_ns__', 'com.sun.star.ucb.XInteractionReplaceExistingData')
     setattr(XInteractionReplaceExistingData, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XInteractionReplaceExistingData as XInteractionReplaceExistingData
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XInteractionReplaceExistingData as XInteractionReplaceExistingData
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_interaction_replace_existing_data import XInteractionReplaceExistingData as XInteractionReplaceExistingData
 
 __all__ = ['XInteractionReplaceExistingData']
 

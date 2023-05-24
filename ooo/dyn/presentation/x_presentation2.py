@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.presentation import XPresentation2 as XPresentation2
     setattr(XPresentation2, '__ooo_ns__', 'com.sun.star.presentation')
     setattr(XPresentation2, '__ooo_full_ns__', 'com.sun.star.presentation.XPresentation2')
     setattr(XPresentation2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.presentation import XPresentation2 as XPresentation2
+    if TYPE_CHECKING:
+        from com.sun.star.presentation import XPresentation2 as XPresentation2
+    else:
+        # keep document generators happy
+        from ...lo.presentation.x_presentation2 import XPresentation2 as XPresentation2
 
 __all__ = ['XPresentation2']
 

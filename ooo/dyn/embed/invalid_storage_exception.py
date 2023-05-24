@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidStorageException = _get_class()
 
 else:
-    from com.sun.star.embed import InvalidStorageException as InvalidStorageException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import InvalidStorageException as InvalidStorageException
+    else:
+        from ...lo.embed.invalid_storage_exception import InvalidStorageException as InvalidStorageException
 
 __all__ = ['InvalidStorageException']
 

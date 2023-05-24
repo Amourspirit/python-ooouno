@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.animations import XTimeContainer as XTimeContainer
     setattr(XTimeContainer, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XTimeContainer, '__ooo_full_ns__', 'com.sun.star.animations.XTimeContainer')
     setattr(XTimeContainer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.animations import XTimeContainer as XTimeContainer
+    if TYPE_CHECKING:
+        from com.sun.star.animations import XTimeContainer as XTimeContainer
+    else:
+        # keep document generators happy
+        from ...lo.animations.x_time_container import XTimeContainer as XTimeContainer
 
 __all__ = ['XTimeContainer']
 

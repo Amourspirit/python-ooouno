@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class BarCodeErrorCorrection(metaclass=UnoConstMeta, type_name="com.sun.star.drawing.BarCodeErrorCorrection", name_space="com.sun.star.drawing"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.drawing import BarCodeErrorCorrection as BarCodeErrorCorrection
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import BarCodeErrorCorrection as BarCodeErrorCorrection
+    else:
+        # keep document generators happy
+        from ...lo.drawing.bar_code_error_correction import BarCodeErrorCorrection as BarCodeErrorCorrection
 
     class BarCodeErrorCorrectionEnum(IntEnum):
         """

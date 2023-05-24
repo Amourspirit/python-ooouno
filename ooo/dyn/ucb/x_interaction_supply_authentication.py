@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XInteractionSupplyAuthentication as XInteractionSupplyAuthentication
     setattr(XInteractionSupplyAuthentication, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XInteractionSupplyAuthentication, '__ooo_full_ns__', 'com.sun.star.ucb.XInteractionSupplyAuthentication')
     setattr(XInteractionSupplyAuthentication, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XInteractionSupplyAuthentication as XInteractionSupplyAuthentication
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XInteractionSupplyAuthentication as XInteractionSupplyAuthentication
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_interaction_supply_authentication import XInteractionSupplyAuthentication as XInteractionSupplyAuthentication
 
 __all__ = ['XInteractionSupplyAuthentication']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class KeyType(metaclass=UnoConstMeta, type_name="com.sun.star.sdbcx.KeyType", name_space="com.sun.star.sdbcx"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbcx import KeyType as KeyType
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import KeyType as KeyType
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.key_type import KeyType as KeyType
 
     class KeyTypeEnum(IntEnum):
         """

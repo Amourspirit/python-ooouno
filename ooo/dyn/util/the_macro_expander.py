@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theMacroExpander = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.util.the_macro_expander import theMacroExpander as theMacroExpander
+    if TYPE_CHECKING
+        from com.sun.star.util import theMacroExpander as theMacroExpander
+    else:
+        from ...lo.util.the_macro_expander import theMacroExpander as theMacroExpander
 
 __all__ = ['theMacroExpander']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XPersistentPropertySet as XPersistentPropertySet
     setattr(XPersistentPropertySet, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XPersistentPropertySet, '__ooo_full_ns__', 'com.sun.star.ucb.XPersistentPropertySet')
     setattr(XPersistentPropertySet, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XPersistentPropertySet as XPersistentPropertySet
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XPersistentPropertySet as XPersistentPropertySet
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_persistent_property_set import XPersistentPropertySet as XPersistentPropertySet
 
 __all__ = ['XPersistentPropertySet']
 

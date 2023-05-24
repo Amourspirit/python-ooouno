@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DataTruncation = _get_class()
 
 else:
-    from com.sun.star.sdbc import DataTruncation as DataTruncation
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import DataTruncation as DataTruncation
+    else:
+        from ...lo.sdbc.data_truncation import DataTruncation as DataTruncation
 
 __all__ = ['DataTruncation']
 

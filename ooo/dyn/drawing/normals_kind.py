@@ -20,53 +20,60 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.NormalsKind import FLAT as NORMALS_KIND_FLAT
-    from com.sun.star.drawing.NormalsKind import SPECIFIC as NORMALS_KIND_SPECIFIC
-    from com.sun.star.drawing.NormalsKind import SPHERE as NORMALS_KIND_SPHERE
-
-    class NormalsKind(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API NormalsKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a2f040e92a1488875fb14c6ecc377630b>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.NormalsKind', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.NormalsKind'
-        __ooo_type_name__: str = 'enum'
-
-        FLAT = cast("NormalsKind", NORMALS_KIND_FLAT)
-        """
-        forces one normal per flat part.
-        
-        With FLAT shading, the faces of the object are rendered in a solid color.
-        """
-        SPECIFIC = cast("NormalsKind", NORMALS_KIND_SPECIFIC)
-        """
-        does not produce standard normals, but leaves the object-specific ones untouched.
-        """
-        SPHERE = cast("NormalsKind", NORMALS_KIND_SPHERE)
-        """
-        forces normals to think that the object is a sphere.
-        
-        This value forces projection to wrapping in X and/or Y.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class NormalsKind(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.NormalsKind", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.NormalsKind`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.NormalsKind import FLAT as NORMALS_KIND_FLAT
+        from com.sun.star.drawing.NormalsKind import SPECIFIC as NORMALS_KIND_SPECIFIC
+        from com.sun.star.drawing.NormalsKind import SPHERE as NORMALS_KIND_SPHERE
+
+        class NormalsKind(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API NormalsKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a2f040e92a1488875fb14c6ecc377630b>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.NormalsKind', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.NormalsKind'
+            __ooo_type_name__: str = 'enum'
+
+            FLAT = NORMALS_KIND_FLAT
+            """
+            forces one normal per flat part.
+
+            With FLAT shading, the faces of the object are rendered in a solid color.
+            """
+            SPECIFIC = NORMALS_KIND_SPECIFIC
+            """
+            does not produce standard normals, but leaves the object-specific ones untouched.
+            """
+            SPHERE = NORMALS_KIND_SPHERE
+            """
+            forces normals to think that the object is a sphere.
+
+            This value forces projection to wrapping in X and/or Y.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.normals_kind import NormalsKind as NormalsKind
+
 
 __all__ = ['NormalsKind']

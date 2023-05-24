@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Minimum', 'Maximum', 'Preferred')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LayoutSize = _get_class()
 
 else:
-    from com.sun.star.ui import LayoutSize as LayoutSize
+    if TYPE_CHECKING:
+        from com.sun.star.ui import LayoutSize as LayoutSize
+    else:
+        # keep document generators happy
+        from ...lo.ui.layout_size import LayoutSize as LayoutSize
 
 __all__ = ['LayoutSize']
 

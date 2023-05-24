@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XPrintJobBroadcaster as XPrintJobBroadcaster
     setattr(XPrintJobBroadcaster, '__ooo_ns__', 'com.sun.star.view')
     setattr(XPrintJobBroadcaster, '__ooo_full_ns__', 'com.sun.star.view.XPrintJobBroadcaster')
     setattr(XPrintJobBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XPrintJobBroadcaster as XPrintJobBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.view import XPrintJobBroadcaster as XPrintJobBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.view.x_print_job_broadcaster import XPrintJobBroadcaster as XPrintJobBroadcaster
 
 __all__ = ['XPrintJobBroadcaster']
 

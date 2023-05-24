@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ExoticFileLoadException = _get_class()
 
 else:
-    from com.sun.star.document import ExoticFileLoadException as ExoticFileLoadException
+    if TYPE_CHECKING:
+        from com.sun.star.document import ExoticFileLoadException as ExoticFileLoadException
+    else:
+        from ...lo.document.exotic_file_load_exception import ExoticFileLoadException as ExoticFileLoadException
 
 __all__ = ['ExoticFileLoadException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XEncryptionProtectedSource as XEncryptionProtectedSource
     setattr(XEncryptionProtectedSource, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XEncryptionProtectedSource, '__ooo_full_ns__', 'com.sun.star.embed.XEncryptionProtectedSource')
     setattr(XEncryptionProtectedSource, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XEncryptionProtectedSource as XEncryptionProtectedSource
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XEncryptionProtectedSource as XEncryptionProtectedSource
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_encryption_protected_source import XEncryptionProtectedSource as XEncryptionProtectedSource
 
 __all__ = ['XEncryptionProtectedSource']
 

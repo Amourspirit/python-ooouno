@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.io import XMarkableStream as XMarkableStream
     setattr(XMarkableStream, '__ooo_ns__', 'com.sun.star.io')
     setattr(XMarkableStream, '__ooo_full_ns__', 'com.sun.star.io.XMarkableStream')
     setattr(XMarkableStream, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.io import XMarkableStream as XMarkableStream
+    if TYPE_CHECKING:
+        from com.sun.star.io import XMarkableStream as XMarkableStream
+    else:
+        # keep document generators happy
+        from ...lo.io.x_markable_stream import XMarkableStream as XMarkableStream
 
 __all__ = ['XMarkableStream']
 

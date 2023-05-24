@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XSystemChildFactory as XSystemChildFactory
     setattr(XSystemChildFactory, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XSystemChildFactory, '__ooo_full_ns__', 'com.sun.star.awt.XSystemChildFactory')
     setattr(XSystemChildFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XSystemChildFactory as XSystemChildFactory
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XSystemChildFactory as XSystemChildFactory
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_system_child_factory import XSystemChildFactory as XSystemChildFactory
 
 __all__ = ['XSystemChildFactory']
 

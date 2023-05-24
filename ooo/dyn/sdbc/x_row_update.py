@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbc import XRowUpdate as XRowUpdate
     setattr(XRowUpdate, '__ooo_ns__', 'com.sun.star.sdbc')
     setattr(XRowUpdate, '__ooo_full_ns__', 'com.sun.star.sdbc.XRowUpdate')
     setattr(XRowUpdate, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbc import XRowUpdate as XRowUpdate
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import XRowUpdate as XRowUpdate
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.x_row_update import XRowUpdate as XRowUpdate
 
 __all__ = ['XRowUpdate']
 

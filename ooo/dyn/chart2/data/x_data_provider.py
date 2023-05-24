@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2.data import XDataProvider as XDataProvider
     setattr(XDataProvider, '__ooo_ns__', 'com.sun.star.chart2.data')
     setattr(XDataProvider, '__ooo_full_ns__', 'com.sun.star.chart2.data.XDataProvider')
     setattr(XDataProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2.data import XDataProvider as XDataProvider
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.data import XDataProvider as XDataProvider
+    else:
+        # keep document generators happy
+        from ....lo.chart2.data.x_data_provider import XDataProvider as XDataProvider
 
 __all__ = ['XDataProvider']
 

@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DataBarEntryType(metaclass=UnoConstMeta, type_name="com.sun.star.sheet.DataBarEntryType", name_space="com.sun.star.sheet"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sheet import DataBarEntryType as DataBarEntryType
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import DataBarEntryType as DataBarEntryType
+    else:
+        # keep document generators happy
+        from ...lo.sheet.data_bar_entry_type import DataBarEntryType as DataBarEntryType
 
     class DataBarEntryTypeEnum(IntEnum):
         """

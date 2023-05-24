@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.lang import XComponent as XComponent
     setattr(XComponent, '__ooo_ns__', 'com.sun.star.lang')
     setattr(XComponent, '__ooo_full_ns__', 'com.sun.star.lang.XComponent')
     setattr(XComponent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.lang import XComponent as XComponent
+    if TYPE_CHECKING:
+        from com.sun.star.lang import XComponent as XComponent
+    else:
+        # keep document generators happy
+        from ...lo.lang.x_component import XComponent as XComponent
 
 __all__ = ['XComponent']
 

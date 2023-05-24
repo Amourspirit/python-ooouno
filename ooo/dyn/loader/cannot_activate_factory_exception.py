@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotActivateFactoryException = _get_class()
 
 else:
-    from com.sun.star.loader import CannotActivateFactoryException as CannotActivateFactoryException
+    if TYPE_CHECKING:
+        from com.sun.star.loader import CannotActivateFactoryException as CannotActivateFactoryException
+    else:
+        from ...lo.loader.cannot_activate_factory_exception import CannotActivateFactoryException as CannotActivateFactoryException
 
 __all__ = ['CannotActivateFactoryException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XContent as XContent
     setattr(XContent, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XContent, '__ooo_full_ns__', 'com.sun.star.ucb.XContent')
     setattr(XContent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XContent as XContent
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XContent as XContent
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_content import XContent as XContent
 
 __all__ = ['XContent']
 

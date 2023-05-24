@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class DocumentZoomType(metaclass=UnoConstMeta, type_name="com.sun.star.view.DocumentZoomType", name_space="com.sun.star.view"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.view import DocumentZoomType as DocumentZoomType
+    if TYPE_CHECKING:
+        from com.sun.star.view import DocumentZoomType as DocumentZoomType
+    else:
+        # keep document generators happy
+        from ...lo.view.document_zoom_type import DocumentZoomType as DocumentZoomType
 
     class DocumentZoomTypeEnum(IntEnum):
         """

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.crypto.sax import XSAXEventKeeper as XSAXEventKeeper
     setattr(XSAXEventKeeper, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XSAXEventKeeper, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XSAXEventKeeper')
     setattr(XSAXEventKeeper, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.crypto.sax import XSAXEventKeeper as XSAXEventKeeper
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax import XSAXEventKeeper as XSAXEventKeeper
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.xsax_event_keeper import XSAXEventKeeper as XSAXEventKeeper
 
 __all__ = ['XSAXEventKeeper']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XLinkCreator as XLinkCreator
     setattr(XLinkCreator, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XLinkCreator, '__ooo_full_ns__', 'com.sun.star.embed.XLinkCreator')
     setattr(XLinkCreator, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XLinkCreator as XLinkCreator
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XLinkCreator as XLinkCreator
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_link_creator import XLinkCreator as XLinkCreator
 
 __all__ = ['XLinkCreator']
 

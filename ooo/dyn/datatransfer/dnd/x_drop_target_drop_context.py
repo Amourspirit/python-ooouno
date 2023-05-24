@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.datatransfer.dnd import XDropTargetDropContext as XDropTargetDropContext
     setattr(XDropTargetDropContext, '__ooo_ns__', 'com.sun.star.datatransfer.dnd')
     setattr(XDropTargetDropContext, '__ooo_full_ns__', 'com.sun.star.datatransfer.dnd.XDropTargetDropContext')
     setattr(XDropTargetDropContext, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.datatransfer.dnd import XDropTargetDropContext as XDropTargetDropContext
+    if TYPE_CHECKING:
+        from com.sun.star.datatransfer.dnd import XDropTargetDropContext as XDropTargetDropContext
+    else:
+        # keep document generators happy
+        from ....lo.datatransfer.dnd.x_drop_target_drop_context import XDropTargetDropContext as XDropTargetDropContext
 
 __all__ = ['XDropTargetDropContext']
 

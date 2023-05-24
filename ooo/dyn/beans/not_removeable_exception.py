@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NotRemoveableException = _get_class()
 
 else:
-    from com.sun.star.beans import NotRemoveableException as NotRemoveableException
+    if TYPE_CHECKING:
+        from com.sun.star.beans import NotRemoveableException as NotRemoveableException
+    else:
+        from ...lo.beans.not_removeable_exception import NotRemoveableException as NotRemoveableException
 
 __all__ = ['NotRemoveableException']
 

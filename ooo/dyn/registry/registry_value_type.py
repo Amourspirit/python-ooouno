@@ -20,74 +20,81 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.registry.RegistryValueType import ASCII as REGISTRY_VALUE_TYPE_ASCII
-    from com.sun.star.registry.RegistryValueType import ASCIILIST as REGISTRY_VALUE_TYPE_ASCIILIST
-    from com.sun.star.registry.RegistryValueType import BINARY as REGISTRY_VALUE_TYPE_BINARY
-    from com.sun.star.registry.RegistryValueType import LONG as REGISTRY_VALUE_TYPE_LONG
-    from com.sun.star.registry.RegistryValueType import LONGLIST as REGISTRY_VALUE_TYPE_LONGLIST
-    from com.sun.star.registry.RegistryValueType import NOT_DEFINED as REGISTRY_VALUE_TYPE_NOT_DEFINED
-    from com.sun.star.registry.RegistryValueType import STRING as REGISTRY_VALUE_TYPE_STRING
-    from com.sun.star.registry.RegistryValueType import STRINGLIST as REGISTRY_VALUE_TYPE_STRINGLIST
-
-    class RegistryValueType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API RegistryValueType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a62fb96939bafde3da828f782a8433ac3>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.registry.RegistryValueType', value)
-
-        __ooo_ns__: str = 'com.sun.star.registry'
-        __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
-        __ooo_type_name__: str = 'enum'
-
-        ASCII = cast("RegistryValueType", REGISTRY_VALUE_TYPE_ASCII)
-        """
-        the type of the key is ASCII.
-        """
-        ASCIILIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_ASCIILIST)
-        """
-        the type of the key is an ASCIILIST.
-        """
-        BINARY = cast("RegistryValueType", REGISTRY_VALUE_TYPE_BINARY)
-        """
-        the type of the key is binary.
-        """
-        LONG = cast("RegistryValueType", REGISTRY_VALUE_TYPE_LONG)
-        """
-        the type of the key is long.
-        """
-        LONGLIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_LONGLIST)
-        """
-        the type of the key is LONGLIST.
-        """
-        NOT_DEFINED = cast("RegistryValueType", REGISTRY_VALUE_TYPE_NOT_DEFINED)
-        """
-        the type of the key is not defined.
-        """
-        STRING = cast("RegistryValueType", REGISTRY_VALUE_TYPE_STRING)
-        """
-        the type of the key is a string.
-        """
-        STRINGLIST = cast("RegistryValueType", REGISTRY_VALUE_TYPE_STRINGLIST)
-        """
-        the type of the key is a STRINGLIST.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class RegistryValueType(metaclass=UnoEnumMeta, type_name="com.sun.star.registry.RegistryValueType", name_space="com.sun.star.registry"):
         """Dynamically created class that represents ``com.sun.star.registry.RegistryValueType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.registry.RegistryValueType import ASCII as REGISTRY_VALUE_TYPE_ASCII
+        from com.sun.star.registry.RegistryValueType import ASCIILIST as REGISTRY_VALUE_TYPE_ASCIILIST
+        from com.sun.star.registry.RegistryValueType import BINARY as REGISTRY_VALUE_TYPE_BINARY
+        from com.sun.star.registry.RegistryValueType import LONG as REGISTRY_VALUE_TYPE_LONG
+        from com.sun.star.registry.RegistryValueType import LONGLIST as REGISTRY_VALUE_TYPE_LONGLIST
+        from com.sun.star.registry.RegistryValueType import NOT_DEFINED as REGISTRY_VALUE_TYPE_NOT_DEFINED
+        from com.sun.star.registry.RegistryValueType import STRING as REGISTRY_VALUE_TYPE_STRING
+        from com.sun.star.registry.RegistryValueType import STRINGLIST as REGISTRY_VALUE_TYPE_STRINGLIST
+
+        class RegistryValueType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API RegistryValueType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a62fb96939bafde3da828f782a8433ac3>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.registry.RegistryValueType', value)
+
+            __ooo_ns__: str = 'com.sun.star.registry'
+            __ooo_full_ns__: str = 'com.sun.star.registry.RegistryValueType'
+            __ooo_type_name__: str = 'enum'
+
+            ASCII = REGISTRY_VALUE_TYPE_ASCII
+            """
+            the type of the key is ASCII.
+            """
+            ASCIILIST = REGISTRY_VALUE_TYPE_ASCIILIST
+            """
+            the type of the key is an ASCIILIST.
+            """
+            BINARY = REGISTRY_VALUE_TYPE_BINARY
+            """
+            the type of the key is binary.
+            """
+            LONG = REGISTRY_VALUE_TYPE_LONG
+            """
+            the type of the key is long.
+            """
+            LONGLIST = REGISTRY_VALUE_TYPE_LONGLIST
+            """
+            the type of the key is LONGLIST.
+            """
+            NOT_DEFINED = REGISTRY_VALUE_TYPE_NOT_DEFINED
+            """
+            the type of the key is not defined.
+            """
+            STRING = REGISTRY_VALUE_TYPE_STRING
+            """
+            the type of the key is a string.
+            """
+            STRINGLIST = REGISTRY_VALUE_TYPE_STRINGLIST
+            """
+            the type of the key is a STRINGLIST.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.registry.registry_value_type import RegistryValueType as RegistryValueType
+
 
 __all__ = ['RegistryValueType']

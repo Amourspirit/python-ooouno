@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XChangesListener as XChangesListener
     setattr(XChangesListener, '__ooo_ns__', 'com.sun.star.util')
     setattr(XChangesListener, '__ooo_full_ns__', 'com.sun.star.util.XChangesListener')
     setattr(XChangesListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XChangesListener as XChangesListener
+    if TYPE_CHECKING:
+        from com.sun.star.util import XChangesListener as XChangesListener
+    else:
+        # keep document generators happy
+        from ...lo.util.x_changes_listener import XChangesListener as XChangesListener
 
 __all__ = ['XChangesListener']
 

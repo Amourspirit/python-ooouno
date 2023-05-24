@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('functionLookupFunction', 'functionData', 'variableLookupFunction', 'variableData')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     Libxml2ExtensionHandle = _get_class()
 
 else:
-    from com.sun.star.xml.xpath import Libxml2ExtensionHandle as Libxml2ExtensionHandle
+    if TYPE_CHECKING:
+        from com.sun.star.xml.xpath import Libxml2ExtensionHandle as Libxml2ExtensionHandle
+    else:
+        # keep document generators happy
+        from ....lo.xml.xpath.libxml2_extension_handle import Libxml2ExtensionHandle as Libxml2ExtensionHandle
 
 __all__ = ['Libxml2ExtensionHandle']
 

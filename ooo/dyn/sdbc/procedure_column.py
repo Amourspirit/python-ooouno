@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ProcedureColumn(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.ProcedureColumn", name_space="com.sun.star.sdbc"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbc import ProcedureColumn as ProcedureColumn
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import ProcedureColumn as ProcedureColumn
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.procedure_column import ProcedureColumn as ProcedureColumn
 
     class ProcedureColumnEnum(IntEnum):
         """

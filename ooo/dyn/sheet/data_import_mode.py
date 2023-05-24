@@ -20,64 +20,71 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.DataImportMode import NONE as DATA_IMPORT_MODE_NONE
-    from com.sun.star.sheet.DataImportMode import QUERY as DATA_IMPORT_MODE_QUERY
-    from com.sun.star.sheet.DataImportMode import SQL as DATA_IMPORT_MODE_SQL
-    from com.sun.star.sheet.DataImportMode import TABLE as DATA_IMPORT_MODE_TABLE
-
-    class DataImportMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API DataImportMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#acf0761f72074fd2e59d1bb3ef690a2e6>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.DataImportMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.DataImportMode'
-        __ooo_type_name__: str = 'enum'
-
-        NONE = cast("DataImportMode", DATA_IMPORT_MODE_NONE)
-        """
-        no cells are moved.
-        
-        sheet is not linked.
-        
-        new values are used without changes.
-        
-        nothing is calculated.
-        
-        nothing is imported.
-        
-        no condition is specified.
-        """
-        QUERY = cast("DataImportMode", DATA_IMPORT_MODE_QUERY)
-        """
-        the name of a database query is supplied.
-        """
-        SQL = cast("DataImportMode", DATA_IMPORT_MODE_SQL)
-        """
-        a SQL query string is supplied.
-        """
-        TABLE = cast("DataImportMode", DATA_IMPORT_MODE_TABLE)
-        """
-        the name of a database table is supplied.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DataImportMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.DataImportMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.DataImportMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.DataImportMode import NONE as DATA_IMPORT_MODE_NONE
+        from com.sun.star.sheet.DataImportMode import QUERY as DATA_IMPORT_MODE_QUERY
+        from com.sun.star.sheet.DataImportMode import SQL as DATA_IMPORT_MODE_SQL
+        from com.sun.star.sheet.DataImportMode import TABLE as DATA_IMPORT_MODE_TABLE
+
+        class DataImportMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API DataImportMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#acf0761f72074fd2e59d1bb3ef690a2e6>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.DataImportMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.DataImportMode'
+            __ooo_type_name__: str = 'enum'
+
+            NONE = DATA_IMPORT_MODE_NONE
+            """
+            no cells are moved.
+
+            sheet is not linked.
+
+            new values are used without changes.
+
+            nothing is calculated.
+
+            nothing is imported.
+
+            no condition is specified.
+            """
+            QUERY = DATA_IMPORT_MODE_QUERY
+            """
+            the name of a database query is supplied.
+            """
+            SQL = DATA_IMPORT_MODE_SQL
+            """
+            a SQL query string is supplied.
+            """
+            TABLE = DATA_IMPORT_MODE_TABLE
+            """
+            the name of a database table is supplied.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.data_import_mode import DataImportMode as DataImportMode
+
 
 __all__ = ['DataImportMode']

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.media import XPlayerListener as XPlayerListener
     setattr(XPlayerListener, '__ooo_ns__', 'com.sun.star.media')
     setattr(XPlayerListener, '__ooo_full_ns__', 'com.sun.star.media.XPlayerListener')
     setattr(XPlayerListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.media import XPlayerListener as XPlayerListener
+    if TYPE_CHECKING:
+        from com.sun.star.media import XPlayerListener as XPlayerListener
+    else:
+        # keep document generators happy
+        from ...lo.media.x_player_listener import XPlayerListener as XPlayerListener
 
 __all__ = ['XPlayerListener']
 

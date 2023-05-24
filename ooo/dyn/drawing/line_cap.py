@@ -20,55 +20,62 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.LineCap import BUTT as LINE_CAP_BUTT
-    from com.sun.star.drawing.LineCap import ROUND as LINE_CAP_ROUND
-    from com.sun.star.drawing.LineCap import SQUARE as LINE_CAP_SQUARE
-
-    class LineCap(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API LineCap <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6d67f779dcbc9e19f8bc6cdfbb6c23f8>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.LineCap', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.LineCap'
-        __ooo_type_name__: str = 'enum'
-
-        BUTT = cast("LineCap", LINE_CAP_BUTT)
-        """
-        the line will end without any additional shape
-        """
-        ROUND = cast("LineCap", LINE_CAP_ROUND)
-        """
-        the dash is a point
-        
-        the lines join with an arc
-        
-        the line will get a half circle as additional cap
-        """
-        SQUARE = cast("LineCap", LINE_CAP_SQUARE)
-        """
-        the line will get a half square as additional cap
-        
-        the line uses a square for the line end.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LineCap(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LineCap", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.LineCap`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.LineCap import BUTT as LINE_CAP_BUTT
+        from com.sun.star.drawing.LineCap import ROUND as LINE_CAP_ROUND
+        from com.sun.star.drawing.LineCap import SQUARE as LINE_CAP_SQUARE
+
+        class LineCap(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API LineCap <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6d67f779dcbc9e19f8bc6cdfbb6c23f8>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.LineCap', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.LineCap'
+            __ooo_type_name__: str = 'enum'
+
+            BUTT = LINE_CAP_BUTT
+            """
+            the line will end without any additional shape
+            """
+            ROUND = LINE_CAP_ROUND
+            """
+            the dash is a point
+
+            the lines join with an arc
+
+            the line will get a half circle as additional cap
+            """
+            SQUARE = LINE_CAP_SQUARE
+            """
+            the line will get a half square as additional cap
+
+            the line uses a square for the line end.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.line_cap import LineCap as LineCap
+
 
 __all__ = ['LineCap']

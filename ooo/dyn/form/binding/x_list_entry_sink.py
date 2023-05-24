@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form.binding import XListEntrySink as XListEntrySink
     setattr(XListEntrySink, '__ooo_ns__', 'com.sun.star.form.binding')
     setattr(XListEntrySink, '__ooo_full_ns__', 'com.sun.star.form.binding.XListEntrySink')
     setattr(XListEntrySink, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form.binding import XListEntrySink as XListEntrySink
+    if TYPE_CHECKING:
+        from com.sun.star.form.binding import XListEntrySink as XListEntrySink
+    else:
+        # keep document generators happy
+        from ....lo.form.binding.x_list_entry_sink import XListEntrySink as XListEntrySink
 
 __all__ = ['XListEntrySink']
 

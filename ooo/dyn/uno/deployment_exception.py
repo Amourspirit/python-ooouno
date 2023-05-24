@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DeploymentException = _get_class()
 
 else:
-    from com.sun.star.uno import DeploymentException as DeploymentException
+    if TYPE_CHECKING:
+        from com.sun.star.uno import DeploymentException as DeploymentException
+    else:
+        from ...lo.uno.deployment_exception import DeploymentException as DeploymentException
 
 __all__ = ['DeploymentException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XDebugging as XDebugging
     setattr(XDebugging, '__ooo_ns__', 'com.sun.star.script')
     setattr(XDebugging, '__ooo_full_ns__', 'com.sun.star.script.XDebugging')
     setattr(XDebugging, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XDebugging as XDebugging
+    if TYPE_CHECKING:
+        from com.sun.star.script import XDebugging as XDebugging
+    else:
+        # keep document generators happy
+        from ...lo.script.x_debugging import XDebugging as XDebugging
 
 __all__ = ['XDebugging']
 

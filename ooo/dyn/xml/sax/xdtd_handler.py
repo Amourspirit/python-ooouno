@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.sax import XDTDHandler as XDTDHandler
     setattr(XDTDHandler, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XDTDHandler, '__ooo_full_ns__', 'com.sun.star.xml.sax.XDTDHandler')
     setattr(XDTDHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.sax import XDTDHandler as XDTDHandler
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import XDTDHandler as XDTDHandler
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.xdtd_handler import XDTDHandler as XDTDHandler
 
 __all__ = ['XDTDHandler']
 

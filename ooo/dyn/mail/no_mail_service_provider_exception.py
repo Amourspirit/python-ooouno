@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoMailServiceProviderException = _get_class()
 
 else:
-    from com.sun.star.mail import NoMailServiceProviderException as NoMailServiceProviderException
+    if TYPE_CHECKING:
+        from com.sun.star.mail import NoMailServiceProviderException as NoMailServiceProviderException
+    else:
+        from ...lo.mail.no_mail_service_provider_exception import NoMailServiceProviderException as NoMailServiceProviderException
 
 __all__ = ['NoMailServiceProviderException']
 

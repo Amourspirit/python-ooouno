@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ContentCreationException = _get_class()
 
 else:
-    from com.sun.star.ucb import ContentCreationException as ContentCreationException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import ContentCreationException as ContentCreationException
+    else:
+        from ...lo.ucb.content_creation_exception import ContentCreationException as ContentCreationException
 
 __all__ = ['ContentCreationException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XOLESimpleStorage as XOLESimpleStorage
     setattr(XOLESimpleStorage, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XOLESimpleStorage, '__ooo_full_ns__', 'com.sun.star.embed.XOLESimpleStorage')
     setattr(XOLESimpleStorage, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XOLESimpleStorage as XOLESimpleStorage
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XOLESimpleStorage as XOLESimpleStorage
+    else:
+        # keep document generators happy
+        from ...lo.embed.xole_simple_storage import XOLESimpleStorage as XOLESimpleStorage
 
 __all__ = ['XOLESimpleStorage']
 

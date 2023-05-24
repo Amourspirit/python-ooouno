@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XCoordinateSystem as XCoordinateSystem
     setattr(XCoordinateSystem, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XCoordinateSystem, '__ooo_full_ns__', 'com.sun.star.chart2.XCoordinateSystem')
     setattr(XCoordinateSystem, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XCoordinateSystem as XCoordinateSystem
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XCoordinateSystem as XCoordinateSystem
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_coordinate_system import XCoordinateSystem as XCoordinateSystem
 
 __all__ = ['XCoordinateSystem']
 

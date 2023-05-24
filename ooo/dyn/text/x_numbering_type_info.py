@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XNumberingTypeInfo as XNumberingTypeInfo
     setattr(XNumberingTypeInfo, '__ooo_ns__', 'com.sun.star.text')
     setattr(XNumberingTypeInfo, '__ooo_full_ns__', 'com.sun.star.text.XNumberingTypeInfo')
     setattr(XNumberingTypeInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XNumberingTypeInfo as XNumberingTypeInfo
+    if TYPE_CHECKING:
+        from com.sun.star.text import XNumberingTypeInfo as XNumberingTypeInfo
+    else:
+        # keep document generators happy
+        from ...lo.text.x_numbering_type_info import XNumberingTypeInfo as XNumberingTypeInfo
 
 __all__ = ['XNumberingTypeInfo']
 

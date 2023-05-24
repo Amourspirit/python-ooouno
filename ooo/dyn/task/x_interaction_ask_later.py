@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.task import XInteractionAskLater as XInteractionAskLater
     setattr(XInteractionAskLater, '__ooo_ns__', 'com.sun.star.task')
     setattr(XInteractionAskLater, '__ooo_full_ns__', 'com.sun.star.task.XInteractionAskLater')
     setattr(XInteractionAskLater, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.task import XInteractionAskLater as XInteractionAskLater
+    if TYPE_CHECKING:
+        from com.sun.star.task import XInteractionAskLater as XInteractionAskLater
+    else:
+        # keep document generators happy
+        from ...lo.task.x_interaction_ask_later import XInteractionAskLater as XInteractionAskLater
 
 __all__ = ['XInteractionAskLater']
 

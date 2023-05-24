@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.crypto.sax import XSignatureVerifyResultBroadcaster as XSignatureVerifyResultBroadcaster
     setattr(XSignatureVerifyResultBroadcaster, '__ooo_ns__', 'com.sun.star.xml.crypto.sax')
     setattr(XSignatureVerifyResultBroadcaster, '__ooo_full_ns__', 'com.sun.star.xml.crypto.sax.XSignatureVerifyResultBroadcaster')
     setattr(XSignatureVerifyResultBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.crypto.sax import XSignatureVerifyResultBroadcaster as XSignatureVerifyResultBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto.sax import XSignatureVerifyResultBroadcaster as XSignatureVerifyResultBroadcaster
+    else:
+        # keep document generators happy
+        from .....lo.xml.crypto.sax.x_signature_verify_result_broadcaster import XSignatureVerifyResultBroadcaster as XSignatureVerifyResultBroadcaster
 
 __all__ = ['XSignatureVerifyResultBroadcaster']
 

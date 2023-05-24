@@ -20,46 +20,53 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.ProjectionMode import PARALLEL as PROJECTION_MODE_PARALLEL
-    from com.sun.star.drawing.ProjectionMode import PERSPECTIVE as PROJECTION_MODE_PERSPECTIVE
-
-    class ProjectionMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a635428fef8d6e4afba288610c9c65bd5>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.ProjectionMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
-        __ooo_type_name__: str = 'enum'
-
-        PARALLEL = cast("ProjectionMode", PROJECTION_MODE_PARALLEL)
-        """
-        the 3D objects are drawn in the parallel projection.
-        
-        This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
-        """
-        PERSPECTIVE = cast("ProjectionMode", PROJECTION_MODE_PERSPECTIVE)
-        """
-        the 3D objects are drawn in the perspective projection.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ProjectionMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.ProjectionMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.ProjectionMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.ProjectionMode import PARALLEL as PROJECTION_MODE_PARALLEL
+        from com.sun.star.drawing.ProjectionMode import PERSPECTIVE as PROJECTION_MODE_PERSPECTIVE
+
+        class ProjectionMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a635428fef8d6e4afba288610c9c65bd5>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.ProjectionMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.ProjectionMode'
+            __ooo_type_name__: str = 'enum'
+
+            PARALLEL = PROJECTION_MODE_PARALLEL
+            """
+            the 3D objects are drawn in the parallel projection.
+
+            This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
+            """
+            PERSPECTIVE = PROJECTION_MODE_PERSPECTIVE
+            """
+            the 3D objects are drawn in the perspective projection.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.projection_mode import ProjectionMode as ProjectionMode
+
 
 __all__ = ['ProjectionMode']

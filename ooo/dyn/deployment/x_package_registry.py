@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.deployment import XPackageRegistry as XPackageRegistry
     setattr(XPackageRegistry, '__ooo_ns__', 'com.sun.star.deployment')
     setattr(XPackageRegistry, '__ooo_full_ns__', 'com.sun.star.deployment.XPackageRegistry')
     setattr(XPackageRegistry, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.deployment import XPackageRegistry as XPackageRegistry
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import XPackageRegistry as XPackageRegistry
+    else:
+        # keep document generators happy
+        from ...lo.deployment.x_package_registry import XPackageRegistry as XPackageRegistry
 
 __all__ = ['XPackageRegistry']
 

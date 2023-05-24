@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XSingleSelectQueryAnalyzer as XSingleSelectQueryAnalyzer
     setattr(XSingleSelectQueryAnalyzer, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XSingleSelectQueryAnalyzer, '__ooo_full_ns__', 'com.sun.star.sdb.XSingleSelectQueryAnalyzer')
     setattr(XSingleSelectQueryAnalyzer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XSingleSelectQueryAnalyzer as XSingleSelectQueryAnalyzer
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XSingleSelectQueryAnalyzer as XSingleSelectQueryAnalyzer
+    else:
+        # keep document generators happy
+        from ...lo.sdb.x_single_select_query_analyzer import XSingleSelectQueryAnalyzer as XSingleSelectQueryAnalyzer
 
 __all__ = ['XSingleSelectQueryAnalyzer']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XScaling as XScaling
     setattr(XScaling, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XScaling, '__ooo_full_ns__', 'com.sun.star.chart2.XScaling')
     setattr(XScaling, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XScaling as XScaling
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XScaling as XScaling
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_scaling import XScaling as XScaling
 
 __all__ = ['XScaling']
 

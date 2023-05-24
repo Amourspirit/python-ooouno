@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XCommandInfoChangeNotifier as XCommandInfoChangeNotifier
     setattr(XCommandInfoChangeNotifier, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XCommandInfoChangeNotifier, '__ooo_full_ns__', 'com.sun.star.ucb.XCommandInfoChangeNotifier')
     setattr(XCommandInfoChangeNotifier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XCommandInfoChangeNotifier as XCommandInfoChangeNotifier
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XCommandInfoChangeNotifier as XCommandInfoChangeNotifier
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_command_info_change_notifier import XCommandInfoChangeNotifier as XCommandInfoChangeNotifier
 
 __all__ = ['XCommandInfoChangeNotifier']
 

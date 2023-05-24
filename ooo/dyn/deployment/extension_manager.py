@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         ExtensionManager = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.deployment.extension_manager import ExtensionManager as ExtensionManager
+    if TYPE_CHECKING
+        from com.sun.star.deployment import ExtensionManager as ExtensionManager
+    else:
+        from ...lo.deployment.extension_manager import ExtensionManager as ExtensionManager
 
 __all__ = ['ExtensionManager']

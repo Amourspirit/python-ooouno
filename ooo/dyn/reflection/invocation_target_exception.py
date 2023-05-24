@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvocationTargetException = _get_class()
 
 else:
-    from com.sun.star.reflection import InvocationTargetException as InvocationTargetException
+    if TYPE_CHECKING:
+        from com.sun.star.reflection import InvocationTargetException as InvocationTargetException
+    else:
+        from ...lo.reflection.invocation_target_exception import InvocationTargetException as InvocationTargetException
 
 __all__ = ['InvocationTargetException']
 

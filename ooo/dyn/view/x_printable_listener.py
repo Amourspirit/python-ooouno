@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XPrintableListener as XPrintableListener
     setattr(XPrintableListener, '__ooo_ns__', 'com.sun.star.view')
     setattr(XPrintableListener, '__ooo_full_ns__', 'com.sun.star.view.XPrintableListener')
     setattr(XPrintableListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XPrintableListener as XPrintableListener
+    if TYPE_CHECKING:
+        from com.sun.star.view import XPrintableListener as XPrintableListener
+    else:
+        # keep document generators happy
+        from ...lo.view.x_printable_listener import XPrintableListener as XPrintableListener
 
 __all__ = ['XPrintableListener']
 

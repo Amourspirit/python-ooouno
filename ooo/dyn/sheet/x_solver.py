@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XSolver as XSolver
     setattr(XSolver, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XSolver, '__ooo_full_ns__', 'com.sun.star.sheet.XSolver')
     setattr(XSolver, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XSolver as XSolver
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XSolver as XSolver
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_solver import XSolver as XSolver
 
 __all__ = ['XSolver']
 

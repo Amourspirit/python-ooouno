@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.logging import XLogFormatter as XLogFormatter
     setattr(XLogFormatter, '__ooo_ns__', 'com.sun.star.logging')
     setattr(XLogFormatter, '__ooo_full_ns__', 'com.sun.star.logging.XLogFormatter')
     setattr(XLogFormatter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.logging import XLogFormatter as XLogFormatter
+    if TYPE_CHECKING:
+        from com.sun.star.logging import XLogFormatter as XLogFormatter
+    else:
+        # keep document generators happy
+        from ...lo.logging.x_log_formatter import XLogFormatter as XLogFormatter
 
 __all__ = ['XLogFormatter']
 

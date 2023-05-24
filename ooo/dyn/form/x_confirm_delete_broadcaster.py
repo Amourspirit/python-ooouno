@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XConfirmDeleteBroadcaster as XConfirmDeleteBroadcaster
     setattr(XConfirmDeleteBroadcaster, '__ooo_ns__', 'com.sun.star.form')
     setattr(XConfirmDeleteBroadcaster, '__ooo_full_ns__', 'com.sun.star.form.XConfirmDeleteBroadcaster')
     setattr(XConfirmDeleteBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XConfirmDeleteBroadcaster as XConfirmDeleteBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.form import XConfirmDeleteBroadcaster as XConfirmDeleteBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.form.x_confirm_delete_broadcaster import XConfirmDeleteBroadcaster as XConfirmDeleteBroadcaster
 
 __all__ = ['XConfirmDeleteBroadcaster']
 

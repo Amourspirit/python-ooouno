@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ExtensionRemovedException = _get_class()
 
 else:
-    from com.sun.star.deployment import ExtensionRemovedException as ExtensionRemovedException
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import ExtensionRemovedException as ExtensionRemovedException
+    else:
+        from ...lo.deployment.extension_removed_exception import ExtensionRemovedException as ExtensionRemovedException
 
 __all__ = ['ExtensionRemovedException']
 

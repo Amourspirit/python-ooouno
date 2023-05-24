@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class CipherID(metaclass=UnoConstMeta, type_name="com.sun.star.xml.crypto.CipherID", name_space="com.sun.star.xml.crypto"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.xml.crypto import CipherID as CipherID
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import CipherID as CipherID
+    else:
+        # keep document generators happy
+        from ....lo.xml.crypto.cipher_id import CipherID as CipherID
 
     class CipherIDEnum(IntFlag):
         """

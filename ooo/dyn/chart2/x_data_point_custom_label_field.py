@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2 import XDataPointCustomLabelField as XDataPointCustomLabelField
     setattr(XDataPointCustomLabelField, '__ooo_ns__', 'com.sun.star.chart2')
     setattr(XDataPointCustomLabelField, '__ooo_full_ns__', 'com.sun.star.chart2.XDataPointCustomLabelField')
     setattr(XDataPointCustomLabelField, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2 import XDataPointCustomLabelField as XDataPointCustomLabelField
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import XDataPointCustomLabelField as XDataPointCustomLabelField
+    else:
+        # keep document generators happy
+        from ...lo.chart2.x_data_point_custom_label_field import XDataPointCustomLabelField as XDataPointCustomLabelField
 
 __all__ = ['XDataPointCustomLabelField']
 

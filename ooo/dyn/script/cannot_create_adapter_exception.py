@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotCreateAdapterException = _get_class()
 
 else:
-    from com.sun.star.script import CannotCreateAdapterException as CannotCreateAdapterException
+    if TYPE_CHECKING:
+        from com.sun.star.script import CannotCreateAdapterException as CannotCreateAdapterException
+    else:
+        from ...lo.script.cannot_create_adapter_exception import CannotCreateAdapterException as CannotCreateAdapterException
 
 __all__ = ['CannotCreateAdapterException']
 

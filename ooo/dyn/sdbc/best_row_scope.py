@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class BestRowScope(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.BestRowScope", name_space="com.sun.star.sdbc"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbc import BestRowScope as BestRowScope
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import BestRowScope as BestRowScope
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.best_row_scope import BestRowScope as BestRowScope
 
     class BestRowScopeEnum(IntEnum):
         """

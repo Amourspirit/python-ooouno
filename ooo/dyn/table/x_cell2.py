@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.table import XCell2 as XCell2
     setattr(XCell2, '__ooo_ns__', 'com.sun.star.table')
     setattr(XCell2, '__ooo_full_ns__', 'com.sun.star.table.XCell2')
     setattr(XCell2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.table import XCell2 as XCell2
+    if TYPE_CHECKING:
+        from com.sun.star.table import XCell2 as XCell2
+    else:
+        # keep document generators happy
+        from ...lo.table.x_cell2 import XCell2 as XCell2
 
 __all__ = ['XCell2']
 

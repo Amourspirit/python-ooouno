@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XSet as XSet
     setattr(XSet, '__ooo_ns__', 'com.sun.star.container')
     setattr(XSet, '__ooo_full_ns__', 'com.sun.star.container.XSet')
     setattr(XSet, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XSet as XSet
+    if TYPE_CHECKING:
+        from com.sun.star.container import XSet as XSet
+    else:
+        # keep document generators happy
+        from ...lo.container.x_set import XSet as XSet
 
 __all__ = ['XSet']
 

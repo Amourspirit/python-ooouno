@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XSQLQueryComposer as XSQLQueryComposer
     setattr(XSQLQueryComposer, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XSQLQueryComposer, '__ooo_full_ns__', 'com.sun.star.sdb.XSQLQueryComposer')
     setattr(XSQLQueryComposer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XSQLQueryComposer as XSQLQueryComposer
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XSQLQueryComposer as XSQLQueryComposer
+    else:
+        # keep document generators happy
+        from ...lo.sdb.xsql_query_composer import XSQLQueryComposer as XSQLQueryComposer
 
 __all__ = ['XSQLQueryComposer']
 

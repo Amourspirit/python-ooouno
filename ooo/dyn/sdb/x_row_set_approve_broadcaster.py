@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb import XRowSetApproveBroadcaster as XRowSetApproveBroadcaster
     setattr(XRowSetApproveBroadcaster, '__ooo_ns__', 'com.sun.star.sdb')
     setattr(XRowSetApproveBroadcaster, '__ooo_full_ns__', 'com.sun.star.sdb.XRowSetApproveBroadcaster')
     setattr(XRowSetApproveBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb import XRowSetApproveBroadcaster as XRowSetApproveBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import XRowSetApproveBroadcaster as XRowSetApproveBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.sdb.x_row_set_approve_broadcaster import XRowSetApproveBroadcaster as XRowSetApproveBroadcaster
 
 __all__ = ['XRowSetApproveBroadcaster']
 

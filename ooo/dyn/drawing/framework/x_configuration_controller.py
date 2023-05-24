@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing.framework import XConfigurationController as XConfigurationController
     setattr(XConfigurationController, '__ooo_ns__', 'com.sun.star.drawing.framework')
     setattr(XConfigurationController, '__ooo_full_ns__', 'com.sun.star.drawing.framework.XConfigurationController')
     setattr(XConfigurationController, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing.framework import XConfigurationController as XConfigurationController
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.framework import XConfigurationController as XConfigurationController
+    else:
+        # keep document generators happy
+        from ....lo.drawing.framework.x_configuration_controller import XConfigurationController as XConfigurationController
 
 __all__ = ['XConfigurationController']
 

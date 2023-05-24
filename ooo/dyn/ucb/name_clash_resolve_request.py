@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NameClashResolveRequest = _get_class()
 
 else:
-    from com.sun.star.ucb import NameClashResolveRequest as NameClashResolveRequest
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import NameClashResolveRequest as NameClashResolveRequest
+    else:
+        from ...lo.ucb.name_clash_resolve_request import NameClashResolveRequest as NameClashResolveRequest
 
 __all__ = ['NameClashResolveRequest']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XBorderResizeListener as XBorderResizeListener
     setattr(XBorderResizeListener, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XBorderResizeListener, '__ooo_full_ns__', 'com.sun.star.frame.XBorderResizeListener')
     setattr(XBorderResizeListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XBorderResizeListener as XBorderResizeListener
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XBorderResizeListener as XBorderResizeListener
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_border_resize_listener import XBorderResizeListener as XBorderResizeListener
 
 __all__ = ['XBorderResizeListener']
 

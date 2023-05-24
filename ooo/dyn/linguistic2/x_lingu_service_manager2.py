@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.linguistic2 import XLinguServiceManager2 as XLinguServiceManager2
     setattr(XLinguServiceManager2, '__ooo_ns__', 'com.sun.star.linguistic2')
     setattr(XLinguServiceManager2, '__ooo_full_ns__', 'com.sun.star.linguistic2.XLinguServiceManager2')
     setattr(XLinguServiceManager2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.linguistic2 import XLinguServiceManager2 as XLinguServiceManager2
+    if TYPE_CHECKING:
+        from com.sun.star.linguistic2 import XLinguServiceManager2 as XLinguServiceManager2
+    else:
+        # keep document generators happy
+        from ...lo.linguistic2.x_lingu_service_manager2 import XLinguServiceManager2 as XLinguServiceManager2
 
 __all__ = ['XLinguServiceManager2']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidTextContentException = _get_class()
 
 else:
-    from com.sun.star.text import InvalidTextContentException as InvalidTextContentException
+    if TYPE_CHECKING:
+        from com.sun.star.text import InvalidTextContentException as InvalidTextContentException
+    else:
+        from ...lo.text.invalid_text_content_exception import InvalidTextContentException as InvalidTextContentException
 
 __all__ = ['InvalidTextContentException']
 

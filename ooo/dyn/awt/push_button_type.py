@@ -20,54 +20,61 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.awt.PushButtonType import CANCEL as PUSH_BUTTON_TYPE_CANCEL
-    from com.sun.star.awt.PushButtonType import HELP as PUSH_BUTTON_TYPE_HELP
-    from com.sun.star.awt.PushButtonType import OK as PUSH_BUTTON_TYPE_OK
-    from com.sun.star.awt.PushButtonType import STANDARD as PUSH_BUTTON_TYPE_STANDARD
-
-    class PushButtonType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API PushButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa4e49c7e6c5bf2b4d010ad4a50b90ec0>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.awt.PushButtonType', value)
-
-        __ooo_ns__: str = 'com.sun.star.awt'
-        __ooo_full_ns__: str = 'com.sun.star.awt.PushButtonType'
-        __ooo_type_name__: str = 'enum'
-
-        CANCEL = cast("PushButtonType", PUSH_BUTTON_TYPE_CANCEL)
-        """
-        acts like a cancel button.
-        """
-        HELP = cast("PushButtonType", PUSH_BUTTON_TYPE_HELP)
-        """
-        acts like a help button.
-        """
-        OK = cast("PushButtonType", PUSH_BUTTON_TYPE_OK)
-        """
-        acts like an OK button.
-        """
-        STANDARD = cast("PushButtonType", PUSH_BUTTON_TYPE_STANDARD)
-        """
-        acts like a standard push button.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PushButtonType(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.PushButtonType", name_space="com.sun.star.awt"):
         """Dynamically created class that represents ``com.sun.star.awt.PushButtonType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.awt.PushButtonType import CANCEL as PUSH_BUTTON_TYPE_CANCEL
+        from com.sun.star.awt.PushButtonType import HELP as PUSH_BUTTON_TYPE_HELP
+        from com.sun.star.awt.PushButtonType import OK as PUSH_BUTTON_TYPE_OK
+        from com.sun.star.awt.PushButtonType import STANDARD as PUSH_BUTTON_TYPE_STANDARD
+
+        class PushButtonType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API PushButtonType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa4e49c7e6c5bf2b4d010ad4a50b90ec0>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.awt.PushButtonType', value)
+
+            __ooo_ns__: str = 'com.sun.star.awt'
+            __ooo_full_ns__: str = 'com.sun.star.awt.PushButtonType'
+            __ooo_type_name__: str = 'enum'
+
+            CANCEL = PUSH_BUTTON_TYPE_CANCEL
+            """
+            acts like a cancel button.
+            """
+            HELP = PUSH_BUTTON_TYPE_HELP
+            """
+            acts like a help button.
+            """
+            OK = PUSH_BUTTON_TYPE_OK
+            """
+            acts like an OK button.
+            """
+            STANDARD = PUSH_BUTTON_TYPE_STANDARD
+            """
+            acts like a standard push button.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.awt.push_button_type import PushButtonType as PushButtonType
+
 
 __all__ = ['PushButtonType']

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoMasterException = _get_class()
 
 else:
-    from com.sun.star.task import NoMasterException as NoMasterException
+    if TYPE_CHECKING:
+        from com.sun.star.task import NoMasterException as NoMasterException
+    else:
+        from ...lo.task.no_master_exception import NoMasterException as NoMasterException
 
 __all__ = ['NoMasterException']
 

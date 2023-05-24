@@ -20,110 +20,117 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.i18n.DirectionProperty import ARABIC_NUMBER as DIRECTION_PROPERTY_ARABIC_NUMBER
-    from com.sun.star.i18n.DirectionProperty import BLOCK_SEPARATOR as DIRECTION_PROPERTY_BLOCK_SEPARATOR
-    from com.sun.star.i18n.DirectionProperty import BOUNDARY_NEUTRAL as DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
-    from com.sun.star.i18n.DirectionProperty import COMMON_NUMBER_SEPARATOR as DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
-    from com.sun.star.i18n.DirectionProperty import DIR_NON_SPACING_MARK as DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
-    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER as DIRECTION_PROPERTY_EUROPEAN_NUMBER
-    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_SEPARATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
-    from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_TERMINATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
-    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT as DIRECTION_PROPERTY_LEFT_TO_RIGHT
-    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_EMBEDDING as DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
-    from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_OVERRIDE as DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
-    from com.sun.star.i18n.DirectionProperty import OTHER_NEUTRAL as DIRECTION_PROPERTY_OTHER_NEUTRAL
-    from com.sun.star.i18n.DirectionProperty import POP_DIRECTIONAL_FORMAT as DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
-    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT as DIRECTION_PROPERTY_RIGHT_TO_LEFT
-    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_ARABIC as DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
-    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_EMBEDDING as DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
-    from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_OVERRIDE as DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
-    from com.sun.star.i18n.DirectionProperty import SEGMENT_SEPARATOR as DIRECTION_PROPERTY_SEGMENT_SEPARATOR
-    from com.sun.star.i18n.DirectionProperty import WHITE_SPACE_NEUTRAL as DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
-
-    class DirectionProperty(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API DirectionProperty <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a6e8fd3df14c13e43a44061c70daacd8b>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.i18n.DirectionProperty', value)
-
-        __ooo_ns__: str = 'com.sun.star.i18n'
-        __ooo_full_ns__: str = 'com.sun.star.i18n.DirectionProperty'
-        __ooo_type_name__: str = 'enum'
-
-        ARABIC_NUMBER = cast("DirectionProperty", DIRECTION_PROPERTY_ARABIC_NUMBER)
-        """
-        """
-        BLOCK_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_BLOCK_SEPARATOR)
-        """
-        """
-        BOUNDARY_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_BOUNDARY_NEUTRAL)
-        """
-        """
-        COMMON_NUMBER_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR)
-        """
-        """
-        DIR_NON_SPACING_MARK = cast("DirectionProperty", DIRECTION_PROPERTY_DIR_NON_SPACING_MARK)
-        """
-        """
-        EUROPEAN_NUMBER = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER)
-        """
-        """
-        EUROPEAN_NUMBER_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR)
-        """
-        """
-        EUROPEAN_NUMBER_TERMINATOR = cast("DirectionProperty", DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR)
-        """
-        """
-        LEFT_TO_RIGHT = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT)
-        """
-        """
-        LEFT_TO_RIGHT_EMBEDDING = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING)
-        """
-        """
-        LEFT_TO_RIGHT_OVERRIDE = cast("DirectionProperty", DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE)
-        """
-        """
-        OTHER_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_OTHER_NEUTRAL)
-        """
-        """
-        POP_DIRECTIONAL_FORMAT = cast("DirectionProperty", DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT)
-        """
-        """
-        RIGHT_TO_LEFT = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT)
-        """
-        """
-        RIGHT_TO_LEFT_ARABIC = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC)
-        """
-        """
-        RIGHT_TO_LEFT_EMBEDDING = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING)
-        """
-        """
-        RIGHT_TO_LEFT_OVERRIDE = cast("DirectionProperty", DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE)
-        """
-        """
-        SEGMENT_SEPARATOR = cast("DirectionProperty", DIRECTION_PROPERTY_SEGMENT_SEPARATOR)
-        """
-        """
-        WHITE_SPACE_NEUTRAL = cast("DirectionProperty", DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL)
-        """
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DirectionProperty(metaclass=UnoEnumMeta, type_name="com.sun.star.i18n.DirectionProperty", name_space="com.sun.star.i18n"):
         """Dynamically created class that represents ``com.sun.star.i18n.DirectionProperty`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.i18n.DirectionProperty import ARABIC_NUMBER as DIRECTION_PROPERTY_ARABIC_NUMBER
+        from com.sun.star.i18n.DirectionProperty import BLOCK_SEPARATOR as DIRECTION_PROPERTY_BLOCK_SEPARATOR
+        from com.sun.star.i18n.DirectionProperty import BOUNDARY_NEUTRAL as DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
+        from com.sun.star.i18n.DirectionProperty import COMMON_NUMBER_SEPARATOR as DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
+        from com.sun.star.i18n.DirectionProperty import DIR_NON_SPACING_MARK as DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
+        from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER as DIRECTION_PROPERTY_EUROPEAN_NUMBER
+        from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_SEPARATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
+        from com.sun.star.i18n.DirectionProperty import EUROPEAN_NUMBER_TERMINATOR as DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
+        from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT as DIRECTION_PROPERTY_LEFT_TO_RIGHT
+        from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_EMBEDDING as DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
+        from com.sun.star.i18n.DirectionProperty import LEFT_TO_RIGHT_OVERRIDE as DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
+        from com.sun.star.i18n.DirectionProperty import OTHER_NEUTRAL as DIRECTION_PROPERTY_OTHER_NEUTRAL
+        from com.sun.star.i18n.DirectionProperty import POP_DIRECTIONAL_FORMAT as DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
+        from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT as DIRECTION_PROPERTY_RIGHT_TO_LEFT
+        from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_ARABIC as DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
+        from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_EMBEDDING as DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
+        from com.sun.star.i18n.DirectionProperty import RIGHT_TO_LEFT_OVERRIDE as DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
+        from com.sun.star.i18n.DirectionProperty import SEGMENT_SEPARATOR as DIRECTION_PROPERTY_SEGMENT_SEPARATOR
+        from com.sun.star.i18n.DirectionProperty import WHITE_SPACE_NEUTRAL as DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
+
+        class DirectionProperty(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API DirectionProperty <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a6e8fd3df14c13e43a44061c70daacd8b>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.i18n.DirectionProperty', value)
+
+            __ooo_ns__: str = 'com.sun.star.i18n'
+            __ooo_full_ns__: str = 'com.sun.star.i18n.DirectionProperty'
+            __ooo_type_name__: str = 'enum'
+
+            ARABIC_NUMBER = DIRECTION_PROPERTY_ARABIC_NUMBER
+            """
+            """
+            BLOCK_SEPARATOR = DIRECTION_PROPERTY_BLOCK_SEPARATOR
+            """
+            """
+            BOUNDARY_NEUTRAL = DIRECTION_PROPERTY_BOUNDARY_NEUTRAL
+            """
+            """
+            COMMON_NUMBER_SEPARATOR = DIRECTION_PROPERTY_COMMON_NUMBER_SEPARATOR
+            """
+            """
+            DIR_NON_SPACING_MARK = DIRECTION_PROPERTY_DIR_NON_SPACING_MARK
+            """
+            """
+            EUROPEAN_NUMBER = DIRECTION_PROPERTY_EUROPEAN_NUMBER
+            """
+            """
+            EUROPEAN_NUMBER_SEPARATOR = DIRECTION_PROPERTY_EUROPEAN_NUMBER_SEPARATOR
+            """
+            """
+            EUROPEAN_NUMBER_TERMINATOR = DIRECTION_PROPERTY_EUROPEAN_NUMBER_TERMINATOR
+            """
+            """
+            LEFT_TO_RIGHT = DIRECTION_PROPERTY_LEFT_TO_RIGHT
+            """
+            """
+            LEFT_TO_RIGHT_EMBEDDING = DIRECTION_PROPERTY_LEFT_TO_RIGHT_EMBEDDING
+            """
+            """
+            LEFT_TO_RIGHT_OVERRIDE = DIRECTION_PROPERTY_LEFT_TO_RIGHT_OVERRIDE
+            """
+            """
+            OTHER_NEUTRAL = DIRECTION_PROPERTY_OTHER_NEUTRAL
+            """
+            """
+            POP_DIRECTIONAL_FORMAT = DIRECTION_PROPERTY_POP_DIRECTIONAL_FORMAT
+            """
+            """
+            RIGHT_TO_LEFT = DIRECTION_PROPERTY_RIGHT_TO_LEFT
+            """
+            """
+            RIGHT_TO_LEFT_ARABIC = DIRECTION_PROPERTY_RIGHT_TO_LEFT_ARABIC
+            """
+            """
+            RIGHT_TO_LEFT_EMBEDDING = DIRECTION_PROPERTY_RIGHT_TO_LEFT_EMBEDDING
+            """
+            """
+            RIGHT_TO_LEFT_OVERRIDE = DIRECTION_PROPERTY_RIGHT_TO_LEFT_OVERRIDE
+            """
+            """
+            SEGMENT_SEPARATOR = DIRECTION_PROPERTY_SEGMENT_SEPARATOR
+            """
+            """
+            WHITE_SPACE_NEUTRAL = DIRECTION_PROPERTY_WHITE_SPACE_NEUTRAL
+            """
+            """
+    else:
+        # keep document generators happy
+        from ...lo.i18n.direction_property import DirectionProperty as DirectionProperty
+
 
 __all__ = ['DirectionProperty']

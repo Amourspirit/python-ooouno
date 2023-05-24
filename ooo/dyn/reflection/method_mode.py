@@ -20,44 +20,51 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.reflection.MethodMode import ONEWAY as METHOD_MODE_ONEWAY
-    from com.sun.star.reflection.MethodMode import TWOWAY as METHOD_MODE_TWOWAY
-
-    class MethodMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API MethodMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a5e114fee85d0f2f8cb01480a474dd9b4>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.reflection.MethodMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.reflection'
-        __ooo_full_ns__: str = 'com.sun.star.reflection.MethodMode'
-        __ooo_type_name__: str = 'enum'
-
-        ONEWAY = cast("MethodMode", METHOD_MODE_ONEWAY)
-        """
-        method may be run asynchronously
-        """
-        TWOWAY = cast("MethodMode", METHOD_MODE_TWOWAY)
-        """
-        method is run The
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MethodMode(metaclass=UnoEnumMeta, type_name="com.sun.star.reflection.MethodMode", name_space="com.sun.star.reflection"):
         """Dynamically created class that represents ``com.sun.star.reflection.MethodMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.reflection.MethodMode import ONEWAY as METHOD_MODE_ONEWAY
+        from com.sun.star.reflection.MethodMode import TWOWAY as METHOD_MODE_TWOWAY
+
+        class MethodMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API MethodMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a5e114fee85d0f2f8cb01480a474dd9b4>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.reflection.MethodMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.reflection'
+            __ooo_full_ns__: str = 'com.sun.star.reflection.MethodMode'
+            __ooo_type_name__: str = 'enum'
+
+            ONEWAY = METHOD_MODE_ONEWAY
+            """
+            method may be run asynchronously
+            """
+            TWOWAY = METHOD_MODE_TWOWAY
+            """
+            method is run The
+            """
+    else:
+        # keep document generators happy
+        from ...lo.reflection.method_mode import MethodMode as MethodMode
+
 
 __all__ = ['MethodMode']

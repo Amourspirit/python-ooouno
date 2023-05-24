@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.configuration import XTemplateInstance as XTemplateInstance
     setattr(XTemplateInstance, '__ooo_ns__', 'com.sun.star.configuration')
     setattr(XTemplateInstance, '__ooo_full_ns__', 'com.sun.star.configuration.XTemplateInstance')
     setattr(XTemplateInstance, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.configuration import XTemplateInstance as XTemplateInstance
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import XTemplateInstance as XTemplateInstance
+    else:
+        # keep document generators happy
+        from ...lo.configuration.x_template_instance import XTemplateInstance as XTemplateInstance
 
 __all__ = ['XTemplateInstance']
 

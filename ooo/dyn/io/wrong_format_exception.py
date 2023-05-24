@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WrongFormatException = _get_class()
 
 else:
-    from com.sun.star.io import WrongFormatException as WrongFormatException
+    if TYPE_CHECKING:
+        from com.sun.star.io import WrongFormatException as WrongFormatException
+    else:
+        from ...lo.io.wrong_format_exception import WrongFormatException as WrongFormatException
 
 __all__ = ['WrongFormatException']
 

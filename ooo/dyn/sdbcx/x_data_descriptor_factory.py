@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdbcx import XDataDescriptorFactory as XDataDescriptorFactory
     setattr(XDataDescriptorFactory, '__ooo_ns__', 'com.sun.star.sdbcx')
     setattr(XDataDescriptorFactory, '__ooo_full_ns__', 'com.sun.star.sdbcx.XDataDescriptorFactory')
     setattr(XDataDescriptorFactory, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdbcx import XDataDescriptorFactory as XDataDescriptorFactory
+    if TYPE_CHECKING:
+        from com.sun.star.sdbcx import XDataDescriptorFactory as XDataDescriptorFactory
+    else:
+        # keep document generators happy
+        from ...lo.sdbcx.x_data_descriptor_factory import XDataDescriptorFactory as XDataDescriptorFactory
 
 __all__ = ['XDataDescriptorFactory']
 

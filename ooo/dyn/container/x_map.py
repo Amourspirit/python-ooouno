@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XMap as XMap
     setattr(XMap, '__ooo_ns__', 'com.sun.star.container')
     setattr(XMap, '__ooo_full_ns__', 'com.sun.star.container.XMap')
     setattr(XMap, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XMap as XMap
+    if TYPE_CHECKING:
+        from com.sun.star.container import XMap as XMap
+    else:
+        # keep document generators happy
+        from ...lo.container.x_map import XMap as XMap
 
 __all__ = ['XMap']
 

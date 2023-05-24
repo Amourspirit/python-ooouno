@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.security import XAccessControlContext as XAccessControlContext
     setattr(XAccessControlContext, '__ooo_ns__', 'com.sun.star.security')
     setattr(XAccessControlContext, '__ooo_full_ns__', 'com.sun.star.security.XAccessControlContext')
     setattr(XAccessControlContext, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.security import XAccessControlContext as XAccessControlContext
+    if TYPE_CHECKING:
+        from com.sun.star.security import XAccessControlContext as XAccessControlContext
+    else:
+        # keep document generators happy
+        from ...lo.security.x_access_control_context import XAccessControlContext as XAccessControlContext
 
 __all__ = ['XAccessControlContext']
 

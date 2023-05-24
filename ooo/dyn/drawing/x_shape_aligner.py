@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XShapeAligner as XShapeAligner
     setattr(XShapeAligner, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XShapeAligner, '__ooo_full_ns__', 'com.sun.star.drawing.XShapeAligner')
     setattr(XShapeAligner, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XShapeAligner as XShapeAligner
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XShapeAligner as XShapeAligner
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_shape_aligner import XShapeAligner as XShapeAligner
 
 __all__ = ['XShapeAligner']
 

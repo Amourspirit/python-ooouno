@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     EncryptionException = _get_class()
 
 else:
-    from com.sun.star.security import EncryptionException as EncryptionException
+    if TYPE_CHECKING:
+        from com.sun.star.security import EncryptionException as EncryptionException
+    else:
+        from ...lo.security.encryption_exception import EncryptionException as EncryptionException
 
 __all__ = ['EncryptionException']
 

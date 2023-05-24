@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FilePreviewImageFormats(metaclass=UnoConstMeta, type_name="com.sun.star.ui.dialogs.FilePreviewImageFormats", name_space="com.sun.star.ui.dialogs"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ui.dialogs import FilePreviewImageFormats as FilePreviewImageFormats
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import FilePreviewImageFormats as FilePreviewImageFormats
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.file_preview_image_formats import FilePreviewImageFormats as FilePreviewImageFormats
 
     class FilePreviewImageFormatsEnum(IntEnum):
         """

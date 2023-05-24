@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.inspection import XNumericControl as XNumericControl
     setattr(XNumericControl, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XNumericControl, '__ooo_full_ns__', 'com.sun.star.inspection.XNumericControl')
     setattr(XNumericControl, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.inspection import XNumericControl as XNumericControl
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import XNumericControl as XNumericControl
+    else:
+        # keep document generators happy
+        from ...lo.inspection.x_numeric_control import XNumericControl as XNumericControl
 
 __all__ = ['XNumericControl']
 

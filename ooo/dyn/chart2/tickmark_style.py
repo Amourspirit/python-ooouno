@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class TickmarkStyle(metaclass=UnoConstMeta, type_name="com.sun.star.chart2.TickmarkStyle", name_space="com.sun.star.chart2"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.chart2 import TickmarkStyle as TickmarkStyle
+    if TYPE_CHECKING:
+        from com.sun.star.chart2 import TickmarkStyle as TickmarkStyle
+    else:
+        # keep document generators happy
+        from ...lo.chart2.tickmark_style import TickmarkStyle as TickmarkStyle
 
     class TickmarkStyleEnum(IntEnum):
         """

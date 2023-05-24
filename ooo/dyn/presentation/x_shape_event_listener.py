@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.presentation import XShapeEventListener as XShapeEventListener
     setattr(XShapeEventListener, '__ooo_ns__', 'com.sun.star.presentation')
     setattr(XShapeEventListener, '__ooo_full_ns__', 'com.sun.star.presentation.XShapeEventListener')
     setattr(XShapeEventListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.presentation import XShapeEventListener as XShapeEventListener
+    if TYPE_CHECKING:
+        from com.sun.star.presentation import XShapeEventListener as XShapeEventListener
+    else:
+        # keep document generators happy
+        from ...lo.presentation.x_shape_event_listener import XShapeEventListener as XShapeEventListener
 
 __all__ = ['XShapeEventListener']
 

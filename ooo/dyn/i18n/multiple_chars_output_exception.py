@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MultipleCharsOutputException = _get_class()
 
 else:
-    from com.sun.star.i18n import MultipleCharsOutputException as MultipleCharsOutputException
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import MultipleCharsOutputException as MultipleCharsOutputException
+    else:
+        from ...lo.i18n.multiple_chars_output_exception import MultipleCharsOutputException as MultipleCharsOutputException
 
 __all__ = ['MultipleCharsOutputException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XMouseMotionHandler as XMouseMotionHandler
     setattr(XMouseMotionHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XMouseMotionHandler, '__ooo_full_ns__', 'com.sun.star.awt.XMouseMotionHandler')
     setattr(XMouseMotionHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XMouseMotionHandler as XMouseMotionHandler
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XMouseMotionHandler as XMouseMotionHandler
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_mouse_motion_handler import XMouseMotionHandler as XMouseMotionHandler
 
 __all__ = ['XMouseMotionHandler']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.task import XInteractionDisapprove as XInteractionDisapprove
     setattr(XInteractionDisapprove, '__ooo_ns__', 'com.sun.star.task')
     setattr(XInteractionDisapprove, '__ooo_full_ns__', 'com.sun.star.task.XInteractionDisapprove')
     setattr(XInteractionDisapprove, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.task import XInteractionDisapprove as XInteractionDisapprove
+    if TYPE_CHECKING:
+        from com.sun.star.task import XInteractionDisapprove as XInteractionDisapprove
+    else:
+        # keep document generators happy
+        from ...lo.task.x_interaction_disapprove import XInteractionDisapprove as XInteractionDisapprove
 
 __all__ = ['XInteractionDisapprove']
 

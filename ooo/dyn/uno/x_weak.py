@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uno import XWeak as XWeak
     setattr(XWeak, '__ooo_ns__', 'com.sun.star.uno')
     setattr(XWeak, '__ooo_full_ns__', 'com.sun.star.uno.XWeak')
     setattr(XWeak, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uno import XWeak as XWeak
+    if TYPE_CHECKING:
+        from com.sun.star.uno import XWeak as XWeak
+    else:
+        # keep document generators happy
+        from ...lo.uno.x_weak import XWeak as XWeak
 
 __all__ = ['XWeak']
 

@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theDefaultProvider = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.configuration.the_default_provider import theDefaultProvider as theDefaultProvider
+    if TYPE_CHECKING
+        from com.sun.star.configuration import theDefaultProvider as theDefaultProvider
+    else:
+        from ...lo.configuration.the_default_provider import theDefaultProvider as theDefaultProvider
 
 __all__ = ['theDefaultProvider']

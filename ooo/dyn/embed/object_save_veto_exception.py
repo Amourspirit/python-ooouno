@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ObjectSaveVetoException = _get_class()
 
 else:
-    from com.sun.star.embed import ObjectSaveVetoException as ObjectSaveVetoException
+    if TYPE_CHECKING:
+        from com.sun.star.embed import ObjectSaveVetoException as ObjectSaveVetoException
+    else:
+        from ...lo.embed.object_save_veto_exception import ObjectSaveVetoException as ObjectSaveVetoException
 
 __all__ = ['ObjectSaveVetoException']
 

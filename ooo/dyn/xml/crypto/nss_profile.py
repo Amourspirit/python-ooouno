@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('Name', 'Path', 'Type')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NSSProfile = _get_class()
 
 else:
-    from com.sun.star.xml.crypto import NSSProfile as NSSProfile
+    if TYPE_CHECKING:
+        from com.sun.star.xml.crypto import NSSProfile as NSSProfile
+    else:
+        # keep document generators happy
+        from ....lo.xml.crypto.nss_profile import NSSProfile as NSSProfile
 
 __all__ = ['NSSProfile']
 

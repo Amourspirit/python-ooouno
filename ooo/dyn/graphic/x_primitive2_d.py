@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.graphic import XPrimitive2D as XPrimitive2D
     setattr(XPrimitive2D, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XPrimitive2D, '__ooo_full_ns__', 'com.sun.star.graphic.XPrimitive2D')
     setattr(XPrimitive2D, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.graphic import XPrimitive2D as XPrimitive2D
+    if TYPE_CHECKING:
+        from com.sun.star.graphic import XPrimitive2D as XPrimitive2D
+    else:
+        # keep document generators happy
+        from ...lo.graphic.x_primitive2_d import XPrimitive2D as XPrimitive2D
 
 __all__ = ['XPrimitive2D']
 

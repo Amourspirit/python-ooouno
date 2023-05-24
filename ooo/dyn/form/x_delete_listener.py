@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.form import XDeleteListener as XDeleteListener
     setattr(XDeleteListener, '__ooo_ns__', 'com.sun.star.form')
     setattr(XDeleteListener, '__ooo_full_ns__', 'com.sun.star.form.XDeleteListener')
     setattr(XDeleteListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.form import XDeleteListener as XDeleteListener
+    if TYPE_CHECKING:
+        from com.sun.star.form import XDeleteListener as XDeleteListener
+    else:
+        # keep document generators happy
+        from ...lo.form.x_delete_listener import XDeleteListener as XDeleteListener
 
 __all__ = ['XDeleteListener']
 

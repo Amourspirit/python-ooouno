@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('aInputStream', 'sEncoding', 'sPublicId', 'sSystemId')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InputSource = _get_class()
 
 else:
-    from com.sun.star.xml.sax import InputSource as InputSource
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import InputSource as InputSource
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.input_source import InputSource as InputSource
 
 __all__ = ['InputSource']
 

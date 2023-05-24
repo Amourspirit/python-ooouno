@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.uri import XVndSunStarExpandUrlReference as XVndSunStarExpandUrlReference
     setattr(XVndSunStarExpandUrlReference, '__ooo_ns__', 'com.sun.star.uri')
     setattr(XVndSunStarExpandUrlReference, '__ooo_full_ns__', 'com.sun.star.uri.XVndSunStarExpandUrlReference')
     setattr(XVndSunStarExpandUrlReference, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.uri import XVndSunStarExpandUrlReference as XVndSunStarExpandUrlReference
+    if TYPE_CHECKING:
+        from com.sun.star.uri import XVndSunStarExpandUrlReference as XVndSunStarExpandUrlReference
+    else:
+        # keep document generators happy
+        from ...lo.uri.x_vnd_sun_star_expand_url_reference import XVndSunStarExpandUrlReference as XVndSunStarExpandUrlReference
 
 __all__ = ['XVndSunStarExpandUrlReference']
 

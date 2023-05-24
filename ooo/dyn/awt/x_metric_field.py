@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XMetricField as XMetricField
     setattr(XMetricField, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XMetricField, '__ooo_full_ns__', 'com.sun.star.awt.XMetricField')
     setattr(XMetricField, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XMetricField as XMetricField
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XMetricField as XMetricField
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_metric_field import XMetricField as XMetricField
 
 __all__ = ['XMetricField']
 

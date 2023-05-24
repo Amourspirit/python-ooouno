@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XEventAttacher2 as XEventAttacher2
     setattr(XEventAttacher2, '__ooo_ns__', 'com.sun.star.script')
     setattr(XEventAttacher2, '__ooo_full_ns__', 'com.sun.star.script.XEventAttacher2')
     setattr(XEventAttacher2, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XEventAttacher2 as XEventAttacher2
+    if TYPE_CHECKING:
+        from com.sun.star.script import XEventAttacher2 as XEventAttacher2
+    else:
+        # keep document generators happy
+        from ...lo.script.x_event_attacher2 import XEventAttacher2 as XEventAttacher2
 
 __all__ = ['XEventAttacher2']
 

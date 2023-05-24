@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XDocumentInsertable as XDocumentInsertable
     setattr(XDocumentInsertable, '__ooo_ns__', 'com.sun.star.document')
     setattr(XDocumentInsertable, '__ooo_full_ns__', 'com.sun.star.document.XDocumentInsertable')
     setattr(XDocumentInsertable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XDocumentInsertable as XDocumentInsertable
+    if TYPE_CHECKING:
+        from com.sun.star.document import XDocumentInsertable as XDocumentInsertable
+    else:
+        # keep document generators happy
+        from ...lo.document.x_document_insertable import XDocumentInsertable as XDocumentInsertable
 
 __all__ = ['XDocumentInsertable']
 

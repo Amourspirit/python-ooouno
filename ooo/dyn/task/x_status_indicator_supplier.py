@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.task import XStatusIndicatorSupplier as XStatusIndicatorSupplier
     setattr(XStatusIndicatorSupplier, '__ooo_ns__', 'com.sun.star.task')
     setattr(XStatusIndicatorSupplier, '__ooo_full_ns__', 'com.sun.star.task.XStatusIndicatorSupplier')
     setattr(XStatusIndicatorSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.task import XStatusIndicatorSupplier as XStatusIndicatorSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.task import XStatusIndicatorSupplier as XStatusIndicatorSupplier
+    else:
+        # keep document generators happy
+        from ...lo.task.x_status_indicator_supplier import XStatusIndicatorSupplier as XStatusIndicatorSupplier
 
 __all__ = ['XStatusIndicatorSupplier']
 

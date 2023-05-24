@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xforms import XFormsEvent as XFormsEvent
     setattr(XFormsEvent, '__ooo_ns__', 'com.sun.star.xforms')
     setattr(XFormsEvent, '__ooo_full_ns__', 'com.sun.star.xforms.XFormsEvent')
     setattr(XFormsEvent, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xforms import XFormsEvent as XFormsEvent
+    if TYPE_CHECKING:
+        from com.sun.star.xforms import XFormsEvent as XFormsEvent
+    else:
+        # keep document generators happy
+        from ...lo.xforms.x_forms_event import XFormsEvent as XFormsEvent
 
 __all__ = ['XFormsEvent']
 

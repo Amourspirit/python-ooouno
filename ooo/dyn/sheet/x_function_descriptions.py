@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XFunctionDescriptions as XFunctionDescriptions
     setattr(XFunctionDescriptions, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XFunctionDescriptions, '__ooo_full_ns__', 'com.sun.star.sheet.XFunctionDescriptions')
     setattr(XFunctionDescriptions, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XFunctionDescriptions as XFunctionDescriptions
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XFunctionDescriptions as XFunctionDescriptions
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_function_descriptions import XFunctionDescriptions as XFunctionDescriptions
 
 __all__ = ['XFunctionDescriptions']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.dialogs import XFilePicker as XFilePicker
     setattr(XFilePicker, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XFilePicker, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilePicker')
     setattr(XFilePicker, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.dialogs import XFilePicker as XFilePicker
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import XFilePicker as XFilePicker
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.x_file_picker import XFilePicker as XFilePicker
 
 __all__ = ['XFilePicker']
 

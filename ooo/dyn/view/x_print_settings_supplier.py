@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.view import XPrintSettingsSupplier as XPrintSettingsSupplier
     setattr(XPrintSettingsSupplier, '__ooo_ns__', 'com.sun.star.view')
     setattr(XPrintSettingsSupplier, '__ooo_full_ns__', 'com.sun.star.view.XPrintSettingsSupplier')
     setattr(XPrintSettingsSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.view import XPrintSettingsSupplier as XPrintSettingsSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.view import XPrintSettingsSupplier as XPrintSettingsSupplier
+    else:
+        # keep document generators happy
+        from ...lo.view.x_print_settings_supplier import XPrintSettingsSupplier as XPrintSettingsSupplier
 
 __all__ = ['XPrintSettingsSupplier']
 

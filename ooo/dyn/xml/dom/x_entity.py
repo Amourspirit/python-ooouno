@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.dom import XEntity as XEntity
     setattr(XEntity, '__ooo_ns__', 'com.sun.star.xml.dom')
     setattr(XEntity, '__ooo_full_ns__', 'com.sun.star.xml.dom.XEntity')
     setattr(XEntity, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.dom import XEntity as XEntity
+    if TYPE_CHECKING:
+        from com.sun.star.xml.dom import XEntity as XEntity
+    else:
+        # keep document generators happy
+        from ....lo.xml.dom.x_entity import XEntity as XEntity
 
 __all__ = ['XEntity']
 

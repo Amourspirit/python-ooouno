@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotConnectException = _get_class()
 
 else:
-    from com.sun.star.configuration.backend import CannotConnectException as CannotConnectException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration.backend import CannotConnectException as CannotConnectException
+    else:
+        from ....lo.configuration.backend.cannot_connect_exception import CannotConnectException as CannotConnectException
 
 __all__ = ['CannotConnectException']
 

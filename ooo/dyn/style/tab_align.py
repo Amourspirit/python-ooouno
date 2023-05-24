@@ -20,75 +20,82 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.style.TabAlign import CENTER as TAB_ALIGN_CENTER
-    from com.sun.star.style.TabAlign import DECIMAL as TAB_ALIGN_DECIMAL
-    from com.sun.star.style.TabAlign import DEFAULT as TAB_ALIGN_DEFAULT
-    from com.sun.star.style.TabAlign import LEFT as TAB_ALIGN_LEFT
-    from com.sun.star.style.TabAlign import RIGHT as TAB_ALIGN_RIGHT
-
-    class TabAlign(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TabAlign <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a806c06853615662029f86b19111fe0a2>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.style.TabAlign', value)
-
-        __ooo_ns__: str = 'com.sun.star.style'
-        __ooo_full_ns__: str = 'com.sun.star.style.TabAlign'
-        __ooo_type_name__: str = 'enum'
-
-        CENTER = cast("TabAlign", TAB_ALIGN_CENTER)
-        """
-        set the horizontal alignment to the center between the margins from the container object
-        
-        The text range is centered between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the center
-        """
-        DECIMAL = cast("TabAlign", TAB_ALIGN_DECIMAL)
-        """
-        The decimal point of the text range to the left of this tabulator is aligned to the position of this tabulator.
-        """
-        DEFAULT = cast("TabAlign", TAB_ALIGN_DEFAULT)
-        """
-        The default alignment for tabulators is applied.
-        """
-        LEFT = cast("TabAlign", TAB_ALIGN_LEFT)
-        """
-        set the horizontal alignment to the left margin from the container object
-        
-        The text range is left-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the left border
-        
-        The page style is only used for left pages.
-        """
-        RIGHT = cast("TabAlign", TAB_ALIGN_RIGHT)
-        """
-        set the horizontal alignment to the right margin from the container object
-        
-        The text range is right-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the right border
-        
-        The page style is only used for right pages.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TabAlign(metaclass=UnoEnumMeta, type_name="com.sun.star.style.TabAlign", name_space="com.sun.star.style"):
         """Dynamically created class that represents ``com.sun.star.style.TabAlign`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.style.TabAlign import CENTER as TAB_ALIGN_CENTER
+        from com.sun.star.style.TabAlign import DECIMAL as TAB_ALIGN_DECIMAL
+        from com.sun.star.style.TabAlign import DEFAULT as TAB_ALIGN_DEFAULT
+        from com.sun.star.style.TabAlign import LEFT as TAB_ALIGN_LEFT
+        from com.sun.star.style.TabAlign import RIGHT as TAB_ALIGN_RIGHT
+
+        class TabAlign(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TabAlign <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#a806c06853615662029f86b19111fe0a2>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.style.TabAlign', value)
+
+            __ooo_ns__: str = 'com.sun.star.style'
+            __ooo_full_ns__: str = 'com.sun.star.style.TabAlign'
+            __ooo_type_name__: str = 'enum'
+
+            CENTER = TAB_ALIGN_CENTER
+            """
+            set the horizontal alignment to the center between the margins from the container object
+
+            The text range is centered between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the center
+            """
+            DECIMAL = TAB_ALIGN_DECIMAL
+            """
+            The decimal point of the text range to the left of this tabulator is aligned to the position of this tabulator.
+            """
+            DEFAULT = TAB_ALIGN_DEFAULT
+            """
+            The default alignment for tabulators is applied.
+            """
+            LEFT = TAB_ALIGN_LEFT
+            """
+            set the horizontal alignment to the left margin from the container object
+
+            The text range is left-aligned between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the left border
+
+            The page style is only used for left pages.
+            """
+            RIGHT = TAB_ALIGN_RIGHT
+            """
+            set the horizontal alignment to the right margin from the container object
+
+            The text range is right-aligned between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the right border
+
+            The page style is only used for right pages.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.style.tab_align import TabAlign as TabAlign
+
 
 __all__ = ['TabAlign']

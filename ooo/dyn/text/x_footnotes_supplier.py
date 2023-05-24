@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XFootnotesSupplier as XFootnotesSupplier
     setattr(XFootnotesSupplier, '__ooo_ns__', 'com.sun.star.text')
     setattr(XFootnotesSupplier, '__ooo_full_ns__', 'com.sun.star.text.XFootnotesSupplier')
     setattr(XFootnotesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XFootnotesSupplier as XFootnotesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.text import XFootnotesSupplier as XFootnotesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.text.x_footnotes_supplier import XFootnotesSupplier as XFootnotesSupplier
 
 __all__ = ['XFootnotesSupplier']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.drawing import XGraphicExportFilter as XGraphicExportFilter
     setattr(XGraphicExportFilter, '__ooo_ns__', 'com.sun.star.drawing')
     setattr(XGraphicExportFilter, '__ooo_full_ns__', 'com.sun.star.drawing.XGraphicExportFilter')
     setattr(XGraphicExportFilter, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.drawing import XGraphicExportFilter as XGraphicExportFilter
+    if TYPE_CHECKING:
+        from com.sun.star.drawing import XGraphicExportFilter as XGraphicExportFilter
+    else:
+        # keep document generators happy
+        from ...lo.drawing.x_graphic_export_filter import XGraphicExportFilter as XGraphicExportFilter
 
 __all__ = ['XGraphicExportFilter']
 

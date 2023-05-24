@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class KeyRule(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.KeyRule", name_space="com.sun.star.sdbc"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbc import KeyRule as KeyRule
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import KeyRule as KeyRule
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.key_rule import KeyRule as KeyRule
 
     class KeyRuleEnum(IntEnum):
         """

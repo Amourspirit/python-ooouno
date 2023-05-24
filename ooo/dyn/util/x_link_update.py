@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.util import XLinkUpdate as XLinkUpdate
     setattr(XLinkUpdate, '__ooo_ns__', 'com.sun.star.util')
     setattr(XLinkUpdate, '__ooo_full_ns__', 'com.sun.star.util.XLinkUpdate')
     setattr(XLinkUpdate, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.util import XLinkUpdate as XLinkUpdate
+    if TYPE_CHECKING:
+        from com.sun.star.util import XLinkUpdate as XLinkUpdate
+    else:
+        # keep document generators happy
+        from ...lo.util.x_link_update import XLinkUpdate as XLinkUpdate
 
 __all__ = ['XLinkUpdate']
 

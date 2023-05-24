@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NoConvergenceException = _get_class()
 
 else:
-    from com.sun.star.sheet import NoConvergenceException as NoConvergenceException
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import NoConvergenceException as NoConvergenceException
+    else:
+        from ...lo.sheet.no_convergence_exception import NoConvergenceException as NoConvergenceException
 
 __all__ = ['NoConvergenceException']
 

@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ListenerAlreadySetException = _get_class()
 
 else:
-    from com.sun.star.ucb import ListenerAlreadySetException as ListenerAlreadySetException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import ListenerAlreadySetException as ListenerAlreadySetException
+    else:
+        from ...lo.ucb.listener_already_set_exception import ListenerAlreadySetException as ListenerAlreadySetException
 
 __all__ = ['ListenerAlreadySetException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.chart2.data import XPivotTableDataProvider as XPivotTableDataProvider
     setattr(XPivotTableDataProvider, '__ooo_ns__', 'com.sun.star.chart2.data')
     setattr(XPivotTableDataProvider, '__ooo_full_ns__', 'com.sun.star.chart2.data.XPivotTableDataProvider')
     setattr(XPivotTableDataProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.chart2.data import XPivotTableDataProvider as XPivotTableDataProvider
+    if TYPE_CHECKING:
+        from com.sun.star.chart2.data import XPivotTableDataProvider as XPivotTableDataProvider
+    else:
+        # keep document generators happy
+        from ....lo.chart2.data.x_pivot_table_data_provider import XPivotTableDataProvider as XPivotTableDataProvider
 
 __all__ = ['XPivotTableDataProvider']
 

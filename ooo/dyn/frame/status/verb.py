@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('VerbId', 'VerbName', 'VerbIsOnMenu', 'VerbIsConst')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     Verb = _get_class()
 
 else:
-    from com.sun.star.frame.status import Verb as Verb
+    if TYPE_CHECKING:
+        from com.sun.star.frame.status import Verb as Verb
+    else:
+        # keep document generators happy
+        from ....lo.frame.status.verb import Verb as Verb
 
 __all__ = ['Verb']
 

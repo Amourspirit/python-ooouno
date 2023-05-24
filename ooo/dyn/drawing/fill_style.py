@@ -20,71 +20,78 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.drawing.FillStyle import BITMAP as FILL_STYLE_BITMAP
-    from com.sun.star.drawing.FillStyle import GRADIENT as FILL_STYLE_GRADIENT
-    from com.sun.star.drawing.FillStyle import HATCH as FILL_STYLE_HATCH
-    from com.sun.star.drawing.FillStyle import NONE as FILL_STYLE_NONE
-    from com.sun.star.drawing.FillStyle import SOLID as FILL_STYLE_SOLID
-
-    class FillStyle(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API FillStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a93450c852ea0dc97ffc5168069ed1bc0>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.drawing.FillStyle', value)
-
-        __ooo_ns__: str = 'com.sun.star.drawing'
-        __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
-        __ooo_type_name__: str = 'enum'
-
-        BITMAP = cast("FillStyle", FILL_STYLE_BITMAP)
-        """
-        use a bitmap to fill the area.
-        """
-        GRADIENT = cast("FillStyle", FILL_STYLE_GRADIENT)
-        """
-        use a gradient color to fill the area.
-        """
-        HATCH = cast("FillStyle", FILL_STYLE_HATCH)
-        """
-        use a hatch to fill the area.
-        """
-        NONE = cast("FillStyle", FILL_STYLE_NONE)
-        """
-        the area is not filled.
-        
-        The text size is only defined by the font properties.
-        
-        Don't animate this text.
-        
-        the line is hidden.
-        
-        the joint between lines will not be connected
-        
-        the line has no special end.
-        """
-        SOLID = cast("FillStyle", FILL_STYLE_SOLID)
-        """
-        use a solid color to fill the area.
-        
-        the line is solid.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FillStyle(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.FillStyle", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.FillStyle`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.drawing.FillStyle import BITMAP as FILL_STYLE_BITMAP
+        from com.sun.star.drawing.FillStyle import GRADIENT as FILL_STYLE_GRADIENT
+        from com.sun.star.drawing.FillStyle import HATCH as FILL_STYLE_HATCH
+        from com.sun.star.drawing.FillStyle import NONE as FILL_STYLE_NONE
+        from com.sun.star.drawing.FillStyle import SOLID as FILL_STYLE_SOLID
+
+        class FillStyle(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API FillStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a93450c852ea0dc97ffc5168069ed1bc0>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.drawing.FillStyle', value)
+
+            __ooo_ns__: str = 'com.sun.star.drawing'
+            __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
+            __ooo_type_name__: str = 'enum'
+
+            BITMAP = FILL_STYLE_BITMAP
+            """
+            use a bitmap to fill the area.
+            """
+            GRADIENT = FILL_STYLE_GRADIENT
+            """
+            use a gradient color to fill the area.
+            """
+            HATCH = FILL_STYLE_HATCH
+            """
+            use a hatch to fill the area.
+            """
+            NONE = FILL_STYLE_NONE
+            """
+            the area is not filled.
+
+            The text size is only defined by the font properties.
+
+            Don't animate this text.
+
+            the line is hidden.
+
+            the joint between lines will not be connected
+
+            the line has no special end.
+            """
+            SOLID = FILL_STYLE_SOLID
+            """
+            use a solid color to fill the area.
+
+            the line is solid.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.drawing.fill_style import FillStyle as FillStyle
+
 
 __all__ = ['FillStyle']

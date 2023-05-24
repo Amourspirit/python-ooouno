@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XSubToolbarController as XSubToolbarController
     setattr(XSubToolbarController, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XSubToolbarController, '__ooo_full_ns__', 'com.sun.star.frame.XSubToolbarController')
     setattr(XSubToolbarController, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XSubToolbarController as XSubToolbarController
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XSubToolbarController as XSubToolbarController
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_sub_toolbar_controller import XSubToolbarController as XSubToolbarController
 
 __all__ = ['XSubToolbarController']
 

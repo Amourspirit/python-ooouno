@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.frame import XFramesSupplier as XFramesSupplier
     setattr(XFramesSupplier, '__ooo_ns__', 'com.sun.star.frame')
     setattr(XFramesSupplier, '__ooo_full_ns__', 'com.sun.star.frame.XFramesSupplier')
     setattr(XFramesSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.frame import XFramesSupplier as XFramesSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.frame import XFramesSupplier as XFramesSupplier
+    else:
+        # keep document generators happy
+        from ...lo.frame.x_frames_supplier import XFramesSupplier as XFramesSupplier
 
 __all__ = ['XFramesSupplier']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.container import XEnumeration as XEnumeration
     setattr(XEnumeration, '__ooo_ns__', 'com.sun.star.container')
     setattr(XEnumeration, '__ooo_full_ns__', 'com.sun.star.container.XEnumeration')
     setattr(XEnumeration, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.container import XEnumeration as XEnumeration
+    if TYPE_CHECKING:
+        from com.sun.star.container import XEnumeration as XEnumeration
+    else:
+        # keep document generators happy
+        from ...lo.container.x_enumeration import XEnumeration as XEnumeration
 
 __all__ = ['XEnumeration']
 

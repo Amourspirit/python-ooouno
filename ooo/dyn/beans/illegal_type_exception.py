@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     IllegalTypeException = _get_class()
 
 else:
-    from com.sun.star.beans import IllegalTypeException as IllegalTypeException
+    if TYPE_CHECKING:
+        from com.sun.star.beans import IllegalTypeException as IllegalTypeException
+    else:
+        from ...lo.beans.illegal_type_exception import IllegalTypeException as IllegalTypeException
 
 __all__ = ['IllegalTypeException']
 

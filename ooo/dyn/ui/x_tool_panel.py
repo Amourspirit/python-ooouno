@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui import XToolPanel as XToolPanel
     setattr(XToolPanel, '__ooo_ns__', 'com.sun.star.ui')
     setattr(XToolPanel, '__ooo_full_ns__', 'com.sun.star.ui.XToolPanel')
     setattr(XToolPanel, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui import XToolPanel as XToolPanel
+    if TYPE_CHECKING:
+        from com.sun.star.ui import XToolPanel as XToolPanel
+    else:
+        # keep document generators happy
+        from ...lo.ui.x_tool_panel import XToolPanel as XToolPanel
 
 __all__ = ['XToolPanel']
 

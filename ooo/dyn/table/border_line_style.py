@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class BorderLineStyle(metaclass=UnoConstMeta, type_name="com.sun.star.table.BorderLineStyle", name_space="com.sun.star.table"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.table import BorderLineStyle as BorderLineStyle
+    if TYPE_CHECKING:
+        from com.sun.star.table import BorderLineStyle as BorderLineStyle
+    else:
+        # keep document generators happy
+        from ...lo.table.border_line_style import BorderLineStyle as BorderLineStyle
 
     class BorderLineStyleEnum(IntEnum):
         """

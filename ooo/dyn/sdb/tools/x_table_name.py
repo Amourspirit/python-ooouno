@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.tools import XTableName as XTableName
     setattr(XTableName, '__ooo_ns__', 'com.sun.star.sdb.tools')
     setattr(XTableName, '__ooo_full_ns__', 'com.sun.star.sdb.tools.XTableName')
     setattr(XTableName, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.tools import XTableName as XTableName
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.tools import XTableName as XTableName
+    else:
+        # keep document generators happy
+        from ....lo.sdb.tools.x_table_name import XTableName as XTableName
 
 __all__ = ['XTableName']
 

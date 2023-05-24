@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XLineNumberingProperties as XLineNumberingProperties
     setattr(XLineNumberingProperties, '__ooo_ns__', 'com.sun.star.text')
     setattr(XLineNumberingProperties, '__ooo_full_ns__', 'com.sun.star.text.XLineNumberingProperties')
     setattr(XLineNumberingProperties, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XLineNumberingProperties as XLineNumberingProperties
+    if TYPE_CHECKING:
+        from com.sun.star.text import XLineNumberingProperties as XLineNumberingProperties
+    else:
+        # keep document generators happy
+        from ...lo.text.x_line_numbering_properties import XLineNumberingProperties as XLineNumberingProperties
 
 __all__ = ['XLineNumberingProperties']
 

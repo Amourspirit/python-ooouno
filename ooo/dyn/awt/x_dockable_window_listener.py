@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XDockableWindowListener as XDockableWindowListener
     setattr(XDockableWindowListener, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XDockableWindowListener, '__ooo_full_ns__', 'com.sun.star.awt.XDockableWindowListener')
     setattr(XDockableWindowListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XDockableWindowListener as XDockableWindowListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XDockableWindowListener as XDockableWindowListener
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_dockable_window_listener import XDockableWindowListener as XDockableWindowListener
 
 __all__ = ['XDockableWindowListener']
 

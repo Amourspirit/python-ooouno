@@ -20,58 +20,65 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.view.SelectionType import MULTI as SELECTION_TYPE_MULTI
-    from com.sun.star.view.SelectionType import NONE as SELECTION_TYPE_NONE
-    from com.sun.star.view.SelectionType import RANGE as SELECTION_TYPE_RANGE
-    from com.sun.star.view.SelectionType import SINGLE as SELECTION_TYPE_SINGLE
-
-    class SelectionType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API SelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#acffca3b33fddce63d3220bc7487e879d>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.view.SelectionType', value)
-
-        __ooo_ns__: str = 'com.sun.star.view'
-        __ooo_full_ns__: str = 'com.sun.star.view.SelectionType'
-        __ooo_type_name__: str = 'enum'
-
-        MULTI = cast("SelectionType", SELECTION_TYPE_MULTI)
-        """
-        The selection can contain zero or more objects.
-        """
-        NONE = cast("SelectionType", SELECTION_TYPE_NONE)
-        """
-        No selection is possible.
-        
-        The selection is always empty.
-        """
-        RANGE = cast("SelectionType", SELECTION_TYPE_RANGE)
-        """
-        The selection can contain zero or more objects.
-        
-        all selected objects must be part of a continues range
-        """
-        SINGLE = cast("SelectionType", SELECTION_TYPE_SINGLE)
-        """
-        The selection can only contain one or zero objects.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SelectionType(metaclass=UnoEnumMeta, type_name="com.sun.star.view.SelectionType", name_space="com.sun.star.view"):
         """Dynamically created class that represents ``com.sun.star.view.SelectionType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.view.SelectionType import MULTI as SELECTION_TYPE_MULTI
+        from com.sun.star.view.SelectionType import NONE as SELECTION_TYPE_NONE
+        from com.sun.star.view.SelectionType import RANGE as SELECTION_TYPE_RANGE
+        from com.sun.star.view.SelectionType import SINGLE as SELECTION_TYPE_SINGLE
+
+        class SelectionType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API SelectionType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#acffca3b33fddce63d3220bc7487e879d>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.view.SelectionType', value)
+
+            __ooo_ns__: str = 'com.sun.star.view'
+            __ooo_full_ns__: str = 'com.sun.star.view.SelectionType'
+            __ooo_type_name__: str = 'enum'
+
+            MULTI = SELECTION_TYPE_MULTI
+            """
+            The selection can contain zero or more objects.
+            """
+            NONE = SELECTION_TYPE_NONE
+            """
+            No selection is possible.
+
+            The selection is always empty.
+            """
+            RANGE = SELECTION_TYPE_RANGE
+            """
+            The selection can contain zero or more objects.
+
+            all selected objects must be part of a continues range
+            """
+            SINGLE = SELECTION_TYPE_SINGLE
+            """
+            The selection can only contain one or zero objects.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.view.selection_type import SelectionType as SelectionType
+
 
 __all__ = ['SelectionType']

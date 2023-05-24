@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UnsupportedDataSinkException = _get_class()
 
 else:
-    from com.sun.star.ucb import UnsupportedDataSinkException as UnsupportedDataSinkException
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import UnsupportedDataSinkException as UnsupportedDataSinkException
+    else:
+        from ...lo.ucb.unsupported_data_sink_exception import UnsupportedDataSinkException as UnsupportedDataSinkException
 
 __all__ = ['UnsupportedDataSinkException']
 

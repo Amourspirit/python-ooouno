@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     SAXInvalidCharacterException = _get_class()
 
 else:
-    from com.sun.star.xml.sax import SAXInvalidCharacterException as SAXInvalidCharacterException
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import SAXInvalidCharacterException as SAXInvalidCharacterException
+    else:
+        from ....lo.xml.sax.sax_invalid_character_exception import SAXInvalidCharacterException as SAXInvalidCharacterException
 
 __all__ = ['SAXInvalidCharacterException']
 

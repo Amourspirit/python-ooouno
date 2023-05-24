@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sdb.application import XCopyTableWizard as XCopyTableWizard
     setattr(XCopyTableWizard, '__ooo_ns__', 'com.sun.star.sdb.application')
     setattr(XCopyTableWizard, '__ooo_full_ns__', 'com.sun.star.sdb.application.XCopyTableWizard')
     setattr(XCopyTableWizard, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sdb.application import XCopyTableWizard as XCopyTableWizard
+    if TYPE_CHECKING:
+        from com.sun.star.sdb.application import XCopyTableWizard as XCopyTableWizard
+    else:
+        # keep document generators happy
+        from ....lo.sdb.application.x_copy_table_wizard import XCopyTableWizard as XCopyTableWizard
 
 __all__ = ['XCopyTableWizard']
 

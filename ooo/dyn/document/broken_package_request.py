@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BrokenPackageRequest = _get_class()
 
 else:
-    from com.sun.star.document import BrokenPackageRequest as BrokenPackageRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import BrokenPackageRequest as BrokenPackageRequest
+    else:
+        from ...lo.document.broken_package_request import BrokenPackageRequest as BrokenPackageRequest
 
 __all__ = ['BrokenPackageRequest']
 

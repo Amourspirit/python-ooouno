@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LockFileCorruptRequest = _get_class()
 
 else:
-    from com.sun.star.document import LockFileCorruptRequest as LockFileCorruptRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import LockFileCorruptRequest as LockFileCorruptRequest
+    else:
+        from ...lo.document.lock_file_corrupt_request import LockFileCorruptRequest as LockFileCorruptRequest
 
 __all__ = ['LockFileCorruptRequest']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.sax import XFastDocumentHandler as XFastDocumentHandler
     setattr(XFastDocumentHandler, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XFastDocumentHandler, '__ooo_full_ns__', 'com.sun.star.xml.sax.XFastDocumentHandler')
     setattr(XFastDocumentHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.sax import XFastDocumentHandler as XFastDocumentHandler
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import XFastDocumentHandler as XFastDocumentHandler
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.x_fast_document_handler import XFastDocumentHandler as XFastDocumentHandler
 
 __all__ = ['XFastDocumentHandler']
 

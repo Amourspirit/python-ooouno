@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     NotNumericException = _get_class()
 
 else:
-    from com.sun.star.util import NotNumericException as NotNumericException
+    if TYPE_CHECKING:
+        from com.sun.star.util import NotNumericException as NotNumericException
+    else:
+        from ...lo.util.not_numeric_exception import NotNumericException as NotNumericException
 
 __all__ = ['NotNumericException']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ui.dialogs import XFilterGroupManager as XFilterGroupManager
     setattr(XFilterGroupManager, '__ooo_ns__', 'com.sun.star.ui.dialogs')
     setattr(XFilterGroupManager, '__ooo_full_ns__', 'com.sun.star.ui.dialogs.XFilterGroupManager')
     setattr(XFilterGroupManager, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ui.dialogs import XFilterGroupManager as XFilterGroupManager
+    if TYPE_CHECKING:
+        from com.sun.star.ui.dialogs import XFilterGroupManager as XFilterGroupManager
+    else:
+        # keep document generators happy
+        from ....lo.ui.dialogs.x_filter_group_manager import XFilterGroupManager as XFilterGroupManager
 
 __all__ = ['XFilterGroupManager']
 

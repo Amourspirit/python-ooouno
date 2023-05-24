@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.xml.sax import XFastSAXSerializable as XFastSAXSerializable
     setattr(XFastSAXSerializable, '__ooo_ns__', 'com.sun.star.xml.sax')
     setattr(XFastSAXSerializable, '__ooo_full_ns__', 'com.sun.star.xml.sax.XFastSAXSerializable')
     setattr(XFastSAXSerializable, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.xml.sax import XFastSAXSerializable as XFastSAXSerializable
+    if TYPE_CHECKING:
+        from com.sun.star.xml.sax import XFastSAXSerializable as XFastSAXSerializable
+    else:
+        # keep document generators happy
+        from ....lo.xml.sax.x_fast_sax_serializable import XFastSAXSerializable as XFastSAXSerializable
 
 __all__ = ['XFastSAXSerializable']
 

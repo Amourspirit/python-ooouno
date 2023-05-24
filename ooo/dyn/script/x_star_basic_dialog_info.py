@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.script import XStarBasicDialogInfo as XStarBasicDialogInfo
     setattr(XStarBasicDialogInfo, '__ooo_ns__', 'com.sun.star.script')
     setattr(XStarBasicDialogInfo, '__ooo_full_ns__', 'com.sun.star.script.XStarBasicDialogInfo')
     setattr(XStarBasicDialogInfo, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.script import XStarBasicDialogInfo as XStarBasicDialogInfo
+    if TYPE_CHECKING:
+        from com.sun.star.script import XStarBasicDialogInfo as XStarBasicDialogInfo
+    else:
+        # keep document generators happy
+        from ...lo.script.x_star_basic_dialog_info import XStarBasicDialogInfo as XStarBasicDialogInfo
 
 __all__ = ['XStarBasicDialogInfo']
 

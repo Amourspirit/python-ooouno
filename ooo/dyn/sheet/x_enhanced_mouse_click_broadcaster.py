@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XEnhancedMouseClickBroadcaster as XEnhancedMouseClickBroadcaster
     setattr(XEnhancedMouseClickBroadcaster, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XEnhancedMouseClickBroadcaster, '__ooo_full_ns__', 'com.sun.star.sheet.XEnhancedMouseClickBroadcaster')
     setattr(XEnhancedMouseClickBroadcaster, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XEnhancedMouseClickBroadcaster as XEnhancedMouseClickBroadcaster
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XEnhancedMouseClickBroadcaster as XEnhancedMouseClickBroadcaster
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_enhanced_mouse_click_broadcaster import XEnhancedMouseClickBroadcaster as XEnhancedMouseClickBroadcaster
 
 __all__ = ['XEnhancedMouseClickBroadcaster']
 

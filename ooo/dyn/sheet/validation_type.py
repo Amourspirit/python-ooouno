@@ -20,76 +20,83 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.ValidationType import ANY as VALIDATION_TYPE_ANY
-    from com.sun.star.sheet.ValidationType import CUSTOM as VALIDATION_TYPE_CUSTOM
-    from com.sun.star.sheet.ValidationType import DATE as VALIDATION_TYPE_DATE
-    from com.sun.star.sheet.ValidationType import DECIMAL as VALIDATION_TYPE_DECIMAL
-    from com.sun.star.sheet.ValidationType import LIST as VALIDATION_TYPE_LIST
-    from com.sun.star.sheet.ValidationType import TEXT_LEN as VALIDATION_TYPE_TEXT_LEN
-    from com.sun.star.sheet.ValidationType import TIME as VALIDATION_TYPE_TIME
-    from com.sun.star.sheet.ValidationType import WHOLE as VALIDATION_TYPE_WHOLE
-
-    class ValidationType(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ValidationType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa5aa6dbecaeb5e18a476b0a58279c57a>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.ValidationType', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationType'
-        __ooo_type_name__: str = 'enum'
-
-        ANY = cast("ValidationType", VALIDATION_TYPE_ANY)
-        """
-        any cell content is valid; no conditions are used.
-        """
-        CUSTOM = cast("ValidationType", VALIDATION_TYPE_CUSTOM)
-        """
-        The specified formula determines which contents are valid.
-        """
-        DATE = cast("ValidationType", VALIDATION_TYPE_DATE)
-        """
-        specifies an arithmetic series for date values.
-        
-        any date value matching the specified condition is valid.
-        """
-        DECIMAL = cast("ValidationType", VALIDATION_TYPE_DECIMAL)
-        """
-        any number matching the specified condition is valid.
-        """
-        LIST = cast("ValidationType", VALIDATION_TYPE_LIST)
-        """
-        Only strings from a specified list are valid.
-        """
-        TEXT_LEN = cast("ValidationType", VALIDATION_TYPE_TEXT_LEN)
-        """
-        string is valid if its length matches the specified condition.
-        """
-        TIME = cast("ValidationType", VALIDATION_TYPE_TIME)
-        """
-        any time value matching the specified condition is valid.
-        """
-        WHOLE = cast("ValidationType", VALIDATION_TYPE_WHOLE)
-        """
-        any whole number matching the specified condition is valid.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ValidationType(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.ValidationType", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.ValidationType`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.ValidationType import ANY as VALIDATION_TYPE_ANY
+        from com.sun.star.sheet.ValidationType import CUSTOM as VALIDATION_TYPE_CUSTOM
+        from com.sun.star.sheet.ValidationType import DATE as VALIDATION_TYPE_DATE
+        from com.sun.star.sheet.ValidationType import DECIMAL as VALIDATION_TYPE_DECIMAL
+        from com.sun.star.sheet.ValidationType import LIST as VALIDATION_TYPE_LIST
+        from com.sun.star.sheet.ValidationType import TEXT_LEN as VALIDATION_TYPE_TEXT_LEN
+        from com.sun.star.sheet.ValidationType import TIME as VALIDATION_TYPE_TIME
+        from com.sun.star.sheet.ValidationType import WHOLE as VALIDATION_TYPE_WHOLE
+
+        class ValidationType(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ValidationType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#aa5aa6dbecaeb5e18a476b0a58279c57a>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.ValidationType', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.ValidationType'
+            __ooo_type_name__: str = 'enum'
+
+            ANY = VALIDATION_TYPE_ANY
+            """
+            any cell content is valid; no conditions are used.
+            """
+            CUSTOM = VALIDATION_TYPE_CUSTOM
+            """
+            The specified formula determines which contents are valid.
+            """
+            DATE = VALIDATION_TYPE_DATE
+            """
+            specifies an arithmetic series for date values.
+
+            any date value matching the specified condition is valid.
+            """
+            DECIMAL = VALIDATION_TYPE_DECIMAL
+            """
+            any number matching the specified condition is valid.
+            """
+            LIST = VALIDATION_TYPE_LIST
+            """
+            Only strings from a specified list are valid.
+            """
+            TEXT_LEN = VALIDATION_TYPE_TEXT_LEN
+            """
+            string is valid if its length matches the specified condition.
+            """
+            TIME = VALIDATION_TYPE_TIME
+            """
+            any time value matching the specified condition is valid.
+            """
+            WHOLE = VALIDATION_TYPE_WHOLE
+            """
+            any whole number matching the specified condition is valid.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.validation_type import ValidationType as ValidationType
+
 
 __all__ = ['ValidationType']

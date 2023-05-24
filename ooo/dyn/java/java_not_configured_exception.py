@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     JavaNotConfiguredException = _get_class()
 
 else:
-    from com.sun.star.java import JavaNotConfiguredException as JavaNotConfiguredException
+    if TYPE_CHECKING:
+        from com.sun.star.java import JavaNotConfiguredException as JavaNotConfiguredException
+    else:
+        from ...lo.java.java_not_configured_exception import JavaNotConfiguredException as JavaNotConfiguredException
 
 __all__ = ['JavaNotConfiguredException']
 

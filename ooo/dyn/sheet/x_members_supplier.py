@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XMembersSupplier as XMembersSupplier
     setattr(XMembersSupplier, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XMembersSupplier, '__ooo_full_ns__', 'com.sun.star.sheet.XMembersSupplier')
     setattr(XMembersSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XMembersSupplier as XMembersSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XMembersSupplier as XMembersSupplier
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_members_supplier import XMembersSupplier as XMembersSupplier
 
 __all__ = ['XMembersSupplier']
 

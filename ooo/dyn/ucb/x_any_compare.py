@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XAnyCompare as XAnyCompare
     setattr(XAnyCompare, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XAnyCompare, '__ooo_full_ns__', 'com.sun.star.ucb.XAnyCompare')
     setattr(XAnyCompare, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XAnyCompare as XAnyCompare
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XAnyCompare as XAnyCompare
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_any_compare import XAnyCompare as XAnyCompare
 
 __all__ = ['XAnyCompare']
 

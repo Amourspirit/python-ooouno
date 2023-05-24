@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     DocumentSaveRequest = _get_class()
 
 else:
-    from com.sun.star.sdb import DocumentSaveRequest as DocumentSaveRequest
+    if TYPE_CHECKING:
+        from com.sun.star.sdb import DocumentSaveRequest as DocumentSaveRequest
+    else:
+        from ...lo.sdb.document_save_request import DocumentSaveRequest as DocumentSaveRequest
 
 __all__ = ['DocumentSaveRequest']
 

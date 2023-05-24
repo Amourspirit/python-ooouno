@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.text import XFlatParagraphIteratorProvider as XFlatParagraphIteratorProvider
     setattr(XFlatParagraphIteratorProvider, '__ooo_ns__', 'com.sun.star.text')
     setattr(XFlatParagraphIteratorProvider, '__ooo_full_ns__', 'com.sun.star.text.XFlatParagraphIteratorProvider')
     setattr(XFlatParagraphIteratorProvider, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.text import XFlatParagraphIteratorProvider as XFlatParagraphIteratorProvider
+    if TYPE_CHECKING:
+        from com.sun.star.text import XFlatParagraphIteratorProvider as XFlatParagraphIteratorProvider
+    else:
+        # keep document generators happy
+        from ...lo.text.x_flat_paragraph_iterator_provider import XFlatParagraphIteratorProvider as XFlatParagraphIteratorProvider
 
 __all__ = ['XFlatParagraphIteratorProvider']
 

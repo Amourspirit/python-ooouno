@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     LockedOnSavingRequest = _get_class()
 
 else:
-    from com.sun.star.document import LockedOnSavingRequest as LockedOnSavingRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import LockedOnSavingRequest as LockedOnSavingRequest
+    else:
+        from ...lo.document.locked_on_saving_request import LockedOnSavingRequest as LockedOnSavingRequest
 
 __all__ = ['LockedOnSavingRequest']
 

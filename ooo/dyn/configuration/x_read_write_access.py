@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.configuration import XReadWriteAccess as XReadWriteAccess
     setattr(XReadWriteAccess, '__ooo_ns__', 'com.sun.star.configuration')
     setattr(XReadWriteAccess, '__ooo_full_ns__', 'com.sun.star.configuration.XReadWriteAccess')
     setattr(XReadWriteAccess, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.configuration import XReadWriteAccess as XReadWriteAccess
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import XReadWriteAccess as XReadWriteAccess
+    else:
+        # keep document generators happy
+        from ...lo.configuration.x_read_write_access import XReadWriteAccess as XReadWriteAccess
 
 __all__ = ['XReadWriteAccess']
 

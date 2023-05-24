@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class SystemDependent(metaclass=UnoConstMeta, type_name="com.sun.star.lang.SystemDependent", name_space="com.sun.star.lang"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.lang import SystemDependent as SystemDependent
+    if TYPE_CHECKING:
+        from com.sun.star.lang import SystemDependent as SystemDependent
+    else:
+        # keep document generators happy
+        from ...lo.lang.system_dependent import SystemDependent as SystemDependent
 
     class SystemDependentEnum(IntEnum):
         """

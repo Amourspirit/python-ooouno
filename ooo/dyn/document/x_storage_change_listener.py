@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.document import XStorageChangeListener as XStorageChangeListener
     setattr(XStorageChangeListener, '__ooo_ns__', 'com.sun.star.document')
     setattr(XStorageChangeListener, '__ooo_full_ns__', 'com.sun.star.document.XStorageChangeListener')
     setattr(XStorageChangeListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.document import XStorageChangeListener as XStorageChangeListener
+    if TYPE_CHECKING:
+        from com.sun.star.document import XStorageChangeListener as XStorageChangeListener
+    else:
+        # keep document generators happy
+        from ...lo.document.x_storage_change_listener import XStorageChangeListener as XStorageChangeListener
 
 __all__ = ['XStorageChangeListener']
 

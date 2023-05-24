@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XCompatibilityNames as XCompatibilityNames
     setattr(XCompatibilityNames, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCompatibilityNames, '__ooo_full_ns__', 'com.sun.star.sheet.XCompatibilityNames')
     setattr(XCompatibilityNames, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XCompatibilityNames as XCompatibilityNames
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XCompatibilityNames as XCompatibilityNames
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_compatibility_names import XCompatibilityNames as XCompatibilityNames
 
 __all__ = ['XCompatibilityNames']
 

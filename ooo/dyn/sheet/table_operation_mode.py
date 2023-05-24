@@ -20,53 +20,60 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.sheet.TableOperationMode import BOTH as TABLE_OPERATION_MODE_BOTH
-    from com.sun.star.sheet.TableOperationMode import COLUMN as TABLE_OPERATION_MODE_COLUMN
-    from com.sun.star.sheet.TableOperationMode import ROW as TABLE_OPERATION_MODE_ROW
-
-    class TableOperationMode(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API TableOperationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a91d4f5595c9dc2a8c09e532e59f395d9>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.sheet.TableOperationMode', value)
-
-        __ooo_ns__: str = 'com.sun.star.sheet'
-        __ooo_full_ns__: str = 'com.sun.star.sheet.TableOperationMode'
-        __ooo_type_name__: str = 'enum'
-
-        BOTH = cast("TableOperationMode", TABLE_OPERATION_MODE_BOTH)
-        """
-        is applied to rows and columns.
-        """
-        COLUMN = cast("TableOperationMode", TABLE_OPERATION_MODE_COLUMN)
-        """
-        the field is used as a column field.
-        
-        is applied to the columns.
-        """
-        ROW = cast("TableOperationMode", TABLE_OPERATION_MODE_ROW)
-        """
-        the field is used as a row field.
-        
-        is applied to the rows.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TableOperationMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.TableOperationMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.TableOperationMode`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.sheet.TableOperationMode import BOTH as TABLE_OPERATION_MODE_BOTH
+        from com.sun.star.sheet.TableOperationMode import COLUMN as TABLE_OPERATION_MODE_COLUMN
+        from com.sun.star.sheet.TableOperationMode import ROW as TABLE_OPERATION_MODE_ROW
+
+        class TableOperationMode(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API TableOperationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a91d4f5595c9dc2a8c09e532e59f395d9>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.sheet.TableOperationMode', value)
+
+            __ooo_ns__: str = 'com.sun.star.sheet'
+            __ooo_full_ns__: str = 'com.sun.star.sheet.TableOperationMode'
+            __ooo_type_name__: str = 'enum'
+
+            BOTH = TABLE_OPERATION_MODE_BOTH
+            """
+            is applied to rows and columns.
+            """
+            COLUMN = TABLE_OPERATION_MODE_COLUMN
+            """
+            the field is used as a column field.
+
+            is applied to the columns.
+            """
+            ROW = TABLE_OPERATION_MODE_ROW
+            """
+            the field is used as a row field.
+
+            is applied to the rows.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.sheet.table_operation_mode import TableOperationMode as TableOperationMode
+
 
 __all__ = ['TableOperationMode']

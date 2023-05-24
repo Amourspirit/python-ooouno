@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InstallException = _get_class()
 
 else:
-    from com.sun.star.deployment import InstallException as InstallException
+    if TYPE_CHECKING:
+        from com.sun.star.deployment import InstallException as InstallException
+    else:
+        from ...lo.deployment.install_exception import InstallException as InstallException
 
 __all__ = ['InstallException']
 

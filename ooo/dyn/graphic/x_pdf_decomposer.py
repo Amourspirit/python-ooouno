@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.graphic import XPdfDecomposer as XPdfDecomposer
     setattr(XPdfDecomposer, '__ooo_ns__', 'com.sun.star.graphic')
     setattr(XPdfDecomposer, '__ooo_full_ns__', 'com.sun.star.graphic.XPdfDecomposer')
     setattr(XPdfDecomposer, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.graphic import XPdfDecomposer as XPdfDecomposer
+    if TYPE_CHECKING:
+        from com.sun.star.graphic import XPdfDecomposer as XPdfDecomposer
+    else:
+        # keep document generators happy
+        from ...lo.graphic.x_pdf_decomposer import XPdfDecomposer as XPdfDecomposer
 
 __all__ = ['XPdfDecomposer']
 

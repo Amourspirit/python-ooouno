@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ParseException = _get_class()
 
 else:
-    from com.sun.star.rdf import ParseException as ParseException
+    if TYPE_CHECKING:
+        from com.sun.star.rdf import ParseException as ParseException
+    else:
+        from ...lo.rdf.parse_exception import ParseException as ParseException
 
 __all__ = ['ParseException']
 

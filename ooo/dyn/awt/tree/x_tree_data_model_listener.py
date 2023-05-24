@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt.tree import XTreeDataModelListener as XTreeDataModelListener
     setattr(XTreeDataModelListener, '__ooo_ns__', 'com.sun.star.awt.tree')
     setattr(XTreeDataModelListener, '__ooo_full_ns__', 'com.sun.star.awt.tree.XTreeDataModelListener')
     setattr(XTreeDataModelListener, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt.tree import XTreeDataModelListener as XTreeDataModelListener
+    if TYPE_CHECKING:
+        from com.sun.star.awt.tree import XTreeDataModelListener as XTreeDataModelListener
+    else:
+        # keep document generators happy
+        from ....lo.awt.tree.x_tree_data_model_listener import XTreeDataModelListener as XTreeDataModelListener
 
 __all__ = ['XTreeDataModelListener']
 

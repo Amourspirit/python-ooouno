@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MissingResourceException = _get_class()
 
 else:
-    from com.sun.star.resource import MissingResourceException as MissingResourceException
+    if TYPE_CHECKING:
+        from com.sun.star.resource import MissingResourceException as MissingResourceException
+    else:
+        from ...lo.resource.missing_resource_exception import MissingResourceException as MissingResourceException
 
 __all__ = ['MissingResourceException']
 

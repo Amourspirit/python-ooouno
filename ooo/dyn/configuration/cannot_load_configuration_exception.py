@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     CannotLoadConfigurationException = _get_class()
 
 else:
-    from com.sun.star.configuration import CannotLoadConfigurationException as CannotLoadConfigurationException
+    if TYPE_CHECKING:
+        from com.sun.star.configuration import CannotLoadConfigurationException as CannotLoadConfigurationException
+    else:
+        from ...lo.configuration.cannot_load_configuration_exception import CannotLoadConfigurationException as CannotLoadConfigurationException
 
 __all__ = ['CannotLoadConfigurationException']
 

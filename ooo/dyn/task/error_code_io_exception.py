@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     ErrorCodeIOException = _get_class()
 
 else:
-    from com.sun.star.task import ErrorCodeIOException as ErrorCodeIOException
+    if TYPE_CHECKING:
+        from com.sun.star.task import ErrorCodeIOException as ErrorCodeIOException
+    else:
+        from ...lo.task.error_code_io_exception import ErrorCodeIOException as ErrorCodeIOException
 
 __all__ = ['ErrorCodeIOException']
 

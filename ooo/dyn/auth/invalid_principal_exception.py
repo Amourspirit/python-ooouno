@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidPrincipalException = _get_class()
 
 else:
-    from com.sun.star.auth import InvalidPrincipalException as InvalidPrincipalException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import InvalidPrincipalException as InvalidPrincipalException
+    else:
+        from ...lo.auth.invalid_principal_exception import InvalidPrincipalException as InvalidPrincipalException
 
 __all__ = ['InvalidPrincipalException']
 

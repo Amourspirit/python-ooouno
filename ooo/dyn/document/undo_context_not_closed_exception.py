@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     UndoContextNotClosedException = _get_class()
 
 else:
-    from com.sun.star.document import UndoContextNotClosedException as UndoContextNotClosedException
+    if TYPE_CHECKING:
+        from com.sun.star.document import UndoContextNotClosedException as UndoContextNotClosedException
+    else:
+        from ...lo.document.undo_context_not_closed_exception import UndoContextNotClosedException as UndoContextNotClosedException
 
 __all__ = ['UndoContextNotClosedException']
 

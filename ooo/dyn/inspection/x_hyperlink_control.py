@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.inspection import XHyperlinkControl as XHyperlinkControl
     setattr(XHyperlinkControl, '__ooo_ns__', 'com.sun.star.inspection')
     setattr(XHyperlinkControl, '__ooo_full_ns__', 'com.sun.star.inspection.XHyperlinkControl')
     setattr(XHyperlinkControl, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.inspection import XHyperlinkControl as XHyperlinkControl
+    if TYPE_CHECKING:
+        from com.sun.star.inspection import XHyperlinkControl as XHyperlinkControl
+    else:
+        # keep document generators happy
+        from ...lo.inspection.x_hyperlink_control import XHyperlinkControl as XHyperlinkControl
 
 __all__ = ['XHyperlinkControl']
 

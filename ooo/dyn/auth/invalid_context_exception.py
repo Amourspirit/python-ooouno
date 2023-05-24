@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidContextException = _get_class()
 
 else:
-    from com.sun.star.auth import InvalidContextException as InvalidContextException
+    if TYPE_CHECKING:
+        from com.sun.star.auth import InvalidContextException as InvalidContextException
+    else:
+        from ...lo.auth.invalid_context_exception import InvalidContextException as InvalidContextException
 
 __all__ = ['InvalidContextException']
 

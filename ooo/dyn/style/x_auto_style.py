@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.style import XAutoStyle as XAutoStyle
     setattr(XAutoStyle, '__ooo_ns__', 'com.sun.star.style')
     setattr(XAutoStyle, '__ooo_full_ns__', 'com.sun.star.style.XAutoStyle')
     setattr(XAutoStyle, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.style import XAutoStyle as XAutoStyle
+    if TYPE_CHECKING:
+        from com.sun.star.style import XAutoStyle as XAutoStyle
+    else:
+        # keep document generators happy
+        from ...lo.style.x_auto_style import XAutoStyle as XAutoStyle
 
 __all__ = ['XAutoStyle']
 

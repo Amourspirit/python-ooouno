@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     MergeConflictException = _get_class()
 
 else:
-    from com.sun.star.registry import MergeConflictException as MergeConflictException
+    if TYPE_CHECKING:
+        from com.sun.star.registry import MergeConflictException as MergeConflictException
+    else:
+        from ...lo.registry.merge_conflict_exception import MergeConflictException as MergeConflictException
 
 __all__ = ['MergeConflictException']
 

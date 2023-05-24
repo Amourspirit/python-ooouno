@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     InvalidProtocolChangeException = _get_class()
 
 else:
-    from com.sun.star.bridge import InvalidProtocolChangeException as InvalidProtocolChangeException
+    if TYPE_CHECKING:
+        from com.sun.star.bridge import InvalidProtocolChangeException as InvalidProtocolChangeException
+    else:
+        from ...lo.bridge.invalid_protocol_change_exception import InvalidProtocolChangeException as InvalidProtocolChangeException
 
 __all__ = ['InvalidProtocolChangeException']
 

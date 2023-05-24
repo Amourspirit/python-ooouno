@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.rendering import XIeeeFloatBitmap as XIeeeFloatBitmap
     setattr(XIeeeFloatBitmap, '__ooo_ns__', 'com.sun.star.rendering')
     setattr(XIeeeFloatBitmap, '__ooo_full_ns__', 'com.sun.star.rendering.XIeeeFloatBitmap')
     setattr(XIeeeFloatBitmap, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.rendering import XIeeeFloatBitmap as XIeeeFloatBitmap
+    if TYPE_CHECKING:
+        from com.sun.star.rendering import XIeeeFloatBitmap as XIeeeFloatBitmap
+    else:
+        # keep document generators happy
+        from ...lo.rendering.x_ieee_float_bitmap import XIeeeFloatBitmap as XIeeeFloatBitmap
 
 __all__ = ['XIeeeFloatBitmap']
 

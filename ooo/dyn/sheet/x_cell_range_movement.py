@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.sheet import XCellRangeMovement as XCellRangeMovement
     setattr(XCellRangeMovement, '__ooo_ns__', 'com.sun.star.sheet')
     setattr(XCellRangeMovement, '__ooo_full_ns__', 'com.sun.star.sheet.XCellRangeMovement')
     setattr(XCellRangeMovement, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.sheet import XCellRangeMovement as XCellRangeMovement
+    if TYPE_CHECKING:
+        from com.sun.star.sheet import XCellRangeMovement as XCellRangeMovement
+    else:
+        # keep document generators happy
+        from ...lo.sheet.x_cell_range_movement import XCellRangeMovement as XCellRangeMovement
 
 __all__ = ['XCellRangeMovement']
 

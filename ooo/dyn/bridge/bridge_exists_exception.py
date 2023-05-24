@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     BridgeExistsException = _get_class()
 
 else:
-    from com.sun.star.bridge import BridgeExistsException as BridgeExistsException
+    if TYPE_CHECKING:
+        from com.sun.star.bridge import BridgeExistsException as BridgeExistsException
+    else:
+        from ...lo.bridge.bridge_exists_exception import BridgeExistsException as BridgeExistsException
 
 __all__ = ['BridgeExistsException']
 

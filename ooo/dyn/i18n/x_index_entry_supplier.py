@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.i18n import XIndexEntrySupplier as XIndexEntrySupplier
     setattr(XIndexEntrySupplier, '__ooo_ns__', 'com.sun.star.i18n')
     setattr(XIndexEntrySupplier, '__ooo_full_ns__', 'com.sun.star.i18n.XIndexEntrySupplier')
     setattr(XIndexEntrySupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.i18n import XIndexEntrySupplier as XIndexEntrySupplier
+    if TYPE_CHECKING:
+        from com.sun.star.i18n import XIndexEntrySupplier as XIndexEntrySupplier
+    else:
+        # keep document generators happy
+        from ...lo.i18n.x_index_entry_supplier import XIndexEntrySupplier as XIndexEntrySupplier
 
 __all__ = ['XIndexEntrySupplier']
 

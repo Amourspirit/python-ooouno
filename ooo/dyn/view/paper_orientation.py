@@ -20,44 +20,51 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.view.PaperOrientation import LANDSCAPE as PAPER_ORIENTATION_LANDSCAPE
-    from com.sun.star.view.PaperOrientation import PORTRAIT as PAPER_ORIENTATION_PORTRAIT
-
-    class PaperOrientation(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API PaperOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a5312aa9f24f5483f2a37fd41a47d852a>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.view.PaperOrientation', value)
-
-        __ooo_ns__: str = 'com.sun.star.view'
-        __ooo_full_ns__: str = 'com.sun.star.view.PaperOrientation'
-        __ooo_type_name__: str = 'enum'
-
-        LANDSCAPE = cast("PaperOrientation", PAPER_ORIENTATION_LANDSCAPE)
-        """
-        set the paper orientation to landscape.
-        """
-        PORTRAIT = cast("PaperOrientation", PAPER_ORIENTATION_PORTRAIT)
-        """
-        set the paper orientation to portrait.
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PaperOrientation(metaclass=UnoEnumMeta, type_name="com.sun.star.view.PaperOrientation", name_space="com.sun.star.view"):
         """Dynamically created class that represents ``com.sun.star.view.PaperOrientation`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.view.PaperOrientation import LANDSCAPE as PAPER_ORIENTATION_LANDSCAPE
+        from com.sun.star.view.PaperOrientation import PORTRAIT as PAPER_ORIENTATION_PORTRAIT
+
+        class PaperOrientation(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API PaperOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a5312aa9f24f5483f2a37fd41a47d852a>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.view.PaperOrientation', value)
+
+            __ooo_ns__: str = 'com.sun.star.view'
+            __ooo_full_ns__: str = 'com.sun.star.view.PaperOrientation'
+            __ooo_type_name__: str = 'enum'
+
+            LANDSCAPE = PAPER_ORIENTATION_LANDSCAPE
+            """
+            set the paper orientation to landscape.
+            """
+            PORTRAIT = PAPER_ORIENTATION_PORTRAIT
+            """
+            set the paper orientation to portrait.
+            """
+    else:
+        # keep document generators happy
+        from ...lo.view.paper_orientation import PaperOrientation as PaperOrientation
+
 
 __all__ = ['PaperOrientation']

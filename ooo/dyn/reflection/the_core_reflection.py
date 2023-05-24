@@ -39,6 +39,9 @@ if not TYPE_CHECKING and _DYNAMIC:
         theCoreReflection = _singleton_init
     _dynamic_singleton()
 else:
-    from ...lo.reflection.the_core_reflection import theCoreReflection as theCoreReflection
+    if TYPE_CHECKING
+        from com.sun.star.reflection import theCoreReflection as theCoreReflection
+    else:
+        from ...lo.reflection.the_core_reflection import theCoreReflection as theCoreReflection
 
 __all__ = ['theCoreReflection']

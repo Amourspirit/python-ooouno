@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.animations import XAudio as XAudio
     setattr(XAudio, '__ooo_ns__', 'com.sun.star.animations')
     setattr(XAudio, '__ooo_full_ns__', 'com.sun.star.animations.XAudio')
     setattr(XAudio, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.animations import XAudio as XAudio
+    if TYPE_CHECKING:
+        from com.sun.star.animations import XAudio as XAudio
+    else:
+        # keep document generators happy
+        from ...lo.animations.x_audio import XAudio as XAudio
 
 __all__ = ['XAudio']
 

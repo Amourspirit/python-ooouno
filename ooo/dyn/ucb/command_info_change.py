@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class CommandInfoChange(metaclass=UnoConstMeta, type_name="com.sun.star.ucb.CommandInfoChange", name_space="com.sun.star.ucb"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.ucb import CommandInfoChange as CommandInfoChange
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import CommandInfoChange as CommandInfoChange
+    else:
+        # keep document generators happy
+        from ...lo.ucb.command_info_change import CommandInfoChange as CommandInfoChange
 
     class CommandInfoChangeEnum(IntEnum):
         """

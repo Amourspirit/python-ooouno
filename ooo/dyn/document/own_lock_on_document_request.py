@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     OwnLockOnDocumentRequest = _get_class()
 
 else:
-    from com.sun.star.document import OwnLockOnDocumentRequest as OwnLockOnDocumentRequest
+    if TYPE_CHECKING:
+        from com.sun.star.document import OwnLockOnDocumentRequest as OwnLockOnDocumentRequest
+    else:
+        from ...lo.document.own_lock_on_document_request import OwnLockOnDocumentRequest as OwnLockOnDocumentRequest
 
 __all__ = ['OwnLockOnDocumentRequest']
 

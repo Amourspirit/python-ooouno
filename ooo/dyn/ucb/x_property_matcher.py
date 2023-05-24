@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.ucb import XPropertyMatcher as XPropertyMatcher
     setattr(XPropertyMatcher, '__ooo_ns__', 'com.sun.star.ucb')
     setattr(XPropertyMatcher, '__ooo_full_ns__', 'com.sun.star.ucb.XPropertyMatcher')
     setattr(XPropertyMatcher, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.ucb import XPropertyMatcher as XPropertyMatcher
+    if TYPE_CHECKING:
+        from com.sun.star.ucb import XPropertyMatcher as XPropertyMatcher
+    else:
+        # keep document generators happy
+        from ...lo.ucb.x_property_matcher import XPropertyMatcher as XPropertyMatcher
 
 __all__ = ['XPropertyMatcher']
 

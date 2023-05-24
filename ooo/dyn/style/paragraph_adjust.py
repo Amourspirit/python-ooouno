@@ -20,75 +20,82 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, cast, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
+from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
+_DYNAMIC = False
+if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
+    _DYNAMIC = True
 
-if TYPE_CHECKING:
-
-    from com.sun.star.style.ParagraphAdjust import BLOCK as PARAGRAPH_ADJUST_BLOCK
-    from com.sun.star.style.ParagraphAdjust import CENTER as PARAGRAPH_ADJUST_CENTER
-    from com.sun.star.style.ParagraphAdjust import LEFT as PARAGRAPH_ADJUST_LEFT
-    from com.sun.star.style.ParagraphAdjust import RIGHT as PARAGRAPH_ADJUST_RIGHT
-    from com.sun.star.style.ParagraphAdjust import STRETCH as PARAGRAPH_ADJUST_STRETCH
-
-    class ParagraphAdjust(uno.Enum):
-        """
-        Enum Class
-
-
-        See Also:
-            `API ParagraphAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ab9b2806f97ec4c3b5d4e2d92084948f1>`_
-        """
-
-        def __init__(self, value: Any) -> None:
-            super().__init__('com.sun.star.style.ParagraphAdjust', value)
-
-        __ooo_ns__: str = 'com.sun.star.style'
-        __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
-        __ooo_type_name__: str = 'enum'
-
-        BLOCK = cast("ParagraphAdjust", PARAGRAPH_ADJUST_BLOCK)
-        """
-        adjusted to both borders / stretched, except for last line
-        """
-        CENTER = cast("ParagraphAdjust", PARAGRAPH_ADJUST_CENTER)
-        """
-        set the horizontal alignment to the center between the margins from the container object
-        
-        The text range is centered between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the center
-        """
-        LEFT = cast("ParagraphAdjust", PARAGRAPH_ADJUST_LEFT)
-        """
-        set the horizontal alignment to the left margin from the container object
-        
-        The text range is left-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the left border
-        
-        The page style is only used for left pages.
-        """
-        RIGHT = cast("ParagraphAdjust", PARAGRAPH_ADJUST_RIGHT)
-        """
-        set the horizontal alignment to the right margin from the container object
-        
-        The text range is right-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-        
-        adjusted to the right border
-        
-        The page style is only used for right pages.
-        """
-        STRETCH = cast("ParagraphAdjust", PARAGRAPH_ADJUST_STRETCH)
-        """
-        adjusted to both borders / stretched, including last line
-        """
-
-else:
-
+if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ParagraphAdjust(metaclass=UnoEnumMeta, type_name="com.sun.star.style.ParagraphAdjust", name_space="com.sun.star.style"):
         """Dynamically created class that represents ``com.sun.star.style.ParagraphAdjust`` Enum. Class loosely mimics Enum"""
         pass
+else:
+    if TYPE_CHECKING:
+        from com.sun.star.style.ParagraphAdjust import BLOCK as PARAGRAPH_ADJUST_BLOCK
+        from com.sun.star.style.ParagraphAdjust import CENTER as PARAGRAPH_ADJUST_CENTER
+        from com.sun.star.style.ParagraphAdjust import LEFT as PARAGRAPH_ADJUST_LEFT
+        from com.sun.star.style.ParagraphAdjust import RIGHT as PARAGRAPH_ADJUST_RIGHT
+        from com.sun.star.style.ParagraphAdjust import STRETCH as PARAGRAPH_ADJUST_STRETCH
+
+        class ParagraphAdjust(uno.Enum):
+            """
+            Enum Class
+
+
+            See Also:
+                `API ParagraphAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ab9b2806f97ec4c3b5d4e2d92084948f1>`_
+            """
+
+            def __init__(self, value: Any) -> None:
+                super().__init__('com.sun.star.style.ParagraphAdjust', value)
+
+            __ooo_ns__: str = 'com.sun.star.style'
+            __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
+            __ooo_type_name__: str = 'enum'
+
+            BLOCK = PARAGRAPH_ADJUST_BLOCK
+            """
+            adjusted to both borders / stretched, except for last line
+            """
+            CENTER = PARAGRAPH_ADJUST_CENTER
+            """
+            set the horizontal alignment to the center between the margins from the container object
+
+            The text range is centered between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the center
+            """
+            LEFT = PARAGRAPH_ADJUST_LEFT
+            """
+            set the horizontal alignment to the left margin from the container object
+
+            The text range is left-aligned between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the left border
+
+            The page style is only used for left pages.
+            """
+            RIGHT = PARAGRAPH_ADJUST_RIGHT
+            """
+            set the horizontal alignment to the right margin from the container object
+
+            The text range is right-aligned between the previous tabulator (or the left border, if none) and this tabulator.
+
+            adjusted to the right border
+
+            The page style is only used for right pages.
+            """
+            STRETCH = PARAGRAPH_ADJUST_STRETCH
+            """
+            adjusted to both borders / stretched, including last line
+            """
+    else:
+        # keep document generators happy
+        from ...lo.style.paragraph_adjust import ParagraphAdjust as ParagraphAdjust
+
 
 __all__ = ['ParagraphAdjust']

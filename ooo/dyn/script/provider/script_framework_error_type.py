@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class ScriptFrameworkErrorType(metaclass=UnoConstMeta, type_name="com.sun.star.script.provider.ScriptFrameworkErrorType", name_space="com.sun.star.script.provider"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.script.provider import ScriptFrameworkErrorType as ScriptFrameworkErrorType
+    if TYPE_CHECKING:
+        from com.sun.star.script.provider import ScriptFrameworkErrorType as ScriptFrameworkErrorType
+    else:
+        # keep document generators happy
+        from ....lo.script.provider.script_framework_error_type import ScriptFrameworkErrorType as ScriptFrameworkErrorType
 
     class ScriptFrameworkErrorTypeEnum(IntEnum):
         """

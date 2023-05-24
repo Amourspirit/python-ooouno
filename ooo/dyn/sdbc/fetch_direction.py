@@ -28,6 +28,7 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoConstMeta, ConstEnumMeta
 
     class FetchDirection(metaclass=UnoConstMeta, type_name="com.sun.star.sdbc.FetchDirection", name_space="com.sun.star.sdbc"):
@@ -39,7 +40,11 @@ if not TYPE_CHECKING and _DYNAMIC:
         pass
 
 else:
-    from com.sun.star.sdbc import FetchDirection as FetchDirection
+    if TYPE_CHECKING:
+        from com.sun.star.sdbc import FetchDirection as FetchDirection
+    else:
+        # keep document generators happy
+        from ...lo.sdbc.fetch_direction import FetchDirection as FetchDirection
 
     class FetchDirectionEnum(IntEnum):
         """

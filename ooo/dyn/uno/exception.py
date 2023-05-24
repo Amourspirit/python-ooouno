@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     Exception = _get_class()
 
 else:
-    from com.sun.star.uno import Exception as Exception
+    if TYPE_CHECKING:
+        from com.sun.star.uno import Exception as Exception
+    else:
+        from ...lo.uno.exception import Exception as Exception
 
 __all__ = ['Exception']
 

@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.embed import XWindowSupplier as XWindowSupplier
     setattr(XWindowSupplier, '__ooo_ns__', 'com.sun.star.embed')
     setattr(XWindowSupplier, '__ooo_full_ns__', 'com.sun.star.embed.XWindowSupplier')
     setattr(XWindowSupplier, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.embed import XWindowSupplier as XWindowSupplier
+    if TYPE_CHECKING:
+        from com.sun.star.embed import XWindowSupplier as XWindowSupplier
+    else:
+        # keep document generators happy
+        from ...lo.embed.x_window_supplier import XWindowSupplier as XWindowSupplier
 
 __all__ = ['XWindowSupplier']
 

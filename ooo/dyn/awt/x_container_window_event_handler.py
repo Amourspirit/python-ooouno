@@ -26,12 +26,17 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
+    # document generators will most likely not see this.
     from com.sun.star.awt import XContainerWindowEventHandler as XContainerWindowEventHandler
     setattr(XContainerWindowEventHandler, '__ooo_ns__', 'com.sun.star.awt')
     setattr(XContainerWindowEventHandler, '__ooo_full_ns__', 'com.sun.star.awt.XContainerWindowEventHandler')
     setattr(XContainerWindowEventHandler, '__ooo_type_name__', 'interface')
 else:
-    from com.sun.star.awt import XContainerWindowEventHandler as XContainerWindowEventHandler
+    if TYPE_CHECKING:
+        from com.sun.star.awt import XContainerWindowEventHandler as XContainerWindowEventHandler
+    else:
+        # keep document generators happy
+        from ...lo.awt.x_container_window_event_handler import XContainerWindowEventHandler as XContainerWindowEventHandler
 
 __all__ = ['XContainerWindowEventHandler']
 

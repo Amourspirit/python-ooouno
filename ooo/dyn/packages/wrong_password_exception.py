@@ -48,7 +48,10 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     WrongPasswordException = _get_class()
 
 else:
-    from com.sun.star.packages import WrongPasswordException as WrongPasswordException
+    if TYPE_CHECKING:
+        from com.sun.star.packages import WrongPasswordException as WrongPasswordException
+    else:
+        from ...lo.packages.wrong_password_exception import WrongPasswordException as WrongPasswordException
 
 __all__ = ['WrongPasswordException']
 

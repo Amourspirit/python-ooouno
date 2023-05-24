@@ -22,7 +22,7 @@ import uno
 from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME, UNO_NONE
 if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
-
+    # document generators will most likely not see this.
     def _get_class():
         orig_init = None
         ordered_keys = ('X', 'Y')
@@ -47,7 +47,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     RealPoint2D = _get_class()
 
 else:
-    from com.sun.star.geometry import RealPoint2D as RealPoint2D
+    if TYPE_CHECKING:
+        from com.sun.star.geometry import RealPoint2D as RealPoint2D
+    else:
+        # keep document generators happy
+        from ...lo.geometry.real_point2_d import RealPoint2D as RealPoint2D
 
 __all__ = ['RealPoint2D']
 

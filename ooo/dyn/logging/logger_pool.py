@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         LoggerPool = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.logging import LoggerPool as LoggerPool
     else:
         from ...lo.logging.logger_pool import LoggerPool as LoggerPool

@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         DataAccessDescriptorFactory = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.sdb import DataAccessDescriptorFactory as DataAccessDescriptorFactory
     else:
         from ...lo.sdb.data_access_descriptor_factory import DataAccessDescriptorFactory as DataAccessDescriptorFactory

@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theIntrospection = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.beans import theIntrospection as theIntrospection
     else:
         from ...lo.beans.the_introspection import theIntrospection as theIntrospection

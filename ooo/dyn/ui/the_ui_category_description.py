@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theUICategoryDescription = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.ui import theUICategoryDescription as theUICategoryDescription
     else:
         from ...lo.ui.the_ui_category_description import theUICategoryDescription as theUICategoryDescription

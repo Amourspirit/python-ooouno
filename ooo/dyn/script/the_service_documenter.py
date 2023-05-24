@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theServiceDocumenter = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.script import theServiceDocumenter as theServiceDocumenter
     else:
         from ...lo.script.the_service_documenter import theServiceDocumenter as theServiceDocumenter

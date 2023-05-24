@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theWindowStateConfiguration = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.ui import theWindowStateConfiguration as theWindowStateConfiguration
     else:
         from ...lo.ui.the_window_state_configuration import theWindowStateConfiguration as theWindowStateConfiguration

@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theMasterScriptProviderFactory = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.script.provider import theMasterScriptProviderFactory as theMasterScriptProviderFactory
     else:
         from ....lo.script.provider.the_master_script_provider_factory import theMasterScriptProviderFactory as theMasterScriptProviderFactory

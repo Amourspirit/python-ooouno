@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         OfficeRestartManager = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.task import OfficeRestartManager as OfficeRestartManager
     else:
         from ...lo.task.office_restart_manager import OfficeRestartManager as OfficeRestartManager

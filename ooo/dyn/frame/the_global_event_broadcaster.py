@@ -39,7 +39,7 @@ if not TYPE_CHECKING and _DYNAMIC:
         theGlobalEventBroadcaster = _singleton_init
     _dynamic_singleton()
 else:
-    if TYPE_CHECKING
+    if TYPE_CHECKING:
         from com.sun.star.frame import theGlobalEventBroadcaster as theGlobalEventBroadcaster
     else:
         from ...lo.frame.the_global_event_broadcaster import theGlobalEventBroadcaster as theGlobalEventBroadcaster

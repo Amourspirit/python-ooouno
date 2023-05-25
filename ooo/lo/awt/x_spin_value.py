@@ -121,3 +121,4 @@ class XSpinValue(XInterface_8f010a43):
 
 __all__ = ['XSpinValue']
 
+

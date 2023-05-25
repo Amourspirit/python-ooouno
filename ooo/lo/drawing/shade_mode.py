@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.ShadeMode import ShadeModeProto
+
 
 class ShadeMode(Enum):
     """
@@ -32,34 +30,34 @@ class ShadeMode(Enum):
     See Also:
         `API ShadeMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#af49ab4b65513d2c0077f76b2227326e9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.ShadeMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.ShadeMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.ShadeMode'
+        return "com.sun.star.drawing.ShadeMode"
 
-    DRAFT = cast("ShadeModeProto", 'DRAFT')
+    DRAFT = "DRAFT"
     """
     DRAFT is a special mode which uses a BSP tree and triangle subdivision for displaying.
     """
-    FLAT = cast("ShadeModeProto", 'FLAT')
+    FLAT = "FLAT"
     """
     forces one normal per flat part.
     
     With FLAT shading, the faces of the object are rendered in a solid color.
     """
-    PHONG = cast("ShadeModeProto", 'PHONG')
+    PHONG = "PHONG"
     """
     With PHONG shading, the normal itself is interpolated to get more realistic colors and light reflections.
     """
-    SMOOTH = cast("ShadeModeProto", 'SMOOTH')
+    SMOOTH = "SMOOTH"
     """
     the point is smooth, the first derivation from the curve discussion view.
     
     With SMOOTH shading, the colors of the lit vertices is interpolated.
     """
 
-__all__ = ['ShadeMode']
+__all__ = ["ShadeMode"]
 

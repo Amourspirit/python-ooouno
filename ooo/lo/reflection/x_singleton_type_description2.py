@@ -58,3 +58,4 @@ class XSingletonTypeDescription2(XSingletonTypeDescription_db781364):
 
 __all__ = ['XSingletonTypeDescription2']
 
+

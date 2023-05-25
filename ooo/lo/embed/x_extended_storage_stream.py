@@ -42,3 +42,4 @@ class XExtendedStorageStream(XPropertySet_bc180bfa, XEncryptionProtectedSource_8
 
 __all__ = ['XExtendedStorageStream']
 
+

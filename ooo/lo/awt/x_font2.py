@@ -47,3 +47,4 @@ class XFont2(XFont_5f480843):
 
 __all__ = ['XFont2']
 
+

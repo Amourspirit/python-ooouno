@@ -25,7 +25,7 @@ from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
 from .x_completed_connection import XCompletedConnection as XCompletedConnection_98a0e46
 from ..sdbc.x_data_source import XDataSource as XDataSource_a2990ae7
 if typing.TYPE_CHECKING:
-    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto
+    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto  # type: ignore
 
 class DatabaseAccessDataSource(XPropertySet_bc180bfa, XCompletedConnection_98a0e46, XDataSource_a2990ae7):
     """
@@ -62,4 +62,3 @@ class DatabaseAccessDataSource(XPropertySet_bc180bfa, XCompletedConnection_98a0e
 
 
 __all__ = ['DatabaseAccessDataSource']
-

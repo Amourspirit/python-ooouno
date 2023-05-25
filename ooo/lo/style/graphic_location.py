@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+
 
 class GraphicLocation(Enum):
     """
@@ -32,64 +30,64 @@ class GraphicLocation(Enum):
     See Also:
         `API GraphicLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ae71ca73feb713866e85597329dfaec2e>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.GraphicLocation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.GraphicLocation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.GraphicLocation'
+        return "com.sun.star.style.GraphicLocation"
 
-    AREA = cast("GraphicLocationProto", 'AREA')
+    AREA = "AREA"
     """
     The graphic is scaled to fill the whole surrounding area.
     """
-    LEFT_BOTTOM = cast("GraphicLocationProto", 'LEFT_BOTTOM')
+    LEFT_BOTTOM = "LEFT_BOTTOM"
     """
     The graphic is located in the bottom left corner.
     """
-    LEFT_MIDDLE = cast("GraphicLocationProto", 'LEFT_MIDDLE')
+    LEFT_MIDDLE = "LEFT_MIDDLE"
     """
     The graphic is located in the middle of the left edge.
     """
-    LEFT_TOP = cast("GraphicLocationProto", 'LEFT_TOP')
+    LEFT_TOP = "LEFT_TOP"
     """
     The graphic is located in the top left corner.
     """
-    MIDDLE_BOTTOM = cast("GraphicLocationProto", 'MIDDLE_BOTTOM')
+    MIDDLE_BOTTOM = "MIDDLE_BOTTOM"
     """
     The graphic is located in the middle of the bottom edge.
     """
-    MIDDLE_MIDDLE = cast("GraphicLocationProto", 'MIDDLE_MIDDLE')
+    MIDDLE_MIDDLE = "MIDDLE_MIDDLE"
     """
     The graphic is located at the center of the surrounding object.
     """
-    MIDDLE_TOP = cast("GraphicLocationProto", 'MIDDLE_TOP')
+    MIDDLE_TOP = "MIDDLE_TOP"
     """
     The graphic is located in the middle of the top edge.
     """
-    NONE = cast("GraphicLocationProto", 'NONE')
+    NONE = "NONE"
     """
     No column or page break is applied.
     
     This value specifies that a location is not yet assigned.
     """
-    RIGHT_BOTTOM = cast("GraphicLocationProto", 'RIGHT_BOTTOM')
+    RIGHT_BOTTOM = "RIGHT_BOTTOM"
     """
     The graphic is located in the bottom right corner.
     """
-    RIGHT_MIDDLE = cast("GraphicLocationProto", 'RIGHT_MIDDLE')
+    RIGHT_MIDDLE = "RIGHT_MIDDLE"
     """
     The graphic is located in the middle of the right edge.
     """
-    RIGHT_TOP = cast("GraphicLocationProto", 'RIGHT_TOP')
+    RIGHT_TOP = "RIGHT_TOP"
     """
     The graphic is located in the top right corner.
     """
-    TILED = cast("GraphicLocationProto", 'TILED')
+    TILED = "TILED"
     """
     The graphic is repeatedly spread over the surrounding object like tiles.
     """
 
-__all__ = ['GraphicLocation']
+__all__ = ["GraphicLocation"]
 

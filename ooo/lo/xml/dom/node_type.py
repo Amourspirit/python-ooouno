@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.dom
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.dom.NodeType import NodeTypeProto
+
 
 class NodeType(Enum):
     """
@@ -33,50 +31,50 @@ class NodeType(Enum):
     See Also:
         `API NodeType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom.html#acac9cbaeea226ed297804c012dc12b16>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.dom'
-    __ooo_full_ns__: str = 'com.sun.star.xml.dom.NodeType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.dom"
+    __ooo_full_ns__: str = "com.sun.star.xml.dom.NodeType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.dom.NodeType'
+        return "com.sun.star.xml.dom.NodeType"
 
-    ATTRIBUTE_NODE = cast("NodeTypeProto", 'ATTRIBUTE_NODE')
+    ATTRIBUTE_NODE = "ATTRIBUTE_NODE"
     """
     """
-    CDATA_SECTION_NODE = cast("NodeTypeProto", 'CDATA_SECTION_NODE')
+    CDATA_SECTION_NODE = "CDATA_SECTION_NODE"
     """
     """
-    COMMENT_NODE = cast("NodeTypeProto", 'COMMENT_NODE')
+    COMMENT_NODE = "COMMENT_NODE"
     """
     """
-    DOCUMENT_FRAGMENT_NODE = cast("NodeTypeProto", 'DOCUMENT_FRAGMENT_NODE')
+    DOCUMENT_FRAGMENT_NODE = "DOCUMENT_FRAGMENT_NODE"
     """
     """
-    DOCUMENT_NODE = cast("NodeTypeProto", 'DOCUMENT_NODE')
+    DOCUMENT_NODE = "DOCUMENT_NODE"
     """
     """
-    DOCUMENT_TYPE_NODE = cast("NodeTypeProto", 'DOCUMENT_TYPE_NODE')
+    DOCUMENT_TYPE_NODE = "DOCUMENT_TYPE_NODE"
     """
     """
-    ELEMENT_NODE = cast("NodeTypeProto", 'ELEMENT_NODE')
+    ELEMENT_NODE = "ELEMENT_NODE"
     """
     """
-    ENTITY_NODE = cast("NodeTypeProto", 'ENTITY_NODE')
+    ENTITY_NODE = "ENTITY_NODE"
     """
     """
-    ENTITY_REFERENCE_NODE = cast("NodeTypeProto", 'ENTITY_REFERENCE_NODE')
+    ENTITY_REFERENCE_NODE = "ENTITY_REFERENCE_NODE"
     """
     """
-    NOTATION_NODE = cast("NodeTypeProto", 'NOTATION_NODE')
+    NOTATION_NODE = "NOTATION_NODE"
     """
     """
-    PROCESSING_INSTRUCTION_NODE = cast("NodeTypeProto", 'PROCESSING_INSTRUCTION_NODE')
+    PROCESSING_INSTRUCTION_NODE = "PROCESSING_INSTRUCTION_NODE"
     """
     """
-    TEXT_NODE = cast("NodeTypeProto", 'TEXT_NODE')
+    TEXT_NODE = "TEXT_NODE"
     """
     """
 
-__all__ = ['NodeType']
+__all__ = ["NodeType"]
 

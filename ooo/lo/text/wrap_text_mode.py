@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.text.WrapTextMode import WrapTextModeProto
+
 
 class WrapTextMode(Enum):
     """
@@ -32,21 +30,21 @@ class WrapTextMode(Enum):
     See Also:
         `API WrapTextMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a1ed96de3f2d76e93588f67d506a0b0ae>`_
     """
-    __ooo_ns__: str = 'com.sun.star.text'
-    __ooo_full_ns__: str = 'com.sun.star.text.WrapTextMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.text"
+    __ooo_full_ns__: str = "com.sun.star.text.WrapTextMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.text.WrapTextMode'
+        return "com.sun.star.text.WrapTextMode"
 
-    DYNAMIC = cast("WrapTextModeProto", 'DYNAMIC')
+    DYNAMIC = "DYNAMIC"
     """
     text flow depends on the situation.
     
     The text formatting decides the best way.
     """
-    LEFT = cast("WrapTextModeProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the object is left adjusted.
     
@@ -54,15 +52,15 @@ class WrapTextMode(Enum):
     
     adjusted to the left.
     """
-    NONE = cast("WrapTextModeProto", 'NONE')
+    NONE = "NONE"
     """
     text does not flow around the object.
     """
-    PARALLEL = cast("WrapTextModeProto", 'PARALLEL')
+    PARALLEL = "PARALLEL"
     """
     text flows to the left and right of the object.
     """
-    RIGHT = cast("WrapTextModeProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the object is right adjusted.
     
@@ -70,14 +68,14 @@ class WrapTextMode(Enum):
     
     adjusted to the right.
     """
-    THROUGH = cast("WrapTextModeProto", 'THROUGH')
+    THROUGH = "THROUGH"
     """
     text flow ignores the object.
     """
-    THROUGHT = cast("WrapTextModeProto", 'THROUGHT')
+    THROUGHT = "THROUGHT"
     """
     text flow ignores the object: errant spelling deprecated in version 5.4
     """
 
-__all__ = ['WrapTextMode']
+__all__ = ["WrapTextMode"]
 

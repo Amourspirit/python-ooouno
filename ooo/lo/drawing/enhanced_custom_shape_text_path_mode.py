@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import EnhancedCustomShapeTextPathModeProto
+
 
 class EnhancedCustomShapeTextPathMode(Enum):
     """
@@ -33,28 +31,28 @@ class EnhancedCustomShapeTextPathMode(Enum):
     See Also:
         `API EnhancedCustomShapeTextPathMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0babaeb0d04df312f158184b26a302d6>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.EnhancedCustomShapeTextPathMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.EnhancedCustomShapeTextPathMode'
+        return "com.sun.star.drawing.EnhancedCustomShapeTextPathMode"
 
-    NORMAL = cast("EnhancedCustomShapeTextPathModeProto", 'NORMAL')
+    NORMAL = "NORMAL"
     """
     the text is drawn along the path without scaling.
     
     the point is normal, from the curve discussion view.
     """
-    PATH = cast("EnhancedCustomShapeTextPathModeProto", 'PATH')
+    PATH = "PATH"
     """
     the text is fit to the path.
     """
-    SHAPE = cast("EnhancedCustomShapeTextPathModeProto", 'SHAPE')
+    SHAPE = "SHAPE"
     """
     the text is fit to the bounding box of the shape.
     """
 
-__all__ = ['EnhancedCustomShapeTextPathMode']
+__all__ = ["EnhancedCustomShapeTextPathMode"]
 

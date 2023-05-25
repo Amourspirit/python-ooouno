@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,62 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FillMode(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FillMode", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.FillMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.sheet.FillMode import AUTO as FILL_MODE_AUTO
-        from com.sun.star.sheet.FillMode import DATE as FILL_MODE_DATE
-        from com.sun.star.sheet.FillMode import GROWTH as FILL_MODE_GROWTH
-        from com.sun.star.sheet.FillMode import LINEAR as FILL_MODE_LINEAR
-        from com.sun.star.sheet.FillMode import SIMPLE as FILL_MODE_SIMPLE
+    from ...lo.sheet.fill_mode import FillMode as FillMode
 
-        class FillMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FillMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a75a9acd74effffae38daed55136b0980>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.sheet.FillMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.sheet'
-            __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
-            __ooo_type_name__: str = 'enum'
-
-            AUTO = FILL_MODE_AUTO
-            """
-            specifies the use of a user-defined list.
-
-            function is determined automatically.
-            """
-            DATE = FILL_MODE_DATE
-            """
-            specifies an arithmetic series for date values.
-
-            any date value matching the specified condition is valid.
-            """
-            GROWTH = FILL_MODE_GROWTH
-            """
-            specifies a geometric series.
-            """
-            LINEAR = FILL_MODE_LINEAR
-            """
-            specifies an arithmetic series.
-            """
-            SIMPLE = FILL_MODE_SIMPLE
-            """
-            specifies a constant series.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.sheet.fill_mode import FillMode as FillMode
-
-
-__all__ = ['FillMode']
+__all__ = ["FillMode"]

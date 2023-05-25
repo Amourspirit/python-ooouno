@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,52 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TabulatorCycle(metaclass=UnoEnumMeta, type_name="com.sun.star.form.TabulatorCycle", name_space="com.sun.star.form"):
         """Dynamically created class that represents ``com.sun.star.form.TabulatorCycle`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.form.TabulatorCycle import CURRENT as TABULATOR_CYCLE_CURRENT
-        from com.sun.star.form.TabulatorCycle import PAGE as TABULATOR_CYCLE_PAGE
-        from com.sun.star.form.TabulatorCycle import RECORDS as TABULATOR_CYCLE_RECORDS
+    from ...lo.form.tabulator_cycle import TabulatorCycle as TabulatorCycle
 
-        class TabulatorCycle(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TabulatorCycle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#acb5251eb1c7e6ff2149158596346de94>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.form.TabulatorCycle', value)
-
-            __ooo_ns__: str = 'com.sun.star.form'
-            __ooo_full_ns__: str = 'com.sun.star.form.TabulatorCycle'
-            __ooo_type_name__: str = 'enum'
-
-            CURRENT = TABULATOR_CYCLE_CURRENT
-            """
-            a navigation bar is provided and navigation will be performed on the current/active form.
-
-            pressing the TAB key from the last control moves the focus to the first control in the tab order of the same record.
-
-            This is the default and most often encountered mode.
-            """
-            PAGE = TABULATOR_CYCLE_PAGE
-            """
-            pressing the TAB key from the last control of a form moves the focus to the first control of the next form in the tab order.
-            """
-            RECORDS = TABULATOR_CYCLE_RECORDS
-            """
-            pressing the TAB key from the last control moves the focus to the first control in the tab order of the next record.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.form.tabulator_cycle import TabulatorCycle as TabulatorCycle
-
-
-__all__ = ['TabulatorCycle']
+__all__ = ["TabulatorCycle"]

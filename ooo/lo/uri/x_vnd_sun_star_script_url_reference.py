@@ -37,3 +37,4 @@ class XVndSunStarScriptUrlReference(XUriReference_afc30b6f, XVndSunStarScriptUrl
 
 __all__ = ['XVndSunStarScriptUrlReference']
 
+

@@ -25,7 +25,7 @@ from ...lang.x_component import XComponent as XComponent_98dc0ab5
 from ...util.x_cloneable import XCloneable as XCloneable_99d00aa3
 if typing.TYPE_CHECKING:
     from .x_grid_column_listener import XGridColumnListener as XGridColumnListener_44350fba
-    from com.sun.star.style.HorizontalAlignment import HorizontalAlignmentProto
+    from com.sun.star.style.HorizontalAlignment import HorizontalAlignmentProto  # type: ignore
 
 class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
     """
@@ -156,4 +156,3 @@ class XGridColumn(XComponent_98dc0ab5, XCloneable_99d00aa3):
 
 
 __all__ = ['XGridColumn']
-

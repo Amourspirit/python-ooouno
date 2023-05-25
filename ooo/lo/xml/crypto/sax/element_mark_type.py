@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.crypto.sax
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.crypto.sax.ElementMarkType import ElementMarkTypeProto
+
 
 class ElementMarkType(Enum):
     """
@@ -32,20 +30,20 @@ class ElementMarkType(Enum):
     See Also:
         `API ElementMarkType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1crypto_1_1sax.html#a96bd9c0214f2d880b6c938750e6e92d0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.crypto.sax'
-    __ooo_full_ns__: str = 'com.sun.star.xml.crypto.sax.ElementMarkType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.crypto.sax"
+    __ooo_full_ns__: str = "com.sun.star.xml.crypto.sax.ElementMarkType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.crypto.sax.ElementMarkType'
+        return "com.sun.star.xml.crypto.sax.ElementMarkType"
 
-    ELEMENTCOLLECTOR = cast("ElementMarkTypeProto", 'ELEMENTCOLLECTOR')
+    ELEMENTCOLLECTOR = "ELEMENTCOLLECTOR"
     """
     """
-    ELEMENTMARK = cast("ElementMarkTypeProto", 'ELEMENTMARK')
+    ELEMENTMARK = "ELEMENTMARK"
     """
     """
 
-__all__ = ['ElementMarkType']
+__all__ = ["ElementMarkType"]
 

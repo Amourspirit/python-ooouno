@@ -60,3 +60,4 @@ class XGraphicProvider2(XGraphicProvider_b5b0e47):
 
 __all__ = ['XGraphicProvider2']
 
+

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.SymbolStyle import SymbolStyleProto
+
 
 class SymbolStyle(Enum):
     """
@@ -32,23 +30,23 @@ class SymbolStyle(Enum):
     See Also:
         `API SymbolStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a8068445d248b830d1708dcb2a2afb2c6>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.SymbolStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.SymbolStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.SymbolStyle'
+        return "com.sun.star.chart2.SymbolStyle"
 
-    AUTO = cast("SymbolStyleProto", 'AUTO')
+    AUTO = "AUTO"
     """
     The symbol is taken automatically.
     """
-    GRAPHIC = cast("SymbolStyleProto", 'GRAPHIC')
+    GRAPHIC = "GRAPHIC"
     """
     uses the graphic given in Symbol.Graphic as symbol.
     """
-    NONE = cast("SymbolStyleProto", 'NONE')
+    NONE = "NONE"
     """
     Default, no pies are exploded.
     
@@ -56,16 +54,16 @@ class SymbolStyle(Enum):
     
     The symbol is invisible.
     """
-    POLYGON = cast("SymbolStyleProto", 'POLYGON')
+    POLYGON = "POLYGON"
     """
     uses the symbol given in the com.sun.star.drawing.PolyPolygonBezierCoords given in Symbol.PolygonCoords.
     """
-    STANDARD = cast("SymbolStyleProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     uses one of the standard symbols.
     
     Which standard symbol is given in Symbol.StandardSymbol.
     """
 
-__all__ = ['SymbolStyle']
+__all__ = ["SymbolStyle"]
 

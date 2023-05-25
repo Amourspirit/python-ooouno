@@ -22,7 +22,7 @@ from __future__ import annotations
 import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.style.HorizontalAlignment import HorizontalAlignmentProto
+    from com.sun.star.style.HorizontalAlignment import HorizontalAlignmentProto  # type: ignore
 
 class NumberingAlignment(ABC):
     """
@@ -69,4 +69,3 @@ class NumberingAlignment(ABC):
 
 
 __all__ = ['NumberingAlignment']
-

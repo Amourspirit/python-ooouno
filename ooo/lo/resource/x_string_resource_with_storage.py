@@ -64,3 +64,4 @@ class XStringResourceWithStorage(XStringResourcePersistence_cabc130c):
 
 __all__ = ['XStringResourceWithStorage']
 
+

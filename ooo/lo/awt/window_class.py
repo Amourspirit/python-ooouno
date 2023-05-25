@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.WindowClass import WindowClassProto
+
 
 class WindowClass(Enum):
     """
@@ -32,38 +30,38 @@ class WindowClass(Enum):
     See Also:
         `API WindowClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#add6041e42e466bb2170771f84663460b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.WindowClass'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.WindowClass"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.WindowClass'
+        return "com.sun.star.awt.WindowClass"
 
-    CONTAINER = cast("WindowClassProto", 'CONTAINER')
+    CONTAINER = "CONTAINER"
     """
     is a container that may contain other components.
     
     It is not a top window.
     """
-    MODALTOP = cast("WindowClassProto", 'MODALTOP')
+    MODALTOP = "MODALTOP"
     """
     is a modal top level window on the desktop.
     
     It is also a container.
     """
-    SIMPLE = cast("WindowClassProto", 'SIMPLE')
+    SIMPLE = "SIMPLE"
     """
     is the simplest window.
     
     It can be a container.
     """
-    TOP = cast("WindowClassProto", 'TOP')
+    TOP = "TOP"
     """
     specifies a top level window on the desktop.
     
     It is also a container.
     """
 
-__all__ = ['WindowClass']
+__all__ = ["WindowClass"]
 

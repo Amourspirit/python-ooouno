@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.i18n.DirectionProperty import DirectionPropertyProto
+
 
 class DirectionProperty(Enum):
     """
@@ -32,71 +30,71 @@ class DirectionProperty(Enum):
     See Also:
         `API DirectionProperty <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a6e8fd3df14c13e43a44061c70daacd8b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.i18n'
-    __ooo_full_ns__: str = 'com.sun.star.i18n.DirectionProperty'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.i18n"
+    __ooo_full_ns__: str = "com.sun.star.i18n.DirectionProperty"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.i18n.DirectionProperty'
+        return "com.sun.star.i18n.DirectionProperty"
 
-    ARABIC_NUMBER = cast("DirectionPropertyProto", 'ARABIC_NUMBER')
+    ARABIC_NUMBER = "ARABIC_NUMBER"
     """
     """
-    BLOCK_SEPARATOR = cast("DirectionPropertyProto", 'BLOCK_SEPARATOR')
+    BLOCK_SEPARATOR = "BLOCK_SEPARATOR"
     """
     """
-    BOUNDARY_NEUTRAL = cast("DirectionPropertyProto", 'BOUNDARY_NEUTRAL')
+    BOUNDARY_NEUTRAL = "BOUNDARY_NEUTRAL"
     """
     """
-    COMMON_NUMBER_SEPARATOR = cast("DirectionPropertyProto", 'COMMON_NUMBER_SEPARATOR')
+    COMMON_NUMBER_SEPARATOR = "COMMON_NUMBER_SEPARATOR"
     """
     """
-    DIR_NON_SPACING_MARK = cast("DirectionPropertyProto", 'DIR_NON_SPACING_MARK')
+    DIR_NON_SPACING_MARK = "DIR_NON_SPACING_MARK"
     """
     """
-    EUROPEAN_NUMBER = cast("DirectionPropertyProto", 'EUROPEAN_NUMBER')
+    EUROPEAN_NUMBER = "EUROPEAN_NUMBER"
     """
     """
-    EUROPEAN_NUMBER_SEPARATOR = cast("DirectionPropertyProto", 'EUROPEAN_NUMBER_SEPARATOR')
+    EUROPEAN_NUMBER_SEPARATOR = "EUROPEAN_NUMBER_SEPARATOR"
     """
     """
-    EUROPEAN_NUMBER_TERMINATOR = cast("DirectionPropertyProto", 'EUROPEAN_NUMBER_TERMINATOR')
+    EUROPEAN_NUMBER_TERMINATOR = "EUROPEAN_NUMBER_TERMINATOR"
     """
     """
-    LEFT_TO_RIGHT = cast("DirectionPropertyProto", 'LEFT_TO_RIGHT')
+    LEFT_TO_RIGHT = "LEFT_TO_RIGHT"
     """
     """
-    LEFT_TO_RIGHT_EMBEDDING = cast("DirectionPropertyProto", 'LEFT_TO_RIGHT_EMBEDDING')
+    LEFT_TO_RIGHT_EMBEDDING = "LEFT_TO_RIGHT_EMBEDDING"
     """
     """
-    LEFT_TO_RIGHT_OVERRIDE = cast("DirectionPropertyProto", 'LEFT_TO_RIGHT_OVERRIDE')
+    LEFT_TO_RIGHT_OVERRIDE = "LEFT_TO_RIGHT_OVERRIDE"
     """
     """
-    OTHER_NEUTRAL = cast("DirectionPropertyProto", 'OTHER_NEUTRAL')
+    OTHER_NEUTRAL = "OTHER_NEUTRAL"
     """
     """
-    POP_DIRECTIONAL_FORMAT = cast("DirectionPropertyProto", 'POP_DIRECTIONAL_FORMAT')
+    POP_DIRECTIONAL_FORMAT = "POP_DIRECTIONAL_FORMAT"
     """
     """
-    RIGHT_TO_LEFT = cast("DirectionPropertyProto", 'RIGHT_TO_LEFT')
+    RIGHT_TO_LEFT = "RIGHT_TO_LEFT"
     """
     """
-    RIGHT_TO_LEFT_ARABIC = cast("DirectionPropertyProto", 'RIGHT_TO_LEFT_ARABIC')
+    RIGHT_TO_LEFT_ARABIC = "RIGHT_TO_LEFT_ARABIC"
     """
     """
-    RIGHT_TO_LEFT_EMBEDDING = cast("DirectionPropertyProto", 'RIGHT_TO_LEFT_EMBEDDING')
+    RIGHT_TO_LEFT_EMBEDDING = "RIGHT_TO_LEFT_EMBEDDING"
     """
     """
-    RIGHT_TO_LEFT_OVERRIDE = cast("DirectionPropertyProto", 'RIGHT_TO_LEFT_OVERRIDE')
+    RIGHT_TO_LEFT_OVERRIDE = "RIGHT_TO_LEFT_OVERRIDE"
     """
     """
-    SEGMENT_SEPARATOR = cast("DirectionPropertyProto", 'SEGMENT_SEPARATOR')
+    SEGMENT_SEPARATOR = "SEGMENT_SEPARATOR"
     """
     """
-    WHITE_SPACE_NEUTRAL = cast("DirectionPropertyProto", 'WHITE_SPACE_NEUTRAL')
+    WHITE_SPACE_NEUTRAL = "WHITE_SPACE_NEUTRAL"
     """
     """
 
-__all__ = ['DirectionProperty']
+__all__ = ["DirectionProperty"]
 

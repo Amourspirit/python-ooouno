@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.beans
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.beans.PropertyState import PropertyStateProto
+
 
 class PropertyState(Enum):
     """
@@ -32,28 +30,28 @@ class PropertyState(Enum):
     See Also:
         `API PropertyState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1beans.html#a1a5ccb5c59cace4a214c1e2eae8620b0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.beans'
-    __ooo_full_ns__: str = 'com.sun.star.beans.PropertyState'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.beans"
+    __ooo_full_ns__: str = "com.sun.star.beans.PropertyState"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.beans.PropertyState'
+        return "com.sun.star.beans.PropertyState"
 
-    AMBIGUOUS_VALUE = cast("PropertyStateProto", 'AMBIGUOUS_VALUE')
+    AMBIGUOUS_VALUE = "AMBIGUOUS_VALUE"
     """
     The value of the property is only a recommendation because there are multiple values for this property (e.g., from a multi selection).
     
     The PropertyAttribute field in the struct Property must contain the PropertyAttribute.MAYBEAMBIGUOUS flag. The property value must be available and of the specified type. If the Attribute field in the struct Property contains PropertyAttribute.MAYBEVOID, then the value may be void.
     """
-    DEFAULT_VALUE = cast("PropertyStateProto", 'DEFAULT_VALUE')
+    DEFAULT_VALUE = "DEFAULT_VALUE"
     """
     The value of the property is available from a master (e.g., template).
     """
-    DIRECT_VALUE = cast("PropertyStateProto", 'DIRECT_VALUE')
+    DIRECT_VALUE = "DIRECT_VALUE"
     """
     The value of the property is stored in the PropertySet itself.
     """
 
-__all__ = ['PropertyState']
+__all__ = ["PropertyState"]
 

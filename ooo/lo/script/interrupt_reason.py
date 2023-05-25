@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.script
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.script.InterruptReason import InterruptReasonProto
+
 
 class InterruptReason(Enum):
     """
@@ -32,48 +30,48 @@ class InterruptReason(Enum):
     See Also:
         `API InterruptReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a298e9238891ddece524d1b3732aa33e4>`_
     """
-    __ooo_ns__: str = 'com.sun.star.script'
-    __ooo_full_ns__: str = 'com.sun.star.script.InterruptReason'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.script"
+    __ooo_full_ns__: str = "com.sun.star.script.InterruptReason"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.script.InterruptReason'
+        return "com.sun.star.script.InterruptReason"
 
-    BreakPoint = cast("InterruptReasonProto", 'BreakPoint')
+    BreakPoint = "BreakPoint"
     """
     script stopped at a breakpoint.
     """
-    Cancel = cast("InterruptReasonProto", 'Cancel')
+    Cancel = "Cancel"
     """
     script in the engine was cancelled.
     
     script execution was cancelled.
     """
-    CompileError = cast("InterruptReasonProto", 'CompileError')
+    CompileError = "CompileError"
     """
     script has invalid syntax.
     """
-    RuntimeError = cast("InterruptReasonProto", 'RuntimeError')
+    RuntimeError = "RuntimeError"
     """
     runtime error occurred during script execution.
     """
-    Step = cast("InterruptReasonProto", 'Step')
+    Step = "Step"
     """
     script stops because only one scripting engine command was executed.
     """
-    StepOut = cast("InterruptReasonProto", 'StepOut')
+    StepOut = "StepOut"
     """
     script stops because it leaves a function.
     """
-    StepOver = cast("InterruptReasonProto", 'StepOver')
+    StepOver = "StepOver"
     """
     script stops because one step was executed.
     """
-    StepStatement = cast("InterruptReasonProto", 'StepStatement')
+    StepStatement = "StepStatement"
     """
     script stop because one step was executed.
     """
 
-__all__ = ['InterruptReason']
+__all__ = ["InterruptReason"]
 

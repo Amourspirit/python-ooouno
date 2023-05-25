@@ -78,3 +78,4 @@ class XWindow2(XWindow_713b0924):
 
 __all__ = ['XWindow2']
 
+

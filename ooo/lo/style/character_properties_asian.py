@@ -23,7 +23,7 @@ import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from ..lang.locale import Locale as Locale_70d308fa
-    from com.sun.star.awt.FontSlant import FontSlantProto
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
 
 class CharacterPropertiesAsian(ABC):
     """
@@ -107,4 +107,3 @@ class CharacterPropertiesAsian(ABC):
 
 
 __all__ = ['CharacterPropertiesAsian']
-

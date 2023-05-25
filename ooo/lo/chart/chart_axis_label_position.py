@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartAxisLabelPosition import ChartAxisLabelPositionProto
+
 
 class ChartAxisLabelPosition(Enum):
     """
@@ -32,36 +30,36 @@ class ChartAxisLabelPosition(Enum):
     See Also:
         `API ChartAxisLabelPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a693b6b549818a6055effeaf72501bd26>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisLabelPosition'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartAxisLabelPosition"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartAxisLabelPosition'
+        return "com.sun.star.chart.ChartAxisLabelPosition"
 
-    NEAR_AXIS = cast("ChartAxisLabelPositionProto", 'NEAR_AXIS')
+    NEAR_AXIS = "NEAR_AXIS"
     """
     The labels are placed adjacent to the axis.
     
     When the axis itself is placed at the minimum or maximum of the scale ( that is when the property CrossoverPosition equals ChartAxisPosition_MINIMUM or ChartAxisPosition_MAXIMUM) the labels are placed outside the coordinate system. Otherwise the labels are placed adjacent to the axis on that side that belongs to the lower values on the crossing axis. E.g. when the ChartAxisLabelPosition is set to NEAR_AXIS for an y axis the labels are placed adjacent to the y axis on that side that belongs to the lower x values.
     """
-    NEAR_AXIS_OTHER_SIDE = cast("ChartAxisLabelPositionProto", 'NEAR_AXIS_OTHER_SIDE')
+    NEAR_AXIS_OTHER_SIDE = "NEAR_AXIS_OTHER_SIDE"
     """
     The labels are placed adjacent to the axis on the opposite side as for NEAR_AXIS.
     """
-    OUTSIDE_END = cast("ChartAxisLabelPositionProto", 'OUTSIDE_END')
+    OUTSIDE_END = "OUTSIDE_END"
     """
     The labels are placed outside the coordinate region on that side where the crossing axis has its maximum value.
     
     E.g. when this is set for an y axis the labels are placed outside the diagram on that side where to the x axis has its maximum value.
     """
-    OUTSIDE_START = cast("ChartAxisLabelPositionProto", 'OUTSIDE_START')
+    OUTSIDE_START = "OUTSIDE_START"
     """
     The labels are placed outside the coordinate region on that side where the crossing axis has its minimum value.
     
     E.g. when this is set for an y axis the labels are placed outside the diagram on that side where to the x axis has its minimum value.
     """
 
-__all__ = ['ChartAxisLabelPosition']
+__all__ = ["ChartAxisLabelPosition"]
 

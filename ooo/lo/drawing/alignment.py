@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.Alignment import AlignmentProto
+
 
 class Alignment(Enum):
     """
@@ -32,15 +30,15 @@ class Alignment(Enum):
     See Also:
         `API Alignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#acdfaca60ec19c0265bac2692d7982726>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.Alignment'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.Alignment"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.Alignment'
+        return "com.sun.star.drawing.Alignment"
 
-    BOTTOM = cast("AlignmentProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     the connection line leaves the connected object from the bottom,
     
@@ -48,17 +46,17 @@ class Alignment(Enum):
     
     The bottom edge of the text is adjusted to the bottom edge of the shape.
     """
-    BOTTOM_LEFT = cast("AlignmentProto", 'BOTTOM_LEFT')
+    BOTTOM_LEFT = "BOTTOM_LEFT"
     """
     """
-    BOTTOM_RIGHT = cast("AlignmentProto", 'BOTTOM_RIGHT')
+    BOTTOM_RIGHT = "BOTTOM_RIGHT"
     """
     """
-    CENTER = cast("AlignmentProto", 'CENTER')
+    CENTER = "CENTER"
     """
     The text is centered inside the shape.
     """
-    LEFT = cast("AlignmentProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the connection line leaves the connected object to the left,
     
@@ -66,7 +64,7 @@ class Alignment(Enum):
     
     The text is positioned to the left.
     """
-    RIGHT = cast("AlignmentProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the connection line leaves the connected object to the right,
     
@@ -74,7 +72,7 @@ class Alignment(Enum):
     
     The text is positioned to the right.
     """
-    TOP = cast("AlignmentProto", 'TOP')
+    TOP = "TOP"
     """
     the connection line leaves the connected object from the top,
     
@@ -82,12 +80,12 @@ class Alignment(Enum):
     
     The top edge of the text is adjusted to the top edge of the shape.
     """
-    TOP_LEFT = cast("AlignmentProto", 'TOP_LEFT')
+    TOP_LEFT = "TOP_LEFT"
     """
     """
-    TOP_RIGHT = cast("AlignmentProto", 'TOP_RIGHT')
+    TOP_RIGHT = "TOP_RIGHT"
     """
     """
 
-__all__ = ['Alignment']
+__all__ = ["Alignment"]
 

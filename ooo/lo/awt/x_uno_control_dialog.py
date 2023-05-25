@@ -46,3 +46,4 @@ class XUnoControlDialog(XControl_7a9c098d, XControlContainer_e22d0d30, XDialog2_
 
 __all__ = ['XUnoControlDialog']
 
+

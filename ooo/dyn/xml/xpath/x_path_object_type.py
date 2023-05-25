@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,74 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class XPathObjectType(metaclass=UnoEnumMeta, type_name="com.sun.star.xml.xpath.XPathObjectType", name_space="com.sun.star.xml.xpath"):
         """Dynamically created class that represents ``com.sun.star.xml.xpath.XPathObjectType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_BOOLEAN as X_PATH_OBJECT_TYPE_XPATH_BOOLEAN
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_LOCATIONSET as X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_NODESET as X_PATH_OBJECT_TYPE_XPATH_NODESET
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_NUMBER as X_PATH_OBJECT_TYPE_XPATH_NUMBER
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_POINT as X_PATH_OBJECT_TYPE_XPATH_POINT
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_RANGE as X_PATH_OBJECT_TYPE_XPATH_RANGE
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_STRING as X_PATH_OBJECT_TYPE_XPATH_STRING
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_UNDEFINED as X_PATH_OBJECT_TYPE_XPATH_UNDEFINED
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_USERS as X_PATH_OBJECT_TYPE_XPATH_USERS
-        from com.sun.star.xml.xpath.XPathObjectType import XPATH_XSLT_TREE as X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE
+    from ....lo.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType
 
-        class XPathObjectType(uno.Enum):
-            """
-            Enum Class
-
-            ENUM XPathObjectType
-
-            See Also:
-                `API XPathObjectType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1xpath.html#a4e7de3ae7d09203486b85490e0a6f1a3>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.xml.xpath.XPathObjectType', value)
-
-            __ooo_ns__: str = 'com.sun.star.xml.xpath'
-            __ooo_full_ns__: str = 'com.sun.star.xml.xpath.XPathObjectType'
-            __ooo_type_name__: str = 'enum'
-
-            XPATH_BOOLEAN = X_PATH_OBJECT_TYPE_XPATH_BOOLEAN
-            """
-            """
-            XPATH_LOCATIONSET = X_PATH_OBJECT_TYPE_XPATH_LOCATIONSET
-            """
-            """
-            XPATH_NODESET = X_PATH_OBJECT_TYPE_XPATH_NODESET
-            """
-            """
-            XPATH_NUMBER = X_PATH_OBJECT_TYPE_XPATH_NUMBER
-            """
-            """
-            XPATH_POINT = X_PATH_OBJECT_TYPE_XPATH_POINT
-            """
-            """
-            XPATH_RANGE = X_PATH_OBJECT_TYPE_XPATH_RANGE
-            """
-            """
-            XPATH_STRING = X_PATH_OBJECT_TYPE_XPATH_STRING
-            """
-            """
-            XPATH_UNDEFINED = X_PATH_OBJECT_TYPE_XPATH_UNDEFINED
-            """
-            """
-            XPATH_USERS = X_PATH_OBJECT_TYPE_XPATH_USERS
-            """
-            """
-            XPATH_XSLT_TREE = X_PATH_OBJECT_TYPE_XPATH_XSLT_TREE
-            """
-            """
-    else:
-        # keep document generators happy
-        from ....lo.xml.xpath.x_path_object_type import XPathObjectType as XPathObjectType
-
-
-__all__ = ['XPathObjectType']
+__all__ = ["XPathObjectType"]

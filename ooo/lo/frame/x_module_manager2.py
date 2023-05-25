@@ -41,3 +41,4 @@ class XModuleManager2(XNameReplace_f0900d60, XModuleManager_d3920c8c):
 
 __all__ = ['XModuleManager2']
 
+

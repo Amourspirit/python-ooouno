@@ -41,3 +41,4 @@ class XOLESimpleStorage(XNameContainer_cb90e47, XClassifiedObject_fa3b0dab, XTra
 
 __all__ = ['XOLESimpleStorage']
 
+

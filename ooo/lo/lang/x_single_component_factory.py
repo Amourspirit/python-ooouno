@@ -58,3 +58,4 @@ class XSingleComponentFactory(XInterface_8f010a43):
 
 __all__ = ['XSingleComponentFactory']
 
+

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,88 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ExtAltNameType(metaclass=UnoEnumMeta, type_name="com.sun.star.security.ExtAltNameType", name_space="com.sun.star.security"):
         """Dynamically created class that represents ``com.sun.star.security.ExtAltNameType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.security.ExtAltNameType import DIRECTORY_NAME as EXT_ALT_NAME_TYPE_DIRECTORY_NAME
-        from com.sun.star.security.ExtAltNameType import DNS_NAME as EXT_ALT_NAME_TYPE_DNS_NAME
-        from com.sun.star.security.ExtAltNameType import EDI_PARTY_NAME as EXT_ALT_NAME_TYPE_EDI_PARTY_NAME
-        from com.sun.star.security.ExtAltNameType import IP_ADDRESS as EXT_ALT_NAME_TYPE_IP_ADDRESS
-        from com.sun.star.security.ExtAltNameType import OTHER_NAME as EXT_ALT_NAME_TYPE_OTHER_NAME
-        from com.sun.star.security.ExtAltNameType import REGISTERED_ID as EXT_ALT_NAME_TYPE_REGISTERED_ID
-        from com.sun.star.security.ExtAltNameType import RFC822_NAME as EXT_ALT_NAME_TYPE_RFC822_NAME
-        from com.sun.star.security.ExtAltNameType import URL as EXT_ALT_NAME_TYPE_URL
-        from com.sun.star.security.ExtAltNameType import X400_ADDRESS as EXT_ALT_NAME_TYPE_X400_ADDRESS
+    from ...lo.security.ext_alt_name_type import ExtAltNameType as ExtAltNameType
 
-        class ExtAltNameType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ExtAltNameType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1security.html#a5c5a31742567126d2ba88393b05efa3f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.security.ExtAltNameType', value)
-
-            __ooo_ns__: str = 'com.sun.star.security'
-            __ooo_full_ns__: str = 'com.sun.star.security.ExtAltNameType'
-            __ooo_type_name__: str = 'enum'
-
-            DIRECTORY_NAME = EXT_ALT_NAME_TYPE_DIRECTORY_NAME
-            """
-            Currently unsupported.
-            """
-            DNS_NAME = EXT_ALT_NAME_TYPE_DNS_NAME
-            """
-            The entry contains a dns name.
-
-            The value of CertAltNameEntry contains a OUString.
-            """
-            EDI_PARTY_NAME = EXT_ALT_NAME_TYPE_EDI_PARTY_NAME
-            """
-            Currently unsupported.
-            """
-            IP_ADDRESS = EXT_ALT_NAME_TYPE_IP_ADDRESS
-            """
-            The entry contains an IP address.
-
-            The value of CertAltNameEntry contains a Sequence of sal_Int8.
-            """
-            OTHER_NAME = EXT_ALT_NAME_TYPE_OTHER_NAME
-            """
-            Customize name/value pair The value of CertAltNameEntry contains a NamedValue.
-            """
-            REGISTERED_ID = EXT_ALT_NAME_TYPE_REGISTERED_ID
-            """
-            The entry contains a registered id.
-
-            The value of CertAltNameEntry contains a OUString.
-            """
-            RFC822_NAME = EXT_ALT_NAME_TYPE_RFC822_NAME
-            """
-            The entry contains rfc822 name.
-
-            The value of CertAltNameEntry contains an OUString.
-            """
-            URL = EXT_ALT_NAME_TYPE_URL
-            """
-            The entry contains a URL.
-
-            The value of CertAltNameEntry contains a OUString.
-            """
-            X400_ADDRESS = EXT_ALT_NAME_TYPE_X400_ADDRESS
-            """
-            Currently unsupported.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.security.ext_alt_name_type import ExtAltNameType as ExtAltNameType
-
-
-__all__ = ['ExtAltNameType']
+__all__ = ["ExtAltNameType"]

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.script
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.script.MemberType import MemberTypeProto
+
 
 class MemberType(Enum):
     """
@@ -32,23 +30,23 @@ class MemberType(Enum):
     See Also:
         `API MemberType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a63e3de542c5d38de617ab78c8c8f5a41>`_
     """
-    __ooo_ns__: str = 'com.sun.star.script'
-    __ooo_full_ns__: str = 'com.sun.star.script.MemberType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.script"
+    __ooo_full_ns__: str = "com.sun.star.script.MemberType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.script.MemberType'
+        return "com.sun.star.script.MemberType"
 
-    METHOD = cast("MemberTypeProto", 'METHOD')
+    METHOD = "METHOD"
     """
     """
-    PROPERTY = cast("MemberTypeProto", 'PROPERTY')
+    PROPERTY = "PROPERTY"
     """
     """
-    UNKNOWN = cast("MemberTypeProto", 'UNKNOWN')
+    UNKNOWN = "UNKNOWN"
     """
     """
 
-__all__ = ['MemberType']
+__all__ = ["MemberType"]
 

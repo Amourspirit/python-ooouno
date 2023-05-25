@@ -24,8 +24,8 @@ import uno
 from abc import abstractmethod, abstractproperty
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
-    from com.sun.star.registry.RegistryKeyType import RegistryKeyTypeProto
-    from com.sun.star.registry.RegistryValueType import RegistryValueTypeProto
+    from com.sun.star.registry.RegistryKeyType import RegistryKeyTypeProto  # type: ignore
+    from com.sun.star.registry.RegistryValueType import RegistryValueTypeProto  # type: ignore
 
 class XRegistryKey(XInterface_8f010a43):
     """
@@ -316,4 +316,3 @@ class XRegistryKey(XInterface_8f010a43):
 
 
 __all__ = ['XRegistryKey']
-

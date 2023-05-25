@@ -59,3 +59,4 @@ class XEncryptionProtectedSource2(XEncryptionProtectedSource_8cdf11a3):
 
 __all__ = ['XEncryptionProtectedSource2']
 
+

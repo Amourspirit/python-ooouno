@@ -23,7 +23,7 @@ import typing
 from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
-    from com.sun.star.uno.TypeClass import TypeClassProto
+    from com.sun.star.uno.TypeClass import TypeClassProto  # type: ignore
 
 class XTypeDescription(XInterface_8f010a43):
     """
@@ -51,4 +51,3 @@ class XTypeDescription(XInterface_8f010a43):
         ...
 
 __all__ = ['XTypeDescription']
-

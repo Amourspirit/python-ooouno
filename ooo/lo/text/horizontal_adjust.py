@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.text.HorizontalAdjust import HorizontalAdjustProto
+
 
 class HorizontalAdjust(Enum):
     """
@@ -32,21 +30,21 @@ class HorizontalAdjust(Enum):
     See Also:
         `API HorizontalAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a8105146481666b39ebbd63a934576b6c>`_
     """
-    __ooo_ns__: str = 'com.sun.star.text'
-    __ooo_full_ns__: str = 'com.sun.star.text.HorizontalAdjust'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.text"
+    __ooo_full_ns__: str = "com.sun.star.text.HorizontalAdjust"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.text.HorizontalAdjust'
+        return "com.sun.star.text.HorizontalAdjust"
 
-    CENTER = cast("HorizontalAdjustProto", 'CENTER')
+    CENTER = "CENTER"
     """
     the object is adjusted to the center.
     
     centric adjusted.
     """
-    LEFT = cast("HorizontalAdjustProto", 'LEFT')
+    LEFT = "LEFT"
     """
     the object is left adjusted.
     
@@ -54,7 +52,7 @@ class HorizontalAdjust(Enum):
     
     adjusted to the left.
     """
-    RIGHT = cast("HorizontalAdjustProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     the object is right adjusted.
     
@@ -63,5 +61,5 @@ class HorizontalAdjust(Enum):
     adjusted to the right.
     """
 
-__all__ = ['HorizontalAdjust']
+__all__ = ["HorizontalAdjust"]
 

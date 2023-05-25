@@ -128,3 +128,4 @@ class XAccessibleEditableText(XAccessibleText_5b77105b):
 
 __all__ = ['XAccessibleEditableText']
 
+

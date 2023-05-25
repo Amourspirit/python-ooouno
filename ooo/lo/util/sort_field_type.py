@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.util
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.util.SortFieldType import SortFieldTypeProto
+
 
 class SortFieldType(Enum):
     """
@@ -32,26 +30,26 @@ class SortFieldType(Enum):
     See Also:
         `API SortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#aa222808b6dd3437074e57760d8e15a83>`_
     """
-    __ooo_ns__: str = 'com.sun.star.util'
-    __ooo_full_ns__: str = 'com.sun.star.util.SortFieldType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.util"
+    __ooo_full_ns__: str = "com.sun.star.util.SortFieldType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.util.SortFieldType'
+        return "com.sun.star.util.SortFieldType"
 
-    ALPHANUMERIC = cast("SortFieldTypeProto", 'ALPHANUMERIC')
+    ALPHANUMERIC = "ALPHANUMERIC"
     """
     sort field contains text data.
     """
-    AUTOMATIC = cast("SortFieldTypeProto", 'AUTOMATIC')
+    AUTOMATIC = "AUTOMATIC"
     """
     type is determined automatically.
     """
-    NUMERIC = cast("SortFieldTypeProto", 'NUMERIC')
+    NUMERIC = "NUMERIC"
     """
     sort field contains numerical data.
     """
 
-__all__ = ['SortFieldType']
+__all__ = ["SortFieldType"]
 

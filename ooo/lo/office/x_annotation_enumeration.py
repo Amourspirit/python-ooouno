@@ -53,3 +53,4 @@ class XAnnotationEnumeration(ABC):
 
 __all__ = ['XAnnotationEnumeration']
 
+

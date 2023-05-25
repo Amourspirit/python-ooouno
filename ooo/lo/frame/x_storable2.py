@@ -54,3 +54,4 @@ class XStorable2(XStorable_998f0aa7):
 
 __all__ = ['XStorable2']
 
+

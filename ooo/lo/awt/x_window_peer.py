@@ -73,3 +73,4 @@ class XWindowPeer(XComponent_98dc0ab5):
 
 __all__ = ['XWindowPeer']
 
+

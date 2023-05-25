@@ -70,3 +70,4 @@ class XXMLSignatureTemplate(XXMLSecurityTemplate_79221105):
 
 __all__ = ['XXMLSignatureTemplate']
 
+

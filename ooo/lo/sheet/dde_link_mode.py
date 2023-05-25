@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.DDELinkMode import DDELinkModeProto
+
 
 class DDELinkMode(Enum):
     """
@@ -32,26 +30,26 @@ class DDELinkMode(Enum):
     See Also:
         `API DDELinkMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a1b95ca535d92ad726d77981ea3d8ef8b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.DDELinkMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.DDELinkMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.DDELinkMode'
+        return "com.sun.star.sheet.DDELinkMode"
 
-    DEFAULT = cast("DDELinkModeProto", 'DEFAULT')
+    DEFAULT = "DEFAULT"
     """
     numbers are converted into the default format.
     """
-    ENGLISH = cast("DDELinkModeProto", 'ENGLISH')
+    ENGLISH = "ENGLISH"
     """
     numbers are converted into the English default format.
     """
-    TEXT = cast("DDELinkModeProto", 'TEXT')
+    TEXT = "TEXT"
     """
     numbers are not converted, but treated as text.
     """
 
-__all__ = ['DDELinkMode']
+__all__ = ["DDELinkMode"]
 

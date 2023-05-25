@@ -28,10 +28,10 @@ from ..style.character_properties import CharacterProperties as CharacterPropert
 from ..xml.user_defined_attributes_supplier import UserDefinedAttributesSupplier as UserDefinedAttributesSupplier_9fbe1222
 if typing.TYPE_CHECKING:
     from .time_increment import TimeIncrement as TimeIncrement_c7e70c4e
-    from com.sun.star.chart.ChartAxisArrangeOrderType import ChartAxisArrangeOrderTypeProto
-    from com.sun.star.chart.ChartAxisPosition import ChartAxisPositionProto
-    from com.sun.star.chart.ChartAxisLabelPosition import ChartAxisLabelPositionProto
-    from com.sun.star.chart.ChartAxisMarkPosition import ChartAxisMarkPositionProto
+    from com.sun.star.chart.ChartAxisArrangeOrderType import ChartAxisArrangeOrderTypeProto  # type: ignore
+    from com.sun.star.chart.ChartAxisPosition import ChartAxisPositionProto  # type: ignore
+    from com.sun.star.chart.ChartAxisLabelPosition import ChartAxisLabelPositionProto  # type: ignore
+    from com.sun.star.chart.ChartAxisMarkPosition import ChartAxisMarkPositionProto  # type: ignore
 
 class ChartAxis(LineProperties_f13f0da9, CharacterProperties_1d4f0ef3, UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bfa, XAxis_71210907):
     """
@@ -293,4 +293,3 @@ class ChartAxis(LineProperties_f13f0da9, CharacterProperties_1d4f0ef3, UserDefin
 
 
 __all__ = ['ChartAxis']
-

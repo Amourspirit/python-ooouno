@@ -50,3 +50,4 @@ class XNativeNumberSupplier2(XNativeNumberSupplier_1eb80ec4):
 
 __all__ = ['XNativeNumberSupplier2']
 
+

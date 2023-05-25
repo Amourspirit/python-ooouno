@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,109 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FilterOperator(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FilterOperator", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.FilterOperator`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.sheet.FilterOperator import BOTTOM_PERCENT as FILTER_OPERATOR_BOTTOM_PERCENT
-        from com.sun.star.sheet.FilterOperator import BOTTOM_VALUES as FILTER_OPERATOR_BOTTOM_VALUES
-        from com.sun.star.sheet.FilterOperator import EMPTY as FILTER_OPERATOR_EMPTY
-        from com.sun.star.sheet.FilterOperator import EQUAL as FILTER_OPERATOR_EQUAL
-        from com.sun.star.sheet.FilterOperator import GREATER as FILTER_OPERATOR_GREATER
-        from com.sun.star.sheet.FilterOperator import GREATER_EQUAL as FILTER_OPERATOR_GREATER_EQUAL
-        from com.sun.star.sheet.FilterOperator import LESS as FILTER_OPERATOR_LESS
-        from com.sun.star.sheet.FilterOperator import LESS_EQUAL as FILTER_OPERATOR_LESS_EQUAL
-        from com.sun.star.sheet.FilterOperator import NOT_EMPTY as FILTER_OPERATOR_NOT_EMPTY
-        from com.sun.star.sheet.FilterOperator import NOT_EQUAL as FILTER_OPERATOR_NOT_EQUAL
-        from com.sun.star.sheet.FilterOperator import TOP_PERCENT as FILTER_OPERATOR_TOP_PERCENT
-        from com.sun.star.sheet.FilterOperator import TOP_VALUES as FILTER_OPERATOR_TOP_VALUES
+    from ...lo.sheet.filter_operator import FilterOperator as FilterOperator
 
-        class FilterOperator(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FilterOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af9e5fd8fd26fc252748d97ebd68ea6b1>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.sheet.FilterOperator', value)
-
-            __ooo_ns__: str = 'com.sun.star.sheet'
-            __ooo_full_ns__: str = 'com.sun.star.sheet.FilterOperator'
-            __ooo_type_name__: str = 'enum'
-
-            BOTTOM_PERCENT = FILTER_OPERATOR_BOTTOM_PERCENT
-            """
-            selects a specified percentage of entries with the lowest values.
-            """
-            BOTTOM_VALUES = FILTER_OPERATOR_BOTTOM_VALUES
-            """
-            selects a specified number of entries with the lowest values.
-            """
-            EMPTY = FILTER_OPERATOR_EMPTY
-            """
-            selects empty entries.
-            """
-            EQUAL = FILTER_OPERATOR_EQUAL
-            """
-            value has to be equal to the specified value.
-
-            The cell value is equal to the specified value.
-            """
-            GREATER = FILTER_OPERATOR_GREATER
-            """
-            the value has to be greater than the specified value.
-
-            value has to be greater than the specified value.
-            """
-            GREATER_EQUAL = FILTER_OPERATOR_GREATER_EQUAL
-            """
-            the value has to be greater than or equal to the specified value.
-
-            The cell value is greater or equal to the specified value.
-
-            value has to be greater than or equal to the specified value.
-            """
-            LESS = FILTER_OPERATOR_LESS
-            """
-            the value has to be less than the specified value.
-
-            value has to be less than the specified value.
-            """
-            LESS_EQUAL = FILTER_OPERATOR_LESS_EQUAL
-            """
-            the value has to be less than or equal to the specified value.
-
-            The cell value is less or equal to the specified value.
-
-            value has to be less than or equal to the specified value.
-            """
-            NOT_EMPTY = FILTER_OPERATOR_NOT_EMPTY
-            """
-            selects non-empty entries.
-            """
-            NOT_EQUAL = FILTER_OPERATOR_NOT_EQUAL
-            """
-            the value must not be equal to the specified value.
-
-            value must not be equal to the specified value.
-            """
-            TOP_PERCENT = FILTER_OPERATOR_TOP_PERCENT
-            """
-            selects a specified percentage of entries with the greatest values.
-            """
-            TOP_VALUES = FILTER_OPERATOR_TOP_VALUES
-            """
-            selects a specified number of entries with the greatest values.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.sheet.filter_operator import FilterOperator as FilterOperator
-
-
-__all__ = ['FilterOperator']
+__all__ = ["FilterOperator"]

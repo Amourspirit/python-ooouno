@@ -56,3 +56,4 @@ class XMessageBox(ABC):
 
 __all__ = ['XMessageBox']
 
+

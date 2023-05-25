@@ -88,3 +88,4 @@ class XValidatableFormComponent(XValidatable_49570fc6):
 
 __all__ = ['XValidatableFormComponent']
 
+

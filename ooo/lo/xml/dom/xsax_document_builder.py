@@ -25,7 +25,7 @@ from ...uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_document import XDocument as XDocument_aebc0b5e
     from .x_document_fragment import XDocumentFragment as XDocumentFragment_17850e92
-    from com.sun.star.xml.dom.SAXDocumentBuilderState import SAXDocumentBuilderStateProto
+    from com.sun.star.xml.dom.SAXDocumentBuilderState import SAXDocumentBuilderStateProto  # type: ignore
 
 class XSAXDocumentBuilder(XInterface_8f010a43):
     """
@@ -71,4 +71,3 @@ class XSAXDocumentBuilder(XInterface_8f010a43):
         ...
 
 __all__ = ['XSAXDocumentBuilder']
-

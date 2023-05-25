@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.view
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.view.PaperOrientation import PaperOrientationProto
+
 
 class PaperOrientation(Enum):
     """
@@ -32,22 +30,22 @@ class PaperOrientation(Enum):
     See Also:
         `API PaperOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#a5312aa9f24f5483f2a37fd41a47d852a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.view'
-    __ooo_full_ns__: str = 'com.sun.star.view.PaperOrientation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.view"
+    __ooo_full_ns__: str = "com.sun.star.view.PaperOrientation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.view.PaperOrientation'
+        return "com.sun.star.view.PaperOrientation"
 
-    LANDSCAPE = cast("PaperOrientationProto", 'LANDSCAPE')
+    LANDSCAPE = "LANDSCAPE"
     """
     set the paper orientation to landscape.
     """
-    PORTRAIT = cast("PaperOrientationProto", 'PORTRAIT')
+    PORTRAIT = "PORTRAIT"
     """
     set the paper orientation to portrait.
     """
 
-__all__ = ['PaperOrientation']
+__all__ = ["PaperOrientation"]
 

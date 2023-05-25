@@ -22,7 +22,7 @@ from __future__ import annotations
 import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import EnhancedCustomShapeTextPathModeProto
+    from com.sun.star.drawing.EnhancedCustomShapeTextPathMode import EnhancedCustomShapeTextPathModeProto  # type: ignore
 
 class EnhancedCustomShapeTextPath(ABC):
     """
@@ -62,4 +62,3 @@ class EnhancedCustomShapeTextPath(ABC):
 
 
 __all__ = ['EnhancedCustomShapeTextPath']
-

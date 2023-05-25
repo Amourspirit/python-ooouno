@@ -22,7 +22,7 @@ from __future__ import annotations
 import typing
 from abc import abstractmethod, ABC
 if typing.TYPE_CHECKING:
-    from com.sun.star.security.CertificateContainerStatus import CertificateContainerStatusProto
+    from com.sun.star.security.CertificateContainerStatus import CertificateContainerStatusProto  # type: ignore
 
 class XCertificateContainer(ABC):
     """
@@ -54,4 +54,3 @@ class XCertificateContainer(ABC):
         ...
 
 __all__ = ['XCertificateContainer']
-

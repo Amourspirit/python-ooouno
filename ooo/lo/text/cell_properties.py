@@ -29,7 +29,7 @@ if typing.TYPE_CHECKING:
     from .x_text import XText as XText_690408ca
     from .x_text_section import XTextSection as XTextSection_b1730b9f
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
 
 class CellProperties(UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bfa):
     """
@@ -202,4 +202,3 @@ class CellProperties(UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180b
 
 
 __all__ = ['CellProperties']
-

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.TabulatorCycle import TabulatorCycleProto
+
 
 class TabulatorCycle(Enum):
     """
@@ -32,15 +30,15 @@ class TabulatorCycle(Enum):
     See Also:
         `API TabulatorCycle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#acb5251eb1c7e6ff2149158596346de94>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.TabulatorCycle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.TabulatorCycle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.TabulatorCycle'
+        return "com.sun.star.form.TabulatorCycle"
 
-    CURRENT = cast("TabulatorCycleProto", 'CURRENT')
+    CURRENT = "CURRENT"
     """
     a navigation bar is provided and navigation will be performed on the current/active form.
     
@@ -48,14 +46,14 @@ class TabulatorCycle(Enum):
     
     This is the default and most often encountered mode.
     """
-    PAGE = cast("TabulatorCycleProto", 'PAGE')
+    PAGE = "PAGE"
     """
     pressing the TAB key from the last control of a form moves the focus to the first control of the next form in the tab order.
     """
-    RECORDS = cast("TabulatorCycleProto", 'RECORDS')
+    RECORDS = "RECORDS"
     """
     pressing the TAB key from the last control moves the focus to the first control in the tab order of the next record.
     """
 
-__all__ = ['TabulatorCycle']
+__all__ = ["TabulatorCycle"]
 

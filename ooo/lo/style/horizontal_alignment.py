@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.HorizontalAlignment import HorizontalAlignmentProto
+
 
 class HorizontalAlignment(Enum):
     """
@@ -32,15 +30,15 @@ class HorizontalAlignment(Enum):
     See Also:
         `API HorizontalAlignment <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#aa00e70829e72ff16addc4d9f06fe3bc5>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.HorizontalAlignment'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.HorizontalAlignment"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.HorizontalAlignment'
+        return "com.sun.star.style.HorizontalAlignment"
 
-    CENTER = cast("HorizontalAlignmentProto", 'CENTER')
+    CENTER = "CENTER"
     """
     set the horizontal alignment to the center between the margins from the container object
     
@@ -48,7 +46,7 @@ class HorizontalAlignment(Enum):
     
     adjusted to the center
     """
-    LEFT = cast("HorizontalAlignmentProto", 'LEFT')
+    LEFT = "LEFT"
     """
     set the horizontal alignment to the left margin from the container object
     
@@ -58,7 +56,7 @@ class HorizontalAlignment(Enum):
     
     The page style is only used for left pages.
     """
-    RIGHT = cast("HorizontalAlignmentProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     set the horizontal alignment to the right margin from the container object
     
@@ -69,5 +67,5 @@ class HorizontalAlignment(Enum):
     The page style is only used for right pages.
     """
 
-__all__ = ['HorizontalAlignment']
+__all__ = ["HorizontalAlignment"]
 

@@ -47,3 +47,4 @@ class XFormsSupplier2(XFormsSupplier_c8f90c6f):
 
 __all__ = ['XFormsSupplier2']
 
+

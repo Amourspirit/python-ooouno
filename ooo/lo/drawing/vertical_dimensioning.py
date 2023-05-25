@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.VerticalDimensioning import VerticalDimensioningProto
+
 
 class VerticalDimensioning(Enum):
     """
@@ -32,21 +30,21 @@ class VerticalDimensioning(Enum):
     See Also:
         `API VerticalDimensioning <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a3d694e7ac991a1dc3541f7d166f0b126>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.VerticalDimensioning'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.VerticalDimensioning"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.VerticalDimensioning'
+        return "com.sun.star.drawing.VerticalDimensioning"
 
-    AUTO = cast("VerticalDimensioningProto", 'AUTO')
+    AUTO = "AUTO"
     """
     the connection point is chosen automatically,
     
     Set this to have the application select the best horizontal position for the text.
     """
-    BOTTOM = cast("VerticalDimensioningProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     the connection line leaves the connected object from the bottom,
     
@@ -54,13 +52,13 @@ class VerticalDimensioning(Enum):
     
     The bottom edge of the text is adjusted to the bottom edge of the shape.
     """
-    CENTERED = cast("VerticalDimensioningProto", 'CENTERED')
+    CENTERED = "CENTERED"
     """
     The text is positioned at the center.
     
     The text is positioned over the main line.
     """
-    TOP = cast("VerticalDimensioningProto", 'TOP')
+    TOP = "TOP"
     """
     the connection line leaves the connected object from the top,
     
@@ -69,5 +67,5 @@ class VerticalDimensioning(Enum):
     The top edge of the text is adjusted to the top edge of the shape.
     """
 
-__all__ = ['VerticalDimensioning']
+__all__ = ["VerticalDimensioning"]
 

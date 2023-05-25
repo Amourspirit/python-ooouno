@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.PropertyValueState import PropertyValueStateProto
+
 
 class PropertyValueState(Enum):
     """
@@ -32,30 +30,30 @@ class PropertyValueState(Enum):
     See Also:
         `API PropertyValueState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a82ef3fdcd414866879e7aae1e52748d0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.PropertyValueState'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.PropertyValueState"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.PropertyValueState'
+        return "com.sun.star.ucb.PropertyValueState"
 
-    INVALID_NAME = cast("PropertyValueStateProto", 'INVALID_NAME')
+    INVALID_NAME = "INVALID_NAME"
     """
     The given property name/handle is invalid.
     """
-    INVALID_TYPE = cast("PropertyValueStateProto", 'INVALID_TYPE')
+    INVALID_TYPE = "INVALID_TYPE"
     """
     The given property type is invalid.
     """
-    PROCESSED = cast("PropertyValueStateProto", 'PROCESSED')
+    PROCESSED = "PROCESSED"
     """
     The value was obtained.
     """
-    UNPROCESSED = cast("PropertyValueStateProto", 'UNPROCESSED')
+    UNPROCESSED = "UNPROCESSED"
     """
     The property value was not obtained yet.
     """
 
-__all__ = ['PropertyValueState']
+__all__ = ["PropertyValueState"]
 

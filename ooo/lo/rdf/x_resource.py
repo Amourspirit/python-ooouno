@@ -42,3 +42,4 @@ class XResource(XNode_5ee40822):
 
 __all__ = ['XResource']
 
+

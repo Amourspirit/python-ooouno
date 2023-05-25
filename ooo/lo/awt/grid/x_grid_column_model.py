@@ -109,3 +109,4 @@ class XGridColumnModel(XContainer_d6fb0cc6, XComponent_98dc0ab5, XCloneable_99d0
 
 __all__ = ['XGridColumnModel']
 
+

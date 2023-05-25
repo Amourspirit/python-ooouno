@@ -41,3 +41,4 @@ class XLabeledDataSequence2(XLabeledDataSequence_7e1a10c8, XCloneable_99d00aa3, 
 
 __all__ = ['XLabeledDataSequence2']
 
+

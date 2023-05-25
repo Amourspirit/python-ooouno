@@ -51,3 +51,4 @@ class XDocumentPropertiesSupplier(ABC):
 
 __all__ = ['XDocumentPropertiesSupplier']
 
+

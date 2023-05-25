@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartAxisArrangeOrderType import ChartAxisArrangeOrderTypeProto
+
 
 class ChartAxisArrangeOrderType(Enum):
     """
@@ -32,30 +30,30 @@ class ChartAxisArrangeOrderType(Enum):
     See Also:
         `API ChartAxisArrangeOrderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a9c06520c0f143b00b5aaafeb4772dc39>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartAxisArrangeOrderType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartAxisArrangeOrderType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartAxisArrangeOrderType'
+        return "com.sun.star.chart.ChartAxisArrangeOrderType"
 
-    AUTO = cast("ChartAxisArrangeOrderTypeProto", 'AUTO')
+    AUTO = "AUTO"
     """
     The descriptions are arranged automatically.
     """
-    SIDE_BY_SIDE = cast("ChartAxisArrangeOrderTypeProto", 'SIDE_BY_SIDE')
+    SIDE_BY_SIDE = "SIDE_BY_SIDE"
     """
     The descriptions are arranged side by side.
     """
-    STAGGER_EVEN = cast("ChartAxisArrangeOrderTypeProto", 'STAGGER_EVEN')
+    STAGGER_EVEN = "STAGGER_EVEN"
     """
     The descriptions are alternately put on two lines with the even values out of the normal line.
     """
-    STAGGER_ODD = cast("ChartAxisArrangeOrderTypeProto", 'STAGGER_ODD')
+    STAGGER_ODD = "STAGGER_ODD"
     """
     The descriptions are alternately put on two lines with the odd values out of the normal line.
     """
 
-__all__ = ['ChartAxisArrangeOrderType']
+__all__ = ["ChartAxisArrangeOrderType"]
 

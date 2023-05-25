@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,65 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PrintableState(metaclass=UnoEnumMeta, type_name="com.sun.star.view.PrintableState", name_space="com.sun.star.view"):
         """Dynamically created class that represents ``com.sun.star.view.PrintableState`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.view.PrintableState import JOB_ABORTED as PRINTABLE_STATE_JOB_ABORTED
-        from com.sun.star.view.PrintableState import JOB_COMPLETED as PRINTABLE_STATE_JOB_COMPLETED
-        from com.sun.star.view.PrintableState import JOB_FAILED as PRINTABLE_STATE_JOB_FAILED
-        from com.sun.star.view.PrintableState import JOB_SPOOLED as PRINTABLE_STATE_JOB_SPOOLED
-        from com.sun.star.view.PrintableState import JOB_SPOOLING_FAILED as PRINTABLE_STATE_JOB_SPOOLING_FAILED
-        from com.sun.star.view.PrintableState import JOB_STARTED as PRINTABLE_STATE_JOB_STARTED
+    from ...lo.view.printable_state import PrintableState as PrintableState
 
-        class PrintableState(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PrintableState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1view.html#ad9b0afaffefc166344fd9575516b6626>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.view.PrintableState', value)
-
-            __ooo_ns__: str = 'com.sun.star.view'
-            __ooo_full_ns__: str = 'com.sun.star.view.PrintableState'
-            __ooo_type_name__: str = 'enum'
-
-            JOB_ABORTED = PRINTABLE_STATE_JOB_ABORTED
-            """
-            printing was aborted (e.g., by the user) while either printing or spooling.
-            """
-            JOB_COMPLETED = PRINTABLE_STATE_JOB_COMPLETED
-            """
-            printing (rendering the document) has finished, spooling has begun
-            """
-            JOB_FAILED = PRINTABLE_STATE_JOB_FAILED
-            """
-            printing ran into an error.
-            """
-            JOB_SPOOLED = PRINTABLE_STATE_JOB_SPOOLED
-            """
-            spooling has finished successfully.
-
-            This is the only state that can be considered as \"success\" for a print job.
-            """
-            JOB_SPOOLING_FAILED = PRINTABLE_STATE_JOB_SPOOLING_FAILED
-            """
-            the document could be printed but not spooled.
-            """
-            JOB_STARTED = PRINTABLE_STATE_JOB_STARTED
-            """
-            printing (rendering the document) has begun
-            """
-    else:
-        # keep document generators happy
-        from ...lo.view.printable_state import PrintableState as PrintableState
-
-
-__all__ = ['PrintableState']
+__all__ = ["PrintableState"]

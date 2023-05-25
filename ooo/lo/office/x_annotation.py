@@ -95,3 +95,4 @@ class XAnnotation(XPropertySet_bc180bfa, XComponent_98dc0ab5):
 
 __all__ = ['XAnnotation']
 
+

@@ -47,3 +47,4 @@ class XPrinterServer2(XPrinterServer_bc810c07):
 
 __all__ = ['XPrinterServer2']
 
+

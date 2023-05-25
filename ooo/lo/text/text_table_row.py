@@ -27,7 +27,7 @@ if typing.TYPE_CHECKING:
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
 
 class TextTableRow(XPropertySet_bc180bfa):
     """
@@ -148,4 +148,3 @@ class TextTableRow(XPropertySet_bc180bfa):
 
 
 __all__ = ['TextTableRow']
-

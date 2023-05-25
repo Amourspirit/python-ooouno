@@ -49,3 +49,4 @@ class XConfigurationChangeRequest(ABC):
 
 __all__ = ['XConfigurationChangeRequest']
 
+

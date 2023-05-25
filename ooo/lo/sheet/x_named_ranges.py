@@ -25,7 +25,7 @@ from ..container.x_name_access import XNameAccess as XNameAccess_e2ab0cf6
 if typing.TYPE_CHECKING:
     from ..table.cell_address import CellAddress as CellAddress_ae5f0b56
     from ..table.cell_range_address import CellRangeAddress as CellRangeAddress_ec450d43
-    from com.sun.star.sheet.Border import BorderProto
+    from com.sun.star.sheet.Border import BorderProto  # type: ignore
 
 class XNamedRanges(XNameAccess_e2ab0cf6):
     """
@@ -75,4 +75,3 @@ class XNamedRanges(XNameAccess_e2ab0cf6):
         ...
 
 __all__ = ['XNamedRanges']
-

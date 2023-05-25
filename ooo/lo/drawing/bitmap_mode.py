@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.BitmapMode import BitmapModeProto
+
 
 class BitmapMode(Enum):
     """
@@ -32,28 +30,28 @@ class BitmapMode(Enum):
     See Also:
         `API BitmapMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ad26489b8cfc631a6aa6a1a59fd2e2356>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.BitmapMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.BitmapMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.BitmapMode'
+        return "com.sun.star.drawing.BitmapMode"
 
-    NO_REPEAT = cast("BitmapModeProto", 'NO_REPEAT')
+    NO_REPEAT = "NO_REPEAT"
     """
     the bitmap is painted in its original or selected size.
     """
-    REPEAT = cast("BitmapModeProto", 'REPEAT')
+    REPEAT = "REPEAT"
     """
     the bitmap is repeated over the fill area.
     """
-    STRETCH = cast("BitmapModeProto", 'STRETCH')
+    STRETCH = "STRETCH"
     """
     the bitmap is stretched to fill the area.
     
     The text is stretched so that the longest line goes from the left to the right edge of the shape.
     """
 
-__all__ = ['BitmapMode']
+__all__ = ["BitmapMode"]
 

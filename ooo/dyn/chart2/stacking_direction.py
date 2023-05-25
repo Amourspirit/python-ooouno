@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,46 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class StackingDirection(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.StackingDirection", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.StackingDirection`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart2.StackingDirection import NO_STACKING as STACKING_DIRECTION_NO_STACKING
-        from com.sun.star.chart2.StackingDirection import Y_STACKING as STACKING_DIRECTION_Y_STACKING
-        from com.sun.star.chart2.StackingDirection import Z_STACKING as STACKING_DIRECTION_Z_STACKING
+    from ...lo.chart2.stacking_direction import StackingDirection as StackingDirection
 
-        class StackingDirection(uno.Enum):
-            """
-            Enum Class
-
-            ENUM StackingDirection
-
-            See Also:
-                `API StackingDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#ad5b96f2511266754f439e0cfdbe44545>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart2.StackingDirection', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart2'
-            __ooo_full_ns__: str = 'com.sun.star.chart2.StackingDirection'
-            __ooo_type_name__: str = 'enum'
-
-            NO_STACKING = STACKING_DIRECTION_NO_STACKING
-            """
-            """
-            Y_STACKING = STACKING_DIRECTION_Y_STACKING
-            """
-            """
-            Z_STACKING = STACKING_DIRECTION_Z_STACKING
-            """
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart2.stacking_direction import StackingDirection as StackingDirection
-
-
-__all__ = ['StackingDirection']
+__all__ = ["StackingDirection"]

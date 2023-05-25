@@ -29,8 +29,8 @@ if typing.TYPE_CHECKING:
     from .x_object_inspector_ui import XObjectInspectorUI as XObjectInspectorUI_5ccd1048
     from .x_property_control_factory import XPropertyControlFactory as XPropertyControlFactory_b8ed12ba
     from ..uno.x_interface import XInterface as XInterface_8f010a43
-    from com.sun.star.beans.PropertyState import PropertyStateProto
-    from com.sun.star.inspection.InteractiveSelectionResult import InteractiveSelectionResultProto
+    from com.sun.star.beans.PropertyState import PropertyStateProto  # type: ignore
+    from com.sun.star.inspection.InteractiveSelectionResult import InteractiveSelectionResultProto  # type: ignore
 
 class XPropertyHandler(XComponent_98dc0ab5):
     """
@@ -250,4 +250,3 @@ class XPropertyHandler(XComponent_98dc0ab5):
         ...
 
 __all__ = ['XPropertyHandler']
-

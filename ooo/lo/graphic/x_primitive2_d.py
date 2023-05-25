@@ -69,3 +69,4 @@ class XPrimitive2D(XInterface_8f010a43):
 
 __all__ = ['XPrimitive2D']
 
+

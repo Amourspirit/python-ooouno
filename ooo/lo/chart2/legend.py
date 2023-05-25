@@ -28,8 +28,8 @@ from ..drawing.line_properties import LineProperties as LineProperties_f13f0da9
 if typing.TYPE_CHECKING:
     from ..awt.size import Size as Size_576707ef
     from .relative_position import RelativePosition as RelativePosition_fae10ddd
-    from com.sun.star.chart2.LegendPosition import LegendPositionProto
-    from com.sun.star.chart.ChartLegendExpansion import ChartLegendExpansionProto
+    from com.sun.star.chart2.LegendPosition import LegendPositionProto  # type: ignore
+    from com.sun.star.chart.ChartLegendExpansion import ChartLegendExpansionProto  # type: ignore
 
 class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0da9, XLegend_8cce09f3):
     """
@@ -106,4 +106,3 @@ class Legend(PropertySet_b0e70ba2, FillProperties_f1200da8, LineProperties_f13f0
 
 
 __all__ = ['Legend']
-

@@ -25,7 +25,7 @@ from .base_frame import BaseFrame as BaseFrame_8f020a33
 from .x_text_frame import XTextFrame as XTextFrame_9a7e0ab5
 if typing.TYPE_CHECKING:
     from .x_text import XText as XText_690408ca
-    from com.sun.star.drawing.TextVerticalAdjust import TextVerticalAdjustProto
+    from com.sun.star.drawing.TextVerticalAdjust import TextVerticalAdjustProto  # type: ignore
 
 class TextFrame(BaseFrame_8f020a33, XTextFrame_9a7e0ab5):
     """
@@ -158,4 +158,3 @@ class TextFrame(BaseFrame_8f020a33, XTextFrame_9a7e0ab5):
 
 
 __all__ = ['TextFrame']
-

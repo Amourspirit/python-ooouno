@@ -80,3 +80,4 @@ class XEncryptionProtectedStorage(XEncryptionProtectedSource2_9eb411d5):
 
 __all__ = ['XEncryptionProtectedStorage']
 
+

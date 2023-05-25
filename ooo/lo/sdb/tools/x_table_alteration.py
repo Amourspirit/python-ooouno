@@ -73,3 +73,4 @@ class XTableAlteration(XConnectionSupplier_57f3105c):
 
 __all__ = ['XTableAlteration']
 
+

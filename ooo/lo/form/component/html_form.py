@@ -25,8 +25,8 @@ from ..x_reset import XReset as XReset_71670917
 from ..x_submit import XSubmit as XSubmit_7b060988
 from .form import Form as Form_ca1d0c51
 if typing.TYPE_CHECKING:
-    from com.sun.star.form.FormSubmitEncoding import FormSubmitEncodingProto
-    from com.sun.star.form.FormSubmitMethod import FormSubmitMethodProto
+    from com.sun.star.form.FormSubmitEncoding import FormSubmitEncodingProto  # type: ignore
+    from com.sun.star.form.FormSubmitMethod import FormSubmitMethodProto  # type: ignore
 
 class HTMLForm(Form_ca1d0c51, XReset_71670917, XSubmit_7b060988):
     """
@@ -73,4 +73,3 @@ class HTMLForm(Form_ca1d0c51, XReset_71670917, XSubmit_7b060988):
 
 
 __all__ = ['HTMLForm']
-

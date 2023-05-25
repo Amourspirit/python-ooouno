@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.PieChartOffsetMode import PieChartOffsetModeProto
+
 
 class PieChartOffsetMode(Enum):
     """
@@ -32,21 +30,21 @@ class PieChartOffsetMode(Enum):
     See Also:
         `API PieChartOffsetMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aa17c0b28cca2adc2be9b3c5954111489>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.PieChartOffsetMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.PieChartOffsetMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.PieChartOffsetMode'
+        return "com.sun.star.chart2.PieChartOffsetMode"
 
-    ALL_EXPLODED = cast("PieChartOffsetModeProto", 'ALL_EXPLODED')
+    ALL_EXPLODED = "ALL_EXPLODED"
     """
     All pies are exploded by a certain percentage.
     
     The default is 10 percent.
     """
-    NONE = cast("PieChartOffsetModeProto", 'NONE')
+    NONE = "NONE"
     """
     Default, no pies are exploded.
     
@@ -55,5 +53,5 @@ class PieChartOffsetMode(Enum):
     The symbol is invisible.
     """
 
-__all__ = ['PieChartOffsetMode']
+__all__ = ["PieChartOffsetMode"]
 

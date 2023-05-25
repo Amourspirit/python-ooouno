@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,58 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextContentAnchorType(metaclass=UnoEnumMeta, type_name="com.sun.star.text.TextContentAnchorType", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.TextContentAnchorType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.text.TextContentAnchorType import AS_CHARACTER as TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER
-        from com.sun.star.text.TextContentAnchorType import AT_CHARACTER as TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER
-        from com.sun.star.text.TextContentAnchorType import AT_FRAME as TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME
-        from com.sun.star.text.TextContentAnchorType import AT_PAGE as TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE
-        from com.sun.star.text.TextContentAnchorType import AT_PARAGRAPH as TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH
+    from ...lo.text.text_content_anchor_type import TextContentAnchorType as TextContentAnchorType
 
-        class TextContentAnchorType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextContentAnchorType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a470b1caeda4ff15fee438c8ff9e3d834>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.text.TextContentAnchorType', value)
-
-            __ooo_ns__: str = 'com.sun.star.text'
-            __ooo_full_ns__: str = 'com.sun.star.text.TextContentAnchorType'
-            __ooo_type_name__: str = 'enum'
-
-            AS_CHARACTER = TEXT_CONTENT_ANCHOR_TYPE_AS_CHARACTER
-            """
-            The object is anchored instead of a character.
-            """
-            AT_CHARACTER = TEXT_CONTENT_ANCHOR_TYPE_AT_CHARACTER
-            """
-            The object is anchored to a character.
-            """
-            AT_FRAME = TEXT_CONTENT_ANCHOR_TYPE_AT_FRAME
-            """
-            The object is anchored to a text frame.
-            """
-            AT_PAGE = TEXT_CONTENT_ANCHOR_TYPE_AT_PAGE
-            """
-            The object is anchored to the page.
-            """
-            AT_PARAGRAPH = TEXT_CONTENT_ANCHOR_TYPE_AT_PARAGRAPH
-            """
-            The anchor of the object is set at the top left position of the paragraph.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.text.text_content_anchor_type import TextContentAnchorType as TextContentAnchorType
-
-
-__all__ = ['TextContentAnchorType']
+__all__ = ["TextContentAnchorType"]

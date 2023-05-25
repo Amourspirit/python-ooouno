@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SortFieldType(metaclass=UnoEnumMeta, type_name="com.sun.star.util.SortFieldType", name_space="com.sun.star.util"):
         """Dynamically created class that represents ``com.sun.star.util.SortFieldType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.util.SortFieldType import ALPHANUMERIC as SORT_FIELD_TYPE_ALPHANUMERIC
-        from com.sun.star.util.SortFieldType import AUTOMATIC as SORT_FIELD_TYPE_AUTOMATIC
-        from com.sun.star.util.SortFieldType import NUMERIC as SORT_FIELD_TYPE_NUMERIC
+    from ...lo.util.sort_field_type import SortFieldType as SortFieldType
 
-        class SortFieldType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API SortFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#aa222808b6dd3437074e57760d8e15a83>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.util.SortFieldType', value)
-
-            __ooo_ns__: str = 'com.sun.star.util'
-            __ooo_full_ns__: str = 'com.sun.star.util.SortFieldType'
-            __ooo_type_name__: str = 'enum'
-
-            ALPHANUMERIC = SORT_FIELD_TYPE_ALPHANUMERIC
-            """
-            sort field contains text data.
-            """
-            AUTOMATIC = SORT_FIELD_TYPE_AUTOMATIC
-            """
-            type is determined automatically.
-            """
-            NUMERIC = SORT_FIELD_TYPE_NUMERIC
-            """
-            sort field contains numerical data.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.util.sort_field_type import SortFieldType as SortFieldType
-
-
-__all__ = ['SortFieldType']
+__all__ = ["SortFieldType"]

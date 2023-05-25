@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,62 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DataPilotFieldOrientation(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.DataPilotFieldOrientation", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.DataPilotFieldOrientation`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.sheet.DataPilotFieldOrientation import COLUMN as DATA_PILOT_FIELD_ORIENTATION_COLUMN
-        from com.sun.star.sheet.DataPilotFieldOrientation import DATA as DATA_PILOT_FIELD_ORIENTATION_DATA
-        from com.sun.star.sheet.DataPilotFieldOrientation import HIDDEN as DATA_PILOT_FIELD_ORIENTATION_HIDDEN
-        from com.sun.star.sheet.DataPilotFieldOrientation import PAGE as DATA_PILOT_FIELD_ORIENTATION_PAGE
-        from com.sun.star.sheet.DataPilotFieldOrientation import ROW as DATA_PILOT_FIELD_ORIENTATION_ROW
+    from ...lo.sheet.data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation
 
-        class DataPilotFieldOrientation(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API DataPilotFieldOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a686c797e7cb837947558aa11c946245a>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.sheet.DataPilotFieldOrientation', value)
-
-            __ooo_ns__: str = 'com.sun.star.sheet'
-            __ooo_full_ns__: str = 'com.sun.star.sheet.DataPilotFieldOrientation'
-            __ooo_type_name__: str = 'enum'
-
-            COLUMN = DATA_PILOT_FIELD_ORIENTATION_COLUMN
-            """
-            the field is used as a column field.
-
-            is applied to the columns.
-            """
-            DATA = DATA_PILOT_FIELD_ORIENTATION_DATA
-            """
-            the field is used as a data field.
-            """
-            HIDDEN = DATA_PILOT_FIELD_ORIENTATION_HIDDEN
-            """
-            the field is not used in the table.
-            """
-            PAGE = DATA_PILOT_FIELD_ORIENTATION_PAGE
-            """
-            the field is used as a page field.
-            """
-            ROW = DATA_PILOT_FIELD_ORIENTATION_ROW
-            """
-            the field is used as a row field.
-
-            is applied to the rows.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.sheet.data_pilot_field_orientation import DataPilotFieldOrientation as DataPilotFieldOrientation
-
-
-__all__ = ['DataPilotFieldOrientation']
+__all__ = ["DataPilotFieldOrientation"]

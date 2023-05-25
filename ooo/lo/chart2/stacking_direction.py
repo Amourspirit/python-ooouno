@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.StackingDirection import StackingDirectionProto
+
 
 class StackingDirection(Enum):
     """
@@ -33,23 +31,23 @@ class StackingDirection(Enum):
     See Also:
         `API StackingDirection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#ad5b96f2511266754f439e0cfdbe44545>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.StackingDirection'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.StackingDirection"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.StackingDirection'
+        return "com.sun.star.chart2.StackingDirection"
 
-    NO_STACKING = cast("StackingDirectionProto", 'NO_STACKING')
+    NO_STACKING = "NO_STACKING"
     """
     """
-    Y_STACKING = cast("StackingDirectionProto", 'Y_STACKING')
+    Y_STACKING = "Y_STACKING"
     """
     """
-    Z_STACKING = cast("StackingDirectionProto", 'Z_STACKING')
+    Z_STACKING = "Z_STACKING"
     """
     """
 
-__all__ = ['StackingDirection']
+__all__ = ["StackingDirection"]
 

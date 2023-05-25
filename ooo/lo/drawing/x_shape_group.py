@@ -61,3 +61,4 @@ class XShapeGroup(XShape_8fd00a3d):
 
 __all__ = ['XShapeGroup']
 
+

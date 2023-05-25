@@ -72,3 +72,4 @@ class XSimpleText(XTextRange_9a910ab7):
 
 __all__ = ['XSimpleText']
 
+

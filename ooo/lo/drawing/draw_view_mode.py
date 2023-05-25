@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.DrawViewMode import DrawViewModeProto
+
 
 class DrawViewMode(Enum):
     """
@@ -32,26 +30,26 @@ class DrawViewMode(Enum):
     See Also:
         `API DrawViewMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a15072729125e991609f3df469a03f611>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.DrawViewMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.DrawViewMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.DrawViewMode'
+        return "com.sun.star.drawing.DrawViewMode"
 
-    DRAW = cast("DrawViewModeProto", 'DRAW')
+    DRAW = "DRAW"
     """
     The view shows the drawing pages.
     """
-    HANDOUT = cast("DrawViewModeProto", 'HANDOUT')
+    HANDOUT = "HANDOUT"
     """
     The view shows the handout pages,.
     """
-    NOTES = cast("DrawViewModeProto", 'NOTES')
+    NOTES = "NOTES"
     """
     The view shows the notes pages.
     """
 
-__all__ = ['DrawViewMode']
+__all__ = ["DrawViewMode"]
 

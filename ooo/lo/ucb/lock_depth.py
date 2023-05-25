@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.LockDepth import LockDepthProto
+
 
 class LockDepth(Enum):
     """
@@ -32,26 +30,26 @@ class LockDepth(Enum):
     See Also:
         `API LockDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a01e925906d2f84e461036af17439e9ca>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.LockDepth'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.LockDepth"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.LockDepth'
+        return "com.sun.star.ucb.LockDepth"
 
-    INFINITY = cast("LockDepthProto", 'INFINITY')
+    INFINITY = "INFINITY"
     """
     Infinity (includes children and children's children and ...).
     """
-    ONE = cast("LockDepthProto", 'ONE')
+    ONE = "ONE"
     """
     One (includes children).
     """
-    ZERO = cast("LockDepthProto", 'ZERO')
+    ZERO = "ZERO"
     """
     Zero (includes no children).
     """
 
-__all__ = ['LockDepth']
+__all__ = ["LockDepth"]
 

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.PasteOperation import PasteOperationProto
+
 
 class PasteOperation(Enum):
     """
@@ -32,27 +30,27 @@ class PasteOperation(Enum):
     See Also:
         `API PasteOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af53d63b24461405946937e0b962a8a9b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.PasteOperation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.PasteOperation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.PasteOperation'
+        return "com.sun.star.sheet.PasteOperation"
 
-    ADD = cast("PasteOperationProto", 'ADD')
+    ADD = "ADD"
     """
     old and new values are added.
     """
-    DIVIDE = cast("PasteOperationProto", 'DIVIDE')
+    DIVIDE = "DIVIDE"
     """
     new values are divided by the new values.
     """
-    MULTIPLY = cast("PasteOperationProto", 'MULTIPLY')
+    MULTIPLY = "MULTIPLY"
     """
     old and new values are multiplied.
     """
-    NONE = cast("PasteOperationProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -66,10 +64,10 @@ class PasteOperation(Enum):
     
     no condition is specified.
     """
-    SUBTRACT = cast("PasteOperationProto", 'SUBTRACT')
+    SUBTRACT = "SUBTRACT"
     """
     new values are subtracted from the old values.
     """
 
-__all__ = ['PasteOperation']
+__all__ = ["PasteOperation"]
 

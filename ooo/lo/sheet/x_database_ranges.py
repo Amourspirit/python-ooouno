@@ -52,3 +52,4 @@ class XDatabaseRanges(XNameAccess_e2ab0cf6):
 
 __all__ = ['XDatabaseRanges']
 
+

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,50 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextureKind2(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextureKind2", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextureKind2`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextureKind2 import COLOR as TEXTURE_KIND_2_COLOR
-        from com.sun.star.drawing.TextureKind2 import INTENSITY as TEXTURE_KIND_2_INTENSITY
-        from com.sun.star.drawing.TextureKind2 import LUMINANCE as TEXTURE_KIND_2_LUMINANCE
+    from ...lo.drawing.texture_kind2 import TextureKind2 as TextureKind2
 
-        class TextureKind2(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextureKind2 <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adaf903dffc9b5178ac0a76faef6142f2>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextureKind2', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind2'
-            __ooo_type_name__: str = 'enum'
-
-            COLOR = TEXTURE_KIND_2_COLOR
-            """
-            With this mode the lighting is ignored and only the texture color information is used.
-
-            With this mode, the lighting is ignored and only the texture color information is used.
-            """
-            INTENSITY = TEXTURE_KIND_2_INTENSITY
-            """
-            With TextureKind INTENSITY, each texture pixel is used as an intensity value.
-            """
-            LUMINANCE = TEXTURE_KIND_2_LUMINANCE
-            """
-            With TextureKind LUMINANCE, the texture and the lighting information is mixed to produce the image, so a lit, textured object is achieved.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.texture_kind2 import TextureKind2 as TextureKind2
-
-
-__all__ = ['TextureKind2']
+__all__ = ["TextureKind2"]

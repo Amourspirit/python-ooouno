@@ -23,9 +23,9 @@ import typing
 from abc import abstractproperty, ABC
 if typing.TYPE_CHECKING:
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.presentation.AnimationEffect import AnimationEffectProto
-    from com.sun.star.presentation.ClickAction import ClickActionProto
-    from com.sun.star.presentation.AnimationSpeed import AnimationSpeedProto
+    from com.sun.star.presentation.AnimationEffect import AnimationEffectProto  # type: ignore
+    from com.sun.star.presentation.ClickAction import ClickActionProto  # type: ignore
+    from com.sun.star.presentation.AnimationSpeed import AnimationSpeedProto  # type: ignore
 
 class Shape(ABC):
     """
@@ -157,4 +157,3 @@ class Shape(ABC):
 
 
 __all__ = ['Shape']
-

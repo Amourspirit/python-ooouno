@@ -25,7 +25,7 @@ from ....uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from ....util.time import Time as Time_604e0855
     from .x_event_target import XEventTarget as XEventTarget_36420f4b
-    from com.sun.star.xml.dom.events.PhaseType import PhaseTypeProto
+    from com.sun.star.xml.dom.events.PhaseType import PhaseTypeProto  # type: ignore
 
 class XEvent(XInterface_8f010a43):
     """
@@ -90,4 +90,3 @@ class XEvent(XInterface_8f010a43):
         ...
 
 __all__ = ['XEvent']
-

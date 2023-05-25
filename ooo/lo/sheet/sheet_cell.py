@@ -44,7 +44,7 @@ if typing.TYPE_CHECKING:
     from ..awt.size import Size as Size_576707ef
     from ..beans.x_property_set import XPropertySet as XPropertySet_bc180bfa
     from .x_sheet_conditional_entries import XSheetConditionalEntries as XSheetConditionalEntries_694810c0
-    from com.sun.star.table.CellContentType import CellContentTypeProto
+    from com.sun.star.table.CellContentType import CellContentTypeProto  # type: ignore
 
 class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df, CharacterPropertiesComplex_90ca11cb, ParagraphProperties_1e240efc, ParagraphPropertiesAsian_6e8c10e8, ParagraphPropertiesComplex_91de11d4, Cell_680c0890, Text_607f0872, XTolerantMultiPropertySet_7bd4114e, XActionLockable_cb30e3a, XCellAddressable_ed700d53, XSheetAnnotationAnchor_48670fe8, XColumnRowRange_e0e70cfb, XTextFieldsSupplier_d5d0e75, XIndent_7b290980, XModifyBroadcaster_fd990df0, XReplaceable_b0750b6e):
     """
@@ -166,4 +166,3 @@ class SheetCell(SheetRangesQuery_efbe0d90, CharacterProperties_1d4f0ef3, Charact
 
 
 __all__ = ['SheetCell']
-

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.uno
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.uno.TypeClass import TypeClassProto
+
 
 class TypeClass(Enum):
     """
@@ -32,142 +30,142 @@ class TypeClass(Enum):
     See Also:
         `API TypeClass <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1uno.html#a00683ed3ec24b47c36ead10a20d6f328>`_
     """
-    __ooo_ns__: str = 'com.sun.star.uno'
-    __ooo_full_ns__: str = 'com.sun.star.uno.TypeClass'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.uno"
+    __ooo_full_ns__: str = "com.sun.star.uno.TypeClass"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.uno.TypeClass'
+        return "com.sun.star.uno.TypeClass"
 
-    ANY = cast("TypeClassProto", 'ANY')
+    ANY = "ANY"
     """
     reflecting the any type; anys can carry any UNO value except of any values
     """
-    ARRAY = cast("TypeClassProto", 'ARRAY')
+    ARRAY = "ARRAY"
     """
     Deprecated, UNOIDL does not have an array concept.
     """
-    BOOLEAN = cast("TypeClassProto", 'BOOLEAN')
+    BOOLEAN = "BOOLEAN"
     """
     reflecting the boolean type; true and false
     """
-    BYTE = cast("TypeClassProto", 'BYTE')
+    BYTE = "BYTE"
     """
     reflecting the 8-bit ordinal type
     """
-    CHAR = cast("TypeClassProto", 'CHAR')
+    CHAR = "CHAR"
     """
     reflecting the 16-bit unicode character type
     """
-    CONSTANT = cast("TypeClassProto", 'CONSTANT')
+    CONSTANT = "CONSTANT"
     """
     reflecting constants
     """
-    CONSTANTS = cast("TypeClassProto", 'CONSTANTS')
+    CONSTANTS = "CONSTANTS"
     """
     reflecting constants groups
     """
-    DOUBLE = cast("TypeClassProto", 'DOUBLE')
+    DOUBLE = "DOUBLE"
     """
     reflecting the 64-bit floating point type
     """
-    ENUM = cast("TypeClassProto", 'ENUM')
+    ENUM = "ENUM"
     """
     reflecting enum types
     """
-    EXCEPTION = cast("TypeClassProto", 'EXCEPTION')
+    EXCEPTION = "EXCEPTION"
     """
     reflecting exception types
     """
-    FLOAT = cast("TypeClassProto", 'FLOAT')
+    FLOAT = "FLOAT"
     """
     reflecting the 32-bit floating point type
     """
-    HYPER = cast("TypeClassProto", 'HYPER')
+    HYPER = "HYPER"
     """
     reflecting the signed 64-bit ordinal type
     """
-    INTERFACE = cast("TypeClassProto", 'INTERFACE')
+    INTERFACE = "INTERFACE"
     """
     reflecting interface types
     """
-    INTERFACE_ATTRIBUTE = cast("TypeClassProto", 'INTERFACE_ATTRIBUTE')
+    INTERFACE_ATTRIBUTE = "INTERFACE_ATTRIBUTE"
     """
     reflecting interface attributes
     """
-    INTERFACE_METHOD = cast("TypeClassProto", 'INTERFACE_METHOD')
+    INTERFACE_METHOD = "INTERFACE_METHOD"
     """
     reflecting interface methods
     """
-    LONG = cast("TypeClassProto", 'LONG')
+    LONG = "LONG"
     """
     reflecting the signed 32-bit ordinal type
     """
-    MODULE = cast("TypeClassProto", 'MODULE')
+    MODULE = "MODULE"
     """
     reflecting modules
     """
-    PROPERTY = cast("TypeClassProto", 'PROPERTY')
+    PROPERTY = "PROPERTY"
     """
     reflecting properties
     """
-    SEQUENCE = cast("TypeClassProto", 'SEQUENCE')
+    SEQUENCE = "SEQUENCE"
     """
     reflecting sequence types
     """
-    SERVICE = cast("TypeClassProto", 'SERVICE')
+    SERVICE = "SERVICE"
     """
     reflecting services
     """
-    SHORT = cast("TypeClassProto", 'SHORT')
+    SHORT = "SHORT"
     """
     reflecting the signed 16-bit ordinal type
     """
-    SINGLETON = cast("TypeClassProto", 'SINGLETON')
+    SINGLETON = "SINGLETON"
     """
     reflecting singletons
     """
-    STRING = cast("TypeClassProto", 'STRING')
+    STRING = "STRING"
     """
     reflecting the string type; strings of unicode characters
     """
-    STRUCT = cast("TypeClassProto", 'STRUCT')
+    STRUCT = "STRUCT"
     """
     reflecting compound types
     """
-    TYPE = cast("TypeClassProto", 'TYPE')
+    TYPE = "TYPE"
     """
     reflecting the meta type
     """
-    TYPEDEF = cast("TypeClassProto", 'TYPEDEF')
+    TYPEDEF = "TYPEDEF"
     """
     reflecting typedefed types referencing other types
     """
-    UNION = cast("TypeClassProto", 'UNION')
+    UNION = "UNION"
     """
     Deprecated, UNOIDL does not have a union concept.
     """
-    UNKNOWN = cast("TypeClassProto", 'UNKNOWN')
+    UNKNOWN = "UNKNOWN"
     """
     reflecting the unreflectable type
     """
-    UNSIGNED_HYPER = cast("TypeClassProto", 'UNSIGNED_HYPER')
+    UNSIGNED_HYPER = "UNSIGNED_HYPER"
     """
     reflecting the unsigned 64-bit ordinal type
     """
-    UNSIGNED_LONG = cast("TypeClassProto", 'UNSIGNED_LONG')
+    UNSIGNED_LONG = "UNSIGNED_LONG"
     """
     reflecting the unsigned 32-bit type
     """
-    UNSIGNED_SHORT = cast("TypeClassProto", 'UNSIGNED_SHORT')
+    UNSIGNED_SHORT = "UNSIGNED_SHORT"
     """
     reflecting the unsigned 16-bit ordinal type
     """
-    VOID = cast("TypeClassProto", 'VOID')
+    VOID = "VOID"
     """
     reflecting the void type; denotes no type
     """
 
-__all__ = ['TypeClass']
+__all__ = ["TypeClass"]
 

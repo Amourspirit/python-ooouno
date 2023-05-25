@@ -24,7 +24,7 @@ from abc import abstractmethod
 from .x_command_environment import XCommandEnvironment as XCommandEnvironment_fb330dee
 if typing.TYPE_CHECKING:
     from ..beans.string_pair import StringPair as StringPair_a4bc0b14
-    from com.sun.star.ucb.WebDAVHTTPMethod import WebDAVHTTPMethodProto
+    from com.sun.star.ucb.WebDAVHTTPMethod import WebDAVHTTPMethodProto  # type: ignore
 
 class XWebDAVCommandEnvironment(XCommandEnvironment_fb330dee):
     """
@@ -48,4 +48,3 @@ class XWebDAVCommandEnvironment(XCommandEnvironment_fb330dee):
         ...
 
 __all__ = ['XWebDAVCommandEnvironment']
-

@@ -90,3 +90,4 @@ class XAccessibleMultiLineText(XAccessibleText_5b77105b):
 
 __all__ = ['XAccessibleMultiLineText']
 
+

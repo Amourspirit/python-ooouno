@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.dom.events
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.dom.events.EventType import EventTypeProto
+
 
 class EventType(Enum):
     """
@@ -33,62 +31,62 @@ class EventType(Enum):
     See Also:
         `API EventType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1dom_1_1events.html#a2628ea8d12e8b2563c32f05dc7fff6fa>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.dom.events'
-    __ooo_full_ns__: str = 'com.sun.star.xml.dom.events.EventType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.dom.events"
+    __ooo_full_ns__: str = "com.sun.star.xml.dom.events.EventType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.dom.events.EventType'
+        return "com.sun.star.xml.dom.events.EventType"
 
-    DOMActivate = cast("EventTypeProto", 'DOMActivate')
+    DOMActivate = "DOMActivate"
     """
     """
-    DOMAttrModified = cast("EventTypeProto", 'DOMAttrModified')
+    DOMAttrModified = "DOMAttrModified"
     """
     """
-    DOMCharacterDataModified = cast("EventTypeProto", 'DOMCharacterDataModified')
+    DOMCharacterDataModified = "DOMCharacterDataModified"
     """
     """
-    DOMFocusIn = cast("EventTypeProto", 'DOMFocusIn')
+    DOMFocusIn = "DOMFocusIn"
     """
     """
-    DOMFocusOut = cast("EventTypeProto", 'DOMFocusOut')
+    DOMFocusOut = "DOMFocusOut"
     """
     """
-    DOMNodeInserted = cast("EventTypeProto", 'DOMNodeInserted')
+    DOMNodeInserted = "DOMNodeInserted"
     """
     """
-    DOMNodeInsertedIntoDocument = cast("EventTypeProto", 'DOMNodeInsertedIntoDocument')
+    DOMNodeInsertedIntoDocument = "DOMNodeInsertedIntoDocument"
     """
     """
-    DOMNodeRemoved = cast("EventTypeProto", 'DOMNodeRemoved')
+    DOMNodeRemoved = "DOMNodeRemoved"
     """
     """
-    DOMNodeRemovedFromDocument = cast("EventTypeProto", 'DOMNodeRemovedFromDocument')
+    DOMNodeRemovedFromDocument = "DOMNodeRemovedFromDocument"
     """
     """
-    DOMSubtreeModified = cast("EventTypeProto", 'DOMSubtreeModified')
+    DOMSubtreeModified = "DOMSubtreeModified"
     """
     """
-    click = cast("EventTypeProto", 'click')
+    click = "click"
     """
     """
-    mousedown = cast("EventTypeProto", 'mousedown')
+    mousedown = "mousedown"
     """
     """
-    mousemove = cast("EventTypeProto", 'mousemove')
+    mousemove = "mousemove"
     """
     """
-    mouseout = cast("EventTypeProto", 'mouseout')
+    mouseout = "mouseout"
     """
     """
-    mouseover = cast("EventTypeProto", 'mouseover')
+    mouseover = "mouseover"
     """
     """
-    mouseup = cast("EventTypeProto", 'mouseup')
+    mouseup = "mouseup"
     """
     """
 
-__all__ = ['EventType']
+__all__ = ["EventType"]
 

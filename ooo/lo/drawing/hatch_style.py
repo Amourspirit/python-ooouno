@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.HatchStyle import HatchStyleProto
+
 
 class HatchStyle(Enum):
     """
@@ -32,26 +30,26 @@ class HatchStyle(Enum):
     See Also:
         `API HatchStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a021284aa8478781ba1b958b81da7b608>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.HatchStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.HatchStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.HatchStyle'
+        return "com.sun.star.drawing.HatchStyle"
 
-    DOUBLE = cast("HatchStyleProto", 'DOUBLE')
+    DOUBLE = "DOUBLE"
     """
     the hatch has a horizontal and a vertical line
     """
-    SINGLE = cast("HatchStyleProto", 'SINGLE')
+    SINGLE = "SINGLE"
     """
     the hatch consists of a single horizontal line
     """
-    TRIPLE = cast("HatchStyleProto", 'TRIPLE')
+    TRIPLE = "TRIPLE"
     """
     the hatch has a horizontal, a vertical and a diagonal line
     """
 
-__all__ = ['HatchStyle']
+__all__ = ["HatchStyle"]
 

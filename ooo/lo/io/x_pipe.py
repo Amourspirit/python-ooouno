@@ -45,3 +45,4 @@ class XPipe(XInputStream_98d40ab4, XOutputStream_a4e00b35):
 
 __all__ = ['XPipe']
 
+

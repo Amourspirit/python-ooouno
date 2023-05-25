@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.i18n
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.i18n.TransliterationModulesNew import TransliterationModulesNewProto
+
 
 class TransliterationModulesNew(Enum):
     """
@@ -32,279 +30,279 @@ class TransliterationModulesNew(Enum):
     See Also:
         `API TransliterationModulesNew <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1i18n.html#a436afb2c972c4d40d888b71482e93020>`_
     """
-    __ooo_ns__: str = 'com.sun.star.i18n'
-    __ooo_full_ns__: str = 'com.sun.star.i18n.TransliterationModulesNew'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.i18n"
+    __ooo_full_ns__: str = "com.sun.star.i18n.TransliterationModulesNew"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.i18n.TransliterationModulesNew'
+        return "com.sun.star.i18n.TransliterationModulesNew"
 
-    CharToNumHangul_ko = cast("TransliterationModulesNewProto", 'CharToNumHangul_ko')
+    CharToNumHangul_ko = "CharToNumHangul_ko"
     """
     Transliterate a Korean Hangul number string to ASCII number string.
     """
-    CharToNumLower_ko = cast("TransliterationModulesNewProto", 'CharToNumLower_ko')
+    CharToNumLower_ko = "CharToNumLower_ko"
     """
     Transliterate a Korean Hanja lower case number string to ASCII number string.
     """
-    CharToNumLower_zh_CN = cast("TransliterationModulesNewProto", 'CharToNumLower_zh_CN')
+    CharToNumLower_zh_CN = "CharToNumLower_zh_CN"
     """
     Transliterate a Simplified Chinese lower case number string to ASCII number string.
     """
-    CharToNumLower_zh_TW = cast("TransliterationModulesNewProto", 'CharToNumLower_zh_TW')
+    CharToNumLower_zh_TW = "CharToNumLower_zh_TW"
     """
     Transliterate a Traditional Chinese lower case number string to ASCII number string.
     """
-    CharToNumUpper_ko = cast("TransliterationModulesNewProto", 'CharToNumUpper_ko')
+    CharToNumUpper_ko = "CharToNumUpper_ko"
     """
     Transliterate a Korean Hanja upper case number string to ASCII number string.
     """
-    CharToNumUpper_zh_CN = cast("TransliterationModulesNewProto", 'CharToNumUpper_zh_CN')
+    CharToNumUpper_zh_CN = "CharToNumUpper_zh_CN"
     """
     Transliterate a Simplified Chinese upper case number string to ASCII number string.
     """
-    CharToNumUpper_zh_TW = cast("TransliterationModulesNewProto", 'CharToNumUpper_zh_TW')
+    CharToNumUpper_zh_TW = "CharToNumUpper_zh_TW"
     """
     Transliterate a Traditional Chinese upper case number string to ASCII number string.
     """
-    END_OF_MODULE = cast("TransliterationModulesNewProto", 'END_OF_MODULE')
+    END_OF_MODULE = "END_OF_MODULE"
     """
     """
-    FULLWIDTH_HALFWIDTH = cast("TransliterationModulesNewProto", 'FULLWIDTH_HALFWIDTH')
+    FULLWIDTH_HALFWIDTH = "FULLWIDTH_HALFWIDTH"
     """
     Transliterate a string from full width character to half width character.
     """
-    HALFWIDTH_FULLWIDTH = cast("TransliterationModulesNewProto", 'HALFWIDTH_FULLWIDTH')
+    HALFWIDTH_FULLWIDTH = "HALFWIDTH_FULLWIDTH"
     """
     Transliterate a string from half width character to full width character.
     """
-    HIRAGANA_KATAKANA = cast("TransliterationModulesNewProto", 'HIRAGANA_KATAKANA')
+    HIRAGANA_KATAKANA = "HIRAGANA_KATAKANA"
     """
     Transliterate a Japanese string from Hiragana to Katakana.
     """
-    IGNORE_CASE = cast("TransliterationModulesNewProto", 'IGNORE_CASE')
+    IGNORE_CASE = "IGNORE_CASE"
     """
     Ignore case when comparing strings by transliteration service.
     """
-    IGNORE_KANA = cast("TransliterationModulesNewProto", 'IGNORE_KANA')
+    IGNORE_KANA = "IGNORE_KANA"
     """
     Ignore Hiragana and Katakana when comparing strings by transliteration service.
     """
-    IGNORE_WIDTH = cast("TransliterationModulesNewProto", 'IGNORE_WIDTH')
+    IGNORE_WIDTH = "IGNORE_WIDTH"
     """
     Ignore full width and half width character when comparing strings by transliteration service.
     
     Ignore full width and half width characters when comparing strings by transliteration service.
     """
-    IgnoreBaFa_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreBaFa_ja_JP')
+    IgnoreBaFa_ja_JP = "IgnoreBaFa_ja_JP"
     """
     Ignore Katakana and Hiragana Ba/Gua and Ha/Fa in Japanese fuzzy search.
     """
-    IgnoreHyuByu_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreHyuByu_ja_JP')
+    IgnoreHyuByu_ja_JP = "IgnoreHyuByu_ja_JP"
     """
     Ignore Katakana and Hiragana Hyu/Fyu and Byu/Gyu in Japanese fuzzy search.
     """
-    IgnoreIandEfollowedByYa_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreIandEfollowedByYa_ja_JP')
+    IgnoreIandEfollowedByYa_ja_JP = "IgnoreIandEfollowedByYa_ja_JP"
     """
     Ignore Katakana YA/A which follows the character in either I or E row in Japanese fuzzy search.
     
     Ignore Katakana YA/A following the character in either I or E row in Japanese fuzzy search.
     """
-    IgnoreIterationMark_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreIterationMark_ja_JP')
+    IgnoreIterationMark_ja_JP = "IgnoreIterationMark_ja_JP"
     """
     Ignore Hiragana and Katakana iteration mark in Japanese fuzzy search.
     """
-    IgnoreKiKuFollowedBySa_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreKiKuFollowedBySa_ja_JP')
+    IgnoreKiKuFollowedBySa_ja_JP = "IgnoreKiKuFollowedBySa_ja_JP"
     """
     Ignore Katakana KI/KU which follows the character in SA column in Japanese fuzzy search.
     
     Ignore Katakana KI/KU following the character in SA column in Japanese fuzzy search.
     """
-    IgnoreMiddleDot_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreMiddleDot_ja_JP')
+    IgnoreMiddleDot_ja_JP = "IgnoreMiddleDot_ja_JP"
     """
     Ignore middle dot in Japanese fuzzy search.
     """
-    IgnoreMinusSign_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreMinusSign_ja_JP')
+    IgnoreMinusSign_ja_JP = "IgnoreMinusSign_ja_JP"
     """
     Ignore dash or minus sign in Japanese fuzzy search.
     """
-    IgnoreProlongedSoundMark_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreProlongedSoundMark_ja_JP')
+    IgnoreProlongedSoundMark_ja_JP = "IgnoreProlongedSoundMark_ja_JP"
     """
     Ignore Japanese prolonged sound mark in Japanese fuzzy search.
     """
-    IgnoreSeZe_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreSeZe_ja_JP')
+    IgnoreSeZe_ja_JP = "IgnoreSeZe_ja_JP"
     """
     Ignore Katakana and Hiragana Se/Sye and Ze/Je in Japanese fuzzy search.
     """
-    IgnoreSeparator_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreSeparator_ja_JP')
+    IgnoreSeparator_ja_JP = "IgnoreSeparator_ja_JP"
     """
     Ignore separator punctuations in Japanese fuzzy search.
     """
-    IgnoreSize_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreSize_ja_JP')
+    IgnoreSize_ja_JP = "IgnoreSize_ja_JP"
     """
     Ignore Japanese normal and small sized character in Japanese fuzzy search.
     """
-    IgnoreSpace_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreSpace_ja_JP')
+    IgnoreSpace_ja_JP = "IgnoreSpace_ja_JP"
     """
     Ignore white space characters, include space, TAB, return, etc. in Japanese fuzzy search.
     """
-    IgnoreTiJi_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreTiJi_ja_JP')
+    IgnoreTiJi_ja_JP = "IgnoreTiJi_ja_JP"
     """
     Ignore Katakana and Hiragana Tsui/Tea/Ti and Dyi/Ji in Japanese fuzzy search.
     """
-    IgnoreTraditionalKana_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreTraditionalKana_ja_JP')
+    IgnoreTraditionalKana_ja_JP = "IgnoreTraditionalKana_ja_JP"
     """
     Ignore Japanese traditional Katakana and Hiragana character in Japanese fuzzy search.
     
     Ignore Japanese traditional Katakana and Hiragana characters in Japanese fuzzy search.
     """
-    IgnoreTraditionalKanji_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreTraditionalKanji_ja_JP')
+    IgnoreTraditionalKanji_ja_JP = "IgnoreTraditionalKanji_ja_JP"
     """
     Ignore Japanese traditional Kanji character in Japanese fuzzy search.
     
     Ignore Japanese traditional Kanji characters in Japanese fuzzy search.
     """
-    IgnoreZiZu_ja_JP = cast("TransliterationModulesNewProto", 'IgnoreZiZu_ja_JP')
+    IgnoreZiZu_ja_JP = "IgnoreZiZu_ja_JP"
     """
     Ignore Katakana and Hiragana Zi/Zi and Zu/Zu in Japanese fuzzy search.
     """
-    KATAKANA_HIRAGANA = cast("TransliterationModulesNewProto", 'KATAKANA_HIRAGANA')
+    KATAKANA_HIRAGANA = "KATAKANA_HIRAGANA"
     """
     Transliterate a Japanese string from Katakana to Hiragana.
     """
-    LOWERCASE_UPPERCASE = cast("TransliterationModulesNewProto", 'LOWERCASE_UPPERCASE')
+    LOWERCASE_UPPERCASE = "LOWERCASE_UPPERCASE"
     """
     Transliterate a string from lower case to upper case.
     """
-    LargeToSmall_ja_JP = cast("TransliterationModulesNewProto", 'LargeToSmall_ja_JP')
+    LargeToSmall_ja_JP = "LargeToSmall_ja_JP"
     """
     transliterate Japanese normal sized character to small sized character
     """
-    NumToCharFullwidth = cast("TransliterationModulesNewProto", 'NumToCharFullwidth')
+    NumToCharFullwidth = "NumToCharFullwidth"
     """
     Transliterate a half width number string to full width number string.
     """
-    NumToCharHangul_ko = cast("TransliterationModulesNewProto", 'NumToCharHangul_ko')
+    NumToCharHangul_ko = "NumToCharHangul_ko"
     """
     Transliterate an ASCII number string to Korean Hangul number string.
     """
-    NumToCharKanjiShort_ja_JP = cast("TransliterationModulesNewProto", 'NumToCharKanjiShort_ja_JP')
+    NumToCharKanjiShort_ja_JP = "NumToCharKanjiShort_ja_JP"
     """
     Transliterate an ASCII number string to Japanese Kanji number string.
     """
-    NumToCharLower_ko = cast("TransliterationModulesNewProto", 'NumToCharLower_ko')
+    NumToCharLower_ko = "NumToCharLower_ko"
     """
     Transliterate an ASCII number string to Korean Hanja lower case number string.
     """
-    NumToCharLower_zh_CN = cast("TransliterationModulesNewProto", 'NumToCharLower_zh_CN')
+    NumToCharLower_zh_CN = "NumToCharLower_zh_CN"
     """
     Transliterate an ASCII number string to Simplified Chinese lower case number string.
     """
-    NumToCharLower_zh_TW = cast("TransliterationModulesNewProto", 'NumToCharLower_zh_TW')
+    NumToCharLower_zh_TW = "NumToCharLower_zh_TW"
     """
     Transliterate an ASCII number string to Traditional Chinese lower case number string.
     """
-    NumToCharUpper_ko = cast("TransliterationModulesNewProto", 'NumToCharUpper_ko')
+    NumToCharUpper_ko = "NumToCharUpper_ko"
     """
     Transliterate an ASCII number string to Korean Hanja upper case number string.
     """
-    NumToCharUpper_zh_CN = cast("TransliterationModulesNewProto", 'NumToCharUpper_zh_CN')
+    NumToCharUpper_zh_CN = "NumToCharUpper_zh_CN"
     """
     Transliterate an ASCII number string to Simplified Chinese upper case number string.
     """
-    NumToCharUpper_zh_TW = cast("TransliterationModulesNewProto", 'NumToCharUpper_zh_TW')
+    NumToCharUpper_zh_TW = "NumToCharUpper_zh_TW"
     """
     Transliterate an ASCII number string to Traditional Chinese upper case number string.
     """
-    NumToTextFormalHangul_ko = cast("TransliterationModulesNewProto", 'NumToTextFormalHangul_ko')
+    NumToTextFormalHangul_ko = "NumToTextFormalHangul_ko"
     """
     Transliterate an ASCII number string to formal Korean Hangul number string in spellout format.
     """
-    NumToTextFormalLower_ko = cast("TransliterationModulesNewProto", 'NumToTextFormalLower_ko')
+    NumToTextFormalLower_ko = "NumToTextFormalLower_ko"
     """
     Transliterate an ASCII number string to formal Korean Hanja lower case number string in spellout format.
     """
-    NumToTextFormalUpper_ko = cast("TransliterationModulesNewProto", 'NumToTextFormalUpper_ko')
+    NumToTextFormalUpper_ko = "NumToTextFormalUpper_ko"
     """
     Transliterate an ASCII number string to formal Korean Hanja upper case number string in spellout format.
     """
-    NumToTextInformalHangul_ko = cast("TransliterationModulesNewProto", 'NumToTextInformalHangul_ko')
+    NumToTextInformalHangul_ko = "NumToTextInformalHangul_ko"
     """
     Transliterate an ASCII number string to informal Korean Hangul number string in spellout format.
     """
-    NumToTextInformalLower_ko = cast("TransliterationModulesNewProto", 'NumToTextInformalLower_ko')
+    NumToTextInformalLower_ko = "NumToTextInformalLower_ko"
     """
     Transliterate an ASCII number string to informal Korean Hanja lower case number string in spellout format.
     """
-    NumToTextInformalUpper_ko = cast("TransliterationModulesNewProto", 'NumToTextInformalUpper_ko')
+    NumToTextInformalUpper_ko = "NumToTextInformalUpper_ko"
     """
     Transliterate an ASCII number string to informal Korean Hanja upper case number string in spellout format.
     """
-    NumToTextLower_zh_CN = cast("TransliterationModulesNewProto", 'NumToTextLower_zh_CN')
+    NumToTextLower_zh_CN = "NumToTextLower_zh_CN"
     """
     Transliterate an ASCII number string to Simplified Chinese lower case number string in spellout format.
     """
-    NumToTextLower_zh_TW = cast("TransliterationModulesNewProto", 'NumToTextLower_zh_TW')
+    NumToTextLower_zh_TW = "NumToTextLower_zh_TW"
     """
     Transliterate an ASCII number string to Traditional Chinese lower case number string in spellout format.
     """
-    NumToTextUpper_zh_CN = cast("TransliterationModulesNewProto", 'NumToTextUpper_zh_CN')
+    NumToTextUpper_zh_CN = "NumToTextUpper_zh_CN"
     """
     Transliterate an ASCII number string to Simplified Chinese upper case number string in spellout format.
     """
-    NumToTextUpper_zh_TW = cast("TransliterationModulesNewProto", 'NumToTextUpper_zh_TW')
+    NumToTextUpper_zh_TW = "NumToTextUpper_zh_TW"
     """
     Transliterate an ASCII number string to Traditional Chinese upper case number string in spellout format.
     """
-    SmallToLarge_ja_JP = cast("TransliterationModulesNewProto", 'SmallToLarge_ja_JP')
+    SmallToLarge_ja_JP = "SmallToLarge_ja_JP"
     """
     transliterate Japanese small sized character to normal sized character
     """
-    TextToNumFormalHangul_ko = cast("TransliterationModulesNewProto", 'TextToNumFormalHangul_ko')
+    TextToNumFormalHangul_ko = "TextToNumFormalHangul_ko"
     """
     Transliterate a Korean formal Hangul number string (spellout) to ASCII number string.
     """
-    TextToNumFormalLower_ko = cast("TransliterationModulesNewProto", 'TextToNumFormalLower_ko')
+    TextToNumFormalLower_ko = "TextToNumFormalLower_ko"
     """
     Transliterate a Korean formal Hanja lower case number string (spellout) to ASCII number string.
     """
-    TextToNumFormalUpper_ko = cast("TransliterationModulesNewProto", 'TextToNumFormalUpper_ko')
+    TextToNumFormalUpper_ko = "TextToNumFormalUpper_ko"
     """
     Transliterate a Korean formal Hanja upper case number string (spellout) to ASCII number string.
     """
-    TextToNumInformalHangul_ko = cast("TransliterationModulesNewProto", 'TextToNumInformalHangul_ko')
+    TextToNumInformalHangul_ko = "TextToNumInformalHangul_ko"
     """
     Transliterate a Korean informal Hangul number string (spellout) to ASCII number string.
     """
-    TextToNumInformalLower_ko = cast("TransliterationModulesNewProto", 'TextToNumInformalLower_ko')
+    TextToNumInformalLower_ko = "TextToNumInformalLower_ko"
     """
     Transliterate a Korean informal Hanja lower case number string (spellout) to ASCII number string.
     """
-    TextToNumInformalUpper_ko = cast("TransliterationModulesNewProto", 'TextToNumInformalUpper_ko')
+    TextToNumInformalUpper_ko = "TextToNumInformalUpper_ko"
     """
     Transliterate a Korean informal Hanja upper case number string (spellout) to ASCII number string.
     """
-    TextToNumLower_zh_CN = cast("TransliterationModulesNewProto", 'TextToNumLower_zh_CN')
+    TextToNumLower_zh_CN = "TextToNumLower_zh_CN"
     """
     Transliterate a Simplified Chinese lower case number string (spellout) to ASCII number string.
     """
-    TextToNumLower_zh_TW = cast("TransliterationModulesNewProto", 'TextToNumLower_zh_TW')
+    TextToNumLower_zh_TW = "TextToNumLower_zh_TW"
     """
     Transliterate a Traditional Chinese lower case number string (spellout) to ASCII number string.
     """
-    TextToNumUpper_zh_CN = cast("TransliterationModulesNewProto", 'TextToNumUpper_zh_CN')
+    TextToNumUpper_zh_CN = "TextToNumUpper_zh_CN"
     """
     Transliterate a Simplified Chinese upper case number string (spellout) to ASCII number string.
     """
-    TextToNumUpper_zh_TW = cast("TransliterationModulesNewProto", 'TextToNumUpper_zh_TW')
+    TextToNumUpper_zh_TW = "TextToNumUpper_zh_TW"
     """
     Transliterate a Traditional Chinese upper case number string (spellout) to ASCII number string.
     """
-    UPPERCASE_LOWERCASE = cast("TransliterationModulesNewProto", 'UPPERCASE_LOWERCASE')
+    UPPERCASE_LOWERCASE = "UPPERCASE_LOWERCASE"
     """
     Transliterate a string from upper case to lower case.
     """
 
-__all__ = ['TransliterationModulesNew']
+__all__ = ["TransliterationModulesNew"]
 

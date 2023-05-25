@@ -43,3 +43,4 @@ class XStringMapping(XInterface_8f010a43):
 
 __all__ = ['XStringMapping']
 
+

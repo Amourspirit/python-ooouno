@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,43 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MirrorAxis(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.MirrorAxis", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.MirrorAxis`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.MirrorAxis import HORIZONTAL as MIRROR_AXIS_HORIZONTAL
-        from com.sun.star.drawing.MirrorAxis import VERTICAL as MIRROR_AXIS_VERTICAL
+    from ...lo.drawing.mirror_axis import MirrorAxis as MirrorAxis
 
-        class MirrorAxis(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API MirrorAxis <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4a57640f8e0cde4bd2c20b6b00d6affb>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.MirrorAxis', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.MirrorAxis'
-            __ooo_type_name__: str = 'enum'
-
-            HORIZONTAL = MIRROR_AXIS_HORIZONTAL
-            """
-            mirror to the horizontal axis
-            """
-            VERTICAL = MIRROR_AXIS_VERTICAL
-            """
-            mirror to the vertical axis
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.mirror_axis import MirrorAxis as MirrorAxis
-
-
-__all__ = ['MirrorAxis']
+__all__ = ["MirrorAxis"]

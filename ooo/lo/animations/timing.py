@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.animations
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.animations.Timing import TimingProto
+
 
 class Timing(Enum):
     """
@@ -33,24 +31,24 @@ class Timing(Enum):
     See Also:
         `API Timing <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1animations.html#ad073880fe621cbabcd7a7cf904ef332f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.animations'
-    __ooo_full_ns__: str = 'com.sun.star.animations.Timing'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.animations"
+    __ooo_full_ns__: str = "com.sun.star.animations.Timing"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.animations.Timing'
+        return "com.sun.star.animations.Timing"
 
-    INDEFINITE = cast("TimingProto", 'INDEFINITE')
+    INDEFINITE = "INDEFINITE"
     """
     specifies that a duration, end or start time is indefinite
     """
-    MEDIA = cast("TimingProto", 'MEDIA')
+    MEDIA = "MEDIA"
     """
     specifies a simple duration as the intrinsic media duration.
     
     This is only valid for elements that define media.
     """
 
-__all__ = ['Timing']
+__all__ = ["Timing"]
 

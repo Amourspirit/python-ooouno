@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextAnimationKind import TextAnimationKindProto
+
 
 class TextAnimationKind(Enum):
     """
@@ -32,23 +30,23 @@ class TextAnimationKind(Enum):
     See Also:
         `API TextAnimationKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a86ab93c592ed65e3f2cd0eebaf5660a2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextAnimationKind'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextAnimationKind"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextAnimationKind'
+        return "com.sun.star.drawing.TextAnimationKind"
 
-    ALTERNATE = cast("TextAnimationKindProto", 'ALTERNATE')
+    ALTERNATE = "ALTERNATE"
     """
     Scroll the text from one side to the other and back.
     """
-    BLINK = cast("TextAnimationKindProto", 'BLINK')
+    BLINK = "BLINK"
     """
     Let this text switch its state from visible to invisible continuously.
     """
-    NONE = cast("TextAnimationKindProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -62,14 +60,14 @@ class TextAnimationKind(Enum):
     
     the line has no special end.
     """
-    SCROLL = cast("TextAnimationKindProto", 'SCROLL')
+    SCROLL = "SCROLL"
     """
     Let this text scroll.
     """
-    SLIDE = cast("TextAnimationKindProto", 'SLIDE')
+    SLIDE = "SLIDE"
     """
     Scroll the text from one side to the final position and stop there.
     """
 
-__all__ = ['TextAnimationKind']
+__all__ = ["TextAnimationKind"]
 

@@ -155,3 +155,4 @@ class XIntegerBitmapColorSpace(XColorSpace_e3940d09):
 
 __all__ = ['XIntegerBitmapColorSpace']
 
+

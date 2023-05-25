@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.mail
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.mail.MailServiceType import MailServiceTypeProto
+
 
 class MailServiceType(Enum):
     """
@@ -33,26 +31,26 @@ class MailServiceType(Enum):
     See Also:
         `API MailServiceType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mail.html#ad93fba9b1c1a9b0a2469f7c1fc392a06>`_
     """
-    __ooo_ns__: str = 'com.sun.star.mail'
-    __ooo_full_ns__: str = 'com.sun.star.mail.MailServiceType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.mail"
+    __ooo_full_ns__: str = "com.sun.star.mail.MailServiceType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.mail.MailServiceType'
+        return "com.sun.star.mail.MailServiceType"
 
-    IMAP = cast("MailServiceTypeProto", 'IMAP')
+    IMAP = "IMAP"
     """
     A IMAP service.
     """
-    POP3 = cast("MailServiceTypeProto", 'POP3')
+    POP3 = "POP3"
     """
     A POP3 service.
     """
-    SMTP = cast("MailServiceTypeProto", 'SMTP')
+    SMTP = "SMTP"
     """
     A SMTP service.
     """
 
-__all__ = ['MailServiceType']
+__all__ = ["MailServiceType"]
 

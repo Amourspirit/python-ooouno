@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,78 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class RectanglePoint(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.RectanglePoint", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.RectanglePoint`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.RectanglePoint import LEFT_BOTTOM as RECTANGLE_POINT_LEFT_BOTTOM
-        from com.sun.star.drawing.RectanglePoint import LEFT_MIDDLE as RECTANGLE_POINT_LEFT_MIDDLE
-        from com.sun.star.drawing.RectanglePoint import LEFT_TOP as RECTANGLE_POINT_LEFT_TOP
-        from com.sun.star.drawing.RectanglePoint import MIDDLE_BOTTOM as RECTANGLE_POINT_MIDDLE_BOTTOM
-        from com.sun.star.drawing.RectanglePoint import MIDDLE_MIDDLE as RECTANGLE_POINT_MIDDLE_MIDDLE
-        from com.sun.star.drawing.RectanglePoint import MIDDLE_TOP as RECTANGLE_POINT_MIDDLE_TOP
-        from com.sun.star.drawing.RectanglePoint import RIGHT_BOTTOM as RECTANGLE_POINT_RIGHT_BOTTOM
-        from com.sun.star.drawing.RectanglePoint import RIGHT_MIDDLE as RECTANGLE_POINT_RIGHT_MIDDLE
-        from com.sun.star.drawing.RectanglePoint import RIGHT_TOP as RECTANGLE_POINT_RIGHT_TOP
+    from ...lo.drawing.rectangle_point import RectanglePoint as RectanglePoint
 
-        class RectanglePoint(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API RectanglePoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4689f50c3960db0e79b179ddfc7d8827>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.RectanglePoint', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.RectanglePoint'
-            __ooo_type_name__: str = 'enum'
-
-            LEFT_BOTTOM = RECTANGLE_POINT_LEFT_BOTTOM
-            """
-            specify to the point on the bottom of the left side from the rectangle.
-            """
-            LEFT_MIDDLE = RECTANGLE_POINT_LEFT_MIDDLE
-            """
-            specify to the point on the middle of the left side from the rectangle.
-            """
-            LEFT_TOP = RECTANGLE_POINT_LEFT_TOP
-            """
-            specify to the point on the left side from the top of the rectangle.
-            """
-            MIDDLE_BOTTOM = RECTANGLE_POINT_MIDDLE_BOTTOM
-            """
-            specify to the point on the middle of the bottom from the rectangle.
-            """
-            MIDDLE_MIDDLE = RECTANGLE_POINT_MIDDLE_MIDDLE
-            """
-            specify to the point on the center from the rectangle.
-            """
-            MIDDLE_TOP = RECTANGLE_POINT_MIDDLE_TOP
-            """
-            specify to the point on the middle of the top from the rectangle.
-            """
-            RIGHT_BOTTOM = RECTANGLE_POINT_RIGHT_BOTTOM
-            """
-            specify to the point on the bottom of the right side from the rectangle.
-            """
-            RIGHT_MIDDLE = RECTANGLE_POINT_RIGHT_MIDDLE
-            """
-            specify to the point on the middle of the right side from the rectangle.
-            """
-            RIGHT_TOP = RECTANGLE_POINT_RIGHT_TOP
-            """
-            specify to the point on the right side from the top of the rectangle.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.rectangle_point import RectanglePoint as RectanglePoint
-
-
-__all__ = ['RectanglePoint']
+__all__ = ["RectanglePoint"]

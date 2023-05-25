@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ui
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ui.DockingArea import DockingAreaProto
+
 
 class DockingArea(Enum):
     """
@@ -32,36 +30,36 @@ class DockingArea(Enum):
     See Also:
         `API DockingArea <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ui.html#abab7084b80a737f798ccebf692878cc1>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ui'
-    __ooo_full_ns__: str = 'com.sun.star.ui.DockingArea'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ui"
+    __ooo_full_ns__: str = "com.sun.star.ui.DockingArea"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ui.DockingArea'
+        return "com.sun.star.ui.DockingArea"
 
-    DOCKINGAREA_BOTTOM = cast("DockingAreaProto", 'DOCKINGAREA_BOTTOM')
+    DOCKINGAREA_BOTTOM = "DOCKINGAREA_BOTTOM"
     """
     the bottom docking area above the status bar.
     """
-    DOCKINGAREA_DEFAULT = cast("DockingAreaProto", 'DOCKINGAREA_DEFAULT')
+    DOCKINGAREA_DEFAULT = "DOCKINGAREA_DEFAULT"
     """
     a default docking area.
     
     It depends on the implementation how to treat this value.
     """
-    DOCKINGAREA_LEFT = cast("DockingAreaProto", 'DOCKINGAREA_LEFT')
+    DOCKINGAREA_LEFT = "DOCKINGAREA_LEFT"
     """
     the left side docking area.
     """
-    DOCKINGAREA_RIGHT = cast("DockingAreaProto", 'DOCKINGAREA_RIGHT')
+    DOCKINGAREA_RIGHT = "DOCKINGAREA_RIGHT"
     """
     the right side docking area.
     """
-    DOCKINGAREA_TOP = cast("DockingAreaProto", 'DOCKINGAREA_TOP')
+    DOCKINGAREA_TOP = "DOCKINGAREA_TOP"
     """
     the top docking area below the menu bar.
     """
 
-__all__ = ['DockingArea']
+__all__ = ["DockingArea"]
 

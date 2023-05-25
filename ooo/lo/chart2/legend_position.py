@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.LegendPosition import LegendPositionProto
+
 
 class LegendPosition(Enum):
     """
@@ -33,34 +31,34 @@ class LegendPosition(Enum):
     See Also:
         `API LegendPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a85df18f245c9e4d24e32ebb9ee879042>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.LegendPosition'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.LegendPosition"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.LegendPosition'
+        return "com.sun.star.chart2.LegendPosition"
 
-    CUSTOM = cast("LegendPositionProto", 'CUSTOM')
+    CUSTOM = "CUSTOM"
     """
     The position of the legend is given by an offset value.
     """
-    LINE_END = cast("LegendPositionProto", 'LINE_END')
+    LINE_END = "LINE_END"
     """
     In LTR mode this is the right-hand side.
     """
-    LINE_START = cast("LegendPositionProto", 'LINE_START')
+    LINE_START = "LINE_START"
     """
     In LTR mode this is the left-hand side.
     """
-    PAGE_END = cast("LegendPositionProto", 'PAGE_END')
+    PAGE_END = "PAGE_END"
     """
     In LTR mode this is the bottom side.
     """
-    PAGE_START = cast("LegendPositionProto", 'PAGE_START')
+    PAGE_START = "PAGE_START"
     """
     In LTR mode this is the top side.
     """
 
-__all__ = ['LegendPosition']
+__all__ = ["LegendPosition"]
 

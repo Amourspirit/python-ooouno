@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,57 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ColorMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.ColorMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.ColorMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.ColorMode import GREYS as COLOR_MODE_GREYS
-        from com.sun.star.drawing.ColorMode import MONO as COLOR_MODE_MONO
-        from com.sun.star.drawing.ColorMode import STANDARD as COLOR_MODE_STANDARD
-        from com.sun.star.drawing.ColorMode import WATERMARK as COLOR_MODE_WATERMARK
+    from ...lo.drawing.color_mode import ColorMode as ColorMode
 
-        class ColorMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ColorMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a0e887cb85702e0dccbf34d7dbe40443f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.ColorMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.ColorMode'
-            __ooo_type_name__: str = 'enum'
-
-            GREYS = COLOR_MODE_GREYS
-            """
-            the graphic is rendered in grayscale on the output device,
-            """
-            MONO = COLOR_MODE_MONO
-            """
-            the graphic is rendered in black and white only,
-            """
-            STANDARD = COLOR_MODE_STANDARD
-            """
-            the graphic is rendered in the default color style of the output device,
-
-            use the length measurement.
-
-            the connector is drawn with three lines, with the middle line perpendicular to the other two
-            """
-            WATERMARK = COLOR_MODE_WATERMARK
-            """
-            the graphic is rendered in a watermark like style,
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.color_mode import ColorMode as ColorMode
-
-
-__all__ = ['ColorMode']
+__all__ = ["ColorMode"]

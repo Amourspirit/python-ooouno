@@ -48,3 +48,4 @@ class XInfoPrinter(XPrinterPropertySet_ff190e21):
 
 __all__ = ['XInfoPrinter']
 
+

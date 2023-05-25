@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.DocumentStoreMode import DocumentStoreModeProto
+
 
 class DocumentStoreMode(Enum):
     """
@@ -32,22 +30,22 @@ class DocumentStoreMode(Enum):
     See Also:
         `API DocumentStoreMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aea1ce806e915d3505569f7679447ecc2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.DocumentStoreMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.DocumentStoreMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.DocumentStoreMode'
+        return "com.sun.star.ucb.DocumentStoreMode"
 
-    LOCAL = cast("DocumentStoreModeProto", 'LOCAL')
+    LOCAL = "LOCAL"
     """
     Document contents are stored locally.
     """
-    REMOTE = cast("DocumentStoreModeProto", 'REMOTE')
+    REMOTE = "REMOTE"
     """
     Document contents are not stored locally.
     """
 
-__all__ = ['DocumentStoreMode']
+__all__ = ["DocumentStoreMode"]
 

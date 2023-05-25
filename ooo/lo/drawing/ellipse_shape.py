@@ -28,7 +28,7 @@ from .shadow_properties import ShadowProperties as ShadowProperties_e350e87
 from .shape import Shape as Shape_85cc09e5
 from .text import Text as Text_7c140999
 if typing.TYPE_CHECKING:
-    from com.sun.star.drawing.CircleKind import CircleKindProto
+    from com.sun.star.drawing.CircleKind import CircleKindProto  # type: ignore
 
 class EllipseShape(FillProperties_f1200da8, LineProperties_f13f0da9, RotationDescriptor_2cec0f63, ShadowProperties_e350e87, Shape_85cc09e5, Text_7c140999):
     """
@@ -66,4 +66,3 @@ class EllipseShape(FillProperties_f1200da8, LineProperties_f13f0da9, RotationDes
 
 
 __all__ = ['EllipseShape']
-

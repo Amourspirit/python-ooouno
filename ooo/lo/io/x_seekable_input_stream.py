@@ -37,3 +37,4 @@ class XSeekableInputStream(XInputStream_98d40ab4, XSeekable_79540954):
 
 __all__ = ['XSeekableInputStream']
 
+

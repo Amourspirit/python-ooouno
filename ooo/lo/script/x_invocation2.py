@@ -61,3 +61,4 @@ class XInvocation2(XInvocation_be070c0f):
 
 __all__ = ['XInvocation2']
 
+

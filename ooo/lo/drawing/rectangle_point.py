@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.RectanglePoint import RectanglePointProto
+
 
 class RectanglePoint(Enum):
     """
@@ -32,50 +30,50 @@ class RectanglePoint(Enum):
     See Also:
         `API RectanglePoint <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4689f50c3960db0e79b179ddfc7d8827>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.RectanglePoint'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.RectanglePoint"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.RectanglePoint'
+        return "com.sun.star.drawing.RectanglePoint"
 
-    LEFT_BOTTOM = cast("RectanglePointProto", 'LEFT_BOTTOM')
+    LEFT_BOTTOM = "LEFT_BOTTOM"
     """
     specify to the point on the bottom of the left side from the rectangle.
     """
-    LEFT_MIDDLE = cast("RectanglePointProto", 'LEFT_MIDDLE')
+    LEFT_MIDDLE = "LEFT_MIDDLE"
     """
     specify to the point on the middle of the left side from the rectangle.
     """
-    LEFT_TOP = cast("RectanglePointProto", 'LEFT_TOP')
+    LEFT_TOP = "LEFT_TOP"
     """
     specify to the point on the left side from the top of the rectangle.
     """
-    MIDDLE_BOTTOM = cast("RectanglePointProto", 'MIDDLE_BOTTOM')
+    MIDDLE_BOTTOM = "MIDDLE_BOTTOM"
     """
     specify to the point on the middle of the bottom from the rectangle.
     """
-    MIDDLE_MIDDLE = cast("RectanglePointProto", 'MIDDLE_MIDDLE')
+    MIDDLE_MIDDLE = "MIDDLE_MIDDLE"
     """
     specify to the point on the center from the rectangle.
     """
-    MIDDLE_TOP = cast("RectanglePointProto", 'MIDDLE_TOP')
+    MIDDLE_TOP = "MIDDLE_TOP"
     """
     specify to the point on the middle of the top from the rectangle.
     """
-    RIGHT_BOTTOM = cast("RectanglePointProto", 'RIGHT_BOTTOM')
+    RIGHT_BOTTOM = "RIGHT_BOTTOM"
     """
     specify to the point on the bottom of the right side from the rectangle.
     """
-    RIGHT_MIDDLE = cast("RectanglePointProto", 'RIGHT_MIDDLE')
+    RIGHT_MIDDLE = "RIGHT_MIDDLE"
     """
     specify to the point on the middle of the right side from the rectangle.
     """
-    RIGHT_TOP = cast("RectanglePointProto", 'RIGHT_TOP')
+    RIGHT_TOP = "RIGHT_TOP"
     """
     specify to the point on the right side from the top of the rectangle.
     """
 
-__all__ = ['RectanglePoint']
+__all__ = ["RectanglePoint"]
 

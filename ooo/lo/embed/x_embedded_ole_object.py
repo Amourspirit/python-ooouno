@@ -40,3 +40,4 @@ class XEmbeddedOleObject(ABC):
 
 __all__ = ['XEmbeddedOleObject']
 
+

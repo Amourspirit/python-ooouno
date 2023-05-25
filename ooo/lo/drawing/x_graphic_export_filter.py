@@ -41,3 +41,4 @@ class XGraphicExportFilter(XExporter_be500c18, XFilter_a6300b25, XMimeTypeInfo_f
 
 __all__ = ['XGraphicExportFilter']
 
+

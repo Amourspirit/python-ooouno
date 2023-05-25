@@ -56,3 +56,4 @@ class XExternalUriReferenceTranslator(ABC):
 
 __all__ = ['XExternalUriReferenceTranslator']
 
+

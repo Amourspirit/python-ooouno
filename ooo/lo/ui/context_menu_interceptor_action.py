@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ui
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ui.ContextMenuInterceptorAction import ContextMenuInterceptorActionProto
+
 
 class ContextMenuInterceptorAction(Enum):
     """
@@ -32,34 +30,34 @@ class ContextMenuInterceptorAction(Enum):
     See Also:
         `API ContextMenuInterceptorAction <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ui.html#a6e0452a8960be949dce52c427920ebbe>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ui'
-    __ooo_full_ns__: str = 'com.sun.star.ui.ContextMenuInterceptorAction'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ui"
+    __ooo_full_ns__: str = "com.sun.star.ui.ContextMenuInterceptorAction"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ui.ContextMenuInterceptorAction'
+        return "com.sun.star.ui.ContextMenuInterceptorAction"
 
-    CANCELLED = cast("ContextMenuInterceptorActionProto", 'CANCELLED')
+    CANCELLED = "CANCELLED"
     """
     the context menu must not be executed.
     
     The next registered XContextMenuInterceptor should not be notified.
     """
-    CONTINUE_MODIFIED = cast("ContextMenuInterceptorActionProto", 'CONTINUE_MODIFIED')
+    CONTINUE_MODIFIED = "CONTINUE_MODIFIED"
     """
     the menu has been modified and the next registered XContextMenuInterceptor should be notified.
     """
-    EXECUTE_MODIFIED = cast("ContextMenuInterceptorActionProto", 'EXECUTE_MODIFIED')
+    EXECUTE_MODIFIED = "EXECUTE_MODIFIED"
     """
     the menu has been modified and should be executed without notifying the next registered XContextMenuInterceptor.
     """
-    IGNORED = cast("ContextMenuInterceptorActionProto", 'IGNORED')
+    IGNORED = "IGNORED"
     """
     the XContextMenuInterceptor has ignored the call.
     
     The next registered XContextMenuInterceptor should be notified.
     """
 
-__all__ = ['ContextMenuInterceptorAction']
+__all__ = ["ContextMenuInterceptorAction"]
 

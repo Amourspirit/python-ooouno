@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,45 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextureKind(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextureKind", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextureKind`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextureKind import COLOR as TEXTURE_KIND_COLOR
-        from com.sun.star.drawing.TextureKind import LUMINANCE as TEXTURE_KIND_LUMINANCE
+    from ...lo.drawing.texture_kind import TextureKind as TextureKind
 
-        class TextureKind(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextureKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a36a384629c2a5cfb1a9d019d30923c2b>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextureKind', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind'
-            __ooo_type_name__: str = 'enum'
-
-            COLOR = TEXTURE_KIND_COLOR
-            """
-            With this mode the lighting is ignored and only the texture color information is used.
-
-            With this mode, the lighting is ignored and only the texture color information is used.
-            """
-            LUMINANCE = TEXTURE_KIND_LUMINANCE
-            """
-            With TextureKind LUMINANCE, the texture and the lighting information is mixed to produce the image, so a lit, textured object is achieved.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.texture_kind import TextureKind as TextureKind
-
-
-__all__ = ['TextureKind']
+__all__ = ["TextureKind"]

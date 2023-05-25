@@ -156,3 +156,4 @@ class XLinguProperties(XPropertySet_bc180bfa):
 
 __all__ = ['XLinguProperties']
 
+

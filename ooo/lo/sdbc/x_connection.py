@@ -257,3 +257,4 @@ class XConnection(XCloseable_98290a86):
 
 __all__ = ['XConnection']
 
+

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.ContentCreationError import ContentCreationErrorProto
+
 
 class ContentCreationError(Enum):
     """
@@ -32,38 +30,38 @@ class ContentCreationError(Enum):
     See Also:
         `API ContentCreationError <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aa2e437022c4d519cf5488a06e5e81ef4>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.ContentCreationError'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.ContentCreationError"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.ContentCreationError'
+        return "com.sun.star.ucb.ContentCreationError"
 
-    CONTENT_CREATION_FAILED = cast("ContentCreationErrorProto", 'CONTENT_CREATION_FAILED')
+    CONTENT_CREATION_FAILED = "CONTENT_CREATION_FAILED"
     """
     Provider was unable to create the content instance.
     """
-    IDENTIFIER_CREATION_FAILED = cast("ContentCreationErrorProto", 'IDENTIFIER_CREATION_FAILED')
+    IDENTIFIER_CREATION_FAILED = "IDENTIFIER_CREATION_FAILED"
     """
     Creation of content identifier failed.
     """
-    NO_CONTENT_BROKER = cast("ContentCreationErrorProto", 'NO_CONTENT_BROKER')
+    NO_CONTENT_BROKER = "NO_CONTENT_BROKER"
     """
     """
-    NO_CONTENT_PROVIDER = cast("ContentCreationErrorProto", 'NO_CONTENT_PROVIDER')
+    NO_CONTENT_PROVIDER = "NO_CONTENT_PROVIDER"
     """
     No Content Provider for given content identifier available.
     """
-    NO_IDENTIFIER_FACTORY = cast("ContentCreationErrorProto", 'NO_IDENTIFIER_FACTORY')
+    NO_IDENTIFIER_FACTORY = "NO_IDENTIFIER_FACTORY"
     """
     """
-    UNKNOWN = cast("ContentCreationErrorProto", 'UNKNOWN')
+    UNKNOWN = "UNKNOWN"
     """
     Unknown.
     
     An unknown I/O error has occurred.
     """
 
-__all__ = ['ContentCreationError']
+__all__ = ["ContentCreationError"]
 

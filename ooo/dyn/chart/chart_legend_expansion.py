@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,57 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ChartLegendExpansion(metaclass=UnoEnumMeta, type_name="com.sun.star.chart.ChartLegendExpansion", name_space="com.sun.star.chart"):
         """Dynamically created class that represents ``com.sun.star.chart.ChartLegendExpansion`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart.ChartLegendExpansion import BALANCED as CHART_LEGEND_EXPANSION_BALANCED
-        from com.sun.star.chart.ChartLegendExpansion import CUSTOM as CHART_LEGEND_EXPANSION_CUSTOM
-        from com.sun.star.chart.ChartLegendExpansion import HIGH as CHART_LEGEND_EXPANSION_HIGH
-        from com.sun.star.chart.ChartLegendExpansion import WIDE as CHART_LEGEND_EXPANSION_WIDE
+    from ...lo.chart.chart_legend_expansion import ChartLegendExpansion as ChartLegendExpansion
 
-        class ChartLegendExpansion(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ChartLegendExpansion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#ab1908f844354e32092fdec03c1b9b513>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart.ChartLegendExpansion', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart'
-            __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendExpansion'
-            __ooo_type_name__: str = 'enum'
-
-            BALANCED = CHART_LEGEND_EXPANSION_BALANCED
-            """
-            The legend entries are arranged in a way that the aspect ratio of the resulting legend is as near to 1 as possible.
-            """
-            CUSTOM = CHART_LEGEND_EXPANSION_CUSTOM
-            """
-            The size of the legend is given explicitly.
-            """
-            HIGH = CHART_LEGEND_EXPANSION_HIGH
-            """
-            The legend entries are stacked in a single column if possible.
-
-            If not enough space is available further columns are added.
-            """
-            WIDE = CHART_LEGEND_EXPANSION_WIDE
-            """
-            The legend entries are arranged in a single row if possible.
-
-            If not enough space is available further rows are added.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart.chart_legend_expansion import ChartLegendExpansion as ChartLegendExpansion
-
-
-__all__ = ['ChartLegendExpansion']
+__all__ = ["ChartLegendExpansion"]

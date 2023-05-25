@@ -67,3 +67,4 @@ class XRowSet(XResultSet_98e30aa7):
 
 __all__ = ['XRowSet']
 
+

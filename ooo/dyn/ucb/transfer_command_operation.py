@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,54 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TransferCommandOperation(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.TransferCommandOperation", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.TransferCommandOperation`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.TransferCommandOperation import COPY as TRANSFER_COMMAND_OPERATION_COPY
-        from com.sun.star.ucb.TransferCommandOperation import LINK as TRANSFER_COMMAND_OPERATION_LINK
-        from com.sun.star.ucb.TransferCommandOperation import MOVE as TRANSFER_COMMAND_OPERATION_MOVE
+    from ...lo.ucb.transfer_command_operation import TransferCommandOperation as TransferCommandOperation
 
-        class TransferCommandOperation(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TransferCommandOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ab7b6f3480b7c1c53e953d42a066614b4>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.TransferCommandOperation', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.TransferCommandOperation'
-            __ooo_type_name__: str = 'enum'
-
-            COPY = TRANSFER_COMMAND_OPERATION_COPY
-            """
-            Copy the source to the target folder.
-
-            WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
-            """
-            LINK = TRANSFER_COMMAND_OPERATION_LINK
-            """
-            Create a link in the target folder.
-
-            The link's target is the source object.
-            """
-            MOVE = TRANSFER_COMMAND_OPERATION_MOVE
-            """
-            Move the source to the target folder.
-
-            WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.transfer_command_operation import TransferCommandOperation as TransferCommandOperation
-
-
-__all__ = ['TransferCommandOperation']
+__all__ = ["TransferCommandOperation"]

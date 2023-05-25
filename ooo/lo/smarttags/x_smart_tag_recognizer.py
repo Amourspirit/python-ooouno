@@ -27,7 +27,7 @@ if typing.TYPE_CHECKING:
     from ..i18n.x_break_iterator import XBreakIterator as XBreakIterator_bf270bcf
     from ..lang.locale import Locale as Locale_70d308fa
     from ..text.x_text_markup import XTextMarkup as XTextMarkup_a5d60b3a
-    from com.sun.star.smarttags.SmartTagRecognizerMode import SmartTagRecognizerModeProto
+    from com.sun.star.smarttags.SmartTagRecognizerMode import SmartTagRecognizerModeProto  # type: ignore
 
 class XSmartTagRecognizer(XInitialization_d46c0cca):
     """
@@ -108,4 +108,3 @@ class XSmartTagRecognizer(XInitialization_d46c0cca):
 
 
 __all__ = ['XSmartTagRecognizer']
-

@@ -41,3 +41,4 @@ class XNumberFormatter2(XNumberFormatPreviewer_3a570fa9, XNumberFormatter_e3170d
 
 __all__ = ['XNumberFormatter2']
 
+

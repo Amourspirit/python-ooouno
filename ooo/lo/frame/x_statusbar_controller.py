@@ -100,3 +100,4 @@ class XStatusbarController(XStatusListener_e2740d35, XComponent_98dc0ab5, XIniti
 
 __all__ = ['XStatusbarController']
 
+

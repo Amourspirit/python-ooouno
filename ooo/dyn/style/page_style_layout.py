@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,65 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PageStyleLayout(metaclass=UnoEnumMeta, type_name="com.sun.star.style.PageStyleLayout", name_space="com.sun.star.style"):
         """Dynamically created class that represents ``com.sun.star.style.PageStyleLayout`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.style.PageStyleLayout import ALL as PAGE_STYLE_LAYOUT_ALL
-        from com.sun.star.style.PageStyleLayout import LEFT as PAGE_STYLE_LAYOUT_LEFT
-        from com.sun.star.style.PageStyleLayout import MIRRORED as PAGE_STYLE_LAYOUT_MIRRORED
-        from com.sun.star.style.PageStyleLayout import RIGHT as PAGE_STYLE_LAYOUT_RIGHT
+    from ...lo.style.page_style_layout import PageStyleLayout as PageStyleLayout
 
-        class PageStyleLayout(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PageStyleLayout <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ae13f8c21c10b194207bb33f84a33d50f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.style.PageStyleLayout', value)
-
-            __ooo_ns__: str = 'com.sun.star.style'
-            __ooo_full_ns__: str = 'com.sun.star.style.PageStyleLayout'
-            __ooo_type_name__: str = 'enum'
-
-            ALL = PAGE_STYLE_LAYOUT_ALL
-            """
-            The page style is identically used for left and right pages.
-            """
-            LEFT = PAGE_STYLE_LAYOUT_LEFT
-            """
-            set the horizontal alignment to the left margin from the container object
-
-            The text range is left-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-
-            adjusted to the left border
-
-            The page style is only used for left pages.
-            """
-            MIRRORED = PAGE_STYLE_LAYOUT_MIRRORED
-            """
-            The page style is used unchanged for left pages and mirrored for right pages.
-            """
-            RIGHT = PAGE_STYLE_LAYOUT_RIGHT
-            """
-            set the horizontal alignment to the right margin from the container object
-
-            The text range is right-aligned between the previous tabulator (or the left border, if none) and this tabulator.
-
-            adjusted to the right border
-
-            The page style is only used for right pages.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.style.page_style_layout import PageStyleLayout as PageStyleLayout
-
-
-__all__ = ['PageStyleLayout']
+__all__ = ["PageStyleLayout"]

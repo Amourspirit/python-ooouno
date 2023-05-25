@@ -51,3 +51,4 @@ class XSimpleFileAccess2(XSimpleFileAccess_dede0cd6):
 
 __all__ = ['XSimpleFileAccess2']
 
+

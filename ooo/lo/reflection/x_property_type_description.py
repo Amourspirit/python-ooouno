@@ -54,3 +54,4 @@ class XPropertyTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XPropertyTypeDescription']
 
+

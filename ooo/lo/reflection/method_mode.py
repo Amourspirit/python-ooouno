@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.reflection
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.reflection.MethodMode import MethodModeProto
+
 
 class MethodMode(Enum):
     """
@@ -32,22 +30,22 @@ class MethodMode(Enum):
     See Also:
         `API MethodMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a5e114fee85d0f2f8cb01480a474dd9b4>`_
     """
-    __ooo_ns__: str = 'com.sun.star.reflection'
-    __ooo_full_ns__: str = 'com.sun.star.reflection.MethodMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.reflection"
+    __ooo_full_ns__: str = "com.sun.star.reflection.MethodMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.reflection.MethodMode'
+        return "com.sun.star.reflection.MethodMode"
 
-    ONEWAY = cast("MethodModeProto", 'ONEWAY')
+    ONEWAY = "ONEWAY"
     """
     method may be run asynchronously
     """
-    TWOWAY = cast("MethodModeProto", 'TWOWAY')
+    TWOWAY = "TWOWAY"
     """
     method is run The
     """
 
-__all__ = ['MethodMode']
+__all__ = ["MethodMode"]
 

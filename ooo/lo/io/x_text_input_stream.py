@@ -81,3 +81,4 @@ class XTextInputStream(XInputStream_98d40ab4):
 
 __all__ = ['XTextInputStream']
 
+

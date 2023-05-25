@@ -116,3 +116,4 @@ class XStringResourceResolver(XModifyBroadcaster_fd990df0):
 
 __all__ = ['XStringResourceResolver']
 
+

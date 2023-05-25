@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing.framework
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.framework.ResourceActivationMode import ResourceActivationModeProto
+
 
 class ResourceActivationMode(Enum):
     """
@@ -32,26 +30,26 @@ class ResourceActivationMode(Enum):
     See Also:
         `API ResourceActivationMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a9b6ee17a97f260847a6fa2df1be8f104>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing.framework'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.framework.ResourceActivationMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing.framework"
+    __ooo_full_ns__: str = "com.sun.star.drawing.framework.ResourceActivationMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.framework.ResourceActivationMode'
+        return "com.sun.star.drawing.framework.ResourceActivationMode"
 
-    ADD = cast("ResourceActivationModeProto", 'ADD')
+    ADD = "ADD"
     """
     A resource is requested in addition to already existing ones.
     
     This is used for example for panes.
     """
-    REPLACE = cast("ResourceActivationModeProto", 'REPLACE')
+    REPLACE = "REPLACE"
     """
     A resource is requested to replace an already existing one of the same class.
     
     This is used for example for views.
     """
 
-__all__ = ['ResourceActivationMode']
+__all__ = ["ResourceActivationMode"]
 

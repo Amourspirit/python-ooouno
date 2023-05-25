@@ -24,7 +24,7 @@ from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_shape import XShape as XShape_8fd00a3d
-    from com.sun.star.drawing.MirrorAxis import MirrorAxisProto
+    from com.sun.star.drawing.MirrorAxis import MirrorAxisProto  # type: ignore
 
 class XShapeMirror(XInterface_8f010a43):
     """
@@ -56,4 +56,3 @@ class XShapeMirror(XInterface_8f010a43):
         ...
 
 __all__ = ['XShapeMirror']
-

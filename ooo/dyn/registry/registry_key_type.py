@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,41 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class RegistryKeyType(metaclass=UnoEnumMeta, type_name="com.sun.star.registry.RegistryKeyType", name_space="com.sun.star.registry"):
         """Dynamically created class that represents ``com.sun.star.registry.RegistryKeyType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.registry.RegistryKeyType import KEY as REGISTRY_KEY_TYPE_KEY
-        from com.sun.star.registry.RegistryKeyType import LINK as REGISTRY_KEY_TYPE_LINK
+    from ...lo.registry.registry_key_type import RegistryKeyType as RegistryKeyType
 
-        class RegistryKeyType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API RegistryKeyType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1registry.html#a096c2bade01504c38ba808bfeadff2b2>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.registry.RegistryKeyType', value)
-
-            __ooo_ns__: str = 'com.sun.star.registry'
-            __ooo_full_ns__: str = 'com.sun.star.registry.RegistryKeyType'
-            __ooo_type_name__: str = 'enum'
-
-            KEY = REGISTRY_KEY_TYPE_KEY
-            """
-            """
-            LINK = REGISTRY_KEY_TYPE_LINK
-            """
-            """
-    else:
-        # keep document generators happy
-        from ...lo.registry.registry_key_type import RegistryKeyType as RegistryKeyType
-
-
-__all__ = ['RegistryKeyType']
+__all__ = ["RegistryKeyType"]

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,45 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class BorderType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.framework.BorderType", name_space="com.sun.star.drawing.framework"):
         """Dynamically created class that represents ``com.sun.star.drawing.framework.BorderType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.framework.BorderType import INNER_BORDER as BORDER_TYPE_INNER_BORDER
-        from com.sun.star.drawing.framework.BorderType import OUTER_BORDER as BORDER_TYPE_OUTER_BORDER
-        from com.sun.star.drawing.framework.BorderType import TOTAL_BORDER as BORDER_TYPE_TOTAL_BORDER
+    from ....lo.drawing.framework.border_type import BorderType as BorderType
 
-        class BorderType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API BorderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a62ba43b838957db08d5ecb9b46b8ca90>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.framework.BorderType', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing.framework'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.framework.BorderType'
-            __ooo_type_name__: str = 'enum'
-
-            INNER_BORDER = BORDER_TYPE_INNER_BORDER
-            """
-            """
-            OUTER_BORDER = BORDER_TYPE_OUTER_BORDER
-            """
-            """
-            TOTAL_BORDER = BORDER_TYPE_TOTAL_BORDER
-            """
-            """
-    else:
-        # keep document generators happy
-        from ....lo.drawing.framework.border_type import BorderType as BorderType
-
-
-__all__ = ['BorderType']
+__all__ = ["BorderType"]

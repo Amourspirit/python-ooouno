@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,53 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class LayerType(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.LayerType", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.LayerType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.LayerType import CONTROLSA as LAYER_TYPE_CONTROLSA
-        from com.sun.star.drawing.LayerType import DIMENSIONIANG_LINES as LAYER_TYPE_DIMENSIONIANG_LINES
-        from com.sun.star.drawing.LayerType import LAYOUT as LAYER_TYPE_LAYOUT
-        from com.sun.star.drawing.LayerType import USER_DEFINED as LAYER_TYPE_USER_DEFINED
+    from ...lo.drawing.layer_type import LayerType as LayerType
 
-        class LayerType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API LayerType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a56943a0946e5f15e5e58054b8e7a04a4>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.LayerType', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.LayerType'
-            __ooo_type_name__: str = 'enum'
-
-            CONTROLSA = LAYER_TYPE_CONTROLSA
-            """
-            This is the layer for the controls.
-            """
-            DIMENSIONIANG_LINES = LAYER_TYPE_DIMENSIONIANG_LINES
-            """
-            This is the layer for all measure shapes.
-            """
-            LAYOUT = LAYER_TYPE_LAYOUT
-            """
-            This is the layer for all standard shapes.
-            """
-            USER_DEFINED = LAYER_TYPE_USER_DEFINED
-            """
-            There can be zero or more layers of this type.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.layer_type import LayerType as LayerType
-
-
-__all__ = ['LayerType']
+__all__ = ["LayerType"]

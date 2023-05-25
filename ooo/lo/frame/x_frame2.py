@@ -89,3 +89,4 @@ class XFrame2(XDispatchInformationProvider_afb6126c, XDispatchProvider_fc690de6,
 
 __all__ = ['XFrame2']
 
+

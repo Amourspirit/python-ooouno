@@ -27,8 +27,8 @@ from .x_hierarchies_supplier import XHierarchiesSupplier as XHierarchiesSupplier
 from ..util.x_cloneable import XCloneable as XCloneable_99d00aa3
 if typing.TYPE_CHECKING:
     from .table_filter_field import TableFilterField as TableFilterField_ee760d53
-    from com.sun.star.sheet.GeneralFunction import GeneralFunctionProto
-    from com.sun.star.sheet.DataPilotFieldOrientation import DataPilotFieldOrientationProto
+    from com.sun.star.sheet.GeneralFunction import GeneralFunctionProto  # type: ignore
+    from com.sun.star.sheet.DataPilotFieldOrientation import DataPilotFieldOrientationProto  # type: ignore
 
 class DataPilotSourceDimension(XPropertySet_bc180bfa, XNamed_a6520b08, XHierarchiesSupplier_29a50f34, XCloneable_99d00aa3):
     """
@@ -122,4 +122,3 @@ class DataPilotSourceDimension(XPropertySet_bc180bfa, XNamed_a6520b08, XHierarch
 
 
 __all__ = ['DataPilotSourceDimension']
-

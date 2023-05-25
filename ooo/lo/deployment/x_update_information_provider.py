@@ -77,3 +77,4 @@ class XUpdateInformationProvider(ABC):
 
 __all__ = ['XUpdateInformationProvider']
 
+

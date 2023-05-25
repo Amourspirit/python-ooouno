@@ -24,7 +24,8 @@ from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from ..table.cell_address import CellAddress as CellAddress_ae5f0b56
-    from com.sun.star.sheet.ConditionOperator import ConditionOperatorProto
+    from com.sun.star.sheet.ConditionOperator import ConditionOperatorProto  # type: ignore
+    from com.sun.star.sheet.ConditionOperator import ConditionOperatorProto  # type: ignore
 
 class XSheetCondition(XInterface_8f010a43):
     """
@@ -88,4 +89,3 @@ class XSheetCondition(XInterface_8f010a43):
         ...
 
 __all__ = ['XSheetCondition']
-

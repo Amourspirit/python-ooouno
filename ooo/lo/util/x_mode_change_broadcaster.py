@@ -75,3 +75,4 @@ class XModeChangeBroadcaster(XInterface_8f010a43):
 
 __all__ = ['XModeChangeBroadcaster']
 
+

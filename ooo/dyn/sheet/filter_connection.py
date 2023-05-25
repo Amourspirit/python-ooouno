@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,43 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class FilterConnection(metaclass=UnoEnumMeta, type_name="com.sun.star.sheet.FilterConnection", name_space="com.sun.star.sheet"):
         """Dynamically created class that represents ``com.sun.star.sheet.FilterConnection`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.sheet.FilterConnection import AND as FILTER_CONNECTION_AND
-        from com.sun.star.sheet.FilterConnection import OR as FILTER_CONNECTION_OR
+    from ...lo.sheet.filter_connection import FilterConnection as FilterConnection
 
-        class FilterConnection(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API FilterConnection <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a946b76fb59cd525a1296ff815333d110>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.sheet.FilterConnection', value)
-
-            __ooo_ns__: str = 'com.sun.star.sheet'
-            __ooo_full_ns__: str = 'com.sun.star.sheet.FilterConnection'
-            __ooo_type_name__: str = 'enum'
-
-            AND = FILTER_CONNECTION_AND
-            """
-            both conditions have to be fulfilled.
-            """
-            OR = FILTER_CONNECTION_OR
-            """
-            at least one of the conditions has to be fulfilled.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.sheet.filter_connection import FilterConnection as FilterConnection
-
-
-__all__ = ['FilterConnection']
+__all__ = ["FilterConnection"]

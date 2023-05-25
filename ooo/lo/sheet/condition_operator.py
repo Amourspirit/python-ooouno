@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.ConditionOperator import ConditionOperatorProto
+
 
 class ConditionOperator(Enum):
     """
@@ -32,35 +30,35 @@ class ConditionOperator(Enum):
     See Also:
         `API ConditionOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#adab1b2b49825a75bed998dd77963eff9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.ConditionOperator'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.ConditionOperator"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.ConditionOperator'
+        return "com.sun.star.sheet.ConditionOperator"
 
-    BETWEEN = cast("ConditionOperatorProto", 'BETWEEN')
+    BETWEEN = "BETWEEN"
     """
     the value has to be between the two specified values.
     """
-    EQUAL = cast("ConditionOperatorProto", 'EQUAL')
+    EQUAL = "EQUAL"
     """
     value has to be equal to the specified value.
     
     The cell value is equal to the specified value.
     """
-    FORMULA = cast("ConditionOperatorProto", 'FORMULA')
+    FORMULA = "FORMULA"
     """
     the specified formula has to give a non-zero result.
     """
-    GREATER = cast("ConditionOperatorProto", 'GREATER')
+    GREATER = "GREATER"
     """
     the value has to be greater than the specified value.
     
     value has to be greater than the specified value.
     """
-    GREATER_EQUAL = cast("ConditionOperatorProto", 'GREATER_EQUAL')
+    GREATER_EQUAL = "GREATER_EQUAL"
     """
     the value has to be greater than or equal to the specified value.
     
@@ -68,13 +66,13 @@ class ConditionOperator(Enum):
     
     value has to be greater than or equal to the specified value.
     """
-    LESS = cast("ConditionOperatorProto", 'LESS')
+    LESS = "LESS"
     """
     the value has to be less than the specified value.
     
     value has to be less than the specified value.
     """
-    LESS_EQUAL = cast("ConditionOperatorProto", 'LESS_EQUAL')
+    LESS_EQUAL = "LESS_EQUAL"
     """
     the value has to be less than or equal to the specified value.
     
@@ -82,7 +80,7 @@ class ConditionOperator(Enum):
     
     value has to be less than or equal to the specified value.
     """
-    NONE = cast("ConditionOperatorProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -96,16 +94,16 @@ class ConditionOperator(Enum):
     
     no condition is specified.
     """
-    NOT_BETWEEN = cast("ConditionOperatorProto", 'NOT_BETWEEN')
+    NOT_BETWEEN = "NOT_BETWEEN"
     """
     the value has to be outside of the two specified values.
     """
-    NOT_EQUAL = cast("ConditionOperatorProto", 'NOT_EQUAL')
+    NOT_EQUAL = "NOT_EQUAL"
     """
     the value must not be equal to the specified value.
     
     value must not be equal to the specified value.
     """
 
-__all__ = ['ConditionOperator']
+__all__ = ["ConditionOperator"]
 

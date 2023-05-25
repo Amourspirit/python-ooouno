@@ -23,7 +23,7 @@ import typing
 from abc import abstractmethod
 from .xsax_event_keeper import XSAXEventKeeper as XSAXEventKeeper_65aa1044
 if typing.TYPE_CHECKING:
-    from com.sun.star.xml.crypto.sax.ElementMarkPriority import ElementMarkPriorityProto
+    from com.sun.star.xml.crypto.sax.ElementMarkPriority import ElementMarkPriorityProto  # type: ignore
 
 class XSecuritySAXEventKeeper(XSAXEventKeeper_65aa1044):
     """
@@ -53,4 +53,3 @@ class XSecuritySAXEventKeeper(XSAXEventKeeper_65aa1044):
         ...
 
 __all__ = ['XSecuritySAXEventKeeper']
-

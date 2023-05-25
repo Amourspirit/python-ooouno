@@ -57,3 +57,4 @@ class XCommandEnvironment(XInterface_8f010a43):
 
 __all__ = ['XCommandEnvironment']
 
+

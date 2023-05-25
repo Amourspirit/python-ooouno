@@ -31,7 +31,7 @@ if typing.TYPE_CHECKING:
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from .section_file_link import SectionFileLink as SectionFileLink_d63e0cb0
     from .x_text_columns import XTextColumns as XTextColumns_b17f0bab
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
 
 class TextSection(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XPropertySet_bc180bfa, XPropertyState_d55c0ccf, XNamed_a6520b08, XTextSection_b1730b9f):
     """
@@ -304,4 +304,3 @@ class TextSection(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, 
 
 
 __all__ = ['TextSection']
-

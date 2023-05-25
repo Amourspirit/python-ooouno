@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart.ChartLegendPosition import ChartLegendPositionProto
+
 
 class ChartLegendPosition(Enum):
     """
@@ -32,23 +30,23 @@ class ChartLegendPosition(Enum):
     See Also:
         `API ChartLegendPosition <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart.html#a65c2b55fdf73cbbf2fdcfef7d305b6c3>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart'
-    __ooo_full_ns__: str = 'com.sun.star.chart.ChartLegendPosition'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart"
+    __ooo_full_ns__: str = "com.sun.star.chart.ChartLegendPosition"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart.ChartLegendPosition'
+        return "com.sun.star.chart.ChartLegendPosition"
 
-    BOTTOM = cast("ChartLegendPositionProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     displays the chart legend beneath the diagram.
     """
-    LEFT = cast("ChartLegendPositionProto", 'LEFT')
+    LEFT = "LEFT"
     """
     displays the chart legend on the left side of the diagram.
     """
-    NONE = cast("ChartLegendPositionProto", 'NONE')
+    NONE = "NONE"
     """
     error indicators are not displayed.
     
@@ -58,14 +56,14 @@ class ChartLegendPosition(Enum):
     
     displays no error indicators.
     """
-    RIGHT = cast("ChartLegendPositionProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     displays the chart legend on the right side of the diagram.
     """
-    TOP = cast("ChartLegendPositionProto", 'TOP')
+    TOP = "TOP"
     """
     displays the chart legend above the diagram.
     """
 
-__all__ = ['ChartLegendPosition']
+__all__ = ["ChartLegendPosition"]
 

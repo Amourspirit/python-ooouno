@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PasswordRequestMode(metaclass=UnoEnumMeta, type_name="com.sun.star.task.PasswordRequestMode", name_space="com.sun.star.task"):
         """Dynamically created class that represents ``com.sun.star.task.PasswordRequestMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.task.PasswordRequestMode import PASSWORD_CREATE as PASSWORD_REQUEST_MODE_PASSWORD_CREATE
-        from com.sun.star.task.PasswordRequestMode import PASSWORD_ENTER as PASSWORD_REQUEST_MODE_PASSWORD_ENTER
-        from com.sun.star.task.PasswordRequestMode import PASSWORD_REENTER as PASSWORD_REQUEST_MODE_PASSWORD_REENTER
+    from ...lo.task.password_request_mode import PasswordRequestMode as PasswordRequestMode
 
-        class PasswordRequestMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PasswordRequestMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1task.html#a921a6f0fb0abf824f006cab79dbc54d0>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.task.PasswordRequestMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.task'
-            __ooo_full_ns__: str = 'com.sun.star.task.PasswordRequestMode'
-            __ooo_type_name__: str = 'enum'
-
-            PASSWORD_CREATE = PASSWORD_REQUEST_MODE_PASSWORD_CREATE
-            """
-            Password creation.
-            """
-            PASSWORD_ENTER = PASSWORD_REQUEST_MODE_PASSWORD_ENTER
-            """
-            Ask for a password.
-            """
-            PASSWORD_REENTER = PASSWORD_REQUEST_MODE_PASSWORD_REENTER
-            """
-            Wrong password was entered, ask again.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.task.password_request_mode import PasswordRequestMode as PasswordRequestMode
-
-
-__all__ = ['PasswordRequestMode']
+__all__ = ["PasswordRequestMode"]

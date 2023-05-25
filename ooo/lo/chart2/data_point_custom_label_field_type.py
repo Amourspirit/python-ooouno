@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.DataPointCustomLabelFieldType import DataPointCustomLabelFieldTypeProto
+
 
 class DataPointCustomLabelFieldType(Enum):
     """
@@ -32,38 +30,38 @@ class DataPointCustomLabelFieldType(Enum):
     See Also:
         `API DataPointCustomLabelFieldType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#a364615e20b0759c6c5100f6a47add923>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.DataPointCustomLabelFieldType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2"
+    __ooo_full_ns__: str = "com.sun.star.chart2.DataPointCustomLabelFieldType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.DataPointCustomLabelFieldType'
+        return "com.sun.star.chart2.DataPointCustomLabelFieldType"
 
-    CATEGORYNAME = cast("DataPointCustomLabelFieldTypeProto", 'CATEGORYNAME')
+    CATEGORYNAME = "CATEGORYNAME"
     """
     """
-    CELLRANGE = cast("DataPointCustomLabelFieldTypeProto", 'CELLRANGE')
+    CELLRANGE = "CELLRANGE"
     """
     """
-    CELLREF = cast("DataPointCustomLabelFieldTypeProto", 'CELLREF')
+    CELLREF = "CELLREF"
     """
     """
-    NEWLINE = cast("DataPointCustomLabelFieldTypeProto", 'NEWLINE')
+    NEWLINE = "NEWLINE"
     """
     """
-    PERCENTAGE = cast("DataPointCustomLabelFieldTypeProto", 'PERCENTAGE')
+    PERCENTAGE = "PERCENTAGE"
     """
     """
-    SERIESNAME = cast("DataPointCustomLabelFieldTypeProto", 'SERIESNAME')
+    SERIESNAME = "SERIESNAME"
     """
     """
-    TEXT = cast("DataPointCustomLabelFieldTypeProto", 'TEXT')
+    TEXT = "TEXT"
     """
     """
-    VALUE = cast("DataPointCustomLabelFieldTypeProto", 'VALUE')
+    VALUE = "VALUE"
     """
     """
 
-__all__ = ['DataPointCustomLabelFieldType']
+__all__ = ["DataPointCustomLabelFieldType"]
 

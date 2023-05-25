@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,55 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class InteractiveSelectionResult(metaclass=UnoEnumMeta, type_name="com.sun.star.inspection.InteractiveSelectionResult", name_space="com.sun.star.inspection"):
         """Dynamically created class that represents ``com.sun.star.inspection.InteractiveSelectionResult`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.inspection.InteractiveSelectionResult import Cancelled as INTERACTIVE_SELECTION_RESULT_Cancelled
-        from com.sun.star.inspection.InteractiveSelectionResult import ObtainedValue as INTERACTIVE_SELECTION_RESULT_ObtainedValue
-        from com.sun.star.inspection.InteractiveSelectionResult import Pending as INTERACTIVE_SELECTION_RESULT_Pending
-        from com.sun.star.inspection.InteractiveSelectionResult import Success as INTERACTIVE_SELECTION_RESULT_Success
+    from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult
 
-        class InteractiveSelectionResult(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API InteractiveSelectionResult <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1inspection.html#a2c7cbb6dbe76b989188c75ba8e400876>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.inspection.InteractiveSelectionResult', value)
-
-            __ooo_ns__: str = 'com.sun.star.inspection'
-            __ooo_full_ns__: str = 'com.sun.star.inspection.InteractiveSelectionResult'
-            __ooo_type_name__: str = 'enum'
-
-            Cancelled = INTERACTIVE_SELECTION_RESULT_Cancelled
-            """
-            The interactive selection of a property value was canceled.
-            """
-            ObtainedValue = INTERACTIVE_SELECTION_RESULT_ObtainedValue
-            """
-            The interactive selection of a property value succeeded, a new property value has been obtained, but not yet set at the inspected component.
-
-            In this case, the obtained value is passed to the caller of XPropertyHandler.onInteractivePropertySelection(), which is responsible for forwarding this value to the inspected component.
-            """
-            Pending = INTERACTIVE_SELECTION_RESULT_Pending
-            """
-            The interactive selection of a property value is still pending.
-            """
-            Success = INTERACTIVE_SELECTION_RESULT_Success
-            """
-            The interactive selection of a property value succeeded, and the new property value chosen by the user has already been set at the inspected component.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.inspection.interactive_selection_result import InteractiveSelectionResult as InteractiveSelectionResult
-
-
-__all__ = ['InteractiveSelectionResult']
+__all__ = ["InteractiveSelectionResult"]

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.form
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.form.FormSubmitMethod import FormSubmitMethodProto
+
 
 class FormSubmitMethod(Enum):
     """
@@ -32,22 +30,22 @@ class FormSubmitMethod(Enum):
     See Also:
         `API FormSubmitMethod <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1form.html#ae9bf553104504664f5d2066375a414df>`_
     """
-    __ooo_ns__: str = 'com.sun.star.form'
-    __ooo_full_ns__: str = 'com.sun.star.form.FormSubmitMethod'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.form"
+    __ooo_full_ns__: str = "com.sun.star.form.FormSubmitMethod"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.form.FormSubmitMethod'
+        return "com.sun.star.form.FormSubmitMethod"
 
-    GET = cast("FormSubmitMethodProto", 'GET')
+    GET = "GET"
     """
     specifies to append the input information of a form to the target URL as parameters.
     """
-    POST = cast("FormSubmitMethodProto", 'POST')
+    POST = "POST"
     """
     specifies to send the input information in a data body.
     """
 
-__all__ = ['FormSubmitMethod']
+__all__ = ["FormSubmitMethod"]
 

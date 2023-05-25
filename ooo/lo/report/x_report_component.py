@@ -144,3 +144,4 @@ class XReportComponent(XPropertySet_bc180bfa, XChild_a6390b07, XShape_8fd00a3d, 
 
 __all__ = ['XReportComponent']
 
+

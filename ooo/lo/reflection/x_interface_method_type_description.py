@@ -67,3 +67,4 @@ class XInterfaceMethodTypeDescription(XInterfaceMemberTypeDescription_52ea159a):
 
 __all__ = ['XInterfaceMethodTypeDescription']
 
+

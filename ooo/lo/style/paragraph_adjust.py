@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.style
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.style.ParagraphAdjust import ParagraphAdjustProto
+
 
 class ParagraphAdjust(Enum):
     """
@@ -32,19 +30,19 @@ class ParagraphAdjust(Enum):
     See Also:
         `API ParagraphAdjust <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1style.html#ab9b2806f97ec4c3b5d4e2d92084948f1>`_
     """
-    __ooo_ns__: str = 'com.sun.star.style'
-    __ooo_full_ns__: str = 'com.sun.star.style.ParagraphAdjust'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.style"
+    __ooo_full_ns__: str = "com.sun.star.style.ParagraphAdjust"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.style.ParagraphAdjust'
+        return "com.sun.star.style.ParagraphAdjust"
 
-    BLOCK = cast("ParagraphAdjustProto", 'BLOCK')
+    BLOCK = "BLOCK"
     """
     adjusted to both borders / stretched, except for last line
     """
-    CENTER = cast("ParagraphAdjustProto", 'CENTER')
+    CENTER = "CENTER"
     """
     set the horizontal alignment to the center between the margins from the container object
     
@@ -52,7 +50,7 @@ class ParagraphAdjust(Enum):
     
     adjusted to the center
     """
-    LEFT = cast("ParagraphAdjustProto", 'LEFT')
+    LEFT = "LEFT"
     """
     set the horizontal alignment to the left margin from the container object
     
@@ -62,7 +60,7 @@ class ParagraphAdjust(Enum):
     
     The page style is only used for left pages.
     """
-    RIGHT = cast("ParagraphAdjustProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     set the horizontal alignment to the right margin from the container object
     
@@ -72,10 +70,10 @@ class ParagraphAdjust(Enum):
     
     The page style is only used for right pages.
     """
-    STRETCH = cast("ParagraphAdjustProto", 'STRETCH')
+    STRETCH = "STRETCH"
     """
     adjusted to both borders / stretched, including last line
     """
 
-__all__ = ['ParagraphAdjust']
+__all__ = ["ParagraphAdjust"]
 

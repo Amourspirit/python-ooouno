@@ -56,3 +56,4 @@ class XTextViewCursor(XTextCursor_a60c0b48):
 
 __all__ = ['XTextViewCursor']
 
+

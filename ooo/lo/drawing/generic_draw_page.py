@@ -30,7 +30,7 @@ from .x_shapes import XShapes as XShapes_9a800ab0
 if typing.TYPE_CHECKING:
     from ..container.x_index_access import XIndexAccess as XIndexAccess_f0910d6d
     from ..container.x_name_container import XNameContainer as XNameContainer_cb90e47
-    from com.sun.star.view.PaperOrientation import PaperOrientationProto
+    from com.sun.star.view.PaperOrientation import PaperOrientationProto  # type: ignore
 
 class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70c91, XShapeCombiner_ef7b0d6c, XShapeGrouper_e2a30d21, XShapes_9a800ab0):
     """
@@ -147,4 +147,3 @@ class GenericDrawPage(XPropertySet_bc180bfa, XNamed_a6520b08, XShapeBinder_d4f70
 
 
 __all__ = ['GenericDrawPage']
-

@@ -27,7 +27,7 @@ if typing.TYPE_CHECKING:
     from ..awt.point import Point as Point_5fb2085e
     from ..awt.rectangle import Rectangle as Rectangle_84b109e9
     from ..beans.property_value import PropertyValue as PropertyValue_c9610c73
-    from com.sun.star.accessibility.AccessibleScrollType import AccessibleScrollTypeProto
+    from com.sun.star.accessibility.AccessibleScrollType import AccessibleScrollTypeProto  # type: ignore
 
 class XAccessibleText(XInterface_8f010a43):
     """
@@ -262,4 +262,3 @@ class XAccessibleText(XInterface_8f010a43):
         ...
 
 __all__ = ['XAccessibleText']
-

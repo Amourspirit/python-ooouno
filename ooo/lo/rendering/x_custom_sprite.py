@@ -52,3 +52,4 @@ class XCustomSprite(XSprite_b2470b95):
 
 __all__ = ['XCustomSprite']
 
+

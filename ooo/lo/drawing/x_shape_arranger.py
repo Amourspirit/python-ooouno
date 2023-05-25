@@ -25,7 +25,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_shape import XShape as XShape_8fd00a3d
     from .x_shapes import XShapes as XShapes_9a800ab0
-    from com.sun.star.drawing.Arrangement import ArrangementProto
+    from com.sun.star.drawing.Arrangement import ArrangementProto  # type: ignore
 
 class XShapeArranger(XInterface_8f010a43):
     """
@@ -81,4 +81,3 @@ class XShapeArranger(XInterface_8f010a43):
         ...
 
 __all__ = ['XShapeArranger']
-

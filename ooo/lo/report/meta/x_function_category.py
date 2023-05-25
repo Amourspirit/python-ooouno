@@ -65,3 +65,4 @@ class XFunctionCategory(XPropertySet_bc180bfa, XIndexAccess_f0910d6d):
 
 __all__ = ['XFunctionCategory']
 
+

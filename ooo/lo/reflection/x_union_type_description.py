@@ -78,3 +78,4 @@ class XUnionTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XUnionTypeDescription']
 
+

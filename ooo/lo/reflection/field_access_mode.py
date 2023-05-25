@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.reflection
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.reflection.FieldAccessMode import FieldAccessModeProto
+
 
 class FieldAccessMode(Enum):
     """
@@ -32,32 +30,32 @@ class FieldAccessMode(Enum):
     See Also:
         `API FieldAccessMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a95a71baf95250ba8716608067ba245f9>`_
     """
-    __ooo_ns__: str = 'com.sun.star.reflection'
-    __ooo_full_ns__: str = 'com.sun.star.reflection.FieldAccessMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.reflection"
+    __ooo_full_ns__: str = "com.sun.star.reflection.FieldAccessMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.reflection.FieldAccessMode'
+        return "com.sun.star.reflection.FieldAccessMode"
 
-    CONST = cast("FieldAccessModeProto", 'CONST')
+    CONST = "CONST"
     """
     Deprecated.
     
     Not used anymore.
     """
-    READONLY = cast("FieldAccessModeProto", 'READONLY')
+    READONLY = "READONLY"
     """
     readable only
     """
-    READWRITE = cast("FieldAccessModeProto", 'READWRITE')
+    READWRITE = "READWRITE"
     """
     readable and writeable
     """
-    WRITEONLY = cast("FieldAccessModeProto", 'WRITEONLY')
+    WRITEONLY = "WRITEONLY"
     """
     writeable only
     """
 
-__all__ = ['FieldAccessMode']
+__all__ = ["FieldAccessMode"]
 

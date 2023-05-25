@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.MessageBoxType import MessageBoxTypeProto
+
 
 class MessageBoxType(Enum):
     """
@@ -32,34 +30,34 @@ class MessageBoxType(Enum):
     See Also:
         `API MessageBoxType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#ad249d76933bdf54c35f4eaf51a5b7965>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.MessageBoxType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.MessageBoxType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.MessageBoxType'
+        return "com.sun.star.awt.MessageBoxType"
 
-    ERRORBOX = cast("MessageBoxTypeProto", 'ERRORBOX')
+    ERRORBOX = "ERRORBOX"
     """
     A message box to provide an error message to the user.
     """
-    INFOBOX = cast("MessageBoxTypeProto", 'INFOBOX')
+    INFOBOX = "INFOBOX"
     """
     A message box to inform the user about a certain event.
     """
-    MESSAGEBOX = cast("MessageBoxTypeProto", 'MESSAGEBOX')
+    MESSAGEBOX = "MESSAGEBOX"
     """
     A normal message box.
     """
-    QUERYBOX = cast("MessageBoxTypeProto", 'QUERYBOX')
+    QUERYBOX = "QUERYBOX"
     """
     A message box to query information from the user.
     """
-    WARNINGBOX = cast("MessageBoxTypeProto", 'WARNINGBOX')
+    WARNINGBOX = "WARNINGBOX"
     """
     A message to warn the user about a certain problem.
     """
 
-__all__ = ['MessageBoxType']
+__all__ = ["MessageBoxType"]
 

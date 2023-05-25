@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,53 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class CircleKind(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.CircleKind", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.CircleKind`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.CircleKind import ARC as CIRCLE_KIND_ARC
-        from com.sun.star.drawing.CircleKind import CUT as CIRCLE_KIND_CUT
-        from com.sun.star.drawing.CircleKind import FULL as CIRCLE_KIND_FULL
-        from com.sun.star.drawing.CircleKind import SECTION as CIRCLE_KIND_SECTION
+    from ...lo.drawing.circle_kind import CircleKind as CircleKind
 
-        class CircleKind(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API CircleKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6a52201f72a50075b45fea2c19340c0e>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.CircleKind', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.CircleKind'
-            __ooo_type_name__: str = 'enum'
-
-            ARC = CIRCLE_KIND_ARC
-            """
-            a circle with an open cut
-            """
-            CUT = CIRCLE_KIND_CUT
-            """
-            a circle with a cut connected by two lines
-            """
-            FULL = CIRCLE_KIND_FULL
-            """
-            a full circle
-            """
-            SECTION = CIRCLE_KIND_SECTION
-            """
-            a circle with a cut connected by a line
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.circle_kind import CircleKind as CircleKind
-
-
-__all__ = ['CircleKind']
+__all__ = ["CircleKind"]

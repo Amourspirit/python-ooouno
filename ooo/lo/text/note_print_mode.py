@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.text
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.text.NotePrintMode import NotePrintModeProto
+
 
 class NotePrintMode(Enum):
     """
@@ -32,30 +30,30 @@ class NotePrintMode(Enum):
     See Also:
         `API NotePrintMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a95d9f731f1389ee9f277e756b476251c>`_
     """
-    __ooo_ns__: str = 'com.sun.star.text'
-    __ooo_full_ns__: str = 'com.sun.star.text.NotePrintMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.text"
+    __ooo_full_ns__: str = "com.sun.star.text.NotePrintMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.text.NotePrintMode'
+        return "com.sun.star.text.NotePrintMode"
 
-    DOC_END = cast("NotePrintModeProto", 'DOC_END')
+    DOC_END = "DOC_END"
     """
     Notes are collected at the end of the document.
     """
-    NOT = cast("NotePrintModeProto", 'NOT')
+    NOT = "NOT"
     """
     Notes are not printed.
     """
-    ONLY = cast("NotePrintModeProto", 'ONLY')
+    ONLY = "ONLY"
     """
     Only notes are printed.
     """
-    PAGE_END = cast("NotePrintModeProto", 'PAGE_END')
+    PAGE_END = "PAGE_END"
     """
     Notes are collected at the end of a page and printed on an inserted page.
     """
 
-__all__ = ['NotePrintMode']
+__all__ = ["NotePrintMode"]
 

@@ -42,3 +42,4 @@ class XLinguServiceManager2(XComponent_98dc0ab5, XAvailableLocales_58501011, XLi
 
 __all__ = ['XLinguServiceManager2']
 
+

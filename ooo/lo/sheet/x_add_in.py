@@ -95,3 +95,4 @@ class XAddIn(XLocalizable_aee00b64):
 
 __all__ = ['XAddIn']
 
+

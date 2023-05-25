@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.LineStyle import LineStyleProto
+
 
 class LineStyle(Enum):
     """
@@ -32,19 +30,19 @@ class LineStyle(Enum):
     See Also:
         `API LineStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a86e0f5648542856159bb40775c854aa7>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.LineStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.LineStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.LineStyle'
+        return "com.sun.star.drawing.LineStyle"
 
-    DASH = cast("LineStyleProto", 'DASH')
+    DASH = "DASH"
     """
     the line use dashes.
     """
-    NONE = cast("LineStyleProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -58,12 +56,12 @@ class LineStyle(Enum):
     
     the line has no special end.
     """
-    SOLID = cast("LineStyleProto", 'SOLID')
+    SOLID = "SOLID"
     """
     use a solid color to fill the area.
     
     the line is solid.
     """
 
-__all__ = ['LineStyle']
+__all__ = ["LineStyle"]
 

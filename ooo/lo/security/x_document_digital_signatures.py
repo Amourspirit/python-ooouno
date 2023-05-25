@@ -31,7 +31,7 @@ if typing.TYPE_CHECKING:
     from ..io.x_stream import XStream as XStream_678908a4
     from .document_signature_information import DocumentSignatureInformation as DocumentSignatureInformation_f36c13f7
     from .x_certificate import XCertificate as XCertificate_e55b0d3b
-    from com.sun.star.security.CertificateKind import CertificateKindProto
+    from com.sun.star.security.CertificateKind import CertificateKindProto  # type: ignore
 
 class XDocumentDigitalSignatures(XInterface_8f010a43):
     """
@@ -296,4 +296,3 @@ class XDocumentDigitalSignatures(XInterface_8f010a43):
         ...
 
 __all__ = ['XDocumentDigitalSignatures']
-

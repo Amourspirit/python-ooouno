@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.GradientStyle import GradientStyleProto
+
 
 class GradientStyle(Enum):
     """
@@ -32,38 +30,38 @@ class GradientStyle(Enum):
     See Also:
         `API GradientStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#aa6b9d577a1700f29923f49f7b77d165f>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.GradientStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.GradientStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.GradientStyle'
+        return "com.sun.star.awt.GradientStyle"
 
-    AXIAL = cast("GradientStyleProto", 'AXIAL')
+    AXIAL = "AXIAL"
     """
     specifies an axial gradient.
     """
-    ELLIPTICAL = cast("GradientStyleProto", 'ELLIPTICAL')
+    ELLIPTICAL = "ELLIPTICAL"
     """
     specifies an elliptical gradient.
     """
-    LINEAR = cast("GradientStyleProto", 'LINEAR')
+    LINEAR = "LINEAR"
     """
     specifies a linear gradient.
     """
-    RADIAL = cast("GradientStyleProto", 'RADIAL')
+    RADIAL = "RADIAL"
     """
     specifies a radial gradient.
     """
-    RECT = cast("GradientStyleProto", 'RECT')
+    RECT = "RECT"
     """
     specifies a gradient in the shape of a rectangle.
     """
-    SQUARE = cast("GradientStyleProto", 'SQUARE')
+    SQUARE = "SQUARE"
     """
     specifies a gradient in the shape of a square.
     """
 
-__all__ = ['GradientStyle']
+__all__ = ["GradientStyle"]
 

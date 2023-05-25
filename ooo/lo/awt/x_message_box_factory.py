@@ -25,7 +25,7 @@ from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_message_box import XMessageBox as XMessageBox_98e00a9a
     from .x_window_peer import XWindowPeer as XWindowPeer_99760ab0
-    from com.sun.star.awt.MessageBoxType import MessageBoxTypeProto
+    from com.sun.star.awt.MessageBoxType import MessageBoxTypeProto  # type: ignore
 
 class XMessageBoxFactory(XInterface_8f010a43):
     """
@@ -53,4 +53,3 @@ class XMessageBoxFactory(XInterface_8f010a43):
         ...
 
 __all__ = ['XMessageBoxFactory']
-

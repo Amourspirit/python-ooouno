@@ -38,3 +38,4 @@ class XTextAppend(XParagraphAppend_e2930d13, XText_690408ca, XTextPortionAppend_
 
 __all__ = ['XTextAppend']
 
+

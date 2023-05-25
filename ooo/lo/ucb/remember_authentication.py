@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.RememberAuthentication import RememberAuthenticationProto
+
 
 class RememberAuthentication(Enum):
     """
@@ -32,26 +30,26 @@ class RememberAuthentication(Enum):
     See Also:
         `API RememberAuthentication <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a7b9847f348fd7f6a0fc461f821c08173>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.RememberAuthentication'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.RememberAuthentication"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.RememberAuthentication'
+        return "com.sun.star.ucb.RememberAuthentication"
 
-    NO = cast("RememberAuthenticationProto", 'NO')
+    NO = "NO"
     """
     Do not remember the authentication data (use it once and immediately forget about it).
     """
-    PERSISTENT = cast("RememberAuthenticationProto", 'PERSISTENT')
+    PERSISTENT = "PERSISTENT"
     """
     Remember the authentication data \"forever\".
     """
-    SESSION = cast("RememberAuthenticationProto", 'SESSION')
+    SESSION = "SESSION"
     """
     Remember the authentication data, but only until the end of the current session.
     """
 
-__all__ = ['RememberAuthentication']
+__all__ = ["RememberAuthentication"]
 

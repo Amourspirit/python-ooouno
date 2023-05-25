@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,58 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ShadowLocation(metaclass=UnoEnumMeta, type_name="com.sun.star.table.ShadowLocation", name_space="com.sun.star.table"):
         """Dynamically created class that represents ``com.sun.star.table.ShadowLocation`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.table.ShadowLocation import BOTTOM_LEFT as SHADOW_LOCATION_BOTTOM_LEFT
-        from com.sun.star.table.ShadowLocation import BOTTOM_RIGHT as SHADOW_LOCATION_BOTTOM_RIGHT
-        from com.sun.star.table.ShadowLocation import NONE as SHADOW_LOCATION_NONE
-        from com.sun.star.table.ShadowLocation import TOP_LEFT as SHADOW_LOCATION_TOP_LEFT
-        from com.sun.star.table.ShadowLocation import TOP_RIGHT as SHADOW_LOCATION_TOP_RIGHT
+    from ...lo.table.shadow_location import ShadowLocation as ShadowLocation
 
-        class ShadowLocation(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API ShadowLocation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a9ab4ece6abe8ce0c4ad3123d6e3916c0>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.table.ShadowLocation', value)
-
-            __ooo_ns__: str = 'com.sun.star.table'
-            __ooo_full_ns__: str = 'com.sun.star.table.ShadowLocation'
-            __ooo_type_name__: str = 'enum'
-
-            BOTTOM_LEFT = SHADOW_LOCATION_BOTTOM_LEFT
-            """
-            shadow is located along the lower and left sides.
-            """
-            BOTTOM_RIGHT = SHADOW_LOCATION_BOTTOM_RIGHT
-            """
-            shadow is located along the lower and right sides.
-            """
-            NONE = SHADOW_LOCATION_NONE
-            """
-            no shadow.
-            """
-            TOP_LEFT = SHADOW_LOCATION_TOP_LEFT
-            """
-            shadow is located along the upper and left sides.
-            """
-            TOP_RIGHT = SHADOW_LOCATION_TOP_RIGHT
-            """
-            shadow is located along the upper and right sides.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.table.shadow_location import ShadowLocation as ShadowLocation
-
-
-__all__ = ['ShadowLocation']
+__all__ = ["ShadowLocation"]

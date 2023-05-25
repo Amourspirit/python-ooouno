@@ -57,3 +57,4 @@ class XAnimateColor(XAnimate_ca680c52):
 
 __all__ = ['XAnimateColor']
 
+

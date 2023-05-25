@@ -25,7 +25,7 @@ from ..container.x_named import XNamed as XNamed_a6520b08
 if typing.TYPE_CHECKING:
     from .x_dictionary_entry import XDictionaryEntry as XDictionaryEntry_49ef0ff5
     from .x_dictionary_event_listener import XDictionaryEventListener as XDictionaryEventListener_d74c132b
-    from com.sun.star.linguistic2.DictionaryType import DictionaryTypeProto
+    from com.sun.star.linguistic2.DictionaryType import DictionaryTypeProto  # type: ignore
 
 class XDictionary1(XNamed_a6520b08):
     """
@@ -119,4 +119,3 @@ class XDictionary1(XNamed_a6520b08):
         ...
 
 __all__ = ['XDictionary1']
-

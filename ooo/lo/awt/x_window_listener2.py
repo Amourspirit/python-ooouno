@@ -52,3 +52,4 @@ class XWindowListener2(XWindowListener_c8aa0c6a):
 
 __all__ = ['XWindowListener2']
 
+

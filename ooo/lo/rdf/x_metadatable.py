@@ -65,3 +65,4 @@ class XMetadatable(XURI_5682078c):
 
 __all__ = ['XMetadatable']
 
+

@@ -92,3 +92,4 @@ class XExtendedIndexEntrySupplier(XIndexEntrySupplier_1cb0dfe):
 
 __all__ = ['XExtendedIndexEntrySupplier']
 
+

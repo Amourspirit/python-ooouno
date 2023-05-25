@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.OutgoingMessageState import OutgoingMessageStateProto
+
 
 class OutgoingMessageState(Enum):
     """
@@ -32,52 +30,52 @@ class OutgoingMessageState(Enum):
     See Also:
         `API OutgoingMessageState <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a8dec3ee1933cc93724b3764b124b8cc1>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.OutgoingMessageState'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.OutgoingMessageState"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.OutgoingMessageState'
+        return "com.sun.star.ucb.OutgoingMessageState"
 
-    COMPLETELY_LOCALLY_SENT = cast("OutgoingMessageStateProto", 'COMPLETELY_LOCALLY_SENT')
+    COMPLETELY_LOCALLY_SENT = "COMPLETELY_LOCALLY_SENT"
     """
     Message has been sent upstream to all recipients.
     """
-    CONFIRMED = cast("OutgoingMessageStateProto", 'CONFIRMED')
+    CONFIRMED = "CONFIRMED"
     """
     Recipient confirmed reading.
     """
-    EXTERNAL_ERROR = cast("OutgoingMessageStateProto", 'EXTERNAL_ERROR')
+    EXTERNAL_ERROR = "EXTERNAL_ERROR"
     """
     Global fatal error (e.g.
     
     last member in SMTP chain could not deliver the message).
     """
-    NONRECOVERABLE_LOCAL_ERROR = cast("OutgoingMessageStateProto", 'NONRECOVERABLE_LOCAL_ERROR')
+    NONRECOVERABLE_LOCAL_ERROR = "NONRECOVERABLE_LOCAL_ERROR"
     """
     Local fatal error (e.g.
     
     first SMTP server upstream did not accept the message).
     """
-    PARTIALLY_LOCALLY_SENT = cast("OutgoingMessageStateProto", 'PARTIALLY_LOCALLY_SENT')
+    PARTIALLY_LOCALLY_SENT = "PARTIALLY_LOCALLY_SENT"
     """
     Message has been sent upstream to some recipients.
     """
-    RECOVERABLE_LOCAL_ERROR = cast("OutgoingMessageStateProto", 'RECOVERABLE_LOCAL_ERROR')
+    RECOVERABLE_LOCAL_ERROR = "RECOVERABLE_LOCAL_ERROR"
     """
     Local, non-fatal error (e.g.
     
     network temporarily not available).
     """
-    WAITING_CONFIRMATION = cast("OutgoingMessageStateProto", 'WAITING_CONFIRMATION')
+    WAITING_CONFIRMATION = "WAITING_CONFIRMATION"
     """
     Message was sent; we are waiting for confirmation.
     """
-    WRITTEN = cast("OutgoingMessageStateProto", 'WRITTEN')
+    WRITTEN = "WRITTEN"
     """
     Message has just been placed into the out tray.
     """
 
-__all__ = ['OutgoingMessageState']
+__all__ = ["OutgoingMessageState"]
 

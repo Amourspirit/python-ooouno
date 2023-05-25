@@ -78,3 +78,4 @@ class XDialogProvider2(XDialogProvider_c70f0c47):
 
 __all__ = ['XDialogProvider2']
 
+

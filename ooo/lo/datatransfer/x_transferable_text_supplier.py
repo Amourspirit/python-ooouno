@@ -49,3 +49,4 @@ class XTransferableTextSupplier(ABC):
 
 __all__ = ['XTransferableTextSupplier']
 
+

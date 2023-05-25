@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,53 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SmartTagRecognizerMode(metaclass=UnoEnumMeta, type_name="com.sun.star.smarttags.SmartTagRecognizerMode", name_space="com.sun.star.smarttags"):
         """Dynamically created class that represents ``com.sun.star.smarttags.SmartTagRecognizerMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.smarttags.SmartTagRecognizerMode import CELL as SMART_TAG_RECOGNIZER_MODE_CELL
-        from com.sun.star.smarttags.SmartTagRecognizerMode import CHAR as SMART_TAG_RECOGNIZER_MODE_CHAR
-        from com.sun.star.smarttags.SmartTagRecognizerMode import PARAGRAPH as SMART_TAG_RECOGNIZER_MODE_PARAGRAPH
-        from com.sun.star.smarttags.SmartTagRecognizerMode import SINGLE_WORD as SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD
+    from ...lo.smarttags.smart_tag_recognizer_mode import SmartTagRecognizerMode as SmartTagRecognizerMode
 
-        class SmartTagRecognizerMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API SmartTagRecognizerMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1smarttags.html#a2eab74f21d11f78b5aa7826b0c60604f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.smarttags.SmartTagRecognizerMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.smarttags'
-            __ooo_full_ns__: str = 'com.sun.star.smarttags.SmartTagRecognizerMode'
-            __ooo_type_name__: str = 'enum'
-
-            CELL = SMART_TAG_RECOGNIZER_MODE_CELL
-            """
-            Text passed to the recognizer is a cell.
-            """
-            CHAR = SMART_TAG_RECOGNIZER_MODE_CHAR
-            """
-            Text passed to the recognizer is a single character.
-            """
-            PARAGRAPH = SMART_TAG_RECOGNIZER_MODE_PARAGRAPH
-            """
-            Text passed to the recognizer is a paragraph.
-            """
-            SINGLE_WORD = SMART_TAG_RECOGNIZER_MODE_SINGLE_WORD
-            """
-            Text passed to the recognizer is a single word.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.smarttags.smart_tag_recognizer_mode import SmartTagRecognizerMode as SmartTagRecognizerMode
-
-
-__all__ = ['SmartTagRecognizerMode']
+__all__ = ["SmartTagRecognizerMode"]

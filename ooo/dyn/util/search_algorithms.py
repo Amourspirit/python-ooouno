@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,49 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SearchAlgorithms(metaclass=UnoEnumMeta, type_name="com.sun.star.util.SearchAlgorithms", name_space="com.sun.star.util"):
         """Dynamically created class that represents ``com.sun.star.util.SearchAlgorithms`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.util.SearchAlgorithms import ABSOLUTE as SEARCH_ALGORITHMS_ABSOLUTE
-        from com.sun.star.util.SearchAlgorithms import APPROXIMATE as SEARCH_ALGORITHMS_APPROXIMATE
-        from com.sun.star.util.SearchAlgorithms import REGEXP as SEARCH_ALGORITHMS_REGEXP
+    from ...lo.util.search_algorithms import SearchAlgorithms as SearchAlgorithms
 
-        class SearchAlgorithms(uno.Enum):
-            """
-            Enum Class
-
-            ENUM SearchAlgorithms
-
-            See Also:
-                `API SearchAlgorithms <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1util.html#a88c44d0f9aaded4e5618f3f8adcde79f>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.util.SearchAlgorithms', value)
-
-            __ooo_ns__: str = 'com.sun.star.util'
-            __ooo_full_ns__: str = 'com.sun.star.util.SearchAlgorithms'
-            __ooo_type_name__: str = 'enum'
-
-            ABSOLUTE = SEARCH_ALGORITHMS_ABSOLUTE
-            """
-            Literal.
-            """
-            APPROXIMATE = SEARCH_ALGORITHMS_APPROXIMATE
-            """
-            Weighted Levenshtein Distance.
-            """
-            REGEXP = SEARCH_ALGORITHMS_REGEXP
-            """
-            Regular expression.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.util.search_algorithms import SearchAlgorithms as SearchAlgorithms
-
-
-__all__ = ['SearchAlgorithms']
+__all__ = ["SearchAlgorithms"]

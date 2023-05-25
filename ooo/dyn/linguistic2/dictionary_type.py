@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,47 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class DictionaryType(metaclass=UnoEnumMeta, type_name="com.sun.star.linguistic2.DictionaryType", name_space="com.sun.star.linguistic2"):
         """Dynamically created class that represents ``com.sun.star.linguistic2.DictionaryType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.linguistic2.DictionaryType import MIXED as DICTIONARY_TYPE_MIXED
-        from com.sun.star.linguistic2.DictionaryType import NEGATIVE as DICTIONARY_TYPE_NEGATIVE
-        from com.sun.star.linguistic2.DictionaryType import POSITIVE as DICTIONARY_TYPE_POSITIVE
+    from ...lo.linguistic2.dictionary_type import DictionaryType as DictionaryType
 
-        class DictionaryType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API DictionaryType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1linguistic2.html#a281c5a7578308b66c77c9e0de51b806a>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.linguistic2.DictionaryType', value)
-
-            __ooo_ns__: str = 'com.sun.star.linguistic2'
-            __ooo_full_ns__: str = 'com.sun.star.linguistic2.DictionaryType'
-            __ooo_type_name__: str = 'enum'
-
-            MIXED = DICTIONARY_TYPE_MIXED
-            """
-            """
-            NEGATIVE = DICTIONARY_TYPE_NEGATIVE
-            """
-            all entries in the dictionary are negative.
-            """
-            POSITIVE = DICTIONARY_TYPE_POSITIVE
-            """
-            all entries in the dictionary are positive.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.linguistic2.dictionary_type import DictionaryType as DictionaryType
-
-
-__all__ = ['DictionaryType']
+__all__ = ["DictionaryType"]

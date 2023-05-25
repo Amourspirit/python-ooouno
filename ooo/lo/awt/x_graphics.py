@@ -32,7 +32,7 @@ if typing.TYPE_CHECKING:
     from .x_font import XFont as XFont_5f480843
     from .x_region import XRegion as XRegion_70f30910
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.awt.RasterOperation import RasterOperationProto
+    from com.sun.star.awt.RasterOperation import RasterOperationProto  # type: ignore
 
 class XGraphics(XInterface_8f010a43):
     """
@@ -226,4 +226,3 @@ class XGraphics(XInterface_8f010a43):
         ...
 
 __all__ = ['XGraphics']
-

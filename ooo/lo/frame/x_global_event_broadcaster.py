@@ -43,3 +43,4 @@ class XGlobalEventBroadcaster(XSet_90c40a4f, XDocumentEventBroadcaster_b2f1126a,
 
 __all__ = ['XGlobalEventBroadcaster']
 
+

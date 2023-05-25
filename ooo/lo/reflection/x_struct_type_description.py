@@ -60,3 +60,4 @@ class XStructTypeDescription(XCompoundTypeDescription_c7be12f6):
 
 __all__ = ['XStructTypeDescription']
 
+

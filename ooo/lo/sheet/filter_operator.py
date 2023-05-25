@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.FilterOperator import FilterOperatorProto
+
 
 class FilterOperator(Enum):
     """
@@ -32,39 +30,39 @@ class FilterOperator(Enum):
     See Also:
         `API FilterOperator <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#af9e5fd8fd26fc252748d97ebd68ea6b1>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.FilterOperator'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.FilterOperator"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.FilterOperator'
+        return "com.sun.star.sheet.FilterOperator"
 
-    BOTTOM_PERCENT = cast("FilterOperatorProto", 'BOTTOM_PERCENT')
+    BOTTOM_PERCENT = "BOTTOM_PERCENT"
     """
     selects a specified percentage of entries with the lowest values.
     """
-    BOTTOM_VALUES = cast("FilterOperatorProto", 'BOTTOM_VALUES')
+    BOTTOM_VALUES = "BOTTOM_VALUES"
     """
     selects a specified number of entries with the lowest values.
     """
-    EMPTY = cast("FilterOperatorProto", 'EMPTY')
+    EMPTY = "EMPTY"
     """
     selects empty entries.
     """
-    EQUAL = cast("FilterOperatorProto", 'EQUAL')
+    EQUAL = "EQUAL"
     """
     value has to be equal to the specified value.
     
     The cell value is equal to the specified value.
     """
-    GREATER = cast("FilterOperatorProto", 'GREATER')
+    GREATER = "GREATER"
     """
     the value has to be greater than the specified value.
     
     value has to be greater than the specified value.
     """
-    GREATER_EQUAL = cast("FilterOperatorProto", 'GREATER_EQUAL')
+    GREATER_EQUAL = "GREATER_EQUAL"
     """
     the value has to be greater than or equal to the specified value.
     
@@ -72,13 +70,13 @@ class FilterOperator(Enum):
     
     value has to be greater than or equal to the specified value.
     """
-    LESS = cast("FilterOperatorProto", 'LESS')
+    LESS = "LESS"
     """
     the value has to be less than the specified value.
     
     value has to be less than the specified value.
     """
-    LESS_EQUAL = cast("FilterOperatorProto", 'LESS_EQUAL')
+    LESS_EQUAL = "LESS_EQUAL"
     """
     the value has to be less than or equal to the specified value.
     
@@ -86,24 +84,24 @@ class FilterOperator(Enum):
     
     value has to be less than or equal to the specified value.
     """
-    NOT_EMPTY = cast("FilterOperatorProto", 'NOT_EMPTY')
+    NOT_EMPTY = "NOT_EMPTY"
     """
     selects non-empty entries.
     """
-    NOT_EQUAL = cast("FilterOperatorProto", 'NOT_EQUAL')
+    NOT_EQUAL = "NOT_EQUAL"
     """
     the value must not be equal to the specified value.
     
     value must not be equal to the specified value.
     """
-    TOP_PERCENT = cast("FilterOperatorProto", 'TOP_PERCENT')
+    TOP_PERCENT = "TOP_PERCENT"
     """
     selects a specified percentage of entries with the greatest values.
     """
-    TOP_VALUES = cast("FilterOperatorProto", 'TOP_VALUES')
+    TOP_VALUES = "TOP_VALUES"
     """
     selects a specified number of entries with the greatest values.
     """
 
-__all__ = ['FilterOperator']
+__all__ = ["FilterOperator"]
 

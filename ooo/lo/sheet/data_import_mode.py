@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.DataImportMode import DataImportModeProto
+
 
 class DataImportMode(Enum):
     """
@@ -32,15 +30,15 @@ class DataImportMode(Enum):
     See Also:
         `API DataImportMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#acf0761f72074fd2e59d1bb3ef690a2e6>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.DataImportMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.DataImportMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.DataImportMode'
+        return "com.sun.star.sheet.DataImportMode"
 
-    NONE = cast("DataImportModeProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -54,18 +52,18 @@ class DataImportMode(Enum):
     
     no condition is specified.
     """
-    QUERY = cast("DataImportModeProto", 'QUERY')
+    QUERY = "QUERY"
     """
     the name of a database query is supplied.
     """
-    SQL = cast("DataImportModeProto", 'SQL')
+    SQL = "SQL"
     """
     a SQL query string is supplied.
     """
-    TABLE = cast("DataImportModeProto", 'TABLE')
+    TABLE = "TABLE"
     """
     the name of a database table is supplied.
     """
 
-__all__ = ['DataImportMode']
+__all__ = ["DataImportMode"]
 

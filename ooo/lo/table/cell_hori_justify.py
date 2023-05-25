@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.CellHoriJustify import CellHoriJustifyProto
+
 
 class CellHoriJustify(Enum):
     """
@@ -32,37 +30,37 @@ class CellHoriJustify(Enum):
     See Also:
         `API CellHoriJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#ab3c576b107bd5018643ab5612438fdf2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.CellHoriJustify'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.CellHoriJustify"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.CellHoriJustify'
+        return "com.sun.star.table.CellHoriJustify"
 
-    BLOCK = cast("CellHoriJustifyProto", 'BLOCK')
+    BLOCK = "BLOCK"
     """
     contents are justified to the cell width.
     """
-    CENTER = cast("CellHoriJustifyProto", 'CENTER')
+    CENTER = "CENTER"
     """
     contents are horizontally centered.
     
     contents are aligned to the vertical middle of the cell.
     """
-    LEFT = cast("CellHoriJustifyProto", 'LEFT')
+    LEFT = "LEFT"
     """
     contents are aligned to the left edge of the cell.
     """
-    REPEAT = cast("CellHoriJustifyProto", 'REPEAT')
+    REPEAT = "REPEAT"
     """
     contents are repeated to fill the cell.
     """
-    RIGHT = cast("CellHoriJustifyProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     contents are aligned to the right edge of the cell.
     """
-    STANDARD = cast("CellHoriJustifyProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     default alignment is used (left for numbers, right for text).
     
@@ -71,5 +69,5 @@ class CellHoriJustify(Enum):
     contents are printed from left to right.
     """
 
-__all__ = ['CellHoriJustify']
+__all__ = ["CellHoriJustify"]
 

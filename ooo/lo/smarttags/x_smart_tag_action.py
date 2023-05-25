@@ -144,3 +144,4 @@ class XSmartTagAction(XInitialization_d46c0cca):
 
 __all__ = ['XSmartTagAction']
 
+

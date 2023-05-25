@@ -30,7 +30,7 @@ if typing.TYPE_CHECKING:
     from ..container.x_index_container import XIndexContainer as XIndexContainer_1c040ebe
     from .bar_code import BarCode as BarCode_99e10a84
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
-    from com.sun.star.drawing.ColorMode import ColorModeProto
+    from com.sun.star.drawing.ColorMode import ColorModeProto  # type: ignore
 
 class GraphicObjectShape(RotationDescriptor_2cec0f63, ShadowProperties_e350e87, Shape_85cc09e5, Text_7c140999):
     """
@@ -229,4 +229,3 @@ class GraphicObjectShape(RotationDescriptor_2cec0f63, ShadowProperties_e350e87, 
 
 
 __all__ = ['GraphicObjectShape']
-

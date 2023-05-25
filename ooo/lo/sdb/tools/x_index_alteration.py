@@ -64,3 +64,4 @@ class XIndexAlteration(XConnectionSupplier_57f3105c):
 
 __all__ = ['XIndexAlteration']
 
+

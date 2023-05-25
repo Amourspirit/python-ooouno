@@ -104,3 +104,4 @@ class XGridRowSelection(ABC):
 
 __all__ = ['XGridRowSelection']
 
+

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.script
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.script.FinishReason import FinishReasonProto
+
 
 class FinishReason(Enum):
     """
@@ -32,28 +30,28 @@ class FinishReason(Enum):
     See Also:
         `API FinishReason <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1script.html#a8ab52fac6ca48179fe55e9a6aa3a345d>`_
     """
-    __ooo_ns__: str = 'com.sun.star.script'
-    __ooo_full_ns__: str = 'com.sun.star.script.FinishReason'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.script"
+    __ooo_full_ns__: str = "com.sun.star.script.FinishReason"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.script.FinishReason'
+        return "com.sun.star.script.FinishReason"
 
-    Cancel = cast("FinishReasonProto", 'Cancel')
+    Cancel = "Cancel"
     """
     script in the engine was cancelled.
     
     script execution was cancelled.
     """
-    Error = cast("FinishReasonProto", 'Error')
+    Error = "Error"
     """
     error occurred during script execution or compiling.
     """
-    OK = cast("FinishReasonProto", 'OK')
+    OK = "OK"
     """
     script in the engine terminated normally.
     """
 
-__all__ = ['FinishReason']
+__all__ = ["FinishReason"]
 

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.CellVertJustify import CellVertJustifyProto
+
 
 class CellVertJustify(Enum):
     """
@@ -32,25 +30,25 @@ class CellVertJustify(Enum):
     See Also:
         `API CellVertJustify <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a17834bec5bf9ac4432141dee1c03b50b>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.CellVertJustify'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.CellVertJustify"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.CellVertJustify'
+        return "com.sun.star.table.CellVertJustify"
 
-    BOTTOM = cast("CellVertJustifyProto", 'BOTTOM')
+    BOTTOM = "BOTTOM"
     """
     contents are aligned to the lower edge of the cell.
     """
-    CENTER = cast("CellVertJustifyProto", 'CENTER')
+    CENTER = "CENTER"
     """
     contents are horizontally centered.
     
     contents are aligned to the vertical middle of the cell.
     """
-    STANDARD = cast("CellVertJustifyProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     default alignment is used (left for numbers, right for text).
     
@@ -58,10 +56,10 @@ class CellVertJustify(Enum):
     
     contents are printed from left to right.
     """
-    TOP = cast("CellVertJustifyProto", 'TOP')
+    TOP = "TOP"
     """
     contents are aligned with the upper edge of the cell.
     """
 
-__all__ = ['CellVertJustify']
+__all__ = ["CellVertJustify"]
 

@@ -36,3 +36,4 @@ class XToolBar(XResource_3bcd0f90):
 
 __all__ = ['XToolBar']
 
+

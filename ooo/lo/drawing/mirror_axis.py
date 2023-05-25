@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.MirrorAxis import MirrorAxisProto
+
 
 class MirrorAxis(Enum):
     """
@@ -32,22 +30,22 @@ class MirrorAxis(Enum):
     See Also:
         `API MirrorAxis <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a4a57640f8e0cde4bd2c20b6b00d6affb>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.MirrorAxis'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.MirrorAxis"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.MirrorAxis'
+        return "com.sun.star.drawing.MirrorAxis"
 
-    HORIZONTAL = cast("MirrorAxisProto", 'HORIZONTAL')
+    HORIZONTAL = "HORIZONTAL"
     """
     mirror to the horizontal axis
     """
-    VERTICAL = cast("MirrorAxisProto", 'VERTICAL')
+    VERTICAL = "VERTICAL"
     """
     mirror to the vertical axis
     """
 
-__all__ = ['MirrorAxis']
+__all__ = ["MirrorAxis"]
 

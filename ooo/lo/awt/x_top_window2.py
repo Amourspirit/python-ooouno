@@ -60,3 +60,4 @@ class XTopWindow2(XTopWindow_8ebb0a57):
 
 __all__ = ['XTopWindow2']
 
+

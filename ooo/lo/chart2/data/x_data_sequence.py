@@ -23,7 +23,7 @@ import typing
 from abc import abstractmethod
 from ...uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
-    from com.sun.star.chart2.data.LabelOrigin import LabelOriginProto
+    from com.sun.star.chart2.data.LabelOrigin import LabelOriginProto  # type: ignore
 
 class XDataSequence(XInterface_8f010a43):
     """
@@ -90,4 +90,3 @@ class XDataSequence(XInterface_8f010a43):
         ...
 
 __all__ = ['XDataSequence']
-

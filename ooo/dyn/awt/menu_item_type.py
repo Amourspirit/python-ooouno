@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,60 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class MenuItemType(metaclass=UnoEnumMeta, type_name="com.sun.star.awt.MenuItemType", name_space="com.sun.star.awt"):
         """Dynamically created class that represents ``com.sun.star.awt.MenuItemType`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.awt.MenuItemType import DONTKNOW as MENU_ITEM_TYPE_DONTKNOW
-        from com.sun.star.awt.MenuItemType import IMAGE as MENU_ITEM_TYPE_IMAGE
-        from com.sun.star.awt.MenuItemType import SEPARATOR as MENU_ITEM_TYPE_SEPARATOR
-        from com.sun.star.awt.MenuItemType import STRING as MENU_ITEM_TYPE_STRING
-        from com.sun.star.awt.MenuItemType import STRINGIMAGE as MENU_ITEM_TYPE_STRINGIMAGE
+    from ...lo.awt.menu_item_type import MenuItemType as MenuItemType
 
-        class MenuItemType(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API MenuItemType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a0014b68cdf9686458deff56691368317>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.awt.MenuItemType', value)
-
-            __ooo_ns__: str = 'com.sun.star.awt'
-            __ooo_full_ns__: str = 'com.sun.star.awt.MenuItemType'
-            __ooo_type_name__: str = 'enum'
-
-            DONTKNOW = MENU_ITEM_TYPE_DONTKNOW
-            """
-            specifies a font with an unknown slant.
-
-            specifies that the menu item type is unknown.
-            """
-            IMAGE = MENU_ITEM_TYPE_IMAGE
-            """
-            specifies that the menu item has an image.
-            """
-            SEPARATOR = MENU_ITEM_TYPE_SEPARATOR
-            """
-            specifies that the menu item is a separator.
-            """
-            STRING = MENU_ITEM_TYPE_STRING
-            """
-            specifies that the menu item has a text.
-            """
-            STRINGIMAGE = MENU_ITEM_TYPE_STRINGIMAGE
-            """
-            specifies that the menu item has a text and an image.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.awt.menu_item_type import MenuItemType as MenuItemType
-
-
-__all__ = ['MenuItemType']
+__all__ = ["MenuItemType"]

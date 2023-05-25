@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.TextureKind2 import TextureKind2Proto
+
 
 class TextureKind2(Enum):
     """
@@ -32,28 +30,28 @@ class TextureKind2(Enum):
     See Also:
         `API TextureKind2 <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#adaf903dffc9b5178ac0a76faef6142f2>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.TextureKind2'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.TextureKind2"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.TextureKind2'
+        return "com.sun.star.drawing.TextureKind2"
 
-    COLOR = cast("TextureKind2Proto", 'COLOR')
+    COLOR = "COLOR"
     """
     With this mode the lighting is ignored and only the texture color information is used.
     
     With this mode, the lighting is ignored and only the texture color information is used.
     """
-    INTENSITY = cast("TextureKind2Proto", 'INTENSITY')
+    INTENSITY = "INTENSITY"
     """
     With TextureKind INTENSITY, each texture pixel is used as an intensity value.
     """
-    LUMINANCE = cast("TextureKind2Proto", 'LUMINANCE')
+    LUMINANCE = "LUMINANCE"
     """
     With TextureKind LUMINANCE, the texture and the lighting information is mixed to produce the image, so a lit, textured object is achieved.
     """
 
-__all__ = ['TextureKind2']
+__all__ = ["TextureKind2"]
 

@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,48 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class SearchRecursion(metaclass=UnoEnumMeta, type_name="com.sun.star.ucb.SearchRecursion", name_space="com.sun.star.ucb"):
         """Dynamically created class that represents ``com.sun.star.ucb.SearchRecursion`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.ucb.SearchRecursion import DEEP as SEARCH_RECURSION_DEEP
-        from com.sun.star.ucb.SearchRecursion import NONE as SEARCH_RECURSION_NONE
-        from com.sun.star.ucb.SearchRecursion import ONE_LEVEL as SEARCH_RECURSION_ONE_LEVEL
+    from ...lo.ucb.search_recursion import SearchRecursion as SearchRecursion
 
-        class SearchRecursion(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API SearchRecursion <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#a8f357eda7c29e9601428bdc8834c7bd8>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.ucb.SearchRecursion', value)
-
-            __ooo_ns__: str = 'com.sun.star.ucb'
-            __ooo_full_ns__: str = 'com.sun.star.ucb.SearchRecursion'
-            __ooo_type_name__: str = 'enum'
-
-            DEEP = SEARCH_RECURSION_DEEP
-            """
-            Searches through the complete hierarchy of all sub-objects.
-            """
-            NONE = SEARCH_RECURSION_NONE
-            """
-            Does not search through any sub-objects.
-            """
-            ONE_LEVEL = SEARCH_RECURSION_ONE_LEVEL
-            """
-            Only searches through sub-objects of the first hierarchy level.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.ucb.search_recursion import SearchRecursion as SearchRecursion
-
-
-__all__ = ['SearchRecursion']
+__all__ = ["SearchRecursion"]

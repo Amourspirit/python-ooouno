@@ -79,3 +79,4 @@ class XStorage2(XStorage_8e460a32):
 
 __all__ = ['XStorage2']
 
+

@@ -51,3 +51,4 @@ class XConstantTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XConstantTypeDescription']
 
+

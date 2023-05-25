@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.MeasureKind import MeasureKindProto
+
 
 class MeasureKind(Enum):
     """
@@ -32,21 +30,21 @@ class MeasureKind(Enum):
     See Also:
         `API MeasureKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#aba601430b0385cb6c2e7db8f7814cbff>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.MeasureKind'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.MeasureKind"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.MeasureKind'
+        return "com.sun.star.drawing.MeasureKind"
 
-    RADIUS = cast("MeasureKindProto", 'RADIUS')
+    RADIUS = "RADIUS"
     """
     use the radius measurement.
     
     This option cannot be used from the GUI Interface.
     """
-    STANDARD = cast("MeasureKindProto", 'STANDARD')
+    STANDARD = "STANDARD"
     """
     the graphic is rendered in the default color style of the output device,
     
@@ -55,5 +53,5 @@ class MeasureKind(Enum):
     the connector is drawn with three lines, with the middle line perpendicular to the other two
     """
 
-__all__ = ['MeasureKind']
+__all__ = ["MeasureKind"]
 

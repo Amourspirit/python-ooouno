@@ -24,7 +24,7 @@ from abc import abstractmethod
 from ..container.x_name_access import XNameAccess as XNameAccess_e2ab0cf6
 if typing.TYPE_CHECKING:
     from .xdde_link import XDDELink as XDDELink_8cc609d4
-    from com.sun.star.sheet.DDELinkMode import DDELinkModeProto
+    from com.sun.star.sheet.DDELinkMode import DDELinkModeProto  # type: ignore
 
 class XDDELinks(XNameAccess_e2ab0cf6):
     """
@@ -52,4 +52,3 @@ class XDDELinks(XNameAccess_e2ab0cf6):
         ...
 
 __all__ = ['XDDELinks']
-

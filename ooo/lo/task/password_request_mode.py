@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.task
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.task.PasswordRequestMode import PasswordRequestModeProto
+
 
 class PasswordRequestMode(Enum):
     """
@@ -32,26 +30,26 @@ class PasswordRequestMode(Enum):
     See Also:
         `API PasswordRequestMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1task.html#a921a6f0fb0abf824f006cab79dbc54d0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.task'
-    __ooo_full_ns__: str = 'com.sun.star.task.PasswordRequestMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.task"
+    __ooo_full_ns__: str = "com.sun.star.task.PasswordRequestMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.task.PasswordRequestMode'
+        return "com.sun.star.task.PasswordRequestMode"
 
-    PASSWORD_CREATE = cast("PasswordRequestModeProto", 'PASSWORD_CREATE')
+    PASSWORD_CREATE = "PASSWORD_CREATE"
     """
     Password creation.
     """
-    PASSWORD_ENTER = cast("PasswordRequestModeProto", 'PASSWORD_ENTER')
+    PASSWORD_ENTER = "PASSWORD_ENTER"
     """
     Ask for a password.
     """
-    PASSWORD_REENTER = cast("PasswordRequestModeProto", 'PASSWORD_REENTER')
+    PASSWORD_REENTER = "PASSWORD_REENTER"
     """
     Wrong password was entered, ask again.
     """
 
-__all__ = ['PasswordRequestMode']
+__all__ = ["PasswordRequestMode"]
 

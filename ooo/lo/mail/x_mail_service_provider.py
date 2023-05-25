@@ -24,7 +24,7 @@ from abc import abstractmethod
 from ..uno.x_interface import XInterface as XInterface_8f010a43
 if typing.TYPE_CHECKING:
     from .x_mail_service import XMailService as XMailService_ae610b57
-    from com.sun.star.mail.MailServiceType import MailServiceTypeProto
+    from com.sun.star.mail.MailServiceType import MailServiceTypeProto  # type: ignore
 
 class XMailServiceProvider(XInterface_8f010a43):
     """
@@ -54,4 +54,3 @@ class XMailServiceProvider(XInterface_8f010a43):
         ...
 
 __all__ = ['XMailServiceProvider']
-

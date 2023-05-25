@@ -41,3 +41,4 @@ class XSAXDocumentBuilder2(XSAXDocumentBuilder_31120f11, XFastDocumentHandler_45
 
 __all__ = ['XSAXDocumentBuilder2']
 
+

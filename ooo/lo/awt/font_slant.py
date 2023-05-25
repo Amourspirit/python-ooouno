@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.awt
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.awt.FontSlant import FontSlantProto
+
 
 class FontSlant(Enum):
     """
@@ -32,40 +30,40 @@ class FontSlant(Enum):
     See Also:
         `API FontSlant <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1awt.html#a362a86d3ebca4a201d13bc3e7b94340e>`_
     """
-    __ooo_ns__: str = 'com.sun.star.awt'
-    __ooo_full_ns__: str = 'com.sun.star.awt.FontSlant'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.awt"
+    __ooo_full_ns__: str = "com.sun.star.awt.FontSlant"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.awt.FontSlant'
+        return "com.sun.star.awt.FontSlant"
 
-    DONTKNOW = cast("FontSlantProto", 'DONTKNOW')
+    DONTKNOW = "DONTKNOW"
     """
     specifies a font with an unknown slant.
     
     specifies that the menu item type is unknown.
     """
-    ITALIC = cast("FontSlantProto", 'ITALIC')
+    ITALIC = "ITALIC"
     """
     specifies an italic font (slant designed into the font).
     """
-    NONE = cast("FontSlantProto", 'NONE')
+    NONE = "NONE"
     """
     specifies a font without slant.
     """
-    OBLIQUE = cast("FontSlantProto", 'OBLIQUE')
+    OBLIQUE = "OBLIQUE"
     """
     specifies an oblique font (slant not designed into the font).
     """
-    REVERSE_ITALIC = cast("FontSlantProto", 'REVERSE_ITALIC')
+    REVERSE_ITALIC = "REVERSE_ITALIC"
     """
     specifies a reverse italic font (slant designed into the font).
     """
-    REVERSE_OBLIQUE = cast("FontSlantProto", 'REVERSE_OBLIQUE')
+    REVERSE_OBLIQUE = "REVERSE_OBLIQUE"
     """
     specifies a reverse oblique font (slant not designed into the font).
     """
 
-__all__ = ['FontSlant']
+__all__ = ["FontSlant"]
 

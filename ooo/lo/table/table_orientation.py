@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.table
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.table.TableOrientation import TableOrientationProto
+
 
 class TableOrientation(Enum):
     """
@@ -32,22 +30,22 @@ class TableOrientation(Enum):
     See Also:
         `API TableOrientation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html#a2b2c6150472f0123357a2273c315401c>`_
     """
-    __ooo_ns__: str = 'com.sun.star.table'
-    __ooo_full_ns__: str = 'com.sun.star.table.TableOrientation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.table"
+    __ooo_full_ns__: str = "com.sun.star.table.TableOrientation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.table.TableOrientation'
+        return "com.sun.star.table.TableOrientation"
 
-    COLUMNS = cast("TableOrientationProto", 'COLUMNS')
+    COLUMNS = "COLUMNS"
     """
     operations are carried out on columns.
     """
-    ROWS = cast("TableOrientationProto", 'ROWS')
+    ROWS = "ROWS"
     """
     operations are carried out on rows.
     """
 
-__all__ = ['TableOrientation']
+__all__ = ["TableOrientation"]
 

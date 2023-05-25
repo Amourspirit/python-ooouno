@@ -57,3 +57,4 @@ class XResource(ABC):
 
 __all__ = ['XResource']
 
+

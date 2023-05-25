@@ -187,3 +187,4 @@ class XFrame(XComponent_98dc0ab5):
 
 __all__ = ['XFrame']
 
+

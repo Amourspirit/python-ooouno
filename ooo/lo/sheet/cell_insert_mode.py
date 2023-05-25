@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.CellInsertMode import CellInsertModeProto
+
 
 class CellInsertMode(Enum):
     """
@@ -32,25 +30,25 @@ class CellInsertMode(Enum):
     See Also:
         `API CellInsertMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a93cdb08109d5d34543f2fe04d1ef605a>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.CellInsertMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.CellInsertMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.CellInsertMode'
+        return "com.sun.star.sheet.CellInsertMode"
 
-    COLUMNS = cast("CellInsertModeProto", 'COLUMNS')
+    COLUMNS = "COLUMNS"
     """
     entire columns to the right of the deleted cells are moved left.
     
     entire columns to the right of the inserted cells are moved right.
     """
-    DOWN = cast("CellInsertModeProto", 'DOWN')
+    DOWN = "DOWN"
     """
     the cells below the inserted cells are moved down.
     """
-    NONE = cast("CellInsertModeProto", 'NONE')
+    NONE = "NONE"
     """
     no cells are moved.
     
@@ -64,18 +62,18 @@ class CellInsertMode(Enum):
     
     no condition is specified.
     """
-    RIGHT = cast("CellInsertModeProto", 'RIGHT')
+    RIGHT = "RIGHT"
     """
     selects the right border.
     
     the cells to the right of the inserted cells are moved right.
     """
-    ROWS = cast("CellInsertModeProto", 'ROWS')
+    ROWS = "ROWS"
     """
     entire rows below the deleted cells are moved up.
     
     entire rows below the inserted cells are moved down.
     """
 
-__all__ = ['CellInsertMode']
+__all__ = ["CellInsertMode"]
 

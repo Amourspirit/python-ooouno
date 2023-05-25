@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,81 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class ZoomLevel(metaclass=UnoEnumMeta, type_name="com.sun.star.media.ZoomLevel", name_space="com.sun.star.media"):
         """Dynamically created class that represents ``com.sun.star.media.ZoomLevel`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.media.ZoomLevel import FIT_TO_WINDOW as ZOOM_LEVEL_FIT_TO_WINDOW
-        from com.sun.star.media.ZoomLevel import FIT_TO_WINDOW_FIXED_ASPECT as ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT
-        from com.sun.star.media.ZoomLevel import FULLSCREEN as ZOOM_LEVEL_FULLSCREEN
-        from com.sun.star.media.ZoomLevel import NOT_AVAILABLE as ZOOM_LEVEL_NOT_AVAILABLE
-        from com.sun.star.media.ZoomLevel import ORIGINAL as ZOOM_LEVEL_ORIGINAL
-        from com.sun.star.media.ZoomLevel import ZOOM_1_TO_2 as ZOOM_LEVEL_ZOOM_1_TO_2
-        from com.sun.star.media.ZoomLevel import ZOOM_1_TO_4 as ZOOM_LEVEL_ZOOM_1_TO_4
-        from com.sun.star.media.ZoomLevel import ZOOM_2_TO_1 as ZOOM_LEVEL_ZOOM_2_TO_1
-        from com.sun.star.media.ZoomLevel import ZOOM_4_TO_1 as ZOOM_LEVEL_ZOOM_4_TO_1
+    from ...lo.media.zoom_level import ZoomLevel as ZoomLevel
 
-        class ZoomLevel(uno.Enum):
-            """
-            Enum Class
-
-            ENUM ZoomLevel
-
-            See Also:
-                `API ZoomLevel <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1media.html#aa2569917c2883c1d1c0c0ee02e671ac6>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.media.ZoomLevel', value)
-
-            __ooo_ns__: str = 'com.sun.star.media'
-            __ooo_full_ns__: str = 'com.sun.star.media.ZoomLevel'
-            __ooo_type_name__: str = 'enum'
-
-            FIT_TO_WINDOW = ZOOM_LEVEL_FIT_TO_WINDOW
-            """
-            specifies that the video should be zoomed to window size
-            """
-            FIT_TO_WINDOW_FIXED_ASPECT = ZOOM_LEVEL_FIT_TO_WINDOW_FIXED_ASPECT
-            """
-            specifies that the video should be zoomed to window size with using a fixed aspect ratio
-            """
-            FULLSCREEN = ZOOM_LEVEL_FULLSCREEN
-            """
-            specifies that the video should be displayed in fullscreen mode, if available
-            """
-            NOT_AVAILABLE = ZOOM_LEVEL_NOT_AVAILABLE
-            """
-            specifies that the video window itself is not available at all, e.g.
-
-            in cases of pure audio playback
-            """
-            ORIGINAL = ZOOM_LEVEL_ORIGINAL
-            """
-            specifies that the video should be displayed with its original size
-            """
-            ZOOM_1_TO_2 = ZOOM_LEVEL_ZOOM_1_TO_2
-            """
-            specifies that the video should be zoomed to a factor of 1:2
-            """
-            ZOOM_1_TO_4 = ZOOM_LEVEL_ZOOM_1_TO_4
-            """
-            specifies that the video should be zoomed to a factor of 1:4
-            """
-            ZOOM_2_TO_1 = ZOOM_LEVEL_ZOOM_2_TO_1
-            """
-            specifies that the video should be zoomed to a factor of 2:1
-            """
-            ZOOM_4_TO_1 = ZOOM_LEVEL_ZOOM_4_TO_1
-            """
-            specifies that the video should be zoomed to a factor of 4:1
-            """
-    else:
-        # keep document generators happy
-        from ...lo.media.zoom_level import ZoomLevel as ZoomLevel
-
-
-__all__ = ['ZoomLevel']
+__all__ = ["ZoomLevel"]

@@ -60,3 +60,4 @@ class XCloseable(XCloseBroadcaster_ef230d7e):
 
 __all__ = ['XCloseable']
 
+

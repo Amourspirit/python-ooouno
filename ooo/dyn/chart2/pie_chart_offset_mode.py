@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,49 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class PieChartOffsetMode(metaclass=UnoEnumMeta, type_name="com.sun.star.chart2.PieChartOffsetMode", name_space="com.sun.star.chart2"):
         """Dynamically created class that represents ``com.sun.star.chart2.PieChartOffsetMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.chart2.PieChartOffsetMode import ALL_EXPLODED as PIE_CHART_OFFSET_MODE_ALL_EXPLODED
-        from com.sun.star.chart2.PieChartOffsetMode import NONE as PIE_CHART_OFFSET_MODE_NONE
+    from ...lo.chart2.pie_chart_offset_mode import PieChartOffsetMode as PieChartOffsetMode
 
-        class PieChartOffsetMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API PieChartOffsetMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2.html#aa17c0b28cca2adc2be9b3c5954111489>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.chart2.PieChartOffsetMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.chart2'
-            __ooo_full_ns__: str = 'com.sun.star.chart2.PieChartOffsetMode'
-            __ooo_type_name__: str = 'enum'
-
-            ALL_EXPLODED = PIE_CHART_OFFSET_MODE_ALL_EXPLODED
-            """
-            All pies are exploded by a certain percentage.
-
-            The default is 10 percent.
-            """
-            NONE = PIE_CHART_OFFSET_MODE_NONE
-            """
-            Default, no pies are exploded.
-
-            no transparency attribute is evaluated
-
-            The symbol is invisible.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.chart2.pie_chart_offset_mode import PieChartOffsetMode as PieChartOffsetMode
-
-
-__all__ = ['PieChartOffsetMode']
+__all__ = ["PieChartOffsetMode"]

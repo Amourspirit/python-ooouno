@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.xml.xpath
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.xml.xpath.XPathObjectType import XPathObjectTypeProto
+
 
 class XPathObjectType(Enum):
     """
@@ -33,44 +31,44 @@ class XPathObjectType(Enum):
     See Also:
         `API XPathObjectType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1xml_1_1xpath.html#a4e7de3ae7d09203486b85490e0a6f1a3>`_
     """
-    __ooo_ns__: str = 'com.sun.star.xml.xpath'
-    __ooo_full_ns__: str = 'com.sun.star.xml.xpath.XPathObjectType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.xml.xpath"
+    __ooo_full_ns__: str = "com.sun.star.xml.xpath.XPathObjectType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.xml.xpath.XPathObjectType'
+        return "com.sun.star.xml.xpath.XPathObjectType"
 
-    XPATH_BOOLEAN = cast("XPathObjectTypeProto", 'XPATH_BOOLEAN')
+    XPATH_BOOLEAN = "XPATH_BOOLEAN"
     """
     """
-    XPATH_LOCATIONSET = cast("XPathObjectTypeProto", 'XPATH_LOCATIONSET')
+    XPATH_LOCATIONSET = "XPATH_LOCATIONSET"
     """
     """
-    XPATH_NODESET = cast("XPathObjectTypeProto", 'XPATH_NODESET')
+    XPATH_NODESET = "XPATH_NODESET"
     """
     """
-    XPATH_NUMBER = cast("XPathObjectTypeProto", 'XPATH_NUMBER')
+    XPATH_NUMBER = "XPATH_NUMBER"
     """
     """
-    XPATH_POINT = cast("XPathObjectTypeProto", 'XPATH_POINT')
+    XPATH_POINT = "XPATH_POINT"
     """
     """
-    XPATH_RANGE = cast("XPathObjectTypeProto", 'XPATH_RANGE')
+    XPATH_RANGE = "XPATH_RANGE"
     """
     """
-    XPATH_STRING = cast("XPathObjectTypeProto", 'XPATH_STRING')
+    XPATH_STRING = "XPATH_STRING"
     """
     """
-    XPATH_UNDEFINED = cast("XPathObjectTypeProto", 'XPATH_UNDEFINED')
+    XPATH_UNDEFINED = "XPATH_UNDEFINED"
     """
     """
-    XPATH_USERS = cast("XPathObjectTypeProto", 'XPATH_USERS')
+    XPATH_USERS = "XPATH_USERS"
     """
     """
-    XPATH_XSLT_TREE = cast("XPathObjectTypeProto", 'XPATH_XSLT_TREE')
+    XPATH_XSLT_TREE = "XPATH_XSLT_TREE"
     """
     """
 
-__all__ = ['XPathObjectType']
+__all__ = ["XPathObjectType"]
 

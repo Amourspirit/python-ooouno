@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.FillStyle import FillStyleProto
+
 
 class FillStyle(Enum):
     """
@@ -32,27 +30,27 @@ class FillStyle(Enum):
     See Also:
         `API FillStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a93450c852ea0dc97ffc5168069ed1bc0>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.FillStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.FillStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.FillStyle'
+        return "com.sun.star.drawing.FillStyle"
 
-    BITMAP = cast("FillStyleProto", 'BITMAP')
+    BITMAP = "BITMAP"
     """
     use a bitmap to fill the area.
     """
-    GRADIENT = cast("FillStyleProto", 'GRADIENT')
+    GRADIENT = "GRADIENT"
     """
     use a gradient color to fill the area.
     """
-    HATCH = cast("FillStyleProto", 'HATCH')
+    HATCH = "HATCH"
     """
     use a hatch to fill the area.
     """
-    NONE = cast("FillStyleProto", 'NONE')
+    NONE = "NONE"
     """
     the area is not filled.
     
@@ -66,12 +64,12 @@ class FillStyle(Enum):
     
     the line has no special end.
     """
-    SOLID = cast("FillStyleProto", 'SOLID')
+    SOLID = "SOLID"
     """
     use a solid color to fill the area.
     
     the line is solid.
     """
 
-__all__ = ['FillStyle']
+__all__ = ["FillStyle"]
 

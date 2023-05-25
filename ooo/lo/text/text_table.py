@@ -37,8 +37,8 @@ if typing.TYPE_CHECKING:
     from ..table.table_border import TableBorder as TableBorder_aedf0b56
     from .table_column_separator import TableColumnSeparator as TableColumnSeparator_1b630ed4
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
-    from com.sun.star.style.BreakType import BreakTypeProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
+    from com.sun.star.style.BreakType import BreakTypeProto  # type: ignore
 
 class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XChartDataArray_df4c0cdd, XNamed_a6520b08, XCellRangeData_d2e70c60, XAutoFormattable_ee660d72, XCellRange_a2f70ad5, XTextTable_9a810ab2, XSortable_8ff20a5a):
     """
@@ -293,4 +293,3 @@ class TextTable(TextContent_a6810b4d, UserDefinedAttributesSupplier_9fbe1222, XC
 
 
 __all__ = ['TextTable']
-

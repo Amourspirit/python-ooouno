@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,52 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class TextureProjectionMode(metaclass=UnoEnumMeta, type_name="com.sun.star.drawing.TextureProjectionMode", name_space="com.sun.star.drawing"):
         """Dynamically created class that represents ``com.sun.star.drawing.TextureProjectionMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.drawing.TextureProjectionMode import OBJECTSPECIFIC as TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC
-        from com.sun.star.drawing.TextureProjectionMode import PARALLEL as TEXTURE_PROJECTION_MODE_PARALLEL
-        from com.sun.star.drawing.TextureProjectionMode import SPHERE as TEXTURE_PROJECTION_MODE_SPHERE
+    from ...lo.drawing.texture_projection_mode import TextureProjectionMode as TextureProjectionMode
 
-        class TextureProjectionMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API TextureProjectionMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#ae1e109a5c70543e3b92db3b854fd3acb>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.drawing.TextureProjectionMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.drawing'
-            __ooo_full_ns__: str = 'com.sun.star.drawing.TextureProjectionMode'
-            __ooo_type_name__: str = 'enum'
-
-            OBJECTSPECIFIC = TEXTURE_PROJECTION_MODE_OBJECTSPECIFIC
-            """
-            This value specifies that the standard object projection method is used.
-            """
-            PARALLEL = TEXTURE_PROJECTION_MODE_PARALLEL
-            """
-            the 3D objects are drawn in the parallel projection.
-
-            This value specifies a flat parallel projection in the specified degree of freedom (X or Y).
-            """
-            SPHERE = TEXTURE_PROJECTION_MODE_SPHERE
-            """
-            forces normals to think that the object is a sphere.
-
-            This value forces projection to wrapping in X and/or Y.
-            """
-    else:
-        # keep document generators happy
-        from ...lo.drawing.texture_projection_mode import TextureProjectionMode as TextureProjectionMode
-
-
-__all__ = ['TextureProjectionMode']
+__all__ = ["TextureProjectionMode"]

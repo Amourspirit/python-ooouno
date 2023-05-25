@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.mozilla
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.mozilla.MozillaProductType import MozillaProductTypeProto
+
 
 class MozillaProductType(Enum):
     """
@@ -32,30 +30,30 @@ class MozillaProductType(Enum):
     See Also:
         `API MozillaProductType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1mozilla.html#a2bcdf854763e98ee224085041ac2ffa5>`_
     """
-    __ooo_ns__: str = 'com.sun.star.mozilla'
-    __ooo_full_ns__: str = 'com.sun.star.mozilla.MozillaProductType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.mozilla"
+    __ooo_full_ns__: str = "com.sun.star.mozilla.MozillaProductType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.mozilla.MozillaProductType'
+        return "com.sun.star.mozilla.MozillaProductType"
 
-    Default = cast("MozillaProductTypeProto", 'Default')
+    Default = "Default"
     """
     Any product.
     """
-    Firefox = cast("MozillaProductTypeProto", 'Firefox')
+    Firefox = "Firefox"
     """
     Mozilla's next generation web browser.
     """
-    Mozilla = cast("MozillaProductTypeProto", 'Mozilla')
+    Mozilla = "Mozilla"
     """
     Mozilla browse and mail suite.
     """
-    Thunderbird = cast("MozillaProductTypeProto", 'Thunderbird')
+    Thunderbird = "Thunderbird"
     """
     Mozilla's next generation e-mail client.
     """
 
-__all__ = ['MozillaProductType']
+__all__ = ["MozillaProductType"]
 

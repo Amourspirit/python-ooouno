@@ -41,3 +41,4 @@ class XFormattedString2(XPropertySet_bc180bfa, XFormattedString_f9ff0dc1):
 
 __all__ = ['XFormattedString2']
 
+

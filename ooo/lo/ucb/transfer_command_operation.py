@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.TransferCommandOperation import TransferCommandOperationProto
+
 
 class TransferCommandOperation(Enum):
     """
@@ -32,32 +30,32 @@ class TransferCommandOperation(Enum):
     See Also:
         `API TransferCommandOperation <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#ab7b6f3480b7c1c53e953d42a066614b4>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.TransferCommandOperation'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.TransferCommandOperation"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.TransferCommandOperation'
+        return "com.sun.star.ucb.TransferCommandOperation"
 
-    COPY = cast("TransferCommandOperationProto", 'COPY')
+    COPY = "COPY"
     """
     Copy the source to the target folder.
     
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
-    LINK = cast("TransferCommandOperationProto", 'LINK')
+    LINK = "LINK"
     """
     Create a link in the target folder.
     
     The link's target is the source object.
     """
-    MOVE = cast("TransferCommandOperationProto", 'MOVE')
+    MOVE = "MOVE"
     """
     Move the source to the target folder.
     
     WebDAV methods as defined in HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
     """
 
-__all__ = ['TransferCommandOperation']
+__all__ = ["TransferCommandOperation"]
 

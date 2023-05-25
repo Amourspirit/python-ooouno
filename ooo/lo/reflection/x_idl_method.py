@@ -25,7 +25,7 @@ from .x_idl_member import XIdlMember as XIdlMember_e3400cfc
 if typing.TYPE_CHECKING:
     from .param_info import ParamInfo as ParamInfo_d7210cb0
     from .x_idl_class import XIdlClass as XIdlClass_d63a0c9a
-    from com.sun.star.reflection.MethodMode import MethodModeProto
+    from com.sun.star.reflection.MethodMode import MethodModeProto  # type: ignore
 
 class XIdlMethod(XIdlMember_e3400cfc):
     """
@@ -87,4 +87,3 @@ class XIdlMethod(XIdlMember_e3400cfc):
         ...
 
 __all__ = ['XIdlMethod']
-

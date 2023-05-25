@@ -64,3 +64,4 @@ class XXMLEncryptionTemplate(XXMLSecurityTemplate_79221105):
 
 __all__ = ['XXMLEncryptionTemplate']
 
+

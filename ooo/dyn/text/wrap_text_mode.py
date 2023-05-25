@@ -20,7 +20,7 @@
 # Libre Office Version: 7.4
 from __future__ import annotations
 import uno
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from ooo.oenv.env_const import UNO_ENVIRONMENT, UNO_RUNTIME
 
 _DYNAMIC = False
@@ -28,78 +28,11 @@ if (not TYPE_CHECKING) and UNO_RUNTIME and UNO_ENVIRONMENT:
     _DYNAMIC = True
 
 if not TYPE_CHECKING and _DYNAMIC:
-    # document generators will most likely not see this.
     from ooo.helper.enum_helper import UnoEnumMeta
     class WrapTextMode(metaclass=UnoEnumMeta, type_name="com.sun.star.text.WrapTextMode", name_space="com.sun.star.text"):
         """Dynamically created class that represents ``com.sun.star.text.WrapTextMode`` Enum. Class loosely mimics Enum"""
         pass
 else:
-    if TYPE_CHECKING:
-        from com.sun.star.text.WrapTextMode import DYNAMIC as WRAP_TEXT_MODE_DYNAMIC
-        from com.sun.star.text.WrapTextMode import LEFT as WRAP_TEXT_MODE_LEFT
-        from com.sun.star.text.WrapTextMode import NONE as WRAP_TEXT_MODE_NONE
-        from com.sun.star.text.WrapTextMode import PARALLEL as WRAP_TEXT_MODE_PARALLEL
-        from com.sun.star.text.WrapTextMode import RIGHT as WRAP_TEXT_MODE_RIGHT
-        from com.sun.star.text.WrapTextMode import THROUGH as WRAP_TEXT_MODE_THROUGH
-        from com.sun.star.text.WrapTextMode import THROUGHT as WRAP_TEXT_MODE_THROUGHT
+    from ...lo.text.wrap_text_mode import WrapTextMode as WrapTextMode
 
-        class WrapTextMode(uno.Enum):
-            """
-            Enum Class
-
-
-            See Also:
-                `API WrapTextMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1text.html#a1ed96de3f2d76e93588f67d506a0b0ae>`_
-            """
-
-            def __init__(self, value: Any) -> None:
-                super().__init__('com.sun.star.text.WrapTextMode', value)
-
-            __ooo_ns__: str = 'com.sun.star.text'
-            __ooo_full_ns__: str = 'com.sun.star.text.WrapTextMode'
-            __ooo_type_name__: str = 'enum'
-
-            DYNAMIC = WRAP_TEXT_MODE_DYNAMIC
-            """
-            text flow depends on the situation.
-
-            The text formatting decides the best way.
-            """
-            LEFT = WRAP_TEXT_MODE_LEFT
-            """
-            the object is left adjusted.
-
-            text flows to the left side of the object.
-
-            adjusted to the left.
-            """
-            NONE = WRAP_TEXT_MODE_NONE
-            """
-            text does not flow around the object.
-            """
-            PARALLEL = WRAP_TEXT_MODE_PARALLEL
-            """
-            text flows to the left and right of the object.
-            """
-            RIGHT = WRAP_TEXT_MODE_RIGHT
-            """
-            the object is right adjusted.
-
-            text flows to the right side of the object.
-
-            adjusted to the right.
-            """
-            THROUGH = WRAP_TEXT_MODE_THROUGH
-            """
-            text flow ignores the object.
-            """
-            THROUGHT = WRAP_TEXT_MODE_THROUGHT
-            """
-            text flow ignores the object: errant spelling deprecated in version 5.4
-            """
-    else:
-        # keep document generators happy
-        from ...lo.text.wrap_text_mode import WrapTextMode as WrapTextMode
-
-
-__all__ = ['WrapTextMode']
+__all__ = ["WrapTextMode"]

@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.sheet
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.sheet.FillMode import FillModeProto
+
 
 class FillMode(Enum):
     """
@@ -32,38 +30,38 @@ class FillMode(Enum):
     See Also:
         `API FillMode <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1sheet.html#a75a9acd74effffae38daed55136b0980>`_
     """
-    __ooo_ns__: str = 'com.sun.star.sheet'
-    __ooo_full_ns__: str = 'com.sun.star.sheet.FillMode'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.sheet"
+    __ooo_full_ns__: str = "com.sun.star.sheet.FillMode"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.sheet.FillMode'
+        return "com.sun.star.sheet.FillMode"
 
-    AUTO = cast("FillModeProto", 'AUTO')
+    AUTO = "AUTO"
     """
     specifies the use of a user-defined list.
     
     function is determined automatically.
     """
-    DATE = cast("FillModeProto", 'DATE')
+    DATE = "DATE"
     """
     specifies an arithmetic series for date values.
     
     any date value matching the specified condition is valid.
     """
-    GROWTH = cast("FillModeProto", 'GROWTH')
+    GROWTH = "GROWTH"
     """
     specifies a geometric series.
     """
-    LINEAR = cast("FillModeProto", 'LINEAR')
+    LINEAR = "LINEAR"
     """
     specifies an arithmetic series.
     """
-    SIMPLE = cast("FillModeProto", 'SIMPLE')
+    SIMPLE = "SIMPLE"
     """
     specifies a constant series.
     """
 
-__all__ = ['FillMode']
+__all__ = ["FillMode"]
 

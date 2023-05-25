@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.CircleKind import CircleKindProto
+
 
 class CircleKind(Enum):
     """
@@ -32,30 +30,30 @@ class CircleKind(Enum):
     See Also:
         `API CircleKind <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a6a52201f72a50075b45fea2c19340c0e>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.CircleKind'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.CircleKind"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.CircleKind'
+        return "com.sun.star.drawing.CircleKind"
 
-    ARC = cast("CircleKindProto", 'ARC')
+    ARC = "ARC"
     """
     a circle with an open cut
     """
-    CUT = cast("CircleKindProto", 'CUT')
+    CUT = "CUT"
     """
     a circle with a cut connected by two lines
     """
-    FULL = cast("CircleKindProto", 'FULL')
+    FULL = "FULL"
     """
     a full circle
     """
-    SECTION = cast("CircleKindProto", 'SECTION')
+    SECTION = "SECTION"
     """
     a circle with a cut connected by a line
     """
 
-__all__ = ['CircleKind']
+__all__ = ["CircleKind"]
 

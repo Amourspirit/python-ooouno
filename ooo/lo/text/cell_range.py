@@ -33,7 +33,7 @@ from ..table.x_cell_range import XCellRange as XCellRange_a2f70ad5
 if typing.TYPE_CHECKING:
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.GraphicLocation import GraphicLocationProto
+    from com.sun.star.style.GraphicLocation import GraphicLocationProto  # type: ignore
 
 class CellRange(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df, CharacterPropertiesComplex_90ca11cb, ParagraphProperties_1e240efc, ParagraphPropertiesAsian_6e8c10e8, ParagraphPropertiesComplex_91de11d4, XChartDataArray_df4c0cdd, XCellRangeData_d2e70c60, XCellRange_a2f70ad5):
     """
@@ -123,4 +123,3 @@ class CellRange(CharacterProperties_1d4f0ef3, CharacterPropertiesAsian_6d8a10df,
 
 
 __all__ = ['CellRange']
-

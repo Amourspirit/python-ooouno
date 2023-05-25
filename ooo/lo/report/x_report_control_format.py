@@ -25,8 +25,10 @@ if typing.TYPE_CHECKING:
     from ..awt.font_descriptor import FontDescriptor as FontDescriptor_bc110c0a
     from ..lang.locale import Locale as Locale_70d308fa
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.awt.FontSlant import FontSlantProto
-    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
+    from com.sun.star.awt.FontSlant import FontSlantProto  # type: ignore
+    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto  # type: ignore
 
 class XReportControlFormat(ABC):
     """
@@ -505,4 +507,3 @@ class XReportControlFormat(ABC):
 
 
 __all__ = ['XReportControlFormat']
-

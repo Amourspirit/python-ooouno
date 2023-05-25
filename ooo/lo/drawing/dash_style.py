@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.DashStyle import DashStyleProto
+
 
 class DashStyle(Enum):
     """
@@ -32,23 +30,23 @@ class DashStyle(Enum):
     See Also:
         `API DashStyle <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing.html#a89f0dc2e221d6f608088093da27764d1>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.DashStyle'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing"
+    __ooo_full_ns__: str = "com.sun.star.drawing.DashStyle"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.DashStyle'
+        return "com.sun.star.drawing.DashStyle"
 
-    RECT = cast("DashStyleProto", 'RECT')
+    RECT = "RECT"
     """
     the dash is a rectangle
     """
-    RECTRELATIVE = cast("DashStyleProto", 'RECTRELATIVE')
+    RECTRELATIVE = "RECTRELATIVE"
     """
     the dash is a rectangle, with the size of the dash given in relation to the length of the line
     """
-    ROUND = cast("DashStyleProto", 'ROUND')
+    ROUND = "ROUND"
     """
     the dash is a point
     
@@ -56,10 +54,10 @@ class DashStyle(Enum):
     
     the line will get a half circle as additional cap
     """
-    ROUNDRELATIVE = cast("DashStyleProto", 'ROUNDRELATIVE')
+    ROUNDRELATIVE = "ROUNDRELATIVE"
     """
     the dash is a point, with the size of the dash given in relation to the length of the line
     """
 
-__all__ = ['DashStyle']
+__all__ = ["DashStyle"]
 

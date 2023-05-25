@@ -64,3 +64,4 @@ class XAutomationInvocation(XInvocation_be070c0f):
 
 __all__ = ['XAutomationInvocation']
 
+

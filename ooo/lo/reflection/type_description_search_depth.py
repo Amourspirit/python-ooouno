@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.reflection
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.reflection.TypeDescriptionSearchDepth import TypeDescriptionSearchDepthProto
+
 
 class TypeDescriptionSearchDepth(Enum):
     """
@@ -32,24 +30,24 @@ class TypeDescriptionSearchDepth(Enum):
     See Also:
         `API TypeDescriptionSearchDepth <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1reflection.html#a19627c9e2873087a7d672cd9e0913000>`_
     """
-    __ooo_ns__: str = 'com.sun.star.reflection'
-    __ooo_full_ns__: str = 'com.sun.star.reflection.TypeDescriptionSearchDepth'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.reflection"
+    __ooo_full_ns__: str = "com.sun.star.reflection.TypeDescriptionSearchDepth"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.reflection.TypeDescriptionSearchDepth'
+        return "com.sun.star.reflection.TypeDescriptionSearchDepth"
 
-    INFINITE = cast("TypeDescriptionSearchDepthProto", 'INFINITE')
+    INFINITE = "INFINITE"
     """
     Infinite search depth.
     
     Search through all children including direct children, grand children, grand children's children, ...
     """
-    ONE = cast("TypeDescriptionSearchDepthProto", 'ONE')
+    ONE = "ONE"
     """
     Search only through direct children.
     """
 
-__all__ = ['TypeDescriptionSearchDepth']
+__all__ = ["TypeDescriptionSearchDepth"]
 

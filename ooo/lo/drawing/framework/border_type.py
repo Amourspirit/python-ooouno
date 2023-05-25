@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.drawing.framework
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.drawing.framework.BorderType import BorderTypeProto
+
 
 class BorderType(Enum):
     """
@@ -32,23 +30,23 @@ class BorderType(Enum):
     See Also:
         `API BorderType <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1drawing_1_1framework.html#a62ba43b838957db08d5ecb9b46b8ca90>`_
     """
-    __ooo_ns__: str = 'com.sun.star.drawing.framework'
-    __ooo_full_ns__: str = 'com.sun.star.drawing.framework.BorderType'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.drawing.framework"
+    __ooo_full_ns__: str = "com.sun.star.drawing.framework.BorderType"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.drawing.framework.BorderType'
+        return "com.sun.star.drawing.framework.BorderType"
 
-    INNER_BORDER = cast("BorderTypeProto", 'INNER_BORDER')
+    INNER_BORDER = "INNER_BORDER"
     """
     """
-    OUTER_BORDER = cast("BorderTypeProto", 'OUTER_BORDER')
+    OUTER_BORDER = "OUTER_BORDER"
     """
     """
-    TOTAL_BORDER = cast("BorderTypeProto", 'TOTAL_BORDER')
+    TOTAL_BORDER = "TOTAL_BORDER"
     """
     """
 
-__all__ = ['BorderType']
+__all__ = ["BorderType"]
 

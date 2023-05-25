@@ -26,7 +26,7 @@ if typing.TYPE_CHECKING:
     from .font_descriptor import FontDescriptor as FontDescriptor_bc110c0a
     from ..graphic.x_graphic import XGraphic as XGraphic_a4da0afc
     from ..util.color import Color as Color_68e908c5
-    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto
+    from com.sun.star.style.VerticalAlignment import VerticalAlignmentProto  # type: ignore
 
 class UnoControlRadioButtonModel(UnoControlModel_c8ce0c58):
     """
@@ -226,4 +226,3 @@ class UnoControlRadioButtonModel(UnoControlModel_c8ce0c58):
 
 
 __all__ = ['UnoControlRadioButtonModel']
-

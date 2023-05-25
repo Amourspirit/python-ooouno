@@ -52,3 +52,4 @@ class XVolatileResult(XInterface_8f010a43):
 
 __all__ = ['XVolatileResult']
 
+

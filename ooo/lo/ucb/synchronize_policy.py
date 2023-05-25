@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.ucb
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.ucb.SynchronizePolicy import SynchronizePolicyProto
+
 
 class SynchronizePolicy(Enum):
     """
@@ -32,26 +30,26 @@ class SynchronizePolicy(Enum):
     See Also:
         `API SynchronizePolicy <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1ucb.html#aaa633f0c45560a4367cb74d393c0c619>`_
     """
-    __ooo_ns__: str = 'com.sun.star.ucb'
-    __ooo_full_ns__: str = 'com.sun.star.ucb.SynchronizePolicy'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.ucb"
+    __ooo_full_ns__: str = "com.sun.star.ucb.SynchronizePolicy"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.ucb.SynchronizePolicy'
+        return "com.sun.star.ucb.SynchronizePolicy"
 
-    CLIENT_IS_MASTER = cast("SynchronizePolicyProto", 'CLIENT_IS_MASTER')
+    CLIENT_IS_MASTER = "CLIENT_IS_MASTER"
     """
     Client is master.
     """
-    NONE_IS_MASTER = cast("SynchronizePolicyProto", 'NONE_IS_MASTER')
+    NONE_IS_MASTER = "NONE_IS_MASTER"
     """
     None is master.
     """
-    SERVER_IS_MASTER = cast("SynchronizePolicyProto", 'SERVER_IS_MASTER')
+    SERVER_IS_MASTER = "SERVER_IS_MASTER"
     """
     Server is master.
     """
 
-__all__ = ['SynchronizePolicy']
+__all__ = ["SynchronizePolicy"]
 

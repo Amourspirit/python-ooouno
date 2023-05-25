@@ -65,3 +65,4 @@ class XExternalDocLink(XEnumerationAccess_4bac0ffc, XIndexAccess_f0910d6d, XName
 
 __all__ = ['XExternalDocLink']
 
+

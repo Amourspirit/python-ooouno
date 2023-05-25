@@ -64,3 +64,4 @@ class XCompoundTypeDescription(XTypeDescription_3c210fb1):
 
 __all__ = ['XCompoundTypeDescription']
 
+

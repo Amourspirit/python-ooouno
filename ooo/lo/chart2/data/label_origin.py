@@ -19,10 +19,8 @@
 # Namespace: com.sun.star.chart2.data
 # Libre Office Version: 7.4
 from __future__ import annotations
-from typing import cast, TYPE_CHECKING
 from enum import Enum
-if TYPE_CHECKING:
-    from com.sun.star.chart2.data.LabelOrigin import LabelOriginProto
+
 
 class LabelOrigin(Enum):
     """
@@ -32,15 +30,15 @@ class LabelOrigin(Enum):
     See Also:
         `API LabelOrigin <https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1chart2_1_1data.html#a2afe9ba95ad4b3631057b40391bed0aa>`_
     """
-    __ooo_ns__: str = 'com.sun.star.chart2.data'
-    __ooo_full_ns__: str = 'com.sun.star.chart2.data.LabelOrigin'
-    __ooo_type_name__: str = 'enum'
+    __ooo_ns__: str = "com.sun.star.chart2.data"
+    __ooo_full_ns__: str = "com.sun.star.chart2.data.LabelOrigin"
+    __ooo_type_name__: str = "enum"
 
     @property
     def typeName(self) -> str:
-        return 'com.sun.star.chart2.data.LabelOrigin'
+        return "com.sun.star.chart2.data.LabelOrigin"
 
-    COLUMN = cast("LabelOriginProto", 'COLUMN')
+    COLUMN = "COLUMN"
     """
     Uses the column name for label generation.
     
@@ -48,13 +46,13 @@ class LabelOrigin(Enum):
     
     If a range consists of more than one column the result of label generation may be empty. Of course, it could also succeed with a string like \"Columns A to B\".
     """
-    LONG_SIDE = cast("LabelOriginProto", 'LONG_SIDE')
+    LONG_SIDE = "LONG_SIDE"
     """
     This is exactly the opposite of SHORT_SIDE.
     
     I.e., if SHORT_SIDE has the same effect as ROW, LONG_SIDE will have the same effect as COLUMN and the other way round.
     """
-    ROW = cast("LabelOriginProto", 'ROW')
+    ROW = "ROW"
     """
     Uses the column name for label generation.
     
@@ -62,7 +60,7 @@ class LabelOrigin(Enum):
     
     If a range consists of more than one row the result of label generation may be empty. Of course, it could also succeed with a string like \"Rows 1-3\".
     """
-    SHORT_SIDE = cast("LabelOriginProto", 'SHORT_SIDE')
+    SHORT_SIDE = "SHORT_SIDE"
     """
     If a range spans a single row over more than one column, this parameter has the same effect as ROW.
     
@@ -73,5 +71,5 @@ class LabelOrigin(Enum):
     In case of a rectangular range, or a range that is composed of more than one contiguous sub-regions, the short side cannot be determined, thus XDataSequence.generateLabel() will return an empty sequence.
     """
 
-__all__ = ['LabelOrigin']
+__all__ = ["LabelOrigin"]
 

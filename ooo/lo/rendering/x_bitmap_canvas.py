@@ -60,3 +60,4 @@ class XBitmapCanvas(XCanvas_b19b0b7a):
 
 __all__ = ['XBitmapCanvas']
 
+
